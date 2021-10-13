@@ -1,4 +1,4 @@
-source('../pbp_functions.R')
+source('R/pbp_functions.R')
 
 pkgload::load_all()
 
