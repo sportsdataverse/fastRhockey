@@ -1,8 +1,3 @@
-# Hello, world!
-#
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
-#
 # You can learn more about package authoring with RStudio at:
 #
 #   http://r-pkgs.had.co.nz/
@@ -36,6 +31,21 @@ type <- "Minor|Major"
 score_string <- "[:digit:] - [:digit:] [A-Z]+|[:digit:] - [:digit:]"
 shoot <- "missed attempt against|scores against|Shootout"
 
+#' @name load_raw_data
+#' @description load_raw_data: pull in the raw data for a game_id from the PHF/NWHL API
+#'
+#' @param game_id The unique ID code for the game that you are interested in viewing the data for
+#' @import tidyverse
+#' @import rvest
+#' @import jsonlite
+#' @import janitor
+#' @import httr
+#' @import purrr
+#' @import stringr
+#' @import tokenizers
+#' @import strex
+#' @export
+#' @example \dontrun{ df <- load_raw_data(game_id = 268078) }
 #### load_raw_data to pull in data from NWHL/PHF API
 ## game_id = id of specific game that one wants data for
 load_raw_data <- function(game_id = 268078) {
@@ -54,6 +64,22 @@ load_raw_data <- function(game_id = 268078) {
 
 }
 
+#' @name process_period
+#' @description process_period: processes the raw data of a single period from a PHF game
+#'
+#' @param data the dataframe of the period that you want parsed into a workable format of pbp data
+#' @param period which period of play is this data for? Defaults to 1
+#' @import tidyverse
+#' @import rvest
+#' @import jsonlite
+#' @import janitor
+#' @import httr
+#' @import purrr
+#' @import stringr
+#' @import tokenizers
+#' @import strex
+#' @export
+#' @example \dontrun{ first_period <- process_period(data = df[[1]], period = 1) }
 #### processes the raw data from a period into a workable format
 ## data = the data frame of raw whockey data
 ## period = which period you are looking at
@@ -87,6 +113,21 @@ process_period <- function(data, period = 1) {
 
 }
 
+#' @name process_shootout
+#' @description process_shootout: processes the raw data of a shootout from a PHF game
+#'
+#' @param data the dataframe of the shootout that you want parsed into a workable format of pbp data
+#' @import tidyverse
+#' @import rvest
+#' @import jsonlite
+#' @import janitor
+#' @import httr
+#' @import purrr
+#' @import stringr
+#' @import tokenizers
+#' @import strex
+#' @export
+#' @example \dontrun{ shootout <- process_shootout(data = game_so) }
 process_shootout <- function(data) {
 
   data <- data %>%
@@ -125,6 +166,21 @@ process_shootout <- function(data) {
 
 }
 
+#' @name pbp_data
+#' @description pbp_data: returns all of the play-by-play data for a game into on big data frame using the process_period/shootout functions. Contains functionality to account for regulation games, overtime games, and shootouts
+#'
+#' @param data the raw list data that is generated from the load_raw_data function
+#' @import tidyverse
+#' @import rvest
+#' @import jsonlite
+#' @import janitor
+#' @import httr
+#' @import purrr
+#' @import stringr
+#' @import tokenizers
+#' @import strex
+#' @export
+#' @example \dontrun{ pbp_df <- pbp_data(data = df) }
 #### function returning all the pbp data for a game into one big data frame for the game
 ## data takes the raw list of data from the load_raw_data function
 pbp_data <- function(data) {
@@ -365,6 +421,21 @@ pbp_data <- function(data) {
 
 }
 
+#' @name load_pbp
+#' @description load_pbp: loads all the play-by-play data for a game into one data frame through just one function
+#'
+#' @param game_id The unique ID code for the game that you are interested in viewing the data for
+#' @import tidyverse
+#' @import rvest
+#' @import jsonlite
+#' @import janitor
+#' @import httr
+#' @import purrr
+#' @import stringr
+#' @import tokenizers
+#' @import strex
+#' @export
+#' @example \dontrun{ first_period <- process_period(data = df[[1]], period = 1) }
 #### loading all the play-by-play data into one data frame through just one function
 ## game_id = which game one wants the pbp data for
 load_pbp <- function(game_id = 268078) {
