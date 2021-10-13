@@ -59,7 +59,7 @@ process_period <- function(data, period = 1) {
            "description" = "play") %>% 
     # only taking events that match to actual on ice stuff
     filter(str_detect(event, 'On Ice') == FALSE) %>%
-    filter(event != "Timeout") %>%
+    # filter(event != "Timeout") %>%
     # dplyr::filter(! grepl("On"))
     janitor::remove_empty(which = c("cols"),
                           quiet = TRUE) %>%
