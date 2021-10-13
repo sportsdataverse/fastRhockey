@@ -444,6 +444,9 @@ load_pbp <- function(game_id = 268078) {
 
   pbp <- pbp_data(data = df)
 
+  pbp <- pbp %>%
+    mutate(game_id = game_id)
+
   return(pbp)
 
 }
