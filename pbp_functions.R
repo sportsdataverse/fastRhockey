@@ -138,6 +138,10 @@ pbp_data <- function(data) {
   # since there are 7 lines in one of the boxscore tabs, we have to be careful
   # however, that is always one of the last tables so we can just take the first five
   tb <- dplyr::bind_rows(lst) %>%
+    # LOOK AT
+    # z > 7 runs easy, but it's possible for a shootout to be only 6 or 7 events
+    # and since there's another table that is 7 (boxscore data) it causes errors when I left it
+    # as >= 6 so I changed it for now to work
     dplyr::filter(z > 7) %>%
     mutate(order = row_number()) %>%
     filter(order > 0 & order < 6)
