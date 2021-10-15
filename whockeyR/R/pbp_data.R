@@ -20,6 +20,10 @@ h <- c("away", "home")
 
 ah <- data.frame(h)
 
+rdw <- load_raw_data(game_id = 268116)
+
+bdc <- read.csv("https://raw.githubusercontent.com/bigdatacup/Big-Data-Cup-2021/main/hackathon_nwhl.csv")
+
 tm <- raw[[max(length(raw)) - 1]] %>%
   clean_names() %>%
   mutate(
@@ -37,6 +41,31 @@ tm <- raw[[max(length(raw)) - 1]] %>%
 rg <- rg %>%
   right_join(tm, by = character())
 
-rdw <- load_raw_data(game_id = 268116)
+gl <- rg %>%
+  filter(event == "Goalie") %>%
+  # filter(str_detect(description, "Starting|Returned"))
+  dplyr::select(home_team, away_team, team, description,
+                first_player, event, sec_from_start) %>%
+  mutate(
+    goalie_change = str_extract(description, "Starting|Returned|Pulled"),
+    goalie = ifelse(
+      str_detect(team, away_team), "away_goalie",
+      ifelse(
+        str_detect(team, home_team), "home_goalie", NA
+      )
+    ),
+    first_player = ifelse(goalie_change == "Pulled", "None", first_player)
+  ) %>%
+  dplyr::select(first_player, sec_from_start, goalie_change, goalie) %>%
+  pivot_wider(names_from = goalie,
+              values_from = first_player)
 
-bdc <- read.csv("https://raw.githubusercontent.com/bigdatacup/Big-Data-Cup-2021/main/hackathon_nwhl.csv")
+r <- rg %>%
+  dplyr::select(game_id, home_team, away_team, period_id, event_no, description, clock, on_ice_situation,
+                home_goals, away_goals, leader, team, event,
+                first_player, first_number, second_player, second_number, third_player, third_number,
+                shot_type, shot_result,
+                penalty, penalty_length, penalty_type, penalty_called,
+                offensive_player_one, offensive_player_two, offensive_player_three,
+                offensive_player_four, offensive_player_five)
+

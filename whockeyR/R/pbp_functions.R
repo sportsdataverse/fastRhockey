@@ -334,11 +334,11 @@ pbp_data <- function(data) {
            desc = str_replace_all(desc, score_string, ""),
            desc = str_replace_all(str_trim(desc, side = "both"),"#", ""),
            # cleaning up score data
-           first_player = str_nth_non_numeric(desc, n = 1),
+           first_player = str_trim(str_nth_non_numeric(desc, n = 1)),
            first_number = str_nth_number(desc, n = 1),
-           second_player = str_nth_non_numeric(desc, n = 2),
+           second_player = str_trim(str_nth_non_numeric(desc, n = 2)),
            second_number = str_nth_number(desc, n = 2),
-           third_player = str_nth_non_numeric(desc, n = 3),
+           third_player = str_trim(str_nth_non_numeric(desc, n = 3)),
            third_number = str_nth_number(desc, n = 3)) %>%
     # dplyr::filter(! is.na(time)) %>%
     separate(time, into = c("minute", "second"),
@@ -445,6 +445,7 @@ load_pbp <- function(game_id = 268078) {
   pbp <- pbp_data(data = df)
 
   pbp <- pbp %>%
+    filter(! is.na(description)) %>%
     mutate(game_id = game_id)
 
   return(pbp)
