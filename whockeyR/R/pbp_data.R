@@ -39,7 +39,7 @@ tm <- raw[[max(length(raw)) - 1]] %>%
               names_from = meta)
 
 rg <- rg %>%
-  right_join(tm, by = character())
+  left_join(tm, by = character())
 
 gl <- rg %>%
   filter(event == "Goalie") %>%
@@ -60,12 +60,31 @@ gl <- rg %>%
   pivot_wider(names_from = goalie,
               values_from = first_player)
 
+rg <- rg %>%
+  left_join(gl, by = c("sec_from_start"))
+
+rg <- rg %>%
+  fill(home_goalie) %>%
+  fill(away_goalie) %>%
+  dplyr::filter(event != "Goalie") %>%
+  mutate(
+    home_goalie = ifelse(home_goalie == "None", NA, home_goalie),
+    away_goalie = ifelse(away_goalie == "None", NA, away_goalie),
+    goalie_involved = ifelse(event %in% c("Goal", "PP Goal", "Shot", "Shot BLK") &
+      str_detect(team, home_team), away_goalie,
+      ifelse(event %in% c("Goal", "PP Goal", "Shot", "Shot BLK") &
+         str_detect(team, away_team), home_goalie, NA
+      )
+    )
+  )
+
 r <- rg %>%
   dplyr::select(game_id, home_team, away_team, period_id, event_no, description, clock, on_ice_situation,
                 home_goals, away_goals, leader, team, event,
                 first_player, first_number, second_player, second_number, third_player, third_number,
-                shot_type, shot_result,
+                shot_type, shot_result, goalie_involved,
                 penalty, penalty_length, penalty_type, penalty_called,
                 offensive_player_one, offensive_player_two, offensive_player_three,
-                offensive_player_four, offensive_player_five)
+                offensive_player_four, offensive_player_five,
+                home_goalie, away_goalie, goalie_change)
 
