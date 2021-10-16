@@ -552,6 +552,21 @@ boxscore <- data.frame(
   game_id = numeric()
 )
 
+#' @name process_boxscore
+#' @description process_boxscore: the code for processing box score data into a format that makes sense
+#'
+#' @param data the raw data from the game that you're interested in
+#' @import tidyverse
+#' @import rvest
+#' @import jsonlite
+#' @import janitor
+#' @import httr
+#' @import purrr
+#' @import stringr
+#' @import tokenizers
+#' @import strex
+#' @export
+#' @example \dontrun{ boxscore <- process_boxscore(data = df[[1]]) }
 process_boxscore <- function(data) {
 
   df <- data[[max(length(data))]]
@@ -651,6 +666,21 @@ process_boxscore <- function(data) {
 
 }
 
+#' @name load_boxscore
+#' @description load_boxscore: loads the boxscore and shot/score data for a game into one data frame through just one function
+#'
+#' @param game_id The unique ID code for the game that you are interested in viewing the data for
+#' @import tidyverse
+#' @import rvest
+#' @import jsonlite
+#' @import janitor
+#' @import httr
+#' @import purrr
+#' @import stringr
+#' @import tokenizers
+#' @import strex
+#' @export
+#' @example \dontrun{ boxscore <- load_boxscore(game_id = 268078) }
 load_boxscore <- function(game_id = 268078) {
 
   df <- load_raw_data(game_id = game_id)
@@ -662,6 +692,21 @@ load_boxscore <- function(game_id = 268078) {
 
 }
 
+#' @name load_game
+#' @description load_game: loads boxscore and pbp data into a list to load both at once for a given game
+#'
+#' @param game_id The unique ID code for the game that you are interested in viewing the data for
+#' @import tidyverse
+#' @import rvest
+#' @import jsonlite
+#' @import janitor
+#' @import httr
+#' @import purrr
+#' @import stringr
+#' @import tokenizers
+#' @import strex
+#' @export
+#' @example \dontrun{ game_data <- load_game(game_id = 268078) }
 load_game <- function(game_id = 268078) {
 
   box <- load_boxscore(game_id = game_id)
