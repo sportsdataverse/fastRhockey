@@ -217,6 +217,22 @@ pbp_data <- function(data) {
     mutate(order = row_number()) %>%
     filter(order > 0 & order < 6)
 
+  tm <- raw[[max(length(raw)) - 1]] %>%
+    # taking the second to last table bc that is always shots (or goals? now I don't remember)
+    # either way, the away team is always on top so we can extract home/away from this
+    clean_names() %>%
+    mutate(
+      order = row_number(),
+      meta = ifelse(
+        order == 1, "away_team", ifelse(
+          order == 2, "home_team", NA
+        )
+      )
+    ) %>%
+    dplyr::select(shots, meta) %>%
+    pivot_wider(values_from = shots,
+                names_from = meta)
+
   # creating the pbp dataframes for regulation, OT, or shootout games
   if (nrow(tb) == 3) {
 
@@ -348,8 +364,10 @@ pbp_data <- function(data) {
            minute = ifelse(19 - minute_start == 19 &
                              60 - second_start == 60, 20,
                            19 - minute_start),
-           second = ifelse(60 - second_start == 60, "00",
+           second = ifelse(60 - second_start == 60, 0,
                            60 - second_start),
+           second = ifelse(second < 10, paste0("0", second),
+                           paste0(second)),
            clock = paste0(minute, ":", second)) %>%
     dplyr::select(-c(minute, second)) %>%
     mutate(event_no = row_number())
@@ -417,6 +435,46 @@ pbp_data <- function(data) {
 
   }
 
+  pbp <- pbp %>%
+    left_join(tm, by = character())
+
+  gl <- pbp %>%
+    filter(event == "Goalie") %>%
+    # filter(str_detect(description, "Starting|Returned"))
+    dplyr::select(home_team, away_team, team, description,
+                  first_player, event, sec_from_start) %>%
+    mutate(
+      goalie_change = str_extract(description, "Starting|Returned|Pulled"),
+      goalie = ifelse(
+        str_detect(team, away_team), "away_goalie",
+        ifelse(
+          str_detect(team, home_team), "home_goalie", NA
+        )
+      ),
+      first_player = ifelse(goalie_change == "Pulled", "None", first_player)
+    ) %>%
+    dplyr::select(first_player, sec_from_start, goalie_change, goalie) %>%
+    pivot_wider(names_from = goalie,
+                values_from = first_player)
+
+  pbp <- pbp %>%
+    left_join(gl, by = c("sec_from_start")) %>%
+    fill(home_goalie) %>%
+    fill(away_goalie) %>%
+    dplyr::filter(event != "Goalie") %>%
+    mutate(
+      home_goalie = ifelse(home_goalie == "None", NA, home_goalie),
+      away_goalie = ifelse(away_goalie == "None", NA, away_goalie),
+      goalie_involved = ifelse(event %in% c("Goal", "PP Goal", "Shot", "Shot BLK") &
+                                 str_detect(team, home_team), away_goalie,
+                               ifelse(event %in% c("Goal", "PP Goal", "Shot", "Shot BLK") &
+                                        str_detect(team, away_team), home_goalie, NA
+                               )
+      ),
+      time_elapsed = time,
+      time_remaining = clock
+    )
+
   return(pbp)
 
 }
@@ -438,7 +496,7 @@ pbp_data <- function(data) {
 #' @example \dontrun{ first_period <- process_period(data = df[[1]], period = 1) }
 #### loading all the play-by-play data into one data frame through just one function
 ## game_id = which game one wants the pbp data for
-load_pbp <- function(game_id = 268078) {
+load_pbp <- function(game_id = 268078, format = "clean") {
 
   df <- load_raw_data(game_id = game_id)
 
@@ -447,6 +505,20 @@ load_pbp <- function(game_id = 268078) {
   pbp <- pbp %>%
     filter(! is.na(description)) %>%
     mutate(game_id = game_id)
+
+  if (format == "clean") {
+
+    pbp <- pbp %>%
+      dplyr::select(game_id, home_team, away_team, period_id, event_no, description, time_remaining, on_ice_situation,
+                    home_goals, away_goals, leader, team, event,
+                    first_player, first_number, second_player, second_number, third_player, third_number,
+                    shot_type, shot_result, goalie_involved,
+                    penalty, penalty_length, penalty_type, penalty_called,
+                    offensive_player_one, offensive_player_two, offensive_player_three,
+                    offensive_player_four, offensive_player_five,
+                    home_goalie, away_goalie)
+
+  }
 
   return(pbp)
 
