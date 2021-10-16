@@ -1,0 +1,34 @@
+Column,Description
+game_id,Unique ID of the game as assigned by the PHF. Used to pull the play-by-play data for a game
+home_team,Abbreviation of the home team
+away_team,Abbreviation of the away team
+period_id,What period of the game the event occurred in
+event_no,What number event of the game the current event is
+description,The raw text description of the event from the PHF play-by-play output. All the info contained in the rest of the dataframe is pulled from this
+time_remaining,Time remaining in the current period. Will register as NA for shootouts
+on_ice_situation,"The situation on the ice in terms of skaters. In instances where the situation is indentified in the description, that is the default. Power Plays are ID'ed by looking at when a penalty occurred and whether the timestamp is within the time that the penalty lasted"
+home_goals,How many goals does the home team have?
+away_goals,How many goals does the away team have?
+leader,Which team is currently leading?
+team,The team that is committing the event
+event,What kind of event is it?
+first_player,"The main player in question. For shots, this is who took the shot. For a giveaway, this is who gave the puck away. For a faceoff, this is who won the faceoff. For penalties, this is who committed the penalty"
+first_number,The number that the main player wears
+second_player,
+second_number,
+third_player,
+third_number,
+shot_type,"What type of shot was taken? Was it a wrist shot, snap shot, etc? Not every shot appears to have this recorded, but the ones that do appear to be goals scored."
+shot_result,"If a shot was taken, what was the result? Was it made, saved, or blocked? Events that are not a shot attempt will register as NA"
+goalie_involved,"Who was in goal for a shot on the goal? If there was no shot registered, this will be NA. In instances where a team went Empty Net, this will also register as NA"
+penalty,A binary 0 or 1 tag for whether a penalty was committed on the play
+penalty_length,How long was the penalty on the previous play for?
+penalty_type,Was it a major or minor penalty?
+penalty_called,"What kind of penalty was called? Holding, Tripping, Roughing, etc?"
+offensive_player_one,"If a goal was scored, who were the five players on the ice for the offensive team? The order 1-5 is irrelevant other than that is the order the pbp data listed them in"
+offensive_player_two,"If a goal was scored, who were the five players on the ice for the offensive team? The order 1-5 is irrelevant other than that is the order the pbp data listed them in"
+offensive_player_three,"If a goal was scored, who were the five players on the ice for the offensive team? The order 1-5 is irrelevant other than that is the order the pbp data listed them in"
+offensive_player_four,"If a goal was scored, who were the five players on the ice for the offensive team? The order 1-5 is irrelevant other than that is the order the pbp data listed them in"
+offensive_player_five,"If a goal was scored, who were the five players on the ice for the offensive team? The order 1-5 is irrelevant other than that is the order the pbp data listed them in"
+home_goalie,Who is in goal for the home team?
+away_goalie,Who is in goal for the away team?
