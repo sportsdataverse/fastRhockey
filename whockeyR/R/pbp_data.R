@@ -1,18 +1,21 @@
 source('R/pbp_functions.R')
 
-# pkgload::load_all()
-
 a <- Sys.time()
 
 rg <- load_pbp(game_id = 268078)
 rg_messy <- load_pbp(game_id = 268078, format = "messy")
 
-Sys.time() - a
+rg_box <- load_boxscore(game_id = 268078)
 
 ot <- load_pbp(game_id = 268116)
 ot2 <- load_pbp(game_id = 268116, format = "messy")
+
+ot_box <- load_boxscore(game_id = 268116)
+
 so <- load_pbp(game_id = 268123)
 so2 <- load_pbp(game_id = 268123, format = "m")
+
+so_box <- load_boxscore(game_id = 268123)
 
 Sys.time() - a
 

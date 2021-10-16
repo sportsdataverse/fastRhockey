@@ -525,3 +525,139 @@ load_pbp <- function(game_id = 268078, format = "clean") {
 
 }
 
+#### Boxscore Functions ####
+
+boxscore <- data.frame(
+  team = character(),
+  successful_power_play = numeric(),
+  power_play_opportunities = numeric(),
+  power_play_percent = numeric(),
+  penalty_minutes = numeric(),
+  faceoff_percent = numeric(),
+  blocked_opponent_shots = numeric(),
+  takeaways = numeric(),
+  giveaways = numeric(),
+  first_shots = integer(),
+  second_shots = integer(),
+  third_shots = integer(),
+  overtime_shots = integer(),
+  total_shots = integer(),
+  first_scoring = integer(),
+  second_scoring = integer(),
+  third_scoring = integer(),
+  overtime_scoring = integer(),
+  shootout_scoring = character(),
+  total_scoring = integer(),
+  winner = character(),
+  game_id = numeric()
+)
+
+process_boxscore <- function(data) {
+
+  df <- data[[max(length(data))]]
+  score <- data[[max(length(data)) - 2]]
+  shot <- data[[max(length(data)) - 1]]
+
+  if (ncol(score) == 5) {
+
+    score <- score %>%
+      clean_names() %>%
+      rename("team" = "scoring",
+             "first_scoring" = "x1st",
+             "second_scoring" = "x2nd",
+             "third_scoring" = "x3rd",
+             "total_scoring" = "t")
+
+  } else if (ncol(score) == 6) {
+
+    score <- score %>%
+      clean_names() %>%
+      rename("team" = "scoring",
+             "first_scoring" = "x1st",
+             "second_scoring" = "x2nd",
+             "third_scoring" = "x3rd",
+             "overtime_scoring" = "ot",
+             "total_scoring" = "t")
+
+  } else if (ncol(score) == 7) {
+
+    score <- score %>%
+      clean_names() %>%
+      rename("team" = "scoring",
+             "first_scoring" = "x1st",
+             "second_scoring" = "x2nd",
+             "third_scoring" = "x3rd",
+             "overtime_scoring" = "ot",
+             "shootout_scoring" = "so",
+             "total_scoring" = "t")
+
+  }
+
+  if (ncol(shot) == 5) {
+
+    shot <- shot %>%
+      clean_names() %>%
+      rename("team" = "shots",
+             "first_shots" = "x1st",
+             "second_shots" = "x2nd",
+             "third_shots" = "x3rd",
+             "total_shots" = "t")
+
+  } else if (ncol(shot) != 5) {
+
+    shot <- shot %>%
+      clean_names() %>%
+      rename("team" = "shots",
+             "first_shots" = "x1st",
+             "second_shots" = "x2nd",
+             "third_shots" = "x3rd",
+             "overtime_shots" = "ot",
+             "total_shots" = "t")
+
+  }
+
+  df <- df %>%
+    clean_names() %>%
+    pivot_longer(cols = 2:3) %>%
+    pivot_wider(names_from = team_stats) %>%
+    clean_names() %>%
+    separate(power_plays,
+             into = c("successful_power_play", "power_play_opportunities"),
+             sep = " / ") %>%
+    mutate_at(vars(successful_power_play,
+                   power_play_opportunities,
+                   power_play_percent,
+                   penalty_minutes,
+                   faceoff_percent,
+                   blocked_opponent_shots,
+                   takeaways,
+                   giveaways), as.numeric) %>%
+    rename("team" = "name")
+
+  s <- shot %>%
+    left_join(score, by = c("team")) %>%
+    mutate(team = tolower(team))
+
+  df <- df %>%
+    left_join(s, by = c("team"))
+
+  df <- bind_rows(df, boxscore)
+
+  df <- df %>%
+    mutate(winner = ifelse(total_scoring == max(total_scoring, na.rm = TRUE),
+                           "Yes", "No"))
+
+  return(df)
+
+}
+
+load_boxscore <- function(game_id = 268078) {
+
+  df <- load_raw_data(game_id = game_id)
+
+  df <- process_boxscore(data = df) %>%
+    mutate(game_id = game_id)
+
+  return(df)
+
+}
