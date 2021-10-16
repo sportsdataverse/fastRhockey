@@ -504,7 +504,8 @@ load_pbp <- function(game_id = 268078, format = "clean") {
 
   pbp <- pbp %>%
     filter(! is.na(description)) %>%
-    mutate(game_id = game_id)
+    mutate(game_id = game_id,
+           event_no = row_number())
 
   if (format == "clean") {
 
