@@ -1,0 +1,21 @@
+Package: whockeyR
+Type: Package
+Title: whockeyR
+Version: 0.1.0
+Author: Ben Howell
+Maintainer: Ben Howlel <benhowell71.com/>
+Description: The `whockeyR` package was created to scrape play-by-play data and statistics from the Premier Hockey Federation (PHF), formerly known as the National Women's Hockey League (NWHL).
+Imports: 
+  tidyverse,
+  rvest,
+  jsonlite,
+  janitor,
+  httr,
+  purrr,
+  stringr,
+  tokenizers,
+  strex
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
