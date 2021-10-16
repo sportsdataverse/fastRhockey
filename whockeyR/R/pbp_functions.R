@@ -661,3 +661,15 @@ load_boxscore <- function(game_id = 268078) {
   return(df)
 
 }
+
+load_game <- function(game_id = 268078) {
+
+  box <- load_boxscore(game_id = game_id)
+
+  pbp <- load_pbp(game_id = game_id)
+
+  game <- list(box, pbp)
+
+  return(game)
+
+}
