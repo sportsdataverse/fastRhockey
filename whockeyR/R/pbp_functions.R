@@ -217,7 +217,7 @@ pbp_data <- function(data) {
     mutate(order = row_number()) %>%
     filter(order > 0 & order < 6)
 
-  tm <- raw[[max(length(raw)) - 1]] %>%
+  tm <- data[[max(length(data)) - 1]] %>%
     # taking the second to last table bc that is always shots (or goals? now I don't remember)
     # either way, the away team is always on top so we can extract home/away from this
     clean_names() %>%

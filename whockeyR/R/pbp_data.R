@@ -5,11 +5,14 @@ source('R/pbp_functions.R')
 a <- Sys.time()
 
 rg <- load_pbp(game_id = 268078)
+rg_messy <- load_pbp(game_id = 268078, format = "messy")
 
 Sys.time() - a
 
 ot <- load_pbp(game_id = 268116)
+ot2 <- load_pbp(game_id = 268116, format = "messy")
 so <- load_pbp(game_id = 268123)
+so2 <- load_pbp(game_id = 268123, format = "m")
 
 Sys.time() - a
 
