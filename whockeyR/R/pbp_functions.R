@@ -541,12 +541,13 @@ boxscore <- data.frame(
   second_shots = integer(),
   third_shots = integer(),
   overtime_shots = integer(),
+  shootout_shots = integer(),
   total_shots = integer(),
   first_scoring = integer(),
   second_scoring = integer(),
   third_scoring = integer(),
   overtime_scoring = integer(),
-  shootout_scoring = character(),
+  # shootout_scoring = character(),
   total_scoring = integer(),
   winner = character(),
   game_id = numeric()
@@ -604,7 +605,9 @@ process_boxscore <- function(data) {
              "third_scoring" = "x3rd",
              "overtime_scoring" = "ot",
              "shootout_scoring" = "so",
-             "total_scoring" = "t")
+             "total_scoring" = "t") %>%
+      mutate(shootout_shots = str_nth_number(shootout_scoring, 3),
+             shootout_scoring = str_nth_number(shootout_scoring, 1))
 
   }
 
@@ -683,10 +686,23 @@ process_boxscore <- function(data) {
 #' @example \dontrun{ boxscore <- load_boxscore(game_id = 268078) }
 load_boxscore <- function(game_id = 268078) {
 
+  y <- game_id
+
   df <- load_raw_data(game_id = game_id)
 
-  df <- process_boxscore(data = df) %>%
-    mutate(game_id = game_id)
+  df <- process_boxscore(data = df)
+
+  df <- df %>%
+    mutate(game_id = y) %>%
+    dplyr::select(team, game_id, winner, total_scoring,
+                  first_scoring, second_scoring, third_scoring,
+                  overtime_scoring, shootout_scoring,
+                  total_shots,
+                  first_shots, second_shots, third_shots,
+                  overtime_shots, shootout_shots, blocked_opponent_shots,
+                  successful_power_play, power_play_opportunities,
+                  power_play_percent, faceoff_percent, penalty_minutes,
+                  takeaways, giveaways)
 
   return(df)
 
