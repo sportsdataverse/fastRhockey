@@ -4,7 +4,7 @@
 \name{whockeyR-package}
 \alias{whockeyR}
 \alias{whockeyR-package}
-\title{whockeyR: Functions to Access College Football Play by Play Data}
+\title{whockeyR: Functions to Access Premier Hockey Federation Play by Play Data}
 \description{
 The whockeyR package was created to scrape play-by-play data and statistics from the Premier Hockey Federation (PHF), formerly known as the National Women's Hockey League (NWHL).
 
