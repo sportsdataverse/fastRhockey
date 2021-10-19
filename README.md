@@ -4,11 +4,11 @@
 # whockeyR
 
 <!-- badges: start -->
-<!-- [![Version-Number](https://img.shields.io/github/r-package/v/BenHowell71/whockeyR?label=whockeyR&logo=R&style=for-the-badge)](https://github.com/BenHowell71/whockey_scraper) -->
+<!-- [![Version-Number](https://img.shields.io/github/r-package/v/BenHowell71/whockeyR?label=whockeyR&logo=R&style=for-the-badge)](https://github.com/BenHowell71/whockeyR) -->
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/benhowell71/whockey_scraper/workflows/R-CMD-check/badge.svg)](https://github.com/benhowell71/whockey_scraper/actions)
+[![R-CMD-check](https://github.com/benhowell71/whockey_scraper/workflows/R-CMD-check/badge.svg)](https://github.com/benhowell71/whockeyR/actions)
 <!-- badges: end -->
 
 Play-by-play scraper for the PHF (formerly known as the NWHL)
@@ -18,15 +18,15 @@ Play-by-play scraper for the PHF (formerly known as the NWHL)
 ## Installation
 
 You can install the released version of
-[**`whockeyR`**](https://github.com/BenHowell71/whockey_scraper/) from
-[GitHub](https://github.com/BenHowell71/whockey_scraper) with:
+[**`whockeyR`**](https://github.com/BenHowell71/whockeyR/) from
+[GitHub](https://github.com/BenHowell71/whockeyR) with:
 
 ``` r
 # You can install using the pacman package using the following code:
 if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
-pacman::p_load_current_gh("BenHowell71/whockey_scraper", dependencies = TRUE, update = TRUE)
+pacman::p_load_current_gh("BenHowell71/whockeyR", dependencies = TRUE, update = TRUE)
 ```
 
 If you would prefer the `devtools` installation:
@@ -37,7 +37,7 @@ if (!requireNamespace('devtools', quietly = TRUE)){
   install.packages('devtools')
 }
 # Alternatively, using the devtools package:
-devtools::install_github(repo = "BenHowell71/whockey_scraper")
+devtools::install_github(repo = "BenHowell71/whockeyR")
 ```
 
 ## `phf_schedule.R`
