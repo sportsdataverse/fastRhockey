@@ -109,7 +109,7 @@ BibTex Citation
 ```bibtex
 @misc{howell_whockeyR_2021,
   author = {Ben Howell},
-  title = {whockeyR: whockeyR: The SportsDataverse's R Package for Women's Hockey Data.},
+  title = {whockeyR: The SportsDataverse's R Package for Women's Hockey Data.},
   url = {https://benhowell71.github.io/whockeyR/},
   year = {2021}
 }

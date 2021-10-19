@@ -194,7 +194,7 @@ load_raw_data <- function(game_id = 268078) {
 #' @param data the dataframe of the shootout that you want parsed into a workable format of pbp data
 #' @importFrom janitor clean_names
 #' @importFrom dplyr mutate row_number select
-#' @importFrom stringr str_extract str_replace_all
+#' @importFrom stringr str_extract str_replace_all str_nth_non_numeric
 #' @importFrom tidyr separate
 #' @import tokenizers
 #' @import strex
@@ -263,7 +263,7 @@ process_shootout <- function(data) {
 #' }
 #### function returning all the pbp data for a game into one big data frame for the game
 ## data takes the raw list of data from the load_raw_data function
-pbp_data <- function(data) {
+pbp_data <- function(data, game_id = game_id) {
 
   # l <- length(data) - 2
   # c <- data[[l]]
@@ -297,18 +297,39 @@ pbp_data <- function(data) {
     dplyr::mutate(order = dplyr::row_number()) %>%
     dplyr::filter(.data$order > 0, .data$order < 6)
 
-  tm <- data[[max(length(data)) - 1]] %>%
-    # taking the second to last table bc that is always shots (or goals? now I don't remember)
-    # either way, the away team is always on top so we can extract home/away from this
-    janitor::clean_names() %>%
-    dplyr::mutate(
-      order = dplyr::row_number(),
-      meta = dplyr::case_when(
-        .data$order == 1 ~ "away_team",
-        .data$order == 2 ~ "home_team",
-        TRUE ~ NA_character_)) %>%
-    dplyr::select(.data$shots, .data$meta) %>%
-    tidyr::pivot_wider(values_from = .data$shots, names_from = .data$meta)
+  # tm <- data[[max(length(data)) - 1]] %>%
+  #   # taking the second to last table bc that is always shots (or goals? now I don't remember)
+  #   # either way, the away team is always on top so we can extract home/away from this
+  #   janitor::clean_names() %>%
+  #   dplyr::mutate(
+  #     order = dplyr::row_number(),
+  #     meta = dplyr::case_when(
+  #       .data$order == 1 ~ "away_team",
+  #       .data$order == 2 ~ "home_team",
+  #       TRUE ~ NA_character_)) %>%
+  #   dplyr::select(.data$shots, .data$meta) %>%
+  #   tidyr::pivot_wider(values_from = .data$shots, names_from = .data$meta)
+
+  for (a in 2016:2021) {
+
+    b <- phf_schedule(season = a)
+
+    lst[[a]] <- b
+
+  }
+
+  gms <- bind_rows(lst)
+
+  # renaming the game_id variable bc otherwise it doesn't work
+  g <- game_id
+
+  tm <- gms %>%
+    filter(game_id == g) %>%
+    # dplyr::select(game_id, home_team, home_team_short,
+    #               away_team, away_team_short) %>%
+    # mutate(home_team = paste0(home_team, home_team_short),
+    #        away_team = paste0(away_team, away_team_short)) %>%
+    dplyr::select(home_team, away_team)
 
   # creating the pbp dataframes for regulation, OT, or shootout games
   if (nrow(tb) == 3) {
@@ -493,7 +514,8 @@ pbp_data <- function(data) {
     ) %>%
     dplyr::select(-c(event, team))
 
-  pbp <- pbp %>%
+  pbp <-
+    pbp %>%
     dplyr::left_join(on_ice, by = c("period_id", "event_no")) %>%
     dplyr::mutate(
       leader = str_extract(.data$score, "[A-Z]+"),
@@ -608,14 +630,18 @@ pbp_data <- function(data) {
 #' }
 load_pbp <- function(game_id = 268078, format = "clean") {
 
-  df <- load_raw_data(game_id = game_id)
+  df <- phf_game_data(game_id = game_id)
+    # load_raw_data(game_id = game_id)
 
-  pbp <- pbp_data(data = df)
+  pbp <- pbp_data(data = df, game_id = game_id)
+
+  #re-initializing the game_id variable so that it doesn't freak tf out
+  x <- game_id
 
   pbp <- pbp %>%
     dplyr::filter(!is.na(.data$description)) %>%
     dplyr::mutate(
-      game_id = .data$game_id,
+      game_id = x,
       event_no = dplyr::row_number())
 
   if (format == "clean") {
