@@ -16,9 +16,9 @@ knitr::opts_chunk$set(
 # whockeyR
 
 <!-- badges: start -->
-<!-- [![Version-Number](https://img.shields.io/github/r-package/v/BenHowell71/whockeyR?label=whockeyR&logo=R&style=for-the-badge)](https://github.com/BenHowell71/whockey_scraper) -->
+<!-- [![Version-Number](https://img.shields.io/github/r-package/v/BenHowell71/whockeyR?label=whockeyR&logo=R&style=for-the-badge)](https://github.com/BenHowell71/whockeyR) -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/benhowell71/whockey_scraper/workflows/R-CMD-check/badge.svg)](https://github.com/benhowell71/whockey_scraper/actions)
+[![R-CMD-check](https://github.com/benhowell71/whockeyR/workflows/R-CMD-check/badge.svg)](https://github.com/benhowell71/whockeyR/actions)
 <!-- badges: end -->
 
 Play-by-play scraper for the PHF (formerly known as the NWHL)
@@ -27,14 +27,14 @@ Play-by-play scraper for the PHF (formerly known as the NWHL)
 
 ## Installation
 
-You can install the released version of [**`whockeyR`**](https://github.com/BenHowell71/whockey_scraper/) from [GitHub](https://github.com/BenHowell71/whockey_scraper) with:
+You can install the released version of [**`whockeyR`**](https://github.com/BenHowell71/whockeyR/) from [GitHub](https://github.com/BenHowell71/whockeyR) with:
 
 ``` r
 # You can install using the pacman package using the following code:
 if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
-pacman::p_load_current_gh("BenHowell71/whockey_scraper", dependencies = TRUE, update = TRUE)
+pacman::p_load_current_gh("BenHowell71/whockeyR", dependencies = TRUE, update = TRUE)
 ```
 If you would prefer the `devtools` installation:
 ``` r
@@ -43,7 +43,7 @@ if (!requireNamespace('devtools', quietly = TRUE)){
   install.packages('devtools')
 }
 # Alternatively, using the devtools package:
-devtools::install_github(repo = "BenHowell71/whockey_scraper")
+devtools::install_github(repo = "BenHowell71/whockeyR")
 ```
 
 ## `phf_schedule.R`
@@ -85,7 +85,7 @@ Pairs `load_raw_data` and `pbp_data` to pull the raw data and cleaning/set-up in
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse) 
 
-[![GitHub stars](https://img.shields.io/github/stars/BenHowell71/whockey_scraper.svg?color=eee&logo=github&style=for-the-badge&label=Star%20whockeyR&maxAge=2592000)](https://github.com/BenHowell71/whockey_scraper/stargazers/)
+[![GitHub stars](https://img.shields.io/github/stars/BenHowell71/whockeyR.svg?color=eee&logo=github&style=for-the-badge&label=Star%20whockeyR&maxAge=2592000)](https://github.com/BenHowell71/whockeyR/stargazers/)
 
 
 # **Our Authors**
@@ -103,14 +103,14 @@ Pairs `load_raw_data` and `pbp_data` to pull the raw data and cleaning/set-up in
 
 ## **Citations**
 
-To cite the [**`whockeyR`**](https://benhowell71.github.io/whockey_scraper/) R package in publications, use:
+To cite the [**`whockeyR`**](https://benhowell71.github.io/whockeyR/) R package in publications, use:
 
 BibTex Citation
 ```bibtex
 @misc{howell_whockeyR_2021,
   author = {Ben Howell},
   title = {whockeyR: whockeyR: The SportsDataverse's R Package for Women's Hockey Data.},
-  url = {https://benhowell71.github.io/whockey_scraper/},
+  url = {https://benhowell71.github.io/whockeyR/},
   year = {2021}
 }
 ```

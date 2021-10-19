@@ -8,7 +8,7 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/benhowell71/whockey_scraper/workflows/R-CMD-check/badge.svg)](https://github.com/benhowell71/whockeyR/actions)
+[![R-CMD-check](https://github.com/benhowell71/whockeyR/workflows/R-CMD-check/badge.svg)](https://github.com/benhowell71/whockeyR/actions)
 <!-- badges: end -->
 
 Play-by-play scraper for the PHF (formerly known as the NWHL)
@@ -97,7 +97,7 @@ cleaning/set-up in one function that takes `game_id` as an input
 Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
 
 [![GitHub
-stars](https://img.shields.io/github/stars/BenHowell71/whockey_scraper.svg?color=eee&logo=github&style=for-the-badge&label=Star%20whockeyR&maxAge=2592000)](https://github.com/BenHowell71/whockey_scraper/stargazers/)
+stars](https://img.shields.io/github/stars/BenHowell71/whockeyR.svg?color=eee&logo=github&style=for-the-badge&label=Star%20whockeyR&maxAge=2592000)](https://github.com/BenHowell71/whockeyR/stargazers/)
 
 # **Our Authors**
 
@@ -113,8 +113,7 @@ stars](https://img.shields.io/github/stars/BenHowell71/whockey_scraper.svg?color
 
 ## **Citations**
 
-To cite the
-[**`whockeyR`**](https://benhowell71.github.io/whockey_scraper/) R
+To cite the [**`whockeyR`**](https://benhowell71.github.io/whockeyR/) R
 package in publications, use:
 
 BibTex Citation
@@ -123,7 +122,7 @@ BibTex Citation
 @misc{howell_whockeyR_2021,
   author = {Ben Howell},
   title = {whockeyR: whockeyR: The SportsDataverse's R Package for Women's Hockey Data.},
-  url = {https://benhowell71.github.io/whockey_scraper/},
+  url = {https://benhowell71.github.io/whockeyR/},
   year = {2021}
 }
 ```
