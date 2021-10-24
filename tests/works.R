@@ -175,15 +175,6 @@ process_period <- function(data, period = 1) {
 #' }
 load_raw_data <- function(game_id = 268078) {
 
-  # if (!is.na(ticket)) {
-  #     auth_ticket <- ticket
-  # } else {
-  #   auth_ticket <- getOption(
-  #     "whockeyR.phf_ticket",
-  #     default = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO'
-  #   )
-  # }
-
   link <- paste0("https://web.api.digitalshift.ca/partials/stats/game/play-by-play?game_id=", game_id)
   # the link for the game + authorization for accessing the API
   data <- httr::GET(link,
@@ -640,7 +631,7 @@ pbp_data <- function(data, game_id = game_id) {
 load_pbp <- function(game_id = 268078, format = "clean") {
 
   df <- phf_game_data(game_id = game_id)
-    # load_raw_data(game_id = game_id)
+  # load_raw_data(game_id = game_id)
 
   pbp <- pbp_data(data = df, game_id = game_id)
 
@@ -652,95 +643,6 @@ load_pbp <- function(game_id = 268078, format = "clean") {
     dplyr::mutate(
       game_id = x,
       event_no = dplyr::row_number())
-
-  away_state_changes <- pbp %>%
-    filter((event == "PP Goal" & str_detect(team, home_team)) |
-             (event == "Penalty" & str_detect(team, away_team))) %>%
-    select(event,sec_from_start,power_play_seconds) %>%
-    mutate(event = ifelse(event == "Penalty", 1, 2),
-           prev.event = lag(event),
-           prev.time = lag(sec_from_start),
-           prev.length = lag(power_play_seconds))
-
-
-  away_pen_mat <- apply(away_state_changes,
-                        1,
-                        FUN = function(x) {
-                          #Creates a -1 for duration of penalty and 0s surrounding it
-                          if(x[1] == 1 & x[2]+x[3]*60 < (max(pbp$period_id)*1200-1)){
-                            c( rep( 0, length( 0:x[2] )),
-                               rep( -1, x[3]*60),
-                               rep(0, length((x[2]+x[3]*60 + 1):(max(pbp$period_id)*1200-1)))
-                            )
-                            #Creates a -1 for duration of penalty and 0s before (for end of game penalties)
-                          } else if(x[1] == 1 & x[2]+x[3]*60 >= (max(pbp$period_id)*1200-1)) {
-                            c( rep( 0, length( 0:x[2] )),
-                               rep(-1, max(pbp$period_id)*1200-1-x[2] )
-                            )
-                            #Creates a +1 from time power play goal is scored to end of penalty to handle skater coming back on
-                          } else if( x[1] == 2 & (x[2] %in% ifelse(!is.na(x[5]) & !is.na(x[6]) & x[2] != x[5], x[5]:(x[5]+x[6]*60),-1 )) ) {
-                            c( rep( 0, length( 0:(x[2]) )),
-                               rep( 1, length( (x[2]+1):(x[6]*60-(x[2]-x[5])))),
-                               rep(0, length((x[6]*60-(x[2]-x[5])):(max(pbp$period_id)*1200-1)))
-                            )
-                            # Creates all zeros if event doesnt effect strength
-                          } else {
-                            rep(0, length(0:(max(pbp$period_id)*1200-1)))
-                          }
-                        })
-
-  #creates vector for skaters
-  away_skaters <- 5 + apply(away_pen_mat, 1, sum)
-
-  away_skaters <- as.data.frame(away_skaters) %>%
-    rownames_to_column("sec_from_start")%>%
-    mutate(sec_from_start = as.numeric(sec_from_start))
-
-  home_state_changes <- pbp %>%
-    filter((event == "PP Goal" & str_detect(team, away_team)) |
-             (event == "Penalty" & str_detect(team, home_team))) %>%
-    select(event,sec_from_start,power_play_seconds) %>%
-    mutate(event = ifelse(event == "Penalty",1,2),
-           prev.event = lag(event),
-           prev.time = lag(sec_from_start),
-           prev.length = lag(power_play_seconds))
-
-
-  home_pen_mat <- apply(home_state_changes,
-                        1,
-                        FUN = function(x) {
-                          #Creates a -1 for duration of penalty and 0s surrounding it
-                          if(x[1] == 1 & x[2]+x[3]*60 < (max(pbp$period_id)*1200-1)){
-                            c( rep( 0, length( 0:x[2] )),
-                               rep( -1, x[3]*60),
-                               rep(0, length((x[2]+x[3]*60 + 1):(max(pbp$period_id)*1200-1)))
-                            )
-                            #Creates a -1 for duration of penalty and 0s before (for end of game penalties)
-                          } else if(x[1] == 1 & x[2]+x[3]*60 >= (max(pbp$period_id)*1200-1)) {
-                            c( rep( 0, length( 0:x[2] )),
-                               rep(-1, max(pbp$period_id)*1200-1-x[2] )
-                            )
-                            #Creates a +1 from time power play goal is scored to end of penalty to handle skater coming back on
-                          } else if( x[1] == 2 & (x[2] %in% ifelse(!is.na(x[5]) & !is.na(x[6]) & x[2] != x[5], x[5]:(x[5]+x[6]*60),-1 )) ) {
-                            c( rep( 0, length( 0:(x[2]) )),
-                               rep( 1, length( (x[2]+1):(x[6]*60-(x[2]-x[5])))),
-                               rep(0, length((x[6]*60-(x[2]-x[5])):(max(pbp$period_id)*1200-1)))
-                            )
-                            # Creates all zeros if event doesnt effect strength
-                          } else {
-                            rep(0, length(0:(max(pbp$period_id)*1200-1)))
-                          }
-                        })
-
-  #creates vector for skaters
-  home_skaters <- 5 + apply(home_pen_mat, 1, sum)
-
-  home_skaters <- as.data.frame(home_skaters) %>%
-    rownames_to_column("sec_from_start")%>%
-    mutate(sec_from_start = as.numeric(sec_from_start))
-
-  pbp <- left_join(pbp, home_skaters)
-  pbp <- left_join(pbp, away_skaters)
 
   if (format == "clean") {
 
@@ -754,8 +656,6 @@ load_pbp <- function(game_id = 268078, format = "clean") {
         .data$description,
         .data$time_remaining,
         .data$on_ice_situation,
-        .data$home_skaters,
-        .data$away_skaters,
         .data$home_goals, .data$away_goals, .data$leader,
         .data$team,
         .data$event,
@@ -831,33 +731,33 @@ process_boxscore <- function(data) {
     score <- score %>%
       janitor::clean_names() %>%
       dplyr::rename("team" = "scoring",
-             "first_scoring" = "x1st",
-             "second_scoring" = "x2nd",
-             "third_scoring" = "x3rd",
-             "total_scoring" = "t")
+                    "first_scoring" = "x1st",
+                    "second_scoring" = "x2nd",
+                    "third_scoring" = "x3rd",
+                    "total_scoring" = "t")
 
   } else if (ncol(score) == 6) {
 
     score <- score %>%
       janitor::clean_names() %>%
       dplyr::rename("team" = "scoring",
-             "first_scoring" = "x1st",
-             "second_scoring" = "x2nd",
-             "third_scoring" = "x3rd",
-             "overtime_scoring" = "ot",
-             "total_scoring" = "t")
+                    "first_scoring" = "x1st",
+                    "second_scoring" = "x2nd",
+                    "third_scoring" = "x3rd",
+                    "overtime_scoring" = "ot",
+                    "total_scoring" = "t")
 
   } else if (ncol(score) == 7) {
 
     score <- score %>%
       janitor::clean_names() %>%
       dplyr::rename("team" = "scoring",
-             "first_scoring" = "x1st",
-             "second_scoring" = "x2nd",
-             "third_scoring" = "x3rd",
-             "overtime_scoring" = "ot",
-             "shootout_scoring" = "so",
-             "total_scoring" = "t") %>%
+                    "first_scoring" = "x1st",
+                    "second_scoring" = "x2nd",
+                    "third_scoring" = "x3rd",
+                    "overtime_scoring" = "ot",
+                    "shootout_scoring" = "so",
+                    "total_scoring" = "t") %>%
       dplyr::mutate(
         shootout_shots = str_nth_number(shootout_scoring, 3),
         shootout_scoring = str_nth_number(shootout_scoring, 1))
@@ -953,8 +853,7 @@ load_boxscore <- function(game_id = 268078) {
     dplyr::select(
       .data$team, .data$game_id, .data$winner, .data$total_scoring,
       .data$first_scoring, .data$second_scoring, .data$third_scoring,
-      .data$overtime_scoring,
-      # .data$shootout_scoring,
+      .data$overtime_scoring, .data$shootout_scoring,
       .data$total_shots, .data$first_shots,
       .data$second_shots, .data$third_shots,
       .data$overtime_shots, .data$shootout_shots,
