@@ -56,7 +56,7 @@ phf_league_info <- function(season = 2022){
 #'   full_schedule <- phf_schedule(season=2021)
 #' }
 
-phf_schedule <- function(season=2021){
+phf_schedule <- function(season = 2021){
 
   season_id <- dplyr::case_when(
     season == 2022 ~ 3772,
