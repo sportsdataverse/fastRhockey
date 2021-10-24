@@ -15,3 +15,7 @@ for (a in 2016:2021) {
 }
 
 gms <- bind_rows(lst)
+
+
+phf_schedule(season = 2020)
+phf_league_info(season = 2021)
