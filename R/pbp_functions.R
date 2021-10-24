@@ -944,7 +944,8 @@ load_boxscore <- function(game_id = 268078) {
     dplyr::select(
       .data$team, .data$game_id, .data$winner, .data$total_scoring,
       .data$first_scoring, .data$second_scoring, .data$third_scoring,
-      .data$overtime_scoring, .data$shootout_scoring,
+      .data$overtime_scoring,
+      # .data$shootout_scoring,
       .data$total_shots, .data$first_shots,
       .data$second_shots, .data$third_shots,
       .data$overtime_shots, .data$shootout_shots,
