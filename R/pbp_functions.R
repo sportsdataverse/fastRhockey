@@ -29,7 +29,7 @@ phf_game_data <- function(game_id = 368719) {
 
   auth_ticket <- getOption(
     "whockeyR.phf_ticket",
-    default = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO'
+    default = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'
   )
 
   # the link for the game + authorization for accessing the API
