@@ -337,7 +337,7 @@ pbp_data <- function(data, game_id = game_id) {
   # renaming the game_id variable bc otherwise it doesn't work
   g <- game_id
 
-  tm <- read.csv("phf_meta_data.csv") %>%
+  tm <- read.csv("https://raw.githubusercontent.com/benhowell71/whockeyR/main/phf_meta_data.csv") %>%
     filter(game_id == g) %>%
     # dplyr::select(game_id, home_team, home_team_short,
     #               away_team, away_team_short) %>%
