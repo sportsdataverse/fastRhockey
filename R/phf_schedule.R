@@ -102,6 +102,12 @@ phf_schedule <- function(season = 2021){
     finally = {
     }
   )
+
+  schedule_data <- schedule_data %>%
+    mutate(winner = ifelse(away_score > home_score, away_team,
+                           ifelse(home_score > away_score, home_team,
+                                  ifelse(home_score == away_score, "Tie", NA))))
+
   return(schedule_data)
 }
 
