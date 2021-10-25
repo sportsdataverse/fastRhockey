@@ -656,7 +656,9 @@ load_pbp <- function(game_id = 268078, format = "clean") {
     dplyr::filter(!is.na(.data$description)) %>%
     dplyr::mutate(
       game_id = x,
-      event_no = dplyr::row_number())
+      event_no = dplyr::row_number(),
+      power_play_seconds = ifelse(is.na(power_play_seconds), 0,
+                                  power_play_seconds))
 
   away_state_changes <- pbp %>%
     filter((event == "PP Goal" & str_detect(team, home_team)) |
@@ -672,25 +674,25 @@ load_pbp <- function(game_id = 268078, format = "clean") {
                         1,
                         FUN = function(x) {
                           #Creates a -1 for duration of penalty and 0s surrounding it
-                          if(x[1] == 1 & x[2]+x[3]*60 < (max(pbp$period_id)*1200-1)){
+                          if(x[1] == 1 & x[2]+x[3]*60 < (max(pbp$period_id, na.rm = TRUE)*1200-1)){
                             c( rep( 0, length( 0:x[2] )),
                                rep( -1, x[3]*60),
-                               rep(0, length((x[2]+x[3]*60 + 1):(max(pbp$period_id)*1200-1)))
+                               rep(0, length((x[2]+x[3]*60 + 1):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
                             )
                             #Creates a -1 for duration of penalty and 0s before (for end of game penalties)
-                          } else if(x[1] == 1 & x[2]+x[3]*60 >= (max(pbp$period_id)*1200-1)) {
+                          } else if(x[1] == 1 & x[2]+x[3]*60 >= (max(pbp$period_id, na.rm = TRUE)*1200-1)) {
                             c( rep( 0, length( 0:x[2] )),
-                               rep(-1, max(pbp$period_id)*1200-1-x[2] )
+                               rep(-1, max(pbp$period_id, na.rm = TRUE)*1200-1-x[2] )
                             )
                             #Creates a +1 from time power play goal is scored to end of penalty to handle skater coming back on
                           } else if( x[1] == 2 & (x[2] %in% ifelse(!is.na(x[5]) & !is.na(x[6]) & x[2] != x[5], x[5]:(x[5]+x[6]*60),-1 )) ) {
                             c( rep( 0, length( 0:(x[2]) )),
                                rep( 1, length( (x[2]+1):(x[6]*60-(x[2]-x[5])))),
-                               rep(0, length((x[6]*60-(x[2]-x[5])):(max(pbp$period_id)*1200-1)))
+                               rep(0, length((x[6]*60-(x[2]-x[5])):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
                             )
                             # Creates all zeros if event doesnt effect strength
                           } else {
-                            rep(0, length(0:(max(pbp$period_id)*1200-1)))
+                            rep(0, length(0:(max(pbp$period_id, na.rm = TRUE)*1200-1)))
                           }
                         })
 
@@ -715,23 +717,23 @@ load_pbp <- function(game_id = 268078, format = "clean") {
                         1,
                         FUN = function(x) {
                           #Creates a -1 for duration of penalty and 0s surrounding it
-                          if(x[1] == 1 & x[2]+x[3]*60 < (max(pbp$period_id)*1200-1)){
+                          if(x[1] == 1 & (x[2] + x[3] * 60) < (max(pbp$period_id, na.rm = TRUE) * 1200-1)){
                             c( rep( 0, length( 0:x[2] )),
                                rep( -1, x[3]*60),
-                               rep(0, length((x[2]+x[3]*60 + 1):(max(pbp$period_id)*1200-1)))
+                               rep(0, length((x[2]+x[3]*60 + 1):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
                             )
                             #Creates a -1 for duration of penalty and 0s before (for end of game penalties)
-                          } else if(x[1] == 1 & x[2]+x[3]*60 >= (max(pbp$period_id)*1200-1)) {
+                          } else if(x[1] == 1 & (x[2]+x[3]*60) >= (max(pbp$period_id, na.rm = TRUE)*1200-1)) {
                             c( rep( 0, length( 0:x[2] )),
-                               rep(-1, max(pbp$period_id)*1200-1-x[2] )
+                               rep(-1, max(pbp$period_id, na.rm = TRUE)*1200-1-x[2] )
                             )
                             #Creates a +1 from time power play goal is scored to end of penalty to handle skater coming back on
                           } else if( x[1] == 2 & (x[2] %in% ifelse(!is.na(x[5]) & !is.na(x[6]) & x[2] != x[5], x[5]:(x[5]+x[6]*60),-1 )) ) {
                             c( rep( 0, length( 0:(x[2]) )),
                                rep( 1, length( (x[2]+1):(x[6]*60-(x[2]-x[5])))),
-                               rep(0, length((x[6]*60-(x[2]-x[5])):(max(pbp$period_id)*1200-1)))
+                               rep(0, length((x[6]*60-(x[2]-x[5])):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
                             )
-                            # Creates all zeros if event doesnt effect strength
+                            # Creates all zeros if event doesn't effect strength
                           } else {
                             rep(0, length(0:(max(pbp$period_id)*1200-1)))
                           }
