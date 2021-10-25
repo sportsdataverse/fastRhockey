@@ -3,13 +3,13 @@ away <- "[:digit:] GvA|[:digit:] TkA|[:digit:] Blk"
 fill <- "from|by|against|to| and|giveaway|Game"
 goalie <- "Starting goalie|Pulled goalie|Returned goalie"
 fo <- "faceoff won"
-ice <- "Even Strength|Empty Net|Power Play"
-shots <- "Snap shot|Wrist shot"
+ice <- "Even Strength|Empty Net|Power Play|Extra Attacker"
+shots <- "Snap shot|Wrist shot|Penalty Shot"
 res <- "blocked|saved"
-pen <- "Holding|Tripping|Roughing|Hooking|Interference|Slashing|Checking|Ejection"
+pen <- "Holding|Tripping|Roughing|Hooking|Interference|Body Checking|Slashing|Check from Behind Misconduct|Checking from Behind|Checking|Ejection|Too Many Men Bench|Delay of Game|"
 type <- "Minor|Major"
 score_string <- "[:digit:] - [:digit:] [A-Z]+|[:digit:] - [:digit:]"
-shoot <- "missed attempt against|scores against|Shootout"
+shoot <- "missed attempt against|scores against|Shootout|failed attempt"
 abbreviations <- c("TOR", "MIN","")
 #' @title phf_game_data
 #' @description phf_game_data: pull in the raw data for a game_id from the PHF/NWHL API
