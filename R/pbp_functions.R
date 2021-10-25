@@ -1,12 +1,12 @@
 #### updated tags for what gets removed from the text parsing
 away <- "[:digit:] GvA|[:digit:] TkA|[:digit:] Blk"
-fill <- "from|by|against|to| and|giveaway|Game"
+fill <- "from|by|against|to| and|giveaway|Game|Behind|of|Served|served|Bench|bench"
 goalie <- "Starting goalie|Pulled goalie|Returned goalie"
 fo <- "faceoff won"
 ice <- "Even Strength|Empty Net|Power Play|Extra Attacker"
 shots <- "Snap shot|Wrist shot|Penalty Shot"
-res <- "blocked|saved"
-pen <- "Holding|Tripping|Roughing|Hooking|Interference|Body Checking|Slashing|Check from Behind Misconduct|Checking from Behind|Checking|Ejection|Too Many Men Bench|Delay of Game|"
+res <- "blocked|saved|failed attempt"
+pen <- "Holding|Tripping|Roughing|Hooking|Interference|Delay|Body Checking|Slashing|Check from Behind Misconduct|Checking from Behind|Checking|Ejection|Too Many Men|Delay of Game|Misconduct|Check"
 type <- "Minor|Major"
 score_string <- "[:digit:] - [:digit:] [A-Z]+|[:digit:] - [:digit:]"
 shoot <- "missed attempt against|scores against|Shootout|failed attempt"
@@ -488,6 +488,10 @@ pbp_data <- function(data, game_id = game_id) {
       desc = str_replace_all(str_trim(.data$desc, side = "both"),"#", ""),
       # cleaning up score data
       first_player = str_trim(str_nth_non_numeric(.data$desc, n = 1)),
+      first_player = str_replace_all(first_player, fill, ""),
+      first_player = str_replace_all(first_player, pen, ""),
+      first_player = str_replace_all(first_player, shoot, ""),
+      first_player = str_trim(first_player),
       first_number = str_nth_number(.data$desc, n = 1),
       second_player = str_trim(str_nth_non_numeric(.data$desc, n = 2)),
       second_number = str_nth_number(.data$desc, n = 2),
