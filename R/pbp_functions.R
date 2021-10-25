@@ -1,6 +1,6 @@
 #### updated tags for what gets removed from the text parsing
 away <- "[:digit:] GvA|[:digit:] TkA|[:digit:] Blk"
-fill <- "from|by|against|to|and|giveaway|Game"
+fill <- "from|by|against|to| and|giveaway|Game"
 goalie <- "Starting goalie|Pulled goalie|Returned goalie"
 fo <- "faceoff won"
 ice <- "Even Strength|Empty Net|Power Play"
@@ -760,6 +760,7 @@ load_pbp <- function(game_id = 268078, format = "clean") {
         .data$event_no,
         .data$description,
         .data$time_remaining,
+        .data$sec_from_start,
         .data$on_ice_situation,
         .data$home_skaters,
         .data$away_skaters,
