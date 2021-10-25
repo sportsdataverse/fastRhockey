@@ -1,6 +1,6 @@
 #### updated tags for what gets removed from the text parsing
 away <- "[:digit:] GvA|[:digit:] TkA|[:digit:] Blk"
-fill <- "from|by|against|to| and|giveaway|Game|Behind|of|Served|served|Bench|bench"
+fill <- "from|by|against|to| and|giveaway|Game|Behind|of |Served|served|Bench|bench"
 goalie <- "Starting goalie|Pulled goalie|Returned goalie"
 fo <- "faceoff won"
 ice <- "Even Strength|Empty Net|Power Play|Extra Attacker"
