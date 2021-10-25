@@ -4,7 +4,7 @@
 \alias{pbp_data}
 \title{pbp_data}
 \usage{
-pbp_data(data)
+pbp_data(data, game_id = game_id)
 }
 \arguments{
 \item{data}{the raw list data that is generated from the load_raw_data function}

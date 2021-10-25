@@ -16,6 +16,7 @@ Imports:
     data.table (>= 1.14.0),
     dplyr,
     glue,
+    httr,
     janitor,
     jsonlite,
     magrittr,
@@ -28,6 +29,7 @@ Imports:
     rvest (>= 1.0.0),
     stringr (>= 1.4.0),
     tidyr (>= 1.0.0),
+    tokenizers,
     usethis (>= 1.6.0),
     xgboost (>= 1.1)
 Suggests: 
