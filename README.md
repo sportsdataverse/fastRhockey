@@ -13,11 +13,12 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 
 [`whockeyR`](https://github.com/benhowell71/whockeyR) is an R Package
 that is designed to pull play-by-play (and boxscore) data from the
-newest version of the PHF website. In the past, there have been a few
-scrapers for the PHF (formerly the NWHL), but they’ve all been
-deprecated since the league changed website formats.
+newest version of the [Premier Hockey Federation (PHF)
+website](https://www.premierhockeyfederation.com/). In the past, there
+have been a few scrapers for the PHF (formerly the NWHL), but they’ve
+all been deprecated since the league changed website formats.
 
-With the seventh season of the league kicking off on November 6th, with
+With the seventh season of the league kicking off on November 6th, and
 games being broadcasted on ESPN+, this package was created to allow
 access to play-by-play data to continue pushing women’s hockey analytics
 forward.
@@ -32,8 +33,9 @@ the inaugural [WHKYHAC conference](https://www.whkyhac.com/) in July
 that produced some amazing conversations and projects in the women’s
 hockey space.
 
-In the past, the lack of data and access to the data has been the
-biggest barrier to entry, which this package is intended to alleviate.
+In the past, the lack of data and poor access to data have been the
+biggest barrier to entry in women’s hockey analytics, a barrier that
+this package is intended to alleviate.
 
 ------------------------------------------------------------------------
 
@@ -64,9 +66,9 @@ devtools::install_github(repo = "BenHowell71/whockeyR")
 
 ------------------------------------------------------------------------
 
-Once the package has been installed, there’s a ton of stuff you can do
-with the package. Let’s start by finding a game we’re interested in,
-say, the 2021 Isobel Cup Championship that the Boston Pride won.
+Once the package has been installed, there’s a ton of stuff you can do.
+Let’s start by finding a game we’re interested in, say, the 2021 Isobel
+Cup Championship that the Boston Pride won.
 
 ``` r
 # input the season that you're interested in looking up the schedule for
@@ -86,7 +88,7 @@ phf_schedule(season = 2021) %>%
 ```
 
 A couple of quick filters/selects later and we’ve pared down the data
-into a very manageable return. We can see that Boston Pride beat the
+into a very manageable return. We can see that the Boston Pride beat the
 Minnesota Whitecaps 4-3 in Warrior Ice Arena on March 27th, 2021. The
 other important column in this return is the `game_id` column.
 
@@ -135,7 +137,7 @@ pbp <- load_pbp(game_id = x)
 #> Joining, by = "sec_from_start"
   
 Sys.time() - a
-#> Time difference of 5.645886 secs
+#> Time difference of 5.186886 secs
 ```
 
 Loading a single game should take \~ 5 seconds. Once it does, it’s time
