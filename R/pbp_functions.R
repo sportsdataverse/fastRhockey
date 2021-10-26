@@ -211,7 +211,7 @@ load_raw_data <- function(game_id = 268078) {
 #' @param data the dataframe of the shootout that you want parsed into a workable format of pbp data
 #' @importFrom janitor clean_names
 #' @importFrom dplyr mutate row_number select
-#' @importFrom stringr str_extract str_replace_all str_nth_non_numeric
+#' @importFrom stringr str_extract str_replace_all
 #' @importFrom tidyr separate
 #' @import tokenizers
 #' @import strex
@@ -223,6 +223,7 @@ load_raw_data <- function(game_id = 268078) {
 process_shootout <- function(data) {
   score_string <- "[:digit:] - [:digit:] [A-Z]+|[:digit:] - [:digit:]"
   shoot <- "missed attempt against|scores against|Shootout"
+  all <- "[:digit:] - [:digit:] [A-Z]+|[:digit:] - [:digit:]|missed attempt against|scores against|Shootout"
 
   data <- data %>%
     janitor::clean_names() %>%
@@ -238,16 +239,16 @@ process_shootout <- function(data) {
       event_no = dplyr::row_number(),
       description = .data$play,
       desc = stringr::str_replace_all(.data$play, "#", ""),
-      first_number = str_nth_number(.data$desc, 1),
-      second_number = str_nth_number(.data$desc, 2),
-      desc = str_replace_all(.data$desc, shoot, ""),
-      score = str_extract(.data$desc, score_string),
-      desc = str_replace_all(.data$desc, score_string, ""),
-      desc = str_replace_all(str_trim(.data$desc, side = "both"),"#", ""),
-      first_player = str_nth_non_numeric(.data$desc, n = 1),
-      second_player = str_nth_non_numeric(.data$desc, n = 2),
-      leader = str_extract(.data$score, "[A-Z]+"),
-      scr = str_replace_all(.data$score, "[A-Z]+", "")) %>%
+      # first_number = str_nth_number(.data$desc, 1),
+      # second_number = str_nth_number(.data$desc, 2),
+      desc = stringr::str_replace_all(.data$desc, shoot, ""),
+      score = stringr::str_extract(.data$desc, score_string),
+      desc = stringr::str_replace_all(.data$desc, score_string, ""),
+      desc = stringr::str_replace_all(str_trim(.data$desc, side = "both"),"#", ""),
+      # first_player = str_nth_non_numeric(.data$desc, n = 1),
+      # second_player = str_nth_non_numeric(.data$desc, n = 2),
+      leader = stringr::str_extract(.data$score, "[A-Z]+"),
+      scr = stringr::str_replace_all(.data$score, "[A-Z]+", "")) %>%
     dplyr::select(-.data$play) %>%
     tidyr::separate(
       .data$scr,
@@ -258,7 +259,26 @@ process_shootout <- function(data) {
       leader = ifelse(is.na(.data$leader), 'T', .data$leader),
       away_goals = ifelse(is.na(.data$away_goals), 0, .data$away_goals),
       home_goals = ifelse(is.na(.data$home_goals), 0, .data$home_goals),
-      score = ifelse(is.na(.data$score), '0 - 0 T', .data$score))
+      score = ifelse(is.na(.data$score), '0 - 0 T', .data$score),
+      desc2 = stringr::str_replace_all(.data$description, shoot, ""),
+      desc2 = stringr::str_replace_all(.data$desc2, score_string, ""),
+      first_number = stringr::str_extract(.data$desc2, "#[0-9]+"),
+      desc2 = stringr::str_replace(.data$desc2, first_number, ""),
+      second_number = stringr::str_extract(.data$desc2, "#[0-9]+"),
+      desc2 = stringr::str_replace(.data$desc2, second_number, ","),
+      first_number = stringr::str_trim(stringr::str_replace(.data$first_number, "#", "")),
+      second_number = stringr::str_trim(stringr::str_replace(.data$second_number, "#", ""))) %>%
+    tidyr::separate(desc2, into = c("first_player", "second_player"),
+                    sep = ",") %>%
+    dplyr::mutate(first_player = stringr::str_trim(first_player),
+                  second_player = stringr::str_trim(second_player)) %>%
+    dplyr::select(-c(desc)) %>%
+    mutate(
+      first_player = stringr::str_trim(stringr::str_replace(first_player,
+                                                            "missed attempt|scores", "")),
+      second_player = stringr::str_trim(stringr::str_replace(second_player,
+                                                             "Shootout|Shoout|shoout|shootout", ""))
+    )
 
   return(data)
 
@@ -712,7 +732,7 @@ load_pbp <- function(game_id = 268078, format = "clean") {
   df <- phf_game_data(game_id = game_id)
     # load_raw_data(game_id = game_id)
 
-  pbp <- pbp_data(data = df, game_id = game_id)
+  pbp <- suppressWarnings(pbp_data(data = df, game_id = game_id))
 
   #re-initializing the game_id variable so that it doesn't freak tf out
   x <- game_id
@@ -814,6 +834,14 @@ load_pbp <- function(game_id = 268078, format = "clean") {
   pbp <- left_join(pbp, home_skaters)
   pbp <- left_join(pbp, away_skaters)
 
+  pbp <- pbp %>%
+    dplyr::mutate(
+      first_player = stringr::str_trim(stringr::str_replace(first_player,
+                                                            "missed attempt|scores", "")),
+      second_player = stringr::str_trim(stringr::str_replace(second_player,
+                                                             "Shootout|Shoout|shoout|shootout", ""))
+    )
+
   if (format == "clean") {
 
     pbp <- pbp %>%
@@ -877,7 +905,7 @@ boxscore <- data.frame(
   second_scoring = integer(),
   third_scoring = integer(),
   overtime_scoring = integer(),
-  # shootout_scoring = character(),
+  shootout_scoring = character(),
   total_scoring = integer(),
   winner = character(),
   game_id = numeric()
@@ -933,8 +961,13 @@ process_boxscore <- function(data) {
              "shootout_scoring" = "so",
              "total_scoring" = "t") %>%
       dplyr::mutate(
-        shootout_shots = str_nth_number(shootout_scoring, 3),
-        shootout_scoring = str_nth_number(shootout_scoring, 1))
+        shootout_scoring = str_replace(shootout_scoring, "[0-9] ", ""),
+        shootout_scoring = str_replace(shootout_scoring, "\\(", ""),
+        shootout_scoring = str_replace(shootout_scoring, "\\)", ""),
+        shootout_rep = str_replace(shootout_scoring, " - ", ",")) %>%
+      dplyr::select(-c(shootout_scoring)) %>%
+      tidyr::separate(shootout_rep, into = c("shootout_scoring", "shootout_shots"),
+                      sep = ",", remove = TRUE)
 
   }
 
@@ -1028,7 +1061,7 @@ load_boxscore <- function(game_id = 268078) {
       .data$team, .data$game_id, .data$winner, .data$total_scoring,
       .data$first_scoring, .data$second_scoring, .data$third_scoring,
       .data$overtime_scoring,
-      # .data$shootout_scoring,
+      .data$shootout_scoring,
       .data$total_shots, .data$first_shots,
       .data$second_shots, .data$third_shots,
       .data$overtime_shots, .data$shootout_shots,
