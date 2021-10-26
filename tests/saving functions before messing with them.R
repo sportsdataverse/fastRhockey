@@ -488,20 +488,19 @@ pbp_data <- function(data, game_id = game_id) {
       # score = ifelse(is.na(score), '0 - 0 T', score),
       # leader = str_extract(score, "[A-Z]+"),
       desc = str_replace_all(.data$desc, score_string, ""),
-      desc = str_replace_all(str_trim(.data$desc, side = "both"),"#", "")) %>%
+      desc = str_replace_all(str_trim(.data$desc, side = "both"),"#", ""),
       # cleaning up score data
-      # first_player = str_trim(str_nth_non_numeric(.data$desc, n = 1)),
-      # first_player = str_replace_all(first_player, fill, ""),
-      # first_player = str_replace_all(first_player, pen, ""),
-      # first_player = str_replace_all(first_player, shoot, ""),
-      # first_player = str_trim(first_player),
-      # first_number = str_nth_number(.data$desc, n = 1),
-      # second_player = str_trim(str_nth_non_numeric(.data$desc, n = 2)),
-      # second_number = str_nth_number(.data$desc, n = 2),
-      # third_player = str_trim(str_nth_non_numeric(.data$desc, n = 3)),
-      # third_number = str_nth_number(.data$desc, n = 3)) %>%
+      first_player = str_trim(str_nth_non_numeric(.data$desc, n = 1)),
+      first_player = str_replace_all(first_player, fill, ""),
+      first_player = str_replace_all(first_player, pen, ""),
+      first_player = str_replace_all(first_player, shoot, ""),
+      first_player = str_trim(first_player),
+      first_number = str_nth_number(.data$desc, n = 1),
+      second_player = str_trim(str_nth_non_numeric(.data$desc, n = 2)),
+      second_number = str_nth_number(.data$desc, n = 2),
+      third_player = str_trim(str_nth_non_numeric(.data$desc, n = 3)),
+      third_number = str_nth_number(.data$desc, n = 3)) %>%
     # dplyr::filter(! is.na(time)) %>%
-
     tidyr::separate(.data$time, into = c("minute", "second"), sep = ":", remove = FALSE) %>%
     dplyr::mutate(
       minute_start = as.numeric(.data$minute),
@@ -521,52 +520,63 @@ pbp_data <- function(data, game_id = game_id) {
     dplyr::filter(is.na(.data$time)) %>%
     dplyr::mutate(event_no = .data$event_no - 1) %>%
     dplyr::select(.data$event, .data$team, .data$event_no, .data$period_id) %>%
-    # dplyr::mutate(
-    #   team = stringr::str_replace_all(team, "#", ""),
-    #   offensive_player_one = str_trim(side = c("both"), str_nth_non_numeric(.data$team, n = 1)),
-    #   offensive_number_one = str_trim(side = c("both"), str_nth_number(.data$team, n = 1)),
-    #   offensive_player_two = str_trim(side = c("both"), str_nth_non_numeric(.data$team, n = 2)),
-    #   offensive_number_two = str_trim(side = c("both"), str_nth_number(.data$team, n = 2)),
-    #   offensive_player_three = str_trim(side = c("both"), str_nth_non_numeric(.data$team, n = 3)),
-    #   offensive_number_three = str_trim(side = c("both"), str_nth_number(.data$team, n = 3)),
-    #   offensive_player_four = str_trim(side = c("both"), str_nth_non_numeric(.data$team, n = 4)),
-    #   offensive_number_four = str_trim(side = c("both"), str_nth_number(.data$team, n = 4)),
-    #   offensive_player_five = str_trim(side = c("both"), str_nth_non_numeric(.data$team, n = 5)),
-    #   offensive_number_five = str_trim(side = c("both"), str_nth_number(.data$team, n = 5))
-    # ) %>%
-    dplyr::mutate(team = stringr::str_replace_all(team, abbreviations, ""),
-                team = stringr::str_replace_all(team, ne, ""),
-                number_one = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = stringr::str_replace(team, number_one, ""),
-                number_two = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = stringr::str_replace(team, number_two, ","),
-                number_three = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = stringr::str_replace(team, number_three, ","),
-                number_four = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = stringr::str_replace(team, number_four, ","),
-                number_five = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = stringr::str_replace(team, number_five, ","),
-                number_six = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = ifelse(! is.na(number_six), stringr::str_replace(team, number_six, ","), team)) %>%
-    separate(team, into = c("offensive_player_one", "offensive_player_two",
-                            "offensive_player_three", "offensive_player_four",
-                            "offensive_player_five", "offensive_player_six"),
-             sep = ",", remove = TRUE) %>%
-    mutate(
-      offensive_player_one = stringr::str_trim(offensive_player_one),
-      offensive_player_two = stringr::str_trim(offensive_player_two),
-      offensive_player_three = stringr::str_trim(offensive_player_three),
-      offensive_player_four = stringr::str_trim(offensive_player_four),
-      offensive_player_five = stringr::str_trim(offensive_player_five),
-      offensive_player_six = stringr::str_trim(offensive_player_six)
-      # defensive_player_two = stringr::str_trim(defensive_player_two),
-      # defensive_player_three = stringr::str_trim(defensive_player_three),
-      # defensive_player_four = stringr::str_trim(defensive_player_four),
-      # defensive_player_five = stringr::str_trim(defensive_player_five)
+    dplyr::mutate(
+      team = stringr::str_replace_all(team, "#", ""),
+      offensive_player_one = str_trim(side = c("both"), str_nth_non_numeric(.data$team, n = 1)),
+      offensive_number_one = str_trim(side = c("both"), str_nth_number(.data$team, n = 1)),
+      offensive_player_two = str_trim(side = c("both"), str_nth_non_numeric(.data$team, n = 2)),
+      offensive_number_two = str_trim(side = c("both"), str_nth_number(.data$team, n = 2)),
+      offensive_player_three = str_trim(side = c("both"), str_nth_non_numeric(.data$team, n = 3)),
+      offensive_number_three = str_trim(side = c("both"), str_nth_number(.data$team, n = 3)),
+      offensive_player_four = str_trim(side = c("both"), str_nth_non_numeric(.data$team, n = 4)),
+      offensive_number_four = str_trim(side = c("both"), str_nth_number(.data$team, n = 4)),
+      offensive_player_five = str_trim(side = c("both"), str_nth_non_numeric(.data$team, n = 5)),
+      offensive_number_five = str_trim(side = c("both"), str_nth_number(.data$team, n = 5))
     ) %>%
-    dplyr::select(-c(event, starts_with("number_")))
+  # dplyr::mutate(team = stringr::str_replace_all(team, abbreviations, ""),
+  #               team = stringr::str_replace_all(team, ne, ""),
+  #               number_one = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+  #               team = stringr::str_replace(team, number_one, ""),
+  #               number_two = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+  #               team = stringr::str_replace(team, number_two, ","),
+  #               number_three = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+  #               team = stringr::str_replace(team, number_three, ","),
+  #               number_four = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+  #               team = stringr::str_replace(team, number_four, ","),
+  #               number_five = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+  #               team = stringr::str_replace(team, number_five, ","),
+  #               number_six = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+  #               team = stringr::str_replace(team, number_six, ","),
+  #               number_seven = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+  #               team = stringr::str_replace(team, number_seven, ","),
+  #               number_eight = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+  #               team = stringr::str_replace(team, number_eight, ","),
+  #               number_nine = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+  #               team = stringr::str_replace(team, number_nine, ","),
+  #               number_ten = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+  #               team = stringr::str_replace(team, number_ten, ",")) %>%
+  #   separate(team, into = c("offensive_player_one", "offensive_player_two",
+  #                           "offensive_player_three", "offensive_player_four",
+  #                           "offensive_player_five", "defensive_player_one",
+  #                           "defensive_player_two", "defensive_player_three",
+  #                           "defensive_player_four", "defensive_player_five"),
+  #            sep = ",", remove = TRUE) %>%
+  #   mutate(
+  #     offensive_player_one = stringr::str_trim(offensive_player_one),
+  #     offensive_player_two = stringr::str_trim(offensive_player_two),
+  #     offensive_player_three = stringr::str_trim(offensive_player_three),
+  #     offensive_player_four = stringr::str_trim(offensive_player_four),
+  #     offensive_player_five = stringr::str_trim(offensive_player_five),
+  #     defensive_player_one = stringr::str_trim(defensive_player_one),
+  #     defensive_player_two = stringr::str_trim(defensive_player_two),
+  #     defensive_player_three = stringr::str_trim(defensive_player_three),
+  #     defensive_player_four = stringr::str_trim(defensive_player_four),
+  #     defensive_player_five = stringr::str_trim(defensive_player_five)
+  #   ) %>%
+    dplyr::select(-c(event, team, starts_with("number_")))
 
-  pbp <- pbp %>%
+  pbp <-
+    pbp %>%
     dplyr::left_join(on_ice, by = c("period_id", "event_no")) %>%
     dplyr::mutate(
       leader = str_extract(.data$score, "[A-Z]+"),
@@ -620,34 +630,6 @@ pbp_data <- function(data, game_id = game_id) {
 
   pbp <- pbp %>%
     dplyr::left_join(tm, by = character())
-
-  pbp <- pbp %>%
-    dplyr::mutate(desc2 = stringr::str_replace_all(description, away, ""),
-                  desc2 = stringr::str_replace_all(desc2, fill, ""),
-                  desc2 = stringr::str_replace_all(desc2, goalie, ""),
-                  desc2 = stringr::str_replace_all(desc2, fo, ""),
-                  desc2 = stringr::str_replace_all(desc2, ice, ""),
-                  desc2 = stringr::str_replace_all(desc2, shots, ""),
-                  desc2 = stringr::str_replace_all(desc2, res, ""),
-                  desc2 = stringr::str_replace_all(desc2, pen, ""),
-                  desc2 = stringr::str_replace_all(desc2, type, ""),
-                  desc2 = stringr::str_replace_all(desc2, shoot, ""),
-                  desc2 = stringr::str_replace_all(desc2, score_string, ""),
-                  desc2 = stringr::str_replace_all(desc2, lgh, ""),
-                  first_number = stringr::str_extract(desc2, "#[0-9]+"),
-                  desc2 = stringr::str_replace(desc2, first_number, ""),
-                  second_number = stringr::str_extract(desc2, "#[0-9]+"),
-                  desc2 = ifelse(! is.na(second_number), stringr::str_replace_all(desc2, second_number, ","), desc2),
-                  third_number = stringr::str_trim(stringr::str_extract(desc2, "#[0-9]+")),
-                  desc2 = ifelse(! is.na(third_number), stringr::str_replace_all(desc2, third_number, ","), desc2),
-                  first_number = stringr::str_trim(stringr::str_replace_all(first_number, "#", "")),
-                  second_number = stringr::str_trim(stringr::str_replace_all(second_number, "#", "")),
-                  third_number = stringr::str_trim(stringr::str_replace_all(third_number, "#", ""))) %>%
-    tidyr::separate(col = desc2, into = c("first_player", "second_player", "third_player"),
-                    sep = ",", remove = TRUE) %>%
-    dplyr::mutate(first_player = stringr::str_trim(first_player),
-                  second_player = stringr::str_trim(second_player),
-                  third_player = stringr::str_trim(third_player))
 
   gl <- pbp %>%
     dplyr::filter(.data$event == "Goalie") %>%
@@ -710,7 +692,7 @@ pbp_data <- function(data, game_id = game_id) {
 load_pbp <- function(game_id = 268078, format = "clean") {
 
   df <- phf_game_data(game_id = game_id)
-    # load_raw_data(game_id = game_id)
+  # load_raw_data(game_id = game_id)
 
   pbp <- pbp_data(data = df, game_id = game_id)
 
@@ -845,7 +827,6 @@ load_pbp <- function(game_id = 268078, format = "clean") {
         .data$offensive_player_three,
         .data$offensive_player_four,
         .data$offensive_player_five,
-        .data$offensive_player_six,
         .data$home_goalie,
         .data$away_goalie)
 
@@ -905,33 +886,33 @@ process_boxscore <- function(data) {
     score <- score %>%
       janitor::clean_names() %>%
       dplyr::rename("team" = "scoring",
-             "first_scoring" = "x1st",
-             "second_scoring" = "x2nd",
-             "third_scoring" = "x3rd",
-             "total_scoring" = "t")
+                    "first_scoring" = "x1st",
+                    "second_scoring" = "x2nd",
+                    "third_scoring" = "x3rd",
+                    "total_scoring" = "t")
 
   } else if (ncol(score) == 6) {
 
     score <- score %>%
       janitor::clean_names() %>%
       dplyr::rename("team" = "scoring",
-             "first_scoring" = "x1st",
-             "second_scoring" = "x2nd",
-             "third_scoring" = "x3rd",
-             "overtime_scoring" = "ot",
-             "total_scoring" = "t")
+                    "first_scoring" = "x1st",
+                    "second_scoring" = "x2nd",
+                    "third_scoring" = "x3rd",
+                    "overtime_scoring" = "ot",
+                    "total_scoring" = "t")
 
   } else if (ncol(score) == 7) {
 
     score <- score %>%
       janitor::clean_names() %>%
       dplyr::rename("team" = "scoring",
-             "first_scoring" = "x1st",
-             "second_scoring" = "x2nd",
-             "third_scoring" = "x3rd",
-             "overtime_scoring" = "ot",
-             "shootout_scoring" = "so",
-             "total_scoring" = "t") %>%
+                    "first_scoring" = "x1st",
+                    "second_scoring" = "x2nd",
+                    "third_scoring" = "x3rd",
+                    "overtime_scoring" = "ot",
+                    "shootout_scoring" = "so",
+                    "total_scoring" = "t") %>%
       dplyr::mutate(
         shootout_shots = str_nth_number(shootout_scoring, 3),
         shootout_scoring = str_nth_number(shootout_scoring, 1))
