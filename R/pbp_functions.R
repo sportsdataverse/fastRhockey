@@ -211,10 +211,8 @@ load_raw_data <- function(game_id = 268078) {
 #' @param data the dataframe of the shootout that you want parsed into a workable format of pbp data
 #' @importFrom janitor clean_names
 #' @importFrom dplyr mutate row_number select
-#' @importFrom stringr str_extract str_replace_all
+#' @importFrom stringr str_extract str_replace_all str_replace str_detect
 #' @importFrom tidyr separate
-#' @import tokenizers
-#' @import strex
 #' @export
 #' @examples
 #' \dontrun{
@@ -289,11 +287,9 @@ process_shootout <- function(data) {
 #'
 #' @param data the raw list data that is generated from the load_raw_data function
 #' @importFrom dplyr mutate bind_rows filter row_number select case_when pull
-#' @importFrom tidyr pivot_wider
+#' @importFrom tidyr pivot_wider separate fill
 #' @import rvest
 #' @import jsonlite
-#' @import tokenizers
-#' @import strex
 #' @export
 #' @examples \dontrun{
 #'   pbp_df <- pbp_data(data = df)
@@ -720,8 +716,6 @@ pbp_data <- function(data, game_id = game_id) {
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @import rvest
-#' @import tokenizers
-#' @import strex
 #' @export
 #' @examples
 #' \dontrun{
@@ -915,8 +909,6 @@ boxscore <- data.frame(
 #' @description process_boxscore: the code for processing box score data into a format that makes sense
 #'
 #' @param data the raw data from the game that you're interested in
-#' @import tokenizers
-#' @import strex
 #' @export
 #' @examples
 #' \dontrun{
