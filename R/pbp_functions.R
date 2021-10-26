@@ -1071,7 +1071,7 @@ load_boxscore <- function(game_id = 268078) {
 }
 
 #' @title load_game
-#' @description load_game: loads boxscore and pbp data into a list to load both at once for a given game
+#' @description load_game: loads boxscore/pbp data into a list to load both at once for a given game
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @export
