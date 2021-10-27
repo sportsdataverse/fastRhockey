@@ -265,9 +265,14 @@ process_shootout <- function(data) {
       second_number = stringr::str_extract(.data$desc2, "#[0-9]+"),
       desc2 = stringr::str_replace(.data$desc2, second_number, ","),
       first_number = stringr::str_trim(stringr::str_replace(.data$first_number, "#", "")),
-      second_number = stringr::str_trim(stringr::str_replace(.data$second_number, "#", ""))) %>%
-    tidyr::separate(desc2, into = c("first_player", "second_player"),
-                    sep = ",") %>%
+      second_number = stringr::str_trim(stringr::str_replace(.data$second_number, "#", "")))
+
+  suppressWarnings(
+    data <- data %>%
+      tidyr::separate(desc2, into = c("first_player", "second_player"),
+                      sep = ","))
+
+  data <- data %>%
     dplyr::mutate(first_player = stringr::str_trim(first_player),
                   second_player = stringr::str_trim(second_player)) %>%
     dplyr::select(-c(desc)) %>%
@@ -504,7 +509,7 @@ pbp_data <- function(data, game_id = game_id) {
       # score = ifelse(is.na(score), '0 - 0 T', score),
       # leader = str_extract(score, "[A-Z]+"),
       desc = str_replace_all(.data$desc, score_string, ""),
-      desc = str_replace_all(str_trim(.data$desc, side = "both"),"#", "")) %>%
+      desc = str_replace_all(str_trim(.data$desc, side = "both"),"#", ""))
       # cleaning up score data
       # first_player = str_trim(str_nth_non_numeric(.data$desc, n = 1)),
       # first_player = str_replace_all(first_player, fill, ""),
@@ -517,8 +522,10 @@ pbp_data <- function(data, game_id = game_id) {
       # third_player = str_trim(str_nth_non_numeric(.data$desc, n = 3)),
       # third_number = str_nth_number(.data$desc, n = 3)) %>%
     # dplyr::filter(! is.na(time)) %>%
+  suppressWarnings(pbp <- pbp %>%
+    tidyr::separate(.data$time, into = c("minute", "second"), sep = ":", remove = FALSE))
 
-    tidyr::separate(.data$time, into = c("minute", "second"), sep = ":", remove = FALSE) %>%
+  pbp <- pbp %>%
     dplyr::mutate(
       minute_start = as.numeric(.data$minute),
       second_start = as.numeric(.data$second),
