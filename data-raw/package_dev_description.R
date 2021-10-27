@@ -14,7 +14,8 @@ my_desc$set("Package", "whockeyR")
 my_desc$set(
   "Authors@R",
   "c(person('Ben', 'Howell', email = 'benhowell71@gmail.com', role = c('cre', 'aut')),
-     person('Saiem', 'Gilani', email = 'saiem.gilani@gmail.com', role = c('ctb'))
+     person('Saiem', 'Gilani', email = 'saiem.gilani@gmail.com', role = c('ctb')),
+    person('Alyssa', 'Longmuir', 'aklongmuir@gmail.com', role = 'ctb')
      )"
 )
 
@@ -25,7 +26,7 @@ my_desc$del("Maintainer")
 my_desc$set_version("0.0.1")
 
 # The title of your package
-my_desc$set(Title = "Functions to Access College Football Play by Play Data")
+my_desc$set(Title = "Functions to Access Premier Hockey Federation Play-by-Play Data")
 # The description of your package
 my_desc$set(Description = "The whockeyR package was created to scrape play-by-play data and statistics from the Premier Hockey Federation (PHF), formerly known as the National Women's Hockey League (NWHL).")
 # The urls
@@ -49,8 +50,8 @@ usethis::use_package("janitor")
 usethis::use_package("jsonlite")
 usethis::use_package("progressr", min_version = "0.6.0")
 usethis::use_package("qs", min_version = "0.24.0")
-usethis::use_package("Rcpp", min_version = "1.0.7")
-usethis::use_package("RcppParallel", min_version = "5.1.4")
+# usethis::use_package("Rcpp", min_version = "1.0.7")
+# usethis::use_package("RcppParallel", min_version = "5.1.4")
 usethis::use_package("rlang", min_version = "0.4.0")
 usethis::use_package("rvest", min_version = "1.0.0")
 usethis::use_package("stringi", type = "Suggests")

@@ -654,7 +654,7 @@ pbp_data <- function(data, game_id = game_id) {
     tidyr::fill(.data$start_power_play) %>%
     tidyr::fill(.data$end_power_play) %>%
     # ID'ing PP situations by whether the timestamp is within the time passed from when the penalty was given
-    # any situation that isn't special, i.e. as a PP or Empty Net get replaced by Even Strenght
+    # any situation that isn't special, i.e. as a PP or Empty Net get replaced by Even Strength
     dplyr::mutate(
       on_ice_situation = ifelse((.data$sec_from_start >= .data$start_power_play &
                                    .data$sec_from_start <= .data$end_power_play) |

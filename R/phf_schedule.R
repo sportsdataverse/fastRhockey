@@ -2,6 +2,8 @@
 #'
 #' @param season Season (YYYY) to pull the league info and IDs for. Season is the concluding year in XXXX-YY format
 #' @import rvest
+#' @import dplyr
+#' @import httr
 #' @importFrom jsonlite fromJSON
 #' @export
 #' @examples
@@ -50,6 +52,9 @@ phf_league_info <- function(season = 2022){
 #'
 #' @param season Season (YYYY) to pull the schedule from, the concluding year in XXXX-YY format
 #' @import rvest
+#' @import dplyr
+#' @import httr
+#' @importFrom glue glue
 #' @export
 #' @examples
 #' \dontrun{
@@ -104,9 +109,9 @@ phf_schedule <- function(season = 2021){
   )
 
   schedule_data <- schedule_data %>%
-    mutate(winner = ifelse(away_score > home_score, away_team,
-                           ifelse(home_score > away_score, home_team,
-                                  ifelse(home_score == away_score, "Tie", NA))))
+    dplyr::mutate(winner = ifelse(away_score > home_score, away_team,
+                                ifelse(home_score > away_score, home_team,
+                                    ifelse(home_score == away_score, "Tie", NA))))
 
   return(schedule_data)
 }

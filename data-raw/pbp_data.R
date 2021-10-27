@@ -1,23 +1,23 @@
-source('R/pbp_functions.R')
-
-a <- Sys.time()
-
-rg <- load_pbp(game_id = 268078)
-rg_messy <- load_pbp(game_id = 268078, format = "messy")
-
-rg_box <- load_boxscore(game_id = 268078)
-
-ot <- load_pbp(game_id = 268116)
-ot2 <- load_pbp(game_id = 268116, format = "messy")
-
-ot_box <- load_boxscore(game_id = 268116)
-
-so <- load_pbp(game_id = 268123)
-so2 <- load_pbp(game_id = 268123, format = "m")
-
-so_box <- load_boxscore(game_id = 268123)
-
-Sys.time() - a
+# source('R/pbp_functions.R')
+#
+# a <- Sys.time()
+#
+# rg <- load_pbp(game_id = 268078)
+# rg_messy <- load_pbp(game_id = 268078, format = "messy")
+#
+# rg_box <- load_boxscore(game_id = 268078)
+#
+# ot <- load_pbp(game_id = 268116)
+# ot2 <- load_pbp(game_id = 268116, format = "messy")
+#
+# ot_box <- load_boxscore(game_id = 268116)
+#
+# so <- load_pbp(game_id = 268123)
+# so2 <- load_pbp(game_id = 268123, format = "m")
+#
+# so_box <- load_boxscore(game_id = 268123)
+#
+# Sys.time() - a
 
 # g <- wehoop::espn_wnba_game_all(game_id = 401322870)
 #

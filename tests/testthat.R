@@ -1,4 +1,4 @@
-library(testthat)
-library(whockeyR)
-
-test_check("whockeyR")
+# library(testthat)
+# library(whockeyR)
+#
+# test_check("whockeyR")

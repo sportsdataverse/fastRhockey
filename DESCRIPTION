@@ -3,7 +3,8 @@ Title: Functions to Access Premier Hockey Federation Play by Play Data
 Version: 0.0.1
 Authors@R: c(
     person("Ben", "Howell", , "benhowell71@gmail.com", role = c("cre", "aut")),
-    person("Saiem", "Gilani", , "saiem.gilani@gmail.com", role = "ctb")
+    person("Saiem", "Gilani", , "saiem.gilani@gmail.com", role = "ctb"),
+    person("Alyssa", "Longmuir", "aklongmuir@gmail.com", role = "ctb")
   )
 Description: The whockeyR package was created to scrape play-by-play data
     and statistics from the Premier Hockey Federation (PHF), formerly

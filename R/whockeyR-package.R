@@ -5,6 +5,6 @@
 # roxygen namespace tags. Modify with care!
 ## usethis namespace: start
 #' @importFrom janitor clean_names
-#' @importFrom stringr str_c
+#' @import stringr
 ## usethis namespace: end
 NULL
