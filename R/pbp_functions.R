@@ -19,8 +19,11 @@ ne <- "On Ice"
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @import rvest
+#' @import httr
+#' @import dplyr
 #' @importFrom jsonlite parse_json
 #' @importFrom purrr pluck
+#' @importFrom glue glue
 #' @export
 #' @examples
 #' \dontrun{
@@ -178,6 +181,10 @@ process_period <- function(data, period = 1) {
 #' @description load_raw_data: pull in the raw data for a game_id from the PHF/NWHL API
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
+#' @import rvest
+#' @import httr
+#' @import purrr
+#' @import jsonlite
 #' @export
 #' @examples
 #' \dontrun{
@@ -274,7 +281,7 @@ process_shootout <- function(data) {
                   second_player = stringr::str_trim(second_player)) %>%
     dplyr::select(-c(desc)) %>%
     # adding an extra line of cleaning in bc things sometimes remained weird
-    mutate(
+    dplyr::mutate(
       first_player = stringr::str_trim(stringr::str_replace(first_player,
                                                             "missed attempt|scores", "")),
       second_player = stringr::str_trim(stringr::str_replace(second_player,
@@ -289,9 +296,9 @@ process_shootout <- function(data) {
 #' @description pbp_data: returns all of the play-by-play data for a game into on big data frame using the process_period/shootout functions. Contains functionality to account for regulation games, overtime games, and shootouts
 #'
 #' @param data the raw list data that is generated from the load_raw_data function
-#' @importFrom dplyr mutate bind_rows filter row_number select case_when pull
+#' @importFrom dplyr mutate bind_rows filter row_number select case_when pull starts_with ends_with
 #' @importFrom tidyr pivot_wider separate fill
-#' @importFrom stringr str_replace str_replace_all str_extract str_extract_all str_detect
+#' @importFrom stringr str_replace str_replace_all str_extract str_extract_all str_detect str_trim
 #' @import rvest
 #' @import jsonlite
 #' @export
@@ -465,7 +472,7 @@ pbp_data <- function(data, game_id = game_id) {
       # cleaning up penalty data
       score = stringr::str_extract(.data$desc, score_string),
       desc = stringr::str_replace_all(.data$desc, score_string, ""),
-      desc = stringr::str_replace_all(str_trim(.data$desc, side = "both"),"#", ""))
+      desc = stringr::str_replace_all(stringr::str_trim(.data$desc, side = "both"),"#", ""))
       # cleaning up score data
   # wrapping a separate function with suppressWarnings to prevent it from spitting out a 'NA' fill message
   suppressWarnings(pbp <- pbp %>%
@@ -514,7 +521,7 @@ pbp_data <- function(data, game_id = game_id) {
                 # otherwise it just pastes the description there without touching it
                 team = ifelse(! is.na(number_six), stringr::str_replace(team, number_six, ","), team)) %>%
     # using the comma separators, separate the string into offensive_player one through six
-    separate(team, into = c("offensive_player_one", "offensive_player_two",
+    tidyr::separate(team, into = c("offensive_player_one", "offensive_player_two",
                             "offensive_player_three", "offensive_player_four",
                             "offensive_player_five", "offensive_player_six"),
              sep = ",", remove = TRUE) %>%
@@ -528,7 +535,7 @@ pbp_data <- function(data, game_id = game_id) {
       offensive_player_six = stringr::str_trim(offensive_player_six)
     ) %>%
     # de-selecting the unimportant columns
-    dplyr::select(-c(event, starts_with("number_")))
+    dplyr::select(-c(event, dplyr::starts_with("number_")))
 
   pbp <- pbp %>%
     dplyr::left_join(on_ice, by = c("period_id", "event_no")) %>%
@@ -676,7 +683,11 @@ pbp_data <- function(data, game_id = game_id) {
 #' @description load_pbp: loads all the play-by-play data for a game into one data frame through just one function
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
+#' @importFrom dplyr mutate bind_rows filter row_number select case_when pull starts_with ends_with
+#' @importFrom tidyr pivot_wider separate fill
+#' @importFrom stringr str_replace str_replace_all str_extract str_extract_all str_detect str_trim
 #' @import rvest
+#' @import jsonlite
 #' @export
 #' @examples
 #' \dontrun{
@@ -874,10 +885,12 @@ boxscore <- data.frame(
 #' @description process_boxscore: the code for processing box score data into a format that makes sense
 #'
 #' @param data the raw data from the game that you're interested in
+#' @importFrom dplyr mutate bind_rows filter row_number select case_when pull starts_with ends_with
+#' @importFrom tidyr pivot_wider separate fill
+#' @importFrom stringr str_replace str_replace_all str_extract str_extract_all str_detect str_trim
 #' @importFrom janitor clean_names
-#' @importFrom stringr str_replace
-#' @importFrom tidyr separate pivot_longer pivot_wider
-#' @import dplyr
+#' @import rvest
+#' @import jsonlite
 #' @export
 #' @examples
 #' \dontrun{
@@ -1003,6 +1016,7 @@ process_boxscore <- function(data) {
 #' @import janitor
 #' @import httr
 #' @import stringr
+#' @import jsonlite
 #' @export
 #' @examples
 #' \dontrun{
@@ -1045,6 +1059,11 @@ load_boxscore <- function(game_id = 268078) {
 #' @description load_game: loads boxscore/pbp data into a list to load both at once for a given game
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
+#' @import rvest
+#' @import janitor
+#' @import httr
+#' @import stringr
+#' @import jsonlite
 #' @export
 #' @examples
 #' \dontrun{
