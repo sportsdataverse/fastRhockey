@@ -832,8 +832,8 @@ load_pbp <- function(game_id = 268078, format = "clean") {
     rownames_to_column("sec_from_start")%>%
     mutate(sec_from_start = as.numeric(sec_from_start))
 
-  pbp <- left_join(pbp, home_skaters)
-  pbp <- left_join(pbp, away_skaters)
+  suppressMessages(pbp <- left_join(pbp, home_skaters))
+  suppressMessages(pbp <- left_join(pbp, away_skaters))
 
   pbp <- pbp %>%
     dplyr::mutate(
