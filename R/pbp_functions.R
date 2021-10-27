@@ -198,6 +198,7 @@ load_raw_data <- function(game_id = 268078) {
     rvest::html_table()
 
 }
+
 #' @title process_shootout
 #' @description process_shootout: processes the raw data of a shootout from a PHF game
 #'
@@ -301,12 +302,6 @@ process_shootout <- function(data) {
 ## data takes the raw list of data from the load_raw_data function
 pbp_data <- function(data, game_id = game_id) {
 
-  # l <- length(data) - 2
-  # c <- data[[l]]
-  # c <- c %>% clean_names()
-  # y <- sum(c$x1st) + 1
-  # z <- y + sum(c$x2nd)
-
   lst <- list()
   # creating an empty list
 
@@ -333,39 +328,12 @@ pbp_data <- function(data, game_id = game_id) {
     dplyr::mutate(order = dplyr::row_number()) %>%
     dplyr::filter(.data$order > 0, .data$order < 6)
 
-  # tm <- data[[max(length(data)) - 1]] %>%
-  #   # taking the second to last table bc that is always shots (or goals? now I don't remember)
-  #   # either way, the away team is always on top so we can extract home/away from this
-  #   janitor::clean_names() %>%
-  #   dplyr::mutate(
-  #     order = dplyr::row_number(),
-  #     meta = dplyr::case_when(
-  #       .data$order == 1 ~ "away_team",
-  #       .data$order == 2 ~ "home_team",
-  #       TRUE ~ NA_character_)) %>%
-  #   dplyr::select(.data$shots, .data$meta) %>%
-  #   tidyr::pivot_wider(values_from = .data$shots, names_from = .data$meta)
-
-  # for (a in 2016:2021) {
-  #
-  #   b <- phf_schedule(season = a)
-  #
-  #   lst[[a]] <- b
-  #
-  # }
-  #
-  # gms <- bind_rows(lst)
-
   # renaming the game_id variable bc otherwise it doesn't work
   g <- game_id
 
   # loading in pre-made meta data csv from GitHub bc that's quicker than running a loop through phf_schedule
   tm <- read.csv("https://raw.githubusercontent.com/benhowell71/whockeyR/main/phf_meta_data.csv") %>%
     dplyr::filter(game_id == g) %>%
-    # dplyr::select(game_id, home_team, home_team_short,
-    #               away_team, away_team_short) %>%
-    # mutate(home_team = paste0(home_team, home_team_short),
-    #        away_team = paste0(away_team, away_team_short)) %>%
     dplyr::select(home_team, away_team)
 
   # creating the pbp dataframes for regulation, OT, or shootout games
@@ -384,9 +352,6 @@ pbp_data <- function(data, game_id = game_id) {
     first_period <- data[[e]]
     second_period <- data[[f]]
     third_period <- data[[g]]
-
-    # second_period <- data[[2]]
-    # third_period <- data[[4]]
 
     first_period <- process_period(data = first_period, period = 1)
 
@@ -417,9 +382,6 @@ pbp_data <- function(data, game_id = game_id) {
     second_period <- data[[f]]
     third_period <- data[[g]]
     fourth_period <- data[[h]]
-
-    # second_period <- data[[2]]
-    # third_period <- data[[4]]
 
     first_period <- process_period(data = first_period, period = 1)
 
@@ -457,9 +419,6 @@ pbp_data <- function(data, game_id = game_id) {
     third_period <- data[[g]]
     fourth_period <- data[[h]]
     shootout <- data[[i]]
-
-    # second_period <- data[[2]]
-    # third_period <- data[[4]]
 
     first_period <- process_period(data = first_period, period = 1)
 
@@ -505,8 +464,6 @@ pbp_data <- function(data, game_id = game_id) {
       penalty = ifelse(!is.na(.data$penalty_type), 1, 0),
       # cleaning up penalty data
       score = stringr::str_extract(.data$desc, score_string),
-      # score = ifelse(is.na(score), '0 - 0 T', score),
-      # leader = str_extract(score, "[A-Z]+"),
       desc = stringr::str_replace_all(.data$desc, score_string, ""),
       desc = stringr::str_replace_all(str_trim(.data$desc, side = "both"),"#", ""))
       # cleaning up score data
@@ -672,7 +629,6 @@ pbp_data <- function(data, game_id = game_id) {
 
   gl <- pbp %>%
     dplyr::filter(.data$event == "Goalie") %>%
-    # filter(str_detect(description, "Starting|Returned"))
     dplyr::select(
       .data$home_team, .data$away_team, .data$team, .data$description,
       .data$first_player, .data$event, .data$sec_from_start) %>%
@@ -730,7 +686,6 @@ load_pbp <- function(game_id = 268078, format = "clean") {
 
   # load raw data in from the api
   df <- phf_game_data(game_id = game_id)
-    # load_raw_data(game_id = game_id)
 
   # transform raw data into a pbp dataframe
   pbp <- pbp_data(data = df, game_id = game_id)
@@ -1098,7 +1053,6 @@ load_boxscore <- function(game_id = 268078) {
 load_game <- function(game_id = 268078) {
 
   # returns both boxscore and pbp data in a single list
-
   box <- load_boxscore(game_id = game_id)
 
   pbp <- load_pbp(game_id = game_id)
