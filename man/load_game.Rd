@@ -10,7 +10,7 @@ load_game(game_id = 268078)
 \item{game_id}{The unique ID code for the game that you are interested in viewing the data for}
 }
 \description{
-load_game: loads boxscore and pbp data into a list to load both at once for a given game
+load_game: loads boxscore/pbp data into a list to load both at once for a given game
 }
 \examples{
 \dontrun{

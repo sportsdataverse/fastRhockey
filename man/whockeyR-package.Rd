@@ -31,6 +31,7 @@ Useful links:
 Other contributors:
 \itemize{
   \item Saiem Gilani \email{saiem.gilani@gmail.com} [contributor]
+  \item Alyssa aklongmuir@gmail.com Longmuir [contributor]
 }
 
 
@@ -39,6 +40,7 @@ Other contributors:
 Other contributors:
 \itemize{
   \item Saiem Gilani \email{saiem.gilani@gmail.com} [contributor]
+  \item Alyssa aklongmuir@gmail.com Longmuir [contributor]
 }
 
 }
