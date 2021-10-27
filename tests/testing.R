@@ -1,7 +1,7 @@
 require(tidyverse)
 require(rvest)
-require(strex)
-require(tokenizers)
+# require(strex)
+# require(tokenizers)
 
 source('R/pbp_functions.R')
 source('R/phf_schedule.R')
