@@ -689,6 +689,7 @@ pbp_data <- function(data, game_id = game_id) {
                   desc2 = stringr::str_replace_all(desc2, lgh, ""),
                   first_number = stringr::str_extract(desc2, "#[0-9]+"),
                   desc2 = stringr::str_replace(desc2, first_number, ""),
+                  # don't replace first number with a comma because there is no name in front of the first number
                   second_number = stringr::str_extract(desc2, "#[0-9]+"),
                   # since there isn't always a second or third player involved in a play, using an ifelse statement
                   # to figure out if there was a player, then replacing them if so
