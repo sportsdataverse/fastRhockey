@@ -162,8 +162,6 @@ process_period <- function(data, period = 1) {
       description = .data$play) %>%
     # only taking events that match to actual on ice stuff
     dplyr::filter(!stringr::str_detect(.data$event, 'On Ice')) %>%
-    # filter(event != "Timeout") %>%
-    # dplyr::filter(! grepl("On"))
     janitor::remove_empty(which = c("cols"), quiet = TRUE) %>%
     # since the NWHL/PHF website has an 'expansion' tab for goals
     # that gets put into the description column weirdly
@@ -186,15 +184,6 @@ process_period <- function(data, period = 1) {
 #'   df <- load_raw_data(game_id = 268078)
 #' }
 load_raw_data <- function(game_id = 268078) {
-
-  # if (!is.na(ticket)) {
-  #     auth_ticket <- ticket
-  # } else {
-  #   auth_ticket <- getOption(
-  #     "whockeyR.phf_ticket",
-  #     default = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO'
-  #   )
-  # }
 
   link <- paste0("https://web.api.digitalshift.ca/partials/stats/game/play-by-play?game_id=", game_id)
   # the link for the game + authorization for accessing the API
@@ -244,14 +233,10 @@ process_shootout <- function(data) {
       event_no = dplyr::row_number(),
       description = .data$play,
       desc = stringr::str_replace_all(.data$play, "#", ""),
-      # first_number = str_nth_number(.data$desc, 1),
-      # second_number = str_nth_number(.data$desc, 2),
       desc = stringr::str_replace_all(.data$desc, shoot, ""),
       score = stringr::str_extract(.data$desc, score_string),
       desc = stringr::str_replace_all(.data$desc, score_string, ""),
       desc = stringr::str_replace_all(str_trim(.data$desc, side = "both"),"#", ""),
-      # first_player = str_nth_non_numeric(.data$desc, n = 1),
-      # second_player = str_nth_non_numeric(.data$desc, n = 2),
       leader = stringr::str_extract(.data$score, "[A-Z]+"),
       scr = stringr::str_replace_all(.data$score, "[A-Z]+", "")) %>%
     dplyr::select(-.data$play) %>%
@@ -525,17 +510,6 @@ pbp_data <- function(data, game_id = game_id) {
       desc = stringr::str_replace_all(.data$desc, score_string, ""),
       desc = stringr::str_replace_all(str_trim(.data$desc, side = "both"),"#", ""))
       # cleaning up score data
-      # first_player = str_trim(str_nth_non_numeric(.data$desc, n = 1)),
-      # first_player = str_replace_all(first_player, fill, ""),
-      # first_player = str_replace_all(first_player, pen, ""),
-      # first_player = str_replace_all(first_player, shoot, ""),
-      # first_player = str_trim(first_player),
-      # first_number = str_nth_number(.data$desc, n = 1),
-      # second_player = str_trim(str_nth_non_numeric(.data$desc, n = 2)),
-      # second_number = str_nth_number(.data$desc, n = 2),
-      # third_player = str_trim(str_nth_non_numeric(.data$desc, n = 3)),
-      # third_number = str_nth_number(.data$desc, n = 3)) %>%
-    # dplyr::filter(! is.na(time)) %>%
   # wrapping a separate function with suppressWarnings to prevent it from spitting out a 'NA' fill message
   suppressWarnings(pbp <- pbp %>%
     tidyr::separate(.data$time, into = c("minute", "second"),
@@ -560,19 +534,6 @@ pbp_data <- function(data, game_id = game_id) {
     dplyr::filter(is.na(.data$time)) %>%
     dplyr::mutate(event_no = .data$event_no - 1) %>%
     dplyr::select(.data$event, .data$team, .data$event_no, .data$period_id) %>%
-    # dplyr::mutate(
-    #   team = stringr::str_replace_all(team, "#", ""),
-    #   offensive_player_one = str_trim(side = c("both"), str_nth_non_numeric(.data$team, n = 1)),
-    #   offensive_number_one = str_trim(side = c("both"), str_nth_number(.data$team, n = 1)),
-    #   offensive_player_two = str_trim(side = c("both"), str_nth_non_numeric(.data$team, n = 2)),
-    #   offensive_number_two = str_trim(side = c("both"), str_nth_number(.data$team, n = 2)),
-    #   offensive_player_three = str_trim(side = c("both"), str_nth_non_numeric(.data$team, n = 3)),
-    #   offensive_number_three = str_trim(side = c("both"), str_nth_number(.data$team, n = 3)),
-    #   offensive_player_four = str_trim(side = c("both"), str_nth_non_numeric(.data$team, n = 4)),
-    #   offensive_number_four = str_trim(side = c("both"), str_nth_number(.data$team, n = 4)),
-    #   offensive_player_five = str_trim(side = c("both"), str_nth_non_numeric(.data$team, n = 5)),
-    #   offensive_number_five = str_trim(side = c("both"), str_nth_number(.data$team, n = 5))
-    # ) %>%
     # extracting player name and number from the description for who is on the ice when a goal was scored
     # the order (player_one vs player_five) doesn't mean anything
     # but with the way str_extract/replace works, we're just pulling the first instance of each number
@@ -608,10 +569,6 @@ pbp_data <- function(data, game_id = game_id) {
       offensive_player_four = stringr::str_trim(offensive_player_four),
       offensive_player_five = stringr::str_trim(offensive_player_five),
       offensive_player_six = stringr::str_trim(offensive_player_six)
-      # defensive_player_two = stringr::str_trim(defensive_player_two),
-      # defensive_player_three = stringr::str_trim(defensive_player_three),
-      # defensive_player_four = stringr::str_trim(defensive_player_four),
-      # defensive_player_five = stringr::str_trim(defensive_player_five)
     ) %>%
     # de-selecting the unimportant columns
     dplyr::select(-c(event, starts_with("number_")))
