@@ -686,6 +686,7 @@ pbp_data <- function(data, game_id = game_id) {
 #' @importFrom dplyr mutate bind_rows filter row_number select case_when pull starts_with ends_with
 #' @importFrom tidyr pivot_wider separate fill
 #' @importFrom stringr str_replace str_replace_all str_extract str_extract_all str_detect str_trim
+#' @importFrom tibble rownames_to_column
 #' @import rvest
 #' @import jsonlite
 #' @export
@@ -715,10 +716,10 @@ load_pbp <- function(game_id = 268078, format = "clean") {
 
   # figuring out how many skaters are on the ice at a single time
   away_state_changes <- pbp %>%
-    filter((event == "PP Goal" & str_detect(team, home_team)) |
-             (event == "Penalty" & str_detect(team, away_team))) %>%
-    select(event,sec_from_start,power_play_seconds) %>%
-    mutate(event = ifelse(event == "Penalty", 1, 2),
+    dplyr::filter((event == "PP Goal" & stringr::str_detect(team, home_team)) |
+             (event == "Penalty" & stringr::str_detect(team, away_team))) %>%
+    dplyr::select(event,sec_from_start,power_play_seconds) %>%
+    dplyr::mutate(event = ifelse(event == "Penalty", 1, 2),
            prev.event = lag(event),
            prev.time = lag(sec_from_start),
            prev.length = lag(power_play_seconds))
@@ -754,14 +755,14 @@ load_pbp <- function(game_id = 268078, format = "clean") {
   away_skaters <- 5 + apply(away_pen_mat, 1, sum)
 
   away_skaters <- as.data.frame(away_skaters) %>%
-    rownames_to_column("sec_from_start")%>%
-    mutate(sec_from_start = as.numeric(sec_from_start))
+    tibble::rownames_to_column("sec_from_start")%>%
+    dplyr::mutate(sec_from_start = as.numeric(sec_from_start))
 
   home_state_changes <- pbp %>%
-    filter((event == "PP Goal" & str_detect(team, away_team)) |
-             (event == "Penalty" & str_detect(team, home_team))) %>%
-    select(event,sec_from_start,power_play_seconds) %>%
-    mutate(event = ifelse(event == "Penalty",1,2),
+    dplyr::filter((event == "PP Goal" & stringr::str_detect(team, away_team)) |
+             (event == "Penalty" & stringr::str_detect(team, home_team))) %>%
+    dplyr::select(event,sec_from_start,power_play_seconds) %>%
+    dplyr::mutate(event = ifelse(event == "Penalty",1,2),
            prev.event = lag(event),
            prev.time = lag(sec_from_start),
            prev.length = lag(power_play_seconds))
@@ -797,8 +798,8 @@ load_pbp <- function(game_id = 268078, format = "clean") {
   home_skaters <- 5 + apply(home_pen_mat, 1, sum)
 
   home_skaters <- as.data.frame(home_skaters) %>%
-    rownames_to_column("sec_from_start")%>%
-    mutate(sec_from_start = as.numeric(sec_from_start))
+    tibble::rownames_to_column("sec_from_start")%>%
+    dplyr::mutate(sec_from_start = as.numeric(sec_from_start))
 
   suppressMessages(pbp <- left_join(pbp, home_skaters))
   suppressMessages(pbp <- left_join(pbp, away_skaters))
