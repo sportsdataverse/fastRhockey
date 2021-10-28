@@ -297,7 +297,7 @@ process_shootout <- function(data) {
 #'
 #' @param data the raw list data that is generated from the load_raw_data function
 #' @importFrom dplyr mutate bind_rows filter row_number select case_when pull starts_with ends_with
-#' @importFrom tidyr pivot_wider separate fill
+#' @importFrom tidyr pivot_wider separate fill replace_na
 #' @importFrom stringr str_replace str_replace_all str_extract str_extract_all str_detect str_trim
 #' @import rvest
 #' @import jsonlite
@@ -581,7 +581,7 @@ pbp_data <- function(data, game_id = game_id) {
                                    .data$sec_from_start <= .data$end_power_play) |
                                   (.data$on_ice_situation == "Power Play"), "Power Play",
                                 .data$on_ice_situation),
-      on_ice_situation = replace_na(.data$on_ice_situation, "Even Strength"))
+      on_ice_situation = tidyr::replace_na(.data$on_ice_situation, "Even Strength"))
 
   if (nrow(tb) >= 5) {
     # adding shootout data to the regulation/OT pbp if there was a shootout
