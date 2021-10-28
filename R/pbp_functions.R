@@ -821,10 +821,10 @@ load_pbp <- function(game_id = 268078, format = "clean") {
   # and deals with more than two penalties at one time for a single team
   pbp <- pbp %>%
     dplyr::mutate(
-      home_skaters = ifelse(is.na(home_goalie), home_skaters + 1, home_skaters),
-      away_skaters = ifelse(is.na(away_goalie), away_skaters + 1, away_skaters),
       home_skaters = ifelse(home_skaters < 3, 3, home_skaters),
-      away_skaters = ifelse(away_skaters < 3, 3, away_skaters)
+      away_skaters = ifelse(away_skaters < 3, 3, away_skaters),
+      home_skaters = ifelse(is.na(home_goalie), home_skaters + 1, home_skaters),
+      away_skaters = ifelse(is.na(away_goalie), away_skaters + 1, away_skaters)
     )
 
   if (format == "clean") {
