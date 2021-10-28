@@ -712,7 +712,7 @@ load_pbp <- function(game_id = 268078, format = "clean") {
 
   # some last minute stuff
   pbp <- pbp %>%
-    dplyr::filter(!is.na(.data$description)) %>%
+    dplyr::filter(! is.na(.data$description)) %>%
     dplyr::mutate(
       game_id = x,
       event_no = dplyr::row_number(),
@@ -723,7 +723,7 @@ load_pbp <- function(game_id = 268078, format = "clean") {
   away_state_changes <- pbp %>%
     dplyr::filter((event == "PP Goal" & stringr::str_detect(team, home_team)) |
              (event == "Penalty" & stringr::str_detect(team, away_team))) %>%
-    dplyr::select(event,sec_from_start,power_play_seconds) %>%
+    dplyr::select(event, sec_from_start, power_play_seconds) %>%
     dplyr::mutate(event = ifelse(event == "Penalty", 1, 2),
            prev.event = lag(event),
            prev.time = lag(sec_from_start),
@@ -772,7 +772,6 @@ load_pbp <- function(game_id = 268078, format = "clean") {
            prev.time = lag(sec_from_start),
            prev.length = lag(power_play_seconds))
 
-
   home_pen_mat <- apply(home_state_changes,
                         1,
                         FUN = function(x) {
@@ -805,6 +804,31 @@ load_pbp <- function(game_id = 268078, format = "clean") {
   home_skaters <- as.data.frame(home_skaters) %>%
     tibble::rownames_to_column("sec_from_start")%>%
     dplyr::mutate(sec_from_start = as.numeric(sec_from_start))
+#
+#   away_state_changes <- away_state_changes %>%
+#     dplyr::mutate(change_skaters = ifelse(event == 1, -1,
+#                                    ifelse(event == 2, 1, NA)))
+#
+#   home_state_changes <- home_state_changes %>%
+#     dplyr::mutate(change_skaters = ifelse(event == 1, -1,
+#                                    ifelse(event == 2, 1, NA)))
+#
+#   away_skaters <- away_skaters  %>%
+#     dplyr::mutate(normal_skaters = 5)
+#
+#   away_skaters %>%
+#     left_join(away_state_changes %>%
+#                 dplyr::select(sec_from_start, power_play_seconds,
+#                               change_skaters) %>%
+#                 dplyr::mutate(end_power_play = sec_from_start + power_play_seconds)) %>%
+#     tidyr::fill(end_power_play) %>%
+#     # tidyr::fill(change_skaters) %>%
+#     dplyr::mutate(skaters = ifelse(sec_from_start <= end_power_play,
+#                                    normal_skaters + change_skaters, normal_skaters),
+#                   skaters = ifelse(sec_from_start <= end_power_play, lag(skaters), skaters)) -> f
+#
+#   home_skaters <- home_skaters %>%
+#     dplyr::mutate(normal_skaters = 5)
 
   suppressMessages(pbp <- left_join(pbp, home_skaters))
   suppressMessages(pbp <- left_join(pbp, away_skaters))
