@@ -519,12 +519,17 @@ pbp_data <- function(data, game_id = game_id) {
                 # in the instance where there is NOT a 6th skater, doing a raw str_replace creates a NA and removes the player names
                 # so this ifelse statement looks to see if there was a 6th player number and is so, then replace that number with a comma
                 # otherwise it just pastes the description there without touching it
-                team = ifelse(! is.na(number_six), stringr::str_replace(team, number_six, ","), team)) %>%
+                team = ifelse(! is.na(number_six), stringr::str_replace(team, number_six, ","), team))
+
+  suppressWarnings(
+    on_ice <- on_ice %>%
     # using the comma separators, separate the string into offensive_player one through six
     tidyr::separate(team, into = c("offensive_player_one", "offensive_player_two",
                             "offensive_player_three", "offensive_player_four",
                             "offensive_player_five", "offensive_player_six"),
-             sep = ",", remove = TRUE) %>%
+             sep = ",", remove = TRUE))
+
+  on_ice <- on_ice %>%
     # trimming the player names to remove whitespace and make them consistent in formatting
     mutate(
       offensive_player_one = stringr::str_trim(offensive_player_one),
