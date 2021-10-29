@@ -465,19 +465,19 @@ pbp_data <- function(data, game_id = game_id) {
       penalty_called = stringr::str_extract(.data$desc, pen),
       desc = stringr::str_replace_all(.data$desc, pen, ""),
       penalty_length = stringr::str_extract(.data$desc,
-                                   "[:digit:] mins"),
+                                            "[:digit:] mins"),
       desc = stringr::str_replace_all(.data$desc,
-                             "[:digit:] mins", ""),
+                                      "[:digit:] mins", ""),
       penalty = ifelse(!is.na(.data$penalty_type), 1, 0),
       # cleaning up penalty data
       score = stringr::str_extract(.data$desc, score_string),
       desc = stringr::str_replace_all(.data$desc, score_string, ""),
       desc = stringr::str_replace_all(stringr::str_trim(.data$desc, side = "both"),"#", ""))
-      # cleaning up score data
+  # cleaning up score data
   # wrapping a separate function with suppressWarnings to prevent it from spitting out a 'NA' fill message
   suppressWarnings(pbp <- pbp %>%
-    tidyr::separate(.data$time, into = c("minute", "second"),
-                    sep = ":", remove = FALSE))
+                     tidyr::separate(.data$time, into = c("minute", "second"),
+                                     sep = ":", remove = FALSE))
 
   pbp <- pbp %>%
     dplyr::mutate(
@@ -503,31 +503,31 @@ pbp_data <- function(data, game_id = game_id) {
     # but with the way str_extract/replace works, we're just pulling the first instance of each number
     # then replacing it with a comma (unless it's the first number bc that doesn't need a comma before that name)
     dplyr::mutate(team = stringr::str_replace_all(team, abbreviations, ""),
-                team = stringr::str_replace_all(team, ne, ""),
-                number_one = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = stringr::str_replace(team, number_one, ""),
-                number_two = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = stringr::str_replace(team, number_two, ","),
-                number_three = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = stringr::str_replace(team, number_three, ","),
-                number_four = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = stringr::str_replace(team, number_four, ","),
-                number_five = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = stringr::str_replace(team, number_five, ","),
-                # there are instances where a team pulls its goalie and has 6 skaters so this is designed to search for that case
-                number_six = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                # in the instance where there is NOT a 6th skater, doing a raw str_replace creates a NA and removes the player names
-                # so this ifelse statement looks to see if there was a 6th player number and is so, then replace that number with a comma
-                # otherwise it just pastes the description there without touching it
-                team = ifelse(! is.na(number_six), stringr::str_replace(team, number_six, ","), team))
+                  team = stringr::str_replace_all(team, ne, ""),
+                  number_one = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+                  team = stringr::str_replace(team, number_one, ""),
+                  number_two = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+                  team = stringr::str_replace(team, number_two, ","),
+                  number_three = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+                  team = stringr::str_replace(team, number_three, ","),
+                  number_four = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+                  team = stringr::str_replace(team, number_four, ","),
+                  number_five = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+                  team = stringr::str_replace(team, number_five, ","),
+                  # there are instances where a team pulls its goalie and has 6 skaters so this is designed to search for that case
+                  number_six = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+                  # in the instance where there is NOT a 6th skater, doing a raw str_replace creates a NA and removes the player names
+                  # so this ifelse statement looks to see if there was a 6th player number and is so, then replace that number with a comma
+                  # otherwise it just pastes the description there without touching it
+                  team = ifelse(! is.na(number_six), stringr::str_replace(team, number_six, ","), team))
 
   suppressWarnings(
     on_ice <- on_ice %>%
-    # using the comma separators, separate the string into offensive_player one through six
-    tidyr::separate(team, into = c("offensive_player_one", "offensive_player_two",
-                            "offensive_player_three", "offensive_player_four",
-                            "offensive_player_five", "offensive_player_six"),
-             sep = ",", remove = TRUE))
+      # using the comma separators, separate the string into offensive_player one through six
+      tidyr::separate(team, into = c("offensive_player_one", "offensive_player_two",
+                                     "offensive_player_three", "offensive_player_four",
+                                     "offensive_player_five", "offensive_player_six"),
+                      sep = ",", remove = TRUE))
 
   on_ice <- on_ice %>%
     # trimming the player names to remove whitespace and make them consistent in formatting
@@ -722,33 +722,33 @@ load_pbp <- function(game_id = 268078, format = "clean") {
   # figuring out how many skaters are on the ice at a single time
   away_state_changes <- pbp %>%
     dplyr::filter((event == "PP Goal" & stringr::str_detect(team, home_team)) |
-             (event == "Penalty" & stringr::str_detect(team, away_team))) %>%
+                    (event == "Penalty" & stringr::str_detect(team, away_team))) %>%
     dplyr::select(event, sec_from_start, power_play_seconds) %>%
     dplyr::mutate(event = ifelse(event == "Penalty", 1, 2),
-           prev.event = lag(event),
-           prev.time = lag(sec_from_start),
-           prev.length = lag(power_play_seconds))
+                  prev.event = lag(event),
+                  prev.time = lag(sec_from_start),
+                  prev.length = lag(power_play_seconds))
 
 
   away_pen_mat <- apply(away_state_changes,
                         1,
                         FUN = function(x) {
                           #Creates a -1 for duration of penalty and 0s surrounding it
-                          if(x[1] == 1 & x[2]+x[3] < (max(pbp$period_id, na.rm = TRUE)*1200-1)){
+                          if(x[1] == 1 & x[2]+x[3]*60 < (max(pbp$period_id, na.rm = TRUE)*1200-1)){
                             c( rep( 0, length( 0:x[2] )),
-                               rep( -1, x[3]),
-                               rep(0, length((x[2]+x[3] + 1):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
+                               rep( -1, x[3]*60),
+                               rep(0, length((x[2]+x[3]*60 + 1):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
                             )
                             #Creates a -1 for duration of penalty and 0s before (for end of game penalties)
-                          } else if(x[1] == 1 & x[2]+x[3] >= (max(pbp$period_id, na.rm = TRUE)*1200-1)) {
+                          } else if(x[1] == 1 & x[2]+x[3]*60 >= (max(pbp$period_id, na.rm = TRUE)*1200-1)) {
                             c( rep( 0, length( 0:x[2] )),
                                rep(-1, max(pbp$period_id, na.rm = TRUE)*1200-1-x[2] )
                             )
                             #Creates a +1 from time power play goal is scored to end of penalty to handle skater coming back on
                           } else if( x[1] == 2 & (x[2] %in% ifelse(!is.na(x[5]) & !is.na(x[6]) & x[2] != x[5], x[5]:(x[5]+x[6]*60),-1 )) ) {
                             c( rep( 0, length( 0:(x[2]) )),
-                               rep( 1, length( (x[2]+1):(x[6]-(x[2]-x[5])))),
-                               rep(0, length((x[6]-(x[2]-x[5])):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
+                               rep( 1, length( (x[2]+1):(x[6]*60-(x[2]-x[5])))),
+                               rep(0, length((x[6]*60-(x[2]-x[5])):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
                             )
                             # Creates all zeros if event doesnt effect strength
                           } else {
@@ -765,32 +765,32 @@ load_pbp <- function(game_id = 268078, format = "clean") {
 
   home_state_changes <- pbp %>%
     dplyr::filter((event == "PP Goal" & stringr::str_detect(team, away_team)) |
-             (event == "Penalty" & stringr::str_detect(team, home_team))) %>%
+                    (event == "Penalty" & stringr::str_detect(team, home_team))) %>%
     dplyr::select(event,sec_from_start,power_play_seconds) %>%
     dplyr::mutate(event = ifelse(event == "Penalty",1,2),
-           prev.event = lag(event),
-           prev.time = lag(sec_from_start),
-           prev.length = lag(power_play_seconds))
+                  prev.event = lag(event),
+                  prev.time = lag(sec_from_start),
+                  prev.length = lag(power_play_seconds))
 
   home_pen_mat <- apply(home_state_changes,
                         1,
                         FUN = function(x) {
                           #Creates a -1 for duration of penalty and 0s surrounding it
-                          if(x[1] == 1 & (x[2] + x[3]) < (max(pbp$period_id, na.rm = TRUE) * 1200-1)){
+                          if(x[1] == 1 & (x[2] + x[3] * 60) < (max(pbp$period_id, na.rm = TRUE) * 1200-1)){
                             c( rep( 0, length( 0:x[2] )),
-                               rep( -1, x[3]),
-                               rep(0, length((x[2]+x[3] + 1):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
+                               rep( -1, x[3]*60),
+                               rep(0, length((x[2]+x[3]*60 + 1):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
                             )
                             #Creates a -1 for duration of penalty and 0s before (for end of game penalties)
-                          } else if(x[1] == 1 & (x[2]+x[3]) >= (max(pbp$period_id, na.rm = TRUE)*1200-1)) {
+                          } else if(x[1] == 1 & (x[2]+x[3]*60) >= (max(pbp$period_id, na.rm = TRUE)*1200-1)) {
                             c( rep( 0, length( 0:x[2] )),
                                rep(-1, max(pbp$period_id, na.rm = TRUE)*1200-1-x[2] )
                             )
                             #Creates a +1 from time power play goal is scored to end of penalty to handle skater coming back on
                           } else if( x[1] == 2 & (x[2] %in% ifelse(!is.na(x[5]) & !is.na(x[6]) & x[2] != x[5], x[5]:(x[5]+x[6]*60),-1 )) ) {
                             c( rep( 0, length( 0:(x[2]) )),
-                               rep( 1, length( (x[2]+1):(x[6]-(x[2]-x[5])))),
-                               rep(0, length((x[6]-(x[2]-x[5])):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
+                               rep( 1, length( (x[2]+1):(x[6]*60-(x[2]-x[5])))),
+                               rep(0, length((x[6]*60-(x[2]-x[5])):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
                             )
                             # Creates all zeros if event doesn't effect strength
                           } else {
@@ -804,31 +804,31 @@ load_pbp <- function(game_id = 268078, format = "clean") {
   home_skaters <- as.data.frame(home_skaters) %>%
     tibble::rownames_to_column("sec_from_start")%>%
     dplyr::mutate(sec_from_start = as.numeric(sec_from_start))
-#
-#   away_state_changes <- away_state_changes %>%
-#     dplyr::mutate(change_skaters = ifelse(event == 1, -1,
-#                                    ifelse(event == 2, 1, NA)))
-#
-#   home_state_changes <- home_state_changes %>%
-#     dplyr::mutate(change_skaters = ifelse(event == 1, -1,
-#                                    ifelse(event == 2, 1, NA)))
-#
-#   away_skaters <- away_skaters  %>%
-#     dplyr::mutate(normal_skaters = 5)
-#
-#   away_skaters %>%
-#     left_join(away_state_changes %>%
-#                 dplyr::select(sec_from_start, power_play_seconds,
-#                               change_skaters) %>%
-#                 dplyr::mutate(end_power_play = sec_from_start + power_play_seconds)) %>%
-#     tidyr::fill(end_power_play) %>%
-#     # tidyr::fill(change_skaters) %>%
-#     dplyr::mutate(skaters = ifelse(sec_from_start <= end_power_play,
-#                                    normal_skaters + change_skaters, normal_skaters),
-#                   skaters = ifelse(sec_from_start <= end_power_play, lag(skaters), skaters)) -> f
-#
-#   home_skaters <- home_skaters %>%
-#     dplyr::mutate(normal_skaters = 5)
+  #
+  #   away_state_changes <- away_state_changes %>%
+  #     dplyr::mutate(change_skaters = ifelse(event == 1, -1,
+  #                                    ifelse(event == 2, 1, NA)))
+  #
+  #   home_state_changes <- home_state_changes %>%
+  #     dplyr::mutate(change_skaters = ifelse(event == 1, -1,
+  #                                    ifelse(event == 2, 1, NA)))
+  #
+  #   away_skaters <- away_skaters  %>%
+  #     dplyr::mutate(normal_skaters = 5)
+  #
+  #   away_skaters %>%
+  #     left_join(away_state_changes %>%
+  #                 dplyr::select(sec_from_start, power_play_seconds,
+  #                               change_skaters) %>%
+  #                 dplyr::mutate(end_power_play = sec_from_start + power_play_seconds)) %>%
+  #     tidyr::fill(end_power_play) %>%
+  #     # tidyr::fill(change_skaters) %>%
+  #     dplyr::mutate(skaters = ifelse(sec_from_start <= end_power_play,
+  #                                    normal_skaters + change_skaters, normal_skaters),
+  #                   skaters = ifelse(sec_from_start <= end_power_play, lag(skaters), skaters)) -> f
+  #
+  #   home_skaters <- home_skaters %>%
+  #     dplyr::mutate(normal_skaters = 5)
 
   suppressMessages(pbp <- left_join(pbp, home_skaters))
   suppressMessages(pbp <- left_join(pbp, away_skaters))
@@ -947,33 +947,33 @@ process_boxscore <- function(data) {
     score <- score %>%
       janitor::clean_names() %>%
       dplyr::rename("team" = "scoring",
-             "first_scoring" = "x1st",
-             "second_scoring" = "x2nd",
-             "third_scoring" = "x3rd",
-             "total_scoring" = "t")
+                    "first_scoring" = "x1st",
+                    "second_scoring" = "x2nd",
+                    "third_scoring" = "x3rd",
+                    "total_scoring" = "t")
 
   } else if (ncol(score) == 6) {
 
     score <- score %>%
       janitor::clean_names() %>%
       dplyr::rename("team" = "scoring",
-             "first_scoring" = "x1st",
-             "second_scoring" = "x2nd",
-             "third_scoring" = "x3rd",
-             "overtime_scoring" = "ot",
-             "total_scoring" = "t")
+                    "first_scoring" = "x1st",
+                    "second_scoring" = "x2nd",
+                    "third_scoring" = "x3rd",
+                    "overtime_scoring" = "ot",
+                    "total_scoring" = "t")
 
   } else if (ncol(score) == 7) {
 
     score <- score %>%
       janitor::clean_names() %>%
       dplyr::rename("team" = "scoring",
-             "first_scoring" = "x1st",
-             "second_scoring" = "x2nd",
-             "third_scoring" = "x3rd",
-             "overtime_scoring" = "ot",
-             "shootout_scoring" = "so",
-             "total_scoring" = "t") %>%
+                    "first_scoring" = "x1st",
+                    "second_scoring" = "x2nd",
+                    "third_scoring" = "x3rd",
+                    "overtime_scoring" = "ot",
+                    "shootout_scoring" = "so",
+                    "total_scoring" = "t") %>%
       dplyr::mutate(
         shootout_scoring = stringr::str_replace(shootout_scoring, "[0-9] ", ""),
         shootout_scoring = stringr::str_replace(shootout_scoring, "\\(", ""),
