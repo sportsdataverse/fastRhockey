@@ -745,7 +745,7 @@ load_pbp <- function(game_id = 268078, format = "clean") {
                                rep(-1, max(pbp$period_id, na.rm = TRUE)*1200-1-x[2] )
                             )
                             #Creates a +1 from time power play goal is scored to end of penalty to handle skater coming back on
-                          } else if( x[1] == 2 & (x[2] %in% ifelse(!is.na(x[5]) & !is.na(x[6]) & x[2] != x[5], x[5]:(x[5]+x[6]*60),-1 )) ) {
+                          } else if( x[1] == 2 & (x[2] %in% ifelse(!is.na(x[5]) & !is.na(x[6]) & x[2] != x[5], x[5]:(x[5]+x[6]),-1 )) ) {
                             c( rep( 0, length( 0:(x[2]) )),
                                rep( 1, length( (x[2]+1):(x[6]-(x[2]-x[5])))),
                                rep(0, length((x[6]-(x[2]-x[5])):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
@@ -787,7 +787,7 @@ load_pbp <- function(game_id = 268078, format = "clean") {
                                rep(-1, max(pbp$period_id, na.rm = TRUE)*1200-1-x[2] )
                             )
                             #Creates a +1 from time power play goal is scored to end of penalty to handle skater coming back on
-                          } else if( x[1] == 2 & (x[2] %in% ifelse(!is.na(x[5]) & !is.na(x[6]) & x[2] != x[5], x[5]:(x[5]+x[6]*60),-1 )) ) {
+                          } else if( x[1] == 2 & (x[2] %in% ifelse(!is.na(x[5]) & !is.na(x[6]) & x[2] != x[5], x[5]:(x[5]+x[6]),-1 )) ) {
                             c( rep( 0, length( 0:(x[2]) )),
                                rep( 1, length( (x[2]+1):(x[6]-(x[2]-x[5])))),
                                rep(0, length((x[6]-(x[2]-x[5])):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
