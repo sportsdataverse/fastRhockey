@@ -645,11 +645,11 @@ pbp_data <- function(data, game_id = game_id) {
       .data$home_team, .data$away_team, .data$team, .data$description,
       .data$first_player, .data$event, .data$sec_from_start) %>%
     dplyr::mutate(
-      goalie_change = str_extract(.data$description, "Starting|Returned|Pulled"),
+      goalie_change = stringr::str_extract(.data$description, "Starting|Returned|Pulled"),
       goalie = ifelse(
-        str_detect(.data$team, .data$away_team), "away_goalie",
+        stringr::str_detect(.data$team, .data$away_team), "away_goalie",
         ifelse(
-          str_detect(.data$team, .data$home_team), "home_goalie", NA
+          stringr::str_detect(.data$team, .data$home_team), "home_goalie", NA
         )
       ),
       first_player = ifelse(.data$goalie_change == "Pulled", "None", .data$first_player)
