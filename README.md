@@ -1,19 +1,19 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# whockeyR
+# fastRhockey
 
 <!-- badges: start -->
-<!-- [![Version-Number](https://img.shields.io/github/r-package/v/BenHowell71/whockeyR?label=whockeyR&logo=R&style=for-the-badge)](https://github.com/BenHowell71/whockeyR) -->
+<!-- [![Version-Number](https://img.shields.io/github/r-package/v/BenHowell71/fastRhockey?label=fastRhockey&logo=R&style=for-the-badge)](https://github.com/BenHowell71/fastRhockey) -->
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/benhowell71/whockeyR/workflows/R-CMD-check/badge.svg)](https://github.com/benhowell71/whockeyR/actions)
+[![R-CMD-check](https://github.com/benhowell71/fastRhockey/workflows/R-CMD-check/badge.svg)](https://github.com/benhowell71/fastRhockey/actions)
 <!-- badges: end -->
 
-[`whockeyR`](https://github.com/benhowell71/whockeyR) is an R Package
-that is designed to pull play-by-play (and boxscore) data from the
-newest version of the [Premier Hockey Federation (PHF)
+[`fastRhockey`](https://github.com/benhowell71/fastRhockey) is an R
+Package that is designed to pull play-by-play (and boxscore) data from
+the newest version of the [Premier Hockey Federation (PHF)
 website](https://www.premierhockeyfederation.com/). In the past, there
 have been a few scrapers for the PHF (formerly the NWHL), but they’ve
 all been deprecated since the league changed website formats.
@@ -42,15 +42,15 @@ this package is intended to alleviate.
 ## Installation
 
 You can install the released version of
-[**`whockeyR`**](https://github.com/BenHowell71/whockeyR/) from
-[GitHub](https://github.com/BenHowell71/whockeyR) with:
+[**`fastRhockey`**](https://github.com/BenHowell71/fastRhockey/) from
+[GitHub](https://github.com/BenHowell71/fastRhockey) with:
 
 ``` r
 # You can install using the pacman package using the following code:
 if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
-pacman::p_load_current_gh("BenHowell71/whockeyR", dependencies = TRUE, update = TRUE)
+pacman::p_load_current_gh("BenHowell71/fastRhockey", dependencies = TRUE, update = TRUE)
 ```
 
 If you would prefer the `devtools` installation:
@@ -61,7 +61,7 @@ if (!requireNamespace('devtools', quietly = TRUE)){
   install.packages('devtools')
 }
 # Alternatively, using the devtools package:
-devtools::install_github(repo = "BenHowell71/whockeyR")
+devtools::install_github(repo = "BenHowell71/fastRhockey")
 ```
 
 ------------------------------------------------------------------------
@@ -92,9 +92,9 @@ into a very manageable return. We can see that the Boston Pride beat the
 Minnesota Whitecaps 4-3 in Warrior Ice Arena on March 27th, 2021. The
 other important column in this return is the `game_id` column.
 
-Let’s take that `game_id` and plug it into another `whockeyR` function,
-this time using the `load_boxscore` function to pull the boxscore data
-from this game.
+Let’s take that `game_id` and plug it into another `fastRhockey`
+function, this time using the `load_boxscore` function to pull the
+boxscore data from this game.
 
 ``` r
 x <- 379254
@@ -126,18 +126,16 @@ but the really good stuff is still coming.
 
 Turn your attention to `load_pbp`, the function that was created to
 return PHF play-by-play data for a given game (i.e. the whole reason
-that `whockeyR` exists). It’s a similar format to the boxscore function
-where the only input necessary is the `game_id` that you want.
+that `fastRhockey` exists). It’s a similar format to the boxscore
+function where the only input necessary is the `game_id` that you want.
 
 ``` r
 a <- Sys.time()
 
 pbp <- load_pbp(game_id = x)
-#> Joining, by = "sec_from_start"
-#> Joining, by = "sec_from_start"
   
 Sys.time() - a
-#> Time difference of 5.186886 secs
+#> Time difference of 7.228843 secs
 ```
 
 Loading a single game should take \~ 5 seconds. Once it does, it’s time
@@ -149,7 +147,7 @@ involved, and so on.
 
 ``` r
 pbp
-#> # A tibble: 204 x 35
+#> # A tibble: 204 x 36
 #>    game_id home_team  away_team period_id event_no description    time_remaining
 #>      <dbl> <chr>      <chr>         <dbl>    <int> <chr>          <chr>         
 #>  1  379254 Minnesota~ Boston P~         1        1 #14 Jillian D~ 19:59         
@@ -162,11 +160,11 @@ pbp
 #>  8  379254 Minnesota~ Boston P~         1        8 #23 Carlee Tu~ 16:54         
 #>  9  379254 Minnesota~ Boston P~         1        9 #21 Christina~ 16:48         
 #> 10  379254 Minnesota~ Boston P~         1       10 #19 Haley Mac~ 16:29         
-#> # ... with 194 more rows, and 28 more variables: sec_from_start <dbl>,
+#> # ... with 194 more rows, and 29 more variables: sec_from_start <dbl>,
 #> #   on_ice_situation <chr>, home_skaters <dbl>, away_skaters <dbl>,
 #> #   home_goals <chr>, away_goals <chr>, leader <chr>, team <chr>, event <chr>,
-#> #   first_player <chr>, first_number <dbl>, second_player <chr>,
-#> #   second_number <dbl>, third_player <chr>, third_number <dbl>,
+#> #   first_player <chr>, first_number <chr>, second_player <chr>,
+#> #   second_number <chr>, third_player <chr>, third_number <chr>,
 #> #   shot_type <chr>, shot_result <chr>, goalie_involved <chr>, penalty <dbl>,
 #> #   penalty_length <chr>, penalty_called <chr>, offensive_player_one <chr>, ...
 ```
@@ -240,9 +238,9 @@ essentially pulls a lot of background info on the league and the IDs
 that are used. The output from this function gets wrapped into the
 `load___` functions and `phf_schedule`, which is it’s main purpose.
 
-If you look with `whockeyR::`, there are more functions available, but
-those are helper functions to pull raw data (`phf_game_data`) and then
-to process the raw data into a usable format (`process____`).
+If you look with `fastRhockey::`, there are more functions available,
+but those are helper functions to pull raw data (`phf_game_data`) and
+then to process the raw data into a usable format (`process____`).
 
 ------------------------------------------------------------------------
 
@@ -252,7 +250,7 @@ to process the raw data into a usable format (`process____`).
 Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
 
 [![GitHub
-stars](https://img.shields.io/github/stars/BenHowell71/whockeyR.svg?color=eee&logo=github&style=for-the-badge&label=Star%20whockeyR&maxAge=2592000)](https://github.com/BenHowell71/whockeyR/stargazers/)
+stars](https://img.shields.io/github/stars/BenHowell71/fastRhockey.svg?color=eee&logo=github&style=for-the-badge&label=Star%20fastRhockey&maxAge=2592000)](https://github.com/BenHowell71/fastRhockey/stargazers/)
 
 # **Our Authors**
 
@@ -274,16 +272,17 @@ stars](https://img.shields.io/github/stars/BenHowell71/whockeyR.svg?color=eee&lo
 
 ## **Citations**
 
-To cite the [**`whockeyR`**](https://benhowell71.github.io/whockeyR/) R
+To cite the
+[**`fastRhockey`**](https://benhowell71.github.io/fastRhockey/) R
 package in publications, use:
 
 BibTex Citation
 
 ``` bibtex
-@misc{howell_whockeyR_2021,
+@misc{howell_fastRhockey_2021,
   author = {Ben Howell},
-  title = {whockeyR: The SportsDataverse's R Package for Women's Hockey Data.},
-  url = {https://benhowell71.github.io/whockeyR/},
+  title = {fastRhockey: The SportsDataverse's R Package for Women's Hockey Data.},
+  url = {https://benhowell71.github.io/fastRhockey/},
   year = {2021}
 }
 ```
