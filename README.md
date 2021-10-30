@@ -37,6 +37,12 @@ In the past, the lack of data and poor access to data have been the
 biggest barrier to entry in women’s hockey analytics, a barrier that
 this package is intended to alleviate.
 
+<center>
+
+<img src="logo/fastRhockey%20full%20holographic%20graphic.png" style="width:50.0%" />
+
+</center>
+
 ------------------------------------------------------------------------
 
 ## Installation
@@ -135,7 +141,7 @@ a <- Sys.time()
 pbp <- load_pbp(game_id = x)
   
 Sys.time() - a
-#> Time difference of 7.228843 secs
+#> Time difference of 8.543521 secs
 ```
 
 Loading a single game should take \~ 5 seconds. Once it does, it’s time
