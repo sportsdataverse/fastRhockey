@@ -36,7 +36,7 @@ phf_game_data <- function(game_id = 368719) {
   # setting the ticket as something that can be changed in case the API decides to change it's authorization
   # rather than hard-coding it in
   auth_ticket <- getOption(
-    "whockeyR.phf_ticket",
+    "fastRhockey.phf_ticket",
     default = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'
   )
 
@@ -339,7 +339,7 @@ pbp_data <- function(data, game_id = game_id) {
   g <- game_id
 
   # loading in pre-made meta data csv from GitHub bc that's quicker than running a loop through phf_schedule
-  tm <- read.csv("https://raw.githubusercontent.com/benhowell71/whockeyR/main/phf_meta_data.csv") %>%
+  tm <- read.csv("https://raw.githubusercontent.com/benhowell71/fastRhockey/main/phf_meta_data.csv") %>%
     dplyr::filter(game_id == g) %>%
     dplyr::select(home_team, away_team)
 

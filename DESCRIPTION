@@ -1,4 +1,4 @@
-Package: whockeyR
+Package: fastRhockey
 Title: Functions to Access Premier Hockey Federation Play by Play Data
 Version: 0.0.1
 Authors@R: c(
@@ -6,7 +6,7 @@ Authors@R: c(
     person("Saiem", "Gilani", , "saiem.gilani@gmail.com", role = "ctb"),
     person("Alyssa", "Longmuir", "aklongmuir@gmail.com", role = "ctb")
   )
-Description: The whockeyR package was created to scrape play-by-play data
+Description: The fastRhockey package was created to scrape play-by-play data
     and statistics from the Premier Hockey Federation (PHF), formerly
     known as the National Women's Hockey League (NWHL).
 License: MIT + file LICENSE
