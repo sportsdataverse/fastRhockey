@@ -35,7 +35,7 @@ In the past, the lack of data and poor access to data have been the biggest barr
 
 <center>
 
-![](logo/fastRhockey full holographic graphic.png){width=50%}
+![](logo/fastRhockey_full_holographic_graphic.png){width=50%}
 
 </center>
 

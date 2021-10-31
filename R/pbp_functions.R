@@ -298,6 +298,7 @@ process_shootout <- function(data) {
 #' @importFrom dplyr mutate bind_rows filter row_number select case_when pull starts_with ends_with
 #' @importFrom tidyr pivot_wider separate fill replace_na
 #' @importFrom stringr str_replace str_replace_all str_extract str_extract_all str_detect str_trim
+#' @importFrom utils read.csv
 #' @import rvest
 #' @import jsonlite
 #' @export
@@ -338,7 +339,7 @@ pbp_data <- function(data, game_id = game_id) {
   g <- game_id
 
   # loading in pre-made meta data csv from GitHub bc that's quicker than running a loop through phf_schedule
-  tm <- read.csv("https://raw.githubusercontent.com/benhowell71/fastRhockey/main/phf_meta_data.csv") %>%
+  tm <- read.csv("https://raw.githubusercontent.com/benhowell71/fastRhockey/main/data-raw/raw_data/phf_meta_data.csv") %>%
     dplyr::filter(game_id == g) %>%
     dplyr::select(.data$home_team, .data$away_team)
 
