@@ -1,13 +1,14 @@
 library(fastRhockey)
 library(tidyverse)
 
-# phf_schedule(season = 2021)
+h <- phf_schedule(season = 2016)
 
 lst <- list()
 
 for (k in 2017:2021) {
   
   current <- phf_schedule(season = k) %>%
+    dplyr::filter(has_play_by_play == TRUE) %>%
     dplyr::select(game_id)
   
   lst[[k]] <- current
