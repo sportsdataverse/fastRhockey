@@ -141,8 +141,7 @@ normalize_columns <- function(df){
 #' @importFrom janitor clean_names remove_empty
 #' @importFrom stringr str_detect
 #' @export
-#' @examples
-#' \donttest{
+#' @examples \dontrun{
 #'   first_period <- process_period(data = df[[1]], period = 1)
 #' }
 process_period <- function(data, period = 1) {
@@ -215,8 +214,7 @@ load_raw_data <- function(game_id = 268078) {
 #' @importFrom stringr str_extract str_replace_all str_replace str_detect
 #' @importFrom tidyr separate
 #' @export
-#' @examples
-#' \dontrun{
+#' @examples \dontrun{
 #'   shootout <- process_shootout(data = game_so)
 #' }
 process_shootout <- function(data) {
@@ -296,6 +294,7 @@ process_shootout <- function(data) {
 #' @description pbp_data: returns all of the play-by-play data for a game into on big data frame using the process_period/shootout functions. Contains functionality to account for regulation games, overtime games, and shootouts
 #'
 #' @param data the raw list data that is generated from the load_raw_data function
+#' @param game_id the game ID of the game that you want pbp data processed for
 #' @importFrom dplyr mutate bind_rows filter row_number select case_when pull starts_with ends_with
 #' @importFrom tidyr pivot_wider separate fill replace_na
 #' @importFrom stringr str_replace str_replace_all str_extract str_extract_all str_detect str_trim
@@ -688,6 +687,7 @@ pbp_data <- function(data, game_id = game_id) {
 #' @description load_pbp: loads all the play-by-play data for a game into one data frame through just one function
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
+#' @param format Whether the data should be returned in a clean format or the messy data file that doesn't filter out columns
 #' @importFrom dplyr mutate bind_rows filter row_number select case_when pull starts_with ends_with
 #' @importFrom tidyr pivot_wider separate fill
 #' @importFrom stringr str_replace str_replace_all str_extract str_extract_all str_detect str_trim
@@ -696,8 +696,7 @@ pbp_data <- function(data, game_id = game_id) {
 #' @import rvest
 #' @import jsonlite
 #' @export
-#' @examples
-#' \dontrun{
+#' @examples \dontrun{
 #'   first_period <- process_period(data = df[[1]], period = 1)
 #' }
 load_pbp <- function(game_id = 268078, format = "clean") {
@@ -933,8 +932,7 @@ boxscore <- data.frame(
 #' @import rvest
 #' @import jsonlite
 #' @export
-#' @examples
-#' \dontrun{
+#' @examples \dontrun{
 #'   boxscore <- process_boxscore(data = df[[1]])
 #' }
 process_boxscore <- function(data) {

@@ -15,7 +15,7 @@ process_period(data, period = 1)
 process_period: processes the raw data of a single period from a PHF game
 }
 \examples{
-\donttest{
+\dontrun{
   first_period <- process_period(data = df[[1]], period = 1)
 }
 }

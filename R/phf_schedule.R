@@ -6,8 +6,7 @@
 #' @import httr
 #' @importFrom jsonlite fromJSON
 #' @export
-#' @examples
-#' \donttest{
+#' @examples \dontrun{
 #' phf_league_info(season = 2022)
 #' }
 phf_league_info <- function(season = 2022){
