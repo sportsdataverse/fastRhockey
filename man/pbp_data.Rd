@@ -8,6 +8,8 @@ pbp_data(data, game_id = game_id)
 }
 \arguments{
 \item{data}{the raw list data that is generated from the load_raw_data function}
+
+\item{game_id}{the game ID of the game that you want pbp data processed for}
 }
 \description{
 pbp_data: returns all of the play-by-play data for a game into on big data frame using the process_period/shootout functions. Contains functionality to account for regulation games, overtime games, and shootouts
