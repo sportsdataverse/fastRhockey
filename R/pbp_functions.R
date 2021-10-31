@@ -692,6 +692,7 @@ pbp_data <- function(data, game_id = game_id) {
 #' @importFrom tidyr pivot_wider separate fill
 #' @importFrom stringr str_replace str_replace_all str_extract str_extract_all str_detect str_trim
 #' @importFrom tibble rownames_to_column
+#' @importFrom utils read.csv
 #' @import rvest
 #' @import jsonlite
 #' @export
