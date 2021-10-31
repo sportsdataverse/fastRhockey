@@ -13,7 +13,7 @@ phf_league_info(season = 2022)
 PHF League Information per year
 }
 \examples{
-\donttest{
+\dontrun{
 phf_league_info(season = 2022)
 }
 }

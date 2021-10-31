@@ -141,8 +141,7 @@ normalize_columns <- function(df){
 #' @importFrom janitor clean_names remove_empty
 #' @importFrom stringr str_detect
 #' @export
-#' @examples
-#' \donttest{
+#' @examples \dontrun{
 #'   first_period <- process_period(data = df[[1]], period = 1)
 #' }
 process_period <- function(data, period = 1) {
@@ -215,8 +214,7 @@ load_raw_data <- function(game_id = 268078) {
 #' @importFrom stringr str_extract str_replace_all str_replace str_detect
 #' @importFrom tidyr separate
 #' @export
-#' @examples
-#' \dontrun{
+#' @examples \dontrun{
 #'   shootout <- process_shootout(data = game_so)
 #' }
 process_shootout <- function(data) {
@@ -698,8 +696,7 @@ pbp_data <- function(data, game_id = game_id) {
 #' @import rvest
 #' @import jsonlite
 #' @export
-#' @examples
-#' \dontrun{
+#' @examples \dontrun{
 #'   first_period <- process_period(data = df[[1]], period = 1)
 #' }
 load_pbp <- function(game_id = 268078, format = "clean") {
@@ -935,8 +932,7 @@ boxscore <- data.frame(
 #' @import rvest
 #' @import jsonlite
 #' @export
-#' @examples
-#' \dontrun{
+#' @examples \dontrun{
 #'   boxscore <- process_boxscore(data = df[[1]])
 #' }
 process_boxscore <- function(data) {
