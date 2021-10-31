@@ -22,7 +22,7 @@ ne <- "On Ice"
 #' @import httr
 #' @import dplyr
 #' @importFrom jsonlite parse_json
-#' @importFrom purrr pluck
+#' @importFrom purrr pluck map_dfr
 #' @importFrom glue glue
 #' @export
 #' @examples
@@ -183,8 +183,8 @@ process_period <- function(data, period = 1) {
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @import rvest
 #' @import httr
-#' @import purrr
 #' @import jsonlite
+#' @importFrom purrr pluck
 #' @export
 #' @examples
 #' \dontrun{
