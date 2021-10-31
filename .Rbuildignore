@@ -7,3 +7,4 @@
 ^docs$
 ^pkgdown$
 ^logo$
+^data-raw$
