@@ -260,9 +260,9 @@ process_shootout <- function(data) {
       desc2 = stringr::str_replace_all(.data$description, shoot, ""),
       desc2 = stringr::str_replace_all(.data$desc2, score_string, ""),
       first_number = stringr::str_extract(.data$desc2, "#[0-9]+"),
-      desc2 = stringr::str_replace(.data$desc2, first_number, ""),
+      desc2 = stringr::str_replace(.data$desc2, .data$first_number, ""),
       second_number = stringr::str_extract(.data$desc2, "#[0-9]+"),
-      desc2 = stringr::str_replace(.data$desc2, second_number, ","),
+      desc2 = stringr::str_replace(.data$desc2, .data$second_number, ","),
       first_number = stringr::str_trim(stringr::str_replace(.data$first_number, "#", "")),
       second_number = stringr::str_trim(stringr::str_replace(.data$second_number, "#", "")))
 
@@ -270,19 +270,19 @@ process_shootout <- function(data) {
   # wrapped in `suppressWarnings()` to prevent it from throwing an error in weird cases about NAs being put in
   suppressWarnings(
     data <- data %>%
-      tidyr::separate(desc2, into = c("first_player", "second_player"),
+      tidyr::separate(.data$desc2, into = c("first_player", "second_player"),
                       sep = ","))
 
   data <- data %>%
     # trimming off whitespace from player names
-    dplyr::mutate(first_player = stringr::str_trim(first_player),
-                  second_player = stringr::str_trim(second_player)) %>%
-    dplyr::select(-c(desc)) %>%
+    dplyr::mutate(first_player = stringr::str_trim(.data$first_player),
+                  second_player = stringr::str_trim(.data$second_player)) %>%
+    dplyr::select(-c(.data$desc)) %>%
     # adding an extra line of cleaning in bc things sometimes remained weird
     dplyr::mutate(
-      first_player = stringr::str_trim(stringr::str_replace(first_player,
+      first_player = stringr::str_trim(stringr::str_replace(.data$first_player,
                                                             "missed attempt|scores", "")),
-      second_player = stringr::str_trim(stringr::str_replace(second_player,
+      second_player = stringr::str_trim(stringr::str_replace(.data$second_player,
                                                              "Shootout|Shoout|shoout|shootout", ""))
     )
 
@@ -340,7 +340,7 @@ pbp_data <- function(data, game_id = game_id) {
   # loading in pre-made meta data csv from GitHub bc that's quicker than running a loop through phf_schedule
   tm <- read.csv("https://raw.githubusercontent.com/benhowell71/fastRhockey/main/phf_meta_data.csv") %>%
     dplyr::filter(game_id == g) %>%
-    dplyr::select(home_team, away_team)
+    dplyr::select(.data$home_team, .data$away_team)
 
   # creating the pbp dataframes for regulation, OT, or shootout games
   if (nrow(tb) == 3) {
@@ -501,29 +501,29 @@ pbp_data <- function(data, game_id = game_id) {
     # the order (player_one vs player_five) doesn't mean anything
     # but with the way str_extract/replace works, we're just pulling the first instance of each number
     # then replacing it with a comma (unless it's the first number bc that doesn't need a comma before that name)
-    dplyr::mutate(team = stringr::str_replace_all(team, abbreviations, ""),
-                team = stringr::str_replace_all(team, ne, ""),
-                number_one = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = stringr::str_replace(team, number_one, ""),
-                number_two = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = stringr::str_replace(team, number_two, ","),
-                number_three = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = stringr::str_replace(team, number_three, ","),
-                number_four = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = stringr::str_replace(team, number_four, ","),
-                number_five = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
-                team = stringr::str_replace(team, number_five, ","),
+    dplyr::mutate(team = stringr::str_replace_all(.data$team, abbreviations, ""),
+                team = stringr::str_replace_all(.data$team, ne, ""),
+                number_one = stringr::str_trim(stringr::str_extract(.data$team, "#[0-9]+")),
+                team = stringr::str_replace(.data$team, .data$number_one, ""),
+                number_two = stringr::str_trim(stringr::str_extract(.data$team, "#[0-9]+")),
+                team = stringr::str_replace(.data$team, .data$number_two, ","),
+                number_three = stringr::str_trim(stringr::str_extract(.data$team, "#[0-9]+")),
+                team = stringr::str_replace(.data$team, .data$number_three, ","),
+                number_four = stringr::str_trim(stringr::str_extract(.data$team, "#[0-9]+")),
+                team = stringr::str_replace(.data$team, .data$number_four, ","),
+                number_five = stringr::str_trim(stringr::str_extract(.data$team, "#[0-9]+")),
+                team = stringr::str_replace(.data$team, .data$number_five, ","),
                 # there are instances where a team pulls its goalie and has 6 skaters so this is designed to search for that case
-                number_six = stringr::str_trim(stringr::str_extract(team, "#[0-9]+")),
+                number_six = stringr::str_trim(stringr::str_extract(.data$team, "#[0-9]+")),
                 # in the instance where there is NOT a 6th skater, doing a raw str_replace creates a NA and removes the player names
                 # so this ifelse statement looks to see if there was a 6th player number and is so, then replace that number with a comma
                 # otherwise it just pastes the description there without touching it
-                team = ifelse(! is.na(number_six), stringr::str_replace(team, number_six, ","), team))
+                team = ifelse(! is.na(.data$number_six), stringr::str_replace(.data$team, .data$number_six, ","), .data$team))
 
   suppressWarnings(
     on_ice <- on_ice %>%
     # using the comma separators, separate the string into offensive_player one through six
-    tidyr::separate(team, into = c("offensive_player_one", "offensive_player_two",
+    tidyr::separate(.data$team, into = c("offensive_player_one", "offensive_player_two",
                             "offensive_player_three", "offensive_player_four",
                             "offensive_player_five", "offensive_player_six"),
              sep = ",", remove = TRUE))
@@ -531,15 +531,15 @@ pbp_data <- function(data, game_id = game_id) {
   on_ice <- on_ice %>%
     # trimming the player names to remove whitespace and make them consistent in formatting
     mutate(
-      offensive_player_one = stringr::str_trim(offensive_player_one),
-      offensive_player_two = stringr::str_trim(offensive_player_two),
-      offensive_player_three = stringr::str_trim(offensive_player_three),
-      offensive_player_four = stringr::str_trim(offensive_player_four),
-      offensive_player_five = stringr::str_trim(offensive_player_five),
-      offensive_player_six = stringr::str_trim(offensive_player_six)
+      offensive_player_one = stringr::str_trim(.data$offensive_player_one),
+      offensive_player_two = stringr::str_trim(.data$offensive_player_two),
+      offensive_player_three = stringr::str_trim(.data$offensive_player_three),
+      offensive_player_four = stringr::str_trim(.data$offensive_player_four),
+      offensive_player_five = stringr::str_trim(.data$offensive_player_five),
+      offensive_player_six = stringr::str_trim(.data$offensive_player_six)
     ) %>%
     # de-selecting the unimportant columns
-    dplyr::select(-c(event, dplyr::starts_with("number_")))
+    dplyr::select(-c(.data$event, dplyr::starts_with("number_")))
 
   pbp <- pbp %>%
     dplyr::left_join(on_ice, by = c("period_id", "event_no")) %>%
@@ -600,43 +600,45 @@ pbp_data <- function(data, game_id = game_id) {
 
   pbp <- pbp %>%
     # taking the players and numbers involved in a play
-    dplyr::mutate(desc2 = stringr::str_replace_all(description, away, ""),
-                  desc2 = stringr::str_replace_all(desc2, fill, ""),
-                  desc2 = stringr::str_replace_all(desc2, goalie, ""),
-                  desc2 = stringr::str_replace_all(desc2, fo, ""),
-                  desc2 = stringr::str_replace_all(desc2, ice, ""),
-                  desc2 = stringr::str_replace_all(desc2, shots, ""),
-                  desc2 = stringr::str_replace_all(desc2, res, ""),
-                  desc2 = stringr::str_replace_all(desc2, pen, ""),
-                  desc2 = stringr::str_replace_all(desc2, type, ""),
-                  desc2 = stringr::str_replace_all(desc2, shoot, ""),
-                  desc2 = stringr::str_replace_all(desc2, score_string, ""),
-                  desc2 = stringr::str_replace_all(desc2, lgh, ""),
-                  first_number = stringr::str_extract(desc2, "#[0-9]+"),
-                  desc2 = stringr::str_replace(desc2, first_number, ""),
+    dplyr::mutate(desc2 = stringr::str_replace_all(.data$description, away, ""),
+                  desc2 = stringr::str_replace_all(.data$desc2, fill, ""),
+                  desc2 = stringr::str_replace_all(.data$desc2, goalie, ""),
+                  desc2 = stringr::str_replace_all(.data$desc2, fo, ""),
+                  desc2 = stringr::str_replace_all(.data$desc2, ice, ""),
+                  desc2 = stringr::str_replace_all(.data$desc2, shots, ""),
+                  desc2 = stringr::str_replace_all(.data$desc2, res, ""),
+                  desc2 = stringr::str_replace_all(.data$desc2, pen, ""),
+                  desc2 = stringr::str_replace_all(.data$desc2, type, ""),
+                  desc2 = stringr::str_replace_all(.data$desc2, shoot, ""),
+                  desc2 = stringr::str_replace_all(.data$desc2, score_string, ""),
+                  desc2 = stringr::str_replace_all(.data$desc2, lgh, ""),
+                  first_number = stringr::str_extract(.data$desc2, "#[0-9]+"),
+                  desc2 = stringr::str_replace(.data$desc2, .data$first_number, ""),
                   # don't replace first number with a comma because there is no name in front of the first number
-                  second_number = stringr::str_extract(desc2, "#[0-9]+"),
+                  second_number = stringr::str_extract(.data$desc2, "#[0-9]+"),
                   # since there isn't always a second or third player involved in a play, using an ifelse statement
                   # to figure out if there was a player, then replacing them if so
-                  desc2 = ifelse(! is.na(second_number), stringr::str_replace(desc2, second_number, ","), desc2),
-                  third_number = stringr::str_trim(stringr::str_extract(desc2, "#[0-9]+")),
-                  desc2 = ifelse(! is.na(third_number), stringr::str_replace(desc2, third_number, ","), desc2),
-                  first_number = stringr::str_trim(stringr::str_replace_all(first_number, "#", "")),
-                  second_number = stringr::str_trim(stringr::str_replace_all(second_number, "#", "")),
-                  third_number = stringr::str_trim(stringr::str_replace_all(third_number, "#", "")))
+                  desc2 = ifelse(! is.na(.data$second_number),
+                                 stringr::str_replace(.data$desc2, .data$second_number, ","), .data$desc2),
+                  third_number = stringr::str_trim(stringr::str_extract(.data$desc2, "#[0-9]+")),
+                  desc2 = ifelse(! is.na(.data$third_number),
+                                 stringr::str_replace(.data$desc2, .data$third_number, ","), .data$desc2),
+                  first_number = stringr::str_trim(stringr::str_replace_all(.data$first_number, "#", "")),
+                  second_number = stringr::str_trim(stringr::str_replace_all(.data$second_number, "#", "")),
+                  third_number = stringr::str_trim(stringr::str_replace_all(.data$third_number, "#", "")))
 
   # running the player name separation within suppressWarnings to avoid getting 'NA, expected 3 arguments'
   # for plays with just one or two players involved
   suppressWarnings(
     pbp <- pbp %>%
-      tidyr::separate(col = desc2, into = c("first_player", "second_player", "third_player"),
+      tidyr::separate(col = .data$desc2, into = c("first_player", "second_player", "third_player"),
                       sep = ",", remove = TRUE))
 
   # trim whitespace around player names
   pbp <- pbp %>%
-    dplyr::mutate(first_player = stringr::str_trim(first_player),
-                  second_player = stringr::str_trim(second_player),
-                  third_player = stringr::str_trim(third_player))
+    dplyr::mutate(first_player = stringr::str_trim(.data$first_player),
+                  second_player = stringr::str_trim(.data$second_player),
+                  third_player = stringr::str_trim(.data$third_player))
 
   gl <- pbp %>%
     dplyr::filter(.data$event == "Goalie") %>%
@@ -716,18 +718,18 @@ load_pbp <- function(game_id = 268078, format = "clean") {
     dplyr::mutate(
       game_id = x,
       event_no = dplyr::row_number(),
-      power_play_seconds = ifelse(is.na(power_play_seconds), 0,
-                                  power_play_seconds))
+      power_play_seconds = ifelse(is.na(.data$power_play_seconds), 0,
+                                  .data$power_play_seconds))
 
   # figuring out how many skaters are on the ice at a single time
   away_state_changes <- pbp %>%
-    dplyr::filter((event == "PP Goal" & stringr::str_detect(team, home_team)) |
-             (event == "Penalty" & stringr::str_detect(team, away_team))) %>%
-    dplyr::select(event, sec_from_start, power_play_seconds) %>%
-    dplyr::mutate(event = ifelse(event == "Penalty", 1, 2),
-           prev.event = lag(event),
-           prev.time = lag(sec_from_start),
-           prev.length = lag(power_play_seconds))
+    dplyr::filter((.data$event == "PP Goal" & stringr::str_detect(.data$team, .data$home_team)) |
+             (.data$event == "Penalty" & stringr::str_detect(.data$team, .data$away_team))) %>%
+    dplyr::select(.data$event, .data$sec_from_start, .data$power_play_seconds) %>%
+    dplyr::mutate(event = ifelse(.data$event == "Penalty", 1, 2),
+                  prev.event = lag(.data$event),
+                  prev.time = lag(.data$sec_from_start),
+                  prev.length = lag(.data$power_play_seconds))
 
 
   away_pen_mat <- apply(away_state_changes,
@@ -761,16 +763,16 @@ load_pbp <- function(game_id = 268078, format = "clean") {
 
   away_skaters <- as.data.frame(away_skaters) %>%
     tibble::rownames_to_column("sec_from_start")%>%
-    dplyr::mutate(sec_from_start = as.numeric(sec_from_start))
+    dplyr::mutate(sec_from_start = as.numeric(.data$sec_from_start))
 
   home_state_changes <- pbp %>%
-    dplyr::filter((event == "PP Goal" & stringr::str_detect(team, away_team)) |
-             (event == "Penalty" & stringr::str_detect(team, home_team))) %>%
-    dplyr::select(event,sec_from_start,power_play_seconds) %>%
-    dplyr::mutate(event = ifelse(event == "Penalty",1,2),
-           prev.event = lag(event),
-           prev.time = lag(sec_from_start),
-           prev.length = lag(power_play_seconds))
+    dplyr::filter((.data$event == "PP Goal" & stringr::str_detect(.data$team, .data$away_team)) |
+             (.data$event == "Penalty" & stringr::str_detect(.data$team, .data$home_team))) %>%
+    dplyr::select(.data$event, .data$sec_from_start, .data$power_play_seconds) %>%
+    dplyr::mutate(event = ifelse(.data$event == "Penalty",1,2),
+           prev.event = lag(.data$event),
+           prev.time = lag(.data$sec_from_start),
+           prev.length = lag(.data$power_play_seconds))
 
   home_pen_mat <- apply(home_state_changes,
                         1,
@@ -803,7 +805,7 @@ load_pbp <- function(game_id = 268078, format = "clean") {
 
   home_skaters <- as.data.frame(home_skaters) %>%
     tibble::rownames_to_column("sec_from_start")%>%
-    dplyr::mutate(sec_from_start = as.numeric(sec_from_start))
+    dplyr::mutate(sec_from_start = as.numeric(.data$sec_from_start))
 #
 #   away_state_changes <- away_state_changes %>%
 #     dplyr::mutate(change_skaters = ifelse(event == 1, -1,
@@ -835,9 +837,9 @@ load_pbp <- function(game_id = 268078, format = "clean") {
 
   pbp <- pbp %>%
     dplyr::mutate(
-      first_player = stringr::str_trim(stringr::str_replace(first_player,
+      first_player = stringr::str_trim(stringr::str_replace(.data$first_player,
                                                             "missed attempt|scores", "")),
-      second_player = stringr::str_trim(stringr::str_replace(second_player,
+      second_player = stringr::str_trim(stringr::str_replace(.data$second_player,
                                                              "Shootout|Shoout|shoout|shootout", ""))
     )
 
@@ -845,10 +847,10 @@ load_pbp <- function(game_id = 268078, format = "clean") {
   # and deals with more than two penalties at one time for a single team
   pbp <- pbp %>%
     dplyr::mutate(
-      home_skaters = ifelse(home_skaters < 3, 3, home_skaters),
-      away_skaters = ifelse(away_skaters < 3, 3, away_skaters),
-      home_skaters = ifelse(is.na(home_goalie), home_skaters + 1, home_skaters),
-      away_skaters = ifelse(is.na(away_goalie), away_skaters + 1, away_skaters)
+      home_skaters = ifelse(.data$home_skaters < 3, 3, .data$home_skaters),
+      away_skaters = ifelse(.data$away_skaters < 3, 3, .data$away_skaters),
+      home_skaters = ifelse(is.na(.data$home_goalie), .data$home_skaters + 1, .data$home_skaters),
+      away_skaters = ifelse(is.na(.data$away_goalie), .data$away_skaters + 1, .data$away_skaters)
     )
 
   if (format == "clean") {
@@ -974,12 +976,12 @@ process_boxscore <- function(data) {
              "shootout_scoring" = "so",
              "total_scoring" = "t") %>%
       dplyr::mutate(
-        shootout_scoring = stringr::str_replace(shootout_scoring, "[0-9] ", ""),
-        shootout_scoring = stringr::str_replace(shootout_scoring, "\\(", ""),
-        shootout_scoring = stringr::str_replace(shootout_scoring, "\\)", ""),
-        shootout_rep = stringr::str_replace(shootout_scoring, " - ", ",")) %>%
-      dplyr::select(-c(shootout_scoring)) %>%
-      tidyr::separate(shootout_rep, into = c("shootout_scoring", "shootout_shots"),
+        shootout_scoring = stringr::str_replace(.data$shootout_scoring, "[0-9] ", ""),
+        shootout_scoring = stringr::str_replace(.data$shootout_scoring, "\\(", ""),
+        shootout_scoring = stringr::str_replace(.data$shootout_scoring, "\\)", ""),
+        shootout_rep = stringr::str_replace(.data$shootout_scoring, " - ", ",")) %>%
+      dplyr::select(-c(.data$shootout_scoring)) %>%
+      tidyr::separate(.data$shootout_rep, into = c("shootout_scoring", "shootout_shots"),
                       sep = ",", remove = TRUE)
 
   }
@@ -1012,26 +1014,26 @@ process_boxscore <- function(data) {
   df <- df %>%
     janitor::clean_names() %>%
     tidyr::pivot_longer(cols = 2:3) %>%
-    tidyr::pivot_wider(names_from = team_stats) %>%
+    tidyr::pivot_wider(names_from = .data$team_stats) %>%
     janitor::clean_names() %>%
     tidyr::separate(
-      power_plays,
+      .data$power_plays,
       into = c("successful_power_play", "power_play_opportunities"),
       sep = " / ") %>%
     dplyr::mutate_at(
-      vars(successful_power_play,
-           power_play_opportunities,
-           power_play_percent,
-           penalty_minutes,
-           faceoff_percent,
-           blocked_opponent_shots,
-           takeaways,
-           giveaways), as.numeric) %>%
+      vars(.data$successful_power_play,
+           .data$power_play_opportunities,
+           .data$power_play_percent,
+           .data$penalty_minutes,
+           .data$faceoff_percent,
+           .data$blocked_opponent_shots,
+           .data$takeaways,
+           .data$giveaways), as.numeric) %>%
     dplyr::rename("team" = "name")
 
   s <- shot %>%
     dplyr::left_join(score, by = c("team")) %>%
-    dplyr::mutate(team = tolower(team))
+    dplyr::mutate(team = tolower(.data$team))
 
   df <- df %>%
     dplyr::left_join(s, by = c("team"))

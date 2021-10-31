@@ -108,9 +108,9 @@ phf_schedule <- function(season = 2021){
   )
 
   schedule_data <- schedule_data %>%
-    dplyr::mutate(winner = ifelse(away_score > home_score, away_team,
-                                ifelse(home_score > away_score, home_team,
-                                    ifelse(home_score == away_score, "Tie", NA))))
+    dplyr::mutate(winner = ifelse(.data$away_score > .data$home_score, .data$away_team,
+                                ifelse(.data$home_score > .data$away_score, .data$home_team,
+                                    ifelse(.data$home_score == .data$away_score, "Tie", NA))))
 
   return(schedule_data)
 }
