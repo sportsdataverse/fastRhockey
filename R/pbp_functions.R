@@ -315,25 +315,25 @@ pbp_data <- function(data, game_id = game_id) {
   # so, since there's not a consistent format of which table in the list the period data is in
   # I have to have it loop through the number of rows in each of those tables
   # then we take each one that has at least 6 observations
-  for (y in 1:length(data)) {
-
-    z <- nrow(data[[y]])
-    tb <- data.frame(y, z)
-
-    lst[[y]] <- tb
-
-  }
-  # 6 observations bc the shootout format is 3 shots per team at minimum
-  # since there are 7 lines in one of the boxscore tabs, we have to be careful
-  # however, that is always one of the last tables so we can just take the first five
-  tb <- dplyr::bind_rows(lst) %>%
-    # LOOK AT
-    # z > 7 runs easy, but it's possible for a shootout to be only 6 or 7 events
-    # and since there's another table that is 7 (boxscore data) it causes errors when I left it
-    # as >= 6 so I changed it for now to work
-    dplyr::filter(.data$z > 7) %>%
-    dplyr::mutate(order = dplyr::row_number()) %>%
-    dplyr::filter(.data$order > 0, .data$order < 6)
+  # for (y in 1:length(data)) {
+  #
+  #   z <- ncol(data[[y]])
+  #   tb <- data.frame(y, z)
+  #
+  #   lst[[y]] <- tb
+  #
+  # }
+  # # 6 observations bc the shootout format is 3 shots per team at minimum
+  # # since there are 7 lines in one of the boxscore tabs, we have to be careful
+  # # however, that is always one of the last tables so we can just take the first five
+  # tb <- dplyr::bind_rows(lst)
+  #   # LOOK AT
+  #   # z > 7 runs easy, but it's possible for a shootout to be only 6 or 7 events
+  #   # and since there's another table that is 7 (boxscore data) it causes errors when I left it
+  #   # as >= 6 so I changed it for now to work
+  #   dplyr::filter(.data$z > 7) %>%
+  #   dplyr::mutate(order = dplyr::row_number()) %>%
+  #   dplyr::filter(.data$order > 0, .data$order < 6)
 
   # renaming the game_id variable bc otherwise it doesn't work
   g <- game_id
@@ -344,21 +344,21 @@ pbp_data <- function(data, game_id = game_id) {
     dplyr::select(.data$home_team, .data$away_team)
 
   # creating the pbp dataframes for regulation, OT, or shootout games
-  if (nrow(tb) == 3) {
+  if (length(data) == 3) {
 
-    e <- tb %>%
-      dplyr::filter(.data$order == 1) %>%
-      dplyr::pull(.data$y)
-    f <- tb %>%
-      dplyr::filter(.data$order == 2) %>%
-      dplyr::pull(.data$y)
-    g <- tb %>%
-      dplyr::filter(.data$order == 3) %>%
-      dplyr::pull(.data$y)
+    # e <- tb %>%
+    #   dplyr::filter(.data$order == 1) %>%
+    #   dplyr::pull(.data$y)
+    # f <- tb %>%
+    #   dplyr::filter(.data$order == 2) %>%
+    #   dplyr::pull(.data$y)
+    # g <- tb %>%
+    #   dplyr::filter(.data$order == 3) %>%
+    #   dplyr::pull(.data$y)
 
-    first_period <- data[[e]]
-    second_period <- data[[f]]
-    third_period <- data[[g]]
+    first_period <- data[[1]]
+    second_period <- data[[2]]
+    third_period <- data[[3]]
 
     first_period <- process_period(data = first_period, period = 1)
 
@@ -370,25 +370,25 @@ pbp_data <- function(data, game_id = game_id) {
                             second_period,
                             third_period)
 
-  } else if (nrow(tb) == 4) {
+  } else if (length(data) == 4) {
+#
+#     e <- tb %>%
+#       dplyr::filter(.data$order == 1) %>%
+#       dplyr::pull(.data$y)
+#     f <- tb %>%
+#       dplyr::filter(.data$order == 2) %>%
+#       dplyr::pull(.data$y)
+#     g <- tb %>%
+#       dplyr::filter(.data$order == 3) %>%
+#       dplyr::pull(.data$y)
+#     h <- tb %>%
+#       dplyr::filter(.data$order == 4) %>%
+#       dplyr::pull(.data$y)
 
-    e <- tb %>%
-      dplyr::filter(.data$order == 1) %>%
-      dplyr::pull(.data$y)
-    f <- tb %>%
-      dplyr::filter(.data$order == 2) %>%
-      dplyr::pull(.data$y)
-    g <- tb %>%
-      dplyr::filter(.data$order == 3) %>%
-      dplyr::pull(.data$y)
-    h <- tb %>%
-      dplyr::filter(.data$order == 4) %>%
-      dplyr::pull(.data$y)
-
-    first_period <- data[[e]]
-    second_period <- data[[f]]
-    third_period <- data[[g]]
-    fourth_period <- data[[h]]
+    first_period <- data[[1]]
+    second_period <- data[[2]]
+    third_period <- data[[3]]
+    fourth_period <- data[[4]]
 
     first_period <- process_period(data = first_period, period = 1)
 
@@ -403,29 +403,29 @@ pbp_data <- function(data, game_id = game_id) {
                             third_period,
                             fourth_period)
 
-  } else if (nrow(tb) >= 5) {
+  } else if (length(data) >= 5) {
 
-    e <- tb %>%
-      dplyr::filter(.data$order == 1) %>%
-      dplyr::pull(.data$y)
-    f <- tb %>%
-      dplyr::filter(.data$order == 2) %>%
-      dplyr::pull(.data$y)
-    g <- tb %>%
-      dplyr::filter(.data$order == 3) %>%
-      dplyr::pull(.data$y)
-    h <- tb %>%
-      dplyr::filter(.data$order == 4) %>%
-      dplyr::pull(.data$y)
-    i <- tb %>%
-      dplyr::filter(.data$order == 5) %>%
-      dplyr::pull(.data$y)
+    # e <- tb %>%
+    #   dplyr::filter(.data$order == 1) %>%
+    #   dplyr::pull(.data$y)
+    # f <- tb %>%
+    #   dplyr::filter(.data$order == 2) %>%
+    #   dplyr::pull(.data$y)
+    # g <- tb %>%
+    #   dplyr::filter(.data$order == 3) %>%
+    #   dplyr::pull(.data$y)
+    # h <- tb %>%
+    #   dplyr::filter(.data$order == 4) %>%
+    #   dplyr::pull(.data$y)
+    # i <- tb %>%
+    #   dplyr::filter(.data$order == 5) %>%
+    #   dplyr::pull(.data$y)
 
-    first_period <- data[[e]]
-    second_period <- data[[f]]
-    third_period <- data[[g]]
-    fourth_period <- data[[h]]
-    shootout <- data[[i]]
+    first_period <- data[[1]]
+    second_period <- data[[2]]
+    third_period <- data[[3]]
+    fourth_period <- data[[4]]
+    shootout <- data[[5]]
 
     first_period <- process_period(data = first_period, period = 1)
 
@@ -588,7 +588,7 @@ pbp_data <- function(data, game_id = game_id) {
                                 .data$on_ice_situation),
       on_ice_situation = tidyr::replace_na(.data$on_ice_situation, "Even Strength"))
 
-  if (nrow(tb) >= 5) {
+  if (length(data) >= 5) {
     # adding shootout data to the regulation/OT pbp if there was a shootout
     shootout <- process_shootout(data = shootout)
 
