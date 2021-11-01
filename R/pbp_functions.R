@@ -847,7 +847,7 @@ load_pbp <- function(game_id = 268078, format = "clean") {
     hsec <- seq(1, max(pbp$period_id) * 1200)
     h_skate <- 5
 
-    home_skaters <- data.frame(hsec, ha_skate)
+    home_skaters <- data.frame(hsec, h_skate)
 
     colnames(home_skaters) <- c("sec_from_start", "home_skaters")
 
