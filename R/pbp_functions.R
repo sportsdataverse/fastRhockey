@@ -766,12 +766,27 @@ load_pbp <- function(game_id = 268078, format = "clean") {
 
   }
 
-  #creates vector for skaters
-  away_skaters <- 5 + apply(away_pen_mat, 1, sum)
+  adim <- dim(away_pen_mat)
 
-  away_skaters <- as.data.frame(away_skaters) %>%
-    tibble::rownames_to_column("sec_from_start")%>%
-    dplyr::mutate(sec_from_start = as.numeric(.data$sec_from_start))
+  #creates vector for skaters
+  if (! is.null(adim)) {
+
+    away_skaters <- 5 + apply(away_pen_mat, 1, sum)
+
+    away_skaters <- as.data.frame(away_skaters) %>%
+      tibble::rownames_to_column("sec_from_start")%>%
+      dplyr::mutate(sec_from_start = as.numeric(.data$sec_from_start))
+
+  } else if (is.null(adim)) {
+
+      sec <- seq(1, max(pbp$period_id) * 1200)
+      a_skate <- 5
+
+      away_skaters <- data.frame(sec, a_skate)
+
+      colnames(away_skaters) <- c("sec_from_start", "away_skaters")
+
+    }
 
   home_state_changes <- pbp %>%
     dplyr::filter((.data$event == "PP Goal" & stringr::str_detect(.data$team, .data$away_team)) |
@@ -816,12 +831,27 @@ load_pbp <- function(game_id = 268078, format = "clean") {
 
   }
 
-  #creates vector for skaters
-  home_skaters <- 5 + apply(home_pen_mat, 1, sum)
+  hdim <- dim(home_pen_mat)
 
-  home_skaters <- as.data.frame(home_skaters) %>%
-    tibble::rownames_to_column("sec_from_start")%>%
-    dplyr::mutate(sec_from_start = as.numeric(.data$sec_from_start))
+  #creates vector for skaters
+  if (! is.null(adim)) {
+
+    home_skaters <- 5 + apply(home_pen_mat, 1, sum)
+
+    home_skaters <- as.data.frame(home_skaters) %>%
+      tibble::rownames_to_column("sec_from_start")%>%
+      dplyr::mutate(sec_from_start = as.numeric(.data$sec_from_start))
+
+  } else if (is.null(adim)) {
+
+    hsec <- seq(1, max(pbp$period_id) * 1200)
+    h_skate <- 5
+
+    home_skaters <- data.frame(hsec, ha_skate)
+
+    colnames(home_skaters) <- c("sec_from_start", "home_skaters")
+
+  }
 #
 #   away_state_changes <- away_state_changes %>%
 #     dplyr::mutate(change_skaters = ifelse(event == 1, -1,
