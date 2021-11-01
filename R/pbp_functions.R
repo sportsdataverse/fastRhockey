@@ -743,6 +743,8 @@ load_pbp <- function(game_id = 268078, format = "clean") {
                                rep(0, length((x[2]+x[3] + 1):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
                             )
                             #Creates a -1 for duration of penalty and 0s before (for end of game penalties)
+                          } else if (x[1] == 1 & (x[2] == (max(pbp$period_id, na.rm = TRUE)*1200))) {
+                            c( rep( 0, length( 0:x[2] )))
                           } else if(x[1] == 1 & x[2]+x[3] >= (max(pbp$period_id, na.rm = TRUE)*1200-1)) {
                             c( rep( 0, length( 0:x[2] )),
                                rep(-1, max(pbp$period_id, na.rm = TRUE)*1200-1-x[2] )
@@ -785,6 +787,8 @@ load_pbp <- function(game_id = 268078, format = "clean") {
                                rep(0, length((x[2]+x[3] + 1):(max(pbp$period_id, na.rm = TRUE)*1200-1)))
                             )
                             #Creates a -1 for duration of penalty and 0s before (for end of game penalties)
+                          } else if (x[1] == 1 & (x[2] == (max(pbp$period_id, na.rm = TRUE)*1200))) {
+                            c( rep( 0, length( 0:x[2] )))
                           } else if(x[1] == 1 & (x[2]+x[3]) >= (max(pbp$period_id, na.rm = TRUE)*1200-1)) {
                             c( rep( 0, length( 0:x[2] )),
                                rep(-1, max(pbp$period_id, na.rm = TRUE)*1200-1-x[2] )
