@@ -519,7 +519,8 @@ pbp_data <- function(data, game_id = game_id) {
                 # in the instance where there is NOT a 6th skater, doing a raw str_replace creates a NA and removes the player names
                 # so this ifelse statement looks to see if there was a 6th player number and is so, then replace that number with a comma
                 # otherwise it just pastes the description there without touching it
-                team = ifelse(! is.na(.data$number_six), stringr::str_replace(.data$team, .data$number_six, ","), .data$team))
+                team = ifelse(! is.na(.data$number_six),
+                              stringr::str_replace(.data$team, .data$number_six, ","), .data$team))
 
   suppressWarnings(
     on_ice <- on_ice %>%
