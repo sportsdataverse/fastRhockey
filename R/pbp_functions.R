@@ -732,7 +732,6 @@ load_pbp <- function(game_id = 268078, format = "clean") {
                   prev.time = lag(.data$sec_from_start),
                   prev.length = lag(.data$power_play_seconds))
 
-
   away_pen_mat <- apply(away_state_changes,
                         1,
                         FUN = function(x) {
@@ -744,7 +743,7 @@ load_pbp <- function(game_id = 268078, format = "clean") {
                             )
                             #Creates a -1 for duration of penalty and 0s before (for end of game penalties)
                           } else if (x[1] == 1 & (x[2] == (max(pbp$period_id, na.rm = TRUE)*1200))) {
-                            c( rep( 0, length( 0:x[2] )))
+                            c( rep( 0, length( 0:(max(pbp$period_id, na.rm = TRUE)*1200-1) )))
                           } else if(x[1] == 1 & x[2]+x[3] >= (max(pbp$period_id, na.rm = TRUE)*1200-1)) {
                             c( rep( 0, length( 0:x[2] )),
                                rep(-1, max(pbp$period_id, na.rm = TRUE)*1200-1-x[2] )
@@ -761,6 +760,12 @@ load_pbp <- function(game_id = 268078, format = "clean") {
                           }
                         })
 
+  if (typeof(away_pen_mat) == "list") {
+
+    away_pen_mat <- matrix(unlist(away_pen_mat), ncol = nrow(away_state_changes), byrow = TRUE)
+
+  }
+
   #creates vector for skaters
   away_skaters <- 5 + apply(away_pen_mat, 1, sum)
 
@@ -770,12 +775,12 @@ load_pbp <- function(game_id = 268078, format = "clean") {
 
   home_state_changes <- pbp %>%
     dplyr::filter((.data$event == "PP Goal" & stringr::str_detect(.data$team, .data$away_team)) |
-             (.data$event == "Penalty" & stringr::str_detect(.data$team, .data$home_team))) %>%
+                    (.data$event == "Penalty" & stringr::str_detect(.data$team, .data$home_team))) %>%
     dplyr::select(.data$event, .data$sec_from_start, .data$power_play_seconds) %>%
     dplyr::mutate(event = ifelse(.data$event == "Penalty",1,2),
-           prev.event = lag(.data$event),
-           prev.time = lag(.data$sec_from_start),
-           prev.length = lag(.data$power_play_seconds))
+                  prev.event = lag(.data$event),
+                  prev.time = lag(.data$sec_from_start),
+                  prev.length = lag(.data$power_play_seconds))
 
   home_pen_mat <- apply(home_state_changes,
                         1,
@@ -788,7 +793,7 @@ load_pbp <- function(game_id = 268078, format = "clean") {
                             )
                             #Creates a -1 for duration of penalty and 0s before (for end of game penalties)
                           } else if (x[1] == 1 & (x[2] == (max(pbp$period_id, na.rm = TRUE)*1200))) {
-                            c( rep( 0, length( 0:x[2] )))
+                            c( rep( 0, length( 0:(max(pbp$period_id, na.rm = TRUE)*1200-1) )))
                           } else if(x[1] == 1 & (x[2]+x[3]) >= (max(pbp$period_id, na.rm = TRUE)*1200-1)) {
                             c( rep( 0, length( 0:x[2] )),
                                rep(-1, max(pbp$period_id, na.rm = TRUE)*1200-1-x[2] )
@@ -804,6 +809,12 @@ load_pbp <- function(game_id = 268078, format = "clean") {
                             rep(0, length(0:(max(pbp$period_id)*1200-1)))
                           }
                         })
+
+  if (typeof(home_pen_mat) == "list") {
+
+    home_pen_mat <- matrix(unlist(home_pen_mat), ncol = nrow(home_state_changes), byrow = TRUE)
+
+  }
 
   #creates vector for skaters
   home_skaters <- 5 + apply(home_pen_mat, 1, sum)
