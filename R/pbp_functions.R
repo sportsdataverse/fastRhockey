@@ -85,7 +85,7 @@ phf_game_data <- function(game_id = 368719) {
     finally = {
     }
   )
-  return(plays_df)
+  return(plays_data)
 }
 
 #' @title normalize_columns
