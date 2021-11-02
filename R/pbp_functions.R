@@ -1053,7 +1053,18 @@ process_boxscore <- function(data) {
         shootout_rep = stringr::str_replace(.data$shootout_scoring, " - ", ",")) %>%
       dplyr::select(-c(.data$shootout_scoring)) %>%
       tidyr::separate(.data$shootout_rep, into = c("shootout_scoring", "shootout_shots"),
-                      sep = ",", remove = TRUE)
+                      sep = ",", remove = TRUE) %>%
+      dplyr::mutate(shootout_shots = as.numeric(.data$shootout_shots))
+
+  } else if (ncol(score) == 4) {
+
+    score <- score %>%
+      janitor::clean_names() %>%
+      dplyr::rename("team" = "scoring",
+                    "first_scoring" = "x1st",
+                    "second_scoring" = "x2nd",
+                    "total_scoring" = "t") %>%
+      dplyr::mutate(third_scoring = NA)
 
   }
 
@@ -1068,7 +1079,7 @@ process_boxscore <- function(data) {
         "third_shots" = "x3rd",
         "total_shots" = "t")
 
-  } else if (ncol(shot) != 5) {
+  } else if (ncol(shot) > 5) {
 
     shot <- shot %>%
       janitor::clean_names() %>%
@@ -1084,6 +1095,17 @@ process_boxscore <- function(data) {
           .data$overtime_shots
         ), as.integer
       )
+
+  } else if (ncol(shot) == 4) {
+
+    shot <- shot %>%
+      janitor::clean_names() %>%
+      dplyr::rename(
+        "team" = "shots",
+        "first_shots" = "x1st",
+        "second_shots" = "x2nd",
+        "total_shots" = "t") %>%
+      dplyr::mutate(third_shots = NA)
 
   }
 
