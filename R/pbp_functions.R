@@ -1078,7 +1078,12 @@ process_boxscore <- function(data) {
         "second_shots" = "x2nd",
         "third_shots" = "x3rd",
         "overtime_shots" = "ot",
-        "total_shots" = "t")
+        "total_shots" = "t") %>%
+      dplyr::mutate_at(
+        vars(
+          .data$overtime_shots
+        ), as.integer
+      )
 
   }
 
@@ -1116,12 +1121,11 @@ process_boxscore <- function(data) {
         .data$first_shots,
         .data$second_shots,
         .data$third_shots,
-        .data$overtime_shots,
         .data$total_shots,
         .data$first_scoring,
         .data$second_scoring,
         .data$third_scoring,
-        .data$overtime_scoring
+        .data$total_shots
       ), as.integer
     )
 
