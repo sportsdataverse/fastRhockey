@@ -1114,20 +1114,21 @@ process_boxscore <- function(data) {
   df <- df %>%
     dplyr::left_join(s, by = c("team"))
 
-  df <- df %>%
-    # dplyr::mutate(shootout_shots = as.numeric(.data$shootout_shots)) %>%
-    dplyr::mutate_at(
-      vars(
-        .data$first_shots,
-        .data$second_shots,
-        .data$third_shots,
-        .data$total_shots,
-        .data$first_scoring,
-        .data$second_scoring,
-        .data$third_scoring,
-        .data$total_shots
-      ), as.integer
-    )
+  suppressWarnings(
+    df <- df %>%
+      # dplyr::mutate(shootout_shots = as.numeric(.data$shootout_shots)) %>%
+      dplyr::mutate_at(
+        vars(
+          .data$first_shots,
+          .data$second_shots,
+          .data$third_shots,
+          .data$total_shots,
+          .data$first_scoring,
+          .data$second_scoring,
+          .data$third_scoring,
+          .data$total_shots
+        ), as.integer
+    ))
 
   df <- dplyr::bind_rows(df, boxscore)
 
