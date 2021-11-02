@@ -67,8 +67,10 @@ phf_game_data <- function(game_id = 368719) {
               return(x)
             }
           }),is.null)]
-      if(length(plays_data)>5){
+      if(length(plays_data)==5){
         plays_data <- plays_data[1:5]
+      } else if(length(plays_data)>5) {
+        plays_data
       }
       plays_df <- purrr::map_dfr(1:length(plays_data), function(x){
         plays_data[[x]] %>%
@@ -403,7 +405,7 @@ pbp_data <- function(data, game_id = game_id) {
                             third_period,
                             fourth_period)
 
-  } else if (length(data) >= 5) {
+  } else if (length(data) == 5) {
 
     # e <- tb %>%
     #   dplyr::filter(.data$order == 1) %>%
@@ -440,7 +442,29 @@ pbp_data <- function(data, game_id = game_id) {
                             third_period,
                             fourth_period)
 
+  } else if (length(data) >= 6) {
+
+    first_period <- data[[1]]
+    second_period <- data[[2]]
+    third_period <- data[[3]]
+    fourth_period <- data[[4]]
+    shootout <- data[[6]]
+
+    first_period <- process_period(data = first_period, period = 1)
+
+    second_period <- process_period(data = second_period, period = 2)
+
+    third_period <- process_period(data = third_period, period = 3)
+
+    fourth_period <- process_period(data = fourth_period, period = 4)
+
+    pbp <- dplyr::bind_rows(first_period,
+                            second_period,
+                            third_period,
+                            fourth_period)
+
   }
+
 
   pbp <- pbp %>%
     # replacing extraneous words to parse out player names
