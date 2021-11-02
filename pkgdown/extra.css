@@ -40,7 +40,7 @@ pre, code {
     border-color: #454444;
 }
 .label-default {
-  background-color: #6f0dde;
+  background-color: #d4d3cb;
 }
 #tocnav ul ul {
   font-family: "Fira Mono";
@@ -100,7 +100,7 @@ pre, code {
   font-family: "Chivo";
   letter-spacing: 0.1px;
   line-height: 1.3rem;
-  color: #d4d3cb;
+  color: #6f0dde;
   font-weight: 700;
   font-size: 14px;
   animation: glow 2.5s ease-in-out infinite alternate;
@@ -108,6 +108,6 @@ pre, code {
 .navbar-default .navbar-link {
     font-family: "Bungee";
     font-size: 16px;
-    color: #6f0dde;
+    color: #d4d3cb;
     animation: glow 3s ease-in-out infinite alternate;
 }
