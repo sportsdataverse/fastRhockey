@@ -18,14 +18,6 @@ library(tidyverse)
 library(janitor)
 ```
 
-# fastRhockey
-
-<!-- badges: start -->
-<!-- [![Version-Number](https://img.shields.io/github/r-package/v/BenHowell71/fastRhockey?label=fastRhockey&logo=R&style=for-the-badge)](https://github.com/BenHowell71/fastRhockey) -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/benhowell71/fastRhockey/workflows/R-CMD-check/badge.svg)](https://github.com/benhowell71/fastRhockey/actions)
-<!-- badges: end -->
-
 [`fastRhockey`](https://github.com/benhowell71/fastRhockey) is an R Package that is designed to pull play-by-play (and boxscore) data from the newest version of the [Premier Hockey Federation (PHF) website](https://www.premierhockeyfederation.com/). In the past, there have been a few scrapers for the PHF (formerly the NWHL), but they've all been deprecated since the league changed website formats.                 
 
 With the seventh season of the league kicking off on November 6th, and games being broadcasted on ESPN+, this package was created to allow access to play-by-play data to continue pushing women's hockey analytics forward.                 

@@ -51,6 +51,7 @@ navbar:
       text: "Articles"
       menu:
         - text: "fastRhockey Introduction"
+          href: articles/introduction.html
     network:
       icon: "fas fa-project-diagram"
       text: SDV

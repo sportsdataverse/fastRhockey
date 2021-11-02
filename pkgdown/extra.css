@@ -38,6 +38,7 @@ pre, code {
 }
 .navbar-default {
     border-color: #454444;
+    background-color: #6f0dde;
 }
 .label-default {
   background-color: #d4d3cb;
@@ -100,7 +101,7 @@ pre, code {
   font-family: "Chivo";
   letter-spacing: 0.1px;
   line-height: 1.3rem;
-  color: #6f0dde;
+  color: #d4d3cb;
   font-weight: 700;
   font-size: 14px;
   animation: glow 2.5s ease-in-out infinite alternate;
