@@ -721,6 +721,7 @@ phf_pbp_data <- function(data, game_id = game_id) {
 #' @importFrom stringr str_replace str_replace_all str_extract str_extract_all str_detect str_trim
 #' @importFrom tibble rownames_to_column
 #' @importFrom utils read.csv
+#' @importFrom glue glue
 #' @import rvest
 #' @import jsonlite
 #' @export
@@ -729,6 +730,8 @@ phf_pbp_data <- function(data, game_id = game_id) {
 #' }
 load_phf_pbp <- function(game_id = 268078, format = "clean") {
 
+  tryCatch(
+    expr = {
   # load raw data in from the api
   df <- phf_game_data(game_id = game_id)
 
@@ -961,6 +964,18 @@ load_phf_pbp <- function(game_id = 268078, format = "clean") {
 
   }
 
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid game_id or no data available! Try using `phf_schedule` to find a game ID to look up!"))
+    },
+    warning = function(w) {
+
+    },
+    finally = {
+
+    }
+  )
+
   return(pbp)
 
 }
@@ -1172,12 +1187,16 @@ process_phf_boxscore <- function(data) {
 #' @import httr
 #' @import stringr
 #' @import jsonlite
+#' @importFrom glue glue
 #' @export
 #' @examples
 #' \dontrun{
 #'   boxscore <- load_phf_boxscore(game_id = 268078)
 #' }
 load_phf_boxscore <- function(game_id = 268078) {
+
+  tryCatch(
+    expr = {
 
   y <- game_id
 
@@ -1206,6 +1225,17 @@ load_phf_boxscore <- function(game_id = 268078) {
       .data$takeaways,
       .data$giveaways)
 
+    },
+  error = function(e) {
+    message(glue::glue("{Sys.time()}: Invalid game_id or no boxscore data available! Try using `phf_schedule` to find a game ID to look up!"))
+  },
+  warning = function(w) {
+
+  },
+  finally = {
+
+  })
+
   return(df)
 
 }
@@ -1219,6 +1249,7 @@ load_phf_boxscore <- function(game_id = 268078) {
 #' @import httr
 #' @import stringr
 #' @import jsonlite
+#' @importFrom glue glue
 #' @export
 #' @examples
 #' \dontrun{
@@ -1226,12 +1257,26 @@ load_phf_boxscore <- function(game_id = 268078) {
 #' }
 load_phf_game <- function(game_id = 268078) {
 
+  tryCatch(
+    expr = {
+
   # returns both boxscore and pbp data in a single list
   box <- load_phf_boxscore(game_id = game_id)
 
   pbp <- load_phf_pbp(game_id = game_id)
 
   game <- list(box, pbp)
+
+    },
+  error = function(e) {
+    message(glue::glue("{Sys.time()}: Invalid game_id or no data available! Try using `phf_schedule` to find a game ID to look up!"))
+  },
+  warning = function(w) {
+
+  },
+  finally = {
+
+  })
 
   return(game)
 

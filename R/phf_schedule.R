@@ -5,6 +5,7 @@
 #' @import dplyr
 #' @import httr
 #' @importFrom jsonlite fromJSON
+#' @importFrom glue glue
 #' @export
 #' @examples \dontrun{
 #' phf_league_info(season = 2022)
@@ -29,6 +30,8 @@ phf_league_info <- function(season = 2022){
                       `Authorization`='ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'))
  check_status(res)
 
+ tryCatch(
+   expr = {
  data <- res %>%
    httr::content(as = "text", encoding="utf-8") %>%
    jsonlite::fromJSON()
@@ -42,6 +45,17 @@ phf_league_info <- function(season = 2022){
  data <- c(list(seasons), list(divisions), list(teams), list(leagues),
            list(officials), list(brackets))
  names(data)<- c("seasons", "divisions", "teams", "league",  "officials", "brackets")
+   },
+ error = function(e) {
+   message(glue::glue("{Sys.time()}: Invalid season or no data available! Try 2016 through 2021!"))
+ },
+ warning = function(w) {
+
+ },
+ finally = {
+
+    })
+
  return(data)
 
 }
@@ -98,7 +112,7 @@ phf_schedule <- function(season = 2021){
       schedule_data <- schedule_data[[1]]
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid season or no schedule data available!"))
+      message(glue::glue("{Sys.time()}: Invalid season or no schedule data available! Try a season from 2016-2021!"))
 
     },
     warning = function(w) {
