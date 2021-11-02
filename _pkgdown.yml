@@ -49,6 +49,8 @@ navbar:
     articles:
       icon: "fas fa-book-reader"
       text: "Articles"
+      menu:
+        - text: "fastRhockey Introduction"
     network:
       icon: "fas fa-project-diagram"
       text: SDV
