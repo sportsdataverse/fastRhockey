@@ -105,7 +105,7 @@ boxscore data from this game.
 ``` r
 x <- 379254
 
-box <- load_boxscore(game_id = x)
+box <- load_phf_boxscore(game_id = x)
 #> No encoding supplied: defaulting to UTF-8.
 
 box %>%
@@ -138,10 +138,10 @@ function where the only input necessary is the `game_id` that you want.
 ``` r
 a <- Sys.time()
 
-pbp <- load_pbp(game_id = x)
+pbp <- load_phf_pbp(game_id = x)
   
 Sys.time() - a
-#> Time difference of 5.738482 secs
+#> Time difference of 7.670833 secs
 ```
 
 Loading a single game should take \~ 5 seconds. Once it does, it’s time
@@ -235,18 +235,18 @@ attempt or the chaos that can follow giveaways.
 
 That’s a quick primer on the main functions of the package.
 `phf_schedule` returns schedule information and game\_ids, which can be
-used in `load_boxscore` or `load_pbp` to return boxscore or play-by-play
-data. `load_game` wraps the boxscore/play-by-play functions into one and
-returns a list with the two data frames.
+used in `load_phf_boxscore` or `load_phf_pbp` to return boxscore or
+play-by-play data. `load_phf_game` wraps the boxscore/play-by-play
+functions into one and returns a list with the two data frames.
 
 The last function that may be of some use is `phf_league_info`, which
 essentially pulls a lot of background info on the league and the IDs
 that are used. The output from this function gets wrapped into the
-`load___` functions and `phf_schedule`, which is it’s main purpose.
+`load_phf___` functions and `phf_schedule`, which is it’s main purpose.
 
 If you look with `fastRhockey::`, there are more functions available,
 but those are helper functions to pull raw data (`phf_game_data`) and
-then to process the raw data into a usable format (`process____`).
+then to process the raw data into a usable format (`process_phf____`).
 
 ------------------------------------------------------------------------
 
