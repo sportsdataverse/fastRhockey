@@ -19,7 +19,7 @@ authors:
 home:
   title: An R package to quickly obtain Premier Hockey Federation (PHF) boxscore and play-by-play data.
   icon: fa-home
-  href: index.html
+  href: https://benhowell71.github.io/fastRhockey/
 
 navbar:
   structure:

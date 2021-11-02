@@ -82,17 +82,17 @@ pre, code {
 
 @-webkit-keyframes glow {
   from {
-    text-shadow: 0 0 8px #F4FE85, 0 0 10px #F4FE85;
+    text-shadow: 0 0 8px #242422, 0 0 10px #242422;
   }
   
   to {
-    text-shadow: 0 0 10px #F4FE85, 0 0 11px #F4FE85;
+    text-shadow: 0 0 10px #242422, 0 0 11px #242422;
   }
 }
 
 @keyframes glow {
     to {
-     text-shadow: 0 0 10px #F4FE85, 0 0 11px #F4FE85;
+     text-shadow: 0 0 10px #242422, 0 0 11px #242422;
     }
   }
   
@@ -108,6 +108,6 @@ pre, code {
 .navbar-default .navbar-link {
     font-family: "Bungee";
     font-size: 16px;
-    color: #d4d3cb;
+    color: #6f0dde;
     animation: glow 3s ease-in-out infinite alternate;
 }
