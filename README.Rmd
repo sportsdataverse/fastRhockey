@@ -64,6 +64,14 @@ devtools::install_github(repo = "BenHowell71/fastRhockey")
 
 *********************************************************
 
+## Documentation                   
+
+You can find the [documentation](https://benhowell71.github.io/fastRhockey/) for [**`fastRhockey`**](https://github.com/BenHowell71/fastRhockey/) on [GitHub pages](https://benhowell71.github.io/fastRhockey/).                          
+
+You can view CSVs of historical boxscore and play-by-play on the [**`fastRhockey`**](https://github.com/BenHowell71/fastRhockey/) [data repo](https://github.com/benhowell71/fastRhockey-data), as well as the process for scraping that historical data.
+
+*********************************************************
+
 ## Breaking Changes
 
 [**Full News on Releases**](https://benhowell71.github.io/fastRhockey/news/index.html)

@@ -28,7 +28,7 @@ navbar:
   components:
     twitter:
       icon: "fab fa-twitter fa-lg"
-      href: http://twitter.com/cfbfastR
+      href: https://twitter.com/benhowell71
     news:
       icon: "fas fa-newspaper"
       text: " News"
@@ -38,14 +38,14 @@ navbar:
       text: " Data"
       menu:
         - text: "Data Repository"
-          href: https://github.com/benhowell71/fastRhockey-data-repository
+          href: https://github.com/benhowell71/fastRhockey-data
     reference:
       icon: "fas fa-code"
       text: "Funcs"
       href: reference/index.html
       menu:
         - text: "Function Index"
-          href: eference/index.html
+          href: reference/index.html
     articles:
       icon: "fas fa-book-reader"
       text: "Articles"
@@ -77,8 +77,8 @@ navbar:
         href: https://BillPetti.github.io/baseballr/
       - text: hockeyR
         href: https://hockeyr.netlify.app/
-      - text: fastRhockey
-        href: https://BenHowell71.github.io/fastRhockey/
+      - text: cfbfastR
+        href: https://github.com/saiemgilani/cfbfastR
       - text: powerplay
         href: https://saiemgilani.github.io/powerplay/
       - text: --------------------------------
