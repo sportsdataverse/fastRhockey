@@ -1,0 +1,102 @@
+url: https://github.com/BenHowell71/fastRhockey/
+
+title: fastRhockey
+description: "An R package to quickly obtain Premier Hockey Federation (PHF) boxscore and play-by-play data."
+
+toc:
+  depth: 3
+
+authors:
+  Ben Howell:
+    href: https://twitter.com/benhowell71
+  Saiem Gilani:
+    href: https://twitter.com/saiemgilani
+  Alyssa Longmuir:
+    href: https://twitter.com/alyssastweeting
+  Tan Ho:
+    href: https://twitter.com/_TanHo
+
+home:
+  title: An R package to quickly obtain Premier Hockey Federation (PHF) boxscore and play-by-play data.
+  icon: fa-home
+  href: index.html
+
+navbar:
+  structure:
+    left:  [home, intro, reference, articles, news, network, data, repo]
+    right: [twitter, github]
+  components:
+    twitter:
+      icon: "fab fa-twitter fa-lg"
+      href: http://twitter.com/cfbfastR
+    news:
+      icon: "fas fa-newspaper"
+      text: " News"
+      href: news/index.html
+    data:
+      icon: "fas fa-database"
+      text: " Data"
+      menu:
+        - text: "Data Repository"
+          href: https://github.com/benhowell71/fastRhockey-data-repository
+    reference:
+      icon: "fas fa-code"
+      text: "Funcs"
+      href: reference/index.html
+      menu:
+        - text: "Function Index"
+          href: eference/index.html
+    articles:
+      icon: "fas fa-book-reader"
+      text: "Articles"
+    network:
+      icon: "fas fa-project-diagram"
+      text: SDV
+      menu:
+      - text: SportsDataverse
+        href: https://sportsdataverse.org/
+      - text: --------------------------------
+      - text: R Packages
+      - text: hoopR
+        href: https://hoopR.sportsdataverse.org/
+      - text: wehoop
+        href: https://wehoop.sportsdataverse.org/
+      - text: recruitR
+        href: https://saiemgilani.github.io/recruitR/
+      - text: puntr
+        href: https://puntalytics.github.io/puntr
+      - text: gamezoneR
+        href: https://jacklich10.github.io/gamezoneR/
+      - text: cfbplotR
+        href: https://kazink36.github.io/cfbplotR/
+      - text: cfb4th
+        href: https://kazink36.github.io/cfb4th/
+      - text: worldfootballR
+        href: https://jaseziv.github.io/worldfootballR/
+      - text: baseballr
+        href: https://BillPetti.github.io/baseballr/
+      - text: hockeyR
+        href: https://hockeyr.netlify.app/
+      - text: fastRhockey
+        href: https://BenHowell71.github.io/fastRhockey/
+      - text: powerplay
+        href: https://saiemgilani.github.io/powerplay/
+      - text: --------------------------------
+      - text: Python Packages
+      - text: sportsdataverse-py
+        href: https://py.sportsdataverse.org/
+      - text: --------------------------------
+      - text: Node.js Packages
+      - text: sportsdataverse.js
+        href: https://saiemgilani.github.io/sportsdataverse/
+      - text: nfl-nerd
+        href: https://github.com/nntrn/nfl-nerd/
+    github:
+      icon: "fab fa-github fa-lg"
+      href: https://github.com/benhowell71/fastRhockey
+    repo:
+      url: https://github.com/benhowell71/fastRhockey
+      home: https://github.com/benhowell71/fastRhockey
+      source: https://github.com/benhowell71/fastRhockeyblob/master/
+      issue: https://github.com/benhowell71/fastRhockeyissues/issues/
+      user: https://github.com/saiemgilani/
