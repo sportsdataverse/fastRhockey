@@ -1110,7 +1110,7 @@ process_boxscore <- function(data) {
     dplyr::left_join(s, by = c("team"))
 
   df <- df %>%
-    dplyr::mutate(shootout_shots = as.numeric(.data$shootout_shots)) %>%
+    # dplyr::mutate(shootout_shots = as.numeric(.data$shootout_shots)) %>%
     dplyr::mutate_at(
       vars(
         .data$first_shots,
