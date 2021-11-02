@@ -134,8 +134,8 @@ normalize_columns <- function(df){
 }
 
 
-#' @title process_period
-#' @description process_period: processes the raw data of a single period from a PHF game
+#' @title process_phf_period
+#' @description process_phf_period: processes the raw data of a single period from a PHF game
 #'
 #' @param data the dataframe of the period that you want parsed into a workable format of pbp data
 #' @param period which period of play is this data for? Defaults to 1
@@ -144,9 +144,9 @@ normalize_columns <- function(df){
 #' @importFrom stringr str_detect
 #' @export
 #' @examples \dontrun{
-#'   first_period <- process_period(data = df[[1]], period = 1)
+#'   first_period <- process_phf_period(data = df[[1]], period = 1)
 #' }
-process_period <- function(data, period = 1) {
+process_phf_period <- function(data, period = 1) {
 
   # the raw data comes in a very very weird format where the only thing we want
   # is every other row so these two lines get us that
@@ -178,8 +178,8 @@ process_period <- function(data, period = 1) {
 }
 
 
-#' @title load_raw_data
-#' @description load_raw_data: pull in the raw data for a game_id from the PHF/NWHL API
+#' @title load_phf_raw_data
+#' @description load_phf_raw_data: pull in the raw data for a game_id from the PHF/NWHL API
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @import rvest
@@ -189,9 +189,9 @@ process_period <- function(data, period = 1) {
 #' @export
 #' @examples
 #' \dontrun{
-#'   df <- load_raw_data(game_id = 268078)
+#'   df <- load_phf_raw_data(game_id = 268078)
 #' }
-load_raw_data <- function(game_id = 268078) {
+load_phf_raw_data <- function(game_id = 268078) {
 
   link <- paste0("https://web.api.digitalshift.ca/partials/stats/game/play-by-play?game_id=", game_id)
   # the link for the game + authorization for accessing the API
@@ -207,8 +207,8 @@ load_raw_data <- function(game_id = 268078) {
 
 }
 
-#' @title process_shootout
-#' @description process_shootout: processes the raw data of a shootout from a PHF game
+#' @title process_phf_shootout
+#' @description process_phf_shootout: processes the raw data of a shootout from a PHF game
 #'
 #' @param data the dataframe of the shootout that you want parsed into a workable format of pbp data
 #' @importFrom janitor clean_names
@@ -217,9 +217,9 @@ load_raw_data <- function(game_id = 268078) {
 #' @importFrom tidyr separate
 #' @export
 #' @examples \dontrun{
-#'   shootout <- process_shootout(data = game_so)
+#'   shootout <- process_phf_shootout(data = game_so)
 #' }
-process_shootout <- function(data) {
+process_phf_shootout <- function(data) {
   # defining strings that need to be filtered out for shootouts specifically, since they're different than the regular pbp data
   score_string <- "[:digit:] - [:digit:] [A-Z]+|[:digit:] - [:digit:]"
   shoot <- "missed attempt against|scores against|Shootout"
@@ -292,10 +292,10 @@ process_shootout <- function(data) {
 
 }
 
-#' @title pbp_data
-#' @description pbp_data: returns all of the play-by-play data for a game into on big data frame using the process_period/shootout functions. Contains functionality to account for regulation games, overtime games, and shootouts
+#' @title phf_pbp_data
+#' @description phf_pbp_data: returns all of the play-by-play data for a game into on big data frame using the process_phf_period/shootout functions. Contains functionality to account for regulation games, overtime games, and shootouts
 #'
-#' @param data the raw list data that is generated from the load_raw_data function
+#' @param data the raw list data that is generated from the load_phf_raw_data function
 #' @param game_id the game ID of the game that you want pbp data processed for
 #' @importFrom dplyr mutate bind_rows filter row_number select case_when pull starts_with ends_with
 #' @importFrom tidyr pivot_wider separate fill replace_na
@@ -305,11 +305,11 @@ process_shootout <- function(data) {
 #' @import jsonlite
 #' @export
 #' @examples \dontrun{
-#'   pbp_df <- pbp_data(data = df)
+#'   pbp_df <- phf_pbp_data(data = df)
 #' }
 #### function returning all the pbp data for a game into one big data frame for the game
-## data takes the raw list of data from the load_raw_data function
-pbp_data <- function(data, game_id = game_id) {
+## data takes the raw list of data from the load_phf_raw_data function
+phf_pbp_data <- function(data, game_id = game_id) {
 
   lst <- list()
   # creating an empty list
@@ -362,11 +362,11 @@ pbp_data <- function(data, game_id = game_id) {
     second_period <- data[[2]]
     third_period <- data[[3]]
 
-    first_period <- process_period(data = first_period, period = 1)
+    first_period <- process_phf_period(data = first_period, period = 1)
 
-    second_period <- process_period(data = second_period, period = 2)
+    second_period <- process_phf_period(data = second_period, period = 2)
 
-    third_period <- process_period(data = third_period, period = 3)
+    third_period <- process_phf_period(data = third_period, period = 3)
 
     pbp <- dplyr::bind_rows(first_period,
                             second_period,
@@ -392,13 +392,13 @@ pbp_data <- function(data, game_id = game_id) {
     third_period <- data[[3]]
     fourth_period <- data[[4]]
 
-    first_period <- process_period(data = first_period, period = 1)
+    first_period <- process_phf_period(data = first_period, period = 1)
 
-    second_period <- process_period(data = second_period, period = 2)
+    second_period <- process_phf_period(data = second_period, period = 2)
 
-    third_period <- process_period(data = third_period, period = 3)
+    third_period <- process_phf_period(data = third_period, period = 3)
 
-    fourth_period <- process_period(data = fourth_period, period = 4)
+    fourth_period <- process_phf_period(data = fourth_period, period = 4)
 
     pbp <- dplyr::bind_rows(first_period,
                             second_period,
@@ -429,13 +429,13 @@ pbp_data <- function(data, game_id = game_id) {
     fourth_period <- data[[4]]
     shootout <- data[[5]]
 
-    first_period <- process_period(data = first_period, period = 1)
+    first_period <- process_phf_period(data = first_period, period = 1)
 
-    second_period <- process_period(data = second_period, period = 2)
+    second_period <- process_phf_period(data = second_period, period = 2)
 
-    third_period <- process_period(data = third_period, period = 3)
+    third_period <- process_phf_period(data = third_period, period = 3)
 
-    fourth_period <- process_period(data = fourth_period, period = 4)
+    fourth_period <- process_phf_period(data = fourth_period, period = 4)
 
     pbp <- dplyr::bind_rows(first_period,
                             second_period,
@@ -450,13 +450,13 @@ pbp_data <- function(data, game_id = game_id) {
     fourth_period <- data[[4]]
     shootout <- data[[6]]
 
-    first_period <- process_period(data = first_period, period = 1)
+    first_period <- process_phf_period(data = first_period, period = 1)
 
-    second_period <- process_period(data = second_period, period = 2)
+    second_period <- process_phf_period(data = second_period, period = 2)
 
-    third_period <- process_period(data = third_period, period = 3)
+    third_period <- process_phf_period(data = third_period, period = 3)
 
-    fourth_period <- process_period(data = fourth_period, period = 4)
+    fourth_period <- process_phf_period(data = fourth_period, period = 4)
 
     pbp <- dplyr::bind_rows(first_period,
                             second_period,
@@ -615,7 +615,7 @@ pbp_data <- function(data, game_id = game_id) {
 
   if (length(data) >= 5) {
     # adding shootout data to the regulation/OT pbp if there was a shootout
-    shootout <- process_shootout(data = shootout)
+    shootout <- process_phf_shootout(data = shootout)
 
     pbp <- dplyr::bind_rows(pbp, shootout)
 
@@ -711,8 +711,8 @@ pbp_data <- function(data, game_id = game_id) {
 
 }
 
-#' @title load_pbp
-#' @description load_pbp: loads all the play-by-play data for a game into one data frame through just one function
+#' @title load_phf_pbp
+#' @description load_phf_pbp: loads all the play-by-play data for a game into one data frame through just one function
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @param format Whether the data should be returned in a clean format or the messy data file that doesn't filter out columns
@@ -725,15 +725,15 @@ pbp_data <- function(data, game_id = game_id) {
 #' @import jsonlite
 #' @export
 #' @examples \dontrun{
-#'   first_period <- process_period(data = df[[1]], period = 1)
+#'   first_period <- process_phf_period(data = df[[1]], period = 1)
 #' }
-load_pbp <- function(game_id = 268078, format = "clean") {
+load_phf_pbp <- function(game_id = 268078, format = "clean") {
 
   # load raw data in from the api
   df <- phf_game_data(game_id = game_id)
 
   # transform raw data into a pbp dataframe
-  pbp <- pbp_data(data = df, game_id = game_id)
+  pbp <- phf_pbp_data(data = df, game_id = game_id)
 
   #re-initializing the game_id variable so that it doesn't freak tf out
   x <- game_id
@@ -994,8 +994,8 @@ boxscore <- data.frame(
   game_id = numeric()
 )
 
-#' @title process_boxscore
-#' @description process_boxscore: the code for processing box score data into a format that makes sense
+#' @title process_phf_boxscore
+#' @description process_phf_boxscore: the code for processing box score data into a format that makes sense
 #'
 #' @param data the raw data from the game that you're interested in
 #' @importFrom dplyr mutate bind_rows filter row_number select case_when pull starts_with ends_with
@@ -1006,9 +1006,9 @@ boxscore <- data.frame(
 #' @import jsonlite
 #' @export
 #' @examples \dontrun{
-#'   boxscore <- process_boxscore(data = df[[1]])
+#'   boxscore <- process_phf_boxscore(data = df[[1]])
 #' }
-process_boxscore <- function(data) {
+process_phf_boxscore <- function(data) {
 
   df <- data[[max(length(data))]]
   score <- data[[max(length(data)) - 2]]
@@ -1163,8 +1163,8 @@ process_boxscore <- function(data) {
 
 }
 
-#' @title load_boxscore
-#' @description load_boxscore: loads the boxscore and shot/score data for a game into one data frame through just one function
+#' @title load_phf_boxscore
+#' @description load_phf_boxscore: loads the boxscore and shot/score data for a game into one data frame through just one function
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @import rvest
@@ -1175,17 +1175,17 @@ process_boxscore <- function(data) {
 #' @export
 #' @examples
 #' \dontrun{
-#'   boxscore <- load_boxscore(game_id = 268078)
+#'   boxscore <- load_phf_boxscore(game_id = 268078)
 #' }
-load_boxscore <- function(game_id = 268078) {
+load_phf_boxscore <- function(game_id = 268078) {
 
   y <- game_id
 
   # load raw data from API
-  df <- load_raw_data(game_id = game_id)
+  df <- load_phf_raw_data(game_id = game_id)
 
   # turn raw data into a boxscore format
-  df <- process_boxscore(data = df)
+  df <- process_phf_boxscore(data = df)
 
   df <- df %>%
     dplyr::mutate(game_id = y) %>%
@@ -1210,8 +1210,8 @@ load_boxscore <- function(game_id = 268078) {
 
 }
 
-#' @title load_game
-#' @description load_game: loads boxscore/pbp data into a list to load both at once for a given game
+#' @title load_phf_game
+#' @description load_phf_game: loads boxscore/pbp data into a list to load both at once for a given game
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @import rvest
@@ -1222,14 +1222,14 @@ load_boxscore <- function(game_id = 268078) {
 #' @export
 #' @examples
 #' \dontrun{
-#'   game_data <- load_game(game_id = 268078)
+#'   game_data <- load_phf_game(game_id = 268078)
 #' }
-load_game <- function(game_id = 268078) {
+load_phf_game <- function(game_id = 268078) {
 
   # returns both boxscore and pbp data in a single list
-  box <- load_boxscore(game_id = game_id)
+  box <- load_phf_boxscore(game_id = game_id)
 
-  pbp <- load_pbp(game_id = game_id)
+  pbp <- load_phf_pbp(game_id = game_id)
 
   game <- list(box, pbp)
 
