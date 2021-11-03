@@ -39,7 +39,7 @@ this package is intended to alleviate.
 
 <center>
 
-<img src="https://github.com/BenHowell71/fastRhockey/blob/main/logo/fastRhockey_card.png?raw=true" style="width:70.0%" />
+<img src="https://github.com/BenHowell71/fastRhockey/blob/main/logo/fastRhockey_full_holographic_graphic.png?raw=true" style="width:70.0%" />
 
 </center>
 
