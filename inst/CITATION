@@ -1,17 +1,17 @@
 year <- sub("-.*", "", meta$Date)
 note <- sprintf("R package version %s", meta$Version)
 
-citHeader("To cite the whockeyR package in publications, use:")
+citHeader("To cite the fastRhockey package in publications, use:")
 
 citEntry(entry = "Misc",
          author = personList(
          as.person("Ben Howell")),
-         title = "whockeyR: The SportsDataverse's R Package for Women's Hockey Data.",
-         url = c("BenHowell71.github.io/whockeyR/"),
+         title = "fastRhockey: The SportsDataverse's R Package for Women's Hockey Data.",
+         url = c("BenHowell71.github.io/fastRhockey/"),
          year = year,
          note = note,
          textVersion = paste(
-    "Ben Howell. whockeyR: The SportsDataverse's R Package for Women's Hockey Data.",
-    "Retrieved from https://BenHowell71.github.io/whockeyR/"
+    "Ben Howell. fastRhockey: The SportsDataverse's R Package for Women's Hockey Data.",
+    "Retrieved from https://BenHowell71.github.io/fastRhockey/"
   )
 )

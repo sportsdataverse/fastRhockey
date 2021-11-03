@@ -2,16 +2,16 @@ Package: fastRhockey
 Title: Functions to Access Premier Hockey Federation Play by Play Data
 Version: 0.0.1
 Authors@R: c(
-    person("Ben", "Howell", , "benhowell71@gmail.com", role = c("cre", "aut")),
-    person("Saiem", "Gilani", , "saiem.gilani@gmail.com", role = "ctb"),
-    person("Alyssa", "Longmuir", "aklongmuir@gmail.com", role = "ctb")
+    person(given = "Ben", family = "Howell", email = "benhowell71@gmail.com", role = c("cre", "aut")),
+    person(given = "Saiem", family = "Gilani", email = "saiem.gilani@gmail.com", role = c("ctb")),
+    person(given = "Alyssa", family = "Longmuir", email = "aklongmuir@gmail.com", role = c("ctb"))
   )
-Description: The fastRhockey package was created to scrape play-by-play data
+Description: A utility to scrape and load play-by-play data
     and statistics from the Premier Hockey Federation (PHF), formerly
     known as the National Women's Hockey League (NWHL).
 License: MIT + file LICENSE
-URL: http://www.github.com/benhowell71/whockey_scraper
-BugReports: http://www.github.com/benhowell71/whockey_scraper/issues
+URL: https://benhowell71.github.io/fastRhockey/, https://github.com/benhowell71/fastRhockey
+BugReports: https://github.com/benhowell71/fastRhockey/issues
 Imports: 
     cli (>= 1.1.0),
     data.table (>= 1.14.0),

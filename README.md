@@ -1,14 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# fastRhockey
+# fastRhockey <a href='https://benhowell71.github.io/fastRhockey/'><img src='man/figures/logo.png' align="right" height="150" /></a>
 
 <!-- badges: start -->
-<!-- [![Version-Number](https://img.shields.io/github/r-package/v/BenHowell71/fastRhockey?label=fastRhockey&logo=R&style=for-the-badge)](https://github.com/BenHowell71/fastRhockey) -->
 
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/benhowell71/fastRhockey/workflows/R-CMD-check/badge.svg)](https://github.com/benhowell71/fastRhockey/actions)
+[![Version-Number](https://img.shields.io/github/r-package/v/benhowell71/fastRhockey?label=fastRhockey&logo=R&style=for-the-badge)](https://github.com/benhowell71/fastRhockey/)
+[![R-CMD-check](https://img.shields.io/github/workflow/status/benhowell71/fastRhockey/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/benhowell71/fastRhockey/actions/workflows/R-CMD-check.yaml)
+[![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)](https://github.com/benhowell71/fastRhockey/)
+[![Contributors](https://img.shields.io/github/contributors/benhowell71/fastRhockey?style=for-the-badge)](https://github.com/benhowell71/fastRhockey/graphs/contributors)
 <!-- badges: end -->
 
 [`fastRhockey`](https://github.com/benhowell71/fastRhockey) is an R

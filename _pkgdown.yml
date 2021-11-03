@@ -2,7 +2,15 @@ url: https://github.com/BenHowell71/fastRhockey/
 
 title: fastRhockey
 description: "An R package to quickly obtain Premier Hockey Federation (PHF) boxscore and play-by-play data."
-
+template:
+  params:
+    bootswatch: cosmo
+  opengraph:
+    image:
+      src: "https://github.com/BenHowell71/fastRhockey/blob/main/logo/fastRhockey_card.png?raw=true"
+    twitter:
+      site: "@BenHowell71"
+      card: summary_large_image
 toc:
   depth: 3
 
@@ -60,6 +68,8 @@ navbar:
         href: https://sportsdataverse.org/
       - text: --------------------------------
       - text: R Packages
+      - text: cfbfastR
+        href: https://github.com/saiemgilani/cfbfastR
       - text: hoopR
         href: https://hoopR.sportsdataverse.org/
       - text: wehoop
@@ -80,8 +90,6 @@ navbar:
         href: https://BillPetti.github.io/baseballr/
       - text: hockeyR
         href: https://hockeyr.netlify.app/
-      - text: cfbfastR
-        href: https://github.com/saiemgilani/cfbfastR
       - text: powerplay
         href: https://saiemgilani.github.io/powerplay/
       - text: --------------------------------
@@ -102,4 +110,4 @@ navbar:
       home: https://github.com/benhowell71/fastRhockey
       source: https://github.com/benhowell71/fastRhockeyblob/master/
       issue: https://github.com/benhowell71/fastRhockeyissues/issues/
-      user: https://github.com/saiemgilani/
+      user: https://github.com/benhowell71/

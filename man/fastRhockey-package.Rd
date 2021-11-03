@@ -6,22 +6,28 @@
 \alias{fastRhockey-package}
 \title{fastRhockey: Functions to Access Premier Hockey Federation Play by Play Data}
 \description{
-The fastRhockey package was created to scrape play-by-play data and statistics from the Premier Hockey Federation (PHF), formerly known as the National Women's Hockey League (NWHL).
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-The fastRhockey package was created to scrape play-by-play data and statistics from the Premier Hockey Federation (PHF), formerly known as the National Women's Hockey League (NWHL).
+A utility to scrape and load play-by-play data and statistics from the Premier Hockey Federation (PHF), formerly known as the National Women's Hockey League (NWHL).
+
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
+A utility to scrape and load play-by-play data and statistics from the Premier Hockey Federation (PHF), formerly known as the National Women's Hockey League (NWHL).
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://www.github.com/benhowell71/whockey_scraper}
-  \item Report bugs at \url{http://www.github.com/benhowell71/whockey_scraper/issues}
+  \item \url{https://benhowell71.github.io/fastRhockey/}
+  \item \url{https://github.com/benhowell71/fastRhockey}
+  \item Report bugs at \url{https://github.com/benhowell71/fastRhockey/issues}
 }
 
 
 Useful links:
 \itemize{
-  \item \url{http://www.github.com/benhowell71/whockey_scraper}
-  \item Report bugs at \url{http://www.github.com/benhowell71/whockey_scraper/issues}
+  \item \url{https://benhowell71.github.io/fastRhockey/}
+  \item \url{https://github.com/benhowell71/fastRhockey}
+  \item Report bugs at \url{https://github.com/benhowell71/fastRhockey/issues}
 }
 
 }
@@ -31,7 +37,7 @@ Useful links:
 Other contributors:
 \itemize{
   \item Saiem Gilani \email{saiem.gilani@gmail.com} [contributor]
-  \item Alyssa aklongmuir@gmail.com Longmuir [contributor]
+  \item Alyssa Longmuir \email{aklongmuir@gmail.com} [contributor]
 }
 
 
@@ -40,7 +46,7 @@ Other contributors:
 Other contributors:
 \itemize{
   \item Saiem Gilani \email{saiem.gilani@gmail.com} [contributor]
-  \item Alyssa aklongmuir@gmail.com Longmuir [contributor]
+  \item Alyssa Longmuir \email{aklongmuir@gmail.com} [contributor]
 }
 
 }
