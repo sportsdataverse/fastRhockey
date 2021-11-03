@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   introduction: introduction.html
-last_built: 2021-11-03T01:27Z
+last_built: 2021-11-03T03:45Z
 urls:
   reference: https://github.com/BenHowell71/fastRhockey//reference
   article: https://github.com/BenHowell71/fastRhockey//articles
