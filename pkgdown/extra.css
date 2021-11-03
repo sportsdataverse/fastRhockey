@@ -55,10 +55,11 @@ pre, code {
   margin-left: 5px;
   font-size: 14px;
   line-height: 1.65rem;
+  background-color: #B5DEF5;
 }
 .dropdown-menu {
   box-shadow: 0 6px 12px rgba(218,189,255,0.9);
-  background-color: #CFBEFD;
+  background-color: #9849BD;
 }
 #navbar ul ul{
   font-family: "Fira Mono";
