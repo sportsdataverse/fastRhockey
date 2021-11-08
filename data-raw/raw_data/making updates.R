@@ -8,7 +8,7 @@ games <- c(419904, 419905, 419902, 419903, 419901)
 
 g <- load_phf_boxscore(game_id = 419903)
 
-pbp <- load_phf_pbp(game_id = 419903)
+pbp <- fastRhockey::load_phf_pbp(game_id = 419903)
 
 t <- fastRhockey::phf_schedule(season = 2021)
 
