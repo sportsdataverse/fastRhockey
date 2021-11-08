@@ -14,7 +14,7 @@ ss <- list()
 
 for (y in 2016:2022) {
 
-  season <- phf_schedule(season = 2022)
+  season <- phf_schedule(season = y)
 
   ss[[y]] <- season
 

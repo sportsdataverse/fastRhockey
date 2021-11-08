@@ -345,6 +345,22 @@ phf_pbp_data <- function(data, game_id = game_id) {
     dplyr::filter(game_id == g) %>%
     dplyr::select(.data$home_team, .data$away_team)
 
+  # ss <- list()
+  #
+  # for (y in 2016:2022) {
+  #
+  #   season <- phf_schedule(season = 2022)
+  #
+  #   ss[[y]] <- season
+  #
+  # }
+  #
+  # s <- dplyr::bind_rows(ss)
+  #
+  # tm <- s %>%
+  #   dplyr::filter(game_id == g) %>%
+  #   dplyr::select(.data$home_team, .data$away_team)
+
   # creating the pbp dataframes for regulation, OT, or shootout games
   if (length(data) == 3) {
 
@@ -462,10 +478,6 @@ phf_pbp_data <- function(data, game_id = game_id) {
                             second_period,
                             third_period,
                             fourth_period)
-
-  } else {
-
-    break
 
   }
 
