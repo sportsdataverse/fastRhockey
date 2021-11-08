@@ -87,7 +87,7 @@ phf_schedule <- function(season = 2021){
     TRUE ~ NA_real_
   )
 
-  base_url <- "https://web.api.digitalshift.ca/partials/stats/schedule/table?limit=100&season_id="
+  base_url <- "https://web.api.digitalshift.ca/partials/stats/schedule/table?limit=100&all=true&season_id="
   full_url <- paste0(base_url,
                      season_id)
   # the link for the game + authorization for accessing the API
