@@ -341,7 +341,7 @@ phf_pbp_data <- function(data, game_id = game_id) {
   g <- game_id
 
   # loading in pre-made meta data csv from GitHub bc that's quicker than running a loop through phf_schedule
-  tm <- read.csv("https://raw.githubusercontent.com/benhowell71/fastRhockey/main/data-raw/raw_data/phf_meta_data.csv") %>%
+  tm <- read.csv("https://raw.githubusercontent.com/benhowell71/fastRhockey/main/data-raw/raw_data/phf_game_meta.csv") %>%
     dplyr::filter(game_id == g) %>%
     dplyr::select(.data$home_team, .data$away_team)
 
@@ -462,6 +462,10 @@ phf_pbp_data <- function(data, game_id = game_id) {
                             second_period,
                             third_period,
                             fourth_period)
+
+  } else {
+
+    break
 
   }
 
