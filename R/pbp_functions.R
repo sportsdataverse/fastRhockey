@@ -1,12 +1,12 @@
 #### updated tags for what gets removed from the text parsing
 away <- "[:digit:] GvA|[:digit:] TkA|[:digit:] Blk"
-fill <- "from|by|against|to| and|giveaway|Game|Behind|of |Served|served|Bench|bench"
+fill <- "from| by|against|to| and|giveaway|Game|Behind|of |Served|served|Bench|bench"
 goalie <- "Starting goalie|Pulled goalie|Returned goalie"
 fo <- "faceoff won"
-ice <- "Even Strength|Empty Net|Power Play|Extra Attacker"
+ice <- "Even Strength|Empty Net|Power Play|Extra Attacker|Short Handed"
 shots <- "Snap shot|Wrist shot|Penalty Shot"
 res <- "blocked|saved|failed attempt"
-pen <- "Holding|Tripping|Roughing|Hooking|Interference|Delay|Body Checking|Slashing|Check from Behind Misconduct|Checking from Behind|Checking|Ejection|Too Many Men|Delay of Game|Misconduct|Check"
+pen <- "Holding the Stick|Holding|Tripping|Roughing|Hooking|Interference|Diving|Delay|Cross-Checking|Head Contact|Body Checking|Slashing|Check from Behind Misconduct|Checking from Behind|Checking|Ejection|Too Many Men|Delay of Game|Misconduct|Check|High-Sticking"
 type <- "Minor|Major"
 score_string <- "[:digit:] - [:digit:] [A-Z]+|[:digit:] - [:digit:]"
 shoot <- "missed attempt against|scores against|Shootout|failed attempt"
@@ -940,7 +940,11 @@ load_phf_pbp <- function(game_id = 268078, format = "clean") {
       home_skaters = ifelse(.data$home_skaters < 3, 3, .data$home_skaters),
       away_skaters = ifelse(.data$away_skaters < 3, 3, .data$away_skaters),
       home_skaters = ifelse(is.na(.data$home_goalie), .data$home_skaters + 1, .data$home_skaters),
-      away_skaters = ifelse(is.na(.data$away_goalie), .data$away_skaters + 1, .data$away_skaters)
+      away_skaters = ifelse(is.na(.data$away_goalie), .data$away_skaters + 1, .data$away_skaters),
+      home_skaters = ifelse(.data$sec_from_start == 0, 5, .data$home_skaters),
+      away_skaters = ifelse(.data$sec_from_start == 0, 5, .data$away_skaters),
+      on_ice_situation = ifelse(.data$home_skaters != .data$away_skaters,
+                                "Power Play", "Even Strength")
     )
 
   if (format == "clean") {
