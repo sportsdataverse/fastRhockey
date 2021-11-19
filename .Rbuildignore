@@ -10,3 +10,4 @@
 ^data-raw$
 ^pkgdown$
 ^logo\.png$
+^vignettes

@@ -1,5 +1,5 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+# 
 
 # fastRhockey <a href='https://benhowell71.github.io/fastRhockey/'><img src='man/figures/logo.png' align="right" height="150" /></a>
 
@@ -39,7 +39,7 @@ this package is intended to alleviate.
 
 <center>
 
-<img src="https://github.com/BenHowell71/fastRhockey/blob/main/logo/fastRhockey_full_holographic_graphic.png?raw=true" style="width:70.0%" />
+<img src="https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png" style="width:70.0%" />
 
 </center>
 
@@ -81,7 +81,7 @@ You can find the
 
 You can view CSVs of historical boxscore and play-by-play on the
 [**`fastRhockey`**](https://github.com/BenHowell71/fastRhockey/) [data
-repo](https://github.com/benhowell71/fastRhockey-data), as well as the
+repo](https://github.com/saiemgilani/fastRhockey-data), as well as the
 process for scraping that historical data.
 
 ------------------------------------------------------------------------
@@ -93,7 +93,7 @@ Releases**](https://benhowell71.github.io/fastRhockey/news/index.html)
 
 ------------------------------------------------------------------------
 
-# Follow [SportsDataverse](https://twitter.com/sportsdataverse) on Twitter and star this repo
+## Follow the [SportsDataverse](https://twitter.com/sportsdataverse) on Twitter and star this repo
 
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
@@ -101,17 +101,18 @@ Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%
 [![GitHub
 stars](https://img.shields.io/github/stars/BenHowell71/fastRhockey.svg?color=eee&logo=github&style=for-the-badge&label=Star%20fastRhockey&maxAge=2592000)](https://github.com/BenHowell71/fastRhockey/stargazers/)
 
-# **Our Authors**
+## **Our Authors**
 
 -   [Ben Howell](https://twitter.com/BenHowell71)  
     <a href="https://twitter.com/BenHowell71" target="blank"><img src="https://img.shields.io/twitter/follow/BenHowell71?color=blue&label=%40BenHowell71&logo=twitter&style=for-the-badge" alt="@BenHowell71" /></a>
     <a href="https://github.com/BenHowell71" target="blank"><img src="https://img.shields.io/github/followers/BenHowell71?color=eee&logo=Github&style=for-the-badge" alt="@BenHowell71" /></a>
 
-# **Our Contributors (they’re awesome)**
-
 -   [Saiem Gilani](https://twitter.com/saiemgilani)  
     <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
-    <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>  
+    <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
+
+## **Our Contributors (they’re awesome)**
+
 -   [Alyssa Longmuir](https://twitter.com/alyssastweeting)  
     <a href="https://twitter.com/alyssastweeting" target="blank"><img src="https://img.shields.io/twitter/follow/alyssastweeting?color=blue&label=%40alyssastweeting&logo=twitter&style=for-the-badge" alt="@alyssastweeting" /></a>
     <a href="https://github.com/Aklongmuir" target="blank"><img src="https://img.shields.io/github/followers/Aklongmuir?color=eee&logo=Github&style=for-the-badge" alt="@Aklongmuir" /></a>
