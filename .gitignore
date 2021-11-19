@@ -6,3 +6,4 @@
 ..Rcheck/00check.log
 inst/doc*
 fastRhockey-data-repo/scraping_all_seasons.R
+^docs*
