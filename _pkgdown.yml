@@ -109,3 +109,13 @@ navbar:
       source: https://github.com/benhowell71/fastRhockey/blob/master/
       issue: https://github.com/benhowell71/fastRhockey/issues/
       user: https://github.com/benhowell71
+reference:
+  - title: "fastRhockey Data"
+  - subtitle: Full Seasons PBP Data
+    desc: Functions exported by fastRhockey which load full seasons of fastRhockey data
+    contents:
+      - '`load_nhl_pbp`'
+  - subtitle: "Update or Create Database"
+    desc: Functions exported by fastRhockey which update and create a database of fastRhockey play-by-play data
+    contents:
+      - '`update_nhl_db`'
