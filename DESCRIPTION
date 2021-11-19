@@ -2,8 +2,8 @@ Package: fastRhockey
 Title: Functions to Access Premier Hockey Federation Play by Play Data
 Version: 0.0.2
 Authors@R: c(
-    person(given = "Ben", family = "Howell", email = "benhowell71@gmail.com", role = c("cre", "aut")),
-    person(given = "Saiem", family = "Gilani", email = "saiem.gilani@gmail.com", role = c("ctb")),
+    person(given = "Ben", family = "Howell", email = "benhowell71@gmail.com", role = c("aut")),
+    person(given = "Saiem", family = "Gilani", email = "saiem.gilani@gmail.com", role = c("cre", "aut")),
     person(given = "Alyssa", family = "Longmuir", email = "aklongmuir@gmail.com", role = c("ctb"))
   )
 Description: A utility to scrape and load play-by-play data
