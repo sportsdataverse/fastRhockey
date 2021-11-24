@@ -80,6 +80,17 @@ most_recent_nhl_season <- function() {
     as.double(substr(Sys.Date(), 1, 4))
   )
 }
+#' @title
+#' **Most Recent NHL Season for NHL API**
+#' @export
+most_recent_nhl_season_api_param <- function() {
+  season <- dplyr::if_else(
+    as.double(substr(Sys.Date(), 6, 7)) >= 10,
+    as.double(substr(Sys.Date(), 1, 4))+1,
+    as.double(substr(Sys.Date(), 1, 4))
+  )
+  return(glue::glue("{season-1}{season}"))
+}
 
 #' @title
 #' **Most Recent PHF Season**
