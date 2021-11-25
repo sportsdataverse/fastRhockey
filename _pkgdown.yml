@@ -120,6 +120,7 @@ reference:
       - '`phf_schedule`'
       - '`phf_league_info`'
       - '`phf_game_raw`'
+      - starts_with("phf")
   - title: "fastRhockey Data"
   - subtitle: Full Seasons of NHL Data
     desc: Functions exported by fastRhockey which load full seasons of fastRhockey NHL data
