@@ -4,12 +4,10 @@
 \alias{helper_phf_pbp_data}
 \title{phf_pbp_data}
 \usage{
-helper_phf_pbp_data(data, game_id = game_id)
+helper_phf_pbp_data(data)
 }
 \arguments{
 \item{data}{the raw list data that is generated from the phf_game_raw function}
-
-\item{game_id}{the game ID of the game that you want pbp data processed for}
 }
 \description{
 phf_pbp_data: returns all of the play-by-play data for a game into on big data frame using the process_phf_period/shootout functions. Contains functionality to account for regulation games, overtime games, and shootouts

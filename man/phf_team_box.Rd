@@ -9,6 +9,9 @@ phf_team_box(game_id = 268078)
 \arguments{
 \item{game_id}{The unique ID code for the game that you are interested in viewing the data for}
 }
+\value{
+A dataframe of team-level box score information
+}
 \description{
 phf_team_box: loads the team boxscore and shot/score data for a game into one data frame through just one function
 }

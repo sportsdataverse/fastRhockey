@@ -2,6 +2,7 @@
 #' @description phf_standings: pull in the standings data for a game_id from the PHF/NWHL API
 #'
 #' @param season Season (YYYY) to pull the standings from, the concluding year in XXXX-YY format
+#' @return A data frame of standings data
 #' @import rvest
 #' @import httr
 #' @import dplyr

@@ -9,6 +9,9 @@ phf_pbp(game_id = 368719)
 \arguments{
 \item{game_id}{The unique ID code for the game that you are interested in viewing the data for}
 }
+\value{
+A data frame of play by play information
+}
 \description{
 phf_pbp: pull in the raw data for a game_id from the PHF/NWHL API
 }

@@ -2,6 +2,9 @@
 #' @description phf_game_all: pull in the raw data for a game_id from the PHF/NWHL API
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
+#' @return A named list of data frames: plays, team_box, skaters, goalies, game_details,
+#' scoring_summary, shootout_summary,
+#' penalty_summary, officials, team_staff, timeouts
 #' @import rvest
 #' @import httr
 #' @import dplyr
@@ -62,15 +65,46 @@ phf_game_all <- function(game_id = 368719) {
             period_id = x,
             game_id = game_id)
       })
+      game_details <- phf_game_details(game_id)
+
+      plays_df <- plays_df %>%
+        dplyr::left_join(game_details, by = "game_id")
+
+      plays_df <- helper_phf_pbp_data(plays_df)
+
       team_box_df <- data %>%
         helper_phf_team_box() %>%
         dplyr::mutate(game_id = game_id) %>%
         dplyr::select(
           .data$team, .data$game_id, .data$winner, .data$total_scoring, tidyr::everything())
 
+      player_box_df <- phf_player_box(game_id = 420339)
+      game_summary <- phf_game_summary(game_id = 268078)
 
-      game <- c(plays_df, team_box_df)
-      names(game) <- c("plays", "team_box")
+      game <- c(
+        list(plays_df),
+        list(team_box_df),
+        list(player_box_df$skaters),
+        list(player_box_df$goalies),
+        list(game_details),
+        list(game_summary$scoring_summary),
+        list(game_summary$shootout_summary),
+        list(game_summary$penalty_summary),
+        list(game_summary$officials),
+        list(game_summary$team_staff),
+        list(game_summary$timeouts))
+      names(game) <- c(
+        "plays",
+        "team_box",
+        "skaters",
+        "goalies",
+        "game_details",
+        "scoring_summary",
+        "shootout_summary",
+        "penalty_summary",
+        "officials",
+        "team_staff",
+        "timeouts")
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid game_id or no game data available!"))
@@ -90,6 +124,7 @@ phf_game_all <- function(game_id = 368719) {
 #' @description phf_game_raw: pull in the raw data for a game_id from the PHF/NWHL API
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
+#' @return A list of data frames
 #' @import rvest
 #' @import httr
 #' @import jsonlite
@@ -131,6 +166,7 @@ phf_game_raw <- function(game_id = 268078) {
 #' @description phf_game_details: pull in the raw data for a game_id from the PHF/NWHL API
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
+#' @return A data frame with game team details
 #' @import rvest
 #' @import httr
 #' @import jsonlite
@@ -169,21 +205,44 @@ phf_game_details <- function(game_id = 268078) {
                       rvest::html_text())[1]
   away_nickname <- (resp %>%
                       rvest::html_text())[2]
-  away_team <- glue::glue("{away_location} {away_nickname}")
+  away_abbreviation <- dplyr::case_when(
+    away_location == "Boston" ~ "BOS",
+    away_location == "Buffalo" ~ "BUF",
+    away_location == "Connecticut" ~ "CTW",
+    away_location == "Metropolis" ~ "MET",
+    away_location == "Minnesota" ~ "MIN",
+    away_location == "Toronto" ~ "TOR",
+    TRUE ~ NA_character_)
+
+  away_team <- paste(away_location, away_nickname)
   away_score <- (resp %>%
                       rvest::html_text())[3]
   home_location <- (resp %>%
                       rvest::html_text())[4]
   home_nickname <- (resp %>%
                       rvest::html_text())[5]
-  home_team <- glue::glue("{home_location} {home_nickname}")
+  home_abbreviation <- dplyr::case_when(
+    home_location == "Boston" ~ "BOS",
+    home_location == "Buffalo" ~ "BUF",
+    home_location == "Connecticut" ~ "CTW",
+    home_location == "Metropolis" ~ "MET",
+    home_location == "Minnesota" ~ "MIN",
+    home_location == "Toronto" ~ "TOR",
+    TRUE ~ NA_character_)
+  home_team <- paste(home_location, home_nickname)
   home_score <- (resp %>%
                    rvest::html_text())[6]
   game_details <- data.frame(
     "game_id" = game_id,
-    "home_team" = home_team, "home_location" = home_location, "home_nickname" = home_nickname,
+    "home_team" = home_team,
+    "home_location" = home_location,
+    "home_nickname" = home_nickname,
+    "home_abbreviation" = home_abbreviation,
     "home_score_total" = as.integer(home_score),
-    "away_team" = away_team, "away_location" = away_location, "away_nickname" = away_nickname,
+    "away_team" = away_team,
+    "away_location" = away_location,
+    "away_nickname" = away_nickname,
+    "away_abbreviation" = away_abbreviation,
     "away_score_total" = as.integer(away_score)
   )
   return(game_details)
@@ -194,6 +253,7 @@ phf_game_details <- function(game_id = 268078) {
 #' @description phf_game_summary: pull in the raw data for a game_id from the PHF/NWHL API
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
+#' @return A named list of data frames: scoring_summary,shootout_summary, penalty_summary, officials, team_staff, timeouts
 #' @import rvest
 #' @import httr
 #' @import jsonlite

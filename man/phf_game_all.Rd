@@ -9,6 +9,11 @@ phf_game_all(game_id = 368719)
 \arguments{
 \item{game_id}{The unique ID code for the game that you are interested in viewing the data for}
 }
+\value{
+A named list of data frames: plays, team_box, skaters, goalies, game_details,
+scoring_summary, shootout_summary,
+penalty_summary, officials, team_staff, timeouts
+}
 \description{
 phf_game_all: pull in the raw data for a game_id from the PHF/NWHL API
 }

@@ -12,9 +12,3 @@ helper_phf_team_box(data)
 \description{
 helper_phf_team_box: the code for processing box score data into a format that makes sense
 }
-\examples{
-\donttest{
-  df <- phf_game_raw(game_id = 268078)
-  boxscore <- helper_phf_team_box(data = df)
-}
-}

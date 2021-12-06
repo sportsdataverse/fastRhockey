@@ -2,6 +2,7 @@
 #' @description phf_pbp: pull in the raw data for a game_id from the PHF/NWHL API
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
+#' @return A data frame of play by play information
 #' @import rvest
 #' @import httr
 #' @import dplyr
@@ -60,9 +61,13 @@ phf_pbp <- function(game_id = 368719) {
           helper_phf_pbp_normalize_columns() %>%
           dplyr::mutate(
             period_id = x,
-            game_id = game_id)
-      })
+            game_id = game_id)})
+      game_details <- phf_game_details(game_id)
 
+      plays_df <- plays_df %>%
+        dplyr::left_join(game_details, by = "game_id")
+
+      plays_df <- helper_phf_pbp_data(plays_df)
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid game_id or no game data available!"))

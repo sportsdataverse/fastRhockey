@@ -9,6 +9,9 @@ phf_game_details(game_id = 268078)
 \arguments{
 \item{game_id}{The unique ID code for the game that you are interested in viewing the data for}
 }
+\value{
+A data frame with game team details
+}
 \description{
 phf_game_details: pull in the raw data for a game_id from the PHF/NWHL API
 }

@@ -2,6 +2,7 @@
 #' @description phf_player_box: loads the player boxscore
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
+#' @return A named list of data frames: skaters, goalies
 #' @import rvest
 #' @import janitor
 #' @import httr
@@ -36,25 +37,57 @@ phf_player_box <- function(game_id = 420339) {
       # Check the result
       check_status(res)
 
-      resp <- res %>%
+      resp <- (res %>%
         httr::content(as = "text", encoding="utf-8") %>%
         jsonlite::parse_json() %>%
         purrr::pluck("content") %>%
         rvest::read_html() %>%
-        rvest::html_table()
+        rvest::html_elements("table"))
 
       resp <- unique(resp)
-      away_skaters <- resp[[1]]
-      away_goalies <- resp[[2]]
-      home_skaters <- resp[[3]]
-      home_goalies <- resp[[4]]
+      away_skaters_href <- resp[[1]] %>%
+        rvest::html_elements("tr") %>%
+        rvest::html_elements("td > a") %>%
+        rvest::html_attr("href")
+
+      away_goalies_href <- resp[[3]] %>%
+        rvest::html_elements("tr") %>%
+        rvest::html_elements("td > a") %>%
+        rvest::html_attr("href")
+
+      home_skaters_href <- resp[[5]] %>%
+        rvest::html_elements("tr") %>%
+        rvest::html_elements("td > a") %>%
+        rvest::html_attr("href")
+
+      home_goalies_href <- resp[[7]] %>%
+        rvest::html_elements("tr") %>%
+        rvest::html_elements("td > a") %>%
+        rvest::html_attr("href")
+
+      away_skaters <- resp[[1]] %>%
+        rvest::html_table()
+      away_goalies <- resp[[3]] %>%
+        rvest::html_table()
+      home_skaters <- resp[[5]] %>%
+        rvest::html_table()
+      home_goalies <- resp[[7]] %>%
+        rvest::html_table()
+      away_skaters_href <- data.frame(skaters_href = away_skaters_href)
+      home_skaters_href <- data.frame(skaters_href = home_skaters_href)
+      away_goalies_href <- data.frame(goalies_href = away_goalies_href)
+      home_goalies_href <- data.frame(goalies_href = home_goalies_href)
+      home_skaters <- dplyr::bind_cols(home_skaters, home_skaters_href)
+      away_skaters <- dplyr::bind_cols(away_skaters, away_skaters_href)
+      home_goalies <- dplyr::bind_cols(home_goalies, home_goalies_href)
+      away_goalies <- dplyr::bind_cols(away_goalies, away_goalies_href)
 
       skaters <- dplyr::bind_rows(home_skaters, away_skaters)
       goalies <- dplyr::bind_rows(home_goalies, away_goalies)
 
       skaters <- skaters %>%
         dplyr::rename(
-          player_number = .data$`#`,
+          player_jersey = .data$`#`,
           player_name = .data$Name,
           position = .data$Pos,
           goals = .data$G,
@@ -75,11 +108,13 @@ phf_player_box <- function(game_id = 420339) {
           faceoffs_won = .data$`FoW`,
           faceoffs_lost = .data$`FoL`) %>%
         dplyr::mutate(
-          player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement="")
+          player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
+          player_id = stringr::str_extract(.data$skaters_href, "\\d+"),
+          game_id = y
         )
       goalies <- goalies %>%
         dplyr::rename(
-          player_number = .data$`#`,
+          player_jersey = .data$`#`,
           player_name = .data$Name,
           shots_against = .data$SA,
           goals_against = .data$GA,
@@ -90,7 +125,9 @@ phf_player_box <- function(game_id = 420339) {
           goals = .data$G,
           assists = .data$A) %>%
         dplyr::mutate(
-          player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement="")
+          player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
+          player_id = stringr::str_extract(.data$goalies_href, "\\d+"),
+          game_id = y
         )
       player_box <- c(list(skaters), list(goalies))
       names(player_box) <- c("skaters", "goalies")
