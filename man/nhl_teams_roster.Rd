@@ -4,10 +4,12 @@
 \alias{nhl_teams_roster}
 \title{\strong{NHL Teams Roster}}
 \usage{
-nhl_teams_roster(team_id)
+nhl_teams_roster(team_id, season = most_recent_nhl_season_api_param())
 }
 \arguments{
 \item{team_id}{A unique team ID}
+
+\item{season}{season in format XXXXYYYY}
 }
 \value{
 Returns a tibble
@@ -17,7 +19,7 @@ Returns NHL Teams roster information for a given team ID
 }
 \examples{
 \donttest{
-  nhl_teams_roster(team_id = 14)
+  nhl_teams_roster(team_id = 14, season = 20202021)
 }
 }
 \keyword{NHL}

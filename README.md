@@ -35,7 +35,7 @@ hockey space.
 
 In the past, the lack of data and poor access to data have been the
 biggest barrier to entry in women’s hockey analytics, a barrier that
-this package is intended to alleviate.
+this package intends to alleviate.
 
 <center>
 
@@ -129,9 +129,9 @@ package in publications, use:
 BibTex Citation
 
 ``` bibtex
-@misc{howell_fastRhockey_2021,
-  author = {Ben Howell},
-  title = {fastRhockey: The SportsDataverse's R Package for Women's Hockey Data.},
+@misc{howell_gilani_fastRhockey_2021,
+  author = {Ben Howell and Saiem Gilani},
+  title = {fastRhockey: The SportsDataverse's R Package for Hockey Data.},
   url = {https://benhowell71.github.io/fastRhockey/},
   year = {2021}
 }

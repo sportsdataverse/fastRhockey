@@ -1,17 +1,17 @@
 #' **Load fastRhockey NHL play-by-play**
 #' @name load_nhl_pbp
 NULL
-#' @title 
+#' @title
 #' **Load cleaned NHL play-by-play from the data repo**
 #' @rdname load_nhl_pbp
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given NHL seasons. (Min: 2002)
+#' @param seasons A vector of 4-digit years associated with given NHL seasons. (Min: 2011)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_nhl_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the play by play data table within the database
-#' @return A dataframe 
+#' @return A dataframe
 #' @export
 #' @examples
 #' \donttest{
@@ -22,22 +22,22 @@ load_nhl_pbp <- function(seasons = most_recent_nhl_season(),...,
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   dots <- rlang::dots_list(...)
-  
+
   loader <- rds_from_url
-  
+
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
-  
+
   if(isTRUE(seasons)) seasons <- 2010:most_recent_nhl_season()
-  
+
   stopifnot(is.numeric(seasons),
             seasons >= 2010,
             seasons <= most_recent_nhl_season())
-  
+
   urls <- paste0("https://raw.githubusercontent.com/saiemgilani/fastRhockey-data/main/nhl/pbp/rds/play_by_play_",seasons,".rds")
-  
+
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
-  
+
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
@@ -45,7 +45,7 @@ load_nhl_pbp <- function(seasons = most_recent_nhl_season(),...,
     out <- NULL
   } else {
     class(out) <- c("tbl_df","tbl","data.table","data.frame")
-    
+
   }
   out
 }
@@ -57,7 +57,7 @@ NULL
 #' @rdname load_nhl_team_box
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given NHL seasons. (Min: 2003)
+#' @param seasons A vector of 4-digit years associated with given NHL seasons. (Min: 2011)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_nhl_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -73,21 +73,21 @@ load_nhl_team_box <- function(seasons = most_recent_nhl_season(), ...,
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   dots <- rlang::dots_list(...)
-  
+
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
-  
+
   if(isTRUE(seasons)) seasons <- 2010:most_recent_nhl_season()
-  
+
   stopifnot(is.numeric(seasons),
             seasons >= 2010,
             seasons <= most_recent_nhl_season())
-  
+
   urls <- paste0("https://raw.githubusercontent.com/saiemgilani/fastRhockey-data/main/nhl/team_box/rds/team_box_",seasons,".rds")
-  
+
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
-  
+
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   class(out) <- c("tbl_df","tbl","data.table","data.frame")
@@ -105,7 +105,7 @@ NULL
 #' @rdname load_nhl_player_box
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given NHL seasons. (Min: 2002)
+#' @param seasons A vector of 4-digit years associated with given NHL seasons. (Min: 2011)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_nhl_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -123,18 +123,18 @@ load_nhl_player_box <- function(seasons = most_recent_nhl_season(), ...,
   dots <- rlang::dots_list(...)
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
-  
+
   if(isTRUE(seasons)) seasons <- 2010:most_recent_nhl_season()
-  
+
   stopifnot(is.numeric(seasons),
             seasons >= 2010,
             seasons <= most_recent_nhl_season())
-  
+
   urls <- paste0("https://raw.githubusercontent.com/saiemgilani/fastRhockey-data/main/nhl/player_box/rds/player_box_",seasons,".rds")
-  
+
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
-  
+
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
@@ -154,7 +154,7 @@ NULL
 #' @rdname load_nhl_schedule
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given NHL seasons. (Min: 2002)
+#' @param seasons A vector of 4-digit years associated with given NHL seasons. (Min: 2011)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_nhl_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -170,21 +170,21 @@ load_nhl_schedule <- function(seasons = most_recent_nhl_season(), ...,
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   dots <- rlang::dots_list(...)
-  
+
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
-  
+
   if(isTRUE(seasons)) seasons <- 2010:most_recent_nhl_season()
-  
+
   stopifnot(is.numeric(seasons),
             seasons >= 2010,
             seasons <= most_recent_nhl_season())
-  
+
   urls <- paste0("https://raw.githubusercontent.com/saiemgilani/fastRhockey-data/main/nhl/schedules/rds/nhl_schedule_",seasons,".rds")
-  
+
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
-  
+
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
@@ -207,10 +207,10 @@ load_nhl_games <- function(){
 
 #' @name update_nhl_db
 #' @aliases update_nhl_db nhl_db nhl nhl_pbp_db
-#' @title 
+#' @title
 #' **Update or create a fastRhockey play-by-play database**
 #' @description update_nhl_db() updates or creates a database with `fastRhockey`
-#' play by play data of all completed and available games since 2010.
+#' play by play data of all completed and available games since 2011.
 #'
 #' @details This function creates and updates a data table with the name `tblname`
 #' within a SQLite database (other drivers via `db_connection`) located in
@@ -255,60 +255,60 @@ update_nhl_db <- function(dbdir = ".",
                           db_connection = NULL) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-  
+
   rule_header("Update fastRhockey Play-by-Play Database")
-  
+
   if (!is_installed("DBI") | !is_installed("purrr") |
       (!is_installed("RSQLite") & is.null(db_connection))) {
     cli::cli_abort("{my_time()} | Packages {.val DBI}, {.val RSQLite} and {.val purrr} required for database communication. Please install them.")
   }
-  
+
   if (any(force_rebuild == "NEW")) {
     cli::cli_abort("{my_time()} | The argument {.val force_rebuild = NEW} is only for internal usage!")
   }
-  
+
   if (!(is.logical(force_rebuild) | is.numeric(force_rebuild))) {
     cli::cli_abort("{my_time()} | The argument {.val force_rebuild} has to be either logical or numeric!")
   }
-  
+
   if (!dir.exists(dbdir) & is.null(db_connection)) {
     cli::cli_alert_danger("{my_time()} | Directory {.file {dbdir}} doesn't exist yet. Try creating...")
     dir.create(dbdir)
   }
-  
+
   if (is.null(db_connection)) {
     connection <- DBI::dbConnect(RSQLite::SQLite(), glue::glue("{dbdir}/{dbname}"))
   } else {
     connection <- db_connection
   }
-  
+
   # create db if it doesn't exist or user forces rebuild
   if (!DBI::dbExistsTable(connection, tblname)) {
     build_nhl_db(tblname, connection, rebuild = "NEW")
   } else if (DBI::dbExistsTable(connection, tblname) & all(force_rebuild != FALSE)) {
     build_nhl_db(tblname, connection, rebuild = force_rebuild)
   }
-  
+
   # get completed games
   user_message("Checking for missing completed games...", "todo")
   completed_games <- load_nhl_games() %>%
     # completed games since 2002, excluding the broken games
     dplyr::filter(.data$season >= 2010) %>%
     dplyr::pull(.data$game_id)
-  
+
   # function below
   missing <- get_missing_nhl_games(completed_games, connection, tblname)
-  
+
   # rebuild db if number of missing games is too large
   if(length(missing) > 100) {
     build_nhl_db(tblname, connection, show_message = FALSE, rebuild = as.numeric(unique(stringr::str_sub(missing, 1, 4))))
     missing <- get_missing_nhl_games(completed_games, connection, tblname)
   }
-  
+
   # # if there's missing games, scrape and write to db
   # if (length(missing) > 0) {
   #   new_pbp <- build_fastRhockey_pbp(missing, rules = FALSE)
-  #   
+  #
   #   if (nrow(new_pbp) == 0) {
   #     user_message("Raw data of new games are not yet ready. Please try again in about 10 minutes.", "oops")
   #   } else {
@@ -316,7 +316,7 @@ update_nhl_db <- function(dbdir = ".",
   #     DBI::dbWriteTable(connection, tblname, new_pbp, append = TRUE)
   #   }
   # }
-  
+
   message_completed("Database update completed", in_builder = TRUE)
   cli::cli_alert_info("{my_time()} | Path to your db: {.file {DBI::dbGetInfo(connection)$dbname}}")
   if (is.null(db_connection)) DBI::dbDisconnect(connection)
@@ -325,7 +325,7 @@ update_nhl_db <- function(dbdir = ".",
 
 # this is a helper function to build fastRhockey database from Scratch
 build_nhl_db <- function(tblname = "fastRhockey_nhl_pbp", db_conn, rebuild = FALSE, show_message = TRUE) {
-  
+
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   valid_seasons <- load_nhl_games() %>%
@@ -333,7 +333,7 @@ build_nhl_db <- function(tblname = "fastRhockey_nhl_pbp", db_conn, rebuild = FAL
     dplyr::group_by(.data$season) %>%
     dplyr::summarise() %>%
     dplyr::ungroup()
-  
+
   if (all(rebuild == TRUE)) {
     cli::cli_ul("{my_time()} | Purging the complete data table {.val {tblname}} in your connected database...")
     DBI::dbRemoveTable(db_conn, tblname)
@@ -353,7 +353,7 @@ build_nhl_db <- function(tblname = "fastRhockey_nhl_pbp", db_conn, rebuild = FAL
     seasons <- NULL
     cli::cli_alert_danger("{my_time()} | At least one invalid value passed to argument {.val force_rebuild}. Please try again with valid input.")
   }
-  
+
   if (!is.null(seasons)) {
     # this function lives in R/utils.R
     load_nhl_pbp(seasons, dbConnection = db_conn, tablename = tblname)
@@ -368,9 +368,9 @@ get_missing_nhl_games <- function(completed_games, dbConnection, tablename) {
     dplyr::distinct() %>%
     dplyr::collect() %>%
     dplyr::pull("game_id")
-  
+
   need_scrape <- completed_games[!completed_games %in% db_ids]
-  
+
   cli::cli_alert_info("{my_time()} | You have {length(db_ids)} games and are missing {length(need_scrape)}.")
   return(need_scrape)
 }

@@ -1,7 +1,12 @@
-#' **Team logos & colors**
-#'
+#' **Data in the package for reference**
+#' @name data
+NULL
+#' @rdname data
+#' @title **NHL Team logos & colors**
+#' @description
 #' A dataset containing the full team names, abbreviations, colors & logos
 #' for all 32 NHL teams.
+#' @keywords data
 #'
 #' @return A data frame with 32 rows and 11 variables:
 #' \describe{
@@ -17,4 +22,4 @@
 #'   \item{team_color_alt1}{alternate logo primary color}
 #'   \item{team_color_alt2}{alternate logo secondary color}
 #' }
-"team_logos_colors"
+"nhl_team_logos"

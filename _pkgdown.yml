@@ -110,12 +110,68 @@ navbar:
       issue: https://github.com/benhowell71/fastRhockey/issues/
       user: https://github.com/benhowell71
 reference:
+  - title: 'Premier Hockey Federation'
+    desc: Functions exported by fastRhockey which provide access to PHF data
+    contents:
+      - '`phf_game_all`'
+      - '`phf_pbp`'
+      - '`phf_team_box`'
+      - '`phf_player_box`'
+      - '`phf_schedule`'
+      - '`phf_league_info`'
+      - '`phf_game_raw`'
+      - starts_with("phf")
   - title: "fastRhockey Data"
-  - subtitle: Full Seasons PBP Data
-    desc: Functions exported by fastRhockey which load full seasons of fastRhockey data
+  - subtitle: Full Seasons of NHL Data
+    desc: Functions exported by fastRhockey which load full seasons of fastRhockey NHL data
     contents:
       - '`load_nhl_pbp`'
+      - '`load_nhl_team_box`'
+      - '`load_nhl_player_box`'
   - subtitle: "Update or Create Database"
     desc: Functions exported by fastRhockey which update and create a database of fastRhockey play-by-play data
     contents:
       - '`update_nhl_db`'
+  - subtitle: Game Data
+    desc: Functions exported by fastRhockey sourced from the game endpoint of the NHL API
+    contents:
+      - starts_with("nhl_game")
+  - subtitle: Teams Data
+    desc: Functions exported by fastRhockey sourced from the teams endpoint of the NHL API
+    contents:
+      - '`nhl_teams`'
+      - starts_with("nhl_team")
+  - subtitle: Players Data
+    desc: Functions exported by fastRhockey sourced from the players endpoint of the NHL API
+    contents:
+      - starts_with("nhl_player")
+  - subtitle: Draft Data
+    desc: Functions exported by fastRhockey sourced from the draft endpoint of the NHL API
+    contents:
+      - starts_with("nhl_draft")
+  - subtitle: Conference and Division Data
+    desc: Functions exported by fastRhockey sourced from the conferences and divisions endpoints of the NHL API
+    contents:
+      - starts_with("nhl_conference")
+      - starts_with("nhl_division")
+  - title: Included data
+    desc: Data included within the package
+    contents:
+      - '`data`'
+  - title: "Helpers"
+  - subtitle: Helper Functions
+    desc: Functions used internally by fastRhockey which assist in transforming or loading data
+    contents:
+      - '`most_recent_phf_season`'
+      - '`most_recent_nhl_season`'
+      - '`most_recent_nhl_season_api_param`'
+      - '`helper_phf_pbp_normalize_columns`'
+      - '`helper_phf_pbp_data`'
+      - '`helper_phf_team_box`'
+      - '`csv_from_url`'
+      - '`rds_from_url`'
+      - '`check_status`'
+      - '`progressively`'
+
+
+

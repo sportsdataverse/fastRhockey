@@ -33,7 +33,7 @@ Logical TRUE/FALSE
 }
 \description{
 update_nhl_db() updates or creates a database with \code{fastRhockey}
-play by play data of all completed and available games since 2010.
+play by play data of all completed and available games since 2011.
 }
 \details{
 This function creates and updates a data table with the name \code{tblname}

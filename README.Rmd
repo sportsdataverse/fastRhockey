@@ -29,7 +29,7 @@ With the seventh season of the league kicking off on November 6th, and games bei
 
 In Spring of 2021, the [Big Data Cup](https://www.theicegarden.com/2021/4/15/22374981/a-directory-of-womens-hockey-projects-from-big-data-cup-2021-analytics-otthac-stathletes) and the [data they made available](https://github.com/bigdatacup/Big-Data-Cup-2021) revolutionized what we were able to thanks to the detailed play-by-play data for the season and the x/y location data. That wave continued with the inaugural [WHKYHAC conference](https://www.whkyhac.com/) in July that produced some amazing conversations and projects in the women's hockey space.                   
 
-In the past, the lack of data and poor access to data have been the biggest barrier to entry in women's hockey analytics, a barrier that this package is intended to alleviate.                   
+In the past, the lack of data and poor access to data have been the biggest barrier to entry in women's hockey analytics, a barrier that this package intends to alleviate.                   
 
 <center>
 
@@ -109,9 +109,9 @@ To cite the [**`fastRhockey`**](https://benhowell71.github.io/fastRhockey/) R pa
 
 BibTex Citation
 ```bibtex
-@misc{howell_fastRhockey_2021,
-  author = {Ben Howell},
-  title = {fastRhockey: The SportsDataverse's R Package for Women's Hockey Data.},
+@misc{howell_gilani_fastRhockey_2021,
+  author = {Ben Howell and Saiem Gilani},
+  title = {fastRhockey: The SportsDataverse's R Package for Hockey Data.},
   url = {https://benhowell71.github.io/fastRhockey/},
   year = {2021}
 }

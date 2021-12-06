@@ -1,10 +1,10 @@
 
-test_that("load_phf_boxscore", {
+test_that("phf_team_box", {
   skip_on_cran()
 
-  x <- fastRhockey::load_phf_boxscore(game_id = 40863)
-  y <- fastRhockey::load_phf_boxscore(game_id = 268079)
-  z <- fastRhockey::load_phf_boxscore(game_id = 378721)
+  x <- fastRhockey::phf_team_box(game_id = 40863)
+  y <- fastRhockey::phf_team_box(game_id = 268079)
+  z <- fastRhockey::phf_team_box(game_id = 378721)
 
   expect_equal(colnames(x), colnames(y))
   expect_equal(colnames(x), colnames(z))

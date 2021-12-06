@@ -12,7 +12,7 @@ load_nhl_team_box(
 )
 }
 \arguments{
-\item{seasons}{A vector of 4-digit years associated with given NHL seasons. (Min: 2003)}
+\item{seasons}{A vector of 4-digit years associated with given NHL seasons. (Min: 2011)}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database (used by \code{update_nhl_db()}).}

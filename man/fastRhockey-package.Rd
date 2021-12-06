@@ -4,15 +4,15 @@
 \name{fastRhockey-package}
 \alias{fastRhockey}
 \alias{fastRhockey-package}
-\title{fastRhockey: Functions to Access Premier Hockey Federation Play by Play Data}
+\title{fastRhockey: Functions to Access Premier Hockey Federation and National Hockey League Play by Play Data}
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-A utility to scrape and load play-by-play data and statistics from the Premier Hockey Federation (PHF), formerly known as the National Women's Hockey League (NWHL).
+A utility to scrape and load play-by-play data and statistics from the Premier Hockey Federation (PHF)<https://www.premierhockeyfederation.com/>, formerly known as the National Women's Hockey League (NWHL). Additionally, allows access to the National Hockey League's stats API <https://www.nhl.com/>.
 
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-A utility to scrape and load play-by-play data and statistics from the Premier Hockey Federation (PHF), formerly known as the National Women's Hockey League (NWHL).
+A utility to scrape and load play-by-play data and statistics from the Premier Hockey Federation (PHF)<https://www.premierhockeyfederation.com/>, formerly known as the National Women's Hockey League (NWHL). Additionally, allows access to the National Hockey League's stats API <https://www.nhl.com/>.
 }
 \seealso{
 Useful links:
@@ -32,20 +32,28 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Ben Howell \email{benhowell71@gmail.com}
+\strong{Maintainer}: Saiem Gilani \email{saiem.gilani@gmail.com}
+
+Authors:
+\itemize{
+  \item Ben Howell \email{benhowell71@gmail.com}
+}
 
 Other contributors:
 \itemize{
-  \item Saiem Gilani \email{saiem.gilani@gmail.com} [contributor]
   \item Alyssa Longmuir \email{aklongmuir@gmail.com} [contributor]
 }
 
 
-\strong{Maintainer}: Ben Howell \email{benhowell71@gmail.com}
+\strong{Maintainer}: Saiem Gilani \email{saiem.gilani@gmail.com}
+
+Authors:
+\itemize{
+  \item Ben Howell \email{benhowell71@gmail.com}
+}
 
 Other contributors:
 \itemize{
-  \item Saiem Gilani \email{saiem.gilani@gmail.com} [contributor]
   \item Alyssa Longmuir \email{aklongmuir@gmail.com} [contributor]
 }
 

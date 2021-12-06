@@ -5,13 +5,14 @@ citHeader("To cite the fastRhockey package in publications, use:")
 
 citEntry(entry = "Misc",
          author = personList(
-         as.person("Ben Howell")),
+         as.person("Ben Howell"),
+         as.person("Saiem Gilani")),
          title = "fastRhockey: The SportsDataverse's R Package for Women's Hockey Data.",
          url = c("benhowell71.github.io/fastRhockey/"),
          year = year,
          note = note,
          textVersion = paste(
-    "Ben Howell. fastRhockey: The SportsDataverse's R Package for Women's Hockey Data.",
+    "Ben Howell and Saiem Gilani. fastRhockey: The SportsDataverse's R Package for Women's Hockey Data.",
     "Retrieved from https://BenHowell71.github.io/fastRhockey/"
   )
 )

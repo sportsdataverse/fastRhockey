@@ -10,10 +10,10 @@ phf_schedule(season = 2021)
 \item{season}{Season (YYYY) to pull the schedule from, the concluding year in XXXX-YY format}
 }
 \description{
-phf_schedule lookup
+PHF Schedule lookup
 }
 \examples{
-\dontrun{
-  full_schedule <- phf_schedule(season=2021)
+\donttest{
+  phf_schedule(season=2022)
 }
 }
