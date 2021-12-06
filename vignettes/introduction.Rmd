@@ -35,7 +35,7 @@ In the past, the lack of data and poor access to data have been the biggest barr
 
 <center>
 
-![](https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png){width=50%}
+![](https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png){width=70%}
 
 </center>
 
@@ -86,7 +86,7 @@ Let's take that `game_id` and plug it into another `fastRhockey` function, this 
 ```{r load_boxscore}
 x <- 379254
 
-box <- load_phf_boxscore(game_id = x)
+box <- phf_team_box(game_id = x)
 
 box %>%
   dplyr::select(game_id, 
@@ -103,7 +103,7 @@ Turn your attention to `load_pbp`, the function that was created to return PHF p
 ```{r load_pbp}
 a <- Sys.time()
 
-pbp <- load_phf_pbp(game_id = x)
+pbp <- phf_pbp(game_id = x)
   
 Sys.time() - a
 ```
