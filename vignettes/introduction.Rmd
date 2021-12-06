@@ -35,7 +35,7 @@ In the past, the lack of data and poor access to data have been the biggest barr
 
 <center>
 
-![](https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png){width=50%}
+![](https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png){width=70%}
 
 </center>
 
@@ -81,12 +81,12 @@ phf_schedule(season = 2021) %>%
 
 A couple of quick filters/selects later and we've pared down the data into a very manageable return. We can see that the Boston Pride beat the Minnesota Whitecaps 4-3 in Warrior Ice Arena on March 27th, 2021. The other important column in this return is the `game_id` column.               
 
-Let's take that `game_id` and plug it into another `fastRhockey` function, this time using the `load_boxscore` function to pull the boxscore data from this game.             
+Let's take that `game_id` and plug it into another `fastRhockey` function, this time using the `phf_team_box` function to pull the boxscore data from this game.             
 
 ```{r load_boxscore}
 x <- 379254
 
-box <- load_phf_boxscore(game_id = x)
+box <- phf_team_box(game_id = x)
 
 box %>%
   dplyr::select(game_id, 
@@ -96,19 +96,19 @@ box %>%
                 faceoff_percent, takeaways)
 ```
 
-Once again, I've selected some specific columns, but this is an example of the data that is returned by the `load_boxscore` function! We have counting stat data on shots/goals, both aggregated and by period, power play data, faceoff data, and how often a team takes/gives away the puck. It's definitely helpful data and I believe that there are some really fun projects that can be done with just the `load_boxscore` function, but the really good stuff is still coming.                
+Once again, I've selected some specific columns, but this is an example of the data that is returned by the `phf_team_box` function! We have counting stat data on shots/goals, both aggregated and by period, power play data, faceoff data, and how often a team takes/gives away the puck. It's definitely helpful data and I believe that there are some really fun projects that can be done with just the `phf_team_box` function, but the really good stuff is still coming.                
 
-Turn your attention to `load_pbp`, the function that was created to return PHF play-by-play data for a given game (i.e. the whole reason that `fastRhockey` exists). It's a similar format to the boxscore function where the only input necessary is the `game_id` that you want.                     
+Turn your attention to `phf_pbp`, the function that was created to return PHF play-by-play data for a given game (i.e. the whole reason that `fastRhockey` exists). It's a similar format to the boxscore function where the only input necessary is the `game_id` that you want.                     
 
 ```{r load_pbp}
 a <- Sys.time()
 
-pbp <- load_phf_pbp(game_id = x)
+pbp <- phf_pbp(game_id = x)
   
 Sys.time() - a
 ```
 
-Loading a single game should take ~ 5 seconds. Once it does, it's time to have some fun. The `load_pbp` function returns 34 columns, some with "boring" data, like who the teams are, etc. But then you get to the columns that look at how much time is remaing in a quarter, what the home skater vs away skater numbers are, what event occured, who was involved, and so on.
+Loading a single game should take ~ 5 seconds. Once it does, it's time to have some fun. The `phf_pbp` function returns `r ncol(pbp)` columns, some with "boring" data, like who the teams are, etc. But then you get to the columns that look at how much time is remaining in a quarter, what the home skater vs away skater numbers are, what event occurred, who was involved, and so on.
 
 ```{r pbp}
 dplyr::glimpse(pbp)
@@ -118,11 +118,11 @@ There's data on who took a shot (if a shot occurs), as well as who the primary (
 
 One of the more interesting findings from the PHF set-up was that they ID all five offensive players on the ice when a goal is scored, so that's available as well. Unfortunately, it's hard to derive any sort of plus/minus stat from this since it's only the offensive players at the time of a goal. If the offensive and defensive lineups were provided we could create a +/-, but that remains out of reach for now.              
 
-Here's an example of the things that one can now build with the play-by-play data that is generated from `load_pbp`. This is a quick graph showing cumulative shot attempts by point in the game for Boston and Minnesota.
+Here's an example of the things that one can now build with the play-by-play data that is generated from `phf_pbp`. This is a quick graph showing cumulative shot attempts by point in the game for Boston and Minnesota.
 
 ```{r phf_intro_figure}
 pbp %>%
-  mutate(shot = ifelse(event %in% c("PP Goal", "Goal",
+  mutate(shot = ifelse(play_type %in% c("PP Goal", "Goal",
                                     "Pen Shot", "Shot", 
                                     "Shot BLK"), 1, 0)) %>%
   group_by(team) %>%
@@ -130,8 +130,8 @@ pbp %>%
   ggplot() +
   geom_line(aes(x = sec_from_start, y = total_shots, color = team),
             size = 2) +
-  scale_color_manual(values = c("Boston PrideBOS" = "#b18c1e",
-                                "Minnesota WhitecapsMIN" = "#1c449c")) +
+  scale_color_manual(values = c("Boston Pride" = "#b18c1e",
+                                "Minnesota Whitecaps" = "#1c449c")) +
   labs(y = "Total Shots",
        title = "Boston Pride vs Minnesota Whitecaps - 3/27/2021",
        subtitle = "Total Shots by Minute of Game") +
@@ -157,11 +157,11 @@ It's a simple graph, but one that can easily help illustrate game flow. The Prid
 
 There's so much more that can be explored from this play-by-play data, whether you want to explore how winning a faceoff leads to a shot attempt or the chaos that can follow giveaways.                
 
-That's a quick primer on the main functions of the package. `phf_schedule` returns schedule information and game_ids, which can be used in `load_phf_boxscore` or `load_phf_pbp` to return boxscore or play-by-play data. `load_phf_game` wraps the boxscore/play-by-play functions into one and returns a list with the two data frames.            
+That's a quick primer on the main functions of the package. `phf_schedule` returns schedule information and game_ids, which can be used in `phf_team_box` or `phf_pbp` to return boxscore or play-by-play data. `phf_game_all` wraps the boxscore/play-by-play and several other game summary tables into one and returns a list with the dataframes: plays, team_box, skaters, goalies, game_details, scoring_summary, shootout_summary,  penalty_summary, officials, team_staff, timeouts.            
 
-The last function that may be of some use is `phf_league_info`, which essentially pulls a lot of background info on the league and the IDs that are used. The output from this function gets wrapped into the `load_phf___` functions and `phf_schedule`, which is it's main purpose.
+The last function that may be of some use is `phf_league_info`, which essentially pulls a lot of background info on the league and the IDs that are used. The output from this function gets wrapped into the `phf_schedule`, which is it's main purpose.
 
-If you look with `fastRhockey::`, there are more functions available, but those are helper functions to pull raw data (`phf_game_data`) and then to process the raw data into a usable format (`process_phf____`). 
+If you look with `fastRhockey::`, there are more functions available, but those are helper functions to pull raw data (`phf_game_raw`) and then to process the raw data into a usable format (`helper_phf____`). 
 
 ********************************************************************
 
