@@ -7,7 +7,7 @@ template:
     bootswatch: cosmo
   opengraph:
     image:
-      src: "https://github.com/BenHowell71/fastRhockey/blob/main/logo/fastRhockey_card.png?raw=true"
+      src: "https://github.com/BenHowell71/fastRhockey/blob/main/man/figures/fastRhockey_card.png?raw=true"
     twitter:
       site: "@BenHowell71"
       card: summary_large_image
@@ -128,6 +128,7 @@ reference:
       - '`load_nhl_pbp`'
       - '`load_nhl_team_box`'
       - '`load_nhl_player_box`'
+      - '`load_nhl_schedule`'
   - subtitle: "Update or Create Database"
     desc: Functions exported by fastRhockey which update and create a database of fastRhockey play-by-play data
     contents:
@@ -145,6 +146,10 @@ reference:
     desc: Functions exported by fastRhockey sourced from the players endpoint of the NHL API
     contents:
       - starts_with("nhl_player")
+  - subtitle: Schedule Data
+    desc: Functions exported by fastRhockey sourced from the schedule endpoint of the NHL API
+    contents:
+      - starts_with("nhl_schedule")
   - subtitle: Draft Data
     desc: Functions exported by fastRhockey sourced from the draft endpoint of the NHL API
     contents:
