@@ -6,12 +6,6 @@
 \alias{nhl_team_logos}
 \title{\strong{Data in the package for reference}}
 \format{
-An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 33 rows and 11 columns.
-}
-\usage{
-nhl_team_logos
-}
-\value{
 A data frame with 32 rows and 11 variables:
 \describe{
 \item{full_team_name}{full team name}
@@ -26,6 +20,9 @@ A data frame with 32 rows and 11 variables:
 \item{team_color_alt1}{alternate logo primary color}
 \item{team_color_alt2}{alternate logo secondary color}
 }
+}
+\usage{
+nhl_team_logos
 }
 \description{
 A dataset containing the full team names, abbreviations, colors & logos

@@ -2,6 +2,7 @@
 #' @description PHF Schedule lookup
 #'
 #' @param season Season (YYYY) to pull the schedule from, the concluding year in XXXX-YY format
+#' @return A data frame with schedule data
 #' @import rvest
 #' @import dplyr
 #' @import httr
@@ -13,7 +14,6 @@
 #' }
 
 phf_schedule <- function(season = 2021){
-
   season_id <- dplyr::case_when(
     season == 2022 ~ 3372,
     season == 2021 ~ 2779,

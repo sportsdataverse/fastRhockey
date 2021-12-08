@@ -72,6 +72,7 @@ custom_mode <- function(x, na.rm = TRUE) {
 
 #' @title
 #' **Most Recent NHL Season**
+#' @return Value for most recent NHL season
 #' @export
 most_recent_nhl_season <- function() {
   dplyr::if_else(
@@ -82,6 +83,7 @@ most_recent_nhl_season <- function() {
 }
 #' @title
 #' **Most Recent NHL Season for NHL API**
+#' @return Value for most recent NHL season in the format of the NHL API
 #' @export
 most_recent_nhl_season_api_param <- function() {
   season <- dplyr::if_else(
@@ -94,6 +96,7 @@ most_recent_nhl_season_api_param <- function() {
 
 #' @title
 #' **Most Recent PHF Season**
+#' @return Value for most recent NHL season
 #' @export
 most_recent_phf_season <- function() {
   dplyr::if_else(
@@ -171,9 +174,6 @@ NULL
 #' @import utils
 utils::globalVariables(c("where"))
 
-
-#' @keywords internal
-"_PACKAGE"
 
 #' @importFrom Rcpp getRcppVersion
 #' @importFrom RcppParallel defaultNumThreads

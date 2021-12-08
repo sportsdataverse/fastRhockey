@@ -1,6 +1,8 @@
 #' @title PHF League Information per year
 #'
 #' @param season Season (YYYY) to pull the league info and IDs for. Season is the concluding year in XXXX-YY format
+#' @return A named list of data frames: seasons, divisions, teams, league,  officials, brackets
+#'
 #' @import rvest
 #' @import dplyr
 #' @import httr
@@ -8,7 +10,7 @@
 #' @importFrom glue glue
 #' @export
 #' @examples \donttest{
-#'   phf_league_info(season = 2022)
+#'   phf_league_info(season = 2021)
 #' }
 phf_league_info <- function(season = 2022){
 
