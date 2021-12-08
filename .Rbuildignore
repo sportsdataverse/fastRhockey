@@ -5,9 +5,12 @@
 ^\.github$
 ^_pkgdown\.yml$
 ^docs$
+^inst*
 ^pkgdown$
 ^logo$
 ^data-raw$
 ^pkgdown$
 ^logo\.png$
 ^vignettes
+^cran-comments\.md$
+^CRAN-RELEASE$
