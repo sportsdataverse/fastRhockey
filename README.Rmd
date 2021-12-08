@@ -4,7 +4,7 @@ output: github_document
 
 #
 
-# fastRhockey <a href='https://benhowell71.github.io/fastRhockey/'><img src='https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/logo.png' align="right" height="150" /></a>
+# fastRhockey <a href='https://benhowell71.github.io/fastRhockey/'><img src='man/figures/logo.png' align="right" height="150" /></a>
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -32,8 +32,8 @@ In Spring of 2021, the [Big Data Cup](https://www.theicegarden.com/2021/4/15/223
 In the past, the lack of data and poor access to data have been the biggest barrier to entry in women's hockey analytics, a barrier that this package intends to alleviate.                   
 
 <center>
+<img src='man/figures/fastRhockey_full_holographic_graphic.png' align="center" width="70%" />
 
-![](https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png){width=70%}
 
 </center>
 
