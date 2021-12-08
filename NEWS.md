@@ -1,3 +1,13 @@
+# **fastRhockey 0.0.4**
+
+### Player and Team Stats, Leaderboards
+
+* `phf_leaders()` function added.
+* `phf_standings()` function added.
+* `phf_player_stats()` function added.
+* `phf_team_stats()` function added.
+* `phf_team_roster()` function added.
+
 # **fastRhockey 0.0.3**
 
 ### Function naming convention normalization
