@@ -13,7 +13,6 @@
 #' }
 
 phf_schedule <- function(season = 2021){
-
   season_id <- dplyr::case_when(
     season == 2022 ~ 3372,
     season == 2021 ~ 2779,

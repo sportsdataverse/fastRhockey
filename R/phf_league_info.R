@@ -8,7 +8,7 @@
 #' @importFrom glue glue
 #' @export
 #' @examples \donttest{
-#'   phf_league_info(season = 2022)
+#'   phf_league_info(season = 2021)
 #' }
 phf_league_info <- function(season = 2022){
 
