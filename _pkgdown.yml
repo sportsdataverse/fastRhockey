@@ -122,6 +122,17 @@ reference:
       - '`phf_game_raw`'
       - starts_with("phf")
   - title: "fastRhockey Data"
+  - subtitle: Full Seasons of PHF Data
+    desc: Functions exported by fastRhockey which load full seasons of fastRhockey PHF data
+    contents:
+      - '`load_phf_pbp`'
+      - '`load_phf_team_box`'
+      - '`load_phf_player_box`'
+      - '`load_phf_schedule`'
+  - subtitle: "Update or Create Database"
+    desc: Functions exported by fastRhockey which update and create a database of fastRhockey PHF play-by-play data
+    contents:
+      - '`update_phf_db`'
   - subtitle: Full Seasons of NHL Data
     desc: Functions exported by fastRhockey which load full seasons of fastRhockey NHL data
     contents:
@@ -130,7 +141,7 @@ reference:
       - '`load_nhl_player_box`'
       - '`load_nhl_schedule`'
   - subtitle: "Update or Create Database"
-    desc: Functions exported by fastRhockey which update and create a database of fastRhockey play-by-play data
+    desc: Functions exported by fastRhockey which update and create a database of fastRhockey NHL play-by-play data
     contents:
       - '`update_nhl_db`'
   - subtitle: Game Data
