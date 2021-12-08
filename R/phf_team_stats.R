@@ -2,6 +2,7 @@
 #' @description PHF Team Stats lookup
 #' @param team Team name with nickname (e.g. Boston Pride, Buffalo Beauts)
 #' @param season Season (YYYY) to pull the team stats from, the concluding year in XXXX-YY format
+#' @return A named list of data frames: skaters, goalies
 #' @import rvest
 #' @import dplyr
 #' @import httr
@@ -183,7 +184,7 @@ phf_team_stats <- function(team, season = 2022){
 
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid season or no schedule data available! Try a season from 2016-2021!"))
+      message(glue::glue("{Sys.time()}: Invalid parameters or no team stats data available!"))
 
     },
     warning = function(w) {
