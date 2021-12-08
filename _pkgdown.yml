@@ -170,9 +170,7 @@ reference:
       - '`most_recent_phf_season`'
       - '`most_recent_nhl_season`'
       - '`most_recent_nhl_season_api_param`'
-      - '`helper_phf_pbp_normalize_columns`'
-      - '`helper_phf_pbp_data`'
-      - '`helper_phf_team_box`'
+      - starts_with("helper_phf")
       - '`csv_from_url`'
       - '`rds_from_url`'
       - '`check_status`'

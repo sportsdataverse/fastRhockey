@@ -7,8 +7,7 @@ NULL
 #' A dataset containing the full team names, abbreviations, colors & logos
 #' for all 32 NHL teams.
 #' @keywords data
-#'
-#' @return A data frame with 32 rows and 11 variables:
+#' @format A data frame with 32 rows and 11 variables:
 #' \describe{
 #'   \item{full_team_name}{full team name}
 #'   \item{team_abbr}{NHL.com team abbreviation}

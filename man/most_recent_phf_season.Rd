@@ -6,6 +6,9 @@
 \usage{
 most_recent_phf_season()
 }
+\value{
+Value for most recent NHL season
+}
 \description{
 \strong{Most Recent PHF Season}
 }

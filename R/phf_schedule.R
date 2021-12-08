@@ -2,6 +2,7 @@
 #' @description PHF Schedule lookup
 #'
 #' @param season Season (YYYY) to pull the schedule from, the concluding year in XXXX-YY format
+#' @return A data frame with schedule data
 #' @import rvest
 #' @import dplyr
 #' @import httr

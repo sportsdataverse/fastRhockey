@@ -6,6 +6,9 @@
 \usage{
 most_recent_nhl_season_api_param()
 }
+\value{
+Value for most recent NHL season in the format of the NHL API
+}
 \description{
 \strong{Most Recent NHL Season for NHL API}
 }

@@ -6,6 +6,9 @@
 \usage{
 most_recent_nhl_season()
 }
+\value{
+Value for most recent NHL season
+}
 \description{
 \strong{Most Recent NHL Season}
 }

@@ -9,6 +9,9 @@ phf_league_info(season = 2022)
 \arguments{
 \item{season}{Season (YYYY) to pull the league info and IDs for. Season is the concluding year in XXXX-YY format}
 }
+\value{
+A named list of data frames: seasons, divisions, teams, league,  officials, brackets
+}
 \description{
 PHF League Information per year
 }

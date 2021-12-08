@@ -13,7 +13,7 @@
 #' * defending_team_on_ice
 #' @importFrom dplyr mutate mutate_at bind_cols lead filter select
 #' @importFrom stringr str_detect
-#'
+#' @noRd
 helper_phf_pbp_normalize_columns <- function(df){
   if(ncol(df)==3){
     colnames(df) <- c("play_type","team","play_description")
@@ -59,6 +59,7 @@ helper_phf_pbp_normalize_columns <- function(df){
 #' @importFrom stringr str_replace str_replace_all str_extract str_extract_all str_detect str_trim
 #' @importFrom utils read.csv
 #' @import rvest
+#' @noRd
 helper_phf_pbp_data <- function(data) {
   away <- "[:digit:] GvA|[:digit:] TkA|[:digit:] Blk"
   fill <- "from| by|against|to| and|giveaway|Game|Behind|of |Served|served|Bench|bench"
@@ -456,6 +457,7 @@ helper_phf_pbp_data <- function(data) {
 #' @importFrom stringr str_replace str_replace_all str_extract str_extract_all str_detect str_trim
 #' @importFrom janitor clean_names
 #' @import rvest
+#' @noRd
 helper_phf_team_box <- function(data) {
 
   df <- data[[max(length(data))]]

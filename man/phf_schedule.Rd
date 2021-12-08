@@ -9,6 +9,9 @@ phf_schedule(season = 2021)
 \arguments{
 \item{season}{Season (YYYY) to pull the schedule from, the concluding year in XXXX-YY format}
 }
+\value{
+A data frame with schedule data
+}
 \description{
 PHF Schedule lookup
 }
