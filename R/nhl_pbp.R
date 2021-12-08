@@ -208,7 +208,7 @@ load_nhl_games <- function(){
 #' @name update_nhl_db
 #' @aliases update_nhl_db nhl_db nhl nhl_pbp_db
 #' @title
-#' **Update or create a fastRhockey play-by-play database**
+#' **Update or create a fastRhockey NHL play-by-play database**
 #' @description update_nhl_db() updates or creates a database with `fastRhockey`
 #' play by play data of all completed and available games since 2011.
 #'
