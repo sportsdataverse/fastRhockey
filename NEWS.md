@@ -1,4 +1,13 @@
+
 # **fastRhockey 0.0.4**
+
+### Loader functions for PHF
+
+* `load_phf_pbp()` function added.
+* `load_phf_team_box()` function added.
+* `load_phf_player_box()` function added.
+* `load_phf_schedule()` function added.
+* `update_phf_db()` function added.
 
 ### Player and Team Stats, Leaderboards
 
