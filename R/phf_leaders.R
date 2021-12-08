@@ -74,7 +74,7 @@ phf_leaders <- function(player_type, season = 2021, season_type="Regular Season"
 
       skaters_href <- data.frame(
         season_type = season_type,
-        skaters_href = skaters_href,
+        player_href = skaters_href,
         team_href = team_href
       )
 
@@ -117,7 +117,7 @@ phf_leaders <- function(player_type, season = 2021, season_type="Regular Season"
             shots_blocked = .data$`ShBl`) %>%
           dplyr::mutate(
             player_name = stringr::str_replace(.data$player_name, pattern = "#\\d+",replacement=""),
-            player_id = as.integer(stringr::str_extract(.data$skaters_href, "\\d+")),
+            player_id = as.integer(stringr::str_extract(.data$player_href, "\\d+")),
             team_id = as.integer(stringr::str_extract(stringr::str_remove(.data$team_href,"stats#/100/team"), "\\d+"))
 
           )
@@ -142,11 +142,10 @@ phf_leaders <- function(player_type, season = 2021, season_type="Regular Season"
             minutes_played = .data$MP,
             penalty_minutes = .data$PIM,
             goals = .data$G,
-            assists = .data$A,
-            goalies_href = .data$skaters_href) %>%
+            assists = .data$A) %>%
           dplyr::mutate(
             player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
-            player_id = as.integer(stringr::str_extract(.data$goalies_href, "\\d+")),
+            player_id = as.integer(stringr::str_extract(.data$player_href, "\\d+")),
             team_id = as.integer(stringr::str_extract(stringr::str_remove(.data$team_href,"stats#/100/team"), "\\d+"))
 
           )
