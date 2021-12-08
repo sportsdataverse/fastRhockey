@@ -195,10 +195,11 @@ If you look with `fastRhockey::`, there are more functions available, but those 
 To cite the [**`fastRhockey`**](https://benhowell71.github.io/fastRhockey/) R package in publications, use:
 
 BibTex Citation
-```bibtex
-@misc{howell_fastRhockey_2021,
-  author = {Ben Howell},
-  title = {fastRhockey: The SportsDataverse's R Package for Women's Hockey Data.},
+
+``` bibtex
+@misc{howell_gilani_fastRhockey_2021,
+  author = {Ben Howell and Saiem Gilani},
+  title = {fastRhockey: The SportsDataverse's R Package for Hockey Data.},
   url = {https://benhowell71.github.io/fastRhockey/},
   year = {2021}
 }
