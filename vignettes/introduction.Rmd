@@ -151,7 +151,7 @@ pbp %>%
   scale_y_continuous(limits = c(0, 40))
   
 ```
-![](https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/introduction-phf_intro_figure-1.png){width=50%}
+![](https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/introduction-phf_intro_figure-1.png)
 
 It's a simple graph, but one that can easily help illustrate game flow. The Pride's shots came in bunches, taking a ton about halfway through the first and third periods respectively. Minnesota started the game slowly, but their shots came fairly consistently throughout the game.             
 

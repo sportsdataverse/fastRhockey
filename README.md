@@ -1,7 +1,7 @@
 
 # 
 
-# fastRhockey <a href='https://benhowell71.github.io/fastRhockey/'><img src='https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/logo.png' align="right" height="150" /></a>
+# fastRhockey <a href='https://benhowell71.github.io/fastRhockey/'><img src='man/figures/logo.png' align="right" height="150" /></a>
 
 <!-- badges: start -->
 
@@ -39,7 +39,7 @@ this package intends to alleviate.
 
 <center>
 
-<img src="https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png" style="width:70.0%" />
+<img src='man/figures/fastRhockey_full_holographic_graphic.png' align="center" width="70%" />
 
 </center>
 
