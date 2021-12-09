@@ -1,3 +1,6 @@
+# **fastRhockey 0.1.0**
+
+* Prepped for CRAN
 
 # **fastRhockey 0.0.4**
 
