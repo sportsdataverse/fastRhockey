@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![CRAN
-status](https://www.r-pkg.org/badges/version-last-release/cfbfastR?style=for-the-badge)](https://CRAN.R-project.org/package=fastRhockey)
+status](https://www.r-pkg.org/badges/version-last-release/fastRhockey?style=for-the-badge)](https://CRAN.R-project.org/package=fastRhockey)
 [![CRAN
 downloads](http://cranlogs.r-pkg.org/badges/grand-total/fastRhockey)](https://CRAN.R-project.org/package=fastRhockey)
 [![Version-Number](https://img.shields.io/github/r-package/v/benhowell71/fastRhockey?label=fastRhockey&logo=R&style=for-the-badge)](https://github.com/benhowell71/fastRhockey/)
