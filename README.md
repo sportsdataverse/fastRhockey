@@ -5,6 +5,10 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version-last-release/cfbfastR?style=for-the-badge)](https://CRAN.R-project.org/package=fastRhockey)
+[![CRAN
+downloads](http://cranlogs.r-pkg.org/badges/grand-total/fastRhockey)](https://CRAN.R-project.org/package=fastRhockey)
 [![Version-Number](https://img.shields.io/github/r-package/v/benhowell71/fastRhockey?label=fastRhockey&logo=R&style=for-the-badge)](https://github.com/benhowell71/fastRhockey/)
 [![R-CMD-check](https://img.shields.io/github/workflow/status/benhowell71/fastRhockey/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/benhowell71/fastRhockey/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)](https://github.com/benhowell71/fastRhockey/)
@@ -47,6 +51,14 @@ this package intends to alleviate.
 
 ## Installation
 
+You can install the CRAN version of
+[**`fastRhockey`**](https://cran.r-project.org/web/packages/fastRhockey/index.html)
+with:
+
+``` r
+install.packages("fastRhockey")
+```
+
 You can install the released version of
 [**`fastRhockey`**](https://github.com/BenHowell71/fastRhockey/) from
 [GitHub](https://github.com/BenHowell71/fastRhockey) with:
@@ -62,11 +74,9 @@ pacman::p_load_current_gh("BenHowell71/fastRhockey", dependencies = TRUE, update
 If you would prefer the `devtools` installation:
 
 ``` r
-# if you would prefer devtools installation
 if (!requireNamespace('devtools', quietly = TRUE)){
   install.packages('devtools')
 }
-# Alternatively, using the devtools package:
 devtools::install_github(repo = "BenHowell71/fastRhockey")
 ```
 
