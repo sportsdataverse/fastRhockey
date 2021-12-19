@@ -1,7 +1,7 @@
 
 # 
 
-# fastRhockey <a href='https://benhowell71.github.io/fastRhockey/'><img src='man/figures/logo.png' align="right" height="150" /></a>
+# fastRhockey <a href='https://benhowell71.github.io/fastRhockey/'><img src='https://raw.githubusercontent.com/benhowell71/fastRhockey/main/logo.png' align="right" width="20%" min-width="100px" /></a>
 
 <!-- badges: start -->
 
@@ -52,7 +52,7 @@ this package intends to alleviate.
 ## Installation
 
 You can install the CRAN version of
-[**`fastRhockey`**](https://cran.r-project.org/web/packages/fastRhockey/index.html)
+[**`fastRhockey`**](https://CRAN.R-project.org/package=fastRhockey)
 with:
 
 ``` r

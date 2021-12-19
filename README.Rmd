@@ -4,7 +4,7 @@ output: github_document
 
 #
 
-# fastRhockey <a href='https://benhowell71.github.io/fastRhockey/'><img src='man/figures/logo.png' align="right" height="150" /></a>
+# fastRhockey <a href='https://benhowell71.github.io/fastRhockey/'><img src='https://raw.githubusercontent.com/benhowell71/fastRhockey/main/logo.png' align="right" width="20%" min-width="100px" /></a>
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -43,7 +43,7 @@ In the past, the lack of data and poor access to data have been the biggest barr
 
 ## Installation
 
-You can install the CRAN version of [**```fastRhockey```** ](https://cran.r-project.org/web/packages/fastRhockey/index.html) with:
+You can install the CRAN version of [**```fastRhockey```** ](https://CRAN.R-project.org/package=fastRhockey) with:
 ```r
 install.packages("fastRhockey")
 ```
