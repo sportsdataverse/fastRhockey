@@ -35,6 +35,14 @@ navbar:
     left:  [home, intro, reference, articles, news, network, data, repo]
     right: [twitter, github]
   components:
+    home:
+      title: fastRhockey
+      description: An R package to quickly obtain Premier Hockey Federation (PHF) and NHL play-by-play data.
+      icon: fa-home
+      href: index.html
+      links:
+      - text: Getting started with fastRhockey
+        href: articles/introduction.html
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: https://twitter.com/benhowell71
