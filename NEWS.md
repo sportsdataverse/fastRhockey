@@ -1,3 +1,7 @@
+# **fastRhockey 0.2.0**
+
+* `espn_nhl_teams()` function added.
+
 # **fastRhockey 0.1.0**
 
 * Prepped for CRAN

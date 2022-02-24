@@ -1,7 +1,7 @@
 test_that("NHL - Get NHL draft by year", {
   skip_on_cran()
   x <- nhl_draft_year(year=2020)
-  
+
   cols <- c(
     "year",
     "round",
@@ -14,6 +14,7 @@ test_that("NHL - Get NHL draft by year", {
     "prospect_full_name",
     "prospect_link"
   )
+  x <- x %>% dplyr::select(dplyr::all_of(cols))
   expect_equal(colnames(x), cols)
   expect_s3_class(x, 'data.frame')
 
