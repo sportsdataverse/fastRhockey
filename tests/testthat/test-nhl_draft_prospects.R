@@ -1,7 +1,7 @@
 test_that("NHL - Get NHL draft prospects", {
   skip_on_cran()
   x <- nhl_draft_prospects()
-  
+
   cols <- c(
     "prospect_id",
     "full_name",
@@ -10,13 +10,13 @@ test_that("NHL - Get NHL draft prospects", {
     "last_name",
     "birth_date",
     "birth_city",
-    "birth_state_province",
     "birth_country",
     "height",
     "weight",
     "shoots_catches",
-    "nhl_player_id",
     "draft_status",
+    "birth_state_province",
+    "nhl_player_id",
     "nationality",
     "primary_position_code",
     "primary_position_name",
@@ -29,9 +29,10 @@ test_that("NHL - Get NHL draft prospects", {
     "amateur_team_link",
     "amateur_league_name",
     "amateur_league_link",
-    "ranks_final_rank",
+    "ranks_midterm",
     "ranks_draft_year"
   )
+  x <- x %>% dplyr::select(dplyr::all_of(cols))
   expect_equal(colnames(x), cols)
   expect_s3_class(x, 'data.frame')
 
