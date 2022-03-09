@@ -17,7 +17,6 @@ phf_player_stats: loads the player stats
 }
 \examples{
 \donttest{
-  phf_player_stats(player_id = 431615)
   phf_player_stats(player_id = 431611)
 }
 }
