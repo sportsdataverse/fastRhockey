@@ -163,6 +163,7 @@ reference:
     desc: Functions exported by fastRhockey sourced from the teams endpoint of the NHL API
     contents:
       - '`nhl_teams`'
+      - '`espn_nhl_teams`'
       - starts_with("nhl_team")
   - subtitle: Players Data
     desc: Functions exported by fastRhockey sourced from the players endpoint of the NHL API
@@ -195,7 +196,6 @@ reference:
       - starts_with("helper_phf")
       - '`csv_from_url`'
       - '`rds_from_url`'
-      - '`check_status`'
       - '`progressively`'
 
 
