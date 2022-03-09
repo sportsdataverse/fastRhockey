@@ -4,7 +4,7 @@
 \alias{phf_player_stats}
 \title{phf_player_stats}
 \usage{
-phf_player_stats(player_id = 431615)
+phf_player_stats(player_id)
 }
 \arguments{
 \item{player_id}{The unique ID code for the player that you are interested in viewing the data for}

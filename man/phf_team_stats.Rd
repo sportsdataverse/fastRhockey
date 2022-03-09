@@ -4,7 +4,7 @@
 \alias{phf_team_stats}
 \title{phf_team_stats}
 \usage{
-phf_team_stats(team, season = 2022)
+phf_team_stats(team, season = most_recent_phf_season())
 }
 \arguments{
 \item{team}{Team name with nickname (e.g. Boston Pride, Buffalo Beauts)}

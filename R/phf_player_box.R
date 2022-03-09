@@ -14,7 +14,7 @@
 #' \donttest{
 #'   phf_player_box(game_id = 420339)
 #' }
-phf_player_box <- function(game_id = 420339) {
+phf_player_box <- function(game_id) {
 
   tryCatch(
     expr = {
