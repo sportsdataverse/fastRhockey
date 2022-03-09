@@ -14,7 +14,7 @@
 #' \donttest{
 #'   phf_pbp(game_id = 268127)
 #' }
-phf_pbp <- function(game_id = 368719) {
+phf_pbp <- function(game_id) {
   base_url <- "https://web.api.digitalshift.ca/partials/stats/game/play-by-play?game_id="
   full_url <- paste0(base_url, game_id)
 

@@ -4,7 +4,7 @@
 \alias{phf_pbp}
 \title{phf_pbp}
 \usage{
-phf_pbp(game_id = 368719)
+phf_pbp(game_id)
 }
 \arguments{
 \item{game_id}{The unique ID code for the game that you are interested in viewing the data for}

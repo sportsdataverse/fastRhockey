@@ -12,10 +12,9 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   phf_player_stats(player_id = 431615)
 #'   phf_player_stats(player_id = 431611)
 #' }
-phf_player_stats <- function(player_id = 431615) {
+phf_player_stats <- function(player_id) {
 
   tryCatch(
     expr = {

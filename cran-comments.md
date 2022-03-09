@@ -1,8 +1,7 @@
 ## Release summary
 
 This is a minor release that 
-* Adds returns to all functions
-* Adds four functions
+* Adds one function, ```espn_nhl_teams()```
 
 ## R CMD check results
 

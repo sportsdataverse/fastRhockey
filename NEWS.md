@@ -1,3 +1,7 @@
+# **fastRhockey 0.2.1**
+
+* hotfix to `helper_phf_pbp_data()` penalty code
+
 # **fastRhockey 0.2.0**
 
 * `espn_nhl_teams()` function added.

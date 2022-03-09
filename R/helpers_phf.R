@@ -401,7 +401,7 @@ helper_phf_pbp_data <- function(data) {
   hdim <- dim(home_pen_mat)
 
   #creates vector for skaters
-  if (! is.null(adim)) {
+  if (! is.null(hdim)) {
 
     home_skaters <- 5 + apply(home_pen_mat, 1, sum)
 
@@ -409,7 +409,7 @@ helper_phf_pbp_data <- function(data) {
       tibble::rownames_to_column("sec_from_start")%>%
       dplyr::mutate(sec_from_start = as.numeric(.data$sec_from_start))
 
-  } else if (is.null(adim)) {
+  } else if (is.null(hdim)) {
 
     hsec <- seq(1, max(pbp$period_id) * 1200)
     h_skate <- 5
