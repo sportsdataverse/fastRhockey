@@ -28,7 +28,7 @@ Returns information on a division by division ID
 }
 \examples{
 \donttest{
-  nhl_divisions_info(division_id=17)
+  try(nhl_divisions_info(division_id=17))
 }
 }
 \keyword{Division}

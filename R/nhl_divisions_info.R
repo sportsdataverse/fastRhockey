@@ -19,34 +19,34 @@
 #' @importFrom tidyr unnest unnest_wider everything
 #' @importFrom janitor clean_names
 #' @export
-#' @examples 
+#' @examples
 #' \donttest{
-#'   nhl_divisions_info(division_id=17)
+#'   try(nhl_divisions_info(division_id=17))
 #' }
 nhl_divisions_info<- function(division_id){
-  
+
   base_url <- "https://statsapi.web.nhl.com/api/v1/divisions/"
-  
+
   full_url <- paste0(base_url, division_id)
-  
-  
+
+
   res <- httr::RETRY("GET", full_url)
-  
+
   # Check the result
   check_status(res)
-  
+
   resp <- res %>%
     httr::content(as = "text", encoding = "UTF-8")
   tryCatch(
     expr = {
       divisions_df <- jsonlite::fromJSON(resp)[["divisions"]]
       divisions_df <- jsonlite::fromJSON(jsonlite::toJSON(divisions_df),flatten=TRUE)
-      
-      divisions_df <- divisions_df %>% 
-        janitor::clean_names() %>% 
-        dplyr::rename(division_id = .data$id) %>% 
+
+      divisions_df <- divisions_df %>%
+        janitor::clean_names() %>%
+        dplyr::rename(division_id = .data$id) %>%
         as.data.frame()
-      
+
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no division info data for {division_id} available!"))

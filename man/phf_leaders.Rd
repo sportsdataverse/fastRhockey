@@ -21,7 +21,7 @@ PHF Player Leaderboards
 }
 \examples{
 \donttest{
- phf_leaders(player_type = "skaters", season = 2022, season_type="Regular Season")
- phf_leaders(player_type = "goalies", season = 2022, season_type="Regular Season")
+ try(phf_leaders(player_type = "skaters", season = 2022, season_type="Regular Season"))
+ try(phf_leaders(player_type = "goalies", season = 2022, season_type="Regular Season"))
 }
 }

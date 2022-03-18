@@ -17,7 +17,7 @@ Returns game content for a given game ID
 }
 \examples{
 \donttest{
-  nhl_game_content(game_id=2021020182)
+   try(nhl_game_content(game_id=2021020182))
 }
 }
 \keyword{Content}

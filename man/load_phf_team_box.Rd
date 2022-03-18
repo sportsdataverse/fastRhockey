@@ -30,6 +30,6 @@ or writes it into a db using some forwarded arguments in the dots
 }
 \examples{
 \donttest{
-load_phf_team_box(2021)
+  try(load_phf_team_box(2021))
 }
 }

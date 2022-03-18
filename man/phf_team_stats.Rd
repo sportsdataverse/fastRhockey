@@ -19,6 +19,6 @@ PHF Team Stats lookup
 }
 \examples{
 \donttest{
- phf_team_stats(team = "Boston Pride", season = 2022)
+  try(phf_team_stats(team = "Boston Pride", season = 2022))
 }
 }

@@ -1,6 +1,7 @@
 # **fastRhockey 0.2.1**
 
 * hotfix to `helper_phf_pbp_data()` penalty code
+* add `try()` to function examples
 
 # **fastRhockey 0.2.0**
 

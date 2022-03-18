@@ -12,7 +12,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   phf_team_box(game_id = 420339)
+#'   try(phf_team_box(game_id = 420339))
 #' }
 phf_team_box <- function(game_id) {
 

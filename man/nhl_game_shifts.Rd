@@ -17,7 +17,7 @@ Returns information on game shifts for a given game id
 }
 \examples{
 \donttest{
-  nhl_game_shifts(game_id=2021020182)
+  try(nhl_game_shifts(game_id=2021020182))
 }
 }
 \keyword{Game}

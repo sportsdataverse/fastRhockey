@@ -14,7 +14,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   nhl_schedule(season = 2021)
+#'   try(nhl_schedule(season = 2021))
 #' }
 nhl_schedule <- function(season = NULL, day = as.Date(Sys.Date(), "%Y-%m-%d")){
 

@@ -42,7 +42,7 @@ Returns information on draft prospects
 }
 \examples{
 \donttest{
-  nhl_draft_prospects()
+   try(nhl_draft_prospects())
 }
 }
 \keyword{Draft}

@@ -15,7 +15,7 @@ NULL
 #' @export
 #' @examples
 #' \donttest{
-#' load_phf_pbp(2021)
+#'   try(load_phf_pbp(2021))
 #' }
 load_phf_pbp <- function(seasons = most_recent_phf_season(),...,
                          dbConnection = NULL, tablename = NULL) {
@@ -66,7 +66,7 @@ NULL
 #' @export
 #' @examples
 #' \donttest{
-#' load_phf_team_box(2021)
+#'   try(load_phf_team_box(2021))
 #' }
 load_phf_team_box <- function(seasons = most_recent_phf_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
@@ -114,7 +114,7 @@ NULL
 #' @export
 #' @examples
 #' \donttest{
-#' load_phf_player_box(2021)
+#'   try(load_phf_player_box(2021))
 #' }
 load_phf_player_box <- function(seasons = most_recent_phf_season(), ...,
                                 dbConnection = NULL, tablename = NULL) {
@@ -163,7 +163,7 @@ NULL
 #' @export
 #' @examples
 #' \donttest{
-#' load_phf_schedule(2021)
+#'   try(load_phf_schedule(2021))
 #' }
 load_phf_schedule <- function(seasons = most_recent_phf_season(), ...,
                               dbConnection = NULL, tablename = NULL) {

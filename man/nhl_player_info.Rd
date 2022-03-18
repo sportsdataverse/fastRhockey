@@ -17,7 +17,7 @@ Returns player information for a given player ID
 }
 \examples{
 \donttest{
-  nhl_player_info(player_id=8476899)
+  try(nhl_player_info(player_id=8476899))
 }
 }
 \keyword{NHL}

@@ -14,7 +14,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   phf_game_all(game_id = 268127)
+#'   try(phf_game_all(game_id = 268127))
 #' }
 phf_game_all <- function(game_id) {
   base_url <- "https://web.api.digitalshift.ca/partials/stats/game/play-by-play?game_id="
@@ -132,7 +132,7 @@ phf_game_all <- function(game_id) {
 #' @export
 #' @examples
 #' \donttest{
-#'   phf_game_raw(game_id = 268078)
+#'   try(phf_game_raw(game_id = 268078))
 #' }
 phf_game_raw <- function(game_id) {
 
@@ -174,7 +174,7 @@ phf_game_raw <- function(game_id) {
 #' @export
 #' @examples
 #' \donttest{
-#'   phf_game_details(game_id = 268078)
+#'   try(phf_game_details(game_id = 268078))
 #' }
 phf_game_details <- function(game_id) {
 
@@ -261,7 +261,7 @@ phf_game_details <- function(game_id) {
 #' @export
 #' @examples
 #' \donttest{
-#'   phf_game_summary(game_id = 268078)
+#'   try(phf_game_summary(game_id = 268078))
 #' }
 phf_game_summary <- function(game_id) {
 

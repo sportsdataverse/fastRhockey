@@ -22,7 +22,7 @@ Returns a table of current NHL conferences
 }
 \examples{
 \donttest{
-  nhl_conferences()
+  try(nhl_conferences())
 }
 }
 \keyword{Conferences}

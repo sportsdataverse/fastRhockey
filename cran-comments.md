@@ -2,6 +2,7 @@
 
 This is a minor release that 
 * Adds one function, ```espn_nhl_teams()```
+* Updates examples per CRAN Request
 
 ## R CMD check results
 

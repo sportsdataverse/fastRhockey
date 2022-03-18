@@ -1,6 +1,6 @@
 #' @title **NHL Game Shifts**
 #' @description Returns information on game shifts for a given game id
-#' @param game_id Game unique ID 
+#' @param game_id Game unique ID
 #' @return Returns a tibble
 #' @keywords NHL Game Shifts
 #' @import rvest
@@ -11,35 +11,35 @@
 #' @importFrom tidyr unnest unnest_wider everything
 #' @importFrom janitor clean_names
 #' @export
-#' @examples 
+#' @examples
 #' \donttest{
-#'   nhl_game_shifts(game_id=2021020182)
+#'   try(nhl_game_shifts(game_id=2021020182))
 #' }
 nhl_game_shifts <- function(game_id){
-  
+
   base_url <- "https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId="
-  
-  full_url <- paste0(base_url, 
+
+  full_url <- paste0(base_url,
                      game_id)
   res <- httr::RETRY("GET", full_url)
-  
+
   # Check the result
   check_status(res)
-  
+
   resp <- res %>%
     httr::content(as = "text", encoding = "UTF-8")
-  
+
   tryCatch(
     expr = {
       site <- jsonlite::fromJSON(resp)
-      
+
       shifts_raw <- site$data %>%
         dplyr::tibble() %>%
         janitor::clean_names() %>%
         tidyr::unite("player_name", c(.data$first_name, .data$last_name), sep = " ") %>%
         dplyr::select(
-          .data$game_id, .data$player_id, .data$player_name, 
-          .data$team_abbrev, .data$team_id, .data$team_name, 
+          .data$game_id, .data$player_id, .data$player_name,
+          .data$team_abbrev, .data$team_id, .data$team_name,
           .data$period, .data$start_time, .data$end_time, .data$duration) %>%
         dplyr::filter(!is.na(.data$duration)) %>%
         dplyr::mutate(
@@ -51,7 +51,7 @@ nhl_game_shifts <- function(game_id){
           end_game_seconds = .data$end_seconds + (1200 * (.data$period-1)),
           duration = lubridate::ms(.data$duration),
           duration_seconds = lubridate::period_to_seconds(.data$duration))
-      
+
       shifts_on <- shifts_raw %>%
         dplyr::group_by(
           .data$team_name, .data$period, .data$start_time,
@@ -64,10 +64,10 @@ nhl_game_shifts <- function(game_id){
           period_time = .data$start_time,
           period_seconds = .data$start_seconds,
           game_seconds = .data$start_game_seconds)
-      
+
       shifts_off <- shifts_raw %>%
         dplyr::group_by(
-          .data$team_name, .data$period, 
+          .data$team_name, .data$period,
           .data$end_time, .data$end_seconds, .data$end_game_seconds) %>%
         dplyr::summarize(
           num_off = dplyr::n(),
@@ -77,7 +77,7 @@ nhl_game_shifts <- function(game_id){
           period_time = .data$end_time,
           period_seconds = .data$end_seconds,
           game_seconds = .data$end_game_seconds)
-      
+
       shifts <- dplyr::full_join(
         shifts_on, shifts_off,
         by = c("game_seconds", "team_name", "period", "period_time", "period_seconds")) %>%

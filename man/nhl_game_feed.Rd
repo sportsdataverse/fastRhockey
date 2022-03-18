@@ -20,7 +20,7 @@ Returns information on game feed for a given game id
 }
 \examples{
 \donttest{
-  nhl_game_feed(game_id=2018020561)
+   try(nhl_game_feed(game_id=2018020561))
 }
 }
 \keyword{Feed}

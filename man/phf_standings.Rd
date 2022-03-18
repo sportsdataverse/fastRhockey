@@ -17,6 +17,6 @@ phf_standings: pull in the standings data for a game_id from the PHF/NWHL API
 }
 \examples{
 \donttest{
-  phf_standings(season = most_recent_phf_season())
+  try(phf_standings(season = most_recent_phf_season()))
 }
 }

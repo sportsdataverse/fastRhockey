@@ -10,31 +10,31 @@
 #' @importFrom tidyr unnest unnest_wider everything
 #' @importFrom janitor clean_names
 #' @export
-#' @examples 
+#' @examples
 #' \donttest{
-#'   nhl_teams_info(team_id = 14)
+#'   try(nhl_teams_info(team_id = 14))
 #' }
 nhl_teams_info <- function(team_id){
-  
+
   base_url <- "https://statsapi.web.nhl.com/api/v1/teams/"
-  
+
   full_url <- paste0(base_url,
                      team_id)
-  
-  
+
+
   res <- httr::RETRY("GET", full_url)
-  
+
   # Check the result
   check_status(res)
-  
+
   resp <- res %>%
     httr::content(as = "text", encoding = "UTF-8")
   tryCatch(
     expr = {
       teams_df <- jsonlite::fromJSON(resp)[["teams"]]
       teams_df <- jsonlite::fromJSON(jsonlite::toJSON(teams_df),flatten=TRUE)
-      teams_df <- teams_df %>% 
-        dplyr::rename(team_id = .data$id) %>% 
+      teams_df <- teams_df %>%
+        dplyr::rename(team_id = .data$id) %>%
         janitor::clean_names()
     },
     error = function(e) {

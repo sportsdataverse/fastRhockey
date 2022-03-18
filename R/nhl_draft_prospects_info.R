@@ -1,6 +1,6 @@
 #' @title **NHL Draft Prospects Info**
 #' @description Returns information on draft prospect for a given prospect id
-#' @param prospect_id Prospect unique ID 
+#' @param prospect_id Prospect unique ID
 #' @return Returns a data frame:
 #'     * prospect_id -
 #'     * full_name -
@@ -31,34 +31,34 @@
 #' @importFrom tidyr unnest unnest_wider everything
 #' @importFrom janitor clean_names
 #' @export
-#' @examples 
+#' @examples
 #' \donttest{
-#'   nhl_draft_prospects_info(prospect_id=65242)
+#'    try(nhl_draft_prospects_info(prospect_id=65242))
 #' }
 nhl_draft_prospects_info <- function(prospect_id){
-  
+
   base_url <- "https://statsapi.web.nhl.com/api/v1/draft/prospects/"
-  
+
   full_url <- paste0(base_url, prospect_id)
-  
-  
+
+
   res <- httr::RETRY("GET", full_url)
-  
+
   # Check the result
   check_status(res)
-  
+
   resp <- res %>%
     httr::content(as = "text", encoding = "UTF-8")
   tryCatch(
     expr = {
       draft_prospects_df <- jsonlite::fromJSON(resp)[["prospects"]]
       draft_prospects_df <- jsonlite::fromJSON(jsonlite::toJSON(draft_prospects_df),flatten=TRUE)
-      
-      draft_prospects_df <- draft_prospects_df %>% 
-        janitor::clean_names() %>% 
-        dplyr::rename(prospect_id = .data$id) %>% 
+
+      draft_prospects_df <- draft_prospects_df %>%
+        janitor::clean_names() %>%
+        dplyr::rename(prospect_id = .data$id) %>%
         as.data.frame()
-      
+
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no draft prospects data for {prospect_id} available!"))

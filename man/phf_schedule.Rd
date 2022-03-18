@@ -17,6 +17,6 @@ PHF Schedule lookup
 }
 \examples{
 \donttest{
-  phf_schedule(season=2022)
+  try(phf_schedule(season=2022))
 }
 }

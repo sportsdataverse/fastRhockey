@@ -12,7 +12,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   phf_standings(season = most_recent_phf_season())
+#'   try(phf_standings(season = most_recent_phf_season()))
 #' }
 phf_standings <- function(season = most_recent_phf_season()) {
   season_id <- dplyr::case_when(

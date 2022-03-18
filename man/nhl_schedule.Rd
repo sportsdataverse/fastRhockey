@@ -19,7 +19,7 @@ Returns NHL Schedule data
 }
 \examples{
 \donttest{
-  nhl_schedule(season = 2021)
+  try(nhl_schedule(season = 2021))
 }
 }
 \keyword{NHL}

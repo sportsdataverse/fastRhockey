@@ -14,7 +14,7 @@ Returns NHL Teams information
 }
 \examples{
 \donttest{
-  nhl_teams()
+  try(nhl_teams())
 }
 }
 \keyword{NHL}

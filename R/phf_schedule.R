@@ -10,7 +10,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   phf_schedule(season=2022)
+#'   try(phf_schedule(season=2022))
 #' }
 
 phf_schedule <- function(season){

@@ -25,7 +25,7 @@ Returns information on divisions
 }
 \examples{
 \donttest{
-  nhl_divisions()
+   try(nhl_divisions())
 }
 }
 \keyword{Divisions}

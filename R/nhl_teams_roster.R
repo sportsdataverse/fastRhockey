@@ -13,7 +13,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   nhl_teams_roster(team_id = 14, season = 20202021)
+#'   try(nhl_teams_roster(team_id = 14, season = 20202021))
 #' }
 nhl_teams_roster <- function(team_id, season=most_recent_nhl_season_api_param()){
 

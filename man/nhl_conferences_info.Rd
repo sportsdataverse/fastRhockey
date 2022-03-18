@@ -25,7 +25,7 @@ Returns information on a conference by conference ID
 }
 \examples{
 \donttest{
-  nhl_conferences_info(conference_id = 7)
+  try(nhl_conferences_info(conference_id = 7))
 }
 }
 \keyword{Conferences}

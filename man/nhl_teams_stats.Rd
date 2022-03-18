@@ -19,7 +19,7 @@ Returns NHL Teams stats information for a given team ID
 }
 \examples{
 \donttest{
-  nhl_teams_stats(team_id = 14)
+  try(nhl_teams_stats(team_id = 14))
 }
 }
 \keyword{NHL}

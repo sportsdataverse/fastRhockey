@@ -24,7 +24,7 @@ Returns information on draft
 }
 \examples{
 \donttest{
-  nhl_draft()
+   try(nhl_draft())
 }
 }
 \keyword{Draft}

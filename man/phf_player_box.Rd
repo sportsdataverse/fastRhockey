@@ -17,6 +17,6 @@ phf_player_box: loads the player boxscore
 }
 \examples{
 \donttest{
-  phf_player_box(game_id = 420339)
+  try(phf_player_box(game_id = 420339))
 }
 }

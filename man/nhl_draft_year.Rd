@@ -27,7 +27,7 @@ Returns information on draft for a given year
 }
 \examples{
 \donttest{
-  nhl_draft_year(year=2020)
+   try(nhl_draft_year(year=2020))
 }
 }
 \keyword{Draft}

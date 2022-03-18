@@ -19,7 +19,7 @@ Returns NHL Teams roster information for a given team ID
 }
 \examples{
 \donttest{
-  nhl_teams_roster(team_id = 14, season = 20202021)
+  try(nhl_teams_roster(team_id = 14, season = 20202021))
 }
 }
 \keyword{NHL}
