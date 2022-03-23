@@ -34,10 +34,10 @@ nhl_conferences_info<- function(conference_id){
   # Check the result
   check_status(res)
 
-  resp <- res %>%
-    httr::content(as = "text", encoding = "UTF-8")
   tryCatch(
     expr = {
+      resp <- res %>%
+        httr::content(as = "text", encoding = "UTF-8")
       conferences_df <- jsonlite::fromJSON(resp)[["conferences"]]
       conferences_df <- conferences_df %>%
         janitor::clean_names() %>%

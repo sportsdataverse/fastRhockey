@@ -26,11 +26,11 @@ nhl_game_shifts <- function(game_id){
   # Check the result
   check_status(res)
 
-  resp <- res %>%
-    httr::content(as = "text", encoding = "UTF-8")
 
   tryCatch(
     expr = {
+      resp <- res %>%
+        httr::content(as = "text", encoding = "UTF-8")
       site <- jsonlite::fromJSON(resp)
 
       shifts_raw <- site$data %>%

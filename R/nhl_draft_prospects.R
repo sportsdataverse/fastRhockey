@@ -53,10 +53,10 @@ nhl_draft_prospects <- function(){
   # Check the result
   check_status(res)
 
-  resp <- res %>%
-    httr::content(as = "text", encoding = "UTF-8")
   tryCatch(
     expr = {
+      resp <- res %>%
+        httr::content(as = "text", encoding = "UTF-8")
       draft_prospects_df <- jsonlite::fromJSON(resp)[["prospects"]]
       draft_prospects_df <- jsonlite::fromJSON(jsonlite::toJSON(draft_prospects_df),flatten=TRUE)
 

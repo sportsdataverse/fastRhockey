@@ -35,10 +35,10 @@ nhl_divisions_info<- function(division_id){
   # Check the result
   check_status(res)
 
-  resp <- res %>%
-    httr::content(as = "text", encoding = "UTF-8")
   tryCatch(
     expr = {
+      resp <- res %>%
+        httr::content(as = "text", encoding = "UTF-8")
       divisions_df <- jsonlite::fromJSON(resp)[["divisions"]]
       divisions_df <- jsonlite::fromJSON(jsonlite::toJSON(divisions_df),flatten=TRUE)
 

@@ -36,10 +36,10 @@ nhl_draft_year <- function(year){
   # Check the result
   check_status(res)
 
-  resp <- res %>%
-    httr::content(as = "text", encoding = "UTF-8")
   tryCatch(
     expr = {
+      resp <- res %>%
+        httr::content(as = "text", encoding = "UTF-8")
       draft_df <- jsonlite::fromJSON(resp)[["drafts"]]
       draft_df <- jsonlite::fromJSON(jsonlite::toJSON(draft_df),flatten=TRUE)
       draft_df <- draft_df[["rounds"]][[1]] %>%

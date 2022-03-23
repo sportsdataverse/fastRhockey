@@ -31,10 +31,10 @@ nhl_game_feed <- function(game_id){
   # Check the result
   check_status(res)
 
-  resp <- res %>%
-    httr::content(as = "text", encoding = "UTF-8")
   tryCatch(
     expr = {
+      resp <- res %>%
+        httr::content(as = "text", encoding = "UTF-8")
       #---Live Data----
       live_data_df <- jsonlite::fromJSON(resp)[["liveData"]]
       plays_df <- live_data_df$plays$allPlays

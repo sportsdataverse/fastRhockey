@@ -28,10 +28,10 @@ nhl_player_stats <- function(player_id){
   # Check the result
   check_status(res)
 
-  resp <- res %>%
-    httr::content(as = "text", encoding = "UTF-8")
   tryCatch(
     expr = {
+      resp <- res %>%
+        httr::content(as = "text", encoding = "UTF-8")
       player_df <- jsonlite::fromJSON(resp)[["people"]]
       player_df <- jsonlite::fromJSON(jsonlite::toJSON(player_df),flatten=TRUE)
       player_df <- player_df %>%

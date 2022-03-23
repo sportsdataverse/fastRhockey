@@ -182,3 +182,32 @@ NULL
 `%c%` <- function(x,y){
   ifelse(!is.na(x),x,y)
 }
+
+
+# Functions for custom class
+# turn a data.frame into a tibble/fastRhockey_data
+make_fastRhockey_data <- function(df,type,timestamp){
+  out <- df %>%
+    tidyr::as_tibble()
+
+  class(out) <- c("fastRhockey_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"fastRhockey_timestamp") <- timestamp
+  attr(out,"fastRhockey_type") <- type
+  return(out)
+}
+
+#' @export
+#' @noRd
+print.fastRhockey_data <- function(x,...) {
+  cli::cli_rule(left = "{attr(x,'fastRhockey_type')}",right = "{.emph fastRhockey {utils::packageVersion('fastRhockey')}}")
+
+  if(!is.null(attr(x,'fastRhockey_timestamp'))) {
+    cli::cli_alert_info(
+      "Data loaded: {.field {format(attr(x,'fastRhockey_timestamp'), tz = Sys.timezone(), usetz = TRUE)}}"
+    )
+  }
+
+  NextMethod(print,x)
+  invisible(x)
+}
+

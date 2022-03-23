@@ -28,10 +28,10 @@ nhl_game_content <- function(game_id){
   # Check the result
   check_status(res)
 
-  resp <- res %>%
-    httr::content(as = "text", encoding = "UTF-8")
   tryCatch(
     expr = {
+      resp <- res %>%
+        httr::content(as = "text", encoding = "UTF-8")
       game_highlights_df <- jsonlite::fromJSON(resp)[["highlights"]]
       game_highlights_df <- game_highlights_df$gameCenter
       game_highlights_df <- game_highlights_df$items

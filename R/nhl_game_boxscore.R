@@ -30,10 +30,10 @@ nhl_game_boxscore <- function(game_id){
   # Check the result
   check_status(res)
 
-  resp <- res %>%
-    httr::content(as = "text", encoding = "UTF-8")
   tryCatch(
     expr = {
+      resp <- res %>%
+        httr::content(as = "text", encoding = "UTF-8")
       #---officials----
       officials_df <- jsonlite::fromJSON(resp)[["officials"]]
       officials_df <- jsonlite::fromJSON(jsonlite::toJSON(officials_df),flatten=TRUE) %>%

@@ -27,10 +27,10 @@ nhl_teams_info <- function(team_id){
   # Check the result
   check_status(res)
 
-  resp <- res %>%
-    httr::content(as = "text", encoding = "UTF-8")
   tryCatch(
     expr = {
+      resp <- res %>%
+        httr::content(as = "text", encoding = "UTF-8")
       teams_df <- jsonlite::fromJSON(resp)[["teams"]]
       teams_df <- jsonlite::fromJSON(jsonlite::toJSON(teams_df),flatten=TRUE)
       teams_df <- teams_df %>%
