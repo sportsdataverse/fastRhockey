@@ -1,6 +1,7 @@
 # **fastRhockey 0.3.0**
 
 * Add print method for all functions with a time stamp and description of the data
+* Add `phf_team_logos` dataset to package for reference
 
 # **fastRhockey 0.2.1**
 
