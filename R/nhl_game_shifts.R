@@ -90,10 +90,11 @@ nhl_game_shifts <- function(game_id){
         # removing NA values at start and end of periods
         dplyr::mutate(
           players_on = ifelse(is.na(.data$players_on), "None", .data$players_on),
-          players_off = ifelse(is.na(.data$players_off), "None", .data$players_off))
+          players_off = ifelse(is.na(.data$players_off), "None", .data$players_off)) %>%
+        make_fastRhockey_data("NHL Game Shifts Information from NHL.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no game feed data for {game_id} available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no game shifts data for {game_id} available!"))
     },
     warning = function(w) {
     },

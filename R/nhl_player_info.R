@@ -35,7 +35,8 @@ nhl_player_info <- function(player_id){
       player_df <- jsonlite::fromJSON(jsonlite::toJSON(player_df),flatten=TRUE)
       player_df <- player_df %>%
         dplyr::rename(player_id = .data$id) %>%
-        janitor::clean_names()
+        janitor::clean_names() %>%
+        make_fastRhockey_data("NHL Player Information from NHL.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player info data for {player_id} available!"))

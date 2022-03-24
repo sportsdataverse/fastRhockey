@@ -30,7 +30,8 @@ phf_team_box <- function(game_id) {
       df <- df %>%
         dplyr::mutate(game_id = y) %>%
         dplyr::select(
-          .data$team, .data$game_id, .data$winner, .data$total_scoring, tidyr::everything())
+          .data$team, .data$game_id, .data$winner, .data$total_scoring, tidyr::everything()) %>%
+        make_fastRhockey_data("PHF Team Boxscore Information from PremierHockeyFederation.com",Sys.time())
 
     },
     error = function(e) {

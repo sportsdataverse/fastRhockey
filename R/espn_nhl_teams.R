@@ -76,8 +76,12 @@ espn_nhl_teams <- function(){
           espn_team_id = .data$id,
           short_name = .data$shortDisplayName,
           alternate_color = .data$alternateColor,
-          display_name = .data$displayName
+          display_name = .data$displayName) %>%
+        dplyr::mutate(
+          espn_team_id = as.integer(.data$espn_team_id)
         )
+      teams <- teams %>%
+        make_fastRhockey_data("NHL Teams data from ESPN.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no teams data available!"))

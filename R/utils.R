@@ -203,7 +203,7 @@ print.fastRhockey_data <- function(x,...) {
 
   if(!is.null(attr(x,'fastRhockey_timestamp'))) {
     cli::cli_alert_info(
-      "Data loaded: {.field {format(attr(x,'fastRhockey_timestamp'), tz = Sys.timezone(), usetz = TRUE)}}"
+      "Data updated: {.field {format(attr(x,'fastRhockey_timestamp'), tz = Sys.timezone(), usetz = TRUE)}}"
     )
   }
 
@@ -211,3 +211,14 @@ print.fastRhockey_data <- function(x,...) {
   invisible(x)
 }
 
+
+# rbindlist but maintain attributes of last file
+rbindlist_with_attrs <- function(dflist){
+
+  fastRhockey_timestamp <- attr(dflist[[length(dflist)]], "fastRhockey_timestamp")
+  fastRhockey_type <- attr(dflist[[length(dflist)]], "fastRhockey_type")
+  out <- data.table::rbindlist(dflist, use.names = TRUE, fill = TRUE)
+  attr(out,"fastRhockey_timestamp") <- fastRhockey_timestamp
+  attr(out,"fastRhockey_type") <- fastRhockey_type
+  out
+}

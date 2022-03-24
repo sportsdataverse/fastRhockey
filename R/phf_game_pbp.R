@@ -67,7 +67,8 @@ phf_pbp <- function(game_id) {
       plays_df <- plays_df %>%
         dplyr::left_join(game_details, by = "game_id")
 
-      plays_df <- helper_phf_pbp_data(plays_df)
+      plays_df <- helper_phf_pbp_data(plays_df) %>%
+        make_fastRhockey_data("PHF Play-by-Play Information from PremierHockeyFederation.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid game_id or no game data available!"))

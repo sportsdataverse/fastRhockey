@@ -1,3 +1,7 @@
+# **fastRhockey 0.3.0**
+
+* Add S3 print method for all functions with a time stamp and description of the data
+
 # **fastRhockey 0.2.1**
 
 * hotfix to `helper_phf_pbp_data()` penalty code

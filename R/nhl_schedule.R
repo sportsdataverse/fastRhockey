@@ -67,7 +67,8 @@ nhl_schedule <- function(season = NULL, day = as.Date(Sys.Date(), "%Y-%m-%d")){
       game_date = as.Date(substr(.data$game_date_time,1,10),"%Y-%m-%d"))
 
   game_dates <- game_dates %>%
-    dplyr::filter(.data$game_type == "REG" | .data$game_type == "POST")
+    dplyr::filter(.data$game_type == "REG" | .data$game_type == "POST") %>%
+    make_fastRhockey_data("NHL Schedule Information from NHL.com",Sys.time())
 
   # make sure we're only pulling for correct season by using
   # the season code in the game_id

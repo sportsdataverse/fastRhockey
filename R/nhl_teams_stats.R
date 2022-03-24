@@ -49,7 +49,8 @@ nhl_teams_stats <- function(team_id, season=most_recent_nhl_season_api_param()){
         janitor::clean_names() %>%
         dplyr::mutate(
           team_id = team_id,
-          season = season)
+          season = season) %>%
+        make_fastRhockey_data("NHL Teams Stats Information from NHL.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team stats data for {team_id} available!"))
