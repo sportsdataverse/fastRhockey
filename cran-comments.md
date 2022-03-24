@@ -3,6 +3,7 @@
 This is a minor release that 
 * Adds one function, ```espn_nhl_teams()```
 * Updates examples per CRAN Request
+* Adds attributes to exported functions to include timestamps on print
 
 ## R CMD check results
 
