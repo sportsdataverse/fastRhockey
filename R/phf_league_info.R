@@ -37,13 +37,20 @@ phf_league_info <- function(season = 2022){
       data <- res %>%
         httr::content(as = "text", encoding="utf-8") %>%
         jsonlite::fromJSON()
-      seasons <- data$season$options
-      divisions <- data$division$options
-      teams <- data$team$options
-      leagues <- data$league$options
-      facilities <- data$facility$options
-      officials <- data$official$options
-      brackets <- data$bracket$options
+      seasons <- data$season$options %>%
+        make_fastRhockey_data("PHF Seasons Information from PremierHockeyFederation.com",Sys.time())
+      divisions <- data$division$options %>%
+        make_fastRhockey_data("PHF Division Information from PremierHockeyFederation.com",Sys.time())
+      teams <- data$team$options %>%
+        make_fastRhockey_data("PHF Teams Information from PremierHockeyFederation.com",Sys.time())
+      leagues <- data$league$options %>%
+        make_fastRhockey_data("PHF Leagues Information from PremierHockeyFederation.com",Sys.time())
+      facilities <- data$facility$options %>%
+        make_fastRhockey_data("PHF Facility Information from PremierHockeyFederation.com",Sys.time())
+      officials <- data$official$options %>%
+        make_fastRhockey_data("PHF Officials Information from PremierHockeyFederation.com",Sys.time())
+      brackets <- data$bracket$options %>%
+        make_fastRhockey_data("PHF Brackets Information from PremierHockeyFederation.com",Sys.time())
       data <- c(list(seasons), list(divisions), list(teams), list(leagues),
                 list(officials), list(brackets))
       names(data)<- c("seasons", "divisions", "teams", "league",  "officials", "brackets")

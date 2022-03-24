@@ -42,7 +42,9 @@ nhl_conferences_info<- function(conference_id){
       conferences_df <- conferences_df %>%
         janitor::clean_names() %>%
         dplyr::rename(conference_id = .data$id) %>%
-        as.data.frame()
+        as.data.frame() %>%
+        make_fastRhockey_data("NHL Conferences Information from NHL.com",Sys.time())
+
 
     },
     error = function(e) {

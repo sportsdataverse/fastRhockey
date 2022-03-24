@@ -48,7 +48,8 @@ nhl_player_stats <- function(player_id){
       player_stats <- player_df %>%
         dplyr::bind_cols(stats_df)
       player_stats <- player_stats %>%
-        janitor::clean_names()
+        janitor::clean_names() %>%
+        make_fastRhockey_data("NHL Player Stats Information from NHL.com",Sys.time())
 
     },
     error = function(e) {

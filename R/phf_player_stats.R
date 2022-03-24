@@ -149,7 +149,8 @@ phf_player_stats <- function(player_id) {
         dplyr::mutate(
           player_id = player_id,
           team_id = as.integer(stringr::str_extract(stringr::str_remove(.data$team_href,"stats#/100/team"), "\\d+"))) %>%
-        dplyr::select(-.data$Pos)
+        dplyr::select(-.data$Pos) %>%
+        make_fastRhockey_data("PHF Skaters Yearly Stats Information from PremierHockeyFederation.com",Sys.time())
       game_log_stats <- game_log_stats %>%
         dplyr::rename(
           date = .data$Date,
@@ -169,7 +170,8 @@ phf_player_stats <- function(player_id) {
           shots = .data$`Sh`,
           shots_blocked = .data$`ShBl`) %>%
         dplyr::mutate(
-          game_id = as.integer(stringr::str_extract(stringr::str_remove(.data$game_href,"stats#/100/game"), "\\d+")))
+          game_id = as.integer(stringr::str_extract(stringr::str_remove(.data$game_href,"stats#/100/game"), "\\d+"))) %>%
+        make_fastRhockey_data("PHF Skaters Game Log Stats Information from PremierHockeyFederation.com",Sys.time())
 
       }else{
       yearly_stats <- yearly_stats %>%
@@ -186,7 +188,8 @@ phf_player_stats <- function(player_id) {
           goals = .data$G,
           assists = .data$A) %>%
         dplyr::mutate(
-          team_id = as.integer(stringr::str_extract(stringr::str_remove(.data$team_href,"stats#/100/team"), "\\d+")))
+          team_id = as.integer(stringr::str_extract(stringr::str_remove(.data$team_href,"stats#/100/team"), "\\d+"))) %>%
+        make_fastRhockey_data("PHF Goalies Yearly Stats Information from PremierHockeyFederation.com",Sys.time())
       game_log_stats <- game_log_stats %>%
         dplyr::rename(
           date = .data$Date,
@@ -201,7 +204,8 @@ phf_player_stats <- function(player_id) {
           goals = .data$G,
           assists = .data$A) %>%
         dplyr::mutate(
-          game_id = as.integer(stringr::str_extract(stringr::str_remove(.data$game_href,"stats#/100/game"), "\\d+")))
+          game_id = as.integer(stringr::str_extract(stringr::str_remove(.data$game_href,"stats#/100/game"), "\\d+"))) %>%
+        make_fastRhockey_data("PHF Goalies Game Log Stats Information from PremierHockeyFederation.com",Sys.time())
 
       }
       player_stats <- c(list(yearly_stats),list(game_log_stats))

@@ -65,7 +65,8 @@ phf_standings <- function(season = most_recent_phf_season()) {
       } else {
         standings <- data.frame()
       }
-
+      standings <- standings %>%
+        make_fastRhockey_data("PHF Standings Information from PremierHockeyFederation.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid season or no standings data available!"))

@@ -35,7 +35,8 @@ nhl_game_content <- function(game_id){
       game_highlights_df <- jsonlite::fromJSON(resp)[["highlights"]]
       game_highlights_df <- game_highlights_df$gameCenter
       game_highlights_df <- game_highlights_df$items
-
+      game_highlights_df <- game_highlights_df %>%
+        make_fastRhockey_data("NHL Game Content Information from NHL.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no game content data for {game_id} available!"))

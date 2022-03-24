@@ -30,7 +30,7 @@ phf_player_box <- function(game_id) {
         "fastRhockey.phf_ticket",
         default = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'
       )
-
+      game_details <- phf_game_details(game_id)
       # the link for the game + authorization for accessing the API
       res <- httr::RETRY("GET", full_url,
                          httr::add_headers(`Authorization`= auth_ticket))
@@ -73,6 +73,10 @@ phf_player_box <- function(game_id) {
         rvest::html_table()
       home_goalies <- resp[[7]] %>%
         rvest::html_table()
+      away_skaters$team <- game_details$away_team
+      away_goalies$team <- game_details$away_team
+      home_skaters$team <- game_details$home_team
+      home_goalies$team <- game_details$home_team
       away_skaters_href <- data.frame(skaters_href = away_skaters_href)
       home_skaters_href <- data.frame(skaters_href = home_skaters_href)
       away_goalies_href <- data.frame(goalies_href = away_goalies_href)
@@ -111,7 +115,8 @@ phf_player_box <- function(game_id) {
           player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
           player_id = stringr::str_extract(.data$skaters_href, "\\d+"),
           game_id = y
-        )
+        ) %>%
+        make_fastRhockey_data("PHF Skaters Boxscore Information from PremierHockeyFederation.com",Sys.time())
       goalies <- goalies %>%
         dplyr::rename(
           player_jersey = .data$`#`,
@@ -128,7 +133,8 @@ phf_player_box <- function(game_id) {
           player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
           player_id = stringr::str_extract(.data$goalies_href, "\\d+"),
           game_id = y
-        )
+        ) %>%
+        make_fastRhockey_data("PHF Goalies Boxscore Information from PremierHockeyFederation.com",Sys.time())
       player_box <- c(list(skaters), list(goalies))
       names(player_box) <- c("skaters", "goalies")
     },

@@ -46,7 +46,8 @@ nhl_draft <- function(){
         dplyr::select(.data$picks)
       draft_df <- draft_df$picks %>%
         janitor::clean_names() %>%
-        as.data.frame()
+        as.data.frame() %>%
+        make_fastRhockey_data("NHL Draft Data from NHL.com",Sys.time())
 
     },
     error = function(e) {
