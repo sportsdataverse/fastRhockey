@@ -25,15 +25,15 @@ phf_pbp <- function(game_id) {
     default = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'
   )
 
-  # the link for the game + authorization for accessing the API
-  res <- httr::RETRY("GET", full_url,
-                     httr::add_headers(`Authorization`= auth_ticket))
-  # Check the result
-  check_status(res)
 
   plays_data <- data.frame()
   tryCatch(
     expr={
+      # the link for the game + authorization for accessing the API
+      res <- httr::RETRY("GET", full_url,
+                         httr::add_headers(`Authorization`= auth_ticket))
+      # Check the result
+      check_status(res)
       data <- res %>%
         httr::content(as = "text", encoding="utf-8") %>%
         jsonlite::fromJSON() %>%
@@ -81,4 +81,3 @@ phf_pbp <- function(game_id) {
   )
   return(plays_df)
 }
-

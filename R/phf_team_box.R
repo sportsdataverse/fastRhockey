@@ -15,7 +15,7 @@
 #'   try(phf_team_box(game_id = 420339))
 #' }
 phf_team_box <- function(game_id) {
-
+  df <- data.frame()
   tryCatch(
     expr = {
 

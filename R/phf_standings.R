@@ -36,16 +36,16 @@ phf_standings <- function(season = most_recent_phf_season()) {
     default = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'
   )
 
-  # the link for the game + authorization for accessing the API
-  res <- httr::RETRY("GET", full_url,
-                     httr::add_headers(`Authorization`= auth_ticket))
-  # Check the result
-  check_status(res)
 
   standings <- data.frame()
 
   tryCatch(
     expr={
+      # the link for the game + authorization for accessing the API
+      res <- httr::RETRY("GET", full_url,
+                         httr::add_headers(`Authorization`= auth_ticket))
+      # Check the result
+      check_status(res)
 
       data <- res %>%
         httr::content(as = "text", encoding="utf-8") %>%
@@ -79,4 +79,3 @@ phf_standings <- function(season = most_recent_phf_season()) {
   )
   return(standings)
 }
-

@@ -27,15 +27,16 @@ phf_game_all <- function(game_id) {
     default = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'
   )
 
-  # the link for the game + authorization for accessing the API
-  res <- httr::RETRY("GET", full_url,
-                     httr::add_headers(`Authorization`= auth_ticket))
-  # Check the result
-  check_status(res)
 
 
   tryCatch(
     expr={
+      # the link for the game + authorization for accessing the API
+      res <- httr::RETRY("GET", full_url,
+                         httr::add_headers(`Authorization`= auth_ticket))
+      # Check the result
+      check_status(res)
+
       data <- res %>%
         httr::content(as = "text", encoding="utf-8") %>%
         jsonlite::fromJSON() %>%
@@ -148,18 +149,30 @@ phf_game_raw <- function(game_id) {
     default = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'
   )
 
-  # the link for the game + authorization for accessing the API
-  res <- httr::RETRY("GET", full_url,
-                     httr::add_headers(`Authorization`= auth_ticket))
-  # Check the result
-  check_status(res)
+  tryCatch(
+    expr={
+      # the link for the game + authorization for accessing the API
+      res <- httr::RETRY("GET", full_url,
+                         httr::add_headers(`Authorization`= auth_ticket))
+      # Check the result
+      check_status(res)
 
-  resp <- res %>%
-    httr::content(as = "text", encoding="utf-8") %>%
-    jsonlite::parse_json() %>%
-    purrr::pluck("content") %>%
-    rvest::read_html() %>%
-    rvest::html_table()
+      resp <- res %>%
+        httr::content(as = "text", encoding="utf-8") %>%
+        jsonlite::parse_json() %>%
+        purrr::pluck("content") %>%
+        rvest::read_html() %>%
+        rvest::html_table()
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid game_id or no game data available!"))
+
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(resp)
 }
 
@@ -189,66 +202,79 @@ phf_game_details <- function(game_id) {
     "fastRhockey.phf_ticket",
     default = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'
   )
+  game_details <- data.frame()
+  tryCatch(
+    expr={
+      # the link for the game + authorization for accessing the API
+      res <- httr::RETRY("GET", full_url,
+                         httr::add_headers(`Authorization`= auth_ticket))
+      # Check the result
+      check_status(res)
 
-  # the link for the game + authorization for accessing the API
-  res <- httr::RETRY("GET", full_url,
-                     httr::add_headers(`Authorization`= auth_ticket))
-  # Check the result
-  check_status(res)
+      resp <- (res %>%
+                 httr::content(as = "text", encoding="utf-8") %>%
+                 jsonlite::parse_json() %>%
+                 purrr::pluck("content") %>%
+                 rvest::read_html() %>%
+                 rvest::html_elements(".flex-row.flex-pcenter") %>%
+                 rvest::html_elements(".subtitle, .title, .title.center.score"))[5:10]
+      away_location <- (resp %>%
+                          rvest::html_text())[1]
+      away_nickname <- (resp %>%
+                          rvest::html_text())[2]
+      away_abbreviation <- dplyr::case_when(
+        away_location == "Boston" ~ "BOS",
+        away_location == "Buffalo" ~ "BUF",
+        away_location == "Connecticut" ~ "CTW",
+        away_location == "Metropolitan" ~ "MET",
+        away_location == "Minnesota" ~ "MIN",
+        away_location == "Toronto" ~ "TOR",
+        TRUE ~ NA_character_)
 
-  resp <- (res %>%
-    httr::content(as = "text", encoding="utf-8") %>%
-    jsonlite::parse_json() %>%
-    purrr::pluck("content") %>%
-    rvest::read_html() %>%
-    rvest::html_elements(".flex-row.flex-pcenter") %>%
-    rvest::html_elements(".subtitle, .title, .title.center.score"))[5:10]
-  away_location <- (resp %>%
-                      rvest::html_text())[1]
-  away_nickname <- (resp %>%
-                      rvest::html_text())[2]
-  away_abbreviation <- dplyr::case_when(
-    away_location == "Boston" ~ "BOS",
-    away_location == "Buffalo" ~ "BUF",
-    away_location == "Connecticut" ~ "CTW",
-    away_location == "Metropolitan" ~ "MET",
-    away_location == "Minnesota" ~ "MIN",
-    away_location == "Toronto" ~ "TOR",
-    TRUE ~ NA_character_)
+      away_team <- paste(away_location, away_nickname)
+      away_score <- (resp %>%
+                       rvest::html_text())[3]
+      home_location <- (resp %>%
+                          rvest::html_text())[4]
+      home_nickname <- (resp %>%
+                          rvest::html_text())[5]
+      home_abbreviation <- dplyr::case_when(
+        home_location == "Boston" ~ "BOS",
+        home_location == "Buffalo" ~ "BUF",
+        home_location == "Connecticut" ~ "CTW",
+        home_location == "Metropolitan" ~ "MET",
+        home_location == "Minnesota" ~ "MIN",
+        home_location == "Toronto" ~ "TOR",
+        TRUE ~ NA_character_)
+      home_team <- paste(home_location, home_nickname)
+      home_score <- (resp %>%
+                       rvest::html_text())[6]
+      game_details <- data.frame(
+        "game_id" = game_id,
+        "home_team" = home_team,
+        "home_location" = home_location,
+        "home_nickname" = home_nickname,
+        "home_abbreviation" = home_abbreviation,
+        "home_score_total" = as.integer(home_score),
+        "away_team" = away_team,
+        "away_location" = away_location,
+        "away_nickname" = away_nickname,
+        "away_abbreviation" = away_abbreviation,
+        "away_score_total" = as.integer(away_score)
+      )
+      game_details <- game_details %>%
+        make_fastRhockey_data("PHF Game Details Information from PremierHockeyFederation.com",Sys.time())
 
-  away_team <- paste(away_location, away_nickname)
-  away_score <- (resp %>%
-                      rvest::html_text())[3]
-  home_location <- (resp %>%
-                      rvest::html_text())[4]
-  home_nickname <- (resp %>%
-                      rvest::html_text())[5]
-  home_abbreviation <- dplyr::case_when(
-    home_location == "Boston" ~ "BOS",
-    home_location == "Buffalo" ~ "BUF",
-    home_location == "Connecticut" ~ "CTW",
-    home_location == "Metropolitan" ~ "MET",
-    home_location == "Minnesota" ~ "MIN",
-    home_location == "Toronto" ~ "TOR",
-    TRUE ~ NA_character_)
-  home_team <- paste(home_location, home_nickname)
-  home_score <- (resp %>%
-                   rvest::html_text())[6]
-  game_details <- data.frame(
-    "game_id" = game_id,
-    "home_team" = home_team,
-    "home_location" = home_location,
-    "home_nickname" = home_nickname,
-    "home_abbreviation" = home_abbreviation,
-    "home_score_total" = as.integer(home_score),
-    "away_team" = away_team,
-    "away_location" = away_location,
-    "away_nickname" = away_nickname,
-    "away_abbreviation" = away_abbreviation,
-    "away_score_total" = as.integer(away_score)
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid game_id or no game details data available!"))
+
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
   )
-  game_details <- game_details %>%
-    make_fastRhockey_data("PHF Game Details Information from PremierHockeyFederation.com",Sys.time())
   return(game_details)
 }
 
@@ -279,138 +305,149 @@ phf_game_summary <- function(game_id) {
     default = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'
   )
 
-  # the link for the game + authorization for accessing the API
-  res <- httr::RETRY("GET", full_url,
-                     httr::add_headers(`Authorization`= auth_ticket))
-  # Check the result
-  check_status(res)
+  tryCatch(
+    expr={
+      # the link for the game + authorization for accessing the API
+      res <- httr::RETRY("GET", full_url,
+                         httr::add_headers(`Authorization`= auth_ticket))
+      # Check the result
+      check_status(res)
 
-  resp <- res %>%
-             httr::content(as = "text", encoding="utf-8") %>%
-             jsonlite::parse_json() %>%
-             purrr::pluck("content") %>%
-             rvest::read_html() %>%
-             rvest::html_table()
+      resp <- res %>%
+        httr::content(as = "text", encoding="utf-8") %>%
+        jsonlite::parse_json() %>%
+        purrr::pluck("content") %>%
+        rvest::read_html() %>%
+        rvest::html_table()
 
-  scoring_summary <- resp[
-    !sapply(
-      lapply(resp, function(x){
-        if("Scorer (Assists)" %in% colnames(x) && nrow(x)>0){
-          return(x)
-        }
-      }),is.null)]
+      scoring_summary <- resp[
+        !sapply(
+          lapply(resp, function(x){
+            if("Scorer (Assists)" %in% colnames(x) && nrow(x)>0){
+              return(x)
+            }
+          }),is.null)]
 
-  if(length(scoring_summary)>0){
-    scoring_summary <- scoring_summary[[1]]
-    scoring_summary <- scoring_summary[1:6] %>%
-      dplyr::filter(.data$Period %in% c("1st","2nd","3rd","OT1")) %>%
-      janitor::clean_names()
-  } else {
-    scoring_summary <- data.frame()
-  }
+      if(length(scoring_summary)>0){
+        scoring_summary <- scoring_summary[[1]]
+        scoring_summary <- scoring_summary[1:6] %>%
+          dplyr::filter(.data$Period %in% c("1st","2nd","3rd","OT1")) %>%
+          janitor::clean_names()
+      } else {
+        scoring_summary <- data.frame()
+      }
 
-  shootout_summary <- resp[
-    !sapply(
-      lapply(resp, function(x){
-        if("Scored" %in% colnames(x) && nrow(x)>0){
-          return(x)
-        }
-      }),is.null)]
+      shootout_summary <- resp[
+        !sapply(
+          lapply(resp, function(x){
+            if("Scored" %in% colnames(x) && nrow(x)>0){
+              return(x)
+            }
+          }),is.null)]
 
-  if(length(shootout_summary)>0){
-    shootout_summary <- shootout_summary[[1]] %>%
-      janitor::clean_names()
-  } else {
-    shootout_summary <- data.frame()
-  }
+      if(length(shootout_summary)>0){
+        shootout_summary <- shootout_summary[[1]] %>%
+          janitor::clean_names()
+      } else {
+        shootout_summary <- data.frame()
+      }
 
-  penalty_summary <- resp[
-    !sapply(
-      lapply(resp, function(x){
-        if("Infraction" %in% colnames(x) && nrow(x)>0){
-          return(x)
-        }
-      }),is.null)]
+      penalty_summary <- resp[
+        !sapply(
+          lapply(resp, function(x){
+            if("Infraction" %in% colnames(x) && nrow(x)>0){
+              return(x)
+            }
+          }),is.null)]
 
-  if(length(penalty_summary)>0){
-    penalty_summary <- penalty_summary[[1]] %>%
-      janitor::clean_names()
-  } else {
-    penalty_summary <- data.frame()
-  }
+      if(length(penalty_summary)>0){
+        penalty_summary <- penalty_summary[[1]] %>%
+          janitor::clean_names()
+      } else {
+        penalty_summary <- data.frame()
+      }
 
-  officials <- resp[
-    !sapply(
-      lapply(resp, function(x){
-        if("Type" %in% colnames(x) && nrow(x)>0){
-          return(x)
-        }
-      }),is.null)]
+      officials <- resp[
+        !sapply(
+          lapply(resp, function(x){
+            if("Type" %in% colnames(x) && nrow(x)>0){
+              return(x)
+            }
+          }),is.null)]
 
-  if(length(officials)>0){
-    officials <- officials[[1]] %>%
-      janitor::clean_names()
-  } else {
-    officials <- data.frame()
-  }
+      if(length(officials)>0){
+        officials <- officials[[1]] %>%
+          janitor::clean_names()
+      } else {
+        officials <- data.frame()
+      }
 
-  team_staff <- resp[
-    !sapply(
-      lapply(resp, function(x){
-        if("Team Staff" %in% colnames(x) && nrow(x)>0){
-          return(x)
-        }
-      }),is.null)]
-  if(length(team_staff)>0){
-    team_staff <- team_staff[[1]]
+      team_staff <- resp[
+        !sapply(
+          lapply(resp, function(x){
+            if("Team Staff" %in% colnames(x) && nrow(x)>0){
+              return(x)
+            }
+          }),is.null)]
+      if(length(team_staff)>0){
+        team_staff <- team_staff[[1]]
 
-    team_staff <- team_staff %>%
-      dplyr::mutate(
-        head_coach = stringr::str_extract(string = .data$`Team Staff`,"(.{0,25})(?<= - Head Coach)"),
-        head_coach = stringr::str_remove(.data$head_coach," - Head Coach"),
-        assistant_coach_1 = stringr::str_extract(string = .data$`Team Staff`,"- Head Coach,(.{0,35})(?<= - Assistant Coach)"),
-        assistant_coach_1 = stringr::str_remove(.data$assistant_coach_1," - Assistant Coach"),
-        assistant_coach_1 = stringr::str_remove(.data$assistant_coach_1,"- Head Coach, "),
-        assistant_coach_2 = stringr::str_extract(string = .data$`Team Staff`," - Assistant Coach,(.{0,35})(?<= - Assistant Coach)$"),
-        assistant_coach_2 = stringr::str_remove_all(.data$assistant_coach_2," - Assistant Coach"),
-        assistant_coach_2 = stringr::str_remove(.data$assistant_coach_2,", ")) %>%
-      dplyr::select(.data$Team, .data$head_coach, .data$assistant_coach_1,.data$assistant_coach_2) %>%
-      dplyr::rename(team = .data$Team)
-  } else {
-    team_staff <- data.frame()
-  }
+        team_staff <- team_staff %>%
+          dplyr::mutate(
+            head_coach = stringr::str_extract(string = .data$`Team Staff`,"(.{0,25})(?<= - Head Coach)"),
+            head_coach = stringr::str_remove(.data$head_coach," - Head Coach"),
+            assistant_coach_1 = stringr::str_extract(string = .data$`Team Staff`,"- Head Coach,(.{0,35})(?<= - Assistant Coach)"),
+            assistant_coach_1 = stringr::str_remove(.data$assistant_coach_1," - Assistant Coach"),
+            assistant_coach_1 = stringr::str_remove(.data$assistant_coach_1,"- Head Coach, "),
+            assistant_coach_2 = stringr::str_extract(string = .data$`Team Staff`," - Assistant Coach,(.{0,35})(?<= - Assistant Coach)$"),
+            assistant_coach_2 = stringr::str_remove_all(.data$assistant_coach_2," - Assistant Coach"),
+            assistant_coach_2 = stringr::str_remove(.data$assistant_coach_2,", ")) %>%
+          dplyr::select(.data$Team, .data$head_coach, .data$assistant_coach_1,.data$assistant_coach_2) %>%
+          dplyr::rename(team = .data$Team)
+      } else {
+        team_staff <- data.frame()
+      }
 
-  timeouts <- resp[[max(length(resp))]]
-  if(!("Time" %in% colnames(timeouts))){
-    timeouts <- data.frame()
-  } else {
-    timeouts <- timeouts %>%
-      janitor::clean_names()
-  }
-  scoring_summary <- scoring_summary %>%
-    make_fastRhockey_data("PHF Game Scoring Summary Information from PremierHockeyFederation.com",Sys.time())
-  shootout_summary <- shootout_summary %>%
-    make_fastRhockey_data("PHF Game Shootout Summary Information from PremierHockeyFederation.com",Sys.time())
-  penalty_summary <- penalty_summary %>%
-    make_fastRhockey_data("PHF Game Penalty Summary Information from PremierHockeyFederation.com",Sys.time())
-  officials <- officials %>%
-    make_fastRhockey_data("PHF Game Officials Information from PremierHockeyFederation.com",Sys.time())
-  team_staff <- team_staff %>%
-    make_fastRhockey_data("PHF Game Team Staff Information from PremierHockeyFederation.com",Sys.time())
-  timeouts <- timeouts %>%
-    make_fastRhockey_data("PHF Game Timeouts Information from PremierHockeyFederation.com",Sys.time())
-  game_summary <- c(list(scoring_summary),
-                    list(shootout_summary),
-                    list(penalty_summary),
-                    list(officials),
-                    list(team_staff),
-                    list(timeouts))
-  names(game_summary) <- c("scoring_summary",
-                           "shootout_summary",
-                           "penalty_summary",
-                           "officials",
-                           "team_staff",
-                           "timeouts")
+      timeouts <- resp[[max(length(resp))]]
+      if(!("Time" %in% colnames(timeouts))){
+        timeouts <- data.frame()
+      } else {
+        timeouts <- timeouts %>%
+          janitor::clean_names()
+      }
+      scoring_summary <- scoring_summary %>%
+        make_fastRhockey_data("PHF Game Scoring Summary Information from PremierHockeyFederation.com",Sys.time())
+      shootout_summary <- shootout_summary %>%
+        make_fastRhockey_data("PHF Game Shootout Summary Information from PremierHockeyFederation.com",Sys.time())
+      penalty_summary <- penalty_summary %>%
+        make_fastRhockey_data("PHF Game Penalty Summary Information from PremierHockeyFederation.com",Sys.time())
+      officials <- officials %>%
+        make_fastRhockey_data("PHF Game Officials Information from PremierHockeyFederation.com",Sys.time())
+      team_staff <- team_staff %>%
+        make_fastRhockey_data("PHF Game Team Staff Information from PremierHockeyFederation.com",Sys.time())
+      timeouts <- timeouts %>%
+        make_fastRhockey_data("PHF Game Timeouts Information from PremierHockeyFederation.com",Sys.time())
+      game_summary <- c(list(scoring_summary),
+                        list(shootout_summary),
+                        list(penalty_summary),
+                        list(officials),
+                        list(team_staff),
+                        list(timeouts))
+      names(game_summary) <- c("scoring_summary",
+                               "shootout_summary",
+                               "penalty_summary",
+                               "officials",
+                               "team_staff",
+                               "timeouts")
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid game_id or no game summary data available!"))
+
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(game_summary)
 }
-

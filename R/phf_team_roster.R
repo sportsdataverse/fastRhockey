@@ -33,18 +33,19 @@ phf_team_roster <- function(team, season = most_recent_phf_season()){
   base_url <- "https://web.api.digitalshift.ca/partials/stats/team/roster?team_id="
   full_url <- paste0(base_url,
                      team_id$id)
-
-  # the link for the game + authorization for accessing the API
-  res <- httr::RETRY(
-    "GET", full_url,
-    httr::add_headers(
-      `Authorization`='ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'))
-
-  # Check the result
-  check_status(res)
-
+  team_roster <- list()
   tryCatch(
     expr={
+
+      # the link for the game + authorization for accessing the API
+      res <- httr::RETRY(
+        "GET", full_url,
+        httr::add_headers(
+          `Authorization`='ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'))
+
+      # Check the result
+      check_status(res)
+
       resp <- (res %>%
                  httr::content(as = "text", encoding="utf-8") %>%
                  jsonlite::parse_json() %>%

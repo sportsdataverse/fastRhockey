@@ -29,18 +29,18 @@ phf_schedule <- function(season){
   full_url <- paste0(base_url,
                      season_id)
 
-  # the link for the game + authorization for accessing the API
-  res <- httr::RETRY(
-    "GET", full_url,
-    httr::add_headers(
-      `Authorization`='ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'))
-
-  # Check the result
-  check_status(res)
-
   schedule_data <- data.frame()
   tryCatch(
     expr={
+      # the link for the game + authorization for accessing the API
+      res <- httr::RETRY(
+        "GET", full_url,
+        httr::add_headers(
+          `Authorization`='ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'))
+
+      # Check the result
+      check_status(res)
+
       data <- res %>%
         httr::content(as = "text", encoding="utf-8") %>%
         jsonlite::parse_json() %>%
@@ -74,4 +74,3 @@ phf_schedule <- function(season){
 
   return(schedule_data)
 }
-

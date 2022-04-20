@@ -27,13 +27,15 @@ phf_league_info <- function(season = 2022){
   base_url <- "https://web.api.digitalshift.ca/partials/stats/filters?type=season&id="
   full_url <- paste0(base_url,
                      season_id)
-  res <- httr::RETRY("GET", full_url,
-                     httr::add_headers(
-                       `Authorization`='ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'))
-  check_status(res)
 
   tryCatch(
     expr = {
+
+      res <- httr::RETRY("GET", full_url,
+                         httr::add_headers(
+                           `Authorization`='ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'))
+      check_status(res)
+
       data <- res %>%
         httr::content(as = "text", encoding="utf-8") %>%
         jsonlite::fromJSON()
