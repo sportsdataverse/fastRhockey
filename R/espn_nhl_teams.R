@@ -16,16 +16,17 @@ espn_nhl_teams <- function(){
   on.exit(options(old))
   play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/hockey/nhl/teams"
 
-  res <- httr::RETRY("GET", play_base_url)
-
-  # Check the result
-  check_status(res)
-
-  resp <- res %>%
-    httr::content(as = "text", encoding = "UTF-8")
 
   tryCatch(
     expr = {
+
+      res <- httr::RETRY("GET", play_base_url)
+
+      # Check the result
+      check_status(res)
+
+      resp <- res %>%
+        httr::content(as = "text", encoding = "UTF-8")
 
       leagues <- jsonlite::fromJSON(resp)[["sports"]][["leagues"]][[1]][['teams']][[1]][['team']] %>%
         dplyr::group_by(.data$id) %>%
