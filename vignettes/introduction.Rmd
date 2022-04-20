@@ -41,19 +41,33 @@ In the past, the lack of data and poor access to data have been the biggest barr
 
 *****************************************************************
 
-## Installation
 
-You can install the released version of [**`fastRhockey`**](https://github.com/BenHowell71/fastRhockey/) from [GitHub](https://github.com/BenHowell71/fastRhockey) with:
+### **Installing R and RStudio**
 
-``` r
-# You can install using the pacman package using the following code:
-if (!requireNamespace('pacman', quietly = TRUE)){
-  install.packages('pacman')
-}
-pacman::p_load_current_gh("BenHowell71/fastRhockey", dependencies = TRUE, update = TRUE)
+1.  Head to <https://cran.r-project.org>
+2.  Select the appropriate link for your operating system (Windows, Mac OS X, or Linux)
+
+-   **Windows** - Select base and download the most recent version
+-   **Mac OS X** - Select Latest Release, but check to make sure your OS is the correct version. Look through Binaries for Legacy OS X Systems if you are on an older release
+-   **Linux** - Select the appropriate distro and follow the installation instructions
+
+3.  Head to [RStudio.com](https://www.rstudio.com/products/rstudio/download/#download "Download the appropriate version of RStudio (Free) for your operating system to use with R")
+4.  Follow the associated download and installation instructions for RStudio.
+5.  Start peering over the [RStudio IDE Cheatsheet](%22https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf%22). *An IDE is an integrated development environment.*
+6.  For **Windows** users: I recommend you install [Rtools](https://cran.r-project.org/bin/windows/Rtools/). This is not an R package! It is “a collection of resources for building packages for R under Microsoft Windows, or for building R itself”. Go to [https://cran.r-project.org/bin/windows/Rtools/](https://cran.r-project.org/bin/windows/Rtools/) and follow the directions for installation.
+
+
+### Installation
+
+You can install the CRAN version of [**`fastRhockey`**](https://CRAN.R-project.org/package=fastRhockey) with:
+
+```{r install_fastRhockey_cran, message=FALSE,eval=FALSE}
+install.packages("fastRhockey")
 ```
+
 If you would prefer the `devtools` installation:
-```r
+
+```{r install_fastRhockey_devtools, message=FALSE,eval=FALSE}
 # if you would prefer devtools installation
 if (!requireNamespace('devtools', quietly = TRUE)){
   install.packages('devtools')
@@ -161,7 +175,7 @@ That's a quick primer on the main functions of the package. `phf_schedule` retur
 
 The last function that may be of some use is `phf_league_info`, which essentially pulls a lot of background info on the league and the IDs that are used. The output from this function gets wrapped into the `phf_schedule`, which is it's main purpose.
 
-If you look with `fastRhockey::`, there are more functions available, but those are helper functions to pull raw data (`phf_game_raw`) and then to process the raw data into a usable format (`helper_phf____`). 
+If you look with `fastRhockey::`, there are more functions available, but those are helper functions to pull raw data (`phf_game_raw`) and then to process the raw data into a usable format (`helper_phf_*`). 
 
 ********************************************************************
 
@@ -186,6 +200,7 @@ If you look with `fastRhockey::`, there are more functions available, but those 
 -   [Alyssa Longmuir](https://twitter.com/alyssastweeting)       
 <a href="https://twitter.com/alyssastweeting" target="blank"><img src="https://img.shields.io/twitter/follow/alyssastweeting?color=blue&label=%40alyssastweeting&logo=twitter&style=for-the-badge" alt="@alyssastweeting" /></a>
 <a href="https://github.com/Aklongmuir" target="blank"><img src="https://img.shields.io/github/followers/Aklongmuir?color=eee&logo=Github&style=for-the-badge" alt="@Aklongmuir" /></a>
+
 -   [Tan Ho](https://twitter.com/_TanHo)       
 <a href="https://twitter.com/_TanHo" target="blank"></a>
 <a href="https://github.com/tanho63" target="blank"><img src="https://img.shields.io/github/followers/tanho63?color=eee&logo=Github&style=for-the-badge" alt="@tanho63" /></a>
@@ -196,7 +211,7 @@ To cite the [**`fastRhockey`**](https://benhowell71.github.io/fastRhockey/) R pa
 
 BibTex Citation
 
-``` bibtex
+```bibtex
 @misc{howell_gilani_fastRhockey_2021,
   author = {Ben Howell and Saiem Gilani},
   title = {fastRhockey: The SportsDataverse's R Package for Hockey Data.},
