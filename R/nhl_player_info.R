@@ -22,13 +22,13 @@ nhl_player_info <- function(player_id){
                      player_id)
 
 
-  res <- httr::RETRY("GET", full_url)
-
-  # Check the result
-  check_status(res)
-
   tryCatch(
     expr = {
+      res <- httr::RETRY("GET", full_url)
+
+      # Check the result
+      check_status(res)
+
       resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8")
       player_df <- jsonlite::fromJSON(resp)[["people"]]

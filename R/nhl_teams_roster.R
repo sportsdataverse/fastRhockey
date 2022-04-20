@@ -26,13 +26,13 @@ nhl_teams_roster <- function(team_id, season=most_recent_nhl_season_api_param())
                      season)
 
 
-  res <- httr::RETRY("GET", full_url)
-
-  # Check the result
-  check_status(res)
-
   tryCatch(
     expr = {
+      res <- httr::RETRY("GET", full_url)
+
+      # Check the result
+      check_status(res)
+
       resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8")
       teams_df <- jsonlite::fromJSON(resp)[["roster"]]

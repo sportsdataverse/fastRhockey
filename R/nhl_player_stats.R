@@ -23,13 +23,13 @@ nhl_player_stats <- function(player_id){
                      "?expand=person.stats&stats=yearByYear,yearByYearPlayoffs,careerRegularSeason&expand=stats.team&site=en_nhl")
 
 
-  res <- httr::RETRY("GET", full_url)
-
-  # Check the result
-  check_status(res)
-
   tryCatch(
     expr = {
+      res <- httr::RETRY("GET", full_url)
+
+      # Check the result
+      check_status(res)
+
       resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8")
       player_df <- jsonlite::fromJSON(resp)[["people"]]

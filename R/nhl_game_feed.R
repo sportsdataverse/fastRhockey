@@ -26,13 +26,13 @@ nhl_game_feed <- function(game_id){
                      "/feed/live")
 
 
-  res <- httr::RETRY("GET", full_url)
-
-  # Check the result
-  check_status(res)
-
   tryCatch(
     expr = {
+      res <- httr::RETRY("GET", full_url)
+
+      # Check the result
+      check_status(res)
+
       resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8")
       #---Live Data----

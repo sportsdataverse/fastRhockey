@@ -29,13 +29,13 @@ nhl_conferences_info<- function(conference_id){
   full_url <- paste0(base_url, conference_id)
 
 
-  res <- httr::RETRY("GET", full_url)
-
-  # Check the result
-  check_status(res)
-
   tryCatch(
     expr = {
+      res <- httr::RETRY("GET", full_url)
+
+      # Check the result
+      check_status(res)
+
       resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8")
       conferences_df <- jsonlite::fromJSON(resp)[["conferences"]]

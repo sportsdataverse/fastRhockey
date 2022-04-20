@@ -42,13 +42,13 @@ nhl_draft_prospects_info <- function(prospect_id){
   full_url <- paste0(base_url, prospect_id)
 
 
-  res <- httr::RETRY("GET", full_url)
-
-  # Check the result
-  check_status(res)
-
   tryCatch(
     expr = {
+      res <- httr::RETRY("GET", full_url)
+
+      # Check the result
+      check_status(res)
+
       resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8")
       draft_prospects_df <- jsonlite::fromJSON(resp)[["prospects"]]

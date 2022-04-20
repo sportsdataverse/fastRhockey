@@ -23,13 +23,14 @@ nhl_game_content <- function(game_id){
                      "/content")
 
 
-  res <- httr::RETRY("GET", full_url)
-
-  # Check the result
-  check_status(res)
 
   tryCatch(
     expr = {
+      res <- httr::RETRY("GET", full_url)
+
+      # Check the result
+      check_status(res)
+
       resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8")
       game_highlights_df <- jsonlite::fromJSON(resp)[["highlights"]]

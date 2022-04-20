@@ -21,14 +21,15 @@ nhl_game_shifts <- function(game_id){
 
   full_url <- paste0(base_url,
                      game_id)
-  res <- httr::RETRY("GET", full_url)
-
-  # Check the result
-  check_status(res)
-
 
   tryCatch(
     expr = {
+
+      res <- httr::RETRY("GET", full_url)
+
+      # Check the result
+      check_status(res)
+
       resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8")
       site <- jsonlite::fromJSON(resp)
