@@ -21,7 +21,8 @@ knitr::opts_chunk$set(
 )
 
 library(fastRhockey)
-library(tidyverse)
+library(ggplot2)
+library(dplyr)
 library(janitor)
 ```
 
@@ -69,8 +70,8 @@ Once the package has been installed, there's a ton of stuff you can do. Let's st
 ```{r phf_schedule}
 # input the season that you're interested in looking up the schedule for
 phf_schedule(season = 2021) %>%
-  filter(game_type == "Playoffs") %>%
-  filter(home_team_short == "MIN" & away_team_short == "BOS") %>%
+  dplyr::filter(game_type == "Playoffs") %>%
+  dplyr::filter(home_team_short == "MIN" & away_team_short == "BOS") %>%
   dplyr::select(game_id,
                 date_group, facility,
                 game_type, 
@@ -122,11 +123,11 @@ Here's an example of the things that one can now build with the play-by-play dat
 
 ```{r phf_intro_figure}
 pbp %>%
-  mutate(shot = ifelse(play_type %in% c("PP Goal", "Goal",
+  dplyr::mutate(shot = ifelse(play_type %in% c("PP Goal", "Goal",
                                     "Pen Shot", "Shot", 
                                     "Shot BLK"), 1, 0)) %>%
-  group_by(team) %>%
-  mutate(total_shots = cumsum(shot)) %>%
+  dplyr::group_by(team) %>%
+  dplyr::mutate(total_shots = cumsum(shot)) %>%
   ggplot() +
   geom_line(aes(x = sec_from_start, y = total_shots, color = team),
             size = 2) +
