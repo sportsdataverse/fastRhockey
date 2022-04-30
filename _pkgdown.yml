@@ -24,18 +24,12 @@ template:
     btn-border-radius: 0.25rem
   opengraph:
     image:
-      src: "https://raw.githubusercontent.com/saiemgilani/fastRhockey/main/man/figures/logo.png"
+      src: "https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/logo.png"
     twitter:
       creator: "@benhowell71"
       site: "@sportsdataverse"
       card: summary
 
-title: fastRhockey
-description: "An R package to quickly obtain Premier Hockey Federation (PHF) boxscore and play-by-play data."
-
-
-toc:
-  depth: 3
 
 authors:
   Ben Howell:
@@ -49,7 +43,7 @@ authors:
 
 home:
   title: fastRhockey
-  description: An R package to quickly obtain Premier Hockey Federation (PHF) and NHL play-by-play data.
+  description: Data and Tools for Premier Hockey Federation (PHF) and NHL play-by-play data.
   icon: fa-home
   href: index.html
 
@@ -60,7 +54,7 @@ navbar:
   components:
     home:
       title: fastRhockey
-      description: An R package to quickly obtain Premier Hockey Federation (PHF) and NHL play-by-play data.
+      description: Data and Tools for Premier Hockey Federation (PHF) and NHL play-by-play data.
       icon: fa-home
       href: index.html
       links:
