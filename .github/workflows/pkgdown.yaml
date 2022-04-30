@@ -1,8 +1,11 @@
+# Workflow derived from https://github.com/r-lib/actions/tree/master/examples
+# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
-    branches:
-      - main
-      - master
+    branches: [main, master]
+  release:
+    types: [published]
+  workflow_dispatch:
 
 name: pkgdown
 
@@ -22,26 +25,8 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
-          extra-packages: |
-            pkgdown
-            animation
-            cfbfastR
-            hoopR
-            ggimage
-            knitr
-            ragg
-            rsconnect
-            tictoc
-            tidyverse
-            wehoop
-            worldfootballR
-            zoo
+          extra-packages: pkgdown
           needs: website
-      - name: Install system dependencies
-        run: |
-          pak::pkg_install("hadley/emo")
-          pak::pkg_install("r-lib/pkgapi")
-        shell: Rscript {0}
 
       - name: Deploy package
         run: |
