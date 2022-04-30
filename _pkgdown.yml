@@ -7,10 +7,11 @@ template:
     bootswatch: cosmo
   opengraph:
     image:
-      src: "https://github.com/BenHowell71/fastRhockey/blob/main/man/figures/fastRhockey_card.png?raw=true"
+      src: "https://raw.githubusercontent.com/saiemgilani/fastRhockey/main/man/figures/logo.png"
     twitter:
-      site: "@BenHowell71"
-      card: summary_large_image
+      creator: "@BenHowell71"
+      site: "@sportsdataverse"
+      card: summary
 toc:
   depth: 3
 
