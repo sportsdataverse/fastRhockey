@@ -13,9 +13,6 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
-
-library(tidyverse)
-library(janitor)
 ```
 
 <!-- badges: start -->

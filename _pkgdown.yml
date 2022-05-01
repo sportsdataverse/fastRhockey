@@ -1,18 +1,35 @@
-url: https://github.com/BenHowell71/fastRhockey/
-
-title: fastRhockey
-description: "An R package to quickly obtain Premier Hockey Federation (PHF) boxscore and play-by-play data."
+url: http://fastrhockey.sportsdataverse.org/
 template:
-  params:
-    bootswatch: cosmo
+  bootstrap: 5
+  bootswatch: cosmo
+  bslib:
+    primary: "#531896"
+    secondary: "#A6E5F3"
+    success: "#368EAF"
+    link-color: "#5D11B4"
+    link-hover-color: "#37C4E3"
+    nav-link-hover-color: "#37C4E3"
+    nav-link-focus-color: "#37C4E3"
+    nav-link-dropdown-toggle-hover-color: "#37C4E3"
+    navbar-hover-color: "#37C4E3"
+    navbar-brand-hover-color: "#37C4E3"
+    nav-tabs-link-active-bg	: "#37C4E3"
+    nav-pills-link-active-color: "#37C4E3"
+    btn-link-color: "#37C4E3"
+    btn-link-hover-color: "#37C4E3"
+    dropdown-link-color: "#37C4E3"
+    input-btn-focus-color: "#37C4E3"
+    dropdown-dark-link-hover-bg: "#37C4E3"
+    border-radius: 0.5rem
+    btn-border-radius: 0.25rem
   opengraph:
     image:
-      src: "https://github.com/BenHowell71/fastRhockey/blob/main/man/figures/fastRhockey_card.png?raw=true"
+      src: "https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/logo.png"
     twitter:
-      site: "@BenHowell71"
-      card: summary_large_image
-toc:
-  depth: 3
+      creator: "@benhowell71"
+      site: "@sportsdataverse"
+      card: summary
+
 
 authors:
   Ben Howell:
@@ -26,36 +43,23 @@ authors:
 
 home:
   title: fastRhockey
-  description: An R package to quickly obtain Premier Hockey Federation (PHF) and NHL play-by-play data.
+  description: Data and Tools for Premier Hockey Federation (PHF) and NHL play-by-play data.
   icon: fa-home
-  href: https://benhowell71.github.io/fastRhockey/
+  href: index.html
 
 navbar:
   structure:
-    left:  [home, intro, reference, articles, news, network, data, repo]
+    left:  [home, reference, articles, news, network, data]
     right: [twitter, github]
   components:
     home:
       title: fastRhockey
-      description: An R package to quickly obtain Premier Hockey Federation (PHF) and NHL play-by-play data.
+      description: Data and Tools for Premier Hockey Federation (PHF) and NHL play-by-play data.
       icon: fa-home
       href: index.html
       links:
       - text: Getting started with fastRhockey
         href: articles/introduction.html
-    twitter:
-      icon: "fab fa-twitter fa-lg"
-      href: https://twitter.com/benhowell71
-    news:
-      icon: "fas fa-newspaper"
-      text: " News"
-      href: news/index.html
-    data:
-      icon: "fas fa-database"
-      text: " Data"
-      menu:
-        - text: "Data Repository"
-          href: https://github.com/saiemgilani/fastRhockey-data
     reference:
       icon: "fas fa-code"
       text: "Funcs"
@@ -69,6 +73,10 @@ navbar:
       menu:
         - text: "fastRhockey Introduction"
           href: articles/introduction.html
+    news:
+      icon: "fas fa-newspaper"
+      text: " News"
+      href: news/index.html
     network:
       icon: "fas fa-project-diagram"
       text: " SDV"
@@ -111,15 +119,18 @@ navbar:
         href: https://js.sportsdataverse.org/
       - text: nfl-nerd
         href: https://github.com/nntrn/nfl-nerd/
+    data:
+      icon: "fas fa-database"
+      text: " Data"
+      menu:
+        - text: "Data Repository"
+          href: "https://github.com/saiemgilani/fastRhockey-data"
+    twitter:
+      icon: "fab fa-twitter fa-lg"
+      href: https://twitter.com/benhowell71
     github:
       icon: "fab fa-github fa-lg"
       href: https://github.com/benhowell71/fastRhockey
-    repo:
-      url: https://github.com/benhowell71/fastRhockey
-      home: https://github.com/benhowell71/fastRhockey
-      source: https://github.com/benhowell71/fastRhockey/blob/master/
-      issue: https://github.com/benhowell71/fastRhockey/issues/
-      user: https://github.com/benhowell71
 reference:
   - title: 'Premier Hockey Federation'
     desc: Functions exported by fastRhockey which provide access to PHF data
@@ -197,6 +208,3 @@ reference:
       - '`csv_from_url`'
       - '`rds_from_url`'
       - '`progressively`'
-
-
-
