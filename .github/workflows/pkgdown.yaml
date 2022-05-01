@@ -25,16 +25,19 @@ jobs:
           extra-packages: |
             pkgdown
             animation
+            baseballr
             cfbfastR
+            chessR
             hoopR
             ggimage
             knitr
             ragg
             rsconnect
+            sportyR
             tictoc
             tidyverse
+            toRvik
             wehoop
-            worldfootballR
             zoo
           needs: website
       - name: Install system dependencies
