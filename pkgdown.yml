@@ -3,8 +3,8 @@ pkgdown: 2.0.3
 pkgdown_sha: ~
 articles:
   introduction: introduction.html
-last_built: 2022-05-01T02:13Z
+last_built: 2022-05-01T02:23Z
 urls:
-  reference: http://fastrhockey.sportsdataverse.org/reference
-  article: http://fastrhockey.sportsdataverse.org/articles
+  reference: https://benhowell71.github.io/fastRhockey/reference
+  article: https://benhowell71.github.io/fastRhockey/articles
 
