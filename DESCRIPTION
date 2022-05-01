@@ -12,8 +12,7 @@ Description: A utility to scrape and load play-by-play data
     stats API <https://www.nhl.com/>.
 License: MIT + file LICENSE
 URL: https://benhowell71.github.io/fastRhockey/,
-    https://github.com/benhowell71/fastRhockey,
-    http://fastrhockey.sportsdataverse.org/
+    https://github.com/benhowell71/fastRhockey
 BugReports: https://github.com/benhowell71/fastRhockey/issues
 Depends: 
   R (>= 4.0.0)
