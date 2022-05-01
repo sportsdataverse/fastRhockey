@@ -22,26 +22,10 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
         with:
           use-public-rspm: true
-          r-version: 4.1.3
+
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
-          extra-packages: |
-            pkgdown
-            animation
-            baseballr
-            cfbfastR
-            chessR
-            ggimage
-            hoopR
-            knitr
-            pacman
-            ragg
-            rsconnect
-            sportyR
-            tictoc
-            toRvik
-            wehoop
-            zoo
+          extra-packages: pkgdown
           needs: website
 
       - name: Deploy package
