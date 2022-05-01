@@ -98,7 +98,7 @@ pre, code {
 
 
 .dropdown-menu>li>a:hover{
-  background-color: #6B319D;
+  background-color: #026B81;
 }
 .dropdown-menu {
   box-shadow: 0 6px 12px rgba(5, 5, 5, 0.18);
@@ -151,7 +151,7 @@ small.nav-text {
 .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .focus>.nav-link{
     font-family: "Fira Mono";
     font-size: small;
-    background: #534171;
+    background: #026B81;
     color: #4FD5E1;
 }
 .navbar-dark .navbar-nav .nav-item>.nav-link:hover, .navbar-light .navbar-nav .nav-item>.nav-link:hover {
