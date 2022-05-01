@@ -1,0 +1,210 @@
+@import url("https://cdn.rawgit.com/tonsky/FiraCode/1.205/distr/fira_code.css");
+@import url('https://fonts.googleapis.com/css2?family=Chivo');
+@import url('https://fonts.googleapis.com/css2?family=Lato');
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+body {
+  font-family: "Lato";
+  /*color: #1f1f1f;*/
+  color: #0f0f0f;
+  font-size: 16px;
+}
+
+h1, h2, .h1, .h2{
+  font-family: "Chivo";
+  letter-spacing: 1px;
+  line-height: 2.2rem; /* increases, so wrapping headers don't overlap */
+  color: #0f0f0f;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+h3, h4, h5, h6, .h3, .h4{
+  font-family: "Chivo";
+  letter-spacing: 0.6px;
+  line-height: 1.8rem; /* increases, so wrapping headers don't overlap */
+  color: #0f0f0f;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+pre, code {
+  font-family: "Fira Mono", Consolas, Inconsolata, monospace;
+}
+.figure {
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+.navbar-default {
+    border-color: #454444;
+    background-color: #6f0dde;
+}
+.label-default {
+  background-color: #D6C4F6;
+}
+#tocnav ul ul {
+  font-family: "Fira Mono";
+  margin-left: 5px;
+  font-size: 11px;
+  line-height: 1.35rem;
+}
+
+#toc ul.nav li a{
+  font-family: "Fira Mono";
+  margin-left: 5px;
+  font-size: 14px;
+  line-height: 1.65rem;
+  background-color: #e3e0e5;
+}
+
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 8px #A3EAF4, 0 0 10px #A3EAF4;
+  }
+
+  to {
+    text-shadow: 0 0 10px #A3EAF4, 0 0 11px #A3EAF4;
+  }
+}
+
+@keyframes glow {
+    to {
+     text-shadow: 0 0 10px #A3EAF4, 0 0 11px #A3EAF4;
+    }
+  }
+
+.pkgdown-footer-right {
+  display: none;
+}
+
+
+
+
+.dropdown-header {
+  font-family: "Chivo";
+  letter-spacing: 0.1px;
+  line-height: 1.3rem;
+  color: #FDFDFD;
+  font-weight: 700;
+  font-size: 14px;
+  animation: glow 2.5s ease-in-out infinite alternate;
+}
+.dropdown-menu {
+  box-shadow: 0 6px 12px rgba(218,189,255,0.9);
+  background-color: #2D73B5;
+}
+
+
+.dropdown-menu>li>a:hover{
+  background-color: #6B319D;
+}
+.dropdown-menu {
+  box-shadow: 0 6px 12px rgba(5, 5, 5, 0.18);
+  background-color: #7331B7;
+}
+
+small.nav-text {
+    --bs-text-opacity: 1;
+    border-color: #ecdddd;
+    display: inline;
+    padding: 0.2em 0.6em 0.3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25em;
+}
+.dropdown-item {
+    color: #F3F3F3;
+    font-family: "Fira Mono";
+    font-size: small;
+}
+
+.dropdown-toggle
+
+.navbar-dark .navbar-nav .nav-link {
+    font-family: "Fira Mono";
+    font-size: small;
+    color: #4FD5E1;
+    padding: 0.5rem 1rem;
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+}
+.navbar-dark .navbar-nav {
+    font-family: "Fira Mono";
+    font-size: small;
+}
+.navbar-dark .navbar-nav {
+    font-family: "Fira Mono";
+    font-size: small;
+}
+.nav-link:hover, .nav-link:focus {
+    color: #4FD5E1;
+}
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .focus>.nav-link{
+    font-family: "Fira Mono";
+    font-size: small;
+    background: #534171;
+    color: #4FD5E1;
+}
+.navbar-dark .navbar-nav .nav-item>.nav-link:hover, .navbar-light .navbar-nav .nav-item>.nav-link:hover {
+    background: rgba(34,26,77,0.1);
+    color: #4FD5E1;
+}
+.navbar-dark .navbar-nav .show>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+    font-family: "Fira Mono";
+    font-size: small;
+    color: #4FD5E1;
+}
+
+.bg-primary .navbar-nav .show>.nav-link, .bg-primary .navbar-nav .nav-link.active, .bg-primary .navbar-nav .nav-link:hover, .bg-primary .navbar-nav .nav-link:focus {
+    font-family: "Fira Mono";
+    font-size: small;
+    color: #4FD5E1;
+}
+
+.nav-link:focus {
+    color: #4FD5E1;
+}
+.nav-link:hover {
+    color: #4FD5E1;
+}
+/*a {
+    color: #7c689c;
+}*/
+.dropdown-toggle .nav-link {
+    font-family: "Fira Mono";
+    font-size: small;
+    color: #2D73B5;
+}
+.navbar-default .navbar-link {
+    font-family: "Bungee";
+    font-size: 16px;
+    color: #C9D3FE;
+    animation: glow 3s ease-in-out infinite alternate;
+}
+.navbar-dark .navbar-brand {
+    font-family: "Bungee";
+    font-size: 16px;
+    color: #C9D3FE;
+    animation: glow 3s ease-in-out infinite alternate;
+}
+.dropdown-divider {
+    height: 0;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    border-top: 1px solid #ffffff;
+}
+
+.navbar-dark input[type="search"] {
+    border-color: #6c7879;
+    background-color: #ffffff;
+    color: #3b3e3f;
+}
