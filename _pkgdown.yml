@@ -191,7 +191,7 @@ reference:
     contents:
       - '`nhl_teams`'
       - '`espn_nhl_teams`'
-      - starts_with("nhl_team")
+      - starts_with("nhl_teams")
   - subtitle: Players Data
     desc: Functions exported by fastRhockey sourced from the players endpoint of the NHL API
     contents:
