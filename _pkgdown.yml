@@ -152,7 +152,14 @@ reference:
       - '`phf_schedule`'
       - '`phf_league_info`'
       - '`phf_game_raw`'
-      - starts_with("phf")
+      - '`phf_game_details`'
+      - '`phf_game_summary`'
+      - '`phf_leaders`'
+      - '`phf_player_stats`'
+      - '`phf_standings`'
+      - '`phf_team_roster`'
+      - '`phf_team_stats`'
+      - starts_with("phf_")
   - title: "fastRhockey Data"
   - subtitle: Full Seasons of PHF Data
     desc: Functions exported by fastRhockey which load full seasons of fastRhockey PHF data
