@@ -2,7 +2,7 @@
 % Please edit documentation in R/phf_team_box.R
 \name{phf_team_box}
 \alias{phf_team_box}
-\title{phf_team_box}
+\title{\strong{PHF Team Boxscore}}
 \usage{
 phf_team_box(game_id)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/phf_leaders.R
 \name{phf_leaders}
 \alias{phf_leaders}
-\title{phf_leaders}
+\title{\strong{PHF Player Leaderboards}}
 \usage{
 phf_leaders(player_type, season = 2021, season_type = "Regular Season")
 }

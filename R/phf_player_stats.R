@@ -1,4 +1,4 @@
-#' @title phf_player_stats
+#' @title **PHF Player Stats**
 #' @description phf_player_stats: loads the player stats
 #'
 #' @param player_id The unique ID code for the player that you are interested in viewing the data for

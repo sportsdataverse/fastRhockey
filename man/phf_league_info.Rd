@@ -2,7 +2,7 @@
 % Please edit documentation in R/phf_league_info.R
 \name{phf_league_info}
 \alias{phf_league_info}
-\title{PHF League Information per year}
+\title{\strong{PHF League Information}}
 \usage{
 phf_league_info(season = 2022)
 }

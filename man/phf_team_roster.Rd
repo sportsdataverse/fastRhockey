@@ -2,7 +2,7 @@
 % Please edit documentation in R/phf_team_roster.R
 \name{phf_team_roster}
 \alias{phf_team_roster}
-\title{phf_team_roster}
+\title{\strong{PHF Team Roster}}
 \usage{
 phf_team_roster(team, season = most_recent_phf_season())
 }

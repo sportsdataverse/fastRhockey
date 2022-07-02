@@ -2,7 +2,7 @@
 % Please edit documentation in R/phf_player_stats.R
 \name{phf_player_stats}
 \alias{phf_player_stats}
-\title{phf_player_stats}
+\title{\strong{PHF Player Stats}}
 \usage{
 phf_player_stats(player_id)
 }

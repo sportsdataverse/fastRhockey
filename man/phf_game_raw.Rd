@@ -2,7 +2,7 @@
 % Please edit documentation in R/phf_game.R
 \name{phf_game_raw}
 \alias{phf_game_raw}
-\title{phf_game_raw}
+\title{\strong{PHF Game Raw}}
 \usage{
 phf_game_raw(game_id)
 }

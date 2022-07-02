@@ -1,4 +1,4 @@
-#' @title phf_team_box
+#' @title **PHF Team Boxscore**
 #' @description phf_team_box: loads the team boxscore and shot/score data for a game into one data frame through just one function
 #'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for

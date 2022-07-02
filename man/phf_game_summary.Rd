@@ -2,7 +2,7 @@
 % Please edit documentation in R/phf_game.R
 \name{phf_game_summary}
 \alias{phf_game_summary}
-\title{phf_game_summary}
+\title{\strong{PHF Game Summary}}
 \usage{
 phf_game_summary(game_id)
 }

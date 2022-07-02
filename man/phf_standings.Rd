@@ -2,7 +2,7 @@
 % Please edit documentation in R/phf_standings.R
 \name{phf_standings}
 \alias{phf_standings}
-\title{phf_standings}
+\title{\strong{PHF Standings}}
 \usage{
 phf_standings(season = most_recent_phf_season())
 }

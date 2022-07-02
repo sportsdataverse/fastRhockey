@@ -1,4 +1,4 @@
-#' @title phf_schedule
+#' @title  **PHF Schedule**
 #' @description PHF Schedule lookup
 #'
 #' @param season Season (YYYY) to pull the schedule from, the concluding year in XXXX-YY format

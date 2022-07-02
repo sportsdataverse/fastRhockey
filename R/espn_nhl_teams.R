@@ -1,4 +1,4 @@
-#' Get ESPN NHL team names and ids
+#' @title **Get ESPN NHL team names and IDs**
 #' @author Saiem Gilani
 #' @return A teams data frame with the following columns:
 #'

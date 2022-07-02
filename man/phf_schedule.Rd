@@ -2,7 +2,7 @@
 % Please edit documentation in R/phf_schedule.R
 \name{phf_schedule}
 \alias{phf_schedule}
-\title{phf_schedule}
+\title{\strong{PHF Schedule}}
 \usage{
 phf_schedule(season)
 }

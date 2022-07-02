@@ -2,7 +2,7 @@
 % Please edit documentation in R/phf_team_stats.R
 \name{phf_team_stats}
 \alias{phf_team_stats}
-\title{phf_team_stats}
+\title{\strong{PHF Team Stats}}
 \usage{
 phf_team_stats(team, season = most_recent_phf_season())
 }

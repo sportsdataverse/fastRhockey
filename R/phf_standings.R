@@ -1,4 +1,4 @@
-#' @title phf_standings
+#' @title **PHF Standings**
 #' @description phf_standings: pull in the standings data for a game_id from the PHF/NWHL API
 #'
 #' @param season Season (YYYY) to pull the standings from, the concluding year in XXXX-YY format

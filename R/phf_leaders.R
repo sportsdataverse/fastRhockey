@@ -1,4 +1,4 @@
-#' @title phf_leaders
+#' @title **PHF Player Leaderboards**
 #' @description PHF Player Leaderboards
 #' @param player_type Player type: skaters, goalies
 #' @param season Season (YYYY) to pull the team stats from, the concluding year in XXXX-YY format

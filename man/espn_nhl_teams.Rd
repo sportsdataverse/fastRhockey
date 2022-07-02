@@ -2,7 +2,7 @@
 % Please edit documentation in R/espn_nhl_teams.R
 \name{espn_nhl_teams}
 \alias{espn_nhl_teams}
-\title{Get ESPN NHL team names and ids}
+\title{\strong{Get ESPN NHL team names and IDs}}
 \usage{
 espn_nhl_teams()
 }
@@ -25,7 +25,7 @@ A teams data frame with the following columns:\tabular{ll}{
 }
 }
 \description{
-Get ESPN NHL team names and ids
+\strong{Get ESPN NHL team names and IDs}
 }
 \examples{
 \donttest{

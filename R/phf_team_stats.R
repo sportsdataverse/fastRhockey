@@ -1,4 +1,4 @@
-#' @title phf_team_stats
+#' @title **PHF Team Stats**
 #' @description PHF Team Stats lookup
 #' @param team Team name with nickname (e.g. Boston Pride, Buffalo Beauts)
 #' @param season Season (YYYY) to pull the team stats from, the concluding year in XXXX-YY format
