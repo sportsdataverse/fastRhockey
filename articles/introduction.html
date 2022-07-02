@@ -100,9 +100,9 @@
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://oddsapiR.sportsdataverse.org/">oddsapiR</a>
     <a class="external-link dropdown-item" href="https://sportyR.sportsdataverse.org/">sportyR</a>
-    <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
+    <a class="external-link dropdown-item" href="https://cfbplotR.sportsdataverse.org/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://github.com/camdenk/mlbplotR">mlbplotR</a>
-    <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
+    <a class="external-link dropdown-item" href="https://cfb4th.sportsdataverse.org/">cfb4th</a>
     <a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a>
     <a class="external-link dropdown-item" href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
     <a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a>
@@ -205,7 +205,7 @@
 <span>                <span class="va">home_score</span>, <span class="va">away_score</span>,</span>
 <span>                <span class="va">winner</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── PHF Schedule Information from PremierHockeyFederation.com ───────────────────</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-07-02 08:37:46 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-07-02 08:47:27 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 9</span></span></span>
 <span><span class="co">#&gt;   game_id date_group facility          game_type home_team  away_team home_score</span></span>
 <span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -225,7 +225,7 @@
 <span>                <span class="va">successful_power_play</span>, <span class="va">power_play_opportunities</span>,</span>
 <span>                <span class="va">faceoff_percent</span>, <span class="va">takeaways</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── PHF Team Boxscore Information from PremierHockeyFederation.com ──────────────</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-07-02 08:37:51 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-07-02 08:47:32 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 8</span></span></span>
 <span><span class="co">#&gt;   game_id team  total_scoring total_shots successful_power_play power_play_oppo…</span></span>
 <span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -240,7 +240,7 @@
 <span><span class="va">pbp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/phf_pbp.html">phf_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span>
 <span>  </span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="va">a</span></span>
-<span><span class="co">#&gt; Time difference of 3.225354 secs</span></span></code></pre></div>
+<span><span class="co">#&gt; Time difference of 3.580295 secs</span></span></code></pre></div>
 <p>Loading a single game should take ~ 5 seconds. Once it does, it’s time to have some fun. The <code>phf_pbp</code> function returns 78 columns, some with “boring” data, like who the teams are, etc. But then you get to the columns that look at how much time is remaining in a quarter, what the home skater vs away skater numbers are, what event occurred, who was involved, and so on.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">pbp</span><span class="op">)</span></span>
