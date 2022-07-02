@@ -1,10 +1,10 @@
 pandoc: 2.7.3
-pkgdown: 2.0.3
+pkgdown: 2.0.5
 pkgdown_sha: ~
 articles:
   introduction: introduction.html
-last_built: 2022-05-08T04:17Z
+last_built: 2022-07-02T07:30Z
 urls:
-  reference: https://benhowell71.github.io/fastRhockey/reference
-  article: https://benhowell71.github.io/fastRhockey/articles
+  reference: https://fastRhockey.sportsdataverse.org/reference
+  article: https://fastRhockey.sportsdataverse.org/articles
 

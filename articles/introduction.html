@@ -89,16 +89,21 @@
     <a class="external-link dropdown-item" href="https://sportsdataverse.org/">SportsDataverse</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>R Packages</h6>
-    <a class="external-link dropdown-item" href="https://saiemgilani.github.io/sportsdataverse-R/">sportsdataverse-R</a>
-    <a class="external-link dropdown-item" href="https://saiemgilani.github.io/cfbfastR/">cfbfastR</a>
+    <a class="external-link dropdown-item" href="https://r.sportsdataverse.org/">sportsdataverse-R</a>
+    <a class="external-link dropdown-item" href="https://cfbfastR.sportsdataverse.org/">cfbfastR</a>
     <a class="external-link dropdown-item" href="https://hoopR.sportsdataverse.org/">hoopR</a>
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
-    <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
-    <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a>
+    <a class="dropdown-item" href="https://fastRhockey.sportsdataverse.org/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
+    <a class="external-link dropdown-item" href="https://oddsapiR.sportsdataverse.org/">oddsapiR</a>
+    <a class="external-link dropdown-item" href="https://sportyR.sportsdataverse.org/">sportyR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
+    <a class="external-link dropdown-item" href="https://github.com/camdenk/mlbplotR">mlbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
-    <a class="external-link dropdown-item" href="https://saiemgilani.github.io/recruitR/">recruitR</a>
+    <a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a>
     <a class="external-link dropdown-item" href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
     <a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a>
     <div class="dropdown-divider"></div>
@@ -117,7 +122,7 @@
      Data
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--data">
-    <a class="external-link dropdown-item" href="https://github.com/saiemgilani/fastRhockey-data">Data Repository</a>
+    <a class="external-link dropdown-item" href="https://github.com/sportsdataverse/fastRhockey-data">Data Repository</a>
   </div>
 </li>
       </ul>
@@ -133,7 +138,7 @@
   </a>
 </li>
 <li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/benhowell71/fastRhockey">
+  <a class="external-link nav-link" href="https://github.com/sportsdataverse/fastRhockey">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -148,210 +153,210 @@
 
 
 <script src="introduction_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
-  <main id="main"><div class="page-header">
+  <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>FastRhockey Walkthrough</h1>
                         <h4 data-toc-skip class="author">Ben Howell <br><a href="https://twitter.com/benhowell71" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/benhowell71?color=blue&amp;label=%40benhowell71&amp;logo=twitter&amp;style=for-the-badge" alt="@benhowell71"></a> <a href="https://github.com/benhowell71" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/benhowell71?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@benhowell71"></a>
 </h4>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/benhowell71/fastRhockey/blob/HEAD/vignettes/introduction.Rmd" class="external-link"><code>vignettes/introduction.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/fastRhockey/blob/HEAD/vignettes/introduction.Rmd" class="external-link"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="d-none name"><code>introduction.Rmd</code></div>
     </div>
 
     
     
-<p><a href="https://github.com/benhowell71/fastRhockey" class="external-link"><code>fastRhockey</code></a> is an R Package that is designed to pull play-by-play (and boxscore) data from the newest version of the <a href="https://www.premierhockeyfederation.com/" class="external-link">Premier Hockey Federation (PHF) website</a>. In the past, there have been a few scrapers for the PHF (formerly the NWHL), but they’ve all been deprecated since the league changed website formats.</p>
+<p><a href="https://github.com/sportsdataverse/fastRhockey" class="external-link"><code>fastRhockey</code></a> is an R Package that is designed to pull play-by-play (and boxscore) data from the newest version of the <a href="https://www.premierhockeyfederation.com/" class="external-link">Premier Hockey Federation (PHF) website</a>. In the past, there have been a few scrapers for the PHF (formerly the NWHL), but they’ve all been deprecated since the league changed website formats.</p>
 <p>With the seventh season of the league kicking off on November 6th, and games being broadcasted on ESPN+, this package was created to allow access to play-by-play data to continue pushing women’s hockey analytics forward.</p>
 <p>In Spring of 2021, the <a href="https://www.theicegarden.com/2021/4/15/22374981/a-directory-of-womens-hockey-projects-from-big-data-cup-2021-analytics-otthac-stathletes" class="external-link">Big Data Cup</a> and the <a href="https://github.com/bigdatacup/Big-Data-Cup-2021" class="external-link">data they made available</a> revolutionized what we were able to thanks to the detailed play-by-play data for the season and the x/y location data. That wave continued with the inaugural <a href="https://www.whkyhac.com/" class="external-link">WHKYHAC conference</a> in July that produced some amazing conversations and projects in the women’s hockey space.</p>
 <p>In the past, the lack of data and poor access to data have been the biggest barrier to entry in women’s hockey analytics, a barrier that this package is intended to alleviate.</p>
 <center>
-<p><img src="https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png" style="width:70.0%"></p>
+<p><img src="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png" style="width:70.0%"></p>
 </center>
 <hr>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the released version of <a href="https://github.com/BenHowell71/fastRhockey/" class="external-link"><strong><code>fastRhockey</code></strong></a> from <a href="https://github.com/BenHowell71/fastRhockey" class="external-link">GitHub</a> with:</p>
+<p>You can install the released version of <a href="https://github.com/sportsdataverse/fastRhockey/" class="external-link"><strong><code>fastRhockey</code></strong></a> from <a href="https://github.com/sportsdataverse/fastRhockey" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># You can install using the pacman package using the following code:</span>
-<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">'pacman'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'pacman'</span><span class="op">)</span>
-<span class="op">}</span>
-<span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load_current_gh.html" class="external-link">p_load_current_gh</a></span><span class="op">(</span><span class="st">"BenHowell71/fastRhockey"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span>, update <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># You can install using the pacman package using the following code:</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">'pacman'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'pacman'</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load_current_gh.html" class="external-link">p_load_current_gh</a></span><span class="op">(</span><span class="st">"sportsdataverse/fastRhockey"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span>, update <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>If you would prefer the <code>devtools</code> installation:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># if you would prefer devtools installation</span>
-<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">'devtools'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span>
-<span class="op">}</span>
-<span class="co"># Alternatively, using the devtools package:</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span>repo <span class="op">=</span> <span class="st">"BenHowell71/fastRhockey"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># if you would prefer devtools installation</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">'devtools'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="co"># Alternatively, using the devtools package:</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span>repo <span class="op">=</span> <span class="st">"sportsdataverse/fastRhockey"</span><span class="op">)</span></span></code></pre></div>
 <hr>
 <p>Once the package has been installed, there’s a ton of stuff you can do. Let’s start by finding a game we’re interested in, say, the 2021 Isobel Cup Championship that the Boston Pride won.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># input the season that you're interested in looking up the schedule for</span>
-<span class="fu"><a href="../reference/phf_schedule.html">phf_schedule</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">game_type</span> <span class="op">==</span> <span class="st">"Playoffs"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">home_team_short</span> <span class="op">==</span> <span class="st">"MIN"</span> <span class="op">&amp;</span> <span class="va">away_team_short</span> <span class="op">==</span> <span class="st">"BOS"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">game_id</span>,
-                <span class="va">date_group</span>, <span class="va">facility</span>,
-                <span class="va">game_type</span>, 
-                <span class="va">home_team</span>, <span class="va">away_team</span>,
-                <span class="va">home_score</span>, <span class="va">away_score</span>,
-                <span class="va">winner</span><span class="op">)</span>
-<span class="co">#&gt; ── PHF Schedule Information from PremierHockeyFederation.com ───────────────────</span>
-<span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-05-08 04:18:09 UTC</span></span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 9</span></span>
-<span class="co">#&gt;   game_id date_group facility          game_type home_team  away_team home_score</span>
-<span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">379</span>254 2021-03-27 Warrior Ice Arena Playoffs  Minnesota… Boston P…          3</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 2 more variables: away_score &lt;int&gt;, winner &lt;chr&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># input the season that you're interested in looking up the schedule for</span></span>
+<span><span class="fu"><a href="../reference/phf_schedule.html">phf_schedule</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">game_type</span> <span class="op">==</span> <span class="st">"Playoffs"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">home_team_short</span> <span class="op">==</span> <span class="st">"MIN"</span> <span class="op">&amp;</span> <span class="va">away_team_short</span> <span class="op">==</span> <span class="st">"BOS"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">game_id</span>,</span>
+<span>                <span class="va">date_group</span>, <span class="va">facility</span>,</span>
+<span>                <span class="va">game_type</span>, </span>
+<span>                <span class="va">home_team</span>, <span class="va">away_team</span>,</span>
+<span>                <span class="va">home_score</span>, <span class="va">away_score</span>,</span>
+<span>                <span class="va">winner</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ── PHF Schedule Information from PremierHockeyFederation.com ───────────────────</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-07-02 07:32:04 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 9</span></span></span>
+<span><span class="co">#&gt;   game_id date_group facility          game_type home_team  away_team home_score</span></span>
+<span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">379</span>254 2021-03-27 Warrior Ice Arena Playoffs  Minnesota… Boston P…          3</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 2 more variables: away_score &lt;int&gt;, winner &lt;chr&gt;</span></span></span></code></pre></div>
 <p>A couple of quick filters/selects later and we’ve pared down the data into a very manageable return. We can see that the Boston Pride beat the Minnesota Whitecaps 4-3 in Warrior Ice Arena on March 27th, 2021. The other important column in this return is the <code>game_id</code> column.</p>
 <p>Let’s take that <code>game_id</code> and plug it into another <code>fastRhockey</code> function, this time using the <code>phf_team_box</code> function to pull the boxscore data from this game.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">379254</span>
-
-<span class="va">box</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/phf_team_box.html">phf_team_box</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">x</span><span class="op">)</span>
-
-<span class="va">box</span> <span class="op">%&gt;%</span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">game_id</span>, 
-                <span class="va">team</span>, 
-                <span class="va">total_scoring</span>, <span class="va">total_shots</span>,
-                <span class="va">successful_power_play</span>, <span class="va">power_play_opportunities</span>,
-                <span class="va">faceoff_percent</span>, <span class="va">takeaways</span><span class="op">)</span>
-<span class="co">#&gt; ── PHF Team Boxscore Information from PremierHockeyFederation.com ──────────────</span>
-<span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-05-08 04:18:14 UTC</span></span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 8</span></span>
-<span class="co">#&gt;   game_id team  total_scoring total_shots successful_power_play power_play_oppo…</span>
-<span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">379</span>254 bos               4          30                     2                3</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">379</span>254 min               3          30                     1                2</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 2 more variables: faceoff_percent &lt;dbl&gt;, takeaways &lt;dbl&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">379254</span></span>
+<span></span>
+<span><span class="va">box</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/phf_team_box.html">phf_team_box</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">box</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">game_id</span>, </span>
+<span>                <span class="va">team</span>, </span>
+<span>                <span class="va">total_scoring</span>, <span class="va">total_shots</span>,</span>
+<span>                <span class="va">successful_power_play</span>, <span class="va">power_play_opportunities</span>,</span>
+<span>                <span class="va">faceoff_percent</span>, <span class="va">takeaways</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ── PHF Team Boxscore Information from PremierHockeyFederation.com ──────────────</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-07-02 07:32:09 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 8</span></span></span>
+<span><span class="co">#&gt;   game_id team  total_scoring total_shots successful_power_play power_play_oppo…</span></span>
+<span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">379</span>254 bos               4          30                     2                3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">379</span>254 min               3          30                     1                2</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 2 more variables: faceoff_percent &lt;dbl&gt;, takeaways &lt;dbl&gt;</span></span></span></code></pre></div>
 <p>Once again, I’ve selected some specific columns, but this is an example of the data that is returned by the <code>phf_team_box</code> function! We have counting stat data on shots/goals, both aggregated and by period, power play data, faceoff data, and how often a team takes/gives away the puck. It’s definitely helpful data and I believe that there are some really fun projects that can be done with just the <code>phf_team_box</code> function, but the really good stuff is still coming.</p>
 <p>Turn your attention to <code>phf_pbp</code>, the function that was created to return PHF play-by-play data for a given game (i.e. the whole reason that <code>fastRhockey</code> exists). It’s a similar format to the boxscore function where the only input necessary is the <code>game_id</code> that you want.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="va">pbp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/phf_pbp.html">phf_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">x</span><span class="op">)</span>
-  
-<span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="va">a</span>
-<span class="co">#&gt; Time difference of 3.701315 secs</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">pbp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/phf_pbp.html">phf_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="va">a</span></span>
+<span><span class="co">#&gt; Time difference of 3.732583 secs</span></span></code></pre></div>
 <p>Loading a single game should take ~ 5 seconds. Once it does, it’s time to have some fun. The <code>phf_pbp</code> function returns 78 columns, some with “boring” data, like who the teams are, etc. But then you get to the columns that look at how much time is remaining in a quarter, what the home skater vs away skater numbers are, what event occurred, who was involved, and so on.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">pbp</span><span class="op">)</span>
-<span class="co">#&gt; Rows: 207</span>
-<span class="co">#&gt; Columns: 78</span>
-<span class="co">#&gt; $ play_type                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Goalie", "Goalie", "Faceoff", "Shot", "Shot…</span>
-<span class="co">#&gt; $ team                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Boston Pride", "Minnesota Whitecaps", "Bost…</span>
-<span class="co">#&gt; $ time                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "00:00", "00:00", "00:01", "00:17", "00:24",…</span>
-<span class="co">#&gt; $ play_description          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Starting Goalie #35 Lovisa Selander", "Star…</span>
-<span class="co">#&gt; $ scoring_team_abbrev       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ scoring_team_on_ice       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ offensive_player_name_1   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ offensive_player_name_2   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ offensive_player_name_3   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ offensive_player_name_4   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ offensive_player_name_5   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ offensive_player_name_6   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ defending_team_abbrev     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ defending_team_on_ice     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ defensive_player_name_1   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ defensive_player_name_2   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ defensive_player_name_3   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ defensive_player_name_4   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ defensive_player_name_5   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ defensive_player_name_6   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ period_id                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span>
-<span class="co">#&gt; $ game_id                   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 379254, 379254, 379254, 379254, 379254, 3792…</span>
-<span class="co">#&gt; $ home_team                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Minnesota Whitecaps", "Minnesota Whitecaps"…</span>
-<span class="co">#&gt; $ home_location             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Minnesota", "Minnesota", "Minnesota", "Minn…</span>
-<span class="co">#&gt; $ home_nickname             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Whitecaps", "Whitecaps", "Whitecaps", "Whit…</span>
-<span class="co">#&gt; $ home_abbreviation         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "MIN", "MIN", "MIN", "MIN", "MIN", "MIN", "M…</span>
-<span class="co">#&gt; $ home_score_total          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,…</span>
-<span class="co">#&gt; $ away_team                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Boston Pride", "Boston Pride", "Boston Prid…</span>
-<span class="co">#&gt; $ away_location             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Boston", "Boston", "Boston", "Boston", "Bos…</span>
-<span class="co">#&gt; $ away_nickname             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Pride", "Pride", "Pride", "Pride", "Pride",…</span>
-<span class="co">#&gt; $ away_abbreviation         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "BOS", "BOS", "BOS", "BOS", "BOS", "BOS", "B…</span>
-<span class="co">#&gt; $ away_score_total          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,…</span>
-<span class="co">#&gt; $ home_goalie               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, "Amanda Leveille", "Amanda Leveille", "A…</span>
-<span class="co">#&gt; $ away_goalie               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Lovisa Selander", "Lovisa Selander", "Lovis…</span>
-<span class="co">#&gt; $ home_goalie_jersey        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, "29", "29", "29", "29", "29", "29", "29"…</span>
-<span class="co">#&gt; $ away_goalie_jersey        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "35", "35", "35", "35", "35", "35", "35", "3…</span>
-<span class="co">#&gt; $ goalie_change             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Starting", "Starting", NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ penalty                   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
-<span class="co">#&gt; $ penalty_type              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ penalty_level             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ penalty_length            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ on_ice_situation          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Even Strength", "Even Strength", "Even Stre…</span>
-<span class="co">#&gt; $ shot_type                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ shot_result               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, "saved", "saved", NA, "saved", N…</span>
-<span class="co">#&gt; $ score                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "0 - 0 T", "0 - 0 T", "0 - 0 T", "0 - 0 T", …</span>
-<span class="co">#&gt; $ minute_start              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 3, 4, 4, 4,…</span>
-<span class="co">#&gt; $ second_start              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 1, 17, 24, 35, 47, 22, 36, 6, 12, 31, …</span>
-<span class="co">#&gt; $ clock                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "20:00", "20:00", "19:59", "19:43", "19:36",…</span>
-<span class="co">#&gt; $ offensive_player_jersey_1 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ offensive_player_jersey_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ offensive_player_jersey_3 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ offensive_player_jersey_4 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ offensive_player_jersey_5 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ offensive_player_jersey_6 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ defensive_player_jersey_1 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ defensive_player_jersey_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ defensive_player_jersey_3 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ defensive_player_jersey_4 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ defensive_player_jersey_5 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ defensive_player_jersey_6 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ leader                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "T", "T", "T", "T", "T", "T", "T", "T", "T",…</span>
-<span class="co">#&gt; $ away_goals                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "0", "0", "0", "0", "0", "0", "0", "0", "0",…</span>
-<span class="co">#&gt; $ home_goals                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "0", "0", "0", "0", "0", "0", "0", "0", "0",…</span>
-<span class="co">#&gt; $ sec_from_start            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 1, 17, 24, 95, 107, 142, 156, 186, 192…</span>
-<span class="co">#&gt; $ power_play_seconds        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span>
-<span class="co">#&gt; $ start_power_play          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ end_power_play            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ goalie_involved           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, "Amanda Leveille", "Amanda Levei…</span>
-<span class="co">#&gt; $ time_elapsed              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "00:00", "00:00", "00:01", "00:17", "00:24",…</span>
-<span class="co">#&gt; $ time_remaining            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "20:00", "20:00", "19:59", "19:43", "19:36",…</span>
-<span class="co">#&gt; $ player_name_1             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Starting Goalie  Lovisa Selander", "Startin…</span>
-<span class="co">#&gt; $ player_name_2             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, "Meaghan Pezon", "Amanda Leveille", …</span>
-<span class="co">#&gt; $ player_name_3             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ player_jersey_1           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "35", "29", "14", "17", "17", "21", "21", "2…</span>
-<span class="co">#&gt; $ player_jersey_2           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, "15", "29", "29", "18", "35", "20", …</span>
-<span class="co">#&gt; $ player_jersey_3           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span class="co">#&gt; $ home_skaters              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,…</span>
-<span class="co">#&gt; $ away_skaters              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,…</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">pbp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 207</span></span>
+<span><span class="co">#&gt; Columns: 78</span></span>
+<span><span class="co">#&gt; $ play_type                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Goalie", "Goalie", "Faceoff", "Shot", "Shot…</span></span>
+<span><span class="co">#&gt; $ team                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Boston Pride", "Minnesota Whitecaps", "Bost…</span></span>
+<span><span class="co">#&gt; $ time                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "00:00", "00:00", "00:01", "00:17", "00:24",…</span></span>
+<span><span class="co">#&gt; $ play_description          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Starting Goalie #35 Lovisa Selander", "Star…</span></span>
+<span><span class="co">#&gt; $ scoring_team_abbrev       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ scoring_team_on_ice       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ offensive_player_name_1   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ offensive_player_name_2   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ offensive_player_name_3   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ offensive_player_name_4   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ offensive_player_name_5   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ offensive_player_name_6   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ defending_team_abbrev     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ defending_team_on_ice     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ defensive_player_name_1   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ defensive_player_name_2   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ defensive_player_name_3   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ defensive_player_name_4   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ defensive_player_name_5   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ defensive_player_name_6   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ period_id                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span></span>
+<span><span class="co">#&gt; $ game_id                   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 379254, 379254, 379254, 379254, 379254, 3792…</span></span>
+<span><span class="co">#&gt; $ home_team                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Minnesota Whitecaps", "Minnesota Whitecaps"…</span></span>
+<span><span class="co">#&gt; $ home_location             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Minnesota", "Minnesota", "Minnesota", "Minn…</span></span>
+<span><span class="co">#&gt; $ home_nickname             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Whitecaps", "Whitecaps", "Whitecaps", "Whit…</span></span>
+<span><span class="co">#&gt; $ home_abbreviation         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "MIN", "MIN", "MIN", "MIN", "MIN", "MIN", "M…</span></span>
+<span><span class="co">#&gt; $ home_score_total          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,…</span></span>
+<span><span class="co">#&gt; $ away_team                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Boston Pride", "Boston Pride", "Boston Prid…</span></span>
+<span><span class="co">#&gt; $ away_location             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Boston", "Boston", "Boston", "Boston", "Bos…</span></span>
+<span><span class="co">#&gt; $ away_nickname             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Pride", "Pride", "Pride", "Pride", "Pride",…</span></span>
+<span><span class="co">#&gt; $ away_abbreviation         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "BOS", "BOS", "BOS", "BOS", "BOS", "BOS", "B…</span></span>
+<span><span class="co">#&gt; $ away_score_total          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,…</span></span>
+<span><span class="co">#&gt; $ home_goalie               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, "Amanda Leveille", "Amanda Leveille", "A…</span></span>
+<span><span class="co">#&gt; $ away_goalie               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Lovisa Selander", "Lovisa Selander", "Lovis…</span></span>
+<span><span class="co">#&gt; $ home_goalie_jersey        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, "29", "29", "29", "29", "29", "29", "29"…</span></span>
+<span><span class="co">#&gt; $ away_goalie_jersey        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "35", "35", "35", "35", "35", "35", "35", "3…</span></span>
+<span><span class="co">#&gt; $ goalie_change             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Starting", "Starting", NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ penalty                   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span></span>
+<span><span class="co">#&gt; $ penalty_type              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ penalty_level             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ penalty_length            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ on_ice_situation          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Even Strength", "Even Strength", "Even Stre…</span></span>
+<span><span class="co">#&gt; $ shot_type                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ shot_result               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, "saved", "saved", NA, "saved", N…</span></span>
+<span><span class="co">#&gt; $ score                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "0 - 0 T", "0 - 0 T", "0 - 0 T", "0 - 0 T", …</span></span>
+<span><span class="co">#&gt; $ minute_start              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 3, 4, 4, 4,…</span></span>
+<span><span class="co">#&gt; $ second_start              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 1, 17, 24, 35, 47, 22, 36, 6, 12, 31, …</span></span>
+<span><span class="co">#&gt; $ clock                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "20:00", "20:00", "19:59", "19:43", "19:36",…</span></span>
+<span><span class="co">#&gt; $ offensive_player_jersey_1 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ offensive_player_jersey_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ offensive_player_jersey_3 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ offensive_player_jersey_4 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ offensive_player_jersey_5 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ offensive_player_jersey_6 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ defensive_player_jersey_1 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ defensive_player_jersey_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ defensive_player_jersey_3 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ defensive_player_jersey_4 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ defensive_player_jersey_5 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ defensive_player_jersey_6 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ leader                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "T", "T", "T", "T", "T", "T", "T", "T", "T",…</span></span>
+<span><span class="co">#&gt; $ away_goals                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "0", "0", "0", "0", "0", "0", "0", "0", "0",…</span></span>
+<span><span class="co">#&gt; $ home_goals                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "0", "0", "0", "0", "0", "0", "0", "0", "0",…</span></span>
+<span><span class="co">#&gt; $ sec_from_start            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 1, 17, 24, 95, 107, 142, 156, 186, 192…</span></span>
+<span><span class="co">#&gt; $ power_play_seconds        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span></span>
+<span><span class="co">#&gt; $ start_power_play          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ end_power_play            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ goalie_involved           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, "Amanda Leveille", "Amanda Levei…</span></span>
+<span><span class="co">#&gt; $ time_elapsed              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "00:00", "00:00", "00:01", "00:17", "00:24",…</span></span>
+<span><span class="co">#&gt; $ time_remaining            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "20:00", "20:00", "19:59", "19:43", "19:36",…</span></span>
+<span><span class="co">#&gt; $ player_name_1             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Starting Goalie  Lovisa Selander", "Startin…</span></span>
+<span><span class="co">#&gt; $ player_name_2             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, "Meaghan Pezon", "Amanda Leveille", …</span></span>
+<span><span class="co">#&gt; $ player_name_3             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ player_jersey_1           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "35", "29", "14", "17", "17", "21", "21", "2…</span></span>
+<span><span class="co">#&gt; $ player_jersey_2           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, "15", "29", "29", "18", "35", "20", …</span></span>
+<span><span class="co">#&gt; $ player_jersey_3           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">#&gt; $ home_skaters              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,…</span></span>
+<span><span class="co">#&gt; $ away_skaters              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,…</span></span></code></pre></div>
 <p>There’s data on who took a shot (if a shot occurs), as well as who the primary (and secondary) assisters were and who the goalie was. Penalties are recorded + the time assigned for a trip to the box.</p>
 <p>One of the more interesting findings from the PHF set-up was that they ID all five offensive players on the ice when a goal is scored, so that’s available as well. Unfortunately, it’s hard to derive any sort of plus/minus stat from this since it’s only the offensive players at the time of a goal. If the offensive and defensive lineups were provided we could create a +/-, but that remains out of reach for now.</p>
 <p>Here’s an example of the things that one can now build with the play-by-play data that is generated from <code>phf_pbp</code>. This is a quick graph showing cumulative shot attempts by point in the game for Boston and Minnesota.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pbp</span> <span class="op">%&gt;%</span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>shot <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">play_type</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"PP Goal"</span>, <span class="st">"Goal"</span>,
-                                    <span class="st">"Pen Shot"</span>, <span class="st">"Shot"</span>, 
-                                    <span class="st">"Shot BLK"</span><span class="op">)</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">team</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>total_shots <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html" class="external-link">cumsum</a></span><span class="op">(</span><span class="va">shot</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sec_from_start</span>, y <span class="op">=</span> <span class="va">total_shots</span>, color <span class="op">=</span> <span class="va">team</span><span class="op">)</span>,
-            size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_color_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Boston Pride"</span> <span class="op">=</span> <span class="st">"#b18c1e"</span>,
-                                <span class="st">"Minnesota Whitecaps"</span> <span class="op">=</span> <span class="st">"#1c449c"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Total Shots"</span>,
-       title <span class="op">=</span> <span class="st">"Boston Pride vs Minnesota Whitecaps - 3/27/2021"</span>,
-       subtitle <span class="op">=</span> <span class="st">"Total Shots by Minute of Game"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme</span><span class="op">(</span>
-    panel.grid.minor <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,
-    axis.line <span class="op">=</span> <span class="fu">element_line</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,
-    legend.position <span class="op">=</span> <span class="st">"bottom"</span>,
-    axis.title.x <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,
-    axis.text.x <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">11</span><span class="op">)</span>,
-    plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span>, hjust <span class="op">=</span> <span class="fl">0.5</span>, size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span>,
-    plot.subtitle <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face <span class="op">=</span> <span class="st">"italic"</span>, hjust <span class="op">=</span> <span class="fl">0.5</span>, size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
-    legend.title <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>
-  <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_x_continuous</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1200</span>, <span class="fl">2400</span>, <span class="fl">3600</span>, <span class="fl">3800</span><span class="op">)</span>,
-                     labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"End 1st"</span>, <span class="st">"End 2nd"</span>, <span class="st">"End 3rd"</span>, <span class="st">" "</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_y_continuous</span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">40</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="../reference/figures/introduction-phf_intro_figure-1.png" width="100%"><img src="https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/introduction-phf_intro_figure-1.png"></p>
+<code class="sourceCode R"><span><span class="va">pbp</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>shot <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">play_type</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"PP Goal"</span>, <span class="st">"Goal"</span>,</span>
+<span>                                    <span class="st">"Pen Shot"</span>, <span class="st">"Shot"</span>, </span>
+<span>                                    <span class="st">"Shot BLK"</span><span class="op">)</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">team</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>total_shots <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html" class="external-link">cumsum</a></span><span class="op">(</span><span class="va">shot</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sec_from_start</span>, y <span class="op">=</span> <span class="va">total_shots</span>, color <span class="op">=</span> <span class="va">team</span><span class="op">)</span>,</span>
+<span>            size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_color_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Boston Pride"</span> <span class="op">=</span> <span class="st">"#b18c1e"</span>,</span>
+<span>                                <span class="st">"Minnesota Whitecaps"</span> <span class="op">=</span> <span class="st">"#1c449c"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Total Shots"</span>,</span>
+<span>       title <span class="op">=</span> <span class="st">"Boston Pride vs Minnesota Whitecaps - 3/27/2021"</span>,</span>
+<span>       subtitle <span class="op">=</span> <span class="st">"Total Shots by Minute of Game"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme</span><span class="op">(</span></span>
+<span>    panel.grid.minor <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    axis.line <span class="op">=</span> <span class="fu">element_line</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>    legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
+<span>    axis.title.x <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    axis.text.x <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">11</span><span class="op">)</span>,</span>
+<span>    plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span>, hjust <span class="op">=</span> <span class="fl">0.5</span>, size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span>,</span>
+<span>    plot.subtitle <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face <span class="op">=</span> <span class="st">"italic"</span>, hjust <span class="op">=</span> <span class="fl">0.5</span>, size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,</span>
+<span>    legend.title <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_x_continuous</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1200</span>, <span class="fl">2400</span>, <span class="fl">3600</span>, <span class="fl">3800</span><span class="op">)</span>,</span>
+<span>                     labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"End 1st"</span>, <span class="st">"End 2nd"</span>, <span class="st">"End 3rd"</span>, <span class="st">" "</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_y_continuous</span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">40</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="../reference/figures/introduction-phf_intro_figure-1.png" width="100%"><img src="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/introduction-phf_intro_figure-1.png"></p>
 <p>It’s a simple graph, but one that can easily help illustrate game flow. The Pride’s shots came in bunches, taking a ton about halfway through the first and third periods respectively. Minnesota started the game slowly, but their shots came fairly consistently throughout the game.</p>
 <p>There’s so much more that can be explored from this play-by-play data, whether you want to explore how winning a faceoff leads to a shot attempt or the chaos that can follow giveaways.</p>
 <p>That’s a quick primer on the main functions of the package. <code>phf_schedule</code> returns schedule information and game_ids, which can be used in <code>phf_team_box</code> or <code>phf_pbp</code> to return boxscore or play-by-play data. <code>phf_game_all</code> wraps the boxscore/play-by-play and several other game summary tables into one and returns a list with the dataframes: plays, team_box, skaters, goalies, game_details, scoring_summary, shootout_summary, penalty_summary, officials, team_staff, timeouts.</p>
@@ -363,7 +368,7 @@
 <h2 id="follow-sportsdataverse-on-twitter-and-star-this-repo">Follow <a href="https://twitter.com/sportsdataverse" class="external-link">SportsDataverse</a> on Twitter and star this repo<a class="anchor" aria-label="anchor" href="#follow-sportsdataverse-on-twitter-and-star-this-repo"></a>
 </h2>
 <p><a href="https://twitter.com/sportsdataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/sportsdataverse?color=blue&amp;label=%40sportsdataverse&amp;logo=twitter&amp;style=for-the-badge" alt="Twitter Follow"></a></p>
-<p><a href="https://github.com/BenHowell71/fastRhockey/stargazers/" class="external-link"><img src="https://img.shields.io/github/stars/BenHowell71/fastRhockey.svg?color=eee&amp;logo=github&amp;style=for-the-badge&amp;label=Star%20fastRhockey&amp;maxAge=2592000" alt="GitHub stars"></a></p>
+<p><a href="https://github.com/sportsdataverse/fastRhockey/stargazers/" class="external-link"><img src="https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&amp;logo=github&amp;style=for-the-badge&amp;label=Star%20fastRhockey&amp;maxAge=2592000" alt="GitHub stars"></a></p>
 </div>
 <div class="section level2">
 <h2 id="our-authors">
@@ -391,12 +396,12 @@
 <h2 id="citations">
 <strong>Citations</strong><a class="anchor" aria-label="anchor" href="#citations"></a>
 </h2>
-<p>To cite the <a href="https://benhowell71.github.io/fastRhockey/"><strong><code>fastRhockey</code></strong></a> R package in publications, use:</p>
+<p>To cite the <a href="https://fastRhockey.sportsdataverse.org/"><strong><code>fastRhockey</code></strong></a> R package in publications, use:</p>
 <p>BibTex Citation</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb8-1"><a href="#cb8-1"></a><span class="va">@misc</span>{<span class="ot">howell_gilani_fastRhockey_2021</span>,</span>
 <span id="cb8-2"><a href="#cb8-2"></a>  <span class="dt">author</span> = {Ben Howell and Saiem Gilani},</span>
 <span id="cb8-3"><a href="#cb8-3"></a>  <span class="dt">title</span> = {fastRhockey: The SportsDataverse's R Package for Hockey Data.},</span>
-<span id="cb8-4"><a href="#cb8-4"></a>  <span class="dt">url</span> = {https://benhowell71.github.io/fastRhockey/},</span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="dt">url</span> = {https://fastRhockey.sportsdataverse.org/},</span>
 <span id="cb8-5"><a href="#cb8-5"></a>  <span class="dt">year</span> = {2021}</span>
 <span id="cb8-6"><a href="#cb8-6"></a>}</span></code></pre></div>
 </div>
@@ -413,7 +418,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer>
