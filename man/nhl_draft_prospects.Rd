@@ -7,35 +7,37 @@
 nhl_draft_prospects()
 }
 \value{
-Returns a data frame:
-* prospect_id -
-* full_name -
-* link -
-* first_name -
-* last_name -
-* birth_date -
-* birth_city -
-* birth_state_province -
-* birth_country -
-* height -
-* weight -
-* shoots_catches -
-* nhl_player_id -
-* draft_status -
-* nationality -
-* primary_position_code -
-* primary_position_name -
-* primary_position_type -
-* primary_position_abbreviation -
-* prospect_category_id -
-* prospect_category_short_name -
-* prospect_category_name -
-* amateur_team_name -
-* amateur_team_link -
-* amateur_league_name -
-* amateur_league_link -
-* ranks_final_rank -
-* ranks_draft_year -
+Returns a tibble with the following columns:\tabular{ll}{
+   col_name \tab types \cr
+   prospect_id \tab integer \cr
+   full_name \tab character \cr
+   link \tab character \cr
+   first_name \tab character \cr
+   last_name \tab character \cr
+   birth_date \tab character \cr
+   birth_city \tab character \cr
+   birth_country \tab character \cr
+   height \tab character \cr
+   weight \tab integer \cr
+   shoots_catches \tab character \cr
+   nhl_player_id \tab integer \cr
+   draft_status \tab character \cr
+   birth_state_province \tab character \cr
+   primary_position_code \tab character \cr
+   primary_position_name \tab character \cr
+   primary_position_type \tab character \cr
+   primary_position_abbreviation \tab character \cr
+   prospect_category_id \tab integer \cr
+   prospect_category_short_name \tab character \cr
+   prospect_category_name \tab character \cr
+   amateur_team_name \tab character \cr
+   amateur_team_link \tab character \cr
+   amateur_league_name \tab character \cr
+   amateur_league_link \tab character \cr
+   ranks_midterm \tab integer \cr
+   ranks_final_rank \tab integer \cr
+   ranks_draft_year \tab integer \cr
+}
 }
 \description{
 Returns information on draft prospects

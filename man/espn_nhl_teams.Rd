@@ -7,7 +7,22 @@
 espn_nhl_teams()
 }
 \value{
-A teams data frame
+A teams data frame with the following columns:\tabular{ll}{
+   col_name \tab types \cr
+   espn_team_id \tab integer \cr
+   abbreviation \tab character \cr
+   display_name \tab character \cr
+   short_name \tab character \cr
+   mascot \tab character \cr
+   nickname \tab character \cr
+   team \tab character \cr
+   color \tab character \cr
+   alternate_color \tab character \cr
+   logo \tab character \cr
+   logo_dark \tab character \cr
+   logos_href_3 \tab character \cr
+   logos_href_4 \tab character \cr
+}
 }
 \description{
 Get ESPN NHL team names and ids

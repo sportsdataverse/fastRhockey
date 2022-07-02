@@ -1,4 +1,4 @@
-url: https://benhowell71.github.io/fastRhockey/
+url: https://fastRhockey.sportsdataverse.org/
 template:
   bootstrap: 5
   bootswatch: cosmo
@@ -24,7 +24,7 @@ template:
     btn-border-radius: 0.25rem
   opengraph:
     image:
-      src: "https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/logo.png"
+      src: "https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/logo.png"
     twitter:
       creator: "@benhowell71"
       site: "@sportsdataverse"
@@ -84,37 +84,47 @@ navbar:
       - text: SportsDataverse
         href: https://sportsdataverse.org/
       - text: --------------------------------
-      - text: R Packages
+      - text: "R Packages"
       - text: sportsdataverse-R
-        href: https://saiemgilani.github.io/sportsdataverse-R/
+        href: https://r.sportsdataverse.org/
       - text: cfbfastR
-        href: https://saiemgilani.github.io/cfbfastR/
+        href: https://cfbfastR.sportsdataverse.org/
       - text: hoopR
         href: https://hoopR.sportsdataverse.org/
       - text: wehoop
         href: https://wehoop.sportsdataverse.org/
+      - text: toRvik
+        href: https://torvik.dev/
       - text: fastRhockey
-        href: https://BenHowell71.github.io/fastRhockey/
-      - text: worldfootballR
-        href: https://jaseziv.github.io/worldfootballR/
+        href: https://fastRhockey.sportsdataverse.org/
       - text: baseballr
         href: https://BillPetti.github.io/baseballr/
+      - text: worldfootballR
+        href: https://jaseziv.github.io/worldfootballR/
+      - text: chessR
+        href: https://jaseziv.github.io/chessR/
+      - text: oddsapiR
+        href: https://oddsapiR.sportsdataverse.org/
+      - text: sportyR
+        href: https://sportyR.sportsdataverse.org/
       - text: cfbplotR
         href: https://kazink36.github.io/cfbplotR/
+      - text: mlbplotR
+        href: https://github.com/camdenk/mlbplotR
       - text: cfb4th
         href: https://kazink36.github.io/cfb4th/
       - text: recruitR
-        href: https://saiemgilani.github.io/recruitR/
+        href: https://recruitr.sportsdataverse.org/
       - text: gamezoneR
         href: https://jacklich10.github.io/gamezoneR/
       - text: puntr
         href: https://puntalytics.github.io/puntr/
       - text: --------------------------------
-      - text: Python Packages
+      - text: "Python Packages"
       - text: sportsdataverse-py
         href: https://py.sportsdataverse.org/
       - text: --------------------------------
-      - text: Node.js Packages
+      - text: "Node.js Packages"
       - text: sportsdataverse.js
         href: https://js.sportsdataverse.org/
       - text: nfl-nerd
@@ -124,13 +134,13 @@ navbar:
       text: " Data"
       menu:
         - text: "Data Repository"
-          href: "https://github.com/saiemgilani/fastRhockey-data"
+          href: "https://github.com/sportsdataverse/fastRhockey-data"
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: https://twitter.com/benhowell71
     github:
       icon: "fab fa-github fa-lg"
-      href: https://github.com/benhowell71/fastRhockey
+      href: https://github.com/sportsdataverse/fastRhockey
 reference:
   - title: 'Premier Hockey Federation'
     desc: Functions exported by fastRhockey which provide access to PHF data

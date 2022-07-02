@@ -1,7 +1,7 @@
 
 # 
 
-# fastRhockey <a href='https://benhowell71.github.io/fastRhockey/'><img src='https://raw.githubusercontent.com/benhowell71/fastRhockey/main/logo.png' align="right" width="20%" min-width="100px" /></a>
+# fastRhockey <a href='http://fastrhockey.sportsdataverse.org/'><img src='https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/logo.png' align="right" width="20%" min-width="100px" /></a>
 
 <!-- badges: start -->
 
@@ -9,13 +9,13 @@
 version](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=CRAN%20version&prefix=v&query=%24.Version&url=https%3A%2F%2Fcrandb.r-pkg.org%2FfastRhockey)](https://CRAN.R-project.org/package=fastRhockey)
 [![CRAN
 downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=Downloads&query=%24%5B0%5D.downloads&url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2FfastRhockey)](https://CRAN.R-project.org/package=fastRhockey)
-[![Version-Number](https://img.shields.io/github/r-package/v/benhowell71/fastRhockey?label=fastRhockey&logo=R&style=for-the-badge)](https://github.com/benhowell71/fastRhockey/)
-[![R-CMD-check](https://img.shields.io/github/workflow/status/benhowell71/fastRhockey/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/benhowell71/fastRhockey/actions/workflows/R-CMD-check.yaml)
-[![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)](https://github.com/benhowell71/fastRhockey/)
-[![Contributors](https://img.shields.io/github/contributors/benhowell71/fastRhockey?style=for-the-badge)](https://github.com/benhowell71/fastRhockey/graphs/contributors)
+[![Version-Number](https://img.shields.io/github/r-package/v/sportsdataverse/fastRhockey?label=fastRhockey&logo=R&style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/)
+[![R-CMD-check](https://img.shields.io/github/workflow/status/sportsdataverse/fastRhockey/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/actions/workflows/R-CMD-check.yaml)
+[![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/fastRhockey/)
+[![Contributors](https://img.shields.io/github/contributors/sportsdataverse/fastRhockey?style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/graphs/contributors)
 <!-- badges: end -->
 
-[`fastRhockey`](https://github.com/benhowell71/fastRhockey) is an R
+[`fastRhockey`](https://github.com/sportsdataverse/fastRhockey) is an R
 Package that is designed to pull play-by-play (and boxscore) data from
 the newest version of the [Premier Hockey Federation (PHF)
 website](https://www.premierhockeyfederation.com/). In the past, there
@@ -60,15 +60,15 @@ install.packages("fastRhockey")
 ```
 
 You can install the released version of
-[**`fastRhockey`**](https://github.com/BenHowell71/fastRhockey/) from
-[GitHub](https://github.com/BenHowell71/fastRhockey) with:
+[**`fastRhockey`**](https://github.com/sportsdataverse/fastRhockey/)
+from [GitHub](https://github.com/sportsdataverse/fastRhockey) with:
 
 ``` r
 # You can install using the pacman package using the following code:
 if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
-pacman::p_load_current_gh("BenHowell71/fastRhockey", dependencies = TRUE, update = TRUE)
+pacman::p_load_current_gh("sportsdataverse/fastRhockey", dependencies = TRUE, update = TRUE)
 ```
 
 If you would prefer the `devtools` installation:
@@ -77,7 +77,7 @@ If you would prefer the `devtools` installation:
 if (!requireNamespace('devtools', quietly = TRUE)){
   install.packages('devtools')
 }
-devtools::install_github(repo = "BenHowell71/fastRhockey")
+devtools::install_github(repo = "sportsdataverse/fastRhockey")
 ```
 
 ------------------------------------------------------------------------
@@ -85,21 +85,21 @@ devtools::install_github(repo = "BenHowell71/fastRhockey")
 ## Documentation
 
 You can find the
-[documentation](https://benhowell71.github.io/fastRhockey/) for
-[**`fastRhockey`**](https://github.com/BenHowell71/fastRhockey/) on
-[GitHub pages](https://benhowell71.github.io/fastRhockey/).
+[documentation](https://fastRhockey.sportsdataverse.org/) for
+[**`fastRhockey`**](https://github.com/sportsdataverse/fastRhockey) on
+[GitHub pages](https://fastRhockey.sportsdataverse.org/).
 
 You can view CSVs of historical boxscore and play-by-play on the
-[**`fastRhockey`**](https://github.com/BenHowell71/fastRhockey/) [data
-repo](https://github.com/saiemgilani/fastRhockey-data), as well as the
-process for scraping that historical data.
+[**`fastRhockey`**](https://github.com/sportsdataverse/fastRhockey/)
+[data repo](https://github.com/sportsdataverse/fastRhockey-data), as
+well as the process for scraping that historical data.
 
 ------------------------------------------------------------------------
 
 ## Breaking Changes
 
 [**Full News on
-Releases**](https://benhowell71.github.io/fastRhockey/news/index.html)
+Releases**](http://fastrhockey.sportsdataverse.org/news/index.html)
 
 ------------------------------------------------------------------------
 
@@ -109,7 +109,7 @@ Releases**](https://benhowell71.github.io/fastRhockey/news/index.html)
 Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
 
 [![GitHub
-stars](https://img.shields.io/github/stars/BenHowell71/fastRhockey.svg?color=eee&logo=github&style=for-the-badge&label=Star%20fastRhockey&maxAge=2592000)](https://github.com/BenHowell71/fastRhockey/stargazers/)
+stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&logo=github&style=for-the-badge&label=Star%20fastRhockey&maxAge=2592000)](https://github.com/sportsdataverse/fastRhockey/stargazers/)
 
 ## **Our Authors**
 
@@ -133,8 +133,8 @@ stars](https://img.shields.io/github/stars/BenHowell71/fastRhockey.svg?color=eee
 ## **Citations**
 
 To cite the
-[**`fastRhockey`**](https://benhowell71.github.io/fastRhockey/) R
-package in publications, use:
+[**`fastRhockey`**](https://fastRhockey.sportsdataverse.org/) R package
+in publications, use:
 
 BibTex Citation
 
@@ -142,7 +142,7 @@ BibTex Citation
 @misc{howell_gilani_fastRhockey_2021,
   author = {Ben Howell and Saiem Gilani},
   title = {fastRhockey: The SportsDataverse's R Package for Hockey Data.},
-  url = {https://benhowell71.github.io/fastRhockey/},
+  url = {https://fastRhockey.sportsdataverse.org/},
   year = {2021}
 }
 ```

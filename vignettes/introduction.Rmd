@@ -26,7 +26,7 @@ library(dplyr)
 library(janitor)
 ```
 
-[`fastRhockey`](https://github.com/benhowell71/fastRhockey) is an R Package that is designed to pull play-by-play (and boxscore) data from the newest version of the [Premier Hockey Federation (PHF) website](https://www.premierhockeyfederation.com/). In the past, there have been a few scrapers for the PHF (formerly the NWHL), but they've all been deprecated since the league changed website formats.                 
+[`fastRhockey`](https://github.com/sportsdataverse/fastRhockey) is an R Package that is designed to pull play-by-play (and boxscore) data from the newest version of the [Premier Hockey Federation (PHF) website](https://www.premierhockeyfederation.com/). In the past, there have been a few scrapers for the PHF (formerly the NWHL), but they've all been deprecated since the league changed website formats.                 
 
 With the seventh season of the league kicking off on November 6th, and games being broadcasted on ESPN+, this package was created to allow access to play-by-play data to continue pushing women's hockey analytics forward.                 
 
@@ -36,7 +36,7 @@ In the past, the lack of data and poor access to data have been the biggest barr
 
 <center>
 
-![](https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png){width=70%}
+![](https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png){width=70%}
 
 </center>
 
@@ -44,14 +44,14 @@ In the past, the lack of data and poor access to data have been the biggest barr
 
 ## Installation
 
-You can install the released version of [**`fastRhockey`**](https://github.com/BenHowell71/fastRhockey/) from [GitHub](https://github.com/BenHowell71/fastRhockey) with:
+You can install the released version of [**`fastRhockey`**](https://github.com/sportsdataverse/fastRhockey/) from [GitHub](https://github.com/sportsdataverse/fastRhockey) with:
 
 ``` r
 # You can install using the pacman package using the following code:
 if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
-pacman::p_load_current_gh("BenHowell71/fastRhockey", dependencies = TRUE, update = TRUE)
+pacman::p_load_current_gh("sportsdataverse/fastRhockey", dependencies = TRUE, update = TRUE)
 ```
 If you would prefer the `devtools` installation:
 ```r
@@ -60,7 +60,7 @@ if (!requireNamespace('devtools', quietly = TRUE)){
   install.packages('devtools')
 }
 # Alternatively, using the devtools package:
-devtools::install_github(repo = "BenHowell71/fastRhockey")
+devtools::install_github(repo = "sportsdataverse/fastRhockey")
 ```
 
 *********************************************************
@@ -152,7 +152,7 @@ pbp %>%
   scale_y_continuous(limits = c(0, 40))
   
 ```
-![](https://raw.githubusercontent.com/benhowell71/fastRhockey/main/man/figures/introduction-phf_intro_figure-1.png)
+![](https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/introduction-phf_intro_figure-1.png)
 
 It's a simple graph, but one that can easily help illustrate game flow. The Pride's shots came in bunches, taking a ton about halfway through the first and third periods respectively. Minnesota started the game slowly, but their shots came fairly consistently throughout the game.             
 
@@ -170,7 +170,7 @@ If you look with `fastRhockey::`, there are more functions available, but those 
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse) 
 
-[![GitHub stars](https://img.shields.io/github/stars/BenHowell71/fastRhockey.svg?color=eee&logo=github&style=for-the-badge&label=Star%20fastRhockey&maxAge=2592000)](https://github.com/BenHowell71/fastRhockey/stargazers/)
+[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&logo=github&style=for-the-badge&label=Star%20fastRhockey&maxAge=2592000)](https://github.com/sportsdataverse/fastRhockey/stargazers/)
 
 ## **Our Authors**
 
@@ -193,7 +193,7 @@ If you look with `fastRhockey::`, there are more functions available, but those 
 
 ## **Citations**
 
-To cite the [**`fastRhockey`**](https://benhowell71.github.io/fastRhockey/) R package in publications, use:
+To cite the [**`fastRhockey`**](https://fastRhockey.sportsdataverse.org/) R package in publications, use:
 
 BibTex Citation
 
@@ -201,7 +201,7 @@ BibTex Citation
 @misc{howell_gilani_fastRhockey_2021,
   author = {Ben Howell and Saiem Gilani},
   title = {fastRhockey: The SportsDataverse's R Package for Hockey Data.},
-  url = {https://benhowell71.github.io/fastRhockey/},
+  url = {https://fastRhockey.sportsdataverse.org/},
   year = {2021}
 }
 ```

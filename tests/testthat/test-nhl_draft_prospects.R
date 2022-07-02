@@ -14,10 +14,9 @@ test_that("NHL - Get NHL draft prospects", {
     "height",
     "weight",
     "shoots_catches",
+    "nhl_player_id",
     "draft_status",
     "birth_state_province",
-    "nhl_player_id",
-    "nationality",
     "primary_position_code",
     "primary_position_name",
     "primary_position_type",
@@ -30,6 +29,7 @@ test_that("NHL - Get NHL draft prospects", {
     "amateur_league_name",
     "amateur_league_link",
     "ranks_midterm",
+    "ranks_final_rank",
     "ranks_draft_year"
   )
   x <- x %>% dplyr::select(dplyr::all_of(cols))

@@ -6,16 +6,16 @@
 \alias{fastRhockey-package}
 \title{fastRhockey: Functions to Access Premier Hockey Federation and National Hockey League Play by Play Data}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-A utility to scrape and load play-by-play data and statistics from the Premier Hockey Federation (PHF)<https://www.premierhockeyfederation.com/>, formerly known as the National Women's Hockey League (NWHL). Additionally, allows access to the National Hockey League's stats API <https://www.nhl.com/>.
+A utility to scrape and load play-by-play data and statistics from the Premier Hockey Federation (PHF)\url{https://www.premierhockeyfederation.com/}, formerly known as the National Women's Hockey League (NWHL). Additionally, allows access to the National Hockey League's stats API \url{https://www.nhl.com/}.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://benhowell71.github.io/fastRhockey/}
-  \item \url{https://github.com/benhowell71/fastRhockey}
-  \item Report bugs at \url{https://github.com/benhowell71/fastRhockey/issues}
+  \item \url{https://fastRhockey.sportsdataverse.org/}
+  \item \url{https://github.com/sportsdataverse/fastRhockey}
+  \item Report bugs at \url{https://github.com/sportsdataverse/fastRhockey/issues}
 }
 
 }

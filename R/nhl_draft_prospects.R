@@ -1,34 +1,37 @@
 #' @title **NHL Draft Prospects**
 #' @description Returns information on draft prospects
-#' @return Returns a data frame:
-#'     * prospect_id -
-#'     * full_name -
-#'     * link -
-#'     * first_name -
-#'     * last_name -
-#'     * birth_date -
-#'     * birth_city -
-#'     * birth_state_province -
-#'     * birth_country -
-#'     * height -
-#'     * weight -
-#'     * shoots_catches -
-#'     * nhl_player_id -
-#'     * draft_status -
-#'     * nationality -
-#'     * primary_position_code -
-#'     * primary_position_name -
-#'     * primary_position_type -
-#'     * primary_position_abbreviation -
-#'     * prospect_category_id -
-#'     * prospect_category_short_name -
-#'     * prospect_category_name -
-#'     * amateur_team_name -
-#'     * amateur_team_link -
-#'     * amateur_league_name -
-#'     * amateur_league_link -
-#'     * ranks_final_rank -
-#'     * ranks_draft_year -
+#' @return Returns a tibble with the following columns:
+#'
+#'   |col_name                      |types     |
+#'   |:-----------------------------|:---------|
+#'   |prospect_id                   |integer   |
+#'   |full_name                     |character |
+#'   |link                          |character |
+#'   |first_name                    |character |
+#'   |last_name                     |character |
+#'   |birth_date                    |character |
+#'   |birth_city                    |character |
+#'   |birth_country                 |character |
+#'   |height                        |character |
+#'   |weight                        |integer   |
+#'   |shoots_catches                |character |
+#'   |nhl_player_id                 |integer   |
+#'   |draft_status                  |character |
+#'   |birth_state_province          |character |
+#'   |primary_position_code         |character |
+#'   |primary_position_name         |character |
+#'   |primary_position_type         |character |
+#'   |primary_position_abbreviation |character |
+#'   |prospect_category_id          |integer   |
+#'   |prospect_category_short_name  |character |
+#'   |prospect_category_name        |character |
+#'   |amateur_team_name             |character |
+#'   |amateur_team_link             |character |
+#'   |amateur_league_name           |character |
+#'   |amateur_league_link           |character |
+#'   |ranks_midterm                 |integer   |
+#'   |ranks_final_rank              |integer   |
+#'   |ranks_draft_year              |integer   |
 #' @keywords NHL Draft Prospects
 #' @import rvest
 #' @importFrom rlang .data

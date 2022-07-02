@@ -1,6 +1,23 @@
 #' Get ESPN NHL team names and ids
 #' @author Saiem Gilani
-#' @return A teams data frame
+#' @return A teams data frame with the following columns:
+#'
+#'   |col_name        |types     |
+#'   |:---------------|:---------|
+#'   |espn_team_id    |integer   |
+#'   |abbreviation    |character |
+#'   |display_name    |character |
+#'   |short_name      |character |
+#'   |mascot          |character |
+#'   |nickname        |character |
+#'   |team            |character |
+#'   |color           |character |
+#'   |alternate_color |character |
+#'   |logo            |character |
+#'   |logo_dark       |character |
+#'   |logos_href_3    |character |
+#'   |logos_href_4    |character |
+#'
 #' @keywords NHL Teams
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows row_number group_by mutate as_tibble ungroup
@@ -64,9 +81,7 @@ espn_nhl_teams <- function(){
         -.data$isActive,
         -.data$isAllStar,
         -.data$uid,
-        -.data$slug,
-        -.data$record,
-        -.data$logos_lastUpdated)
+        -.data$slug)
       teams <- leagues %>%
         dplyr::rename(
           logo = .data$logos_href_1,

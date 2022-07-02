@@ -11,9 +11,9 @@ Description: A utility to scrape and load play-by-play data
     known as the National Women's Hockey League (NWHL). Additionally, allows access to the National Hockey League's
     stats API <https://www.nhl.com/>.
 License: MIT + file LICENSE
-URL: https://benhowell71.github.io/fastRhockey/,
-    https://github.com/benhowell71/fastRhockey
-BugReports: https://github.com/benhowell71/fastRhockey/issues
+URL: https://fastRhockey.sportsdataverse.org/,
+    https://github.com/sportsdataverse/fastRhockey
+BugReports: https://github.com/sportsdataverse/fastRhockey/issues
 Depends: 
   R (>= 4.0.0)
 Imports: 
@@ -53,6 +53,6 @@ Suggests:
     xml2 (>= 1.3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0
 Config/testthat/edition: 3
 LazyData: true
