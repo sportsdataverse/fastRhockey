@@ -159,7 +159,6 @@ reference:
       - '`phf_standings`'
       - '`phf_team_roster`'
       - '`phf_team_stats`'
-      - starts_with("phf_")
   - title: "fastRhockey Data"
   - subtitle: Full Seasons of PHF Data
     desc: Functions exported by fastRhockey which load full seasons of fastRhockey PHF data
