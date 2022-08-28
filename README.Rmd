@@ -31,7 +31,7 @@ In Spring of 2021, the [Big Data Cup](https://www.theicegarden.com/2021/4/15/223
 In the past, the lack of data and poor access to data have been the biggest barrier to entry in women's hockey analytics, a barrier that this package intends to alleviate.                   
 
 <center>
-<img src='man/figures/fastRhockey_full_holographic_graphic.png' align="center" width="70%" />
+<img src='man/figures/fastRhockey_full_holographic_graphic.png' width="70%" />
 
 
 </center>

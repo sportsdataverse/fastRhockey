@@ -43,7 +43,7 @@ this package intends to alleviate.
 
 <center>
 
-<img src='man/figures/fastRhockey_full_holographic_graphic.png' align="center" width="70%" />
+<img src='man/figures/fastRhockey_full_holographic_graphic.png' width="70%" />
 
 </center>
 
