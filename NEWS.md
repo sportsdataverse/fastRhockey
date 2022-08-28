@@ -1,3 +1,7 @@
+# **fastRhockey 0.3.1**
+
+* Updates documentation per CRAN's request
+
 # **fastRhockey 0.3.0**
 
 * Add print method for all functions with a time stamp and description of the data

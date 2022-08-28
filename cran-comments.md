@@ -1,10 +1,7 @@
 ## Release summary
 
 This is a minor release that 
-* Adds one function, ```espn_nhl_teams()```
-* Updates examples per CRAN Request
-* Adds attributes to exported functions to include timestamps on print
-* Adds package dataset `phf_team_logos`
+* Updates html per CRAN's roxygen update.
 
 ## R CMD check results
 
