@@ -1,7 +1,7 @@
 
 # 
 
-# fastRhockey <a href='http://fastrhockey.sportsdataverse.org/'><img src='https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/logo.png' align="right" width="20%" min-width="100px" /></a>
+# fastRhockey <a href='http://fastrhockey.sportsdataverse.org/'><img src='https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/logo.png' align="right" width="20%" min-width="100" /></a>
 
 <!-- badges: start -->
 
