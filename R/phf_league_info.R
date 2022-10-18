@@ -14,17 +14,7 @@
 #' }
 phf_league_info <- function(season = 2022){
 
-  season_id <- dplyr::case_when(
-    season == 2023 ~ 4667,
-    season == 2022 ~ 3372,
-    season == 2021 ~ 2779,
-    season == 2020 ~ 1950,
-    season == 2019 ~ 2047,
-    season == 2018 ~ 2046,
-    season == 2017 ~ 2045,
-    season == 2016 ~ 246,
-    TRUE ~ NA_real_
-  )
+  season_id <- get_phf_season_id(season=season)
   base_url <- "https://web.api.digitalshift.ca/partials/stats/filters?type=season&id="
   full_url <- paste0(base_url,
                      season_id)

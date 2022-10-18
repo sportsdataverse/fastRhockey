@@ -619,3 +619,24 @@ helper_phf_team_box <- function(data) {
 
 }
 
+#' @title phf_get_season_id
+#' @description phf_get_season_id: returns the PHF season ID for a given year
+#'
+#' @param season the season
+#' @importFrom dplyr case_when
+#' @noRd
+phf_get_season_id <- function(season) {
+  season_id <- dplyr::case_when(
+    season == 2023 ~ 4667,
+    season == 2022 ~ 3372,
+    season == 2021 ~ 2779,
+    season == 2020 ~ 1950,
+    season == 2019 ~ 2047,
+    season == 2018 ~ 2046,
+    season == 2017 ~ 2045,
+    season == 2016 ~ 246,
+    TRUE ~ NA_real_
+  )
+
+  return(season_id)
+}
