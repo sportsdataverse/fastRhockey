@@ -19,6 +19,7 @@ phf_leaders <- function(player_type, season = 2021, season_type="Regular Season"
 
   league_info <- phf_league_info(season=season)
   season_id <- dplyr::case_when(
+    season == 2023 ~ 4667,
     season == 2022 ~ 3372,
     season == 2021 ~ 2779,
     season == 2020 ~ 1950,
