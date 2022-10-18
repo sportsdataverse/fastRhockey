@@ -15,7 +15,7 @@
 #'   try(phf_standings(season = most_recent_phf_season()))
 #' }
 phf_standings <- function(season = most_recent_phf_season()) {
-  season_id <- get_phf_season_id(season=season)
+  season_id <- phf_get_season_id(season=season)
 
   base_url <- "https://web.api.digitalshift.ca/partials/stats/standings/table?league_toggle=division&season_id="
   full_url <- paste0(base_url,

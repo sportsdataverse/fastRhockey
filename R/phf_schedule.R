@@ -14,7 +14,7 @@
 #' }
 
 phf_schedule <- function(season){
-  season_id <- get_phf_season_id(season=season)
+  season_id <- phf_get_season_id(season=season)
 
   base_url <- "https://web.api.digitalshift.ca/partials/stats/schedule/table?limit=100&all=true&season_id="
   full_url <- paste0(base_url,

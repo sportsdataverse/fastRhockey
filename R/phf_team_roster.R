@@ -16,7 +16,7 @@
 phf_team_roster <- function(team, season = most_recent_phf_season()){
 
   league_info <- phf_league_info(season=season)
-  season_id <- get_phf_season_id(season=season)
+  season_id <- phf_get_season_id(season=season)
   team_row <- league_info$teams %>%
     dplyr::filter(.data$name == team)
   team_id <- team_row %>%

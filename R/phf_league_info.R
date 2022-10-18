@@ -14,7 +14,7 @@
 #' }
 phf_league_info <- function(season = 2022){
 
-  season_id <- get_phf_season_id(season=season)
+  season_id <- phf_get_season_id(season=season)
   base_url <- "https://web.api.digitalshift.ca/partials/stats/filters?type=season&id="
   full_url <- paste0(base_url,
                      season_id)
