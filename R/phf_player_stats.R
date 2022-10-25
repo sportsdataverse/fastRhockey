@@ -124,51 +124,51 @@ phf_player_stats <- function(player_id) {
         )
       yearly_stats <- yearly_stats %>%
         dplyr::rename(
-          season = .data$Season,
-          team_name = .data$Team,
-          division = .data$Division,
-          games_played = .data$GP,
-          goals = .data$G,
-          assists = .data$A,
-          points = .data$Pts,
-          points_per_game_average = .data$PPGA,
-          penalty_minutes = .data$PIM,
-          plus_minus = .data$`+/-`,
-          shots_on_goal = .data$SOG,
-          scoring_pct = .data$`S%`,
-          blocks = .data$Blk,
-          giveaways = .data$GvA,
-          takeaways = .data$TkA,
-          faceoffs_won_lost = .data$`FoW/L`,
-          faceoffs_win_pct = .data$`Fo%`,
-          powerplay_goals = .data$`PPG`,
-          shorthanded_goals = .data$`SHG`,
-          game_winning_goals = .data$`GWG`,
-          shots = .data$`Sh`,
-          shots_blocked = .data$`ShBl`) %>%
+          "season" = "Season",
+          "team_name" = "Team",
+          "division" = "Division",
+          "games_played" = "GP",
+          "goals" = "G",
+          "assists" = "A",
+          "points" = "Pts",
+          "points_per_game_average" = "PPGA",
+          "penalty_minutes" = "PIM",
+          "plus_minus" = "+/-",
+          "shots_on_goal" = "SOG",
+          "scoring_pct" = "S%",
+          "blocks" = "Blk",
+          "giveaways" = "GvA",
+          "takeaways" = "TkA",
+          "faceoffs_won_lost" = "FoW/L",
+          "faceoffs_win_pct" = "Fo%",
+          "powerplay_goals" = "PPG",
+          "shorthanded_goals" = "SHG",
+          "game_winning_goals" = "GWG",
+          "shots" = "Sh",
+          "shots_blocked" = "ShBl") %>%
         dplyr::mutate(
           player_id = player_id,
           team_id = as.integer(stringr::str_extract(stringr::str_remove(.data$team_href,"stats#/100/team"), "\\d+"))) %>%
-        dplyr::select(-.data$Pos) %>%
+        dplyr::select(-"Pos") %>%
         make_fastRhockey_data("PHF Skaters Yearly Stats Information from PremierHockeyFederation.com",Sys.time())
       game_log_stats <- game_log_stats %>%
         dplyr::rename(
-          date = .data$Date,
-          opponent = .data$Opponent,
-          result = .data$Result,
-          goals = .data$G,
-          assists = .data$A,
-          points = .data$Pts,
-          penalty_minutes = .data$PIM,
-          plus_minus = .data$`+/-`,
-          shots_on_goal = .data$SOG,
-          blocks = .data$Blk,
-          giveaways = .data$GvA,
-          takeaways = .data$TkA,
-          faceoffs_won_lost = .data$`FoW/L`,
-          faceoffs_win_pct = .data$`Fo%`,
-          shots = .data$`Sh`,
-          shots_blocked = .data$`ShBl`) %>%
+          "date" = "Date",
+          "opponent" = "Opponent",
+          "result" = "Result",
+          "goals" = "G",
+          "assists" = "A",
+          "points" = "Pts",
+          "penalty_minutes" = "PIM",
+          "plus_minus" = "+/-",
+          "shots_on_goal" = "SOG",
+          "blocks" = "Blk",
+          "giveaways" = "GvA",
+          "takeaways" = "TkA",
+          "faceoffs_won_lost" = "FoW/L",
+          "faceoffs_win_pct" = "Fo%",
+          "shots" = "Sh",
+          "shots_blocked" = "ShBl") %>%
         dplyr::mutate(
           game_id = as.integer(stringr::str_extract(stringr::str_remove(.data$game_href,"stats#/100/game"), "\\d+"))) %>%
         make_fastRhockey_data("PHF Skaters Game Log Stats Information from PremierHockeyFederation.com",Sys.time())
@@ -176,33 +176,33 @@ phf_player_stats <- function(player_id) {
       }else{
       yearly_stats <- yearly_stats %>%
         dplyr::rename(
-          season = .data$Season,
-          team_name = .data$Team,
-          division = .data$Division,
-          shots_against = .data$SA,
-          goals_against = .data$GA,
-          saves = .data$Sv,
-          save_percent = .data$`Sv%`,
-          minutes_played = .data$MP,
-          penalty_minutes = .data$PIM,
-          goals = .data$G,
-          assists = .data$A) %>%
+          "season" = "Season",
+          "team_name" = "Team",
+          "division" = "Division",
+          "shots_against" = "SA",
+          "goals_against" = "GA",
+          "saves" = "Sv",
+          "save_percent" = "Sv%",
+          "minutes_played" = "MP",
+          "penalty_minutes" = "PIM",
+          "goals" = "G",
+          "assists" = "A") %>%
         dplyr::mutate(
           team_id = as.integer(stringr::str_extract(stringr::str_remove(.data$team_href,"stats#/100/team"), "\\d+"))) %>%
         make_fastRhockey_data("PHF Goalies Yearly Stats Information from PremierHockeyFederation.com",Sys.time())
       game_log_stats <- game_log_stats %>%
         dplyr::rename(
-          date = .data$Date,
-          opponent = .data$Opponent,
-          result = .data$Result,
-          shots_against = .data$SA,
-          goals_against = .data$GA,
-          saves = .data$Sv,
-          save_percent = .data$`Sv%`,
-          minutes_played = .data$MP,
-          penalty_minutes = .data$PIM,
-          goals = .data$G,
-          assists = .data$A) %>%
+          "date" = "Date",
+          "opponent" = "Opponent",
+          "result" = "Result",
+          "shots_against" = "SA",
+          "goals_against" = "GA",
+          "saves" = "Sv",
+          "save_percent" = "Sv%",
+          "minutes_played" = "MP",
+          "penalty_minutes" = "PIM",
+          "goals" = "G",
+          "assists" = "A") %>%
         dplyr::mutate(
           game_id = as.integer(stringr::str_extract(stringr::str_remove(.data$game_href,"stats#/100/game"), "\\d+"))) %>%
         make_fastRhockey_data("PHF Goalies Game Log Stats Information from PremierHockeyFederation.com",Sys.time())

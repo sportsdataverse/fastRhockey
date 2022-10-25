@@ -14,7 +14,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   try(nhl_schedule(season = 2021))
+#'   try(nhl_schedule(season = 2023))
 #' }
 nhl_schedule <- function(season = NULL, day = as.Date(Sys.Date(), "%Y-%m-%d")){
 
@@ -53,10 +53,10 @@ nhl_schedule <- function(season = NULL, day = as.Date(Sys.Date(), "%Y-%m-%d")){
   colnames(game_dates) <- gsub("teams_","",colnames(game_dates))
   game_dates <- game_dates %>%
     dplyr::rename(
-      game_id = .data$game_pk,
-      season_full = .data$season,
-      game_type_abbreviation = .data$game_type,
-      game_date_time = .data$game_date) %>%
+      "game_id" = "game_pk",
+      "season_full" = "season",
+      "game_type_abbreviation" = "game_type",
+      "game_date_time" = "game_date") %>%
     dplyr::mutate(
       game_type = dplyr::case_when(
         substr(.data$game_id, 6, 6) == 1 ~ "PRE",
@@ -77,7 +77,15 @@ nhl_schedule <- function(season = NULL, day = as.Date(Sys.Date(), "%Y-%m-%d")){
     game_dates <- game_dates %>%
       dplyr::filter(substr(.data$game_id, 1, 4) == (as.numeric(season) - 1))
   }
-
+  game_dates <- tidyr::unnest(game_dates,
+                              cols = c("game_id", "link", "game_type_abbreviation", "season_full",
+                                       "game_date_time", "status_abstract_game_state",
+                                       "status_coded_game_state", "status_detailed_state",
+                                       "status_status_code", "status_start_time_tbd", "away_score",
+                                       "away_team_id", "away_team_name", "away_team_link",
+                                       "home_score", "home_team_id", "home_team_name",
+                                       "home_team_link", "venue_name", "venue_link", "venue_id",
+                                       "content_link"))
 
   return(game_dates)
 }

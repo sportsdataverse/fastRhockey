@@ -1,7 +1,7 @@
 ## Release summary
 
 This is a minor release that 
-* Updates html per CRAN's roxygen update.
+* Updates select statements to use quotations on columns instead of .data$ per tidyselect depreciation notice.
 
 ## R CMD check results
 

@@ -14,16 +14,7 @@
 #' }
 
 phf_schedule <- function(season){
-  season_id <- dplyr::case_when(
-    season == 2022 ~ 3372,
-    season == 2021 ~ 2779,
-    season == 2020 ~ 1950,
-    season == 2019 ~ 2047,
-    season == 2018 ~ 2046,
-    season == 2017 ~ 2045,
-    season == 2016 ~ 246,
-    TRUE ~ NA_real_
-  )
+  season_id <- phf_get_season_id(season=season)
 
   base_url <- "https://web.api.digitalshift.ca/partials/stats/schedule/table?limit=100&all=true&season_id="
   full_url <- paste0(base_url,

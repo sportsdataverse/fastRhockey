@@ -1,3 +1,8 @@
+# **fastRhockey 0.4.0**
+
+* Updates logic to add Montreal Force to teams lists/parsing
+* Under the hood changes to adapt to tidyselect new version guidelines
+
 # **fastRhockey 0.3.1**
 
 * Updates documentation per CRAN's request

@@ -82,7 +82,7 @@ nhl_game_feed <- function(game_id){
       }
       if(length(plays_df)>0 && length(plays_player)>0){
         all_plays <- plays_df %>%
-          dplyr::select(-.data$players) %>%
+          dplyr::select(-"players") %>%
           dplyr::bind_cols(plays_player) %>%
           janitor::clean_names() %>%
           make_fastRhockey_data("NHL Game Plays Information from NHL.com",Sys.time())
@@ -119,8 +119,8 @@ nhl_game_feed <- function(game_id){
         dplyr::bind_cols(home_boxscore$teamStats$teamSkaterStats)
       team_box <- dplyr::bind_rows(away_team_box, home_team_box) %>%
         dplyr::rename(
-          team_id = .data$id,
-          team_name = .data$name) %>%
+          "team_id" = "id",
+          "team_name" = "name") %>%
         janitor::clean_names() %>%
         make_fastRhockey_data("NHL Game Team Box Information from NHL.com",Sys.time())
       ###---player_box----
@@ -152,12 +152,12 @@ nhl_game_feed <- function(game_id){
       home_players_box$home_away <- "Home"
       players_box <- dplyr::bind_rows(away_players_box, home_players_box) %>%
         dplyr::rename(
-          player_id = .data$id,
-          player_full_name = .data$full_name,
-          position_code = .data$code,
-          position_name = .data$name,
-          position_type = .data$type,
-          position_abbreviation = .data$abbreviation) %>%
+          "player_id" = "id",
+          "player_full_name" = "full_name",
+          "position_code" = "code",
+          "position_name" = "name",
+          "position_type" = "type",
+          "position_abbreviation" = "abbreviation") %>%
         janitor::clean_names() %>%
         make_fastRhockey_data("NHL Game Players Box Information from NHL.com",Sys.time())
 

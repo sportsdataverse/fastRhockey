@@ -16,16 +16,7 @@
 phf_team_roster <- function(team, season = most_recent_phf_season()){
 
   league_info <- phf_league_info(season=season)
-  season_id <- dplyr::case_when(
-    season == 2022 ~ 3372,
-    season == 2021 ~ 2779,
-    season == 2020 ~ 1950,
-    season == 2019 ~ 2047,
-    season == 2018 ~ 2046,
-    season == 2017 ~ 2045,
-    season == 2016 ~ 246,
-    TRUE ~ NA_real_
-  )
+  season_id <- phf_get_season_id(season=season)
   team_row <- league_info$teams %>%
     dplyr::filter(.data$name == team)
   team_id <- team_row %>%
@@ -74,11 +65,11 @@ phf_team_roster <- function(team, season = most_recent_phf_season()){
 
       roster_df <- roster_df %>%
         dplyr::rename(
-          team_id = .data$id,
-          team_name = .data$name,
-          player_jersey = .data$`#`,
-          player_name = .data$Name,
-          position = .data$POS) %>%
+          "team_id" = "id",
+          "team_name" = "name",
+          "player_jersey" = "#",
+          "player_name" = "Name",
+          "position" = "POS") %>%
         dplyr::mutate(
           player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
           player_id = as.integer(stringr::str_extract(.data$player_href, "\\d+"))) %>%
@@ -88,10 +79,10 @@ phf_team_roster <- function(team, season = most_recent_phf_season()){
       team_staff_df <- dplyr::bind_cols(team_row, team_staff)
       team_staff_df <- team_staff_df %>%
         dplyr::rename(
-          team_id = .data$id,
-          team_name = .data$name,
-          staff_name = .data$Name,
-          staff_type = .data$Type) %>%
+          "team_id" = "id",
+          "team_name" = "name",
+          "staff_name" = "Name",
+          "staff_type" = "Type") %>%
         janitor::clean_names() %>%
         make_fastRhockey_data("PHF Team Staff Information from PremierHockeyFederation.com",Sys.time())
 

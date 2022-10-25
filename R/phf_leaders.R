@@ -18,16 +18,7 @@
 phf_leaders <- function(player_type, season = 2021, season_type="Regular Season"){
 
   league_info <- phf_league_info(season=season)
-  season_id <- dplyr::case_when(
-    season == 2022 ~ 3372,
-    season == 2021 ~ 2779,
-    season == 2020 ~ 1950,
-    season == 2019 ~ 2047,
-    season == 2018 ~ 2046,
-    season == 2017 ~ 2045,
-    season == 2016 ~ 246,
-    TRUE ~ NA_real_
-  )
+  season_id <- phf_get_season_id(season=season)
   team_row <- league_info$teams
 
   player_type <- ifelse(player_type == "skaters", "players", player_type)
@@ -92,29 +83,29 @@ phf_leaders <- function(player_type, season = 2021, season_type="Regular Season"
         )
         skaters <- skaters %>%
           dplyr::rename(
-            player_jersey = .data$`#`,
-            player_name = .data$Name,
-            team_name = .data$Team,
-            position = .data$Pos,
-            games_played = .data$GP,
-            goals = .data$G,
-            assists = .data$A,
-            points = .data$Pts,
-            points_per_game_average = .data$PPGA,
-            penalty_minutes = .data$PIM,
-            plus_minus = .data$`+/-`,
-            shots_on_goal = .data$SOG,
-            scoring_pct = .data$`S%`,
-            blocks = .data$Blk,
-            giveaways = .data$GvA,
-            takeaways = .data$TkA,
-            faceoffs_won_lost = .data$`FoW/L`,
-            faceoffs_win_pct = .data$`Fo%`,
-            powerplay_goals = .data$`PPG`,
-            shorthanded_goals = .data$`SHG`,
-            game_winning_goals = .data$`GWG`,
-            shots = .data$`Sh`,
-            shots_blocked = .data$`ShBl`) %>%
+            "player_jersey" = "#",
+            "player_name" = "Name",
+            "team_name" = "Team",
+            "position" = "Pos",
+            "games_played" = "GP",
+            "goals" = "G",
+            "assists" = "A",
+            "points" = "Pts",
+            "points_per_game_average" = "PPGA",
+            "penalty_minutes" = "PIM",
+            "plus_minus" = "+/-",
+            "shots_on_goal" = "SOG",
+            "scoring_pct" = "S%",
+            "blocks" = "Blk",
+            "giveaways" = "GvA",
+            "takeaways" = "TkA",
+            "faceoffs_won_lost" = "FoW/L",
+            "faceoffs_win_pct" = "Fo%",
+            "powerplay_goals" = "PPG",
+            "shorthanded_goals" = "SHG",
+            "game_winning_goals" = "GWG",
+            "shots" = "Sh",
+            "shots_blocked" = "ShBl") %>%
           dplyr::mutate(
             player_name = stringr::str_replace(.data$player_name, pattern = "#\\d+",replacement=""),
             player_id = as.integer(stringr::str_extract(.data$player_href, "\\d+")),
@@ -125,24 +116,24 @@ phf_leaders <- function(player_type, season = 2021, season_type="Regular Season"
 
         skaters <- skaters %>%
           dplyr::rename(
-            player_jersey = .data$`#`,
-            player_name = .data$Name,
-            team_name = .data$Team,
-            games_played = .data$GP,
-            wins = .data$W,
-            losses = .data$L,
-            ties = .data$T,
-            overtime_losses = .data$OTL,
-            shots_against = .data$SA,
-            goals_against = .data$GA,
-            saves = .data$Sv,
-            save_percent = .data$`Sv%`,
-            goals_against_average = .data$GAA,
-            shutouts = .data$SO,
-            minutes_played = .data$MP,
-            penalty_minutes = .data$PIM,
-            goals = .data$G,
-            assists = .data$A) %>%
+            "player_jersey" = "#",
+            "player_name" = "Name",
+            "team_name" = "Team",
+            "games_played" = "GP",
+            "wins" = "W",
+            "losses" = "L",
+            "ties" = "T",
+            "overtime_losses" = "OTL",
+            "shots_against" = "SA",
+            "goals_against" = "GA",
+            "saves" = "Sv",
+            "save_percent" = "Sv%",
+            "goals_against_average" = "GAA",
+            "shutouts" = "SO",
+            "minutes_played" = "MP",
+            "penalty_minutes" = "PIM",
+            "goals" = "G",
+            "assists" = "A") %>%
           dplyr::mutate(
             player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
             player_id = as.integer(stringr::str_extract(.data$player_href, "\\d+")),
