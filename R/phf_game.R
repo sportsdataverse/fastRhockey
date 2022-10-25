@@ -212,6 +212,7 @@ phf_game_details <- function(game_id) {
     away_location == "Buffalo" ~ "BUF",
     away_location == "Connecticut" ~ "CTW",
     away_location == "Metropolitan" ~ "MET",
+    away_location == "Montreal" ~ "MON",
     away_location == "Minnesota" ~ "MIN",
     away_location == "Toronto" ~ "TOR",
     TRUE ~ NA_character_)
@@ -228,6 +229,7 @@ phf_game_details <- function(game_id) {
     home_location == "Buffalo" ~ "BUF",
     home_location == "Connecticut" ~ "CTW",
     home_location == "Metropolitan" ~ "MET",
+    home_location == "Montreal" ~ "MON",
     home_location == "Minnesota" ~ "MIN",
     home_location == "Toronto" ~ "TOR",
     TRUE ~ NA_character_)
