@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -150,9 +150,9 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_player_stats</span><span class="op">(</span>player_id<span class="op">=</span><span class="fl">8476899</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Player Stats Information from NHL.com ────────────── <span style="font-style: italic;">fastRhockey 0.3.1</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-08-28 22:57:44 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 33 × 85</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Player Stats Information from NHL.com ────────────── <span style="font-style: italic;">fastRhockey 0.4.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-10-25 20:40:39 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 34 × 85</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    playe…¹ full_…² link  first…³ last_…⁴ prima…⁵ birth…⁶ curre…⁷ birth…⁸ birth…⁹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 8<span style="text-decoration: underline;">476</span>899 Matt M… /api… Matt    Murray  30      1994-0…      28 Thunde… ON     </span>
@@ -165,7 +165,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 8<span style="text-decoration: underline;">476</span>899 Matt M… /api… Matt    Murray  30      1994-0…      28 Thunde… ON     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 8<span style="text-decoration: underline;">476</span>899 Matt M… /api… Matt    Murray  30      1994-0…      28 Thunde… ON     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 8<span style="text-decoration: underline;">476</span>899 Matt M… /api… Matt    Murray  30      1994-0…      28 Thunde… ON     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 23 more rows, 75 more variables: birth_country &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 24 more rows, 75 more variables: birth_country &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   nationality &lt;chr&gt;, height &lt;chr&gt;, weight &lt;int&gt;, active &lt;lgl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   alternate_captain &lt;lgl&gt;, captain &lt;lgl&gt;, rookie &lt;lgl&gt;, shoots_catches &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   roster_status &lt;chr&gt;, current_team_id &lt;int&gt;, current_team_name &lt;chr&gt;,</span></span>

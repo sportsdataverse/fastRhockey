@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -143,23 +143,23 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>   <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_draft_prospects</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Draft Prospects data from NHL.com ────────────────── <span style="font-style: italic;">fastRhockey 0.3.1</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-08-28 22:57:35 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10,397 × 28</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Draft Prospects data from NHL.com ────────────────── <span style="font-style: italic;">fastRhockey 0.4.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-10-25 20:40:32 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 11,372 × 28</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    prospec…¹ full_…² link  first…³ last_…⁴ birth…⁵ birth…⁶ birth…⁷ height weight</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>     <span style="text-decoration: underline;">89</span>859 Hugo H… /api… Hugo    Havelid 2004-0… Taby    SWE     <span style="color: #949494;">"</span>6' 0…    178</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>     <span style="text-decoration: underline;">91</span>435 Dylan … /api… Dylan   Silver… 2004-0… Calaba… USA     <span style="color: #949494;">"</span>6' 0…    179</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>     <span style="text-decoration: underline;">87</span>938 Jan Sp… /api… Jan     Spunar  2004-0… Sternb… CZE     <span style="color: #949494;">"</span>6' 3…    185</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>     <span style="text-decoration: underline;">87</span>938 Jan Sp… /api… Jan     Spunar  2004-0… Sternb… CZE     <span style="color: #949494;">"</span>6' 3…    185</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>     <span style="text-decoration: underline;">91</span>435 Dylan … /api… Dylan   Silver… 2004-0… Calaba… USA     <span style="color: #949494;">"</span>6' 0…    179</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>     <span style="text-decoration: underline;">95</span>018 Maxim … /api… Maxim   Arefyev 2003-0… Orsk    RUS     <span style="color: #949494;">"</span>6' 4…    183</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>     <span style="text-decoration: underline;">93</span>382 Karlis… /api… Karlis  Mezsar… 2003-1… Riga    LVA     <span style="color: #949494;">"</span>6' 2…    185</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>     <span style="text-decoration: underline;">90</span>393 Michae… /api… Michael Schnat… 2004-0… Brno    CZE     <span style="color: #949494;">"</span>6' 0…    176</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>     <span style="text-decoration: underline;">93</span>382 Karlis… /api… Karlis  Mezsar… 2003-1… Riga    LVA     <span style="color: #949494;">"</span>6' 3…    182</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>     <span style="text-decoration: underline;">90</span>393 Michae… /api… Michael Schnat… 2004-0… Brno    CZE     <span style="color: #949494;">"</span>6' 0…    187</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>     <span style="text-decoration: underline;">88</span>927 Ian Bl… /api… Ian     Blomqu… 2003-0… Gothen… SWE     <span style="color: #949494;">"</span>6' 2…    183</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>     <span style="text-decoration: underline;">85</span>942 Braden… /api… Braden  Holt    2003-0… Fort C… USA     <span style="color: #949494;">"</span>6' 0…    160</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>     <span style="text-decoration: underline;">86</span>011 Tomas … /api… Tomas   Suchan… 2003-0… Prerov  CZE     <span style="color: #949494;">"</span>6' 0…    171</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>     <span style="text-decoration: underline;">90</span>409 Vincen… /api… Vincent Filion  2004-0… Shawin… CAN     <span style="color: #949494;">"</span>6' 0…    181</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 10,387 more rows, 18 more variables: shoots_catches &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   draft_status &lt;chr&gt;, birth_state_province &lt;chr&gt;, nhl_player_id &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>     <span style="text-decoration: underline;">90</span>194 Andrew… /api… Andrew  Oke     2004-0… Grosse… USA     <span style="color: #949494;">"</span>6' 2…    194</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>     <span style="text-decoration: underline;">85</span>942 Braden… /api… Braden  Holt    2003-0… Fort C… USA     <span style="color: #949494;">"</span>6' 1…    158</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>     <span style="text-decoration: underline;">86</span>011 Tomas … /api… Tomas   Suchan… 2003-0… Prerov  CZE     <span style="color: #949494;">"</span>6' 0…    180</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 11,362 more rows, 18 more variables: shoots_catches &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   draft_status &lt;chr&gt;, nhl_player_id &lt;int&gt;, birth_state_province &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   primary_position_code &lt;chr&gt;, primary_position_name &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   primary_position_type &lt;chr&gt;, primary_position_abbreviation &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   prospect_category_id &lt;int&gt;, prospect_category_short_name &lt;chr&gt;,</span></span>

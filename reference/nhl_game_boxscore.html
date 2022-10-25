@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -153,8 +153,8 @@ scratches, team_coaches</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>   <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_game_boxscore</span><span class="op">(</span>game_id<span class="op">=</span><span class="fl">2021020182</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $team_box</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game Team Box Information from NHL.com ───────────── <span style="font-style: italic;">fastRhockey 0.3.1</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-08-28 22:57:36 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game Team Box Information from NHL.com ───────────── <span style="font-style: italic;">fastRhockey 0.4.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-10-25 20:40:33 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   team_id team_name      link  goals   pim shots power…¹ power…² power…³ face_…⁴</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
@@ -165,18 +165,18 @@ scratches, team_coaches</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​power_play_goals, ³​power_play_opportunities, ⁴​face_off_win_percentage</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $player_box</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game Players Box Information from NHL.com ────────── <span style="font-style: italic;">fastRhockey 0.3.1</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-08-28 22:57:39 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game Players Box Information from NHL.com ────────── <span style="font-style: italic;">fastRhockey 0.4.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-10-25 20:40:35 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 38 × 70</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    playe…¹ playe…² link  first…³ last_…⁴ prima…⁵ birth…⁶ curre…⁷ birth…⁸ birth…⁹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 8<span style="text-decoration: underline;">480</span>073 Erik B… /api… Erik    Branns… 26      1999-0…      22 Eksjo   SWE    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 8<span style="text-decoration: underline;">480</span>073 Erik B… /api… Erik    Branns… 26      1999-0…      23 Eksjo   SWE    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 8<span style="text-decoration: underline;">480</span>064 Josh N… /api… Josh    Norris  9       1999-0…      23 Oxford  USA    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 8<span style="text-decoration: underline;">476</span>919 Chris … /api… Chris   Tierney 71      1994-0…      28 Keswick CAN    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 8<span style="text-decoration: underline;">477</span>426 Nick P… /api… Nick    Paul    21      1995-0…      27 Missis… CAN    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 8<span style="text-decoration: underline;">474</span>589 Tyler … /api… Tyler   Ennis   63      1989-1…      32 Edmont… CAN    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 8<span style="text-decoration: underline;">474</span>589 Tyler … /api… Tyler   Ennis   63      1989-1…      33 Edmont… CAN    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 8<span style="text-decoration: underline;">476</span>899 Matt M… /api… Matt    Murray  30      1994-0…      28 Thunde… CAN    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 8<span style="text-decoration: underline;">480</span>029 Alex F… /api… Alex    Formen… 10      1999-0…      22 Barrie  CAN    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 8<span style="text-decoration: underline;">480</span>029 Alex F… /api… Alex    Formen… 10      1999-0…      23 Barrie  CAN    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 8<span style="text-decoration: underline;">479</span>458 Nikita… /api… Nikita  Zaitsev 22      1991-1…      30 Moscow  RUS    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 8<span style="text-decoration: underline;">474</span>584 Michae… /api… Michael Del Zo… 15      1990-0…      32 Stouff… CAN    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 8<span style="text-decoration: underline;">480</span>448 Parker… /api… Parker  Kelly   45      1999-0…      23 Camrose CAN    </span>
@@ -189,8 +189,8 @@ scratches, team_coaches</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   jersey_number &lt;chr&gt;, position_code &lt;chr&gt;, position_name &lt;chr&gt;, …</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $skaters</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game Skaters Information from NHL.com ────────────── <span style="font-style: italic;">fastRhockey 0.3.1</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-08-28 22:57:39 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game Skaters Information from NHL.com ────────────── <span style="font-style: italic;">fastRhockey 0.4.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-10-25 20:40:35 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 40 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    skaters home_away</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
@@ -207,8 +207,8 @@ scratches, team_coaches</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 30 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $goalies</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game Goalies Information from NHL.com ────────────── <span style="font-style: italic;">fastRhockey 0.3.1</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-08-28 22:57:39 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game Goalies Information from NHL.com ────────────── <span style="font-style: italic;">fastRhockey 0.4.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-10-25 20:40:35 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   goalies home_away</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
@@ -216,8 +216,8 @@ scratches, team_coaches</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 8<span style="text-decoration: underline;">480</span>280 Home     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $on_ice</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game On Ice Information from NHL.com ─────────────── <span style="font-style: italic;">fastRhockey 0.3.1</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-08-28 22:57:39 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game On Ice Information from NHL.com ─────────────── <span style="font-style: italic;">fastRhockey 0.4.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-10-25 20:40:35 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      onIce home_away</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
@@ -235,8 +235,8 @@ scratches, team_coaches</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> 8<span style="text-decoration: underline;">480</span>280 Home     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $on_ice_plus</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game On Ice+ Information from NHL.com ────────────── <span style="font-style: italic;">fastRhockey 0.3.1</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-08-28 22:57:39 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game On Ice+ Information from NHL.com ────────────── <span style="font-style: italic;">fastRhockey 0.4.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-10-25 20:40:35 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    onIcePlus.playerId onIcePlus.shiftDuration onIcePlus.stamina home_away</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
@@ -254,13 +254,13 @@ scratches, team_coaches</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span>            8<span style="text-decoration: underline;">480</span>280                     553                33 Home     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $penalty_box</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game Penalty Box Information from NHL.com ────────── <span style="font-style: italic;">fastRhockey 0.3.1</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-08-28 22:57:39 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game Penalty Box Information from NHL.com ────────── <span style="font-style: italic;">fastRhockey 0.4.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-10-25 20:40:35 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $scratches</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game Scratches Information from NHL.com ──────────── <span style="font-style: italic;">fastRhockey 0.3.1</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-08-28 22:57:39 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game Scratches Information from NHL.com ──────────── <span style="font-style: italic;">fastRhockey 0.4.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-10-25 20:40:35 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   scratches home_away</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
@@ -270,8 +270,8 @@ scratches, team_coaches</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>   8<span style="text-decoration: underline;">480</span>901 Home     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $team_coaches</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game Team Coaches Information from NHL.com ───────── <span style="font-style: italic;">fastRhockey 0.3.1</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-08-28 22:57:39 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game Team Coaches Information from NHL.com ───────── <span style="font-style: italic;">fastRhockey 0.4.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-10-25 20:40:35 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   person.fullName person.link         position…¹ posit…² posit…³ posit…⁴ home_…⁵</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
