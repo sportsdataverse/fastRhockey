@@ -1,6 +1,6 @@
 Package: fastRhockey
 Title: Functions to Access Premier Hockey Federation and National Hockey League Play by Play Data
-Version: 0.3.2
+Version: 0.4.0
 Authors@R: c(
     person(given = "Ben", family = "Howell", email = "benhowell71@gmail.com", role = c("aut")),
     person(given = "Saiem", family = "Gilani", email = "saiem.gilani@gmail.com", role = c("cre", "aut")),
