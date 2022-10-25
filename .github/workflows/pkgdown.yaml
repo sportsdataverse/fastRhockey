@@ -41,7 +41,6 @@ jobs:
             rsconnect
             sportyR
             tictoc
-            toRvik
             wehoop
             zoo
           needs: website
