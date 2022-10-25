@@ -1,6 +1,7 @@
 
 test_that("phf_team_box", {
   skip_on_cran()
+  skip_on_ci()
   cols <- c(
     "team",
     "game_id",
