@@ -1,13 +1,92 @@
 test_that("phf_pbp", {
   skip_on_cran()
+  cols <- c(
+    "play_type",
+    "team",
+    "time",
+    "play_description",
+    "scoring_team_abbrev",
+    "scoring_team_on_ice",
+    "offensive_player_name_1",
+    "offensive_player_name_2",
+    "offensive_player_name_3",
+    "offensive_player_name_4",
+    "offensive_player_name_5",
+    "offensive_player_name_6",
+    "defending_team_abbrev",
+    "defending_team_on_ice",
+    "defensive_player_name_1",
+    "defensive_player_name_2",
+    "defensive_player_name_3",
+    "defensive_player_name_4",
+    "defensive_player_name_5",
+    "defensive_player_name_6",
+    "period_id",
+    "game_id",
+    "home_team",
+    "home_location",
+    "home_nickname",
+    "home_abbreviation",
+    "home_score_total",
+    "away_team",
+    "away_location",
+    "away_nickname",
+    "away_abbreviation",
+    "away_score_total",
+    "home_goalie",
+    "away_goalie",
+    "home_goalie_jersey",
+    "away_goalie_jersey",
+    "goalie_change",
+    "penalty",
+    "penalty_type",
+    "penalty_level",
+    "penalty_length",
+    "on_ice_situation",
+    "shot_type",
+    "shot_result",
+    "score",
+    "minute_start",
+    "second_start",
+    "clock",
+    "offensive_player_jersey_1",
+    "offensive_player_jersey_2",
+    "offensive_player_jersey_3",
+    "offensive_player_jersey_4",
+    "offensive_player_jersey_5",
+    "offensive_player_jersey_6",
+    "defensive_player_jersey_1",
+    "defensive_player_jersey_2",
+    "defensive_player_jersey_3",
+    "defensive_player_jersey_4",
+    "defensive_player_jersey_5",
+    "defensive_player_jersey_6",
+    "leader",
+    "away_goals",
+    "home_goals",
+    "sec_from_start",
+    "power_play_seconds",
+    "start_power_play",
+    "end_power_play",
+    "goalie_involved",
+    "time_elapsed",
+    "time_remaining",
+    "player_name_1",
+    "player_name_2",
+    "player_name_3",
+    "player_jersey_1",
+    "player_jersey_2",
+    "player_jersey_3",
+    "home_skaters",
+    "away_skaters"
+  )
+  x <- phf_pbp(game_id = 40863)
+  y <- phf_pbp(game_id = 268079)
+  z <- phf_pbp(game_id = 378721)
 
-  x <- fastRhockey::phf_pbp(game_id = 40863)
-  y <- fastRhockey::phf_pbp(game_id = 268079)
-  z <- fastRhockey::phf_pbp(game_id = 378721)
-
-  expect_equal(colnames(x), colnames(y))
-  expect_equal(colnames(x), colnames(z))
-  expect_equal(colnames(y), colnames(z))
+  expect_equal(colnames(x), cols)
+  expect_equal(colnames(y), cols)
+  expect_equal(colnames(z), cols)
   expect_s3_class(x, "data.frame")
   expect_s3_class(y, "data.frame")
   expect_s3_class(z, "data.frame")
