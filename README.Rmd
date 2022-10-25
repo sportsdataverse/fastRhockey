@@ -22,16 +22,16 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://img.shields.io/github/workflow/status/sportsdataverse/fastRhockey/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/actions/workflows/R-CMD-check.yaml) [![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/fastRhockey/)  [![Contributors](https://img.shields.io/github/contributors/sportsdataverse/fastRhockey?style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/graphs/contributors)
 <!-- badges: end -->
 
-[`fastRhockey`](https://github.com/sportsdataverse/fastRhockey) is an R Package that is designed to pull play-by-play (and boxscore) data from the newest version of the [Premier Hockey Federation (PHF) website](https://www.premierhockeyfederation.com/). In the past, there have been a few scrapers for the PHF (formerly the NWHL), but they've all been deprecated since the league changed website formats.                 
+[`fastRhockey`](https://github.com/sportsdataverse/fastRhockey) is an R Package that is designed to pull play-by-play (and boxscore) data from the newest version of the [Premier Hockey Federation (PHF) website](https://www.premierhockeyfederation.com/). In the past, there have been a few scrapers for the PHF (formerly the NWHL), but they have all been deprecated since the league changed website formats.                 
 
-With the seventh season of the league kicking off on November 6th, and games being broadcasted on ESPN+, this package was created to allow access to play-by-play data to continue pushing women's hockey analytics forward.                 
+With the seventh season of the league kicking off on November 6th, and games being broadcast on ESPN+, this package was created to allow access to play-by-play data to continue pushing women's hockey analytics forward.                 
 
 In Spring of 2021, the [Big Data Cup](https://www.theicegarden.com/2021/4/15/22374981/a-directory-of-womens-hockey-projects-from-big-data-cup-2021-analytics-otthac-stathletes) and the [data they made available](https://github.com/bigdatacup/Big-Data-Cup-2021) revolutionized what we were able to thanks to the detailed play-by-play data for the season and the x/y location data. That wave continued with the inaugural [WHKYHAC conference](https://www.whkyhac.com/) in July that produced some amazing conversations and projects in the women's hockey space.                   
 
 In the past, the lack of data and poor access to data have been the biggest barrier to entry in women's hockey analytics, a barrier that this package intends to alleviate.                   
 
 <center>
-<img src='man/figures/fastRhockey_full_holographic_graphic.png' width="70%" />
+<img src='https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png' width="70%" />
 
 
 </center>
