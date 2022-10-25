@@ -65,7 +65,7 @@ nhl_draft_prospects <- function(){
 
       draft_prospects_df <- draft_prospects_df %>%
         janitor::clean_names() %>%
-        dplyr::rename(prospect_id = .data$id) %>%
+        dplyr::rename("prospect_id" = "id") %>%
         as.data.frame() %>%
         make_fastRhockey_data("NHL Draft Prospects data from NHL.com",Sys.time())
 

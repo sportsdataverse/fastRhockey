@@ -32,7 +32,7 @@ nhl_teams <- function(){
       teams_df <- jsonlite::fromJSON(resp)[["teams"]]
       teams_df <- jsonlite::fromJSON(jsonlite::toJSON(teams_df),flatten=TRUE)
       teams_df <- teams_df %>%
-        dplyr::rename(team_id = .data$id) %>%
+        dplyr::rename("team_id" = "id") %>%
         janitor::clean_names() %>%
         make_fastRhockey_data("NHL Teams Information from NHL.com",Sys.time())
     },
