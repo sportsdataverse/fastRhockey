@@ -68,12 +68,12 @@ helper_phf_pbp_data <- function(data) {
   ice <- "Even Strength|Empty Net|Power Play|Extra Attacker|Short Handed"
   shots <- "Snap shot|Wrist shot|Penalty Shot"
   reb <- "blocked|saved|failed attempt"
-  pen <- "Holding the Stick|Holding|Tripping|Roughing|Hooking|Interference|Diving|Delay|Cross-Checking|Head Contact|Body Checking|Slashing|Check from Behind Misconduct|Checking from Behind|Checking|Ejection|Too Many Men|Delay of Game|Misconduct|Check|High-Sticking"
+  pen <- "Holding the Stick|Holding|Tripping|Roughing|Hooking|Interference|Diving|Delay|Cross-Checking|Head Contact|Body Checking|Slashing|Check from Behind Misconduct|Checking from Behind|Checking|Ejection|Too Many Men|Delay of Game|Misconduct|Check|High-Sticking|Game Misconduct"
   type <- "Minor|Major"
   score_string <- "[:digit:] - [:digit:] [A-Z]+|[:digit:] - [:digit:]"
   shoot <- "missed attempt against|scores against|Shootout|failed attempt"
   lgh <- "[:digit:] mins|[0-9]+ mins"
-  abbreviations <- "TOR|MIN|BOS|CTW|MET|BUF"
+  abbreviations <- "TOR|MIN|BOS|CTW|MET|BUF|MON"
   ne <- "On Ice"
 
 
