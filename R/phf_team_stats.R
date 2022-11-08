@@ -20,7 +20,7 @@ phf_team_stats <- function(team, season = most_recent_phf_season()){
   team_row <- league_info$teams %>%
     dplyr::filter(.data$name == team)
   team_id <- team_row %>%
-    dplyr::select(.data$id)
+    dplyr::select("id")
   base_url <- "https://web.api.digitalshift.ca/partials/stats/team/stats?team_id="
   full_url <- paste0(base_url,
                      team_id$id)
@@ -105,7 +105,7 @@ phf_team_stats <- function(team, season = most_recent_phf_season()){
       skaters <- dplyr::bind_cols(team_row, skaters)
       suppressWarnings(
         skaters <- skaters %>%
-          tidyr::separate(.data$`FoW/L`,into = c("faceoffs_won", "faceoffs_lost"),
+          tidyr::separate("FoW/L",into = c("faceoffs_won", "faceoffs_lost"),
                           sep = " - ", remove = FALSE) %>%
           dplyr::mutate_at(c("faceoffs_won","faceoffs_lost"), function(x){
             as.integer(x)

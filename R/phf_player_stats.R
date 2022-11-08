@@ -108,7 +108,7 @@ phf_player_stats <- function(player_id) {
       if(position != "Goalie"){
         suppressWarnings(
           yearly_stats <- yearly_stats %>%
-            tidyr::separate(.data$`FoW/L`,into = c("faceoffs_won", "faceoffs_lost"),
+            tidyr::separate("FoW/L",into = c("faceoffs_won", "faceoffs_lost"),
                             sep = " - ", remove = FALSE) %>%
             dplyr::mutate_at(c("faceoffs_won","faceoffs_lost"), function(x){
               as.integer(x)
@@ -116,7 +116,7 @@ phf_player_stats <- function(player_id) {
         )
         suppressWarnings(
           game_log_stats <- game_log_stats %>%
-            tidyr::separate(.data$`FoW/L`,into = c("faceoffs_won", "faceoffs_lost"),
+            tidyr::separate("FoW/L",into = c("faceoffs_won", "faceoffs_lost"),
                             sep = " - ", remove = FALSE) %>%
             dplyr::mutate_at(c("faceoffs_won","faceoffs_lost"), function(x){
               as.integer(x)

@@ -75,7 +75,7 @@ phf_leaders <- function(player_type, season = 2021, season_type="Regular Season"
       if(player_type=="players"){
         suppressWarnings(
           skaters <- skaters %>%
-            tidyr::separate(.data$`FoW/L`,into = c("faceoffs_won", "faceoffs_lost"),
+            tidyr::separate("FoW/L",into = c("faceoffs_won", "faceoffs_lost"),
                             sep = " - ", remove = FALSE) %>%
             dplyr::mutate_at(c("faceoffs_won","faceoffs_lost"), function(x){
               as.integer(x)

@@ -20,7 +20,7 @@ phf_team_roster <- function(team, season = most_recent_phf_season()){
   team_row <- league_info$teams %>%
     dplyr::filter(.data$name == team)
   team_id <- team_row %>%
-    dplyr::select(.data$id)
+    dplyr::select("id")
   base_url <- "https://web.api.digitalshift.ca/partials/stats/team/roster?team_id="
   full_url <- paste0(base_url,
                      team_id$id)

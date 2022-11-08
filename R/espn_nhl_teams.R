@@ -48,8 +48,11 @@ espn_nhl_teams <- function(){
         dplyr::group_by(.data$id) %>%
         tidyr::unnest_wider("logos", names_sep = "_") %>%
         tidyr::unnest_wider("logos_href", names_sep = "_") %>%
-        dplyr::select(-"logos_width",-"logos_height",
-                      -"logos_alt", -"logos_rel") %>%
+        dplyr::select(
+          -"logos_width",
+          -"logos_height",
+          -"logos_alt",
+          -"logos_rel") %>%
         dplyr::ungroup()
       if("records" %in% colnames(leagues)){
         records <- leagues$record
@@ -69,19 +72,22 @@ espn_nhl_teams <- function(){
         })
 
         s <- tibble::tibble(g = s)
-        stats <- s %>% unnest_wider(.data$g)
+        stats <- s %>%
+          tidyr::unnest_wider("g")
 
         records <- dplyr::bind_cols(records %>% dplyr::select("summary"), stats)
-        leagues <- leagues %>% dplyr::select(
-          -"record"
-        )
+        leagues <- leagues %>%
+          dplyr::select(
+            -"record"
+          )
       }
-      leagues <- leagues %>% dplyr::select(
-        -"links",
-        -"isActive",
-        -"isAllStar",
-        -"uid",
-        -"slug")
+      leagues <- leagues %>%
+        dplyr::select(
+          -"links",
+          -"isActive",
+          -"isAllStar",
+          -"uid",
+          -"slug")
       teams <- leagues %>%
         dplyr::rename(
           "logo" = "logos_href_1",
