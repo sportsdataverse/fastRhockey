@@ -93,22 +93,29 @@
     <a class="external-link dropdown-item" href="https://cfbfastR.sportsdataverse.org/">cfbfastR</a>
     <a class="external-link dropdown-item" href="https://hoopR.sportsdataverse.org/">hoopR</a>
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
-    <a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a>
     <a class="dropdown-item" href="https://fastRhockey.sportsdataverse.org/">fastRhockey</a>
+    <a class="external-link dropdown-item" href="https://hockeyr.netlify.app/">hockeyR</a>
+    <a class="external-link dropdown-item" href="https://abhiamishra.github.io/ggshakeR/">ggshakeR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://usfootballR.sportsdataverse.org/">usfootballR</a>
+    <a class="external-link dropdown-item" href="https://github.com/Dato-Futbol/soccerAnimate/">soccerAnimate</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://oddsapiR.sportsdataverse.org/">oddsapiR</a>
     <a class="external-link dropdown-item" href="https://sportyR.sportsdataverse.org/">sportyR</a>
+    <a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a>
     <a class="external-link dropdown-item" href="https://cfbplotR.sportsdataverse.org/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://github.com/camdenk/mlbplotR">mlbplotR</a>
     <a class="external-link dropdown-item" href="https://cfb4th.sportsdataverse.org/">cfb4th</a>
-    <a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a>
     <a class="external-link dropdown-item" href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
+    <a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a>
     <a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>Python Packages</h6>
     <a class="external-link dropdown-item" href="https://py.sportsdataverse.org/">sportsdataverse-py</a>
+    <a class="external-link dropdown-item" href="https://sportypy.sportsdataverse.org/">sportypy</a>
+    <a class="external-link dropdown-item" href="https://github.com/sportsdataverse/recruitR-py/">recruitR-py</a>
+    <a class="external-link dropdown-item" href="https://collegebaseball.readthedocs.io/en/latest/index.html">collegebaseball</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>Node.js Packages</h6>
     <a class="external-link dropdown-item" href="https://js.sportsdataverse.org/">sportsdataverse.js</a>
@@ -150,7 +157,9 @@
   </div>
 </nav><div class="container template-article">
 
-<div class="row">
+
+
+<script src="introduction_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>FastRhockey Walkthrough</h1>
                         <h4 data-toc-skip class="author">Ben Howell <br><a href="https://twitter.com/benhowell71" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/benhowell71?color=blue&amp;label=%40benhowell71&amp;logo=twitter&amp;style=for-the-badge" alt="@benhowell71"></a> <a href="https://github.com/benhowell71" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/benhowell71?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@benhowell71"></a>
@@ -203,7 +212,7 @@
 <span>                <span class="va">home_score</span>, <span class="va">away_score</span>,</span>
 <span>                <span class="va">winner</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── PHF Schedule Information from PremierHockeyFederation.com ───────────────────</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-10-25 21:51:21 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-11-08 10:26:24 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 9</span></span></span>
 <span><span class="co">#&gt;   game_id date_group facility     game_…¹ home_…² away_…³ home_…⁴ away_…⁵ winner</span></span>
 <span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
@@ -224,7 +233,7 @@
 <span>                <span class="va">successful_power_play</span>, <span class="va">power_play_opportunities</span>,</span>
 <span>                <span class="va">faceoff_percent</span>, <span class="va">takeaways</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── PHF Team Boxscore Information from PremierHockeyFederation.com ──────────────</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-10-25 21:51:26 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-11-08 10:26:29 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 8</span></span></span>
 <span><span class="co">#&gt;   game_id team  total_scoring total_shots successful_p…¹ power…² faceo…³ takea…⁴</span></span>
 <span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -240,7 +249,7 @@
 <span><span class="va">pbp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/phf_pbp.html">phf_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span>
 <span>  </span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="va">a</span></span>
-<span><span class="co">#&gt; Time difference of 3.587876 secs</span></span></code></pre></div>
+<span><span class="co">#&gt; Time difference of 3.93773 secs</span></span></code></pre></div>
 <p>Loading a single game should take ~ 5 seconds. Once it does, it’s time to have some fun. The <code>phf_pbp</code> function returns 78 columns, some with “boring” data, like who the teams are, etc. But then you get to the columns that look at how much time is remaining in a quarter, what the home skater vs away skater numbers are, what event occurred, who was involved, and so on.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">pbp</span><span class="op">)</span></span>
@@ -355,7 +364,11 @@
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">scale_x_continuous</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1200</span>, <span class="fl">2400</span>, <span class="fl">3600</span>, <span class="fl">3800</span><span class="op">)</span>,</span>
 <span>                     labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"End 1st"</span>, <span class="st">"End 2nd"</span>, <span class="st">"End 3rd"</span>, <span class="st">" "</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_y_continuous</span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">40</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu">scale_y_continuous</span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">40</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Please use `linewidth` instead.</span></span>
+<span><span class="co">#&gt; Warning: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Please use the `linewidth` argument instead.</span></span></code></pre></div>
 <p><img src="../reference/figures/introduction-phf_intro_figure-1.png" width="100%"><img src="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/introduction-phf_intro_figure-1.png"></p>
 <p>It’s a simple graph, but one that can easily help illustrate game flow. The Pride’s shots came in bunches, taking a ton about halfway through the first and third periods respectively. Minnesota started the game slowly, but their shots came fairly consistently throughout the game.</p>
 <p>There’s so much more that can be explored from this play-by-play data, whether you want to explore how winning a faceoff leads to a shot attempt or the chaos that can follow giveaways.</p>
@@ -398,12 +411,12 @@
 </h2>
 <p>To cite the <a href="https://fastRhockey.sportsdataverse.org/"><strong><code>fastRhockey</code></strong></a> R package in publications, use:</p>
 <p>BibTex Citation</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><a class="sourceLine" id="cb8-1" title="1"><span class="va">@misc</span>{<span class="ot">howell_gilani_fastRhockey_2021</span>,</a>
-<a class="sourceLine" id="cb8-2" title="2">  <span class="dt">author</span> = {Ben Howell and Saiem Gilani},</a>
-<a class="sourceLine" id="cb8-3" title="3">  <span class="dt">title</span> = {fastRhockey: The SportsDataverse's R Package for Hockey Data.},</a>
-<a class="sourceLine" id="cb8-4" title="4">  <span class="dt">url</span> = {https://fastRhockey.sportsdataverse.org/},</a>
-<a class="sourceLine" id="cb8-5" title="5">  <span class="dt">year</span> = {2021}</a>
-<a class="sourceLine" id="cb8-6" title="6">}</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb8-1"><a href="#cb8-1"></a><span class="va">@misc</span>{<span class="ot">howell_gilani_fastRhockey_2021</span>,</span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="dt">author</span> = {Ben Howell and Saiem Gilani},</span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="dt">title</span> = {fastRhockey: The SportsDataverse's R Package for Hockey Data.},</span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="dt">url</span> = {https://fastRhockey.sportsdataverse.org/},</span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="dt">year</span> = {2021}</span>
+<span id="cb8-6"><a href="#cb8-6"></a>}</span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
