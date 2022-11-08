@@ -1,7 +1,7 @@
 ## Release summary
 
 This is a minor release that 
-* Updates select statements to use quotations on columns instead of .data$ per tidyselect depreciation notice.
+* Updates tidyr and dplyr statements to use quotations on columns instead of data masking per tidyselect deprecation notice.
 
 ## R CMD check results
 
