@@ -22,7 +22,7 @@ phf_team_box <- function(game_id) {
       y <- game_id
 
       # load raw data from API
-      df <- phf_game_raw(game_id = game_id)
+      df <- phf_game_raw(game_id = y)
 
       # turn raw data into a boxscore format
       df <- helper_phf_team_box(data = df)
