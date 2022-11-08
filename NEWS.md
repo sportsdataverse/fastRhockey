@@ -1,3 +1,8 @@
+# **fastRhockey 0.4.1**
+
+* Minor logic addition for pbp parsing
+* More under the hood changes to adapt to tidyselect new version guidelines
+
 # **fastRhockey 0.4.0**
 
 * Updates logic to add Montreal Force to teams lists/parsing
