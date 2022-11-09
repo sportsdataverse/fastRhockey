@@ -180,6 +180,7 @@ reference:
       - '`load_phf_pbp`'
       - '`load_phf_team_box`'
       - '`load_phf_player_box`'
+      - '`load_phf_rosters`'
       - '`load_phf_schedule`'
   - subtitle: "Update or Create Database"
     desc: Functions exported by fastRhockey which update and create a database of fastRhockey PHF play-by-play data
@@ -191,6 +192,7 @@ reference:
       - '`load_nhl_pbp`'
       - '`load_nhl_team_box`'
       - '`load_nhl_player_box`'
+      - '`load_nhl_rosters`'
       - '`load_nhl_schedule`'
   - subtitle: "Update or Create Database"
     desc: Functions exported by fastRhockey which update and create a database of fastRhockey NHL play-by-play data
