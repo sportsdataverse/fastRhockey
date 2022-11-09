@@ -10,7 +10,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#'    try(phf_team_roster(team = "Boston Pride", season = 2022))
+#'    try(phf_team_roster(team = "Montreal Force", season = 2023))
 #' }
 
 phf_team_roster <- function(team, season = most_recent_phf_season()){
@@ -62,14 +62,15 @@ phf_team_roster <- function(team, season = most_recent_phf_season()){
       roster_df <- dplyr::bind_cols(roster, roster_href)
 
       roster_df <- dplyr::bind_cols(team_row, roster_df)
-
+      roster_cols <- c(
+        "team_id" = "id",
+        "team_name" = "name",
+        "player_jersey" = "#",
+        "player_name" = "Name",
+        "position" = "POS"
+      )
       roster_df <- roster_df %>%
-        dplyr::rename(
-          "team_id" = "id",
-          "team_name" = "name",
-          "player_jersey" = "#",
-          "player_name" = "Name",
-          "position" = "POS") %>%
+        dplyr::rename(dplyr::any_of(roster_cols)) %>%
         dplyr::mutate(
           player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
           player_id = as.integer(stringr::str_extract(.data$player_href, "\\d+"))) %>%
@@ -77,12 +78,14 @@ phf_team_roster <- function(team, season = most_recent_phf_season()){
         make_fastRhockey_data("PHF Roster Information from PremierHockeyFederation.com",Sys.time())
 
       team_staff_df <- dplyr::bind_cols(team_row, team_staff)
+      staff_cols <- c(
+        "team_id" = "id",
+        "team_name" = "name",
+        "staff_name" = "Name",
+        "staff_type" = "Type"
+      )
       team_staff_df <- team_staff_df %>%
-        dplyr::rename(
-          "team_id" = "id",
-          "team_name" = "name",
-          "staff_name" = "Name",
-          "staff_type" = "Type") %>%
+        dplyr::rename(dplyr::any_of(staff_cols)) %>%
         janitor::clean_names() %>%
         make_fastRhockey_data("PHF Team Staff Information from PremierHockeyFederation.com",Sys.time())
 

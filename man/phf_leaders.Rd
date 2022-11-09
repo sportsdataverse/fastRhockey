@@ -4,7 +4,11 @@
 \alias{phf_leaders}
 \title{\strong{PHF Player Leaderboards}}
 \usage{
-phf_leaders(player_type, season = 2021, season_type = "Regular Season")
+phf_leaders(
+  player_type,
+  season = most_recent_phf_season(),
+  season_type = "Regular Season"
+)
 }
 \arguments{
 \item{player_type}{Player type: skaters, goalies}

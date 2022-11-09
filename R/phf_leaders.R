@@ -15,7 +15,7 @@
 #'  try(phf_leaders(player_type = "goalies", season = 2022, season_type="Regular Season"))
 #' }
 
-phf_leaders <- function(player_type, season = 2021, season_type="Regular Season"){
+phf_leaders <- function(player_type, season = most_recent_phf_season(), season_type="Regular Season"){
 
   league_info <- phf_league_info(season=season)
   season_id <- phf_get_season_id(season=season)

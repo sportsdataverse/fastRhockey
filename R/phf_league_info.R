@@ -12,7 +12,7 @@
 #' @examples \donttest{
 #'   try(phf_league_info(season = 2021))
 #' }
-phf_league_info <- function(season = 2022){
+phf_league_info <- function(season = most_recent_phf_season()){
 
   season_id <- phf_get_season_id(season=season)
   base_url <- "https://web.api.digitalshift.ca/partials/stats/filters?type=season&id="

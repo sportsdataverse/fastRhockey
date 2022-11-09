@@ -19,6 +19,6 @@ PHF Team Roster lookup
 }
 \examples{
 \donttest{
-   try(phf_team_roster(team = "Boston Pride", season = 2022))
+   try(phf_team_roster(team = "Montreal Force", season = 2023))
 }
 }

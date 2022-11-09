@@ -13,7 +13,7 @@
 #'   try(phf_schedule(season=2022))
 #' }
 
-phf_schedule <- function(season){
+phf_schedule <- function(season = most_recent_phf_season()){
   season_id <- phf_get_season_id(season=season)
 
   base_url <- "https://web.api.digitalshift.ca/partials/stats/schedule/table?limit=100&all=true&season_id="
