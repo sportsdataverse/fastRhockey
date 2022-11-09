@@ -12,7 +12,7 @@ load_phf_rosters(
 )
 }
 \arguments{
-\item{seasons}{A vector of 4-digit years associated with given PHF seasons. (Min: 2011)}
+\item{seasons}{A vector of 4-digit years associated with given PHF seasons. (Min: 2021)}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database (used by \code{update_phf_db()}).}

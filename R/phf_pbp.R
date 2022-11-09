@@ -204,7 +204,7 @@ NULL
 #' @rdname load_phf_rosters
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given PHF seasons. (Min: 2011)
+#' @param seasons A vector of 4-digit years associated with given PHF seasons. (Min: 2021)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_phf_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -224,10 +224,10 @@ load_phf_rosters <- function(seasons = most_recent_phf_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if(isTRUE(seasons)) seasons <- 2016:most_recent_phf_season()
+  if(isTRUE(seasons)) seasons <- 2021:most_recent_phf_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2016,
+            seasons >= 2021,
             seasons <= most_recent_phf_season())
 
   urls <- paste0("https://raw.githubusercontent.com/saiemgilani/fastRhockey-data/main/phf/rosters/rds/rosters_",seasons,".rds")
