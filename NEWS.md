@@ -2,6 +2,8 @@
 
 * Minor logic addition for pbp parsing
 * More under the hood changes to adapt to tidyselect new version guidelines
+* ```load_phf_rosters()``` function added.
+* ```load_nhl_rosters()``` function added.
 
 # **fastRhockey 0.4.0**
 
