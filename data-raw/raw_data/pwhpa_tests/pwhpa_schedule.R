@@ -82,7 +82,6 @@ pwhpa_schedule <- function() {
     game_info <- g[[id]] %>%
       rvest::html_nodes("td")
 
-
     game_df <- process_game_info(game_info = game_info)
 
     lst[[id]] <- game_df
