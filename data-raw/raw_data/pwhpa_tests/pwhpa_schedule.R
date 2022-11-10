@@ -10,7 +10,7 @@ process_game_info <- function(game_info) {
   home_tm <- stringr::str_trim(html_text(game_info[[2]]))
   away_tm <- stringr::str_trim(html_text(game_info[[4]]))
 
-  if (grepl("pm", html_text(game_info[[3]]))) {
+  if (grepl("pm|am", html_text(game_info[[3]]))) {
 
     home_scr <- NA
     away_scr <- NA
@@ -47,6 +47,18 @@ process_game_info <- function(game_info) {
 
 }
 
+#' @title  **PWHPA Schedule**
+#' @description PWHPA Schedule lookup
+#'
+#' @return A data frame with schedule data
+#' @import rvest
+#' @import dplyr
+#' @import httr
+#' @export
+#' @examples
+#' \donttest{
+#'   try(pwhpa_schedule(season=2022))
+#' }
 pwhpa_schedule <- function() {
 
   full_url <- "https://stats.pwhpa.com/calendar/secret-dream-gap-tour-schedule/"
@@ -83,4 +95,4 @@ pwhpa_schedule <- function() {
 
 }
 
-df <- pwhpa_schedule()
+# df <- pwhpa_schedule()
