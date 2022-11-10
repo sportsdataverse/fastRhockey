@@ -1,45 +1,38 @@
-library(tidyverse)
-library(rvest)
-library(httr)
 
-process_roster <- function(player) {
+process_member_info <- function(player_info) {
   
-  number <- html_text(player[[1]])
-  name <- html_text(player[[2]])
+  number <- html_text(player_info[[1]])
+  name <- html_text(player_info[[2]])
+  player_link <- player_info[[2]] %>% html_node("a") %>% html_attr("href")
+  
   first_name <- stringr::str_split(name, " ")[[1]][1]
   last_name <- stringr::str_split(name, " ")[[1]][2]
-  position <- html_text(player[[3]])
-  hand <- html_text(player[[4]])
-  gp <- html_text(player[[5]])
-  g <- html_text(player[[6]])
-  a <- html_text(player[[7]])
-  pts <- html_text(player[[8]])
-  pim <- html_text(player[[9]])
-  gw <- html_text(player[[10]])
-  gaa <- html_text(player[[11]])
-  sv_pct <- html_text(player[[12]])
-  so <- html_text(player[[13]])
-  home_town <- html_text(player[[14]])
-  college <- html_text(player[[15]])
+  
+  link <- player_info[[3]] %>% html_node("a") %>% html_attr("href")
+  team_id <- stringr::str_remove(stringr::str_remove(link, "https://stats.pwhpa.com/team/"), "/")
+  
+  position <- html_text(player_info[[4]])
+  dob <- html_text(player_info[[5]])
+  age <- html_text(player_info[[6]])
+  home_town <- html_text(player_info[[7]])
+  college <- html_text(player_info[[8]])
+  
+  # player_headshot <- paste0("https://stats.pwhpa.com/wp-content/uploads/2022/10/",
+  #                           last_name,
+  #                           "-300x300.jpg")
   
   player_df <- data.frame(
     player_name = c(name),
     first_name = c(first_name),
     last_name = c(last_name),
+    team_id = c(team_id),
     position = c(position),
     number = c(number),
-    hand = c(hand),
-    gp = c(gp),
-    goals = c(g),
-    assists = c(a),
-    points = c(pts),
-    penalty_minutes = c(pim),
-    games_won = c(gw),
-    gaa = c(gaa),
-    save_pct = c(sv_pct),
-    shutouts = c(so),
+    date_of_birth = c(dob),
+    age = c(age),
     home_town = c(home_town),
-    college = c(college)
+    college = c(college),
+    player_page = c(player_link)
   )
   
   return(player_df)
@@ -48,50 +41,65 @@ process_roster <- function(player) {
 
 pwhpa_roster <- function(team) {
   
-  base_url <- "https://stats.pwhpa.com/team/"
-  full_url <- paste0(base_url,
-                     team, 
-                     "/")
+  full_url <- "https://stats.pwhpa.com/members/"
   
   res <- httr::RETRY("GET", full_url)
   
-  lst <- res %>%
+  img <- res %>%
+    httr::content(as = "text", encoding="utf-8") %>%
+    # purrr::pluck("content") %>%
+    rvest::read_html() %>%
+    rvest::html_elements("section")
+  
+  body <- res %>%
     httr::content(as = "text", encoding="utf-8") %>%
     # purrr::pluck("content") %>%
     rvest::read_html() %>%
     rvest::html_elements("tbody")
   
-  tms <- lst[1] %>%
-    rvest::html_nodes("tr")
+  body <- body[[1]] %>% html_nodes("tr")
   
-  lst <- list()
+  mem <- list()
   
-  for (id in 1:length(tms)) {
+  for (id in 1:length(body)) {
+    player_info <- body[[id]] %>% html_nodes("td")
     
-    line <- tms[[id]] %>% html_nodes("td")
+    player <- process_member_info(player_info = player_info)
     
-    # print(length(line))
-    if (length(line) > 0) {
-      if (str_detect(paste(line[[1]]), "data-number")) {
-  
-        player <- process_roster(player = line) %>%
-          dplyr::mutate(team = team,
-                        season = 2022)
-  
-      } else {
-        next
-      }
-    } else {
-      next
-    }
-
-    lst[[id]] <- player
-    
+    mem[[id]] <- player
   }
   
-  roster <- dplyr::bind_rows(lst) %>%
+  player_data <- dplyr::bind_rows(mem)
+  
+  # img[[3]] %>% html_nodes("*") %>% html_attr("class") %>% unique()
+  # gallery-icon portrait
+  
+  headshot <- img[[3]] %>% html_nodes("img") %>% html_attr("src") %>% data.frame() %>% dplyr::rename("player_headshot" = ".")
+  player_pages <- img[[3]] %>%
+    html_nodes("a") %>% 
+    html_attr("href") %>% 
+    data.frame() %>% 
+    dplyr::rename("player_link" = ".") %>% 
+    distinct() %>%
+    dplyr::mutate(index = row_number())
+  
+  players <- headshot %>% 
+    dplyr::slice_head(n = nrow(player_pages)) %>%
+    dplyr::mutate(index = row_number()) %>%
+    dplyr::left_join(player_pages, by = c("index")) %>%
+    dplyr::select(-c(index))
+  
+  team_roster <- player_data %>% 
+    dplyr::left_join(players, by = c("player_page" = "player_link"))
+  
+  if (! team %in% c("All", "PWHPA", "all", "pwhpa")) {
+    team_roster <- team_roster %>%
+      dplyr::filter(team_id == team)
+  }
+  
+  team_roster <- team_roster %>%
     tibble()
   
-  return(roster)
+  return(team_roster)
   
 }
