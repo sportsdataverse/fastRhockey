@@ -3,7 +3,7 @@ library(rvest)
 library(httr)
 
 process_roster <- function(player) {
-  
+
   number <- html_text(player[[1]])
   name <- html_text(player[[2]])
   first_name <- stringr::str_split(name, " ")[[1]][1]
@@ -21,7 +21,7 @@ process_roster <- function(player) {
   so <- html_text(player[[13]])
   home_town <- html_text(player[[14]])
   college <- html_text(player[[15]])
-  
+
   player_df <- data.frame(
     player_name = c(name),
     first_name = c(first_name),
@@ -41,43 +41,43 @@ process_roster <- function(player) {
     home_town = c(home_town),
     college = c(college)
   )
-  
+
   return(player_df)
-  
+
 }
 
 pwhpa_team_stats <- function(team) {
-  
+
   base_url <- "https://stats.pwhpa.com/team/"
   full_url <- paste0(base_url,
-                     team, 
+                     team,
                      "/")
-  
+
   res <- httr::RETRY("GET", full_url)
-  
-  lst <- res %>%
+
+  lst1 <- res %>%
     httr::content(as = "text", encoding="utf-8") %>%
     # purrr::pluck("content") %>%
     rvest::read_html() %>%
     rvest::html_elements("tbody")
-  
-  tms <- lst[1] %>%
+
+  tms <- lst1[[2]] %>%
     rvest::html_nodes("tr")
-  
+
   lst <- list()
-  
+
   for (id in 1:length(tms)) {
-    
+
     line <- tms[[id]] %>% html_nodes("td")
-    
+
     # print(length(line))
     if (length(line) > 0) {
       if (str_detect(paste(line[[1]]), "data-number")) {
-  
+
         player <- process_roster(player = line) %>%
           dplyr::mutate(team = team,
                         season = 2022)
-  
+
       } else {
         next
       }
@@ -86,12 +86,12 @@ pwhpa_team_stats <- function(team) {
     }
 
     lst[[id]] <- player
-    
+
   }
-  
+
   roster <- dplyr::bind_rows(lst) %>%
     tibble()
-  
+
   return(roster)
-  
+
 }
