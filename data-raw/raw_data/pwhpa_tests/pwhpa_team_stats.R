@@ -50,7 +50,7 @@ pwhpa_team_stats <- function(team) {
 
   base_url <- "https://stats.pwhpa.com/team/"
   full_url <- paste0(base_url,
-                     team,
+                     tolower(team),
                      "/")
 
   res <- httr::RETRY("GET", full_url)
@@ -90,7 +90,7 @@ pwhpa_team_stats <- function(team) {
   }
 
   roster <- dplyr::bind_rows(lst) %>%
-    tibble()
+    tibble::as_tibble()
 
   return(roster)
 

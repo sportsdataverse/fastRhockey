@@ -1,3 +1,4 @@
+library(tidyverse)
 
 process_member_info <- function(player_info) {
 
@@ -100,11 +101,11 @@ pwhpa_roster <- function(team) {
 
   if (! team %in% c("All", "PWHPA", "all", "pwhpa")) {
     team_roster <- team_roster %>%
-      dplyr::filter(team_id == team)
+      dplyr::filter(team_id == tolower(team))
   }
 
   team_roster <- team_roster %>%
-    dplyr::tibble()
+    tibble::as_tibble()
 
   return(team_roster)
 

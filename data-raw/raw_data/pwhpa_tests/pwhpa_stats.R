@@ -1,4 +1,6 @@
 
+library(tidyverse)
+
 process_stats <- function(pos, player_info) {
 
   if (pos == "skaters") {
@@ -43,7 +45,7 @@ process_stats <- function(pos, player_info) {
     first_name <- stringr::str_split(name, " ")[[1]][1]
     last_name <- stringr::str_split(name, " ")[[1]][2]
 
-    # link <- player_info[[3]] %>% rvest::html_node("a") %>% rvest::html_attr("href")
+    link <- player_info[[3]] %>% rvest::html_node("a") %>% rvest::html_attr("href")
     team_id <- stringr::str_remove(stringr::str_remove(link, "https://stats.pwhpa.com/team/"), "/")
 
     gp <- rvest::html_text(player_info[[4]])
@@ -88,15 +90,11 @@ pwhpa_stats <- function(position = "skaters") {
 
   if (position == "skaters") {
 
-    full_url <- paste0(base_url,
-                       "scoring-leaders",
-                       "/")
+    full_url <- "https://stats.pwhpa.com/list/scoring-leaders/"
 
   } else if (position == "goalies") {
 
-    full_url <- paste0(base_url,
-                       "goaltending",
-                       "/")
+    full_url <- "https://stats.pwhpa.com/list/goaltending/"
 
   }
 
@@ -121,7 +119,8 @@ pwhpa_stats <- function(position = "skaters") {
     stats[[id]] <- player
   }
 
-  stats <- dplyr::bind_rows(stats)
+  stats <- dplyr::bind_rows(stats) %>%
+    tibble::as_tibble()
 
   return(stats)
 

@@ -51,11 +51,13 @@ phf_pbp <- function(game_id) {
               return(x)
             }
           }),is.null)]
+
       if(length(plays_data) %in% c(5,6)){
         plays_data <- plays_data[1:5]
       } else if(length(plays_data)>6) {
         plays_data
       }
+
       plays_df <- purrr::map_dfr(1:length(plays_data), function(x){
         plays_data[[x]] %>%
           helper_phf_pbp_normalize_columns() %>%
