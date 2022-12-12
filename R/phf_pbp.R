@@ -33,7 +33,7 @@ load_phf_pbp <- function(seasons = most_recent_phf_season(),...,
             seasons >= 2016,
             seasons <= most_recent_phf_season())
 
-  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/fastRhockey-data/main/phf/pbp/rds/play_by_play_",seasons,".rds")
+  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/fastRhockey-data/main/phf/pbp/rds/play_by_play_",seasons,".rds")
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -82,7 +82,7 @@ load_phf_team_box <- function(seasons = most_recent_phf_season(), ...,
             seasons >= 2016,
             seasons <= most_recent_phf_season())
 
-  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/fastRhockey-data/main/phf/team_box/rds/team_box_",seasons,".rds")
+  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/fastRhockey-data/main/phf/team_box/rds/team_box_",seasons,".rds")
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -129,7 +129,7 @@ load_phf_player_box <- function(seasons = most_recent_phf_season(), ...,
             seasons >= 2016,
             seasons <= most_recent_phf_season())
 
-  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/fastRhockey-data/main/phf/player_box/rds/player_box_",seasons,".rds")
+  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/fastRhockey-data/main/phf/player_box/rds/player_box_",seasons,".rds")
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -179,7 +179,7 @@ load_phf_schedule <- function(seasons = most_recent_phf_season(), ...,
             seasons >= 2016,
             seasons <= most_recent_phf_season())
 
-  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/fastRhockey-data/main/phf/schedules/rds/phf_schedule_",seasons,".rds")
+  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/fastRhockey-data/main/phf/schedules/rds/phf_schedule_",seasons,".rds")
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -230,7 +230,7 @@ load_phf_rosters <- function(seasons = most_recent_phf_season(), ...,
             seasons >= 2021,
             seasons <= most_recent_phf_season())
 
-  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/fastRhockey-data/main/phf/rosters/rds/rosters_",seasons,".rds")
+  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/fastRhockey-data/main/phf/rosters/rds/rosters_",seasons,".rds")
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -249,7 +249,7 @@ load_phf_rosters <- function(seasons = most_recent_phf_season(), ...,
 
 # load games file
 load_phf_games <- function(){
-  .url <- "https://raw.githubusercontent.com/saiemgilani/fastRhockey-data/main/phf/phf_games_in_data_repo.csv"
+  .url <- "https://raw.githubusercontent.com/sportsdataverse/fastRhockey-data/main/phf/phf_games_in_data_repo.csv"
   con <- url(.url)
   dat <- utils::read.csv(con)
   # close(con)
