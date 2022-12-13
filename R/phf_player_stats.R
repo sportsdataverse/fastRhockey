@@ -50,6 +50,10 @@ phf_player_stats <- function(player_id) {
       player_name <- resp_all %>%
         rvest::html_elements(".title") %>%
         rvest::html_text()
+      player_image <- resp_all %>%
+        rvest::html_elements(".photo") %>%
+        rvest::html_elements("img") %>%
+        rvest::html_attr("src")
       position <- resp_all %>%
         rvest::html_elements(".subtitle") %>%
         rvest::html_text()
@@ -84,18 +88,21 @@ phf_player_stats <- function(player_id) {
         player_name = player_name,
         player_id = player_id,
         position = position,
+        player_image_href = player_image,
         team_href = regular_season_href,
         season_type = "Regular Season")
       playoffs_href <- data.frame(
         player_name = player_name,
         player_id = player_id,
         position = position,
+        player_image_href = player_image,
         team_href = playoffs_href,
         season_type = "Playoffs")
       player_game_log_href <- data.frame(
         player_name = player_name,
         player_id = player_id,
         position = position,
+        player_image_href = player_image,
         game_href = player_game_log_href)
 
       regular_season_stats <- dplyr::bind_cols(regular_season_stats, regular_season_href)
@@ -154,8 +161,7 @@ phf_player_stats <- function(player_id) {
       game_log_stats <- game_log_stats %>%
         dplyr::rename(
           "date" = "Date",
-          "opponent" = "Opponent",
-          "result" = "Result",
+          "game" = "Game",
           "goals" = "G",
           "assists" = "A",
           "points" = "Pts",
@@ -193,8 +199,7 @@ phf_player_stats <- function(player_id) {
       game_log_stats <- game_log_stats %>%
         dplyr::rename(
           "date" = "Date",
-          "opponent" = "Opponent",
-          "result" = "Result",
+          "game" = "Game",
           "shots_against" = "SA",
           "goals_against" = "GA",
           "saves" = "Sv",
