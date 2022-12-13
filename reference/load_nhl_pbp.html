@@ -179,20 +179,20 @@ the season data into a database (used by <code><a href="update_nhl_db.html">upda
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">load_nhl_pbp</span><span class="op">(</span><span class="fl">2021</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Play-by-Play Information from fastRhockey data repository ───────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-03-24 12:28:07 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-11-09 17:27:38 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 294,937 × 37</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    result_event  resul…¹ resul…² resul…³ about…⁴ about…⁵ about…⁶ about…⁷ about…⁸</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Game Schedul… PHI1    GAME_S… Game S…       0       1       1 REGULAR 1st    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Period Ready  PHI5    PERIOD… Period…       1       5       1 REGULAR 1st    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Period Start  PHI51   PERIOD… Period…       2      51       1 REGULAR 1st    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Faceoff       PHI52   FACEOFF Sidney…       3      52       1 REGULAR 1st    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Shot          PHI53   SHOT    Travis…       4      53       1 REGULAR 1st    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Takeaway      PHI8    TAKEAW… Takeaw…       5       8       1 REGULAR 1st    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Blocked Shot  PHI54   BLOCKE… Sean C…       6      54       1 REGULAR 1st    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Shot          PHI9    SHOT    Evan R…       7       9       1 REGULAR 1st    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Hit           PHI10   HIT     Kevin …       8      10       1 REGULAR 1st    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Hit           PHI11   HIT     Joel F…       9      11       1 REGULAR 1st    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Game Schedul… TBL1    GAME_S… Game S…       0       1       1 REGULAR 1st    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Period Ready  TBL5    PERIOD… Period…       1       5       1 REGULAR 1st    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Period Start  TBL51   PERIOD… Period…       2      51       1 REGULAR 1st    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Faceoff       TBL52   FACEOFF Jake E…       3      52       1 REGULAR 1st    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Stoppage      TBL8    STOP    Puck i…       4       8       1 REGULAR 1st    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Faceoff       TBL53   FACEOFF Anthon…       5      53       1 REGULAR 1st    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Hit           TBL9    HIT     Steven…       6       9       1 REGULAR 1st    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Takeaway      TBL10   TAKEAW… Takeaw…       7      10       1 REGULAR 1st    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Hit           TBL11   HIT     Brenda…       8      11       1 REGULAR 1st    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Stoppage      TBL12   STOP    Goalie…      10      12       1 REGULAR 1st    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 294,927 more rows, 28 more variables: about_period_time &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   about_period_time_remaining &lt;chr&gt;, about_date_time &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   about_goals_away &lt;int&gt;, about_goals_home &lt;int&gt;, coordinates_x &lt;int&gt;,</span></span>

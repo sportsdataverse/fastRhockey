@@ -20,7 +20,7 @@
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="FastRhockey Walkthrough">
 <meta property="og:description" content="Getting started with using &lt;code&gt;fastRhockey&lt;/code&gt; and Premier Hockey Federation data.">
-<meta property="og:image" content="https://github.com/saiemgilani/fastRhockey-data/blob/main/themes/fastRhockey_card.png?raw=true">
+<meta property="og:image" content="https://github.com/sportsdataverse/fastRhockey-data/blob/main/themes/fastRhockey_card.png?raw=true">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@benhowell71">
 <meta name="twitter:site" content="@sportsdataverse">
@@ -159,10 +159,13 @@
 
 
 
-<script src="introduction_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+
+<div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>FastRhockey Walkthrough</h1>
-                        <h4 data-toc-skip class="author">Ben Howell <br><a href="https://twitter.com/benhowell71" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/benhowell71?color=blue&amp;label=%40benhowell71&amp;logo=twitter&amp;style=for-the-badge" alt="@benhowell71"></a> <a href="https://github.com/benhowell71" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/benhowell71?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@benhowell71"></a>
+                        <h4 data-toc-skip class="author">Ben Howell
+<br><a href="https://twitter.com/benhowell71" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/benhowell71?color=blue&amp;label=%40benhowell71&amp;logo=twitter&amp;style=for-the-badge" alt="@benhowell71"></a>
+<a href="https://github.com/benhowell71" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/benhowell71?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@benhowell71"></a>
 </h4>
             
       
@@ -172,10 +175,26 @@
 
     
     
-<p><a href="https://github.com/sportsdataverse/fastRhockey" class="external-link"><code>fastRhockey</code></a> is an R Package that is designed to pull play-by-play (and boxscore) data from the newest version of the <a href="https://www.premierhockeyfederation.com/" class="external-link">Premier Hockey Federation (PHF) website</a>. In the past, there have been a few scrapers for the PHF (formerly the NWHL), but they’ve all been deprecated since the league changed website formats.</p>
-<p>With the seventh season of the league kicking off on November 6th, and games being broadcasted on ESPN+, this package was created to allow access to play-by-play data to continue pushing women’s hockey analytics forward.</p>
-<p>In Spring of 2021, the <a href="https://www.theicegarden.com/2021/4/15/22374981/a-directory-of-womens-hockey-projects-from-big-data-cup-2021-analytics-otthac-stathletes" class="external-link">Big Data Cup</a> and the <a href="https://github.com/bigdatacup/Big-Data-Cup-2021" class="external-link">data they made available</a> revolutionized what we were able to thanks to the detailed play-by-play data for the season and the x/y location data. That wave continued with the inaugural <a href="https://www.whkyhac.com/" class="external-link">WHKYHAC conference</a> in July that produced some amazing conversations and projects in the women’s hockey space.</p>
-<p>In the past, the lack of data and poor access to data have been the biggest barrier to entry in women’s hockey analytics, a barrier that this package is intended to alleviate.</p>
+<p><a href="https://github.com/sportsdataverse/fastRhockey" class="external-link"><code>fastRhockey</code></a>
+is an R Package that is designed to pull play-by-play (and boxscore)
+data from the newest version of the <a href="https://www.premierhockeyfederation.com/" class="external-link">Premier Hockey
+Federation (PHF) website</a>. In the past, there have been a few
+scrapers for the PHF (formerly the NWHL), but they’ve all been
+deprecated since the league changed website formats.</p>
+<p>With the seventh season of the league kicking off on November 6th,
+and games being broadcasted on ESPN+, this package was created to allow
+access to play-by-play data to continue pushing women’s hockey analytics
+forward.</p>
+<p>In Spring of 2021, the <a href="https://www.theicegarden.com/2021/4/15/22374981/a-directory-of-womens-hockey-projects-from-big-data-cup-2021-analytics-otthac-stathletes" class="external-link">Big
+Data Cup</a> and the <a href="https://github.com/bigdatacup/Big-Data-Cup-2021" class="external-link">data they made
+available</a> revolutionized what we were able to thanks to the detailed
+play-by-play data for the season and the x/y location data. That wave
+continued with the inaugural <a href="https://www.whkyhac.com/" class="external-link">WHKYHAC
+conference</a> in July that produced some amazing conversations and
+projects in the women’s hockey space.</p>
+<p>In the past, the lack of data and poor access to data have been the
+biggest barrier to entry in women’s hockey analytics, a barrier that
+this package is intended to alleviate.</p>
 <center>
 <p><img src="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png" style="width:70.0%"></p>
 </center>
@@ -183,7 +202,9 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the released version of <a href="https://github.com/sportsdataverse/fastRhockey/" class="external-link"><strong><code>fastRhockey</code></strong></a> from <a href="https://github.com/sportsdataverse/fastRhockey" class="external-link">GitHub</a> with:</p>
+<p>You can install the released version of <a href="https://github.com/sportsdataverse/fastRhockey/" class="external-link"><strong><code>fastRhockey</code></strong></a>
+from <a href="https://github.com/sportsdataverse/fastRhockey" class="external-link">GitHub</a>
+with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># You can install using the pacman package using the following code:</span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">'pacman'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
@@ -199,7 +220,9 @@
 <span><span class="co"># Alternatively, using the devtools package:</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span>repo <span class="op">=</span> <span class="st">"sportsdataverse/fastRhockey"</span><span class="op">)</span></span></code></pre></div>
 <hr>
-<p>Once the package has been installed, there’s a ton of stuff you can do. Let’s start by finding a game we’re interested in, say, the 2021 Isobel Cup Championship that the Boston Pride won.</p>
+<p>Once the package has been installed, there’s a ton of stuff you can
+do. Let’s start by finding a game we’re interested in, say, the 2021
+Isobel Cup Championship that the Boston Pride won.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># input the season that you're interested in looking up the schedule for</span></span>
 <span><span class="fu"><a href="../reference/phf_schedule.html">phf_schedule</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
@@ -212,15 +235,22 @@
 <span>                <span class="va">home_score</span>, <span class="va">away_score</span>,</span>
 <span>                <span class="va">winner</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── PHF Schedule Information from PremierHockeyFederation.com ───────────────────</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-11-09 17:13:29 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-12-13 00:48:40 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 9</span></span></span>
 <span><span class="co">#&gt;   game_id date_group facility     game_…¹ home_…² away_…³ home_…⁴ away_…⁵ winner</span></span>
 <span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">379</span>254 2021-03-27 Warrior Ice… Playof… Minnes… Boston…       3       4 Bosto…</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># … with abbreviated variable names ¹​game_type, ²​home_team, ³​away_team,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ⁴​home_score, ⁵​away_score</span></span></span></code></pre></div>
-<p>A couple of quick filters/selects later and we’ve pared down the data into a very manageable return. We can see that the Boston Pride beat the Minnesota Whitecaps 4-3 in Warrior Ice Arena on March 27th, 2021. The other important column in this return is the <code>game_id</code> column.</p>
-<p>Let’s take that <code>game_id</code> and plug it into another <code>fastRhockey</code> function, this time using the <code>phf_team_box</code> function to pull the boxscore data from this game.</p>
+<p>A couple of quick filters/selects later and we’ve pared down the data
+into a very manageable return. We can see that the Boston Pride beat the
+Minnesota Whitecaps 4-3 in Warrior Ice Arena on March 27th, 2021. The
+other important column in this return is the <code>game_id</code>
+column.</p>
+<p>Let’s take that <code>game_id</code> and plug it into another
+<code>fastRhockey</code> function, this time using the
+<code>phf_team_box</code> function to pull the boxscore data from this
+game.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">379254</span></span>
 <span></span>
@@ -233,7 +263,7 @@
 <span>                <span class="va">successful_power_play</span>, <span class="va">power_play_opportunities</span>,</span>
 <span>                <span class="va">faceoff_percent</span>, <span class="va">takeaways</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── PHF Team Boxscore Information from PremierHockeyFederation.com ──────────────</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-11-09 17:13:35 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-12-13 00:48:46 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 8</span></span></span>
 <span><span class="co">#&gt;   game_id team  total_scoring total_shots successful_p…¹ power…² faceo…³ takea…⁴</span></span>
 <span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -241,16 +271,32 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">379</span>254 min               3          30              1       2   0.316      32</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># … with abbreviated variable names ¹​successful_power_play,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ²​power_play_opportunities, ³​faceoff_percent, ⁴​takeaways</span></span></span></code></pre></div>
-<p>Once again, I’ve selected some specific columns, but this is an example of the data that is returned by the <code>phf_team_box</code> function! We have counting stat data on shots/goals, both aggregated and by period, power play data, faceoff data, and how often a team takes/gives away the puck. It’s definitely helpful data and I believe that there are some really fun projects that can be done with just the <code>phf_team_box</code> function, but the really good stuff is still coming.</p>
-<p>Turn your attention to <code>phf_pbp</code>, the function that was created to return PHF play-by-play data for a given game (i.e. the whole reason that <code>fastRhockey</code> exists). It’s a similar format to the boxscore function where the only input necessary is the <code>game_id</code> that you want.</p>
+<p>Once again, I’ve selected some specific columns, but this is an
+example of the data that is returned by the <code>phf_team_box</code>
+function! We have counting stat data on shots/goals, both aggregated and
+by period, power play data, faceoff data, and how often a team
+takes/gives away the puck. It’s definitely helpful data and I believe
+that there are some really fun projects that can be done with just the
+<code>phf_team_box</code> function, but the really good stuff is still
+coming.</p>
+<p>Turn your attention to <code>phf_pbp</code>, the function that was
+created to return PHF play-by-play data for a given game (i.e. the whole
+reason that <code>fastRhockey</code> exists). It’s a similar format to
+the boxscore function where the only input necessary is the
+<code>game_id</code> that you want.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">pbp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/phf_pbp.html">phf_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span>
 <span>  </span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="va">a</span></span>
-<span><span class="co">#&gt; Time difference of 4.220842 secs</span></span></code></pre></div>
-<p>Loading a single game should take ~ 5 seconds. Once it does, it’s time to have some fun. The <code>phf_pbp</code> function returns 78 columns, some with “boring” data, like who the teams are, etc. But then you get to the columns that look at how much time is remaining in a quarter, what the home skater vs away skater numbers are, what event occurred, who was involved, and so on.</p>
+<span><span class="co">#&gt; Time difference of 3.846293 secs</span></span></code></pre></div>
+<p>Loading a single game should take ~ 5 seconds. Once it does, it’s
+time to have some fun. The <code>phf_pbp</code> function returns 78
+columns, some with “boring” data, like who the teams are, etc. But then
+you get to the columns that look at how much time is remaining in a
+quarter, what the home skater vs away skater numbers are, what event
+occurred, who was involved, and so on.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">pbp</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 207</span></span>
@@ -333,9 +379,19 @@
 <span><span class="co">#&gt; $ player_jersey_3           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span>
 <span><span class="co">#&gt; $ home_skaters              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,…</span></span>
 <span><span class="co">#&gt; $ away_skaters              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,…</span></span></code></pre></div>
-<p>There’s data on who took a shot (if a shot occurs), as well as who the primary (and secondary) assisters were and who the goalie was. Penalties are recorded + the time assigned for a trip to the box.</p>
-<p>One of the more interesting findings from the PHF set-up was that they ID all five offensive players on the ice when a goal is scored, so that’s available as well. Unfortunately, it’s hard to derive any sort of plus/minus stat from this since it’s only the offensive players at the time of a goal. If the offensive and defensive lineups were provided we could create a +/-, but that remains out of reach for now.</p>
-<p>Here’s an example of the things that one can now build with the play-by-play data that is generated from <code>phf_pbp</code>. This is a quick graph showing cumulative shot attempts by point in the game for Boston and Minnesota.</p>
+<p>There’s data on who took a shot (if a shot occurs), as well as who
+the primary (and secondary) assisters were and who the goalie was.
+Penalties are recorded + the time assigned for a trip to the box.</p>
+<p>One of the more interesting findings from the PHF set-up was that
+they ID all five offensive players on the ice when a goal is scored, so
+that’s available as well. Unfortunately, it’s hard to derive any sort of
+plus/minus stat from this since it’s only the offensive players at the
+time of a goal. If the offensive and defensive lineups were provided we
+could create a +/-, but that remains out of reach for now.</p>
+<p>Here’s an example of the things that one can now build with the
+play-by-play data that is generated from <code>phf_pbp</code>. This is a
+quick graph showing cumulative shot attempts by point in the game for
+Boston and Minnesota.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pbp</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>shot <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">play_type</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"PP Goal"</span>, <span class="st">"Goal"</span>,</span>
@@ -370,15 +426,36 @@
 <span><span class="co">#&gt; Warning: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Please use the `linewidth` argument instead.</span></span></code></pre></div>
 <p><img src="../reference/figures/introduction-phf_intro_figure-1.png" width="100%"><img src="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/introduction-phf_intro_figure-1.png"></p>
-<p>It’s a simple graph, but one that can easily help illustrate game flow. The Pride’s shots came in bunches, taking a ton about halfway through the first and third periods respectively. Minnesota started the game slowly, but their shots came fairly consistently throughout the game.</p>
-<p>There’s so much more that can be explored from this play-by-play data, whether you want to explore how winning a faceoff leads to a shot attempt or the chaos that can follow giveaways.</p>
-<p>That’s a quick primer on the main functions of the package. <code>phf_schedule</code> returns schedule information and game_ids, which can be used in <code>phf_team_box</code> or <code>phf_pbp</code> to return boxscore or play-by-play data. <code>phf_game_all</code> wraps the boxscore/play-by-play and several other game summary tables into one and returns a list with the dataframes: plays, team_box, skaters, goalies, game_details, scoring_summary, shootout_summary, penalty_summary, officials, team_staff, timeouts.</p>
-<p>The last function that may be of some use is <code>phf_league_info</code>, which essentially pulls a lot of background info on the league and the IDs that are used. The output from this function gets wrapped into the <code>phf_schedule</code>, which is it’s main purpose.</p>
-<p>If you look with <code>fastRhockey::</code>, there are more functions available, but those are helper functions to pull raw data (<code>phf_game_raw</code>) and then to process the raw data into a usable format (<code>helper_phf____</code>).</p>
+<p>It’s a simple graph, but one that can easily help illustrate game
+flow. The Pride’s shots came in bunches, taking a ton about halfway
+through the first and third periods respectively. Minnesota started the
+game slowly, but their shots came fairly consistently throughout the
+game.</p>
+<p>There’s so much more that can be explored from this play-by-play
+data, whether you want to explore how winning a faceoff leads to a shot
+attempt or the chaos that can follow giveaways.</p>
+<p>That’s a quick primer on the main functions of the package.
+<code>phf_schedule</code> returns schedule information and game_ids,
+which can be used in <code>phf_team_box</code> or <code>phf_pbp</code>
+to return boxscore or play-by-play data. <code>phf_game_all</code> wraps
+the boxscore/play-by-play and several other game summary tables into one
+and returns a list with the dataframes: plays, team_box, skaters,
+goalies, game_details, scoring_summary, shootout_summary,
+penalty_summary, officials, team_staff, timeouts.</p>
+<p>The last function that may be of some use is
+<code>phf_league_info</code>, which essentially pulls a lot of
+background info on the league and the IDs that are used. The output from
+this function gets wrapped into the <code>phf_schedule</code>, which is
+it’s main purpose.</p>
+<p>If you look with <code>fastRhockey::</code>, there are more functions
+available, but those are helper functions to pull raw data
+(<code>phf_game_raw</code>) and then to process the raw data into a
+usable format (<code>helper_phf____</code>).</p>
 <hr>
 </div>
 <div class="section level2">
-<h2 id="follow-sportsdataverse-on-twitter-and-star-this-repo">Follow <a href="https://twitter.com/sportsdataverse" class="external-link">SportsDataverse</a> on Twitter and star this repo<a class="anchor" aria-label="anchor" href="#follow-sportsdataverse-on-twitter-and-star-this-repo"></a>
+<h2 id="follow-sportsdataverse-on-twitter-and-star-this-repo">Follow <a href="https://twitter.com/sportsdataverse" class="external-link">SportsDataverse</a> on
+Twitter and star this repo<a class="anchor" aria-label="anchor" href="#follow-sportsdataverse-on-twitter-and-star-this-repo"></a>
 </h2>
 <p><a href="https://twitter.com/sportsdataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/sportsdataverse?color=blue&amp;label=%40sportsdataverse&amp;logo=twitter&amp;style=for-the-badge" alt="Twitter Follow"></a></p>
 <p><a href="https://github.com/sportsdataverse/fastRhockey/stargazers/" class="external-link"><img src="https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&amp;logo=github&amp;style=for-the-badge&amp;label=Star%20fastRhockey&amp;maxAge=2592000" alt="GitHub stars"></a></p>
@@ -388,8 +465,10 @@
 <strong>Our Authors</strong><a class="anchor" aria-label="anchor" href="#our-authors"></a>
 </h2>
 <ul>
-<li><p><a href="https://twitter.com/BenHowell71" class="external-link">Ben Howell</a><br><a href="https://twitter.com/BenHowell71" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/BenHowell71?color=blue&amp;label=%40BenHowell71&amp;logo=twitter&amp;style=for-the-badge" alt="@BenHowell71"></a> <a href="https://github.com/BenHowell71" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/BenHowell71?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@BenHowell71"></a></p></li>
-<li><p><a href="https://twitter.com/saiemgilani" class="external-link">Saiem Gilani</a><br><a href="https://twitter.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge" alt="@saiemgilani"></a> <a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a></p></li>
+<li><p><a href="https://twitter.com/BenHowell71" class="external-link">Ben Howell</a><br><a href="https://twitter.com/BenHowell71" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/BenHowell71?color=blue&amp;label=%40BenHowell71&amp;logo=twitter&amp;style=for-the-badge" alt="@BenHowell71"></a>
+<a href="https://github.com/BenHowell71" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/BenHowell71?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@BenHowell71"></a></p></li>
+<li><p><a href="https://twitter.com/saiemgilani" class="external-link">Saiem Gilani</a><br><a href="https://twitter.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge" alt="@saiemgilani"></a>
+<a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a></p></li>
 </ul>
 </div>
 <div class="section level2">
@@ -398,10 +477,13 @@
 </h2>
 <ul>
 <li>
-<a href="https://twitter.com/alyssastweeting" class="external-link">Alyssa Longmuir</a><br><a href="https://twitter.com/alyssastweeting" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/alyssastweeting?color=blue&amp;label=%40alyssastweeting&amp;logo=twitter&amp;style=for-the-badge" alt="@alyssastweeting"></a> <a href="https://github.com/Aklongmuir" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/Aklongmuir?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@Aklongmuir"></a>
+<a href="https://twitter.com/alyssastweeting" class="external-link">Alyssa
+Longmuir</a><br><a href="https://twitter.com/alyssastweeting" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/alyssastweeting?color=blue&amp;label=%40alyssastweeting&amp;logo=twitter&amp;style=for-the-badge" alt="@alyssastweeting"></a>
+<a href="https://github.com/Aklongmuir" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/Aklongmuir?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@Aklongmuir"></a>
 </li>
 <li>
-<a href="https://twitter.com/_TanHo" class="external-link">Tan Ho</a><br><a href="https://twitter.com/_TanHo" target="blank" class="external-link"></a> <a href="https://github.com/tanho63" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/tanho63?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@tanho63"></a>
+<a href="https://twitter.com/_TanHo" class="external-link">Tan Ho</a><br><a href="https://twitter.com/_TanHo" target="blank" class="external-link"></a>
+<a href="https://github.com/tanho63" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/tanho63?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@tanho63"></a>
 </li>
 </ul>
 </div>
@@ -409,14 +491,15 @@
 <h2 id="citations">
 <strong>Citations</strong><a class="anchor" aria-label="anchor" href="#citations"></a>
 </h2>
-<p>To cite the <a href="https://fastRhockey.sportsdataverse.org/"><strong><code>fastRhockey</code></strong></a> R package in publications, use:</p>
+<p>To cite the <a href="https://fastRhockey.sportsdataverse.org/"><strong><code>fastRhockey</code></strong></a>
+R package in publications, use:</p>
 <p>BibTex Citation</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb8-1"><a href="#cb8-1"></a><span class="va">@misc</span>{<span class="ot">howell_gilani_fastRhockey_2021</span>,</span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="dt">author</span> = {Ben Howell and Saiem Gilani},</span>
-<span id="cb8-3"><a href="#cb8-3"></a>  <span class="dt">title</span> = {fastRhockey: The SportsDataverse's R Package for Hockey Data.},</span>
-<span id="cb8-4"><a href="#cb8-4"></a>  <span class="dt">url</span> = {https://fastRhockey.sportsdataverse.org/},</span>
-<span id="cb8-5"><a href="#cb8-5"></a>  <span class="dt">year</span> = {2021}</span>
-<span id="cb8-6"><a href="#cb8-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">howell_gilani_fastRhockey_2021</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span> = {Ben Howell and Saiem Gilani},</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span> = {fastRhockey: The SportsDataverse's R Package for Hockey Data.},</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span> = {https://fastRhockey.sportsdataverse.org/},</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span> = {2021}</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
