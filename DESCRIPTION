@@ -1,13 +1,13 @@
 Package: fastRhockey
 Title: Functions to Access Premier Hockey Federation and National Hockey League Play by Play Data
-Version: 0.3.1
+Version: 0.4.1
 Authors@R: c(
     person(given = "Ben", family = "Howell", email = "benhowell71@gmail.com", role = c("aut")),
     person(given = "Saiem", family = "Gilani", email = "saiem.gilani@gmail.com", role = c("cre", "aut")),
     person(given = "Alyssa", family = "Longmuir", email = "aklongmuir@gmail.com", role = c("ctb"))
   )
 Description: A utility to scrape and load play-by-play data
-    and statistics from the Premier Hockey Federation (PHF)<https://www.premierhockeyfederation.com/>, formerly
+    and statistics from the Premier Hockey Federation (PHF) <https://www.premierhockeyfederation.com/>, formerly
     known as the National Women's Hockey League (NWHL). Additionally, allows access to the National Hockey League's
     stats API <https://www.nhl.com/>.
 License: MIT + file LICENSE

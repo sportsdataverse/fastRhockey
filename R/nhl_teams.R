@@ -1,5 +1,6 @@
 #' @title **NHL Teams**
 #' @description Returns NHL Teams information
+#' @param season season in format XXXXYYYY
 #' @return Returns a tibble
 #' @keywords NHL Teams
 #' @import rvest
@@ -13,11 +14,12 @@
 #' \donttest{
 #'   try(nhl_teams())
 #' }
-nhl_teams <- function(){
+nhl_teams <- function(season=most_recent_nhl_season_api_param()){
 
-  base_url <- "https://statsapi.web.nhl.com/api/v1/teams/"
+  base_url <- "https://statsapi.web.nhl.com/api/v1/teams?season="
 
-  full_url <- paste0(base_url)
+  full_url <- paste0(base_url,
+                     season)
 
 
   res <- httr::RETRY("GET", full_url)
@@ -29,10 +31,11 @@ nhl_teams <- function(){
     expr = {
       resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8")
+
       teams_df <- jsonlite::fromJSON(resp)[["teams"]]
       teams_df <- jsonlite::fromJSON(jsonlite::toJSON(teams_df),flatten=TRUE)
       teams_df <- teams_df %>%
-        dplyr::rename(team_id = .data$id) %>%
+        dplyr::rename("team_id" = "id") %>%
         janitor::clean_names() %>%
         make_fastRhockey_data("NHL Teams Information from NHL.com",Sys.time())
     },

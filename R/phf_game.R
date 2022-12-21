@@ -77,7 +77,7 @@ phf_game_all <- function(game_id) {
         helper_phf_team_box() %>%
         dplyr::mutate(game_id = game_id) %>%
         dplyr::select(
-          .data$team, .data$game_id, .data$winner, .data$total_scoring, tidyr::everything()) %>%
+          "team", "game_id", "winner", "total_scoring", tidyr::everything()) %>%
         make_fastRhockey_data("PHF Team Box Information from PremierHockeyFederation.com",Sys.time())
 
       player_box_df <- phf_player_box(game_id = 420339)
@@ -212,6 +212,7 @@ phf_game_details <- function(game_id) {
     away_location == "Buffalo" ~ "BUF",
     away_location == "Connecticut" ~ "CTW",
     away_location == "Metropolitan" ~ "MET",
+    away_location == "Montreal" ~ "MON",
     away_location == "Minnesota" ~ "MIN",
     away_location == "Toronto" ~ "TOR",
     TRUE ~ NA_character_)
@@ -228,6 +229,7 @@ phf_game_details <- function(game_id) {
     home_location == "Buffalo" ~ "BUF",
     home_location == "Connecticut" ~ "CTW",
     home_location == "Metropolitan" ~ "MET",
+    home_location == "Montreal" ~ "MON",
     home_location == "Minnesota" ~ "MIN",
     home_location == "Toronto" ~ "TOR",
     TRUE ~ NA_character_)
@@ -374,8 +376,8 @@ phf_game_summary <- function(game_id) {
         assistant_coach_2 = stringr::str_extract(string = .data$`Team Staff`," - Assistant Coach,(.{0,35})(?<= - Assistant Coach)$"),
         assistant_coach_2 = stringr::str_remove_all(.data$assistant_coach_2," - Assistant Coach"),
         assistant_coach_2 = stringr::str_remove(.data$assistant_coach_2,", ")) %>%
-      dplyr::select(.data$Team, .data$head_coach, .data$assistant_coach_1,.data$assistant_coach_2) %>%
-      dplyr::rename(team = .data$Team)
+      dplyr::select("Team", "head_coach", "assistant_coach_1","assistant_coach_2") %>%
+      dplyr::rename("team" = "Team")
   } else {
     team_staff <- data.frame()
   }

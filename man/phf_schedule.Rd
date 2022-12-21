@@ -4,7 +4,7 @@
 \alias{phf_schedule}
 \title{\strong{PHF Schedule}}
 \usage{
-phf_schedule(season)
+phf_schedule(season = most_recent_phf_season())
 }
 \arguments{
 \item{season}{Season (YYYY) to pull the schedule from, the concluding year in XXXX-YY format}

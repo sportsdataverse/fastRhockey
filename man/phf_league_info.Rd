@@ -4,7 +4,7 @@
 \alias{phf_league_info}
 \title{\strong{PHF League Information}}
 \usage{
-phf_league_info(season = 2022)
+phf_league_info(season = most_recent_phf_season())
 }
 \arguments{
 \item{season}{Season (YYYY) to pull the league info and IDs for. Season is the concluding year in XXXX-YY format}

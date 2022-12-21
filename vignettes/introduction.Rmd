@@ -4,7 +4,7 @@ description: "Getting started with using <code>fastRhockey</code> and Premier Ho
 author: "Ben Howell <br><a href='https://twitter.com/benhowell71' target='blank'><img src='https://img.shields.io/twitter/follow/benhowell71?color=blue&amp;label=%40benhowell71&amp;logo=twitter&amp;style=for-the-badge' alt='@benhowell71'/></a> <a href='https://github.com/benhowell71' target='blank'><img src='https://img.shields.io/github/followers/benhowell71?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@benhowell71'/></a>"
 opengraph:
   image: 
-    src: "https://github.com/saiemgilani/fastRhockey-data/blob/main/themes/fastRhockey_card.png?raw=true"
+    src: "https://github.com/sportsdataverse/fastRhockey-data/blob/main/themes/fastRhockey_card.png?raw=true"
   twitter:
     site: "@sportsdataverse"
     card: summary_large_image

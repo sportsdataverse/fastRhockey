@@ -23,8 +23,8 @@ have been a few scrapers for the PHF (formerly the NWHL), but they’ve
 all been deprecated since the league changed website formats.
 
 With the seventh season of the league kicking off on November 6th, and
-games being broadcasted on ESPN+, this package was created to allow
-access to play-by-play data to continue pushing women’s hockey analytics
+games being broadcast on ESPN+, this package was created to allow access
+to play-by-play data to continue pushing women’s hockey analytics
 forward.
 
 In Spring of 2021, the [Big Data

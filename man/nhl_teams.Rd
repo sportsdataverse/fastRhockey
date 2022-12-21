@@ -4,7 +4,10 @@
 \alias{nhl_teams}
 \title{\strong{NHL Teams}}
 \usage{
-nhl_teams()
+nhl_teams(season = most_recent_nhl_season_api_param())
+}
+\arguments{
+\item{season}{season in format XXXXYYYY}
 }
 \value{
 Returns a tibble

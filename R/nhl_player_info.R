@@ -34,7 +34,7 @@ nhl_player_info <- function(player_id){
       player_df <- jsonlite::fromJSON(resp)[["people"]]
       player_df <- jsonlite::fromJSON(jsonlite::toJSON(player_df),flatten=TRUE)
       player_df <- player_df %>%
-        dplyr::rename(player_id = .data$id) %>%
+        dplyr::rename("player_id" = "id") %>%
         janitor::clean_names() %>%
         make_fastRhockey_data("NHL Player Information from NHL.com",Sys.time())
     },
