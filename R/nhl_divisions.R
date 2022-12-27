@@ -43,7 +43,7 @@ nhl_divisions <- function(){
 
       divisions_df <- divisions_df %>%
         janitor::clean_names() %>%
-        dplyr::rename(division_id = .data$id) %>%
+        dplyr::rename("division_id" = "id") %>%
         as.data.frame() %>%
         make_fastRhockey_data("NHL Divisions from NHL.com",Sys.time())
 

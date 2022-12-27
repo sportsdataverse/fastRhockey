@@ -46,16 +46,19 @@ espn_nhl_teams <- function(){
 
       leagues <- jsonlite::fromJSON(resp)[["sports"]][["leagues"]][[1]][['teams']][[1]][['team']] %>%
         dplyr::group_by(.data$id) %>%
-        tidyr::unnest_wider(.data$logos, names_sep = "_") %>%
-        tidyr::unnest_wider(.data$logos_href, names_sep = "_") %>%
-        dplyr::select(-.data$logos_width,-.data$logos_height,
-                      -.data$logos_alt, -.data$logos_rel) %>%
+        tidyr::unnest_wider("logos", names_sep = "_") %>%
+        tidyr::unnest_wider("logos_href", names_sep = "_") %>%
+        dplyr::select(
+          -"logos_width",
+          -"logos_height",
+          -"logos_alt",
+          -"logos_rel") %>%
         dplyr::ungroup()
       if("records" %in% colnames(leagues)){
         records <- leagues$record
         records<- records %>%
-          tidyr::unnest_wider(.data$items) %>%
-          tidyr::unnest_wider(.data$stats, names_sep = "_") %>%
+          tidyr::unnest_wider("items") %>%
+          tidyr::unnest_wider("stats", names_sep = "_") %>%
           dplyr::mutate(row = dplyr::row_number())
         stat <- records %>%
           dplyr::group_by(.data$row) %>%
@@ -69,29 +72,32 @@ espn_nhl_teams <- function(){
         })
 
         s <- tibble::tibble(g = s)
-        stats <- s %>% unnest_wider(.data$g)
+        stats <- s %>%
+          tidyr::unnest_wider("g")
 
-        records <- dplyr::bind_cols(records %>% dplyr::select(.data$summary), stats)
-        leagues <- leagues %>% dplyr::select(
-          -.data$record
-        )
+        records <- dplyr::bind_cols(records %>% dplyr::select("summary"), stats)
+        leagues <- leagues %>%
+          dplyr::select(
+            -"record"
+          )
       }
-      leagues <- leagues %>% dplyr::select(
-        -.data$links,
-        -.data$isActive,
-        -.data$isAllStar,
-        -.data$uid,
-        -.data$slug)
+      leagues <- leagues %>%
+        dplyr::select(
+          -"links",
+          -"isActive",
+          -"isAllStar",
+          -"uid",
+          -"slug")
       teams <- leagues %>%
         dplyr::rename(
-          logo = .data$logos_href_1,
-          logo_dark = .data$logos_href_2,
-          mascot = .data$name,
-          team = .data$location,
-          espn_team_id = .data$id,
-          short_name = .data$shortDisplayName,
-          alternate_color = .data$alternateColor,
-          display_name = .data$displayName) %>%
+          "logo" = "logos_href_1",
+          "logo_dark" = "logos_href_2",
+          "mascot" = "name",
+          "team" = "location",
+          "espn_team_id" = "id",
+          "short_name" = "shortDisplayName",
+          "alternate_color" = "alternateColor",
+          "display_name" = "displayName") %>%
         dplyr::mutate(
           espn_team_id = as.integer(.data$espn_team_id)
         )

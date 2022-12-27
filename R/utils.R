@@ -2,12 +2,12 @@
 
 #' **Progressively**
 #'
-#' This function helps add progress-reporting to any function - given function `f()` and progressor `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.
+#' This function helps add progress-reporting to any function - given function `f()` and progressr `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.
 #'
 #' This is inspired by purrr's `safely`, `quietly`, and `possibly` function decorators.
 #'
 #' @param f a function to add progressr functionality to.
-#' @param p a progressor function as created by `progressr::progressor()`
+#' @param p a progressr function as created by `progressr::progressor()`
 #'
 #' @return a function that does the same as `f` but it calls `p()` after iteration.
 #' @keywords Internal

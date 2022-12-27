@@ -36,11 +36,11 @@ nhl_game_shifts <- function(game_id){
       shifts_raw <- site$data %>%
         dplyr::tibble() %>%
         janitor::clean_names() %>%
-        tidyr::unite("player_name", c(.data$first_name, .data$last_name), sep = " ") %>%
+        tidyr::unite("player_name", c("first_name", "last_name"), sep = " ") %>%
         dplyr::select(
-          .data$game_id, .data$player_id, .data$player_name,
-          .data$team_abbrev, .data$team_id, .data$team_name,
-          .data$period, .data$start_time, .data$end_time, .data$duration) %>%
+          "game_id", "player_id", "player_name",
+          "team_abbrev", "team_id", "team_name",
+          "period", "start_time", "end_time", "duration") %>%
         dplyr::filter(!is.na(.data$duration)) %>%
         dplyr::mutate(
           start_time_ms = lubridate::ms(.data$start_time),
@@ -61,9 +61,9 @@ nhl_game_shifts <- function(game_id){
           players_on = paste(.data$player_name, collapse = ", "),
           .groups = "drop") %>%
         dplyr::rename(
-          period_time = .data$start_time,
-          period_seconds = .data$start_seconds,
-          game_seconds = .data$start_game_seconds)
+          "period_time" = "start_time",
+          "period_seconds" = "start_seconds",
+          "game_seconds" = "start_game_seconds")
 
       shifts_off <- shifts_raw %>%
         dplyr::group_by(
@@ -74,9 +74,9 @@ nhl_game_shifts <- function(game_id){
           players_off = paste(.data$player_name, collapse = ", "),
           .groups = "drop") %>%
         dplyr::rename(
-          period_time = .data$end_time,
-          period_seconds = .data$end_seconds,
-          game_seconds = .data$end_game_seconds)
+          "period_time" = "end_time",
+          "period_seconds" = "end_seconds",
+          "game_seconds" = "end_game_seconds")
 
       shifts <- dplyr::full_join(
         shifts_on, shifts_off,
@@ -86,7 +86,7 @@ nhl_game_shifts <- function(game_id){
           event = "Change",
           event_type = "CHANGE",
           game_seconds_remaining = 3600 - .data$game_seconds) %>%
-        dplyr::rename(event_team = .data$team_name) %>%
+        dplyr::rename("event_team" = "team_name") %>%
         # removing NA values at start and end of periods
         dplyr::mutate(
           players_on = ifelse(is.na(.data$players_on), "None", .data$players_on),

@@ -35,7 +35,7 @@ nhl_player_stats <- function(player_id){
       player_df <- jsonlite::fromJSON(resp)[["people"]]
       player_df <- jsonlite::fromJSON(jsonlite::toJSON(player_df),flatten=TRUE)
       player_df <- player_df %>%
-        dplyr::rename(player_id = .data$id) %>%
+        dplyr::rename("player_id" = "id") %>%
         janitor::clean_names()
       stats <- player_df$stats[[1]]
       stats_lst <- purrr::map(1:length(stats$splits),function(x){
@@ -44,7 +44,7 @@ nhl_player_stats <- function(player_id){
       })
       stats_df <- data.table::rbindlist(stats_lst,fill=TRUE)
       player_df <- player_df %>%
-        dplyr::select(-.data$stats)
+        dplyr::select(-"stats")
       player_stats <- player_df %>%
         dplyr::bind_cols(stats_df)
       player_stats <- player_stats %>%

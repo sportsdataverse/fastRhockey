@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-A utility to scrape and load play-by-play data and statistics from the Premier Hockey Federation (PHF)\url{https://www.premierhockeyfederation.com/}, formerly known as the National Women's Hockey League (NWHL). Additionally, allows access to the National Hockey League's stats API \url{https://www.nhl.com/}.
+A utility to scrape and load play-by-play data and statistics from the Premier Hockey Federation (PHF) \url{https://www.premierhockeyfederation.com/}, formerly known as the National Women's Hockey League (NWHL). Additionally, allows access to the National Hockey League's stats API \url{https://www.nhl.com/}.
 }
 \seealso{
 Useful links:

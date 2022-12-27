@@ -44,7 +44,7 @@ nhl_divisions_info<- function(division_id){
 
       divisions_df <- divisions_df %>%
         janitor::clean_names() %>%
-        dplyr::rename(division_id = .data$id) %>%
+        dplyr::rename("division_id" = "id") %>%
         as.data.frame() %>%
         make_fastRhockey_data("NHL Divisions Information from NHL.com",Sys.time())
 

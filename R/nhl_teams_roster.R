@@ -39,9 +39,9 @@ nhl_teams_roster <- function(team_id, season=most_recent_nhl_season_api_param())
       teams_df <- jsonlite::fromJSON(jsonlite::toJSON(teams_df),flatten=TRUE)
       teams_df <- teams_df %>%
         dplyr::rename(
-          player_id = .data$person.id,
-          player_full_name = .data$person.fullName,
-          player_link = .data$person.link) %>%
+          "player_id" = "person.id",
+          "player_full_name" = "person.fullName",
+          "player_link" = "person.link") %>%
         janitor::clean_names() %>%
         dplyr::mutate(
           team_id = team_id,

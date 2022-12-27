@@ -19,7 +19,7 @@ helper_phf_pbp_normalize_columns <- function(df){
     colnames(df) <- c("play_type","team","play_description")
     df$time <- NA_character_
     df <- df %>%
-      dplyr::select(.data$play_type,.data$team, .data$time, .data$play_description)
+      dplyr::select("play_type", "team", "time", "play_description")
   }
   if(ncol(df)==10){
 
@@ -43,9 +43,9 @@ helper_phf_pbp_normalize_columns <- function(df){
       dplyr::mutate(play_description = gsub("{{.*", "", .data$play_description, perl = TRUE))
   }
   df <- df %>%
-    dplyr::select(.data$play_type, .data$team, .data$time, .data$play_description,
-                  .data$scoring_team_abbrev,.data$scoring_team_on_ice,
-                  .data$defending_team_abbrev, .data$defending_team_on_ice)
+    dplyr::select("play_type", "team", "time", "play_description",
+                  "scoring_team_abbrev","scoring_team_on_ice",
+                  "defending_team_abbrev", "defending_team_on_ice")
   return(df)
 }
 
@@ -68,7 +68,7 @@ helper_phf_pbp_data <- function(data) {
   ice <- "Even Strength|Empty Net|Power Play|Extra Attacker|Short Handed"
   shots <- "Snap shot|Wrist shot|Penalty Shot"
   reb <- "blocked|saved|failed attempt"
-  pen <- "Holding the Stick|Holding|Tripping|Roughing|Hooking|Interference|Diving|Delay|Cross-Checking|Head Contact|Body Checking|Slashing|Check from Behind Misconduct|Checking from Behind|Checking|Ejection|Too Many Men|Delay of Game|Misconduct|Check|High-Sticking"
+  pen <- "Holding the Stick|Holding|Tripping|Roughing|Hooking|Interference|Diving|Delay|Cross-Checking|Head Contact|Body Checking|Slashing|Check from Behind Misconduct|Checking from Behind|Checking|Ejection|Too Many Men|Delay of Game|Misconduct|Check|High-Sticking|Game Misconduct"
   type <- "Minor|Major"
   score_string <- "[:digit:] - [:digit:] [A-Z]+|[:digit:] - [:digit:]"
   shoot <- "missed attempt against|scores against|Shootout|failed attempt"
@@ -116,13 +116,13 @@ helper_phf_pbp_data <- function(data) {
                            .data$play_type != "Goalie", "made",
                            stringr::str_extract(.data$play_description, reb)),
       score = stringr::str_extract(.data$play_description, score_string),) %>%
-    tidyr::fill(.data$home_goalie) %>%
-    tidyr::fill(.data$away_goalie) %>%
-    tidyr::fill(.data$home_goalie_jersey) %>%
-    tidyr::fill(.data$away_goalie_jersey)
+    tidyr::fill("home_goalie") %>%
+    tidyr::fill("away_goalie") %>%
+    tidyr::fill("home_goalie_jersey") %>%
+    tidyr::fill("away_goalie_jersey")
 
   suppressWarnings(pbp <- pbp %>%
-                     tidyr::separate(.data$time, into = c("minute", "second"),
+                     tidyr::separate("time", into = c("minute", "second"),
                                      sep = ":", remove = FALSE))
   pbp <- pbp %>%
     dplyr::mutate(
@@ -136,19 +136,19 @@ helper_phf_pbp_data <- function(data) {
       second = ifelse(.data$second < 10, paste0("0", .data$second),
                       paste0(.data$second)),
       clock = paste0(.data$minute, ":", .data$second)) %>%
-    dplyr::select(-.data$minute, -.data$second)
+    dplyr::select(-"minute", -"second")
 
   suppressWarnings(
     pbp <- pbp %>%
       # using the comma separators, separate the string into offensive_player one through six
-      tidyr::separate(.data$scoring_team_on_ice, into = c("offensive_player_name_1", "offensive_player_name_2",
+      tidyr::separate("scoring_team_on_ice", into = c("offensive_player_name_1", "offensive_player_name_2",
                                                           "offensive_player_name_3", "offensive_player_name_4",
                                                           "offensive_player_name_5", "offensive_player_name_6"),
                       sep = " #", remove = FALSE))
   suppressWarnings(
     pbp <- pbp %>%
       # using the comma separators, separate the string into offensive_player one through six
-      tidyr::separate(.data$defending_team_on_ice, into = c("defensive_player_name_1", "defensive_player_name_2",
+      tidyr::separate("defending_team_on_ice", into = c("defensive_player_name_1", "defensive_player_name_2",
                                                           "defensive_player_name_3", "defensive_player_name_4",
                                                           "defensive_player_name_5", "defensive_player_name_6"),
                       sep = " #", remove = FALSE))
@@ -195,15 +195,15 @@ helper_phf_pbp_data <- function(data) {
       leader = stringr::str_extract(.data$score, "[A-Z]+"),
       scr = stringr::str_replace_all(.data$score, "[A-Z]+", "")) %>%
     tidyr::separate(
-      .data$scr,
+      "scr",
       into = c("away_goals", "home_goals"),
       sep = " - ",
       remove = FALSE) %>%
-    dplyr::select(-.data$scr) %>%
-    tidyr::fill(.data$score) %>%
-    tidyr::fill(.data$leader) %>%
-    tidyr::fill(.data$away_goals) %>%
-    tidyr::fill(.data$home_goals) %>%
+    dplyr::select(-"scr") %>%
+    tidyr::fill("score") %>%
+    tidyr::fill("leader") %>%
+    tidyr::fill("away_goals") %>%
+    tidyr::fill("home_goals") %>%
     dplyr::mutate(
       leader = ifelse(is.na(.data$leader), 'T', .data$leader),
       away_goals = ifelse(is.na(.data$away_goals), 0, .data$away_goals),
@@ -224,8 +224,8 @@ helper_phf_pbp_data <- function(data) {
                                   NA_real_),
       start_power_play = ifelse(.data$penalty == 1, .data$sec_from_start, NA_real_),
       end_power_play = ifelse(.data$penalty == 1, .data$start_power_play + .data$power_play_seconds, NA_real_)) %>%
-    tidyr::fill(.data$start_power_play) %>%
-    tidyr::fill(.data$end_power_play) %>%
+    tidyr::fill("start_power_play") %>%
+    tidyr::fill("end_power_play") %>%
     dplyr::mutate(
       on_ice_situation = ifelse((.data$sec_from_start >= .data$start_power_play &
                                    .data$sec_from_start <= .data$end_power_play) |
@@ -276,7 +276,7 @@ helper_phf_pbp_data <- function(data) {
   # for plays with just one or two players involved
   suppressWarnings(
     pbp <- pbp %>%
-      tidyr::separate(col = .data$desc2, into = c("player_name_1", "player_name_2", "player_name_3"),
+      tidyr::separate(col = "desc2", into = c("player_name_1", "player_name_2", "player_name_3"),
                       sep = ",", remove = TRUE))
 
   # trim whitespace around player names
@@ -291,7 +291,7 @@ helper_phf_pbp_data <- function(data) {
   away_state_changes <- pbp %>%
     dplyr::filter((.data$play_type == "PP Goal" & stringr::str_detect(.data$team, .data$home_team)) |
                     (.data$play_type == "Penalty" & stringr::str_detect(.data$team, .data$away_team))) %>%
-    dplyr::select(.data$play_type, .data$sec_from_start, .data$power_play_seconds) %>%
+    dplyr::select("play_type", "sec_from_start", "power_play_seconds") %>%
     dplyr::mutate(play_type = ifelse(.data$play_type == "Penalty", 1, 2),
                   prev.event = lag(.data$play_type),
                   prev.time = lag(.data$sec_from_start),
@@ -356,7 +356,7 @@ helper_phf_pbp_data <- function(data) {
   home_state_changes <- pbp %>%
     dplyr::filter((.data$play_type == "PP Goal" & stringr::str_detect(.data$team, .data$away_team)) |
                     (.data$play_type == "Penalty" & stringr::str_detect(.data$team, .data$home_team))) %>%
-    dplyr::select(.data$play_type, .data$sec_from_start, .data$power_play_seconds) %>%
+    dplyr::select("play_type", "sec_from_start", "power_play_seconds") %>%
     dplyr::mutate(
       play_type = ifelse(.data$play_type == "Penalty",1,2),
       prev.event = lag(.data$play_type),
@@ -566,7 +566,7 @@ helper_phf_team_box <- function(data) {
     shot$shootout_missed_scoring <- NA_integer_
     colnames(shot) <- shootout_shot_init_names
     shot <- shot %>%
-      dplyr::select(shootout_shot_names)
+      dplyr::select(dplyr::all_of(shootout_shot_names))
 
     score <- score %>%
       dplyr::mutate(
@@ -574,8 +574,8 @@ helper_phf_team_box <- function(data) {
         shootout_made_scoring = stringr::str_replace(.data$shootout_made_scoring, "\\(", ""),
         shootout_made_scoring = stringr::str_replace(.data$shootout_made_scoring, "\\)", ""),
         shootout_rep = stringr::str_replace(.data$shootout_made_scoring, " - ", ",")) %>%
-      dplyr::select(-c(.data$shootout_made_scoring)) %>%
-      tidyr::separate(.data$shootout_rep, into = c("shootout_made_scoring", "shootout_missed_scoring"),
+      dplyr::select(-c("shootout_made_scoring")) %>%
+      tidyr::separate("shootout_rep", into = c("shootout_made_scoring", "shootout_missed_scoring"),
                       sep = ",", remove = TRUE) %>%
       dplyr::mutate(shootout_missed_scoring = as.numeric(.data$shootout_missed_scoring))
 
@@ -584,10 +584,10 @@ helper_phf_team_box <- function(data) {
   df <- df %>%
     janitor::clean_names() %>%
     tidyr::pivot_longer(cols = 2:3) %>%
-    tidyr::pivot_wider(names_from = .data$team_stats) %>%
+    tidyr::pivot_wider(names_from = "team_stats") %>%
     janitor::clean_names() %>%
     tidyr::separate(
-      .data$power_plays,
+      "power_plays",
       into = c("successful_power_play", "power_play_opportunities"),
       sep = " / ") %>%
     dplyr::mutate_at(
@@ -618,3 +618,24 @@ helper_phf_team_box <- function(data) {
 
 }
 
+#' @title phf_get_season_id
+#' @description phf_get_season_id: returns the PHF season ID for a given year
+#'
+#' @param season the season
+#' @importFrom dplyr case_when
+#' @noRd
+phf_get_season_id <- function(season) {
+  season_id <- dplyr::case_when(
+    season == 2023 ~ 4667,
+    season == 2022 ~ 3372,
+    season == 2021 ~ 2779,
+    season == 2020 ~ 1950,
+    season == 2019 ~ 2047,
+    season == 2018 ~ 2046,
+    season == 2017 ~ 2045,
+    season == 2016 ~ 246,
+    TRUE ~ NA_real_
+  )
+
+  return(season_id)
+}

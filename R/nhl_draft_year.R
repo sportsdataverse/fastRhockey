@@ -43,8 +43,8 @@ nhl_draft_year <- function(year){
       draft_df <- jsonlite::fromJSON(resp)[["drafts"]]
       draft_df <- jsonlite::fromJSON(jsonlite::toJSON(draft_df),flatten=TRUE)
       draft_df <- draft_df[["rounds"]][[1]] %>%
-        tidyr::unnest_longer(.data$picks) %>%
-        dplyr::select(.data$picks)
+        tidyr::unnest_longer("picks") %>%
+        dplyr::select("picks")
       draft_df <- draft_df$picks %>%
         janitor::clean_names() %>%
         as.data.frame() %>%

@@ -10,26 +10,17 @@
 #' @export
 #' @examples
 #' \donttest{
-#'    try(phf_team_roster(team = "Boston Pride", season = 2022))
+#'    try(phf_team_roster(team = "Buffalo Beauts", season = 2023))
 #' }
 
 phf_team_roster <- function(team, season = most_recent_phf_season()){
 
   league_info <- phf_league_info(season=season)
-  season_id <- dplyr::case_when(
-    season == 2022 ~ 3372,
-    season == 2021 ~ 2779,
-    season == 2020 ~ 1950,
-    season == 2019 ~ 2047,
-    season == 2018 ~ 2046,
-    season == 2017 ~ 2045,
-    season == 2016 ~ 246,
-    TRUE ~ NA_real_
-  )
+  season_id <- phf_get_season_id(season=season)
   team_row <- league_info$teams %>%
     dplyr::filter(.data$name == team)
   team_id <- team_row %>%
-    dplyr::select(.data$id)
+    dplyr::select("id")
   base_url <- "https://web.api.digitalshift.ca/partials/stats/team/roster?team_id="
   full_url <- paste0(base_url,
                      team_id$id)
@@ -45,53 +36,73 @@ phf_team_roster <- function(team, season = most_recent_phf_season()){
 
   tryCatch(
     expr={
-      resp <- (res %>%
+      resp_all <- res %>%
                  httr::content(as = "text", encoding="utf-8") %>%
                  jsonlite::parse_json() %>%
                  purrr::pluck("content") %>%
-                 rvest::read_html() %>%
-                 rvest::html_elements("table"))
+                 rvest::read_html()
+      player_image <- resp_all %>%
+        rvest::html_elements(".col > a") %>%
+        rvest::html_elements(".photo") %>%
+        rvest::html_elements("img") %>%
+        rvest::html_attr("src")
+      player_image_df <- data.frame(player_image_href = player_image)
+      resp <- resp_all %>%
+        rvest::html_elements("table")
 
-      resp <- unique(resp)
-      roster_href <- resp[[1]] %>%
+
+      roster_href <- resp %>%
         rvest::html_elements("tr") %>%
         rvest::html_elements("td > a") %>%
-        rvest::html_attr("href")
+        rvest::html_attr("href") %>%
+        unique()
 
-      roster <- resp[[1]] %>%
+      roster <- resp %>%
+        rvest::html_table() %>%
+        unique()
+
+      roster <- roster[1:(length(roster)-1)]
+      roster <- data.table::rbindlist(roster)
+
+
+      roster <- roster %>%
+        dplyr::select(-"V1")
+      team_staff <- resp[[length(resp)]] %>%
         rvest::html_table()
-      roster <- roster[1:(ncol(roster)-1)]
-      team_staff <- resp[[3]] %>%
-        rvest::html_table()
+
       team_staff <- team_staff[1:ncol(team_staff)-1]
-      roster_href <- data.frame(
+      roster_href_df <- data.frame(
         player_href = roster_href
       )
 
-      roster_df <- dplyr::bind_cols(roster, roster_href)
+      roster_df <- dplyr::bind_cols(roster, player_image_df, roster_href_df)
 
       roster_df <- dplyr::bind_cols(team_row, roster_df)
-
+      roster_cols <- c(
+        "team_id" = "id",
+        "team_name" = "name",
+        "player_jersey" = "#",
+        "player_name" = "Name",
+        "position" = "POS"
+      )
       roster_df <- roster_df %>%
-        dplyr::rename(
-          team_id = .data$id,
-          team_name = .data$name,
-          player_jersey = .data$`#`,
-          player_name = .data$Name,
-          position = .data$POS) %>%
+        dplyr::rename(dplyr::any_of(roster_cols)) %>%
         dplyr::mutate(
           player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
-          player_id = as.integer(stringr::str_extract(.data$player_href, "\\d+"))) %>%
+          player_id = as.integer(stringr::str_extract(.data$player_href, "\\d+")),
+          position = ifelse(.data$position == FALSE, "F", .data$position)) %>%
         janitor::clean_names() %>%
         make_fastRhockey_data("PHF Roster Information from PremierHockeyFederation.com",Sys.time())
 
       team_staff_df <- dplyr::bind_cols(team_row, team_staff)
+      staff_cols <- c(
+        "team_id" = "id",
+        "team_name" = "name",
+        "staff_name" = "Name",
+        "staff_type" = "Type"
+      )
       team_staff_df <- team_staff_df %>%
-        dplyr::rename(
-          team_id = .data$id,
-          team_name = .data$name,
-          staff_name = .data$Name,
-          staff_type = .data$Type) %>%
+        dplyr::rename(dplyr::any_of(staff_cols)) %>%
         janitor::clean_names() %>%
         make_fastRhockey_data("PHF Team Staff Information from PremierHockeyFederation.com",Sys.time())
 

@@ -91,26 +91,26 @@ phf_player_box <- function(game_id) {
 
       skaters <- skaters %>%
         dplyr::rename(
-          player_jersey = .data$`#`,
-          player_name = .data$Name,
-          position = .data$Pos,
-          goals = .data$G,
-          assists = .data$A,
-          points = .data$Pts,
-          penalty_minutes = .data$PIM,
-          plus_minus = .data$`+/-`,
-          shots_on_goal = .data$SOG,
-          blocks = .data$Blk,
-          giveaways = .data$GvA,
-          takeaways = .data$TkA,
-          faceoffs_won_lost = .data$`FoW/L`,
-          faceoffs_win_pct = .data$`Fo%`,
-          powerplay_goals = .data$`PPG`,
-          shorthanded_goals = .data$`SHG`,
-          shots = .data$`Sh`,
-          shots_blocked = .data$`ShBl`,
-          faceoffs_won = .data$`FoW`,
-          faceoffs_lost = .data$`FoL`) %>%
+          "player_jersey" = "#",
+          "player_name" = "Name",
+          "position" = "Pos",
+          "goals" = "G",
+          "assists" = "A",
+          "points" = "Pts",
+          "penalty_minutes" = "PIM",
+          "plus_minus" = "+/-",
+          "shots_on_goal" = "SOG",
+          "blocks" = "Blk",
+          "giveaways" = "GvA",
+          "takeaways" = "TkA",
+          "faceoffs_won_lost" = "FoW/L",
+          "faceoffs_win_pct" = "Fo%",
+          "powerplay_goals" = "PPG",
+          "shorthanded_goals" = "SHG",
+          "shots" = "Sh",
+          "shots_blocked" = "ShBl",
+          "faceoffs_won" = "FoW",
+          "faceoffs_lost" = "FoL") %>%
         dplyr::mutate(
           player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
           player_id = stringr::str_extract(.data$skaters_href, "\\d+"),
@@ -119,16 +119,16 @@ phf_player_box <- function(game_id) {
         make_fastRhockey_data("PHF Skaters Boxscore Information from PremierHockeyFederation.com",Sys.time())
       goalies <- goalies %>%
         dplyr::rename(
-          player_jersey = .data$`#`,
-          player_name = .data$Name,
-          shots_against = .data$SA,
-          goals_against = .data$GA,
-          saves = .data$Sv,
-          save_percent = .data$`Sv%`,
-          minutes_played = .data$MP,
-          penalty_minutes = .data$PIM,
-          goals = .data$G,
-          assists = .data$A) %>%
+          "player_jersey" = "#",
+          "player_name" = "Name",
+          "shots_against" = "SA",
+          "goals_against" = "GA",
+          "saves" = "Sv",
+          "save_percent" = "Sv%",
+          "minutes_played" = "MP",
+          "penalty_minutes" = "PIM",
+          "goals" = "G",
+          "assists" = "A") %>%
         dplyr::mutate(
           player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
           player_id = stringr::str_extract(.data$goalies_href, "\\d+"),

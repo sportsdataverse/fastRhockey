@@ -1,7 +1,8 @@
 ## Release summary
 
 This is a minor release that 
-* Updates html per CRAN's roxygen update.
+* Updates tidyr and dplyr statements to use quotations on columns instead of data masking per tidyselect deprecation notice.
+* `load_phf_rosters()` and `load_nhl_rosters()`  function added.
 
 ## R CMD check results
 

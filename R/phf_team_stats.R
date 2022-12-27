@@ -16,20 +16,11 @@
 phf_team_stats <- function(team, season = most_recent_phf_season()){
 
   league_info <- phf_league_info(season=season)
-  season_id <- dplyr::case_when(
-    season == 2022 ~ 3372,
-    season == 2021 ~ 2779,
-    season == 2020 ~ 1950,
-    season == 2019 ~ 2047,
-    season == 2018 ~ 2046,
-    season == 2017 ~ 2045,
-    season == 2016 ~ 246,
-    TRUE ~ NA_real_
-  )
+  season_id <- phf_get_season_id(season=season)
   team_row <- league_info$teams %>%
     dplyr::filter(.data$name == team)
   team_id <- team_row %>%
-    dplyr::select(.data$id)
+    dplyr::select("id")
   base_url <- "https://web.api.digitalshift.ca/partials/stats/team/stats?team_id="
   full_url <- paste0(base_url,
                      team_id$id)
@@ -114,7 +105,7 @@ phf_team_stats <- function(team, season = most_recent_phf_season()){
       skaters <- dplyr::bind_cols(team_row, skaters)
       suppressWarnings(
         skaters <- skaters %>%
-          tidyr::separate(.data$`FoW/L`,into = c("faceoffs_won", "faceoffs_lost"),
+          tidyr::separate("FoW/L",into = c("faceoffs_won", "faceoffs_lost"),
                           sep = " - ", remove = FALSE) %>%
           dplyr::mutate_at(c("faceoffs_won","faceoffs_lost"), function(x){
             as.integer(x)
@@ -122,30 +113,30 @@ phf_team_stats <- function(team, season = most_recent_phf_season()){
       )
       skaters <- skaters %>%
         dplyr::rename(
-          team_id = .data$id,
-          team_name = .data$name,
-          player_jersey = .data$`#`,
-          player_name = .data$Name,
-          position = .data$Pos,
-          games_played = .data$GP,
-          goals = .data$G,
-          assists = .data$A,
-          points = .data$Pts,
-          points_per_game_average = .data$PPGA,
-          penalty_minutes = .data$PIM,
-          plus_minus = .data$`+/-`,
-          shots_on_goal = .data$SOG,
-          scoring_pct = .data$`S%`,
-          blocks = .data$Blk,
-          giveaways = .data$GvA,
-          takeaways = .data$TkA,
-          faceoffs_won_lost = .data$`FoW/L`,
-          faceoffs_win_pct = .data$`Fo%`,
-          powerplay_goals = .data$`PPG`,
-          shorthanded_goals = .data$`SHG`,
-          game_winning_goals = .data$`GWG`,
-          shots = .data$`Sh`,
-          shots_blocked = .data$`ShBl`) %>%
+          "team_id" = "id",
+          "team_name" = "name",
+          "player_jersey" = "#",
+          "player_name" = "Name",
+          "position" = "Pos",
+          "games_played" = "GP",
+          "goals" = "G",
+          "assists" = "A",
+          "points" = "Pts",
+          "points_per_game_average" = "PPGA",
+          "penalty_minutes" = "PIM",
+          "plus_minus" = "+/-",
+          "shots_on_goal" = "SOG",
+          "scoring_pct" = "S%",
+          "blocks" = "Blk",
+          "giveaways" = "GvA",
+          "takeaways" = "TkA",
+          "faceoffs_won_lost" = "FoW/L",
+          "faceoffs_win_pct" = "Fo%",
+          "powerplay_goals" = "PPG",
+          "shorthanded_goals" = "SHG",
+          "game_winning_goals" = "GWG",
+          "shots" = "Sh",
+          "shots_blocked" = "ShBl") %>%
         dplyr::mutate(
           player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
           player_id = as.integer(stringr::str_extract(.data$skaters_href, "\\d+"))
@@ -155,26 +146,26 @@ phf_team_stats <- function(team, season = most_recent_phf_season()){
       goalies <- dplyr::bind_cols(team_row, goalies)
       goalies <- goalies %>%
         dplyr::rename(
-          team_id = .data$id,
-          team_name = .data$name,
-          player_jersey = .data$`#`,
-          player_name = .data$Name,
-          games_played = .data$GP,
-          wins = .data$W,
-          losses = .data$L,
-          ties = .data$T,
-          overtime_losses = .data$OTL,
-          shots_against = .data$SA,
-          goals_against = .data$GA,
-          saves = .data$Sv,
-          save_percent = .data$`Sv%`,
-          goals_against_average = .data$GAA,
-          shutouts = .data$SO,
-          minutes_played = .data$MP,
-          penalty_minutes = .data$PIM,
-          goals = .data$G,
-          assists = .data$A,
-          games_started = .data$GS) %>%
+          "team_id" = "id",
+          "team_name" = "name",
+          "player_jersey" = "#",
+          "player_name" = "Name",
+          "games_played" = "GP",
+          "wins" = "W",
+          "losses" = "L",
+          "ties" = "T",
+          "overtime_losses" = "OTL",
+          "shots_against" = "SA",
+          "goals_against" = "GA",
+          "saves" = "Sv",
+          "save_percent" = "Sv%",
+          "goals_against_average" = "GAA",
+          "shutouts" = "SO",
+          "minutes_played" = "MP",
+          "penalty_minutes" = "PIM",
+          "goals" = "G",
+          "assists" = "A",
+          "games_started" = "GS") %>%
         dplyr::mutate(
           player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
           player_id = as.integer(stringr::str_extract(.data$goalies_href, "\\d+"))
