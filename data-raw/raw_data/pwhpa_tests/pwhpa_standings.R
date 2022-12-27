@@ -1,10 +1,11 @@
 library(tidyverse)
+library(ggimage)
 # library(rvest)
 # library(httr)
 # library(jsonlite)
 # library(rjson)
 # library(ggimage)
-# library(ggtext)
+library(ggtext)
 
 pwhpa_standings <- function() {
 
@@ -65,6 +66,72 @@ pwhpa_standings <- function() {
     dplyr::left_join(team_logos, by = c("team", "team_id")) %>%
     tibble::as_tibble()
 
+  asp_ratio <- 1.618
+
+
+    standings <-
+    standings %>%
+      dplyr::mutate(
+        gfp = gf / gp,
+        gap = ga / gp
+      )
+
+  gplt <-
+    standings %>%
+    ggplot() +
+    geom_abline(slope = -1.2,
+                intercept = seq(-2, 3),
+                color = "grey") +
+    geom_vline(xintercept = mean(standings$gf / standings$gp, na.rm = TRUE)) +
+    geom_hline(yintercept = mean(standings$ga / standings$gp, na.rm = TRUE)) +
+    geom_image(aes(x = gfp, y = gap,
+                   image = logo),
+               # Set size, and aspect ratio
+               size = 0.1, by = "width", asp = asp_ratio) +
+    labs(x = "Goals Scored Per Game",
+         y = "Goals Allowed Per Game (Reversed)",
+         title = "PWHPA Secret Dream Gap Tour\nScoring By Game",
+         subtitle = "Montréal, Truro, and Pittsburgh Showcases",
+         caption = "Data: fastRhockey · Graphic: Ben Howell (@benhowell71)") +
+    geom_richtext(aes(x = max(standings$gfp, na.rm = TRUE) + 0.1, y = min(standings$gap, na.rm = TRUE) - 0.2, label = "GOOD :)"),
+                  fill = NA, label.color = NA, size = 6) +
+    geom_richtext(aes(x = max(standings$gfp, na.rm = TRUE) + 0.1, y = max(standings$gap, na.rm = TRUE) + 0.2, label = "SCORING!!!"),
+                  fill = NA, label.color = NA, size = 6) +
+    geom_richtext(aes(x = min(standings$gfp, na.rm = TRUE) - 0.1, y = min(standings$gap, na.rm = TRUE) - 0.2, label = "Boring :/"),
+                  fill = NA, label.color = NA, size = 6) +
+    geom_richtext(aes(x = min(standings$gfp, na.rm = TRUE) - 0.1, y = max(standings$gap, na.rm = TRUE) + 0.2, label = "BAD :("),
+                  fill = NA, label.color = NA, size = 6) +
+    scale_x_continuous(limits = c(min(standings$gfp, na.rm = TRUE) - 0.25,
+                                  max(standings$gfp, na.rm = TRUE) + 0.25),
+                       breaks = c(seq(0,
+                                      10,
+                                      by = 0.25))) +
+    # # scale_y_continuous(limits = c(4, 12),
+    # #                    breaks = c(seq(4, 12))) +
+    scale_y_reverse(limits = c(max(standings$gap, na.rm = TRUE) + 0.25,
+                               min(standings$gap, na.rm = TRUE) - 0.25),
+                    breaks = c(seq(10, 0, -0.5))) +
+    theme_minimal() +
+    theme(
+      panel.grid = element_blank(),
+      # axis.line = element_line(size = 1),
+      panel.border = element_rect(fill = NA),
+      axis.text = element_text(face = "bold", size = 14),
+      axis.ticks = element_line(size = 0.75),
+      axis.ticks.length = unit(0.15, "cm"),
+      plot.title = element_text(hjust = 0.5, size = 18, face = "bold"),
+      axis.title = element_text(size = 12, face = "italic"),
+      plot.subtitle = element_text(hjust = 0.5, face = "italic", size = 14),
+      plot.caption = element_text(hjust = 0.5, face = "italic", size = 10)
+    )
+
+  ggsave(gplt, filename = "pwhpa_goals_plot.png",
+         bg = "white",
+         height = 8,
+         width = 10)
+
   return(standings)
 
 }
+
+pwhpa_standings()
