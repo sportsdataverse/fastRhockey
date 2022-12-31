@@ -50,8 +50,8 @@ helper_phf_pbp_normalize_columns <- function(df){
 }
 
 
-#' @title phf_pbp_data
-#' @description phf_pbp_data: returns all of the play-by-play data for a game into on big data frame using the process_phf_period/shootout functions. Contains functionality to account for regulation games, overtime games, and shootouts
+#' @title helper_phf_pbp_data
+#' @description helper_phf_pbp_data: returns all of the play-by-play data for a game into on big data frame using the process_phf_period/shootout functions. Contains functionality to account for regulation games, overtime games, and shootouts
 #'
 #' @param data the raw list data that is generated from the phf_game_raw function
 #' @importFrom dplyr mutate bind_rows filter row_number select case_when pull starts_with ends_with
@@ -75,7 +75,6 @@ helper_phf_pbp_data <- function(data) {
   lgh <- "[:digit:] mins|[0-9]+ mins"
   abbreviations <- "TOR|MIN|BOS|CTW|MET|BUF|MON"
   ne <- "On Ice"
-
 
   pbp <- data %>%
     dplyr::mutate(
