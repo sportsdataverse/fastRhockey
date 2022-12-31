@@ -6,27 +6,45 @@ library(rjson)
 
 process_scores <- function(score_info) {
 
-  team <- rvest::html_text(score_info[[1]])
-  first <- rvest::html_text(score_info[[2]])
-  second <- rvest::html_text(score_info[[3]])
-  third <- rvest::html_text(score_info[[4]])
-  final <- rvest::html_text(score_info[[5]])
-  ppo <- rvest::html_text(score_info[[6]])
-  ppg <- rvest::html_text(score_info[[7]])
-  sog <- rvest::html_text(score_info[[8]])
-  res <- rvest::html_text(score_info[[9]])
+  if (length(score_info) == 9) {
+    team <- rvest::html_text(score_info[[1]])
+    first <- rvest::html_text(score_info[[2]])
+    second <- rvest::html_text(score_info[[3]])
+    third <- rvest::html_text(score_info[[4]])
+    final <- rvest::html_text(score_info[[5]])
+    ppo <- rvest::html_text(score_info[[6]])
+    ppg <- rvest::html_text(score_info[[7]])
+    sog <- rvest::html_text(score_info[[8]])
+    res <- rvest::html_text(score_info[[9]])
 
-  score <- data.frame(
-    team = c(team),
-    first = c(first),
-    second = c(second),
-    third = c(third),
-    final = c(final),
-    power_play_opps = c(ppo),
-    power_play_goals = c(ppg),
-    shots_on_goal = c(sog),
-    result = c(res)
-  )
+    score <- data.frame(
+      team = c(team),
+      first = c(first),
+      second = c(second),
+      third = c(third),
+      final = c(final),
+      power_play_opps = c(ppo),
+      power_play_goals = c(ppg),
+      shots_on_goal = c(sog),
+      result = c(res)
+    )
+  } else if (length(score_info) == 3) {
+    team <- rvest::html_text(score_info[[1]])
+    final <- rvest::html_text(score_info[[2]])
+    res <- rvest::html_text(score_info[[3]])
+
+    score <- data.frame(
+      team = c(team),
+      first = c(NA),
+      second = c(NA),
+      third = c(NA),
+      final = c(final),
+      power_play_opps = c(NA),
+      power_play_goals = c(NA),
+      shots_on_goal = c(NA),
+      result = c(res)
+    )
+  }
 
   return(score)
 

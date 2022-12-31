@@ -46,7 +46,7 @@ process_roster <- function(player) {
 
 }
 
-pwhpa_team_stats <- function(team) {
+pwhpa_team_player_stats <- function(team) {
 
   base_url <- "https://stats.pwhpa.com/team/"
   full_url <- paste0(base_url,
