@@ -160,10 +160,36 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span>   <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">phf_team_roster</span><span class="op">(</span>team <span class="op">=</span> <span class="st">"Minnesota Whitecaps"</span>, season <span class="op">=</span> <span class="fl">2023</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $roster</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── PHF Roster Information from PremierHockeyFederation.com ─────────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-01-04 06:15:03 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 21 × 12</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    team_id team_n…¹ group divis…² playe…³ playe…⁴ posit…⁵ height homet…⁶ playe…⁷</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">203</span>160 Minneso… <span style="color: #BB0000;">NA</span>      <span style="text-decoration: underline;">20</span>048       5 Sidney… D       <span style="color: #949494;">"</span>5' 5… Minnet… https:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">203</span>160 Minneso… <span style="color: #BB0000;">NA</span>      <span style="text-decoration: underline;">20</span>048       7 Emma S… D       <span style="color: #949494;">"</span>5' 7… Duluth… https:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">203</span>160 Minneso… <span style="color: #BB0000;">NA</span>      <span style="text-decoration: underline;">20</span>048       9 Sydney… D       <span style="color: #949494;">"</span>5' 8… Minnet… https:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">203</span>160 Minneso… <span style="color: #BB0000;">NA</span>      <span style="text-decoration: underline;">20</span>048      24 Olivia… D       <span style="color: #949494;">"</span>5' 9… Campbe… https:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">203</span>160 Minneso… <span style="color: #BB0000;">NA</span>      <span style="text-decoration: underline;">20</span>048      27 Patti … D       <span style="color: #949494;">"</span>5' 7… Thief … https:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">203</span>160 Minneso… <span style="color: #BB0000;">NA</span>      <span style="text-decoration: underline;">20</span>048      28 Amanda… D       <span style="color: #949494;">"</span>5' 1… Watert… https:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">203</span>160 Minneso… <span style="color: #BB0000;">NA</span>      <span style="text-decoration: underline;">20</span>048      33 Maddie… D       <span style="color: #949494;">"</span>5' 1… River … https:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">203</span>160 Minneso… <span style="color: #BB0000;">NA</span>      <span style="text-decoration: underline;">20</span>048       3 Jonna … F       <span style="color: #949494;">"</span>5' 4… Elk Ri… https:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">203</span>160 Minneso… <span style="color: #BB0000;">NA</span>      <span style="text-decoration: underline;">20</span>048       6 Brooke… F       <span style="color: #949494;">"</span>5' 6… Eagan,… https:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">203</span>160 Minneso… <span style="color: #BB0000;">NA</span>      <span style="text-decoration: underline;">20</span>048       8 Natali… F       <span style="color: #949494;">"</span>5' 6… Eagan,… https:…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 11 more rows, 2 more variables: player_href &lt;chr&gt;, player_id &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   and abbreviated variable names ¹​team_name, ²​division_id, ³​player_jersey,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁴​player_name, ⁵​position, ⁶​hometown, ⁷​player_image_href</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $team_staff</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── PHF Team Staff Information from PremierHockeyFederation.com ─────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-01-04 06:15:03 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span>   <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">phf_team_roster</span><span class="op">(</span>team <span class="op">=</span> <span class="st">"Buffalo Beauts"</span>, season <span class="op">=</span> <span class="fl">2023</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $roster</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── PHF Roster Information from PremierHockeyFederation.com ─────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-01-04 05:28:21 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-01-04 06:15:04 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 25 × 12</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    team_id team_n…¹ group divis…² playe…³ playe…⁴ posit…⁵ height homet…⁶ playe…⁷</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
@@ -183,7 +209,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $team_staff</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── PHF Team Staff Information from PremierHockeyFederation.com ─────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-01-04 05:28:21 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-01-04 06:15:04 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   team_id team_name      group division_id staff_name     staff_type       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span>
@@ -196,7 +222,7 @@
 <span class="r-in"><span>   <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">phf_team_roster</span><span class="op">(</span>team <span class="op">=</span> <span class="st">"Buffalo Beauts"</span>, season <span class="op">=</span> <span class="fl">2016</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $roster</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── PHF Roster Information from PremierHockeyFederation.com ─────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-01-04 05:28:21 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-01-04 06:15:04 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 22 × 10</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    team_id team_…¹ group divis…² playe…³ playe…⁴ posit…⁵ playe…⁶ playe…⁷ playe…⁸</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
@@ -215,7 +241,9 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁸​player_id</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $team_staff</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── PHF Team Staff Information from PremierHockeyFederation.com ─────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-01-04 06:15:04 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
