@@ -23,6 +23,7 @@ test_that("phf_pbp", {
     "defensive_player_name_6",
     "period_id",
     "game_id",
+    "game_date",
     "home_team",
     "home_location",
     "home_nickname",
