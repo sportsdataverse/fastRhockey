@@ -197,7 +197,13 @@ phf_game_details <- function(game_id) {
   # Check the result
   check_status(res)
   Sys.sleep(3)
-
+  date_resp <- (res %>%
+    httr::content(as = "text", encoding="utf-8") %>%
+    jsonlite::parse_json() %>%
+    purrr::pluck("content") %>%
+    rvest::read_html() %>%
+    rvest::html_elements(".center > div") %>%
+    rvest::html_text())[1]
   resp <- (res %>%
     httr::content(as = "text", encoding="utf-8") %>%
     jsonlite::parse_json() %>%
@@ -240,6 +246,7 @@ phf_game_details <- function(game_id) {
                    rvest::html_text())[6]
   game_details <- data.frame(
     "game_id" = game_id,
+    "game_date" = date_resp,
     "home_team" = home_team,
     "home_location" = home_location,
     "home_nickname" = home_nickname,
