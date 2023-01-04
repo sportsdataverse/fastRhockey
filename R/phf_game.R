@@ -32,6 +32,7 @@ phf_game_all <- function(game_id) {
                      httr::add_headers(`Authorization`= auth_ticket))
   # Check the result
   check_status(res)
+  Sys.sleep(3)
 
 
   tryCatch(
@@ -153,7 +154,7 @@ phf_game_raw <- function(game_id) {
                      httr::add_headers(`Authorization`= auth_ticket))
   # Check the result
   check_status(res)
-
+  Sys.sleep(3)
   resp <- res %>%
     httr::content(as = "text", encoding="utf-8") %>%
     jsonlite::parse_json() %>%
@@ -195,6 +196,7 @@ phf_game_details <- function(game_id) {
                      httr::add_headers(`Authorization`= auth_ticket))
   # Check the result
   check_status(res)
+  Sys.sleep(3)
 
   resp <- (res %>%
     httr::content(as = "text", encoding="utf-8") %>%
@@ -286,6 +288,7 @@ phf_game_summary <- function(game_id) {
                      httr::add_headers(`Authorization`= auth_ticket))
   # Check the result
   check_status(res)
+  Sys.sleep(3)
 
   resp <- res %>%
              httr::content(as = "text", encoding="utf-8") %>%

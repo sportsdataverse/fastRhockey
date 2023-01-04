@@ -17,6 +17,6 @@ PHF League Information per year
 }
 \examples{
 \donttest{
-  try(phf_league_info(season = 2021))
+  try(phf_league_info(season = 2023))
 }
 }

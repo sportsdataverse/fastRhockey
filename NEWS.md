@@ -1,3 +1,7 @@
+# **fastRhockey 0.4.2**
+
+* Fixing issues with phf_league_info() function for team name inconsistency.
+
 # **fastRhockey 0.4.1**
 
 * Minor logic addition for pbp parsing

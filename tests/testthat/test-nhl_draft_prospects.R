@@ -27,12 +27,9 @@ test_that("NHL - Get NHL draft prospects", {
     "amateur_team_name",
     "amateur_team_link",
     "amateur_league_name",
-    "amateur_league_link",
-    "ranks_midterm",
-    "ranks_final_rank",
-    "ranks_draft_year"
+    "amateur_league_link"
   )
-  x <- x %>% dplyr::select(dplyr::all_of(cols))
+  x <- x %>% dplyr::select(tidyr::all_of(cols))
   expect_equal(colnames(x), cols)
   expect_s3_class(x, 'data.frame')
 

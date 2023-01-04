@@ -10,7 +10,7 @@
 #' @importFrom glue glue
 #' @export
 #' @examples \donttest{
-#'   try(phf_league_info(season = 2021))
+#'   try(phf_league_info(season = 2023))
 #' }
 phf_league_info <- function(season = most_recent_phf_season()){
 
@@ -32,6 +32,19 @@ phf_league_info <- function(season = most_recent_phf_season()){
         make_fastRhockey_data("PHF Seasons Information from PremierHockeyFederation.com",Sys.time())
       divisions <- data$division$options %>%
         make_fastRhockey_data("PHF Division Information from PremierHockeyFederation.com",Sys.time())
+      division_id <- divisions %>% dplyr::filter(.data$name %in% c("PHF","NWHL")) %>% dplyr::pull("id")
+      base_url <- "https://web.api.digitalshift.ca/partials/stats/filters?type=division&id="
+      full_url <- paste0(base_url,
+                         division_id)
+      res <- httr::RETRY("GET", full_url,
+                         httr::add_headers(
+                           `Authorization`='ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'))
+      check_status(res)
+
+      data <- res %>%
+        httr::content(as = "text", encoding="utf-8") %>%
+        jsonlite::fromJSON()
+
       teams <- data$team$options %>%
         make_fastRhockey_data("PHF Teams Information from PremierHockeyFederation.com",Sys.time())
       leagues <- data$league$options %>%
