@@ -10,7 +10,7 @@ version](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=suc
 [![CRAN
 downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=Downloads&query=%24%5B0%5D.downloads&url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2FfastRhockey)](https://CRAN.R-project.org/package=fastRhockey)
 [![Version-Number](https://img.shields.io/github/r-package/v/sportsdataverse/fastRhockey?label=fastRhockey&logo=R&style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/)
-[![R-CMD-check](https://img.shields.io/github/workflow/status/sportsdataverse/fastRhockey/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://img.shields.io/github/actions/workflow/status/sportsdataverse/fastRhockey/R-CMD-check.yaml?branch=main&label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/fastRhockey/)
 [![Contributors](https://img.shields.io/github/contributors/sportsdataverse/fastRhockey?style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/graphs/contributors)
 <!-- badges: end -->
@@ -19,7 +19,7 @@ downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=s
 Package that is designed to pull play-by-play (and boxscore) data from
 the newest version of the [Premier Hockey Federation (PHF)
 website](https://www.premierhockeyfederation.com/). In the past, there
-have been a few scrapers for the PHF (formerly the NWHL), but they’ve
+have been a few scrapers for the PHF (formerly the NWHL), but they have
 all been deprecated since the league changed website formats.
 
 With the seventh season of the league kicking off on November 6th, and
@@ -43,7 +43,7 @@ this package intends to alleviate.
 
 <center>
 
-<img src='man/figures/fastRhockey_full_holographic_graphic.png' width="70%" />
+<img src='https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png' width="70%" />
 
 </center>
 
