@@ -125,19 +125,21 @@ helper_phf_pbp_data <- function(data) {
   suppressWarnings(pbp <- pbp %>%
                      tidyr::separate("time", into = c("minute", "second"),
                                      sep = ":", remove = FALSE))
-  pbp <- pbp %>%
-    dplyr::mutate(
-      minute_start = as.numeric(.data$minute),
-      second_start = as.numeric(.data$second),
-      minute = ifelse(19 - .data$minute_start == 19 &
-                        60 - .data$second_start == 60, 20,
-                      19 - .data$minute_start),
-      second = ifelse(60 - .data$second_start == 60, 0,
-                      60 - .data$second_start),
-      second = ifelse(.data$second < 10, paste0("0", .data$second),
-                      paste0(.data$second)),
-      clock = paste0(.data$minute, ":", .data$second)) %>%
-    dplyr::select(-"minute", -"second")
+  suppressWarnings(
+    pbp <- pbp %>%
+      dplyr::mutate(
+        minute_start = as.numeric(.data$minute),
+        second_start = as.numeric(.data$second),
+        minute = ifelse(19 - .data$minute_start == 19 &
+                          60 - .data$second_start == 60, 20,
+                        19 - .data$minute_start),
+        second = ifelse(60 - .data$second_start == 60, 0,
+                        60 - .data$second_start),
+        second = ifelse(.data$second < 10, paste0("0", .data$second),
+                        paste0(.data$second)),
+        clock = paste0(.data$minute, ":", .data$second)) %>%
+      dplyr::select(-"minute", -"second")
+  )
 
   suppressWarnings(
     pbp <- pbp %>%

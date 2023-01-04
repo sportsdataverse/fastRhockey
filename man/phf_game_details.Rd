@@ -17,6 +17,6 @@ phf_game_details: pull in the raw data for a game_id from the PHF/NWHL API
 }
 \examples{
 \donttest{
-  try(phf_game_details(game_id = 268078))
+  try(phf_game_details(game_id = 612254))
 }
 }

@@ -14,7 +14,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   try(phf_game_all(game_id = 268127))
+#'   try(phf_game_all(game_id = 612254))
 #' }
 phf_game_all <- function(game_id) {
   base_url <- "https://web.api.digitalshift.ca/partials/stats/game/play-by-play?game_id="
@@ -31,7 +31,7 @@ phf_game_all <- function(game_id) {
   res <- httr::RETRY("GET", full_url,
                      httr::add_headers(`Authorization`= auth_ticket))
   # Check the result
-  check_status(res)
+  # check_status(res)
   Sys.sleep(3)
 
 
@@ -57,7 +57,7 @@ phf_game_all <- function(game_id) {
       if(length(plays_data) %in% c(5,6)){
         plays_data <- plays_data[1:5]
       } else if(length(plays_data)>6) {
-        plays_data
+        plays_data <- plays_data
       }
       plays_df <- purrr::map_dfr(1:length(plays_data), function(x){
         plays_data[[x]] %>%
@@ -81,8 +81,8 @@ phf_game_all <- function(game_id) {
           "team", "game_id", "winner", "total_scoring", tidyr::everything()) %>%
         make_fastRhockey_data("PHF Team Box Information from PremierHockeyFederation.com",Sys.time())
 
-      player_box_df <- phf_player_box(game_id = 420339)
-      game_summary <- phf_game_summary(game_id = 268078)
+      player_box_df <- phf_player_box(game_id = game_id)
+      game_summary <- phf_game_summary(game_id = game_id)
 
       game <- c(
         list(plays_df),
@@ -135,7 +135,7 @@ phf_game_all <- function(game_id) {
 #' @export
 #' @examples
 #' \donttest{
-#'   try(phf_game_raw(game_id = 268078))
+#'   try(phf_game_raw(game_id = 612254))
 #' }
 phf_game_raw <- function(game_id) {
 
@@ -177,7 +177,7 @@ phf_game_raw <- function(game_id) {
 #' @export
 #' @examples
 #' \donttest{
-#'   try(phf_game_details(game_id = 268078))
+#'   try(phf_game_details(game_id = 612254))
 #' }
 phf_game_details <- function(game_id) {
 
@@ -269,7 +269,7 @@ phf_game_details <- function(game_id) {
 #' @export
 #' @examples
 #' \donttest{
-#'   try(phf_game_summary(game_id = 268078))
+#'   try(phf_game_summary(game_id = 612254))
 #' }
 phf_game_summary <- function(game_id) {
 
