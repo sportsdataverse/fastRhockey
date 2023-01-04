@@ -10,6 +10,7 @@
 #' @export
 #' @examples
 #' \donttest{
+#'    try(phf_team_roster(team = "Minnesota Whitecaps", season = 2023))
 #'    try(phf_team_roster(team = "Buffalo Beauts", season = 2023))
 #'    try(phf_team_roster(team = "Buffalo Beauts", season = 2016))
 #' }
@@ -49,7 +50,7 @@ phf_team_roster <- function(team, season = most_recent_phf_season()){
         rvest::html_attr("src")
       player_image_df <- data.frame(player_image_href = player_image)
       resp <- resp_all %>%
-        rvest::html_elements("table")
+        rvest::html_elements(".table-scroll > table")
 
 
       roster_href <- resp %>%
@@ -62,7 +63,7 @@ phf_team_roster <- function(team, season = most_recent_phf_season()){
         rvest::html_table() %>%
         unique()
 
-      roster <- roster[1:(length(roster)-1)]
+      # roster <- roster[1:(length(roster)-1)]
       roster <- data.table::rbindlist(roster)
 
 
@@ -92,23 +93,35 @@ phf_team_roster <- function(team, season = most_recent_phf_season()){
         janitor::clean_names() %>%
         make_fastRhockey_data("PHF Roster Information from PremierHockeyFederation.com",Sys.time())
       if (season >= 2020){
+        resp <- resp_all %>%
+          rvest::html_elements("table")
+
         team_staff <- resp[[length(resp)]] %>%
           rvest::html_table()
 
-        team_staff <- team_staff[1:ncol(team_staff)-1]
-        team_staff_df <- dplyr::bind_cols(team_row, team_staff)
-        staff_cols <- c(
-          "team_id" = "id",
-          "team_name" = "name",
-          "staff_name" = "Name",
-          "staff_type" = "Type"
-        )
-        team_staff_df <- team_staff_df %>%
-          dplyr::rename(dplyr::any_of(staff_cols)) %>%
-          janitor::clean_names() %>%
-          make_fastRhockey_data("PHF Team Staff Information from PremierHockeyFederation.com",Sys.time())
+        if (names(team_staff)[2]=="Type"){
+          team_staff <- team_staff[1:ncol(team_staff)-1]
+          team_staff_df <- dplyr::bind_cols(team_row, team_staff)
+          staff_cols <- c(
+            "team_id" = "id",
+            "team_name" = "name",
+            "staff_name" = "Name",
+            "staff_type" = "Type"
+          )
+          team_staff_df <- team_staff_df %>%
+            dplyr::rename(dplyr::any_of(staff_cols)) %>%
+            janitor::clean_names() %>%
+            make_fastRhockey_data("PHF Team Staff Information from PremierHockeyFederation.com",Sys.time())
+        } else {
+          team_staff_df <- data.frame()
+          team_staff_df <- team_staff_df %>%
+            make_fastRhockey_data("PHF Team Staff Information from PremierHockeyFederation.com",Sys.time())
+        }
+
       } else {
         team_staff_df <- data.frame()
+        team_staff_df <- team_staff_df %>%
+          make_fastRhockey_data("PHF Team Staff Information from PremierHockeyFederation.com",Sys.time())
       }
 
       team_roster <- c(list(roster_df), list(team_staff_df))
