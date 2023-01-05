@@ -1,6 +1,10 @@
+# **fastRhockey 0.5.0**
+
+* Major improvements to NHL Game PBP Data parsing with shifts in-line via ```nhl_game_pbp()``` function added to match [```hockeyR```](https://hockeyr.netlify.app)
+
 # **fastRhockey 0.4.2**
 
-* Fixing issues with phf_league_info() function for team name inconsistency.
+* Fixing issues with ```phf_league_info()``` function for team name inconsistency.
 
 # **fastRhockey 0.4.1**
 
