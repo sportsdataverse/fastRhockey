@@ -36,7 +36,7 @@ phf_team_box <- function(game_id) {
           "total_scoring",
           tidyr::everything()) %>%
         make_fastRhockey_data("PHF Team Boxscore Information from PremierHockeyFederation.com",Sys.time())
-
+      Sys.sleep(3)
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid game_id or no boxscore data available! Try using `phf_schedule` to find a game ID to look up!"))
