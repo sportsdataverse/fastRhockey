@@ -33,7 +33,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#'    try(nhl_draft_prospects_info(prospect_id=65242))
+#'    try(nhl_draft_prospects_info(prospect_id = 65242))
 #' }
 nhl_draft_prospects_info <- function(prospect_id){
 

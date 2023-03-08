@@ -37,7 +37,7 @@ phf_team_roster <- function(team, season = most_recent_phf_season()){
   check_status(res)
 
   tryCatch(
-    expr={
+    expr = {
       resp_all <- res %>%
         httr::content(as = "text", encoding="utf-8") %>%
         jsonlite::parse_json() %>%

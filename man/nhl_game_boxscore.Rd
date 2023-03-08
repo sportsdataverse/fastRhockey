@@ -19,7 +19,7 @@ Returns information on game boxscore for a given game id
 }
 \examples{
 \donttest{
-   try(nhl_game_boxscore(game_id=2021020182))
+   try(nhl_game_boxscore(game_id = 2021020182))
 }
 }
 \keyword{Boxscore}

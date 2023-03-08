@@ -33,7 +33,7 @@ phf_pbp <- function(game_id) {
 
   plays_data <- data.frame()
   tryCatch(
-    expr={
+    expr = {
       data <- res %>%
         httr::content(as = "text", encoding="utf-8") %>%
         jsonlite::fromJSON() %>%

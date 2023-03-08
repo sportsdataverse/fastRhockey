@@ -86,7 +86,7 @@
 #   check_status(res)
 #   schedule_data <- data.frame()
 #   tryCatch(
-#     expr={
+#     expr = {
 #       data <- res %>%
 #         httr::content(as = "text", encoding="utf-8") %>%
 #         jsonlite::parse_json() %>%

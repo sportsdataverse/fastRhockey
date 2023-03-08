@@ -10,11 +10,11 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   try(phf_schedule(season=2023))
+#'   try(phf_schedule(season = 2023))
 #' }
 
 phf_schedule <- function(season = most_recent_phf_season()){
-  season_id <- phf_get_season_id(season=season)
+  season_id <- phf_get_season_id(season = season)
 
   base_url <- "https://web.api.digitalshift.ca/partials/stats/schedule/table?limit=100&all=true&season_id="
   full_url <- paste0(base_url,
@@ -24,14 +24,14 @@ phf_schedule <- function(season = most_recent_phf_season()){
   res <- httr::RETRY(
     "GET", full_url,
     httr::add_headers(
-      `Authorization`='ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'))
+      `Authorization` = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'))
 
   # Check the result
   check_status(res)
 
   schedule_data <- data.frame()
   tryCatch(
-    expr={
+    expr = {
       data <- res %>%
         httr::content(as = "text", encoding="utf-8") %>%
         jsonlite::parse_json() %>%

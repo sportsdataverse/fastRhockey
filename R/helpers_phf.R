@@ -15,13 +15,13 @@
 #' @importFrom stringr str_detect
 #' @noRd
 helper_phf_pbp_normalize_columns <- function(df){
-  if(ncol(df)==3){
+  if (ncol(df) == 3) {
     colnames(df) <- c("play_type","team","play_description")
     df$time <- NA_character_
     df <- df %>%
       dplyr::select("play_type", "team", "time", "play_description")
   }
-  if(ncol(df)==10){
+  if (ncol(df) == 10) {
 
     colnames(df) <- c("play_type", "team", "time","play_description","drop1","drop2",
                       "scoring_team_abbrev","scoring_team_on_ice","defending_team_abbrev","defending_team_on_ice")
@@ -32,7 +32,7 @@ helper_phf_pbp_normalize_columns <- function(df){
     df <- df %>%
       dplyr::filter(!is.na(.data$play_description),!stringr::str_detect(.data$team,"On Ice")) %>%
       dplyr::mutate(play_description = gsub("{{.*", "", .data$play_description, perl = TRUE))
-  }else{
+  } else {
     colnames(df) <- c("play_type", "team", "time","play_description")
     df$scoring_team_abbrev <- NA_character_
     df$scoring_team_on_ice <- NA_character_

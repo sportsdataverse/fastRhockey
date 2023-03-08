@@ -39,7 +39,7 @@ Returns information on draft prospect for a given prospect id
 }
 \examples{
 \donttest{
-   try(nhl_draft_prospects_info(prospect_id=65242))
+   try(nhl_draft_prospects_info(prospect_id = 65242))
 }
 }
 \keyword{Draft}

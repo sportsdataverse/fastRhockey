@@ -14,7 +14,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#'    try(nhl_game_boxscore(game_id=2021020182))
+#'    try(nhl_game_boxscore(game_id = 2021020182))
 #' }
 nhl_game_boxscore <- function(game_id){
 

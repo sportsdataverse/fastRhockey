@@ -36,7 +36,7 @@ phf_standings <- function(season = most_recent_phf_season()) {
   standings <- data.frame()
 
   tryCatch(
-    expr={
+    expr = {
 
       data <- res %>%
         httr::content(as = "text", encoding="utf-8") %>%

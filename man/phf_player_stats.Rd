@@ -18,5 +18,6 @@ phf_player_stats: loads the player stats
 \examples{
 \donttest{
   try(phf_player_stats(player_id = 431611))
+  try(phf_player_stats(player_id = 532475))
 }
 }

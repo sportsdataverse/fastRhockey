@@ -42,7 +42,7 @@ phf_leaders <- function(player_type, season = most_recent_phf_season(), season_t
   check_status(res)
 
   tryCatch(
-    expr={
+    expr = {
       resp <- (res %>%
                  httr::content(as = "text", encoding="utf-8") %>%
                  jsonlite::parse_json() %>%
@@ -82,7 +82,7 @@ phf_leaders <- function(player_type, season = most_recent_phf_season(), season_t
             })
         )
         skaters <- skaters %>%
-          dplyr::rename(
+          dplyr::rename(dplyr::any_of(c(
             "player_jersey" = "#",
             "player_name" = "Name",
             "team_name" = "Team",
@@ -105,7 +105,7 @@ phf_leaders <- function(player_type, season = most_recent_phf_season(), season_t
             "shorthanded_goals" = "SHG",
             "game_winning_goals" = "GWG",
             "shots" = "Sh",
-            "shots_blocked" = "ShBl") %>%
+            "shots_blocked" = "ShBl"))) %>%
           dplyr::mutate(
             player_name = stringr::str_replace(.data$player_name, pattern = "#\\d+",replacement=""),
             player_id = as.integer(stringr::str_extract(.data$player_href, "\\d+")),
@@ -115,7 +115,7 @@ phf_leaders <- function(player_type, season = most_recent_phf_season(), season_t
       }else{
 
         skaters <- skaters %>%
-          dplyr::rename(
+          dplyr::rename(dplyr::any_of(c(
             "player_jersey" = "#",
             "player_name" = "Name",
             "team_name" = "Team",
@@ -133,7 +133,7 @@ phf_leaders <- function(player_type, season = most_recent_phf_season(), season_t
             "minutes_played" = "MP",
             "penalty_minutes" = "PIM",
             "goals" = "G",
-            "assists" = "A") %>%
+            "assists" = "A"))) %>%
           dplyr::mutate(
             player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
             player_id = as.integer(stringr::str_extract(.data$player_href, "\\d+")),

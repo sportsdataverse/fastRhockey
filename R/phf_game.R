@@ -36,7 +36,7 @@ phf_game_all <- function(game_id) {
 
 
   tryCatch(
-    expr={
+    expr = {
       data <- res %>%
         httr::content(as = "text", encoding="utf-8") %>%
         jsonlite::fromJSON() %>%
@@ -193,19 +193,19 @@ phf_game_details <- function(game_id) {
 
   # the link for the game + authorization for accessing the API
   res <- httr::RETRY("GET", full_url,
-                     httr::add_headers(`Authorization`= auth_ticket))
+                     httr::add_headers(`Authorization` = auth_ticket))
   # Check the result
   check_status(res)
   Sys.sleep(3)
   date_resp <- (res %>%
-    httr::content(as = "text", encoding="utf-8") %>%
+    httr::content(as = "text", encoding = "utf-8") %>%
     jsonlite::parse_json() %>%
     purrr::pluck("content") %>%
     rvest::read_html() %>%
     rvest::html_elements(".center > div") %>%
     rvest::html_text())[1]
   resp <- (res %>%
-    httr::content(as = "text", encoding="utf-8") %>%
+    httr::content(as = "text", encoding = "utf-8") %>%
     jsonlite::parse_json() %>%
     purrr::pluck("content") %>%
     rvest::read_html() %>%
@@ -312,7 +312,7 @@ phf_game_summary <- function(game_id) {
         }
       }),is.null)]
 
-  if(length(scoring_summary)>0){
+  if (length(scoring_summary) > 0) {
     scoring_summary <- scoring_summary[[1]]
     scoring_summary <- scoring_summary[1:6] %>%
       dplyr::filter(.data$Period %in% c("1st","2nd","3rd","OT1")) %>%
@@ -329,7 +329,7 @@ phf_game_summary <- function(game_id) {
         }
       }),is.null)]
 
-  if(length(shootout_summary)>0){
+  if (length(shootout_summary) > 0) {
     shootout_summary <- shootout_summary[[1]] %>%
       janitor::clean_names()
   } else {
@@ -344,7 +344,7 @@ phf_game_summary <- function(game_id) {
         }
       }),is.null)]
 
-  if(length(penalty_summary)>0){
+  if (length(penalty_summary) > 0) {
     penalty_summary <- penalty_summary[[1]] %>%
       janitor::clean_names()
   } else {
@@ -359,7 +359,7 @@ phf_game_summary <- function(game_id) {
         }
       }),is.null)]
 
-  if(length(officials)>0){
+  if (length(officials) >0) {
     officials <- officials[[1]] %>%
       janitor::clean_names()
   } else {
@@ -373,7 +373,7 @@ phf_game_summary <- function(game_id) {
           return(x)
         }
       }),is.null)]
-  if(length(team_staff)>0){
+  if (length(team_staff) > 0) {
     team_staff <- team_staff[[1]]
 
     team_staff <- team_staff %>%
@@ -393,7 +393,7 @@ phf_game_summary <- function(game_id) {
   }
 
   timeouts <- resp[[max(length(resp))]]
-  if(!("Time" %in% colnames(timeouts))){
+  if (!("Time" %in% colnames(timeouts))) {
     timeouts <- data.frame()
   } else {
     timeouts <- timeouts %>%

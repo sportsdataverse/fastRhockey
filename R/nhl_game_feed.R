@@ -15,7 +15,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#'    try(nhl_game_feed(game_id=2018020561))
+#'    try(nhl_game_feed(game_id = 2018020561))
 #' }
 nhl_game_feed <- function(game_id){
 

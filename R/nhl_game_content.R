@@ -12,7 +12,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#'    try(nhl_game_content(game_id=2021020182))
+#'    try(nhl_game_content(game_id = 2021020182))
 #' }
 nhl_game_content <- function(game_id){
 
