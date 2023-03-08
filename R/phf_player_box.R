@@ -90,7 +90,7 @@ phf_player_box <- function(game_id) {
       goalies <- dplyr::bind_rows(home_goalies, away_goalies)
 
       skaters <- skaters %>%
-        dplyr::rename(
+        dplyr::rename(dplyr::any_of(c(
           "player_jersey" = "#",
           "player_name" = "Name",
           "position" = "Pos",
@@ -110,7 +110,7 @@ phf_player_box <- function(game_id) {
           "shots" = "Sh",
           "shots_blocked" = "ShBl",
           "faceoffs_won" = "FoW",
-          "faceoffs_lost" = "FoL") %>%
+          "faceoffs_lost" = "FoL"))) %>%
         dplyr::mutate(
           player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
           player_id = stringr::str_extract(.data$skaters_href, "\\d+"),
