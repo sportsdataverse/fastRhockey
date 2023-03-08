@@ -235,7 +235,7 @@ Isobel Cup Championship that the Boston Pride won.</p>
 <span>                <span class="va">home_score</span>, <span class="va">away_score</span>,</span>
 <span>                <span class="va">winner</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── PHF Schedule Information from PremierHockeyFederation.com ───────────────────</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-01-05 06:17:04 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-08 04:29:15 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 9</span></span></span>
 <span><span class="co">#&gt;   game_id date_group facility     game_…¹ home_…² away_…³ home_…⁴ away_…⁵ winner</span></span>
 <span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
@@ -263,7 +263,7 @@ game.</p>
 <span>                <span class="va">successful_power_play</span>, <span class="va">power_play_opportunities</span>,</span>
 <span>                <span class="va">faceoff_percent</span>, <span class="va">takeaways</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── PHF Team Boxscore Information from PremierHockeyFederation.com ──────────────</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-01-05 06:17:11 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-08 04:29:23 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 8</span></span></span>
 <span><span class="co">#&gt;   game_id team  total_scoring total_shots successful_p…¹ power…² faceo…³ takea…⁴</span></span>
 <span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -290,7 +290,7 @@ the boxscore function where the only input necessary is the
 <span><span class="va">pbp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/phf_pbp.html">phf_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span>
 <span>  </span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="va">a</span></span>
-<span><span class="co">#&gt; Time difference of 6.579017 secs</span></span></code></pre></div>
+<span><span class="co">#&gt; Time difference of 6.969332 secs</span></span></code></pre></div>
 <p>Loading a single game should take ~ 5 seconds. Once it does, it’s
 time to have some fun. The <code>phf_pbp</code> function returns 79
 columns, some with “boring” data, like who the teams are, etc. But then
