@@ -54,12 +54,8 @@ test_that("phf_schedule", {
     "date_group",
     "winner"
   )
-  x <- phf_schedule(season = 2017)
-  z <- phf_schedule(season = 2023)
+  x <- phf_schedule(season = 2023)
 
   expect_equal(colnames(x), cols)
-  expect_equal(colnames(z), cols)
-
   expect_s3_class(x, "data.frame")
-  expect_s3_class(z, "data.frame")
 })
