@@ -1,7 +1,7 @@
 test_that("NHL - Get NHL Game Feed", {
   skip_on_cran()
-  x <- nhl_game_feed(game_id=2021020182)
-  
+  x <- nhl_game_feed(game_id = 2021020182)
+
   names <- c("all_plays",
             "scoring_plays",
             "penalty_plays",
@@ -18,8 +18,8 @@ test_that("NHL - Get NHL Game Feed", {
             "penalty_box",
             "scratches",
             "team_coaches")
-  
+
   expect_equal(names(x), names)
   # expect_s3_class(x, 'data.frame')
-  
+
 })
