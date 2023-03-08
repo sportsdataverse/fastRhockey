@@ -118,7 +118,7 @@ phf_player_box <- function(game_id) {
         ) %>%
         make_fastRhockey_data("PHF Skaters Boxscore Information from PremierHockeyFederation.com",Sys.time())
       goalies <- goalies %>%
-        dplyr::rename(
+        dplyr::rename(dplyr::any_of(c(
           "player_jersey" = "#",
           "player_name" = "Name",
           "shots_against" = "SA",
@@ -128,7 +128,7 @@ phf_player_box <- function(game_id) {
           "minutes_played" = "MP",
           "penalty_minutes" = "PIM",
           "goals" = "G",
-          "assists" = "A") %>%
+          "assists" = "A"))) %>%
         dplyr::mutate(
           player_name = stringr::str_replace(.data$player_name,pattern = "#\\d+",replacement=""),
           player_id = stringr::str_extract(.data$goalies_href, "\\d+"),

@@ -13,6 +13,7 @@
 #' @examples
 #' \donttest{
 #'   try(phf_player_stats(player_id = 431611))
+#'   try(phf_player_stats(player_id = 532475))
 #' }
 phf_player_stats <- function(player_id) {
 
@@ -47,6 +48,11 @@ phf_player_stats <- function(player_id) {
         rvest::html_elements("table")
 
       resp <- unique(resp)
+      goalie_position <- resp_all %>%
+        rvest::html_elements(".stats-table.game_logs_goalies")
+
+      position <- ifelse(length(goalie_position) > 0, "Goalie", "Player")
+
       player_name <- resp_all %>%
         rvest::html_elements(".title") %>%
         rvest::html_text()
@@ -54,53 +60,100 @@ phf_player_stats <- function(player_id) {
         rvest::html_elements(".photo") %>%
         rvest::html_elements("img") %>%
         rvest::html_attr("src")
-      position <- resp_all %>%
-        rvest::html_elements(".subtitle") %>%
-        rvest::html_text()
-      position <- stringr::str_remove(position,"#\\d+ ")
-      regular_season_href <- resp[[1]] %>%
-        rvest::html_elements("tr") %>%
-        rvest::html_elements("td > a") %>%
-        rvest::html_attr("href")
+      if (position == "Player"){
+        regular_season_href <- (resp_all %>%
+          rvest::html_elements("#career_players_Regular_Season"))[[1]] %>%
+          rvest::html_elements("tr") %>%
+          rvest::html_elements("td > a") %>%
+          rvest::html_attr("href")
 
-      playoffs_href <- resp[[3]] %>%
-        rvest::html_elements("tr") %>%
-        rvest::html_elements("td > a") %>%
-        rvest::html_attr("href")
+        playoffs_href <- (resp_all %>%
+          rvest::html_elements("#career_players_Playoffs"))[[1]] %>%
+          rvest::html_elements("tr") %>%
+          rvest::html_elements("td > a") %>%
+          rvest::html_attr("href")
 
-      player_game_log_href <- resp[[5]] %>%
-        rvest::html_elements("tr") %>%
-        rvest::html_elements("td > a") %>%
-        rvest::html_attr("href")
+        player_game_log_href <- (resp_all %>%
+          rvest::html_elements(".stats-table.game_logs_players"))[[1]] %>%
+          rvest::html_elements("tr") %>%
+          rvest::html_elements("td > a") %>%
+          rvest::html_attr("href")
 
-      regular_season_href <- append(regular_season_href,NA_character_)
-      playoffs_href <- append(playoffs_href,NA_character_)
-      player_game_log_href <- player_game_log_href
+        regular_season_href <- append(regular_season_href,NA_character_)
+        playoffs_href <- append(playoffs_href,NA_character_)
+        player_game_log_href <- player_game_log_href
 
-      regular_season_stats <- resp[[1]] %>%
-        rvest::html_table()
-      playoff_stats <- resp[[3]] %>%
-        rvest::html_table()
-      player_game_log_stats <- resp[[5]] %>%
-        rvest::html_table()
+        regular_season_stats <- (resp_all %>%
+          rvest::html_elements("#career_players_Regular_Season"))[[1]] %>%
+          rvest::html_table()
+        playoff_stats <- (resp_all %>%
+          rvest::html_elements("#career_players_Playoffs"))[[1]] %>%
+          rvest::html_table()
 
+        player_game_log_stats <- (resp_all %>%
+          rvest::html_elements(".stats-table.game_logs_players"))[[1]] %>%
+          rvest::html_table()
+        player_game_log_stats <- player_game_log_stats %>%
+          dplyr::mutate(
+            Pos = ifelse(.data$Pos == FALSE, 'F', .data$Pos)
+          )
+        position <- player_game_log_stats$Pos[[1]]
+      } else {
+        regular_season_href <- (resp_all %>%
+          rvest::html_elements("#career_goalies_Regular_Season"))[[1]] %>%
+          rvest::html_elements("tr") %>%
+          rvest::html_elements("td > a") %>%
+          rvest::html_attr("href")
+
+        playoffs_href <- (resp_all %>%
+          rvest::html_elements("#career_goalies_Playoffs"))[[1]] %>%
+          rvest::html_elements("tr") %>%
+          rvest::html_elements("td > a") %>%
+          rvest::html_attr("href")
+
+        player_game_log_href <- (resp_all %>%
+          rvest::html_elements(".stats-table.game_logs_goalies"))[[1]] %>%
+          rvest::html_elements("tr") %>%
+          rvest::html_elements("td > a") %>%
+          rvest::html_attr("href")
+
+        regular_season_href <- append(regular_season_href,NA_character_)
+        playoffs_href <- append(playoffs_href,NA_character_)
+        player_game_log_href <- player_game_log_href
+
+        regular_season_stats <- (resp_all %>%
+          rvest::html_elements("#career_goalies_Regular_Season"))[[1]] %>%
+          rvest::html_table()
+        playoff_stats <- (resp_all %>%
+          rvest::html_elements("#career_goalies_Playoffs"))[[1]] %>%
+          rvest::html_table()
+
+        player_game_log_stats <- (resp_all %>%
+          rvest::html_elements(".stats-table.game_logs_goalies"))[[1]] %>%
+          rvest::html_table()
+        player_game_log_stats <- player_game_log_stats %>%
+          dplyr::mutate(
+            Pos = position
+          )
+        position <- player_game_log_stats$Pos[[1]]
+      }
       regular_season_href <- data.frame(
         player_name = player_name,
-        player_id = player_id,
+        player_id = y,
         position = position,
         player_image_href = player_image,
         team_href = regular_season_href,
         season_type = "Regular Season")
       playoffs_href <- data.frame(
         player_name = player_name,
-        player_id = player_id,
+        player_id = y,
         position = position,
         player_image_href = player_image,
         team_href = playoffs_href,
         season_type = "Playoffs")
       player_game_log_href <- data.frame(
         player_name = player_name,
-        player_id = player_id,
+        player_id = y,
         position = position,
         player_image_href = player_image,
         game_href = player_game_log_href)
@@ -112,7 +165,7 @@ phf_player_stats <- function(player_id) {
 
       yearly_stats <- dplyr::bind_rows(regular_season_stats, playoff_stats)
 
-      if(position != "Goalie"){
+      if (position != "Goalie") {
         suppressWarnings(
           yearly_stats <- yearly_stats %>%
             tidyr::separate("FoW/L",into = c("faceoffs_won", "faceoffs_lost"),
@@ -130,7 +183,7 @@ phf_player_stats <- function(player_id) {
             })
         )
       yearly_stats <- yearly_stats %>%
-        dplyr::rename(
+        dplyr::rename(dplyr::any_of(c(
           "season" = "Season",
           "team_name" = "Team",
           "division" = "Division",
@@ -152,14 +205,14 @@ phf_player_stats <- function(player_id) {
           "shorthanded_goals" = "SHG",
           "game_winning_goals" = "GWG",
           "shots" = "Sh",
-          "shots_blocked" = "ShBl") %>%
+          "shots_blocked" = "ShBl"))) %>%
         dplyr::mutate(
           player_id = player_id,
           team_id = as.integer(stringr::str_extract(stringr::str_remove(.data$team_href,"stats#/100/team"), "\\d+"))) %>%
         dplyr::select(-"Pos") %>%
         make_fastRhockey_data("PHF Skaters Yearly Stats Information from PremierHockeyFederation.com",Sys.time())
       game_log_stats <- game_log_stats %>%
-        dplyr::rename(
+        dplyr::rename(dplyr::any_of(c(
           "date" = "Date",
           "game" = "Game",
           "goals" = "G",
@@ -174,14 +227,14 @@ phf_player_stats <- function(player_id) {
           "faceoffs_won_lost" = "FoW/L",
           "faceoffs_win_pct" = "Fo%",
           "shots" = "Sh",
-          "shots_blocked" = "ShBl") %>%
+          "shots_blocked" = "ShBl"))) %>%
         dplyr::mutate(
           game_id = as.integer(stringr::str_extract(stringr::str_remove(.data$game_href,"stats#/100/game"), "\\d+"))) %>%
         make_fastRhockey_data("PHF Skaters Game Log Stats Information from PremierHockeyFederation.com",Sys.time())
 
-      }else{
+      } else {
       yearly_stats <- yearly_stats %>%
-        dplyr::rename(
+        dplyr::rename(dplyr::any_of(c(
           "season" = "Season",
           "team_name" = "Team",
           "division" = "Division",
@@ -192,12 +245,12 @@ phf_player_stats <- function(player_id) {
           "minutes_played" = "MP",
           "penalty_minutes" = "PIM",
           "goals" = "G",
-          "assists" = "A") %>%
+          "assists" = "A"))) %>%
         dplyr::mutate(
           team_id = as.integer(stringr::str_extract(stringr::str_remove(.data$team_href,"stats#/100/team"), "\\d+"))) %>%
         make_fastRhockey_data("PHF Goalies Yearly Stats Information from PremierHockeyFederation.com",Sys.time())
       game_log_stats <- game_log_stats %>%
-        dplyr::rename(
+        dplyr::rename(dplyr::any_of(c(
           "date" = "Date",
           "game" = "Game",
           "shots_against" = "SA",
@@ -207,7 +260,7 @@ phf_player_stats <- function(player_id) {
           "minutes_played" = "MP",
           "penalty_minutes" = "PIM",
           "goals" = "G",
-          "assists" = "A") %>%
+          "assists" = "A"))) %>%
         dplyr::mutate(
           game_id = as.integer(stringr::str_extract(stringr::str_remove(.data$game_href,"stats#/100/game"), "\\d+"))) %>%
         make_fastRhockey_data("PHF Goalies Game Log Stats Information from PremierHockeyFederation.com",Sys.time())
