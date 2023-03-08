@@ -1,3 +1,7 @@
+# **fastRhockey 0.6.0**
+
+* Improved resiliency for several PHF functions, updates under the hood.
+
 # **fastRhockey 0.5.0**
 
 * Major improvements to NHL Game PBP Data parsing with shifts in-line via ```nhl_game_pbp()``` function added to match [```hockeyR```](https://hockeyr.netlify.app)

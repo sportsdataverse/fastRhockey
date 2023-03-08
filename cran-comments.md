@@ -1,7 +1,6 @@
 ## Release summary
 
 This is a minor release that 
-* Updates tidyr and dplyr statements to use quotations on columns instead of data masking per tidyselect deprecation notice.
 * `load_phf_rosters()` and `load_nhl_rosters()`  function added.
 
 ## R CMD check results

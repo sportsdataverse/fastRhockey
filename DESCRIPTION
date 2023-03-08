@@ -1,6 +1,6 @@
 Package: fastRhockey
 Title: Functions to Access Premier Hockey Federation and National Hockey League Play by Play Data
-Version: 0.5.0
+Version: 0.6.0
 Authors@R: c(
     person(given = "Ben", family = "Howell", email = "benhowell71@gmail.com", role = c("aut")),
     person(given = "Saiem", family = "Gilani", email = "saiem.gilani@gmail.com", role = c("cre", "aut")),
@@ -53,6 +53,6 @@ Suggests:
     xml2 (>= 1.3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Config/testthat/edition: 3
 LazyData: true
