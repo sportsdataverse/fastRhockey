@@ -17,12 +17,18 @@
 
 pwhl_team_roster <- function(team, season, regular) {
 
-  team_id <- 1 # will need the team/season look ups
-  season_id <- 2 # 1 is regular season, 2 is pre-season
+  # team_id <- 1 # will need the team/season look ups
+  team_id <- pwhl_teams() %>% dplyr::filter(team_label == team)
+  # season_id <- 2 # 1 is regular season, 2 is pre-season
+  if (regular) {
+    season_id <- 1
+  } else if (! regular) {
+    season_id <- 2
+  }
   # base_url <- "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=roster&team_id=1&season_id=2&key=694cfeed58c932ee&client_code=pwhl&site_id=8&league_id=1&lang=en&callback=angular.callbacks._h"
   full_url <- paste0(
     "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=roster&team_id=",
-    team_id,
+    team_id$team_id,
     "&season_id=",
     season_id,
     "&key=694cfeed58c932ee&client_code=pwhl&site_id=8&league_id=1&lang=en&callback=angular.callbacks._h"
@@ -96,11 +102,12 @@ pwhl_team_roster <- function(team, season, regular) {
       roster_data <- roster_data %>%
         dplyr::mutate(
           age = round(time_length(as.Date(paste0(season, "-01-01")) - as.Date(dob), "years")),
+          player_headshot = paste0("https://assets.leaguestat.com/pwhl/240x240/", player_id, ".jpg"),
           regular_season = ifelse(season == 1, TRUE, FALSE)
         )
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid season or no schedule data available! Try a season from 2023 onwards!"))
+      message(glue::glue("{Sys.time()}: Invalid season or no roster data available! Try a season from 2023 onwards!"))
 
     },
     warning = function(w) {
