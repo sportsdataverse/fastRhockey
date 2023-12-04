@@ -28,7 +28,8 @@ pwhl_teams <- function() {
   res <- gsub("angular.callbacks._4\\(", "", res)
   res <- gsub("}]})", "}]}", res)
 
-  r <- res %>% jsonlite::parse_json()
+  r <- res %>%
+    jsonlite::parse_json()
 
   team_info <- r$teamsNoAll
   teams <- data.frame()
@@ -53,12 +54,21 @@ pwhl_teams <- function() {
 
         teams <- rbind(
           teams,
-          team_df %>% dplyr::left_join(t, by = c("team_name"))
+          team_df %>%
+            dplyr::left_join(t, by = c("team_name"))
         )
 
         teams <- teams %>%
           dplyr::select(
-            c(team_name, team_id, team_code, team_nickname, team_label, division, team_logo)
+            c(
+              "team_name",
+              "team_id",
+              "team_code",
+              "team_nickname",
+              "team_label",
+              "division",
+              "team_logo"
+            )
           )
 
       }

@@ -29,7 +29,8 @@ pwhl_schedule <- function(season) {
   res <- gsub("angular.callbacks._1\\(", "", res)
   res <- gsub("}}]}]}])", "}}]}]}]", res)
 
-  r <- res %>% jsonlite::parse_json()
+  r <- res %>%
+    jsonlite::parse_json()
 
   gm <- r[[1]]$sections[[1]]$data
 
@@ -74,12 +75,24 @@ pwhl_schedule <- function(season) {
             .data$away_score > .data$home_score ~ .data$away_team,
             .data$home_score == .data$away_score & .data$home_score != "-" ~ "Tie",
             TRUE ~ NA_character_
-          )
+          ),
+          season = season
         ) %>%
         dplyr::select(
-          c(game_id, game_date, game_status, home_team, home_team_id,
-            away_team, away_team_id, home_score, away_score, winner,
-            venue, venue_url)
+          c(
+              "game_id",
+              "game_date",
+              "game_status",
+              "home_team",
+              "home_team_id",
+              "away_team",
+              "away_team_id",
+              "home_score",
+              "away_score",
+              "winner",
+              "venue",
+              "venue_url"
+            )
         )
     },
     error = function(e) {

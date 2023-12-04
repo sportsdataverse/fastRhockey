@@ -1,3 +1,11 @@
+# **fastRhockey 0.7.0**
+
+### **PWHL functions added**
+
+* ```pwhl_schedule()``` function added.
+* ```pwhl_team_roster()``` function added.
+* ```pwhl_teams()``` function added.
+
 # **fastRhockey 0.6.0**
 
 * Improved resiliency for several PHF functions, updates under the hood.

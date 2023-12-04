@@ -26,13 +26,13 @@ library(dplyr)
 library(janitor)
 ```
 
-[`fastRhockey`](https://github.com/sportsdataverse/fastRhockey) is an R Package that is designed to pull play-by-play (and boxscore) data from the newest version of the [Premier Hockey Federation (PHF) website](https://www.premierhockeyfederation.com/). In the past, there have been a few scrapers for the PHF (formerly the NWHL), but they've all been deprecated since the league changed website formats.                 
+[`fastRhockey`](https://github.com/sportsdataverse/fastRhockey) is an R Package that is designed to pull play-by-play (and boxscore) data from the newest version of the [Professional Women's Hockey League website](https://www.thepwhl.com/). In the past, there have been a few scrapers for the PHF (formerly the NWHL), but they have all been deprecated since the formation of the new PWHL league changed websites.                 
 
-With the seventh season of the league kicking off on November 6th, and games being broadcasted on ESPN+, this package was created to allow access to play-by-play data to continue pushing women's hockey analytics forward.                 
+With the first season of the league kicking off on January 1st, and games being broadcast on ESPN+, this package was created to allow access to play-by-play data to continue pushing women's hockey analytics forward.                 
 
 In Spring of 2021, the [Big Data Cup](https://www.theicegarden.com/2021/4/15/22374981/a-directory-of-womens-hockey-projects-from-big-data-cup-2021-analytics-otthac-stathletes) and the [data they made available](https://github.com/bigdatacup/Big-Data-Cup-2021) revolutionized what we were able to thanks to the detailed play-by-play data for the season and the x/y location data. That wave continued with the inaugural [WHKYHAC conference](https://www.whkyhac.com/) in July that produced some amazing conversations and projects in the women's hockey space.                   
 
-In the past, the lack of data and poor access to data have been the biggest barrier to entry in women's hockey analytics, a barrier that this package is intended to alleviate.                   
+In the past, the lack of data and poor access to data have been the biggest barrier to entry in women's hockey analytics, a barrier that this package intends to alleviate.                       
 
 <center>
 
@@ -166,29 +166,29 @@ If you look with `fastRhockey::`, there are more functions available, but those 
 
 ********************************************************************
 
-## Follow [SportsDataverse](https://twitter.com/sportsdataverse) on Twitter and star this repo
+## Follow the SportsDataverse (@sportsdataverse) on Twitter and star this repo
 
-[![Twitter Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse) 
 
 [![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&logo=github&style=for-the-badge&label=Star%20fastRhockey&maxAge=2592000)](https://github.com/sportsdataverse/fastRhockey/stargazers/)
 
+
 ## **Our Authors**
 
--   [Ben Howell](https://twitter.com/BenHowell71)       
-<a href="https://twitter.com/BenHowell71" target="blank"><img src="https://img.shields.io/twitter/follow/BenHowell71?color=blue&label=%40BenHowell71&logo=twitter&style=for-the-badge" alt="@BenHowell71" /></a>
+-   Ben Howell (@BenHowell71)       
+
 <a href="https://github.com/BenHowell71" target="blank"><img src="https://img.shields.io/github/followers/BenHowell71?color=eee&logo=Github&style=for-the-badge" alt="@BenHowell71" /></a>
 
--   [Saiem Gilani](https://twitter.com/saiemgilani)       
-<a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
+-   Saiem Gilani (@saiemgilani)       
+
 <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>       
 
 ## **Our Contributors (they're awesome)**
 
--   [Alyssa Longmuir](https://twitter.com/alyssastweeting)       
-<a href="https://twitter.com/alyssastweeting" target="blank"><img src="https://img.shields.io/twitter/follow/alyssastweeting?color=blue&label=%40alyssastweeting&logo=twitter&style=for-the-badge" alt="@alyssastweeting" /></a>
+-   Alyssa Longmuir (@alyssastweeting)       
+
 <a href="https://github.com/Aklongmuir" target="blank"><img src="https://img.shields.io/github/followers/Aklongmuir?color=eee&logo=Github&style=for-the-badge" alt="@Aklongmuir" /></a>
--   [Tan Ho](https://twitter.com/_TanHo)       
-<a href="https://twitter.com/_TanHo" target="blank"></a>
+
+-   Tan Ho (@_TanHo)       
 <a href="https://github.com/tanho63" target="blank"><img src="https://img.shields.io/github/followers/tanho63?color=eee&logo=Github&style=for-the-badge" alt="@tanho63" /></a>
 
 ## **Citations**
@@ -196,8 +196,7 @@ If you look with `fastRhockey::`, there are more functions available, but those 
 To cite the [**`fastRhockey`**](https://fastRhockey.sportsdataverse.org/) R package in publications, use:
 
 BibTex Citation
-
-``` bibtex
+```bibtex
 @misc{howell_gilani_fastRhockey_2021,
   author = {Ben Howell and Saiem Gilani},
   title = {fastRhockey: The SportsDataverse's R Package for Hockey Data.},
