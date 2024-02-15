@@ -156,6 +156,10 @@ navbar:
       icon: "fab fa-github fa-lg"
       href: https://github.com/sportsdataverse/fastRhockey
 reference:
+  - title: "Professional Women's Hockey League"
+    desc: Functions exported by fastRhockey which provide access to PWHL data
+    contents:
+      - starts_with("pwhl")
   - title: 'Premier Hockey Federation'
     desc: Functions exported by fastRhockey which provide access to PHF data
     contents:

@@ -12,13 +12,14 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   try(pwhl_team_roster(season = 2023))
+#'   try(pwhl_team_roster(season = 2023, team = "Toronto"))
 #' }
 
-pwhl_team_roster <- function(team, season, regular) {
+pwhl_team_roster <- function(team, season, regular = TRUE) {
 
   # team_id <- 1 # will need the team/season look ups
-  team_id <- pwhl_teams() %>% dplyr::filter(team_label == team)
+  team_id <- pwhl_teams() %>%
+    dplyr::filter(.data$team_label == team)
   # season_id <- 2 # 1 is regular season, 2 is pre-season
   if (regular) {
     season_id <- 1
@@ -45,7 +46,8 @@ pwhl_team_roster <- function(team, season, regular) {
   res <- gsub("angular.callbacks._h\\(", "", res)
   res <- gsub("}}]}]}]})", "}}]}]}]}", res)
 
-  r <- res %>% jsonlite::parse_json()
+  r <- res %>%
+    jsonlite::parse_json()
 
   team_name <- r[[1]]
   team_logo <- r[[2]]
@@ -61,14 +63,14 @@ pwhl_team_roster <- function(team, season, regular) {
 
   tryCatch(
     expr = {
-      for (i in 1:length(players)) {
+      for (i in seq_along(players)) {
 
         # i = 1
 
         if (players[[i]]$title %in% player_types) {
           # print('yes')
 
-          for (p in 1:length(players[[i]]$data)) {
+          for (p in seq_along(players[[i]]$data)) {
 
             if (is.null(players[[i]]$data[[p]]$row$shoots)) {
               hand <- players[[i]]$data[[p]]$row$catches
@@ -101,9 +103,10 @@ pwhl_team_roster <- function(team, season, regular) {
 
       roster_data <- roster_data %>%
         dplyr::mutate(
-          age = round(time_length(as.Date(paste0(season, "-01-01")) - as.Date(dob), "years")),
-          player_headshot = paste0("https://assets.leaguestat.com/pwhl/240x240/", player_id, ".jpg"),
-          regular_season = ifelse(season == 1, TRUE, FALSE)
+          age = round(lubridate::time_length(as.Date(paste0(season, "-01-01")) - as.Date(.data$dob), "years")),
+          player_headshot = paste0("https://assets.leaguestat.com/pwhl/240x240/", .data$player_id, ".jpg"),
+          regular_season = ifelse(season_id == 1, TRUE, FALSE),
+          season = season
         )
     },
     error = function(e) {

@@ -17,12 +17,12 @@ downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=s
 
 [`fastRhockey`](https://github.com/sportsdataverse/fastRhockey) is an R
 Package that is designed to pull play-by-play (and boxscore) data from
-the newest version of the [Premier Hockey Federation (PHF)
-website](https://www.premierhockeyfederation.com/). In the past, there
-have been a few scrapers for the PHF (formerly the NWHL), but they have
-all been deprecated since the league changed website formats.
+the newest version of the [Professional Women’s Hockey League
+website](https://www.thepwhl.com/). In the past, there have been a few
+scrapers for the PHF (formerly the NWHL), but they have all been
+deprecated since the formation of the new PWHL league changed websites.
 
-With the seventh season of the league kicking off on November 6th, and
+With the first season of the league kicking off on January 1st, and
 games being broadcast on ESPN+, this package was created to allow access
 to play-by-play data to continue pushing women’s hockey analytics
 forward.
@@ -103,32 +103,29 @@ Releases**](http://fastrhockey.sportsdataverse.org/news/index.html)
 
 ------------------------------------------------------------------------
 
-## Follow the [SportsDataverse](https://twitter.com/sportsdataverse) on Twitter and star this repo
-
-[![Twitter
-Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
+## Follow the SportsDataverse (@sportsdataverse) on Twitter and star this repo
 
 [![GitHub
 stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&logo=github&style=for-the-badge&label=Star%20fastRhockey&maxAge=2592000)](https://github.com/sportsdataverse/fastRhockey/stargazers/)
 
 ## **Our Authors**
 
--   [Ben Howell](https://twitter.com/BenHowell71)  
-    <a href="https://twitter.com/BenHowell71" target="blank"><img src="https://img.shields.io/twitter/follow/BenHowell71?color=blue&label=%40BenHowell71&logo=twitter&style=for-the-badge" alt="@BenHowell71" /></a>
-    <a href="https://github.com/BenHowell71" target="blank"><img src="https://img.shields.io/github/followers/BenHowell71?color=eee&logo=Github&style=for-the-badge" alt="@BenHowell71" /></a>
+- Ben Howell (@BenHowell71)
 
--   [Saiem Gilani](https://twitter.com/saiemgilani)  
-    <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
-    <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
+<a href="https://github.com/BenHowell71" target="blank"><img src="https://img.shields.io/github/followers/BenHowell71?color=eee&logo=Github&style=for-the-badge" alt="@BenHowell71" /></a>
+
+- Saiem Gilani (@saiemgilani)
+
+<a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
 
 ## **Our Contributors (they’re awesome)**
 
--   [Alyssa Longmuir](https://twitter.com/alyssastweeting)  
-    <a href="https://twitter.com/alyssastweeting" target="blank"><img src="https://img.shields.io/twitter/follow/alyssastweeting?color=blue&label=%40alyssastweeting&logo=twitter&style=for-the-badge" alt="@alyssastweeting" /></a>
-    <a href="https://github.com/Aklongmuir" target="blank"><img src="https://img.shields.io/github/followers/Aklongmuir?color=eee&logo=Github&style=for-the-badge" alt="@Aklongmuir" /></a>
--   [Tan Ho](https://twitter.com/_TanHo)  
-    <a href="https://twitter.com/_TanHo" target="blank"></a>
-    <a href="https://github.com/tanho63" target="blank"><img src="https://img.shields.io/github/followers/tanho63?color=eee&logo=Github&style=for-the-badge" alt="@tanho63" /></a>
+- Alyssa Longmuir (@alyssastweeting)
+
+<a href="https://github.com/Aklongmuir" target="blank"><img src="https://img.shields.io/github/followers/Aklongmuir?color=eee&logo=Github&style=for-the-badge" alt="@Aklongmuir" /></a>
+
+- Tan Ho (@\_TanHo)  
+  <a href="https://github.com/tanho63" target="blank"><img src="https://img.shields.io/github/followers/tanho63?color=eee&logo=Github&style=for-the-badge" alt="@tanho63" /></a>
 
 ## **Citations**
 

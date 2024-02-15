@@ -1,7 +1,11 @@
 ## Release summary
 
-This is a minor release that 
+This is a minor release that makes the following changes:
+
 * `load_phf_rosters()` and `load_nhl_rosters()`  function added.
+* `pwhl_teams()` function added.
+* `pwhl_schedule()` function added.
+* `pwhl_team_roster()` function added.
 
 ## R CMD check results
 
