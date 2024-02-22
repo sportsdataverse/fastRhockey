@@ -16,7 +16,7 @@
 
 pwhl_pbp <- function(game_id) {
 
-  URL <- paste0("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=gameCenterPlayByPlay&game_id=", game_id, "&key=694cfeed58c932ee&client_code=pwhl&lang=en&league_id=&callback=angular.callbacks._8")
+  URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=gameCenterPlayByPlay&game_id={game_id}&key=694cfeed58c932ee&client_code=pwhl&lang=en&league_id=&callback=angular.callbacks._8")
 
   res <- httr::RETRY("GET", URL)
   res <- res %>%
@@ -436,8 +436,7 @@ pwhl_pbp <- function(game_id) {
         dplyr::relocate(game_id, .before = c(1))
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid season or no roster data available! Try a season from 2023 onwards!"))
-
+      message(glue::glue("{Sys.time()}: Error encountered: {e$message}. Please verify the game_id and ensure it corresponds to a valid game in the PWHL."))
     },
     warning = function(w) {
     },

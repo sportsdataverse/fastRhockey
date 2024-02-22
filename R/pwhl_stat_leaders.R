@@ -10,7 +10,7 @@
 #' @import dplyr
 #' @import httr
 #' @importFrom glue glue
-# require(tidyverse)
+#' @import tidyverse
 
 pwhl_stats <- function(position = "goalie", team = "BOS", season = 2023, regular = TRUE) {
   team_id <- pwhl_teams() %>%
@@ -26,7 +26,7 @@ pwhl_stats <- function(position = "goalie", team = "BOS", season = 2023, regular
     expr = {
       if (position == "goalie") {
 
-        URL <- paste0("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season=", season_id, "&team=all&position=goalies&rookies=0&statsType=expanded&rosterstatus=undefined&site_id=2&first=0&limit=20&sort=gaa&league_id=1&lang=en&division=-1&qualified=all&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._5")
+        URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season={season_id}&team=all&position=goalies&rookies=0&statsType=expanded&rosterstatus=undefined&site_id=2&first=0&limit=20&sort=gaa&league_id=1&lang=en&division=-1&qualified=all&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._5")
 
         res <- httr::RETRY(
           "GET",
@@ -40,8 +40,6 @@ pwhl_stats <- function(position = "goalie", team = "BOS", season = 2023, regular
         res <- gsub("}}]}]}])", "}}]}]}]", res)
         r <- res %>%
           jsonlite::parse_json()
-
-        # jsonlite::fromJSON(r)
 
         players <- data.frame()
 
@@ -71,7 +69,7 @@ pwhl_stats <- function(position = "goalie", team = "BOS", season = 2023, regular
 
         }
       } else {
-        URL <- paste0("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season=", season_id, "&team=", team_id, "&position=skaters&rookies=0&statsType=standard&rosterstatus=undefined&site_id=2&first=0&limit=20&sort=points&league_id=1&lang=en&division=-1&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._6")
+        URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season={season_id}&team={team_id}&position=skaters&rookies=0&statsType=standard&rosterstatus=undefined&site_id=2&first=0&limit=20&sort=points&league_id=1&lang=en&division=-1&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._6")
 
         res <- httr::RETRY(
           "GET",
@@ -86,13 +84,9 @@ pwhl_stats <- function(position = "goalie", team = "BOS", season = 2023, regular
         r <- res %>%
           jsonlite::parse_json()
 
-        # jsonlite::fromJSON(r)
-
         players <- data.frame()
 
         data = r[[1]]$sections[[1]]$data
-
-        players = data.frame()
 
         for (y in 1:length(data)) {
 
@@ -125,7 +119,7 @@ pwhl_stats <- function(position = "goalie", team = "BOS", season = 2023, regular
             faceoff_pct = c(data[[y]]$row$faceoff_pct)
           )
 
-          players <- dplyr::bind_rows(skater_data, player_df)
+          players <- dplyr::bind_rows(players, player_df)
 
         }
       }
