@@ -26,7 +26,6 @@ pwhl_pbp <- function(game_id) {
 
   r <- res %>% jsonlite::parse_json()
 
-  # events <- "goalie_change"
   events <- c("goalie_change", "faceoff", "shot", "penalty", "goal")
 
   goalie_events <- data.frame()
@@ -421,9 +420,6 @@ pwhl_pbp <- function(game_id) {
               event_type = c(penalty_type),
               penalty_length = c(penalty_length),
               power_play = c(starts_pp)
-              # x_coord = c(x_loc),
-              # y_coord = c(y_loc),
-              # home_win = c(as.numeric(home_win))
             )
 
             game_events <- bind_rows(game_events, penalty)

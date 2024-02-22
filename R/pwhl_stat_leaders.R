@@ -11,11 +11,6 @@
 #' @import httr
 #' @importFrom glue glue
 # require(tidyverse)
-#
-# position = "goalie"
-# regular = TRUE
-# team = "BOS"
-# season = 2023
 
 pwhl_stats <- function(position = "goalie", team = "BOS", season = 2023, regular = TRUE) {
   team_id <- pwhl_teams() %>%
