@@ -8,11 +8,9 @@
 #' @import httr
 #' @importFrom glue glue
 #' @export
-#' @examples
-#' \donttest{
-#'   try(pwhl_team_roster(season = 2023, team = "Toronto"))
+#' @examples \donttest{
+#'   try(pwhl_pbp(game_id = 27))
 #' }
-
 
 pwhl_pbp <- function(game_id) {
 

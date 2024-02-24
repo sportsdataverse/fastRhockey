@@ -8,6 +8,7 @@
 #' @import dplyr
 #' @import httr
 #' @importFrom glue glue
+#' @export
 
 pwhl_standings <- function(season = 2023, regular = TRUE) {
   if (regular) {
