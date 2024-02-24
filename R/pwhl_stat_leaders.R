@@ -11,6 +11,7 @@
 #' @import httr
 #' @importFrom glue glue
 #' @import tidyverse
+#' @export
 
 pwhl_stats <- function(position = "goalie", team = "BOS", season = 2023, regular = TRUE) {
   team_id <- pwhl_teams() %>%
