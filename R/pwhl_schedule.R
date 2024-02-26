@@ -25,8 +25,10 @@ pwhl_schedule <- function(season) {
 
   res <- res %>%
     httr::content(as = "text", encoding = "utf-8")
-
-  res <- gsub("angular.callbacks._1\\(", "", res)
+  callback_pattern <- "angular.callbacks._\\d+\\("
+  res <- gsub(callback_pattern, "", res)
+  # res <- gsub("\\}\\]\\)$", "}}]", res)
+  # res <- gsub("angular.callbacks._1\\(", "", res)
   res <- gsub("}}]}]}])", "}}]}]}]", res)
 
   r <- res %>%
