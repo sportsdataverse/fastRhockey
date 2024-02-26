@@ -135,26 +135,17 @@ pwhl_pbp <- function(game_id) {
             scorer_pos <- coalesce(r[[y]]$details$scoredBy$position, NA)
             team_id <- as.numeric(coalesce(r[[y]]$details$team$id), NA)
 
-            primary_assist_id <- coalesce(r[[y]]$details$assists[[1]]$id, NA)
-            primary_assist_first <- coalesce(r[[y]]$details$assists[[1]]$firstName, NA)
-            primary_assist_last <- coalesce(r[[y]]$details$assists[[1]]$lastName, NA)
-            primary_assist_pos <- coalesce(r[[y]]$details$assists[[1]]$position, NA)
+            assist <- r[[y]]$details$assists
 
-            if (as.numeric(r[[y]]$details$assistNumbers[[2]]) > 0) {
+            primary_assist_id <- if (length(assist) > 0) assist[[1]]$id else NA
+            primary_assist_first <- if (length(assist) > 0) assist[[1]]$firstName else NA
+            primary_assist_last <- if (length(assist) > 0) assist[[1]]$lastName else NA
+            primary_assist_pos <- if (length(assist) > 0) assist[[1]]$position else NA
 
-              sec_assist_id <- coalesce(r[[y]]$details$assists[[2]]$id, NA)
-              sec_assist_first <- coalesce(r[[y]]$details$assists[[2]]$firstName, NA)
-              sec_assist_last <- coalesce(r[[y]]$details$assists[[2]]$lastName, NA)
-              sec_assist_pos <- coalesce(r[[y]]$details$assists[[2]]$position, NA)
-
-            } else {
-
-              sec_assist_id <- NA
-              sec_assist_first <- NA
-              sec_assist_last <- NA
-              sec_assist_pos <- NA
-
-            }
+            sec_assist_id <- if (length(assist) > 1) assist[[2]]$id else NA
+            sec_assist_first <- if (length(assist) > 1) assist[[2]]$firstName else NA
+            sec_assist_last <- if (length(assist) > 1) assist[[2]]$lastName else NA
+            sec_assist_pos <- if (length(assist) > 1) assist[[2]]$position else NA
 
             empty_net <- coalesce(r[[y]]$details$properties$isEmptyNet, NA)
             game_winner <- coalesce(r[[y]]$details$properties$isGameWinningGoal, NA)
@@ -166,89 +157,50 @@ pwhl_pbp <- function(game_id) {
             x_loc <- coalesce(r[[y]]$details$xLocation, NA)
             y_loc <- coalesce(r[[y]]$details$yLocation, NA)
 
-            if (as.numeric(period_of_game) > 3) {
-              plus_player_one_id = coalesce(r[[y]]$details$plus_players[[1]]$id, NA)
-              plus_player_one_first = coalesce(r[[y]]$details$plus_players[[1]]$firstName, NA)
-              plus_player_one_last = coalesce(r[[y]]$details$plus_players[[1]]$lastName, NA)
-              plus_player_one_position = coalesce(r[[y]]$details$plus_players[[1]]$position, NA)
-              plus_player_two_id = coalesce(r[[y]]$details$plus_players[[2]]$id, NA)
-              plus_player_two_first = coalesce(r[[y]]$details$plus_players[[2]]$firstName, NA)
-              plus_player_two_last = coalesce(r[[y]]$details$plus_players[[2]]$lastName, NA)
-              plus_player_two_position = coalesce(r[[y]]$details$plus_players[[2]]$position, NA)
-              plus_player_three_id = coalesce(r[[y]]$details$plus_players[[3]]$id, NA)
-              plus_player_three_first = coalesce(r[[y]]$details$plus_players[[3]]$firstName, NA)
-              plus_player_three_last = coalesce(r[[y]]$details$plus_players[[3]]$lastName, NA)
-              plus_player_three_position = coalesce(r[[y]]$details$plus_players[[3]]$position, NA)
-              plus_player_four_id = coalesce(NA, NA)
-              plus_player_four_first = coalesce(NA, NA)
-              plus_player_four_last = coalesce(NA, NA)
-              plus_player_four_position = coalesce(NA, NA)
-              plus_player_five_id = coalesce(NA, NA)
-              plus_player_five_first = coalesce(NA, NA)
-              plus_player_five_last = coalesce(NA, NA)
-              plus_player_five_position = coalesce(NA, NA)
-              minus_player_one_id = coalesce(r[[y]]$details$minus_players[[1]]$id, NA)
-              minus_player_one_first = coalesce(r[[y]]$details$minus_players[[1]]$firstName, NA)
-              minus_player_one_last = coalesce(r[[y]]$details$minus_players[[1]]$lastName, NA)
-              minus_player_one_position = coalesce(r[[y]]$details$minus_players[[1]]$position, NA)
-              minus_player_two_id = coalesce(r[[y]]$details$minus_players[[2]]$id, NA)
-              minus_player_two_first = coalesce(r[[y]]$details$minus_players[[2]]$firstName, NA)
-              minus_player_two_last = coalesce(r[[y]]$details$minus_players[[2]]$lastName, NA)
-              minus_player_two_position = coalesce(r[[y]]$details$minus_players[[2]]$position, NA)
-              minus_player_three_id = coalesce(r[[y]]$details$minus_players[[3]]$id, NA)
-              minus_player_three_first = coalesce(r[[y]]$details$minus_players[[3]]$firstName, NA)
-              minus_player_three_last = coalesce(r[[y]]$details$minus_players[[3]]$lastName, NA)
-              minus_player_three_position = coalesce(r[[y]]$details$minus_players[[3]]$position, NA)
-              minus_player_four_id = coalesce(NA, NA)
-              minus_player_four_first = coalesce(NA, NA)
-              minus_player_four_last = coalesce(NA, NA)
-              minus_player_four_position = coalesce(NA, NA)
-              minus_player_five_id = coalesce(NA, NA)
-              minus_player_five_first = coalesce(NA, NA)
-              minus_player_five_last = coalesce(NA, NA)
-              minus_player_five_position = coalesce(NA, NA)
-            } else {
-              plus_player_one_id = coalesce(r[[y]]$details$plus_players[[1]]$id, NA)
-              plus_player_one_first = coalesce(r[[y]]$details$plus_players[[1]]$firstName, NA)
-              plus_player_one_last = coalesce(r[[y]]$details$plus_players[[1]]$lastName, NA)
-              plus_player_one_position = coalesce(r[[y]]$details$plus_players[[1]]$position, NA)
-              plus_player_two_id = coalesce(r[[y]]$details$plus_players[[2]]$id, NA)
-              plus_player_two_first = coalesce(r[[y]]$details$plus_players[[2]]$firstName, NA)
-              plus_player_two_last = coalesce(r[[y]]$details$plus_players[[2]]$lastName, NA)
-              plus_player_two_position = coalesce(r[[y]]$details$plus_players[[2]]$position, NA)
-              plus_player_three_id = coalesce(r[[y]]$details$plus_players[[3]]$id, NA)
-              plus_player_three_first = coalesce(r[[y]]$details$plus_players[[3]]$firstName, NA)
-              plus_player_three_last = coalesce(r[[y]]$details$plus_players[[3]]$lastName, NA)
-              plus_player_three_position = coalesce(r[[y]]$details$plus_players[[3]]$position, NA)
-              plus_player_four_id = coalesce(r[[y]]$details$plus_players[[4]]$id, NA)
-              plus_player_four_first = coalesce(r[[y]]$details$plus_players[[4]]$firstName, NA)
-              plus_player_four_last = coalesce(r[[y]]$details$plus_players[[4]]$lastName, NA)
-              plus_player_four_position = coalesce(r[[y]]$details$plus_players[[4]]$position, NA)
-              plus_player_five_id = coalesce(r[[y]]$details$plus_players[[5]]$id, NA)
-              plus_player_five_first = coalesce(r[[y]]$details$plus_players[[5]]$firstName, NA)
-              plus_player_five_last = coalesce(r[[y]]$details$plus_players[[5]]$lastName, NA)
-              plus_player_five_position = coalesce(r[[y]]$details$plus_players[[5]]$position, NA)
-              minus_player_one_id = coalesce(r[[y]]$details$minus_players[[1]]$id, NA)
-              minus_player_one_first = coalesce(r[[y]]$details$minus_players[[1]]$firstName, NA)
-              minus_player_one_last = coalesce(r[[y]]$details$minus_players[[1]]$lastName, NA)
-              minus_player_one_position = coalesce(r[[y]]$details$minus_players[[1]]$position, NA)
-              minus_player_two_id = coalesce(r[[y]]$details$minus_players[[2]]$id, NA)
-              minus_player_two_first = coalesce(r[[y]]$details$minus_players[[2]]$firstName, NA)
-              minus_player_two_last = coalesce(r[[y]]$details$minus_players[[2]]$lastName, NA)
-              minus_player_two_position = coalesce(r[[y]]$details$minus_players[[2]]$position, NA)
-              minus_player_three_id = coalesce(r[[y]]$details$minus_players[[3]]$id, NA)
-              minus_player_three_first = coalesce(r[[y]]$details$minus_players[[3]]$firstName, NA)
-              minus_player_three_last = coalesce(r[[y]]$details$minus_players[[3]]$lastName, NA)
-              minus_player_three_position = coalesce(r[[y]]$details$minus_players[[3]]$position, NA)
-              minus_player_four_id = coalesce(r[[y]]$details$minus_players[[4]]$id, NA)
-              minus_player_four_first = coalesce(r[[y]]$details$minus_players[[4]]$firstName, NA)
-              minus_player_four_last = coalesce(r[[y]]$details$minus_players[[4]]$lastName, NA)
-              minus_player_four_position = coalesce(r[[y]]$details$minus_players[[4]]$position, NA)
-              minus_player_five_id = coalesce(r[[y]]$details$minus_players[[5]]$id, NA)
-              minus_player_five_first = coalesce(r[[y]]$details$minus_players[[5]]$firstName, NA)
-              minus_player_five_last = coalesce(r[[y]]$details$minus_players[[5]]$lastName, NA)
-              minus_player_five_position = coalesce(r[[y]]$details$minus_players[[5]]$position, NA)
-            }
+            minus <- r[[y]]$details$minus_players
+            plus <- r[[y]]$details$plus_players
+
+            plus_player_one_id = if (length(plus) > 0) plus[[1]]$id else NA
+            plus_player_one_first = if (length(plus) > 0) plus[[1]]$firstName else NA
+            plus_player_one_last = if (length(plus) > 0) plus[[1]]$lastName else NA
+            plus_player_one_position = if (length(plus) > 0) plus[[1]]$position else NA
+            plus_player_two_id = if (length(plus) > 1) plus[[2]]$id else NA
+            plus_player_two_first = if (length(plus) > 1) plus[[2]]$firstName else NA
+            plus_player_two_last = if (length(plus) > 1) plus[[2]]$lastName else NA
+            plus_player_two_position = if (length(plus) > 1) plus[[2]]$position else NA
+            plus_player_three_id = if (length(plus) > 2) plus[[3]]$id else NA
+            plus_player_three_first = if (length(plus) > 2) plus[[3]]$firstName else NA
+            plus_player_three_last = if (length(plus) > 2) plus[[3]]$lastName else NA
+            plus_player_three_position = if (length(plus) > 2) plus[[3]]$position else NA
+            plus_player_four_id = if (length(plus) > 3) plus[[4]]$id else NA
+            plus_player_four_first = if (length(plus) > 3) plus[[4]]$firstName else NA
+            plus_player_four_last = if (length(plus) > 3) plus[[4]]$lastName else NA
+            plus_player_four_position = if (length(plus) > 3) plus[[4]]$lastName else NA
+            plus_player_five_id = if (length(plus) > 4) plus[[5]]$id else NA
+            plus_player_five_first = if (length(plus) > 4) plus[[5]]$firstName else NA
+            plus_player_five_last = if (length(plus) > 4) plus[[5]]$lastName else NA
+            plus_player_five_position = if (length(plus) > 4) plus[[5]]$position else NA
+            #
+            minus_player_one_id = if (length(minus) > 0) minus[[1]]$id else NA
+            minus_player_one_first = if (length(minus) > 0) minus[[1]]$firstName else NA
+            minus_player_one_last = if (length(minus) > 0) minus[[1]]$lastName else NA
+            minus_player_one_position = if (length(minus) > 0) minus[[1]]$position else NA
+            minus_player_two_id = if (length(minus) > 1) minus[[2]]$id else NA
+            minus_player_two_first = if (length(minus) > 1) minus[[2]]$firstName else NA
+            minus_player_two_last = if (length(minus) > 1) minus[[2]]$lastName else NA
+            minus_player_two_position = if (length(minus) > 1) minus[[2]]$position else NA
+            minus_player_three_id = if (length(minus) > 2) minus[[3]]$id else NA
+            minus_player_three_first = if (length(minus) > 2) minus[[3]]$firstName else NA
+            minus_player_three_last = if (length(minus) > 2) minus[[3]]$lastName else NA
+            minus_player_three_position = if (length(minus) > 2) minus[[3]]$position else NA
+            minus_player_four_id = if (length(minus) > 3) minus[[4]]$id else NA
+            minus_player_four_first = if (length(minus) > 3) minus[[4]]$firstName else NA
+            minus_player_four_last = if (length(minus) > 3) minus[[4]]$lastName else NA
+            minus_player_four_position = if (length(minus) > 3) minus[[4]]$lastName else NA
+            minus_player_five_id = if (length(minus) > 4) minus[[5]]$id else NA
+            minus_player_five_first = if (length(minus) > 4) minus[[5]]$firstName else NA
+            minus_player_five_last = if (length(minus) > 4) minus[[5]]$lastName else NA
+            minus_player_five_position = if (length(minus) > 4) minus[[5]]$position else NA
 
             goal <- data.frame(
               event = c(event),
@@ -386,7 +338,7 @@ pwhl_pbp <- function(game_id) {
 
             penalty_type <- coalesce(r[[y]]$details$description, NA)
             penalty_length <- coalesce(r[[y]]$details$minutes, NA)
-            starts_pp <- coalesce(r[[y]]$details, NA)
+            starts_pp <- if(r[[y]]$details$isPowerPlay) "1" else "0"
 
             taken_id <- coalesce(r[[y]]$details$takenBy$id, NA)
             taken_first <- coalesce(r[[y]]$details$takenBy$firstName, NA)
@@ -424,13 +376,14 @@ pwhl_pbp <- function(game_id) {
 
           }
 
-        print(paste0(y))
+        # print(paste0(y))
 
       }
 
       game_df <- game_events %>%
         dplyr::select(-contains(".")) %>%
-        dplyr::mutate(game_id = game_id) %>%
+        dplyr::mutate(game_id = as.numeric(game_id),
+                      power_play = as.numeric(power_play)) %>%
         dplyr::relocate(game_id, .before = c(1))
     },
     error = function(e) {
