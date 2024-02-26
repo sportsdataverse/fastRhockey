@@ -2,7 +2,7 @@
 #' @description PWHL Play-by-play
 #'
 #' @param game_id Game ID that you want play-by-play for
-#' @return A data frame with play-by-play data
+#' @return A data frame with play-by-play data from the PWHL
 #' @import jsonlite
 #' @import dplyr
 #' @import httr

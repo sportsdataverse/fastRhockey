@@ -10,7 +10,7 @@ pwhl_pbp(game_id)
 \item{game_id}{Game ID that you want play-by-play for}
 }
 \value{
-A data frame with play-by-play data
+A data frame with play-by-play data from the PWHL
 }
 \description{
 PWHL Play-by-play
