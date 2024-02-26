@@ -2,7 +2,7 @@
 #' @description PWHL Play-by-play
 #'
 #' @param game_id Game ID that you want play-by-play for
-#' @return A data frame with play-by-play data
+#' @return A data frame with play-by-play data from the PWHL
 #' @import jsonlite
 #' @import dplyr
 #' @import httr
@@ -19,7 +19,8 @@ pwhl_pbp <- function(game_id) {
   res <- httr::RETRY("GET", URL)
   res <- res %>%
     httr::content(as = "text", encoding = "utf-8")
-  res <- gsub("angular.callbacks._8\\(", "", res)
+  callback_pattern <- "angular.callbacks._\\d+\\("
+  res <- gsub(callback_pattern, "", res)
   res <- gsub("}}])", "}}]", res)
 
   r <- res %>% jsonlite::parse_json()
