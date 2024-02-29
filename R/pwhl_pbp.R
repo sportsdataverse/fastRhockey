@@ -337,6 +337,7 @@ pwhl_pbp <- function(game_id) {
 
           } else if (event  == "penalty") {
 
+            team_id <- as.numeric(coalesce(r[[y]]$details$againstTeam$id, NA))
             penalty_type <- coalesce(r[[y]]$details$description, NA)
             penalty_length <- coalesce(r[[y]]$details$minutes, NA)
             starts_pp <- if(r[[y]]$details$isPowerPlay) "1" else "0"
@@ -373,7 +374,9 @@ pwhl_pbp <- function(game_id) {
               power_play = c(starts_pp)
             )
 
-            game_events <- bind_rows(game_events, penalty)
+            if (! is.na(penalty$team_id)) {
+              game_events <- bind_rows(game_events, penalty)
+            }
 
           }
 
@@ -381,11 +384,93 @@ pwhl_pbp <- function(game_id) {
 
       }
 
+      id = game_id
+
+      games <- pwhl_schedule(season = 2023) %>%
+        dplyr::filter(.data$game_id == id)
+
       game_df <- game_events %>%
         dplyr::select(-contains(".")) %>%
         dplyr::mutate(game_id = as.numeric(game_id),
-                      power_play = as.numeric(power_play)) %>%
-        dplyr::relocate(game_id, .before = c(1))
+                      game_date = games$game_date,
+                      power_play = as.numeric(power_play),
+                      home_team_id = games$home_team_id,
+                      home_team = games$home_team,
+                      away_team_id = games$away_team_id,
+                      away_team = games$away_team) %>%
+        dplyr::relocate(game_id, .before = c(1)) %>%
+        dplyr::mutate(x_coord_original = .data$x_coord,
+                      y_coord_original = .data$y_coord,
+                      x_coord = .data$x_coord / 3,
+                      y_coord = 42.5 - (((.data$y_coord * 85) / 300) - 42.5),
+                      x_coord_fixed = .data$x_coord / 3,
+                      y_coord_fixed = 42.5 - (((.data$y_coord * 85) / 300) - 42.5),
+                      x_coord_right = ifelse(.data$team_id == .data$home_team_id, 100 + (100 - .data$x_coord), .data$x_coord),
+                      y_coord_right = ifelse(.data$team_id == .data$home_team_id, 42.5 - (.data$y_coord - 42.5), .data$y_coord),
+                      x_coord_vertical = 42.5 - (.data$y_coord_right - 42.5),
+                      y_coord_vertical = .data$x_coord_right) %>%
+        tidyr::separate("time_of_period", into = c("minute", "second"), sep = ":", remove = FALSE) %>%
+        dplyr::mutate(
+          minute_start = as.numeric(.data$minute),
+          second_start = as.numeric(.data$second),
+          minute = ifelse(19 - .data$minute_start == 19 &
+                            60 - .data$second_start == 60, 20,
+                          19 - .data$minute_start),
+          second = ifelse(60 - .data$second_start == 60, 0,
+                          60 - .data$second_start),
+          second = ifelse(.data$second < 10, paste0("0", .data$second),
+                          paste0(.data$second)),
+          clock = paste0(.data$minute, ":", .data$second),
+          sec_from_start = (60 * .data$minute_start) + .data$second_start,
+          # adding time to the seconds_from_start variable to account for what period we're in
+          sec_from_start = dplyr::case_when(
+            .data$period_of_game == 2 ~ .data$sec_from_start + 1200,
+            .data$period_of_game == 3 ~ .data$sec_from_start + 2400,
+            .data$period_of_game == 4 ~ .data$sec_from_start + 3600,
+            .data$period_of_game == 5 ~ .data$sec_from_start + 4800,
+            TRUE ~ .data$sec_from_start),
+          start_power_play = ifelse(.data$event == "penalty" & .data$power_play == 1, .data$sec_from_start, NA_real_),
+          end_power_play = ifelse(.data$event == "penalty" & .data$power_play == 1, .data$sec_from_start + (60 * as.numeric(.data$penalty_length)), NA_real_)) %>%
+        dplyr::select(-"minute", -"second")
+
+      goals <- game_df %>%
+        dplyr::filter(event == "goal") %>%
+        dplyr::select(sec_from_start, team_id)
+
+      pens <- game_df %>%
+        dplyr::filter(event == "penalty") %>%
+        dplyr::mutate(advantage_team = ifelse(.data$team_id == home_team_id, away_team_id, home_team_id)) %>%
+        dplyr::select(power_play, sec_from_start, penalty_length, start_power_play, end_power_play, advantage_team, team_id)
+
+      for (i in 1:nrow(pens)) {
+
+        goal <- goals %>%
+          dplyr::filter(sec_from_start >= pens[i, ]$start_power_play & sec_from_start <= pens[i, ]$end_power_play)
+
+        if (nrow(goal) > 0) {
+
+          pens[i, ]$end_power_play <- goal$sec_from_start
+
+        }
+
+      }
+
+      for (i in 1:nrow(game_df)) {
+
+        play_pen <- pens %>% dplyr::filter(start_power_play <= game_df[i, ]$sec_from_start &
+                                             end_power_play >= game_df[i, ]$sec_from_start &
+                                             advantage_team == game_df[i, ]$team_id)
+
+        if (nrow(play_pen) > 0 & game_df[i,]$event %in% c("shot", "faceoff")) {
+          game_df[i, ]$power_play <- if (game_df[i, ]$team_id == play_pen$advantage_team) 1 else 0
+          game_df[i, ]$short_handed <- if (game_df[i, ]$team_id != play_pen$advantage_team) 1 else 0
+        }
+
+      }
+
+      game_df <- game_df %>%
+        dplyr::select(-c(start_power_play, end_power_play))
+
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Error encountered: {e$message}. Please verify the game_id and ensure it corresponds to a valid game in the PWHL."))

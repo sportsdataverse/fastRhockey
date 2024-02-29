@@ -69,6 +69,9 @@ pwhl_stats <- function(position = "goalie", team = "BOS", season = 2023, regular
           players <- dplyr::bind_rows(players, player_df)
 
         }
+
+        players <- players %>%
+          tidyr::separate("minutes", into = c("minute", "second"), sep = ":", remove = FALSE)
       } else {
         URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season={season_id}&team={team_id}&position=skaters&rookies=0&statsType=standard&rosterstatus=undefined&site_id=2&first=0&limit=20&sort=points&league_id=1&lang=en&division=-1&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._6")
 
