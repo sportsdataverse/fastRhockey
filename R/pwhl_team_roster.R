@@ -78,15 +78,18 @@ pwhl_team_roster <- function(team, season, regular = TRUE) {
               hand <- players[[i]]$data[[p]]$row$shoots
             }
 
+            "player_id" %in% names(players[[i]]$data[[p]]$row)
+
             player_info <- data.frame(
-              "player_id" = c(players[[i]]$data[[p]]$row$player_id),
-              "player_name" = c(players[[i]]$data[[p]]$row$name),
+              "player_id" = c(if ("player_id" %in% names(players[[i]]$data[[p]]$row)) players[[i]]$data[[p]]$row$player_id else NA),
+              "player_name" = c(if ("name" %in% names(players[[i]]$data[[p]]$row)) players[[i]]$data[[p]]$row$name else NA),
               "primary_hand" = c(hand),
-              "dob" = c(players[[i]]$data[[p]]$row$birthdate),
-              "height" = c(players[[i]]$data[[p]]$row$height_hyphenated),
-              "position" = c(players[[i]]$data[[p]]$row$position),
-              "home_town" = c(players[[i]]$data[[p]]$row$hometown)
-            )
+              "dob" = c(if ("birthdate" %in% names(players[[i]]$data[[p]]$row)) players[[i]]$data[[p]]$row$birthdate else NA),
+              "height" = c(if ("height_hyphenated" %in% names(players[[i]]$data[[p]]$row)) players[[i]]$data[[p]]$row$height_hyphenated else NA),
+              "position" = c(if ("position" %in% names(players[[i]]$data[[p]]$row)) players[[i]]$data[[p]]$row$position else NA),
+              "home_town" = c(if ("hometown" %in% names(players[[i]]$data[[p]]$row)) players[[i]]$data[[p]]$row$hometown else NA)
+            ) %>%
+              tidyr::separate(player_name, into = c("first_name", "last_name"), remove = FALSE, sep=" ")
 
             # players[[i]]$data[[p]]$prop
 
@@ -103,10 +106,12 @@ pwhl_team_roster <- function(team, season, regular = TRUE) {
 
       roster_data <- roster_data %>%
         dplyr::mutate(
+          league = "pwhl",
           age = round(lubridate::time_length(as.Date(paste0(season, "-01-01")) - as.Date(.data$dob), "years")),
           player_headshot = paste0("https://assets.leaguestat.com/pwhl/240x240/", .data$player_id, ".jpg"),
           regular_season = ifelse(season_id == 1, TRUE, FALSE),
-          season = season
+          season = season,
+          player_id = as.numeric(player_id)
         )
     },
     error = function(e) {
