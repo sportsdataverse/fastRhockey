@@ -1,5 +1,5 @@
 #' @title  **PWHL Player Game Box Scores**
-#' @description PWHL Play-by-play
+#' @description PWHL Player Box Scores
 #'
 #' @param game_id Game ID that you want play-by-play for
 #' @return A data frame with play-by-play data from the PWHL
@@ -9,7 +9,7 @@
 #' @importFrom glue glue
 #' @export
 #' @examples \donttest{
-#'   try(pwhl_game_box(game_id = 27))
+#'   try(pwhl_player_box(game_id = 27))
 #' }
 
 pwhl_player_box <- function(game_id) {
