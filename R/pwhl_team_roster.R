@@ -18,7 +18,7 @@
 pwhl_team_roster <- function(team, season, regular = TRUE) {
 
   # team_id <- 1 # will need the team/season look ups
-  team_id <- pwhl_teams() %>%
+  team_id <- fastRhockey::pwhl_teams() %>%
     dplyr::filter(.data$team_label == team)
   # season_id <- 2 # 1 is regular season, 2 is pre-season
   if (regular) {
@@ -102,6 +102,8 @@ pwhl_team_roster <- function(team, season, regular = TRUE) {
 
           }
 
+        } else {
+          next
         }
 
       }
@@ -115,7 +117,7 @@ pwhl_team_roster <- function(team, season, regular = TRUE) {
           season = season,
           player_id = as.numeric(player_id),
           team_id = as.numeric(team_id$team_id),
-          team = team_id$team_name
+          team = team
         ) %>%
         dplyr::relocate("team_id", .after = player_id) %>%
         dplyr::relocate("season", .after = team_id)
