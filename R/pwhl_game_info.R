@@ -33,6 +33,8 @@ pwhl_game_info <- function(game_id) {
     "game_date" = c(r$details$date),
     "home_team" = c(r$homeTeam$info$name),
     "away_team" = c(r$visitingTeam$info$name),
+    "home_team_id" = c(r$homeTeam$info$id),
+    "away_team_id" = c(r$visitingTeam$info$id),
     "home_score" = c(r$homeTeam$stats$goals),
     "away_score" = c(r$visitingTeam$stats$goals),
     "game_duration" = c(r$details$duration),
