@@ -386,13 +386,14 @@ pwhl_pbp <- function(game_id) {
 
       id = game_id
 
-      games <- pwhl_schedule(season = 2023) %>%
-        dplyr::filter(.data$game_id == id)
+      games <- pwhl_game_info(game_id = id)
 
       game_df <- game_events %>%
         dplyr::select(-contains(".")) %>%
         dplyr::mutate(game_id = as.numeric(game_id),
                       game_date = games$game_date,
+                      game_season = games$game_season,
+                      game_season_id = games$game_season_id,
                       power_play = as.numeric(power_play),
                       home_team_id = games$home_team_id,
                       home_team = games$home_team,
