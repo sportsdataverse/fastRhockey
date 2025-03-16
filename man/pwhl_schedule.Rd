@@ -4,7 +4,7 @@
 \alias{pwhl_schedule}
 \title{\strong{PWHL Schedule}}
 \usage{
-pwhl_schedule(season)
+pwhl_schedule(season, game_type = "regular")
 }
 \arguments{
 \item{season}{Season (YYYY) to pull the schedule from, the concluding year in XXXX-YY format}
