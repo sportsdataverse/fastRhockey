@@ -13,9 +13,16 @@
 #'   try(pwhl_schedule(season = 2023))
 #' }
 
-pwhl_schedule <- function(season) {
+pwhl_schedule <- function(season, game_type = "regular") {
 
-  base_url = "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=schedule&team=-1&season=1&month=-1&location=homeaway&key=694cfeed58c932ee&client_code=pwhl&site_id=2&league_id=1&division_id=-1&lang=en&callback=angular.callbacks._1"
+  seasons <- pwhl_season_id() %>%
+    dplyr::filter(season_yr == season, game_type_label == game_type)
+
+  season_id <- seasons$season_id
+
+  base_url = glue::glue(
+    "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=schedule&team=-1&season={season_id}&month=-1&location=homeaway&key=694cfeed58c932ee&client_code=pwhl&site_id=2&league_id=1&division_id=-1&lang=en&callback=angular.callbacks._1"
+  )
   full_url = base_url
 
   res <- httr::RETRY(
@@ -50,6 +57,7 @@ pwhl_schedule <- function(season) {
 
         game_info <- data.frame(
           "game_id" = c(gm[[i]]$row$game_id),
+          "season" = c(season),
           "game_date" = c(gm[[i]]$row$date_with_day),
           "game_status" = c(gm[[i]]$row$game_status),
           "home_team" = c(gm[[i]]$row$home_team_city),

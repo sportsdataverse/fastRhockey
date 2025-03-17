@@ -386,13 +386,14 @@ pwhl_pbp <- function(game_id) {
 
       id = game_id
 
-      games <- pwhl_schedule(season = 2023) %>%
-        dplyr::filter(.data$game_id == id)
+      games <- pwhl_game_info(game_id = id)
 
       game_df <- game_events %>%
         dplyr::select(-contains(".")) %>%
         dplyr::mutate(game_id = as.numeric(game_id),
                       game_date = games$game_date,
+                      game_season = games$game_season,
+                      game_season_id = games$game_season_id,
                       power_play = as.numeric(power_play),
                       home_team_id = games$home_team_id,
                       home_team = games$home_team,
@@ -401,8 +402,10 @@ pwhl_pbp <- function(game_id) {
         dplyr::relocate(game_id, .before = c(1)) %>%
         dplyr::mutate(x_coord_original = .data$x_coord,
                       y_coord_original = .data$y_coord,
-                      x_coord = .data$x_coord / 3,
-                      y_coord = 42.5 - (((.data$y_coord * 85) / 300) - 42.5),
+                      x_coord_neutral = .data$x_coord - 300,
+                      y_coord_neutral = .data$y_coord - 150,
+                      x_coord = (.data$x_coord / 3) - 100,
+                      y_coord = 42.5 - (((.data$y_coord * 85) / 300) - 42.5) - 42.5,
                       x_coord_fixed = .data$x_coord / 3,
                       y_coord_fixed = 42.5 - (((.data$y_coord * 85) / 300) - 42.5),
                       x_coord_right = ifelse(.data$team_id == .data$home_team_id, 100 + (100 - .data$x_coord), .data$x_coord),
@@ -444,12 +447,18 @@ pwhl_pbp <- function(game_id) {
 
       for (i in 1:nrow(pens)) {
 
-        goal <- goals %>%
+
+        if (i == 1) {goal <- goals %>%
           dplyr::filter(sec_from_start >= pens[i, ]$start_power_play & sec_from_start <= pens[i, ]$end_power_play)
+        } else {
+          goal <- goals %>%
+            dplyr::filter(sec_from_start >= pens[i, ]$start_power_play & sec_from_start <= pens[i, ]$end_power_play &
+                            sec_from_start > pens[i - 1, ]$end_power_play)
+        }
 
         if (nrow(goal) > 0) {
 
-          pens[i, ]$end_power_play <- goal$sec_from_start
+          pens[i, ]$end_power_play <- goal$sec_from_start[1]
 
         }
 
@@ -459,7 +468,8 @@ pwhl_pbp <- function(game_id) {
 
         play_pen <- pens %>% dplyr::filter(start_power_play <= game_df[i, ]$sec_from_start &
                                              end_power_play >= game_df[i, ]$sec_from_start &
-                                             advantage_team == game_df[i, ]$team_id)
+                                             advantage_team == game_df[i, ]$team_id) %>%
+          dplyr::slice(1)
 
         if (nrow(play_pen) > 0 & game_df[i,]$event %in% c("shot", "faceoff")) {
           game_df[i, ]$power_play <- if (game_df[i, ]$team_id == play_pen$advantage_team) 1 else 0
