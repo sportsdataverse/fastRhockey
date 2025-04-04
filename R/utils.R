@@ -99,11 +99,7 @@ most_recent_nhl_season_api_param <- function() {
 #' @return Value for most recent NHL season
 #' @export
 most_recent_phf_season <- function() {
-  dplyr::if_else(
-    as.double(substr(Sys.Date(), 6, 7)) >= 10,
-    as.double(substr(Sys.Date(), 1, 4))+1,
-    as.double(substr(Sys.Date(), 1, 4))
-  )
+  2023
 }
 
 year_to_season <- function(year){
