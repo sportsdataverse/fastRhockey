@@ -24,7 +24,7 @@ Returns a data frame with prospect player data.
 # \donttest{
   try(nhl_team_prospects(team_abbr = "TOR"))
 #> ── NHL Team Prospects ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 07:15:54 UTC
+#> ℹ Data updated: 2026-04-07 09:18:56 UTC
 #> # A tibble: 6 × 30
 #>       id headshot position_code shoots_catches height_in_inches weight_in_pounds
 #>    <int> <chr>    <chr>         <chr>                     <int>            <int>
