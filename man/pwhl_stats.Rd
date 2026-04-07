@@ -4,20 +4,25 @@
 \alias{pwhl_stats}
 \title{\strong{PWHL Stats}}
 \usage{
-pwhl_stats(position = "goalie", team = "BOS", season = 2023, regular = TRUE)
+pwhl_stats(position = "goalie", team = "all", season = 2024, regular = TRUE)
 }
 \arguments{
-\item{position}{either goalie or skater. If skater, need to select a team.}
+\item{position}{either goalie or skater.}
 
-\item{team}{Team to pull the roster data for}
+\item{team}{Team abbreviation to filter skaters by (e.g., "BOS"). Ignored for goalies.}
 
-\item{season}{Season (YYYY) to pull the roster from, the concluding year in XXXX-YY format}
+\item{season}{Season (YYYY) to pull the stats from, the concluding year in XXXX-YY format}
 
-\item{regular}{Bool for whether to pull regular or pre-season rosters}
+\item{regular}{Bool for whether to pull regular or pre-season stats}
 }
 \value{
-A data frame with roster data
+A data frame with player stats
 }
 \description{
 PWHL Stats lookup
+}
+\examples{
+\donttest{
+  try(pwhl_stats(position = "goalie", season = 2024))
+}
 }

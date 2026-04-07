@@ -7,19 +7,25 @@
 nhl_player_stats(player_id)
 }
 \arguments{
-\item{player_id}{Player unique ID}
+\item{player_id}{Player unique ID (e.g., 8476899)}
 }
 \value{
-Returns a tibble
+Returns a data frame with season-by-season stats for the player,
+including games played, goals, assists, and league-specific columns.
 }
 \description{
-Returns player stats for a given player ID
+Returns season-by-season stats for a given player ID.
+Uses the new NHL API player landing endpoint (\code{api-web.nhle.com}).
+
+\strong{Note:} The original \code{statsapi.web.nhl.com} endpoint has been retired.
+This function now returns the \code{seasonTotals} data from the player landing
+page, which includes year-by-year stats across all leagues (NHL, AHL, junior, etc.).
 }
 \examples{
 \donttest{
-  try(nhl_player_stats(player_id=8476899))
+  try(nhl_player_stats(player_id = 8476899))
 }
 }
 \keyword{NHL}
 \keyword{Player}
-\keyword{stats}
+\keyword{Stats}

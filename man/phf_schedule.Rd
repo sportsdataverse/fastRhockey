@@ -4,7 +4,7 @@
 \alias{phf_schedule}
 \title{\strong{PHF Schedule}}
 \usage{
-phf_schedule(season = most_recent_phf_season())
+phf_schedule(season = NULL)
 }
 \arguments{
 \item{season}{Season (YYYY) to pull the schedule from, the concluding year in XXXX-YY format}
@@ -14,9 +14,14 @@ A data frame with schedule data
 }
 \description{
 PHF Schedule lookup
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+The PHF has ceased operations. This function is deprecated and
+will be removed in a future release.
 }
 \examples{
 \donttest{
-  try(phf_schedule(season = 2023))
+try(phf_schedule(season = 2023))
 }
 }

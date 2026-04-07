@@ -4,21 +4,24 @@
 \alias{nhl_conferences}
 \title{\strong{NHL Conferences}}
 \usage{
-nhl_conferences()
+nhl_conferences(date = NULL)
+}
+\arguments{
+\item{date}{Character date in "YYYY-MM-DD" format. If NULL, returns
+current conferences.}
 }
 \value{
-Returns a data frame
+Returns a data frame with columns:
 \itemize{
-\item conference_id - conference ID
-\item name - conference name
-\item link - link to conference information
-\item abbreviation - conference abbreviation
-\item short_name - conference short name
-\item active - active conference flag
+\item \code{conference_name} - conference name (e.g. "Eastern", "Western")
 }
 }
 \description{
-Returns a table of current NHL conferences
+Returns a table of current NHL conferences derived from standings data.
+
+The original NHL Stats API conferences endpoint is no longer available.
+This function now extracts conference information from the standings endpoint
+at \code{api-web.nhle.com}.
 }
 \examples{
 \donttest{

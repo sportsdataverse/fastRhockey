@@ -8,3 +8,4 @@ inst/doc*
 fastRhockey-data-repo/scraping_all_seasons.R
 ^docs*
 docs
+data-raw/*.md

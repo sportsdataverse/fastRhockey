@@ -4,20 +4,25 @@
 \alias{nhl_teams_info}
 \title{\strong{NHL Teams Info}}
 \usage{
-nhl_teams_info(team_id)
+nhl_teams_info(team_abbr)
 }
 \arguments{
-\item{team_id}{A unique team ID}
+\item{team_abbr}{Three-letter team abbreviation (e.g., "TBL", "TOR", "SEA")}
 }
 \value{
-Returns a tibble
+Returns a data frame with team information filtered to the given team.
 }
 \description{
-Returns NHL Teams information for a given team ID
+Returns NHL team information for a given team abbreviation.
+Uses the new NHL API via \code{\link{nhl_teams}}.
+
+\strong{Breaking change:} The old \code{team_id} (integer) parameter has been replaced
+by \code{team_abbr} (3-letter string, e.g., "TBL") because the new NHL API no
+longer exposes numeric team IDs as a primary identifier.
 }
 \examples{
 \donttest{
-  try(nhl_teams_info(team_id = 14))
+  try(nhl_teams_info(team_abbr = "TBL"))
 }
 }
 \keyword{Info}
