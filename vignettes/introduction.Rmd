@@ -57,7 +57,6 @@ The PWHL (Professional Women's Hockey League) launched in January 2024 with six 
 ### Teams
 
 ```{r pwhl_teams}
-library(fastRhockey)
 library(dplyr)
 
 pwhl_teams()
@@ -121,7 +120,7 @@ pbp %>%
   head(15)
 ```
 
-The play-by-play data includes `r ncol(pbp)` columns with event details, player information, coordinates (raw and transformed), and game context.
+The play-by-play data includes 90+ columns with event details, player information, coordinates (raw and transformed), and game context.
 
 ### Stat Leaders
 
