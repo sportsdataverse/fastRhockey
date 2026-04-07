@@ -278,6 +278,9 @@ reference:
   - subtitle: Helper Functions
     desc: Functions used internally by fastRhockey which assist in transforming or loading data
     contents:
+      - "`csv_from_url`"
+      - "`progressively`"
+      - "`rds_from_url`"
       - "`most_recent_nhl_season`"
       - "`most_recent_nhl_season_api_param`"
       - "`most_recent_phf_season`"
