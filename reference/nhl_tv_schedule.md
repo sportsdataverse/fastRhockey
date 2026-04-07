@@ -30,7 +30,7 @@ Returns a list with TV schedule data.
 #> [1] "2026-03-24"
 #> 
 #> $endDate
-#> [1] "2026-04-20"
+#> [1] "2026-04-21"
 #> 
 #> $broadcasts
 #>              startTime             endTime durationSeconds

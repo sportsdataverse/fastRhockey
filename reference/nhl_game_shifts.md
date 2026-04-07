@@ -24,7 +24,7 @@ Returns a tibble
 # \donttest{
   try(nhl_game_shifts(game_id = 2021020182))
 #> ── NHL Game Shifts Information from NHL.com ─────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 09:18:41 UTC
+#> ℹ Data updated: 2026-04-07 10:51:59 UTC
 #> # A tibble: 326 × 14
 #>    event_team   period period_time period_seconds game_seconds num_on players_on
 #>    <chr>         <int> <chr>                <dbl>        <dbl>  <int> <chr>     

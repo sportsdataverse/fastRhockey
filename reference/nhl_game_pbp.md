@@ -38,8 +38,8 @@ list when `raw = TRUE`.
 # \donttest{
   try(nhl_game_pbp(game_id = 2024020001))
 #> ── NHL Game PBP from NHL.com ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 09:18:41 UTC
-#> # A tibble: 850 × 92
+#> ℹ Data updated: 2026-04-07 10:51:59 UTC
+#> # A tibble: 850 × 93
 #>    event_type   event secondary_type event_team_abbr event_team_type description
 #>    <chr>        <chr> <chr>          <chr>           <chr>           <glue>     
 #>  1 CHANGE       Chan… NA             NA              NA              ON: Nicola…
@@ -53,7 +53,7 @@ list when `raw = TRUE`.
 #>  9 CHANGE       Chan… NA             NA              NA              ON: Timo M…
 #> 10 CHANGE       Chan… NA             NA              NA              ON: Jesper…
 #> # ℹ 840 more rows
-#> # ℹ 86 more variables: period <int>, period_type <chr>, period_time <chr>,
+#> # ℹ 87 more variables: period <int>, period_type <chr>, period_time <chr>,
 #> #   period_seconds <dbl>, period_seconds_remaining <dbl>,
 #> #   period_time_remaining <chr>, game_seconds <dbl>,
 #> #   game_seconds_remaining <dbl>, home_score <int>, away_score <int>,

@@ -19,7 +19,7 @@ Returns a data frame with spotlight player information.
 # \donttest{
   try(nhl_player_spotlight())
 #> ── NHL Player Spotlight ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 09:18:46 UTC
+#> ℹ Data updated: 2026-04-07 10:52:04 UTC
 #> # A tibble: 10 × 13
 #>    player_id player_slug  position sweater_number team_id headshot team_tri_code
 #>        <int> <chr>        <chr>             <int>   <int> <chr>    <chr>        
