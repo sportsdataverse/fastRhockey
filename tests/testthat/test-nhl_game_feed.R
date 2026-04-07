@@ -75,3 +75,39 @@ test_that("NHL - Game PBP returns fastRhockey_data class", {
     x <- nhl_game_pbp(game_id = 2024020001)
     expect_s3_class(x, "fastRhockey_data")
 })
+
+test_that("NHL - Game PBP raw parameter returns unprocessed API list", {
+    skip_on_cran()
+    skip_nhl_test()
+    x <- nhl_game_pbp(game_id = 2024020001, raw = TRUE)
+
+    expect_type(x, "list")
+    # Raw API response should have these top-level fields
+    expect_true("plays" %in% names(x))
+    expect_true("homeTeam" %in% names(x))
+    expect_true("awayTeam" %in% names(x))
+    expect_true("season" %in% names(x))
+    expect_true("gameDate" %in% names(x))
+
+    # Should NOT have processed columns (these are added by the pipeline)
+    expect_false("event_type" %in% names(x))
+    expect_false("x_fixed" %in% names(x))
+})
+
+test_that("NHL - Game Feed raw parameter returns unprocessed API list", {
+    skip_on_cran()
+    skip_nhl_test()
+    x <- nhl_game_feed(game_id = 2024020001, raw = TRUE)
+
+    expect_type(x, "list")
+    # Raw response should be the direct API JSON structure
+    expect_true("plays" %in% names(x))
+    expect_true("homeTeam" %in% names(x))
+    expect_true("awayTeam" %in% names(x))
+    expect_true("id" %in% names(x))
+
+    # Should NOT be a named list with pbp/game_info/rosters
+    expect_false("pbp" %in% names(x))
+    expect_false("game_info" %in% names(x))
+    expect_false("rosters" %in% names(x))
+})
