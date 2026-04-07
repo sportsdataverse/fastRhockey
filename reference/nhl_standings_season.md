@@ -18,7 +18,7 @@ Returns a data frame with available standings seasons.
 # \donttest{
   try(nhl_standings_season())
 #> ── NHL Standings Season ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 10:52:10 UTC
+#> ℹ Data updated: 2026-04-07 12:16:28 UTC
 #> # A tibble: 108 × 10
 #>          id conferences_in_use divisions_in_use point_for_o_tloss_in_use
 #>       <int> <lgl>              <lgl>            <lgl>                   
