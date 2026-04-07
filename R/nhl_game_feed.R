@@ -253,10 +253,10 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
     # ----- Expected goals (xG) -----
     # Requires xgboost + models loaded via .onLoad()
     pbp <- tryCatch(
-        helper_nhl_calculate_xg(pbp),
+        suppressWarnings(helper_nhl_calculate_xg(pbp)),
         error = function(e) {
             message(glue::glue(
-                "{Sys.time()}: Could not calculate xG for game {game_id}: {e$message}"
+                "{Sys.time()}: Could not calculate xG for game {game_id}: {conditionMessage(e)}"
             ))
             pbp$xg <- NA_real_
             pbp
