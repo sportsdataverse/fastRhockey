@@ -162,6 +162,11 @@ helper_nhl_prepare_xg_data <- function(x) {
         x$away_abbr <- x$away_team_abbr
     }
 
+    # If shift data was unavailable, default skater counts to 5v5
+    if (!("strength_state" %in% names(x))) x$strength_state <- "5v5"
+    if (!("home_skaters" %in% names(x)))   x$home_skaters   <- 5L
+    if (!("away_skaters" %in% names(x)))   x$away_skaters   <- 5L
+
     model_df <- x %>%
         # --- Normalize secondary_type across NHL API eras ---
         # Old API (2010-2022): Title Case ("Wrist Shot", "Snap Shot", etc.)
