@@ -12,7 +12,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/sportsdataverse/fastRhockey/blob/devel/inst/CITATION)
+[`inst/CITATION`](https://github.com/sportsdataverse/fastRhockey/blob/main/inst/CITATION)
 
 Howell B, Gilani S (????). *fastRhockey: Functions to Access
 Professional Women's Hockey League and National Hockey League Play by

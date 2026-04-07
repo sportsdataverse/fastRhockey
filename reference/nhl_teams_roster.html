@@ -78,7 +78,7 @@ Uses the NHL API (api-web.nhle.com)."><meta property="og:image" content="https:/
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>NHL Team Roster</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/fastRhockey/blob/devel/R/nhl_teams_roster.R" class="external-link"><code>R/nhl_teams_roster.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/fastRhockey/blob/main/R/nhl_teams_roster.R" class="external-link"><code>R/nhl_teams_roster.R</code></a></small>
       <div class="d-none name"><code>nhl_teams_roster.Rd</code></div>
     </div>
 
@@ -115,27 +115,27 @@ If NULL, returns the current roster.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_teams_roster</span><span class="op">(</span>team_abbr <span class="op">=</span> <span class="st">"TOR"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Roster ───────────────────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-04-07 13:55:48 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 25 × 14</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    player_id first_name last_name full_name        sweater_number position_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   8<span style="text-decoration: underline;">484</span>158 Easton     Cowan     Easton Cowan                 53 F            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   8<span style="text-decoration: underline;">477</span>503 Max        Domi      Max Domi                     11 F            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   8<span style="text-decoration: underline;">480</span>870 Bo         Groulx    Bo Groulx                    29 F            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   8<span style="text-decoration: underline;">475</span>714 Calle      Jarnkrok  Calle Jarnkrok               19 F            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>   8<span style="text-decoration: underline;">478</span>057 Dakota     Joshua    Dakota Joshua                81 F            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   8<span style="text-decoration: underline;">482</span>720 Matthew    Knies     Matthew Knies                23 F            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>   8<span style="text-decoration: underline;">478</span>904 Steven     Lorentz   Steven Lorentz               18 F            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   8<span style="text-decoration: underline;">481</span>711 Matias     Maccelli  Matias Maccelli              63 F            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   8<span style="text-decoration: underline;">479</span>318 Auston     Matthews  Auston Matthews              34 F            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   8<span style="text-decoration: underline;">477</span>939 William    Nylander  William Nylander             88 F            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 15 more rows</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-04-07 16:23:36 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 26 × 14</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    player_id first_name last_name full_name       sweater_number position_code</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   8<span style="text-decoration: underline;">484</span>158 Easton     Cowan     Easton Cowan                53 F            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   8<span style="text-decoration: underline;">477</span>503 Max        Domi      Max Domi                    11 F            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   8<span style="text-decoration: underline;">480</span>870 Bo         Groulx    Bo Groulx                   29 F            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   8<span style="text-decoration: underline;">485</span>467 Luke       Haymes    Luke Haymes                 43 F            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>   8<span style="text-decoration: underline;">475</span>714 Calle      Jarnkrok  Calle Jarnkrok              19 F            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   8<span style="text-decoration: underline;">478</span>057 Dakota     Joshua    Dakota Joshua               81 F            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>   8<span style="text-decoration: underline;">482</span>720 Matthew    Knies     Matthew Knies               23 F            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   8<span style="text-decoration: underline;">478</span>904 Steven     Lorentz   Steven Lorentz              18 F            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   8<span style="text-decoration: underline;">481</span>711 Matias     Maccelli  Matias Maccelli             63 F            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   8<span style="text-decoration: underline;">479</span>318 Auston     Matthews  Auston Matthews             34 F            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 16 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 8 more variables: shoots_catches &lt;chr&gt;, height_inches &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   weight_pounds &lt;int&gt;, birth_date &lt;chr&gt;, birth_city &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   birth_country &lt;chr&gt;, headshot_url &lt;chr&gt;, team_abbr &lt;chr&gt;</span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_teams_roster</span><span class="op">(</span>team_abbr <span class="op">=</span> <span class="st">"TOR"</span>, season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Roster ───────────────────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-04-07 13:55:48 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-04-07 16:23:36 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 42 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    player_id first_name last_name full_name       sweater_number position_code</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>

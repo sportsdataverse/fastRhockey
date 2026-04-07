@@ -25,7 +25,7 @@ Returns a list with scoreboard data including game info.
 # \donttest{
   try(nhl_team_scoreboard(team_abbr = "TOR"))
 #> $focusedDate
-#> [1] "2026-04-06"
+#> [1] "2026-04-07"
 #> 
 #> $focusedDateCount
 #> [1] 8
