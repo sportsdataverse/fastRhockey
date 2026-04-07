@@ -1,6 +1,11 @@
 #' @title phf_pbp
 #' @description phf_pbp: pull in the raw data for a game_id from the PHF/NWHL API
 #'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
+#'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @return A data frame of play by play information
 #' @import rvest
@@ -15,6 +20,7 @@
 #'   try(phf_pbp(game_id = 268127))
 #' }
 phf_pbp <- function(game_id) {
+  lifecycle::deprecate_stop("1.0.0", "phf_pbp()", details = "The PHF has ceased operations.")
   base_url <- "https://web.api.digitalshift.ca/partials/stats/game/play-by-play?game_id="
   full_url <- paste0(base_url, game_id)
 

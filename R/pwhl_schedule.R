@@ -91,6 +91,7 @@ pwhl_schedule <- function(season, game_type = "regular") {
         dplyr::select(
           c(
               "game_id",
+              "season",
               "game_date",
               "game_status",
               "home_team",

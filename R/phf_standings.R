@@ -1,6 +1,11 @@
 #' @title **PHF Standings**
 #' @description phf_standings: pull in the standings data for a game_id from the PHF/NWHL API
 #'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
+#'
 #' @param season Season (YYYY) to pull the standings from, the concluding year in XXXX-YY format
 #' @return A data frame of standings data
 #' @import rvest
@@ -15,6 +20,7 @@
 #'   try(phf_standings(season = most_recent_phf_season()))
 #' }
 phf_standings <- function(season = most_recent_phf_season()) {
+  lifecycle::deprecate_stop("1.0.0", "phf_standings()", details = "The PHF has ceased operations.")
   season_id <- phf_get_season_id(season=season)
 
   base_url <- "https://web.api.digitalshift.ca/partials/stats/standings/table?league_toggle=division&season_id="

@@ -1,6 +1,11 @@
 #' @title  **PHF Schedule**
 #' @description PHF Schedule lookup
 #'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
+#'
 #' @param season Season (YYYY) to pull the schedule from, the concluding year in XXXX-YY format
 #' @return A data frame with schedule data
 #' @import rvest
@@ -14,6 +19,7 @@
 #' }
 
 phf_schedule <- function(season = most_recent_phf_season()){
+  lifecycle::deprecate_stop("1.0.0", "phf_schedule()", details = "The PHF has ceased operations.")
   season_id <- phf_get_season_id(season = season)
 
   base_url <- "https://web.api.digitalshift.ca/partials/stats/schedule/table?limit=100&all=true&season_id="

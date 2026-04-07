@@ -1,50 +1,49 @@
 #' @title  **PWHL Stats**
 #' @description PWHL Stats lookup
 #'
-#' @param position either goalie or skater. If skater, need to select a team.
-#' @param season Season (YYYY) to pull the roster from, the concluding year in XXXX-YY format
-#' @param team Team to pull the roster data for
-#' @param regular Bool for whether to pull regular or pre-season rosters
-#' @return A data frame with roster data
+#' @param position either goalie or skater.
+#' @param season Season (YYYY) to pull the stats from, the concluding year in XXXX-YY format
+#' @param team Team abbreviation to filter skaters by (e.g., "BOS"). Ignored for goalies.
+#' @param regular Bool for whether to pull regular or pre-season stats
+#' @return A data frame with player stats
 #' @import jsonlite
 #' @import dplyr
 #' @import httr
 #' @importFrom glue glue
-#' @import tidyverse
+#' @importFrom tidyr separate
 #' @export
+#' @examples
+#' \donttest{
+#'   try(pwhl_stats(position = "goalie", season = 2024))
+#' }
 
-pwhl_stats <- function(position = "goalie", team = "BOS", season = 2023, regular = TRUE) {
-  team_id <- pwhl_teams() %>%
-    dplyr::filter(.data$team_label == team)
+pwhl_stats <- function(position = "goalie", team = "all", season = 2024, regular = TRUE) {
 
   if (regular) {
     season_id <- 1
-  } else if (! regular) {
+  } else {
     season_id <- 2
   }
+
+  players <- data.frame()
 
   tryCatch(
     expr = {
       if (position == "goalie") {
 
-        URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season={season_id}&team=all&position=goalies&rookies=0&statsType=expanded&rosterstatus=undefined&site_id=2&first=0&limit=20&sort=gaa&league_id=1&lang=en&division=-1&qualified=all&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._5")
+        URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season={season_id}&team=all&position=goalies&rookies=0&statsType=expanded&rosterstatus=undefined&site_id=2&first=0&limit=100&sort=gaa&league_id=1&lang=en&division=-1&qualified=all&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._5")
 
-        res <- httr::RETRY(
-          "GET",
-          URL
-        )
-
+        res <- httr::RETRY("GET", URL)
         res <- res %>%
           httr::content(as = "text", encoding = "utf-8")
 
-        res <- gsub("angular.callbacks._5\\(", "", res)
+        callback_pattern <- "angular.callbacks._\\d+\\("
+        res <- gsub(callback_pattern, "", res)
         res <- gsub("}}]}]}])", "}}]}]}]", res)
         r <- res %>%
           jsonlite::parse_json()
 
-        players <- data.frame()
-
-        data = r[[1]]$sections[[1]]$data
+        data <- r[[1]]$sections[[1]]$data
 
         for (y in 1:length(data)) {
 
@@ -73,30 +72,36 @@ pwhl_stats <- function(position = "goalie", team = "BOS", season = 2023, regular
         players <- players %>%
           tidyr::separate("minutes", into = c("minute", "second"), sep = ":", remove = FALSE)
       } else {
-        URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season={season_id}&team={team_id}&position=skaters&rookies=0&statsType=standard&rosterstatus=undefined&site_id=2&first=0&limit=20&sort=points&league_id=1&lang=en&division=-1&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._6")
 
-        res <- httr::RETRY(
-          "GET",
-          URL
-        )
+        # Resolve team abbreviation to team_id for the URL
+        team_param <- "all"
+        if (!is.null(team) && team != "all") {
+          teams_df <- pwhl_teams()
+          team_row <- teams_df %>% dplyr::filter(.data$team_label == team)
+          if (nrow(team_row) > 0) {
+            team_param <- team_row$team_id[1]
+          }
+        }
 
+        URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season={season_id}&team={team_param}&position=skaters&rookies=0&statsType=standard&rosterstatus=undefined&site_id=2&first=0&limit=100&sort=points&league_id=1&lang=en&division=-1&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._6")
+
+        res <- httr::RETRY("GET", URL)
         res <- res %>%
           httr::content(as = "text", encoding = "utf-8")
 
-        res <- gsub("angular.callbacks._6\\(", "", res)
+        callback_pattern <- "angular.callbacks._\\d+\\("
+        res <- gsub(callback_pattern, "", res)
         res <- gsub("}}]}]}])", "}}]}]}]", res)
         r <- res %>%
           jsonlite::parse_json()
 
-        players <- data.frame()
-
-        data = r[[1]]$sections[[1]]$data
+        data <- r[[1]]$sections[[1]]$data
 
         for (y in 1:length(data)) {
 
           player_df <- data.frame(
             player_id = c(data[[y]]$row$player_id),
-            player = c(data[[y]]$row$name),
+            player_name = c(data[[y]]$row$name),
             current_team = c(data[[y]]$row$active),
             position = c(data[[y]]$row$position),
             team = c(data[[y]]$row$team_code),
@@ -106,7 +111,7 @@ pwhl_stats <- function(position = "goalie", team = "BOS", season = 2023, regular
             shooting_pct = c(data[[y]]$row$shooting_percentage),
             assists = c(data[[y]]$row$assists),
             points = c(data[[y]]$row$points),
-            points_per_game = (data[[y]]$row$points_per_game),
+            points_per_game = c(data[[y]]$row$points_per_game),
             plus_minus = c(data[[y]]$row$plus_minus),
             penalty_minutes = c(data[[y]]$row$penalty_minutes),
             penalty_minutes_per_game = c(data[[y]]$row$penalty_minutes_per_game),
@@ -129,14 +134,17 @@ pwhl_stats <- function(position = "goalie", team = "BOS", season = 2023, regular
       }
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid season or no roster data available! Try a season from 2023 onwards!"))
-
+      message(glue::glue("{Sys.time()}: Invalid season or no stats data available! Try a season from 2024 onwards!"))
     },
     warning = function(w) {
     },
     finally = {
     }
   )
+
+  if (nrow(players) == 0) {
+    return(NULL)
+  }
 
   return(players)
 }
