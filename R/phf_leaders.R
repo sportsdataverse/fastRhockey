@@ -1,5 +1,10 @@
 #' @title **PHF Player Leaderboards**
 #' @description PHF Player Leaderboards
+#'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
 #' @param player_type Player type: skaters, goalies
 #' @param season Season (YYYY) to pull the team stats from, the concluding year in XXXX-YY format
 #' @param season_type Season type: Regular Season or Playoffs
@@ -16,6 +21,7 @@
 #' }
 
 phf_leaders <- function(player_type, season = most_recent_phf_season(), season_type="Regular Season"){
+  lifecycle::deprecate_stop("1.0.0", "phf_leaders()", details = "The PHF has ceased operations.")
 
   league_info <- phf_league_info(season=season)
   season_id <- phf_get_season_id(season=season)

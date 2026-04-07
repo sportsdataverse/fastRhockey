@@ -1,5 +1,10 @@
 #' @title **PHF League Information**
 #' @description  PHF League Information per year
+#'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
 #' @param season Season (YYYY) to pull the league info and IDs for. Season is the concluding year in XXXX-YY format
 #' @return A named list of data frames: seasons, divisions, teams, league,  officials, brackets
 #'
@@ -14,6 +19,7 @@
 #'   try(phf_league_info(season = 2016))
 #' }
 phf_league_info <- function(season = most_recent_phf_season()){
+  lifecycle::deprecate_stop("1.0.0", "phf_league_info()", details = "The PHF has ceased operations.")
 
   season_id <- phf_get_season_id(season=season)
   base_url <- "https://web.api.digitalshift.ca/partials/stats/filters?type=season&id="

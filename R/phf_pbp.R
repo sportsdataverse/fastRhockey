@@ -6,6 +6,11 @@ NULL
 #' @rdname load_phf_pbp
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
+#'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
 #' @param seasons A vector of 4-digit years associated with given PHF seasons. (Min: 2011)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_phf_db()`).
@@ -19,6 +24,7 @@ NULL
 #' }
 load_phf_pbp <- function(seasons = most_recent_phf_season(),...,
                          dbConnection = NULL, tablename = NULL) {
+  lifecycle::deprecate_stop("1.0.0", "load_phf_pbp()", details = "The PHF has ceased operations.")
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   dots <- rlang::dots_list(...)
@@ -56,6 +62,11 @@ NULL
 #' @rdname load_phf_team_box
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
+#'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
 #' @param seasons A vector of 4-digit years associated with given PHF seasons. (Min: 2011)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_phf_db()`).
@@ -69,6 +80,7 @@ NULL
 #' }
 load_phf_team_box <- function(seasons = most_recent_phf_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
+  lifecycle::deprecate_stop("1.0.0", "load_phf_team_box()", details = "The PHF has ceased operations.")
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   dots <- rlang::dots_list(...)
@@ -104,6 +116,11 @@ NULL
 #' @rdname load_phf_player_box
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
+#'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
 #' @param seasons A vector of 4-digit years associated with given PHF seasons. (Min: 2011)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_phf_db()`).
@@ -117,6 +134,7 @@ NULL
 #' }
 load_phf_player_box <- function(seasons = most_recent_phf_season(), ...,
                                 dbConnection = NULL, tablename = NULL) {
+  lifecycle::deprecate_stop("1.0.0", "load_phf_player_box()", details = "The PHF has ceased operations.")
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   dots <- rlang::dots_list(...)
@@ -153,6 +171,11 @@ NULL
 #' @rdname load_phf_schedule
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
+#'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
 #' @param seasons A vector of 4-digit years associated with given PHF seasons. (Min: 2011)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_phf_db()`).
@@ -166,6 +189,7 @@ NULL
 #' }
 load_phf_schedule <- function(seasons = most_recent_phf_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
+  lifecycle::deprecate_stop("1.0.0", "load_phf_schedule()", details = "The PHF has ceased operations.")
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   dots <- rlang::dots_list(...)
@@ -204,6 +228,11 @@ NULL
 #' @rdname load_phf_rosters
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
+#'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
 #' @param seasons A vector of 4-digit years associated with given PHF seasons. (Min: 2021)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_phf_db()`).
@@ -217,6 +246,7 @@ NULL
 #' }
 load_phf_rosters <- function(seasons = most_recent_phf_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
+  lifecycle::deprecate_stop("1.0.0", "load_phf_rosters()", details = "The PHF has ceased operations.")
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   dots <- rlang::dots_list(...)
@@ -263,6 +293,11 @@ load_phf_games <- function(){
 #' @description update_phf_db() updates or creates a database with `fastRhockey`
 #' play by play data of all completed and available games since 2011.
 #'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
+#'
 #' @details This function creates and updates a data table with the name `tblname`
 #' within a SQLite database (other drivers via `db_connection`) located in
 #' `dbdir` and named `dbname`.
@@ -304,6 +339,7 @@ update_phf_db <- function(dbdir = ".",
                           tblname = "fastRhockey_phf_pbp",
                           force_rebuild = FALSE,
                           db_connection = NULL) {
+  lifecycle::deprecate_stop("1.0.0", "update_phf_db()", details = "The PHF has ceased operations.")
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
 

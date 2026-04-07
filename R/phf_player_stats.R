@@ -1,6 +1,11 @@
 #' @title **PHF Player Stats**
 #' @description phf_player_stats: loads the player stats
 #'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
+#'
 #' @param player_id The unique ID code for the player that you are interested in viewing the data for
 #' @return A named list of data frames: career, game_log
 #' @import rvest
@@ -16,6 +21,7 @@
 #'   try(phf_player_stats(player_id = 532475))
 #' }
 phf_player_stats <- function(player_id) {
+  lifecycle::deprecate_stop("1.0.0", "phf_player_stats()", details = "The PHF has ceased operations.")
 
   tryCatch(
     expr = {
