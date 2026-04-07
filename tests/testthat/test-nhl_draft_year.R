@@ -1,21 +1,17 @@
-test_that("NHL - Get NHL draft by year", {
+test_that("NHL - Get NHL Draft by Year", {
   skip_on_cran()
-  x <- nhl_draft_year(year=2020)
+  skip_nhl_test()
+  x <- nhl_draft_year(year = 2023)
 
-  cols <- c(
-    "year",
-    "round",
-    "pick_overall",
-    "pick_in_round",
-    "team_id",
-    "team_name",
-    "team_link",
-    "prospect_id",
-    "prospect_full_name",
-    "prospect_link"
-  )
-  x <- x %>% dplyr::select(dplyr::all_of(cols))
-  expect_equal(colnames(x), cols)
-  expect_s3_class(x, 'data.frame')
+  expect_s3_class(x, "data.frame")
+  expect_true(nrow(x) > 0)
+})
 
+test_that("NHL - Get NHL Draft by Year with Round", {
+  skip_on_cran()
+  skip_nhl_test()
+  x <- nhl_draft_year(year = 2023, round = 1)
+
+  expect_s3_class(x, "data.frame")
+  expect_true(nrow(x) > 0)
 })

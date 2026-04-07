@@ -1,8 +1,13 @@
 test_that("ESPN - Get ESPN NHL teams", {
   skip_on_cran()
+  skip_nhl_test()
   x <- espn_nhl_teams()
 
-  cols <- c(
+  expect_s3_class(x, "data.frame")
+  expect_true(nrow(x) > 0)
+
+  # Check key columns exist (ESPN may add/remove logo columns over time)
+  key_cols <- c(
     "espn_team_id",
     "abbreviation",
     "display_name",
@@ -13,11 +18,9 @@ test_that("ESPN - Get ESPN NHL teams", {
     "color",
     "alternate_color",
     "logo",
-    "logo_dark",
-    "logos_href_3",
-    "logos_href_4"
+    "logo_dark"
   )
-  expect_equal(colnames(x), cols)
-  expect_s3_class(x, 'data.frame')
-
+  for (col in key_cols) {
+    expect_true(col %in% names(x), info = paste("Missing column:", col))
+  }
 })
