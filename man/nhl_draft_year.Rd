@@ -4,30 +4,26 @@
 \alias{nhl_draft_year}
 \title{\strong{NHL Draft by Year}}
 \usage{
-nhl_draft_year(year)
+nhl_draft_year(year, round = NULL)
 }
 \arguments{
-\item{year}{Draft year (XXXX)}
+\item{year}{Integer. Draft year (e.g. 2023).}
+
+\item{round}{Integer or NULL. Specific round (1-7) or NULL for all rounds.}
 }
 \value{
-Returns a data frame:
-* year -
-* round -
-* pick_overall -
-* pick_in_round -
-* team_id -
-* team_name -
-* team_link -
-* prospect_id -
-* prospect_full_name -
-* prospect_link -
+Returns a data frame of draft picks.
 }
 \description{
-Returns information on draft for a given year
+Returns draft pick information for a given year.
+
+Uses the NHL API endpoint at
+\code{api-web.nhle.com/v1/draft/picks/{year}/{round}}.
+When no round is specified, all rounds (1-7) are fetched and combined.
 }
 \examples{
 \donttest{
-   try(nhl_draft_year(year=2020))
+   try(nhl_draft_year(year = 2023, round = 1))
 }
 }
 \keyword{Draft}

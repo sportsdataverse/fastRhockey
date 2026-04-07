@@ -4,22 +4,30 @@
 \alias{nhl_schedule}
 \title{\strong{NHL Schedule}}
 \usage{
-nhl_schedule(season = NULL, day = as.Date(Sys.Date(), "\%Y-\%m-\%d"))
+nhl_schedule(day = NULL, season = NULL, team_abbr = NULL)
 }
 \arguments{
-\item{season}{NHL Season}
+\item{day}{Character date in "YYYY-MM-DD" format. If provided, returns
+games for that specific day.}
 
-\item{day}{Date}
+\item{season}{Integer four-digit year for the start of the season
+(e.g., 2024 for the 2024-25 season). If provided instead of \code{day},
+returns the full season schedule.}
+
+\item{team_abbr}{Character three-letter team abbreviation (e.g., "TOR").
+Required when \code{season} is used. If NULL, loops through all teams.}
 }
 \value{
-Returns a tibble
+Returns a data frame with game schedule information.
 }
 \description{
-Returns NHL Schedule data
+Returns NHL schedule data for a given day or season.
+Uses the NHL API (\code{api-web.nhle.com}).
 }
 \examples{
 \donttest{
-  try(nhl_schedule(season = 2023))
+  try(nhl_schedule(day = "2024-01-15"))
+  try(nhl_schedule(season = 2024, team_abbr = "TOR"))
 }
 }
 \keyword{NHL}

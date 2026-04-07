@@ -14,6 +14,11 @@ A dataframe of team-level box score information
 }
 \description{
 phf_team_box: loads the team boxscore and shot/score data for a game into one data frame through just one function
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+The PHF has ceased operations. This function is deprecated and
+will be removed in a future release.
 }
 \examples{
 \donttest{

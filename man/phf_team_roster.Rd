@@ -16,6 +16,11 @@ A named list of data frames: roster, team_staff
 }
 \description{
 PHF Team Roster lookup
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+The PHF has ceased operations. This function is deprecated and
+will be removed in a future release.
 }
 \examples{
 \donttest{

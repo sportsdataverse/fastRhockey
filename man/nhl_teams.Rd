@@ -4,16 +4,17 @@
 \alias{nhl_teams}
 \title{\strong{NHL Teams}}
 \usage{
-nhl_teams(season = most_recent_nhl_season_api_param())
+nhl_teams(season = NULL)
 }
 \arguments{
-\item{season}{season in format XXXXYYYY}
+\item{season}{Integer four-digit year (e.g., 2024). If NULL, returns current teams.}
 }
 \value{
-Returns a tibble
+Returns a data frame with team information.
 }
 \description{
-Returns NHL Teams information
+Returns current NHL team information.
+Uses the NHL API standings endpoint to get up-to-date team info.
 }
 \examples{
 \donttest{

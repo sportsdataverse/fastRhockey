@@ -14,6 +14,11 @@ A named list of data frames: scoring_summary,shootout_summary, penalty_summary, 
 }
 \description{
 phf_game_summary: pull in the raw data for a game_id from the PHF/NWHL API
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+The PHF has ceased operations. This function is deprecated and
+will be removed in a future release.
 }
 \examples{
 \donttest{

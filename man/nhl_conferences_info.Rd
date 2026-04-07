@@ -4,28 +4,28 @@
 \alias{nhl_conferences_info}
 \title{\strong{NHL Conference Info}}
 \usage{
-nhl_conferences_info(conference_id)
+nhl_conferences_info(conference_name, date = NULL)
 }
 \arguments{
-\item{conference_id}{Conference ID}
+\item{conference_name}{Character. Conference name (e.g. "Eastern" or "Western").}
+
+\item{date}{Character date in "YYYY-MM-DD" format. If NULL, returns
+current conference info.}
 }
 \value{
-Returns a data frame
-\itemize{
-\item conference_id - conference ID
-\item name - conference name
-\item link - link to conference information
-\item abbreviation - conference abbreviation
-\item short_name - conference short name
-\item active - active conference flag
-}
+Returns a data frame of teams in the specified conference with columns
+from \code{\link{nhl_standings}} filtered by conference.
 }
 \description{
-Returns information on a conference by conference ID
+Returns teams belonging to a given conference, derived from standings data.
+
+The original NHL Stats API conferences endpoint is no longer available.
+This function now extracts conference information from the standings endpoint
+at \code{api-web.nhle.com}.
 }
 \examples{
 \donttest{
-  try(nhl_conferences_info(conference_id = 7))
+  try(nhl_conferences_info(conference_name = "Eastern"))
 }
 }
 \keyword{Conferences}

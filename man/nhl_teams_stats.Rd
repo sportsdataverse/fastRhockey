@@ -4,22 +4,32 @@
 \alias{nhl_teams_stats}
 \title{\strong{NHL Teams Stats}}
 \usage{
-nhl_teams_stats(team_id, season = most_recent_nhl_season_api_param())
+nhl_teams_stats(team_abbr, season = NULL, game_type = 2)
 }
 \arguments{
-\item{team_id}{A unique team ID}
+\item{team_abbr}{Three-letter team abbreviation (e.g., "TBL", "TOR", "SEA")}
 
-\item{season}{season in format XXXXYYYY}
+\item{season}{Integer 4-digit year (e.g., 2024 for the 2024-25 season).
+If NULL, returns current season stats.}
+
+\item{game_type}{Integer game type: 2 = regular season (default), 3 = playoffs}
 }
 \value{
-Returns a tibble
+Returns a data frame with per-player stats for the team,
+including both skaters and goalies identified by a \code{player_type} column.
 }
 \description{
-Returns NHL Teams stats information for a given team ID
+Returns NHL team player-level stats (skaters and goalies) for a
+given team abbreviation and season.
+Uses the new NHL API club-stats endpoint (\code{api-web.nhle.com}).
+
+\strong{Breaking change:} The old \code{team_id} (integer) parameter has been replaced
+by \code{team_abbr} (3-letter string). The \code{season} parameter now accepts a
+4-digit year (e.g., 2024 for the 2024-25 season).
 }
 \examples{
 \donttest{
-  try(nhl_teams_stats(team_id = 14))
+  try(nhl_teams_stats(team_abbr = "TBL"))
 }
 }
 \keyword{NHL}

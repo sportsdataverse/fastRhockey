@@ -2,26 +2,28 @@
 % Please edit documentation in R/nhl_teams_roster.R
 \name{nhl_teams_roster}
 \alias{nhl_teams_roster}
-\title{\strong{NHL Teams Roster}}
+\title{\strong{NHL Team Roster}}
 \usage{
-nhl_teams_roster(team_id, season = most_recent_nhl_season_api_param())
+nhl_teams_roster(team_abbr, season = NULL)
 }
 \arguments{
-\item{team_id}{A unique team ID}
+\item{team_abbr}{Character three-letter team abbreviation (e.g., "TOR").}
 
-\item{season}{season in format XXXXYYYY}
+\item{season}{Integer four-digit year (e.g., 2024 for the 2024-25 season).
+If NULL, returns the current roster.}
 }
 \value{
-Returns a tibble
+Returns a data frame with roster information.
 }
 \description{
-Returns NHL Teams roster information for a given team ID
+Returns the roster for a given NHL team.
+Uses the NHL API (\code{api-web.nhle.com}).
 }
 \examples{
 \donttest{
-  try(nhl_teams_roster(team_id = 14, season = 20202021))
+  try(nhl_teams_roster(team_abbr = "TOR"))
+  try(nhl_teams_roster(team_abbr = "TOR", season = 2024))
 }
 }
 \keyword{NHL}
 \keyword{Roster}
-\keyword{Teams}

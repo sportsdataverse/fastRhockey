@@ -7,40 +7,13 @@
 nhl_draft_prospects()
 }
 \value{
-Returns a tibble with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   prospect_id \tab integer \cr
-   full_name \tab character \cr
-   link \tab character \cr
-   first_name \tab character \cr
-   last_name \tab character \cr
-   birth_date \tab character \cr
-   birth_city \tab character \cr
-   birth_country \tab character \cr
-   height \tab character \cr
-   weight \tab integer \cr
-   shoots_catches \tab character \cr
-   nhl_player_id \tab integer \cr
-   draft_status \tab character \cr
-   birth_state_province \tab character \cr
-   primary_position_code \tab character \cr
-   primary_position_name \tab character \cr
-   primary_position_type \tab character \cr
-   primary_position_abbreviation \tab character \cr
-   prospect_category_id \tab integer \cr
-   prospect_category_short_name \tab character \cr
-   prospect_category_name \tab character \cr
-   amateur_team_name \tab character \cr
-   amateur_team_link \tab character \cr
-   amateur_league_name \tab character \cr
-   amateur_league_link \tab character \cr
-   ranks_midterm \tab integer \cr
-   ranks_final_rank \tab integer \cr
-   ranks_draft_year \tab integer \cr
-}
+Returns a data frame of draft prospect rankings.
 }
 \description{
-Returns information on draft prospects
+Returns current draft prospect rankings.
+
+Uses the new NHL API endpoint at
+\code{api-web.nhle.com/v1/draft/rankings/now}.
 }
 \examples{
 \donttest{
