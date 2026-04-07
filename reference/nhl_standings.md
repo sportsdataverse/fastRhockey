@@ -26,7 +26,7 @@ Returns a data frame with standings information.
 # \donttest{
   try(nhl_standings())
 #> ── NHL Standings ────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 06:13:49 UTC
+#> ℹ Data updated: 2026-04-07 06:28:34 UTC
 #> # A tibble: 32 × 36
 #>    team_abbr team_name           team_common_name team_logo      conference_name
 #>    <chr>     <chr>               <chr>            <chr>          <chr>          
@@ -49,7 +49,7 @@ Returns a data frame with standings information.
 #> #   goals_against <int>, goal_differential <int>, home_wins <int>, …
   try(nhl_standings(date = "2024-03-01"))
 #> ── NHL Standings ────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 06:13:49 UTC
+#> ℹ Data updated: 2026-04-07 06:28:36 UTC
 #> # A tibble: 32 × 36
 #>    team_abbr team_name            team_common_name team_logo     conference_name
 #>    <chr>     <chr>                <chr>            <chr>         <chr>          
