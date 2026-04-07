@@ -1,6 +1,11 @@
 #' @title **PHF Game All**
 #' @description phf_game_all: pull in the raw data for a game_id from the PHF/NWHL API
 #'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
+#'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @return A named list of data frames: plays, team_box, skaters, goalies, game_details,
 #' scoring_summary, shootout_summary,
@@ -17,6 +22,7 @@
 #'   try(phf_game_all(game_id = 612254))
 #' }
 phf_game_all <- function(game_id) {
+  lifecycle::deprecate_stop("1.0.0", "phf_game_all()", details = "The PHF has ceased operations.")
   base_url <- "https://web.api.digitalshift.ca/partials/stats/game/play-by-play?game_id="
   full_url <- paste0(base_url, game_id)
 
@@ -126,6 +132,11 @@ phf_game_all <- function(game_id) {
 #' @title **PHF Game Raw**
 #' @description phf_game_raw: pull in the raw data for a game_id from the PHF/NWHL API
 #'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
+#'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @return A list of data frames
 #' @import rvest
@@ -138,6 +149,7 @@ phf_game_all <- function(game_id) {
 #'   try(phf_game_raw(game_id = 612254))
 #' }
 phf_game_raw <- function(game_id) {
+  lifecycle::deprecate_stop("1.0.0", "phf_game_raw()", details = "The PHF has ceased operations.")
 
   base_url <- "https://web.api.digitalshift.ca/partials/stats/game/play-by-play?game_id="
   full_url <- paste0(base_url, game_id)
@@ -168,6 +180,11 @@ phf_game_raw <- function(game_id) {
 #' @title **PHF Game Details**
 #' @description phf_game_details: pull in the raw data for a game_id from the PHF/NWHL API
 #'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
+#'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @return A data frame with game team details
 #' @import rvest
@@ -180,6 +197,7 @@ phf_game_raw <- function(game_id) {
 #'   try(phf_game_details(game_id = 612254))
 #' }
 phf_game_details <- function(game_id) {
+  lifecycle::deprecate_stop("1.0.0", "phf_game_details()", details = "The PHF has ceased operations.")
 
   base_url <- "https://web.api.digitalshift.ca/partials/stats/game?game_id="
   full_url <- paste0(base_url, game_id)
@@ -267,6 +285,11 @@ phf_game_details <- function(game_id) {
 #' @title **PHF Game Summary**
 #' @description phf_game_summary: pull in the raw data for a game_id from the PHF/NWHL API
 #'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
+#'
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @return A named list of data frames: scoring_summary,shootout_summary, penalty_summary, officials, team_staff, timeouts
 #' @import rvest
@@ -279,6 +302,7 @@ phf_game_details <- function(game_id) {
 #'   try(phf_game_summary(game_id = 612254))
 #' }
 phf_game_summary <- function(game_id) {
+  lifecycle::deprecate_stop("1.0.0", "phf_game_summary()", details = "The PHF has ceased operations.")
 
   base_url <- "https://web.api.digitalshift.ca/partials/stats/game/boxscore?game_id="
   full_url <- paste0(base_url, game_id)
