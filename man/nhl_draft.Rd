@@ -7,20 +7,12 @@
 nhl_draft()
 }
 \value{
-Returns a data frame:
-* year -
-* round -
-* pick_overall -
-* pick_in_round -
-* team_id -
-* team_name -
-* team_link -
-* prospect_id -
-* prospect_full_name -
-* prospect_link -
+Returns a data frame of draft picks.
 }
 \description{
-Returns information on draft
+Returns information on the most recent NHL draft picks.
+
+Uses the new NHL API endpoint at \code{api-web.nhle.com/v1/draft/picks/now}.
 }
 \examples{
 \donttest{

@@ -14,6 +14,11 @@ A data frame with game team details
 }
 \description{
 phf_game_details: pull in the raw data for a game_id from the PHF/NWHL API
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+The PHF has ceased operations. This function is deprecated and
+will be removed in a future release.
 }
 \examples{
 \donttest{

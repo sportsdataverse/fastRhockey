@@ -1,11 +1,19 @@
 ## Release summary
 
-This is a minor release that makes the following changes:
+This is version 1.0.0 that signals API stability for the NHL and PWHL
+endpoints. Key changes:
 
-* `load_phf_rosters()` and `load_nhl_rosters()`  function added.
-* `pwhl_teams()` function added.
-* `pwhl_schedule()` function added.
-* `pwhl_team_roster()` function added.
+* Formally deprecated all PHF functions via `lifecycle` (league ceased
+  operations).
+* Consolidated new NHL API functions into existing NHL functions rather than creating `_v2` variants and deprecating the existing ones since the original API endpoints were deprecated.
+* Added `lifecycle` package as an Imports dependency for formal deprecation
+  management.
+* Fixed NAMESPACE.
+* Fixed `nhl_draft_year()` to use updated NHL API endpoint format.
+* Fixed `pwhl_stats()` scoping bug and team ID resolution.
+* Fixed `refresh_xg_models()` locked binding error by using package environment.
+* Added complete test coverage for all exported functions (482 tests passing).
+* Updated CI workflows and documentation.
 
 ## R CMD check results
 

@@ -7,17 +7,23 @@
 nhl_game_content(game_id)
 }
 \arguments{
-\item{game_id}{Game unique ID}
+\item{game_id}{Game unique ID (e.g., 2024020001)}
 }
 \value{
-Returns a tibble
+Returns a data frame with game summary information including teams,
+scores, venue, and period scoring details.
 }
 \description{
-Returns game content for a given game ID
+Returns game summary content for a given game ID.
+Uses the new NHL API gamecenter landing endpoint (\code{api-web.nhle.com}).
+
+\strong{Note:} The original \code{statsapi.web.nhl.com} endpoint has been retired.
+This function now returns game summary data (teams, scoring, three stars)
+from the gamecenter landing page instead of the old highlights/content data.
 }
 \examples{
 \donttest{
-   try(nhl_game_content(game_id = 2021020182))
+  try(nhl_game_content(game_id = 2024020001))
 }
 }
 \keyword{Content}
