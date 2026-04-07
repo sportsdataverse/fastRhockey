@@ -1,55 +1,40 @@
 #' @title **NHL Conferences**
-#' @description Returns a table of current NHL conferences
-#' @return Returns a data frame
-#' * conference_id - conference ID
-#' * name - conference name
-#' * link - link to conference information
-#' * abbreviation - conference abbreviation
-#' * short_name - conference short name
-#' * active - active conference flag
+#' @description Returns a table of current NHL conferences derived from standings data.
+#'
+#' The original NHL Stats API conferences endpoint is no longer available.
+#' This function now extracts conference information from the standings endpoint
+#' at \code{api-web.nhle.com}.
+#'
+#' @param date Character date in "YYYY-MM-DD" format. If NULL, returns
+#'   current conferences.
+#' @return Returns a data frame with columns:
+#'   \itemize{
+#'     \item \code{conference_name} - conference name (e.g. "Eastern", "Western")
+#'   }
 #' @keywords NHL Conferences
-#' @import rvest
-#' @importFrom rlang .data
-#' @importFrom jsonlite fromJSON toJSON
-#' @importFrom dplyr mutate filter select rename bind_cols bind_rows
-#' @importFrom tidyr unnest unnest_wider everything
-#' @importFrom janitor clean_names
+#' @importFrom dplyr distinct select
 #' @export
 #' @examples
 #' \donttest{
 #'   try(nhl_conferences())
 #' }
-nhl_conferences<- function(){
-
-  base_url <- "https://statsapi.web.nhl.com/api/v1/conferences"
-
-  full_url <- paste0(base_url)
-
-
-  res <- httr::RETRY("GET", full_url)
-
-  # Check the result
-  check_status(res)
-
+nhl_conferences <- function(date = NULL) {
   tryCatch(
     expr = {
-      resp <- res %>%
-        httr::content(as = "text", encoding = "UTF-8")
-      conferences_df <- jsonlite::fromJSON(resp)[["conferences"]]
-      conferences_df <- conferences_df %>%
-        janitor::clean_names() %>%
-        dplyr::rename("conference_id" = "id") %>%
+      standings <- nhl_standings(date = date)
+      if (is.null(standings) || nrow(standings) == 0) {
+        message(glue::glue("{Sys.time()}: No standings data available to extract conferences!"))
+        return(NULL)
+      }
+      conferences_df <- standings %>%
+        dplyr::distinct(conference_name) %>%
         as.data.frame() %>%
-        make_fastRhockey_data("NHL Conferences from NHL.com",Sys.time())
-
+        make_fastRhockey_data("NHL Conferences from NHL.com", Sys.time())
+      return(conferences_df)
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no conferences data available!"))
-    },
-    warning = function(w) {
-    },
-    finally = {
+      return(NULL)
     }
   )
-  return(conferences_df)
 }
