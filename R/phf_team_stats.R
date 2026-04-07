@@ -1,5 +1,10 @@
 #' @title **PHF Team Stats**
 #' @description PHF Team Stats lookup
+#'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The PHF has ceased operations. This function is deprecated and
+#' will be removed in a future release.
 #' @param team Team name with nickname (e.g. Boston Pride, Buffalo Beauts)
 #' @param season Season (YYYY) to pull the team stats from, the concluding year in XXXX-YY format
 #' @return A named list of data frames: skaters, goalies
@@ -14,6 +19,7 @@
 #' }
 
 phf_team_stats <- function(team, season = most_recent_phf_season()){
+  lifecycle::deprecate_stop("1.0.0", "phf_team_stats()", details = "The PHF has ceased operations.")
 
   league_info <- phf_league_info(season=season)
   season_id <- phf_get_season_id(season=season)

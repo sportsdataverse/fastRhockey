@@ -1,73 +1,72 @@
 #' @title **NHL Draft Prospects Info**
-#' @description Returns information on draft prospect for a given prospect id
-#' @param prospect_id Prospect unique ID
-#' @return Returns a data frame:
-#'     * prospect_id -
-#'     * full_name -
-#'     * link -
-#'     * first_name -
-#'     * last_name -
-#'     * birth_date -
-#'     * birth_city -
-#'     * birth_country -
-#'     * nationality -
-#'     * height -
-#'     * weight -
-#'     * shoots_catches -
-#'     * nhl_player_id -
-#'     * primary_position_code -
-#'     * primary_position_name -
-#'     * primary_position_type -
-#'     * primary_position_abbreviation -
-#'     * prospect_category_id -
-#'     * prospect_category_short_name -
-#'     * prospect_category_name -
-#'     * amateur_team_link -
-#'     * amateur_league_link -
+#' @description Returns draft prospect rankings for a given year and prospect category.
+#'
+#' Uses the new NHL API endpoint at
+#' \code{api-web.nhle.com/v1/draft/rankings/{year}/{prospect_category}}.
+#'
+#' The original per-prospect-ID endpoint is no longer available. This function
+#' now returns rankings filtered by year and category.
+#'
+#' @param year Integer. Draft year (e.g. 2024).
+#' @param prospect_category Integer. Prospect category:
+#'   \itemize{
+#'     \item 1 = North American Skater
+#'     \item 2 = International Skater
+#'     \item 3 = North American Goalie
+#'     \item 4 = International Goalie
+#'   }
+#' @return Returns a data frame of draft prospect rankings.
 #' @keywords NHL Draft Prospect Info
-#' @import rvest
-#' @importFrom jsonlite fromJSON toJSON
-#' @importFrom dplyr mutate filter select rename bind_cols bind_rows
-#' @importFrom tidyr unnest unnest_wider everything
+#' @importFrom jsonlite read_json
 #' @importFrom janitor clean_names
+#' @importFrom glue glue
 #' @export
 #' @examples
 #' \donttest{
-#'    try(nhl_draft_prospects_info(prospect_id = 65242))
+#'    try(nhl_draft_prospects_info(year = 2024, prospect_category = 1))
 #' }
-nhl_draft_prospects_info <- function(prospect_id){
-
-  base_url <- "https://statsapi.web.nhl.com/api/v1/draft/prospects/"
-
-  full_url <- paste0(base_url, prospect_id)
-
-
-  res <- httr::RETRY("GET", full_url)
-
-  # Check the result
-  check_status(res)
+nhl_draft_prospects_info <- function(year, prospect_category = 1) {
+  url <- glue::glue(
+    "https://api-web.nhle.com/v1/draft/rankings/{year}/{prospect_category}"
+  )
 
   tryCatch(
     expr = {
-      resp <- res %>%
-        httr::content(as = "text", encoding = "UTF-8")
-      draft_prospects_df <- jsonlite::fromJSON(resp)[["prospects"]]
-      draft_prospects_df <- jsonlite::fromJSON(jsonlite::toJSON(draft_prospects_df),flatten=TRUE)
-
+      raw <- jsonlite::read_json(url, simplifyVector = TRUE)
+      rankings <- NULL
+      for (key in c("rankings", "prospects", "data")) {
+        if (!is.null(raw[[key]])) {
+          rankings <- raw[[key]]
+          break
+        }
+      }
+      if (is.null(rankings)) {
+        if (is.data.frame(raw)) {
+          rankings <- raw
+        } else if (is.list(raw) && length(raw) > 0) {
+          rankings <- tryCatch(
+            as.data.frame(raw, stringsAsFactors = FALSE),
+            error = function(e2) NULL
+          )
+        }
+      }
+      if (is.null(rankings) || (is.data.frame(rankings) && nrow(rankings) == 0)) {
+        message(glue::glue(
+          "{Sys.time()}: No draft prospects data for year={year}, category={prospect_category} available!"
+        ))
+        return(NULL)
+      }
+      draft_prospects_df <- as.data.frame(rankings)
       draft_prospects_df <- draft_prospects_df %>%
         janitor::clean_names() %>%
-        dplyr::rename("prospect_id" = "id") %>%
-        as.data.frame() %>%
-        make_fastRhockey_data("NHL Draft Prospects Information from NHL.com",Sys.time())
-
+        make_fastRhockey_data("NHL Draft Prospects Information from NHL.com", Sys.time())
+      return(draft_prospects_df)
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no draft prospects data for {prospect_id} available!"))
-    },
-    warning = function(w) {
-    },
-    finally = {
+      message(glue::glue(
+        "{Sys.time()}: Invalid arguments or no draft prospects data for year={year}, category={prospect_category} available!"
+      ))
+      return(NULL)
     }
   )
-  return(draft_prospects_df)
 }
