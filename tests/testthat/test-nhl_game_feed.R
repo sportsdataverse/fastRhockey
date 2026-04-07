@@ -59,6 +59,24 @@ test_that("NHL - Game Feed PBP has shot metrics", {
     expect_true(any(!is.na(shots$shot_distance)))
 })
 
+test_that("NHL - Game Feed PBP has xG column", {
+    skip_on_cran()
+    skip_nhl_test()
+    skip_if_not_installed("xgboost")
+    x <- nhl_game_pbp(game_id = 2024020001)
+
+    expect_true("xg" %in% names(x))
+
+    # Shots should have non-NA xG values
+    shots <- x[x$event_type %in% c("SHOT", "GOAL", "MISSED_SHOT"), ]
+    expect_true(nrow(shots) > 0)
+    expect_true(any(!is.na(shots$xg)))
+
+    # xG values should be between 0 and 1
+    xg_vals <- shots$xg[!is.na(shots$xg)]
+    expect_true(all(xg_vals >= 0 & xg_vals <= 1))
+})
+
 test_that("NHL - Game Feed PBP has strength states", {
     skip_on_cran()
     skip_nhl_test()
