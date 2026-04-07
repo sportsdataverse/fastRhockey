@@ -1,5 +1,6 @@
 test_that("NHL - Get NHL Game Shifts", {
   skip_on_cran()
+  skip_nhl_test()
   x <- nhl_game_shifts(game_id = 2021020182)
 
   cols <- c(

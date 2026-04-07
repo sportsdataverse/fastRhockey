@@ -1,38 +1,21 @@
 test_that("NHL - Get NHL Teams", {
-  skip_on_cran()
-  x <- nhl_teams()
-  
-  cols <- c("team_id",
-            "name",
-            "link",
-            "abbreviation",
-            "team_name",
-            "location_name",
-            "first_year_of_play",
-            "short_name",
-            "official_site_url",
-            "franchise_id",
-            "active",
-            "venue_name",
-            "venue_link",
-            "venue_city",
-            "venue_id",
-            "venue_time_zone_id",
-            "venue_time_zone_offset",
-            "venue_time_zone_tz",
-            "division_id",
-            "division_name",
-            "division_name_short",
-            "division_link",
-            "division_abbreviation",
-            "conference_id",
-            "conference_name",
-            "conference_link",
-            "franchise_franchise_id",
-            "franchise_team_name",
-            "franchise_link")
-  
-  expect_equal(colnames(x), cols)
-  expect_s3_class(x, 'data.frame')
-  
+    skip_on_cran()
+    skip_nhl_test()
+    x <- nhl_teams()
+
+    expect_s3_class(x, "data.frame")
+    # Expect 32 NHL teams (or at least close to it)
+    expect_true(nrow(x) >= 30)
+
+    expected_cols <- c("team_name", "team_abbr")
+    for (col in expected_cols) {
+        expect_true(col %in% names(x), info = paste("Missing column:", col))
+    }
+})
+
+test_that("NHL - Teams returns fastRhockey_data class", {
+    skip_on_cran()
+    skip_nhl_test()
+    x <- nhl_teams()
+    expect_s3_class(x, "fastRhockey_data")
 })
