@@ -7,7 +7,10 @@
 #' @param game_id Game unique ID (e.g. 2024020001)
 #' @param include_shifts Logical; whether to integrate shift data for on-ice
 #' player tracking. Default TRUE.
-#' @return A data frame with one row per event.
+#' @param raw Logical; if TRUE, return the unprocessed API response as a list
+#' instead of the parsed data frame. Default FALSE.
+#' @return A data frame with one row per event (default), or the raw API
+#' response list when \code{raw = TRUE}.
 #' @keywords NHL Game PBP Play-by-Play
 #' @import rvest
 #' @importFrom rlang .data
@@ -24,8 +27,12 @@
 #' @examples
 #' \donttest{
 #'   try(nhl_game_pbp(game_id = 2024020001))
+#'   try(nhl_game_pbp(game_id = 2024020001, raw = TRUE))
 #' }
-nhl_game_pbp <- function(game_id, include_shifts = TRUE) {
+nhl_game_pbp <- function(game_id, include_shifts = TRUE, raw = FALSE) {
+    if (raw) {
+        return(.get_raw_pbp(game_id))
+    }
     .get_pbp_data(game_id = game_id, include_shifts = include_shifts)
 }
 
@@ -36,15 +43,19 @@ nhl_game_pbp <- function(game_id, include_shifts = TRUE) {
 #' @param game_id Game unique ID (e.g. 2024020001)
 #' @param include_shifts Logical; whether to integrate shift data for on-ice
 #' player tracking. Default TRUE.
+#' @param raw Logical; if TRUE, return the unprocessed API response as a list
+#' instead of parsed/enriched data. Default FALSE.
 #' @return A named list with elements: pbp (play-by-play data frame),
-#' game_info (game metadata), rosters (player roster data frame)
+#' game_info (game metadata), rosters (player roster data frame).
+#' When \code{raw = TRUE}, returns the raw JSON response as a nested list.
 #' @keywords NHL Game Feed
 #' @export
 #' @examples
 #' \donttest{
 #'   try(nhl_game_feed(game_id = 2024020001))
+#'   try(nhl_game_feed(game_id = 2024020001, raw = TRUE))
 #' }
-nhl_game_feed <- function(game_id, include_shifts = TRUE) {
+nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
     # Fetch raw API data
     pbp_url <- paste0(
         "https://api-web.nhle.com/v1/gamecenter/",
@@ -54,27 +65,33 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE) {
     res <- httr::RETRY("GET", pbp_url)
     check_status(res)
     resp <- httr::content(res, as = "text", encoding = "UTF-8")
-    raw <- jsonlite::fromJSON(resp, simplifyVector = TRUE, flatten = TRUE)
+    raw_data <- jsonlite::fromJSON(
+        resp, simplifyVector = TRUE, flatten = TRUE
+    )
+
+    if (raw) {
+        return(raw_data)
+    }
 
     # Extract game info
     game_info <- dplyr::tibble(
         game_id = as.integer(game_id),
-        season = raw$season %||% NA_integer_,
-        game_type = .game_type_label(raw$gameType %||% NA_integer_),
-        game_date = raw$gameDate %||% NA_character_,
-        venue = raw$venue$default %||% NA_character_,
-        home_team_abbr = raw$homeTeam$abbrev %||% NA_character_,
-        away_team_abbr = raw$awayTeam$abbrev %||% NA_character_,
-        home_score = raw$homeTeam$score %||% NA_integer_,
-        away_score = raw$awayTeam$score %||% NA_integer_,
-        game_state = raw$gameState %||% NA_character_
+        season = raw_data$season %||% NA_integer_,
+        game_type = .game_type_label(raw_data$gameType %||% NA_integer_),
+        game_date = raw_data$gameDate %||% NA_character_,
+        venue = raw_data$venue$default %||% NA_character_,
+        home_team_abbr = raw_data$homeTeam$abbrev %||% NA_character_,
+        away_team_abbr = raw_data$awayTeam$abbrev %||% NA_character_,
+        home_score = raw_data$homeTeam$score %||% NA_integer_,
+        away_score = raw_data$awayTeam$score %||% NA_integer_,
+        game_state = raw_data$gameState %||% NA_character_
     )
 
     # Extract rosters
-    rosters <- .parse_game_rosters(raw)
+    rosters <- .parse_game_rosters(raw_data)
 
     # Build PBP
-    pbp <- .build_pbp(raw, rosters, game_id, include_shifts)
+    pbp <- .build_pbp(raw_data, rosters, game_id, include_shifts)
 
     result <- list(
         pbp = pbp,
@@ -83,6 +100,21 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE) {
     )
 
     return(result)
+}
+
+
+#' Fetch raw play-by-play API response without processing
+#' @keywords internal
+.get_raw_pbp <- function(game_id) {
+    pbp_url <- paste0(
+        "https://api-web.nhle.com/v1/gamecenter/",
+        game_id,
+        "/play-by-play"
+    )
+    res <- httr::RETRY("GET", pbp_url)
+    check_status(res)
+    resp <- httr::content(res, as = "text", encoding = "UTF-8")
+    jsonlite::fromJSON(resp, simplifyVector = TRUE, flatten = TRUE)
 }
 
 
