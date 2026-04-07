@@ -4,7 +4,6 @@
 ^\.travis\.yml$
 ^data-raw$
 ^docs$
-^inst$
 ^md$
 ^pkgdown$
 ^_pkgdown\.yml$

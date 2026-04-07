@@ -1,6 +1,7 @@
 # Helper functions for conditionally skipping tests based on environment variables.
-# Set the relevant environment variable to "true" to enable that test suite.
-# Example: Sys.setenv(RUN_NHL_TESTS = "true")
+# NHL and PWHL test suites run by default. Set the relevant environment variable to
+# something other than "true" to disable them (e.g., RUN_NHL_TESTS=false).
+# PHF tests are disabled by default; set RUN_PHF_TESTS=true to enable them.
 
 skip_nhl_test <- function() {
     val <- Sys.getenv("RUN_NHL_TESTS", unset = "true")

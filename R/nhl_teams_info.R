@@ -35,16 +35,16 @@ nhl_teams_info <- function(team_abbr) {
         return(NULL)
       }
 
-      team_df <- team_df %>%
+      team_df %>%
         make_fastRhockey_data("NHL Teams Information from NHL.com", Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team info data available!"))
+      return(NULL)
     },
     warning = function(w) {
     },
     finally = {
     }
   )
-  return(team_df)
 }
