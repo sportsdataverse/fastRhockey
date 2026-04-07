@@ -1,60 +1,42 @@
 #' @title **NHL Divisions**
-#' @description Returns information on divisions
-#' @return Returns a data frame
-#' * division_id -
-#' * name -
-#' * name_short -
-#' * link -
-#' * abbreviation -
-#' * active -
-#' * conference_id -
-#' * conference_name -
-#' * conference_link -
+#' @description Returns information on NHL divisions derived from standings data.
+#'
+#' The original NHL Stats API divisions endpoint is no longer available.
+#' This function now extracts division information from the standings endpoint
+#' at \code{api-web.nhle.com}.
+#'
+#' @param date Character date in "YYYY-MM-DD" format. If NULL, returns
+#'   current divisions.
+#' @return Returns a data frame with columns:
+#'   \itemize{
+#'     \item \code{division_name} - division name (e.g. "Atlantic", "Metropolitan")
+#'     \item \code{division_abbrev} - division abbreviation
+#'     \item \code{conference_name} - parent conference name
+#'   }
 #' @keywords NHL Divisions
-#' @import rvest
-#' @importFrom rlang .data
-#' @importFrom jsonlite fromJSON toJSON
-#' @importFrom dplyr mutate filter select rename bind_cols bind_rows
-#' @importFrom tidyr unnest unnest_wider everything
-#' @importFrom janitor clean_names
+#' @importFrom dplyr distinct select
 #' @export
 #' @examples
 #' \donttest{
 #'    try(nhl_divisions())
 #' }
-nhl_divisions <- function(){
-
-  base_url <- "https://statsapi.web.nhl.com/api/v1/divisions/"
-
-  full_url <- paste0(base_url)
-
-
-  res <- httr::RETRY("GET", full_url)
-
-  # Check the result
-  check_status(res)
-
+nhl_divisions <- function(date = NULL) {
   tryCatch(
     expr = {
-      resp <- res %>%
-        httr::content(as = "text", encoding = "UTF-8")
-      divisions_df <- jsonlite::fromJSON(resp)[["divisions"]]
-      divisions_df <- jsonlite::fromJSON(jsonlite::toJSON(divisions_df),flatten=TRUE)
-
-      divisions_df <- divisions_df %>%
-        janitor::clean_names() %>%
-        dplyr::rename("division_id" = "id") %>%
+      standings <- nhl_standings(date = date)
+      if (is.null(standings) || nrow(standings) == 0) {
+        message(glue::glue("{Sys.time()}: No standings data available to extract divisions!"))
+        return(NULL)
+      }
+      divisions_df <- standings %>%
+        dplyr::distinct(division_name, division_abbrev, conference_name) %>%
         as.data.frame() %>%
-        make_fastRhockey_data("NHL Divisions from NHL.com",Sys.time())
-
+        make_fastRhockey_data("NHL Divisions from NHL.com", Sys.time())
+      return(divisions_df)
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no division data available!"))
-    },
-    warning = function(w) {
-    },
-    finally = {
+      return(NULL)
     }
   )
-  return(divisions_df)
 }

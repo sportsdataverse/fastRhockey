@@ -33,7 +33,7 @@ load_nhl_pbp <- function(seasons = most_recent_nhl_season(),...,
             seasons >= 2010,
             seasons <= most_recent_nhl_season())
 
-  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/fastRhockey-data/main/nhl/pbp/rds/play_by_play_",seasons,".rds")
+  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_pbp_full/play_by_play_",seasons,".rds")
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -48,6 +48,53 @@ load_nhl_pbp <- function(seasons = most_recent_nhl_season(),...,
   }
   out
 }
+
+#' @title **Load cleaned NHL play-by-play (lite) from the data repo**
+#' @description Same as `load_nhl_pbp()` but without line change (CHANGE) events,
+#' resulting in smaller file sizes.
+#' @rdname load_nhl_pbp_lite
+#' @param seasons A vector of 4-digit years associated with given NHL seasons.
+#' @param ... Additional arguments passed to an underlying function.
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
+#' @param tablename The name of the data table within the database
+#' @return A dataframe
+#' @export
+#' @examples
+#' \donttest{
+#'   try(load_nhl_pbp_lite(2025))
+#' }
+load_nhl_pbp_lite <- function(seasons = most_recent_nhl_season(), ...,
+                              dbConnection = NULL, tablename = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
+  dots <- rlang::dots_list(...)
+
+  loader <- rds_from_url
+
+  if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
+
+  if (isTRUE(seasons)) seasons <- 2010:most_recent_nhl_season()
+
+  stopifnot(is.numeric(seasons),
+            seasons >= 2010,
+            seasons <= most_recent_nhl_season())
+
+  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_pbp_lite/play_by_play_",seasons,"_lite.rds")
+
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
+
+  out <- lapply(urls, progressively(loader, p))
+  out <- rbindlist_with_attrs(out)
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    out <- NULL
+  } else {
+    class(out) <- c("fastRhockey_data", "tbl_df", "tbl", "data.table", "data.frame")
+  }
+  out
+}
+
 #' **Load fastRhockey NHL team box scores**
 #' @name load_nhl_team_box
 NULL
@@ -82,7 +129,7 @@ load_nhl_team_box <- function(seasons = most_recent_nhl_season(), ...,
             seasons >= 2010,
             seasons <= most_recent_nhl_season())
 
-  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/fastRhockey-data/main/nhl/team_box/rds/team_box_",seasons,".rds")
+  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_team_boxscores/team_box_",seasons,".rds")
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -129,7 +176,7 @@ load_nhl_player_box <- function(seasons = most_recent_nhl_season(), ...,
             seasons >= 2010,
             seasons <= most_recent_nhl_season())
 
-  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/fastRhockey-data/main/nhl/player_box/rds/player_box_",seasons,".rds")
+  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_player_boxscores/player_box_",seasons,".rds")
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -179,7 +226,7 @@ load_nhl_schedule <- function(seasons = most_recent_nhl_season(), ...,
             seasons >= 2010,
             seasons <= most_recent_nhl_season())
 
-  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/fastRhockey-data/main/nhl/schedules/rds/nhl_schedule_",seasons,".rds")
+  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_schedules/nhl_schedule_",seasons,".rds")
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -231,7 +278,7 @@ load_nhl_rosters <- function(seasons = most_recent_nhl_season(), ...,
             seasons >= 2011,
             seasons <= most_recent_nhl_season())
 
-  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/fastRhockey-data/main/nhl/rosters/rds/rosters_",seasons,".rds")
+  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_rosters/rosters_",seasons,".rds")
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -249,11 +296,9 @@ load_nhl_rosters <- function(seasons = most_recent_nhl_season(), ...,
 
 # load games file
 load_nhl_games <- function(){
-  .url <- "https://raw.githubusercontent.com/sportsdataverse/fastRhockey-data/main/nhl/nhl_games_in_data_repo.csv"
-  con <- url(.url)
-  dat <- utils::read.csv(con)
-  # close(con)
-  return (dat)
+  .url <- "https://raw.githubusercontent.com/sportsdataverse/fastRhockey-nhl-data/main/nhl/nhl_games_in_data_repo.rds"
+  dat <- rds_from_url(.url)
+  return(dat)
 }
 
 #' @name update_nhl_db

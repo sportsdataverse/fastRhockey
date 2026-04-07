@@ -4,24 +4,26 @@
 \alias{nhl_divisions}
 \title{\strong{NHL Divisions}}
 \usage{
-nhl_divisions()
+nhl_divisions(date = NULL)
+}
+\arguments{
+\item{date}{Character date in "YYYY-MM-DD" format. If NULL, returns
+current divisions.}
 }
 \value{
-Returns a data frame
+Returns a data frame with columns:
 \itemize{
-\item division_id -
-\item name -
-\item name_short -
-\item link -
-\item abbreviation -
-\item active -
-\item conference_id -
-\item conference_name -
-\item conference_link -
+\item \code{division_name} - division name (e.g. "Atlantic", "Metropolitan")
+\item \code{division_abbrev} - division abbreviation
+\item \code{conference_name} - parent conference name
 }
 }
 \description{
-Returns information on divisions
+Returns information on NHL divisions derived from standings data.
+
+The original NHL Stats API divisions endpoint is no longer available.
+This function now extracts division information from the standings endpoint
+at \code{api-web.nhle.com}.
 }
 \examples{
 \donttest{

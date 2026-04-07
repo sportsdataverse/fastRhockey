@@ -1,62 +1,43 @@
 #' @title **NHL Draft**
-#' @description Returns information on draft
-#' @return Returns a data frame:
-#'     * year -
-#'     * round -
-#'     * pick_overall -
-#'     * pick_in_round -
-#'     * team_id -
-#'     * team_name -
-#'     * team_link -
-#'     * prospect_id -
-#'     * prospect_full_name -
-#'     * prospect_link -
+#' @description Returns information on the most recent NHL draft picks.
+#'
+#' Uses the new NHL API endpoint at \code{api-web.nhle.com/v1/draft/picks/now}.
+#'
+#' @return Returns a data frame of draft picks.
 #' @keywords NHL Draft
-#' @import rvest
-#' @importFrom rlang .data
-#' @importFrom jsonlite fromJSON toJSON
-#' @importFrom dplyr mutate filter select rename bind_cols bind_rows
-#' @importFrom tidyr unnest unnest_wider everything
+#' @importFrom jsonlite read_json
 #' @importFrom janitor clean_names
+#' @importFrom glue glue
 #' @export
 #' @examples
 #' \donttest{
 #'    try(nhl_draft())
 #' }
-nhl_draft <- function(){
-
-  base_url <- "https://statsapi.web.nhl.com/api/v1/draft/"
-
-  full_url <- paste0(base_url)
-
-
-  res <- httr::RETRY("GET", full_url)
-
-  # Check the result
-  check_status(res)
+nhl_draft <- function() {
+  url <- "https://api-web.nhle.com/v1/draft/picks/now"
 
   tryCatch(
     expr = {
-      resp <- res %>%
-        httr::content(as = "text", encoding = "UTF-8")
-      draft_df <- jsonlite::fromJSON(resp)[["drafts"]]
-      draft_df <- jsonlite::fromJSON(jsonlite::toJSON(draft_df),flatten=TRUE)
-      draft_df <- draft_df[["rounds"]][[1]] %>%
-        tidyr::unnest_longer("picks") %>%
-        dplyr::select("picks")
-      draft_df <- draft_df$picks %>%
+      raw <- jsonlite::read_json(url, simplifyVector = TRUE)
+      picks <- raw[["picks"]]
+      if (is.null(picks) || length(picks) == 0) {
+        # try top-level if "picks" key doesn't exist
+        if (is.data.frame(raw)) {
+          picks <- raw
+        } else {
+          message(glue::glue("{Sys.time()}: No draft picks data available!"))
+          return(NULL)
+        }
+      }
+      draft_df <- as.data.frame(picks)
+      draft_df <- draft_df %>%
         janitor::clean_names() %>%
-        as.data.frame() %>%
-        make_fastRhockey_data("NHL Draft Data from NHL.com",Sys.time())
-
+        make_fastRhockey_data("NHL Draft Data from NHL.com", Sys.time())
+      return(draft_df)
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no draft data available!"))
-    },
-    warning = function(w) {
-    },
-    finally = {
+      return(NULL)
     }
   )
-  return(draft_df)
 }

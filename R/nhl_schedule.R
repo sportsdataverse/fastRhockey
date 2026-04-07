@@ -1,91 +1,267 @@
 #' @title **NHL Schedule**
-#' @description Returns NHL Schedule data
-#' @param season NHL Season
-#' @param day Date
-#' @return Returns a tibble
+#' @description Returns NHL schedule data for a given day or season.
+#' Uses the NHL API (`api-web.nhle.com`).
+#' @param day Character date in "YYYY-MM-DD" format. If provided, returns
+#'   games for that specific day.
+#' @param season Integer four-digit year for the start of the season
+#'   (e.g., 2024 for the 2024-25 season). If provided instead of `day`,
+#'   returns the full season schedule.
+#' @param team_abbr Character three-letter team abbreviation (e.g., "TOR").
+#'   Required when `season` is used. If NULL, loops through all teams.
+#' @return Returns a data frame with game schedule information.
 #' @keywords NHL Schedule
-#' @import rvest
-#' @importFrom rlang .data
-#' @importFrom lubridate ms period_to_seconds
-#' @importFrom jsonlite fromJSON toJSON read_json
-#' @importFrom dplyr mutate filter select rename bind_cols bind_rows tibble
-#' @importFrom tidyr unnest unnest_wider everything
+#' @importFrom jsonlite read_json fromJSON toJSON
+#' @importFrom dplyr bind_rows mutate select rename filter distinct arrange
 #' @importFrom janitor clean_names
+#' @importFrom glue glue
+#' @importFrom lubridate ymd
 #' @export
 #' @examples
 #' \donttest{
-#'   try(nhl_schedule(season = 2023))
+#'   try(nhl_schedule(day = "2024-01-15"))
+#'   try(nhl_schedule(season = 2024, team_abbr = "TOR"))
 #' }
-nhl_schedule <- function(season = NULL, day = as.Date(Sys.Date(), "%Y-%m-%d")){
-
-  if(is.null(season)){
-    # scrape day's games
-    url <- glue::glue("https://statsapi.web.nhl.com/api/v1/schedule?date={day}")
-
-    site <- jsonlite::read_json(url)
-
-    if(site$totalGames == 0){
-      message(glue::glue("No NHL games found on {day}"))
+nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL) {
+    if (is.null(day) && is.null(season)) {
+        day <- as.character(Sys.Date())
     }
 
-  } else {
-    # scrape season's games
-    if(season == 2020){
-      # searching the nhl api for games between Sep 1 2019 & Sep 30th 2020
-      url <- glue::glue("https://statsapi.web.nhl.com/api/v1/schedule?startDate={season-1}-09-01&endDate={season}-09-30")
-    } else {
-      # searching the nhl api for games between Sep 1 & July 31
-      url <- glue::glue("https://statsapi.web.nhl.com/api/v1/schedule?startDate={season-1}-09-01&endDate={season}-07-31")
+    # --- Single day schedule ---
+    if (!is.null(day)) {
+        url <- glue::glue("https://api-web.nhle.com/v1/schedule/{day}")
+        tryCatch(
+            expr = {
+                raw <- jsonlite::read_json(url, simplifyVector = TRUE)
+                game_week <- raw[["gameWeek"]]
+                if (is.null(game_week) || length(game_week) == 0) {
+                    message(glue::glue(
+                        "{Sys.time()}: No games found for {day}"
+                    ))
+                    return(NULL)
+                }
+                games_list <- lapply(seq_len(nrow(game_week)), function(i) {
+                    g <- game_week$games[[i]]
+                    if (is.null(g) || nrow(g) == 0) {
+                        return(NULL)
+                    }
+                    g$game_date_str <- game_week$date[i]
+                    g
+                })
+                games_df <- dplyr::bind_rows(games_list)
+                if (nrow(games_df) == 0) {
+                    message(glue::glue(
+                        "{Sys.time()}: No games found for {day}"
+                    ))
+                    return(NULL)
+                }
+                schedule <- .parse_schedule_games(games_df)
+                schedule <- make_fastRhockey_data(
+                    schedule,
+                    "NHL Schedule",
+                    Sys.time()
+                )
+                return(schedule)
+            },
+            error = function(e) {
+                message(glue::glue(
+                    "{Sys.time()}: Error fetching schedule for {day}: {e$message}"
+                ))
+                return(NULL)
+            }
+        )
     }
 
-    site <- jsonlite::read_json(url)
-  }
+    # --- Full season schedule ---
+    if (!is.null(season)) {
+        season_str <- paste0(season, season + 1)
+
+        if (!is.null(team_abbr)) {
+            teams <- team_abbr
+        } else {
+            # Get all team abbreviations from internal data
+            teams <- fastRhockey::nhl_team_logos$team_abbr
+            if (is.null(teams) || length(teams) == 0) {
+                teams <- c(
+                    "ANA",
+                    "ARI",
+                    "BOS",
+                    "BUF",
+                    "CAR",
+                    "CBJ",
+                    "CGY",
+                    "CHI",
+                    "COL",
+                    "DAL",
+                    "DET",
+                    "EDM",
+                    "FLA",
+                    "LAK",
+                    "MIN",
+                    "MTL",
+                    "NJD",
+                    "NSH",
+                    "NYI",
+                    "NYR",
+                    "OTT",
+                    "PHI",
+                    "PIT",
+                    "SEA",
+                    "SJK",
+                    "STL",
+                    "TBL",
+                    "TOR",
+                    "UTA",
+                    "VAN",
+                    "VGK",
+                    "WPG",
+                    "WSH"
+                )
+            }
+        }
+
+        all_games <- list()
+        for (tm in teams) {
+            url <- glue::glue(
+                "https://api-web.nhle.com/v1/club-schedule-season/{tm}/{season_str}"
+            )
+            tryCatch(
+                expr = {
+                    raw <- jsonlite::read_json(url, simplifyVector = TRUE)
+                    games <- raw[["games"]]
+                    if (!is.null(games) && nrow(games) > 0) {
+                        all_games[[tm]] <- games
+                    }
+                },
+                error = function(e) {
+                    message(glue::glue(
+                        "{Sys.time()}: Could not fetch schedule for {tm}: {e$message}"
+                    ))
+                }
+            )
+        }
+
+        if (length(all_games) == 0) {
+            message(glue::glue(
+                "{Sys.time()}: No games found for season {season_str}"
+            ))
+            return(NULL)
+        }
+
+        games_df <- dplyr::bind_rows(all_games)
+        schedule <- .parse_club_schedule_games(games_df)
+        schedule <- dplyr::distinct(
+            schedule,
+            .data$game_id,
+            .keep_all = TRUE
+        ) %>%
+            dplyr::arrange(.data$game_date, .data$game_id)
+        schedule <- make_fastRhockey_data(schedule, "NHL Schedule", Sys.time())
+        return(schedule)
+    }
+}
 
 
-  games <- jsonlite::fromJSON(jsonlite::toJSON(site[["dates"]]), flatten=TRUE) %>%
-    dplyr::tibble()
-  game_dates <- data.table::rbindlist(games$games, fill = TRUE)
-  game_dates <- game_dates %>%
-    janitor::clean_names()
-  select_cols <- as.vector(colnames(game_dates)[!stringr::str_detect(colnames(game_dates),"league(.*)")])
-  game_dates <- game_dates %>%
-    dplyr::select(dplyr::all_of(select_cols))
-  colnames(game_dates) <- gsub("teams_","",colnames(game_dates))
-  game_dates <- game_dates %>%
-    dplyr::rename(
-      "game_id" = "game_pk",
-      "season_full" = "season",
-      "game_type_abbreviation" = "game_type",
-      "game_date_time" = "game_date") %>%
-    dplyr::mutate(
-      game_type = dplyr::case_when(
-        substr(.data$game_id, 6, 6) == 1 ~ "PRE",
-        substr(.data$game_id, 6, 6) == 2 ~ "REG",
-        substr(.data$game_id, 6, 6) == 3 ~ "POST",
-        substr(.data$game_id, 6, 6) == 4 ~ "ALLSTAR"),
-      venue_id = ifelse(.data$venue_id == "NULL", NA_integer_, .data$venue_id),
-      game_date = as.Date(substr(.data$game_date_time,1,10),"%Y-%m-%d"))
+#' Parse games from the daily schedule endpoint
+#' @param games_df Data frame of games from the gameWeek structure
+#' @return Parsed data frame
+#' @keywords internal
+.parse_schedule_games <- function(games_df) {
+    schedule <- dplyr::tibble(
+        game_id = games_df$id,
+        season_full = as.character(games_df$season),
+        game_type = dplyr::case_when(
+            games_df$gameType == 1 ~ "PR",
+            games_df$gameType == 2 ~ "R",
+            games_df$gameType == 3 ~ "P",
+            games_df$gameType == 4 ~ "A",
+            TRUE ~ as.character(games_df$gameType)
+        ),
+        game_date = as.character(
+            if ("game_date_str" %in% names(games_df)) {
+                games_df$game_date_str
+            } else {
+                as.Date(games_df$startTimeUTC)
+            }
+        ),
+        game_time = games_df$startTimeUTC,
+        home_team_abbr = games_df$homeTeam$abbrev,
+        away_team_abbr = games_df$awayTeam$abbrev,
+        home_team_name = ifelse(
+            !is.null(games_df$homeTeam$placeName$default),
+            games_df$homeTeam$placeName$default,
+            NA_character_
+        ),
+        away_team_name = ifelse(
+            !is.null(games_df$awayTeam$placeName$default),
+            games_df$awayTeam$placeName$default,
+            NA_character_
+        ),
+        home_score = ifelse(
+            !is.null(games_df$homeTeam$score),
+            games_df$homeTeam$score,
+            NA_integer_
+        ),
+        away_score = ifelse(
+            !is.null(games_df$awayTeam$score),
+            games_df$awayTeam$score,
+            NA_integer_
+        ),
+        game_state = games_df$gameState,
+        venue = ifelse(
+            !is.null(games_df$venue$default),
+            games_df$venue$default,
+            NA_character_
+        )
+    )
+    return(schedule)
+}
 
-  game_dates <- game_dates %>%
-    dplyr::filter(.data$game_type == "REG" | .data$game_type == "POST") %>%
-    make_fastRhockey_data("NHL Schedule Information from NHL.com",Sys.time())
 
-  # make sure we're only pulling for correct season by using
-  # the season code in the game_id
-
-  if(!is.null(season)) {
-    game_dates <- game_dates %>%
-      dplyr::filter(substr(.data$game_id, 1, 4) == (as.numeric(season) - 1))
-  }
-  game_dates <- tidyr::unnest(game_dates,
-                              cols = c("game_id", "link", "game_type_abbreviation", "season_full",
-                                       "game_date_time", "status_abstract_game_state",
-                                       "status_coded_game_state", "status_detailed_state",
-                                       "status_status_code", "status_start_time_tbd", "away_score",
-                                       "away_team_id", "away_team_name", "away_team_link",
-                                       "home_score", "home_team_id", "home_team_name",
-                                       "home_team_link", "venue_name", "venue_link", "venue_id",
-                                       "content_link"))
-
-  return(game_dates)
+#' Parse games from the club-schedule-season endpoint
+#' @param games_df Data frame of games from the club schedule
+#' @return Parsed data frame
+#' @keywords internal
+.parse_club_schedule_games <- function(games_df) {
+    schedule <- dplyr::tibble(
+        game_id = games_df$id,
+        season_full = as.character(games_df$season),
+        game_type = dplyr::case_when(
+            games_df$gameType == 1 ~ "PR",
+            games_df$gameType == 2 ~ "R",
+            games_df$gameType == 3 ~ "P",
+            games_df$gameType == 4 ~ "A",
+            TRUE ~ as.character(games_df$gameType)
+        ),
+        game_date = as.character(games_df$gameDate),
+        game_time = games_df$startTimeUTC,
+        home_team_abbr = games_df$homeTeam$abbrev,
+        away_team_abbr = games_df$awayTeam$abbrev,
+        home_team_name = ifelse(
+            !is.null(games_df$homeTeam$placeName$default),
+            games_df$homeTeam$placeName$default,
+            NA_character_
+        ),
+        away_team_name = ifelse(
+            !is.null(games_df$awayTeam$placeName$default),
+            games_df$awayTeam$placeName$default,
+            NA_character_
+        ),
+        home_score = ifelse(
+            !is.null(games_df$homeTeam$score),
+            games_df$homeTeam$score,
+            NA_integer_
+        ),
+        away_score = ifelse(
+            !is.null(games_df$awayTeam$score),
+            games_df$awayTeam$score,
+            NA_integer_
+        ),
+        game_state = games_df$gameState,
+        venue = ifelse(
+            !is.null(games_df$venue$default),
+            games_df$venue$default,
+            NA_character_
+        )
+    )
+    return(schedule)
 }

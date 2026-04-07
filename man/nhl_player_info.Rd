@@ -7,19 +7,20 @@
 nhl_player_info(player_id)
 }
 \arguments{
-\item{player_id}{Player unique ID}
+\item{player_id}{Integer player ID (e.g., 8476899)}
 }
 \value{
-Returns a tibble
+Returns a data frame with player biographical information.
 }
 \description{
-Returns player information for a given player ID
+Returns biographical and career information for an NHL player.
+Uses the NHL API (\code{api-web.nhle.com}).
 }
 \examples{
 \donttest{
-  try(nhl_player_info(player_id=8476899))
+  try(nhl_player_info(player_id = 8476899))
 }
 }
+\keyword{Info}
 \keyword{NHL}
 \keyword{Player}
-\keyword{info}

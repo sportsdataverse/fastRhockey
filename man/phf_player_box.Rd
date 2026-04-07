@@ -14,6 +14,11 @@ A named list of data frames: skaters, goalies
 }
 \description{
 phf_player_box: loads the player boxscore
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+The PHF has ceased operations. This function is deprecated and
+will be removed in a future release.
 }
 \examples{
 \donttest{
