@@ -203,6 +203,9 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE) {
             )
         )
 
+    # ----- Join event player names (must happen before descriptions) -----
+    pbp <- .join_event_player_names(pbp, rosters)
+
     # ----- Event index and description -----
     pbp <- .add_descriptions(pbp, home_abbr, away_abbr)
 
@@ -969,9 +972,6 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE) {
             )
     }
 
-    # Join event player names
-    pbp <- .join_event_player_names(pbp, rosters)
-
     return(pbp)
 }
 
@@ -1070,6 +1070,10 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE) {
 #' Add event descriptions
 #' @keywords internal
 .add_descriptions <- function(pbp, home_abbr, away_abbr) {
+    # Ensure columns used in descriptions exist (may be absent without shifts)
+    for (col in c("players_on", "players_off", "reason")) {
+        if (!col %in% names(pbp)) pbp[[col]] <- NA_character_
+    }
     pbp <- pbp %>%
         dplyr::mutate(
             event_idx = dplyr::row_number() - 1L,
