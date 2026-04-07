@@ -1,22 +1,15 @@
 test_that("NHL - Get NHL Game Content", {
   skip_on_cran()
-  x <- nhl_game_content(game_id=2021020182)
-  
-  cols <- c("type",
-             "id",
-             "date",
-             "title",
-             "blurb",
-             "description",
-             "duration",
-             "authFlow",
-             "mediaPlaybackId",
-             "mediaState",
-             "keywords",
-             "image",
-             "playbacks")
-  
-  expect_equal(colnames(x), cols)
-  expect_s3_class(x, 'data.frame')
-  
+  skip_nhl_test()
+  x <- nhl_game_content(game_id = 2024020001)
+
+  expect_s3_class(x, "data.frame")
+  expect_true(nrow(x) > 0)
+  expect_true("game_id" %in% names(x))
+  expect_true("season" %in% names(x))
+  expect_true("game_date" %in% names(x))
+  expect_true("venue" %in% names(x))
+  expect_true("away_team_abbrev" %in% names(x))
+  expect_true("home_team_abbrev" %in% names(x))
+  expect_true("game_state" %in% names(x))
 })

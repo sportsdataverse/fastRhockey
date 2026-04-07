@@ -1,36 +1,34 @@
 test_that("NHL - Get NHL Player Info", {
-  skip_on_cran()
-  x <- nhl_player_info(player_id=8476899)
-  
-  cols <- c("player_id",
-            "full_name",
-            "link",
-            "first_name",
-            "last_name",
-            "primary_number",
-            "birth_date",
-            "current_age",
-            "birth_city",
-            "birth_state_province",
-            "birth_country",
-            "nationality",
-            "height",
-            "weight",
-            "active",
-            "alternate_captain",
-            "captain",
-            "rookie",
-            "shoots_catches",
-            "roster_status",
-            "current_team_id",
-            "current_team_name",
-            "current_team_link",
-            "primary_position_code",
-            "primary_position_name",
-            "primary_position_type",
-            "primary_position_abbreviation")
-  
-  expect_equal(colnames(x), cols)
-  expect_s3_class(x, 'data.frame')
-  
+    skip_on_cran()
+    skip_nhl_test()
+    # Connor McDavid
+    x <- nhl_player_info(player_id = 8478402)
+
+    expect_s3_class(x, "data.frame")
+    expect_equal(nrow(x), 1)
+
+    expected_cols <- c(
+        "player_id",
+        "first_name",
+        "last_name",
+        "full_name",
+        "birth_date",
+        "birth_city",
+        "position",
+        "sweater_number",
+        "team_abbr",
+        "height_inches",
+        "weight_pounds"
+    )
+    for (col in expected_cols) {
+        expect_true(col %in% names(x), info = paste("Missing column:", col))
+    }
+    expect_equal(x$player_id[1], 8478402)
+})
+
+test_that("NHL - Player Info returns fastRhockey_data class", {
+    skip_on_cran()
+    skip_nhl_test()
+    x <- nhl_player_info(player_id = 8478402)
+    expect_s3_class(x, "fastRhockey_data")
 })
