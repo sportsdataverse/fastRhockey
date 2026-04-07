@@ -45,23 +45,9 @@ Returns a tibble
 ``` r
 # \donttest{
   try(load_nhl_rosters(2021))
-#> ── NHL Team Roster Information from fastRhockey data repository ────────────────
-#> ℹ Data updated: 2023-01-05 10:02:24 UTC
-#> # A tibble: 1,078 × 10
-#>    jersey_number player_id player_full_name player_link            position_code
-#>    <chr>             <int> <chr>            <chr>                  <chr>        
-#>  1 14              8471233 Travis Zajac     /api/v1/people/8471233 C            
-#>  2 76              8474056 P.K. Subban      /api/v1/people/8474056 D            
-#>  3 21              8475151 Kyle Palmieri    /api/v1/people/8475151 C            
-#>  4 29              8475179 Dmitry Kulikov   /api/v1/people/8475179 D            
-#>  5 45              8475222 Sami Vatanen     /api/v1/people/8475222 D            
-#>  6 7               8476807 Matt Tennyson    /api/v1/people/8476807 D            
-#>  7 28              8476850 Ryan Murray      /api/v1/people/8476850 D            
-#>  8 28              8476923 Damon Severson   /api/v1/people/8476923 D            
-#>  9 58              8476941 Connor Carrick   /api/v1/people/8476941 D            
-#> 10 97              8477038 Nikita Gusev     /api/v1/people/8477038 L            
-#> # ℹ 1,068 more rows
-#> # ℹ 5 more variables: position_name <chr>, position_type <chr>,
-#> #   position_abbreviation <chr>, team_id <int>, season <int>
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_rosters/rosters_2021.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_rosters/rosters_2021.rds>
+#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> # A tibble: 0 × 0
 # }
 ```

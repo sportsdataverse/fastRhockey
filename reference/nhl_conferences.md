@@ -31,7 +31,7 @@ Returns a data frame with columns:
 # \donttest{
   try(nhl_conferences())
 #> ── NHL Conferences from NHL.com ─────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 13:28:27 UTC
+#> ℹ Data updated: 2026-04-07 13:55:25 UTC
 #> # A tibble: 2 × 1
 #>   conference_name
 #>   <chr>          

@@ -45,27 +45,9 @@ Returns a tibble
 ``` r
 # \donttest{
   try(load_nhl_player_box(2021))
-#> ── NHL Player Boxscore Information from fastRhockey data repository ────────────
-#> ℹ Data updated: 2023-01-05 10:02:14 UTC
-#> # A tibble: 36,276 × 50
-#>    player_id player_full_name  link   shoots_catches roster_status jersey_number
-#>        <int> <chr>             <chr>  <chr>          <chr>         <chr>        
-#>  1   8476967 Brett Kulak       /api/… L              Y             77           
-#>  2   8476469 Joel Armia        /api/… R              Y             40           
-#>  3   8471679 Carey Price       /api/… L              Y             31           
-#>  4   8470642 Shea Weber        /api/… R              Y             6            
-#>  5   8470621 Corey Perry       /api/… R              Y             94           
-#>  6   8478133 Jake Evans        /api/… R              Y             71           
-#>  7   8481014 Alexander Romanov /api/… L              Y             27           
-#>  8   8473507 Jeff Petry        /api/… R              Y             26           
-#>  9   8474038 Paul Byron        /api/… L              Y             41           
-#> 10   8475726 Tyler Toffoli     /api/… R              Y             73           
-#> # ℹ 36,266 more rows
-#> # ℹ 44 more variables: position_code <chr>, position_name <chr>,
-#> #   position_type <chr>, position_abbreviation <chr>,
-#> #   skater_stats_time_on_ice <chr>, skater_stats_assists <int>,
-#> #   skater_stats_goals <int>, skater_stats_shots <int>,
-#> #   skater_stats_hits <int>, skater_stats_power_play_goals <int>,
-#> #   skater_stats_power_play_assists <int>, …
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_player_boxscores/player_box_2021.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_player_boxscores/player_box_2021.rds>
+#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> # A tibble: 0 × 0
 # }
 ```

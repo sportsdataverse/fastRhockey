@@ -25,7 +25,7 @@ Returns a data frame with available roster seasons.
 # \donttest{
   try(nhl_roster_season(team_abbr = "TOR"))
 #> ── NHL Roster Season ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 13:28:42 UTC
+#> ℹ Data updated: 2026-04-07 13:55:39 UTC
 #> # A tibble: 98 × 2
 #>      season team_abbr
 #>       <int> <chr>    
