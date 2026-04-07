@@ -4,16 +4,20 @@
 \alias{nhl_game_pbp}
 \title{\strong{NHL Game Play-by-Play}}
 \usage{
-nhl_game_pbp(game_id, include_shifts = TRUE)
+nhl_game_pbp(game_id, include_shifts = TRUE, raw = FALSE)
 }
 \arguments{
 \item{game_id}{Game unique ID (e.g. 2024020001)}
 
 \item{include_shifts}{Logical; whether to integrate shift data for on-ice
 player tracking. Default TRUE.}
+
+\item{raw}{Logical; if TRUE, return the unprocessed API response as a list
+instead of the parsed data frame. Default FALSE.}
 }
 \value{
-A data frame with one row per event.
+A data frame with one row per event (default), or the raw API
+response list when \code{raw = TRUE}.
 }
 \description{
 Returns detailed play-by-play data for a given NHL game,
@@ -24,6 +28,7 @@ Uses the new NHL API at api-web.nhle.com.
 \examples{
 \donttest{
   try(nhl_game_pbp(game_id = 2024020001))
+  try(nhl_game_pbp(game_id = 2024020001, raw = TRUE))
 }
 }
 \keyword{Game}
