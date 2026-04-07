@@ -1,160 +1,375 @@
 #' @title **NHL Game Boxscore**
-#' @description Returns information on game boxscore for a given game id
-#' @param game_id Game unique ID
-#' @return Returns a named list of data frames: team_box, player_box,
-#' skaters, goalies, on_ice, on_ice_plus, penalty_box,
-#' scratches, team_coaches
-#' @keywords NHL Game Boxscore
-#' @import rvest
-#' @importFrom rlang .data
-#' @importFrom jsonlite fromJSON toJSON
-#' @importFrom dplyr mutate filter select rename bind_cols bind_rows
-#' @importFrom tidyr unnest unnest_wider everything
-#' @importFrom janitor clean_names
-#' @export
+#' @description Retrieve boxscore data for a specific NHL game from the
+#'   NHL web API (`api-web.nhle.com`).
+#'
+#' @param game_id *(integer)* NHL game ID, e.g. `2024020001`.
+#' @return A named `list` containing:
+#'
+#'   * **game_info** — one-row tibble with game metadata (id, season,
+#'     game type, date, venue, teams, final score, shots on goal).
+#'   * **team_box** — two-row tibble (away / home) with team-level totals.
+#'   * **skater_stats** — tibble of all skater (forward + defense)
+#'     individual stats for both teams.
+#'   * **goalie_stats** — tibble of all goalie individual stats for both
+#'     teams.
+#'
+#' @details
+#' Uses the endpoint
+#' `https://api-web.nhle.com/v1/gamecenter/{game_id}/boxscore`.
+#'
 #' @examples
-#' \donttest{
-#'    try(nhl_game_boxscore(game_id = 2021020182))
+#' \dontrun{
+#'   box <- nhl_game_boxscore(2024020001)
+#'   box$game_info
+#'   box$skater_stats
 #' }
-nhl_game_boxscore <- function(game_id){
+#'
+#' @export
+nhl_game_boxscore <- function(game_id) {
+    game_id <- as.integer(game_id)
 
-  base_url <- "https://statsapi.web.nhl.com/api/v1/game/"
+    base_url <- "https://api-web.nhle.com/v1/gamecenter/"
+    full_url <- paste0(base_url, game_id, "/boxscore")
 
-  full_url <- paste0(base_url,
-                     game_id,
-                     "/boxscore")
+    tryCatch(
+        expr = {
+            res <- httr::RETRY("GET", full_url)
+            check_status(res)
+
+            raw <- httr::content(res, as = "text", encoding = "UTF-8")
+            data <- jsonlite::fromJSON(raw, flatten = FALSE)
+
+            # ── game info ─────────────────────────────────────────────────
+            game_info <- .boxscore_game_info(data)
+
+            # ── team box ──────────────────────────────────────────────────
+            team_box <- .boxscore_team_box(data)
+
+            # ── skater stats ──────────────────────────────────────────────
+            skater_stats <- .boxscore_skater_stats(data)
+
+            # ── goalie stats ──────────────────────────────────────────────
+            goalie_stats <- .boxscore_goalie_stats(data)
+
+            ts <- Sys.time()
+            game <- list(
+                game_info = game_info %>%
+                    make_fastRhockey_data(
+                        "NHL Game Boxscore Info from NHL.com",
+                        ts
+                    ),
+                team_box = team_box %>%
+                    make_fastRhockey_data("NHL Game Team Box from NHL.com", ts),
+                skater_stats = skater_stats %>%
+                    make_fastRhockey_data(
+                        "NHL Game Skater Stats from NHL.com",
+                        ts
+                    ),
+                goalie_stats = goalie_stats %>%
+                    make_fastRhockey_data(
+                        "NHL Game Goalie Stats from NHL.com",
+                        ts
+                    )
+            )
+
+            return(game)
+        },
+        error = function(e) {
+            message(glue::glue("Problem fetching boxscore for game {game_id}"))
+            message(e)
+        }
+    )
+}
 
 
-  res <- httr::RETRY("GET", full_url)
+# ── Helpers ──────────────────────────────────────────────────────────────
 
-  # Check the result
-  check_status(res)
+#' Build one-row game-info tibble from boxscore response
+#' @noRd
+.boxscore_game_info <- function(data) {
+    venue_name <- tryCatch(
+        data$venue$default %||% NA_character_,
+        error = function(e) NA_character_
+    )
 
-  tryCatch(
-    expr = {
-      resp <- res %>%
-        httr::content(as = "text", encoding = "UTF-8")
-      #---officials----
-      officials_df <- jsonlite::fromJSON(resp)[["officials"]]
-      if(length(officials_df) > 1){
-        officials_df <- jsonlite::fromJSON(jsonlite::toJSON(officials_df),flatten=TRUE) %>%
-          janitor::clean_names() %>%
-          make_fastRhockey_data("NHL Game Officials Information from NHL.com",Sys.time())
-      }
-      game_boxscore_df <- jsonlite::fromJSON(resp)[["teams"]]
-      game_boxscore_df <- jsonlite::fromJSON(jsonlite::toJSON(game_boxscore_df),flatten=TRUE)
-      #---team_box----
-      away_boxscore <- game_boxscore_df[["away"]]
-      home_boxscore <- game_boxscore_df[["home"]]
-      away_team_box <- away_boxscore$team %>%
-        dplyr::bind_cols(away_boxscore$teamStats$teamSkaterStats)
-      home_team_box <- home_boxscore$team %>%
-        dplyr::bind_cols(home_boxscore$teamStats$teamSkaterStats)
-      team_box <- dplyr::bind_rows(away_team_box, home_team_box) %>%
-        dplyr::rename(
-          "team_id" = "id",
-          "team_name" = "name") %>%
-        janitor::clean_names() %>%
-        make_fastRhockey_data("NHL Game Team Box Information from NHL.com",Sys.time())
-      #---player_box----
-      away_players_box <- purrr::map_df(1:length(away_boxscore$players),function(x){
-        person <- data.frame(away_boxscore$players[[x]][["person"]]) %>%
-          janitor::clean_names()
-        jersey <- data.frame("jerseyNumber" = away_boxscore$players[[x]][["jerseyNumber"]]) %>%
-          janitor::clean_names()
-        position <- data.frame(away_boxscore$players[[x]][["position"]]) %>%
-          janitor::clean_names()
-        player_stats <- data.frame(away_boxscore$players[[x]][["stats"]]) %>%
-          janitor::clean_names()
-        away_player_boxscore <-dplyr::bind_cols(person,jersey,position,player_stats)
-        return(away_player_boxscore)
-      })
-      home_players_box <- purrr::map_df(1:length(home_boxscore$players),function(x){
-        person <- data.frame(home_boxscore$players[[x]][["person"]]) %>%
-          janitor::clean_names()
-        jersey <- data.frame("jerseyNumber" = home_boxscore$players[[x]][["jerseyNumber"]]) %>%
-          janitor::clean_names()
-        position <- data.frame(home_boxscore$players[[x]][["position"]]) %>%
-          janitor::clean_names()
-        player_stats <- data.frame(home_boxscore$players[[x]][["stats"]]) %>%
-          janitor::clean_names()
-        home_player_boxscore <-dplyr::bind_cols(person,jersey,position,player_stats)
-        return(home_player_boxscore)
-      })
-      away_players_box$home_away <- "Away"
-      home_players_box$home_away <- "Home"
-      players_box <- dplyr::bind_rows(away_players_box, home_players_box) %>%
-        dplyr::rename(
-          "player_id" = "id",
-          "player_full_name" = "full_name",
-          "position_code" = "code",
-          "position_name" = "name",
-          "position_type" = "type",
-          "position_abbreviation" = "abbreviation") %>%
-        janitor::clean_names() %>%
-        make_fastRhockey_data("NHL Game Players Box Information from NHL.com",Sys.time())
+    away <- data$awayTeam
+    home <- data$homeTeam
 
-      #---goalies----
-      away_goalies <- data.frame("goalies" = away_boxscore$goalies)
-      home_goalies <- data.frame("goalies" = home_boxscore$goalies)
-      away_goalies$home_away <- "Away"
-      home_goalies$home_away <- "Home"
-      goalies <- dplyr::bind_rows(away_goalies,home_goalies) %>%
-        make_fastRhockey_data("NHL Game Goalies Information from NHL.com",Sys.time())
-      #---skaters----
-      away_skaters <- data.frame("skaters" = away_boxscore$skaters)
-      home_skaters <- data.frame("skaters" = home_boxscore$skaters)
-      away_skaters$home_away <- "Away"
-      home_skaters$home_away <- "Home"
-      skaters <- dplyr::bind_rows(away_skaters,home_skaters) %>%
-        make_fastRhockey_data("NHL Game Skaters Information from NHL.com",Sys.time())
-      #---onIce----
-      away_onIce <- data.frame("onIce" = away_boxscore$onIce)
-      home_onIce <- data.frame("onIce" = home_boxscore$onIce)
-      away_onIce$home_away <- "Away"
-      home_onIce$home_away <- "Home"
-      onIce <- dplyr::bind_rows(away_onIce,home_onIce) %>%
-        make_fastRhockey_data("NHL Game On Ice Information from NHL.com",Sys.time())
-      #---onIcePlus----
-      away_onIcePlus <- data.frame("onIcePlus" = away_boxscore$onIcePlus)
-      home_onIcePlus <- data.frame("onIcePlus" = home_boxscore$onIcePlus)
-      away_onIcePlus$home_away <- "Away"
-      home_onIcePlus$home_away <- "Home"
-      onIcePlus <- dplyr::bind_rows(away_onIcePlus,home_onIcePlus) %>%
-        make_fastRhockey_data("NHL Game On Ice+ Information from NHL.com",Sys.time())
-      #---penaltyBox----
-      away_penaltyBox <- data.frame("penaltyBox" = away_boxscore$penaltyBox)
-      home_penaltyBox <- data.frame("penaltyBox" = home_boxscore$penaltyBox)
-      penaltyBox <- dplyr::bind_rows(away_penaltyBox,home_penaltyBox) %>%
-        make_fastRhockey_data("NHL Game Penalty Box Information from NHL.com",Sys.time())
-      #---scratches----
-      away_scratches <- data.frame("scratches" = away_boxscore$scratches)
-      home_scratches <- data.frame("scratches" = home_boxscore$scratches)
-      away_scratches$home_away <- "Away"
-      home_scratches$home_away <- "Home"
-      scratches <- dplyr::bind_rows(away_scratches,home_scratches) %>%
-        make_fastRhockey_data("NHL Game Scratches Information from NHL.com",Sys.time())
-      #---coaches----
-      away_coaches <- away_boxscore$coaches
-      home_coaches <- home_boxscore$coaches
-      away_coaches$home_away <- "Away"
-      home_coaches$home_away <- "Home"
-      team_coaches <- dplyr::bind_rows(away_coaches, home_coaches) %>%
-        make_fastRhockey_data("NHL Game Team Coaches Information from NHL.com",Sys.time())
-      #---
-      game = c(list(team_box),list(players_box), list(skaters), list(goalies), list(onIce),
-               list(onIcePlus), list(penaltyBox), list(scratches), list(team_coaches))
-      names(game) <- c("team_box","player_box","skaters","goalies", "on_ice", "on_ice_plus",
-                       "penalty_box", "scratches", "team_coaches")
+    outcome <- tryCatch(
+        data$gameOutcome$lastPeriodType %||% NA_character_,
+        error = function(e) NA_character_
+    )
 
-    },
-    error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no game boxscore data for {game_id} available!"))
-    },
-    warning = function(w) {
-    },
-    finally = {
+    tibble::tibble(
+        game_id = as.integer(data$id),
+        season = as.integer(data$season),
+        game_type = as.integer(data$gameType),
+        game_date = as.character(data$gameDate),
+        venue = venue_name,
+        game_state = as.character(data$gameState %||% NA_character_),
+        away_team_id = as.integer(away$id),
+        away_team_abbrev = as.character(away$abbrev),
+        away_team_name = as.character(
+            away$commonName$default %||% NA_character_
+        ),
+        away_score = as.integer(away$score %||% NA_integer_),
+        away_sog = as.integer(away$sog %||% NA_integer_),
+        home_team_id = as.integer(home$id),
+        home_team_abbrev = as.character(home$abbrev),
+        home_team_name = as.character(
+            home$commonName$default %||% NA_character_
+        ),
+        home_score = as.integer(home$score %||% NA_integer_),
+        home_sog = as.integer(home$sog %||% NA_integer_),
+        last_period_type = outcome
+    )
+}
+
+
+#' Build two-row team box tibble (away + home)
+#' @noRd
+.boxscore_team_box <- function(data) {
+    away <- data$awayTeam
+    home <- data$homeTeam
+
+    pbs <- data$playerByGameStats
+
+    # Aggregate skater stats per team
+    away_sk <- .aggregate_team_skaters(pbs$awayTeam)
+    home_sk <- .aggregate_team_skaters(pbs$homeTeam)
+
+    # Aggregate goalie stats per team
+    away_g <- .aggregate_team_goalies(pbs$awayTeam)
+    home_g <- .aggregate_team_goalies(pbs$homeTeam)
+
+    build_row <- function(team, sk, g, side) {
+        tibble::tibble(
+            home_away = side,
+            team_id = as.integer(team$id),
+            team_abbrev = as.character(team$abbrev),
+            team_name = as.character(
+                team$commonName$default %||% NA_character_
+            ),
+            goals = as.integer(team$score %||% NA_integer_),
+            shots_on_goal = as.integer(team$sog %||% NA_integer_),
+            pim = sk$pim,
+            hits = sk$hits,
+            blocked_shots = sk$blocked_shots,
+            giveaways = sk$giveaways,
+            takeaways = sk$takeaways,
+            power_play_goals = sk$power_play_goals,
+            faceoff_win_pctg = sk$faceoff_win_pctg,
+            saves = g$saves,
+            save_pctg = g$save_pctg,
+            goals_against = g$goals_against
+        )
     }
-  )
-  return(game)
+
+    dplyr::bind_rows(
+        build_row(away, away_sk, away_g, "away"),
+        build_row(home, home_sk, home_g, "home")
+    )
+}
+
+
+#' Aggregate skater-level stats to team totals
+#' @noRd
+.aggregate_team_skaters <- function(team_pbs) {
+    skaters <- dplyr::bind_rows(
+        .safe_df(team_pbs$forwards),
+        .safe_df(team_pbs$defense)
+    )
+
+    if (nrow(skaters) == 0L) {
+        return(list(
+            pim = NA_integer_,
+            hits = NA_integer_,
+            blocked_shots = NA_integer_,
+            giveaways = NA_integer_,
+            takeaways = NA_integer_,
+            power_play_goals = NA_integer_,
+            faceoff_win_pctg = NA_real_
+        ))
+    }
+
+    list(
+        pim = sum(skaters$pim, na.rm = TRUE),
+        hits = sum(skaters$hits, na.rm = TRUE),
+        blocked_shots = sum(skaters$blockedShots, na.rm = TRUE),
+        giveaways = sum(skaters$giveaways, na.rm = TRUE),
+        takeaways = sum(skaters$takeaways, na.rm = TRUE),
+        power_play_goals = sum(skaters$powerPlayGoals, na.rm = TRUE),
+        faceoff_win_pctg = round(
+            mean(
+                skaters$faceoffWinningPctg[skaters$faceoffWinningPctg > 0],
+                na.rm = TRUE
+            ),
+            4
+        )
+    )
+}
+
+
+#' Aggregate goalie-level stats to team totals
+#' @noRd
+.aggregate_team_goalies <- function(team_pbs) {
+    goalies <- .safe_df(team_pbs$goalies)
+
+    if (nrow(goalies) == 0L) {
+        return(list(
+            saves = NA_integer_,
+            save_pctg = NA_real_,
+            goals_against = NA_integer_
+        ))
+    }
+
+    list(
+        saves = sum(goalies$saves, na.rm = TRUE),
+        save_pctg = round(
+            sum(goalies$saves, na.rm = TRUE) /
+                max(sum(goalies$shotsAgainst, na.rm = TRUE), 1L),
+            4
+        ),
+        goals_against = sum(goalies$goalsAgainst, na.rm = TRUE)
+    )
+}
+
+
+#' Extract the "default" language name from a name field
+#'
+#' The NHL API returns name objects like `{"default": "...", "cs": "...", ...}`.
+#' Depending on `flatten` and API shape, `name_field` may be:
+#' * a data frame with a `default` column (fromJSON flatten = FALSE)
+#' * a character vector (already extracted / flatten = TRUE)
+#' * a list of lists
+#' @noRd
+.extract_default_names <- function(name_field) {
+    if (is.data.frame(name_field)) {
+        return(as.character(name_field$default))
+    }
+    if (is.character(name_field)) {
+        return(name_field)
+    }
+    if (is.list(name_field)) {
+        return(vapply(
+            name_field,
+            function(n) {
+                if (is.list(n)) {
+                    n$default %||% NA_character_
+                } else {
+                    as.character(n)
+                }
+            },
+            character(1)
+        ))
+    }
+    as.character(name_field)
+}
+
+
+#' Build skater stats tibble (forwards + defense, both teams)
+#' @noRd
+.boxscore_skater_stats <- function(data) {
+    pbs <- data$playerByGameStats
+
+    parse_side <- function(team_pbs, team_data, side) {
+        fwd <- .safe_df(team_pbs$forwards)
+        def <- .safe_df(team_pbs$defense)
+        sk <- dplyr::bind_rows(fwd, def)
+
+        if (nrow(sk) == 0L) {
+            return(tibble::tibble())
+        }
+
+        tibble::tibble(
+            home_away = side,
+            team_id = as.integer(team_data$id),
+            team_abbrev = as.character(team_data$abbrev),
+            player_id = as.integer(sk$playerId),
+            player_name = .extract_default_names(sk$name),
+            sweater_number = as.integer(sk$sweaterNumber),
+            position = as.character(sk$position),
+            goals = as.integer(sk$goals),
+            assists = as.integer(sk$assists),
+            points = as.integer(sk$points),
+            plus_minus = as.integer(sk$plusMinus),
+            pim = as.integer(sk$pim),
+            hits = as.integer(sk$hits),
+            power_play_goals = as.integer(sk$powerPlayGoals),
+            shots_on_goal = as.integer(sk$sog),
+            faceoff_winning_pctg = as.numeric(sk$faceoffWinningPctg),
+            toi = as.character(sk$toi),
+            blocked_shots = as.integer(sk$blockedShots),
+            shifts = as.integer(sk$shifts),
+            giveaways = as.integer(sk$giveaways),
+            takeaways = as.integer(sk$takeaways)
+        )
+    }
+
+    dplyr::bind_rows(
+        parse_side(pbs$awayTeam, data$awayTeam, "away"),
+        parse_side(pbs$homeTeam, data$homeTeam, "home")
+    )
+}
+
+
+#' Build goalie stats tibble (both teams)
+#' @noRd
+.boxscore_goalie_stats <- function(data) {
+    pbs <- data$playerByGameStats
+
+    parse_side <- function(team_pbs, team_data, side) {
+        gl <- .safe_df(team_pbs$goalies)
+        if (nrow(gl) == 0L) {
+            return(tibble::tibble())
+        }
+
+        tibble::tibble(
+            home_away = side,
+            team_id = as.integer(team_data$id),
+            team_abbrev = as.character(team_data$abbrev),
+            player_id = as.integer(gl$playerId),
+            player_name = .extract_default_names(gl$name),
+            sweater_number = as.integer(gl$sweaterNumber),
+            even_strength_shots_against = as.character(
+                gl$evenStrengthShotsAgainst
+            ),
+            power_play_shots_against = as.character(gl$powerPlayShotsAgainst),
+            shorthanded_shots_against = as.character(
+                gl$shorthandedShotsAgainst
+            ),
+            save_shots_against = as.character(gl$saveShotsAgainst),
+            save_pctg = as.numeric(gl$savePctg),
+            even_strength_goals_against = as.integer(
+                gl$evenStrengthGoalsAgainst
+            ),
+            power_play_goals_against = as.integer(gl$powerPlayGoalsAgainst),
+            shorthanded_goals_against = as.integer(gl$shorthandedGoalsAgainst),
+            pim = as.integer(gl$pim),
+            goals_against = as.integer(gl$goalsAgainst),
+            toi = as.character(gl$toi),
+            starter = as.logical(gl$starter),
+            decision = as.character(gl$decision %||% NA_character_),
+            shots_against = as.integer(gl$shotsAgainst),
+            saves = as.integer(gl$saves)
+        )
+    }
+
+    dplyr::bind_rows(
+        parse_side(pbs$awayTeam, data$awayTeam, "away"),
+        parse_side(pbs$homeTeam, data$homeTeam, "home")
+    )
+}
+
+
+#' Safely coerce to data frame — returns zero-row tibble on NULL/error
+#' @noRd
+.safe_df <- function(x) {
+    if (is.null(x)) {
+        return(tibble::tibble())
+    }
+    tryCatch(
+        tibble::as_tibble(x),
+        error = function(e) tibble::tibble()
+    )
 }

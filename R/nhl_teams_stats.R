@@ -1,64 +1,101 @@
 #' @title **NHL Teams Stats**
-#' @description Returns NHL Teams stats information for a given team ID
-#' @param team_id A unique team ID
-#' @param season season in format XXXXYYYY
-#' @return Returns a tibble
+#' @description Returns NHL team player-level stats (skaters and goalies) for a
+#' given team abbreviation and season.
+#' Uses the new NHL API club-stats endpoint (`api-web.nhle.com`).
+#'
+#' **Breaking change:** The old `team_id` (integer) parameter has been replaced
+#' by `team_abbr` (3-letter string). The `season` parameter now accepts a
+#' 4-digit year (e.g., 2024 for the 2024-25 season).
+#'
+#' @param team_abbr Three-letter team abbreviation (e.g., "TBL", "TOR", "SEA")
+#' @param season Integer 4-digit year (e.g., 2024 for the 2024-25 season).
+#'   If NULL, returns current season stats.
+#' @param game_type Integer game type: 2 = regular season (default), 3 = playoffs
+#' @return Returns a data frame with per-player stats for the team,
+#'   including both skaters and goalies identified by a `player_type` column.
 #' @keywords NHL Teams Stats
-#' @import rvest
-#' @importFrom rlang .data
+#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON toJSON
-#' @importFrom dplyr mutate filter select rename bind_cols bind_rows
-#' @importFrom tidyr unnest_wider everything
+#' @importFrom dplyr bind_rows mutate
+#' @importFrom glue glue
 #' @importFrom janitor clean_names
 #' @export
 #' @examples
 #' \donttest{
-#'   try(nhl_teams_stats(team_id = 14))
+#'   try(nhl_teams_stats(team_abbr = "TBL"))
 #' }
-nhl_teams_stats <- function(team_id, season=most_recent_nhl_season_api_param()){
-
-  base_url <- "https://statsapi.web.nhl.com/api/v1/teams/"
-
-  full_url <- paste0(base_url,
-                     team_id,
-                     "/stats",
-                     "?season=",
-                     season)
-
-
-  res <- httr::RETRY("GET", full_url)
-
-  # Check the result
-  check_status(res)
+nhl_teams_stats <- function(team_abbr, season = NULL, game_type = 2) {
+  if (is.null(season)) {
+    url <- glue::glue(
+      "https://api-web.nhle.com/v1/club-stats/{team_abbr}/now"
+    )
+  } else {
+    api_season <- paste0(season, season + 1)
+    url <- glue::glue(
+      "https://api-web.nhle.com/v1/club-stats/{team_abbr}/{api_season}/{game_type}"
+    )
+  }
 
   tryCatch(
     expr = {
-      resp <- res %>%
-        httr::content(as = "text", encoding = "UTF-8")
-      teams_df <- jsonlite::fromJSON(resp)[["stats"]]
-      types <- teams_df$type$gameType[1,]
-      stats_df <- teams_df$splits[[1]]$stat
-      ranks_df <- teams_df$splits[[2]]$stat
-      team <- teams_df$splits[[1]]$team
-      colnames(types) <- paste0("season_type_",colnames(types))
-      colnames(ranks_df) <- paste0(colnames(ranks_df),"_rank")
-      colnames(team) <- paste0("team_", colnames(team))
+      res <- httr::RETRY("GET", url)
+      check_status(res)
 
-      teams_df <- dplyr::bind_cols(team, types, stats_df, ranks_df)
-      teams_df <- teams_df %>%
+      resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+      raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
+
+      result_frames <- list()
+
+      # Parse skaters
+      if (!is.null(raw[["skaters"]]) && length(raw[["skaters"]]) > 0) {
+        skaters <- jsonlite::fromJSON(
+          jsonlite::toJSON(raw[["skaters"]], auto_unbox = TRUE),
+          flatten = TRUE
+        )
+        skaters$player_type <- "skater"
+        result_frames[["skaters"]] <- skaters
+      }
+
+      # Parse goalies
+      if (!is.null(raw[["goalies"]]) && length(raw[["goalies"]]) > 0) {
+        goalies <- jsonlite::fromJSON(
+          jsonlite::toJSON(raw[["goalies"]], auto_unbox = TRUE),
+          flatten = TRUE
+        )
+        goalies$player_type <- "goalie"
+        result_frames[["goalies"]] <- goalies
+      }
+
+      if (length(result_frames) == 0) {
+        message(glue::glue(
+          "{Sys.time()}: No stats found for {team_abbr}"
+        ))
+        return(NULL)
+      }
+
+      stats_df <- dplyr::bind_rows(result_frames)
+      stats_df$team_abbr <- team_abbr
+      stats_df$season <- .safe_val(raw$season)
+      stats_df$game_type <- .safe_val(raw$gameType)
+
+      stats_df <- stats_df %>%
         janitor::clean_names() %>%
-        dplyr::mutate(
-          team_id = team_id,
-          season = season) %>%
-        make_fastRhockey_data("NHL Teams Stats Information from NHL.com",Sys.time())
+        make_fastRhockey_data("NHL Teams Stats Information from NHL.com", Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team stats data for {team_id} available!"))
+      message(glue::glue(
+        "{Sys.time()}: Invalid arguments or no team stats data for {team_abbr} available!"
+      ))
     },
     warning = function(w) {
     },
     finally = {
     }
   )
-  return(teams_df)
+  return(stats_df)
+}
+
+# Internal helper — safely extract a value or return NA
+.safe_val <- function(x, default = NA) {
+  if (is.null(x)) default else x
 }
