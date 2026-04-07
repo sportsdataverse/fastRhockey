@@ -32,7 +32,7 @@ A data frame with one row per event.
 # \donttest{
   try(nhl_game_pbp(game_id = 2024020001))
 #> ── NHL Game PBP from NHL.com ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 06:45:30 UTC
+#> ℹ Data updated: 2026-04-07 07:09:20 UTC
 #> # A tibble: 850 × 92
 #>    event_type   event secondary_type event_team_abbr event_team_type description
 #>    <chr>        <chr> <chr>          <chr>           <chr>           <glue>     

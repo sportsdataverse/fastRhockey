@@ -10,7 +10,7 @@ removed in a future release.
 ## Usage
 
 ``` r
-phf_schedule(season = most_recent_phf_season())
+phf_schedule(season = NULL)
 ```
 
 ## Arguments
@@ -28,7 +28,7 @@ A data frame with schedule data
 
 ``` r
 # \donttest{
-  try(phf_schedule(season = 2023))
+try(phf_schedule(season = 2023))
 #> Error : `phf_schedule()` was deprecated in fastRhockey 1.0.0 and is now defunct.
 #> ℹ The PHF has ceased operations.
 # }
