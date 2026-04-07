@@ -4,23 +4,25 @@
 \alias{nhl_game_feed}
 \title{\strong{NHL Game Feed}}
 \usage{
-nhl_game_feed(game_id)
+nhl_game_feed(game_id, include_shifts = TRUE)
 }
 \arguments{
-\item{game_id}{Game unique ID}
+\item{game_id}{Game unique ID (e.g. 2024020001)}
+
+\item{include_shifts}{Logical; whether to integrate shift data for on-ice
+player tracking. Default TRUE.}
 }
 \value{
-Returns a named list of data frames: all_plays, scoring_plays,
-penalty_plays, plays_by_period, current_play, linescore, decisions,
-team_box, player_box, skaters, goalies, on_ice, on_ice_plus,
-penalty_box, scratches, team_coaches
+A named list with elements: pbp (play-by-play data frame),
+game_info (game metadata), rosters (player roster data frame)
 }
 \description{
-Returns information on game feed for a given game id
+Returns a named list with play-by-play data plus game metadata
+for a given NHL game. Uses the new NHL API at api-web.nhle.com.
 }
 \examples{
 \donttest{
-   try(nhl_game_feed(game_id = 2018020561))
+  try(nhl_game_feed(game_id = 2024020001))
 }
 }
 \keyword{Feed}

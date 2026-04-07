@@ -4,42 +4,34 @@
 \alias{nhl_draft_prospects_info}
 \title{\strong{NHL Draft Prospects Info}}
 \usage{
-nhl_draft_prospects_info(prospect_id)
+nhl_draft_prospects_info(year, prospect_category = 1)
 }
 \arguments{
-\item{prospect_id}{Prospect unique ID}
+\item{year}{Integer. Draft year (e.g. 2024).}
+
+\item{prospect_category}{Integer. Prospect category:
+\itemize{
+\item 1 = North American Skater
+\item 2 = International Skater
+\item 3 = North American Goalie
+\item 4 = International Goalie
+}}
 }
 \value{
-Returns a data frame:
-* prospect_id -
-* full_name -
-* link -
-* first_name -
-* last_name -
-* birth_date -
-* birth_city -
-* birth_country -
-* nationality -
-* height -
-* weight -
-* shoots_catches -
-* nhl_player_id -
-* primary_position_code -
-* primary_position_name -
-* primary_position_type -
-* primary_position_abbreviation -
-* prospect_category_id -
-* prospect_category_short_name -
-* prospect_category_name -
-* amateur_team_link -
-* amateur_league_link -
+Returns a data frame of draft prospect rankings.
 }
 \description{
-Returns information on draft prospect for a given prospect id
+Returns draft prospect rankings for a given year and prospect category.
+
+Uses the new NHL API endpoint at
+\code{api-web.nhle.com/v1/draft/rankings/{year}/{prospect_category}}.
+
+The original per-prospect-ID endpoint is no longer available. This function
+now returns rankings filtered by year and category.
 }
 \examples{
 \donttest{
-   try(nhl_draft_prospects_info(prospect_id = 65242))
+   try(nhl_draft_prospects_info(year = 2024, prospect_category = 1))
 }
 }
 \keyword{Draft}

@@ -2,24 +2,31 @@
 % Please edit documentation in R/nhl_game_feed.R
 \name{nhl_game_pbp}
 \alias{nhl_game_pbp}
-\title{\strong{NHL Game PBP}}
+\title{\strong{NHL Game Play-by-Play}}
 \usage{
-nhl_game_pbp(game_id)
+nhl_game_pbp(game_id, include_shifts = TRUE)
 }
 \arguments{
-\item{game_id}{Game unique ID}
+\item{game_id}{Game unique ID (e.g. 2024020001)}
+
+\item{include_shifts}{Logical; whether to integrate shift data for on-ice
+player tracking. Default TRUE.}
 }
 \value{
-Returns a named list of data frames: all_plays
+A data frame with one row per event.
 }
 \description{
-Returns information on game pbp for a given game id
+Returns detailed play-by-play data for a given NHL game,
+including event players, coordinates, on-ice skaters, strength states,
+shot distance/angle, and shift integration.
+Uses the new NHL API at api-web.nhle.com.
 }
 \examples{
 \donttest{
-   try(nhl_game_pbp(game_id=2021020182))
+  try(nhl_game_pbp(game_id = 2024020001))
 }
 }
 \keyword{Game}
 \keyword{NHL}
 \keyword{PBP}
+\keyword{Play-by-Play}

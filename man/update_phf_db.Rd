@@ -34,6 +34,11 @@ Logical TRUE/FALSE
 \description{
 update_phf_db() updates or creates a database with \code{fastRhockey}
 play by play data of all completed and available games since 2011.
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+The PHF has ceased operations. This function is deprecated and
+will be removed in a future release.
 }
 \details{
 This function creates and updates a data table with the name \code{tblname}
