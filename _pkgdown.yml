@@ -13,7 +13,7 @@ template:
     nav-link-dropdown-toggle-hover-color: "#37C4E3"
     navbar-hover-color: "#37C4E3"
     navbar-brand-hover-color: "#37C4E3"
-    nav-tabs-link-active-bg	: "#37C4E3"
+    nav-tabs-link-active-bg: "#37C4E3"
     nav-pills-link-active-color: "#37C4E3"
     btn-link-color: "#37C4E3"
     btn-link-hover-color: "#37C4E3"
@@ -30,36 +30,35 @@ template:
       site: "@sportsdataverse"
       card: summary
 
-
 authors:
   Ben Howell:
-    href: https://twitter.com/benhowell71
+    href: https://x.com/benhowell71
   Saiem Gilani:
-    href: https://twitter.com/saiemgilani
+    href: https://x.com/saiemgilani
   Alyssa Longmuir:
-    href: https://twitter.com/alyssastweeting
+    href: https://x.com/alyssastweeting
   Tan Ho:
-    href: https://twitter.com/_TanHo
+    href: https://x.com/_TanHo
 
 home:
   title: fastRhockey
-  description: Data and Tools for Premier Hockey Federation (PHF) and NHL play-by-play data.
+  description: "fastRhockey v1.0.0: Data and Tools for Professional Women's Hockey League (PWHL) and NHL play-by-play data."
   icon: fa-home
   href: index.html
 
 navbar:
   structure:
-    left:  [home, reference, articles, news, network, data]
+    left: [home, reference, articles, news, network, data]
     right: [twitter, github]
   components:
     home:
       title: fastRhockey
-      description: Data and Tools for Premier Hockey Federation (PHF) and NHL play-by-play data.
+      description: "fastRhockey v1.0.0: Data and Tools for Professional Women's Hockey League (PWHL) and NHL play-by-play data."
       icon: fa-home
       href: index.html
       links:
-      - text: Getting started with fastRhockey
-        href: articles/introduction.html
+        - text: Getting started with fastRhockey
+          href: articles/introduction.html
     reference:
       icon: "fas fa-code"
       text: "Funcs"
@@ -81,68 +80,68 @@ navbar:
       icon: "fas fa-project-diagram"
       text: " SDV"
       menu:
-      - text: SportsDataverse
-        href: https://sportsdataverse.org/
-      - text: --------------------------------
-      - text: "R Packages"
-      - text: sportsdataverse-R
-        href: https://r.sportsdataverse.org/
-      - text: cfbfastR
-        href: https://cfbfastR.sportsdataverse.org/
-      - text: hoopR
-        href: https://hoopR.sportsdataverse.org/
-      - text: wehoop
-        href: https://wehoop.sportsdataverse.org/
-      - text: fastRhockey
-        href: https://fastRhockey.sportsdataverse.org/
-      - text: hockeyR
-        href: https://hockeyr.netlify.app/
-      - text: ggshakeR
-        href: https://abhiamishra.github.io/ggshakeR/
-      - text: baseballr
-        href: https://BillPetti.github.io/baseballr/
-      - text: worldfootballR
-        href: https://jaseziv.github.io/worldfootballR/
-      - text: usfootballR
-        href: https://usfootballR.sportsdataverse.org/
-      - text: soccerAnimate
-        href: https://github.com/Dato-Futbol/soccerAnimate/
-      - text: chessR
-        href: https://jaseziv.github.io/chessR/
-      - text: oddsapiR
-        href: https://oddsapiR.sportsdataverse.org/
-      - text: sportyR
-        href: https://sportyR.sportsdataverse.org/
-      - text: toRvik
-        href: https://torvik.dev/
-      - text: cfbplotR
-        href: https://cfbplotR.sportsdataverse.org/
-      - text: mlbplotR
-        href: https://github.com/camdenk/mlbplotR
-      - text: cfb4th
-        href: https://cfb4th.sportsdataverse.org/
-      - text: gamezoneR
-        href: https://jacklich10.github.io/gamezoneR/
-      - text: recruitR
-        href: https://recruitr.sportsdataverse.org/
-      - text: puntr
-        href: https://puntalytics.github.io/puntr/
-      - text: --------------------------------
-      - text: "Python Packages"
-      - text: sportsdataverse-py
-        href: https://py.sportsdataverse.org/
-      - text: sportypy
-        href: https://sportypy.sportsdataverse.org/
-      - text: recruitR-py
-        href: https://github.com/sportsdataverse/recruitR-py/
-      - text: collegebaseball
-        href: https://collegebaseball.readthedocs.io/en/latest/index.html
-      - text: --------------------------------
-      - text: "Node.js Packages"
-      - text: sportsdataverse.js
-        href: https://js.sportsdataverse.org/
-      - text: nfl-nerd
-        href: https://github.com/nntrn/nfl-nerd/
+        - text: SportsDataverse
+          href: https://sportsdataverse.org/
+        - text: --------------------------------
+        - text: "R Packages"
+        - text: sportsdataverse-R
+          href: https://r.sportsdataverse.org/
+        - text: cfbfastR
+          href: https://cfbfastR.sportsdataverse.org/
+        - text: hoopR
+          href: https://hoopR.sportsdataverse.org/
+        - text: wehoop
+          href: https://wehoop.sportsdataverse.org/
+        - text: fastRhockey
+          href: https://fastRhockey.sportsdataverse.org/
+        - text: hockeyR
+          href: https://hockeyr.netlify.app/
+        - text: ggshakeR
+          href: https://abhiamishra.github.io/ggshakeR/
+        - text: baseballr
+          href: https://BillPetti.github.io/baseballr/
+        - text: worldfootballR
+          href: https://jaseziv.github.io/worldfootballR/
+        - text: usfootballR
+          href: https://usfootballR.sportsdataverse.org/
+        - text: soccerAnimate
+          href: https://github.com/Dato-Futbol/soccerAnimate/
+        - text: chessR
+          href: https://jaseziv.github.io/chessR/
+        - text: oddsapiR
+          href: https://oddsapiR.sportsdataverse.org/
+        - text: sportyR
+          href: https://sportyR.sportsdataverse.org/
+        - text: toRvik
+          href: https://torvik.dev/
+        - text: cfbplotR
+          href: https://cfbplotR.sportsdataverse.org/
+        - text: mlbplotR
+          href: https://github.com/camdenk/mlbplotR
+        - text: cfb4th
+          href: https://cfb4th.sportsdataverse.org/
+        - text: gamezoneR
+          href: https://jacklich10.github.io/gamezoneR/
+        - text: recruitR
+          href: https://recruitr.sportsdataverse.org/
+        - text: puntr
+          href: https://puntalytics.github.io/puntr/
+        - text: --------------------------------
+        - text: "Python Packages"
+        - text: sportsdataverse-py
+          href: https://py.sportsdataverse.org/
+        - text: sportypy
+          href: https://sportypy.sportsdataverse.org/
+        - text: recruitR-py
+          href: https://github.com/sportsdataverse/recruitR-py/
+        - text: collegebaseball
+          href: https://collegebaseball.readthedocs.io/en/latest/index.html
+        - text: --------------------------------
+        - text: "Node.js Packages"
+        - text: sportsdataverse.js
+          href: https://js.sportsdataverse.org/
+        - text: nfl-nerd
+          href: https://github.com/nntrn/nfl-nerd/
     data:
       icon: "fas fa-database"
       text: " Data"
@@ -150,97 +149,171 @@ navbar:
         - text: "Data Repository"
           href: "https://github.com/sportsdataverse/fastRhockey-data"
     twitter:
-      icon: "fab fa-twitter fa-lg"
-      href: https://twitter.com/benhowell71
+      icon: "fab fa-x-twitter fa-lg"
+      href: https://x.com/benhowell71
     github:
       icon: "fab fa-github fa-lg"
       href: https://github.com/sportsdataverse/fastRhockey
+
 reference:
   - title: "Professional Women's Hockey League"
     desc: Functions exported by fastRhockey which provide access to PWHL data
     contents:
       - starts_with("pwhl")
-  - title: 'Premier Hockey Federation'
-    desc: Functions exported by fastRhockey which provide access to PHF data
-    contents:
-      - '`phf_game_all`'
-      - '`phf_pbp`'
-      - '`phf_team_box`'
-      - '`phf_player_box`'
-      - '`phf_schedule`'
-      - '`phf_league_info`'
-      - '`phf_game_raw`'
-      - '`phf_game_details`'
-      - '`phf_game_summary`'
-      - '`phf_leaders`'
-      - '`phf_player_stats`'
-      - '`phf_standings`'
-      - '`phf_team_roster`'
-      - '`phf_team_stats`'
-  - title: "fastRhockey Data"
-  - subtitle: Full Seasons of PHF Data
-    desc: Functions exported by fastRhockey which load full seasons of fastRhockey PHF data
-    contents:
-      - '`load_phf_pbp`'
-      - '`load_phf_team_box`'
-      - '`load_phf_player_box`'
-      - '`load_phf_rosters`'
-      - '`load_phf_schedule`'
-  - subtitle: "Update or Create Database"
-    desc: Functions exported by fastRhockey which update and create a database of fastRhockey PHF play-by-play data
-    contents:
-      - '`update_phf_db`'
-  - subtitle: Full Seasons of NHL Data
-    desc: Functions exported by fastRhockey which load full seasons of fastRhockey NHL data
-    contents:
-      - '`load_nhl_pbp`'
-      - '`load_nhl_team_box`'
-      - '`load_nhl_player_box`'
-      - '`load_nhl_rosters`'
-      - '`load_nhl_schedule`'
-  - subtitle: "Update or Create Database"
-    desc: Functions exported by fastRhockey which update and create a database of fastRhockey NHL play-by-play data
-    contents:
-      - '`update_nhl_db`'
+  - title: "NHL Data"
   - subtitle: Game Data
     desc: Functions exported by fastRhockey sourced from the game endpoint of the NHL API
     contents:
-      - starts_with("nhl_game")
+      - "`nhl_game_boxscore`"
+      - "`nhl_game_feed`"
+      - "`nhl_game_pbp`"
+      - "`nhl_game_shifts`"
+      - "`nhl_game_story`"
+      - "`nhl_game_content`"
+      - "`nhl_gamecenter_landing`"
+      - "`nhl_gamecenter_right_rail`"
   - subtitle: Teams Data
     desc: Functions exported by fastRhockey sourced from the teams endpoint of the NHL API
     contents:
-      - '`nhl_teams`'
-      - '`espn_nhl_teams`'
-      - starts_with("nhl_teams")
+      - "`nhl_teams`"
+      - "`nhl_teams_info`"
+      - "`nhl_teams_roster`"
+      - "`nhl_teams_stats`"
+      - "`nhl_team_prospects`"
+      - "`nhl_team_scoreboard`"
+      - "`espn_nhl_teams`"
+  - subtitle: Club Data
+    desc: Functions exported by fastRhockey for NHL club-level schedule and stats
+    contents:
+      - "`nhl_club_schedule`"
+      - "`nhl_club_stats_season`"
   - subtitle: Players Data
     desc: Functions exported by fastRhockey sourced from the players endpoint of the NHL API
     contents:
-      - starts_with("nhl_player")
+      - "`nhl_player_info`"
+      - "`nhl_player_game_log`"
+      - "`nhl_player_spotlight`"
+      - "`nhl_player_stats`"
+  - subtitle: Roster Data
+    desc: Functions exported by fastRhockey for NHL roster information
+    contents:
+      - "`nhl_roster_season`"
   - subtitle: Schedule Data
     desc: Functions exported by fastRhockey sourced from the schedule endpoint of the NHL API
     contents:
-      - starts_with("nhl_schedule")
+      - "`nhl_schedule`"
+      - "`nhl_schedule_calendar`"
   - subtitle: Draft Data
     desc: Functions exported by fastRhockey sourced from the draft endpoint of the NHL API
     contents:
-      - starts_with("nhl_draft")
+      - "`nhl_draft`"
+      - "`nhl_draft_year`"
+      - "`nhl_draft_prospects`"
+      - "`nhl_draft_prospects_info`"
+      - "`nhl_draft_rankings`"
+  - subtitle: Standings Data
+    desc: Functions exported by fastRhockey sourced from the standings endpoint of the NHL API
+    contents:
+      - "`nhl_standings`"
+      - "`nhl_standings_season`"
+  - subtitle: Scoreboard and Scores
+    desc: Functions exported by fastRhockey for NHL scoreboard and scores data
+    contents:
+      - "`nhl_scoreboard`"
+      - "`nhl_scores`"
+  - subtitle: Playoffs Data
+    desc: Functions exported by fastRhockey for NHL playoff data
+    contents:
+      - "`nhl_playoff_bracket`"
+      - "`nhl_playoff_carousel`"
+      - "`nhl_playoff_schedule`"
+  - subtitle: Season and Stats Data
+    desc: Functions exported by fastRhockey for NHL season metadata and aggregated stats
+    contents:
+      - "`nhl_seasons`"
+      - "`nhl_stats_skaters`"
+      - "`nhl_stats_goalies`"
+      - "`nhl_stats_teams`"
+      - "`nhl_stats_draft`"
+      - "`nhl_stats_seasons`"
+      - "`nhl_stats_misc`"
+      - "`nhl_skater_stats_leaders`"
+      - "`nhl_goalie_stats_leaders`"
+  - subtitle: Broadcast and Odds
+    desc: Functions exported by fastRhockey for broadcast availability and odds
+    contents:
+      - "`nhl_where_to_watch`"
+      - "`nhl_partner_game_odds`"
+      - "`nhl_tv_schedule`"
   - subtitle: Conference and Division Data
     desc: Functions exported by fastRhockey sourced from the conferences and divisions endpoints of the NHL API
     contents:
-      - starts_with("nhl_conference")
-      - starts_with("nhl_division")
+      - "`nhl_conferences`"
+      - "`nhl_conferences_info`"
+      - "`nhl_divisions`"
+      - "`nhl_divisions_info`"
+  - subtitle: Metadata
+    desc: Functions exported by fastRhockey for NHL metadata and location lookups
+    contents:
+      - "`nhl_meta`"
+      - "`nhl_location`"
+  - title: "fastRhockey Data"
+  - subtitle: Full Seasons of NHL Data
+    desc: Functions exported by fastRhockey which load full seasons of fastRhockey NHL data
+    contents:
+      - "`load_nhl_pbp`"
+      - "`load_nhl_team_box`"
+      - "`load_nhl_player_box`"
+      - "`load_nhl_rosters`"
+      - "`load_nhl_schedule`"
+  - subtitle: "Update or Create NHL Database"
+    desc: Functions exported by fastRhockey which update and create a database of fastRhockey NHL play-by-play data
+    contents:
+      - "`update_nhl_db`"
   - title: Included data
     desc: Data included within the package
     contents:
-      - '`data`'
+      - "`data`"
   - title: "Helpers"
   - subtitle: Helper Functions
     desc: Functions used internally by fastRhockey which assist in transforming or loading data
     contents:
-      - '`most_recent_phf_season`'
-      - '`most_recent_nhl_season`'
-      - '`most_recent_nhl_season_api_param`'
-      - starts_with("helper_phf")
-      - '`csv_from_url`'
-      - '`rds_from_url`'
-      - '`progressively`'
+      - "`csv_from_url`"
+      - "`progressively`"
+      - "`rds_from_url`"
+      - "`most_recent_nhl_season`"
+      - "`most_recent_nhl_season_api_param`"
+      - "`most_recent_phf_season`"
+      - "`helper_nhl_calculate_xg`"
+      - "`refresh_xg_models`"
+  - title: "Deprecated PHF Functions"
+    desc: >
+      The Premier Hockey Federation (PHF) has ceased operations. These functions are
+      deprecated and will emit warnings when called. Historical data may still be
+      available via the load_phf_* functions.
+    contents:
+      - "`phf_game_all`"
+      - "`phf_pbp`"
+      - "`phf_team_box`"
+      - "`phf_player_box`"
+      - "`phf_schedule`"
+      - "`phf_league_info`"
+      - "`phf_game_raw`"
+      - "`phf_game_details`"
+      - "`phf_game_summary`"
+      - "`phf_leaders`"
+      - "`phf_player_stats`"
+      - "`phf_standings`"
+      - "`phf_team_roster`"
+      - "`phf_team_stats`"
+  - title: "Deprecated PHF Data Loaders"
+    desc: >
+      Data loaders for the defunct PHF league. Historical data may still be available
+      but is no longer updated.
+    contents:
+      - "`load_phf_pbp`"
+      - "`load_phf_team_box`"
+      - "`load_phf_player_box`"
+      - "`load_phf_rosters`"
+      - "`load_phf_schedule`"
+      - "`update_phf_db`"
