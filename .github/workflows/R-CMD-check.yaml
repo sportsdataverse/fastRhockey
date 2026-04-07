@@ -35,7 +35,7 @@ jobs:
       NOT_CRAN: true
       R_KEEP_PKG_SOURCE: yes
       RUN_NHL_TESTS: true
-      RUN_PHF_TESTS: false
+      RUN_PHF_TESTS: true
       RUN_PWHL_TESTS: true
 
     steps:
