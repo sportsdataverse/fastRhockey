@@ -37,7 +37,7 @@ filtered by conference.
 # \donttest{
   try(nhl_conferences_info(conference_name = "Eastern"))
 #> ── NHL Conference Information from NHL.com ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 07:09:13 UTC
+#> ℹ Data updated: 2026-04-07 07:15:24 UTC
 #> # A tibble: 16 × 36
 #>    team_abbr team_name             team_common_name team_logo    conference_name
 #>    <chr>     <chr>                 <chr>            <chr>        <chr>          

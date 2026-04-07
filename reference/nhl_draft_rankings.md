@@ -30,7 +30,7 @@ Returns a data frame with draft ranking data.
 # \donttest{
   try(nhl_draft_rankings())
 #> ── NHL Draft Rankings ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 07:09:16 UTC
+#> ℹ Data updated: 2026-04-07 07:15:29 UTC
 #> # A tibble: 225 × 13
 #>    last_name first_name position_code shoots_catches height_in_inches
 #>    <chr>     <chr>      <chr>         <chr>                     <int>
