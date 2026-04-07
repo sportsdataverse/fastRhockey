@@ -25,7 +25,7 @@ Returns a data frame with season/game-type availability.
 # \donttest{
   try(nhl_club_stats_season(team_abbr = "TOR"))
 #> ── NHL Club Stats Season ────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 06:27:50 UTC
+#> ℹ Data updated: 2026-04-07 06:45:24 UTC
 #> # A tibble: 98 × 3
 #>      season game_types team_abbr
 #>       <int> <list>     <chr>    
