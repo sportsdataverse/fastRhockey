@@ -29,7 +29,8 @@ test_that("NHL - Get NHL Schedule (day mode)", {
 test_that("NHL - Get NHL Schedule (season mode)", {
     skip_on_cran()
     skip_nhl_test()
-    x <- nhl_schedule(team_abbr = "TOR", season = 2024)
+    # season is the *end year* (e.g. 2025 = 2024-25 season)
+    x <- nhl_schedule(team_abbr = "TOR", season = 2025)
 
     expect_s3_class(x, "data.frame")
     expect_true(nrow(x) > 0)
