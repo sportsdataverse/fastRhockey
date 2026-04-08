@@ -232,11 +232,19 @@ load_pwhl_rosters <- function(seasons = most_recent_pwhl_season(), ...,
 
 # load PWHL games file (internal helper for update_pwhl_db)
 load_pwhl_games <- function() {
-  .url <- paste0(
-    "https://raw.githubusercontent.com/sportsdataverse/",
-    "fastRhockey-data/main/pwhl/pwhl_games_in_data_repo.rds"
+  release_url <- paste0(
+    "https://github.com/sportsdataverse/sportsdataverse-data/",
+    "releases/download/pwhl_schedules/pwhl_games_in_data_repo.rds"
   )
-  dat <- rds_from_url(.url)
+  dat <- tryCatch(rds_from_url(release_url), error = function(e) NULL)
+  if (is.null(dat)) {
+    # Fall back to raw repo file if release not yet populated
+    fallback <- paste0(
+      "https://raw.githubusercontent.com/sportsdataverse/",
+      "fastRhockey-pwhl-data/main/pwhl/pwhl_games_in_data_repo.rds"
+    )
+    dat <- rds_from_url(fallback)
+  }
   return(dat)
 }
 

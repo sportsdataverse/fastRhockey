@@ -12,7 +12,8 @@ load_nhl_pbp_lite(
 )
 }
 \arguments{
-\item{seasons}{A vector of 4-digit years associated with given NHL seasons.}
+\item{seasons}{A vector of 4-digit years (the \emph{end year} of the NHL
+season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 
 \item{...}{Additional arguments passed to an underlying function.}
 
@@ -29,6 +30,6 @@ resulting in smaller file sizes.
 }
 \examples{
 \donttest{
-  try(load_nhl_pbp_lite(2025))
+  try(load_nhl_pbp_lite(2026))
 }
 }

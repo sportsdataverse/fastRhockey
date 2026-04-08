@@ -6,7 +6,8 @@ NULL
 #' @rdname load_nhl_pbp
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given NHL seasons. (Min: 2011)
+#' @param seasons A vector of 4-digit years (the *end year* of the NHL
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_nhl_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -15,7 +16,7 @@ NULL
 #' @export
 #' @examples
 #' \donttest{
-#'   try(load_nhl_pbp(2021))
+#'   try(load_nhl_pbp(2022))
 #' }
 load_nhl_pbp <- function(seasons = most_recent_nhl_season(),...,
                          dbConnection = NULL, tablename = NULL) {
@@ -27,10 +28,10 @@ load_nhl_pbp <- function(seasons = most_recent_nhl_season(),...,
 
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if(isTRUE(seasons)) seasons <- 2010:most_recent_nhl_season()
+  if(isTRUE(seasons)) seasons <- 2011:most_recent_nhl_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
+            seasons >= 2011,
             seasons <= most_recent_nhl_season())
 
   urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_pbp_full/play_by_play_",seasons,".rds")
@@ -53,7 +54,8 @@ load_nhl_pbp <- function(seasons = most_recent_nhl_season(),...,
 #' @description Same as `load_nhl_pbp()` but without line change (CHANGE) events,
 #' resulting in smaller file sizes.
 #' @rdname load_nhl_pbp_lite
-#' @param seasons A vector of 4-digit years associated with given NHL seasons.
+#' @param seasons A vector of 4-digit years (the *end year* of the NHL
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
@@ -61,7 +63,7 @@ load_nhl_pbp <- function(seasons = most_recent_nhl_season(),...,
 #' @export
 #' @examples
 #' \donttest{
-#'   try(load_nhl_pbp_lite(2025))
+#'   try(load_nhl_pbp_lite(2026))
 #' }
 load_nhl_pbp_lite <- function(seasons = most_recent_nhl_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
@@ -73,10 +75,10 @@ load_nhl_pbp_lite <- function(seasons = most_recent_nhl_season(), ...,
 
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2010:most_recent_nhl_season()
+  if (isTRUE(seasons)) seasons <- 2011:most_recent_nhl_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
+            seasons >= 2011,
             seasons <= most_recent_nhl_season())
 
   urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_pbp_lite/play_by_play_",seasons,"_lite.rds")
@@ -103,7 +105,8 @@ NULL
 #' @rdname load_nhl_team_box
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given NHL seasons. (Min: 2011)
+#' @param seasons A vector of 4-digit years (the *end year* of the NHL
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2021.
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_nhl_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -112,7 +115,7 @@ NULL
 #' @export
 #' @examples
 #' \donttest{
-#'   try(load_nhl_team_box(2021))
+#'   try(load_nhl_team_box(2022))
 #' }
 load_nhl_team_box <- function(seasons = most_recent_nhl_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
@@ -123,10 +126,10 @@ load_nhl_team_box <- function(seasons = most_recent_nhl_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if(isTRUE(seasons)) seasons <- 2010:most_recent_nhl_season()
+  if(isTRUE(seasons)) seasons <- 2021:most_recent_nhl_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
+            seasons >= 2021,
             seasons <= most_recent_nhl_season())
 
   urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_team_boxscores/team_box_",seasons,".rds")
@@ -151,7 +154,8 @@ NULL
 #' @rdname load_nhl_player_box
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given NHL seasons. (Min: 2011)
+#' @param seasons A vector of 4-digit years (the *end year* of the NHL
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2021.
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_nhl_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -160,7 +164,7 @@ NULL
 #' @export
 #' @examples
 #' \donttest{
-#'   try(load_nhl_player_box(2021))
+#'   try(load_nhl_player_box(2022))
 #' }
 load_nhl_player_box <- function(seasons = most_recent_nhl_season(), ...,
                                 dbConnection = NULL, tablename = NULL) {
@@ -170,10 +174,10 @@ load_nhl_player_box <- function(seasons = most_recent_nhl_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if(isTRUE(seasons)) seasons <- 2010:most_recent_nhl_season()
+  if(isTRUE(seasons)) seasons <- 2021:most_recent_nhl_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
+            seasons >= 2021,
             seasons <= most_recent_nhl_season())
 
   urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_player_boxscores/player_box_",seasons,".rds")
@@ -200,7 +204,8 @@ NULL
 #' @rdname load_nhl_schedule
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given NHL seasons. (Min: 2011)
+#' @param seasons A vector of 4-digit years (the *end year* of the NHL
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2021.
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_nhl_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -209,7 +214,7 @@ NULL
 #' @export
 #' @examples
 #' \donttest{
-#'   try(load_nhl_schedule(2021))
+#'   try(load_nhl_schedule(2022))
 #' }
 load_nhl_schedule <- function(seasons = most_recent_nhl_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
@@ -220,10 +225,10 @@ load_nhl_schedule <- function(seasons = most_recent_nhl_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if(isTRUE(seasons)) seasons <- 2010:most_recent_nhl_season()
+  if(isTRUE(seasons)) seasons <- 2021:most_recent_nhl_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
+            seasons >= 2021,
             seasons <= most_recent_nhl_season())
 
   urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_schedules/nhl_schedule_",seasons,".rds")
@@ -252,16 +257,17 @@ NULL
 #' @rdname load_nhl_rosters
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given NHL seasons. (Min: 2011)
+#' @param seasons A vector of 4-digit years (the *end year* of the NHL
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2021.
 #' @param ... Additional arguments passed to an underlying function that writes
-#' the season data into a database (used by `update_phf_db()`).
+#' the season data into a database (used by `update_nhl_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the team rosters data table within the database
 #' @return Returns a tibble
 #' @export
 #' @examples
 #' \donttest{
-#'   try(load_nhl_rosters(2021))
+#'   try(load_nhl_rosters(2022))
 #' }
 load_nhl_rosters <- function(seasons = most_recent_nhl_season(), ...,
                              dbConnection = NULL, tablename = NULL) {
@@ -272,10 +278,10 @@ load_nhl_rosters <- function(seasons = most_recent_nhl_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if(isTRUE(seasons)) seasons <- 2011:most_recent_nhl_season()
+  if(isTRUE(seasons)) seasons <- 2021:most_recent_nhl_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2011,
+            seasons >= 2021,
             seasons <= most_recent_nhl_season())
 
   urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_rosters/rosters_",seasons,".rds")
@@ -294,10 +300,21 @@ load_nhl_rosters <- function(seasons = most_recent_nhl_season(), ...,
   out
 }
 
-# load games file
+# load games file (from sportsdataverse-data release, falls back to repo)
 load_nhl_games <- function(){
-  .url <- "https://raw.githubusercontent.com/sportsdataverse/fastRhockey-nhl-data/main/nhl/nhl_games_in_data_repo.rds"
-  dat <- rds_from_url(.url)
+  release_url <- paste0(
+    "https://github.com/sportsdataverse/sportsdataverse-data/",
+    "releases/download/nhl_schedules/nhl_games_in_data_repo.rds"
+  )
+  dat <- tryCatch(rds_from_url(release_url), error = function(e) NULL)
+  if (is.null(dat)) {
+    # Fall back to raw repo file if release not yet populated
+    fallback <- paste0(
+      "https://raw.githubusercontent.com/sportsdataverse/",
+      "fastRhockey-nhl-data/main/nhl/nhl_games_in_data_repo.rds"
+    )
+    dat <- rds_from_url(fallback)
+  }
   return(dat)
 }
 
@@ -386,8 +403,8 @@ update_nhl_db <- function(dbdir = ".",
   # get completed games
   user_message("Checking for missing completed games...", "todo")
   completed_games <- load_nhl_games() %>%
-    # completed games since 2002, excluding the broken games
-    dplyr::filter(.data$season >= 2010) %>%
+    # completed games since 2010-11 (end year >= 2011)
+    dplyr::filter(.data$season >= 2011) %>%
     dplyr::pull("game_id")
 
   # function below
@@ -423,7 +440,7 @@ build_nhl_db <- function(tblname = "fastRhockey_nhl_pbp", db_conn, rebuild = FAL
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   valid_seasons <- load_nhl_games() %>%
-    dplyr::filter(.data$season >= 2010) %>%
+    dplyr::filter(.data$season >= 2011) %>%
     dplyr::group_by(.data$season) %>%
     dplyr::summarise() %>%
     dplyr::ungroup()

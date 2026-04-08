@@ -12,10 +12,11 @@ load_nhl_rosters(
 )
 }
 \arguments{
-\item{seasons}{A vector of 4-digit years associated with given NHL seasons. (Min: 2011)}
+\item{seasons}{A vector of 4-digit years (the \emph{end year} of the NHL
+season; e.g., 2026 for the 2025-26 season). Min: 2021.}
 
 \item{...}{Additional arguments passed to an underlying function that writes
-the season data into a database (used by \code{update_phf_db()}).}
+the season data into a database (used by \code{update_nhl_db()}).}
 
 \item{dbConnection}{A \code{DBIConnection} object, as returned by \code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
 
@@ -30,6 +31,6 @@ or writes it into a db using some forwarded arguments in the dots
 }
 \examples{
 \donttest{
-  try(load_nhl_rosters(2021))
+  try(load_nhl_rosters(2022))
 }
 }
