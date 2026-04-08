@@ -38,7 +38,7 @@ filtered by division.
 # \donttest{
   try(nhl_divisions_info(division_name = "Atlantic"))
 #> ── NHL Division Information from NHL.com ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 05:46:36 UTC
+#> ℹ Data updated: 2026-04-08 06:16:39 UTC
 #> # A tibble: 8 × 36
 #>   team_abbr team_name team_common_name team_logo conference_name division_abbrev
 #>   <chr>     <chr>     <chr>            <chr>     <chr>           <chr>          

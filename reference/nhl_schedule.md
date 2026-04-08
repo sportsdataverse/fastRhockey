@@ -38,7 +38,7 @@ Returns a data frame with game schedule information.
 # \donttest{
   try(nhl_schedule(day = "2024-01-15"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 05:46:49 UTC
+#> ℹ Data updated: 2026-04-08 06:16:51 UTC
 #> # A tibble: 53 × 13
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
@@ -58,7 +58,7 @@ Returns a data frame with game schedule information.
 #> #   venue <chr>
   try(nhl_schedule(season = 2025, team_abbr = "TOR"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 05:46:49 UTC
+#> ℹ Data updated: 2026-04-08 06:16:51 UTC
 #> # A tibble: 101 × 13
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         

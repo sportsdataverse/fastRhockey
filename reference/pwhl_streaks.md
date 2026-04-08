@@ -32,7 +32,7 @@ team_code. Returns NULL if unavailable.
 # \donttest{
   try(pwhl_streaks(season = 2025))
 #> ── PWHL Player Streaks ──────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 05:47:15 UTC
+#> ℹ Data updated: 2026-04-08 06:17:16 UTC
 #> # A tibble: 20 × 25
 #>    id    player_id rookie first_game_date last_game_date first_name   last_name 
 #>    <chr> <chr>     <chr>  <chr>           <chr>          <chr>        <chr>     

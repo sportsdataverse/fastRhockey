@@ -45,21 +45,22 @@ Returns a tibble
 ``` r
 # \donttest{
   try(load_nhl_player_box(2022))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 55,980 × 34
+#> ── NHL Player Boxscores from fastRhockey data repository ── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-04-08 06:02:07 UTC
+#> # A tibble: 56,020 × 34
 #>    home_away team_id team_abbrev player_id player_name  sweater_number position
 #>    <chr>       <int> <chr>           <int> <chr>                 <int> <chr>   
-#>  1 away           28 SJS           8481477 N. Sturm                  7 C       
-#>  2 away           28 SJS           8479316 L. Kunin                 11 C       
-#>  3 away           28 SJS           8474009 N. Bonino                13 C       
-#>  4 away           28 SJS           8478904 S. Lorentz               16 C       
-#>  5 away           28 SJS           8478067 O. Lindblom              23 L       
-#>  6 away           28 SJS           8478414 T. Meier                 28 R       
-#>  7 away           28 SJS           8474053 L. Couture               39 C       
-#>  8 away           28 SJS           8479981 J. Gadjovich             42 L       
-#>  9 away           28 SJS           8476881 T. Hertl                 48 C       
-#> 10 away           28 SJS           8478099 K. Labanc                62 R       
-#> # ℹ 55,970 more rows
+#>  1 away            5 PIT           8478542 E. Rodrigues              9 C       
+#>  2 away            5 PIT           8482055 D. O'Connor              10 L       
+#>  3 away            5 PIT           8470619 B. Boyle                 11 C       
+#>  4 away            5 PIT           8475722 J. Zucker                16 L       
+#>  5 away            5 PIT           8475810 B. Rust                  17 R       
+#>  6 away            5 PIT           8478043 S. Lafferty              18 C       
+#>  7 away            5 PIT           8476934 B. McGinn                23 L       
+#>  8 away            5 PIT           8477953 K. Kapanen               42 R       
+#>  9 away            5 PIT           8478046 D. Heinen                43 L       
+#> 10 away            5 PIT           8478866 D. Simon                 49 C       
+#> # ℹ 56,010 more rows
 #> # ℹ 27 more variables: goals <int>, assists <int>, points <int>,
 #> #   plus_minus <int>, pim <int>, hits <int>, power_play_goals <int>,
 #> #   shots_on_goal <int>, faceoff_winning_pctg <dbl>, toi <chr>,

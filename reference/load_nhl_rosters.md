@@ -45,21 +45,22 @@ Returns a tibble
 ``` r
 # \donttest{
   try(load_nhl_rosters(2022))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 1,192 × 9
+#> ── NHL Rosters from fastRhockey data repository ─────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-04-08 06:02:31 UTC
+#> # A tibble: 1,295 × 9
 #>    player_id full_name      first_name last_name team_abbr team_id position_code
 #>        <int> <chr>          <chr>      <chr>     <chr>       <int> <chr>        
-#>  1   8471709 Marc-Edouard … Marc-Edou… Vlasic    SJS            28 D            
-#>  2   8473503 James Reimer   James      Reimer    SJS            28 G            
-#>  3   8474009 Nick Bonino    Nick       Bonino    SJS            28 C            
-#>  4   8474053 Logan Couture  Logan      Couture   SJS            28 C            
-#>  5   8474151 Ryan McDonagh  Ryan       McDonagh  NSH            18 D            
-#>  6   8474578 Erik Karlsson  Erik       Karlsson  SJS            28 D            
-#>  7   8474600 Roman Josi     Roman      Josi      NSH            18 D            
-#>  8   8474697 Mark Borowiec… Mark       Borowiec… NSH            18 D            
-#>  9   8475168 Matt Duchene   Matt       Duchene   NSH            18 C            
-#> 10   8475218 Mattias Ekholm Mattias    Ekholm    NSH            18 D            
-#> # ℹ 1,182 more rows
+#>  1   8470604 Jeff Carter    Jeff       Carter    PIT             5 C            
+#>  2   8470619 Brian Boyle    Brian      Boyle     PIT             5 C            
+#>  3   8470621 Corey Perry    Corey      Perry     TBL            14 R            
+#>  4   8470880 Brian Elliott  Brian      Elliott   TBL            14 G            
+#>  5   8471724 Kris Letang    Kris       Letang    PIT             5 D            
+#>  6   8473986 Alex Killorn   Alex       Killorn   TBL            14 C            
+#>  7   8474034 Patrick Maroon Patrick    Maroon    TBL            14 L            
+#>  8   8474151 Ryan McDonagh  Ryan       McDonagh  TBL            14 D            
+#>  9   8474564 Steven Stamkos Steven     Stamkos   TBL            14 C            
+#> 10   8474567 Zach Bogosian  Zach       Bogosian  TBL            14 D            
+#> # ℹ 1,285 more rows
 #> # ℹ 2 more variables: sweater_number <int>, season <int>
 # }
 ```
