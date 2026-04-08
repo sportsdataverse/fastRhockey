@@ -7,7 +7,16 @@
 pwhl_teams()
 }
 \value{
-A data frame with team data
+A data frame with columns:
+\itemize{
+\item \code{team_name} - Full team name (e.g., "PWHL Boston")
+\item \code{team_id} - Numeric team identifier
+\item \code{team_code} - Three-letter team code (e.g., "BOS")
+\item \code{team_nickname} - Team nickname
+\item \code{team_label} - Short city label (e.g., "Boston")
+\item \code{division} - Division identifier
+\item \code{team_logo} - URL to team logo image
+}
 }
 \description{
 PWHL Teams lookup

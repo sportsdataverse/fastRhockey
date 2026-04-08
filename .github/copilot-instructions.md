@@ -127,15 +127,27 @@ R/                          # Source code (one function per file, mostly)
   phf_league_info.R         # PHF league info
 
   # --- PWHL Functions (lscluster.hockeytech.com) ---
+  pwhl_helpers.R            # .pwhl_api(), .pwhl_modulekit_url(), .pwhl_gc_url()
   pwhl_schedule.R           # PWHL schedule
   pwhl_standings.R          # PWHL standings
   pwhl_pbp.R                # PWHL play-by-play
   pwhl_player_box.R         # PWHL player box scores
   pwhl_game_info.R          # PWHL game info
+  pwhl_game_summary.R       # PWHL game summary (gc feed)
   pwhl_teams.R              # PWHL team list
   pwhl_team_roster.R        # PWHL team rosters
   pwhl_stat_leaders.R       # PWHL stat leaders
-  pwhl_season_id.R          # PWHL season ID lookup
+  pwhl_season_id.R          # PWHL season ID lookup (dynamic API + fallback)
+  pwhl_player_info.R        # PWHL player profile
+  pwhl_player_game_log.R    # PWHL player game-by-game stats
+  pwhl_player_stats.R       # PWHL player career/season stats
+  pwhl_player_search.R      # PWHL player search
+  pwhl_leaders.R            # PWHL league leaders (top scorers/goalies)
+  pwhl_transactions.R       # PWHL player transactions
+  pwhl_streaks.R            # PWHL player streaks
+  pwhl_playoff_bracket.R    # PWHL playoff bracket
+  pwhl_scorebar.R           # PWHL scorebar (recent/upcoming scores)
+  pwhl_loaders.R            # load_pwhl_pbp, _player_box, _schedule, _rosters, update_pwhl_db
 
   # --- Data Loaders (from sportsdataverse data repos) ---
   nhl_pbp.R                 # load_nhl_pbp, _player_box, _rosters, _schedule, _team_box, update_nhl_db
@@ -155,7 +167,9 @@ Three distinct backends:
 |---------|----------|---------|------|
 | NHL Web API | `api-web.nhle.com/v1/` | Game feed, schedule, standings, rosters, gamecenter | None |
 | NHL Stats API | `api.nhle.com/stats/rest/{lang}/` | Skater/goalie/team stats, draft stats, seasons | None |
-| HockeyTech | `lscluster.hockeytech.com/feed/` | All PWHL functions | API key in URL |
+| HockeyTech (statviewfeed) | `lscluster.hockeytech.com/feed/?feed=statviewfeed` | PWHL schedule, standings, roster, PBP, box scores, stats | Public key in URL |
+| HockeyTech (modulekit) | `lscluster.hockeytech.com/feed/?feed=modulekit` | PWHL seasons, player info, leaders, transactions, streaks, brackets, scorebar | Public key in URL |
+| HockeyTech (gc) | `lscluster.hockeytech.com/feed/?feed=gc` | PWHL game summary | Public key in URL |
 
 - **NHL Web API** returns clean JSON; parsed with `jsonlite::fromJSON()`
 - **NHL Stats API** uses Cayenne filter expressions for query params (proprietary)
@@ -207,7 +221,9 @@ The package uses `lifecycle` for formal deprecation of PHF functions:
 - **NHL Stats API Cayenne filters:** `"20242025"` — same format
 - **most_recent_nhl_season():** Returns end year as numeric (e.g., `2025` for 2024-25 season)
 - **most_recent_nhl_season_api_param():** Returns `"20242025"` format
-- **PWHL:** Numeric year (e.g., `2024`)
+- **PWHL:** Numeric year (e.g., `2025`)
+- **most_recent_pwhl_season():** Returns concluding year as numeric (e.g., `2025`)
+- **pwhl_season_id():** Maps (season, game_type) to HockeyTech season_id dynamically
 
 ### Naming Conventions
 

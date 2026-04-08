@@ -10,7 +10,16 @@ pwhl_player_box(game_id)
 \item{game_id}{Game ID that you want play-by-play for}
 }
 \value{
-A data frame with play-by-play data from the PWHL
+A named list with two data frames:
+\itemize{
+\item \verb{$skaters} - Skater box scores with columns: player_id, first_name,
+last_name, position, team_id, game_id, toi, time_on_ice, goals,
+assists, points, shots, hits, blocked_shots, penalty_minutes,
+plus_minus, faceoff_attempts, faceoff_wins, faceoff_pct, starting.
+\item \verb{$goalies} - Goalie box scores with columns: player_id, first_name,
+last_name, position, team_id, game_id, toi, time_on_ice, saves,
+goals_against, shots_against, penalty_minutes, faceoff_pct, starting.
+}
 }
 \description{
 PWHL Player Box Scores

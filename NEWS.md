@@ -17,9 +17,26 @@
 * `pwhl_pbp()` -- PWHL play-by-play data.
 * `pwhl_player_box()` -- PWHL player box scores (skaters and goalies).
 * `pwhl_game_info()` -- PWHL game information and metadata.
+* `pwhl_game_summary()` -- Detailed game summary (scoring, penalties, shots
+  by period, three stars).
 * `pwhl_standings()` -- PWHL league standings.
 * `pwhl_stats()` -- PWHL stat leaders (skaters and goalies).
-* `pwhl_season_id()` -- PWHL season ID lookup.
+* `pwhl_leaders()` -- League leaders (top scorers and top goalies).
+* `pwhl_season_id()` -- PWHL season ID lookup (now API-driven with fallback).
+* `pwhl_player_info()` -- Player biographical and profile information.
+* `pwhl_player_game_log()` -- Per-game statistics for a player in a season.
+* `pwhl_player_stats()` -- Career and season-by-season statistics for a player.
+* `pwhl_player_search()` -- Search for players by name.
+* `pwhl_transactions()` -- Player transactions for a season.
+* `pwhl_streaks()` -- Player streak data for a season.
+* `pwhl_playoff_bracket()` -- Playoff bracket / series data.
+* `pwhl_scorebar()` -- Recent and upcoming game scores.
+* `most_recent_pwhl_season()` -- Utility to get the current PWHL season year.
+* `load_pwhl_pbp()` -- Load pre-scraped PWHL play-by-play data.
+* `load_pwhl_player_box()` -- Load pre-scraped PWHL player box scores.
+* `load_pwhl_schedule()` -- Load pre-scraped PWHL schedules.
+* `load_pwhl_rosters()` -- Load pre-scraped PWHL team rosters.
+* `update_pwhl_db()` -- Update or create a PWHL play-by-play database.
 
 ### **New NHL Functions**
 
@@ -65,6 +82,12 @@
 
 ### **Improvements**
 
+* `pwhl_season_id()` now retrieves season data dynamically from the HockeyTech
+  API instead of using a hardcoded lookup table. Falls back to hardcoded data
+  when the API is unavailable.
+* Added internal helpers `.pwhl_api()`, `.pwhl_modulekit_url()`,
+  `.pwhl_gc_url()`, and `.pwhl_resolve_season_id()` to reduce JSONP parsing
+  boilerplate across PWHL functions.
 * Added `lifecycle` package for formal deprecation management.
 * Updated `testthat` dependency to `>= 3.0.0`.
 * Complete test coverage for all 95 exported functions (482 tests).
@@ -83,9 +106,11 @@
   variables, conventional commits guide, and deprecation process.
 * Updated PR and issue templates.
 * Updated `CLAUDE.md` and `.github/copilot-instructions.md` to reflect
-  v1.0.0 changes.
-* Added `data-raw/PR_devel.md` and `data-raw/NEWS_devel.md` development
-  scratchpads (not tracked by git).
+  v1.0.0 changes and new PWHL endpoints.
+* Added `data-raw/pr_devel.md` development scratchpad.
+* Added `cran_comments.md` for CRAN submission.
+* Updated `_pkgdown.yml` with reorganized PWHL reference sections.
+* Added R CMD check CI workflow and pkgdown deployment workflow.
 
 # **fastRhockey 0.7.0**
 
