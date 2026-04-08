@@ -4,7 +4,7 @@
 \alias{pwhl_season_id}
 \title{\strong{PWHL Season IDs}}
 \usage{
-pwhl_season_id(season, game_type = "regular")
+pwhl_season_id(season = NULL, game_type = "regular")
 }
 \arguments{
 \item{season}{Unused; kept for backwards compatibility.}
