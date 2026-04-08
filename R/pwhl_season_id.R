@@ -24,7 +24,7 @@
 #'   try(pwhl_season_id())
 #' }
 
-pwhl_season_id <- function(season, game_type = "regular") {
+pwhl_season_id <- function(season = NULL, game_type = "regular") {
 
   tryCatch(
     expr = {
