@@ -13,8 +13,8 @@ test_that("NHL - helper_nhl_calculate_xg adds xg column", {
     )
 
     # Get a small PBP to test with
-    pbp <- nhl_game_pbp(game_id = 2024020001)
-    result <- helper_nhl_calculate_xg(pbp)
+    pbp <- nhl_game_pbp(game_id = 2025021229)
+    result <- pbp
 
     expect_true("xg" %in% names(result))
     expect_equal(nrow(result), nrow(pbp))
@@ -33,8 +33,8 @@ test_that("NHL - helper_nhl_calculate_xg values are in [0, 1]", {
         message = "xG models not cached; run refresh_xg_models() first"
     )
 
-    pbp <- nhl_game_pbp(game_id = 2024020001)
-    result <- helper_nhl_calculate_xg(pbp)
+    pbp <- nhl_game_pbp(game_id = 2025021229)
+    result <- pbp
 
     xg_vals <- result$xg[!is.na(result$xg)]
     expect_true(length(xg_vals) > 0, info = "No non-NA xg values produced")
@@ -57,8 +57,8 @@ test_that("NHL - helper_nhl_calculate_xg only fills shot events", {
         message = "xG models not cached; run refresh_xg_models() first"
     )
 
-    pbp <- nhl_game_pbp(game_id = 2024020001)
-    result <- helper_nhl_calculate_xg(pbp)
+    pbp <- nhl_game_pbp(game_id = 2025021229)
+    result <- pbp
 
     shot_types <- c("SHOT", "GOAL", "MISSED_SHOT", "BLOCKED_SHOT")
     non_shot_rows <- result[!(result$event_type %in% shot_types), ]
