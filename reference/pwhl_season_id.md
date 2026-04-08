@@ -5,7 +5,7 @@ Retrieves PWHL season IDs from the HockeyTech API.
 ## Usage
 
 ``` r
-pwhl_season_id(season, game_type = "regular")
+pwhl_season_id(season = NULL, game_type = "regular")
 ```
 
 ## Arguments
