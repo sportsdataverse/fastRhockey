@@ -27,7 +27,7 @@ nhl_conferences <- function(date = NULL) {
         return(NULL)
       }
       conferences_df <- standings %>%
-        dplyr::distinct(conference_name) %>%
+        dplyr::distinct(.data$conference_name) %>%
         as.data.frame() %>%
         make_fastRhockey_data("NHL Conferences from NHL.com", Sys.time())
       return(conferences_df)

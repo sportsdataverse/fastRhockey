@@ -3,12 +3,18 @@
 #'
 #' @param season Season (YYYY) to pull the roster from, the concluding year in XXXX-YY format
 #' @param regular Bool for whether to pull regular or pre-season rosters
-#' @return A data frame with standings data
+#' @return A data frame with columns including: team_rank, team, team_code,
+#'   games_played, points, wins, losses, goals_for, goals_against,
+#'   ot_wins, ot_losses, power_play_pct, penalty_kill_pct.
 #' @import jsonlite
 #' @import dplyr
 #' @import httr
 #' @importFrom glue glue
 #' @export
+#' @examples
+#' \donttest{
+#'   try(pwhl_standings(season = 2024, regular = TRUE))
+#' }
 
 pwhl_standings <- function(season = 2023, regular = TRUE) {
   if (regular) {
@@ -105,7 +111,7 @@ pwhl_standings <- function(season = 2023, regular = TRUE) {
       }
 
       lg_standings <- reg_standings %>%
-        dplyr::left_join(standings, by = c("team", "team_code"))
+        dplyr::left_join(standings, by = c("team" = "team", "team_code" = "team_code"))
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid season or no roster data available! Try a season from 2023 onwards!"))
