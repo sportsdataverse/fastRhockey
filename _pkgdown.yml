@@ -157,9 +157,49 @@ navbar:
 
 reference:
   - title: "Professional Women's Hockey League"
-    desc: Functions exported by fastRhockey which provide access to PWHL data
+  - subtitle: Game Data
+    desc: Functions for accessing PWHL game-level data
     contents:
-      - starts_with("pwhl")
+      - "`pwhl_schedule`"
+      - "`pwhl_scorebar`"
+      - "`pwhl_game_info`"
+      - "`pwhl_game_summary`"
+      - "`pwhl_pbp`"
+      - "`pwhl_player_box`"
+  - subtitle: Team Data
+    desc: Functions for accessing PWHL team-level data
+    contents:
+      - "`pwhl_teams`"
+      - "`pwhl_team_roster`"
+      - "`pwhl_standings`"
+  - subtitle: Player Data
+    desc: Functions for accessing PWHL player-level data
+    contents:
+      - "`pwhl_player_info`"
+      - "`pwhl_player_stats`"
+      - "`pwhl_player_game_log`"
+      - "`pwhl_player_search`"
+      - "`pwhl_stats`"
+      - "`pwhl_leaders`"
+      - "`pwhl_streaks`"
+  - subtitle: League Data
+    desc: Functions for accessing PWHL league-level data
+    contents:
+      - "`pwhl_season_id`"
+      - "`pwhl_transactions`"
+      - "`pwhl_playoff_bracket`"
+  - title: "PWHL Data Loaders"
+  - subtitle: Full Seasons of PWHL Data
+    desc: Functions that load full seasons of pre-scraped PWHL data from the sportsdataverse-data releases
+    contents:
+      - "`load_pwhl_pbp`"
+      - "`load_pwhl_player_box`"
+      - "`load_pwhl_schedule`"
+      - "`load_pwhl_rosters`"
+  - subtitle: "Update or Create PWHL Database"
+    desc: Functions that update and create a database of fastRhockey PWHL play-by-play data
+    contents:
+      - "`update_pwhl_db`"
   - title: "NHL Data"
   - subtitle: Game Data
     desc: Functions exported by fastRhockey sourced from the game endpoint of the NHL API
@@ -262,6 +302,7 @@ reference:
     desc: Functions exported by fastRhockey which load full seasons of fastRhockey NHL data
     contents:
       - "`load_nhl_pbp`"
+      - "`load_nhl_pbp_lite`"
       - "`load_nhl_team_box`"
       - "`load_nhl_player_box`"
       - "`load_nhl_rosters`"
@@ -283,6 +324,7 @@ reference:
       - "`rds_from_url`"
       - "`most_recent_nhl_season`"
       - "`most_recent_nhl_season_api_param`"
+      - "`most_recent_pwhl_season`"
       - "`most_recent_phf_season`"
       - "`helper_nhl_calculate_xg`"
       - "`refresh_xg_models`"

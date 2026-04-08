@@ -1,7 +1,15 @@
 #' @title  **PWHL Teams**
 #' @description PWHL Teams lookup
 #'
-#' @return A data frame with team data
+#' @return A data frame with columns:
+#'
+#'   * `team_name` - Full team name (e.g., "PWHL Boston")
+#'   * `team_id` - Numeric team identifier
+#'   * `team_code` - Three-letter team code (e.g., "BOS")
+#'   * `team_nickname` - Team nickname
+#'   * `team_label` - Short city label (e.g., "Boston")
+#'   * `division` - Division identifier
+#'   * `team_logo` - URL to team logo image
 #' @import jsonlite
 #' @import dplyr
 #' @import httr

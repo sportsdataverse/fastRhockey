@@ -41,6 +41,7 @@ R/                          # Source code (one function per file)
   zzz.R                     # .onLoad() — xG model download/caching lifecycle
   fastRhockey-package.R     # Package-level roxygen2 documentation, lifecycle import
   helpers_nhl.R             # helper_nhl_calculate_xg(), helper_nhl_prepare_xg_data()
+  pwhl_helpers.R            # .pwhl_api(), .pwhl_modulekit_url(), .pwhl_gc_url() — PWHL JSONP helpers
   nhl_*.R                   # NHL functions (api-web.nhle.com + api.nhle.com/stats)
   phf_*.R                   # PHF functions (deprecated — league defunct)
   pwhl_*.R                  # PWHL functions (lscluster.hockeytech.com)
@@ -58,11 +59,44 @@ vignettes/                  # Vignettes for pkgdown site
 |---------|----------|---------|------|
 | NHL Web API | `api-web.nhle.com/v1/` | Game feed, schedule, standings, rosters | None |
 | NHL Stats API | `api.nhle.com/stats/rest/{lang}/` | Skater/goalie/team stats, draft | None |
-| HockeyTech | `lscluster.hockeytech.com/feed/` | All PWHL functions | Public key in URL |
+| HockeyTech (statviewfeed) | `lscluster.hockeytech.com/feed/?feed=statviewfeed` | PWHL schedule, standings, roster, PBP, box scores, stats | Public key `694cfeed58c932ee` |
+| HockeyTech (modulekit) | `lscluster.hockeytech.com/feed/?feed=modulekit` | PWHL seasons, player info, leaders, transactions, streaks, brackets, scorebar | Public key `446521baf8c38984` |
+| HockeyTech (gc) | `lscluster.hockeytech.com/feed/?feed=gc` | PWHL game summary, game center | Public key `446521baf8c38984` |
 
 - **NHL Web API** returns clean JSON parsed with `jsonlite::fromJSON()`
 - **NHL Stats API** uses Cayenne filter expressions for query params
 - **HockeyTech** returns JSONP with Angular callbacks that must be regex-stripped before parsing
+- PWHL internal helpers in `pwhl_helpers.R`: `.pwhl_api()` strips JSONP, `.pwhl_modulekit_url()` / `.pwhl_gc_url()` build URLs
+
+### PWHL Functions (20 exported)
+
+| Function | Category | Endpoint Feed |
+|----------|----------|--------------|
+| `pwhl_teams()` | Teams | statviewfeed |
+| `pwhl_team_roster()` | Teams | statviewfeed |
+| `pwhl_schedule()` | Games | statviewfeed |
+| `pwhl_standings()` | Teams | statviewfeed |
+| `pwhl_game_info()` | Games | statviewfeed |
+| `pwhl_pbp()` | Games | statviewfeed |
+| `pwhl_player_box()` | Games | statviewfeed |
+| `pwhl_stats()` | Players | statviewfeed |
+| `pwhl_season_id()` | League | modulekit (dynamic, with hardcoded fallback) |
+| `pwhl_player_info()` | Players | modulekit |
+| `pwhl_player_game_log()` | Players | modulekit |
+| `pwhl_player_stats()` | Players | modulekit |
+| `pwhl_player_search()` | Players | modulekit |
+| `pwhl_leaders()` | Players | modulekit |
+| `pwhl_transactions()` | League | modulekit |
+| `pwhl_streaks()` | Players | modulekit |
+| `pwhl_playoff_bracket()` | League | modulekit |
+| `pwhl_scorebar()` | Games | modulekit |
+| `pwhl_game_summary()` | Games | gc |
+| `most_recent_pwhl_season()` | Utility | (computed) |
+| `load_pwhl_pbp()` | Loader | sportsdataverse-data releases |
+| `load_pwhl_player_box()` | Loader | sportsdataverse-data releases |
+| `load_pwhl_schedule()` | Loader | sportsdataverse-data releases |
+| `load_pwhl_rosters()` | Loader | sportsdataverse-data releases |
+| `update_pwhl_db()` | Loader | sportsdataverse-data releases |
 
 ### S3 Class: `fastRhockey_data`
 
@@ -86,7 +120,7 @@ The package uses `lifecycle` for formal deprecation of PHF functions:
 - `janitor::clean_names()` on all API responses
 - `tryCatch` with `message()` for errors — functions return `NULL` on failure, not errors
 - `glue::glue()` for URL string interpolation
-- Internal helpers prefixed with `.` (e.g., `.parse_game_rosters()`)
+- Internal helpers prefixed with `.` (e.g., `.parse_game_rosters()`, `.pwhl_api()`)
 - `globalVariables()` in `utils.R` suppress R CMD check NSE notes
 - Conventional Commits: `<type>(<scope>): <description>`
   - Types: feat, fix, docs, style, refactor, test, build, ci, chore
@@ -95,7 +129,7 @@ The package uses `lifecycle` for formal deprecation of PHF functions:
 ### Naming Conventions
 
 - **Exported:** `league_entity_action()` (e.g., `nhl_teams_roster()`, `pwhl_schedule()`)
-- **Internal:** `.snake_case()` with leading dot (e.g., `.parse_game_rosters()`)
+- **Internal:** `.snake_case()` with leading dot (e.g., `.parse_game_rosters()`, `.pwhl_api()`)
 - **Tests:** `test-function_name.R`
 - **Parameters:** `snake_case` (e.g., `game_id`, `team_abbr`, `season`)
 - **Datasets:** `snake_case` .rda files
@@ -105,7 +139,10 @@ The package uses `lifecycle` for formal deprecation of PHF functions:
 - NHL Web API / Stats API: `"20242025"` (concatenated years)
 - `most_recent_nhl_season()` returns end year as numeric (e.g., `2025`)
 - `most_recent_nhl_season_api_param()` returns `"20242025"` format
-- PWHL: numeric year (e.g., `2024`)
+- PWHL: numeric year (e.g., `2025`)
+- `most_recent_pwhl_season()` returns concluding year as numeric (e.g., `2025`)
+- `pwhl_season_id()` maps (season, game_type) → HockeyTech `season_id`
+- `.pwhl_resolve_season_id(season, game_type)` is the internal convenience wrapper
 
 ## Testing
 
@@ -116,7 +153,7 @@ The package uses `lifecycle` for formal deprecation of PHF functions:
 - **Pattern:** `skip_on_cran()` + `skip_*_test()`, check `data.frame` + `fastRhockey_data` classes, validate `nrow(x) > 0`, check expected column names
 - **xG tests:** additionally require `skip_if_not_installed("xgboost")`
 - **Deprecated functions:** wrap calls in `suppressWarnings()` in tests
-- **Reproducibility:** use specific game IDs/dates (e.g., `game_id = 2023020001`)
+- **Reproducibility:** use specific game IDs/dates (e.g., `game_id = 2023020001`, PWHL `game_id = 27`)
 
 ## Commit Authorship
 

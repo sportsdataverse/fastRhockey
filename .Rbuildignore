@@ -16,6 +16,7 @@
 ^LICENSE\.md$
 ^README\.Rmd$
 ^cran-comments\.md$
+^cran_comments\.md$
 ^lastMiKTeXException$
 ^logo\.png$
 ^man/figures$
