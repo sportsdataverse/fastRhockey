@@ -34,7 +34,7 @@ Returns a data frame or list with the requested data.
 # \donttest{
   try(nhl_stats_misc(endpoint = "glossary"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 07:33:46 UTC
+#> ℹ Data updated: 2026-04-08 07:40:23 UTC
 #> # A tibble: 321 × 7
 #>       id abbreviation   definition first_season_for_stat full_name language_code
 #>    <int> <chr>          <chr>                      <int> <chr>     <chr>        

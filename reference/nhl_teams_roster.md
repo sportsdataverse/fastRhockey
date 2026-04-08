@@ -30,7 +30,7 @@ Returns a data frame with roster information.
 # \donttest{
   try(nhl_teams_roster(team_abbr = "TOR"))
 #> ── NHL Roster ───────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 07:33:49 UTC
+#> ℹ Data updated: 2026-04-08 07:40:28 UTC
 #> # A tibble: 26 × 14
 #>    player_id first_name last_name full_name       sweater_number position_code
 #>        <int> <chr>      <chr>     <chr>                    <int> <chr>        
@@ -50,7 +50,7 @@ Returns a data frame with roster information.
 #> #   birth_country <chr>, headshot_url <chr>, team_abbr <chr>
   try(nhl_teams_roster(team_abbr = "TOR", season = 2024))
 #> ── NHL Roster ───────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 07:33:50 UTC
+#> ℹ Data updated: 2026-04-08 07:40:28 UTC
 #> # A tibble: 42 × 14
 #>    player_id first_name last_name full_name       sweater_number position_code
 #>        <int> <chr>      <chr>     <chr>                    <int> <chr>        

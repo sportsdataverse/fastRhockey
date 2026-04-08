@@ -45,7 +45,7 @@ Returns a data frame with goalie leaders.
 # \donttest{
   try(nhl_goalie_stats_leaders())
 #> ── NHL Goalie Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 07:33:36 UTC
+#> ℹ Data updated: 2026-04-08 07:40:16 UTC
 #> # A tibble: 20 × 17
 #>         id sweater_number headshot         team_abbrev team_logo position  value
 #>      <int>          <int> <chr>            <chr>       <chr>     <chr>     <dbl>

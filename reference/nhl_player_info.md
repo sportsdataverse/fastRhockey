@@ -25,7 +25,7 @@ Returns a data frame with player biographical information.
 # \donttest{
   try(nhl_player_info(player_id = 8476899))
 #> ── NHL Player Info ──────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 07:33:38 UTC
+#> ℹ Data updated: 2026-04-08 07:40:17 UTC
 #> # A tibble: 1 × 22
 #>   player_id first_name last_name full_name   team_abbr team_name  sweater_number
 #>       <int> <chr>      <chr>     <chr>       <chr>     <chr>               <int>
