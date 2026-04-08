@@ -45,13 +45,13 @@ Returns a data frame with goalie leaders.
 # \donttest{
   try(nhl_goalie_stats_leaders())
 #> ── NHL Goalie Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 03:01:14 UTC
+#> ℹ Data updated: 2026-04-08 03:19:27 UTC
 #> # A tibble: 20 × 17
 #>         id sweater_number headshot         team_abbrev team_logo position  value
 #>      <int>          <int> <chr>            <chr>       <chr>     <chr>     <dbl>
 #>  1 8476883             88 https://assets.… TBL         https://… G        37    
 #>  2 8478872             70 https://assets.… UTA         https://… G        35    
-#>  3 8479979             29 https://assets.… DAL         https://… G        31    
+#>  3 8479979             29 https://assets.… DAL         https://… G        32    
 #>  4 8480280              1 https://assets.… BOS         https://… G        30    
 #>  5 8483548             32 https://assets.… CAR         https://… G        30    
 #>  6 8478009             30 https://assets.… NYI         https://… G         7    
@@ -61,10 +61,10 @@ Returns a data frame with goalie leaders.
 #> 10 8475683             72 https://assets.… FLA         https://… G         4    
 #> 11 8475809             41 https://assets.… COL         https://… G         0.918
 #> 12 8482661             30 https://assets.… MIN         https://… G         0.915
-#> 13 8482445              1 https://assets.… CGY         https://… G         0.913
-#> 14 8478048             31 https://assets.… NYR         https://… G         0.912
-#> 15 8476883             88 https://assets.… TBL         https://… G         0.912
-#> 16 8475809             41 https://assets.… COL         https://… G         2.13 
+#> 13 8478048             31 https://assets.… NYR         https://… G         0.912
+#> 14 8476883             88 https://assets.… TBL         https://… G         0.912
+#> 15 8482445              1 https://assets.… CGY         https://… G         0.910
+#> 16 8475809             41 https://assets.… COL         https://… G         2.10 
 #> 17 8476883             88 https://assets.… TBL         https://… G         2.32 
 #> 18 8479193              1 https://assets.… DAL         https://… G         2.34 
 #> 19 8478435             80 https://assets.… PHI         https://… G         2.40 

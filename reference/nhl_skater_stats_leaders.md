@@ -46,7 +46,7 @@ Returns a data frame with skater leaders.
 # \donttest{
   try(nhl_skater_stats_leaders())
 #> ── NHL Skater Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 03:01:22 UTC
+#> ℹ Data updated: 2026-04-08 03:19:34 UTC
 #> # A tibble: 45 × 15
 #>         id sweater_number headshot          team_abbrev team_logo position value
 #>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>
@@ -55,10 +55,10 @@ Returns a data frame with skater leaders.
 #>  3 8476399             20 https://assets.n… CGY         https://… L            4
 #>  4 8481557             12 https://assets.n… MIN         https://… L            4
 #>  5 8482093             24 https://assets.n… CAR         https://… C            4
-#>  6 8477492             29 https://assets.n… COL         https://… C           54
+#>  6 8477492             29 https://assets.n… COL         https://… C           55
 #>  7 8476453             86 https://assets.n… TBL         https://… R           44
-#>  8 8480039             88 https://assets.n… COL         https://… C           43
-#>  9 8484258             70 https://assets.n… COL         https://… D           41
+#>  8 8480039             88 https://assets.n… COL         https://… C           44
+#>  9 8484258             70 https://assets.n… COL         https://… D           42
 #> 10 8482655             90 https://assets.n… TBL         https://… D           41
 #> # ℹ 35 more rows
 #> # ℹ 8 more variables: first_name_default <chr>, last_name_default <chr>,

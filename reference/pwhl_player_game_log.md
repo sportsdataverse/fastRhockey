@@ -63,7 +63,7 @@ unavailable.
 # \donttest{
   try(pwhl_player_game_log(player_id = 28, season = 2025))
 #> ── PWHL Player Game Log ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 03:01:41 UTC
+#> ℹ Data updated: 2026-04-08 03:19:51 UTC
 #> # A tibble: 21 × 38
 #>    g_month    id home_team visiting_team date_played  home goalie home_team_code
 #>    <chr>   <dbl> <chr>     <chr>         <chr>       <dbl>  <dbl> <chr>         
