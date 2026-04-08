@@ -10,7 +10,11 @@ pwhl_pbp(game_id)
 \item{game_id}{Game ID that you want play-by-play for}
 }
 \value{
-A data frame with play-by-play data from the PWHL
+A data frame with play-by-play event data including columns:
+game_id, event, team_id, period_of_game, time_of_period, player_id,
+player_name_first, player_name_last, player_position, x_coord, y_coord,
+and additional event-specific columns (shot_quality, goal, penalty_length,
+home_win, etc.). Coordinate columns are provided in multiple projections.
 }
 \description{
 PWHL Play-by-play

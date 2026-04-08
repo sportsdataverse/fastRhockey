@@ -14,7 +14,9 @@ pwhl_team_roster(team, season, regular = TRUE)
 \item{regular}{Bool for whether to pull regular or pre-season rosters}
 }
 \value{
-A data frame with roster data
+A data frame with roster data including columns: player_id, team_id,
+season, player_name, first_name, last_name, primary_hand, dob, height,
+position, home_town, league, age, player_headshot, regular_season, team.
 }
 \description{
 PWHL Rosters lookup

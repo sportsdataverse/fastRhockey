@@ -12,8 +12,15 @@ pwhl_standings(season = 2023, regular = TRUE)
 \item{regular}{Bool for whether to pull regular or pre-season rosters}
 }
 \value{
-A data frame with standings data
+A data frame with columns including: team_rank, team, team_code,
+games_played, points, wins, losses, goals_for, goals_against,
+ot_wins, ot_losses, power_play_pct, penalty_kill_pct.
 }
 \description{
 PWHL Standings lookup
+}
+\examples{
+\donttest{
+  try(pwhl_standings(season = 2024, regular = TRUE))
+}
 }
