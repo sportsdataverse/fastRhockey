@@ -35,7 +35,7 @@ Returns a data frame with columns:
 # \donttest{
    try(nhl_divisions())
 #> ── NHL Divisions from NHL.com ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 06:56:58 UTC
+#> ℹ Data updated: 2026-04-08 07:21:40 UTC
 #> # A tibble: 4 × 3
 #>   division_name division_abbrev conference_name
 #>   <chr>         <chr>           <chr>          

@@ -43,7 +43,7 @@ A data frame with transaction records, or NULL if unavailable.
 # \donttest{
   try(pwhl_transactions(season = 2025))
 #> ── PWHL Transactions ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 06:57:36 UTC
+#> ℹ Data updated: 2026-04-08 07:22:21 UTC
 #> # A tibble: 20 × 22
 #>    transaction_type title     ttype ttype_text transaction_date transaction_time
 #>    <chr>            <chr>     <chr> <chr>      <chr>            <chr>           
