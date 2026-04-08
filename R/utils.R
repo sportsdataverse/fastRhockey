@@ -75,6 +75,7 @@ custom_mode <- function(x, na.rm = TRUE) {
 
 #' @title
 #' **Most Recent NHL Season**
+#' @description Returns the concluding year for the most recent NHL season. The NHL season typically runs from October to June, so a game played in November 2024 belongs to the 2025 season.
 #' @return Value for most recent NHL season
 #' @export
 most_recent_nhl_season <- function() {
@@ -86,6 +87,7 @@ most_recent_nhl_season <- function() {
 }
 #' @title
 #' **Most Recent NHL Season for NHL API**
+#' @description Returns the most recent NHL season in the format required by the NHL API (e.g., "20242025"). The NHL season typically runs from October to June, so a game played in November 2024 belongs to the 2025 season, which is represented as "20242025" in the NHL API.
 #' @return Value for most recent NHL season in the format of the NHL API
 #' @export
 most_recent_nhl_season_api_param <- function() {
