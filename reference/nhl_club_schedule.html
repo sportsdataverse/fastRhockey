@@ -107,8 +107,9 @@ and week views.</p>
 
 
 <dt id="arg-season">season<a class="anchor" aria-label="anchor" href="#arg-season"></a></dt>
-<dd><p>Integer 4-digit year (e.g., 2024 for the 2024-25 season).
-If NULL, returns current season schedule.</p></dd>
+<dd><p>Integer 4-digit <em>end year</em> of the season (e.g., 2026 for
+the 2025-26 season), matching <code><a href="most_recent_nhl_season.html">most_recent_nhl_season()</a></code>. If NULL,
+returns the current season schedule.</p></dd>
 
 
 <dt id="arg-month">month<a class="anchor" aria-label="anchor" href="#arg-month"></a></dt>
@@ -135,7 +136,7 @@ If NULL with view="week", returns current week.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_club_schedule</span><span class="op">(</span>team_abbr <span class="op">=</span> <span class="st">"TOR"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Club Schedule ────────────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-04-08 03:19:17 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-04-08 05:46:34 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 88 × 73</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            id   season game_type game_date  neutral_site start_time_utc      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               </span>

@@ -18,8 +18,8 @@ load_nhl_team_box(
 
 - seasons:
 
-  A vector of 4-digit years associated with given NHL seasons. (Min:
-  2011)
+  A vector of 4-digit years (the *end year* of the NHL season; e.g.,
+  2026 for the 2025-26 season). Min: 2021.
 
 - ...:
 
@@ -44,22 +44,22 @@ Returns a tibble
 
 ``` r
 # \donttest{
-  try(load_nhl_team_box(2021))
+  try(load_nhl_team_box(2022))
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 2,802 × 16
+#> # A tibble: 2,800 × 16
 #>    home_away team_id team_abbrev team_name      goals shots_on_goal   pim  hits
 #>    <chr>       <int> <chr>       <chr>          <int>         <int> <int> <int>
-#>  1 away            5 PIT         Penguins           6            35     2    28
-#>  2 home           14 TBL         Lightning          2            28     0    31
-#>  3 away           55 SEA         Kraken             3            31     6    33
-#>  4 home           54 VGK         Golden Knights     4            30     8    26
-#>  5 away            8 MTL         Canadiens          1            32     6    32
-#>  6 home           10 TOR         Maple Leafs        2            30     8    14
-#>  7 away            3 NYR         Rangers            1            24    18    27
-#>  8 home           15 WSH         Capitals           5            27    16    12
-#>  9 away           16 CHI         Blackhawks         2            34    10    17
-#> 10 home           21 COL         Avalanche          4            36    12    25
-#> # ℹ 2,792 more rows
+#>  1 away           28 SJS         Sharks             1            31    13    22
+#>  2 home           18 NSH         Predators          4            32    13    23
+#>  3 away           18 NSH         Predators          3            18     8    33
+#>  4 home           28 SJS         Sharks             2            33     6    23
+#>  5 away           14 TBL         Lightning          1            26     8    19
+#>  6 home            3 NYR         Rangers            3            39    12    24
+#>  7 away           54 VGK         Golden Knights     4            51     6    25
+#>  8 home           26 LAK         Kings              3            30    10    23
+#>  9 away            6 BOS         Bruins             5            30     8    32
+#> 10 home           15 WSH         Capitals           2            35     6    48
+#> # ℹ 2,790 more rows
 #> # ℹ 8 more variables: blocked_shots <int>, giveaways <int>, takeaways <int>,
 #> #   power_play_goals <int>, faceoff_win_pctg <dbl>, saves <int>,
 #> #   save_pctg <dbl>, goals_against <int>

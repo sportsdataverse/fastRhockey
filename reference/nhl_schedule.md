@@ -18,9 +18,10 @@ nhl_schedule(day = NULL, season = NULL, team_abbr = NULL)
 
 - season:
 
-  Integer four-digit year for the start of the season (e.g., 2024 for
-  the 2024-25 season). If provided instead of `day`, returns the full
-  season schedule.
+  Integer four-digit year for the *end year* of the season (e.g., 2026
+  for the 2025-26 season), matching
+  [`most_recent_nhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_nhl_season.md).
+  If provided instead of `day`, returns the full season schedule.
 
 - team_abbr:
 
@@ -37,7 +38,7 @@ Returns a data frame with game schedule information.
 # \donttest{
   try(nhl_schedule(day = "2024-01-15"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 03:19:32 UTC
+#> ℹ Data updated: 2026-04-08 05:46:49 UTC
 #> # A tibble: 53 × 13
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
@@ -55,9 +56,9 @@ Returns a data frame with game schedule information.
 #> # ℹ 7 more variables: away_team_abbr <chr>, home_team_name <chr>,
 #> #   away_team_name <chr>, home_score <int>, away_score <int>, game_state <chr>,
 #> #   venue <chr>
-  try(nhl_schedule(season = 2024, team_abbr = "TOR"))
+  try(nhl_schedule(season = 2025, team_abbr = "TOR"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 03:19:32 UTC
+#> ℹ Data updated: 2026-04-08 05:46:49 UTC
 #> # A tibble: 101 × 13
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         

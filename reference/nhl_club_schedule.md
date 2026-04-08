@@ -23,8 +23,10 @@ nhl_club_schedule(
 
 - season:
 
-  Integer 4-digit year (e.g., 2024 for the 2024-25 season). If NULL,
-  returns current season schedule.
+  Integer 4-digit *end year* of the season (e.g., 2026 for the 2025-26
+  season), matching
+  [`most_recent_nhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_nhl_season.md).
+  If NULL, returns the current season schedule.
 
 - month:
 
@@ -50,7 +52,7 @@ Returns a data frame with schedule data.
 # \donttest{
   try(nhl_club_schedule(team_abbr = "TOR"))
 #> ── NHL Club Schedule ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 03:19:17 UTC
+#> ℹ Data updated: 2026-04-08 05:46:34 UTC
 #> # A tibble: 88 × 73
 #>            id   season game_type game_date  neutral_site start_time_utc      
 #>         <int>    <int>     <int> <chr>      <lgl>        <chr>               

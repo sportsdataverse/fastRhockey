@@ -56,7 +56,7 @@ A data frame with player profile data including:
 # \donttest{
   try(pwhl_player_info(player_id = 28))
 #> ── PWHL Player Info ─────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 03:19:51 UTC
+#> ℹ Data updated: 2026-04-08 05:47:11 UTC
 #> # A tibble: 1 × 20
 #>   player_id first_name last_name name      jersey_number position shoots catches
 #>       <dbl> <chr>      <chr>     <chr>     <chr>         <chr>    <chr>  <chr>  
