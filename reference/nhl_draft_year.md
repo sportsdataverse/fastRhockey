@@ -32,7 +32,7 @@ Returns a data frame of draft picks.
 # \donttest{
    try(nhl_draft_year(year = 2023, round = 1))
 #> ── NHL Draft Year data from NHL.com ─────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 02:42:11 UTC
+#> ℹ Data updated: 2026-04-08 03:01:09 UTC
 #> # A tibble: 32 × 20
 #>    round pick_in_round overall_pick team_id team_abbrev team_name$default  $fr  
 #>    <int>         <int>        <int>   <int> <chr>       <chr>              <chr>

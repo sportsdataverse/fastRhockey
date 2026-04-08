@@ -45,7 +45,7 @@ Returns a data frame with goalie leaders.
 # \donttest{
   try(nhl_goalie_stats_leaders())
 #> ── NHL Goalie Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 02:42:16 UTC
+#> ℹ Data updated: 2026-04-08 03:01:14 UTC
 #> # A tibble: 20 × 17
 #>         id sweater_number headshot         team_abbrev team_logo position  value
 #>      <int>          <int> <chr>            <chr>       <chr>     <chr>     <dbl>
@@ -60,7 +60,7 @@ Returns a data frame with goalie leaders.
 #>  9 8479406             32 https://assets.… MIN         https://… G         4    
 #> 10 8475683             72 https://assets.… FLA         https://… G         4    
 #> 11 8475809             41 https://assets.… COL         https://… G         0.918
-#> 12 8482661             30 https://assets.… MIN         https://… G         0.914
+#> 12 8482661             30 https://assets.… MIN         https://… G         0.915
 #> 13 8482445              1 https://assets.… CGY         https://… G         0.913
 #> 14 8478048             31 https://assets.… NYR         https://… G         0.912
 #> 15 8476883             88 https://assets.… TBL         https://… G         0.912

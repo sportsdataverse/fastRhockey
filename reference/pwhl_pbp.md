@@ -28,7 +28,7 @@ multiple projections.
 ``` r
 # \donttest{
   try(pwhl_pbp(game_id = 27))
-#> 2026-04-08 02:42:38.207543: Error encountered: In argument: `game_id = as.numeric(.data$game_id)`.. Please verify the game_id and ensure it corresponds to a valid game in the PWHL.
+#> 2026-04-08 03:01:40.757197: Error encountered: In argument: `game_id = as.numeric(.data$game_id)`.. Please verify the game_id and ensure it corresponds to a valid game in the PWHL.
 #> data frame with 0 columns and 0 rows
 # }
 ```
