@@ -40,7 +40,7 @@ skaters and goalies identified by a `player_type` column.
 # \donttest{
   try(nhl_teams_stats(team_abbr = "TBL"))
 #> ── NHL Teams Stats Information from NHL.com ─────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 07:22:02 UTC
+#> ℹ Data updated: 2026-04-08 07:33:50 UTC
 #> # A tibble: 33 × 40
 #>    player_id headshot position_code games_played goals assists points plus_minus
 #>        <int> <chr>    <chr>                <int> <int>   <int>  <int>      <int>

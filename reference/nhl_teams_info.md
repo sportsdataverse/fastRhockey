@@ -30,7 +30,7 @@ Returns a data frame with team information filtered to the given team.
 # \donttest{
   try(nhl_teams_info(team_abbr = "TBL"))
 #> ── NHL Teams Information from NHL.com ───────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 07:22:01 UTC
+#> ℹ Data updated: 2026-04-08 07:33:49 UTC
 #> # A tibble: 1 × 20
 #>   team_abbr team_name team_common_name team_logo conference_abbr conference_name
 #>   <chr>     <chr>     <chr>            <chr>     <chr>           <chr>          
