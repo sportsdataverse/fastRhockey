@@ -10,9 +10,10 @@ nhl_schedule(day = NULL, season = NULL, team_abbr = NULL)
 \item{day}{Character date in "YYYY-MM-DD" format. If provided, returns
 games for that specific day.}
 
-\item{season}{Integer four-digit year for the start of the season
-(e.g., 2024 for the 2024-25 season). If provided instead of \code{day},
-returns the full season schedule.}
+\item{season}{Integer four-digit year for the \emph{end year} of the season
+(e.g., 2026 for the 2025-26 season), matching
+\code{\link[=most_recent_nhl_season]{most_recent_nhl_season()}}. If provided instead of \code{day}, returns
+the full season schedule.}
 
 \item{team_abbr}{Character three-letter team abbreviation (e.g., "TOR").
 Required when \code{season} is used. If NULL, loops through all teams.}
@@ -27,7 +28,7 @@ Uses the NHL API (\code{api-web.nhle.com}).
 \examples{
 \donttest{
   try(nhl_schedule(day = "2024-01-15"))
-  try(nhl_schedule(season = 2024, team_abbr = "TOR"))
+  try(nhl_schedule(season = 2025, team_abbr = "TOR"))
 }
 }
 \keyword{NHL}

@@ -3,9 +3,10 @@
 #' Uses the NHL API (`api-web.nhle.com`).
 #' @param day Character date in "YYYY-MM-DD" format. If provided, returns
 #'   games for that specific day.
-#' @param season Integer four-digit year for the start of the season
-#'   (e.g., 2024 for the 2024-25 season). If provided instead of `day`,
-#'   returns the full season schedule.
+#' @param season Integer four-digit year for the *end year* of the season
+#'   (e.g., 2026 for the 2025-26 season), matching
+#'   [most_recent_nhl_season()]. If provided instead of `day`, returns
+#'   the full season schedule.
 #' @param team_abbr Character three-letter team abbreviation (e.g., "TOR").
 #'   Required when `season` is used. If NULL, loops through all teams.
 #' @return Returns a data frame with game schedule information.
@@ -19,7 +20,7 @@
 #' @examples
 #' \donttest{
 #'   try(nhl_schedule(day = "2024-01-15"))
-#'   try(nhl_schedule(season = 2024, team_abbr = "TOR"))
+#'   try(nhl_schedule(season = 2025, team_abbr = "TOR"))
 #' }
 nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL) {
     if (is.null(day) && is.null(season)) {
@@ -73,7 +74,8 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL) {
 
     # --- Full season schedule ---
     if (!is.null(season)) {
-        season_str <- paste0(season, season + 1)
+        # `season` is the end year (e.g. 2026 = 2025-26)
+        season_str <- paste0(season - 1, season)
 
         if (!is.null(team_abbr)) {
             teams <- team_abbr

@@ -15,8 +15,9 @@ nhl_club_schedule(
 \arguments{
 \item{team_abbr}{Three-letter team abbreviation (e.g., "TOR", "BOS")}
 
-\item{season}{Integer 4-digit year (e.g., 2024 for the 2024-25 season).
-If NULL, returns current season schedule.}
+\item{season}{Integer 4-digit \emph{end year} of the season (e.g., 2026 for
+the 2025-26 season), matching \code{\link[=most_recent_nhl_season]{most_recent_nhl_season()}}. If NULL,
+returns the current season schedule.}
 
 \item{month}{Character month in "YYYY-MM" format (e.g., "2025-01").
 If provided, returns that month's schedule. Ignored if view is "week".}

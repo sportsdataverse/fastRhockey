@@ -2,8 +2,9 @@
 #' @description Returns schedule data for a given team. Supports season, month,
 #' and week views.
 #' @param team_abbr Three-letter team abbreviation (e.g., "TOR", "BOS")
-#' @param season Integer 4-digit year (e.g., 2024 for the 2024-25 season).
-#'   If NULL, returns current season schedule.
+#' @param season Integer 4-digit *end year* of the season (e.g., 2026 for
+#'   the 2025-26 season), matching [most_recent_nhl_season()]. If NULL,
+#'   returns the current season schedule.
 #' @param month Character month in "YYYY-MM" format (e.g., "2025-01").
 #'   If provided, returns that month's schedule. Ignored if view is "week".
 #' @param view Character: "season" (default), "month", or "week".
@@ -54,7 +55,8 @@ nhl_club_schedule <- function(
                 "https://api-web.nhle.com/v1/club-schedule-season/{team_abbr}/now"
             )
         } else {
-            api_season <- paste0(season, season + 1)
+            # `season` is the end year (e.g. 2026 = 2025-26)
+            api_season <- paste0(season - 1, season)
             url <- glue::glue(
                 "https://api-web.nhle.com/v1/club-schedule-season/{team_abbr}/{api_season}"
             )
