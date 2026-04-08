@@ -76,7 +76,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>PWHL Schedule</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/fastRhockey/blob/main/R/pwhl_schedule.R" class="external-link"><code>R/pwhl_schedule.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/fastRhockey/blob/devel/R/pwhl_schedule.R" class="external-link"><code>R/pwhl_schedule.R</code></a></small>
       <div class="d-none name"><code>pwhl_schedule.Rd</code></div>
     </div>
 
@@ -96,10 +96,16 @@
 <dl><dt id="arg-season">season<a class="anchor" aria-label="anchor" href="#arg-season"></a></dt>
 <dd><p>Season (YYYY) to pull the schedule from, the concluding year in XXXX-YY format</p></dd>
 
+
+<dt id="arg-game-type">game_type<a class="anchor" aria-label="anchor" href="#arg-game-type"></a></dt>
+<dd><p>Game type: "regular" (default), "preseason", or "playoffs".</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A data frame with schedule data</p>
+    <p>A data frame with schedule data including columns: game_id, season,
+game_date, game_status, home_team, home_team_id, away_team, away_team_id,
+home_score, away_score, winner, venue, venue_url.</p>
     </div>
 
     <div class="section level2">

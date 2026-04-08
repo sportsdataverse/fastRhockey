@@ -76,7 +76,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/sportsdataverse/fastRhockey/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/sportsdataverse/fastRhockey/blob/devel/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
     <div class="section level2">
@@ -97,11 +97,43 @@
 <li>
 <code><a href="../reference/pwhl_game_info.html">pwhl_game_info()</a></code> – PWHL game information and metadata.</li>
 <li>
+<code><a href="../reference/pwhl_game_summary.html">pwhl_game_summary()</a></code> – Detailed game summary (scoring, penalties, shots by period, three stars).</li>
+<li>
 <code><a href="../reference/pwhl_standings.html">pwhl_standings()</a></code> – PWHL league standings.</li>
 <li>
 <code><a href="../reference/pwhl_stats.html">pwhl_stats()</a></code> – PWHL stat leaders (skaters and goalies).</li>
 <li>
-<code><a href="../reference/pwhl_season_id.html">pwhl_season_id()</a></code> – PWHL season ID lookup.</li>
+<code><a href="../reference/pwhl_leaders.html">pwhl_leaders()</a></code> – League leaders (top scorers and top goalies).</li>
+<li>
+<code><a href="../reference/pwhl_season_id.html">pwhl_season_id()</a></code> – PWHL season ID lookup (now API-driven with fallback).</li>
+<li>
+<code><a href="../reference/pwhl_player_info.html">pwhl_player_info()</a></code> – Player biographical and profile information.</li>
+<li>
+<code><a href="../reference/pwhl_player_game_log.html">pwhl_player_game_log()</a></code> – Per-game statistics for a player in a season.</li>
+<li>
+<code><a href="../reference/pwhl_player_stats.html">pwhl_player_stats()</a></code> – Career and season-by-season statistics for a player.</li>
+<li>
+<code><a href="../reference/pwhl_player_search.html">pwhl_player_search()</a></code> – Search for players by name.</li>
+<li>
+<code><a href="../reference/pwhl_transactions.html">pwhl_transactions()</a></code> – Player transactions for a season.</li>
+<li>
+<code><a href="../reference/pwhl_streaks.html">pwhl_streaks()</a></code> – Player streak data for a season.</li>
+<li>
+<code><a href="../reference/pwhl_playoff_bracket.html">pwhl_playoff_bracket()</a></code> – Playoff bracket / series data.</li>
+<li>
+<code><a href="../reference/pwhl_scorebar.html">pwhl_scorebar()</a></code> – Recent and upcoming game scores.</li>
+<li>
+<code><a href="../reference/most_recent_pwhl_season.html">most_recent_pwhl_season()</a></code> – Utility to get the current PWHL season year.</li>
+<li>
+<code><a href="../reference/load_pwhl_pbp.html">load_pwhl_pbp()</a></code> – Load pre-scraped PWHL play-by-play data.</li>
+<li>
+<code><a href="../reference/load_pwhl_player_box.html">load_pwhl_player_box()</a></code> – Load pre-scraped PWHL player box scores.</li>
+<li>
+<code><a href="../reference/load_pwhl_schedule.html">load_pwhl_schedule()</a></code> – Load pre-scraped PWHL schedules.</li>
+<li>
+<code><a href="../reference/load_pwhl_rosters.html">load_pwhl_rosters()</a></code> – Load pre-scraped PWHL team rosters.</li>
+<li>
+<code><a href="../reference/update_pwhl_db.html">update_pwhl_db()</a></code> – Update or create a PWHL play-by-play database.</li>
 </ul></div>
 <div class="section level4">
 <h4 id="new-nhl-functions-1-0-0"><strong>New NHL Functions</strong><a class="anchor" aria-label="anchor" href="#new-nhl-functions-1-0-0"></a></h4>
@@ -128,7 +160,10 @@
 </ul></div>
 <div class="section level4">
 <h4 id="improvements-1-0-0"><strong>Improvements</strong><a class="anchor" aria-label="anchor" href="#improvements-1-0-0"></a></h4>
-<ul><li>Added <code>lifecycle</code> package for formal deprecation management.</li>
+<ul><li>
+<code><a href="../reference/pwhl_season_id.html">pwhl_season_id()</a></code> now retrieves season data dynamically from the HockeyTech API instead of using a hardcoded lookup table. Falls back to hardcoded data when the API is unavailable.</li>
+<li>Added internal helpers <code>.pwhl_api()</code>, <code>.pwhl_modulekit_url()</code>, <code>.pwhl_gc_url()</code>, and <code>.pwhl_resolve_season_id()</code> to reduce JSONP parsing boilerplate across PWHL functions.</li>
+<li>Added <code>lifecycle</code> package for formal deprecation management.</li>
 <li>Updated <code>testthat</code> dependency to <code>&gt;= 3.0.0</code>.</li>
 <li>Complete test coverage for all 95 exported functions (482 tests).</li>
 <li>Added environment-controlled test toggles (<code>RUN_NHL_TESTS</code>, <code>RUN_PHF_TESTS</code>, <code>RUN_PWHL_TESTS</code>) via <code>tests/testthat/helper-skip.R</code>.</li>
@@ -142,8 +177,11 @@
 <h4 id="documentation--infrastructure-1-0-0"><strong>Documentation &amp; Infrastructure</strong><a class="anchor" aria-label="anchor" href="#documentation--infrastructure-1-0-0"></a></h4>
 <ul><li>Updated <code>CONTRIBUTING.md</code> with naming conventions, testing environment variables, conventional commits guide, and deprecation process.</li>
 <li>Updated PR and issue templates.</li>
-<li>Updated <code>CLAUDE.md</code> and <code>.github/copilot-instructions.md</code> to reflect v1.0.0 changes.</li>
-<li>Added <code>data-raw/PR_devel.md</code> and <code>data-raw/NEWS_devel.md</code> development scratchpads (not tracked by git).</li>
+<li>Updated <code>CLAUDE.md</code> and <code>.github/copilot-instructions.md</code> to reflect v1.0.0 changes and new PWHL endpoints.</li>
+<li>Added <code>data-raw/pr_devel.md</code> development scratchpad.</li>
+<li>Added <code>cran_comments.md</code> for CRAN submission.</li>
+<li>Updated <code>_pkgdown.yml</code> with reorganized PWHL reference sections.</li>
+<li>Added R CMD check CI workflow and pkgdown deployment workflow.</li>
 </ul></div>
 </div>
     <div class="section level2">

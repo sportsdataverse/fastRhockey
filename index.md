@@ -19,7 +19,9 @@ R/Python packages for sports analytics.
   playoffs, and broadcast information via `api-web.nhle.com` and
   `api.nhle.com/stats`
 - **PWHL Data** – Schedules, standings, play-by-play, player box scores,
-  team rosters, and stat leaders via the HockeyTech API
+  team rosters, stat leaders, player profiles, game logs, career stats,
+  player search, league leaders, transactions, streaks, playoff
+  brackets, game summaries, and scorebar via the HockeyTech API
 - **xG Models** – Expected goals predictions for NHL play-by-play data
   using XGBoost models (5v5, special teams, penalty shots)
 - **Full Season Loaders** –
@@ -28,7 +30,12 @@ R/Python packages for sports analytics.
   [`load_nhl_team_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_box.md),
   [`load_nhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_player_box.md),
   [`load_nhl_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_rosters.md)
-  for bulk historical data
+  for bulk historical NHL data;
+  [`load_pwhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_pbp.md),
+  [`load_pwhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_schedule.md),
+  [`load_pwhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_player_box.md),
+  [`load_pwhl_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_rosters.md)
+  for PWHL
 
 > **Note:** PHF (Premier Hockey Federation) functions are deprecated as
 > of v1.0.0. The league ceased operations; use PWHL functions instead.
@@ -70,13 +77,18 @@ nhl_standings(season = "20242025")
 nhl_game_feed(game_id = 2024020001)
 
 # PWHL
-pwhl_schedule(season = 2024)
-pwhl_standings(season = 2024)
+pwhl_schedule(season = 2025)
+pwhl_standings(season = 2025)
 pwhl_pbp(game_id = 27)
+pwhl_player_info(player_id = 28)
+pwhl_leaders(position = "skaters", season = 2025)
+pwhl_game_summary(game_id = 27)
 
 # Full season loaders
 load_nhl_pbp(seasons = 2024)
 load_nhl_schedule(seasons = 2024)
+load_pwhl_pbp(seasons = 2024)
+load_pwhl_schedule(seasons = 2024)
 ```
 
 ------------------------------------------------------------------------

@@ -78,7 +78,7 @@ or writes it into a db using some forwarded arguments in the dots"><meta propert
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>Load fastRhockey NHL player box scores</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/fastRhockey/blob/main/R/nhl_pbp.R" class="external-link"><code>R/nhl_pbp.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/fastRhockey/blob/devel/R/nhl_pbp.R" class="external-link"><code>R/nhl_pbp.R</code></a></small>
       <div class="d-none name"><code>load_nhl_player_box.Rd</code></div>
     </div>
 
@@ -127,10 +127,27 @@ the season data into a database (used by <code><a href="update_nhl_db.html">upda
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">load_nhl_player_box</span><span class="op">(</span><span class="fl">2021</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_player_boxscores/player_box_2021.rds': HTTP status was '404 Not Found'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to readRDS from &lt;https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_player_boxscores/player_box_2021.rds&gt;</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ─────────────────────────────────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 56,020 × 34</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    home_away team_id team_abbrev player_id player_name  sweater_number position</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> away            5 PIT           8<span style="text-decoration: underline;">478</span>542 E. Rodrigues              9 C       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> away            5 PIT           8<span style="text-decoration: underline;">482</span>055 D. O'Connor              10 L       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> away            5 PIT           8<span style="text-decoration: underline;">470</span>619 B. Boyle                 11 C       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> away            5 PIT           8<span style="text-decoration: underline;">475</span>722 J. Zucker                16 L       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> away            5 PIT           8<span style="text-decoration: underline;">475</span>810 B. Rust                  17 R       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> away            5 PIT           8<span style="text-decoration: underline;">478</span>043 S. Lafferty              18 C       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> away            5 PIT           8<span style="text-decoration: underline;">476</span>934 B. McGinn                23 L       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> away            5 PIT           8<span style="text-decoration: underline;">477</span>953 K. Kapanen               42 R       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> away            5 PIT           8<span style="text-decoration: underline;">478</span>046 D. Heinen                43 L       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> away            5 PIT           8<span style="text-decoration: underline;">478</span>866 D. Simon                 49 C       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 56,010 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 27 more variables: goals &lt;int&gt;, assists &lt;int&gt;, points &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   plus_minus &lt;int&gt;, pim &lt;int&gt;, hits &lt;int&gt;, power_play_goals &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   shots_on_goal &lt;int&gt;, faceoff_winning_pctg &lt;dbl&gt;, toi &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   blocked_shots &lt;int&gt;, shifts &lt;int&gt;, giveaways &lt;int&gt;, takeaways &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   even_strength_shots_against &lt;chr&gt;, power_play_shots_against &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   shorthanded_shots_against &lt;chr&gt;, save_shots_against &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

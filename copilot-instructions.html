@@ -76,7 +76,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="logo.png" class="logo" alt=""><h1>GitHub Copilot Instructions</h1>
-      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/fastRhockey/blob/main/.github/copilot-instructions.md" class="external-link"><code>.github/copilot-instructions.md</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/fastRhockey/blob/devel/.github/copilot-instructions.md" class="external-link"><code>.github/copilot-instructions.md</code></a></small>
     </div>
 
 <div id="github-copilot-instructions" class="section level1">
@@ -199,15 +199,27 @@
   phf_league_info.R         # PHF league info
 
   # --- PWHL Functions (lscluster.hockeytech.com) ---
+  pwhl_helpers.R            # .pwhl_api(), .pwhl_modulekit_url(), .pwhl_gc_url()
   pwhl_schedule.R           # PWHL schedule
   pwhl_standings.R          # PWHL standings
   pwhl_pbp.R                # PWHL play-by-play
   pwhl_player_box.R         # PWHL player box scores
   pwhl_game_info.R          # PWHL game info
+  pwhl_game_summary.R       # PWHL game summary (gc feed)
   pwhl_teams.R              # PWHL team list
   pwhl_team_roster.R        # PWHL team rosters
   pwhl_stat_leaders.R       # PWHL stat leaders
-  pwhl_season_id.R          # PWHL season ID lookup
+  pwhl_season_id.R          # PWHL season ID lookup (dynamic API + fallback)
+  pwhl_player_info.R        # PWHL player profile
+  pwhl_player_game_log.R    # PWHL player game-by-game stats
+  pwhl_player_stats.R       # PWHL player career/season stats
+  pwhl_player_search.R      # PWHL player search
+  pwhl_leaders.R            # PWHL league leaders (top scorers/goalies)
+  pwhl_transactions.R       # PWHL player transactions
+  pwhl_streaks.R            # PWHL player streaks
+  pwhl_playoff_bracket.R    # PWHL playoff bracket
+  pwhl_scorebar.R           # PWHL scorebar (recent/upcoming scores)
+  pwhl_loaders.R            # load_pwhl_pbp, _player_box, _schedule, _rosters, update_pwhl_db
 
   # --- Data Loaders (from sportsdataverse data repos) ---
   nhl_pbp.R                 # load_nhl_pbp, _player_box, _rosters, _schedule, _team_box, update_nhl_db
@@ -233,10 +245,18 @@ vignettes/                  # Vignettes for pkgdown site</code></pre>
 <td><code>api.nhle.com/stats/rest/{lang}/</code></td>
 <td>Skater/goalie/team stats, draft stats, seasons</td>
 <td>None</td>
-</tr><tr class="odd"><td>HockeyTech</td>
-<td><code>lscluster.hockeytech.com/feed/</code></td>
-<td>All PWHL functions</td>
-<td>API key in URL</td>
+</tr><tr class="odd"><td>HockeyTech (statviewfeed)</td>
+<td><code>lscluster.hockeytech.com/feed/?feed=statviewfeed</code></td>
+<td>PWHL schedule, standings, roster, PBP, box scores, stats</td>
+<td>Public key in URL</td>
+</tr><tr class="even"><td>HockeyTech (modulekit)</td>
+<td><code>lscluster.hockeytech.com/feed/?feed=modulekit</code></td>
+<td>PWHL seasons, player info, leaders, transactions, streaks, brackets, scorebar</td>
+<td>Public key in URL</td>
+</tr><tr class="odd"><td>HockeyTech (gc)</td>
+<td><code>lscluster.hockeytech.com/feed/?feed=gc</code></td>
+<td>PWHL game summary</td>
+<td>Public key in URL</td>
 </tr></tbody></table><ul><li>
 <strong>NHL Web API</strong> returns clean JSON; parsed with <code><a href="https://jeroen.r-universe.dev/jsonlite/reference/fromJSON.html" class="external-link">jsonlite::fromJSON()</a></code>
 </li>
@@ -306,7 +326,11 @@ vignettes/                  # Vignettes for pkgdown site</code></pre>
 <li>
 <strong>most_recent_nhl_season_api_param():</strong> Returns <code>"20242025"</code> format</li>
 <li>
-<strong>PWHL:</strong> Numeric year (e.g., <code>2024</code>)</li>
+<strong>PWHL:</strong> Numeric year (e.g., <code>2025</code>)</li>
+<li>
+<strong>most_recent_pwhl_season():</strong> Returns concluding year as numeric (e.g., <code>2025</code>)</li>
+<li>
+<strong>pwhl_season_id():</strong> Maps (season, game_type) to HockeyTech season_id dynamically</li>
 </ul></div>
 <div class="section level3">
 <h3 id="naming-conventions">Naming Conventions<a class="anchor" aria-label="anchor" href="#naming-conventions"></a></h3>

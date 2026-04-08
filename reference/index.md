@@ -2,12 +2,29 @@
 
 ## Professional Women’s Hockey League
 
-Functions exported by fastRhockey which provide access to PWHL data
+### Game Data
+
+Functions for accessing PWHL game-level data
+
+- [`pwhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_schedule.md)
+  :
+
+  **PWHL Schedule**
+
+- [`pwhl_scorebar()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_scorebar.md)
+  :
+
+  **PWHL Scorebar**
 
 - [`pwhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_game_info.md)
   :
 
   **PWHL Game Information**
+
+- [`pwhl_game_summary()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_game_summary.md)
+  :
+
+  **PWHL Game Summary**
 
 - [`pwhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_pbp.md)
   :
@@ -19,35 +36,119 @@ Functions exported by fastRhockey which provide access to PWHL data
 
   **PWHL Player Game Box Scores**
 
-- [`pwhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_schedule.md)
+### Team Data
+
+Functions for accessing PWHL team-level data
+
+- [`pwhl_teams()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_teams.md)
   :
 
-  **PWHL Schedule**
-
-- [`pwhl_season_id()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_season_id.md)
-  :
-
-  **PWHL Season IDs**
-
-- [`pwhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_standings.md)
-  :
-
-  **PWHL Standings**
-
-- [`pwhl_stats()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_stats.md)
-  :
-
-  **PWHL Stats**
+  **PWHL Teams**
 
 - [`pwhl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_team_roster.md)
   :
 
   **PWHL Rosters**
 
-- [`pwhl_teams()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_teams.md)
+- [`pwhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_standings.md)
   :
 
-  **PWHL Teams**
+  **PWHL Standings**
+
+### Player Data
+
+Functions for accessing PWHL player-level data
+
+- [`pwhl_player_info()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_info.md)
+  :
+
+  **PWHL Player Info**
+
+- [`pwhl_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_stats.md)
+  :
+
+  **PWHL Player Season Stats**
+
+- [`pwhl_player_game_log()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_game_log.md)
+  :
+
+  **PWHL Player Game Log**
+
+- [`pwhl_player_search()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_search.md)
+  :
+
+  **PWHL Player Search**
+
+- [`pwhl_stats()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_stats.md)
+  :
+
+  **PWHL Stats**
+
+- [`pwhl_leaders()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_leaders.md)
+  :
+
+  **PWHL League Leaders**
+
+- [`pwhl_streaks()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_streaks.md)
+  :
+
+  **PWHL Player Streaks**
+
+### League Data
+
+Functions for accessing PWHL league-level data
+
+- [`pwhl_season_id()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_season_id.md)
+  :
+
+  **PWHL Season IDs**
+
+- [`pwhl_transactions()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_transactions.md)
+  :
+
+  **PWHL Transactions**
+
+- [`pwhl_playoff_bracket()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_playoff_bracket.md)
+  :
+
+  **PWHL Playoff Bracket**
+
+## PWHL Data Loaders
+
+### Full Seasons of PWHL Data
+
+Functions that load full seasons of pre-scraped PWHL data from the
+sportsdataverse-data releases
+
+- [`load_pwhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_pbp.md)
+  :
+
+  **Load fastRhockey PWHL play-by-play**
+
+- [`load_pwhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_player_box.md)
+  :
+
+  **Load fastRhockey PWHL player box scores**
+
+- [`load_pwhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_schedule.md)
+  :
+
+  **Load fastRhockey PWHL schedules**
+
+- [`load_pwhl_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_rosters.md)
+  :
+
+  **Load fastRhockey PWHL team rosters**
+
+### Update or Create PWHL Database
+
+Functions that update and create a database of fastRhockey PWHL
+play-by-play data
+
+- [`update_pwhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_pwhl_db.md)
+  :
+
+  **Update or create a fastRhockey PWHL play-by-play database**
 
 ## NHL Data
 
@@ -397,6 +498,11 @@ NHL data
 
   **Load fastRhockey NHL play-by-play**
 
+- [`load_nhl_pbp_lite()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp_lite.md)
+  :
+
+  **Load cleaned NHL play-by-play (lite) from the data repo**
+
 - [`load_nhl_team_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_box.md)
   :
 
@@ -468,6 +574,11 @@ loading data
   :
 
   **Most Recent NHL Season for NHL API**
+
+- [`most_recent_pwhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_pwhl_season.md)
+  :
+
+  **Most Recent PWHL Season**
 
 - [`most_recent_phf_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_phf_season.md)
   **\[deprecated\]** :

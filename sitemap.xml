@@ -9,6 +9,7 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/articles/introduction.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/authors.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/copilot-instructions.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/cran_comments.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/index.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/news/index.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/csv_from_url.html</loc></url>
@@ -28,6 +29,7 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-fix_coordinates.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-game_type_label.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-get_pbp_data.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-get_raw_pbp.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-integrate_shifts.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-join_event_player_names.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-load_xg_models.html</loc></url>
@@ -44,6 +46,7 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/helper_nhl_prepare_xg_data.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/index.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp_lite.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_player_box.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_rosters.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_schedule.html</loc></url>
@@ -53,9 +56,14 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_phf_rosters.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_phf_schedule.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_phf_team_box.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/load_pwhl_pbp.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/load_pwhl_player_box.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/load_pwhl_rosters.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/load_pwhl_schedule.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/most_recent_nhl_season.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/most_recent_nhl_season_api_param.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/most_recent_phf_season.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/most_recent_pwhl_season.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_club_schedule.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_club_stats_season.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_conferences.html</loc></url>
@@ -125,17 +133,28 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/phf_team_stats.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/progressively.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_game_info.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_game_summary.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_leaders.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_pbp.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_player_box.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_player_game_log.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_player_info.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_player_search.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_player_stats.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_playoff_bracket.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_schedule.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_scorebar.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_season_id.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_standings.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_stats.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_streaks.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_team_roster.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_teams.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_transactions.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/rds_from_url.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/refresh_xg_models.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/update_nhl_db.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/update_phf_db.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/update_pwhl_db.html</loc></url>
 </urlset>
 

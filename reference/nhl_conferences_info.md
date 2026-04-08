@@ -37,7 +37,7 @@ filtered by conference.
 # \donttest{
   try(nhl_conferences_info(conference_name = "Eastern"))
 #> ── NHL Conference Information from NHL.com ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 16:23:14 UTC
+#> ℹ Data updated: 2026-04-08 02:42:09 UTC
 #> # A tibble: 16 × 36
 #>    team_abbr team_name             team_common_name team_logo    conference_name
 #>    <chr>     <chr>                 <chr>            <chr>        <chr>          
@@ -49,9 +49,9 @@ filtered by conference.
 #>  6 BOS       Boston Bruins         Bruins           https://ass… Eastern        
 #>  7 OTT       Ottawa Senators       Senators         https://ass… Eastern        
 #>  8 PHI       Philadelphia Flyers   Flyers           https://ass… Eastern        
-#>  9 NYI       New York Islanders    Islanders        https://ass… Eastern        
+#>  9 CBJ       Columbus Blue Jackets Blue Jackets     https://ass… Eastern        
 #> 10 DET       Detroit Red Wings     Red Wings        https://ass… Eastern        
-#> 11 CBJ       Columbus Blue Jackets Blue Jackets     https://ass… Eastern        
+#> 11 NYI       New York Islanders    Islanders        https://ass… Eastern        
 #> 12 WSH       Washington Capitals   Capitals         https://ass… Eastern        
 #> 13 NJD       New Jersey Devils     Devils           https://ass… Eastern        
 #> 14 TOR       Toronto Maple Leafs   Maple Leafs      https://ass… Eastern        

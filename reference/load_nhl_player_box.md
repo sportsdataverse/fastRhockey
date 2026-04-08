@@ -45,9 +45,26 @@ Returns a tibble
 ``` r
 # \donttest{
   try(load_nhl_player_box(2021))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_player_boxscores/player_box_2021.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_player_boxscores/player_box_2021.rds>
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 56,020 × 34
+#>    home_away team_id team_abbrev player_id player_name  sweater_number position
+#>    <chr>       <int> <chr>           <int> <chr>                 <int> <chr>   
+#>  1 away            5 PIT           8478542 E. Rodrigues              9 C       
+#>  2 away            5 PIT           8482055 D. O'Connor              10 L       
+#>  3 away            5 PIT           8470619 B. Boyle                 11 C       
+#>  4 away            5 PIT           8475722 J. Zucker                16 L       
+#>  5 away            5 PIT           8475810 B. Rust                  17 R       
+#>  6 away            5 PIT           8478043 S. Lafferty              18 C       
+#>  7 away            5 PIT           8476934 B. McGinn                23 L       
+#>  8 away            5 PIT           8477953 K. Kapanen               42 R       
+#>  9 away            5 PIT           8478046 D. Heinen                43 L       
+#> 10 away            5 PIT           8478866 D. Simon                 49 C       
+#> # ℹ 56,010 more rows
+#> # ℹ 27 more variables: goals <int>, assists <int>, points <int>,
+#> #   plus_minus <int>, pim <int>, hits <int>, power_play_goals <int>,
+#> #   shots_on_goal <int>, faceoff_winning_pctg <dbl>, toi <chr>,
+#> #   blocked_shots <int>, shifts <int>, giveaways <int>, takeaways <int>,
+#> #   even_strength_shots_against <chr>, power_play_shots_against <chr>,
+#> #   shorthanded_shots_against <chr>, save_shots_against <chr>, …
 # }
 ```

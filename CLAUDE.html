@@ -76,7 +76,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="logo.png" class="logo" alt=""><h1>CLAUDE.md</h1>
-      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/fastRhockey/blob/main/CLAUDE.md" class="external-link"><code>CLAUDE.md</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/fastRhockey/blob/devel/CLAUDE.md" class="external-link"><code>CLAUDE.md</code></a></small>
     </div>
 
 <div id="claudemd" class="section level1">
@@ -117,6 +117,7 @@
   zzz.R                     # .onLoad() — xG model download/caching lifecycle
   fastRhockey-package.R     # Package-level roxygen2 documentation, lifecycle import
   helpers_nhl.R             # helper_nhl_calculate_xg(), helper_nhl_prepare_xg_data()
+  pwhl_helpers.R            # .pwhl_api(), .pwhl_modulekit_url(), .pwhl_gc_url() — PWHL JSONP helpers
   nhl_*.R                   # NHL functions (api-web.nhle.com + api.nhle.com/stats)
   phf_*.R                   # PHF functions (deprecated — league defunct)
   pwhl_*.R                  # PWHL functions (lscluster.hockeytech.com)
@@ -140,10 +141,21 @@ vignettes/                  # Vignettes for pkgdown site</code></pre>
 <td><code>api.nhle.com/stats/rest/{lang}/</code></td>
 <td>Skater/goalie/team stats, draft</td>
 <td>None</td>
-</tr><tr class="odd"><td>HockeyTech</td>
-<td><code>lscluster.hockeytech.com/feed/</code></td>
-<td>All PWHL functions</td>
-<td>Public key in URL</td>
+</tr><tr class="odd"><td>HockeyTech (statviewfeed)</td>
+<td><code>lscluster.hockeytech.com/feed/?feed=statviewfeed</code></td>
+<td>PWHL schedule, standings, roster, PBP, box scores, stats</td>
+<td>Public key <code>694cfeed58c932ee</code>
+</td>
+</tr><tr class="even"><td>HockeyTech (modulekit)</td>
+<td><code>lscluster.hockeytech.com/feed/?feed=modulekit</code></td>
+<td>PWHL seasons, player info, leaders, transactions, streaks, brackets, scorebar</td>
+<td>Public key <code>446521baf8c38984</code>
+</td>
+</tr><tr class="odd"><td>HockeyTech (gc)</td>
+<td><code>lscluster.hockeytech.com/feed/?feed=gc</code></td>
+<td>PWHL game summary, game center</td>
+<td>Public key <code>446521baf8c38984</code>
+</td>
 </tr></tbody></table><ul><li>
 <strong>NHL Web API</strong> returns clean JSON parsed with <code><a href="https://jeroen.r-universe.dev/jsonlite/reference/fromJSON.html" class="external-link">jsonlite::fromJSON()</a></code>
 </li>
@@ -151,7 +163,89 @@ vignettes/                  # Vignettes for pkgdown site</code></pre>
 <strong>NHL Stats API</strong> uses Cayenne filter expressions for query params</li>
 <li>
 <strong>HockeyTech</strong> returns JSONP with Angular callbacks that must be regex-stripped before parsing</li>
+<li>PWHL internal helpers in <code>pwhl_helpers.R</code>: <code>.pwhl_api()</code> strips JSONP, <code>.pwhl_modulekit_url()</code> / <code>.pwhl_gc_url()</code> build URLs</li>
 </ul></div>
+<div class="section level3">
+<h3 id="pwhl-functions-20-exported">PWHL Functions (20 exported)<a class="anchor" aria-label="anchor" href="#pwhl-functions-20-exported"></a></h3>
+<table class="table"><colgroup><col width="29%"><col width="29%"><col width="41%"></colgroup><thead><tr class="header"><th>Function</th>
+<th>Category</th>
+<th>Endpoint Feed</th>
+</tr></thead><tbody><tr class="odd"><td><code><a href="reference/pwhl_teams.html">pwhl_teams()</a></code></td>
+<td>Teams</td>
+<td>statviewfeed</td>
+</tr><tr class="even"><td><code><a href="reference/pwhl_team_roster.html">pwhl_team_roster()</a></code></td>
+<td>Teams</td>
+<td>statviewfeed</td>
+</tr><tr class="odd"><td><code><a href="reference/pwhl_schedule.html">pwhl_schedule()</a></code></td>
+<td>Games</td>
+<td>statviewfeed</td>
+</tr><tr class="even"><td><code><a href="reference/pwhl_standings.html">pwhl_standings()</a></code></td>
+<td>Teams</td>
+<td>statviewfeed</td>
+</tr><tr class="odd"><td><code><a href="reference/pwhl_game_info.html">pwhl_game_info()</a></code></td>
+<td>Games</td>
+<td>statviewfeed</td>
+</tr><tr class="even"><td><code><a href="reference/pwhl_pbp.html">pwhl_pbp()</a></code></td>
+<td>Games</td>
+<td>statviewfeed</td>
+</tr><tr class="odd"><td><code><a href="reference/pwhl_player_box.html">pwhl_player_box()</a></code></td>
+<td>Games</td>
+<td>statviewfeed</td>
+</tr><tr class="even"><td><code><a href="reference/pwhl_stats.html">pwhl_stats()</a></code></td>
+<td>Players</td>
+<td>statviewfeed</td>
+</tr><tr class="odd"><td><code><a href="reference/pwhl_season_id.html">pwhl_season_id()</a></code></td>
+<td>League</td>
+<td>modulekit (dynamic, with hardcoded fallback)</td>
+</tr><tr class="even"><td><code><a href="reference/pwhl_player_info.html">pwhl_player_info()</a></code></td>
+<td>Players</td>
+<td>modulekit</td>
+</tr><tr class="odd"><td><code><a href="reference/pwhl_player_game_log.html">pwhl_player_game_log()</a></code></td>
+<td>Players</td>
+<td>modulekit</td>
+</tr><tr class="even"><td><code><a href="reference/pwhl_player_stats.html">pwhl_player_stats()</a></code></td>
+<td>Players</td>
+<td>modulekit</td>
+</tr><tr class="odd"><td><code><a href="reference/pwhl_player_search.html">pwhl_player_search()</a></code></td>
+<td>Players</td>
+<td>modulekit</td>
+</tr><tr class="even"><td><code><a href="reference/pwhl_leaders.html">pwhl_leaders()</a></code></td>
+<td>Players</td>
+<td>modulekit</td>
+</tr><tr class="odd"><td><code><a href="reference/pwhl_transactions.html">pwhl_transactions()</a></code></td>
+<td>League</td>
+<td>modulekit</td>
+</tr><tr class="even"><td><code><a href="reference/pwhl_streaks.html">pwhl_streaks()</a></code></td>
+<td>Players</td>
+<td>modulekit</td>
+</tr><tr class="odd"><td><code><a href="reference/pwhl_playoff_bracket.html">pwhl_playoff_bracket()</a></code></td>
+<td>League</td>
+<td>modulekit</td>
+</tr><tr class="even"><td><code><a href="reference/pwhl_scorebar.html">pwhl_scorebar()</a></code></td>
+<td>Games</td>
+<td>modulekit</td>
+</tr><tr class="odd"><td><code><a href="reference/pwhl_game_summary.html">pwhl_game_summary()</a></code></td>
+<td>Games</td>
+<td>gc</td>
+</tr><tr class="even"><td><code><a href="reference/most_recent_pwhl_season.html">most_recent_pwhl_season()</a></code></td>
+<td>Utility</td>
+<td>(computed)</td>
+</tr><tr class="odd"><td><code><a href="reference/load_pwhl_pbp.html">load_pwhl_pbp()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr><tr class="even"><td><code><a href="reference/load_pwhl_player_box.html">load_pwhl_player_box()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr><tr class="odd"><td><code><a href="reference/load_pwhl_schedule.html">load_pwhl_schedule()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr><tr class="even"><td><code><a href="reference/load_pwhl_rosters.html">load_pwhl_rosters()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr><tr class="odd"><td><code><a href="reference/update_pwhl_db.html">update_pwhl_db()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr></tbody></table></div>
 <div class="section level3">
 <h3 id="s3-class-fastrhockey_data">S3 Class: <code>fastRhockey_data</code>
 <a class="anchor" aria-label="anchor" href="#s3-class-fastrhockey_data"></a></h3>
@@ -177,7 +271,7 @@ vignettes/                  # Vignettes for pkgdown site</code></pre>
 <code>tryCatch</code> with <code><a href="https://rdrr.io/r/base/message.html" class="external-link">message()</a></code> for errors — functions return <code>NULL</code> on failure, not errors</li>
 <li>
 <code><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue::glue()</a></code> for URL string interpolation</li>
-<li>Internal helpers prefixed with <code>.</code> (e.g., <code><a href="reference/dot-parse_game_rosters.html">.parse_game_rosters()</a></code>)</li>
+<li>Internal helpers prefixed with <code>.</code> (e.g., <code><a href="reference/dot-parse_game_rosters.html">.parse_game_rosters()</a></code>, <code>.pwhl_api()</code>)</li>
 <li>
 <code><a href="https://rdrr.io/r/utils/globalVariables.html" class="external-link">globalVariables()</a></code> in <code>utils.R</code> suppress R CMD check NSE notes</li>
 <li>Conventional Commits: <code>&lt;type&gt;(&lt;scope&gt;): &lt;description&gt;</code>
@@ -189,7 +283,7 @@ vignettes/                  # Vignettes for pkgdown site</code></pre>
 <ul><li>
 <strong>Exported:</strong> <code>league_entity_action()</code> (e.g., <code><a href="reference/nhl_teams_roster.html">nhl_teams_roster()</a></code>, <code><a href="reference/pwhl_schedule.html">pwhl_schedule()</a></code>)</li>
 <li>
-<strong>Internal:</strong> <code>.snake_case()</code> with leading dot (e.g., <code><a href="reference/dot-parse_game_rosters.html">.parse_game_rosters()</a></code>)</li>
+<strong>Internal:</strong> <code>.snake_case()</code> with leading dot (e.g., <code><a href="reference/dot-parse_game_rosters.html">.parse_game_rosters()</a></code>, <code>.pwhl_api()</code>)</li>
 <li>
 <strong>Tests:</strong> <code>test-function_name.R</code>
 </li>
@@ -205,7 +299,14 @@ vignettes/                  # Vignettes for pkgdown site</code></pre>
 <code><a href="reference/most_recent_nhl_season.html">most_recent_nhl_season()</a></code> returns end year as numeric (e.g., <code>2025</code>)</li>
 <li>
 <code><a href="reference/most_recent_nhl_season_api_param.html">most_recent_nhl_season_api_param()</a></code> returns <code>"20242025"</code> format</li>
-<li>PWHL: numeric year (e.g., <code>2024</code>)</li>
+<li>PWHL: numeric year (e.g., <code>2025</code>)</li>
+<li>
+<code><a href="reference/most_recent_pwhl_season.html">most_recent_pwhl_season()</a></code> returns concluding year as numeric (e.g., <code>2025</code>)</li>
+<li>
+<code><a href="reference/pwhl_season_id.html">pwhl_season_id()</a></code> maps (season, game_type) → HockeyTech <code>season_id</code>
+</li>
+<li>
+<code>.pwhl_resolve_season_id(season, game_type)</code> is the internal convenience wrapper</li>
 </ul></div>
 </div>
 <div class="section level2">
@@ -227,7 +328,7 @@ vignettes/                  # Vignettes for pkgdown site</code></pre>
 <li>
 <strong>Deprecated functions:</strong> wrap calls in <code><a href="https://rdrr.io/r/base/warning.html" class="external-link">suppressWarnings()</a></code> in tests</li>
 <li>
-<strong>Reproducibility:</strong> use specific game IDs/dates (e.g., <code>game_id = 2023020001</code>)</li>
+<strong>Reproducibility:</strong> use specific game IDs/dates (e.g., <code>game_id = 2023020001</code>, PWHL <code>game_id = 27</code>)</li>
 </ul></div>
 <div class="section level2">
 <h2 id="commit-authorship">Commit Authorship<a class="anchor" aria-label="anchor" href="#commit-authorship"></a></h2>

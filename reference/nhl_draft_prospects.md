@@ -21,7 +21,7 @@ Returns a data frame of draft prospect rankings.
 # \donttest{
    try(nhl_draft_prospects())
 #> ── NHL Draft Prospects data from NHL.com ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 16:23:16 UTC
+#> ℹ Data updated: 2026-04-08 02:42:10 UTC
 #> # A tibble: 225 × 13
 #>    last_name first_name position_code shoots_catches height_in_inches
 #>    <chr>     <chr>      <chr>         <chr>                     <int>

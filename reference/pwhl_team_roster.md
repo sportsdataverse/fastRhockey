@@ -25,7 +25,9 @@ pwhl_team_roster(team, season, regular = TRUE)
 
 ## Value
 
-A data frame with roster data
+A data frame with roster data including columns: player_id, team_id,
+season, player_name, first_name, last_name, primary_hand, dob, height,
+position, home_town, league, age, player_headshot, regular_season, team.
 
 ## Examples
 

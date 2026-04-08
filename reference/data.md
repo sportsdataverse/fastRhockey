@@ -18,78 +18,42 @@ phf_team_logos
 
 A data frame with 32 rows and 11 variables:
 
-- full_team_name:
+- `full_team_name` - full team name
 
-  full team name
+- `team_abbr` - NHL.com team abbreviation
 
-- team_abbr:
+- `team_nick` - lowercase, no spaces team nickname
 
-  NHL.com team abbreviation
+- `division` - current NHL division
 
-- team_nick:
+- `conference` - current NHL conference
 
-  lowercase, no spaces team nickname
+- `team_logo_espn` - primary team logo from ESPN.com
 
-- division:
+- `team_color1` - current primary team color
 
-  current NHL division
+- `team_color2` - current secondary team color
 
-- conference:
+- `team_logo_alternate` - alternate or throwback logo
 
-  current NHL conference
+- `team_color_alt1` - alternate logo primary color
 
-- team_logo_espn:
-
-  primary team logo from ESPN.com
-
-- team_color1:
-
-  current primary team color
-
-- team_color2:
-
-  current secondary team color
-
-- team_logo_alternate:
-
-  alternate or throwback logo
-
-- team_color_alt1:
-
-  alternate logo primary color
-
-- team_color_alt2:
-
-  alternate logo secondary color
+- `team_color_alt2` - alternate logo secondary color
 
 A data frame with 6 rows and 7 variables:
 
-- full_team_name:
+- `full_team_name` - Full team name
 
-  Full team name
+- `team_abbr` - PremierHockeyFederation.com team abbreviation
 
-- team_abbr:
+- `team_nick` - Team Nickname
 
-  PremierHockeyFederation.com team abbreviation
+- `team_location` - PHF team location
 
-- team_nick:
+- `team_color1` - Current primary team color. Full disclosure, I just
+  color picked from the logos
 
-  Team Nickname
+- `team_color2` - Current secondary team color. Full disclosure, I just
+  color picked from the logos
 
-- team_location:
-
-  PHF team location
-
-- team_color1:
-
-  Current primary team color. Full disclosure, I just color picked from
-  the logos
-
-- team_color2:
-
-  Current secondary team color. Full disclosure, I just color picked
-  from the logos
-
-- team_logo:
-
-  Primary team logo from fastRhockey data repository
+- `team_logo` - Primary team logo from fastRhockey data repository

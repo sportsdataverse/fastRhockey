@@ -45,9 +45,21 @@ Returns a tibble
 ``` r
 # \donttest{
   try(load_nhl_rosters(2021))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_rosters/rosters_2021.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_rosters/rosters_2021.rds>
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 1,295 × 9
+#>    player_id full_name      first_name last_name team_abbr team_id position_code
+#>        <int> <chr>          <chr>      <chr>     <chr>       <int> <chr>        
+#>  1   8470604 Jeff Carter    Jeff       Carter    PIT             5 C            
+#>  2   8470619 Brian Boyle    Brian      Boyle     PIT             5 C            
+#>  3   8470621 Corey Perry    Corey      Perry     TBL            14 R            
+#>  4   8470880 Brian Elliott  Brian      Elliott   TBL            14 G            
+#>  5   8471724 Kris Letang    Kris       Letang    PIT             5 D            
+#>  6   8473986 Alex Killorn   Alex       Killorn   TBL            14 C            
+#>  7   8474034 Patrick Maroon Patrick    Maroon    TBL            14 L            
+#>  8   8474151 Ryan McDonagh  Ryan       McDonagh  TBL            14 D            
+#>  9   8474564 Steven Stamkos Steven     Stamkos   TBL            14 C            
+#> 10   8474567 Zach Bogosian  Zach       Bogosian  TBL            14 D            
+#> # ℹ 1,285 more rows
+#> # ℹ 2 more variables: sweater_number <int>, season <int>
 # }
 ```

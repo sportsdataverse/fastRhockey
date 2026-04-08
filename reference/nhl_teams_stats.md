@@ -40,21 +40,21 @@ skaters and goalies identified by a `player_type` column.
 # \donttest{
   try(nhl_teams_stats(team_abbr = "TBL"))
 #> ── NHL Teams Stats Information from NHL.com ─────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-07 16:23:37 UTC
-#> # A tibble: 32 × 40
+#> ℹ Data updated: 2026-04-08 02:42:26 UTC
+#> # A tibble: 33 × 40
 #>    player_id headshot position_code games_played goals assists points plus_minus
 #>        <int> <chr>    <chr>                <int> <int>   <int>  <int>      <int>
-#>  1   8470621 https:/… R                       67    15      19     34         -2
-#>  2   8474151 https:/… D                       44     6      12     18         12
+#>  1   8470621 https:/… R                       68    16      20     36         -2
+#>  2   8474151 https:/… D                       45     6      13     19         12
 #>  3   8475167 https:/… D                       33     1      16     17         -1
-#>  4   8476453 https:/… R                       71    43      83    126         45
-#>  5   8476826 https:/… C                       77     9      19     28         -3
-#>  6   8476878 https:/… C                       70     9       9     18         -1
+#>  4   8476453 https:/… R                       72    43      84    127         44
+#>  5   8476826 https:/… C                       78     9      19     28         -4
+#>  6   8476878 https:/… C                       71     9       9     18         -1
 #>  7   8477149 https:/… R                       23     1       3      4          0
-#>  8   8477404 https:/… C                       77    37      49     86         15
-#>  9   8477416 https:/… R                       75    11      19     30        -13
-#> 10   8477426 https:/… L                       46     6       7     13        -15
-#> # ℹ 22 more rows
+#>  8   8477404 https:/… C                       78    37      49     86         13
+#>  9   8477416 https:/… R                       76    11      19     30        -15
+#> 10   8477426 https:/… L                       47     7       8     15        -14
+#> # ℹ 23 more rows
 #> # ℹ 32 more variables: penalty_minutes <int>, power_play_goals <int>,
 #> #   shorthanded_goals <int>, game_winning_goals <int>, overtime_goals <int>,
 #> #   shots <int>, shooting_pctg <dbl>, avg_time_on_ice_per_game <dbl>,

@@ -10,7 +10,21 @@ pwhl_teams()
 
 ## Value
 
-A data frame with team data
+A data frame with columns:
+
+- `team_name` - Full team name (e.g., "PWHL Boston")
+
+- `team_id` - Numeric team identifier
+
+- `team_code` - Three-letter team code (e.g., "BOS")
+
+- `team_nickname` - Team nickname
+
+- `team_label` - Short city label (e.g., "Boston")
+
+- `division` - Division identifier
+
+- `team_logo` - URL to team logo image
 
 ## Examples
 

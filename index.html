@@ -132,11 +132,11 @@
 <strong>NHL Data</strong> – Game feeds, boxscores, play-by-play with shifts, schedules, standings, rosters, draft picks, player/team stats, playoffs, and broadcast information via <code>api-web.nhle.com</code> and <code>api.nhle.com/stats</code>
 </li>
 <li>
-<strong>PWHL Data</strong> – Schedules, standings, play-by-play, player box scores, team rosters, and stat leaders via the HockeyTech API</li>
+<strong>PWHL Data</strong> – Schedules, standings, play-by-play, player box scores, team rosters, stat leaders, player profiles, game logs, career stats, player search, league leaders, transactions, streaks, playoff brackets, game summaries, and scorebar via the HockeyTech API</li>
 <li>
 <strong>xG Models</strong> – Expected goals predictions for NHL play-by-play data using XGBoost models (5v5, special teams, penalty shots)</li>
 <li>
-<strong>Full Season Loaders</strong> – <code><a href="reference/load_nhl_pbp.html">load_nhl_pbp()</a></code>, <code><a href="reference/load_nhl_schedule.html">load_nhl_schedule()</a></code>, <code><a href="reference/load_nhl_team_box.html">load_nhl_team_box()</a></code>, <code><a href="reference/load_nhl_player_box.html">load_nhl_player_box()</a></code>, <code><a href="reference/load_nhl_rosters.html">load_nhl_rosters()</a></code> for bulk historical data</li>
+<strong>Full Season Loaders</strong> – <code><a href="reference/load_nhl_pbp.html">load_nhl_pbp()</a></code>, <code><a href="reference/load_nhl_schedule.html">load_nhl_schedule()</a></code>, <code><a href="reference/load_nhl_team_box.html">load_nhl_team_box()</a></code>, <code><a href="reference/load_nhl_player_box.html">load_nhl_player_box()</a></code>, <code><a href="reference/load_nhl_rosters.html">load_nhl_rosters()</a></code> for bulk historical NHL data; <code><a href="reference/load_pwhl_pbp.html">load_pwhl_pbp()</a></code>, <code><a href="reference/load_pwhl_schedule.html">load_pwhl_schedule()</a></code>, <code><a href="reference/load_pwhl_player_box.html">load_pwhl_player_box()</a></code>, <code><a href="reference/load_pwhl_rosters.html">load_pwhl_rosters()</a></code> for PWHL</li>
 </ul>
 <blockquote>
 <p><strong>Note:</strong> PHF (Premier Hockey Federation) functions are deprecated as of v1.0.0. The league ceased operations; use PWHL functions instead.</p>
@@ -172,13 +172,18 @@
 <span><span class="fu"><a href="reference/nhl_game_feed.html">nhl_game_feed</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">2024020001</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># PWHL</span></span>
-<span><span class="fu"><a href="reference/pwhl_schedule.html">pwhl_schedule</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/pwhl_standings.html">pwhl_standings</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/pwhl_schedule.html">pwhl_schedule</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/pwhl_standings.html">pwhl_standings</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/pwhl_pbp.html">pwhl_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">27</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/pwhl_player_info.html">pwhl_player_info</a></span><span class="op">(</span>player_id <span class="op">=</span> <span class="fl">28</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/pwhl_leaders.html">pwhl_leaders</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"skaters"</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/pwhl_game_summary.html">pwhl_game_summary</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">27</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Full season loaders</span></span>
 <span><span class="fu"><a href="reference/load_nhl_pbp.html">load_nhl_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/load_nhl_schedule.html">load_nhl_schedule</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="reference/load_nhl_schedule.html">load_nhl_schedule</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/load_pwhl_pbp.html">load_pwhl_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/load_pwhl_schedule.html">load_pwhl_schedule</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
 <div class="section level2">

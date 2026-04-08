@@ -28,12 +28,45 @@
   – PWHL player box scores (skaters and goalies).
 - [`pwhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_game_info.md)
   – PWHL game information and metadata.
+- [`pwhl_game_summary()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_game_summary.md)
+  – Detailed game summary (scoring, penalties, shots by period, three
+  stars).
 - [`pwhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_standings.md)
   – PWHL league standings.
 - [`pwhl_stats()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_stats.md)
   – PWHL stat leaders (skaters and goalies).
+- [`pwhl_leaders()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_leaders.md)
+  – League leaders (top scorers and top goalies).
 - [`pwhl_season_id()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_season_id.md)
-  – PWHL season ID lookup.
+  – PWHL season ID lookup (now API-driven with fallback).
+- [`pwhl_player_info()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_info.md)
+  – Player biographical and profile information.
+- [`pwhl_player_game_log()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_game_log.md)
+  – Per-game statistics for a player in a season.
+- [`pwhl_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_stats.md)
+  – Career and season-by-season statistics for a player.
+- [`pwhl_player_search()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_search.md)
+  – Search for players by name.
+- [`pwhl_transactions()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_transactions.md)
+  – Player transactions for a season.
+- [`pwhl_streaks()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_streaks.md)
+  – Player streak data for a season.
+- [`pwhl_playoff_bracket()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_playoff_bracket.md)
+  – Playoff bracket / series data.
+- [`pwhl_scorebar()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_scorebar.md)
+  – Recent and upcoming game scores.
+- [`most_recent_pwhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_pwhl_season.md)
+  – Utility to get the current PWHL season year.
+- [`load_pwhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_pbp.md)
+  – Load pre-scraped PWHL play-by-play data.
+- [`load_pwhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_player_box.md)
+  – Load pre-scraped PWHL player box scores.
+- [`load_pwhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_schedule.md)
+  – Load pre-scraped PWHL schedules.
+- [`load_pwhl_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_rosters.md)
+  – Load pre-scraped PWHL team rosters.
+- [`update_pwhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_pwhl_db.md)
+  – Update or create a PWHL play-by-play database.
 
 #### **New NHL Functions**
 
@@ -119,6 +152,13 @@
 
 #### **Improvements**
 
+- [`pwhl_season_id()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_season_id.md)
+  now retrieves season data dynamically from the HockeyTech API instead
+  of using a hardcoded lookup table. Falls back to hardcoded data when
+  the API is unavailable.
+- Added internal helpers `.pwhl_api()`, `.pwhl_modulekit_url()`,
+  `.pwhl_gc_url()`, and `.pwhl_resolve_season_id()` to reduce JSONP
+  parsing boilerplate across PWHL functions.
 - Added `lifecycle` package for formal deprecation management.
 - Updated `testthat` dependency to `>= 3.0.0`.
 - Complete test coverage for all 95 exported functions (482 tests).
@@ -138,9 +178,11 @@
   variables, conventional commits guide, and deprecation process.
 - Updated PR and issue templates.
 - Updated `CLAUDE.md` and `.github/copilot-instructions.md` to reflect
-  v1.0.0 changes.
-- Added `data-raw/PR_devel.md` and `data-raw/NEWS_devel.md` development
-  scratchpads (not tracked by git).
+  v1.0.0 changes and new PWHL endpoints.
+- Added `data-raw/pr_devel.md` development scratchpad.
+- Added `cran_comments.md` for CRAN submission.
+- Updated `_pkgdown.yml` with reorganized PWHL reference sections.
+- Added R CMD check CI workflow and pkgdown deployment workflow.
 
 ## **fastRhockey 0.7.0**
 
