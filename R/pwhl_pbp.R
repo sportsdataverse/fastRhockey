@@ -2,7 +2,11 @@
 #' @description PWHL Play-by-play
 #'
 #' @param game_id Game ID that you want play-by-play for
-#' @return A data frame with play-by-play data from the PWHL
+#' @return A data frame with play-by-play event data including columns:
+#'   game_id, event, team_id, period_of_game, time_of_period, player_id,
+#'   player_name_first, player_name_last, player_position, x_coord, y_coord,
+#'   and additional event-specific columns (shot_quality, goal, penalty_length,
+#'   home_win, etc.). Coordinate columns are provided in multiple projections.
 #' @import jsonlite
 #' @import dplyr
 #' @import httr
@@ -29,6 +33,7 @@ pwhl_pbp <- function(game_id) {
 
   goalie_events <- data.frame()
   game_events <- data.frame()
+  game_df <- data.frame()
 
   tryCatch(
     expr = {
@@ -390,16 +395,16 @@ pwhl_pbp <- function(game_id) {
 
       game_df <- game_events %>%
         dplyr::select(-contains(".")) %>%
-        dplyr::mutate(game_id = as.numeric(game_id),
+        dplyr::mutate(game_id = as.numeric(.data$game_id),
                       game_date = games$game_date,
                       game_season = games$game_season,
                       game_season_id = games$game_season_id,
-                      power_play = as.numeric(power_play),
+                      power_play = as.numeric(.data$power_play),
                       home_team_id = games$home_team_id,
                       home_team = games$home_team,
                       away_team_id = games$away_team_id,
                       away_team = games$away_team) %>%
-        dplyr::relocate(game_id, .before = c(1)) %>%
+        dplyr::relocate("game_id", .before = c(1)) %>%
         dplyr::mutate(x_coord_original = .data$x_coord,
                       y_coord_original = .data$y_coord,
                       x_coord_neutral = .data$x_coord - 300,
@@ -437,23 +442,23 @@ pwhl_pbp <- function(game_id) {
         dplyr::select(-"minute", -"second")
 
       goals <- game_df %>%
-        dplyr::filter(event == "goal") %>%
-        dplyr::select(sec_from_start, team_id)
+        dplyr::filter(.data$event == "goal") %>%
+        dplyr::select("sec_from_start", "team_id")
 
       pens <- game_df %>%
-        dplyr::filter(event == "penalty") %>%
-        dplyr::mutate(advantage_team = ifelse(.data$team_id == home_team_id, away_team_id, home_team_id)) %>%
-        dplyr::select(power_play, sec_from_start, penalty_length, start_power_play, end_power_play, advantage_team, team_id)
+        dplyr::filter(.data$event == "penalty") %>%
+        dplyr::mutate(advantage_team = ifelse(.data$team_id == .data$home_team_id, .data$away_team_id, .data$home_team_id)) %>%
+        dplyr::select("power_play", "sec_from_start", "penalty_length", "start_power_play", "end_power_play", "advantage_team", "team_id")
 
       for (i in 1:nrow(pens)) {
 
 
         if (i == 1) {goal <- goals %>%
-          dplyr::filter(sec_from_start >= pens[i, ]$start_power_play & sec_from_start <= pens[i, ]$end_power_play)
+          dplyr::filter(.data$sec_from_start >= pens[i, ]$start_power_play & .data$sec_from_start <= pens[i, ]$end_power_play)
         } else {
           goal <- goals %>%
-            dplyr::filter(sec_from_start >= pens[i, ]$start_power_play & sec_from_start <= pens[i, ]$end_power_play &
-                            sec_from_start > pens[i - 1, ]$end_power_play)
+            dplyr::filter(.data$sec_from_start >= pens[i, ]$start_power_play & .data$sec_from_start <= pens[i, ]$end_power_play &
+                            .data$sec_from_start > pens[i - 1, ]$end_power_play)
         }
 
         if (nrow(goal) > 0) {
@@ -466,9 +471,9 @@ pwhl_pbp <- function(game_id) {
 
       for (i in 1:nrow(game_df)) {
 
-        play_pen <- pens %>% dplyr::filter(start_power_play <= game_df[i, ]$sec_from_start &
-                                             end_power_play >= game_df[i, ]$sec_from_start &
-                                             advantage_team == game_df[i, ]$team_id) %>%
+        play_pen <- pens %>% dplyr::filter(.data$start_power_play <= game_df[i, ]$sec_from_start &
+                                             .data$end_power_play >= game_df[i, ]$sec_from_start &
+                                             .data$advantage_team == game_df[i, ]$team_id) %>%
           dplyr::slice(1)
 
         if (nrow(play_pen) > 0 & game_df[i,]$event %in% c("shot", "faceoff")) {
@@ -479,7 +484,7 @@ pwhl_pbp <- function(game_id) {
       }
 
       game_df <- game_df %>%
-        dplyr::select(-c(start_power_play, end_power_play))
+        dplyr::select(-dplyr::all_of(c("start_power_play", "end_power_play")))
 
     },
     error = function(e) {

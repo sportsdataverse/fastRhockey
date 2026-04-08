@@ -29,7 +29,7 @@ nhl_divisions <- function(date = NULL) {
         return(NULL)
       }
       divisions_df <- standings %>%
-        dplyr::distinct(division_name, division_abbrev, conference_name) %>%
+        dplyr::distinct(.data$division_name, .data$division_abbrev, .data$conference_name) %>%
         as.data.frame() %>%
         make_fastRhockey_data("NHL Divisions from NHL.com", Sys.time())
       return(divisions_df)
