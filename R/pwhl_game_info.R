@@ -2,7 +2,10 @@
 #' @description PWHL Game Information
 #'
 #' @param game_id Game ID that you want game information for
-#' @return A data frame with game id / date, game metadata etc from the PWHL
+#' @return A data frame with one row of game metadata including columns:
+#'   game_id, game_season, game_type, game_date, home_team, away_team,
+#'   home_team_id, away_team_id, home_score, away_score, game_duration,
+#'   game_venue, game_report, game_boxscore, game_season_id.
 #' @import jsonlite
 #' @import dplyr
 #' @import httr
@@ -28,8 +31,8 @@ pwhl_game_info <- function(game_id) {
 
   game_details <- data.frame(
     "game_id" = c(r$details$id),
-    "game_season" = c(seasons %>% dplyr::filter(season_id == r$details$seasonId) %>% pull(season_yr)),
-    "game_type" = c(seasons %>% dplyr::filter(season_id == r$details$seasonId) %>% pull(game_type_label)),
+    "game_season" = c(seasons %>% dplyr::filter(.data$season_id == r$details$seasonId) %>% dplyr::pull("season_yr")),
+    "game_type" = c(seasons %>% dplyr::filter(.data$season_id == r$details$seasonId) %>% dplyr::pull("game_type_label")),
     "game_date" = c(r$details$date),
     "home_team" = c(r$homeTeam$info$name),
     "away_team" = c(r$visitingTeam$info$name),

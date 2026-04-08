@@ -4,7 +4,9 @@
 #' @param season Season (YYYY) to pull the roster from, the concluding year in XXXX-YY format
 #' @param team Team to pull the roster data for
 #' @param regular Bool for whether to pull regular or pre-season rosters
-#' @return A data frame with roster data
+#' @return A data frame with roster data including columns: player_id, team_id,
+#'   season, player_name, first_name, last_name, primary_hand, dob, height,
+#'   position, home_town, league, age, player_headshot, regular_season, team.
 #' @import jsonlite
 #' @import dplyr
 #' @import httr
@@ -90,7 +92,7 @@ pwhl_team_roster <- function(team, season, regular = TRUE) {
                 "position" = c(if ("position" %in% names(players[[i]]$data[[p]]$row)) players[[i]]$data[[p]]$row$position else NA),
                 "home_town" = c(if ("hometown" %in% names(players[[i]]$data[[p]]$row)) players[[i]]$data[[p]]$row$hometown else NA)
               ) %>%
-                tidyr::separate(player_name, into = c("first_name", "last_name"), remove = FALSE, sep=" ")
+                tidyr::separate("player_name", into = c("first_name", "last_name"), remove = FALSE, sep=" ")
             )
 
             # players[[i]]$data[[p]]$prop
@@ -111,16 +113,16 @@ pwhl_team_roster <- function(team, season, regular = TRUE) {
       roster_data <- roster_data %>%
         dplyr::mutate(
           league = "pwhl",
-          age = round(lubridate::time_length(as.Date(paste0(season, "-01-01")) - as.Date(.data$dob), "years")),
+          age = round(lubridate::time_length(as.Date(paste0(!!season, "-01-01")) - as.Date(.data$dob), "years")),
           player_headshot = paste0("https://assets.leaguestat.com/pwhl/240x240/", .data$player_id, ".jpg"),
-          regular_season = ifelse(season_id == 1, TRUE, FALSE),
-          season = season,
-          player_id = as.numeric(player_id),
+          regular_season = ifelse(!!season_id == 1, TRUE, FALSE),
+          season = !!season,
+          player_id = as.numeric(.data$player_id),
           team_id = as.numeric(team_id$team_id),
-          team = team
+          team = !!team
         ) %>%
-        dplyr::relocate("team_id", .after = player_id) %>%
-        dplyr::relocate("season", .after = team_id)
+        dplyr::relocate("team_id", .after = "player_id") %>%
+        dplyr::relocate("season", .after = "team_id")
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid season or no roster data available! Try a season from 2023 onwards!"))

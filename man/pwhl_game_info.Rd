@@ -10,7 +10,10 @@ pwhl_game_info(game_id)
 \item{game_id}{Game ID that you want game information for}
 }
 \value{
-A data frame with game id / date, game metadata etc from the PWHL
+A data frame with one row of game metadata including columns:
+game_id, game_season, game_type, game_date, home_team, away_team,
+home_team_id, away_team_id, home_score, away_score, game_duration,
+game_venue, game_report, game_boxscore, game_season_id.
 }
 \description{
 PWHL Game Information

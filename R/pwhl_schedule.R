@@ -2,7 +2,10 @@
 #' @description PWHL Schedule lookup
 #'
 #' @param season Season (YYYY) to pull the schedule from, the concluding year in XXXX-YY format
-#' @return A data frame with schedule data
+#' @param game_type Game type: "regular" (default), "preseason", or "playoffs".
+#' @return A data frame with schedule data including columns: game_id, season,
+#'   game_date, game_status, home_team, home_team_id, away_team, away_team_id,
+#'   home_score, away_score, winner, venue, venue_url.
 #' @import jsonlite
 #' @import dplyr
 #' @import httr
@@ -16,7 +19,7 @@
 pwhl_schedule <- function(season, game_type = "regular") {
 
   seasons <- pwhl_season_id() %>%
-    dplyr::filter(season_yr == season, game_type_label == game_type)
+    dplyr::filter(.data$season_yr == !!season, .data$game_type_label == !!game_type)
 
   season_id <- seasons$season_id
 
@@ -80,16 +83,16 @@ pwhl_schedule <- function(season, game_type = "regular") {
       schedule_data <- schedule_data %>%
         dplyr::mutate(
           winner = dplyr::case_when(
-            .data$home_score == '' | .data$away_score == "-" ~ '-',
+            .data$home_score == "" | .data$away_score == "-" ~ "-",
             .data$home_score > .data$away_score ~ .data$home_team,
             .data$away_score > .data$home_score ~ .data$away_team,
             .data$home_score == .data$away_score & .data$home_score != "-" ~ "Tie",
             TRUE ~ NA_character_
           ),
-          season = season
+          season = !!season
         ) %>%
         dplyr::select(
-          c(
+          dplyr::all_of(c(
               "game_id",
               "season",
               "game_date",
@@ -103,7 +106,7 @@ pwhl_schedule <- function(season, game_type = "regular") {
               "winner",
               "venue",
               "venue_url"
-            )
+            ))
         )
     },
     error = function(e) {

@@ -2,7 +2,15 @@
 #' @description PWHL Player Box Scores
 #'
 #' @param game_id Game ID that you want play-by-play for
-#' @return A data frame with play-by-play data from the PWHL
+#' @return A named list with two data frames:
+#'
+#'   * `$skaters` - Skater box scores with columns: player_id, first_name,
+#'     last_name, position, team_id, game_id, toi, time_on_ice, goals,
+#'     assists, points, shots, hits, blocked_shots, penalty_minutes,
+#'     plus_minus, faceoff_attempts, faceoff_wins, faceoff_pct, starting.
+#'   * `$goalies` - Goalie box scores with columns: player_id, first_name,
+#'     last_name, position, team_id, game_id, toi, time_on_ice, saves,
+#'     goals_against, shots_against, penalty_minutes, faceoff_pct, starting.
 #' @import jsonlite
 #' @import dplyr
 #' @import httr
@@ -51,12 +59,12 @@ pwhl_player_box <- function(game_id) {
       goalies$game_id <- r$details$id
 
       skaters <- skaters %>%
-        dplyr::select(-c("info_birth_date", "info_jersey_number", "info_player_image_url", "status")) %>%
+        dplyr::select(-dplyr::all_of(c("info_birth_date", "info_jersey_number", "info_player_image_url", "status"))) %>%
         dplyr::mutate(league = "pwhl")
 
       goalies <- goalies %>%
-        dplyr::select(-c("info_birth_date", "info_jersey_number", "info_player_image_url", "status")) %>%
-        dplyr::mutate(starting = ifelse(starting != "1", 0, 1)) %>%
+        dplyr::select(-dplyr::all_of(c("info_birth_date", "info_jersey_number", "info_player_image_url", "status"))) %>%
+        dplyr::mutate(starting = ifelse(.data$starting != "1", 0, 1)) %>%
         dplyr::mutate(league = "pwhl")
 
       skater_cols <- c("player_id", "first_name", "last_name", "position", "goals", "assists", "points", "penalty_minutes", "plus_minus", "faceoff_attempts",
@@ -70,32 +78,37 @@ pwhl_player_box <- function(game_id) {
         expr = {
 
         skaters <- skaters %>%
-          dplyr::mutate_at(c( "goals", "assists", "points", "penalty_minutes", "plus_minus", "faceoff_attempts",
-                              "faceoff_wins", "shots", "hits", "blocked_shots"), as.numeric) %>%
+          dplyr::mutate(dplyr::across(
+            dplyr::all_of(c("goals", "assists", "points", "penalty_minutes", "plus_minus",
+                            "faceoff_attempts", "faceoff_wins", "shots", "hits", "blocked_shots")),
+            as.numeric
+          )) %>%
           dplyr::mutate(
-            faceoff_losses = faceoff_attempts - faceoff_wins,
-            faceoff_pct = faceoff_wins / faceoff_attempts
+            faceoff_losses = .data$faceoff_attempts - .data$faceoff_wins,
+            faceoff_pct = .data$faceoff_wins / .data$faceoff_attempts
           ) %>%
-          tidyr::separate(toi, into = c("minute", "second"), remove = FALSE) %>%
-          dplyr::mutate(time_on_ice = round((as.numeric(minute) * 60 + as.numeric(second)) / 60, 1)) %>%
-          dplyr::select(c("player_id", "first_name", "last_name", "position", "team_id", "game_id", "league", "toi", "time_on_ice",
+          tidyr::separate("toi", into = c("minute", "second"), remove = FALSE) %>%
+          dplyr::mutate(time_on_ice = round((as.numeric(.data$minute) * 60 + as.numeric(.data$second)) / 60, 1)) %>%
+          dplyr::select(dplyr::all_of(c("player_id", "first_name", "last_name", "position", "team_id", "game_id", "league", "toi", "time_on_ice",
                           "goals", "assists", "points", "shots", "hits", "blocked_shots",
-                          "penalty_minutes", "plus_minus", "faceoff_attempts", "faceoff_wins", "faceoff_losses", "faceoff_pct", "starting"))
+                          "penalty_minutes", "plus_minus", "faceoff_attempts", "faceoff_wins", "faceoff_losses", "faceoff_pct", "starting")))
 
         goalies <- goalies %>%
-          dplyr::mutate_at(c( "goals", "assists", "points", "penalty_minutes", "faceoff_attempts",
-                              "faceoff_wins", "saves", "shots_against",
-                              "goals_against"), as.numeric) %>%
+          dplyr::mutate(dplyr::across(
+            dplyr::all_of(c("goals", "assists", "points", "penalty_minutes", "faceoff_attempts",
+                            "faceoff_wins", "saves", "shots_against", "goals_against")),
+            as.numeric
+          )) %>%
           dplyr::mutate(
-            faceoff_losses = faceoff_attempts - faceoff_wins,
-            faceoff_pct = faceoff_wins / faceoff_attempts
+            faceoff_losses = .data$faceoff_attempts - .data$faceoff_wins,
+            faceoff_pct = .data$faceoff_wins / .data$faceoff_attempts
           ) %>%
-          tidyr::separate(toi, into = c("minute", "second"), remove = FALSE) %>%
-          dplyr::mutate(time_on_ice = round((as.numeric(minute) * 60 + as.numeric(second)) / 60, 1)) %>%
-          dplyr::select(c("player_id", "first_name", "last_name", "position", "team_id", "game_id", "league", "toi", "time_on_ice",
+          tidyr::separate("toi", into = c("minute", "second"), remove = FALSE) %>%
+          dplyr::mutate(time_on_ice = round((as.numeric(.data$minute) * 60 + as.numeric(.data$second)) / 60, 1)) %>%
+          dplyr::select(dplyr::all_of(c("player_id", "first_name", "last_name", "position", "team_id", "game_id", "league", "toi", "time_on_ice",
                           "saves", "goals_against", "shots_against",
                           "goals", "assists", "points",
-                          "penalty_minutes", "faceoff_attempts", "faceoff_wins", "faceoff_losses", "faceoff_pct", "starting"))
+                          "penalty_minutes", "faceoff_attempts", "faceoff_wins", "faceoff_losses", "faceoff_pct", "starting")))
 
         })
 

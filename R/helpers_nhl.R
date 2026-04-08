@@ -62,7 +62,7 @@ helper_nhl_calculate_xg <- function(pbp) {
 
     # --- 5v5 predictions ---
     data_5v5 <- model_data %>%
-        dplyr::filter(strength_state == "5v5")
+        dplyr::filter(.data$strength_state == "5v5")
 
     if (nrow(data_5v5) > 0) {
         feats_5v5 <- data_5v5 %>%
@@ -76,7 +76,7 @@ helper_nhl_calculate_xg <- function(pbp) {
 
     # --- Special teams predictions ---
     data_st <- model_data %>%
-        dplyr::filter(strength_state != "5v5")
+        dplyr::filter(.data$strength_state != "5v5")
 
     if (nrow(data_st) > 0) {
         feats_st <- data_st %>%
@@ -90,8 +90,8 @@ helper_nhl_calculate_xg <- function(pbp) {
 
     # Combine predictions
     xg_results <- dplyr::bind_rows(
-        data_5v5 %>% dplyr::select(event_id, xg),
-        data_st %>% dplyr::select(event_id, xg)
+        data_5v5 %>% dplyr::select("event_id", "xg"),
+        data_st %>% dplyr::select("event_id", "xg")
     )
 
     # Join xG back to original PBP
@@ -107,9 +107,9 @@ helper_nhl_calculate_xg <- function(pbp) {
 
     # Ensure event order is preserved
     if ("event_idx" %in% names(pbp)) {
-        pbp <- pbp %>% dplyr::arrange(event_idx)
+        pbp <- pbp %>% dplyr::arrange(.data$event_idx)
     } else if ("event_id" %in% names(pbp)) {
-        pbp <- pbp %>% dplyr::arrange(event_id)
+        pbp <- pbp %>% dplyr::arrange(.data$event_id)
     }
 
     return(pbp)
@@ -174,62 +174,62 @@ helper_nhl_prepare_xg_data <- function(x) {
         # Must match the canonical values used when training the xG models.
         dplyr::mutate(
             secondary_type = dplyr::case_when(
-                is.na(secondary_type) ~ NA_character_,
-                tolower(secondary_type) == "wrist" ~ "Wrist Shot",
-                tolower(secondary_type) == "wrist shot" ~ "Wrist Shot",
-                tolower(secondary_type) == "snap" ~ "Snap Shot",
-                tolower(secondary_type) == "snap shot" ~ "Snap Shot",
-                tolower(secondary_type) == "slap" ~ "Slap Shot",
-                tolower(secondary_type) == "slap shot" ~ "Slap Shot",
-                tolower(secondary_type) == "backhand" ~ "Backhand",
-                tolower(secondary_type) == "deflected" ~ "Deflected",
-                tolower(secondary_type) == "tip-in" ~ "Tip-In",
-                tolower(secondary_type) == "wrap-around" ~ "Wrap-around",
-                tolower(secondary_type) == "bat" ~ "Batted",
-                tolower(secondary_type) == "batted" ~ "Batted",
-                tolower(secondary_type) == "poke" ~ "Poke",
-                tolower(secondary_type) == "between-legs" ~ "Between Legs",
-                tolower(secondary_type) == "between legs" ~ "Between Legs",
-                tolower(secondary_type) == "cradle" ~ "Cradle",
-                tolower(secondary_type) == "penalty shot" ~ "Penalty Shot",
-                TRUE ~ secondary_type
+                is.na(.data$secondary_type) ~ NA_character_,
+                tolower(.data$secondary_type) == "wrist" ~ "Wrist Shot",
+                tolower(.data$secondary_type) == "wrist shot" ~ "Wrist Shot",
+                tolower(.data$secondary_type) == "snap" ~ "Snap Shot",
+                tolower(.data$secondary_type) == "snap shot" ~ "Snap Shot",
+                tolower(.data$secondary_type) == "slap" ~ "Slap Shot",
+                tolower(.data$secondary_type) == "slap shot" ~ "Slap Shot",
+                tolower(.data$secondary_type) == "backhand" ~ "Backhand",
+                tolower(.data$secondary_type) == "deflected" ~ "Deflected",
+                tolower(.data$secondary_type) == "tip-in" ~ "Tip-In",
+                tolower(.data$secondary_type) == "wrap-around" ~ "Wrap-around",
+                tolower(.data$secondary_type) == "bat" ~ "Batted",
+                tolower(.data$secondary_type) == "batted" ~ "Batted",
+                tolower(.data$secondary_type) == "poke" ~ "Poke",
+                tolower(.data$secondary_type) == "between-legs" ~ "Between Legs",
+                tolower(.data$secondary_type) == "between legs" ~ "Between Legs",
+                tolower(.data$secondary_type) == "cradle" ~ "Cradle",
+                tolower(.data$secondary_type) == "penalty shot" ~ "Penalty Shot",
+                TRUE ~ .data$secondary_type
             )
         ) %>%
         # filter out shootouts
-        dplyr::filter(period_type != "SHOOTOUT") %>%
+        dplyr::filter(.data$period_type != "SHOOTOUT") %>%
         # remove penalty shots
         dplyr::filter(
-            secondary_type != "Penalty Shot" | is.na(secondary_type)
+            .data$secondary_type != "Penalty Shot" | is.na(.data$secondary_type)
         ) %>%
         # remove shift change events (excluded from model)
-        dplyr::filter(event_type != "CHANGE") %>%
+        dplyr::filter(.data$event_type != "CHANGE") %>%
         # add lag feature variables
-        dplyr::group_by(game_id, period) %>%
+        dplyr::group_by(.data$game_id, .data$period) %>%
         dplyr::mutate(
-            last_event_type = dplyr::lag(event_type),
-            last_event_team = dplyr::lag(event_team_abbr),
-            time_since_last = game_seconds - dplyr::lag(game_seconds),
-            last_x = dplyr::lag(x),
-            last_y = dplyr::lag(y),
+            last_event_type = dplyr::lag(.data$event_type),
+            last_event_team = dplyr::lag(.data$event_team_abbr),
+            time_since_last = .data$game_seconds - dplyr::lag(.data$game_seconds),
+            last_x = dplyr::lag(.data$x),
+            last_y = dplyr::lag(.data$y),
             distance_from_last = round(
-                sqrt(((y - last_y)^2) + ((x - last_x)^2)),
+                sqrt(((.data$y - .data$last_y)^2) + ((.data$x - .data$last_x)^2)),
                 1
             ),
             event_zone = dplyr::case_when(
-                x >= -25 & x <= 25 ~ "NZ",
-                (x_fixed < -25 & event_team_abbr == home_abbr) |
-                    (x_fixed > 25 & event_team_abbr == away_abbr) ~ "DZ",
-                (x_fixed > 25 & event_team_abbr == home_abbr) |
-                    (x_fixed < -25 & event_team_abbr == away_abbr) ~ "OZ"
+                .data$x >= -25 & .data$x <= 25 ~ "NZ",
+                (.data$x_fixed < -25 & .data$event_team_abbr == .data$home_abbr) |
+                    (.data$x_fixed > 25 & .data$event_team_abbr == .data$away_abbr) ~ "DZ",
+                (.data$x_fixed > 25 & .data$event_team_abbr == .data$home_abbr) |
+                    (.data$x_fixed < -25 & .data$event_team_abbr == .data$away_abbr) ~ "OZ"
             ),
-            last_event_zone = dplyr::lag(event_zone)
+            last_event_zone = dplyr::lag(.data$event_zone)
         ) %>%
         dplyr::ungroup() %>%
         # keep only unblocked shots (SHOT, MISSED_SHOT, GOAL)
-        dplyr::filter(event_type %in% c("SHOT", "MISSED_SHOT", "GOAL")) %>%
+        dplyr::filter(.data$event_type %in% c("SHOT", "MISSED_SHOT", "GOAL")) %>%
         # filter to valid last-event types (removes oddball events)
         dplyr::filter(
-            last_event_type %in%
+            .data$last_event_type %in%
                 c(
                     "FACEOFF",
                     "GIVEAWAY",
@@ -246,12 +246,12 @@ helper_nhl_prepare_xg_data <- function(x) {
         # era dummies (must match training eras exactly)
         dplyr::mutate(
             era_2011_2013 = ifelse(
-                season %in% c("20102011", "20112012", "20122013"),
+                .data$season %in% c("20102011", "20112012", "20122013"),
                 1,
                 0
             ),
             era_2014_2018 = ifelse(
-                season %in%
+                .data$season %in%
                     c(
                         "20132014",
                         "20142015",
@@ -263,125 +263,127 @@ helper_nhl_prepare_xg_data <- function(x) {
                 0
             ),
             era_2019_2021 = ifelse(
-                season %in% c("20182019", "20192020", "20202021"),
+                .data$season %in% c("20182019", "20192020", "20202021"),
                 1,
                 0
             ),
             era_2022_2024 = ifelse(
-                season %in% c("20212022", "20222023", "20232024"),
+                .data$season %in% c("20212022", "20222023", "20232024"),
                 1,
                 0
             ),
-            era_2025_on = ifelse(as.numeric(season) > 20232024, 1, 0),
+            era_2025_on = ifelse(as.numeric(.data$season) > 20232024, 1, 0),
             # ST model features
             event_team_skaters = ifelse(
-                event_team_abbr == home_abbr,
-                home_skaters,
-                away_skaters
+                .data$event_team_abbr == .data$home_abbr,
+                .data$home_skaters,
+                .data$away_skaters
             ),
             opponent_team_skaters = ifelse(
-                event_team_abbr == home_abbr,
-                away_skaters,
-                home_skaters
+                .data$event_team_abbr == .data$home_abbr,
+                .data$away_skaters,
+                .data$home_skaters
             ),
-            total_skaters_on = event_team_skaters + opponent_team_skaters,
-            event_team_advantage = event_team_skaters - opponent_team_skaters,
+            total_skaters_on = .data$event_team_skaters + .data$opponent_team_skaters,
+            event_team_advantage = .data$event_team_skaters - .data$opponent_team_skaters,
             # 5v5 model features
             rebound = ifelse(
-                last_event_type %in%
+                .data$last_event_type %in%
                     c("SHOT", "MISSED_SHOT", "GOAL") &
-                    time_since_last <= 2,
+                    .data$time_since_last <= 2,
                 1,
                 0
             ),
             rush = ifelse(
-                last_event_zone %in% c("NZ", "DZ") & time_since_last <= 4,
+                .data$last_event_zone %in% c("NZ", "DZ") & .data$time_since_last <= 4,
                 1,
                 0
             ),
             cross_ice_event = ifelse(
-                last_event_zone == "OZ" &
-                    ((last_y > 3 & y < -3) | (last_y < -3 & y > 3)) &
-                    time_since_last <= 2,
+                .data$last_event_zone == "OZ" &
+                    ((.data$last_y > 3 & .data$y < -3) | (.data$last_y < -3 & .data$y > 3)) &
+                    .data$time_since_last <= 2,
                 1,
                 0
             ),
             # fix missing empty net vars
             empty_net = ifelse(
-                is.na(empty_net) | empty_net == FALSE,
+                is.na(.data$empty_net) | .data$empty_net == FALSE,
                 FALSE,
                 TRUE
             ),
-            shot_type = secondary_type,
-            goal = ifelse(event_type == "GOAL", 1, 0)
+            shot_type = .data$secondary_type,
+            goal = ifelse(.data$event_type == "GOAL", 1, 0)
         ) %>%
         dplyr::select(
-            season,
-            game_id,
-            event_id,
-            strength_state,
-            shot_distance,
-            shot_angle,
-            empty_net,
-            last_event_type,
-            last_event_team,
-            time_since_last,
-            last_x,
-            last_y,
-            distance_from_last,
-            event_zone,
-            last_event_zone,
-            era_2011_2013,
-            era_2014_2018,
-            era_2019_2021,
-            era_2022_2024,
-            era_2025_on,
-            event_team_skaters,
-            opponent_team_skaters,
-            total_skaters_on,
-            event_team_advantage,
-            rebound,
-            rush,
-            cross_ice_event,
-            shot_type,
-            goal
+            "season",
+            "game_id",
+            "event_id",
+            "strength_state",
+            "shot_distance",
+            "shot_angle",
+            "empty_net",
+            "last_event_type",
+            "last_event_team",
+            "time_since_last",
+            "last_x",
+            "last_y",
+            "distance_from_last",
+            "event_zone",
+            "last_event_zone",
+            "era_2011_2013",
+            "era_2014_2018",
+            "era_2019_2021",
+            "era_2022_2024",
+            "era_2025_on",
+            "event_team_skaters",
+            "opponent_team_skaters",
+            "total_skaters_on",
+            "event_team_advantage",
+            "rebound",
+            "rush",
+            "cross_ice_event",
+            "shot_type",
+            "goal"
         ) %>%
         # one-hot encode categorical variables
         dplyr::mutate(type_value = 1L, last_value = 1L) %>%
         tidyr::pivot_wider(
-            names_from = shot_type,
-            values_from = type_value,
+            names_from = "shot_type",
+            values_from = "type_value",
             values_fill = 0L,
             values_fn = max
         ) %>%
         tidyr::pivot_wider(
-            names_from = last_event_type,
-            values_from = last_value,
+            names_from = "last_event_type",
+            values_from = "last_value",
             values_fill = 0L,
             values_fn = max,
             names_prefix = "last_"
         ) %>%
         janitor::clean_names() %>%
         dplyr::select(
-            -last_event_team,
-            -event_zone,
-            -last_event_zone,
-            -event_team_skaters,
-            -opponent_team_skaters
+            -dplyr::all_of(c(
+                "last_event_team",
+                "event_zone",
+                "last_event_zone",
+                "event_team_skaters",
+                "opponent_team_skaters"
+            ))
         )
 
     # Drop NA column created from missing shot_type values
     if ("na" %in% names(model_df)) {
-        model_df <- dplyr::select(model_df, -na)
+        model_df <- dplyr::select(model_df, -dplyr::all_of("na"))
     }
 
     # Pad any missing features to zero (ensures DMatrix dimensions match)
     missing_feats <- dplyr::tibble(
         feature = .xg_env$xg_feature_names_5v5
     ) %>%
-        dplyr::filter(!(feature %in% names(model_df))) %>%
+        dplyr::filter(!(.data$feature %in% names(model_df))) %>%
         dplyr::mutate(val = 0L) %>%
-        tidyr::pivot_wider(names_from = feature, values_from = val)
+        tidyr::pivot_wider(names_from = "feature", values_from = "val")
 
     if (length(missing_feats) > 0L) {
         model_df <- dplyr::bind_cols(model_df, missing_feats)

@@ -5,7 +5,11 @@
 #' @param season Season (YYYY) to pull the stats from, the concluding year in XXXX-YY format
 #' @param team Team abbreviation to filter skaters by (e.g., "BOS"). Ignored for goalies.
 #' @param regular Bool for whether to pull regular or pre-season stats
-#' @return A data frame with player stats
+#' @return A data frame with player stats. Columns vary by position:
+#'   goalies include games_played, minutes, goals_against, goals_against_avg,
+#'   save_percentage, shutouts, wins, losses; skaters include goals, assists,
+#'   points, plus_minus, penalty_minutes, shots, shooting_pct, power_play_goals,
+#'   faceoff_pct.
 #' @import jsonlite
 #' @import dplyr
 #' @import httr
@@ -70,7 +74,7 @@ pwhl_stats <- function(position = "goalie", team = "all", season = 2024, regular
         }
 
         players <- players %>%
-          tidyr::separate("minutes", into = c("minute", "second"), sep = ":", remove = FALSE)
+          tidyr::separate(col = "minutes", into = c("minute", "second"), sep = ":", remove = FALSE)
       } else {
 
         # Resolve team abbreviation to team_id for the URL

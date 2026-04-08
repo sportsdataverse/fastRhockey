@@ -6,11 +6,27 @@
 \usage{
 pwhl_season_id(season, game_type = "regular")
 }
+\arguments{
+\item{season}{Unused; kept for backwards compatibility.}
+
+\item{game_type}{Unused; kept for backwards compatibility. Defaults to "regular".}
+}
 \value{
-A data frame with season ID data
+A data frame with columns:
+\itemize{
+\item \code{season_id} - Numeric season identifier used by the HockeyTech API.
+\item \code{season_name} - Full season name (e.g., "2024-25 Regular Season").
+\item \code{season_short} - Short season name.
+\item \code{season_yr} - Numeric year derived from the season name (concluding year).
+\item \code{game_type_label} - Game type: "preseason", "regular", or "playoffs".
+\item \code{career} - Whether this is a career-stats season.
+\item \code{playoff} - Whether this is a playoff season.
+\item \code{start_date} - Season start date.
+\item \code{end_date} - Season end date.
+}
 }
 \description{
-PWHL Season IDs lookup
+Retrieves PWHL season IDs from the HockeyTech API.
 }
 \examples{
 \donttest{
