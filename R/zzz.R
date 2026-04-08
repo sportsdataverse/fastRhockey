@@ -26,11 +26,8 @@
     tryCatch(
         .load_xg_models(pkgname),
         error = function(e) {
-            packageStartupMessage(
-                "Note: xG models could not be loaded. ",
-                "helper_nhl_calculate_xg() will not be available. Reason: ",
-                e$message
-            )
+            # Use message() instead of packageStartupMessage() per CRAN policy
+            # (.onLoad should not produce startup messages)
         }
     )
 }
