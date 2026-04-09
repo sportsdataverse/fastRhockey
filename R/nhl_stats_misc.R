@@ -122,13 +122,30 @@ nhl_stats_seasons <- function(lang = "en") {
 
 
 #' @title **NHL Stats API — Miscellaneous Endpoints**
-#' @description Queries miscellaneous NHL Stats REST API endpoints such as
-#' glossary, game types, shift charts, and component season.
-#' @param endpoint Character endpoint path, one of:
-#'   "glossary", "gameType", "shiftcharts", "componentSeason"
-#' @param game_id Optional game ID (required for "shiftcharts")
-#' @param lang Character language code. Default "en".
-#' @return Returns a data frame or list with the requested data.
+#' @description Generic dispatcher for the NHL Stats REST API
+#'   (`https://api.nhle.com/stats/rest/{lang}/{endpoint}`). Pass any valid
+#'   endpoint name as `endpoint` and the helper will issue the request and
+#'   return the parsed `data` element as a `data.frame`. For non-tabular
+#'   endpoints, the raw parsed list is returned instead.
+#' @param endpoint Character endpoint path. Known valid values include:
+#'
+#'   * **Tabular:** `"franchise"`, `"glossary"`, `"country"`, `"config"`,
+#'     `"players"`, `"team"`, `"game"`, `"componentSeason"`,
+#'     `"milestones/skaters"`, `"milestones/goalies"`,
+#'     `"leaders/skaters/{attribute}"`, `"leaders/goalies/{attribute}"`
+#'   * **Reference / lookup:** `"gameType"`, `"shiftcharts"` (use the
+#'     dedicated `game_id` argument for this one),
+#'     `"content/module/{templateKey}"`, `"team/id/{id}"`
+#'   * **Health check:** `"ping"`
+#'
+#'   Note: dedicated wrappers exist for `season`, `draft`, `skater/{report}`,
+#'   `goalie/{report}`, and `team/{report}` — see [nhl_stats_seasons()],
+#'   [nhl_stats_draft()], [nhl_stats_skaters()], [nhl_stats_goalies()],
+#'   and [nhl_stats_teams()].
+#' @param game_id Optional game ID (required for `endpoint = "shiftcharts"`).
+#' @param lang Character language code. Default `"en"`.
+#' @return Returns a data frame (`fastRhockey_data`) for tabular endpoints,
+#'   or the raw parsed list for non-tabular ones.
 #' @keywords NHL Stats Miscellaneous
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
@@ -138,6 +155,8 @@ nhl_stats_seasons <- function(lang = "en") {
 #' @examples
 #' \donttest{
 #'   try(nhl_stats_misc(endpoint = "glossary"))
+#'   try(nhl_stats_misc(endpoint = "franchise"))
+#'   try(nhl_stats_misc(endpoint = "country"))
 #' }
 nhl_stats_misc <- function(endpoint = "glossary", game_id = NULL, lang = "en") {
     if (endpoint == "shiftcharts" && !is.null(game_id)) {

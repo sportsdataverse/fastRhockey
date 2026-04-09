@@ -7,23 +7,43 @@
 nhl_stats_misc(endpoint = "glossary", game_id = NULL, lang = "en")
 }
 \arguments{
-\item{endpoint}{Character endpoint path, one of:
-"glossary", "gameType", "shiftcharts", "componentSeason"}
+\item{endpoint}{Character endpoint path. Known valid values include:
+\itemize{
+\item \strong{Tabular:} \code{"franchise"}, \code{"glossary"}, \code{"country"}, \code{"config"},
+\code{"players"}, \code{"team"}, \code{"game"}, \code{"componentSeason"},
+\code{"milestones/skaters"}, \code{"milestones/goalies"},
+\code{"leaders/skaters/{attribute}"}, \code{"leaders/goalies/{attribute}"}
+\item \strong{Reference / lookup:} \code{"gameType"}, \code{"shiftcharts"} (use the
+dedicated \code{game_id} argument for this one),
+\code{"content/module/{templateKey}"}, \code{"team/id/{id}"}
+\item \strong{Health check:} \code{"ping"}
+}
 
-\item{game_id}{Optional game ID (required for "shiftcharts")}
+Note: dedicated wrappers exist for \code{season}, \code{draft}, \code{skater/{report}},
+\code{goalie/{report}}, and \code{team/{report}} — see \code{\link[=nhl_stats_seasons]{nhl_stats_seasons()}},
+\code{\link[=nhl_stats_draft]{nhl_stats_draft()}}, \code{\link[=nhl_stats_skaters]{nhl_stats_skaters()}}, \code{\link[=nhl_stats_goalies]{nhl_stats_goalies()}},
+and \code{\link[=nhl_stats_teams]{nhl_stats_teams()}}.}
 
-\item{lang}{Character language code. Default "en".}
+\item{game_id}{Optional game ID (required for \code{endpoint = "shiftcharts"}).}
+
+\item{lang}{Character language code. Default \code{"en"}.}
 }
 \value{
-Returns a data frame or list with the requested data.
+Returns a data frame (\code{fastRhockey_data}) for tabular endpoints,
+or the raw parsed list for non-tabular ones.
 }
 \description{
-Queries miscellaneous NHL Stats REST API endpoints such as
-glossary, game types, shift charts, and component season.
+Generic dispatcher for the NHL Stats REST API
+(\verb{https://api.nhle.com/stats/rest/\{lang\}/\{endpoint\}}). Pass any valid
+endpoint name as \code{endpoint} and the helper will issue the request and
+return the parsed \code{data} element as a \code{data.frame}. For non-tabular
+endpoints, the raw parsed list is returned instead.
 }
 \examples{
 \donttest{
   try(nhl_stats_misc(endpoint = "glossary"))
+  try(nhl_stats_misc(endpoint = "franchise"))
+  try(nhl_stats_misc(endpoint = "country"))
 }
 }
 \keyword{Miscellaneous}
