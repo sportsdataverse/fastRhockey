@@ -1,0 +1,9 @@
+test_that("NHL Records - Draft Prospect", {
+    skip_on_cran()
+    skip_nhl_test()
+    x <- nhl_records_draft_prospect()
+    if (!is.null(x)) {
+        expect_s3_class(x, "data.frame")
+        expect_s3_class(x, "fastRhockey_data")
+    }
+})
