@@ -41,8 +41,13 @@ R/                          # Source code (one function per file)
   zzz.R                     # .onLoad() — xG model download/caching lifecycle
   fastRhockey-package.R     # Package-level roxygen2 documentation, lifecycle import
   helpers_nhl.R             # helper_nhl_calculate_xg(), helper_nhl_prepare_xg_data()
+  helpers_nhl_edge.R        # .nhl_edge_api(), .nhl_edge_to_df() — NHL Edge URL builder
+  helpers_nhl_records.R     # .nhl_records_api() — records.nhl.com URL builder
   pwhl_helpers.R            # .pwhl_api(), .pwhl_modulekit_url(), .pwhl_gc_url() — PWHL JSONP helpers
   nhl_*.R                   # NHL functions (api-web.nhle.com + api.nhle.com/stats)
+  nhl_edge_*.R              # NHL Edge analytics (api-web.nhle.com/v1/edge/...)
+  nhl_cat_edge_*.R          # NHL Edge "CAT" variants (api-web.nhle.com/v1/cat/edge/...)
+  nhl_records_*.R           # NHL records API (records.nhl.com/site/api/...)
   phf_*.R                   # PHF functions (deprecated — league defunct)
   pwhl_*.R                  # PWHL functions (lscluster.hockeytech.com)
 
@@ -50,6 +55,9 @@ tests/testthat/             # Unit tests (testthat edition 3)
 man/                        # Auto-generated roxygen2 documentation
 data/                       # Included datasets (.rda)
 data-raw/                   # Scripts for generating package data (*.md files untracked)
+                            # Includes nhl_missing_endpoint_function_mapping.md
+                            # and OpenAPI 3.0.3 specs (nhl_*_openapi.{json,yaml})
+                            # for api-web, stats-rest, and records backends.
 vignettes/                  # Vignettes for pkgdown site
 ```
 
@@ -57,18 +65,22 @@ vignettes/                  # Vignettes for pkgdown site
 
 | Backend | Base URL | Used By | Auth |
 |---------|----------|---------|------|
-| NHL Web API | `api-web.nhle.com/v1/` | Game feed, schedule, standings, rosters | None |
-| NHL Stats API | `api.nhle.com/stats/rest/{lang}/` | Skater/goalie/team stats, draft | None |
+| NHL Web API | `api-web.nhle.com/v1/` | Game feed, schedule, standings, rosters, gamecenter, draft, scoreboard, scores, meta, location, partner-game, where-to-watch, smartlinks, postal-lookup, ppt-replay, wsc | None |
+| NHL Edge API | `api-web.nhle.com/v1/edge/...` and `v1/cat/edge/...` | Skater/goalie/team Edge advanced metrics (shot location, shot speed, skating speed, skating distance, zone time, comparisons, top-10 leaderboards) | None |
+| NHL Stats API | `api.nhle.com/stats/rest/{lang}/` | Skater/goalie/team stats, draft, franchise, players, glossary, country, config, leaders, milestones | None |
+| NHL Records API | `records.nhl.com/site/api/` | Franchise totals, player/skater/goalie career and real-time stats, draft lottery, hall of fame, trophies, awards, attendance, venues, officials, combine | None |
 | HockeyTech (statviewfeed) | `lscluster.hockeytech.com/feed/?feed=statviewfeed` | PWHL schedule, standings, roster, PBP, box scores, stats | Public key `694cfeed58c932ee` |
 | HockeyTech (modulekit) | `lscluster.hockeytech.com/feed/?feed=modulekit` | PWHL seasons, player info, leaders, transactions, streaks, brackets, scorebar | Public key `446521baf8c38984` |
 | HockeyTech (gc) | `lscluster.hockeytech.com/feed/?feed=gc` | PWHL game summary, game center | Public key `446521baf8c38984` |
 
 - **NHL Web API** returns clean JSON parsed with `jsonlite::fromJSON()`
-- **NHL Stats API** uses Cayenne filter expressions for query params
+- **NHL Edge API** uses an internal `.nhl_edge_api(base, season, game_type, prefix)` helper that handles the `/now` vs `/{season}/{gameType}` URL split, and `.nhl_edge_to_df()` to normalize the assorted response shapes
+- **NHL Stats API** uses Cayenne filter expressions for query params. Note: the `leaders/{skaters,goalies}/{attribute}` endpoint does **not** accept `start`/`limit` query parameters (returns 500); valid goalie attributes are restricted to `savePctg`, `gaa`, and `shutouts`
+- **NHL Records API** uses an internal `.nhl_records_api(resource, cayenne_exp, sort, limit, start, query)` helper. The records API does **not** support path-suffix filtering (`franchise/{id}` returns 404); use `cayenneExp` filtering instead
 - **HockeyTech** returns JSONP with Angular callbacks that must be regex-stripped before parsing
 - PWHL internal helpers in `pwhl_helpers.R`: `.pwhl_api()` strips JSONP, `.pwhl_modulekit_url()` / `.pwhl_gc_url()` build URLs
 
-### PWHL Functions (20 exported)
+### PWHL Functions (35 exported)
 
 | Function | Category | Endpoint Feed |
 |----------|----------|--------------|
@@ -94,9 +106,79 @@ vignettes/                  # Vignettes for pkgdown site
 | `most_recent_pwhl_season()` | Utility | (computed) |
 | `load_pwhl_pbp()` | Loader | sportsdataverse-data releases |
 | `load_pwhl_player_box()` | Loader | sportsdataverse-data releases |
+| `load_pwhl_skater_box()` | Loader | sportsdataverse-data releases |
+| `load_pwhl_goalie_box()` | Loader | sportsdataverse-data releases |
+| `load_pwhl_team_box()` | Loader | sportsdataverse-data releases |
 | `load_pwhl_schedule()` | Loader | sportsdataverse-data releases |
 | `load_pwhl_rosters()` | Loader | sportsdataverse-data releases |
+| `load_pwhl_game_rosters()` | Loader | sportsdataverse-data releases |
+| `load_pwhl_game_info()` | Loader | sportsdataverse-data releases |
+| `load_pwhl_scoring_summary()` | Loader | sportsdataverse-data releases |
+| `load_pwhl_penalty_summary()` | Loader | sportsdataverse-data releases |
+| `load_pwhl_three_stars()` | Loader | sportsdataverse-data releases |
+| `load_pwhl_officials()` | Loader | sportsdataverse-data releases |
+| `load_pwhl_shots_by_period()` | Loader | sportsdataverse-data releases |
+| `load_pwhl_shootout()` | Loader | sportsdataverse-data releases |
 | `update_pwhl_db()` | Loader | sportsdataverse-data releases |
+
+All `load_pwhl_*()` helpers share `.pwhl_release_loader()` (in `pwhl_loaders.R`),
+which validates seasons, builds release URLs from a `(release_tag, file_prefix)`
+pair, downloads in parallel with optional `progressr`, optionally writes into a
+`DBIConnection`, and tags output with the `fastRhockey_data` S3 class. Adding a
+new dataset = one row in the catalog table at the top of `pwhl_loaders.R` plus
+a thin exported wrapper.
+
+### NHL Endpoint Families (extended in 1.0.0)
+
+| Family | Count | Files | Helper |
+|--------|------:|-------|--------|
+| NHL Edge analytics | 33 | `nhl_edge_*.R`, `nhl_cat_edge_*.R` | `.nhl_edge_api()` + `.nhl_edge_to_df()` in `helpers_nhl_edge.R` |
+| NHL Records API | 25 | `nhl_records_*.R` | `.nhl_records_api()` in `helpers_nhl_records.R` |
+| NHL Stats REST (dedicated wrappers) | 13 | `nhl_stats_franchise.R`, `nhl_stats_players.R`, `nhl_stats_glossary.R`, `nhl_stats_country.R`, `nhl_stats_config.R`, `nhl_stats_ping.R`, `nhl_stats_skater_leaders.R`, `nhl_stats_goalie_leaders.R`, `nhl_stats_skater_milestones.R`, `nhl_stats_goalie_milestones.R`, `nhl_stats_team_listing.R`, `nhl_stats_game_listing.R`, `nhl_stats_content_module.R` | (none — uses `httr::RETRY` directly) |
+| NHL api-web miscellaneous | 6 | `nhl_wsc_pbp.R`, `nhl_draft_tracker.R`, `nhl_ppt_replay.R`, `nhl_ppt_replay_goal.R`, `nhl_postal_lookup.R`, `nhl_smartlinks.R` | (none) |
+| NHL helper aggregators | 6 | `nhl_game_ids_by_season.R`, `nhl_all_players_by_season.R`, `nhl_player_career_stats.R`, `nhl_team_summary_range.R`, `nhl_skater_summary_range.R`, `nhl_goalie_summary_range.R` | (none — orchestrates other exported functions) |
+
+The Edge family pairs `/now` and `/{season}/{gameType}` URLs behind a
+single wrapper that takes an optional `season` argument (default `NULL`
+→ current season). The Records family parallels the Stats REST shape:
+all 442 documented endpoints share `https://records.nhl.com/site/api/{resource}`
+with optional `cayenneExp` filtering and `limit`/`start` pagination,
+and the response shape is `{data: [...], total: N}` for tabular
+endpoints.
+
+Endpoint catalog and OpenAPI 3.0.3 specs for all three NHL backends are
+in `data-raw/nhl_*_openapi.{json,yaml}`. The function-to-endpoint
+mapping is in `data-raw/nhl_missing_endpoint_function_mapping.md`.
+Both are regenerated by `data-raw/_gen_openapi.py` from the upstream
+[dfleis/nhl-api-docs](https://github.com/dfleis/nhl-api-docs) catalog.
+
+### NHL Loaders (16 exported + DB helpers)
+
+| Function | Category | Release Tag |
+|----------|----------|-------------|
+| `load_nhl_pbp()` | Loader | nhl_pbp_full |
+| `load_nhl_pbp_lite()` | Loader | nhl_pbp_lite |
+| `load_nhl_player_box()` | Loader | nhl_player_boxscores |
+| `load_nhl_skater_box()` | Loader | nhl_skater_boxscores |
+| `load_nhl_goalie_box()` | Loader | nhl_goalie_boxscores |
+| `load_nhl_team_box()` | Loader | nhl_team_boxscores |
+| `load_nhl_schedule()` | Loader | nhl_schedules |
+| `load_nhl_rosters()` | Loader | nhl_rosters |
+| `load_nhl_game_rosters()` | Loader | nhl_game_rosters |
+| `load_nhl_game_info()` | Loader | nhl_game_info |
+| `load_nhl_scoring()` | Loader | nhl_scoring |
+| `load_nhl_penalties()` | Loader | nhl_penalties |
+| `load_nhl_three_stars()` | Loader | nhl_three_stars |
+| `load_nhl_scratches()` | Loader | nhl_scratches |
+| `load_nhl_linescore()` | Loader | nhl_linescore |
+| `load_nhl_shifts()` | Loader | nhl_shifts |
+| `update_nhl_db()` | DB | (uses load_nhl_pbp) |
+
+All `load_nhl_*()` helpers share `.nhl_release_loader()` (in `nhl_pbp.R`),
+which validates seasons (min 2011), builds release URLs from
+`(release_tag, file_prefix)`, downloads in parallel with optional `progressr`,
+optionally writes into a `DBIConnection`, and tags output with the
+`fastRhockey_data` S3 class.
 
 ### S3 Class: `fastRhockey_data`
 
@@ -124,7 +206,7 @@ The package uses `lifecycle` for formal deprecation of PHF functions:
 - `globalVariables()` in `utils.R` suppress R CMD check NSE notes
 - Conventional Commits: `<type>(<scope>): <description>`
   - Types: feat, fix, docs, style, refactor, test, build, ci, chore
-  - Scopes: nhl, phf, pwhl, xg, pkgdown, ci, loader
+  - Scopes: nhl, nhl-edge, nhl-records, nhl-stats, phf, pwhl, xg, pkgdown, ci, loader
 
 ### Naming Conventions
 

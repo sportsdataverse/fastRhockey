@@ -1,6 +1,74 @@
 ## Release summary
 
-This is version 1.0.0 that signals API stability for the NHL and PWHL
+This is version 1.0.0. Continued development on the 1.0.0 release adds:
+
+* **NHL Edge advanced-metrics integration (33 new functions)** wrapping
+  `https://api-web.nhle.com/v1/edge/...` for skater, goalie, and team
+  positional / shot-tracking analytics. All wrappers share an internal
+  `.nhl_edge_api()` helper and accept an optional `season` argument
+  that defaults to the current season via the `/now` form.
+
+* **NHL Records API integration (25 new functions)** -- first-time
+  fastRhockey integration with `https://records.nhl.com/site/api/` for
+  franchise, player, goalie, draft, award, HOF, official, attendance,
+  venue, and combine records. All share an internal
+  `.nhl_records_api()` helper that supports `cayenneExp` filtering and
+  pagination.
+
+* **NHL Stats REST dedicated wrappers (13 new functions)** that promote
+  endpoints previously only reachable via the `nhl_stats_misc()` generic
+  dispatcher: `nhl_stats_franchise()`, `nhl_stats_players()`,
+  `nhl_stats_glossary()`, `nhl_stats_country()`, `nhl_stats_config()`,
+  `nhl_stats_ping()`, `nhl_stats_skater_leaders()`,
+  `nhl_stats_goalie_leaders()`, `nhl_stats_skater_milestones()`,
+  `nhl_stats_goalie_milestones()`, `nhl_stats_team_listing()`,
+  `nhl_stats_game_listing()`, `nhl_stats_content_module()`.
+
+* **NHL api-web miscellaneous endpoints (6 new functions, 3 in-place
+  updates)**: `nhl_wsc_pbp()`, `nhl_draft_tracker()`, `nhl_ppt_replay()`,
+  `nhl_ppt_replay_goal()`, `nhl_postal_lookup()`, `nhl_smartlinks()`,
+  plus `nhl_scoreboard()` (now accepts `date`), `nhl_meta()` (now
+  supports playoff-series metadata), and `nhl_draft_year()` (now hits
+  the `draft/picks/{year}/all` shortcut when `round` is `NULL` or
+  `"all"`).
+
+* **Helper aggregators (6 new functions)** inspired by `nhl-api-py`'s
+  `Helpers` and `Stats` modules: `nhl_game_ids_by_season()`,
+  `nhl_all_players_by_season()`, `nhl_player_career_stats()`,
+  `nhl_team_summary_range()`, `nhl_skater_summary_range()`,
+  `nhl_goalie_summary_range()`.
+
+* **OpenAPI 3.0.3 specs and endpoint mapping** for all three NHL API
+  backends (`api-web.nhle.com/v1/`, `api.nhle.com/stats/rest/`,
+  `records.nhl.com/site/api/`) added to `data-raw/`.
+
+* **Ten new NHL season-level loaders**: `load_nhl_skater_box()`,
+  `load_nhl_goalie_box()`, `load_nhl_game_rosters()`, `load_nhl_game_info()`,
+  `load_nhl_scoring()`, `load_nhl_penalties()`, `load_nhl_three_stars()`,
+  `load_nhl_scratches()`, `load_nhl_linescore()`, `load_nhl_shifts()` for
+  pre-compiled datasets hosted on `sportsdataverse-data` GitHub releases.
+  The six pre-existing NHL loaders were internally refactored to share a
+  single helper (`.nhl_release_loader()`) without changing their public
+  signatures. All accept `seasons` (Min: 2011) and return `fastRhockey_data`.
+
+* **Eleven new PWHL season-level loaders**: `load_pwhl_skater_box()`,
+  `load_pwhl_goalie_box()`, `load_pwhl_team_box()`, `load_pwhl_game_info()`,
+  `load_pwhl_scoring_summary()`, `load_pwhl_penalty_summary()`,
+  `load_pwhl_three_stars()`, `load_pwhl_officials()`,
+  `load_pwhl_shots_by_period()`, `load_pwhl_shootout()`,
+  `load_pwhl_game_rosters()`) for pre-compiled datasets hosted on
+  `sportsdataverse-data` GitHub releases. The four pre-existing PWHL loaders
+  were internally refactored to share a single helper without changing their
+  public signatures.
+
+No breaking changes. All previously exported functions retain their
+public signatures.
+
+The original 1.0.0 release notes are preserved below.
+
+## Release summary (1.0.0 - initial)
+
+Version 1.0.0 signals API stability for the NHL and PWHL
 endpoints. Key changes:
 
 * Formally deprecated all PHF functions via `lifecycle` (league ceased

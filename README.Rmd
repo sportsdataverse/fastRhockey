@@ -29,9 +29,13 @@ Part of the [SportsDataverse](https://sportsdataverse.org/) family of R/Python p
 ### Key Features
 
 - **NHL Data** -- Game feeds, boxscores, play-by-play with shifts, schedules, standings, rosters, draft picks, player/team stats, playoffs, and broadcast information via `api-web.nhle.com` and `api.nhle.com/stats`
+- **NHL Edge Analytics** (33 functions) -- Skater, goalie, and team advanced metrics from `api-web.nhle.com/v1/edge/...` covering shot location, shot speed, skating speed, skating distance, zone time, comparisons, landing pages, and top-10 leaderboards. Each wrapper accepts an optional `season` argument and falls back to the current season via the `/now` form
+- **NHL Records API** (25 functions) -- First-time integration with `records.nhl.com/site/api/` for franchise totals, player/skater/goalie career and real-time stats, draft lottery, hall of fame, trophies, awards, attendance, venues, officials, and combine data
+- **NHL Stats REST** (19 dedicated wrappers) -- `nhl_stats_franchise()`, `nhl_stats_players()`, `nhl_stats_glossary()`, `nhl_stats_country()`, `nhl_stats_skater_leaders()`, `nhl_stats_goalie_leaders()`, `nhl_stats_skater_milestones()`, `nhl_stats_goalie_milestones()`, plus the original `nhl_stats_skaters()` / `nhl_stats_goalies()` / `nhl_stats_teams()` / `nhl_stats_draft()` / `nhl_stats_seasons()` / `nhl_stats_misc()` family
 - **PWHL Data** -- Schedules, standings, play-by-play, player box scores, team rosters, stat leaders, player profiles, game logs, career stats, player search, league leaders, transactions, streaks, playoff brackets, game summaries, and scorebar via the HockeyTech API
 - **xG Models** -- Expected goals predictions for NHL play-by-play data using XGBoost models (5v5, special teams, penalty shots)
-- **Full Season Loaders** -- `load_nhl_pbp()`, `load_nhl_schedule()`, `load_nhl_team_box()`, `load_nhl_player_box()`, `load_nhl_rosters()` for bulk historical NHL data; `load_pwhl_pbp()`, `load_pwhl_schedule()`, `load_pwhl_player_box()`, `load_pwhl_rosters()` for PWHL
+- **Helper Aggregators** -- Convenience functions inspired by `nhl-api-py` that combine multiple endpoint calls into a single tidy frame: `nhl_game_ids_by_season()`, `nhl_all_players_by_season()`, `nhl_player_career_stats()`, `nhl_team_summary_range()`, `nhl_skater_summary_range()`, `nhl_goalie_summary_range()`
+- **Full Season Loaders** -- Sixteen NHL loaders covering play-by-play (full + lite), schedules, season + per-game rosters, player/skater/goalie/team boxscores, game info, scoring & penalty summaries, three stars, scratches, linescores, and shifts (`load_nhl_pbp()`, `load_nhl_pbp_lite()`, `load_nhl_schedule()`, `load_nhl_rosters()`, `load_nhl_game_rosters()`, `load_nhl_team_box()`, `load_nhl_player_box()`, `load_nhl_skater_box()`, `load_nhl_goalie_box()`, `load_nhl_game_info()`, `load_nhl_scoring()`, `load_nhl_penalties()`, `load_nhl_three_stars()`, `load_nhl_scratches()`, `load_nhl_linescore()`, `load_nhl_shifts()`); for PWHL, fifteen loaders covering play-by-play, schedules, season + per-game rosters, player/skater/goalie/team boxscores, game info, scoring & penalty summaries, three stars, officials, shots-by-period, and shootouts (`load_pwhl_pbp()`, `load_pwhl_schedule()`, `load_pwhl_rosters()`, `load_pwhl_game_rosters()`, `load_pwhl_player_box()`, `load_pwhl_skater_box()`, `load_pwhl_goalie_box()`, `load_pwhl_team_box()`, `load_pwhl_game_info()`, `load_pwhl_scoring_summary()`, `load_pwhl_penalty_summary()`, `load_pwhl_three_stars()`, `load_pwhl_officials()`, `load_pwhl_shots_by_period()`, `load_pwhl_shootout()`)
 
 > **Note:** PHF (Premier Hockey Federation) functions are deprecated as of v1.0.0. The league ceased operations; use PWHL functions instead.
 
@@ -50,10 +54,18 @@ install.packages("fastRhockey")
 You can install the development version from [GitHub](https://github.com/sportsdataverse/fastRhockey) with:
 
 ``` r
+# You can install using the pak package using the following code:
 if (!requireNamespace('pak', quietly = TRUE)){
   install.packages('pak')
 }
 pak::pak("sportsdataverse/fastRhockey")
+```
+If you would prefer the `remotes` installation:
+``` r
+if (!requireNamespace('remotes', quietly = TRUE)){
+  install.packages('remotes')
+}
+remotes::install_github(repo = "sportsdataverse/fastRhockey")
 ```
 
 *********************************************************
@@ -68,6 +80,21 @@ nhl_schedule(season = "20242025")
 nhl_standings(season = "20242025")
 nhl_game_feed(game_id = 2024020001)
 
+# NHL Edge advanced metrics
+nhl_edge_skater_detail(player_id = 8478402)               # Connor McDavid, current season
+nhl_edge_goalie_save_percentage_detail(player_id = 8475883)
+nhl_edge_team_zone_time_details(team_id = 10)             # Toronto Maple Leafs
+
+# NHL Records API
+nhl_records_franchise()
+nhl_records_draft_lottery_odds()
+nhl_records_skater_real_time_stats_career(limit = 50)
+
+# Helper aggregators
+nhl_game_ids_by_season(season = 2025, team_abbr = "TOR")
+nhl_player_career_stats(player_id = 8478402)
+nhl_team_summary_range(start_season = 2023, end_season = 2024)
+
 # PWHL
 pwhl_schedule(season = 2025)
 pwhl_standings(season = 2025)
@@ -81,6 +108,11 @@ load_nhl_pbp(seasons = 2024)
 load_nhl_schedule(seasons = 2024)
 load_pwhl_pbp(seasons = 2024)
 load_pwhl_schedule(seasons = 2024)
+load_pwhl_team_box(seasons = 2024)
+load_pwhl_skater_box(seasons = 2024)
+load_pwhl_scoring_summary(seasons = 2024)
+load_pwhl_penalty_summary(seasons = 2024)
+load_pwhl_game_info(seasons = 2024)
 ```
 
 *********************************************************

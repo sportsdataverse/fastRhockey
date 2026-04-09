@@ -1,3 +1,192 @@
+# **fastRhockey 1.0.0 (continued development)**
+
+### **New NHL Edge Analytics (33 functions)**
+
+Wraps the NHL Edge advanced-metrics endpoints under
+`https://api-web.nhle.com/v1/edge/...`. Every wrapper accepts an optional
+`season` argument (4-digit end year, e.g., `2025`) — when omitted, the
+`/now` form is used to fetch the current season. All wrappers share an
+internal `.nhl_edge_api()` helper in `R/helpers_nhl_edge.R`.
+
+| family  | functions |
+|---------|-----------|
+| Skater  | `nhl_edge_skater_detail()`, `nhl_edge_skater_landing()`, `nhl_edge_skater_comparison()`, `nhl_edge_skater_shot_location_detail()`, `nhl_edge_skater_shot_location_top_10()`, `nhl_edge_skater_shot_speed_detail()`, `nhl_edge_skater_shot_speed_top_10()`, `nhl_edge_skater_skating_speed_detail()`, `nhl_edge_skater_speed_top_10()`, `nhl_edge_skater_skating_distance_detail()`, `nhl_edge_skater_distance_top_10()`, `nhl_edge_skater_zone_time()`, `nhl_edge_skater_zone_time_top_10()`, `nhl_cat_edge_skater_detail()` |
+| Goalie  | `nhl_edge_goalie_detail()`, `nhl_edge_goalie_landing()`, `nhl_edge_goalie_comparison()`, `nhl_edge_goalie_5v5_detail()`, `nhl_edge_goalie_5v5_top_10()`, `nhl_edge_goalie_save_percentage_detail()`, `nhl_edge_goalie_edge_save_pctg_top_10()`, `nhl_edge_goalie_shot_location_detail()`, `nhl_edge_goalie_shot_location_top_10()`, `nhl_cat_edge_goalie_detail()` |
+| Team    | `nhl_edge_team_detail()`, `nhl_edge_team_landing()`, `nhl_edge_team_shot_location_detail()`, `nhl_edge_team_shot_location_top_10()`, `nhl_edge_team_shot_speed_detail()`, `nhl_edge_team_skating_speed_detail()`, `nhl_edge_team_skating_speed_top_10()`, `nhl_edge_team_skating_distance_detail()`, `nhl_edge_team_skating_distance_top_10()`, `nhl_edge_team_zone_time_details()`, `nhl_edge_team_zone_time_top_10()` |
+
+### **New NHL Records API integration (25 functions)**
+
+First-time integration with `https://records.nhl.com/site/api/`. All
+wrappers share an internal `.nhl_records_api()` helper in
+`R/helpers_nhl_records.R` that supports `cayenneExp` filters,
+`limit`/`start` pagination, and the records-API response shape
+(`{data, total}`).
+
+* Franchise: `nhl_records_franchise()`, `nhl_records_franchise_detail()`,
+  `nhl_records_franchise_totals()`, `nhl_records_franchise_team_totals()`,
+  `nhl_records_franchise_season_results()`,
+  `nhl_records_franchise_playoff_appearances()`
+* Player: `nhl_records_player()`, `nhl_records_player_byteam()`,
+  `nhl_records_player_stats()`,
+  `nhl_records_skater_real_time_stats_season()`,
+  `nhl_records_skater_real_time_stats_career()`
+* Goalie: `nhl_records_goalie_career_stats()`,
+  `nhl_records_goalie_season_stats()`, `nhl_records_goalie_shutout_streak()`
+* Draft: `nhl_records_draft()`, `nhl_records_draft_lottery_odds()`,
+  `nhl_records_draft_lottery_picks()`, `nhl_records_draft_prospect()`
+* Awards / HOF: `nhl_records_trophy()`, `nhl_records_award_details()`,
+  `nhl_records_hof_players()`
+* League: `nhl_records_officials()`, `nhl_records_attendance()`,
+  `nhl_records_venue()`, `nhl_records_combine()`
+
+### **New NHL Stats REST wrappers (13 functions)**
+
+Promotes endpoints that were previously only reachable via
+`nhl_stats_misc()`'s generic dispatcher into discoverable, dedicated
+wrappers. Documentation for `nhl_stats_misc()` was also updated to
+enumerate every valid `endpoint` value.
+
+* `nhl_stats_franchise()`, `nhl_stats_players()`, `nhl_stats_glossary()`,
+  `nhl_stats_country()`, `nhl_stats_config()`, `nhl_stats_ping()`
+* `nhl_stats_skater_leaders()`, `nhl_stats_goalie_leaders()`,
+  `nhl_stats_skater_milestones()`, `nhl_stats_goalie_milestones()`
+* `nhl_stats_team_listing()`, `nhl_stats_game_listing()`,
+  `nhl_stats_content_module()`
+
+### **New NHL api-web miscellaneous endpoints (6 functions + 3 in-place updates)**
+
+* `nhl_wsc_pbp(game_id)` -- narrative-format play-by-play from
+  `wsc/play-by-play/{gameId}` (distinct from `nhl_game_pbp()` which uses
+  `gamecenter/{id}/play-by-play`).
+* `nhl_draft_tracker()` -- live draft tracker
+  (`draft-tracker/picks/now`), distinct from `nhl_draft()` which hits the
+  static `draft/picks/now` endpoint.
+* `nhl_ppt_replay(game_id, event_number)` -- event-level replay metadata.
+* `nhl_ppt_replay_goal(game_id, event_number)` -- goal-specific replay
+  metadata.
+* `nhl_postal_lookup(postal_code)` -- broadcast region lookup by postal
+  code.
+* `nhl_smartlinks(handle = NULL)` -- NHL.com smart-link router.
+* `nhl_scoreboard(date = NULL)` -- now accepts an optional `date`
+  argument so callers can fetch historical scoreboards (was hardcoded to
+  `/now`).
+* `nhl_meta(game_id = NULL, year = NULL, series_letter = NULL)` --
+  added a third branch for `meta/playoff-series/{year}/{seriesLetter}`.
+* `nhl_draft_year(year, round = NULL)` -- when `round` is `NULL` or
+  `"all"`, the function now hits the `/draft/picks/{year}/all` shortcut
+  in a single request instead of looping per round.
+
+### **New helper aggregators inspired by `nhl-api-py` (6 functions)**
+
+Convenience wrappers that orchestrate multiple endpoint calls into one
+tidy data frame:
+
+* `nhl_game_ids_by_season(season, game_types, team_abbr, sleep_rate)` --
+  iterates every team's season schedule and returns the deduplicated set
+  of game IDs.
+* `nhl_all_players_by_season(season, sleep_rate)` -- iterates every
+  team's roster and flattens forwards/defensemen/goalies.
+* `nhl_player_career_stats(player_id)` -- combines `player/{id}/landing`
+  with the season-by-season `seasonTotals` payload into a career frame.
+* `nhl_team_summary_range(start_season, end_season)` -- multi-season
+  team summary loop over `nhl_stats_teams(report_type = "summary")`.
+* `nhl_skater_summary_range(start_season, end_season)` -- same for
+  skater summary.
+* `nhl_goalie_summary_range(start_season, end_season)` -- same for
+  goalie summary.
+
+### **Endpoint mapping + OpenAPI specs**
+
+* `data-raw/nhl_missing_endpoint_function_mapping.md` -- table of every
+  documented NHL API endpoint and its proposed/implemented
+  fastRhockey wrapper, sourced from
+  [dfleis/nhl-api-docs](https://github.com/dfleis/nhl-api-docs),
+  [RentoSaijo/nhlscraper](https://github.com/RentoSaijo/nhlscraper),
+  and [coreyjs/nhl-api-py](https://github.com/coreyjs/nhl-api-py).
+* `data-raw/nhl_api_web_openapi.{json,yaml}` -- OpenAPI 3.0.3 spec for
+  `api-web.nhle.com/v1/` (132 endpoints).
+* `data-raw/nhl_stats_rest_openapi.{json,yaml}` -- OpenAPI 3.0.3 spec
+  for `api.nhle.com/stats/rest/{lang}/` (21 endpoints).
+* `data-raw/nhl_records_openapi.{json,yaml}` -- OpenAPI 3.0.3 spec for
+  `records.nhl.com/site/api/` (442 endpoints).
+* `data-raw/_gen_openapi.py` -- regenerator script.
+
+### **Bug Fixes / API quirks documented**
+
+* `nhl_stats_players()` now detects `data: []` empty-list responses
+  (the API returns this when no `cayenne_exp` filter is supplied) and
+  returns `NULL` with a friendly hint instead of crashing
+  `clean_names()`.
+* `nhl_stats_skater_leaders()` and `nhl_stats_goalie_leaders()` no
+  longer pass `start`/`limit` query parameters, which the
+  `leaders/{skaters,goalies}/{attribute}` endpoint rejects with a 500
+  Cayenne SQL error. Roxygen now documents the valid `attribute`
+  values: skaters accept `assists`/`goals`/`points`; goalies accept
+  `savePctg`/`gaa`/`shutouts`.
+* `nhl_records_franchise(franchise_id = ...)` now translates the
+  `franchise_id` argument into a `cayenneExp=id={id}` filter. The
+  records API does not support a path-suffix `franchise/{id}` form
+  (returns 404).
+* `nhl_records_award_details()` -- replaced the broken `franchise_id`
+  argument with `season_id` (the `award-details` endpoint accepts
+  `seasonId` filtering but rejects `franchiseId`).
+* `nhl_stats_content_module()` now guards against unnamed CMS
+  responses that previously crashed `clean_names()`.
+
+### **New NHL Loaders**
+
+Ten new season-level loaders that pull pre-compiled NHL datasets from new
+release tags on
+[`sportsdataverse/sportsdataverse-data`](https://github.com/sportsdataverse/sportsdataverse-data).
+All accept a `seasons` vector (Min: `2011`) and return a `fastRhockey_data`
+data frame, mirroring the existing `load_nhl_*()` API:
+
+| function                   | release tag            | rows per game            |
+|----------------------------|------------------------|--------------------------|
+| `load_nhl_skater_box()`    | `nhl_skater_boxscores` | one per skater           |
+| `load_nhl_goalie_box()`    | `nhl_goalie_boxscores` | one per goalie           |
+| `load_nhl_game_rosters()`  | `nhl_game_rosters`     | one per dressed player   |
+| `load_nhl_game_info()`     | `nhl_game_info`        | one                      |
+| `load_nhl_scoring()`       | `nhl_scoring`          | one per goal             |
+| `load_nhl_penalties()`     | `nhl_penalties`        | one per penalty          |
+| `load_nhl_three_stars()`   | `nhl_three_stars`      | up to three              |
+| `load_nhl_scratches()`     | `nhl_scratches`        | one per scratched player |
+| `load_nhl_linescore()`     | `nhl_linescore`        | one                      |
+| `load_nhl_shifts()`        | `nhl_shifts`           | one per shift            |
+
+The six pre-existing loaders (`load_nhl_pbp()`, `load_nhl_pbp_lite()`,
+`load_nhl_player_box()`, `load_nhl_team_box()`, `load_nhl_schedule()`,
+`load_nhl_rosters()`) were refactored to share a single internal worker
+(`.nhl_release_loader()`) without changing their public signatures or return
+types.
+
+### **New PWHL Loaders**
+
+Eleven new season-level loaders that pull pre-compiled PWHL datasets from
+new release tags on
+[`sportsdataverse/sportsdataverse-data`](https://github.com/sportsdataverse/sportsdataverse-data).
+All accept a `seasons` vector (Min: `2024`) and return a `fastRhockey_data`
+data frame, mirroring the existing `load_pwhl_*()` API:
+
+| function                       | release tag                | rows per game        |
+|--------------------------------|----------------------------|----------------------|
+| `load_pwhl_skater_box()`       | `pwhl_skater_boxscores`    | one per skater       |
+| `load_pwhl_goalie_box()`       | `pwhl_goalie_boxscores`    | one per goalie       |
+| `load_pwhl_team_box()`         | `pwhl_team_boxscores`      | two (home/away)      |
+| `load_pwhl_game_info()`        | `pwhl_game_info`           | one                  |
+| `load_pwhl_scoring_summary()`  | `pwhl_scoring_summary`     | one per goal         |
+| `load_pwhl_penalty_summary()`  | `pwhl_penalty_summary`     | one per penalty      |
+| `load_pwhl_three_stars()`      | `pwhl_three_stars`         | up to three          |
+| `load_pwhl_officials()`        | `pwhl_officials`           | one per official     |
+| `load_pwhl_shots_by_period()`  | `pwhl_shots_by_period`     | one per period       |
+| `load_pwhl_shootout()`         | `pwhl_shootout`            | one per attempt      |
+| `load_pwhl_game_rosters()`     | `pwhl_game_rosters`        | one per dressed player|
+
+The four pre-existing loaders (`load_pwhl_pbp()`, `load_pwhl_player_box()`,
+`load_pwhl_schedule()`, `load_pwhl_rosters()`) were refactored to share a
+single internal worker (`.pwhl_release_loader()`) without changing their
+public signatures or return types.
+
 # **fastRhockey 1.0.0**
 
 ### **Breaking Changes**

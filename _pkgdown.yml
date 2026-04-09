@@ -194,8 +194,19 @@ reference:
     contents:
       - "`load_pwhl_pbp`"
       - "`load_pwhl_player_box`"
+      - "`load_pwhl_skater_box`"
+      - "`load_pwhl_goalie_box`"
+      - "`load_pwhl_team_box`"
       - "`load_pwhl_schedule`"
       - "`load_pwhl_rosters`"
+      - "`load_pwhl_game_rosters`"
+      - "`load_pwhl_game_info`"
+      - "`load_pwhl_scoring_summary`"
+      - "`load_pwhl_penalty_summary`"
+      - "`load_pwhl_three_stars`"
+      - "`load_pwhl_officials`"
+      - "`load_pwhl_shots_by_period`"
+      - "`load_pwhl_shootout`"
   - subtitle: "Update or Create PWHL Database"
     desc: Functions that update and create a database of fastRhockey PWHL play-by-play data
     contents:
@@ -279,6 +290,103 @@ reference:
       - "`nhl_stats_misc`"
       - "`nhl_skater_stats_leaders`"
       - "`nhl_goalie_stats_leaders`"
+  - subtitle: Stats REST Dedicated Wrappers
+    desc: Dedicated wrappers for the NHL Stats REST API that were previously only reachable via `nhl_stats_misc()`
+    contents:
+      - "`nhl_stats_franchise`"
+      - "`nhl_stats_players`"
+      - "`nhl_stats_glossary`"
+      - "`nhl_stats_country`"
+      - "`nhl_stats_config`"
+      - "`nhl_stats_ping`"
+      - "`nhl_stats_skater_leaders`"
+      - "`nhl_stats_goalie_leaders`"
+      - "`nhl_stats_skater_milestones`"
+      - "`nhl_stats_goalie_milestones`"
+      - "`nhl_stats_team_listing`"
+      - "`nhl_stats_game_listing`"
+      - "`nhl_stats_content_module`"
+  - subtitle: NHL Edge Analytics - Skater
+    desc: Skater advanced metrics from NHL Edge (`api-web.nhle.com/v1/edge/skater-*`)
+    contents:
+      - "`nhl_edge_skater_detail`"
+      - "`nhl_edge_skater_landing`"
+      - "`nhl_edge_skater_comparison`"
+      - "`nhl_edge_skater_shot_location_detail`"
+      - "`nhl_edge_skater_shot_location_top_10`"
+      - "`nhl_edge_skater_shot_speed_detail`"
+      - "`nhl_edge_skater_shot_speed_top_10`"
+      - "`nhl_edge_skater_skating_speed_detail`"
+      - "`nhl_edge_skater_speed_top_10`"
+      - "`nhl_edge_skater_skating_distance_detail`"
+      - "`nhl_edge_skater_distance_top_10`"
+      - "`nhl_edge_skater_zone_time`"
+      - "`nhl_edge_skater_zone_time_top_10`"
+      - "`nhl_cat_edge_skater_detail`"
+  - subtitle: NHL Edge Analytics - Goalie
+    desc: Goalie advanced metrics from NHL Edge (`api-web.nhle.com/v1/edge/goalie-*`)
+    contents:
+      - "`nhl_edge_goalie_detail`"
+      - "`nhl_edge_goalie_landing`"
+      - "`nhl_edge_goalie_comparison`"
+      - "`nhl_edge_goalie_5v5_detail`"
+      - "`nhl_edge_goalie_5v5_top_10`"
+      - "`nhl_edge_goalie_save_percentage_detail`"
+      - "`nhl_edge_goalie_edge_save_pctg_top_10`"
+      - "`nhl_edge_goalie_shot_location_detail`"
+      - "`nhl_edge_goalie_shot_location_top_10`"
+      - "`nhl_cat_edge_goalie_detail`"
+  - subtitle: NHL Edge Analytics - Team
+    desc: Team advanced metrics from NHL Edge (`api-web.nhle.com/v1/edge/team-*`)
+    contents:
+      - "`nhl_edge_team_detail`"
+      - "`nhl_edge_team_landing`"
+      - "`nhl_edge_team_shot_location_detail`"
+      - "`nhl_edge_team_shot_location_top_10`"
+      - "`nhl_edge_team_shot_speed_detail`"
+      - "`nhl_edge_team_skating_speed_detail`"
+      - "`nhl_edge_team_skating_speed_top_10`"
+      - "`nhl_edge_team_skating_distance_detail`"
+      - "`nhl_edge_team_skating_distance_top_10`"
+      - "`nhl_edge_team_zone_time_details`"
+      - "`nhl_edge_team_zone_time_top_10`"
+  - subtitle: NHL Records API
+    desc: Historical records from `records.nhl.com/site/api/`
+    contents:
+      - "`nhl_records_franchise`"
+      - "`nhl_records_franchise_detail`"
+      - "`nhl_records_franchise_totals`"
+      - "`nhl_records_franchise_team_totals`"
+      - "`nhl_records_franchise_season_results`"
+      - "`nhl_records_franchise_playoff_appearances`"
+      - "`nhl_records_player`"
+      - "`nhl_records_player_byteam`"
+      - "`nhl_records_player_stats`"
+      - "`nhl_records_skater_real_time_stats_season`"
+      - "`nhl_records_skater_real_time_stats_career`"
+      - "`nhl_records_goalie_career_stats`"
+      - "`nhl_records_goalie_season_stats`"
+      - "`nhl_records_goalie_shutout_streak`"
+      - "`nhl_records_draft`"
+      - "`nhl_records_draft_lottery_odds`"
+      - "`nhl_records_draft_lottery_picks`"
+      - "`nhl_records_draft_prospect`"
+      - "`nhl_records_trophy`"
+      - "`nhl_records_award_details`"
+      - "`nhl_records_hof_players`"
+      - "`nhl_records_officials`"
+      - "`nhl_records_attendance`"
+      - "`nhl_records_venue`"
+      - "`nhl_records_combine`"
+  - subtitle: NHL Helper Aggregators
+    desc: Convenience functions that combine multiple NHL endpoint calls into a single tidy frame
+    contents:
+      - "`nhl_game_ids_by_season`"
+      - "`nhl_all_players_by_season`"
+      - "`nhl_player_career_stats`"
+      - "`nhl_team_summary_range`"
+      - "`nhl_skater_summary_range`"
+      - "`nhl_goalie_summary_range`"
   - subtitle: Broadcast and Odds
     desc: Functions exported by fastRhockey for broadcast availability and odds
     contents:
@@ -292,11 +400,17 @@ reference:
       - "`nhl_conferences_info`"
       - "`nhl_divisions`"
       - "`nhl_divisions_info`"
-  - subtitle: Metadata
-    desc: Functions exported by fastRhockey for NHL metadata and location lookups
+  - subtitle: Metadata and Reference
+    desc: Functions exported by fastRhockey for NHL metadata, location lookups, replays, and miscellaneous reference data
     contents:
       - "`nhl_meta`"
       - "`nhl_location`"
+      - "`nhl_wsc_pbp`"
+      - "`nhl_draft_tracker`"
+      - "`nhl_ppt_replay`"
+      - "`nhl_ppt_replay_goal`"
+      - "`nhl_postal_lookup`"
+      - "`nhl_smartlinks`"
   - title: "fastRhockey Data"
   - subtitle: Full Seasons of NHL Data
     desc: Functions exported by fastRhockey which load full seasons of fastRhockey NHL data
@@ -305,8 +419,18 @@ reference:
       - "`load_nhl_pbp_lite`"
       - "`load_nhl_team_box`"
       - "`load_nhl_player_box`"
+      - "`load_nhl_skater_box`"
+      - "`load_nhl_goalie_box`"
       - "`load_nhl_rosters`"
+      - "`load_nhl_game_rosters`"
       - "`load_nhl_schedule`"
+      - "`load_nhl_game_info`"
+      - "`load_nhl_scoring`"
+      - "`load_nhl_penalties`"
+      - "`load_nhl_three_stars`"
+      - "`load_nhl_scratches`"
+      - "`load_nhl_linescore`"
+      - "`load_nhl_shifts`"
   - subtitle: "Update or Create NHL Database"
     desc: Functions exported by fastRhockey which update and create a database of fastRhockey NHL play-by-play data
     contents:
