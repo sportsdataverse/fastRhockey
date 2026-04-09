@@ -9,7 +9,9 @@ nhl_draft_year(year, round = NULL)
 \arguments{
 \item{year}{Integer. Draft year (e.g. 2023).}
 
-\item{round}{Integer or NULL. Specific round (1-7) or NULL for all rounds.}
+\item{round}{Integer, character, or NULL. Specific round (1-7), the
+literal string \code{"all"}, or \code{NULL} (treated the same as \code{"all"}) to
+fetch every round at once.}
 }
 \value{
 Returns a data frame of draft picks.
@@ -19,11 +21,16 @@ Returns draft pick information for a given year.
 
 Uses the NHL API endpoint at
 \code{api-web.nhle.com/v1/draft/picks/{year}/{round}}.
-When no round is specified, all rounds (1-7) are fetched and combined.
+
+When \code{round} is \code{NULL} (default) or the literal string \code{"all"}, the
+function takes the fast path and hits
+\code{draft/picks/{year}/all} in a single request instead of looping over
+rounds 1-7.
 }
 \examples{
 \donttest{
    try(nhl_draft_year(year = 2023, round = 1))
+   try(nhl_draft_year(year = 2023, round = "all"))
 }
 }
 \keyword{Draft}

@@ -4,17 +4,24 @@
 \alias{nhl_scoreboard}
 \title{\strong{NHL Scoreboard}}
 \usage{
-nhl_scoreboard()
+nhl_scoreboard(date = NULL)
+}
+\arguments{
+\item{date}{Optional character string in \code{"YYYY-MM-DD"} format. When
+\code{NULL} (default) the function hits \code{scoreboard/now}; when a date is
+provided it hits \code{scoreboard/{date}}.}
 }
 \value{
 Returns a list with scoreboard data (focusedDate, games by date).
 }
 \description{
-Returns the current league-wide scoreboard with today's games.
+Returns the current league-wide scoreboard with today's games,
+or — when \code{date} is supplied — the scoreboard for a specific date.
 }
 \examples{
 \donttest{
   try(nhl_scoreboard())
+  try(nhl_scoreboard(date = "2024-01-15"))
 }
 }
 \keyword{NHL}

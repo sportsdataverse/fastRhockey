@@ -16,6 +16,16 @@ test_that("NHL - Get Meta for Game", {
     expect_true("teams" %in% names(x))
 })
 
+test_that("NHL - Get Meta for Playoff Series", {
+    skip_on_cran()
+    skip_nhl_test()
+    x <- nhl_meta(year = 2024, series_letter = "a")
+
+    if (!is.null(x)) {
+        expect_type(x, "list")
+    }
+})
+
 test_that("NHL - Get Location", {
     skip_on_cran()
     skip_nhl_test()

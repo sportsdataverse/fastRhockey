@@ -3,46 +3,48 @@
 #'
 #' Uses the NHL API endpoint at
 #' \code{api-web.nhle.com/v1/draft/picks/{year}/{round}}.
-#' When no round is specified, all rounds (1-7) are fetched and combined.
+#'
+#' When `round` is `NULL` (default) or the literal string `"all"`, the
+#' function takes the fast path and hits
+#' \code{draft/picks/{year}/all} in a single request instead of looping over
+#' rounds 1-7.
 #'
 #' @param year Integer. Draft year (e.g. 2023).
-#' @param round Integer or NULL. Specific round (1-7) or NULL for all rounds.
+#' @param round Integer, character, or NULL. Specific round (1-7), the
+#'   literal string `"all"`, or `NULL` (treated the same as `"all"`) to
+#'   fetch every round at once.
 #' @return Returns a data frame of draft picks.
 #' @keywords NHL Draft Year
 #' @importFrom jsonlite read_json
 #' @importFrom janitor clean_names
+#' @importFrom dplyr bind_rows
 #' @importFrom glue glue
 #' @export
 #' @examples
 #' \donttest{
 #'    try(nhl_draft_year(year = 2023, round = 1))
+#'    try(nhl_draft_year(year = 2023, round = "all"))
 #' }
 nhl_draft_year <- function(year, round = NULL) {
   tryCatch(
     expr = {
-      if (!is.null(round)) {
-        # Fetch a single round
-        url <- glue::glue("https://api-web.nhle.com/v1/draft/picks/{year}/{round}")
+      all_rounds <- is.null(round) ||
+        (is.character(round) && tolower(round) == "all")
+
+      if (all_rounds) {
+        # Fast path: fetch every round in a single request
+        url <- glue::glue(
+          "https://api-web.nhle.com/v1/draft/picks/{year}/all"
+        )
         raw <- jsonlite::read_json(url, simplifyVector = TRUE)
         picks <- raw[["picks"]]
       } else {
-        # Fetch all rounds (1-7)
-        picks <- data.frame()
-        for (r in 1:7) {
-          url <- glue::glue("https://api-web.nhle.com/v1/draft/picks/{year}/{r}")
-          tryCatch(
-            expr = {
-              raw <- jsonlite::read_json(url, simplifyVector = TRUE)
-              round_picks <- raw[["picks"]]
-              if (!is.null(round_picks) && length(round_picks) > 0) {
-                picks <- dplyr::bind_rows(picks, as.data.frame(round_picks))
-              }
-            },
-            error = function(e) {
-              # Round may not exist, skip silently
-            }
-          )
-        }
+        # Fetch a single numeric round
+        url <- glue::glue(
+          "https://api-web.nhle.com/v1/draft/picks/{year}/{round}"
+        )
+        raw <- jsonlite::read_json(url, simplifyVector = TRUE)
+        picks <- raw[["picks"]]
       }
 
       if (is.null(picks) || (is.data.frame(picks) && nrow(picks) == 0) || length(picks) == 0) {

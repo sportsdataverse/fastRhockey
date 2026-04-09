@@ -4,21 +4,38 @@
 \alias{nhl_meta}
 \title{\strong{NHL Meta}}
 \usage{
-nhl_meta(game_id = NULL)
+nhl_meta(game_id = NULL, year = NULL, series_letter = NULL)
 }
 \arguments{
-\item{game_id}{Optional game ID. If provided, returns metadata for that game.
-If NULL, returns general league meta.}
+\item{game_id}{Optional game ID. If provided (and \code{year} / \code{series_letter}
+are not), returns metadata for that game.}
+
+\item{year}{Optional integer playoff year (e.g., \code{2024}). Must be supplied
+together with \code{series_letter} to fetch playoff-series metadata.}
+
+\item{series_letter}{Optional single-letter playoff series identifier
+(e.g., \code{"a"}). Must be supplied together with \code{year}.}
 }
 \value{
 Returns a list with NHL metadata.
 }
 \description{
 Returns NHL metadata (players, teams, season states, game types).
+
+Three branches are supported:
+\itemize{
+\item Both \code{year} and \code{series_letter} supplied — returns playoff-series
+metadata via \code{meta/playoff-series/{year}/{seriesLetter}}.
+\item Only \code{game_id} supplied — returns per-game metadata via
+\code{meta/game/{game_id}}.
+\item No arguments — returns general league meta via \code{meta}.
+}
 }
 \examples{
 \donttest{
   try(nhl_meta())
+  try(nhl_meta(game_id = 2024020001))
+  try(nhl_meta(year = 2024, series_letter = "a"))
 }
 }
 \keyword{Meta}
