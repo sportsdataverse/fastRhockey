@@ -1,0 +1,688 @@
+openapi: 3.0.3
+info:
+  title: NHL Stats REST API (api.nhle.com/stats/rest)
+  version: 1.0.0
+  description: NHL Stats REST API. Supports Cayenne filter expressions via the `cayenneExp`
+    query parameter. No authentication.
+  contact:
+    name: fastRhockey maintainers
+    url: https://github.com/sportsdataverse/fastRhockey
+  license:
+    name: MIT
+servers:
+- url: https://api.nhle.com/stats/rest
+tags:
+- name: componentSeason
+- name: config
+- name: content
+- name: country
+- name: draft
+- name: franchise
+- name: game
+- name: glossary
+- name: goalie
+- name: leaders
+- name: milestones
+- name: ping
+- name: players
+- name: season
+- name: shiftcharts
+- name: skater
+- name: team
+paths:
+  /ping:
+    get:
+      summary: Db Ping
+      operationId: db_ping
+      tags:
+      - ping
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/componentSeason:
+    get:
+      summary: Db Componentseason
+      operationId: db_componentSeason
+      tags:
+      - componentSeason
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/config:
+    get:
+      summary: Db Config
+      operationId: db_config
+      tags:
+      - config
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/content/module/{templateKey}:
+    get:
+      summary: Db Content Module
+      operationId: db_content_module
+      tags:
+      - content
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      - name: templateKey
+        in: path
+        required: true
+        description: Path parameter `templateKey`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/country:
+    get:
+      summary: Db Country
+      operationId: db_country
+      tags:
+      - country
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/draft:
+    get:
+      summary: Db Draft
+      operationId: db_draft
+      tags:
+      - draft
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/franchise:
+    get:
+      summary: Db Franchise
+      operationId: db_franchise
+      tags:
+      - franchise
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/game:
+    get:
+      summary: Db Game
+      operationId: db_game
+      tags:
+      - game
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/glossary:
+    get:
+      summary: Db Glossary
+      operationId: db_glossary
+      tags:
+      - glossary
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/goalie/{report}:
+    get:
+      summary: Db Goalie
+      operationId: db_goalie
+      tags:
+      - goalie
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      - name: report
+        in: path
+        required: true
+        description: Path parameter `report`
+        schema:
+          type: string
+      - name: isAggregate
+        in: query
+        required: false
+        description: Query parameter `isAggregate`
+        schema:
+          type: boolean
+      - name: isGame
+        in: query
+        required: false
+        description: Query parameter `isGame`
+        schema:
+          type: boolean
+      - name: factCayenneExp
+        in: query
+        required: false
+        description: Query parameter `factCayenneExp`
+        schema:
+          type: string
+      - name: include
+        in: query
+        required: false
+        description: Query parameter `include`
+        schema:
+          type: string
+      - name: exclude
+        in: query
+        required: false
+        description: Query parameter `exclude`
+        schema:
+          type: string
+      - name: cayenneExp
+        in: query
+        required: false
+        description: Query parameter `cayenneExp`
+        schema:
+          type: string
+      - name: sort
+        in: query
+        required: false
+        description: Query parameter `sort`
+        schema:
+          type: string
+      - name: dir
+        in: query
+        required: false
+        description: Query parameter `dir`
+        schema:
+          type: string
+      - name: start
+        in: query
+        required: false
+        description: Query parameter `start`
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        required: false
+        description: Query parameter `limit`
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/leaders/goalies/{attribute}:
+    get:
+      summary: Db Leaders Goalies
+      operationId: db_leaders_goalies
+      tags:
+      - leaders
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      - name: attribute
+        in: path
+        required: true
+        description: Path parameter `attribute`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/leaders/skaters/{attribute}:
+    get:
+      summary: Db Leaders Skaters
+      operationId: db_leaders_skaters
+      tags:
+      - leaders
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      - name: attribute
+        in: path
+        required: true
+        description: Path parameter `attribute`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/milestones/goalies:
+    get:
+      summary: Db Milestones Goalies
+      operationId: db_milestones_goalies
+      tags:
+      - milestones
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/milestones/skaters:
+    get:
+      summary: Db Milestones Skaters
+      operationId: db_milestones_skaters
+      tags:
+      - milestones
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/players:
+    get:
+      summary: Db Players
+      operationId: db_players
+      tags:
+      - players
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/season:
+    get:
+      summary: Db Season
+      operationId: db_season
+      tags:
+      - season
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/shiftcharts:
+    get:
+      summary: Db Shiftcharts
+      operationId: db_shiftcharts
+      tags:
+      - shiftcharts
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/skater/{report}:
+    get:
+      summary: Db Skater
+      operationId: db_skater
+      tags:
+      - skater
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      - name: report
+        in: path
+        required: true
+        description: Path parameter `report`
+        schema:
+          type: string
+      - name: isAggregate
+        in: query
+        required: false
+        description: Query parameter `isAggregate`
+        schema:
+          type: boolean
+      - name: isGame
+        in: query
+        required: false
+        description: Query parameter `isGame`
+        schema:
+          type: boolean
+      - name: factCayenneExp
+        in: query
+        required: false
+        description: Query parameter `factCayenneExp`
+        schema:
+          type: string
+      - name: include
+        in: query
+        required: false
+        description: Query parameter `include`
+        schema:
+          type: string
+      - name: exclude
+        in: query
+        required: false
+        description: Query parameter `exclude`
+        schema:
+          type: string
+      - name: cayenneExp
+        in: query
+        required: false
+        description: Query parameter `cayenneExp`
+        schema:
+          type: string
+      - name: sort
+        in: query
+        required: false
+        description: Query parameter `sort`
+        schema:
+          type: string
+      - name: dir
+        in: query
+        required: false
+        description: Query parameter `dir`
+        schema:
+          type: string
+      - name: start
+        in: query
+        required: false
+        description: Query parameter `start`
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        required: false
+        description: Query parameter `limit`
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/team:
+    get:
+      summary: Db Team
+      operationId: db_team
+      tags:
+      - team
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/team/id/{id}:
+    get:
+      summary: Db Team Id
+      operationId: db_team_id
+      tags:
+      - team
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      - name: id
+        in: path
+        required: true
+        description: Path parameter `id`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{lang}/team/{report}:
+    get:
+      summary: Db Team Report
+      operationId: db_team_report
+      tags:
+      - team
+      parameters:
+      - name: lang
+        in: path
+        required: true
+        description: Path parameter `lang`
+        schema:
+          type: string
+          default: en
+      - name: report
+        in: path
+        required: true
+        description: Path parameter `report`
+        schema:
+          type: string
+      - name: isAggregate
+        in: query
+        required: false
+        description: Query parameter `isAggregate`
+        schema:
+          type: boolean
+      - name: isGame
+        in: query
+        required: false
+        description: Query parameter `isGame`
+        schema:
+          type: boolean
+      - name: factCayenneExp
+        in: query
+        required: false
+        description: Query parameter `factCayenneExp`
+        schema:
+          type: string
+      - name: include
+        in: query
+        required: false
+        description: Query parameter `include`
+        schema:
+          type: string
+      - name: exclude
+        in: query
+        required: false
+        description: Query parameter `exclude`
+        schema:
+          type: string
+      - name: cayenneExp
+        in: query
+        required: false
+        description: Query parameter `cayenneExp`
+        schema:
+          type: string
+      - name: sort
+        in: query
+        required: false
+        description: Query parameter `sort`
+        schema:
+          type: string
+      - name: dir
+        in: query
+        required: false
+        description: Query parameter `dir`
+        schema:
+          type: string
+      - name: start
+        in: query
+        required: false
+        description: Query parameter `start`
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        required: false
+        description: Query parameter `limit`
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object

@@ -1,0 +1,3612 @@
+openapi: 3.0.3
+info:
+  title: NHL Web API (api-web.nhle.com)
+  version: 1.0.0
+  description: Public NHL Web API used by the official NHL.com clients. No authentication.
+    Endpoint catalog sourced from https://github.com/dfleis/nhl-api-docs and cross-referenced
+    with https://github.com/RentoSaijo/nhlscraper/wiki and https://github.com/coreyjs/nhl-api-py.
+  contact:
+    name: fastRhockey maintainers
+    url: https://github.com/sportsdataverse/fastRhockey
+  license:
+    name: MIT
+servers:
+- url: https://api-web.nhle.com
+tags:
+- name: cat
+- name: club
+- name: draft
+- name: edge
+- name: gamecenter
+- name: goalie
+- name: location
+- name: meta
+- name: model
+- name: network
+- name: partner
+- name: player
+- name: playoff
+- name: postal
+- name: ppt
+- name: prospects
+- name: roster
+- name: schedule
+- name: score
+- name: scoreboard
+- name: season
+- name: skater
+- name: smartlinks
+- name: standings
+- name: where
+- name: wsc
+paths:
+  /model/v1/openapi.json:
+    get:
+      summary: Model V1 Openapi.Json
+      operationId: model_v1_openapi.json
+      tags:
+      - model
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/cat/edge/goalie-detail/{playerId}/now:
+    get:
+      summary: Cat Edge Goalie Detail Now
+      operationId: cat_edge_goalie_detail_now
+      tags:
+      - cat
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/cat/edge/goalie-detail/{playerId}/{season}/{gameType}:
+    get:
+      summary: Cat Edge Goalie Detail
+      operationId: cat_edge_goalie_detail
+      tags:
+      - cat
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/cat/edge/skater-detail/{playerId}/now:
+    get:
+      summary: Cat Edge Skater Detail Now
+      operationId: cat_edge_skater_detail_now
+      tags:
+      - cat
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/cat/edge/skater-detail/{playerId}/{season}/{gameType}:
+    get:
+      summary: Cat Edge Skater Detail
+      operationId: cat_edge_skater_detail
+      tags:
+      - cat
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/club-schedule-season/{team}/now:
+    get:
+      summary: Club Schedule Season Now
+      operationId: club_schedule_season_now
+      tags:
+      - club
+      parameters:
+      - name: team
+        in: path
+        required: true
+        description: Path parameter `team`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/club-schedule-season/{team}/{season}:
+    get:
+      summary: Club Schedule Season
+      operationId: club_schedule_season
+      tags:
+      - club
+      parameters:
+      - name: team
+        in: path
+        required: true
+        description: Path parameter `team`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/club-schedule/{team}/month/now:
+    get:
+      summary: Club Schedule Month Now
+      operationId: club_schedule_month_now
+      tags:
+      - club
+      parameters:
+      - name: team
+        in: path
+        required: true
+        description: Path parameter `team`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/club-schedule/{team}/month/{month}:
+    get:
+      summary: Club Schedule Month
+      operationId: club_schedule_month
+      tags:
+      - club
+      parameters:
+      - name: team
+        in: path
+        required: true
+        description: Path parameter `team`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      - name: month
+        in: path
+        required: true
+        description: Path parameter `month`
+        schema:
+          type: string
+          description: YYYY-MM-DD or YYYY-MM
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/club-schedule/{team}/week/now:
+    get:
+      summary: Club Schedule Week Now
+      operationId: club_schedule_week_now
+      tags:
+      - club
+      parameters:
+      - name: team
+        in: path
+        required: true
+        description: Path parameter `team`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/club-schedule/{team}/week/{date}:
+    get:
+      summary: Club Schedule Week
+      operationId: club_schedule_week
+      tags:
+      - club
+      parameters:
+      - name: team
+        in: path
+        required: true
+        description: Path parameter `team`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      - name: date
+        in: path
+        required: true
+        description: Path parameter `date`
+        schema:
+          type: string
+          description: YYYY-MM-DD or YYYY-MM
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/club-stats-season/{team}:
+    get:
+      summary: Club Stats Season
+      operationId: club_stats_season
+      tags:
+      - club
+      parameters:
+      - name: team
+        in: path
+        required: true
+        description: Path parameter `team`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/club-stats/{team}/now:
+    get:
+      summary: Club Stats Now
+      operationId: club_stats_now
+      tags:
+      - club
+      parameters:
+      - name: team
+        in: path
+        required: true
+        description: Path parameter `team`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/club-stats/{team}/{season}/{gameType}:
+    get:
+      summary: Club Stats
+      operationId: club_stats
+      tags:
+      - club
+      parameters:
+      - name: team
+        in: path
+        required: true
+        description: Path parameter `team`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/draft-tracker/picks/now:
+    get:
+      summary: Draft Tracker Picks Now
+      operationId: draft_tracker_picks_now
+      tags:
+      - draft
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/draft/picks/now:
+    get:
+      summary: Draft Picks Now
+      operationId: draft_picks_now
+      tags:
+      - draft
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/draft/picks/{year}/all:
+    get:
+      summary: Draft Picks All
+      operationId: draft_picks_all
+      tags:
+      - draft
+      parameters:
+      - name: year
+        in: path
+        required: true
+        description: Path parameter `year`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/draft/picks/{year}/{round}:
+    get:
+      summary: Draft Picks
+      operationId: draft_picks
+      tags:
+      - draft
+      parameters:
+      - name: year
+        in: path
+        required: true
+        description: Path parameter `year`
+        schema:
+          type: integer
+          format: int64
+      - name: round
+        in: path
+        required: true
+        description: Path parameter `round`
+        schema:
+          type: string
+          description: Round number or 'all'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/draft/rankings/now:
+    get:
+      summary: Draft Rankings Now
+      operationId: draft_rankings_now
+      tags:
+      - draft
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/draft/rankings/{year}/{rankingCategory}:
+    get:
+      summary: Draft Rankings
+      operationId: draft_rankings
+      tags:
+      - draft
+      parameters:
+      - name: year
+        in: path
+        required: true
+        description: Path parameter `year`
+        schema:
+          type: integer
+          format: int64
+      - name: rankingCategory
+        in: path
+        required: true
+        description: Path parameter `rankingCategory`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-5v5-detail/{playerId}/now:
+    get:
+      summary: Edge Goalie 5V5 Detail Now
+      operationId: edge_goalie_5v5_detail_now
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-5v5-detail/{playerId}/{season}/{gameType}:
+    get:
+      summary: Edge Goalie 5V5 Detail
+      operationId: edge_goalie_5v5_detail
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-5v5-top-10/{sortBy}/now:
+    get:
+      summary: Edge Goalie 5V5 Top 10 Now
+      operationId: edge_goalie_5v5_top_10_now
+      tags:
+      - edge
+      parameters:
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-5v5-top-10/{sortBy}/{season}/{gameType}:
+    get:
+      summary: Edge Goalie 5V5 Top 10
+      operationId: edge_goalie_5v5_top_10
+      tags:
+      - edge
+      parameters:
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-comparison/{playerId}/now:
+    get:
+      summary: Edge Goalie Comparison Now
+      operationId: edge_goalie_comparison_now
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-comparison/{playerId}/{season}/{gameType}:
+    get:
+      summary: Edge Goalie Comparison
+      operationId: edge_goalie_comparison
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-detail/{playerId}/now:
+    get:
+      summary: Edge Goalie Detail Now
+      operationId: edge_goalie_detail_now
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-detail/{playerId}/{season}/{gameType}:
+    get:
+      summary: Edge Goalie Detail
+      operationId: edge_goalie_detail
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-edge-save-pctg-top-10/{sortBy}/now:
+    get:
+      summary: Edge Goalie Edge Save Pctg Top 10 Now
+      operationId: edge_goalie_edge_save_pctg_top_10_now
+      tags:
+      - edge
+      parameters:
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-edge-save-pctg-top-10/{sortBy}/{season}/{gameType}:
+    get:
+      summary: Edge Goalie Edge Save Pctg Top 10
+      operationId: edge_goalie_edge_save_pctg_top_10
+      tags:
+      - edge
+      parameters:
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-landing/now:
+    get:
+      summary: Edge Goalie Landing Now
+      operationId: edge_goalie_landing_now
+      tags:
+      - edge
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-landing/{season}/{gameType}:
+    get:
+      summary: Edge Goalie Landing
+      operationId: edge_goalie_landing
+      tags:
+      - edge
+      parameters:
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-save-percentage-detail/{playerId}/now:
+    get:
+      summary: Edge Goalie Save Percentage Detail Now
+      operationId: edge_goalie_save_percentage_detail_now
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-save-percentage-detail/{playerId}/{season}/{gameType}:
+    get:
+      summary: Edge Goalie Save Percentage Detail
+      operationId: edge_goalie_save_percentage_detail
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-shot-location-detail/{playerId}/now:
+    get:
+      summary: Edge Goalie Shot Location Detail Now
+      operationId: edge_goalie_shot_location_detail_now
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-shot-location-detail/{playerId}/{season}/{gameType}:
+    get:
+      summary: Edge Goalie Shot Location Detail
+      operationId: edge_goalie_shot_location_detail
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-shot-location-top-10/{category}/{sortBy}/now:
+    get:
+      summary: Edge Goalie Shot Location Top 10 Now
+      operationId: edge_goalie_shot_location_top_10_now
+      tags:
+      - edge
+      parameters:
+      - name: category
+        in: path
+        required: true
+        description: Path parameter `category`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/goalie-shot-location-top-10/{category}/{sortBy}/{season}/{gameType}:
+    get:
+      summary: Edge Goalie Shot Location Top 10
+      operationId: edge_goalie_shot_location_top_10
+      tags:
+      - edge
+      parameters:
+      - name: category
+        in: path
+        required: true
+        description: Path parameter `category`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-comparison/{playerId}/now:
+    get:
+      summary: Edge Skater Comparison Now
+      operationId: edge_skater_comparison_now
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-comparison/{playerId}/{season}/{gameType}:
+    get:
+      summary: Edge Skater Comparison
+      operationId: edge_skater_comparison
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-detail/{playerId}/now:
+    get:
+      summary: Edge Skater Detail Now
+      operationId: edge_skater_detail_now
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-detail/{playerId}/{season}/{gameType}:
+    get:
+      summary: Edge Skater Detail
+      operationId: edge_skater_detail
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-distance-top-10/{positions}/{strength}/{sortBy}/now:
+    get:
+      summary: Edge Skater Distance Top 10 Now
+      operationId: edge_skater_distance_top_10_now
+      tags:
+      - edge
+      parameters:
+      - name: positions
+        in: path
+        required: true
+        description: Path parameter `positions`
+        schema:
+          type: string
+      - name: strength
+        in: path
+        required: true
+        description: Path parameter `strength`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-distance-top-10/{positions}/{strength}/{sortBy}/{season}/{gameType}:
+    get:
+      summary: Edge Skater Distance Top 10
+      operationId: edge_skater_distance_top_10
+      tags:
+      - edge
+      parameters:
+      - name: positions
+        in: path
+        required: true
+        description: Path parameter `positions`
+        schema:
+          type: string
+      - name: strength
+        in: path
+        required: true
+        description: Path parameter `strength`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-landing/now:
+    get:
+      summary: Edge Skater Landing Now
+      operationId: edge_skater_landing_now
+      tags:
+      - edge
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-landing/{season}/{gameType}:
+    get:
+      summary: Edge Skater Landing
+      operationId: edge_skater_landing
+      tags:
+      - edge
+      parameters:
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-shot-location-detail/{playerId}/now:
+    get:
+      summary: Edge Skater Shot Location Detail Now
+      operationId: edge_skater_shot_location_detail_now
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-shot-location-detail/{playerId}/{season}/{gameType}:
+    get:
+      summary: Edge Skater Shot Location Detail
+      operationId: edge_skater_shot_location_detail
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-shot-location-top-10/{position}/{category}/{sortBy}/now:
+    get:
+      summary: Edge Skater Shot Location Top 10 Now
+      operationId: edge_skater_shot_location_top_10_now
+      tags:
+      - edge
+      parameters:
+      - name: position
+        in: path
+        required: true
+        description: Path parameter `position`
+        schema:
+          type: string
+      - name: category
+        in: path
+        required: true
+        description: Path parameter `category`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-shot-location-top-10/{position}/{category}/{sortBy}/{season}/{gameType}:
+    get:
+      summary: Edge Skater Shot Location Top 10
+      operationId: edge_skater_shot_location_top_10
+      tags:
+      - edge
+      parameters:
+      - name: position
+        in: path
+        required: true
+        description: Path parameter `position`
+        schema:
+          type: string
+      - name: category
+        in: path
+        required: true
+        description: Path parameter `category`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-shot-speed-detail/{playerId}/now:
+    get:
+      summary: Edge Skater Shot Speed Detail Now
+      operationId: edge_skater_shot_speed_detail_now
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-shot-speed-detail/{playerId}/{season}/{gameType}:
+    get:
+      summary: Edge Skater Shot Speed Detail
+      operationId: edge_skater_shot_speed_detail
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-shot-speed-top-10/{positions}/{sortBy}/now:
+    get:
+      summary: Edge Skater Shot Speed Top 10 Now
+      operationId: edge_skater_shot_speed_top_10_now
+      tags:
+      - edge
+      parameters:
+      - name: positions
+        in: path
+        required: true
+        description: Path parameter `positions`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-shot-speed-top-10/{positions}/{sortBy}/{season}/{gameType}:
+    get:
+      summary: Edge Skater Shot Speed Top 10
+      operationId: edge_skater_shot_speed_top_10
+      tags:
+      - edge
+      parameters:
+      - name: positions
+        in: path
+        required: true
+        description: Path parameter `positions`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-skating-distance-detail/{playerId}/now:
+    get:
+      summary: Edge Skater Skating Distance Detail Now
+      operationId: edge_skater_skating_distance_detail_now
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-skating-distance-detail/{playerId}/{season}/{gameType}:
+    get:
+      summary: Edge Skater Skating Distance Detail
+      operationId: edge_skater_skating_distance_detail
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-skating-speed-detail/{playerId}/now:
+    get:
+      summary: Edge Skater Skating Speed Detail Now
+      operationId: edge_skater_skating_speed_detail_now
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-skating-speed-detail/{playerId}/{season}/{gameType}:
+    get:
+      summary: Edge Skater Skating Speed Detail
+      operationId: edge_skater_skating_speed_detail
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-speed-top-10/{positions}/{sortBy}/now:
+    get:
+      summary: Edge Skater Speed Top 10 Now
+      operationId: edge_skater_speed_top_10_now
+      tags:
+      - edge
+      parameters:
+      - name: positions
+        in: path
+        required: true
+        description: Path parameter `positions`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-speed-top-10/{positions}/{sortBy}/{season}/{gameType}:
+    get:
+      summary: Edge Skater Speed Top 10
+      operationId: edge_skater_speed_top_10
+      tags:
+      - edge
+      parameters:
+      - name: positions
+        in: path
+        required: true
+        description: Path parameter `positions`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-zone-time-top-10/{positions}/{strength}/{sortBy}/now:
+    get:
+      summary: Edge Skater Zone Time Top 10 Now
+      operationId: edge_skater_zone_time_top_10_now
+      tags:
+      - edge
+      parameters:
+      - name: positions
+        in: path
+        required: true
+        description: Path parameter `positions`
+        schema:
+          type: string
+      - name: strength
+        in: path
+        required: true
+        description: Path parameter `strength`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-zone-time-top-10/{positions}/{strength}/{sortBy}/{season}/{gameType}:
+    get:
+      summary: Edge Skater Zone Time Top 10
+      operationId: edge_skater_zone_time_top_10
+      tags:
+      - edge
+      parameters:
+      - name: positions
+        in: path
+        required: true
+        description: Path parameter `positions`
+        schema:
+          type: string
+      - name: strength
+        in: path
+        required: true
+        description: Path parameter `strength`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-zone-time/{playerId}/now:
+    get:
+      summary: Edge Skater Zone Time Now
+      operationId: edge_skater_zone_time_now
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/skater-zone-time/{playerId}/{season}/{gameType}:
+    get:
+      summary: Edge Skater Zone Time
+      operationId: edge_skater_zone_time
+      tags:
+      - edge
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-detail/{teamId}/now:
+    get:
+      summary: Edge Team Detail Now
+      operationId: edge_team_detail_now
+      tags:
+      - edge
+      parameters:
+      - name: teamId
+        in: path
+        required: true
+        description: Path parameter `teamId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-detail/{teamId}/{season}/{gameType}:
+    get:
+      summary: Edge Team Detail
+      operationId: edge_team_detail
+      tags:
+      - edge
+      parameters:
+      - name: teamId
+        in: path
+        required: true
+        description: Path parameter `teamId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-landing/now:
+    get:
+      summary: Edge Team Landing Now
+      operationId: edge_team_landing_now
+      tags:
+      - edge
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-landing/{season}/{gameType}:
+    get:
+      summary: Edge Team Landing
+      operationId: edge_team_landing
+      tags:
+      - edge
+      parameters:
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-shot-location-detail/{teamId}/now:
+    get:
+      summary: Edge Team Shot Location Detail Now
+      operationId: edge_team_shot_location_detail_now
+      tags:
+      - edge
+      parameters:
+      - name: teamId
+        in: path
+        required: true
+        description: Path parameter `teamId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-shot-location-detail/{teamId}/{season}/{gameType}:
+    get:
+      summary: Edge Team Shot Location Detail
+      operationId: edge_team_shot_location_detail
+      tags:
+      - edge
+      parameters:
+      - name: teamId
+        in: path
+        required: true
+        description: Path parameter `teamId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-shot-location-top-10/{position}/{category}/{sortBy}/now:
+    get:
+      summary: Edge Team Shot Location Top 10 Now
+      operationId: edge_team_shot_location_top_10_now
+      tags:
+      - edge
+      parameters:
+      - name: position
+        in: path
+        required: true
+        description: Path parameter `position`
+        schema:
+          type: string
+      - name: category
+        in: path
+        required: true
+        description: Path parameter `category`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-shot-location-top-10/{position}/{category}/{sortBy}/{season}/{gameType}:
+    get:
+      summary: Edge Team Shot Location Top 10
+      operationId: edge_team_shot_location_top_10
+      tags:
+      - edge
+      parameters:
+      - name: position
+        in: path
+        required: true
+        description: Path parameter `position`
+        schema:
+          type: string
+      - name: category
+        in: path
+        required: true
+        description: Path parameter `category`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-shot-speed-detail/{teamId}/now:
+    get:
+      summary: Edge Team Shot Speed Detail Now
+      operationId: edge_team_shot_speed_detail_now
+      tags:
+      - edge
+      parameters:
+      - name: teamId
+        in: path
+        required: true
+        description: Path parameter `teamId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-shot-speed-detail/{teamId}/{season}/{gameType}:
+    get:
+      summary: Edge Team Shot Speed Detail
+      operationId: edge_team_shot_speed_detail
+      tags:
+      - edge
+      parameters:
+      - name: teamId
+        in: path
+        required: true
+        description: Path parameter `teamId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-skating-distance-detail/{teamId}/now:
+    get:
+      summary: Edge Team Skating Distance Detail Now
+      operationId: edge_team_skating_distance_detail_now
+      tags:
+      - edge
+      parameters:
+      - name: teamId
+        in: path
+        required: true
+        description: Path parameter `teamId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-skating-distance-detail/{teamId}/{season}/{gameType}:
+    get:
+      summary: Edge Team Skating Distance Detail
+      operationId: edge_team_skating_distance_detail
+      tags:
+      - edge
+      parameters:
+      - name: teamId
+        in: path
+        required: true
+        description: Path parameter `teamId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-skating-distance-top-10/{positions}/{strength}/{sortBy}/now:
+    get:
+      summary: Edge Team Skating Distance Top 10 Now
+      operationId: edge_team_skating_distance_top_10_now
+      tags:
+      - edge
+      parameters:
+      - name: positions
+        in: path
+        required: true
+        description: Path parameter `positions`
+        schema:
+          type: string
+      - name: strength
+        in: path
+        required: true
+        description: Path parameter `strength`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-skating-distance-top-10/{positions}/{strength}/{sortBy}/{season}/{gameType}:
+    get:
+      summary: Edge Team Skating Distance Top 10
+      operationId: edge_team_skating_distance_top_10
+      tags:
+      - edge
+      parameters:
+      - name: positions
+        in: path
+        required: true
+        description: Path parameter `positions`
+        schema:
+          type: string
+      - name: strength
+        in: path
+        required: true
+        description: Path parameter `strength`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-skating-speed-detail/{teamId}/now:
+    get:
+      summary: Edge Team Skating Speed Detail Now
+      operationId: edge_team_skating_speed_detail_now
+      tags:
+      - edge
+      parameters:
+      - name: teamId
+        in: path
+        required: true
+        description: Path parameter `teamId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-skating-speed-detail/{teamId}/{season}/{gameType}:
+    get:
+      summary: Edge Team Skating Speed Detail
+      operationId: edge_team_skating_speed_detail
+      tags:
+      - edge
+      parameters:
+      - name: teamId
+        in: path
+        required: true
+        description: Path parameter `teamId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-skating-speed-top-10/{positions}/{sortBy}/now:
+    get:
+      summary: Edge Team Skating Speed Top 10 Now
+      operationId: edge_team_skating_speed_top_10_now
+      tags:
+      - edge
+      parameters:
+      - name: positions
+        in: path
+        required: true
+        description: Path parameter `positions`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-skating-speed-top-10/{positions}/{sortBy}/{season}/{gameType}:
+    get:
+      summary: Edge Team Skating Speed Top 10
+      operationId: edge_team_skating_speed_top_10
+      tags:
+      - edge
+      parameters:
+      - name: positions
+        in: path
+        required: true
+        description: Path parameter `positions`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-zone-time-details/{teamId}/now:
+    get:
+      summary: Edge Team Zone Time Details Now
+      operationId: edge_team_zone_time_details_now
+      tags:
+      - edge
+      parameters:
+      - name: teamId
+        in: path
+        required: true
+        description: Path parameter `teamId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-zone-time-details/{teamId}/{season}/{gameType}:
+    get:
+      summary: Edge Team Zone Time Details
+      operationId: edge_team_zone_time_details
+      tags:
+      - edge
+      parameters:
+      - name: teamId
+        in: path
+        required: true
+        description: Path parameter `teamId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-zone-time-top-10/{strength}/{sortBy}/now:
+    get:
+      summary: Edge Team Zone Time Top 10 Now
+      operationId: edge_team_zone_time_top_10_now
+      tags:
+      - edge
+      parameters:
+      - name: strength
+        in: path
+        required: true
+        description: Path parameter `strength`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/edge/team-zone-time-top-10/{strength}/{sortBy}/{season}/{gameType}:
+    get:
+      summary: Edge Team Zone Time Top 10
+      operationId: edge_team_zone_time_top_10
+      tags:
+      - edge
+      parameters:
+      - name: strength
+        in: path
+        required: true
+        description: Path parameter `strength`
+        schema:
+          type: string
+      - name: sortBy
+        in: path
+        required: true
+        description: Path parameter `sortBy`
+        schema:
+          type: string
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/gamecenter/{gameId}/boxscore:
+    get:
+      summary: Gamecenter Boxscore
+      operationId: gamecenter_boxscore
+      tags:
+      - gamecenter
+      parameters:
+      - name: gameId
+        in: path
+        required: true
+        description: Path parameter `gameId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/gamecenter/{gameId}/landing:
+    get:
+      summary: Gamecenter Landing
+      operationId: gamecenter_landing
+      tags:
+      - gamecenter
+      parameters:
+      - name: gameId
+        in: path
+        required: true
+        description: Path parameter `gameId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/gamecenter/{gameId}/play-by-play:
+    get:
+      summary: Gamecenter Play By Play
+      operationId: gamecenter_play_by_play
+      tags:
+      - gamecenter
+      parameters:
+      - name: gameId
+        in: path
+        required: true
+        description: Path parameter `gameId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/gamecenter/{gameId}/right-rail:
+    get:
+      summary: Gamecenter Right Rail
+      operationId: gamecenter_right_rail
+      tags:
+      - gamecenter
+      parameters:
+      - name: gameId
+        in: path
+        required: true
+        description: Path parameter `gameId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/goalie-stats-leaders/current:
+    get:
+      summary: Goalie Stats Leaders Current
+      operationId: goalie_stats_leaders_current
+      tags:
+      - goalie
+      parameters:
+      - name: categories
+        in: query
+        required: false
+        description: Query parameter `categories`
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        description: Query parameter `limit`
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/goalie-stats-leaders/{season}/{gameType}:
+    get:
+      summary: Goalie Stats Leaders
+      operationId: goalie_stats_leaders
+      tags:
+      - goalie
+      parameters:
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      - name: categories
+        in: query
+        required: false
+        description: Query parameter `categories`
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        description: Query parameter `limit`
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/location:
+    get:
+      summary: Location
+      operationId: location
+      tags:
+      - location
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/meta:
+    get:
+      summary: Meta
+      operationId: meta
+      tags:
+      - meta
+      parameters:
+      - name: players
+        in: query
+        required: false
+        description: Query parameter `players`
+        schema:
+          type: string
+      - name: teams
+        in: query
+        required: false
+        description: Query parameter `teams`
+        schema:
+          type: string
+      - name: seasonStates
+        in: query
+        required: false
+        description: Query parameter `seasonStates`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/meta/game/{gameId}:
+    get:
+      summary: Meta Game
+      operationId: meta_game
+      tags:
+      - meta
+      parameters:
+      - name: gameId
+        in: path
+        required: true
+        description: Path parameter `gameId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/meta/playoff-series/{year}/{seriesLetter}:
+    get:
+      summary: Meta Playoff Series
+      operationId: meta_playoff_series
+      tags:
+      - meta
+      parameters:
+      - name: year
+        in: path
+        required: true
+        description: Path parameter `year`
+        schema:
+          type: integer
+          format: int64
+      - name: seriesLetter
+        in: path
+        required: true
+        description: Path parameter `seriesLetter`
+        schema:
+          type: string
+          description: Playoff series letter (A-P)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/network/tv-schedule/now:
+    get:
+      summary: Network Tv Schedule Now
+      operationId: network_tv_schedule_now
+      tags:
+      - network
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/network/tv-schedule/{date}:
+    get:
+      summary: Network Tv Schedule
+      operationId: network_tv_schedule
+      tags:
+      - network
+      parameters:
+      - name: date
+        in: path
+        required: true
+        description: Path parameter `date`
+        schema:
+          type: string
+          description: YYYY-MM-DD or YYYY-MM
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/partner-game/{countryCode}/now:
+    get:
+      summary: Partner Game Now
+      operationId: partner_game_now
+      tags:
+      - partner
+      parameters:
+      - name: countryCode
+        in: path
+        required: true
+        description: Path parameter `countryCode`
+        schema:
+          type: string
+          description: ISO country code
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/player-spotlight:
+    get:
+      summary: Player Spotlight
+      operationId: player_spotlight
+      tags:
+      - player
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/player/{playerId}/game-log/now:
+    get:
+      summary: Player Game Log Now
+      operationId: player_game_log_now
+      tags:
+      - player
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/player/{playerId}/game-log/{season}/{gameType}:
+    get:
+      summary: Player Game Log
+      operationId: player_game_log
+      tags:
+      - player
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/player/{playerId}/landing:
+    get:
+      summary: Player Landing
+      operationId: player_landing
+      tags:
+      - player
+      parameters:
+      - name: playerId
+        in: path
+        required: true
+        description: Path parameter `playerId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/playoff-bracket/{year}:
+    get:
+      summary: Playoff Bracket
+      operationId: playoff_bracket
+      tags:
+      - playoff
+      parameters:
+      - name: year
+        in: path
+        required: true
+        description: Path parameter `year`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/playoff-series/carousel/{season}:
+    get:
+      summary: Playoff Series Carousel
+      operationId: playoff_series_carousel
+      tags:
+      - playoff
+      parameters:
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/postal-lookup/{postalCode}:
+    get:
+      summary: Postal Lookup
+      operationId: postal_lookup
+      tags:
+      - postal
+      parameters:
+      - name: postalCode
+        in: path
+        required: true
+        description: Path parameter `postalCode`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/ppt-replay/goal/{gameId}/{eventNumber}:
+    get:
+      summary: Ppt Replay Goal
+      operationId: ppt_replay_goal
+      tags:
+      - ppt
+      parameters:
+      - name: gameId
+        in: path
+        required: true
+        description: Path parameter `gameId`
+        schema:
+          type: integer
+          format: int64
+      - name: eventNumber
+        in: path
+        required: true
+        description: Path parameter `eventNumber`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/ppt-replay/{gameId}/{eventNumber}:
+    get:
+      summary: Ppt Replay
+      operationId: ppt_replay
+      tags:
+      - ppt
+      parameters:
+      - name: gameId
+        in: path
+        required: true
+        description: Path parameter `gameId`
+        schema:
+          type: integer
+          format: int64
+      - name: eventNumber
+        in: path
+        required: true
+        description: Path parameter `eventNumber`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/prospects/{team}:
+    get:
+      summary: Prospects
+      operationId: prospects
+      tags:
+      - prospects
+      parameters:
+      - name: team
+        in: path
+        required: true
+        description: Path parameter `team`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/roster-season/{team}:
+    get:
+      summary: Roster Season
+      operationId: roster_season
+      tags:
+      - roster
+      parameters:
+      - name: team
+        in: path
+        required: true
+        description: Path parameter `team`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/roster/{team}/current:
+    get:
+      summary: Roster Current
+      operationId: roster_current
+      tags:
+      - roster
+      parameters:
+      - name: team
+        in: path
+        required: true
+        description: Path parameter `team`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/roster/{team}/{season}:
+    get:
+      summary: Roster
+      operationId: roster
+      tags:
+      - roster
+      parameters:
+      - name: team
+        in: path
+        required: true
+        description: Path parameter `team`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/schedule-calendar/now:
+    get:
+      summary: Schedule Calendar Now
+      operationId: schedule_calendar_now
+      tags:
+      - schedule
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/schedule-calendar/{date}:
+    get:
+      summary: Schedule Calendar
+      operationId: schedule_calendar
+      tags:
+      - schedule
+      parameters:
+      - name: date
+        in: path
+        required: true
+        description: Path parameter `date`
+        schema:
+          type: string
+          description: YYYY-MM-DD or YYYY-MM
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/schedule/now:
+    get:
+      summary: Schedule Now
+      operationId: schedule_now
+      tags:
+      - schedule
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/schedule/playoff-series/{season}/{seriesLetter}:
+    get:
+      summary: Schedule Playoff Series
+      operationId: schedule_playoff_series
+      tags:
+      - schedule
+      parameters:
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: seriesLetter
+        in: path
+        required: true
+        description: Path parameter `seriesLetter`
+        schema:
+          type: string
+          description: Playoff series letter (A-P)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/schedule/{date}:
+    get:
+      summary: Schedule
+      operationId: schedule
+      tags:
+      - schedule
+      parameters:
+      - name: date
+        in: path
+        required: true
+        description: Path parameter `date`
+        schema:
+          type: string
+          description: YYYY-MM-DD or YYYY-MM
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/score/now:
+    get:
+      summary: Score Now
+      operationId: score_now
+      tags:
+      - score
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/score/{date}:
+    get:
+      summary: Score
+      operationId: score
+      tags:
+      - score
+      parameters:
+      - name: date
+        in: path
+        required: true
+        description: Path parameter `date`
+        schema:
+          type: string
+          description: YYYY-MM-DD or YYYY-MM
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/scoreboard/now:
+    get:
+      summary: Scoreboard Now
+      operationId: scoreboard_now
+      tags:
+      - scoreboard
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/scoreboard/{date}:
+    get:
+      summary: Scoreboard
+      operationId: scoreboard
+      tags:
+      - scoreboard
+      parameters:
+      - name: date
+        in: path
+        required: true
+        description: Path parameter `date`
+        schema:
+          type: string
+          description: YYYY-MM-DD or YYYY-MM
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/scoreboard/{team}/now:
+    get:
+      summary: Scoreboard Team Now
+      operationId: scoreboard_team_now
+      tags:
+      - scoreboard
+      parameters:
+      - name: team
+        in: path
+        required: true
+        description: Path parameter `team`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/season:
+    get:
+      summary: Season
+      operationId: season
+      tags:
+      - season
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/skater-stats-leaders/current:
+    get:
+      summary: Skater Stats Leaders Current
+      operationId: skater_stats_leaders_current
+      tags:
+      - skater
+      parameters:
+      - name: categories
+        in: query
+        required: false
+        description: Query parameter `categories`
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        description: Query parameter `limit`
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/skater-stats-leaders/{season}/{gameType}:
+    get:
+      summary: Skater Stats Leaders
+      operationId: skater_stats_leaders
+      tags:
+      - skater
+      parameters:
+      - name: season
+        in: path
+        required: true
+        description: Path parameter `season`
+        schema:
+          type: string
+          description: 8-digit season e.g. 20242025
+      - name: gameType
+        in: path
+        required: true
+        description: Path parameter `gameType`
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+          description: 1=preseason, 2=regular, 3=playoffs
+      - name: categories
+        in: query
+        required: false
+        description: Query parameter `categories`
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        description: Query parameter `limit`
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/smartlinks:
+    get:
+      summary: Smartlinks
+      operationId: smartlinks
+      tags:
+      - smartlinks
+      parameters:
+      - name: handle
+        in: query
+        required: false
+        description: Query parameter `handle`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/standings-season:
+    get:
+      summary: Standings Season
+      operationId: standings_season
+      tags:
+      - standings
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/standings/now:
+    get:
+      summary: Standings Now
+      operationId: standings_now
+      tags:
+      - standings
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/standings/{date}:
+    get:
+      summary: Standings
+      operationId: standings
+      tags:
+      - standings
+      parameters:
+      - name: date
+        in: path
+        required: true
+        description: Path parameter `date`
+        schema:
+          type: string
+          description: YYYY-MM-DD or YYYY-MM
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/where-to-watch:
+    get:
+      summary: Where To Watch
+      operationId: where_to_watch
+      tags:
+      - where
+      parameters:
+      - name: include
+        in: query
+        required: false
+        description: Query parameter `include`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/wsc/game-story/{gameId}:
+    get:
+      summary: Wsc Game Story
+      operationId: wsc_game_story
+      tags:
+      - wsc
+      parameters:
+      - name: gameId
+        in: path
+        required: true
+        description: Path parameter `gameId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /v1/wsc/play-by-play/{gameId}:
+    get:
+      summary: Wsc Play By Play
+      operationId: wsc_play_by_play
+      tags:
+      - wsc
+      parameters:
+      - name: gameId
+        in: path
+        required: true
+        description: Path parameter `gameId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object

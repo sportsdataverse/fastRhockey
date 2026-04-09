@@ -1,0 +1,6110 @@
+openapi: 3.0.3
+info:
+  title: NHL Records API (records.nhl.com)
+  version: 1.0.0
+  description: NHL records and historical statistics API hosting franchise, player,
+    coach, draft, milestone, international and Stanley Cup records. Supports `cayenneExp`
+    query filters. No authentication.
+  contact:
+    name: fastRhockey maintainers
+    url: https://github.com/sportsdataverse/fastRhockey
+  license:
+    name: MIT
+servers:
+- url: https://records.nhl.com/site/api
+tags:
+- name: all
+- name: attendance
+- name: award
+- name: away
+- name: coach
+- name: combine
+- name: comeback
+- name: component
+- name: consecutive
+- name: content
+- name: draft
+- name: expansion
+- name: fastest
+- name: franchise
+- name: game
+- name: games
+- name: general
+- name: goalie
+- name: hof
+- name: home
+- name: international
+- name: league
+- name: logo
+- name: media
+- name: menu
+- name: meta
+- name: milestone
+- name: neutral
+- name: non
+- name: officials
+- name: penalty
+- name: phwa
+- name: ping
+- name: player
+- name: playoff
+- name: record
+- name: scf
+- name: scoring
+- name: season
+- name: series
+- name: shootout
+- name: skater
+- name: special
+- name: team
+- name: three
+- name: trophy
+- name: venue
+- name: yearly
+paths:
+  /all-star-coach-career-stats:
+    get:
+      summary: All Star Coach Career Stats
+      operationId: all_star_coach_career_stats
+      tags:
+      - all
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /all-star-goaltender-career-stats:
+    get:
+      summary: All Star Goaltender Career Stats
+      operationId: all_star_goaltender_career_stats
+      tags:
+      - all
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /all-star-goaltender-game-stats:
+    get:
+      summary: All Star Goaltender Game Stats
+      operationId: all_star_goaltender_game_stats
+      tags:
+      - all
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /all-star-goaltender-period-stats:
+    get:
+      summary: All Star Goaltender Period Stats
+      operationId: all_star_goaltender_period_stats
+      tags:
+      - all
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /all-star-skater-career-stats:
+    get:
+      summary: All Star Skater Career Stats
+      operationId: all_star_skater_career_stats
+      tags:
+      - all
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /all-star-skater-game-stats:
+    get:
+      summary: All Star Skater Game Stats
+      operationId: all_star_skater_game_stats
+      tags:
+      - all
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /all-star-skater-period-stats:
+    get:
+      summary: All Star Skater Period Stats
+      operationId: all_star_skater_period_stats
+      tags:
+      - all
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /all-star-team-game-stats:
+    get:
+      summary: All Star Team Game Stats
+      operationId: all_star_team_game_stats
+      tags:
+      - all
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /all-star-team-period-stats:
+    get:
+      summary: All Star Team Period Stats
+      operationId: all_star_team_period_stats
+      tags:
+      - all
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /all-time-record-vs-franchise:
+    get:
+      summary: All Time Record Vs Franchise
+      operationId: all_time_record_vs_franchise
+      tags:
+      - all
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /all_star_team_position_leaders:
+    get:
+      summary: All Star Team Position Leaders
+      operationId: all_star_team_position_leaders
+      tags:
+      - all
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /attendance:
+    get:
+      summary: Attendance
+      operationId: attendance
+      tags:
+      - attendance
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /award-details:
+    get:
+      summary: Award Details
+      operationId: award_details
+      tags:
+      - award
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /award-details/trophy/{trophyId}/season/{seasonId}:
+    get:
+      summary: Award Details Trophy Season
+      operationId: award_details_trophy_season
+      tags:
+      - award
+      parameters:
+      - name: trophyId
+        in: path
+        required: true
+        description: Path parameter `trophyId`
+        schema:
+          type: integer
+          format: int64
+      - name: seasonId
+        in: path
+        required: true
+        description: Path parameter `seasonId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /award-details/{franchiseId}:
+    get:
+      summary: Award Details Franchiseid
+      operationId: award_details_franchiseId
+      tags:
+      - award
+      parameters:
+      - name: franchiseId
+        in: path
+        required: true
+        description: Path parameter `franchiseId`
+        schema:
+          type: integer
+          format: int64
+      - name: trophyCategoryId
+        in: query
+        required: false
+        description: Query parameter `trophyCategoryId`
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /away-team-record:
+    get:
+      summary: Away Team Record
+      operationId: away_team_record
+      tags:
+      - away
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach:
+    get:
+      summary: Coach
+      operationId: coach
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-career-records:
+    get:
+      summary: Coach Career Records
+      operationId: coach_career_records
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-career-records-regular-plus-playoffs:
+    get:
+      summary: Coach Career Records Regular Plus Playoffs
+      operationId: coach_career_records_regular_plus_playoffs
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-career-records/{id}:
+    get:
+      summary: Coach Career Records Id
+      operationId: coach_career_records_id
+      tags:
+      - coach
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Path parameter `id`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-fewest-games-to-100-playoff-wins:
+    get:
+      summary: Coach Fewest Games To 100 Playoff Wins
+      operationId: coach_fewest_games_to_100_playoff_wins
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-fewest-games-to-100-wins:
+    get:
+      summary: Coach Fewest Games To 100 Wins
+      operationId: coach_fewest_games_to_100_wins
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-fewest-games-to-1000-wins:
+    get:
+      summary: Coach Fewest Games To 1000 Wins
+      operationId: coach_fewest_games_to_1000_wins
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-fewest-games-to-150-playoff-wins:
+    get:
+      summary: Coach Fewest Games To 150 Playoff Wins
+      operationId: coach_fewest_games_to_150_playoff_wins
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-fewest-games-to-200-wins:
+    get:
+      summary: Coach Fewest Games To 200 Wins
+      operationId: coach_fewest_games_to_200_wins
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-fewest-games-to-300-wins:
+    get:
+      summary: Coach Fewest Games To 300 Wins
+      operationId: coach_fewest_games_to_300_wins
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-fewest-games-to-400-wins:
+    get:
+      summary: Coach Fewest Games To 400 Wins
+      operationId: coach_fewest_games_to_400_wins
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-fewest-games-to-50-playoff-wins:
+    get:
+      summary: Coach Fewest Games To 50 Playoff Wins
+      operationId: coach_fewest_games_to_50_playoff_wins
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-fewest-games-to-500-wins:
+    get:
+      summary: Coach Fewest Games To 500 Wins
+      operationId: coach_fewest_games_to_500_wins
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-fewest-games-to-600-wins:
+    get:
+      summary: Coach Fewest Games To 600 Wins
+      operationId: coach_fewest_games_to_600_wins
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-fewest-games-to-700-wins:
+    get:
+      summary: Coach Fewest Games To 700 Wins
+      operationId: coach_fewest_games_to_700_wins
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-fewest-games-to-800-wins:
+    get:
+      summary: Coach Fewest Games To 800 Wins
+      operationId: coach_fewest_games_to_800_wins
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-fewest-games-to-900-wins:
+    get:
+      summary: Coach Fewest Games To 900 Wins
+      operationId: coach_fewest_games_to_900_wins
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-first-game:
+    get:
+      summary: Coach First Game
+      operationId: coach_first_game
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-first-series-win:
+    get:
+      summary: Coach First Series Win
+      operationId: coach_first_series_win
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-first-stanley-cup-win:
+    get:
+      summary: Coach First Stanley Cup Win
+      operationId: coach_first_stanley_cup_win
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-first-win:
+    get:
+      summary: Coach First Win
+      operationId: coach_first_win
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-franchise-records:
+    get:
+      summary: Coach Franchise Records
+      operationId: coach_franchise_records
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-franchise-records-regular-plus-playoffs:
+    get:
+      summary: Coach Franchise Records Regular Plus Playoffs
+      operationId: coach_franchise_records_regular_plus_playoffs
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-franchise-records/{id}:
+    get:
+      summary: Coach Franchise Records Id
+      operationId: coach_franchise_records_id
+      tags:
+      - coach
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Path parameter `id`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-franchise-season-records:
+    get:
+      summary: Coach Franchise Season Records
+      operationId: coach_franchise_season_records
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-franchise-season-records/{id}:
+    get:
+      summary: Coach Franchise Season Records Id
+      operationId: coach_franchise_season_records_id
+      tags:
+      - coach
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Path parameter `id`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-game-seven-career:
+    get:
+      summary: Coach Game Seven Career
+      operationId: coach_game_seven_career
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-game-seven-franchise:
+    get:
+      summary: Coach Game Seven Franchise
+      operationId: coach_game_seven_franchise
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-game-seven-streak:
+    get:
+      summary: Coach Game Seven Streak
+      operationId: coach_game_seven_streak
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-most-wins-100-games:
+    get:
+      summary: Coach Most Wins 100 Games
+      operationId: coach_most_wins_100_games
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-most-wins-100-playoff-games:
+    get:
+      summary: Coach Most Wins 100 Playoff Games
+      operationId: coach_most_wins_100_playoff_games
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-most-wins-1000-games:
+    get:
+      summary: Coach Most Wins 1000 Games
+      operationId: coach_most_wins_1000_games
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-most-wins-150-playoff-games:
+    get:
+      summary: Coach Most Wins 150 Playoff Games
+      operationId: coach_most_wins_150_playoff_games
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-most-wins-200-games:
+    get:
+      summary: Coach Most Wins 200 Games
+      operationId: coach_most_wins_200_games
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-most-wins-200-playoff-games:
+    get:
+      summary: Coach Most Wins 200 Playoff Games
+      operationId: coach_most_wins_200_playoff_games
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-most-wins-300-games:
+    get:
+      summary: Coach Most Wins 300 Games
+      operationId: coach_most_wins_300_games
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-most-wins-400-games:
+    get:
+      summary: Coach Most Wins 400 Games
+      operationId: coach_most_wins_400_games
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-most-wins-50-playoff-games:
+    get:
+      summary: Coach Most Wins 50 Playoff Games
+      operationId: coach_most_wins_50_playoff_games
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-most-wins-500-games:
+    get:
+      summary: Coach Most Wins 500 Games
+      operationId: coach_most_wins_500_games
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-most-wins-600-games:
+    get:
+      summary: Coach Most Wins 600 Games
+      operationId: coach_most_wins_600_games
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-most-wins-700-games:
+    get:
+      summary: Coach Most Wins 700 Games
+      operationId: coach_most_wins_700_games
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-most-wins-800-games:
+    get:
+      summary: Coach Most Wins 800 Games
+      operationId: coach_most_wins_800_games
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-most-wins-900-games:
+    get:
+      summary: Coach Most Wins 900 Games
+      operationId: coach_most_wins_900_games
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-playoff-series-totals:
+    get:
+      summary: Coach Playoff Series Totals
+      operationId: coach_playoff_series_totals
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-playoff-streak:
+    get:
+      summary: Coach Playoff Streak
+      operationId: coach_playoff_streak
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-stanley-cup-consecutive-streak:
+    get:
+      summary: Coach Stanley Cup Consecutive Streak
+      operationId: coach_stanley_cup_consecutive_streak
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-stanley-cup-final-streak:
+    get:
+      summary: Coach Stanley Cup Final Streak
+      operationId: coach_stanley_cup_final_streak
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach-stanley-cup-streak:
+    get:
+      summary: Coach Stanley Cup Streak
+      operationId: coach_stanley_cup_streak
+      tags:
+      - coach
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /coach/{id}:
+    get:
+      summary: Coach Id
+      operationId: coach_id
+      tags:
+      - coach
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Path parameter `id`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /combine:
+    get:
+      summary: Combine
+      operationId: combine
+      tags:
+      - combine
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /comeback-franchise-three-goal-games:
+    get:
+      summary: Comeback Franchise Three Goal Games
+      operationId: comeback_franchise_three_goal_games
+      tags:
+      - comeback
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /comeback-franchise-wins:
+    get:
+      summary: Comeback Franchise Wins
+      operationId: comeback_franchise_wins
+      tags:
+      - comeback
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /comeback-league-wins:
+    get:
+      summary: Comeback League Wins
+      operationId: comeback_league_wins
+      tags:
+      - comeback
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /component-season:
+    get:
+      summary: Component Season
+      operationId: component_season
+      tags:
+      - component
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /consecutive-100-point-seasons:
+    get:
+      summary: Consecutive 100 Point Seasons
+      operationId: consecutive_100_point_seasons
+      tags:
+      - consecutive
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /consecutive-20-goal-seasons:
+    get:
+      summary: Consecutive 20 Goal Seasons
+      operationId: consecutive_20_goal_seasons
+      tags:
+      - consecutive
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /consecutive-30-goal-seasons:
+    get:
+      summary: Consecutive 30 Goal Seasons
+      operationId: consecutive_30_goal_seasons
+      tags:
+      - consecutive
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /consecutive-30-win-seasons:
+    get:
+      summary: Consecutive 30 Win Seasons
+      operationId: consecutive_30_win_seasons
+      tags:
+      - consecutive
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /consecutive-40-goal-seasons:
+    get:
+      summary: Consecutive 40 Goal Seasons
+      operationId: consecutive_40_goal_seasons
+      tags:
+      - consecutive
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /consecutive-40-win-seasons:
+    get:
+      summary: Consecutive 40 Win Seasons
+      operationId: consecutive_40_win_seasons
+      tags:
+      - consecutive
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /consecutive-50-goal-seasons:
+    get:
+      summary: Consecutive 50 Goal Seasons
+      operationId: consecutive_50_goal_seasons
+      tags:
+      - consecutive
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /consecutive-60-goal-seasons:
+    get:
+      summary: Consecutive 60 Goal Seasons
+      operationId: consecutive_60_goal_seasons
+      tags:
+      - consecutive
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /content-module-by-season/{templateKey}/{seasonId}:
+    get:
+      summary: Content Module By Season
+      operationId: content_module_by_season
+      tags:
+      - content
+      parameters:
+      - name: templateKey
+        in: path
+        required: true
+        description: Path parameter `templateKey`
+        schema:
+          type: string
+      - name: seasonId
+        in: path
+        required: true
+        description: Path parameter `seasonId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /draft:
+    get:
+      summary: Draft
+      operationId: draft
+      tags:
+      - draft
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /draft-lottery-odds:
+    get:
+      summary: Draft Lottery Odds
+      operationId: draft_lottery_odds
+      tags:
+      - draft
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /draft-lottery-odds-all-time:
+    get:
+      summary: Draft Lottery Odds All Time
+      operationId: draft_lottery_odds_all_time
+      tags:
+      - draft
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /draft-lottery-picks:
+    get:
+      summary: Draft Lottery Picks
+      operationId: draft_lottery_picks
+      tags:
+      - draft
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /draft-master:
+    get:
+      summary: Draft Master
+      operationId: draft_master
+      tags:
+      - draft
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /draft-prospect:
+    get:
+      summary: Draft Prospect
+      operationId: draft_prospect
+      tags:
+      - draft
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /draft-prospect/{id}:
+    get:
+      summary: Draft Prospect Id
+      operationId: draft_prospect_id
+      tags:
+      - draft
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Path parameter `id`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /draft/amateurTeams:
+    get:
+      summary: Draft Amateurteams
+      operationId: draft_amateurTeams
+      tags:
+      - draft
+      parameters:
+      - name: draftYear
+        in: query
+        required: false
+        description: Query parameter `draftYear`
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /draft/byTeam/{teamId}:
+    get:
+      summary: Draft Byteam
+      operationId: draft_byTeam
+      tags:
+      - draft
+      parameters:
+      - name: teamId
+        in: path
+        required: true
+        description: Path parameter `teamId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /draft/countries:
+    get:
+      summary: Draft Countries
+      operationId: draft_countries
+      tags:
+      - draft
+      parameters:
+      - name: draftYear
+        in: query
+        required: false
+        description: Query parameter `draftYear`
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /draft/roundNumbers:
+    get:
+      summary: Draft Roundnumbers
+      operationId: draft_roundNumbers
+      tags:
+      - draft
+      parameters:
+      - name: draftYear
+        in: query
+        required: false
+        description: Query parameter `draftYear`
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /draft/teams:
+    get:
+      summary: Draft Teams
+      operationId: draft_teams
+      tags:
+      - draft
+      parameters:
+      - name: startYear
+        in: query
+        required: false
+        description: Query parameter `startYear`
+        schema:
+          type: integer
+      - name: endYear
+        in: query
+        required: false
+        description: Query parameter `endYear`
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /draft/{id}:
+    get:
+      summary: Draft Id
+      operationId: draft_id
+      tags:
+      - draft
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Path parameter `id`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /expansion-draft-picks:
+    get:
+      summary: Expansion Draft Picks
+      operationId: expansion_draft_picks
+      tags:
+      - expansion
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /expansion-draft-rules:
+    get:
+      summary: Expansion Draft Rules
+      operationId: expansion_draft_rules
+      tags:
+      - expansion
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-2-goals:
+    get:
+      summary: Fastest 2 Goals
+      operationId: fastest_2_goals
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-2-goals-both-teams:
+    get:
+      summary: Fastest 2 Goals Both Teams
+      operationId: fastest_2_goals_both_teams
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-2-goals-from-period-start-both-teams:
+    get:
+      summary: Fastest 2 Goals From Period Start Both Teams
+      operationId: fastest_2_goals_from_period_start_both_teams
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-2-goals-from-period-start-one-skater:
+    get:
+      summary: Fastest 2 Goals From Period Start One Skater
+      operationId: fastest_2_goals_from_period_start_one_skater
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-2-goals-from-period-start-one-team:
+    get:
+      summary: Fastest 2 Goals From Period Start One Team
+      operationId: fastest_2_goals_from_period_start_one_team
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-2-goals-one-team:
+    get:
+      summary: Fastest 2 Goals One Team
+      operationId: fastest_2_goals_one_team
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-3-assists:
+    get:
+      summary: Fastest 3 Assists
+      operationId: fastest_3_assists
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-3-goals:
+    get:
+      summary: Fastest 3 Goals
+      operationId: fastest_3_goals
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-3-goals-both-teams:
+    get:
+      summary: Fastest 3 Goals Both Teams
+      operationId: fastest_3_goals_both_teams
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-3-goals-from-period-start-both-teams:
+    get:
+      summary: Fastest 3 Goals From Period Start Both Teams
+      operationId: fastest_3_goals_from_period_start_both_teams
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-3-goals-from-period-start-one-team:
+    get:
+      summary: Fastest 3 Goals From Period Start One Team
+      operationId: fastest_3_goals_from_period_start_one_team
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-3-goals-one-team:
+    get:
+      summary: Fastest 3 Goals One Team
+      operationId: fastest_3_goals_one_team
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-4-goals-both-teams:
+    get:
+      summary: Fastest 4 Goals Both Teams
+      operationId: fastest_4_goals_both_teams
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-4-goals-one-team:
+    get:
+      summary: Fastest 4 Goals One Team
+      operationId: fastest_4_goals_one_team
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-5-goals-both-teams:
+    get:
+      summary: Fastest 5 Goals Both Teams
+      operationId: fastest_5_goals_both_teams
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-5-goals-one-team:
+    get:
+      summary: Fastest 5 Goals One Team
+      operationId: fastest_5_goals_one_team
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-6-goals-both-teams:
+    get:
+      summary: Fastest 6 Goals Both Teams
+      operationId: fastest_6_goals_both_teams
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /fastest-goals-start-of-period:
+    get:
+      summary: Fastest Goals Start Of Period
+      operationId: fastest_goals_start_of_period
+      tags:
+      - fastest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise:
+    get:
+      summary: Franchise
+      operationId: franchise
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-all-time-game-7-record:
+    get:
+      summary: Franchise All Time Game 7 Record
+      operationId: franchise_all_time_game_7_record
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-all-time-overtime-record:
+    get:
+      summary: Franchise All Time Overtime Record
+      operationId: franchise_all_time_overtime_record
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-detail:
+    get:
+      summary: Franchise Detail
+      operationId: franchise_detail
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-home-point-streak-vs-franchise:
+    get:
+      summary: Franchise Home Point Streak Vs Franchise
+      operationId: franchise_home_point_streak_vs_franchise
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-home-win-streak-vs-franchise:
+    get:
+      summary: Franchise Home Win Streak Vs Franchise
+      operationId: franchise_home_win_streak_vs_franchise
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-playoff-appearances:
+    get:
+      summary: Franchise Playoff Appearances
+      operationId: franchise_playoff_appearances
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-playoff-streak:
+    get:
+      summary: Franchise Playoff Streak
+      operationId: franchise_playoff_streak
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-point-streak-vs-franchise:
+    get:
+      summary: Franchise Point Streak Vs Franchise
+      operationId: franchise_point_streak_vs_franchise
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-road-point-streak-vs-franchise:
+    get:
+      summary: Franchise Road Point Streak Vs Franchise
+      operationId: franchise_road_point_streak_vs_franchise
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-road-win-streak-vs-franchise:
+    get:
+      summary: Franchise Road Win Streak Vs Franchise
+      operationId: franchise_road_win_streak_vs_franchise
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-season-opener-standings:
+    get:
+      summary: Franchise Season Opener Standings
+      operationId: franchise_season_opener_standings
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-season-results:
+    get:
+      summary: Franchise Season Results
+      operationId: franchise_season_results
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-stanley-cup-final-appearance-streak:
+    get:
+      summary: Franchise Stanley Cup Final Appearance Streak
+      operationId: franchise_stanley_cup_final_appearance_streak
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-stanley-cup-final-win-streak:
+    get:
+      summary: Franchise Stanley Cup Final Win Streak
+      operationId: franchise_stanley_cup_final_win_streak
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-team-totals:
+    get:
+      summary: Franchise Team Totals
+      operationId: franchise_team_totals
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-totals:
+    get:
+      summary: Franchise Totals
+      operationId: franchise_totals
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /franchise-win-streak-vs-franchise:
+    get:
+      summary: Franchise Win Streak Vs Franchise
+      operationId: franchise_win_streak_vs_franchise
+      tags:
+      - franchise
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /game-winning-goals-stanley-cup:
+    get:
+      summary: Game Winning Goals Stanley Cup
+      operationId: game_winning_goals_stanley_cup
+      tags:
+      - game
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /games-played-active-streak-skaters:
+    get:
+      summary: Games Played Active Streak Skaters
+      operationId: games_played_active_streak_skaters
+      tags:
+      - games
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /games-played-streak-goalies:
+    get:
+      summary: Games Played Streak Goalies
+      operationId: games_played_streak_goalies
+      tags:
+      - games
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /games-played-streak-skaters:
+    get:
+      summary: Games Played Streak Skaters
+      operationId: games_played_streak_skaters
+      tags:
+      - games
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /games-shutout-streak:
+    get:
+      summary: Games Shutout Streak
+      operationId: games_shutout_streak
+      tags:
+      - games
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /general-manager:
+    get:
+      summary: General Manager
+      operationId: general_manager
+      tags:
+      - general
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /general-manager-career-records:
+    get:
+      summary: General Manager Career Records
+      operationId: general_manager_career_records
+      tags:
+      - general
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /general-manager-career-records-regular-plus-playoffs:
+    get:
+      summary: General Manager Career Records Regular Plus Playoffs
+      operationId: general_manager_career_records_regular_plus_playoffs
+      tags:
+      - general
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /general-manager-franchise-records:
+    get:
+      summary: General Manager Franchise Records
+      operationId: general_manager_franchise_records
+      tags:
+      - general
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /general-manager-franchise-records-regular-plus-playoffs:
+    get:
+      summary: General Manager Franchise Records Regular Plus Playoffs
+      operationId: general_manager_franchise_records_regular_plus_playoffs
+      tags:
+      - general
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /general-manager-franchise-season-records:
+    get:
+      summary: General Manager Franchise Season Records
+      operationId: general_manager_franchise_season_records
+      tags:
+      - general
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /general-manager-playoff-streak:
+    get:
+      summary: General Manager Playoff Streak
+      operationId: general_manager_playoff_streak
+      tags:
+      - general
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /general-manager-stanley-cup-final-streak:
+    get:
+      summary: General Manager Stanley Cup Final Streak
+      operationId: general_manager_stanley_cup_final_streak
+      tags:
+      - general
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /general-manager/{id}:
+    get:
+      summary: General Manager Id
+      operationId: general_manager_id
+      tags:
+      - general
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Path parameter `id`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-career-scoring:
+    get:
+      summary: Goalie Career Scoring
+      operationId: goalie_career_scoring
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-career-stats:
+    get:
+      summary: Goalie Career Stats
+      operationId: goalie_career_stats
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-career-totals-by-franchise:
+    get:
+      summary: Goalie Career Totals By Franchise
+      operationId: goalie_career_totals_by_franchise
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-game-scoring:
+    get:
+      summary: Goalie Game Scoring
+      operationId: goalie_game_scoring
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-game-stats:
+    get:
+      summary: Goalie Game Stats
+      operationId: goalie_game_stats
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-home-point-streak:
+    get:
+      summary: Goalie Home Point Streak
+      operationId: goalie_home_point_streak
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-home-win-streak:
+    get:
+      summary: Goalie Home Win Streak
+      operationId: goalie_home_win_streak
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-outdoor-totals-career:
+    get:
+      summary: Goalie Outdoor Totals Career
+      operationId: goalie_outdoor_totals_career
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-outdoor-totals-game:
+    get:
+      summary: Goalie Outdoor Totals Game
+      operationId: goalie_outdoor_totals_game
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-outdoor-totals-period:
+    get:
+      summary: Goalie Outdoor Totals Period
+      operationId: goalie_outdoor_totals_period
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-playoff-clinching-game:
+    get:
+      summary: Goalie Playoff Clinching Game
+      operationId: goalie_playoff_clinching_game
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-playoff-clinching-game-season:
+    get:
+      summary: Goalie Playoff Clinching Game Season
+      operationId: goalie_playoff_clinching_game_season
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-playoff-clinching-game-series:
+    get:
+      summary: Goalie Playoff Clinching Game Series
+      operationId: goalie_playoff_clinching_game_series
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-playoff-clinching-game-totals:
+    get:
+      summary: Goalie Playoff Clinching Game Totals
+      operationId: goalie_playoff_clinching_game_totals
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-playoff-elimination-game:
+    get:
+      summary: Goalie Playoff Elimination Game
+      operationId: goalie_playoff_elimination_game
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-playoff-elimination-game-season:
+    get:
+      summary: Goalie Playoff Elimination Game Season
+      operationId: goalie_playoff_elimination_game_season
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-playoff-elimination-game-series:
+    get:
+      summary: Goalie Playoff Elimination Game Series
+      operationId: goalie_playoff_elimination_game_series
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-playoff-elimination-game-totals:
+    get:
+      summary: Goalie Playoff Elimination Game Totals
+      operationId: goalie_playoff_elimination_game_totals
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-playoff-streak:
+    get:
+      summary: Goalie Playoff Streak
+      operationId: goalie_playoff_streak
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-playoff-win-streak-multiple-seasons:
+    get:
+      summary: Goalie Playoff Win Streak Multiple Seasons
+      operationId: goalie_playoff_win_streak_multiple_seasons
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-point-streak:
+    get:
+      summary: Goalie Point Streak
+      operationId: goalie_point_streak
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-road-point-streak:
+    get:
+      summary: Goalie Road Point Streak
+      operationId: goalie_road_point_streak
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-road-win-streak:
+    get:
+      summary: Goalie Road Win Streak
+      operationId: goalie_road_win_streak
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-scf-career:
+    get:
+      summary: Goalie Scf Career
+      operationId: goalie_scf_career
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-scf-game:
+    get:
+      summary: Goalie Scf Game
+      operationId: goalie_scf_game
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-scf-period:
+    get:
+      summary: Goalie Scf Period
+      operationId: goalie_scf_period
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-scf-series:
+    get:
+      summary: Goalie Scf Series
+      operationId: goalie_scf_series
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-scf-series-shutout-sequence:
+    get:
+      summary: Goalie Scf Series Shutout Sequence
+      operationId: goalie_scf_series_shutout_sequence
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-scf-series-shutout-streak:
+    get:
+      summary: Goalie Scf Series Shutout Streak
+      operationId: goalie_scf_series_shutout_streak
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-scf-shutout-sequence-multiple-seasons:
+    get:
+      summary: Goalie Scf Shutout Sequence Multiple Seasons
+      operationId: goalie_scf_shutout_sequence_multiple_seasons
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-scf-streak:
+    get:
+      summary: Goalie Scf Streak
+      operationId: goalie_scf_streak
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-scf-win-streak-multiple-seasons:
+    get:
+      summary: Goalie Scf Win Streak Multiple Seasons
+      operationId: goalie_scf_win_streak_multiple_seasons
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-season-scoring:
+    get:
+      summary: Goalie Season Scoring
+      operationId: goalie_season_scoring
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-season-stats:
+    get:
+      summary: Goalie Season Stats
+      operationId: goalie_season_stats
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-shutout-games-streak-playoffs:
+    get:
+      summary: Goalie Shutout Games Streak Playoffs
+      operationId: goalie_shutout_games_streak_playoffs
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-shutout-games-streak-regular-season:
+    get:
+      summary: Goalie Shutout Games Streak Regular Season
+      operationId: goalie_shutout_games_streak_regular_season
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-shutout-streak:
+    get:
+      summary: Goalie Shutout Streak
+      operationId: goalie_shutout_streak
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-stats:
+    get:
+      summary: Goalie Stats
+      operationId: goalie_stats
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-undefeated-streak:
+    get:
+      summary: Goalie Undefeated Streak
+      operationId: goalie_undefeated_streak
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-undefeated-streak-first-season:
+    get:
+      summary: Goalie Undefeated Streak First Season
+      operationId: goalie_undefeated_streak_first_season
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-win-plateaus:
+    get:
+      summary: Goalie Win Plateaus
+      operationId: goalie_win_plateaus
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-win-streak:
+    get:
+      summary: Goalie Win Streak
+      operationId: goalie_win_streak
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-youngest-shutouts:
+    get:
+      summary: Goalie Youngest Shutouts
+      operationId: goalie_youngest_shutouts
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie-youngest-winners:
+    get:
+      summary: Goalie Youngest Winners
+      operationId: goalie_youngest_winners
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie_career_stats_incl_playoffs:
+    get:
+      summary: Goalie Career Stats Incl Playoffs
+      operationId: goalie_career_stats_incl_playoffs
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /goalie_season_stats_incl_playoffs:
+    get:
+      summary: Goalie Season Stats Incl Playoffs
+      operationId: goalie_season_stats_incl_playoffs
+      tags:
+      - goalie
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /hof/office:
+    get:
+      summary: Hof Office
+      operationId: hof_office
+      tags:
+      - hof
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /hof/office/{officeId}:
+    get:
+      summary: Hof Office Officeid
+      operationId: hof_office_officeId
+      tags:
+      - hof
+      parameters:
+      - name: officeId
+        in: path
+        required: true
+        description: Path parameter `officeId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /hof/players:
+    get:
+      summary: Hof Players
+      operationId: hof_players
+      tags:
+      - hof
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /hof/players/{officeId}:
+    get:
+      summary: Hof Players Officeid
+      operationId: hof_players_officeId
+      tags:
+      - hof
+      parameters:
+      - name: officeId
+        in: path
+        required: true
+        description: Path parameter `officeId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /home-team-record:
+    get:
+      summary: Home Team Record
+      operationId: home_team_record
+      tags:
+      - home
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-both-teams-game-record:
+    get:
+      summary: International Both Teams Game Record
+      operationId: international_both_teams_game_record
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-both-teams-period-record:
+    get:
+      summary: International Both Teams Period Record
+      operationId: international_both_teams_period_record
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-fastest-skater-goals:
+    get:
+      summary: International Fastest Skater Goals
+      operationId: international_fastest_skater_goals
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-fastest-three-goals-both-teams:
+    get:
+      summary: International Fastest Three Goals Both Teams
+      operationId: international_fastest_three_goals_both_teams
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-fastest-three-goals-one-skater:
+    get:
+      summary: International Fastest Three Goals One Skater
+      operationId: international_fastest_three_goals_one_skater
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-fastest-three-goals-one-team:
+    get:
+      summary: International Fastest Three Goals One Team
+      operationId: international_fastest_three_goals_one_team
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-fastest-two-goals-both-teams:
+    get:
+      summary: International Fastest Two Goals Both Teams
+      operationId: international_fastest_two_goals_both_teams
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-fastest-two-goals-one-skater:
+    get:
+      summary: International Fastest Two Goals One Skater
+      operationId: international_fastest_two_goals_one_skater
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-fastest-two-goals-one-team:
+    get:
+      summary: International Fastest Two Goals One Team
+      operationId: international_fastest_two_goals_one_team
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-goaltender-career-record:
+    get:
+      summary: International Goaltender Career Record
+      operationId: international_goaltender_career_record
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-goaltender-game-record:
+    get:
+      summary: International Goaltender Game Record
+      operationId: international_goaltender_game_record
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-goaltender-period-record:
+    get:
+      summary: International Goaltender Period Record
+      operationId: international_goaltender_period_record
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-goaltender-tournament-record:
+    get:
+      summary: International Goaltender Tournament Record
+      operationId: international_goaltender_tournament_record
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-playoff-series-details:
+    get:
+      summary: International Playoff Series Details
+      operationId: international_playoff_series_details
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-skater-career-record:
+    get:
+      summary: International Skater Career Record
+      operationId: international_skater_career_record
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-skater-game-record:
+    get:
+      summary: International Skater Game Record
+      operationId: international_skater_game_record
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-skater-penalty-shots:
+    get:
+      summary: International Skater Penalty Shots
+      operationId: international_skater_penalty_shots
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-skater-period-record:
+    get:
+      summary: International Skater Period Record
+      operationId: international_skater_period_record
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-skater-short-handed-goals:
+    get:
+      summary: International Skater Short Handed Goals
+      operationId: international_skater_short_handed_goals
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-skater-tournament-record:
+    get:
+      summary: International Skater Tournament Record
+      operationId: international_skater_tournament_record
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-team-all-time-record:
+    get:
+      summary: International Team All Time Record
+      operationId: international_team_all_time_record
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-team-game-record:
+    get:
+      summary: International Team Game Record
+      operationId: international_team_game_record
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-team-period-record:
+    get:
+      summary: International Team Period Record
+      operationId: international_team_period_record
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-team-tournament-record:
+    get:
+      summary: International Team Tournament Record
+      operationId: international_team_tournament_record
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /international-tournament-winner:
+    get:
+      summary: International Tournament Winner
+      operationId: international_tournament_winner
+      tags:
+      - international
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /league-playoff-year-totals:
+    get:
+      summary: League Playoff Year Totals
+      operationId: league_playoff_year_totals
+      tags:
+      - league
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /logo:
+    get:
+      summary: Logo
+      operationId: logo
+      tags:
+      - logo
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /media-three-star:
+    get:
+      summary: Media Three Star
+      operationId: media_three_star
+      tags:
+      - media
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /meta-data/{path}:
+    get:
+      summary: Meta Data
+      operationId: meta_data
+      tags:
+      - meta
+      parameters:
+      - name: path
+        in: path
+        required: true
+        description: Path parameter `path`
+        schema:
+          type: string
+      - name: season
+        in: query
+        required: false
+        description: Query parameter `season`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /milestone-100-point-season:
+    get:
+      summary: Milestone 100 Point Season
+      operationId: milestone_100_point_season
+      tags:
+      - milestone
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /milestone-100-point-season/{id}:
+    get:
+      summary: Milestone 100 Point Season Id
+      operationId: milestone_100_point_season_id
+      tags:
+      - milestone
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Path parameter `id`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /milestone-1000-point-career:
+    get:
+      summary: Milestone 1000 Point Career
+      operationId: milestone_1000_point_career
+      tags:
+      - milestone
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /milestone-1000-point-career/{id}:
+    get:
+      summary: Milestone 1000 Point Career Id
+      operationId: milestone_1000_point_career_id
+      tags:
+      - milestone
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Path parameter `id`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /milestone-5-goal-game:
+    get:
+      summary: Milestone 5 Goal Game
+      operationId: milestone_5_goal_game
+      tags:
+      - milestone
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /milestone-5-goal-game/{id}:
+    get:
+      summary: Milestone 5 Goal Game Id
+      operationId: milestone_5_goal_game_id
+      tags:
+      - milestone
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Path parameter `id`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /milestone-50-goal-season:
+    get:
+      summary: Milestone 50 Goal Season
+      operationId: milestone_50_goal_season
+      tags:
+      - milestone
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /milestone-50-goal-season/{id}:
+    get:
+      summary: Milestone 50 Goal Season Id
+      operationId: milestone_50_goal_season_id
+      tags:
+      - milestone
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Path parameter `id`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /milestone-500-goal-career:
+    get:
+      summary: Milestone 500 Goal Career
+      operationId: milestone_500_goal_career
+      tags:
+      - milestone
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /milestone-500-goal-career/{id}:
+    get:
+      summary: Milestone 500 Goal Career Id
+      operationId: milestone_500_goal_career_id
+      tags:
+      - milestone
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Path parameter `id`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /milestone-tracker:
+    get:
+      summary: Milestone Tracker
+      operationId: milestone_tracker
+      tags:
+      - milestone
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /neutral-site-standings:
+    get:
+      summary: Neutral Site Standings
+      operationId: neutral_site_standings
+      tags:
+      - neutral
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /non-shutout-streak-incl-playoffs:
+    get:
+      summary: Non Shutout Streak Incl Playoffs
+      operationId: non_shutout_streak_incl_playoffs
+      tags:
+      - non
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /officials:
+    get:
+      summary: Officials
+      operationId: officials
+      tags:
+      - officials
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /officials/{type}:
+    get:
+      summary: Officials Type
+      operationId: officials_type
+      tags:
+      - officials
+      parameters:
+      - name: type
+        in: path
+        required: true
+        description: Path parameter `type`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /penalty-shots:
+    get:
+      summary: Penalty Shots
+      operationId: penalty_shots
+      tags:
+      - penalty
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /phwa-all-star-team:
+    get:
+      summary: Phwa All Star Team
+      operationId: phwa_all_star_team
+      tags:
+      - phwa
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /ping:
+    get:
+      summary: Ping
+      operationId: ping
+      tags:
+      - ping
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /player:
+    get:
+      summary: Player
+      operationId: player
+      tags:
+      - player
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /player-game-stats:
+    get:
+      summary: Player Game Stats
+      operationId: player_game_stats
+      tags:
+      - player
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /player-stanley-cup-wins:
+    get:
+      summary: Player Stanley Cup Wins
+      operationId: player_stanley_cup_wins
+      tags:
+      - player
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /player-stats:
+    get:
+      summary: Player Stats
+      operationId: player_stats
+      tags:
+      - player
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /player/byTeam/{teamId}:
+    get:
+      summary: Player Byteam
+      operationId: player_byTeam
+      tags:
+      - player
+      parameters:
+      - name: teamId
+        in: path
+        required: true
+        description: Path parameter `teamId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /player/{id}:
+    get:
+      summary: Player Id
+      operationId: player_id
+      tags:
+      - player
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Path parameter `id`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /playoff-captains:
+    get:
+      summary: Playoff Captains
+      operationId: playoff_captains
+      tags:
+      - playoff
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /playoff-franchise-game-by-game-records:
+    get:
+      summary: Playoff Franchise Game By Game Records
+      operationId: playoff_franchise_game_by_game_records
+      tags:
+      - playoff
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /playoff-franchise-vs-team:
+    get:
+      summary: Playoff Franchise Vs Team
+      operationId: playoff_franchise_vs_team
+      tags:
+      - playoff
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /playoff-game-overtime-scoring:
+    get:
+      summary: Playoff Game Overtime Scoring
+      operationId: playoff_game_overtime_scoring
+      tags:
+      - playoff
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /playoff-goalie-series-stats:
+    get:
+      summary: Playoff Goalie Series Stats
+      operationId: playoff_goalie_series_stats
+      tags:
+      - playoff
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /playoff-round-robin-game:
+    get:
+      summary: Playoff Round Robin Game
+      operationId: playoff_round_robin_game
+      tags:
+      - playoff
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /playoff-series:
+    get:
+      summary: Playoff Series
+      operationId: playoff_series
+      tags:
+      - playoff
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /playoff-series/byFinal:
+    get:
+      summary: Playoff Series Byfinal
+      operationId: playoff_series_byFinal
+      tags:
+      - playoff
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /playoff-series/bySeason/{seasonId}:
+    get:
+      summary: Playoff Series Byseason
+      operationId: playoff_series_bySeason
+      tags:
+      - playoff
+      parameters:
+      - name: seasonId
+        in: path
+        required: true
+        description: Path parameter `seasonId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /playoff-series/bySeries/{seriesLetter}:
+    get:
+      summary: Playoff Series Byseries
+      operationId: playoff_series_bySeries
+      tags:
+      - playoff
+      parameters:
+      - name: seriesLetter
+        in: path
+        required: true
+        description: Path parameter `seriesLetter`
+        schema:
+          type: string
+          description: Playoff series letter (A-P)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /playoff-skater-series-stats:
+    get:
+      summary: Playoff Skater Series Stats
+      operationId: playoff_skater_series_stats
+      tags:
+      - playoff
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /playoff-team-series-stats:
+    get:
+      summary: Playoff Team Series Stats
+      operationId: playoff_team_series_stats
+      tags:
+      - playoff
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /playoff-team-series-stats-both-teams:
+    get:
+      summary: Playoff Team Series Stats Both Teams
+      operationId: playoff_team_series_stats_both_teams
+      tags:
+      - playoff
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /record-category:
+    get:
+      summary: Record Category
+      operationId: record_category
+      tags:
+      - record
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /record-meta-details/{path}:
+    get:
+      summary: Record Meta Details
+      operationId: record_meta_details
+      tags:
+      - record
+      parameters:
+      - name: path
+        in: path
+        required: true
+        description: Path parameter `path`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /record-video-detail:
+    get:
+      summary: Record Video Detail
+      operationId: record_video_detail
+      tags:
+      - record
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /scf-appearances-streak:
+    get:
+      summary: Scf Appearances Streak
+      operationId: scf_appearances_streak
+      tags:
+      - scf
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /scf-franchise-totals:
+    get:
+      summary: Scf Franchise Totals
+      operationId: scf_franchise_totals
+      tags:
+      - scf
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /scf-situational-records:
+    get:
+      summary: Scf Situational Records
+      operationId: scf_situational_records
+      tags:
+      - scf
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /scf-team-totals:
+    get:
+      summary: Scf Team Totals
+      operationId: scf_team_totals
+      tags:
+      - scf
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /scoring-plateaus:
+    get:
+      summary: Scoring Plateaus
+      operationId: scoring_plateaus
+      tags:
+      - scoring
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /season/event:
+    get:
+      summary: Season Event
+      operationId: season_event
+      tags:
+      - season
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /season/event/games:
+    get:
+      summary: Season Event Games
+      operationId: season_event_games
+      tags:
+      - season
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /season/event/offseason-games-outside-north-america:
+    get:
+      summary: Season Event Offseason Games Outside North America
+      operationId: season_event_offseason_games_outside_north_america
+      tags:
+      - season
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /season/event/preseason-games-outside-north-america:
+    get:
+      summary: Season Event Preseason Games Outside North America
+      operationId: season_event_preseason_games_outside_north_america
+      tags:
+      - season
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /series-situational-records:
+    get:
+      summary: Series Situational Records
+      operationId: series_situational_records
+      tags:
+      - series
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /shootout-goalie-career:
+    get:
+      summary: Shootout Goalie Career
+      operationId: shootout_goalie_career
+      tags:
+      - shootout
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /shootout-goalie-season:
+    get:
+      summary: Shootout Goalie Season
+      operationId: shootout_goalie_season
+      tags:
+      - shootout
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /shootout-skaters-career:
+    get:
+      summary: Shootout Skaters Career
+      operationId: shootout_skaters_career
+      tags:
+      - shootout
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /shootout-skaters-season:
+    get:
+      summary: Shootout Skaters Season
+      operationId: shootout_skaters_season
+      tags:
+      - shootout
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-assist-streak:
+    get:
+      summary: Skater Assist Streak
+      operationId: skater_assist_streak
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-assist-streak-start-of-season:
+    get:
+      summary: Skater Assist Streak Start Of Season
+      operationId: skater_assist_streak_start_of_season
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-career-scoring-by-position:
+    get:
+      summary: Skater Career Scoring By Position
+      operationId: skater_career_scoring_by_position
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-career-scoring-playoffs:
+    get:
+      summary: Skater Career Scoring Playoffs
+      operationId: skater_career_scoring_playoffs
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-career-scoring-regular-plus-playoffs:
+    get:
+      summary: Skater Career Scoring Regular Plus Playoffs
+      operationId: skater_career_scoring_regular_plus_playoffs
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-career-scoring-regular-season:
+    get:
+      summary: Skater Career Scoring Regular Season
+      operationId: skater_career_scoring_regular_season
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-first-game-scoring:
+    get:
+      summary: Skater First Game Scoring
+      operationId: skater_first_game_scoring
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-first-season-game-scoring:
+    get:
+      summary: Skater First Season Game Scoring
+      operationId: skater_first_season_game_scoring
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-franchise-totals:
+    get:
+      summary: Skater Franchise Totals
+      operationId: skater_franchise_totals
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-game-assists:
+    get:
+      summary: Skater Game Assists
+      operationId: skater_game_assists
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-game-goals:
+    get:
+      summary: Skater Game Goals
+      operationId: skater_game_goals
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-game-penalties:
+    get:
+      summary: Skater Game Penalties
+      operationId: skater_game_penalties
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-game-penalty-minutes:
+    get:
+      summary: Skater Game Penalty Minutes
+      operationId: skater_game_penalty_minutes
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-game-points:
+    get:
+      summary: Skater Game Points
+      operationId: skater_game_points
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-game-power-play-goals:
+    get:
+      summary: Skater Game Power Play Goals
+      operationId: skater_game_power_play_goals
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-game-shorthanded-goals:
+    get:
+      summary: Skater Game Shorthanded Goals
+      operationId: skater_game_shorthanded_goals
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-game-shots:
+    get:
+      summary: Skater Game Shots
+      operationId: skater_game_shots
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-goal-streak:
+    get:
+      summary: Skater Goal Streak
+      operationId: skater_goal_streak
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-latest-game-tying-goal:
+    get:
+      summary: Skater Latest Game Tying Goal
+      operationId: skater_latest_game_tying_goal
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-latest-go-ahead-goal:
+    get:
+      summary: Skater Latest Go Ahead Goal
+      operationId: skater_latest_go_ahead_goal
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-latest-goals:
+    get:
+      summary: Skater Latest Goals
+      operationId: skater_latest_goals
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-latest-series-clinching-goal:
+    get:
+      summary: Skater Latest Series Clinching Goal
+      operationId: skater_latest_series_clinching_goal
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-most-goals-1st-50-games:
+    get:
+      summary: Skater Most Goals 1St 50 Games
+      operationId: skater_most_goals_1st_50_games
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-multi-assist-games-career:
+    get:
+      summary: Skater Multi Assist Games Career
+      operationId: skater_multi_assist_games_career
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-multi-assist-games-season:
+    get:
+      summary: Skater Multi Assist Games Season
+      operationId: skater_multi_assist_games_season
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-multi-goal-games-career:
+    get:
+      summary: Skater Multi Goal Games Career
+      operationId: skater_multi_goal_games_career
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-multi-goal-games-season:
+    get:
+      summary: Skater Multi Goal Games Season
+      operationId: skater_multi_goal_games_season
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-multi-point-games-career:
+    get:
+      summary: Skater Multi Point Games Career
+      operationId: skater_multi_point_games_career
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-multi-point-games-season:
+    get:
+      summary: Skater Multi Point Games Season
+      operationId: skater_multi_point_games_season
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-multipoint-games-career-by-position:
+    get:
+      summary: Skater Multipoint Games Career By Position
+      operationId: skater_multipoint_games_career_by_position
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-outdoor-fastest-goal-from-period-start:
+    get:
+      summary: Skater Outdoor Fastest Goal From Period Start
+      operationId: skater_outdoor_fastest_goal_from_period_start
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-outdoor-totals-career:
+    get:
+      summary: Skater Outdoor Totals Career
+      operationId: skater_outdoor_totals_career
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-outdoor-totals-game:
+    get:
+      summary: Skater Outdoor Totals Game
+      operationId: skater_outdoor_totals_game
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-outdoor-totals-period:
+    get:
+      summary: Skater Outdoor Totals Period
+      operationId: skater_outdoor_totals_period
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-period-penalties:
+    get:
+      summary: Skater Period Penalties
+      operationId: skater_period_penalties
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-period-scoring:
+    get:
+      summary: Skater Period Scoring
+      operationId: skater_period_scoring
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-period-shots:
+    get:
+      summary: Skater Period Shots
+      operationId: skater_period_shots
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-playoff-clinching-game:
+    get:
+      summary: Skater Playoff Clinching Game
+      operationId: skater_playoff_clinching_game
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-playoff-clinching-game-season:
+    get:
+      summary: Skater Playoff Clinching Game Season
+      operationId: skater_playoff_clinching_game_season
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-playoff-clinching-game-series:
+    get:
+      summary: Skater Playoff Clinching Game Series
+      operationId: skater_playoff_clinching_game_series
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-playoff-clinching-game-totals:
+    get:
+      summary: Skater Playoff Clinching Game Totals
+      operationId: skater_playoff_clinching_game_totals
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-playoff-elimination-game:
+    get:
+      summary: Skater Playoff Elimination Game
+      operationId: skater_playoff_elimination_game
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-playoff-elimination-game-season:
+    get:
+      summary: Skater Playoff Elimination Game Season
+      operationId: skater_playoff_elimination_game_season
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-playoff-elimination-game-series:
+    get:
+      summary: Skater Playoff Elimination Game Series
+      operationId: skater_playoff_elimination_game_series
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-playoff-elimination-game-totals:
+    get:
+      summary: Skater Playoff Elimination Game Totals
+      operationId: skater_playoff_elimination_game_totals
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-playoff-scoring:
+    get:
+      summary: Skater Playoff Scoring
+      operationId: skater_playoff_scoring
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-playoff-streak:
+    get:
+      summary: Skater Playoff Streak
+      operationId: skater_playoff_streak
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-point-streak:
+    get:
+      summary: Skater Point Streak
+      operationId: skater_point_streak
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-point-streak-multiple-playoffs:
+    get:
+      summary: Skater Point Streak Multiple Playoffs
+      operationId: skater_point_streak_multiple_playoffs
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-point-streak-start-of-career:
+    get:
+      summary: Skater Point Streak Start Of Career
+      operationId: skater_point_streak_start_of_career
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-real-time-stats-career:
+    get:
+      summary: Skater Real Time Stats Career
+      operationId: skater_real_time_stats_career
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-real-time-stats-game-blocked-shots:
+    get:
+      summary: Skater Real Time Stats Game Blocked Shots
+      operationId: skater_real_time_stats_game_blocked_shots
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-real-time-stats-game-faceoffs:
+    get:
+      summary: Skater Real Time Stats Game Faceoffs
+      operationId: skater_real_time_stats_game_faceoffs
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-real-time-stats-game-giveaways:
+    get:
+      summary: Skater Real Time Stats Game Giveaways
+      operationId: skater_real_time_stats_game_giveaways
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-real-time-stats-game-hits:
+    get:
+      summary: Skater Real Time Stats Game Hits
+      operationId: skater_real_time_stats_game_hits
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-real-time-stats-game-missed-shots:
+    get:
+      summary: Skater Real Time Stats Game Missed Shots
+      operationId: skater_real_time_stats_game_missed_shots
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-real-time-stats-game-shifts:
+    get:
+      summary: Skater Real Time Stats Game Shifts
+      operationId: skater_real_time_stats_game_shifts
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-real-time-stats-game-takeaways:
+    get:
+      summary: Skater Real Time Stats Game Takeaways
+      operationId: skater_real_time_stats_game_takeaways
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-real-time-stats-game-time-on-ice:
+    get:
+      summary: Skater Real Time Stats Game Time On Ice
+      operationId: skater_real_time_stats_game_time_on_ice
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-real-time-stats-season:
+    get:
+      summary: Skater Real Time Stats Season
+      operationId: skater_real_time_stats_season
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-regular-plus-playoff-scoring:
+    get:
+      summary: Skater Regular Plus Playoff Scoring
+      operationId: skater_regular_plus_playoff_scoring
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-regular-season-scoring:
+    get:
+      summary: Skater Regular Season Scoring
+      operationId: skater_regular_season_scoring
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-rookie-game-scoring:
+    get:
+      summary: Skater Rookie Game Scoring
+      operationId: skater_rookie_game_scoring
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-scf-career-scoring:
+    get:
+      summary: Skater Scf Career Scoring
+      operationId: skater_scf_career_scoring
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-scf-game-scoring:
+    get:
+      summary: Skater Scf Game Scoring
+      operationId: skater_scf_game_scoring
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-scf-series-scoring:
+    get:
+      summary: Skater Scf Series Scoring
+      operationId: skater_scf_series_scoring
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-scf-streak:
+    get:
+      summary: Skater Scf Streak
+      operationId: skater_scf_streak
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-youngest-3-point-games:
+    get:
+      summary: Skater Youngest 3 Point Games
+      operationId: skater_youngest_3_point_games
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-youngest-4-point-games:
+    get:
+      summary: Skater Youngest 4 Point Games
+      operationId: skater_youngest_4_point_games
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-youngest-5-point-games:
+    get:
+      summary: Skater Youngest 5 Point Games
+      operationId: skater_youngest_5_point_games
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /skater-youngest-goal-scorers:
+    get:
+      summary: Skater Youngest Goal Scorers
+      operationId: skater_youngest_goal_scorers
+      tags:
+      - skater
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /special-event:
+    get:
+      summary: Special Event
+      operationId: special_event
+      tags:
+      - special
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team:
+    get:
+      summary: Team
+      operationId: team
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-affiliate:
+    get:
+      summary: Team Affiliate
+      operationId: team_affiliate
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-all-time-shootout-records:
+    get:
+      summary: Team All Time Shootout Records
+      operationId: team_all_time_shootout_records
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-by-game-stats:
+    get:
+      summary: Team By Game Stats
+      operationId: team_by_game_stats
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-consecutive-series-won:
+    get:
+      summary: Team Consecutive Series Won
+      operationId: team_consecutive_series_won
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-game-consecutive-goals:
+    get:
+      summary: Team Game Consecutive Goals
+      operationId: team_game_consecutive_goals
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-game-record-and-scoring:
+    get:
+      summary: Team Game Record And Scoring
+      operationId: team_game_record_and_scoring
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-game-record-and-scoring-both-teams:
+    get:
+      summary: Team Game Record And Scoring Both Teams
+      operationId: team_game_record_and_scoring_both_teams
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-non-shutout-streak:
+    get:
+      summary: Team Non Shutout Streak
+      operationId: team_non_shutout_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-outdoor-fastest-2-goals-from-period-start-one-team:
+    get:
+      summary: Team Outdoor Fastest 2 Goals From Period Start One Team
+      operationId: team_outdoor_fastest_2_goals_from_period_start_one_team
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-outdoor-fastest-2-goals-one-team:
+    get:
+      summary: Team Outdoor Fastest 2 Goals One Team
+      operationId: team_outdoor_fastest_2_goals_one_team
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-outdoor-totals-career:
+    get:
+      summary: Team Outdoor Totals Career
+      operationId: team_outdoor_totals_career
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-outdoor-totals-game-both-teams:
+    get:
+      summary: Team Outdoor Totals Game Both Teams
+      operationId: team_outdoor_totals_game_both_teams
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-outdoor-totals-game-one-team:
+    get:
+      summary: Team Outdoor Totals Game One Team
+      operationId: team_outdoor_totals_game_one_team
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-outdoor-totals-period-both-teams:
+    get:
+      summary: Team Outdoor Totals Period Both Teams
+      operationId: team_outdoor_totals_period_both_teams
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-outdoor-totals-period-one-team:
+    get:
+      summary: Team Outdoor Totals Period One Team
+      operationId: team_outdoor_totals_period_one_team
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-period-penalties:
+    get:
+      summary: Team Period Penalties
+      operationId: team_period_penalties
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-period-scoring:
+    get:
+      summary: Team Period Scoring
+      operationId: team_period_scoring
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-period-scoring-both-teams:
+    get:
+      summary: Team Period Scoring Both Teams
+      operationId: team_period_scoring_both_teams
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-playoff-clinching-game:
+    get:
+      summary: Team Playoff Clinching Game
+      operationId: team_playoff_clinching_game
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-playoff-clinching-game-season:
+    get:
+      summary: Team Playoff Clinching Game Season
+      operationId: team_playoff_clinching_game_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-playoff-clinching-game-series:
+    get:
+      summary: Team Playoff Clinching Game Series
+      operationId: team_playoff_clinching_game_series
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-playoff-clinching-game-totals:
+    get:
+      summary: Team Playoff Clinching Game Totals
+      operationId: team_playoff_clinching_game_totals
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-playoff-elimination-game:
+    get:
+      summary: Team Playoff Elimination Game
+      operationId: team_playoff_elimination_game
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-playoff-elimination-game-season:
+    get:
+      summary: Team Playoff Elimination Game Season
+      operationId: team_playoff_elimination_game_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-playoff-elimination-game-series:
+    get:
+      summary: Team Playoff Elimination Game Series
+      operationId: team_playoff_elimination_game_series
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-playoff-elimination-game-totals:
+    get:
+      summary: Team Playoff Elimination Game Totals
+      operationId: team_playoff_elimination_game_totals
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-playoff-ot-period-scoring-both-teams:
+    get:
+      summary: Team Playoff Ot Period Scoring Both Teams
+      operationId: team_playoff_ot_period_scoring_both_teams
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-playoff-ot-period-scoring-one-team:
+    get:
+      summary: Team Playoff Ot Period Scoring One Team
+      operationId: team_playoff_ot_period_scoring_one_team
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-playoff-ot-shot-totals-both-teams:
+    get:
+      summary: Team Playoff Ot Shot Totals Both Teams
+      operationId: team_playoff_ot_shot_totals_both_teams
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-playoff-ot-shot-totals-one-team:
+    get:
+      summary: Team Playoff Ot Shot Totals One Team
+      operationId: team_playoff_ot_shot_totals_one_team
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-playoff-streak-multiple-seasons:
+    get:
+      summary: Team Playoff Streak Multiple Seasons
+      operationId: team_playoff_streak_multiple_seasons
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-playoff-win-streak-one-season:
+    get:
+      summary: Team Playoff Win Streak One Season
+      operationId: team_playoff_win_streak_one_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-record-april:
+    get:
+      summary: Team Record April
+      operationId: team_record_april
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-record-by-month:
+    get:
+      summary: Team Record By Month
+      operationId: team_record_by_month
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-record-december:
+    get:
+      summary: Team Record December
+      operationId: team_record_december
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-record-february:
+    get:
+      summary: Team Record February
+      operationId: team_record_february
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-record-january:
+    get:
+      summary: Team Record January
+      operationId: team_record_january
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-record-march:
+    get:
+      summary: Team Record March
+      operationId: team_record_march
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-record-november:
+    get:
+      summary: Team Record November
+      operationId: team_record_november
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-record-october:
+    get:
+      summary: Team Record October
+      operationId: team_record_october
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-home-loss-streak:
+    get:
+      summary: Team Season Home Loss Streak
+      operationId: team_season_home_loss_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-home-loss-streak-start-of-season:
+    get:
+      summary: Team Season Home Loss Streak Start Of Season
+      operationId: team_season_home_loss_streak_start_of_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-home-point-streak:
+    get:
+      summary: Team Season Home Point Streak
+      operationId: team_season_home_point_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-home-point-streak-start-of-season:
+    get:
+      summary: Team Season Home Point Streak Start Of Season
+      operationId: team_season_home_point_streak_start_of_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-home-undefeated-streak:
+    get:
+      summary: Team Season Home Undefeated Streak
+      operationId: team_season_home_undefeated_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-home-undefeated-streak-incl-playoffs:
+    get:
+      summary: Team Season Home Undefeated Streak Incl Playoffs
+      operationId: team_season_home_undefeated_streak_incl_playoffs
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-home-undefeated-streak-start-of-season:
+    get:
+      summary: Team Season Home Undefeated Streak Start Of Season
+      operationId: team_season_home_undefeated_streak_start_of_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-home-win-streak:
+    get:
+      summary: Team Season Home Win Streak
+      operationId: team_season_home_win_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-home-win-streak-incl-playoffs:
+    get:
+      summary: Team Season Home Win Streak Incl Playoffs
+      operationId: team_season_home_win_streak_incl_playoffs
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-home-win-streak-start-of-season:
+    get:
+      summary: Team Season Home Win Streak Start Of Season
+      operationId: team_season_home_win_streak_start_of_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-home-winless-streak:
+    get:
+      summary: Team Season Home Winless Streak
+      operationId: team_season_home_winless_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-home-winless-streak-start-of-season:
+    get:
+      summary: Team Season Home Winless Streak Start Of Season
+      operationId: team_season_home_winless_streak_start_of_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-loss-streak:
+    get:
+      summary: Team Season Loss Streak
+      operationId: team_season_loss_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-loss-streak-start-of-season:
+    get:
+      summary: Team Season Loss Streak Start Of Season
+      operationId: team_season_loss_streak_start_of_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-overtime-games:
+    get:
+      summary: Team Season Overtime Games
+      operationId: team_season_overtime_games
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-point-streak:
+    get:
+      summary: Team Season Point Streak
+      operationId: team_season_point_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-point-streak-start-of-season:
+    get:
+      summary: Team Season Point Streak Start Of Season
+      operationId: team_season_point_streak_start_of_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-record-and-scoring:
+    get:
+      summary: Team Season Record And Scoring
+      operationId: team_season_record_and_scoring
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-road-loss-streak:
+    get:
+      summary: Team Season Road Loss Streak
+      operationId: team_season_road_loss_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-road-loss-streak-start-of-season:
+    get:
+      summary: Team Season Road Loss Streak Start Of Season
+      operationId: team_season_road_loss_streak_start_of_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-road-point-streak:
+    get:
+      summary: Team Season Road Point Streak
+      operationId: team_season_road_point_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-road-point-streak-start-of-season:
+    get:
+      summary: Team Season Road Point Streak Start Of Season
+      operationId: team_season_road_point_streak_start_of_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-road-undefeated-streak:
+    get:
+      summary: Team Season Road Undefeated Streak
+      operationId: team_season_road_undefeated_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-road-undefeated-streak-incl-playoffs:
+    get:
+      summary: Team Season Road Undefeated Streak Incl Playoffs
+      operationId: team_season_road_undefeated_streak_incl_playoffs
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-road-undefeated-streak-start-of-season:
+    get:
+      summary: Team Season Road Undefeated Streak Start Of Season
+      operationId: team_season_road_undefeated_streak_start_of_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-road-win-streak:
+    get:
+      summary: Team Season Road Win Streak
+      operationId: team_season_road_win_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-road-win-streak-incl-playoffs:
+    get:
+      summary: Team Season Road Win Streak Incl Playoffs
+      operationId: team_season_road_win_streak_incl_playoffs
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-road-win-streak-start-of-season:
+    get:
+      summary: Team Season Road Win Streak Start Of Season
+      operationId: team_season_road_win_streak_start_of_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-road-winless-streak:
+    get:
+      summary: Team Season Road Winless Streak
+      operationId: team_season_road_winless_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-road-winless-streak-start-of-season:
+    get:
+      summary: Team Season Road Winless Streak Start Of Season
+      operationId: team_season_road_winless_streak_start_of_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-shootout-records:
+    get:
+      summary: Team Season Shootout Records
+      operationId: team_season_shootout_records
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-shutout-streak:
+    get:
+      summary: Team Season Shutout Streak
+      operationId: team_season_shutout_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-undefeated-streak:
+    get:
+      summary: Team Season Undefeated Streak
+      operationId: team_season_undefeated_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-undefeated-streak-incl-playoffs:
+    get:
+      summary: Team Season Undefeated Streak Incl Playoffs
+      operationId: team_season_undefeated_streak_incl_playoffs
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-undefeated-streak-start-of-season:
+    get:
+      summary: Team Season Undefeated Streak Start Of Season
+      operationId: team_season_undefeated_streak_start_of_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-win-streak:
+    get:
+      summary: Team Season Win Streak
+      operationId: team_season_win_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-win-streak-incl-playoffs:
+    get:
+      summary: Team Season Win Streak Incl Playoffs
+      operationId: team_season_win_streak_incl_playoffs
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-win-streak-start-of-season:
+    get:
+      summary: Team Season Win Streak Start Of Season
+      operationId: team_season_win_streak_start_of_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-winless-streak:
+    get:
+      summary: Team Season Winless Streak
+      operationId: team_season_winless_streak
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-season-winless-streak-start-of-season:
+    get:
+      summary: Team Season Winless Streak Start Of Season
+      operationId: team_season_winless_streak_start_of_season
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /team-stats:
+    get:
+      summary: Team Stats
+      operationId: team_stats
+      tags:
+      - team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /three-or-more-goal-games-career:
+    get:
+      summary: Three Or More Goal Games Career
+      operationId: three_or_more_goal_games_career
+      tags:
+      - three
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /trophy:
+    get:
+      summary: Trophy
+      operationId: trophy
+      tags:
+      - trophy
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /trophy/franchise-trophy-categories:
+    get:
+      summary: Trophy Franchise Trophy Categories
+      operationId: trophy_franchise_trophy_categories
+      tags:
+      - trophy
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /trophy/trophy-categories:
+    get:
+      summary: Trophy Trophy Categories
+      operationId: trophy_trophy_categories
+      tags:
+      - trophy
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /trophy/trophy-categories/{franchiseId}:
+    get:
+      summary: Trophy Trophy Categories Franchiseid
+      operationId: trophy_trophy_categories_franchiseId
+      tags:
+      - trophy
+      parameters:
+      - name: franchiseId
+        in: path
+        required: true
+        description: Path parameter `franchiseId`
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /venue:
+    get:
+      summary: Venue
+      operationId: venue
+      tags:
+      - venue
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /yearly-playoff-series-details:
+    get:
+      summary: Yearly Playoff Series Details
+      operationId: yearly_playoff_series_details
+      tags:
+      - yearly
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{franchiseTricode}/content/module/{templateKey}:
+    get:
+      summary: 'Content Module '
+      operationId: content_module_
+      tags:
+      - content
+      parameters:
+      - name: franchiseTricode
+        in: path
+        required: true
+        description: Path parameter `franchiseTricode`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      - name: templateKey
+        in: path
+        required: true
+        description: Path parameter `templateKey`
+        schema:
+          type: string
+      - name: cayenneExp
+        in: query
+        required: false
+        description: Query parameter `cayenneExp`
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{franchiseTricode}/menu:
+    get:
+      summary: Menu
+      operationId: menu
+      tags:
+      - menu
+      parameters:
+      - name: franchiseTricode
+        in: path
+        required: true
+        description: Path parameter `franchiseTricode`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /{franchiseTricode}/record-detail:
+    get:
+      summary: Record Detail
+      operationId: record_detail
+      tags:
+      - record
+      parameters:
+      - name: franchiseTricode
+        in: path
+        required: true
+        description: Path parameter `franchiseTricode`
+        schema:
+          type: string
+          description: Three-letter team abbreviation (e.g. TOR)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object

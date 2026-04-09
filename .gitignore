@@ -9,3 +9,5 @@ fastRhockey-data-repo/scraping_all_seasons.R
 ^docs*
 docs
 data-raw/*.md
+!data-raw/pr_devel.md
+!data-raw/nhl_missing_endpoint_function_mapping.md
