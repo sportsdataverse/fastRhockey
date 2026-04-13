@@ -25,16 +25,16 @@ Returns a data frame with team information.
 # \donttest{
   try(nhl_teams())
 #> ── NHL Teams ────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 07:40:28 UTC
+#> ℹ Data updated: 2026-04-13 17:06:06 UTC
 #> # A tibble: 32 × 20
 #>    team_abbr team_name           team_common_name team_logo      conference_abbr
 #>    <chr>     <chr>               <chr>            <chr>          <chr>          
 #>  1 COL       Colorado Avalanche  Avalanche        https://asset… Western        
 #>  2 CAR       Carolina Hurricanes Hurricanes       https://asset… Eastern        
 #>  3 DAL       Dallas Stars        Stars            https://asset… Western        
-#>  4 TBL       Tampa Bay Lightning Lightning        https://asset… Eastern        
-#>  5 BUF       Buffalo Sabres      Sabres           https://asset… Eastern        
-#>  6 MTL       Montréal Canadiens  Canadiens        https://asset… Eastern        
+#>  4 BUF       Buffalo Sabres      Sabres           https://asset… Eastern        
+#>  5 MTL       Montréal Canadiens  Canadiens        https://asset… Eastern        
+#>  6 TBL       Tampa Bay Lightning Lightning        https://asset… Eastern        
 #>  7 MIN       Minnesota Wild      Wild             https://asset… Western        
 #>  8 PIT       Pittsburgh Penguins Penguins         https://asset… Eastern        
 #>  9 BOS       Boston Bruins       Bruins           https://asset… Eastern        

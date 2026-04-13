@@ -24,10 +24,10 @@ Returns a list with game odds data.
 # \donttest{
 try(nhl_partner_game_odds())
 #> $currentOddsDate
-#> [1] "2026-04-07"
+#> [1] "2026-04-13"
 #> 
 #> $lastUpdatedUTC
-#> [1] "2026-04-08T01:00:38Z"
+#> [1] "2026-04-13T17:00:39Z"
 #> 
 #> $bettingPartner
 #> $bettingPartner$partnerId
@@ -57,89 +57,82 @@ try(nhl_partner_game_odds())
 #> 
 #> $games
 #>        gameId gameType         startTimeUTC homeTeam.id homeTeam.abbrev
-#> 1  2025021233        2 2026-04-07T23:00:00Z           8             MTL
-#> 2  2025021234        2 2026-04-07T23:00:00Z           9             OTT
-#> 3  2025021235        2 2026-04-07T23:00:00Z          17             DET
-#> 4  2025021236        2 2026-04-07T23:00:00Z           1             NJD
-#> 5  2025021237        2 2026-04-07T23:00:00Z          12             CAR
-#> 6  2025021238        2 2026-04-08T00:00:00Z          19             STL
-#> 7  2025021239        2 2026-04-08T00:00:00Z          25             DAL
-#> 8  2025021240        2 2026-04-08T00:00:00Z          30             MIN
-#> 9  2025021241        2 2026-04-08T01:30:00Z          68             UTA
-#> 10 2025021242        2 2026-04-08T02:00:00Z          23             VAN
-#> 11 2025021243        2 2026-04-08T02:00:00Z          24             ANA
+#> 1  2025021282        2 2026-04-13T23:00:00Z          14             TBL
+#> 2  2025021283        2 2026-04-13T23:00:00Z          13             FLA
+#> 3  2025021284        2 2026-04-13T23:00:00Z           4             PHI
+#> 4  2025021285        2 2026-04-13T23:30:00Z          10             TOR
+#> 5  2025021286        2 2026-04-14T00:00:00Z          19             STL
+#> 6  2025021287        2 2026-04-14T00:00:00Z          18             NSH
+#> 7  2025021288        2 2026-04-14T00:30:00Z          16             CHI
+#> 8  2025021289        2 2026-04-14T01:30:00Z          22             EDM
+#> 9  2025021290        2 2026-04-14T02:00:00Z          54             VGK
+#> 10 2025021291        2 2026-04-14T01:30:00Z          55             SEA
 #>                                                          homeTeam.logo
-#> 1                  https://assets.nhle.com/logos/nhl/svg/MTL_light.svg
-#> 2                  https://assets.nhle.com/logos/nhl/svg/OTT_light.svg
-#> 3  https://assets.nhle.com/logos/nhl/svg/DET_light.svg?season=20252026
-#> 4                  https://assets.nhle.com/logos/nhl/svg/NJD_light.svg
-#> 5                  https://assets.nhle.com/logos/nhl/svg/CAR_light.svg
-#> 6  https://assets.nhle.com/logos/nhl/svg/STL_light.svg?season=20252026
-#> 7                  https://assets.nhle.com/logos/nhl/svg/DAL_light.svg
-#> 8                  https://assets.nhle.com/logos/nhl/svg/MIN_light.svg
-#> 9  https://assets.nhle.com/logos/nhl/svg/UTA_light.svg?season=20252026
-#> 10                 https://assets.nhle.com/logos/nhl/svg/VAN_light.svg
-#> 11                 https://assets.nhle.com/logos/nhl/svg/ANA_light.svg
-#>                                                                                                                                                     homeTeam.odds
-#> 1        MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_2_WAY_TNB, 350, 195, -154, 110, 380, 200, , Draw, +1.5, O6.5, , 
-#> 2    MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY_TNB, -1050, -130, 160, 160, -125, -148, , O6.5, , Draw, -1.5, 
-#> 3      MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 150, 114, 150, -1300, 195, -115, Draw, -1.5, O6.5, , , 
-#> 4   MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 2000, -180, 2000, -154, 6500, 5000, Draw, +3.5, , O6.5, , 
-#> 5  PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -125, 310, -810, -166, -265, -1300, -1.5, Draw, , O10.5, , 
-#> 6      MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 2000, 750, 100, -115, 650, 1500, , , +2.5, O6.5, Draw, 
-#> 7      PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 280, -188, 115, -120, 150, -234, -1.5, , Draw, O7.5, , 
-#> 8    PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_2_WAY_TNB, -145, 330, -285, 120, -660, -1450, -1.5, Draw, , O7.5, , 
-#> 9     OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY_TNB, -166, 350, 155, 170, -145, -142, O10.5, , Draw, , +1.5, 
-#> 10     MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 400, 1200, -250, -110, 155, 220, , , +1.5, O4.5, Draw, 
-#> 11   MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY_TNB, 1700, 1500, 5000, 105, -475, 3500, Draw, , , O4.5, +4.5, 
-#>    homeTeam.name.default homeTeam.name.fr awayTeam.id awayTeam.abbrev
-#> 1              Canadiens             <NA>          13             FLA
-#> 2               Senators        Sénateurs          14             TBL
-#> 3              Red Wings             <NA>          29             CBJ
-#> 4                 Devils             <NA>           4             PHI
-#> 5             Hurricanes             <NA>           6             BOS
-#> 6                  Blues             <NA>          21             COL
-#> 7                  Stars             <NA>          20             CGY
-#> 8                   Wild             <NA>          55             SEA
-#> 9                Mammoth             <NA>          22             EDM
-#> 10               Canucks             <NA>          54             VGK
-#> 11                 Ducks             <NA>          18             NSH
+#> 1                  https://assets.nhle.com/logos/nhl/svg/TBL_light.svg
+#> 2                  https://assets.nhle.com/logos/nhl/svg/FLA_light.svg
+#> 3                  https://assets.nhle.com/logos/nhl/svg/PHI_light.svg
+#> 4                  https://assets.nhle.com/logos/nhl/svg/TOR_light.svg
+#> 5  https://assets.nhle.com/logos/nhl/svg/STL_light.svg?season=20252026
+#> 6                  https://assets.nhle.com/logos/nhl/svg/NSH_light.svg
+#> 7  https://assets.nhle.com/logos/nhl/svg/CHI_light.svg?season=20252026
+#> 8                  https://assets.nhle.com/logos/nhl/svg/EDM_light.svg
+#> 9                  https://assets.nhle.com/logos/nhl/svg/VGK_light.svg
+#> 10                 https://assets.nhle.com/logos/nhl/svg/SEA_light.svg
+#>                                                                                                                    homeTeam.odds
+#> 1   MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, 330, -125, 105, 124, -198, Draw, , O6.5, -1.5, 
+#> 2    MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, 310, -205, 124, 175, 110, Draw, +1.5, , , O6.5
+#> 3   OVER_UNDER, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, -135, 110, 170, -155, 310, O5.5, , -1.5, , Draw
+#> 4   OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, PUCK_LINE, -105, 215, 340, 160, -155, O6.5, , Draw, , +1.5
+#> 5   MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY, 100, 154, 310, -112, -170, , -1.5, Draw, O5.5, 
+#> 6   MONEY_LINE_3_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, 320, -112, 164, -155, 105, Draw, O6.5, -1.5, , 
+#> 7   MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, 340, 230, 170, -148, -102, Draw, , , +1.5, O6.5
+#> 8   MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, 145, 330, -120, -250, 100, , Draw, O6.5, +1.5, 
+#> 9  MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, -105, 330, 142, -130, -185, , Draw, -1.5, O5.5, 
+#> 10  MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY, PUCK_LINE, MONEY_LINE_3_WAY, 195, -125, 130, -198, 310, , O5.5, , +1.5, Draw
+#>    homeTeam.name.default awayTeam.id awayTeam.abbrev
+#> 1              Lightning          17             DET
+#> 2               Panthers           3             NYR
+#> 3                 Flyers          12             CAR
+#> 4            Maple Leafs          25             DAL
+#> 5                  Blues          30             MIN
+#> 6              Predators          28             SJS
+#> 7             Blackhawks           7             BUF
+#> 8                 Oilers          21             COL
+#> 9         Golden Knights          52             WPG
+#> 10                Kraken          26             LAK
 #>                                                          awayTeam.logo
-#> 1                  https://assets.nhle.com/logos/nhl/svg/FLA_light.svg
-#> 2                  https://assets.nhle.com/logos/nhl/svg/TBL_light.svg
-#> 3                  https://assets.nhle.com/logos/nhl/svg/CBJ_light.svg
-#> 4                  https://assets.nhle.com/logos/nhl/svg/PHI_light.svg
-#> 5  https://assets.nhle.com/logos/nhl/svg/BOS_light.svg?season=20252026
-#> 6                  https://assets.nhle.com/logos/nhl/svg/COL_light.svg
-#> 7                  https://assets.nhle.com/logos/nhl/svg/CGY_light.svg
-#> 8                  https://assets.nhle.com/logos/nhl/svg/SEA_light.svg
-#> 9                  https://assets.nhle.com/logos/nhl/svg/EDM_light.svg
-#> 10                 https://assets.nhle.com/logos/nhl/svg/VGK_light.svg
-#> 11                 https://assets.nhle.com/logos/nhl/svg/NSH_light.svg
-#>                                                                                                                                                       awayTeam.odds
-#> 1        MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_2_WAY_TNB, 100, 195, 120, -140, -580, -270, , Draw, -1.5, U6.5, , 
-#> 2          MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY_TNB, 600, 100, 230, 160, -105, 115, , U6.5, , Draw, +1.5, 
-#> 3        MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 150, -145, -195, 700, 205, -115, Draw, +1.5, U6.5, , , 
-#> 4   MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 2000, 140, -8500, 120, -3000, -2e+05, Draw, -3.5, , U6.5, , 
-#> 5        PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -105, 310, 500, 130, 1000, 700, +1.5, Draw, , U10.5, , 
-#> 6    MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -650, -1450, -130, -115, 650, -4500, , , -2.5, U6.5, Draw, 
-#> 7         PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -395, 145, 115, -110, 380, 176, +1.5, , Draw, U7.5, , 
-#> 8         PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_2_WAY_TNB, 114, 330, 1100, -154, 420, 750, +1.5, Draw, , U7.5, , 
-#> 9         OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY_TNB, 130, -520, 155, 225, 114, 110, U10.5, , Draw, , -1.5, 
-#> 10      MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 105, -2800, 190, -120, 155, -300, , , -1.5, U4.5, Draw, 
-#> 11 MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY_TNB, 1700, -4000, -2000, -135, 325, -80000, Draw, , , U4.5, -4.5, 
+#> 1  https://assets.nhle.com/logos/nhl/svg/DET_light.svg?season=20252026
+#> 2                  https://assets.nhle.com/logos/nhl/svg/NYR_light.svg
+#> 3                  https://assets.nhle.com/logos/nhl/svg/CAR_light.svg
+#> 4                  https://assets.nhle.com/logos/nhl/svg/DAL_light.svg
+#> 5                  https://assets.nhle.com/logos/nhl/svg/MIN_light.svg
+#> 6                  https://assets.nhle.com/logos/nhl/svg/SJS_light.svg
+#> 7                  https://assets.nhle.com/logos/nhl/svg/BUF_light.svg
+#> 8                  https://assets.nhle.com/logos/nhl/svg/COL_light.svg
+#> 9                  https://assets.nhle.com/logos/nhl/svg/WPG_light.svg
+#> 10                 https://assets.nhle.com/logos/nhl/svg/LAK_light.svg
+#>                                                                                                                    awayTeam.odds
+#> 1   MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, 330, 240, -125, -148, 164, Draw, , U6.5, +1.5, 
+#> 2   MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, 310, 170, -148, 110, -130, Draw, -1.5, , , U6.5
+#> 3    OVER_UNDER, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, 114, 180, -205, 130, 310, U5.5, , +1.5, , Draw
+#> 4  OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, PUCK_LINE, -115, -115, 340, -192, 130, U6.5, , Draw, , -1.5
+#> 5   MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY, 195, -185, 310, -108, 142, , +1.5, Draw, U5.5, 
+#> 6   MONEY_LINE_3_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, 320, -108, -198, 130, 180, Draw, U6.5, +1.5, , 
+#> 7  MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, 340, -125, -205, 124, -118, Draw, , , -1.5, U6.5
+#> 8    MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, 130, 330, 100, 205, -120, , Draw, U6.5, -1.5, 
+#> 9    MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, 200, 330, -170, 110, 154, , Draw, +1.5, U5.5, 
+#> 10   MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY, PUCK_LINE, MONEY_LINE_3_WAY, 100, 105, -155, 164, 310, , U5.5, , -1.5, Draw
 #>    awayTeam.name.default
-#> 1               Panthers
-#> 2              Lightning
-#> 3           Blue Jackets
-#> 4                 Flyers
-#> 5                 Bruins
-#> 6              Avalanche
-#> 7                 Flames
-#> 8                 Kraken
-#> 9                 Oilers
-#> 10        Golden Knights
-#> 11             Predators
+#> 1              Red Wings
+#> 2                Rangers
+#> 3             Hurricanes
+#> 4                  Stars
+#> 5                   Wild
+#> 6                 Sharks
+#> 7                 Sabres
+#> 8              Avalanche
+#> 9                   Jets
+#> 10                 Kings
 #> 
 # }
 ```

@@ -45,8 +45,13 @@ pkgdown::build_site()
       zzz.R                     # .onLoad() — xG model download/caching lifecycle
       fastRhockey-package.R     # Package-level roxygen2 documentation, lifecycle import
       helpers_nhl.R             # helper_nhl_calculate_xg(), helper_nhl_prepare_xg_data()
+      helpers_nhl_edge.R        # .nhl_edge_api(), .nhl_edge_to_df() — NHL Edge URL builder
+      helpers_nhl_records.R     # .nhl_records_api() — records.nhl.com URL builder
       pwhl_helpers.R            # .pwhl_api(), .pwhl_modulekit_url(), .pwhl_gc_url() — PWHL JSONP helpers
       nhl_*.R                   # NHL functions (api-web.nhle.com + api.nhle.com/stats)
+      nhl_edge_*.R              # NHL Edge analytics (api-web.nhle.com/v1/edge/...)
+      nhl_cat_edge_*.R          # NHL Edge "CAT" variants (api-web.nhle.com/v1/cat/edge/...)
+      nhl_records_*.R           # NHL records API (records.nhl.com/site/api/...)
       phf_*.R                   # PHF functions (deprecated — league defunct)
       pwhl_*.R                  # PWHL functions (lscluster.hockeytech.com)
 
@@ -54,55 +59,155 @@ pkgdown::build_site()
     man/                        # Auto-generated roxygen2 documentation
     data/                       # Included datasets (.rda)
     data-raw/                   # Scripts for generating package data (*.md files untracked)
+                                # Includes nhl_missing_endpoint_function_mapping.md
+                                # and OpenAPI 3.0.3 specs (nhl_*_openapi.{json,yaml})
+                                # for api-web, stats-rest, and records backends.
     vignettes/                  # Vignettes for pkgdown site
 
 ### API Backends
 
-| Backend                   | Base URL                                           | Used By                                                                       | Auth                          |
-|---------------------------|----------------------------------------------------|-------------------------------------------------------------------------------|-------------------------------|
-| NHL Web API               | `api-web.nhle.com/v1/`                             | Game feed, schedule, standings, rosters                                       | None                          |
-| NHL Stats API             | `api.nhle.com/stats/rest/{lang}/`                  | Skater/goalie/team stats, draft                                               | None                          |
-| HockeyTech (statviewfeed) | `lscluster.hockeytech.com/feed/?feed=statviewfeed` | PWHL schedule, standings, roster, PBP, box scores, stats                      | Public key `694cfeed58c932ee` |
-| HockeyTech (modulekit)    | `lscluster.hockeytech.com/feed/?feed=modulekit`    | PWHL seasons, player info, leaders, transactions, streaks, brackets, scorebar | Public key `446521baf8c38984` |
-| HockeyTech (gc)           | `lscluster.hockeytech.com/feed/?feed=gc`           | PWHL game summary, game center                                                | Public key `446521baf8c38984` |
+| Backend                   | Base URL                                             | Used By                                                                                                                                                                  | Auth                          |
+|---------------------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
+| NHL Web API               | `api-web.nhle.com/v1/`                               | Game feed, schedule, standings, rosters, gamecenter, draft, scoreboard, scores, meta, location, partner-game, where-to-watch, smartlinks, postal-lookup, ppt-replay, wsc | None                          |
+| NHL Edge API              | `api-web.nhle.com/v1/edge/...` and `v1/cat/edge/...` | Skater/goalie/team Edge advanced metrics (shot location, shot speed, skating speed, skating distance, zone time, comparisons, top-10 leaderboards)                       | None                          |
+| NHL Stats API             | `api.nhle.com/stats/rest/{lang}/`                    | Skater/goalie/team stats, draft, franchise, players, glossary, country, config, leaders, milestones                                                                      | None                          |
+| NHL Records API           | `records.nhl.com/site/api/`                          | Franchise totals, player/skater/goalie career and real-time stats, draft lottery, hall of fame, trophies, awards, attendance, venues, officials, combine                 | None                          |
+| HockeyTech (statviewfeed) | `lscluster.hockeytech.com/feed/?feed=statviewfeed`   | PWHL schedule, standings, roster, PBP, box scores, stats                                                                                                                 | Public key `694cfeed58c932ee` |
+| HockeyTech (modulekit)    | `lscluster.hockeytech.com/feed/?feed=modulekit`      | PWHL seasons, player info, leaders, transactions, streaks, brackets, scorebar                                                                                            | Public key `446521baf8c38984` |
+| HockeyTech (gc)           | `lscluster.hockeytech.com/feed/?feed=gc`             | PWHL game summary, game center                                                                                                                                           | Public key `446521baf8c38984` |
 
 - **NHL Web API** returns clean JSON parsed with
   [`jsonlite::fromJSON()`](https://jeroen.r-universe.dev/jsonlite/reference/fromJSON.html)
-- **NHL Stats API** uses Cayenne filter expressions for query params
+- **NHL Edge API** uses an internal
+  `.nhl_edge_api(base, season, game_type, prefix)` helper that handles
+  the `/now` vs `/{season}/{gameType}` URL split, and
+  `.nhl_edge_to_df()` to normalize the assorted response shapes
+- **NHL Stats API** uses Cayenne filter expressions for query params.
+  Note: the `leaders/{skaters,goalies}/{attribute}` endpoint does
+  **not** accept `start`/`limit` query parameters (returns 500); valid
+  goalie attributes are restricted to `savePctg`, `gaa`, and `shutouts`
+- **NHL Records API** uses an internal
+  `.nhl_records_api(resource, cayenne_exp, sort, limit, start, query)`
+  helper. The records API does **not** support path-suffix filtering
+  (`franchise/{id}` returns 404); use `cayenneExp` filtering instead
 - **HockeyTech** returns JSONP with Angular callbacks that must be
   regex-stripped before parsing
 - PWHL internal helpers in `pwhl_helpers.R`: `.pwhl_api()` strips JSONP,
   `.pwhl_modulekit_url()` / `.pwhl_gc_url()` build URLs
 
-### PWHL Functions (20 exported)
+### PWHL Functions (35 exported)
 
-| Function                                                                                                    | Category | Endpoint Feed                                |
-|-------------------------------------------------------------------------------------------------------------|----------|----------------------------------------------|
-| [`pwhl_teams()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_teams.md)                           | Teams    | statviewfeed                                 |
-| [`pwhl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_team_roster.md)               | Teams    | statviewfeed                                 |
-| [`pwhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_schedule.md)                     | Games    | statviewfeed                                 |
-| [`pwhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_standings.md)                   | Teams    | statviewfeed                                 |
-| [`pwhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_game_info.md)                   | Games    | statviewfeed                                 |
-| [`pwhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_pbp.md)                               | Games    | statviewfeed                                 |
-| [`pwhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_box.md)                 | Games    | statviewfeed                                 |
-| [`pwhl_stats()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_stats.md)                           | Players  | statviewfeed                                 |
-| [`pwhl_season_id()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_season_id.md)                   | League   | modulekit (dynamic, with hardcoded fallback) |
-| [`pwhl_player_info()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_info.md)               | Players  | modulekit                                    |
-| [`pwhl_player_game_log()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_game_log.md)       | Players  | modulekit                                    |
-| [`pwhl_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_stats.md)             | Players  | modulekit                                    |
-| [`pwhl_player_search()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_search.md)           | Players  | modulekit                                    |
-| [`pwhl_leaders()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_leaders.md)                       | Players  | modulekit                                    |
-| [`pwhl_transactions()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_transactions.md)             | League   | modulekit                                    |
-| [`pwhl_streaks()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_streaks.md)                       | Players  | modulekit                                    |
-| [`pwhl_playoff_bracket()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_playoff_bracket.md)       | League   | modulekit                                    |
-| [`pwhl_scorebar()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_scorebar.md)                     | Games    | modulekit                                    |
-| [`pwhl_game_summary()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_game_summary.md)             | Games    | gc                                           |
-| [`most_recent_pwhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_pwhl_season.md) | Utility  | (computed)                                   |
-| [`load_pwhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_pbp.md)                     | Loader   | sportsdataverse-data releases                |
-| [`load_pwhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_player_box.md)       | Loader   | sportsdataverse-data releases                |
-| [`load_pwhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_schedule.md)           | Loader   | sportsdataverse-data releases                |
-| [`load_pwhl_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_rosters.md)             | Loader   | sportsdataverse-data releases                |
-| [`update_pwhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_pwhl_db.md)                   | Loader   | sportsdataverse-data releases                |
+| Function                                                                                                        | Category | Endpoint Feed                                |
+|-----------------------------------------------------------------------------------------------------------------|----------|----------------------------------------------|
+| [`pwhl_teams()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_teams.md)                               | Teams    | statviewfeed                                 |
+| [`pwhl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_team_roster.md)                   | Teams    | statviewfeed                                 |
+| [`pwhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_schedule.md)                         | Games    | statviewfeed                                 |
+| [`pwhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_standings.md)                       | Teams    | statviewfeed                                 |
+| [`pwhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_game_info.md)                       | Games    | statviewfeed                                 |
+| [`pwhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_pbp.md)                                   | Games    | statviewfeed                                 |
+| [`pwhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_box.md)                     | Games    | statviewfeed                                 |
+| [`pwhl_stats()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_stats.md)                               | Players  | statviewfeed                                 |
+| [`pwhl_season_id()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_season_id.md)                       | League   | modulekit (dynamic, with hardcoded fallback) |
+| [`pwhl_player_info()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_info.md)                   | Players  | modulekit                                    |
+| [`pwhl_player_game_log()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_game_log.md)           | Players  | modulekit                                    |
+| [`pwhl_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_stats.md)                 | Players  | modulekit                                    |
+| [`pwhl_player_search()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_search.md)               | Players  | modulekit                                    |
+| [`pwhl_leaders()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_leaders.md)                           | Players  | modulekit                                    |
+| [`pwhl_transactions()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_transactions.md)                 | League   | modulekit                                    |
+| [`pwhl_streaks()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_streaks.md)                           | Players  | modulekit                                    |
+| [`pwhl_playoff_bracket()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_playoff_bracket.md)           | League   | modulekit                                    |
+| [`pwhl_scorebar()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_scorebar.md)                         | Games    | modulekit                                    |
+| [`pwhl_game_summary()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_game_summary.md)                 | Games    | gc                                           |
+| [`most_recent_pwhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_pwhl_season.md)     | Utility  | (computed)                                   |
+| [`load_pwhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_pbp.md)                         | Loader   | sportsdataverse-data releases                |
+| [`load_pwhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_player_box.md)           | Loader   | sportsdataverse-data releases                |
+| [`load_pwhl_skater_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_skater_box.md)           | Loader   | sportsdataverse-data releases                |
+| [`load_pwhl_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_goalie_box.md)           | Loader   | sportsdataverse-data releases                |
+| [`load_pwhl_team_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_team_box.md)               | Loader   | sportsdataverse-data releases                |
+| [`load_pwhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_schedule.md)               | Loader   | sportsdataverse-data releases                |
+| [`load_pwhl_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_rosters.md)                 | Loader   | sportsdataverse-data releases                |
+| [`load_pwhl_game_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_game_rosters.md)       | Loader   | sportsdataverse-data releases                |
+| [`load_pwhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_game_info.md)             | Loader   | sportsdataverse-data releases                |
+| [`load_pwhl_scoring_summary()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_scoring_summary.md) | Loader   | sportsdataverse-data releases                |
+| [`load_pwhl_penalty_summary()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_penalty_summary.md) | Loader   | sportsdataverse-data releases                |
+| [`load_pwhl_three_stars()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_three_stars.md)         | Loader   | sportsdataverse-data releases                |
+| [`load_pwhl_officials()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_officials.md)             | Loader   | sportsdataverse-data releases                |
+| [`load_pwhl_shots_by_period()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shots_by_period.md) | Loader   | sportsdataverse-data releases                |
+| [`load_pwhl_shootout()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shootout.md)               | Loader   | sportsdataverse-data releases                |
+| [`update_pwhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_pwhl_db.md)                       | Loader   | sportsdataverse-data releases                |
+
+All `load_pwhl_*()` helpers share `.pwhl_release_loader()` (in
+`pwhl_loaders.R`), which validates seasons, builds release URLs from a
+`(release_tag, file_prefix)` pair, downloads in parallel with optional
+`progressr`, optionally writes into a `DBIConnection`, and tags output
+with the `fastRhockey_data` S3 class. Adding a new dataset = one row in
+the catalog table at the top of `pwhl_loaders.R` plus a thin exported
+wrapper.
+
+### NHL Endpoint Families (extended in 1.0.0)
+
+| Family                              | Count | Files                                                                                                                                                                                                                                                                                                                                                       | Helper                                                                              |
+|-------------------------------------|------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| NHL Edge analytics                  |    33 | `nhl_edge_*.R`, `nhl_cat_edge_*.R`                                                                                                                                                                                                                                                                                                                          | `.nhl_edge_api()` + `.nhl_edge_to_df()` in `helpers_nhl_edge.R`                     |
+| NHL Records API                     |    25 | `nhl_records_*.R`                                                                                                                                                                                                                                                                                                                                           | `.nhl_records_api()` in `helpers_nhl_records.R`                                     |
+| NHL Stats REST (dedicated wrappers) |    13 | `nhl_stats_franchise.R`, `nhl_stats_players.R`, `nhl_stats_glossary.R`, `nhl_stats_country.R`, `nhl_stats_config.R`, `nhl_stats_ping.R`, `nhl_stats_skater_leaders.R`, `nhl_stats_goalie_leaders.R`, `nhl_stats_skater_milestones.R`, `nhl_stats_goalie_milestones.R`, `nhl_stats_team_listing.R`, `nhl_stats_game_listing.R`, `nhl_stats_content_module.R` | (none — uses [`httr::RETRY`](https://httr.r-lib.org/reference/RETRY.html) directly) |
+| NHL api-web miscellaneous           |     6 | `nhl_wsc_pbp.R`, `nhl_draft_tracker.R`, `nhl_ppt_replay.R`, `nhl_ppt_replay_goal.R`, `nhl_postal_lookup.R`, `nhl_smartlinks.R`                                                                                                                                                                                                                              | (none)                                                                              |
+| NHL helper aggregators              |     6 | `nhl_game_ids_by_season.R`, `nhl_all_players_by_season.R`, `nhl_player_career_stats.R`, `nhl_team_summary_range.R`, `nhl_skater_summary_range.R`, `nhl_goalie_summary_range.R`                                                                                                                                                                              | (none — orchestrates other exported functions)                                      |
+
+The Edge family pairs `/now` and `/{season}/{gameType}` URLs behind a
+single wrapper that takes an optional `season` argument (default `NULL`
+→ current season). The Records family parallels the Stats REST shape:
+all 442 documented endpoints share
+`https://records.nhl.com/site/api/{resource}` with optional `cayenneExp`
+filtering and `limit`/`start` pagination, and the response shape is
+`{data: [...], total: N}` for tabular endpoints.
+
+Endpoint catalog and OpenAPI 3.0.3 specs for all three NHL backends are
+in `data-raw/nhl_*_openapi.{json,yaml}`. The function-to-endpoint
+mapping is in `data-raw/nhl_missing_endpoint_function_mapping.md`. Both
+are regenerated by `data-raw/_gen_openapi.py` from the upstream
+[dfleis/nhl-api-docs](https://github.com/dfleis/nhl-api-docs) catalog.
+
+### NHL Loaders (19 exported + DB helpers)
+
+| Function                                                                                                      | Category | Release Tag          |
+|---------------------------------------------------------------------------------------------------------------|----------|----------------------|
+| [`load_nhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp.md)                         | Loader   | nhl_pbp_full         |
+| [`load_nhl_pbp_lite()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp_lite.md)               | Loader   | nhl_pbp_lite         |
+| [`load_nhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_player_box.md)           | Loader   | nhl_player_boxscores |
+| [`load_nhl_skater_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_skater_box.md)           | Loader   | nhl_skater_boxscores |
+| [`load_nhl_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_goalie_box.md)           | Loader   | nhl_goalie_boxscores |
+| [`load_nhl_team_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_box.md)               | Loader   | nhl_team_boxscores   |
+| [`load_nhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_schedule.md)               | Loader   | nhl_schedules        |
+| [`load_nhl_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_rosters.md)                 | Loader   | nhl_rosters          |
+| [`load_nhl_game_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_game_rosters.md)       | Loader   | nhl_game_rosters     |
+| [`load_nhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_game_info.md)             | Loader   | nhl_game_info        |
+| [`load_nhl_scoring()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_scoring.md)                 | Loader   | nhl_scoring          |
+| [`load_nhl_penalties()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_penalties.md)             | Loader   | nhl_penalties        |
+| [`load_nhl_three_stars()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_three_stars.md)         | Loader   | nhl_three_stars      |
+| [`load_nhl_scratches()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_scratches.md)             | Loader   | nhl_scratches        |
+| [`load_nhl_linescore()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_linescore.md)             | Loader   | nhl_linescore        |
+| [`load_nhl_shifts()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shifts.md)                   | Loader   | nhl_shifts           |
+| [`load_nhl_officials()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_officials.md)             | Loader   | nhl_officials        |
+| [`load_nhl_shots_by_period()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shots_by_period.md) | Loader   | nhl_shots_by_period  |
+| [`load_nhl_shootout()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shootout.md)               | Loader   | nhl_shootout         |
+| [`update_nhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_nhl_db.md)                       | DB       | (uses load_nhl_pbp)  |
+
+All `load_nhl_*()` helpers share `.nhl_release_loader()` (in
+`R/nhl_loaders.R`), which validates seasons (min 2011), builds release
+URLs from `(release_tag, file_prefix)`, downloads in parallel with
+optional `progressr`, optionally writes into a `DBIConnection`, and tags
+output with the `fastRhockey_data` S3 class. The DB helpers
+([`update_nhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_nhl_db.md),
+`build_nhl_db()`, `get_missing_nhl_games()`) live in the same file.
+
+[`nhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/nhl_schedule.md)
+exposes an opt-in `include_data_flags = FALSE` parameter that, when set,
+left-joins the cached `nhl_games_in_data_repo` index from the data repo
+and adds one logical column per pre-compiled dataset (`PBP`, `team_box`,
+`player_box`, `skater_box`, `goalie_box`, `game_info`, `game_rosters`,
+`scoring`, `penalties`, `scratches`, `linescore`, `three_stars`,
+`shifts`, `officials`, `shots_by_period`, `shootout`).
 
 ### S3 Class: `fastRhockey_data`
 
@@ -145,7 +250,8 @@ and raise errors - Tests for deprecated functions check for
   `utils.R` suppress R CMD check NSE notes
 - Conventional Commits: `<type>(<scope>): <description>`
   - Types: feat, fix, docs, style, refactor, test, build, ci, chore
-  - Scopes: nhl, phf, pwhl, xg, pkgdown, ci, loader
+  - Scopes: nhl, nhl-edge, nhl-records, nhl-stats, phf, pwhl, xg,
+    pkgdown, ci, loader
 
 ### Naming Conventions
 

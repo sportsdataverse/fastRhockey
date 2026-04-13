@@ -117,8 +117,13 @@
   zzz.R                     # .onLoad() — xG model download/caching lifecycle
   fastRhockey-package.R     # Package-level roxygen2 documentation, lifecycle import
   helpers_nhl.R             # helper_nhl_calculate_xg(), helper_nhl_prepare_xg_data()
+  helpers_nhl_edge.R        # .nhl_edge_api(), .nhl_edge_to_df() — NHL Edge URL builder
+  helpers_nhl_records.R     # .nhl_records_api() — records.nhl.com URL builder
   pwhl_helpers.R            # .pwhl_api(), .pwhl_modulekit_url(), .pwhl_gc_url() — PWHL JSONP helpers
   nhl_*.R                   # NHL functions (api-web.nhle.com + api.nhle.com/stats)
+  nhl_edge_*.R              # NHL Edge analytics (api-web.nhle.com/v1/edge/...)
+  nhl_cat_edge_*.R          # NHL Edge "CAT" variants (api-web.nhle.com/v1/cat/edge/...)
+  nhl_records_*.R           # NHL records API (records.nhl.com/site/api/...)
   phf_*.R                   # PHF functions (deprecated — league defunct)
   pwhl_*.R                  # PWHL functions (lscluster.hockeytech.com)
 
@@ -126,6 +131,9 @@ tests/testthat/             # Unit tests (testthat edition 3)
 man/                        # Auto-generated roxygen2 documentation
 data/                       # Included datasets (.rda)
 data-raw/                   # Scripts for generating package data (*.md files untracked)
+                            # Includes nhl_missing_endpoint_function_mapping.md
+                            # and OpenAPI 3.0.3 specs (nhl_*_openapi.{json,yaml})
+                            # for api-web, stats-rest, and records backends.
 vignettes/                  # Vignettes for pkgdown site</code></pre>
 <div class="section level3">
 <h3 id="api-backends">API Backends<a class="anchor" aria-label="anchor" href="#api-backends"></a></h3>
@@ -135,11 +143,21 @@ vignettes/                  # Vignettes for pkgdown site</code></pre>
 <th>Auth</th>
 </tr></thead><tbody><tr class="odd"><td>NHL Web API</td>
 <td><code>api-web.nhle.com/v1/</code></td>
-<td>Game feed, schedule, standings, rosters</td>
+<td>Game feed, schedule, standings, rosters, gamecenter, draft, scoreboard, scores, meta, location, partner-game, where-to-watch, smartlinks, postal-lookup, ppt-replay, wsc</td>
 <td>None</td>
-</tr><tr class="even"><td>NHL Stats API</td>
+</tr><tr class="even"><td>NHL Edge API</td>
+<td>
+<code>api-web.nhle.com/v1/edge/...</code> and <code>v1/cat/edge/...</code>
+</td>
+<td>Skater/goalie/team Edge advanced metrics (shot location, shot speed, skating speed, skating distance, zone time, comparisons, top-10 leaderboards)</td>
+<td>None</td>
+</tr><tr class="odd"><td>NHL Stats API</td>
 <td><code>api.nhle.com/stats/rest/{lang}/</code></td>
-<td>Skater/goalie/team stats, draft</td>
+<td>Skater/goalie/team stats, draft, franchise, players, glossary, country, config, leaders, milestones</td>
+<td>None</td>
+</tr><tr class="even"><td>NHL Records API</td>
+<td><code>records.nhl.com/site/api/</code></td>
+<td>Franchise totals, player/skater/goalie career and real-time stats, draft lottery, hall of fame, trophies, awards, attendance, venues, officials, combine</td>
 <td>None</td>
 </tr><tr class="odd"><td>HockeyTech (statviewfeed)</td>
 <td><code>lscluster.hockeytech.com/feed/?feed=statviewfeed</code></td>
@@ -160,13 +178,18 @@ vignettes/                  # Vignettes for pkgdown site</code></pre>
 <strong>NHL Web API</strong> returns clean JSON parsed with <code><a href="https://jeroen.r-universe.dev/jsonlite/reference/fromJSON.html" class="external-link">jsonlite::fromJSON()</a></code>
 </li>
 <li>
-<strong>NHL Stats API</strong> uses Cayenne filter expressions for query params</li>
+<strong>NHL Edge API</strong> uses an internal <code>.nhl_edge_api(base, season, game_type, prefix)</code> helper that handles the <code>/now</code> vs <code>/{season}/{gameType}</code> URL split, and <code>.nhl_edge_to_df()</code> to normalize the assorted response shapes</li>
+<li>
+<strong>NHL Stats API</strong> uses Cayenne filter expressions for query params. Note: the <code>leaders/{skaters,goalies}/{attribute}</code> endpoint does <strong>not</strong> accept <code>start</code>/<code>limit</code> query parameters (returns 500); valid goalie attributes are restricted to <code>savePctg</code>, <code>gaa</code>, and <code>shutouts</code>
+</li>
+<li>
+<strong>NHL Records API</strong> uses an internal <code>.nhl_records_api(resource, cayenne_exp, sort, limit, start, query)</code> helper. The records API does <strong>not</strong> support path-suffix filtering (<code>franchise/{id}</code> returns 404); use <code>cayenneExp</code> filtering instead</li>
 <li>
 <strong>HockeyTech</strong> returns JSONP with Angular callbacks that must be regex-stripped before parsing</li>
 <li>PWHL internal helpers in <code>pwhl_helpers.R</code>: <code>.pwhl_api()</code> strips JSONP, <code>.pwhl_modulekit_url()</code> / <code>.pwhl_gc_url()</code> build URLs</li>
 </ul></div>
 <div class="section level3">
-<h3 id="pwhl-functions-20-exported">PWHL Functions (20 exported)<a class="anchor" aria-label="anchor" href="#pwhl-functions-20-exported"></a></h3>
+<h3 id="pwhl-functions-35-exported">PWHL Functions (35 exported)<a class="anchor" aria-label="anchor" href="#pwhl-functions-35-exported"></a></h3>
 <table class="table"><colgroup><col width="29%"><col width="29%"><col width="41%"></colgroup><thead><tr class="header"><th>Function</th>
 <th>Category</th>
 <th>Endpoint Feed</th>
@@ -236,16 +259,159 @@ vignettes/                  # Vignettes for pkgdown site</code></pre>
 </tr><tr class="even"><td><code><a href="reference/load_pwhl_player_box.html">load_pwhl_player_box()</a></code></td>
 <td>Loader</td>
 <td>sportsdataverse-data releases</td>
-</tr><tr class="odd"><td><code><a href="reference/load_pwhl_schedule.html">load_pwhl_schedule()</a></code></td>
+</tr><tr class="odd"><td><code><a href="reference/load_pwhl_skater_box.html">load_pwhl_skater_box()</a></code></td>
 <td>Loader</td>
 <td>sportsdataverse-data releases</td>
-</tr><tr class="even"><td><code><a href="reference/load_pwhl_rosters.html">load_pwhl_rosters()</a></code></td>
+</tr><tr class="even"><td><code><a href="reference/load_pwhl_goalie_box.html">load_pwhl_goalie_box()</a></code></td>
 <td>Loader</td>
 <td>sportsdataverse-data releases</td>
-</tr><tr class="odd"><td><code><a href="reference/update_pwhl_db.html">update_pwhl_db()</a></code></td>
+</tr><tr class="odd"><td><code><a href="reference/load_pwhl_team_box.html">load_pwhl_team_box()</a></code></td>
 <td>Loader</td>
 <td>sportsdataverse-data releases</td>
-</tr></tbody></table></div>
+</tr><tr class="even"><td><code><a href="reference/load_pwhl_schedule.html">load_pwhl_schedule()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr><tr class="odd"><td><code><a href="reference/load_pwhl_rosters.html">load_pwhl_rosters()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr><tr class="even"><td><code><a href="reference/load_pwhl_game_rosters.html">load_pwhl_game_rosters()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr><tr class="odd"><td><code><a href="reference/load_pwhl_game_info.html">load_pwhl_game_info()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr><tr class="even"><td><code><a href="reference/load_pwhl_scoring_summary.html">load_pwhl_scoring_summary()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr><tr class="odd"><td><code><a href="reference/load_pwhl_penalty_summary.html">load_pwhl_penalty_summary()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr><tr class="even"><td><code><a href="reference/load_pwhl_three_stars.html">load_pwhl_three_stars()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr><tr class="odd"><td><code><a href="reference/load_pwhl_officials.html">load_pwhl_officials()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr><tr class="even"><td><code><a href="reference/load_pwhl_shots_by_period.html">load_pwhl_shots_by_period()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr><tr class="odd"><td><code><a href="reference/load_pwhl_shootout.html">load_pwhl_shootout()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr><tr class="even"><td><code><a href="reference/update_pwhl_db.html">update_pwhl_db()</a></code></td>
+<td>Loader</td>
+<td>sportsdataverse-data releases</td>
+</tr></tbody></table><p>All <code>load_pwhl_*()</code> helpers share <code>.pwhl_release_loader()</code> (in <code>pwhl_loaders.R</code>), which validates seasons, builds release URLs from a <code>(release_tag, file_prefix)</code> pair, downloads in parallel with optional <code>progressr</code>, optionally writes into a <code>DBIConnection</code>, and tags output with the <code>fastRhockey_data</code> S3 class. Adding a new dataset = one row in the catalog table at the top of <code>pwhl_loaders.R</code> plus a thin exported wrapper.</p>
+</div>
+<div class="section level3">
+<h3 id="nhl-endpoint-families-extended-in-100">NHL Endpoint Families (extended in 1.0.0)<a class="anchor" aria-label="anchor" href="#nhl-endpoint-families-extended-in-100"></a></h3>
+<table class="table"><colgroup><col width="26%"><col width="23%"><col width="23%"><col width="26%"></colgroup><thead><tr class="header"><th>Family</th>
+<th align="right">Count</th>
+<th>Files</th>
+<th>Helper</th>
+</tr></thead><tbody><tr class="odd"><td>NHL Edge analytics</td>
+<td align="right">33</td>
+<td>
+<code>nhl_edge_*.R</code>, <code>nhl_cat_edge_*.R</code>
+</td>
+<td>
+<code>.nhl_edge_api()</code> + <code>.nhl_edge_to_df()</code> in <code>helpers_nhl_edge.R</code>
+</td>
+</tr><tr class="even"><td>NHL Records API</td>
+<td align="right">25</td>
+<td><code>nhl_records_*.R</code></td>
+<td>
+<code>.nhl_records_api()</code> in <code>helpers_nhl_records.R</code>
+</td>
+</tr><tr class="odd"><td>NHL Stats REST (dedicated wrappers)</td>
+<td align="right">13</td>
+<td>
+<code>nhl_stats_franchise.R</code>, <code>nhl_stats_players.R</code>, <code>nhl_stats_glossary.R</code>, <code>nhl_stats_country.R</code>, <code>nhl_stats_config.R</code>, <code>nhl_stats_ping.R</code>, <code>nhl_stats_skater_leaders.R</code>, <code>nhl_stats_goalie_leaders.R</code>, <code>nhl_stats_skater_milestones.R</code>, <code>nhl_stats_goalie_milestones.R</code>, <code>nhl_stats_team_listing.R</code>, <code>nhl_stats_game_listing.R</code>, <code>nhl_stats_content_module.R</code>
+</td>
+<td>(none — uses <code><a href="https://httr.r-lib.org/reference/RETRY.html" class="external-link">httr::RETRY</a></code> directly)</td>
+</tr><tr class="even"><td>NHL api-web miscellaneous</td>
+<td align="right">6</td>
+<td>
+<code>nhl_wsc_pbp.R</code>, <code>nhl_draft_tracker.R</code>, <code>nhl_ppt_replay.R</code>, <code>nhl_ppt_replay_goal.R</code>, <code>nhl_postal_lookup.R</code>, <code>nhl_smartlinks.R</code>
+</td>
+<td>(none)</td>
+</tr><tr class="odd"><td>NHL helper aggregators</td>
+<td align="right">6</td>
+<td>
+<code>nhl_game_ids_by_season.R</code>, <code>nhl_all_players_by_season.R</code>, <code>nhl_player_career_stats.R</code>, <code>nhl_team_summary_range.R</code>, <code>nhl_skater_summary_range.R</code>, <code>nhl_goalie_summary_range.R</code>
+</td>
+<td>(none — orchestrates other exported functions)</td>
+</tr></tbody></table><p>The Edge family pairs <code>/now</code> and <code>/{season}/{gameType}</code> URLs behind a single wrapper that takes an optional <code>season</code> argument (default <code>NULL</code> → current season). The Records family parallels the Stats REST shape: all 442 documented endpoints share <code>https://records.nhl.com/site/api/{resource}</code> with optional <code>cayenneExp</code> filtering and <code>limit</code>/<code>start</code> pagination, and the response shape is <code>{data: [...], total: N}</code> for tabular endpoints.</p>
+<p>Endpoint catalog and OpenAPI 3.0.3 specs for all three NHL backends are in <code>data-raw/nhl_*_openapi.{json,yaml}</code>. The function-to-endpoint mapping is in <code>data-raw/nhl_missing_endpoint_function_mapping.md</code>. Both are regenerated by <code>data-raw/_gen_openapi.py</code> from the upstream <a href="https://github.com/dfleis/nhl-api-docs" class="external-link">dfleis/nhl-api-docs</a> catalog.</p>
+</div>
+<div class="section level3">
+<h3 id="nhl-loaders-19-exported--db-helpers">NHL Loaders (19 exported + DB helpers)<a class="anchor" aria-label="anchor" href="#nhl-loaders-19-exported--db-helpers"></a></h3>
+<table class="table"><thead><tr class="header"><th>Function</th>
+<th>Category</th>
+<th>Release Tag</th>
+</tr></thead><tbody><tr class="odd"><td><code><a href="reference/load_nhl_pbp.html">load_nhl_pbp()</a></code></td>
+<td>Loader</td>
+<td>nhl_pbp_full</td>
+</tr><tr class="even"><td><code><a href="reference/load_nhl_pbp_lite.html">load_nhl_pbp_lite()</a></code></td>
+<td>Loader</td>
+<td>nhl_pbp_lite</td>
+</tr><tr class="odd"><td><code><a href="reference/load_nhl_player_box.html">load_nhl_player_box()</a></code></td>
+<td>Loader</td>
+<td>nhl_player_boxscores</td>
+</tr><tr class="even"><td><code><a href="reference/load_nhl_skater_box.html">load_nhl_skater_box()</a></code></td>
+<td>Loader</td>
+<td>nhl_skater_boxscores</td>
+</tr><tr class="odd"><td><code><a href="reference/load_nhl_goalie_box.html">load_nhl_goalie_box()</a></code></td>
+<td>Loader</td>
+<td>nhl_goalie_boxscores</td>
+</tr><tr class="even"><td><code><a href="reference/load_nhl_team_box.html">load_nhl_team_box()</a></code></td>
+<td>Loader</td>
+<td>nhl_team_boxscores</td>
+</tr><tr class="odd"><td><code><a href="reference/load_nhl_schedule.html">load_nhl_schedule()</a></code></td>
+<td>Loader</td>
+<td>nhl_schedules</td>
+</tr><tr class="even"><td><code><a href="reference/load_nhl_rosters.html">load_nhl_rosters()</a></code></td>
+<td>Loader</td>
+<td>nhl_rosters</td>
+</tr><tr class="odd"><td><code><a href="reference/load_nhl_game_rosters.html">load_nhl_game_rosters()</a></code></td>
+<td>Loader</td>
+<td>nhl_game_rosters</td>
+</tr><tr class="even"><td><code><a href="reference/load_nhl_game_info.html">load_nhl_game_info()</a></code></td>
+<td>Loader</td>
+<td>nhl_game_info</td>
+</tr><tr class="odd"><td><code><a href="reference/load_nhl_scoring.html">load_nhl_scoring()</a></code></td>
+<td>Loader</td>
+<td>nhl_scoring</td>
+</tr><tr class="even"><td><code><a href="reference/load_nhl_penalties.html">load_nhl_penalties()</a></code></td>
+<td>Loader</td>
+<td>nhl_penalties</td>
+</tr><tr class="odd"><td><code><a href="reference/load_nhl_three_stars.html">load_nhl_three_stars()</a></code></td>
+<td>Loader</td>
+<td>nhl_three_stars</td>
+</tr><tr class="even"><td><code><a href="reference/load_nhl_scratches.html">load_nhl_scratches()</a></code></td>
+<td>Loader</td>
+<td>nhl_scratches</td>
+</tr><tr class="odd"><td><code><a href="reference/load_nhl_linescore.html">load_nhl_linescore()</a></code></td>
+<td>Loader</td>
+<td>nhl_linescore</td>
+</tr><tr class="even"><td><code><a href="reference/load_nhl_shifts.html">load_nhl_shifts()</a></code></td>
+<td>Loader</td>
+<td>nhl_shifts</td>
+</tr><tr class="odd"><td><code><a href="reference/load_nhl_officials.html">load_nhl_officials()</a></code></td>
+<td>Loader</td>
+<td>nhl_officials</td>
+</tr><tr class="even"><td><code><a href="reference/load_nhl_shots_by_period.html">load_nhl_shots_by_period()</a></code></td>
+<td>Loader</td>
+<td>nhl_shots_by_period</td>
+</tr><tr class="odd"><td><code><a href="reference/load_nhl_shootout.html">load_nhl_shootout()</a></code></td>
+<td>Loader</td>
+<td>nhl_shootout</td>
+</tr><tr class="even"><td><code><a href="reference/update_nhl_db.html">update_nhl_db()</a></code></td>
+<td>DB</td>
+<td>(uses load_nhl_pbp)</td>
+</tr></tbody></table><p>All <code>load_nhl_*()</code> helpers share <code>.nhl_release_loader()</code> (in <code>R/nhl_loaders.R</code>), which validates seasons (min 2011), builds release URLs from <code>(release_tag, file_prefix)</code>, downloads in parallel with optional <code>progressr</code>, optionally writes into a <code>DBIConnection</code>, and tags output with the <code>fastRhockey_data</code> S3 class. The DB helpers (<code><a href="reference/update_nhl_db.html">update_nhl_db()</a></code>, <code>build_nhl_db()</code>, <code>get_missing_nhl_games()</code>) live in the same file.</p>
+<p><code><a href="reference/nhl_schedule.html">nhl_schedule()</a></code> exposes an opt-in <code>include_data_flags = FALSE</code> parameter that, when set, left-joins the cached <code>nhl_games_in_data_repo</code> index from the data repo and adds one logical column per pre-compiled dataset (<code>PBP</code>, <code>team_box</code>, <code>player_box</code>, <code>skater_box</code>, <code>goalie_box</code>, <code>game_info</code>, <code>game_rosters</code>, <code>scoring</code>, <code>penalties</code>, <code>scratches</code>, <code>linescore</code>, <code>three_stars</code>, <code>shifts</code>, <code>officials</code>, <code>shots_by_period</code>, <code>shootout</code>).</p>
+</div>
 <div class="section level3">
 <h3 id="s3-class-fastrhockey_data">S3 Class: <code>fastRhockey_data</code>
 <a class="anchor" aria-label="anchor" href="#s3-class-fastrhockey_data"></a></h3>
@@ -276,7 +442,7 @@ vignettes/                  # Vignettes for pkgdown site</code></pre>
 <code><a href="https://rdrr.io/r/utils/globalVariables.html" class="external-link">globalVariables()</a></code> in <code>utils.R</code> suppress R CMD check NSE notes</li>
 <li>Conventional Commits: <code>&lt;type&gt;(&lt;scope&gt;): &lt;description&gt;</code>
 <ul><li>Types: feat, fix, docs, style, refactor, test, build, ci, chore</li>
-<li>Scopes: nhl, phf, pwhl, xg, pkgdown, ci, loader</li>
+<li>Scopes: nhl, nhl-edge, nhl-records, nhl-stats, phf, pwhl, xg, pkgdown, ci, loader</li>
 </ul></li>
 </ul><div class="section level3">
 <h3 id="naming-conventions">Naming Conventions<a class="anchor" aria-label="anchor" href="#naming-conventions"></a></h3>

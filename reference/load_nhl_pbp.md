@@ -1,7 +1,9 @@
 # **Load fastRhockey NHL play-by-play**
 
-helper that loads multiple seasons from the data repo either into memory
-or writes it into a db using some forwarded arguments in the dots
+Helper that loads multiple seasons of pre-scraped NHL play-by-play data
+(full version, including line changes and shifts) from the
+[sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
+releases either into memory or writes it into a database.
 
 ## Usage
 
@@ -38,7 +40,7 @@ load_nhl_pbp(
 
 ## Value
 
-A dataframe
+A data frame of class `fastRhockey_data`
 
 ## Examples
 

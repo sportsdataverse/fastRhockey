@@ -6,7 +6,12 @@ Returns NHL schedule data for a given day or season. Uses the NHL API
 ## Usage
 
 ``` r
-nhl_schedule(day = NULL, season = NULL, team_abbr = NULL)
+nhl_schedule(
+  day = NULL,
+  season = NULL,
+  team_abbr = NULL,
+  include_data_flags = FALSE
+)
 ```
 
 ## Arguments
@@ -28,9 +33,24 @@ nhl_schedule(day = NULL, season = NULL, team_abbr = NULL)
   Character three-letter team abbreviation (e.g., "TOR"). Required when
   `season` is used. If NULL, loops through all teams.
 
+- include_data_flags:
+
+  Logical (default `FALSE`). When `TRUE`, after building the live
+  schedule the result is left-joined against the pre-compiled
+  `nhl_games_in_data_repo` index from
+  [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
+  to add per-game data-availability flags (`PBP`, `team_box`,
+  `player_box`, `skater_box`, `goalie_box`, `game_info`, `game_rosters`,
+  `scoring`, `penalties`, `scratches`, `linescore`, `three_stars`,
+  `shifts`, `officials`, `shots_by_period`, `shootout`). Games not yet
+  compiled get `FALSE`. This requires a network call to the data repo
+  and adds a small delay.
+
 ## Value
 
-Returns a data frame with game schedule information.
+Returns a data frame with game schedule information. When
+`include_data_flags = TRUE` it additionally carries one logical column
+per pre-compiled dataset.
 
 ## Examples
 
@@ -38,7 +58,7 @@ Returns a data frame with game schedule information.
 # \donttest{
   try(nhl_schedule(day = "2024-01-15"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 07:40:19 UTC
+#> ℹ Data updated: 2026-04-13 17:05:52 UTC
 #> # A tibble: 53 × 13
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
@@ -58,7 +78,7 @@ Returns a data frame with game schedule information.
 #> #   venue <chr>
   try(nhl_schedule(season = 2025, team_abbr = "TOR"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-08 07:40:20 UTC
+#> ℹ Data updated: 2026-04-13 17:05:52 UTC
 #> # A tibble: 101 × 13
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
@@ -76,5 +96,7 @@ Returns a data frame with game schedule information.
 #> # ℹ 7 more variables: away_team_abbr <chr>, home_team_name <chr>,
 #> #   away_team_name <chr>, home_score <int>, away_score <int>, game_state <chr>,
 #> #   venue <chr>
+  try(nhl_schedule(day = "2024-01-15", include_data_flags = TRUE))
+#> 2026-04-13 17:05:53.512141: Error fetching schedule for 2024-01-15: `x` and `y` must share the same src.
 # }
 ```

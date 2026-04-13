@@ -130,6 +130,21 @@ sportsdataverse-data releases
 
   **Load fastRhockey PWHL player box scores**
 
+- [`load_pwhl_skater_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_skater_box.md)
+  :
+
+  **Load fastRhockey PWHL skater box scores**
+
+- [`load_pwhl_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_goalie_box.md)
+  :
+
+  **Load fastRhockey PWHL goalie box scores**
+
+- [`load_pwhl_team_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_team_box.md)
+  :
+
+  **Load fastRhockey PWHL team box scores**
+
 - [`load_pwhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_schedule.md)
   :
 
@@ -139,6 +154,46 @@ sportsdataverse-data releases
   :
 
   **Load fastRhockey PWHL team rosters**
+
+- [`load_pwhl_game_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_game_rosters.md)
+  :
+
+  **Load fastRhockey PWHL per-game rosters**
+
+- [`load_pwhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_game_info.md)
+  :
+
+  **Load fastRhockey PWHL game info**
+
+- [`load_pwhl_scoring_summary()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_scoring_summary.md)
+  :
+
+  **Load fastRhockey PWHL scoring summaries**
+
+- [`load_pwhl_penalty_summary()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_penalty_summary.md)
+  :
+
+  **Load fastRhockey PWHL penalty summaries**
+
+- [`load_pwhl_three_stars()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_three_stars.md)
+  :
+
+  **Load fastRhockey PWHL three stars**
+
+- [`load_pwhl_officials()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_officials.md)
+  :
+
+  **Load fastRhockey PWHL officials**
+
+- [`load_pwhl_shots_by_period()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shots_by_period.md)
+  :
+
+  **Load fastRhockey PWHL shots-by-period**
+
+- [`load_pwhl_shootout()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shootout.md)
+  :
+
+  **Load fastRhockey PWHL shootout summaries**
 
 ### Update or Create PWHL Database
 
@@ -428,6 +483,430 @@ stats
 
   **NHL Goalie Stats Leaders**
 
+### Stats REST Dedicated Wrappers
+
+Dedicated wrappers for the NHL Stats REST API that were previously only
+reachable via
+[`nhl_stats_misc()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_misc.md)
+
+- [`nhl_stats_franchise()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_franchise.md)
+  :
+
+  **NHL Stats API — Franchise Listing**
+
+- [`nhl_stats_players()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_players.md)
+  :
+
+  **NHL Stats API — Players Listing**
+
+- [`nhl_stats_glossary()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_glossary.md)
+  :
+
+  **NHL Stats API — Glossary**
+
+- [`nhl_stats_country()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_country.md)
+  :
+
+  **NHL Stats API — Country Lookup**
+
+- [`nhl_stats_config()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_config.md)
+  :
+
+  **NHL Stats API — Config**
+
+- [`nhl_stats_ping()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_ping.md)
+  :
+
+  **NHL Stats API — Ping**
+
+- [`nhl_stats_skater_leaders()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_skater_leaders.md)
+  :
+
+  **NHL Stats API — Skater Leaders**
+
+- [`nhl_stats_goalie_leaders()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_goalie_leaders.md)
+  :
+
+  **NHL Stats API — Goalie Leaders**
+
+- [`nhl_stats_skater_milestones()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_skater_milestones.md)
+  :
+
+  **NHL Stats API — Skater Milestones**
+
+- [`nhl_stats_goalie_milestones()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_goalie_milestones.md)
+  :
+
+  **NHL Stats API — Goalie Milestones**
+
+- [`nhl_stats_team_listing()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_team_listing.md)
+  :
+
+  **NHL Stats API — Team Listing**
+
+- [`nhl_stats_game_listing()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_game_listing.md)
+  :
+
+  **NHL Stats API — Game Listing**
+
+- [`nhl_stats_content_module()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_content_module.md)
+  :
+
+  **NHL Stats API — Content Module**
+
+### NHL Edge Analytics - Skater
+
+Skater advanced metrics from NHL Edge
+(`api-web.nhle.com/v1/edge/skater-*`)
+
+- [`nhl_edge_skater_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_detail.md)
+  :
+
+  **NHL Edge Skater Detail**
+
+- [`nhl_edge_skater_landing()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_landing.md)
+  :
+
+  **NHL Edge Skater Landing**
+
+- [`nhl_edge_skater_comparison()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_comparison.md)
+  :
+
+  **NHL Edge Skater Comparison**
+
+- [`nhl_edge_skater_shot_location_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_shot_location_detail.md)
+  :
+
+  **NHL Edge Skater Shot Location Detail**
+
+- [`nhl_edge_skater_shot_location_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_shot_location_top_10.md)
+  :
+
+  **NHL Edge Skater Shot Location Top 10**
+
+- [`nhl_edge_skater_shot_speed_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_shot_speed_detail.md)
+  :
+
+  **NHL Edge Skater Shot Speed Detail**
+
+- [`nhl_edge_skater_shot_speed_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_shot_speed_top_10.md)
+  :
+
+  **NHL Edge Skater Shot Speed Top 10**
+
+- [`nhl_edge_skater_skating_speed_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_skating_speed_detail.md)
+  :
+
+  **NHL Edge Skater Skating Speed Detail**
+
+- [`nhl_edge_skater_speed_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_speed_top_10.md)
+  :
+
+  **NHL Edge Skater Speed Top 10**
+
+- [`nhl_edge_skater_skating_distance_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_skating_distance_detail.md)
+  :
+
+  **NHL Edge Skater Skating Distance Detail**
+
+- [`nhl_edge_skater_distance_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_distance_top_10.md)
+  :
+
+  **NHL Edge Skater Distance Top 10**
+
+- [`nhl_edge_skater_zone_time()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_zone_time.md)
+  :
+
+  **NHL Edge Skater Zone Time**
+
+- [`nhl_edge_skater_zone_time_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_zone_time_top_10.md)
+  :
+
+  **NHL Edge Skater Zone Time Top 10**
+
+- [`nhl_cat_edge_skater_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_cat_edge_skater_detail.md)
+  :
+
+  **NHL CAT Edge Skater Detail**
+
+### NHL Edge Analytics - Goalie
+
+Goalie advanced metrics from NHL Edge
+(`api-web.nhle.com/v1/edge/goalie-*`)
+
+- [`nhl_edge_goalie_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_detail.md)
+  :
+
+  **NHL Edge Goalie Detail**
+
+- [`nhl_edge_goalie_landing()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_landing.md)
+  :
+
+  **NHL Edge Goalie Landing**
+
+- [`nhl_edge_goalie_comparison()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_comparison.md)
+  :
+
+  **NHL Edge Goalie Comparison**
+
+- [`nhl_edge_goalie_5v5_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_5v5_detail.md)
+  :
+
+  **NHL Edge Goalie 5v5 Detail**
+
+- [`nhl_edge_goalie_5v5_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_5v5_top_10.md)
+  :
+
+  **NHL Edge Goalie 5v5 Top 10**
+
+- [`nhl_edge_goalie_save_percentage_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_save_percentage_detail.md)
+  :
+
+  **NHL Edge Goalie Save Percentage Detail**
+
+- [`nhl_edge_goalie_edge_save_pctg_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_edge_save_pctg_top_10.md)
+  :
+
+  **NHL Edge Goalie Edge Save Percentage Top 10**
+
+- [`nhl_edge_goalie_shot_location_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_shot_location_detail.md)
+  :
+
+  **NHL Edge Goalie Shot Location Detail**
+
+- [`nhl_edge_goalie_shot_location_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_shot_location_top_10.md)
+  :
+
+  **NHL Edge Goalie Shot Location Top 10**
+
+- [`nhl_cat_edge_goalie_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_cat_edge_goalie_detail.md)
+  :
+
+  **NHL CAT Edge Goalie Detail**
+
+### NHL Edge Analytics - Team
+
+Team advanced metrics from NHL Edge (`api-web.nhle.com/v1/edge/team-*`)
+
+- [`nhl_edge_team_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_detail.md)
+  :
+
+  **NHL Edge Team Detail**
+
+- [`nhl_edge_team_landing()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_landing.md)
+  :
+
+  **NHL Edge Team Landing**
+
+- [`nhl_edge_team_shot_location_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_shot_location_detail.md)
+  :
+
+  **NHL Edge Team Shot Location Detail**
+
+- [`nhl_edge_team_shot_location_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_shot_location_top_10.md)
+  :
+
+  **NHL Edge Team Shot Location Top 10**
+
+- [`nhl_edge_team_shot_speed_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_shot_speed_detail.md)
+  :
+
+  **NHL Edge Team Shot Speed Detail**
+
+- [`nhl_edge_team_skating_speed_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_skating_speed_detail.md)
+  :
+
+  **NHL Edge Team Skating Speed Detail**
+
+- [`nhl_edge_team_skating_speed_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_skating_speed_top_10.md)
+  :
+
+  **NHL Edge Team Skating Speed Top 10**
+
+- [`nhl_edge_team_skating_distance_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_skating_distance_detail.md)
+  :
+
+  **NHL Edge Team Skating Distance Detail**
+
+- [`nhl_edge_team_skating_distance_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_skating_distance_top_10.md)
+  :
+
+  **NHL Edge Team Skating Distance Top 10**
+
+- [`nhl_edge_team_zone_time_details()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_zone_time_details.md)
+  :
+
+  **NHL Edge Team Zone Time Details**
+
+- [`nhl_edge_team_zone_time_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_zone_time_top_10.md)
+  :
+
+  **NHL Edge Team Zone Time Top 10**
+
+### NHL Records API
+
+Historical records from `records.nhl.com/site/api/`
+
+- [`nhl_records_franchise()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise.md)
+  :
+
+  **NHL Records - Franchise Listing**
+
+- [`nhl_records_franchise_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_detail.md)
+  :
+
+  **NHL Records - Franchise Detail**
+
+- [`nhl_records_franchise_totals()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_totals.md)
+  :
+
+  **NHL Records - Franchise Totals**
+
+- [`nhl_records_franchise_team_totals()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_team_totals.md)
+  :
+
+  **NHL Records - Franchise Team Totals**
+
+- [`nhl_records_franchise_season_results()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_season_results.md)
+  :
+
+  **NHL Records - Franchise Season Results**
+
+- [`nhl_records_franchise_playoff_appearances()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_playoff_appearances.md)
+  :
+
+  **NHL Records - Franchise Playoff Appearances**
+
+- [`nhl_records_player()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_player.md)
+  :
+
+  **NHL Records - Player Listing**
+
+- [`nhl_records_player_byteam()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_player_byteam.md)
+  :
+
+  **NHL Records - Players by Team**
+
+- [`nhl_records_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_player_stats.md)
+  :
+
+  **NHL Records - Player Career Stats**
+
+- [`nhl_records_skater_real_time_stats_season()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_skater_real_time_stats_season.md)
+  :
+
+  **NHL Records - Skater Real-Time Stats by Season**
+
+- [`nhl_records_skater_real_time_stats_career()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_skater_real_time_stats_career.md)
+  :
+
+  **NHL Records - Skater Real-Time Stats Career**
+
+- [`nhl_records_goalie_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_goalie_career_stats.md)
+  :
+
+  **NHL Records - Goalie Career Stats**
+
+- [`nhl_records_goalie_season_stats()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_goalie_season_stats.md)
+  :
+
+  **NHL Records - Goalie Season Stats**
+
+- [`nhl_records_goalie_shutout_streak()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_goalie_shutout_streak.md)
+  :
+
+  **NHL Records - Goalie Shutout Streaks**
+
+- [`nhl_records_draft()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft.md)
+  :
+
+  **NHL Records - Draft Listing**
+
+- [`nhl_records_draft_lottery_odds()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft_lottery_odds.md)
+  :
+
+  **NHL Records - Draft Lottery Odds**
+
+- [`nhl_records_draft_lottery_picks()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft_lottery_picks.md)
+  :
+
+  **NHL Records - Draft Lottery Picks**
+
+- [`nhl_records_draft_prospect()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft_prospect.md)
+  :
+
+  **NHL Records - Draft Prospect Listing**
+
+- [`nhl_records_trophy()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_trophy.md)
+  :
+
+  **NHL Records - Trophy Listing**
+
+- [`nhl_records_award_details()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_award_details.md)
+  :
+
+  **NHL Records - Award Details**
+
+- [`nhl_records_hof_players()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_hof_players.md)
+  :
+
+  **NHL Records - Hall of Fame Players**
+
+- [`nhl_records_officials()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_officials.md)
+  :
+
+  **NHL Records - On-Ice Officials**
+
+- [`nhl_records_attendance()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_attendance.md)
+  :
+
+  **NHL Records - Season Attendance**
+
+- [`nhl_records_venue()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_venue.md)
+  :
+
+  **NHL Records - Venue Listing**
+
+- [`nhl_records_combine()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_combine.md)
+  :
+
+  **NHL Records - Draft Combine Measurements**
+
+### NHL Helper Aggregators
+
+Convenience functions that combine multiple NHL endpoint calls into a
+single tidy frame
+
+- [`nhl_game_ids_by_season()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_ids_by_season.md)
+  :
+
+  **NHL Game IDs by Season**
+
+- [`nhl_all_players_by_season()`](https://fastRhockey.sportsdataverse.org/reference/nhl_all_players_by_season.md)
+  :
+
+  **NHL All Players by Season**
+
+- [`nhl_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/nhl_player_career_stats.md)
+  :
+
+  **NHL Player Career Stats**
+
+- [`nhl_team_summary_range()`](https://fastRhockey.sportsdataverse.org/reference/nhl_team_summary_range.md)
+  :
+
+  **NHL Team Summary (Season Range)**
+
+- [`nhl_skater_summary_range()`](https://fastRhockey.sportsdataverse.org/reference/nhl_skater_summary_range.md)
+  :
+
+  **NHL Skater Summary (Season Range)**
+
+- [`nhl_goalie_summary_range()`](https://fastRhockey.sportsdataverse.org/reference/nhl_goalie_summary_range.md)
+  :
+
+  **NHL Goalie Summary (Season Range)**
+
 ### Broadcast and Odds
 
 Functions exported by fastRhockey for broadcast availability and odds
@@ -472,9 +951,10 @@ divisions endpoints of the NHL API
 
   **NHL Divisions Info**
 
-### Metadata
+### Metadata and Reference
 
-Functions exported by fastRhockey for NHL metadata and location lookups
+Functions exported by fastRhockey for NHL metadata, location lookups,
+replays, and miscellaneous reference data
 
 - [`nhl_meta()`](https://fastRhockey.sportsdataverse.org/reference/nhl_meta.md)
   :
@@ -485,6 +965,36 @@ Functions exported by fastRhockey for NHL metadata and location lookups
   :
 
   **NHL Location**
+
+- [`nhl_wsc_pbp()`](https://fastRhockey.sportsdataverse.org/reference/nhl_wsc_pbp.md)
+  :
+
+  **NHL WSC Play-by-Play**
+
+- [`nhl_draft_tracker()`](https://fastRhockey.sportsdataverse.org/reference/nhl_draft_tracker.md)
+  :
+
+  **NHL Draft Tracker**
+
+- [`nhl_ppt_replay()`](https://fastRhockey.sportsdataverse.org/reference/nhl_ppt_replay.md)
+  :
+
+  **NHL PPT Replay**
+
+- [`nhl_ppt_replay_goal()`](https://fastRhockey.sportsdataverse.org/reference/nhl_ppt_replay_goal.md)
+  :
+
+  **NHL PPT Replay (Goal)**
+
+- [`nhl_postal_lookup()`](https://fastRhockey.sportsdataverse.org/reference/nhl_postal_lookup.md)
+  :
+
+  **NHL Postal Lookup**
+
+- [`nhl_smartlinks()`](https://fastRhockey.sportsdataverse.org/reference/nhl_smartlinks.md)
+  :
+
+  **NHL Smart Links**
 
 ## fastRhockey Data
 
@@ -501,7 +1011,7 @@ NHL data
 - [`load_nhl_pbp_lite()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp_lite.md)
   :
 
-  **Load cleaned NHL play-by-play (lite) from the data repo**
+  **Load fastRhockey NHL play-by-play (lite)**
 
 - [`load_nhl_team_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_box.md)
   :
@@ -513,15 +1023,80 @@ NHL data
 
   **Load fastRhockey NHL player box scores**
 
+- [`load_nhl_skater_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_skater_box.md)
+  :
+
+  **Load fastRhockey NHL skater box scores**
+
+- [`load_nhl_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_goalie_box.md)
+  :
+
+  **Load fastRhockey NHL goalie box scores**
+
 - [`load_nhl_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_rosters.md)
   :
 
   **Load fastRhockey NHL team rosters**
 
+- [`load_nhl_game_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_game_rosters.md)
+  :
+
+  **Load fastRhockey NHL per-game rosters**
+
 - [`load_nhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_schedule.md)
   :
 
   **Load fastRhockey NHL schedules**
+
+- [`load_nhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_game_info.md)
+  :
+
+  **Load fastRhockey NHL game info**
+
+- [`load_nhl_scoring()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_scoring.md)
+  :
+
+  **Load fastRhockey NHL scoring summary**
+
+- [`load_nhl_penalties()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_penalties.md)
+  :
+
+  **Load fastRhockey NHL penalty summary**
+
+- [`load_nhl_three_stars()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_three_stars.md)
+  :
+
+  **Load fastRhockey NHL three stars / decisions**
+
+- [`load_nhl_scratches()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_scratches.md)
+  :
+
+  **Load fastRhockey NHL scratches**
+
+- [`load_nhl_linescore()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_linescore.md)
+  :
+
+  **Load fastRhockey NHL linescore**
+
+- [`load_nhl_shifts()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shifts.md)
+  :
+
+  **Load fastRhockey NHL shifts**
+
+- [`load_nhl_officials()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_officials.md)
+  :
+
+  **Load fastRhockey NHL officials**
+
+- [`load_nhl_shots_by_period()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shots_by_period.md)
+  :
+
+  **Load fastRhockey NHL shots by period**
+
+- [`load_nhl_shootout()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shootout.md)
+  :
+
+  **Load fastRhockey NHL shootout summary**
 
 ### Update or Create NHL Database
 

@@ -47,9 +47,26 @@ A data frame of class `fastRhockey_data`
 ``` r
 # \donttest{
   try(load_pwhl_pbp(2024))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/pwhl_pbp/play_by_play_2024.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/pwhl_pbp/play_by_play_2024.rds>
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 10,456 × 95
+#>    game_id event   team_id period_of_game time_of_period player_id
+#>      <int> <chr>     <int> <chr>          <chr>              <int>
+#>  1       2 faceoff      NA 1              0:00                  76
+#>  2       2 shot          4 1              1:29                  44
+#>  3       2 shot          4 1              3:30                  36
+#>  4       2 shot          4 1              3:36                  46
+#>  5       2 faceoff      NA 1              4:30                  73
+#>  6       2 shot          4 1              4:57                  86
+#>  7       2 faceoff      NA 1              5:18                  73
+#>  8       2 shot          4 1              6:42                  38
+#>  9       2 shot          6 1              7:05                 128
+#> 10       2 shot          6 1              9:12                 126
+#> # ℹ 10,446 more rows
+#> # ℹ 89 more variables: player_name_first <chr>, player_name_last <chr>,
+#> #   player_position <chr>, player_two_id <int>, player_two_name_first <chr>,
+#> #   player_two_name_last <chr>, player_two_position <chr>, x_coord <dbl>,
+#> #   y_coord <dbl>, home_win <int>, player_team_id <int>, event_type <chr>,
+#> #   shot_quality <chr>, goal <lgl>, goalie_id <int>, goalie_first <chr>,
+#> #   goalie_last <chr>, player_three_id <int>, player_three_name_first <chr>, …
 # }
 ```

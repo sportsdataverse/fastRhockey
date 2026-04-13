@@ -107,119 +107,131 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_tv_schedule</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-04-08"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-04-13"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $startDate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-03-25"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-03-30"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $endDate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-04-21"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-04-27"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $broadcasts</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              startTime             endTime durationSeconds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2026-04-08T00:00:00 2026-04-08T01:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2026-04-08T01:00:00 2026-04-08T02:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2026-04-08T02:00:00 2026-04-08T03:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2026-04-08T03:00:00 2026-04-08T04:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2026-04-08T04:00:00 2026-04-08T05:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2026-04-08T05:00:00 2026-04-08T06:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2026-04-08T06:00:00 2026-04-08T07:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2026-04-08T07:00:00 2026-04-08T08:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2026-04-08T08:00:00 2026-04-08T09:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2026-04-08T09:00:00 2026-04-08T10:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2026-04-08T10:00:00 2026-04-08T11:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2026-04-08T11:00:00 2026-04-08T12:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2026-04-08T12:00:00 2026-04-08T14:00:00            7200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2026-04-08T14:00:00 2026-04-08T16:00:00            7200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2026-04-08T16:00:00 2026-04-08T17:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2026-04-08T17:00:00 2026-04-08T19:30:00            9000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2026-04-08T19:30:00 2026-04-08T20:00:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2026-04-08T20:00:00 2026-04-08T20:30:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2026-04-08T20:30:00 2026-04-08T21:00:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2026-04-08T21:00:00 2026-04-08T21:30:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 2026-04-08T21:30:00 2026-04-08T22:00:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 2026-04-08T22:00:00 2026-04-08T22:30:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 2026-04-08T22:30:00 2026-04-08T23:00:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 2026-04-08T23:00:00 2026-04-08T23:30:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 2026-04-08T23:30:00 2026-04-09T00:00:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                             title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  On The Fly With Bonus Coverage</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                      On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                      On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                      On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                      On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                      On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                      On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                      On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                      On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                     On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                     On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                     On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                       NHL Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                       NHL Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15       NHL Tonight: First Shift</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                        NHL Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                        NHL Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                        NHL Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                        NHL Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                        NHL Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                        NHL Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                     On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23                     On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                     On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                     On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                                                                                  description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  Missed the game? On The Fly conveniently recaps all games, every night. Post game interviews, highlights, expert analysis, and press conferences keep you in touch with the latest headlines after every game. (Live with bonus coverage)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                                                                                                                                                                 On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                                                                                                                                                                                 On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                                                                                                                                                                                 On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                                                                                                                                                                                 On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                                                                                                                                                                                 On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                                                                                                                                                                                                                 On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                                                                                                                                                                                                                 On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                                                                                                                                                                                                                 On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                                                                                                                                                                                On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                                                                                                                                                                                                On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                                                                                                                                                                                                On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                                                                                                                                                       Boston Bruins at Carolina Hurricanes on 4/7/2026 From Lenovo Center</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                                                                                                                                          Columbus Blue Jackets at Detroit Red Wings on 4/7/2026 From Little Caesars Arena</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                                                                                                                                                                                                  NHL Tonight: First Shift</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                                                                                                                                                                                                   NHL Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                                                                                                                                                                                                                   NHL Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                                                                                                                                                                                                                   NHL Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                                                                                                                                                                                                   NHL Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                                                                                                                                                                                                                                   NHL Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                                                                                                                                                                                                                                   NHL Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                                                                                                                                                                                                                                On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23                                                                                                                                                                                                                                On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                                                                                                                                                                                                                                On The Fly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                                                                                                                                                                                                                                On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2026-04-13T00:00:00 2026-04-13T00:30:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2026-04-13T00:30:00 2026-04-13T01:00:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2026-04-13T01:00:00 2026-04-13T01:30:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2026-04-13T01:30:00 2026-04-13T02:00:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2026-04-13T02:00:00 2026-04-13T02:30:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2026-04-13T02:30:00 2026-04-13T03:00:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2026-04-13T03:00:00 2026-04-13T03:30:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2026-04-13T03:30:00 2026-04-13T04:00:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2026-04-13T04:00:00 2026-04-13T04:30:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2026-04-13T04:30:00 2026-04-13T05:00:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2026-04-13T05:00:00 2026-04-13T05:30:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2026-04-13T05:30:00 2026-04-13T06:00:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2026-04-13T06:00:00 2026-04-13T06:30:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2026-04-13T06:30:00 2026-04-13T07:00:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2026-04-13T07:00:00 2026-04-13T07:30:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2026-04-13T07:30:00 2026-04-13T08:00:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2026-04-13T08:00:00 2026-04-13T08:30:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2026-04-13T08:30:00 2026-04-13T09:00:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2026-04-13T09:00:00 2026-04-13T09:30:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2026-04-13T09:30:00 2026-04-13T10:00:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 2026-04-13T10:00:00 2026-04-13T12:00:00            7200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 2026-04-13T12:00:00 2026-04-13T14:00:00            7200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 2026-04-13T14:00:00 2026-04-13T16:00:00            7200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 2026-04-13T16:00:00 2026-04-13T17:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 2026-04-13T17:00:00 2026-04-13T19:00:00            7200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 2026-04-13T19:00:00 2026-04-13T22:00:00           10800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 2026-04-13T22:00:00 2026-04-13T23:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 2026-04-13T23:00:00 2026-04-14T00:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                              title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                       On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                       On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                       On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                       On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                       On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                       On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7                       On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                       On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                       On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                      On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                      On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                      On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                      On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                      On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                      On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                      On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17                      On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                      On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19                      On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20                      On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21                        NHL Game</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22                        NHL Game</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23                     The Whalers</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24        NHL Tonight: First Shift</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25                         NHL Now</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26                     NHL Tonight</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 NHL Tonight With Bonus Coverage</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28                      On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                                                            description</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                                                                                                                                                           On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                                                                                                                                           On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                                                                                                                                                           On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                                                                                                                                                           On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                                                                                                                                                           On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                                                                                                                                                           On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                                                                                                                                                                                           On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                                                                                                                                                                                           On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                                                                                                                                                                                           On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                                                                                                                                                          On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                                                                                                                                                                          On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                                                                                                                                                                          On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                                                                                                                                                                                          On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                                                                                                                                                                                          On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                                                                                                                                                                                          On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                                                                                                                                                                          On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                                                                                                                                                                                          On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                                                                                                                                                                                          On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                                                                                                                                                                          On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20                                                                                                                                                                                                          On The Fly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21                                                                                                                                           Boston Bruins at Columbus Blue Jackets on 4/12/2026 From Nationwide Arena</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22                                                                                                                                      Pittsburgh Penguins at Washington Capitals on 4/12/2026 From Capital One Arena</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 Almost three decades after leaving Connecticut, the Hartford Whalers remain a fixture in the sports world. This is the story of how the team came to be, why they moved and what makes them a throwback phenomenon.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24                                                                                                                                                                                            NHL Tonight: First Shift</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25                                                                                                                                                                                                             NHL Now</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26                                                                                                                                                                                                         NHL Tonight</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27                               Takes you on the ice with live look-ins, breaking news, real-time scores, and expert analysis. NHL Veterans breakdown highlights and demo game situations. (Live with bonus coverage)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28                                                                                                                                                                                                          On The Fly</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           houseNumber broadcastType broadcastStatus broadcastImageUrl</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   H60NSHANA04072026            HD            LIVE      onthefly.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2    HOTF26R040726SOR            HD            LIVE      onthefly.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     HOTF26R040726CC            HD                      onthefly.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     HOTF26R040726CC            HD                      onthefly.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     HOTF26R040726CC            HD                      onthefly.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     HOTF26R040726CC            HD                      onthefly.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7     HOTF26R040726CC            HD                      onthefly.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8     HOTF26R040726CC            HD                      onthefly.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9     HOTF26R040726CC            HD                      onthefly.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10    HOTF26R040726CC            HD                      onthefly.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11    HOTF26R040726CC            HD                      onthefly.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12    HOTF26R040726CC            HD                      onthefly.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 H120BOSCAR04072026            HD                           nhl.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 H120CBJDET04072026            HD                           nhl.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  HNHLTFS26040826LV            HD            LIVE                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16    HNOW26R040826LV            HD            LIVE        nhlnow.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17    HNOW26R040826CC            HD                        nhlnow.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18    HNOW26R040826CC            HD                        nhlnow.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19    HNOW26R040826CC            HD                        nhlnow.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20    HNOW26R040826CC            HD                        nhlnow.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21    HNOW26R040826CC            HD                        nhlnow.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22   HOTF26R040826LVA            HD            LIVE      onthefly.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23   HOTF26R040826ACC            HD                      onthefly.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24   HOTF26R040826ACC            HD                      onthefly.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25   HOTF26R040826ACC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    HOTF26R041226SOR            HD            LIVE      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7     HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8     HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9     HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10    HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11    HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12    HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13    HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14    HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15    HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16    HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17    HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18    HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19    HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20    HOTF26R041226CC            HD                      onthefly.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 H120BOSCBJ04122026            HD                           nhl.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 H120PITWSH04122026            HD                           nhl.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23        HNHLWHALERS            HD                    nhlnetwork.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24  HNHLTFS26041326LV            HD            LIVE                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25    HNOW26R041326LV            HD            LIVE        nhlnow.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26  HNHLT26RS041326LV            HD            LIVE    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27  H60SJSNSH04132026            HD            LIVE    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28   HOTF26R041326LVA            HD            LIVE      onthefly.png</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

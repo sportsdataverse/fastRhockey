@@ -1,7 +1,9 @@
 # **Load fastRhockey NHL player box scores**
 
-helper that loads multiple seasons from the data repo either into memory
-or writes it into a db using some forwarded arguments in the dots
+Helper that loads multiple seasons of pre-scraped NHL player box scores
+(combined skaters + goalies) from the
+[sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
+releases either into memory or writes it into a database.
 
 ## Usage
 
@@ -19,13 +21,11 @@ load_nhl_player_box(
 - seasons:
 
   A vector of 4-digit years (the *end year* of the NHL season; e.g.,
-  2026 for the 2025-26 season). Min: 2021.
+  2026 for the 2025-26 season). Min: 2011.
 
 - ...:
 
-  Additional arguments passed to an underlying function that writes the
-  season data into a database (used by
-  [`update_nhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_nhl_db.md)).
+  Additional arguments passed to an underlying function.
 
 - dbConnection:
 
@@ -38,7 +38,7 @@ load_nhl_player_box(
 
 ## Value
 
-Returns a tibble
+A data frame of class `fastRhockey_data`
 
 ## Examples
 

@@ -122,25 +122,25 @@ from <code><a href="nhl_standings.html">nhl_standings</a></code> filtered by con
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_conferences_info</span><span class="op">(</span>conference_name <span class="op">=</span> <span class="st">"Eastern"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Conference Information from NHL.com ──────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-04-08 07:40:09 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-04-13 17:04:26 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 16 × 36</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    team_abbr team_name             team_common_name team_logo    conference_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> CAR       Carolina Hurricanes   Hurricanes       https://ass… Eastern        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> TBL       Tampa Bay Lightning   Lightning        https://ass… Eastern        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> BUF       Buffalo Sabres        Sabres           https://ass… Eastern        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> MTL       Montréal Canadiens    Canadiens        https://ass… Eastern        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> BUF       Buffalo Sabres        Sabres           https://ass… Eastern        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> MTL       Montréal Canadiens    Canadiens        https://ass… Eastern        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> TBL       Tampa Bay Lightning   Lightning        https://ass… Eastern        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> PIT       Pittsburgh Penguins   Penguins         https://ass… Eastern        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> BOS       Boston Bruins         Bruins           https://ass… Eastern        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> OTT       Ottawa Senators       Senators         https://ass… Eastern        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> PHI       Philadelphia Flyers   Flyers           https://ass… Eastern        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> CBJ       Columbus Blue Jackets Blue Jackets     https://ass… Eastern        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> DET       Detroit Red Wings     Red Wings        https://ass… Eastern        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> NYI       New York Islanders    Islanders        https://ass… Eastern        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> WSH       Washington Capitals   Capitals         https://ass… Eastern        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> WSH       Washington Capitals   Capitals         https://ass… Eastern        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> CBJ       Columbus Blue Jackets Blue Jackets     https://ass… Eastern        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> DET       Detroit Red Wings     Red Wings        https://ass… Eastern        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> NYI       New York Islanders    Islanders        https://ass… Eastern        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> NJD       New Jersey Devils     Devils           https://ass… Eastern        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> TOR       Toronto Maple Leafs   Maple Leafs      https://ass… Eastern        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> FLA       Florida Panthers      Panthers         https://ass… Eastern        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> FLA       Florida Panthers      Panthers         https://ass… Eastern        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> TOR       Toronto Maple Leafs   Maple Leafs      https://ass… Eastern        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> NYR       New York Rangers      Rangers          https://ass… Eastern        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 31 more variables: division_abbrev &lt;chr&gt;, division_name &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   place_name &lt;chr&gt;, conference_sequence &lt;int&gt;, division_sequence &lt;int&gt;,</span></span>
