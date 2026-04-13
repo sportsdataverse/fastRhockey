@@ -213,11 +213,15 @@ R/                          # Source code (one function per file, mostly)
                             # thin wrapper to add a new dataset)
 
   # --- Data Loaders (from sportsdataverse data repos) ---
-  nhl_pbp.R                 # load_nhl_pbp, _pbp_lite, _player_box, _skater_box, _goalie_box,
+  nhl_loaders.R             # load_nhl_pbp, _pbp_lite, _player_box, _skater_box, _goalie_box,
                             # _team_box, _schedule, _rosters, _game_rosters, _game_info,
                             # _scoring, _penalties, _three_stars, _scratches, _linescore,
-                            # _shifts, update_nhl_db
-                            # All share .nhl_release_loader() (matching PWHL pattern)
+                            # _shifts, _officials, _shots_by_period, _shootout,
+                            # update_nhl_db (+ build_nhl_db, get_missing_nhl_games)
+                            # All 19 loaders share .nhl_release_loader() (matching PWHL pattern)
+                            # nhl_schedule() also exposes include_data_flags = FALSE to
+                            # left-join the cached games-in-data-repo flags onto live
+                            # schedules.
 
 tests/testthat/             # Unit tests (testthat edition 3)
 man/                        # Auto-generated roxygen2 documentation

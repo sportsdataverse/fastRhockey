@@ -4,7 +4,12 @@
 \alias{nhl_schedule}
 \title{\strong{NHL Schedule}}
 \usage{
-nhl_schedule(day = NULL, season = NULL, team_abbr = NULL)
+nhl_schedule(
+  day = NULL,
+  season = NULL,
+  team_abbr = NULL,
+  include_data_flags = FALSE
+)
 }
 \arguments{
 \item{day}{Character date in "YYYY-MM-DD" format. If provided, returns
@@ -17,9 +22,22 @@ the full season schedule.}
 
 \item{team_abbr}{Character three-letter team abbreviation (e.g., "TOR").
 Required when \code{season} is used. If NULL, loops through all teams.}
+
+\item{include_data_flags}{Logical (default \code{FALSE}). When \code{TRUE}, after
+building the live schedule the result is left-joined against the
+pre-compiled \code{nhl_games_in_data_repo} index from
+\href{https://github.com/sportsdataverse/sportsdataverse-data}{sportsdataverse-data}
+to add per-game data-availability flags
+(\code{PBP}, \code{team_box}, \code{player_box}, \code{skater_box}, \code{goalie_box},
+\code{game_info}, \code{game_rosters}, \code{scoring}, \code{penalties}, \code{scratches},
+\code{linescore}, \code{three_stars}, \code{shifts}, \code{officials}, \code{shots_by_period},
+\code{shootout}). Games not yet compiled get \code{FALSE}. This requires a
+network call to the data repo and adds a small delay.}
 }
 \value{
-Returns a data frame with game schedule information.
+Returns a data frame with game schedule information. When
+\code{include_data_flags = TRUE} it additionally carries one logical column
+per pre-compiled dataset.
 }
 \description{
 Returns NHL schedule data for a given day or season.
@@ -29,6 +47,7 @@ Uses the NHL API (\code{api-web.nhle.com}).
 \donttest{
   try(nhl_schedule(day = "2024-01-15"))
   try(nhl_schedule(season = 2025, team_abbr = "TOR"))
+  try(nhl_schedule(day = "2024-01-15", include_data_flags = TRUE))
 }
 }
 \keyword{NHL}

@@ -62,28 +62,30 @@ R/Python packages for sports analytics.
     frame: `nhl_game_ids_by_season()`, `nhl_all_players_by_season()`,
     `nhl_player_career_stats()`, `nhl_team_summary_range()`,
     `nhl_skater_summary_range()`, `nhl_goalie_summary_range()`
-  - **Full Season Loaders** – Sixteen NHL loaders covering play-by-play
+  - **Full Season Loaders** – Nineteen NHL loaders covering play-by-play
     (full + lite), schedules, season + per-game rosters,
     player/skater/goalie/team boxscores, game info, scoring & penalty
-    summaries, three stars, scratches, linescores, and shifts
-    (`load_nhl_pbp()`, `load_nhl_pbp_lite()`, `load_nhl_schedule()`,
-    `load_nhl_rosters()`, `load_nhl_game_rosters()`,
-    `load_nhl_team_box()`, `load_nhl_player_box()`,
-    `load_nhl_skater_box()`, `load_nhl_goalie_box()`,
-    `load_nhl_game_info()`, `load_nhl_scoring()`,
-    `load_nhl_penalties()`, `load_nhl_three_stars()`,
-    `load_nhl_scratches()`, `load_nhl_linescore()`,
-    `load_nhl_shifts()`); for PWHL, fifteen loaders covering
-    play-by-play, schedules, season + per-game rosters,
-    player/skater/goalie/team boxscores, game info, scoring & penalty
-    summaries, three stars, officials, shots-by-period, and shootouts
-    (`load_pwhl_pbp()`, `load_pwhl_schedule()`, `load_pwhl_rosters()`,
-    `load_pwhl_game_rosters()`, `load_pwhl_player_box()`,
-    `load_pwhl_skater_box()`, `load_pwhl_goalie_box()`,
-    `load_pwhl_team_box()`, `load_pwhl_game_info()`,
-    `load_pwhl_scoring_summary()`, `load_pwhl_penalty_summary()`,
-    `load_pwhl_three_stars()`, `load_pwhl_officials()`,
-    `load_pwhl_shots_by_period()`, `load_pwhl_shootout()`)
+    summaries, three stars, scratches, linescores, shifts, officials,
+    shots-by-period, and shootouts (`load_nhl_pbp()`,
+    `load_nhl_pbp_lite()`, `load_nhl_schedule()`, `load_nhl_rosters()`,
+    `load_nhl_game_rosters()`, `load_nhl_team_box()`,
+    `load_nhl_player_box()`, `load_nhl_skater_box()`,
+    `load_nhl_goalie_box()`, `load_nhl_game_info()`,
+    `load_nhl_scoring()`, `load_nhl_penalties()`,
+    `load_nhl_three_stars()`, `load_nhl_scratches()`,
+    `load_nhl_linescore()`, `load_nhl_shifts()`, `load_nhl_officials()`,
+    `load_nhl_shots_by_period()`, `load_nhl_shootout()`); for PWHL,
+    fifteen loaders covering play-by-play, schedules, season + per-game
+    rosters, player/skater/goalie/team boxscores, game info, scoring &
+    penalty summaries, three stars, officials, shots-by-period, and
+    shootouts (`load_pwhl_pbp()`, `load_pwhl_schedule()`,
+    `load_pwhl_rosters()`, `load_pwhl_game_rosters()`,
+    `load_pwhl_player_box()`, `load_pwhl_skater_box()`,
+    `load_pwhl_goalie_box()`, `load_pwhl_team_box()`,
+    `load_pwhl_game_info()`, `load_pwhl_scoring_summary()`,
+    `load_pwhl_penalty_summary()`, `load_pwhl_three_stars()`,
+    `load_pwhl_officials()`, `load_pwhl_shots_by_period()`,
+    `load_pwhl_shootout()`)
 
 > **Note:** PHF (Premier Hockey Federation) functions are deprecated as
 > of v1.0.0. The league ceased operations; use PWHL functions instead.

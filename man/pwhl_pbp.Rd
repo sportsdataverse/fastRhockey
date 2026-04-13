@@ -21,6 +21,6 @@ PWHL Play-by-play
 }
 \examples{
 \donttest{
-  try(pwhl_pbp(game_id = 27))
+try(pwhl_pbp(game_id = 27))
 }
 }

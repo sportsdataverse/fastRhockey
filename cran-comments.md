@@ -42,14 +42,18 @@ This is version 1.0.0. Continued development on the 1.0.0 release adds:
   backends (`api-web.nhle.com/v1/`, `api.nhle.com/stats/rest/`,
   `records.nhl.com/site/api/`) added to `data-raw/`.
 
-* **Ten new NHL season-level loaders**: `load_nhl_skater_box()`,
+* **Thirteen new NHL season-level loaders**: `load_nhl_skater_box()`,
   `load_nhl_goalie_box()`, `load_nhl_game_rosters()`, `load_nhl_game_info()`,
   `load_nhl_scoring()`, `load_nhl_penalties()`, `load_nhl_three_stars()`,
-  `load_nhl_scratches()`, `load_nhl_linescore()`, `load_nhl_shifts()` for
-  pre-compiled datasets hosted on `sportsdataverse-data` GitHub releases.
+  `load_nhl_scratches()`, `load_nhl_linescore()`, `load_nhl_shifts()`,
+  `load_nhl_officials()`, `load_nhl_shots_by_period()`, `load_nhl_shootout()`
+  for pre-compiled datasets hosted on `sportsdataverse-data` GitHub releases.
   The six pre-existing NHL loaders were internally refactored to share a
-  single helper (`.nhl_release_loader()`) without changing their public
-  signatures. All accept `seasons` (Min: 2011) and return `fastRhockey_data`.
+  single helper (`.nhl_release_loader()`, in `R/nhl_loaders.R`) without
+  changing their public signatures. All accept `seasons` (Min: 2011) and
+  return `fastRhockey_data`. `nhl_schedule()` also gained an opt-in
+  `include_data_flags = FALSE` parameter that joins per-game
+  data-availability flags from the data repo onto the live schedule.
 
 * **Eleven new PWHL season-level loaders**: `load_pwhl_skater_box()`,
   `load_pwhl_goalie_box()`, `load_pwhl_team_box()`, `load_pwhl_game_info()`,

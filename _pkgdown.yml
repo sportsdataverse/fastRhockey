@@ -431,6 +431,9 @@ reference:
       - "`load_nhl_scratches`"
       - "`load_nhl_linescore`"
       - "`load_nhl_shifts`"
+      - "`load_nhl_officials`"
+      - "`load_nhl_shots_by_period`"
+      - "`load_nhl_shootout`"
   - subtitle: "Update or Create NHL Database"
     desc: Functions exported by fastRhockey which update and create a database of fastRhockey NHL play-by-play data
     contents:

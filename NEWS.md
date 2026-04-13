@@ -1,5 +1,52 @@
 # **fastRhockey 1.0.0 (continued development)**
 
+### **PWHL parity: 3 new NHL loaders + datasets**
+
+Three new season-level NHL loaders that bring NHL coverage in line with
+PWHL. Each is backed by a new release tag on
+[`sportsdataverse/sportsdataverse-data`](https://github.com/sportsdataverse/sportsdataverse-data)
+and powered by new extractors in `fastRhockey-nhl-raw/R/scrape_nhl_raw.R`
+and `fastRhockey-nhl-data/R/nhl_data_creation.R`.
+
+| function                       | release tag             | rows per game                |
+|--------------------------------|-------------------------|------------------------------|
+| `load_nhl_officials()`         | `nhl_officials`         | one per official (refs+lins) |
+| `load_nhl_shots_by_period()`   | `nhl_shots_by_period`   | one per team per period      |
+| `load_nhl_shootout()`          | `nhl_shootout`          | one per shootout attempt     |
+
+### **`nhl_schedule()` data-availability flags**
+
+`nhl_schedule()` gained an `include_data_flags = FALSE` parameter. When
+`TRUE`, the live schedule is left-joined against the cached
+`nhl_games_in_data_repo` index from the data repo and gains 16 logical
+columns (`PBP`, `team_box`, `player_box`, `skater_box`, `goalie_box`,
+`game_info`, `game_rosters`, `scoring`, `penalties`, `scratches`,
+`linescore`, `three_stars`, `shifts`, `officials`, `shots_by_period`,
+`shootout`) telling you which pre-compiled datasets cover each game.
+The schedule files in `fastRhockey-nhl-raw/nhl/schedules/` and the
+master schedule on the data repo carry these same flags.
+
+### **Richer per-game JSON in `fastRhockey-nhl-raw`**
+
+`scrape_nhl_raw.R` now writes four additional top-level keys into both
+`nhl/json/raw/{game_id}.json` and `nhl/json/final/{game_id}.json`:
+
+* `officials` — list of `{role, name}` (referees first, linesmen second)
+* `shots_by_period` — long-form per-team-per-period shot totals
+* `shootout` — per-attempt summary (NULL if game didn't reach SO)
+* `plays_by_period` — OLD-format index of `play_indices` per period
+* `on_ice` / `on_ice_plus` / `penalty_box` (final-state reconstruction,
+  derived from the processed PBP) — populated only in the `final/`
+  variant since they need fastRhockey-enriched on-ice columns
+
+### **Refactor: NHL loaders consolidated into `R/nhl_loaders.R`**
+
+All NHL season-level loaders and the shared `.nhl_release_loader()`
+helper now live in `R/nhl_loaders.R`, mirroring the PWHL convention
+(`R/pwhl_loaders.R`). The empty `R/nhl_pbp.R` file was removed since
+it never contained an actual `nhl_pbp()` scraper — only loaders.
+Public signatures and return types are unchanged.
+
 ### **New NHL Edge Analytics (33 functions)**
 
 Wraps the NHL Edge advanced-metrics endpoints under

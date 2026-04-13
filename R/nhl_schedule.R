@@ -9,7 +9,19 @@
 #'   the full season schedule.
 #' @param team_abbr Character three-letter team abbreviation (e.g., "TOR").
 #'   Required when `season` is used. If NULL, loops through all teams.
-#' @return Returns a data frame with game schedule information.
+#' @param include_data_flags Logical (default `FALSE`). When `TRUE`, after
+#'   building the live schedule the result is left-joined against the
+#'   pre-compiled `nhl_games_in_data_repo` index from
+#'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
+#'   to add per-game data-availability flags
+#'   (`PBP`, `team_box`, `player_box`, `skater_box`, `goalie_box`,
+#'   `game_info`, `game_rosters`, `scoring`, `penalties`, `scratches`,
+#'   `linescore`, `three_stars`, `shifts`, `officials`, `shots_by_period`,
+#'   `shootout`). Games not yet compiled get `FALSE`. This requires a
+#'   network call to the data repo and adds a small delay.
+#' @return Returns a data frame with game schedule information. When
+#'   `include_data_flags = TRUE` it additionally carries one logical column
+#'   per pre-compiled dataset.
 #' @keywords NHL Schedule
 #' @importFrom jsonlite read_json fromJSON toJSON
 #' @importFrom dplyr bind_rows mutate select rename filter distinct arrange
@@ -21,8 +33,10 @@
 #' \donttest{
 #'   try(nhl_schedule(day = "2024-01-15"))
 #'   try(nhl_schedule(season = 2025, team_abbr = "TOR"))
+#'   try(nhl_schedule(day = "2024-01-15", include_data_flags = TRUE))
 #' }
-nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL) {
+nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
+                         include_data_flags = FALSE) {
     if (is.null(day) && is.null(season)) {
         day <- as.character(Sys.Date())
     }
@@ -56,6 +70,9 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL) {
                     return(NULL)
                 }
                 schedule <- .parse_schedule_games(games_df)
+                if (isTRUE(include_data_flags)) {
+                    schedule <- .nhl_attach_data_flags(schedule)
+                }
                 schedule <- make_fastRhockey_data(
                     schedule,
                     "NHL Schedule",
@@ -157,9 +174,56 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL) {
             .keep_all = TRUE
         ) %>%
             dplyr::arrange(.data$game_date, .data$game_id)
+        if (isTRUE(include_data_flags)) {
+            schedule <- .nhl_attach_data_flags(schedule)
+        }
         schedule <- make_fastRhockey_data(schedule, "NHL Schedule", Sys.time())
         return(schedule)
     }
+}
+
+
+# Internal: left-join the cached games_in_data_repo flags onto a live
+# schedule tibble. Returns the input unchanged on any error so callers
+# never silently lose data. Adds one logical column per pre-compiled
+# dataset; games not yet compiled get FALSE.
+.nhl_attach_data_flags <- function(schedule) {
+    if (!is.data.frame(schedule) || nrow(schedule) == 0 ||
+        !"game_id" %in% names(schedule)) {
+        return(schedule)
+    }
+
+    flag_cols <- c(
+        "PBP", "team_box", "player_box", "skater_box", "goalie_box",
+        "game_info", "game_rosters", "scoring", "penalties", "scratches",
+        "linescore", "three_stars", "shifts",
+        "officials", "shots_by_period", "shootout"
+    )
+
+    games_idx <- tryCatch(load_nhl_games(), error = function(e) NULL)
+    if (is.null(games_idx) || !"game_id" %in% names(games_idx)) {
+        # Fall back: tag every game as FALSE so the columns exist
+        for (fc in flag_cols) schedule[[fc]] <- FALSE
+        return(schedule)
+    }
+
+    have_cols <- intersect(flag_cols, names(games_idx))
+    join_df <- games_idx[, c("game_id", have_cols), drop = FALSE]
+
+    out <- dplyr::left_join(
+        schedule,
+        join_df,
+        by = "game_id"
+    )
+    # Coalesce any new flag columns to FALSE for non-matching rows
+    for (fc in flag_cols) {
+        if (fc %in% names(out)) {
+            out[[fc]] <- dplyr::coalesce(as.logical(out[[fc]]), FALSE)
+        } else {
+            out[[fc]] <- FALSE
+        }
+    }
+    out
 }
 
 
