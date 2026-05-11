@@ -62,7 +62,6 @@ test_that(".parse_playoff_series_games: returns 16-column tibble with context po
         id = c(2023030111L, 2023030112L),
         season = c("20232024", "20232024"),
         gameType = c(3L, 3L),
-        gameDate = c("2024-04-22", "2024-04-24"),
         startTimeUTC = c("2024-04-23T00:00:00Z", "2024-04-24T23:00:00Z"),
         gameState = c("OFF", "OFF"),
         stringsAsFactors = FALSE
@@ -121,7 +120,6 @@ test_that(".parse_playoff_series_games: uses gameNumber when present", {
         id = c(2023030111L, 2023030112L, 2023030113L),
         season = c("20232024", "20232024", "20232024"),
         gameType = c(3L, 3L, 3L),
-        gameDate = c("2024-04-22", "2024-04-24", "2024-04-26"),
         startTimeUTC = c(
             "2024-04-23T00:00:00Z",
             "2024-04-24T23:00:00Z",
@@ -162,4 +160,33 @@ test_that(".parse_playoff_series_games: uses gameNumber when present", {
 
     # Should use the API-provided gameNumber, not chronological order.
     expect_equal(out$series_game_number, c(7L, 5L, 6L))
+})
+
+test_that(".fetch_nhl_season_playoffs: returns playoff games for 2023-24", {
+    skip_on_cran()
+    skip_nhl_test()
+
+    # season = 2024 means the 2023-24 season (end-year convention).
+    out <- fastRhockey:::.fetch_nhl_season_playoffs(season = 2024)
+
+    expect_s3_class(out, "data.frame")
+    expect_true(nrow(out) > 0)
+    expect_true(all(out$game_type == "P"))
+    expect_true(all(!is.na(out$series_letter)))
+    expect_true(all(!is.na(out$playoff_round)))
+    expect_true(all(!is.na(out$series_game_number)))
+    expect_true(all(out$playoff_round %in% 1L:4L))
+})
+
+test_that(".fetch_nhl_season_playoffs: returns empty tibble when no playoffs", {
+    skip_on_cran()
+    skip_nhl_test()
+
+    # Use a far-future season that cannot yet have playoff data.
+    out <- suppressMessages(
+        fastRhockey:::.fetch_nhl_season_playoffs(season = 2099)
+    )
+
+    expect_s3_class(out, "data.frame")
+    expect_equal(nrow(out), 0L)
 })

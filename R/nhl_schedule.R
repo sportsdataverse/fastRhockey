@@ -432,6 +432,13 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
 #' @keywords internal
 #' @noRd
 .parse_playoff_series_games <- function(games_df, series_letter, playoff_round) {
+    # The playoff-series endpoint returns startTimeUTC but no gameDate field.
+    # Derive gameDate from startTimeUTC so .parse_club_schedule_games() can
+    # produce game_date; mirrors the fallback in .parse_schedule_games().
+    if (!"gameDate" %in% names(games_df) && "startTimeUTC" %in% names(games_df)) {
+        games_df$gameDate <- as.character(as.Date(games_df$startTimeUTC))
+    }
+
     base <- .parse_club_schedule_games(games_df)
 
     # Prefer an API-provided per-game number if present; otherwise derive
@@ -448,4 +455,87 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
     base$playoff_round <- as.integer(playoff_round)
     base$series_game_number <- sgn
     base
+}
+
+
+#' Empty 16-column schedule tibble with the right column types
+#'
+#' Used as a zero-row default when no games are available so downstream
+#' `bind_rows()` calls don't widen or change column types.
+#'
+#' @return A zero-row tibble with all 16 schedule columns.
+#' @keywords internal
+#' @noRd
+.empty_schedule_tibble <- function() {
+    dplyr::tibble(
+        game_id = integer(),
+        season_full = character(),
+        game_type = character(),
+        game_date = character(),
+        game_time = character(),
+        home_team_abbr = character(),
+        away_team_abbr = character(),
+        home_team_name = character(),
+        away_team_name = character(),
+        home_score = integer(),
+        away_score = integer(),
+        game_state = character(),
+        venue = character(),
+        series_letter = character(),
+        playoff_round = integer(),
+        series_game_number = integer()
+    )
+}
+
+#' Fetch all playoff games for a season as a tidy tibble
+#'
+#' Orchestrates the playoff fetch path used by `nhl_schedule()` when
+#' `game_type` includes `"playoffs"`. Discovers series via the playoff
+#' carousel, then fetches each per-series schedule and reshapes to the
+#' schedule schema.
+#'
+#' @param season Integer end-year (e.g. `2024` = 2023-24 season).
+#' @return 16-column tibble of playoff games (`game_type == "P"`), or an
+#'   empty 16-column tibble if no playoff data exists for the season.
+#' @keywords internal
+#' @noRd
+.fetch_nhl_season_playoffs <- function(season) {
+    api_season <- paste0(season - 1, season)
+
+    # Pass the 8-char form so nhl_playoff_carousel() uses it verbatim and we
+    # avoid its end-year/start-year ambiguity.
+    carousel <- tryCatch(
+        nhl_playoff_carousel(season = api_season),
+        error = function(e) NULL
+    )
+
+    series_map <- .extract_series_map(carousel)
+
+    if (is.null(series_map) || nrow(series_map) == 0) {
+        message(glue::glue(
+            "{Sys.time()}: No playoff series found for season {api_season}"
+        ))
+        return(.empty_schedule_tibble())
+    }
+
+    pieces <- list()
+    for (i in seq_len(nrow(series_map))) {
+        letter <- series_map$series_letter[i]
+        round_num <- series_map$playoff_round[i]
+        raw <- .fetch_playoff_series(api_season, letter, flatten = FALSE)
+        if (is.null(raw) || is.null(raw$games) || NROW(raw$games) == 0) {
+            next
+        }
+        pieces[[letter]] <- .parse_playoff_series_games(
+            raw$games,
+            series_letter = letter,
+            playoff_round = round_num
+        )
+    }
+
+    if (length(pieces) == 0) {
+        return(.empty_schedule_tibble())
+    }
+
+    dplyr::bind_rows(pieces)
 }
