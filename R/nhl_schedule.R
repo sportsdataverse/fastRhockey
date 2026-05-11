@@ -370,3 +370,51 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
         }
     )
 }
+
+
+#' Extract a series_letter / playoff_round map from a playoff carousel response
+#'
+#' @param carousel Parsed result from `nhl_playoff_carousel()` (with the
+#'   default `flatten = TRUE` parse). May be `NULL`.
+#' @return A data frame with columns `series_letter` (character) and
+#'   `playoff_round` (integer), one row per playoff series. Returns `NULL`
+#'   when the carousel is `NULL`, empty, or missing the expected structure.
+#' @keywords internal
+#' @noRd
+.extract_series_map <- function(carousel) {
+    if (is.null(carousel)) {
+        return(NULL)
+    }
+    rounds <- carousel$rounds
+    if (is.null(rounds) || NROW(rounds) == 0 || !"series" %in% names(rounds)) {
+        return(NULL)
+    }
+    if (!"roundNumber" %in% names(rounds)) {
+        return(NULL)
+    }
+
+    pieces <- lapply(seq_len(nrow(rounds)), function(i) {
+        s <- rounds$series[[i]]
+        if (is.null(s) || NROW(s) == 0) {
+            return(NULL)
+        }
+        letters <- if ("seriesLetter" %in% names(s)) {
+            s$seriesLetter
+        } else if ("letterCode" %in% names(s)) {
+            s$letterCode
+        } else {
+            return(NULL)
+        }
+        data.frame(
+            series_letter = as.character(letters),
+            playoff_round = as.integer(rounds$roundNumber[i]),
+            stringsAsFactors = FALSE
+        )
+    })
+
+    out <- do.call(rbind, pieces)
+    if (is.null(out) || nrow(out) == 0) {
+        return(NULL)
+    }
+    out
+}
