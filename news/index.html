@@ -93,6 +93,10 @@
 </ul></li>
 <li>
 <code><a href="../reference/nhl_playoff_schedule.html">nhl_playoff_schedule()</a></code> is unchanged in its public API; internally it now delegates its HTTP call to a new shared internal helper <code>.fetch_playoff_series()</code>.</li>
+<li>
+<strong>Fix:</strong> <code><a href="../reference/nhl_schedule.html">nhl_schedule()</a></code> previously returned the same <code>home_team_name</code>, <code>away_team_name</code>, <code>home_score</code>, <code>away_score</code>, and <code>venue</code> value in every row regardless of the actual game. Root cause was an <code>ifelse(scalar, vec, NA)</code> guard in <code><a href="../reference/dot-parse_schedule_games.html">.parse_schedule_games()</a></code> and <code><a href="../reference/dot-parse_club_schedule_games.html">.parse_club_schedule_games()</a></code> that collapsed each vector to length 1, which <code>tibble</code> then recycled across all rows. Replaced with <code>if</code>/<code>else</code>, and added regression tests asserting per-row distinct values. <code>home_team_abbr</code>, <code>away_team_abbr</code>, and the other directly-assigned columns were not affected.</li>
+<li>
+<strong>Hardening:</strong> <code><a href="../reference/nhl_player_info.html">nhl_player_info()</a></code> used the same <code>ifelse(scalar, vec, NA)</code> idiom across all 18 of its nullable fields. The function returns a 1-row tibble per player so the bug was masked today, but the latent shape was identical to the <code><a href="../reference/nhl_schedule.html">nhl_schedule()</a></code> bug above. Replaced with <code>if</code>/<code>else</code> for consistency and to remove the foot-gun before it surfaces (e.g., if the function is ever refactored to handle multiple players).</li>
 </ul></div>
 <div class="section level4">
 <h4 id="pwhl-parity-new-nhl-loaders--datasets-1-0-0"><strong>PWHL parity: 3 new NHL loaders + datasets</strong><a class="anchor" aria-label="anchor" href="#pwhl-parity-new-nhl-loaders--datasets-1-0-0"></a></h4>

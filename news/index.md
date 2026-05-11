@@ -23,6 +23,28 @@
 - [`nhl_playoff_schedule()`](https://fastRhockey.sportsdataverse.org/reference/nhl_playoff_schedule.md)
   is unchanged in its public API; internally it now delegates its HTTP
   call to a new shared internal helper `.fetch_playoff_series()`.
+- **Fix:**
+  [`nhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/nhl_schedule.md)
+  previously returned the same `home_team_name`, `away_team_name`,
+  `home_score`, `away_score`, and `venue` value in every row regardless
+  of the actual game. Root cause was an `ifelse(scalar, vec, NA)` guard
+  in
+  [`.parse_schedule_games()`](https://fastRhockey.sportsdataverse.org/reference/dot-parse_schedule_games.md)
+  and
+  [`.parse_club_schedule_games()`](https://fastRhockey.sportsdataverse.org/reference/dot-parse_club_schedule_games.md)
+  that collapsed each vector to length 1, which `tibble` then recycled
+  across all rows. Replaced with `if`/`else`, and added regression tests
+  asserting per-row distinct values. `home_team_abbr`, `away_team_abbr`,
+  and the other directly-assigned columns were not affected.
+- **Hardening:**
+  [`nhl_player_info()`](https://fastRhockey.sportsdataverse.org/reference/nhl_player_info.md)
+  used the same `ifelse(scalar, vec, NA)` idiom across all 18 of its
+  nullable fields. The function returns a 1-row tibble per player so the
+  bug was masked today, but the latent shape was identical to the
+  [`nhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/nhl_schedule.md)
+  bug above. Replaced with `if`/`else` for consistency and to remove the
+  foot-gun before it surfaces (e.g., if the function is ever refactored
+  to handle multiple players).
 
 #### **PWHL parity: 3 new NHL loaders + datasets**
 

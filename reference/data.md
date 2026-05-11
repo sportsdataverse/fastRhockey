@@ -1,10 +1,23 @@
 # **Data in the package for reference**
 
 A dataset containing the full team names, abbreviations, colors & logos
-for all 32 NHL teams.
+for all 32 active NHL teams plus historical/relocated franchises
+retained for joining against older data. Filter on
+`division != "Relocated"` to limit to active teams.
 
 A dataset containing the full team names, abbreviations, colors & logos
 for all PHF teams.
+
+A dataset containing the full team names, abbreviations, colors & logos
+for all PWHL teams. Carries 14 rows: the 6 founding franchises appear
+twice each — once under their inaugural 2023-24 identity (`PWHL Boston`,
+etc., matching the live
+[`pwhl_teams()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_teams.md)
+payload) and once under their 2024-25 rebranded identity (Boston Fleet,
+Minnesota Frost, Montréal Victoire, New York Sirens, Ottawa Charge,
+Toronto Sceptres). Plus the two 2025-26 expansion teams (Seattle Torrent
+and Vancouver Goldeneyes). The shared `team_abbr` across pre/post
+rebrand rows makes historical joins straightforward.
 
 ## Usage
 
@@ -12,11 +25,13 @@ for all PHF teams.
 nhl_team_logos
 
 phf_team_logos
+
+pwhl_team_logos
 ```
 
 ## Format
 
-A data frame with 32 rows and 11 variables:
+A data frame with 34 rows and 11 variables:
 
 - `full_team_name` - full team name
 
@@ -24,9 +39,11 @@ A data frame with 32 rows and 11 variables:
 
 - `team_nick` - lowercase, no spaces team nickname
 
-- `division` - current NHL division
+- `division` - current NHL division, or `"Relocated"` for inactive
+  franchises
 
-- `conference` - current NHL conference
+- `conference` - current NHL conference, or `"Relocated"` for inactive
+  franchises
 
 - `team_logo_espn` - primary team logo from ESPN.com
 
@@ -57,3 +74,22 @@ A data frame with 6 rows and 7 variables:
   color picked from the logos
 
 - `team_logo` - Primary team logo from fastRhockey data repository
+
+A data frame with 14 rows and 7 variables:
+
+- `full_team_name` - Full team name (legacy or rebranded)
+
+- `team_abbr` - HockeyTech team code (BOS, MIN, MON, NY, OTT, TOR for
+  the six founders; SEA, VAN for the expansion teams)
+
+- `team_nick` - Team nickname (or city, for the legacy `PWHL <city>`
+  entries)
+
+- `team_location` - Team location / city
+
+- `team_color1` - Best-effort primary team color (hex)
+
+- `team_color2` - Best-effort secondary team color (hex)
+
+- `team_logo` - Primary team logo URL from the live PWHL CDN; `NA` for
+  the two expansion teams until logos are catalogued

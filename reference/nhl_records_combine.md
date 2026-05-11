@@ -26,7 +26,7 @@ failure.
 # \donttest{
   try(nhl_records_combine())
 #> ── NHL Records Combine ──────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:20:33 UTC
+#> ℹ Data updated: 2026-05-11 18:39:10 UTC
 #> # A tibble: 182 × 10
 #>       id amateur_club_name  amateur_league draft_year event first_name last_name
 #>    <int> <chr>              <chr>               <int> <chr> <chr>      <chr>    

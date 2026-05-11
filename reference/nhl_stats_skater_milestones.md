@@ -43,7 +43,7 @@ A `fastRhockey_data` tibble of skater milestones, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_skater_milestones())
 #> ── NHL Stats Skater Milestones ──────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:21:09 UTC
+#> ℹ Data updated: 2026-05-11 18:39:56 UTC
 #> # A tibble: 100 × 17
 #>       id assists current_team_id first_name   game_type_id games_played goals
 #>    <int>   <int>           <int> <chr>               <int>        <int> <int>

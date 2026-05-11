@@ -1114,6 +1114,7 @@ Data included within the package
 
 - [`nhl_team_logos`](https://fastRhockey.sportsdataverse.org/reference/data.md)
   [`phf_team_logos`](https://fastRhockey.sportsdataverse.org/reference/data.md)
+  [`pwhl_team_logos`](https://fastRhockey.sportsdataverse.org/reference/data.md)
   :
 
   **Data in the package for reference**

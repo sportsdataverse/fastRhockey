@@ -40,7 +40,7 @@ response.
 # \donttest{
   try(nhl_edge_skater_shot_speed_detail(player_id = 8478402))
 #> ── NHL Edge Skater Shot Speed Detail ────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:20:03 UTC
+#> ℹ Data updated: 2026-05-11 18:38:30 UTC
 #> # A tibble: 10 × 24
 #>    game_center_link       game_date game_type player_on_home_team time_in_period
 #>    <chr>                  <chr>         <int> <lgl>               <chr>         

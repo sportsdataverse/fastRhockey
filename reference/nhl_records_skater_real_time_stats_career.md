@@ -39,7 +39,7 @@ on failure.
 # \donttest{
   try(nhl_records_skater_real_time_stats_career(limit = 5))
 #> ── NHL Records Skater Real-Time Stats Career ────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:20:57 UTC
+#> ℹ Data updated: 2026-05-11 18:39:34 UTC
 #> # A tibble: 5 × 24
 #>      id active_player blocked_shots faceoff_win_pctg faceoffs_lost
 #>   <int> <lgl>                 <int> <lgl>                    <int>

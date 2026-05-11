@@ -35,7 +35,7 @@ A `fastRhockey_data` tibble containing the skater landing payload, or
 # \donttest{
   try(nhl_edge_skater_landing())
 #> ── NHL Edge Skater Landing ──────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:20:00 UTC
+#> ℹ Data updated: 2026-05-11 18:38:26 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    
