@@ -5,15 +5,18 @@
 \alias{data}
 \alias{nhl_team_logos}
 \alias{phf_team_logos}
+\alias{pwhl_team_logos}
 \title{\strong{Data in the package for reference}}
 \format{
-A data frame with 32 rows and 11 variables:
+A data frame with 34 rows and 11 variables:
 \itemize{
 \item \code{full_team_name} - full team name
 \item \code{team_abbr} - NHL.com team abbreviation
 \item \code{team_nick} - lowercase, no spaces team nickname
-\item \code{division} - current NHL division
-\item \code{conference} - current NHL conference
+\item \code{division} - current NHL division, or \code{"Relocated"} for inactive
+franchises
+\item \code{conference} - current NHL conference, or \code{"Relocated"} for inactive
+franchises
 \item \code{team_logo_espn} - primary team logo from ESPN.com
 \item \code{team_color1} - current primary team color
 \item \code{team_color2} - current secondary team color
@@ -32,17 +35,45 @@ A data frame with 6 rows and 7 variables:
 \item \code{team_color2} - Current secondary team color. Full disclosure, I just color picked from the logos
 \item \code{team_logo} - Primary team logo from fastRhockey data repository
 }
+
+A data frame with 14 rows and 7 variables:
+\itemize{
+\item \code{full_team_name} - Full team name (legacy or rebranded)
+\item \code{team_abbr} - HockeyTech team code (BOS, MIN, MON, NY, OTT, TOR for
+the six founders; SEA, VAN for the expansion teams)
+\item \code{team_nick} - Team nickname (or city, for the legacy
+\verb{PWHL <city>} entries)
+\item \code{team_location} - Team location / city
+\item \code{team_color1} - Best-effort primary team color (hex)
+\item \code{team_color2} - Best-effort secondary team color (hex)
+\item \code{team_logo} - Primary team logo URL from the live PWHL CDN; \code{NA}
+for the two expansion teams until logos are catalogued
+}
 }
 \usage{
 nhl_team_logos
 
 phf_team_logos
+
+pwhl_team_logos
 }
 \description{
 A dataset containing the full team names, abbreviations, colors & logos
-for all 32 NHL teams.
+for all 32 active NHL teams plus historical/relocated franchises retained
+for joining against older data. Filter on
+\code{division != "Relocated"} to limit to active teams.
 
 A dataset containing the full team names, abbreviations, colors & logos
 for all PHF teams.
+
+A dataset containing the full team names, abbreviations, colors & logos
+for all PWHL teams. Carries 14 rows: the 6 founding franchises appear
+twice each — once under their inaugural 2023-24 identity
+(\verb{PWHL Boston}, etc., matching the live \code{pwhl_teams()} payload) and once
+under their 2024-25 rebranded identity (Boston Fleet, Minnesota Frost,
+Montréal Victoire, New York Sirens, Ottawa Charge, Toronto Sceptres).
+Plus the two 2025-26 expansion teams (Seattle Torrent and
+Vancouver Goldeneyes). The shared \code{team_abbr} across pre/post rebrand
+rows makes historical joins straightforward.
 }
 \keyword{data}

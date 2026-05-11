@@ -110,15 +110,20 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
             if (!is.null(team_abbr)) {
                 teams <- team_abbr
             } else {
-                teams <- fastRhockey::nhl_team_logos$team_abbr
-                if (is.null(teams) || length(teams) == 0) {
+                # Pull from the curated dataset, excluding relocated
+                # franchises (e.g. ARI -> UTA in 2024-25, MNS in 1993)
+                # which the per-team endpoint can't fulfill.
+                logos <- fastRhockey::nhl_team_logos
+                if (is.null(logos) || nrow(logos) == 0) {
                     teams <- c(
-                        "ANA", "ARI", "BOS", "BUF", "CAR", "CBJ", "CGY",
-                        "CHI", "COL", "DAL", "DET", "EDM", "FLA", "LAK",
-                        "MIN", "MTL", "NJD", "NSH", "NYI", "NYR", "OTT",
-                        "PHI", "PIT", "SEA", "SJK", "STL", "TBL", "TOR",
-                        "UTA", "VAN", "VGK", "WPG", "WSH"
+                        "ANA", "BOS", "BUF", "CAR", "CBJ", "CGY", "CHI",
+                        "COL", "DAL", "DET", "EDM", "FLA", "LAK", "MIN",
+                        "MTL", "NJD", "NSH", "NYI", "NYR", "OTT", "PHI",
+                        "PIT", "SEA", "SJS", "STL", "TBL", "TOR", "UTA",
+                        "VAN", "VGK", "WPG", "WSH"
                     )
+                } else {
+                    teams <- logos$team_abbr[logos$division != "Relocated"]
                 }
             }
 
