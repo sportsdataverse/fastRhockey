@@ -434,14 +434,12 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
 .parse_playoff_series_games <- function(games_df, series_letter, playoff_round) {
     base <- .parse_club_schedule_games(games_df)
 
-    # Prefer an API-provided game number if present; otherwise derive
-    # chronologically. The playoff-series endpoint returns games in date order.
+    # Prefer an API-provided per-game number if present; otherwise derive
+    # chronologically. The playoff-series endpoint returns games in date
+    # order, so positional indexing yields the correct game number for
+    # all completed games in the series.
     sgn <- if ("gameNumber" %in% names(games_df)) {
         as.integer(games_df$gameNumber)
-    } else if ("seriesStatus" %in% names(games_df) &&
-               is.data.frame(games_df$seriesStatus) &&
-               "gameNumberOfSeries" %in% names(games_df$seriesStatus)) {
-        as.integer(games_df$seriesStatus$gameNumberOfSeries)
     } else {
         seq_len(nrow(games_df))
     }

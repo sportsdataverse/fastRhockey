@@ -108,9 +108,58 @@ test_that(".parse_playoff_series_games: returns 16-column tibble with context po
     for (col in expected_cols) {
         expect_true(col %in% names(out), info = paste("Missing column:", col))
     }
+    expect_setequal(names(out), expected_cols)
 
     expect_equal(unique(out$series_letter), "a")
     expect_equal(unique(out$playoff_round), 1L)
     expect_equal(out$series_game_number, c(1L, 2L))
     expect_equal(unique(out$game_type), "P")
+})
+
+test_that(".parse_playoff_series_games: uses gameNumber when present", {
+    games_df <- data.frame(
+        id = c(2023030111L, 2023030112L, 2023030113L),
+        season = c("20232024", "20232024", "20232024"),
+        gameType = c(3L, 3L, 3L),
+        gameDate = c("2024-04-22", "2024-04-24", "2024-04-26"),
+        startTimeUTC = c(
+            "2024-04-23T00:00:00Z",
+            "2024-04-24T23:00:00Z",
+            "2024-04-27T00:00:00Z"
+        ),
+        gameState = c("OFF", "OFF", "OFF"),
+        gameNumber = c(7L, 5L, 6L),  # deliberately out of chrono order
+        stringsAsFactors = FALSE
+    )
+    games_df$homeTeam <- data.frame(
+        abbrev = c("TOR", "BOS", "TOR"),
+        score = c(3L, 5L, 2L),
+        stringsAsFactors = FALSE
+    )
+    games_df$homeTeam$placeName <- data.frame(
+        default = c("Toronto", "Boston", "Toronto"),
+        stringsAsFactors = FALSE
+    )
+    games_df$awayTeam <- data.frame(
+        abbrev = c("BOS", "TOR", "BOS"),
+        score = c(1L, 4L, 3L),
+        stringsAsFactors = FALSE
+    )
+    games_df$awayTeam$placeName <- data.frame(
+        default = c("Boston", "Toronto", "Boston"),
+        stringsAsFactors = FALSE
+    )
+    games_df$venue <- data.frame(
+        default = c("Scotiabank Arena", "TD Garden", "Scotiabank Arena"),
+        stringsAsFactors = FALSE
+    )
+
+    out <- fastRhockey:::.parse_playoff_series_games(
+        games_df,
+        series_letter = "b",
+        playoff_round = 1L
+    )
+
+    # Should use the API-provided gameNumber, not chronological order.
+    expect_equal(out$series_game_number, c(7L, 5L, 6L))
 })
