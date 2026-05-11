@@ -65,27 +65,7 @@ nhl_playoff_schedule <- function(season, series_letter) {
     } else {
         api_season <- paste0(season, as.integer(season) + 1)
     }
-    url <- glue::glue(
-        "https://api-web.nhle.com/v1/schedule/playoff-series/{api_season}/{series_letter}/"
-    )
-
-    tryCatch(
-        expr = {
-            res <- httr::RETRY("GET", url)
-            check_status(res)
-
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
-            raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
-
-            return(raw)
-        },
-        error = function(e) {
-            message(glue::glue(
-                "{Sys.time()}: Error fetching playoff schedule: {e$message}"
-            ))
-            return(NULL)
-        }
-    )
+    .fetch_playoff_series(api_season, series_letter, flatten = TRUE)
 }
 
 

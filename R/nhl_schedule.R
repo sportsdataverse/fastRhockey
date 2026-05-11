@@ -331,3 +331,42 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
     )
     return(schedule)
 }
+
+
+#' Fetch raw playoff series schedule
+#'
+#' Internal HTTP helper for the `/v1/schedule/playoff-series/{season}/{letter}/`
+#' endpoint. Used by `nhl_playoff_schedule()` and by the playoff branch of
+#' `nhl_schedule()`.
+#'
+#' @param api_season Character 8-digit season string, e.g. `"20232024"`.
+#' @param series_letter Character series letter, e.g. `"a"`.
+#' @param flatten Logical, passed through to `jsonlite::fromJSON()`. Default
+#'   `TRUE` preserves the existing return shape used by `nhl_playoff_schedule()`.
+#'   Pass `FALSE` from the orchestrator so nested team objects are preserved
+#'   for `.parse_club_schedule_games()`-style parsing.
+#' @return Parsed list/data.frame from `jsonlite::fromJSON()`, or `NULL` on
+#'   HTTP failure (a `message()` is emitted).
+#' @keywords internal
+#' @noRd
+.fetch_playoff_series <- function(api_season, series_letter, flatten = TRUE) {
+    url <- glue::glue(
+        "https://api-web.nhle.com/v1/schedule/playoff-series/{api_season}/{series_letter}/"
+    )
+
+    tryCatch(
+        expr = {
+            res <- httr::RETRY("GET", url)
+            check_status(res)
+            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            raw <- jsonlite::fromJSON(resp_text, flatten = flatten)
+            return(raw)
+        },
+        error = function(e) {
+            message(glue::glue(
+                "{Sys.time()}: Error fetching playoff series {series_letter} for {api_season}: {e$message}"
+            ))
+            return(NULL)
+        }
+    )
+}
