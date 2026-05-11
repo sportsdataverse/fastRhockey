@@ -18,6 +18,14 @@
 * `nhl_playoff_schedule()` is unchanged in its public API; internally it now
   delegates its HTTP call to a new shared internal helper
   `.fetch_playoff_series()`.
+* **Fix:** `nhl_schedule()` previously returned the same `home_team_name`,
+  `away_team_name`, `home_score`, `away_score`, and `venue` value in every
+  row regardless of the actual game. Root cause was an `ifelse(scalar, vec,
+  NA)` guard in `.parse_schedule_games()` and `.parse_club_schedule_games()`
+  that collapsed each vector to length 1, which `tibble` then recycled
+  across all rows. Replaced with `if`/`else`, and added regression tests
+  asserting per-row distinct values. `home_team_abbr`, `away_team_abbr`,
+  and the other directly-assigned columns were not affected.
 
 ### **PWHL parity: 3 new NHL loaders + datasets**
 

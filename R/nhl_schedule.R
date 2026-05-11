@@ -264,32 +264,31 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
         game_time = games_df$startTimeUTC,
         home_team_abbr = games_df$homeTeam$abbrev,
         away_team_abbr = games_df$awayTeam$abbrev,
-        home_team_name = ifelse(
-            !is.null(games_df$homeTeam$placeName$default),
-            games_df$homeTeam$placeName$default,
-            NA_character_
-        ),
-        away_team_name = ifelse(
-            !is.null(games_df$awayTeam$placeName$default),
-            games_df$awayTeam$placeName$default,
-            NA_character_
-        ),
-        home_score = ifelse(
-            !is.null(games_df$homeTeam$score),
-            games_df$homeTeam$score,
-            NA_integer_
-        ),
-        away_score = ifelse(
-            !is.null(games_df$awayTeam$score),
-            games_df$awayTeam$score,
-            NA_integer_
-        ),
+        # Use if/else (not ifelse) so the result preserves vector length.
+        # ifelse(scalar_test, vec, scalar) returns length(test) == 1, which
+        # tibble then recycles across all rows — silently duplicating one
+        # value into every row.
+        home_team_name = if (!is.null(games_df$homeTeam$placeName$default))
+            games_df$homeTeam$placeName$default
+        else
+            NA_character_,
+        away_team_name = if (!is.null(games_df$awayTeam$placeName$default))
+            games_df$awayTeam$placeName$default
+        else
+            NA_character_,
+        home_score = if (!is.null(games_df$homeTeam$score))
+            games_df$homeTeam$score
+        else
+            NA_integer_,
+        away_score = if (!is.null(games_df$awayTeam$score))
+            games_df$awayTeam$score
+        else
+            NA_integer_,
         game_state = games_df$gameState,
-        venue = ifelse(
-            !is.null(games_df$venue$default),
-            games_df$venue$default,
+        venue = if (!is.null(games_df$venue$default))
+            games_df$venue$default
+        else
             NA_character_
-        )
     )
     return(schedule)
 }
@@ -314,32 +313,30 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
         game_time = games_df$startTimeUTC,
         home_team_abbr = games_df$homeTeam$abbrev,
         away_team_abbr = games_df$awayTeam$abbrev,
-        home_team_name = ifelse(
-            !is.null(games_df$homeTeam$placeName$default),
-            games_df$homeTeam$placeName$default,
-            NA_character_
-        ),
-        away_team_name = ifelse(
-            !is.null(games_df$awayTeam$placeName$default),
-            games_df$awayTeam$placeName$default,
-            NA_character_
-        ),
-        home_score = ifelse(
-            !is.null(games_df$homeTeam$score),
-            games_df$homeTeam$score,
-            NA_integer_
-        ),
-        away_score = ifelse(
-            !is.null(games_df$awayTeam$score),
-            games_df$awayTeam$score,
-            NA_integer_
-        ),
+        # See note in .parse_schedule_games(): ifelse() collapses vector
+        # results to length 1 when the test is a scalar !is.null(). Use
+        # if/else instead so per-row values are preserved.
+        home_team_name = if (!is.null(games_df$homeTeam$placeName$default))
+            games_df$homeTeam$placeName$default
+        else
+            NA_character_,
+        away_team_name = if (!is.null(games_df$awayTeam$placeName$default))
+            games_df$awayTeam$placeName$default
+        else
+            NA_character_,
+        home_score = if (!is.null(games_df$homeTeam$score))
+            games_df$homeTeam$score
+        else
+            NA_integer_,
+        away_score = if (!is.null(games_df$awayTeam$score))
+            games_df$awayTeam$score
+        else
+            NA_integer_,
         game_state = games_df$gameState,
-        venue = ifelse(
-            !is.null(games_df$venue$default),
-            games_df$venue$default,
+        venue = if (!is.null(games_df$venue$default))
+            games_df$venue$default
+        else
             NA_character_
-        )
     )
     return(schedule)
 }
