@@ -178,6 +178,27 @@ test_that(".fetch_nhl_season_playoffs: returns playoff games for 2023-24", {
     expect_true(all(out$playoff_round %in% 1L:4L))
 })
 
+test_that(".fetch_nhl_season_playoffs: returns empty tibble with the 16-col schema when carousel is NULL", {
+    local_mocked_bindings(
+        nhl_playoff_carousel = function(...) NULL,
+        .package = "fastRhockey"
+    )
+
+    out <- suppressMessages(
+        fastRhockey:::.fetch_nhl_season_playoffs(season = 2024)
+    )
+
+    expect_s3_class(out, "data.frame")
+    expect_equal(nrow(out), 0L)
+    expected_cols <- c(
+        "game_id", "season_full", "game_type", "game_date", "game_time",
+        "home_team_abbr", "away_team_abbr", "home_team_name", "away_team_name",
+        "home_score", "away_score", "game_state", "venue",
+        "series_letter", "playoff_round", "series_game_number"
+    )
+    expect_setequal(names(out), expected_cols)
+})
+
 test_that(".fetch_nhl_season_playoffs: returns empty tibble when no playoffs", {
     skip_on_cran()
     skip_nhl_test()
