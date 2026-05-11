@@ -40,7 +40,7 @@ failure / empty response.
 # \donttest{
   try(nhl_edge_team_shot_location_detail(team_id = 10))
 #> ── NHL Edge Team Shot Location Detail ───────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:02:54 UTC
+#> ℹ Data updated: 2026-05-11 16:20:16 UTC
 #> # A tibble: 17 × 7
 #>    area           sog sog_rank goals goals_rank shooting_pctg shooting_pctg_rank
 #>    <chr>        <int>    <int> <int>      <int>         <dbl>              <int>

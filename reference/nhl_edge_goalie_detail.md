@@ -40,7 +40,7 @@ empty response.
 # \donttest{
   try(nhl_edge_goalie_detail(player_id = 8475883))
 #> ── NHL Edge Goalie Detail ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:02:26 UTC
+#> ℹ Data updated: 2026-05-11 16:19:51 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    

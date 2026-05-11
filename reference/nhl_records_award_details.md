@@ -34,7 +34,7 @@ A `fastRhockey_data` tibble of award details, or `NULL` on failure.
 # \donttest{
   try(nhl_records_award_details())
 #> ── NHL Records Award Details ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:03:15 UTC
+#> ℹ Data updated: 2026-05-11 16:20:33 UTC
 #> # A tibble: 5,368 × 20
 #>       id awarded_posthumously coach_id created_on       detail_summary full_name
 #>    <int> <lgl>                   <int> <chr>            <lgl>          <chr>    
@@ -56,7 +56,7 @@ A `fastRhockey_data` tibble of award details, or `NULL` on failure.
 #> #   vote_count <int>
   try(nhl_records_award_details(season_id = 20232024))
 #> ── NHL Records Award Details ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:03:15 UTC
+#> ℹ Data updated: 2026-05-11 16:20:33 UTC
 #> # A tibble: 72 × 20
 #>       id awarded_posthumously coach_id created_on       detail_summary full_name
 #>    <int> <lgl>                   <int> <chr>            <lgl>          <chr>    

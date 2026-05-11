@@ -34,7 +34,7 @@ Returns a data frame with game-by-game statistics.
 # \donttest{
   try(nhl_player_game_log(player_id = 8478402))
 #> ── NHL Player Game Log ──────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:03:11 UTC
+#> ℹ Data updated: 2026-05-11 16:20:30 UTC
 #> # A tibble: 6 × 22
 #>     game_id team_abbrev home_road_flag game_date goals assists points plus_minus
 #>       <int> <chr>       <chr>          <chr>     <int>   <int>  <int>      <int>

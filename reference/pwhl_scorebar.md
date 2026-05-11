@@ -50,8 +50,8 @@ A data frame with recent/upcoming game scores, or NULL if unavailable.
 # \donttest{
   try(pwhl_scorebar(days_back = 7, days_ahead = 7))
 #> ── PWHL Scorebar ────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:04:15 UTC
-#> # A tibble: 13 × 15
+#> ℹ Data updated: 2026-05-11 16:21:27 UTC
+#> # A tibble: 15 × 15
 #>    game_id season_id date       game_date   status home_team        home_team_id
 #>      <dbl>     <dbl> <chr>      <chr>       <chr>  <chr>                   <dbl>
 #>  1     329         8 2026-04-25 Sat, Apr 25 4      Boston Fleet                1
@@ -67,6 +67,8 @@ A data frame with recent/upcoming game scores, or NULL if unavailable.
 #> 11     345         9 2026-05-08 Fri, May 8  4      Minnesota Frost             2
 #> 12     344         9 2026-05-10 Sun, May 10 4      Ottawa Charge               5
 #> 13     347         9 2026-05-11 Mon, May 11 1      Montréal Victoi…            3
+#> 14     348         9 2026-05-18 Mon, May 18 1      Ottawa Charge               5
+#> 15     349         9 2026-05-20 Wed, May 20 1      Ottawa Charge               5
 #> # ℹ 8 more variables: home_team_code <chr>, home_score <chr>, away_team <chr>,
 #> #   away_team_id <dbl>, away_team_code <chr>, away_score <chr>, period <chr>,
 #> #   clock <chr>

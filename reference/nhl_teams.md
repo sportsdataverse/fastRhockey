@@ -25,7 +25,7 @@ Returns a data frame with team information.
 # \donttest{
   try(nhl_teams())
 #> ── NHL Teams ────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:03:59 UTC
+#> ℹ Data updated: 2026-05-11 16:21:11 UTC
 #> # A tibble: 32 × 20
 #>    team_abbr team_name           team_common_name team_logo      conference_abbr
 #>    <chr>     <chr>               <chr>            <chr>          <chr>          

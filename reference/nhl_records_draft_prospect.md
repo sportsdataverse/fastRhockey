@@ -33,7 +33,7 @@ A `fastRhockey_data` tibble of draft prospects, or `NULL` on failure.
 # \donttest{
   try(nhl_records_draft_prospect())
 #> ── NHL Records Draft Prospect ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:03:25 UTC
+#> ℹ Data updated: 2026-05-11 16:20:44 UTC
 #> # A tibble: 135,783 × 28
 #>       id birth_city birth_country3code birth_date birth_state_prov_code
 #>    <int> <chr>      <chr>              <chr>      <chr>                

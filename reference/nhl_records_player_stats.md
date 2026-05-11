@@ -36,7 +36,7 @@ failure.
   try(nhl_records_player_stats(cayenne_exp = "playerId=8478402"))
 #> Request failed [400]. Retrying in 1 seconds...
 #> Request failed [400]. Retrying in 3.9 seconds...
-#> 2026-05-11 16:03:38.567346: Error fetching records resource 'player-stats': The API returned an error
+#> 2026-05-11 16:20:56.72055: Error fetching records resource 'player-stats': The API returned an error
 #> NULL
 # }
 ```

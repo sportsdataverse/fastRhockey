@@ -47,7 +47,7 @@ unavailable.
 # \donttest{
   try(pwhl_player_stats(player_id = 28))
 #> ── PWHL Player Season Stats ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:04:14 UTC
+#> ℹ Data updated: 2026-05-11 16:21:26 UTC
 #> # A tibble: 8 × 42
 #>   season_id season_name   shortname playoff career max_start_date veteran_status
 #>       <dbl> <chr>         <chr>     <chr>   <chr>  <chr>          <chr>         

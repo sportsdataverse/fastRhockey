@@ -57,7 +57,7 @@ raw parsed list for non-tabular ones.
 # \donttest{
   try(nhl_stats_misc(endpoint = "glossary"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:03:54 UTC
+#> ℹ Data updated: 2026-05-11 16:21:07 UTC
 #> # A tibble: 321 × 7
 #>       id abbreviation   definition first_season_for_stat full_name language_code
 #>    <int> <chr>          <chr>                      <int> <chr>     <chr>        
@@ -75,7 +75,7 @@ raw parsed list for non-tabular ones.
 #> # ℹ 1 more variable: last_updated <chr>
   try(nhl_stats_misc(endpoint = "franchise"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:03:55 UTC
+#> ℹ Data updated: 2026-05-11 16:21:07 UTC
 #> # A tibble: 40 × 4
 #>       id full_name             team_common_name team_place_name
 #>    <int> <chr>                 <chr>            <chr>          
@@ -92,7 +92,7 @@ raw parsed list for non-tabular ones.
 #> # ℹ 30 more rows
   try(nhl_stats_misc(endpoint = "country"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 16:03:55 UTC
+#> ℹ Data updated: 2026-05-11 16:21:07 UTC
 #> # A tibble: 49 × 11
 #>    id    country3code country_code country_name   has_player_stats image_url    
 #>    <chr> <chr>        <chr>        <chr>                     <int> <chr>        
