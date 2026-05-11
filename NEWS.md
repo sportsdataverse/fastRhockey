@@ -26,6 +26,12 @@
   across all rows. Replaced with `if`/`else`, and added regression tests
   asserting per-row distinct values. `home_team_abbr`, `away_team_abbr`,
   and the other directly-assigned columns were not affected.
+* **Hardening:** `nhl_player_info()` used the same `ifelse(scalar, vec, NA)`
+  idiom across all 18 of its nullable fields. The function returns a 1-row
+  tibble per player so the bug was masked today, but the latent shape was
+  identical to the `nhl_schedule()` bug above. Replaced with `if`/`else`
+  for consistency and to remove the foot-gun before it surfaces (e.g., if
+  the function is ever refactored to handle multiple players).
 
 ### **PWHL parity: 3 new NHL loaders + datasets**
 

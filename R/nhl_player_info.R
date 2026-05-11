@@ -24,93 +24,85 @@ nhl_player_info <- function(player_id) {
             resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
+            # Use if/else (not ifelse) for NULL guards. ifelse() returns a
+            # result of length(test) — i.e. length 1 for a scalar !is.null()
+            # — so when the field is a vector longer than 1, ifelse silently
+            # collapses it to length 1 and tibble then recycles that single
+            # value across every row. This function currently builds a
+            # 1-row tibble so the bug is masked today, but the latent shape
+            # is identical to the bug fixed in .parse_*_games(); switching
+            # to if/else now removes the foot-gun before it surfaces.
             player <- dplyr::tibble(
                 player_id = raw$playerId,
                 first_name = raw$firstName$default,
                 last_name = raw$lastName$default,
                 full_name = paste(raw$firstName$default, raw$lastName$default),
-                team_abbr = ifelse(
-                    !is.null(raw$currentTeamAbbrev),
-                    raw$currentTeamAbbrev,
-                    NA_character_
-                ),
-                team_name = ifelse(
-                    !is.null(raw$fullTeamName$default),
-                    raw$fullTeamName$default,
-                    NA_character_
-                ),
-                sweater_number = ifelse(
-                    !is.null(raw$sweaterNumber),
-                    as.integer(raw$sweaterNumber),
-                    NA_integer_
-                ),
+                team_abbr = if (!is.null(raw$currentTeamAbbrev))
+                    raw$currentTeamAbbrev
+                else
+                    NA_character_,
+                team_name = if (!is.null(raw$fullTeamName$default))
+                    raw$fullTeamName$default
+                else
+                    NA_character_,
+                sweater_number = if (!is.null(raw$sweaterNumber))
+                    as.integer(raw$sweaterNumber)
+                else
+                    NA_integer_,
                 position = raw$position,
-                shoots_catches = ifelse(
-                    !is.null(raw$shootsCatches),
-                    raw$shootsCatches,
+                shoots_catches = if (!is.null(raw$shootsCatches))
+                    raw$shootsCatches
+                else
+                    NA_character_,
+                height_inches = if (!is.null(raw$heightInInches))
+                    raw$heightInInches
+                else
+                    NA_integer_,
+                weight_pounds = if (!is.null(raw$weightInPounds))
+                    raw$weightInPounds
+                else
+                    NA_integer_,
+                birth_date = if (!is.null(raw$birthDate))
+                    raw$birthDate
+                else
+                    NA_character_,
+                birth_city = if (!is.null(raw$birthCity$default))
+                    raw$birthCity$default
+                else
+                    NA_character_,
+                birth_state = if (!is.null(raw$birthStateProvince$default))
+                    raw$birthStateProvince$default
+                else
+                    NA_character_,
+                birth_country = if (!is.null(raw$birthCountry))
+                    raw$birthCountry
+                else
+                    NA_character_,
+                draft_year = if (!is.null(raw$draftDetails$year))
+                    raw$draftDetails$year
+                else
+                    NA_integer_,
+                draft_round = if (!is.null(raw$draftDetails$round))
+                    raw$draftDetails$round
+                else
+                    NA_integer_,
+                draft_pick = if (!is.null(raw$draftDetails$pickInRound))
+                    raw$draftDetails$pickInRound
+                else
+                    NA_integer_,
+                draft_overall = if (!is.null(raw$draftDetails$overallPick))
+                    raw$draftDetails$overallPick
+                else
+                    NA_integer_,
+                draft_team_abbr = if (!is.null(raw$draftDetails$teamAbbrev))
+                    raw$draftDetails$teamAbbrev
+                else
+                    NA_character_,
+                is_active = if (!is.null(raw$isActive)) raw$isActive else NA,
+                headshot_url = if (!is.null(raw$headshot))
+                    raw$headshot
+                else
                     NA_character_
-                ),
-                height_inches = ifelse(
-                    !is.null(raw$heightInInches),
-                    raw$heightInInches,
-                    NA_integer_
-                ),
-                weight_pounds = ifelse(
-                    !is.null(raw$weightInPounds),
-                    raw$weightInPounds,
-                    NA_integer_
-                ),
-                birth_date = ifelse(
-                    !is.null(raw$birthDate),
-                    raw$birthDate,
-                    NA_character_
-                ),
-                birth_city = ifelse(
-                    !is.null(raw$birthCity$default),
-                    raw$birthCity$default,
-                    NA_character_
-                ),
-                birth_state = ifelse(
-                    !is.null(raw$birthStateProvince$default),
-                    raw$birthStateProvince$default,
-                    NA_character_
-                ),
-                birth_country = ifelse(
-                    !is.null(raw$birthCountry),
-                    raw$birthCountry,
-                    NA_character_
-                ),
-                draft_year = ifelse(
-                    !is.null(raw$draftDetails$year),
-                    raw$draftDetails$year,
-                    NA_integer_
-                ),
-                draft_round = ifelse(
-                    !is.null(raw$draftDetails$round),
-                    raw$draftDetails$round,
-                    NA_integer_
-                ),
-                draft_pick = ifelse(
-                    !is.null(raw$draftDetails$pickInRound),
-                    raw$draftDetails$pickInRound,
-                    NA_integer_
-                ),
-                draft_overall = ifelse(
-                    !is.null(raw$draftDetails$overallPick),
-                    raw$draftDetails$overallPick,
-                    NA_integer_
-                ),
-                draft_team_abbr = ifelse(
-                    !is.null(raw$draftDetails$teamAbbrev),
-                    raw$draftDetails$teamAbbrev,
-                    NA_character_
-                ),
-                is_active = ifelse(!is.null(raw$isActive), raw$isActive, NA),
-                headshot_url = ifelse(
-                    !is.null(raw$headshot),
-                    raw$headshot,
-                    NA_character_
-                )
             )
 
             player <- make_fastRhockey_data(
