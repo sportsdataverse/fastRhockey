@@ -33,8 +33,8 @@ landing endpoint's `seasonTotals` payload (e.g. `goals`, `assists`,
 # \donttest{
   try(nhl_player_career_stats(player_id = 8478402))
 #> ── NHL Player Career Stats ──────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:22 UTC
-#> # A tibble: 35 × 41
+#> ℹ Data updated: 2026-05-11 16:03:10 UTC
+#> # A tibble: 36 × 41
 #>    player_id first_name last_name position assists game_type_id games_played
 #>        <int> <chr>      <chr>     <chr>      <int>        <int>        <int>
 #>  1   8478402 Connor     McDavid   C              7            2            7
@@ -47,7 +47,7 @@ landing endpoint's `seasonTotals` payload (e.g. `goals`, `assists`,
 #>  8   8478402 Connor     McDavid   C             71            2           56
 #>  9   8478402 Connor     McDavid   C             15            3           14
 #> 10   8478402 Connor     McDavid   C             76            2           47
-#> # ℹ 25 more rows
+#> # ℹ 26 more rows
 #> # ℹ 34 more variables: goals <int>, league_abbrev <chr>, pim <int>,
 #> #   points <int>, season <int>, sequence <int>, game_winning_goals <int>,
 #> #   plus_minus <int>, power_play_goals <int>, shorthanded_goals <int>,

@@ -37,21 +37,21 @@ filtered by conference.
 # \donttest{
   try(nhl_conferences_info(conference_name = "Eastern"))
 #> ── NHL Conference Information from NHL.com ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:04:26 UTC
+#> ℹ Data updated: 2026-05-11 16:02:16 UTC
 #> # A tibble: 16 × 36
 #>    team_abbr team_name             team_common_name team_logo    conference_name
 #>    <chr>     <chr>                 <chr>            <chr>        <chr>          
 #>  1 CAR       Carolina Hurricanes   Hurricanes       https://ass… Eastern        
 #>  2 BUF       Buffalo Sabres        Sabres           https://ass… Eastern        
-#>  3 MTL       Montréal Canadiens    Canadiens        https://ass… Eastern        
-#>  4 TBL       Tampa Bay Lightning   Lightning        https://ass… Eastern        
-#>  5 PIT       Pittsburgh Penguins   Penguins         https://ass… Eastern        
-#>  6 BOS       Boston Bruins         Bruins           https://ass… Eastern        
-#>  7 OTT       Ottawa Senators       Senators         https://ass… Eastern        
+#>  3 TBL       Tampa Bay Lightning   Lightning        https://ass… Eastern        
+#>  4 MTL       Montréal Canadiens    Canadiens        https://ass… Eastern        
+#>  5 BOS       Boston Bruins         Bruins           https://ass… Eastern        
+#>  6 OTT       Ottawa Senators       Senators         https://ass… Eastern        
+#>  7 PIT       Pittsburgh Penguins   Penguins         https://ass… Eastern        
 #>  8 PHI       Philadelphia Flyers   Flyers           https://ass… Eastern        
 #>  9 WSH       Washington Capitals   Capitals         https://ass… Eastern        
-#> 10 CBJ       Columbus Blue Jackets Blue Jackets     https://ass… Eastern        
-#> 11 DET       Detroit Red Wings     Red Wings        https://ass… Eastern        
+#> 10 DET       Detroit Red Wings     Red Wings        https://ass… Eastern        
+#> 11 CBJ       Columbus Blue Jackets Blue Jackets     https://ass… Eastern        
 #> 12 NYI       New York Islanders    Islanders        https://ass… Eastern        
 #> 13 NJD       New Jersey Devils     Devils           https://ass… Eastern        
 #> 14 FLA       Florida Panthers      Panthers         https://ass… Eastern        

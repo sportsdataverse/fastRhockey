@@ -39,7 +39,7 @@ failure.
 # \donttest{
   try(nhl_all_players_by_season(season = 2024))
 #> ── NHL All Players by Season ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:04:23 UTC
+#> ℹ Data updated: 2026-05-11 16:02:13 UTC
 #> # A tibble: 853 × 15
 #>    player_id first_name last_name full_name         sweater_number position_code
 #>        <int> <chr>      <chr>     <chr>                      <int> <chr>        

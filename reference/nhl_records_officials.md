@@ -28,7 +28,7 @@ A `fastRhockey_data` tibble of officials, or `NULL` on failure.
 # \donttest{
   try(nhl_records_officials())
 #> ── NHL Records Officials ────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:40 UTC
+#> ℹ Data updated: 2026-05-11 16:03:29 UTC
 #> # A tibble: 600 × 23
 #>       id active association_url birth_city     birth_date  coach_id country_code
 #>    <int> <lgl>  <chr>           <chr>          <chr>          <int> <chr>       

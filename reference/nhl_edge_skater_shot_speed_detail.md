@@ -40,20 +40,20 @@ response.
 # \donttest{
   try(nhl_edge_skater_shot_speed_detail(player_id = 8478402))
 #> ── NHL Edge Skater Shot Speed Detail ────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:04:50 UTC
+#> ℹ Data updated: 2026-05-11 16:02:40 UTC
 #> # A tibble: 10 × 24
 #>    game_center_link       game_date game_type player_on_home_team time_in_period
 #>    <chr>                  <chr>         <int> <lgl>               <chr>         
-#>  1 /gamecenter/edm-vs-cb… 2025-11-…         2 FALSE               00:39         
-#>  2 /gamecenter/vgk-vs-ed… 2025-12-…         2 FALSE               08:39         
-#>  3 /gamecenter/ana-vs-ed… 2026-03-…         2 FALSE               06:57         
-#>  4 /gamecenter/nsh-vs-ed… 2026-01-…         2 FALSE               05:18         
-#>  5 /gamecenter/edm-vs-st… 2026-03-…         2 FALSE               09:56         
-#>  6 /gamecenter/sjs-vs-ed… 2026-01-…         2 FALSE               07:36         
-#>  7 /gamecenter/stl-vs-ed… 2026-01-…         2 FALSE               07:24         
-#>  8 /gamecenter/cgy-vs-ed… 2025-12-…         2 FALSE               09:12         
-#>  9 /gamecenter/edm-vs-da… 2025-11-…         2 FALSE               04:13         
-#> 10 /gamecenter/edm-vs-ws… 2025-11-…         2 FALSE               07:13         
+#>  1 /gamecenter/ana-vs-ed… 2026-04-…         3 FALSE               19:20         
+#>  2 /gamecenter/ana-vs-ed… 2026-04-…         3 FALSE               13:49         
+#>  3 /gamecenter/ana-vs-ed… 2026-04-…         3 FALSE               11:14         
+#>  4 /gamecenter/edm-vs-an… 2026-04-…         3 FALSE               07:59         
+#>  5 /gamecenter/edm-vs-an… 2026-04-…         3 FALSE               05:36         
+#>  6 /gamecenter/edm-vs-an… 2026-04-…         3 FALSE               01:42         
+#>  7 /gamecenter/edm-vs-an… 2026-04-…         3 FALSE               19:11         
+#>  8 /gamecenter/edm-vs-an… 2026-04-…         3 FALSE               11:05         
+#>  9 /gamecenter/edm-vs-an… 2026-04-…         3 FALSE               02:27         
+#> 10 /gamecenter/edm-vs-an… 2026-04-…         3 FALSE               01:09         
 #> # ℹ 19 more variables: shot_speed_imperial <dbl>, shot_speed_metric <dbl>,
 #> #   period_descriptor_number <int>, period_descriptor_period_type <chr>,
 #> #   period_descriptor_max_regulation_periods <int>, home_team_abbrev <chr>,

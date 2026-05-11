@@ -21,6 +21,7 @@ You can install the CRAN version of
 with:
 
 ``` r
+
 install.packages("fastRhockey")
 ```
 
@@ -28,6 +29,7 @@ You can install the development version from
 [GitHub](https://github.com/sportsdataverse/fastRhockey) with:
 
 ``` r
+
 if (!requireNamespace('pak', quietly = TRUE)){
   install.packages('pak')
 }
@@ -47,6 +49,7 @@ leaders.
 ### Teams
 
 ``` r
+
 library(dplyr)
 
 pwhl_teams()
@@ -57,6 +60,7 @@ pwhl_teams()
 Let’s pull the 2024 PWHL season schedule:
 
 ``` r
+
 schedule <- pwhl_schedule(season = 2024)
 
 schedule %>%
@@ -72,6 +76,7 @@ information for every game in the season.
 ### Standings
 
 ``` r
+
 pwhl_standings(season = 2024) %>%
   dplyr::select(team_rank, team, games_played, points,
                 wins, losses, goals_for, goals_against)
@@ -84,6 +89,7 @@ Pick a game from the schedule and pull individual player stats.
 returns a list with two data frames: skaters and goalies.
 
 ``` r
+
 box <- pwhl_player_box(game_id = 27)
 
 # Skater stats
@@ -108,6 +114,7 @@ results, penalties, goals with assist information, and plus/minus player
 tracking.
 
 ``` r
+
 pbp <- pwhl_pbp(game_id = 27)
 
 pbp %>%
@@ -125,6 +132,7 @@ information, coordinates (raw and transformed), and game context.
 Pull league-wide goalie or skater stats:
 
 ``` r
+
 # Goalie stats
 pwhl_stats(position = "goalie", season = 2024) %>%
   dplyr::select(player_name, team, games_played,
@@ -133,6 +141,7 @@ pwhl_stats(position = "goalie", season = 2024) %>%
 ```
 
 ``` r
+
 # Skater stats (all teams)
 pwhl_stats(position = "skater", season = 2024) %>%
   dplyr::select(player_name, team, games_played,
@@ -150,6 +159,7 @@ pwhl_stats(position = "skater", season = 2024) %>%
 ### Schedule
 
 ``` r
+
 nhl_schedule(season = "20242025") %>%
   head(10)
 ```
@@ -157,6 +167,7 @@ nhl_schedule(season = "20242025") %>%
 ### Standings
 
 ``` r
+
 nhl_standings(season = "20242025") %>%
   head(10)
 ```
@@ -171,6 +182,7 @@ game information.
 provides play-by-play with shift data integrated.
 
 ``` r
+
 feed <- nhl_game_feed(game_id = 2024020001)
 
 dplyr::glimpse(feed)
@@ -179,6 +191,7 @@ dplyr::glimpse(feed)
 ### Player Stats
 
 ``` r
+
 # Skater season stats
 nhl_stats_skaters(season = "20242025") %>%
   head(10)
@@ -187,6 +200,7 @@ nhl_stats_skaters(season = "20242025") %>%
 ### Draft Data
 
 ``` r
+
 # Get 2024 draft picks (round 1)
 nhl_draft_year(year = 2024, round = 1)
 ```
@@ -198,6 +212,7 @@ For bulk historical data, use the loader functions that pull from the
 repository:
 
 ``` r
+
 # Full season of play-by-play
 pbp <- load_nhl_pbp(seasons = 2024)
 

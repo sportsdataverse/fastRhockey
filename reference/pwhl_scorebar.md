@@ -50,21 +50,23 @@ A data frame with recent/upcoming game scores, or NULL if unavailable.
 # \donttest{
   try(pwhl_scorebar(days_back = 7, days_ahead = 7))
 #> ── PWHL Scorebar ────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:06:22 UTC
-#> # A tibble: 26 × 15
+#> ℹ Data updated: 2026-05-11 16:04:15 UTC
+#> # A tibble: 13 × 15
 #>    game_id season_id date       game_date   status home_team        home_team_id
 #>      <dbl>     <dbl> <chr>      <chr>       <chr>  <chr>                   <dbl>
-#>  1     301         8 2026-03-29 Sun, Mar 29 4      Toronto Sceptres            6
-#>  2     302         8 2026-03-29 Sun, Mar 29 4      Minnesota Frost             2
-#>  3     303         8 2026-03-29 Sun, Mar 29 4      Seattle Torrent             8
-#>  4     304         8 2026-04-01 Wed, Apr 1  4      New York Sirens             4
-#>  5     305         8 2026-04-01 Wed, Apr 1  4      Montréal Victoi…            3
-#>  6     306         8 2026-04-01 Wed, Apr 1  4      Ottawa Charge               5
-#>  7     282         8 2026-04-03 Fri, Apr 3  4      Ottawa Charge               5
-#>  8     307         8 2026-04-04 Sat, Apr 4  4      Minnesota Frost             2
-#>  9     308         8 2026-04-04 Sat, Apr 4  4      New York Sirens             4
-#> 10     309         8 2026-04-07 Tue, Apr 7  4      Montréal Victoi…            3
-#> # ℹ 16 more rows
+#>  1     329         8 2026-04-25 Sat, Apr 25 4      Boston Fleet                1
+#>  2     328         8 2026-04-25 Sat, Apr 25 4      Ottawa Charge               5
+#>  3     327         8 2026-04-25 Sat, Apr 25 4      Vancouver Golde…            9
+#>  4     326         8 2026-04-25 Sat, Apr 25 4      Seattle Torrent             8
+#>  5     338         9 2026-04-30 Thu, Apr 30 4      Boston Fleet                1
+#>  6     340         9 2026-05-02 Sat, May 2  4      Montréal Victoi…            3
+#>  7     339         9 2026-05-02 Sat, May 2  4      Boston Fleet                1
+#>  8     341         9 2026-05-05 Tue, May 5  4      Montréal Victoi…            3
+#>  9     342         9 2026-05-07 Thu, May 7  4      Minnesota Frost             2
+#> 10     343         9 2026-05-08 Fri, May 8  4      Ottawa Charge               5
+#> 11     345         9 2026-05-08 Fri, May 8  4      Minnesota Frost             2
+#> 12     344         9 2026-05-10 Sun, May 10 4      Ottawa Charge               5
+#> 13     347         9 2026-05-11 Mon, May 11 1      Montréal Victoi…            3
 #> # ℹ 8 more variables: home_team_code <chr>, home_score <chr>, away_team <chr>,
 #> #   away_team_id <dbl>, away_team_code <chr>, away_score <chr>, period <chr>,
 #> #   clock <chr>

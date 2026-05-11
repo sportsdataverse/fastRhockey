@@ -209,21 +209,21 @@
 <div class="section level3">
 <h3 id="season-format-conventions">Season Format Conventions<a class="anchor" aria-label="anchor" href="#season-format-conventions"></a></h3>
 <p>Different APIs use different season formats:</p>
-<table class="table"><colgroup><col width="34%"><col width="30%"><col width="34%"></colgroup><thead><tr class="header"><th>Context</th>
+<table class="table"><colgroup><col width="34%"><col width="30%"><col width="34%"></colgroup><thead><tr><th>Context</th>
 <th>Format</th>
 <th>Example</th>
-</tr></thead><tbody><tr class="odd"><td>NHL Web API / Stats API parameter</td>
+</tr></thead><tbody><tr><td>NHL Web API / Stats API parameter</td>
 <td>Concatenated years string</td>
 <td><code>"20242025"</code></td>
-</tr><tr class="even"><td>
+</tr><tr><td>
 <code><a href="reference/most_recent_nhl_season.html">most_recent_nhl_season()</a></code> return value</td>
 <td>Numeric end year</td>
 <td><code>2025</code></td>
-</tr><tr class="odd"><td>
+</tr><tr><td>
 <code><a href="reference/most_recent_nhl_season_api_param.html">most_recent_nhl_season_api_param()</a></code> return value</td>
 <td>Concatenated string</td>
 <td><code>"20242025"</code></td>
-</tr><tr class="even"><td>PWHL / PHF season parameter</td>
+</tr><tr><td>PWHL / PHF season parameter</td>
 <td>Numeric year</td>
 <td><code>2024</code></td>
 </tr></tbody></table></div>
@@ -278,16 +278,16 @@
 </li>
 <li>
 <p><strong>League-specific test toggles</strong> (via <code>tests/testthat/helper-skip.R</code>):</p>
-<table class="table"><colgroup><col width="34%"><col width="31%"><col width="34%"></colgroup><thead><tr class="header"><th>Variable</th>
+<table class="table"><colgroup><col width="34%"><col width="31%"><col width="34%"></colgroup><thead><tr><th>Variable</th>
 <th>Default</th>
 <th>Controls</th>
-</tr></thead><tbody><tr class="odd"><td><code>RUN_NHL_TESTS</code></td>
+</tr></thead><tbody><tr><td><code>RUN_NHL_TESTS</code></td>
 <td><code>"true"</code></td>
 <td>NHL API tests (<code>skip_nhl_test()</code>)</td>
-</tr><tr class="even"><td><code>RUN_PWHL_TESTS</code></td>
+</tr><tr><td><code>RUN_PWHL_TESTS</code></td>
 <td><code>"true"</code></td>
 <td>PWHL API tests (<code>skip_pwhl_test()</code>)</td>
-</tr><tr class="odd"><td><code>RUN_PHF_TESTS</code></td>
+</tr><tr><td><code>RUN_PHF_TESTS</code></td>
 <td><code>"false"</code></td>
 <td>PHF deprecated tests (<code>skip_phf_test()</code>)</td>
 </tr></tbody></table><p>Set them before running tests:</p>
@@ -311,44 +311,44 @@
 <pre><code>&lt;type&gt;(&lt;scope&gt;): &lt;description&gt;</code></pre>
 <div class="section level3">
 <h3 id="types">Types<a class="anchor" aria-label="anchor" href="#types"></a></h3>
-<table class="table"><colgroup><col width="31%"><col width="68%"></colgroup><thead><tr class="header"><th>Type</th>
+<table class="table"><colgroup><col width="31%"><col width="68%"></colgroup><thead><tr><th>Type</th>
 <th>When to Use</th>
-</tr></thead><tbody><tr class="odd"><td><code>feat</code></td>
+</tr></thead><tbody><tr><td><code>feat</code></td>
 <td>A new feature or function</td>
-</tr><tr class="even"><td><code>fix</code></td>
+</tr><tr><td><code>fix</code></td>
 <td>A bug fix</td>
-</tr><tr class="odd"><td><code>docs</code></td>
+</tr><tr><td><code>docs</code></td>
 <td>Documentation-only changes</td>
-</tr><tr class="even"><td><code>style</code></td>
+</tr><tr><td><code>style</code></td>
 <td>Formatting, whitespace, semicolons (no logic change)</td>
-</tr><tr class="odd"><td><code>refactor</code></td>
+</tr><tr><td><code>refactor</code></td>
 <td>Code change that neither fixes a bug nor adds a feature</td>
-</tr><tr class="even"><td><code>test</code></td>
+</tr><tr><td><code>test</code></td>
 <td>Adding or updating tests</td>
-</tr><tr class="odd"><td><code>build</code></td>
+</tr><tr><td><code>build</code></td>
 <td>Changes to build system or dependencies (DESCRIPTION, NAMESPACE)</td>
-</tr><tr class="even"><td><code>ci</code></td>
+</tr><tr><td><code>ci</code></td>
 <td>Changes to CI configuration (GitHub Actions workflows)</td>
-</tr><tr class="odd"><td><code>chore</code></td>
+</tr><tr><td><code>chore</code></td>
 <td>Maintenance tasks (version bumps, config updates)</td>
 </tr></tbody></table></div>
 <div class="section level3">
 <h3 id="scopes">Scopes<a class="anchor" aria-label="anchor" href="#scopes"></a></h3>
-<table class="table"><thead><tr class="header"><th>Scope</th>
+<table class="table"><thead><tr><th>Scope</th>
 <th>Covers</th>
-</tr></thead><tbody><tr class="odd"><td><code>nhl</code></td>
+</tr></thead><tbody><tr><td><code>nhl</code></td>
 <td>NHL functions and helpers</td>
-</tr><tr class="even"><td><code>phf</code></td>
+</tr><tr><td><code>phf</code></td>
 <td>PHF functions (defunct league)</td>
-</tr><tr class="odd"><td><code>pwhl</code></td>
+</tr><tr><td><code>pwhl</code></td>
 <td>PWHL functions</td>
-</tr><tr class="even"><td><code>xg</code></td>
+</tr><tr><td><code>xg</code></td>
 <td>Expected goals model pipeline</td>
-</tr><tr class="odd"><td><code>pkgdown</code></td>
+</tr><tr><td><code>pkgdown</code></td>
 <td>pkgdown site and vignettes</td>
-</tr><tr class="even"><td><code>ci</code></td>
+</tr><tr><td><code>ci</code></td>
 <td>GitHub Actions and CI/CD</td>
-</tr><tr class="odd"><td><code>loader</code></td>
+</tr><tr><td><code>loader</code></td>
 <td>Data loader functions</td>
 </tr></tbody></table></div>
 <div class="section level3">

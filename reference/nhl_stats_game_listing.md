@@ -39,7 +39,7 @@ A `fastRhockey_data` tibble of games, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_game_listing())
 #> ── NHL Stats Game Listing ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:59 UTC
+#> ℹ Data updated: 2026-05-11 16:03:53 UTC
 #> # A tibble: 100 × 13
 #>            id eastern_start_time  game_date  game_number game_schedule_state_id
 #>         <int> <chr>               <chr>            <int>                  <int>

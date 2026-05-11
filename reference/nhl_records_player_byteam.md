@@ -30,8 +30,8 @@ A `fastRhockey_data` tibble of players, or `NULL` on failure.
 # \donttest{
   try(nhl_records_player_byteam(team_id = 10))
 #> ── NHL Records Player by Team ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:45 UTC
-#> # A tibble: 72 × 71
+#> ℹ Data updated: 2026-05-11 16:03:33 UTC
+#> # A tibble: 73 × 71
 #>         id accrued_seasons add_names age_sign_waiver age_signel_fa alert
 #>      <int>           <int> <lgl>               <int>         <int> <chr>
 #>  1 8475690              13 NA                     21            20 N    
@@ -39,12 +39,12 @@ A `fastRhockey_data` tibble of players, or `NULL` on failure.
 #>  3 8476988               8 NA                     22            22 Y    
 #>  4 8477541               2 NA                     21            21 N    
 #>  5 8479528              NA NA                     NA            NA N    
-#>  6 8479599              NA NA                     NA            NA N    
-#>  7 8479968               2 NA                     22            22 N    
-#>  8 8480284              NA NA                     NA            NA N    
-#>  9 8480870               1 NA                     19            19 N    
-#> 10 8480977               0 NA                     18            18 N    
-#> # ℹ 62 more rows
+#>  6 8479543               4 NA                     20            20 Y    
+#>  7 8479599              NA NA                     NA            NA N    
+#>  8 8479968               2 NA                     22            22 N    
+#>  9 8480284              NA NA                     NA            NA N    
+#> 10 8480870               1 NA                     19            19 N    
+#> # ℹ 63 more rows
 #> # ℹ 65 more variables: birth_city <chr>, birth_country <chr>, birth_date <chr>,
 #> #   birth_state_province <chr>, career_team_id <lgl>,
 #> #   central_registry_position <chr>, club_elec_arb <chr>,

@@ -34,8 +34,8 @@ A `fastRhockey_data` tibble of award details, or `NULL` on failure.
 # \donttest{
   try(nhl_records_award_details())
 #> ── NHL Records Award Details ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:26 UTC
-#> # A tibble: 5,357 × 20
+#> ℹ Data updated: 2026-05-11 16:03:15 UTC
+#> # A tibble: 5,368 × 20
 #>       id awarded_posthumously coach_id created_on       detail_summary full_name
 #>    <int> <lgl>                   <int> <chr>            <lgl>          <chr>    
 #>  1     1 FALSE                      NA 2021-02-17T05:3… NA             Zach Bog…
@@ -48,7 +48,7 @@ A `fastRhockey_data` tibble of award details, or `NULL` on failure.
 #>  8     8 FALSE                      NA 2021-02-17T05:3… NA             Victor H…
 #>  9     9 FALSE                      NA 2021-02-17T05:3… NA             Tyler Jo…
 #> 10    10 FALSE                      NA 2021-02-17T05:3… NA             Alex Kil…
-#> # ℹ 5,347 more rows
+#> # ℹ 5,358 more rows
 #> # ℹ 14 more variables: general_manager_id <int>, image_url <chr>,
 #> #   is_rookie <lgl>, player_id <int>, player_image_caption <lgl>,
 #> #   player_image_url <chr>, season_id <int>, status <chr>, summary <chr>,
@@ -56,7 +56,7 @@ A `fastRhockey_data` tibble of award details, or `NULL` on failure.
 #> #   vote_count <int>
   try(nhl_records_award_details(season_id = 20232024))
 #> ── NHL Records Award Details ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:26 UTC
+#> ℹ Data updated: 2026-05-11 16:03:15 UTC
 #> # A tibble: 72 × 20
 #>       id awarded_posthumously coach_id created_on       detail_summary full_name
 #>    <int> <lgl>                   <int> <chr>            <lgl>          <chr>    

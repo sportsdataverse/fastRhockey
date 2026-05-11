@@ -304,37 +304,37 @@ vignettes/                  # Vignettes for pkgdown site</code></pre>
 <div class="section level3">
 <h3 id="api-architecture">API Architecture<a class="anchor" aria-label="anchor" href="#api-architecture"></a></h3>
 <p>Five distinct backends:</p>
-<table class="table"><colgroup><col width="26%"><col width="29%"><col width="26%"><col width="17%"></colgroup><thead><tr class="header"><th>Backend</th>
+<table class="table"><colgroup><col width="26%"><col width="29%"><col width="26%"><col width="17%"></colgroup><thead><tr><th>Backend</th>
 <th>Base URL</th>
 <th>Used By</th>
 <th>Auth</th>
-</tr></thead><tbody><tr class="odd"><td>NHL Web API</td>
+</tr></thead><tbody><tr><td>NHL Web API</td>
 <td><code>api-web.nhle.com/v1/</code></td>
 <td>Game feed, schedule, standings, rosters, gamecenter, draft, scoreboard, scores, meta, location, partner-game, where-to-watch, smartlinks, postal-lookup, ppt-replay, wsc</td>
 <td>None</td>
-</tr><tr class="even"><td>NHL Edge API</td>
+</tr><tr><td>NHL Edge API</td>
 <td>
 <code>api-web.nhle.com/v1/edge/...</code> and <code>v1/cat/edge/...</code>
 </td>
 <td>Skater/goalie/team Edge advanced metrics (shot location, shot speed, skating speed, skating distance, zone time, comparisons, top-10 leaderboards)</td>
 <td>None</td>
-</tr><tr class="odd"><td>NHL Stats API</td>
+</tr><tr><td>NHL Stats API</td>
 <td><code>api.nhle.com/stats/rest/{lang}/</code></td>
 <td>Skater/goalie/team stats, draft stats, seasons, franchise, players, glossary, country, config, leaders, milestones</td>
 <td>None</td>
-</tr><tr class="even"><td>NHL Records API</td>
+</tr><tr><td>NHL Records API</td>
 <td><code>records.nhl.com/site/api/</code></td>
 <td>Franchise totals, player/skater/goalie career and real-time stats, draft lottery, hall of fame, trophies, awards, attendance, venues, officials, combine</td>
 <td>None</td>
-</tr><tr class="odd"><td>HockeyTech (statviewfeed)</td>
+</tr><tr><td>HockeyTech (statviewfeed)</td>
 <td><code>lscluster.hockeytech.com/feed/?feed=statviewfeed</code></td>
 <td>PWHL schedule, standings, roster, PBP, box scores, stats</td>
 <td>Public key in URL</td>
-</tr><tr class="even"><td>HockeyTech (modulekit)</td>
+</tr><tr><td>HockeyTech (modulekit)</td>
 <td><code>lscluster.hockeytech.com/feed/?feed=modulekit</code></td>
 <td>PWHL seasons, player info, leaders, transactions, streaks, brackets, scorebar</td>
 <td>Public key in URL</td>
-</tr><tr class="odd"><td>HockeyTech (gc)</td>
+</tr><tr><td>HockeyTech (gc)</td>
 <td><code>lscluster.hockeytech.com/feed/?feed=gc</code></td>
 <td>PWHL game summary</td>
 <td>Public key in URL</td>

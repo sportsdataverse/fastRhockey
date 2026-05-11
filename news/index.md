@@ -2,6 +2,28 @@
 
 ## **fastRhockey 1.0.0 (continued development)**
 
+#### **`nhl_schedule()` gains a `game_type` parameter**
+
+- [`nhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/nhl_schedule.md)
+  gains a `game_type` parameter accepting `"both"` (default),
+  `"regular"`, or `"playoffs"`. In season mode the function now returns
+  regular-season and playoff games in a single tibble. Three new columns
+  (`series_letter`, `playoff_round`, `series_game_number`) are appended
+  to the output; they are `NA` on regular-season rows.
+- **Behavior change:** `nhl_schedule(season = ...)` previously returned
+  only what the `club-schedule-season` endpoint provided, which mixed
+  preseason (`PR`), regular (`R`), and playoff (`P`) rows. With this
+  release:
+  - `game_type` defaults to `"both"`, so playoff games are now included
+    by default. Pass `game_type = "regular"` to restore regular-only
+    behavior.
+  - Preseason (`PR`) rows are no longer returned by season-mode calls
+    regardless of `game_type`. Use `nhl_schedule(day = ...)` to retrieve
+    preseason game schedules.
+- [`nhl_playoff_schedule()`](https://fastRhockey.sportsdataverse.org/reference/nhl_playoff_schedule.md)
+  is unchanged in its public API; internally it now delegates its HTTP
+  call to a new shared internal helper `.fetch_playoff_series()`.
+
 #### **PWHL parity: 3 new NHL loaders + datasets**
 
 Three new season-level NHL loaders that bring NHL coverage in line with
@@ -11,11 +33,11 @@ and powered by new extractors in
 `fastRhockey-nhl-raw/R/scrape_nhl_raw.R` and
 `fastRhockey-nhl-data/R/nhl_data_creation.R`.
 
-| function                                                                                                      | release tag           | rows per game                |
-|---------------------------------------------------------------------------------------------------------------|-----------------------|------------------------------|
-| [`load_nhl_officials()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_officials.md)             | `nhl_officials`       | one per official (refs+lins) |
-| [`load_nhl_shots_by_period()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shots_by_period.md) | `nhl_shots_by_period` | one per team per period      |
-| [`load_nhl_shootout()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shootout.md)               | `nhl_shootout`        | one per shootout attempt     |
+| function | release tag | rows per game |
+|----|----|----|
+| [`load_nhl_officials()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_officials.md) | `nhl_officials` | one per official (refs+lins) |
+| [`load_nhl_shots_by_period()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shots_by_period.md) | `nhl_shots_by_period` | one per team per period |
+| [`load_nhl_shootout()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shootout.md) | `nhl_shootout` | one per shootout attempt |
 
 #### **`nhl_schedule()` data-availability flags**
 
@@ -60,11 +82,11 @@ omitted, the `/now` form is used to fetch the current season. All
 wrappers share an internal `.nhl_edge_api()` helper in
 `R/helpers_nhl_edge.R`.
 
-| family | functions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| family | functions |
+|----|----|
 | Skater | [`nhl_edge_skater_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_detail.md), [`nhl_edge_skater_landing()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_landing.md), [`nhl_edge_skater_comparison()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_comparison.md), [`nhl_edge_skater_shot_location_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_shot_location_detail.md), [`nhl_edge_skater_shot_location_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_shot_location_top_10.md), [`nhl_edge_skater_shot_speed_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_shot_speed_detail.md), [`nhl_edge_skater_shot_speed_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_shot_speed_top_10.md), [`nhl_edge_skater_skating_speed_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_skating_speed_detail.md), [`nhl_edge_skater_speed_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_speed_top_10.md), [`nhl_edge_skater_skating_distance_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_skating_distance_detail.md), [`nhl_edge_skater_distance_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_distance_top_10.md), [`nhl_edge_skater_zone_time()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_zone_time.md), [`nhl_edge_skater_zone_time_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_zone_time_top_10.md), [`nhl_cat_edge_skater_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_cat_edge_skater_detail.md) |
-| Goalie | [`nhl_edge_goalie_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_detail.md), [`nhl_edge_goalie_landing()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_landing.md), [`nhl_edge_goalie_comparison()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_comparison.md), [`nhl_edge_goalie_5v5_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_5v5_detail.md), [`nhl_edge_goalie_5v5_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_5v5_top_10.md), [`nhl_edge_goalie_save_percentage_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_save_percentage_detail.md), [`nhl_edge_goalie_edge_save_pctg_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_edge_save_pctg_top_10.md), [`nhl_edge_goalie_shot_location_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_shot_location_detail.md), [`nhl_edge_goalie_shot_location_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_shot_location_top_10.md), [`nhl_cat_edge_goalie_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_cat_edge_goalie_detail.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Team   | [`nhl_edge_team_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_detail.md), [`nhl_edge_team_landing()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_landing.md), [`nhl_edge_team_shot_location_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_shot_location_detail.md), [`nhl_edge_team_shot_location_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_shot_location_top_10.md), [`nhl_edge_team_shot_speed_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_shot_speed_detail.md), [`nhl_edge_team_skating_speed_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_skating_speed_detail.md), [`nhl_edge_team_skating_speed_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_skating_speed_top_10.md), [`nhl_edge_team_skating_distance_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_skating_distance_detail.md), [`nhl_edge_team_skating_distance_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_skating_distance_top_10.md), [`nhl_edge_team_zone_time_details()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_zone_time_details.md), [`nhl_edge_team_zone_time_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_zone_time_top_10.md)                                                                                                                                                                                                                                                                                                                                                                    |
+| Goalie | [`nhl_edge_goalie_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_detail.md), [`nhl_edge_goalie_landing()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_landing.md), [`nhl_edge_goalie_comparison()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_comparison.md), [`nhl_edge_goalie_5v5_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_5v5_detail.md), [`nhl_edge_goalie_5v5_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_5v5_top_10.md), [`nhl_edge_goalie_save_percentage_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_save_percentage_detail.md), [`nhl_edge_goalie_edge_save_pctg_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_edge_save_pctg_top_10.md), [`nhl_edge_goalie_shot_location_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_shot_location_detail.md), [`nhl_edge_goalie_shot_location_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_shot_location_top_10.md), [`nhl_cat_edge_goalie_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_cat_edge_goalie_detail.md) |
+| Team | [`nhl_edge_team_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_detail.md), [`nhl_edge_team_landing()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_landing.md), [`nhl_edge_team_shot_location_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_shot_location_detail.md), [`nhl_edge_team_shot_location_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_shot_location_top_10.md), [`nhl_edge_team_shot_speed_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_shot_speed_detail.md), [`nhl_edge_team_skating_speed_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_skating_speed_detail.md), [`nhl_edge_team_skating_speed_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_skating_speed_top_10.md), [`nhl_edge_team_skating_distance_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_skating_distance_detail.md), [`nhl_edge_team_skating_distance_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_skating_distance_top_10.md), [`nhl_edge_team_zone_time_details()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_zone_time_details.md), [`nhl_edge_team_zone_time_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_zone_time_top_10.md) |
 
 #### **New NHL Records API integration (25 functions)**
 
@@ -224,18 +246,18 @@ All accept a `seasons` vector (Min: `2011`) and return a
 `fastRhockey_data` data frame, mirroring the existing `load_nhl_*()`
 API:
 
-| function                                                                                                | release tag            | rows per game            |
-|---------------------------------------------------------------------------------------------------------|------------------------|--------------------------|
-| [`load_nhl_skater_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_skater_box.md)     | `nhl_skater_boxscores` | one per skater           |
-| [`load_nhl_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_goalie_box.md)     | `nhl_goalie_boxscores` | one per goalie           |
-| [`load_nhl_game_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_game_rosters.md) | `nhl_game_rosters`     | one per dressed player   |
-| [`load_nhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_game_info.md)       | `nhl_game_info`        | one                      |
-| [`load_nhl_scoring()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_scoring.md)           | `nhl_scoring`          | one per goal             |
-| [`load_nhl_penalties()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_penalties.md)       | `nhl_penalties`        | one per penalty          |
-| [`load_nhl_three_stars()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_three_stars.md)   | `nhl_three_stars`      | up to three              |
-| [`load_nhl_scratches()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_scratches.md)       | `nhl_scratches`        | one per scratched player |
-| [`load_nhl_linescore()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_linescore.md)       | `nhl_linescore`        | one                      |
-| [`load_nhl_shifts()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shifts.md)             | `nhl_shifts`           | one per shift            |
+| function | release tag | rows per game |
+|----|----|----|
+| [`load_nhl_skater_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_skater_box.md) | `nhl_skater_boxscores` | one per skater |
+| [`load_nhl_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_goalie_box.md) | `nhl_goalie_boxscores` | one per goalie |
+| [`load_nhl_game_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_game_rosters.md) | `nhl_game_rosters` | one per dressed player |
+| [`load_nhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_game_info.md) | `nhl_game_info` | one |
+| [`load_nhl_scoring()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_scoring.md) | `nhl_scoring` | one per goal |
+| [`load_nhl_penalties()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_penalties.md) | `nhl_penalties` | one per penalty |
+| [`load_nhl_three_stars()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_three_stars.md) | `nhl_three_stars` | up to three |
+| [`load_nhl_scratches()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_scratches.md) | `nhl_scratches` | one per scratched player |
+| [`load_nhl_linescore()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_linescore.md) | `nhl_linescore` | one |
+| [`load_nhl_shifts()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shifts.md) | `nhl_shifts` | one per shift |
 
 The six pre-existing loaders
 ([`load_nhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp.md),
@@ -257,19 +279,19 @@ All accept a `seasons` vector (Min: `2024`) and return a
 `fastRhockey_data` data frame, mirroring the existing `load_pwhl_*()`
 API:
 
-| function                                                                                                        | release tag             | rows per game          |
-|-----------------------------------------------------------------------------------------------------------------|-------------------------|------------------------|
-| [`load_pwhl_skater_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_skater_box.md)           | `pwhl_skater_boxscores` | one per skater         |
-| [`load_pwhl_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_goalie_box.md)           | `pwhl_goalie_boxscores` | one per goalie         |
-| [`load_pwhl_team_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_team_box.md)               | `pwhl_team_boxscores`   | two (home/away)        |
-| [`load_pwhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_game_info.md)             | `pwhl_game_info`        | one                    |
-| [`load_pwhl_scoring_summary()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_scoring_summary.md) | `pwhl_scoring_summary`  | one per goal           |
-| [`load_pwhl_penalty_summary()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_penalty_summary.md) | `pwhl_penalty_summary`  | one per penalty        |
-| [`load_pwhl_three_stars()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_three_stars.md)         | `pwhl_three_stars`      | up to three            |
-| [`load_pwhl_officials()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_officials.md)             | `pwhl_officials`        | one per official       |
-| [`load_pwhl_shots_by_period()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shots_by_period.md) | `pwhl_shots_by_period`  | one per period         |
-| [`load_pwhl_shootout()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shootout.md)               | `pwhl_shootout`         | one per attempt        |
-| [`load_pwhl_game_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_game_rosters.md)       | `pwhl_game_rosters`     | one per dressed player |
+| function | release tag | rows per game |
+|----|----|----|
+| [`load_pwhl_skater_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_skater_box.md) | `pwhl_skater_boxscores` | one per skater |
+| [`load_pwhl_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_goalie_box.md) | `pwhl_goalie_boxscores` | one per goalie |
+| [`load_pwhl_team_box()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_team_box.md) | `pwhl_team_boxscores` | two (home/away) |
+| [`load_pwhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_game_info.md) | `pwhl_game_info` | one |
+| [`load_pwhl_scoring_summary()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_scoring_summary.md) | `pwhl_scoring_summary` | one per goal |
+| [`load_pwhl_penalty_summary()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_penalty_summary.md) | `pwhl_penalty_summary` | one per penalty |
+| [`load_pwhl_three_stars()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_three_stars.md) | `pwhl_three_stars` | up to three |
+| [`load_pwhl_officials()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_officials.md) | `pwhl_officials` | one per official |
+| [`load_pwhl_shots_by_period()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shots_by_period.md) | `pwhl_shots_by_period` | one per period |
+| [`load_pwhl_shootout()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shootout.md) | `pwhl_shootout` | one per attempt |
+| [`load_pwhl_game_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_game_rosters.md) | `pwhl_game_rosters` | one per dressed player |
 
 The four pre-existing loaders
 ([`load_pwhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_pbp.md),

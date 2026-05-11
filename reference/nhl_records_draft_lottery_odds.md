@@ -25,8 +25,8 @@ A `fastRhockey_data` tibble of draft lottery odds, or `NULL` on failure.
 # \donttest{
   try(nhl_records_draft_lottery_odds())
 #> ── NHL Records Draft Lottery Odds ───────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:27 UTC
-#> # A tibble: 31 × 5
+#> ℹ Data updated: 2026-05-11 16:03:16 UTC
+#> # A tibble: 32 × 5
 #>       id draft_year format_content                     odds_content result_notes
 #>    <int>      <int> <chr>                              <chr>        <chr>       
 #>  1     1       2003 "<p>The 2003 NHL Draft Lottery wa… "<table bor… * In 2003, …
@@ -39,6 +39,6 @@ A `fastRhockey_data` tibble of draft lottery odds, or `NULL` on failure.
 #>  8     8       2017 "<p>The 2017 NHL Draft Lottery wa… "<table bor… NA          
 #>  9     9       2016 "<p>The 2016 NHL Draft Lottery wa… "<table bor… NA          
 #> 10    10       2015 "<p>The 2015 NHL Draft Lottery wa… "<table bor… NA          
-#> # ℹ 21 more rows
+#> # ℹ 22 more rows
 # }
 ```

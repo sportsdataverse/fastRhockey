@@ -25,8 +25,8 @@ A `fastRhockey_data` tibble of attendance records, or `NULL` on failure.
 # \donttest{
   try(nhl_records_attendance())
 #> ── NHL Records Attendance ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:26 UTC
-#> # A tibble: 79 × 5
+#> ℹ Data updated: 2026-05-11 16:03:14 UTC
+#> # A tibble: 80 × 5
 #>       id playoff_attendance regular_attendance season_id total_attendance
 #>    <int>              <int>              <int>     <int>            <int>
 #>  1     1            1606364           21545024  20162017         23151388
@@ -39,6 +39,6 @@ A `fastRhockey_data` tibble of attendance records, or `NULL` on failure.
 #>  8     8            1702371           20996455  20092010         22698826
 #>  9     9            1639602           21475223  20082009         23114825
 #> 10    10            1587054           21236255  20072008         22823309
-#> # ℹ 69 more rows
+#> # ℹ 70 more rows
 # }
 ```

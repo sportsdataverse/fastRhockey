@@ -26,7 +26,7 @@ currently active.
 # \donttest{
   try(nhl_draft_tracker())
 #> ── NHL Draft Tracker data from NHL.com ──────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:04:29 UTC
+#> ℹ Data updated: 2026-05-11 16:02:19 UTC
 #> # A tibble: 32 × 16
 #>    pick_in_round overall_pick team_id team_abbrev team_logo_light team_logo_dark
 #>            <int>        <int>   <int> <chr>       <chr>           <chr>         

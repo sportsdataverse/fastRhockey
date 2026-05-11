@@ -34,26 +34,20 @@ Returns a data frame with game-by-game statistics.
 # \donttest{
   try(nhl_player_game_log(player_id = 8478402))
 #> ── NHL Player Game Log ──────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:22 UTC
-#> # A tibble: 80 × 23
+#> ℹ Data updated: 2026-05-11 16:03:11 UTC
+#> # A tibble: 6 × 22
 #>     game_id team_abbrev home_road_flag game_date goals assists points plus_minus
 #>       <int> <chr>       <chr>          <chr>     <int>   <int>  <int>      <int>
-#>  1   2.03e9 EDM         R              2026-04-…     0       0      0         -1
-#>  2   2.03e9 EDM         R              2026-04-…     3       2      5          2
-#>  3   2.03e9 EDM         R              2026-04-…     1       1      2         -1
-#>  4   2.03e9 EDM         H              2026-04-…     0       0      0          1
-#>  5   2.03e9 EDM         H              2026-04-…     0       1      1          0
-#>  6   2.03e9 EDM         H              2026-03-…     1       0      1          1
-#>  7   2.03e9 EDM         H              2026-03-…     1       2      3          2
-#>  8   2.03e9 EDM         R              2026-03-…     1       2      3          1
-#>  9   2.03e9 EDM         R              2026-03-…     2       0      2          2
-#> 10   2.03e9 EDM         H              2026-03-…     1       0      1         -3
-#> # ℹ 70 more rows
-#> # ℹ 15 more variables: power_play_goals <int>, power_play_points <int>,
+#> 1    2.03e9 EDM         R              2026-04-…     0       0      0         -3
+#> 2    2.03e9 EDM         H              2026-04-…     0       2      2          1
+#> 3    2.03e9 EDM         R              2026-04-…     0       2      2          0
+#> 4    2.03e9 EDM         R              2026-04-…     1       1      2         -4
+#> 5    2.03e9 EDM         H              2026-04-…     0       0      0         -2
+#> 6    2.03e9 EDM         H              2026-04-…     0       0      0          0
+#> # ℹ 14 more variables: power_play_goals <int>, power_play_points <int>,
 #> #   game_winning_goals <int>, ot_goals <int>, shots <int>, shifts <int>,
 #> #   shorthanded_goals <int>, shorthanded_points <int>, opponent_abbrev <chr>,
 #> #   pim <int>, toi <chr>, common_name_default <chr>,
-#> #   opponent_common_name_default <chr>, opponent_common_name_fr <chr>,
-#> #   player_id <dbl>
+#> #   opponent_common_name_default <chr>, player_id <dbl>
 # }
 ```

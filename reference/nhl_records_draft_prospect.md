@@ -33,8 +33,8 @@ A `fastRhockey_data` tibble of draft prospects, or `NULL` on failure.
 # \donttest{
   try(nhl_records_draft_prospect())
 #> ── NHL Records Draft Prospect ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:36 UTC
-#> # A tibble: 135,716 × 28
+#> ℹ Data updated: 2026-05-11 16:03:25 UTC
+#> # A tibble: 135,783 × 28
 #>       id birth_city birth_country3code birth_date birth_state_prov_code
 #>    <int> <chr>      <chr>              <chr>      <chr>                
 #>  1     1 Markham    CAN                1990-02-07 ON                   
@@ -47,7 +47,7 @@ A `fastRhockey_data` tibble of draft prospects, or `NULL` on failure.
 #>  8    13 Dauphin    CAN                1990-04-24 MB                   
 #>  9    18 Whiterock  CAN                1990-03-08 BC                   
 #> 10    22 Courtice   CAN                1990-06-05 ON                   
-#> # ℹ 135,706 more rows
+#> # ℹ 135,773 more rows
 #> # ℹ 23 more variables: category_id <int>, created_on <chr>, cs_player_id <int>,
 #> #   draft_status_code <chr>, ep_player_id <int>, first_name <chr>,
 #> #   headshot_id <int>, height <int>, hometown <chr>, last_club_name <chr>,

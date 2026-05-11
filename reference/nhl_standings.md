@@ -26,7 +26,7 @@ Returns a data frame with standings information.
 # \donttest{
   try(nhl_standings())
 #> ── NHL Standings ────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:57 UTC
+#> ℹ Data updated: 2026-05-11 16:03:50 UTC
 #> # A tibble: 32 × 36
 #>    team_abbr team_name           team_common_name team_logo      conference_name
 #>    <chr>     <chr>               <chr>            <chr>          <chr>          
@@ -34,12 +34,12 @@ Returns a data frame with standings information.
 #>  2 CAR       Carolina Hurricanes Hurricanes       https://asset… Eastern        
 #>  3 DAL       Dallas Stars        Stars            https://asset… Western        
 #>  4 BUF       Buffalo Sabres      Sabres           https://asset… Eastern        
-#>  5 MTL       Montréal Canadiens  Canadiens        https://asset… Eastern        
-#>  6 TBL       Tampa Bay Lightning Lightning        https://asset… Eastern        
+#>  5 TBL       Tampa Bay Lightning Lightning        https://asset… Eastern        
+#>  6 MTL       Montréal Canadiens  Canadiens        https://asset… Eastern        
 #>  7 MIN       Minnesota Wild      Wild             https://asset… Western        
-#>  8 PIT       Pittsburgh Penguins Penguins         https://asset… Eastern        
-#>  9 BOS       Boston Bruins       Bruins           https://asset… Eastern        
-#> 10 OTT       Ottawa Senators     Senators         https://asset… Eastern        
+#>  8 BOS       Boston Bruins       Bruins           https://asset… Eastern        
+#>  9 OTT       Ottawa Senators     Senators         https://asset… Eastern        
+#> 10 PIT       Pittsburgh Penguins Penguins         https://asset… Eastern        
 #> # ℹ 22 more rows
 #> # ℹ 31 more variables: division_abbrev <chr>, division_name <chr>,
 #> #   place_name <chr>, conference_sequence <int>, division_sequence <int>,
@@ -49,7 +49,7 @@ Returns a data frame with standings information.
 #> #   goals_against <int>, goal_differential <int>, home_wins <int>, …
   try(nhl_standings(date = "2024-03-01"))
 #> ── NHL Standings ────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:57 UTC
+#> ℹ Data updated: 2026-05-11 16:03:51 UTC
 #> # A tibble: 32 × 36
 #>    team_abbr team_name            team_common_name team_logo     conference_name
 #>    <chr>     <chr>                <chr>            <chr>         <chr>          

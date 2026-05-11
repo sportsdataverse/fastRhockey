@@ -52,8 +52,8 @@ Returns a data frame with schedule data.
 # \donttest{
   try(nhl_club_schedule(team_abbr = "TOR"))
 #> ── NHL Club Schedule ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:04:25 UTC
-#> # A tibble: 88 × 73
+#> ℹ Data updated: 2026-05-11 16:02:14 UTC
+#> # A tibble: 88 × 69
 #>            id   season game_type game_date  neutral_site start_time_utc      
 #>         <int>    <int>     <int> <chr>      <lgl>        <chr>               
 #>  1 2025010010 20252026         1 2025-09-21 FALSE        2025-09-21T19:00:00Z
@@ -67,11 +67,11 @@ Returns a data frame with schedule data.
 #>  9 2025020043 20252026         2 2025-10-13 FALSE        2025-10-13T18:00:00Z
 #> 10 2025020049 20252026         2 2025-10-14 FALSE        2025-10-14T23:00:00Z
 #> # ℹ 78 more rows
-#> # ℹ 67 more variables: eastern_utc_offset <chr>, venue_utc_offset <chr>,
+#> # ℹ 63 more variables: eastern_utc_offset <chr>, venue_utc_offset <chr>,
 #> #   venue_timezone <chr>, game_state <chr>, game_schedule_state <chr>,
 #> #   tv_broadcasts <list>, three_min_recap <chr>, game_center_link <chr>,
 #> #   three_min_recap_fr <chr>, condensed_game_fr <chr>, condensed_game <chr>,
-#> #   tickets_link <chr>, tickets_link_fr <chr>, venue_default <chr>,
-#> #   venue_fr <chr>, venue_es <chr>, away_team_id <int>, …
+#> #   venue_default <chr>, venue_fr <chr>, venue_es <chr>, away_team_id <int>,
+#> #   away_team_abbrev <chr>, away_team_logo <chr>, away_team_dark_logo <chr>, …
 # }
 ```

@@ -35,11 +35,11 @@ failure / empty response.
 # \donttest{
   try(nhl_edge_team_landing())
 #> ── NHL Edge Team Landing ────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:05 UTC
+#> ℹ Data updated: 2026-05-11 16:02:54 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    
-#> 1 20252026 <int [1]> 
+#> 1 20252026 <int [2]> 
 #> 2 20242025 <int [2]> 
 #> 3 20232024 <int [2]> 
 #> 4 20222023 <int [2]> 

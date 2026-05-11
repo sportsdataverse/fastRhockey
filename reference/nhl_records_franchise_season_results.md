@@ -33,8 +33,8 @@ failure.
 # \donttest{
   try(nhl_records_franchise_season_results())
 #> ── NHL Records Franchise Season Results ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:38 UTC
-#> # A tibble: 2,817 × 37
+#> ℹ Data updated: 2026-05-11 16:03:27 UTC
+#> # A tibble: 2,833 × 37
 #>       id conference_abbrev conference_name conference_sequence decision
 #>    <int> <chr>             <chr>                         <int> <chr>   
 #>  1  2476 NA                NA                                0 L       
@@ -47,7 +47,7 @@ failure.
 #>  8  2483 NA                NA                                0 L       
 #>  9  2484 NA                NA                                0 NA      
 #> 10  2485 NA                NA                                0 W       
-#> # ℹ 2,807 more rows
+#> # ℹ 2,823 more rows
 #> # ℹ 32 more variables: division_abbrev <chr>, division_name <chr>,
 #> #   division_sequence <int>, final_playoff_round <int>, franchise_id <int>,
 #> #   game_type_id <int>, games_played <int>, goals <int>, goals_against <int>,

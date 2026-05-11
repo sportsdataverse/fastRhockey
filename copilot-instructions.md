@@ -230,15 +230,15 @@ pkgdown::build_site()
 
 Five distinct backends:
 
-| Backend                   | Base URL                                             | Used By                                                                                                                                                                  | Auth              |
-|---------------------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|
-| NHL Web API               | `api-web.nhle.com/v1/`                               | Game feed, schedule, standings, rosters, gamecenter, draft, scoreboard, scores, meta, location, partner-game, where-to-watch, smartlinks, postal-lookup, ppt-replay, wsc | None              |
-| NHL Edge API              | `api-web.nhle.com/v1/edge/...` and `v1/cat/edge/...` | Skater/goalie/team Edge advanced metrics (shot location, shot speed, skating speed, skating distance, zone time, comparisons, top-10 leaderboards)                       | None              |
-| NHL Stats API             | `api.nhle.com/stats/rest/{lang}/`                    | Skater/goalie/team stats, draft stats, seasons, franchise, players, glossary, country, config, leaders, milestones                                                       | None              |
-| NHL Records API           | `records.nhl.com/site/api/`                          | Franchise totals, player/skater/goalie career and real-time stats, draft lottery, hall of fame, trophies, awards, attendance, venues, officials, combine                 | None              |
-| HockeyTech (statviewfeed) | `lscluster.hockeytech.com/feed/?feed=statviewfeed`   | PWHL schedule, standings, roster, PBP, box scores, stats                                                                                                                 | Public key in URL |
-| HockeyTech (modulekit)    | `lscluster.hockeytech.com/feed/?feed=modulekit`      | PWHL seasons, player info, leaders, transactions, streaks, brackets, scorebar                                                                                            | Public key in URL |
-| HockeyTech (gc)           | `lscluster.hockeytech.com/feed/?feed=gc`             | PWHL game summary                                                                                                                                                        | Public key in URL |
+| Backend | Base URL | Used By | Auth |
+|----|----|----|----|
+| NHL Web API | `api-web.nhle.com/v1/` | Game feed, schedule, standings, rosters, gamecenter, draft, scoreboard, scores, meta, location, partner-game, where-to-watch, smartlinks, postal-lookup, ppt-replay, wsc | None |
+| NHL Edge API | `api-web.nhle.com/v1/edge/...` and `v1/cat/edge/...` | Skater/goalie/team Edge advanced metrics (shot location, shot speed, skating speed, skating distance, zone time, comparisons, top-10 leaderboards) | None |
+| NHL Stats API | `api.nhle.com/stats/rest/{lang}/` | Skater/goalie/team stats, draft stats, seasons, franchise, players, glossary, country, config, leaders, milestones | None |
+| NHL Records API | `records.nhl.com/site/api/` | Franchise totals, player/skater/goalie career and real-time stats, draft lottery, hall of fame, trophies, awards, attendance, venues, officials, combine | None |
+| HockeyTech (statviewfeed) | `lscluster.hockeytech.com/feed/?feed=statviewfeed` | PWHL schedule, standings, roster, PBP, box scores, stats | Public key in URL |
+| HockeyTech (modulekit) | `lscluster.hockeytech.com/feed/?feed=modulekit` | PWHL seasons, player info, leaders, transactions, streaks, brackets, scorebar | Public key in URL |
+| HockeyTech (gc) | `lscluster.hockeytech.com/feed/?feed=gc` | PWHL game summary | Public key in URL |
 
 - **NHL Web API** returns clean JSON; parsed with
   [`jsonlite::fromJSON()`](https://jeroen.r-universe.dev/jsonlite/reference/fromJSON.html)
@@ -337,6 +337,7 @@ and raise errors - Tests for deprecated functions check for
 ### Error Handling Pattern
 
 ``` r
+
 tryCatch(
     expr = {
         res <- httr::RETRY("GET", url)
@@ -366,6 +367,7 @@ tryCatch(
 ### Test Pattern
 
 ``` r
+
 test_that("NHL - Descriptive test name", {
     skip_on_cran()
     skip_nhl_test()

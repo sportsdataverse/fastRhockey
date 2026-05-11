@@ -123,6 +123,7 @@ You can install the CRAN version of
 with:
 
 ``` r
+
 install.packages("fastRhockey")
 ```
 
@@ -130,6 +131,7 @@ You can install the development version from
 [GitHub](https://github.com/sportsdataverse/fastRhockey) with:
 
 ``` r
+
 # You can install using the pak package using the following code:
 if (!requireNamespace('pak', quietly = TRUE)){
   install.packages('pak')
@@ -140,6 +142,7 @@ pak::pak("sportsdataverse/fastRhockey")
 If you would prefer the `remotes` installation:
 
 ``` r
+
 if (!requireNamespace('remotes', quietly = TRUE)){
   install.packages('remotes')
 }
@@ -151,6 +154,7 @@ remotes::install_github(repo = "sportsdataverse/fastRhockey")
 ## Quick Start
 
 ``` r
+
 library(fastRhockey)
 
 # NHL

@@ -47,22 +47,22 @@ on failure / empty response.
     sort_by = "offensive"
   ))
 #> ── NHL Edge Team Zone Time Top 10 ───────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:14 UTC
-#> # A tibble: 10 × 11
+#> ℹ Data updated: 2026-05-11 16:03:02 UTC
+#> # A tibble: 10 × 10
 #>    offensive_zone_time neutral_zone_time defensive_zone_time team_abbrev
 #>                  <dbl>             <dbl>               <dbl> <chr>      
-#>  1               0.457             0.183               0.360 CAR        
-#>  2               0.434             0.175               0.391 OTT        
-#>  3               0.427             0.182               0.390 COL        
-#>  4               0.422             0.178               0.400 FLA        
-#>  5               0.421             0.180               0.399 NSH        
-#>  6               0.421             0.184               0.395 VGK        
-#>  7               0.418             0.177               0.406 EDM        
-#>  8               0.416             0.173               0.411 NYR        
-#>  9               0.415             0.184               0.401 ANA        
-#> 10               0.414             0.177               0.408 PIT        
-#> # ℹ 7 more variables: team_slug <chr>, team_common_name_default <chr>,
-#> #   team_common_name_fr <chr>, team_place_name_with_preposition_default <chr>,
+#>  1               0.453             0.182               0.365 CAR        
+#>  2               0.432             0.177               0.391 TBL        
+#>  3               0.431             0.166               0.402 DAL        
+#>  4               0.428             0.177               0.395 PIT        
+#>  5               0.426             0.172               0.403 BUF        
+#>  6               0.424             0.186               0.390 VGK        
+#>  7               0.417             0.182               0.401 ANA        
+#>  8               0.411             0.182               0.408 COL        
+#>  9               0.405             0.169               0.426 MIN        
+#> 10               0.405             0.186               0.409 LAK        
+#> # ℹ 6 more variables: team_slug <chr>, team_common_name_default <chr>,
+#> #   team_place_name_with_preposition_default <chr>,
 #> #   team_place_name_with_preposition_fr <chr>, team_team_logo_light <chr>,
 #> #   team_team_logo_dark <chr>
 # }

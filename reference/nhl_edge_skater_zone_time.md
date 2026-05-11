@@ -40,14 +40,14 @@ empty response.
 # \donttest{
   try(nhl_edge_skater_zone_time(player_id = 8478402))
 #> ── NHL Edge Skater Zone Time ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:00 UTC
+#> ℹ Data updated: 2026-05-11 16:02:50 UTC
 #> # A tibble: 4 × 10
 #>   strength_code offensive_zone_pctg offensive_zone_percentile
 #>   <chr>                       <dbl>                     <dbl>
-#> 1 all                         0.476                     0.974
-#> 2 es                          0.452                     0.969
-#> 3 pp                          0.632                     0.950
-#> 4 pk                          0.364                     0.961
+#> 1 all                         0.456                     0.755
+#> 2 es                          0.434                     0.745
+#> 3 pp                          0.644                     0.836
+#> 4 pk                          0.280                     0.495
 #> # ℹ 7 more variables: offensive_zone_league_avg <dbl>, neutral_zone_pctg <dbl>,
 #> #   neutral_zone_percentile <dbl>, neutral_zone_league_avg <dbl>,
 #> #   defensive_zone_pctg <dbl>, defensive_zone_percentile <dbl>,

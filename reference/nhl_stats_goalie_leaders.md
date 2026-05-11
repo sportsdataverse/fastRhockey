@@ -39,7 +39,7 @@ A `fastRhockey_data` tibble of goalie leaders, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_goalie_leaders(attribute = "savePctg"))
 #> ── NHL Stats Goalie Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:06:00 UTC
+#> ℹ Data updated: 2026-05-11 16:03:54 UTC
 #> # A tibble: 10 × 15
 #>    save_pctg player_id player_current_team_id player_first_name player_full_name
 #>        <dbl>     <int>                  <int> <chr>             <chr>           

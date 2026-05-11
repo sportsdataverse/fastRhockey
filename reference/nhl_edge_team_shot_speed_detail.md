@@ -39,7 +39,7 @@ A `fastRhockey_data` tibble of shot-speed metrics, or `NULL` on failure
 # \donttest{
   try(nhl_edge_team_shot_speed_detail(team_id = 10))
 #> ── NHL Edge Team Shot Speed Detail ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-04-13 17:05:08 UTC
+#> ℹ Data updated: 2026-05-11 16:02:57 UTC
 #> # A tibble: 10 × 27
 #>    game_center_link    game_date game_type is_home_team time_in_period player_id
 #>    <chr>               <chr>         <int> <lgl>        <chr>              <int>

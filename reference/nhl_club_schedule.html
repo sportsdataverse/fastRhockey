@@ -136,8 +136,8 @@ If NULL with view="week", returns current week.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_club_schedule</span><span class="op">(</span>team_abbr <span class="op">=</span> <span class="st">"TOR"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Club Schedule ────────────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-04-13 17:04:25 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 88 × 73</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-11 16:02:14 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 88 × 69</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            id   season game_type game_date  neutral_site start_time_utc      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">2</span>025<span style="text-decoration: underline;">010</span>010 20<span style="text-decoration: underline;">252</span>026         1 2025-09-21 FALSE        2025-09-21T19:00:00Z</span>
@@ -151,12 +151,12 @@ If NULL with view="week", returns current week.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">2</span>025<span style="text-decoration: underline;">020</span>043 20<span style="text-decoration: underline;">252</span>026         2 2025-10-13 FALSE        2025-10-13T18:00:00Z</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">2</span>025<span style="text-decoration: underline;">020</span>049 20<span style="text-decoration: underline;">252</span>026         2 2025-10-14 FALSE        2025-10-14T23:00:00Z</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 78 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 67 more variables: eastern_utc_offset &lt;chr&gt;, venue_utc_offset &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 63 more variables: eastern_utc_offset &lt;chr&gt;, venue_utc_offset &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   venue_timezone &lt;chr&gt;, game_state &lt;chr&gt;, game_schedule_state &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   tv_broadcasts &lt;list&gt;, three_min_recap &lt;chr&gt;, game_center_link &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   three_min_recap_fr &lt;chr&gt;, condensed_game_fr &lt;chr&gt;, condensed_game &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   tickets_link &lt;chr&gt;, tickets_link_fr &lt;chr&gt;, venue_default &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   venue_fr &lt;chr&gt;, venue_es &lt;chr&gt;, away_team_id &lt;int&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   venue_default &lt;chr&gt;, venue_fr &lt;chr&gt;, venue_es &lt;chr&gt;, away_team_id &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   away_team_abbrev &lt;chr&gt;, away_team_logo &lt;chr&gt;, away_team_dark_logo &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

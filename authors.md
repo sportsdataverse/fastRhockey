@@ -17,7 +17,7 @@ Source:
 Howell B, Gilani S (????). *fastRhockey: Functions to Access
 Professional Women's Hockey League and National Hockey League Play by
 Play Data*.
-[doi:10.32614/CRAN.package.fastRhockey](https://doi.org/10.32614/CRAN.package.fastRhockey),
+[doi:10.32614/CRAN.package.fastRhockey](https://doi.org/10.32614/CRAN.package.fastRhockey).
 R package version 1.0.0, <https://fastRhockey.sportsdataverse.org/>.
 
     @Manual{,

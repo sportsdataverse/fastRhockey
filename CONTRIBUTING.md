@@ -14,6 +14,7 @@ document provides guidelines for contributing to the project.
 ### Development Setup
 
 ``` r
+
 # Clone the repository
 # git clone https://github.com/sportsdataverse/fastRhockey.git
 
@@ -40,6 +41,7 @@ devtools::check()
 4.  **Run checks** before submitting:
 
     ``` r
+
     devtools::document()  # Regenerate docs
     devtools::test()      # Run tests
     devtools::check()     # Full R CMD check
@@ -73,6 +75,7 @@ devtools::check()
 All API-calling functions must follow this pattern:
 
 ``` r
+
 tryCatch(
     expr = {
         res <- httr::RETRY("GET", url)
@@ -94,6 +97,7 @@ All data-returning functions must wrap output with
 `make_fastRhockey_data()`:
 
 ``` r
+
 result <- make_fastRhockey_data(df, type = "Description of data", timestamp = Sys.time())
 ```
 
@@ -149,12 +153,12 @@ Use `snake_case` for all function parameters:
 
 Different APIs use different season formats:
 
-| Context                                                                                                                                    | Format                    | Example      |
-|--------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|--------------|
-| NHL Web API / Stats API parameter                                                                                                          | Concatenated years string | `"20242025"` |
-| [`most_recent_nhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_nhl_season.md) return value                     | Numeric end year          | `2025`       |
-| [`most_recent_nhl_season_api_param()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_nhl_season_api_param.md) return value | Concatenated string       | `"20242025"` |
-| PWHL / PHF season parameter                                                                                                                | Numeric year              | `2024`       |
+| Context | Format | Example |
+|----|----|----|
+| NHL Web API / Stats API parameter | Concatenated years string | `"20242025"` |
+| [`most_recent_nhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_nhl_season.md) return value | Numeric end year | `2025` |
+| [`most_recent_nhl_season_api_param()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_nhl_season_api_param.md) return value | Concatenated string | `"20242025"` |
+| PWHL / PHF season parameter | Numeric year | `2024` |
 
 ## Testing
 
@@ -165,6 +169,7 @@ Different APIs use different season formats:
 ### Test Template
 
 ``` r
+
 test_that("LEAGUE - Descriptive test name", {
     skip_on_cran()
     x <- function_name(param = value)
@@ -199,6 +204,7 @@ via `skip_on_cran()`. To run the full test suite locally:
   `.Renviron` file or inline:
 
   ``` r
+
   Sys.setenv(NOT_CRAN = "true")
   devtools::test()
   ```
@@ -214,6 +220,7 @@ via `skip_on_cran()`. To run the full test suite locally:
   Set them before running tests:
 
   ``` r
+
   Sys.setenv(NOT_CRAN = "true", RUN_NHL_TESTS = "true", RUN_PWHL_TESTS = "true")
   devtools::test()
   ```
@@ -226,6 +233,7 @@ via `skip_on_cran()`. To run the full test suite locally:
   access token to avoid rate limits:
 
   ``` r
+
   # In ~/.Renviron
   GITHUB_PAT=ghp_your_token_here
   ```
@@ -245,17 +253,17 @@ The format is:
 
 ### Types
 
-| Type       | When to Use                                                      |
-|------------|------------------------------------------------------------------|
-| `feat`     | A new feature or function                                        |
-| `fix`      | A bug fix                                                        |
-| `docs`     | Documentation-only changes                                       |
-| `style`    | Formatting, whitespace, semicolons (no logic change)             |
-| `refactor` | Code change that neither fixes a bug nor adds a feature          |
-| `test`     | Adding or updating tests                                         |
-| `build`    | Changes to build system or dependencies (DESCRIPTION, NAMESPACE) |
-| `ci`       | Changes to CI configuration (GitHub Actions workflows)           |
-| `chore`    | Maintenance tasks (version bumps, config updates)                |
+| Type | When to Use |
+|----|----|
+| `feat` | A new feature or function |
+| `fix` | A bug fix |
+| `docs` | Documentation-only changes |
+| `style` | Formatting, whitespace, semicolons (no logic change) |
+| `refactor` | Code change that neither fixes a bug nor adds a feature |
+| `test` | Adding or updating tests |
+| `build` | Changes to build system or dependencies (DESCRIPTION, NAMESPACE) |
+| `ci` | Changes to CI configuration (GitHub Actions workflows) |
+| `chore` | Maintenance tasks (version bumps, config updates) |
 
 ### Scopes
 
@@ -288,6 +296,7 @@ function is superseded by a better alternative), use the
 ### Step 1: Add the deprecation warning
 
 ``` r
+
 #' @description
 #' `r lifecycle::badge("deprecated")`
 #'

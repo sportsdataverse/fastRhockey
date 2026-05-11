@@ -93,7 +93,8 @@ Uses the NHL API (<code>api-web.nhle.com</code>).</p>
 <span>  day <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  season <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  team_abbr <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  include_data_flags <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  include_data_flags <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  game_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"both"</span>, <span class="st">"regular"</span>, <span class="st">"playoffs"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -130,6 +131,13 @@ to add per-game data-availability flags
 <code>shootout</code>). Games not yet compiled get <code>FALSE</code>. This requires a
 network call to the data repo and adds a small delay.</p></dd>
 
+
+<dt id="arg-game-type">game_type<a class="anchor" aria-label="anchor" href="#arg-game-type"></a></dt>
+<dd><p>Character, one of <code>"both"</code> (default), <code>"regular"</code>, or
+<code>"playoffs"</code>. Applies only in season mode; silently ignored when <code>day</code>
+is supplied. Default <code>"both"</code> returns regular-season and playoff games
+for the requested <code>season</code> in a single tibble.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -143,7 +151,7 @@ per pre-compiled dataset.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_schedule</span><span class="op">(</span>day <span class="op">=</span> <span class="st">"2024-01-15"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Schedule ─────────────────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-04-13 17:05:52 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-11 16:03:40 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 53 × 13</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       game_id season_full game_type game_date  game_time          home_team_abbr</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>
@@ -163,26 +171,44 @@ per pre-compiled dataset.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   venue &lt;chr&gt;</span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_schedule</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span>, team_abbr <span class="op">=</span> <span class="st">"TOR"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Schedule ─────────────────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-04-13 17:05:52 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 101 × 13</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-11 16:03:43 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 95 × 16</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       game_id season_full game_type game_date  game_time          home_team_abbr</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">010</span>010 20242025    PR        2024-09-22 2024-09-22T23:00:… TOR           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">010</span>024 20242025    PR        2024-09-24 2024-09-24T23:00:… OTT           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">010</span>038 20242025    PR        2024-09-26 2024-09-26T23:00:… TOR           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">010</span>055 20242025    PR        2024-09-28 2024-09-28T23:00:… MTL           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">010</span>086 20242025    PR        2024-10-03 2024-10-03T23:00:… DET           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">010</span>100 20242025    PR        2024-10-05 2024-10-05T23:00:… TOR           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">020</span>006 20242025    R         2024-10-09 2024-10-09T23:00:… MTL           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">020</span>015 20242025    R         2024-10-10 2024-10-10T23:00:… NJD           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">020</span>026 20242025    R         2024-10-12 2024-10-12T23:00:… TOR           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">020</span>058 20242025    R         2024-10-16 2024-10-16T23:30:… TOR           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 91 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7 more variables: away_team_abbr &lt;chr&gt;, home_team_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">020</span>006 20242025    R         2024-10-09 2024-10-09T23:00:… MTL           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">020</span>015 20242025    R         2024-10-10 2024-10-10T23:00:… NJD           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">020</span>026 20242025    R         2024-10-12 2024-10-12T23:00:… TOR           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">020</span>058 20242025    R         2024-10-16 2024-10-16T23:30:… TOR           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">020</span>079 20242025    R         2024-10-19 2024-10-19T23:00:… TOR           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">020</span>091 20242025    R         2024-10-21 2024-10-21T23:30:… TOR           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">020</span>097 20242025    R         2024-10-22 2024-10-22T23:30:… CBJ           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">020</span>110 20242025    R         2024-10-24 2024-10-24T23:00:… TOR           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">020</span>125 20242025    R         2024-10-26 2024-10-26T23:00:… BOS           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">020</span>143 20242025    R         2024-10-28 2024-10-28T23:30:… WPG           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 85 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 10 more variables: away_team_abbr &lt;chr&gt;, home_team_name &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   away_team_name &lt;chr&gt;, home_score &lt;int&gt;, away_score &lt;int&gt;, game_state &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   venue &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   venue &lt;chr&gt;, series_letter &lt;chr&gt;, playoff_round &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   series_game_number &lt;int&gt;</span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_schedule</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span>, team_abbr <span class="op">=</span> <span class="st">"TOR"</span>, game_type <span class="op">=</span> <span class="st">"playoffs"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Schedule ─────────────────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-11 16:03:46 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 × 16</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      game_id season_full game_type game_date  game_time           home_team_abbr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">2</span>023<span style="text-decoration: underline;">030</span>121 20232024    P         2024-04-21 2024-04-21T00:00:0… BOS           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> <span style="text-decoration: underline;">2</span>023<span style="text-decoration: underline;">030</span>122 20232024    P         2024-04-22 2024-04-22T23:00:0… BOS           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> <span style="text-decoration: underline;">2</span>023<span style="text-decoration: underline;">030</span>123 20232024    P         2024-04-24 2024-04-24T23:00:0… TOR           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> <span style="text-decoration: underline;">2</span>023<span style="text-decoration: underline;">030</span>124 20232024    P         2024-04-28 2024-04-28T00:00:0… TOR           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> <span style="text-decoration: underline;">2</span>023<span style="text-decoration: underline;">030</span>125 20232024    P         2024-04-30 2024-04-30T23:00:0… BOS           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> <span style="text-decoration: underline;">2</span>023<span style="text-decoration: underline;">030</span>126 20232024    P         2024-05-03 2024-05-03T00:00:0… TOR           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> <span style="text-decoration: underline;">2</span>023<span style="text-decoration: underline;">030</span>127 20232024    P         2024-05-05 2024-05-05T00:00:0… BOS           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 10 more variables: away_team_abbr &lt;chr&gt;, home_team_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   away_team_name &lt;chr&gt;, home_score &lt;int&gt;, away_score &lt;int&gt;, game_state &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   venue &lt;chr&gt;, series_letter &lt;chr&gt;, playoff_round &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   series_game_number &lt;int&gt;</span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_schedule</span><span class="op">(</span>day <span class="op">=</span> <span class="st">"2024-01-15"</span>, include_data_flags <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 2026-04-13 17:05:53.512141: Error fetching schedule for 2024-01-15: `x` and `y` must share the same src.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 2026-05-11 16:03:47.444567: Error fetching schedule for 2024-01-15: `x` and `y` must share the same src.</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
