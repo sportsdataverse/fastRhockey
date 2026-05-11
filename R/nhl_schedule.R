@@ -101,89 +101,93 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
         # `season` is the end year (e.g. 2026 = 2025-26)
         season_str <- paste0(season - 1, season)
 
-        if (!is.null(team_abbr)) {
-            teams <- team_abbr
-        } else {
-            # Get all team abbreviations from internal data
-            teams <- fastRhockey::nhl_team_logos$team_abbr
-            if (is.null(teams) || length(teams) == 0) {
-                teams <- c(
-                    "ANA",
-                    "ARI",
-                    "BOS",
-                    "BUF",
-                    "CAR",
-                    "CBJ",
-                    "CGY",
-                    "CHI",
-                    "COL",
-                    "DAL",
-                    "DET",
-                    "EDM",
-                    "FLA",
-                    "LAK",
-                    "MIN",
-                    "MTL",
-                    "NJD",
-                    "NSH",
-                    "NYI",
-                    "NYR",
-                    "OTT",
-                    "PHI",
-                    "PIT",
-                    "SEA",
-                    "SJK",
-                    "STL",
-                    "TBL",
-                    "TOR",
-                    "UTA",
-                    "VAN",
-                    "VGK",
-                    "WPG",
-                    "WSH"
+        regular_df <- .empty_schedule_tibble()
+        playoff_df <- .empty_schedule_tibble()
+
+        # Regular-season half
+        if (game_type %in% c("both", "regular")) {
+            if (!is.null(team_abbr)) {
+                teams <- team_abbr
+            } else {
+                teams <- fastRhockey::nhl_team_logos$team_abbr
+                if (is.null(teams) || length(teams) == 0) {
+                    teams <- c(
+                        "ANA", "ARI", "BOS", "BUF", "CAR", "CBJ", "CGY",
+                        "CHI", "COL", "DAL", "DET", "EDM", "FLA", "LAK",
+                        "MIN", "MTL", "NJD", "NSH", "NYI", "NYR", "OTT",
+                        "PHI", "PIT", "SEA", "SJK", "STL", "TBL", "TOR",
+                        "UTA", "VAN", "VGK", "WPG", "WSH"
+                    )
+                }
+            }
+
+            all_games <- list()
+            for (tm in teams) {
+                url <- glue::glue(
+                    "https://api-web.nhle.com/v1/club-schedule-season/{tm}/{season_str}"
+                )
+                tryCatch(
+                    expr = {
+                        raw <- jsonlite::read_json(url, simplifyVector = TRUE)
+                        games <- raw[["games"]]
+                        if (!is.null(games) && nrow(games) > 0) {
+                            all_games[[tm]] <- games
+                        }
+                    },
+                    error = function(e) {
+                        message(glue::glue(
+                            "{Sys.time()}: Could not fetch schedule for {tm}: {e$message}"
+                        ))
+                    }
+                )
+            }
+
+            if (length(all_games) > 0) {
+                games_df <- dplyr::bind_rows(all_games)
+                regular_df <- .parse_club_schedule_games(games_df)
+                # club-schedule-season returns preseason (PR), regular (R)
+                # and playoff (P) games. Keep only regular-season rows here;
+                # playoff rows come from the playoff branch with full context
+                # columns populated.
+                regular_df <- dplyr::filter(
+                    regular_df,
+                    .data$game_type == "R"
+                )
+                regular_df$series_letter <- NA_character_
+                regular_df$playoff_round <- NA_integer_
+                regular_df$series_game_number <- NA_integer_
+            }
+        }
+
+        # Playoff half
+        if (game_type %in% c("both", "playoffs")) {
+            playoff_df <- .fetch_nhl_season_playoffs(season)
+            if (!is.null(team_abbr) && nrow(playoff_df) > 0) {
+                playoff_df <- dplyr::filter(
+                    playoff_df,
+                    .data$home_team_abbr == team_abbr |
+                        .data$away_team_abbr == team_abbr
                 )
             }
         }
 
-        all_games <- list()
-        for (tm in teams) {
-            url <- glue::glue(
-                "https://api-web.nhle.com/v1/club-schedule-season/{tm}/{season_str}"
-            )
-            tryCatch(
-                expr = {
-                    raw <- jsonlite::read_json(url, simplifyVector = TRUE)
-                    games <- raw[["games"]]
-                    if (!is.null(games) && nrow(games) > 0) {
-                        all_games[[tm]] <- games
-                    }
-                },
-                error = function(e) {
-                    message(glue::glue(
-                        "{Sys.time()}: Could not fetch schedule for {tm}: {e$message}"
-                    ))
-                }
-            )
-        }
-
-        if (length(all_games) == 0) {
+        if (nrow(regular_df) == 0 && nrow(playoff_df) == 0) {
             message(glue::glue(
                 "{Sys.time()}: No games found for season {season_str}"
             ))
             return(NULL)
         }
 
-        games_df <- dplyr::bind_rows(all_games)
-        schedule <- .parse_club_schedule_games(games_df)
-        schedule <- dplyr::distinct(
-            schedule,
-            .data$game_id,
-            .keep_all = TRUE
-        ) %>%
+        # Playoffs first so they win on game_id collisions (preserving the
+        # populated context columns).
+        schedule <- dplyr::bind_rows(playoff_df, regular_df) %>%
+            dplyr::distinct(.data$game_id, .keep_all = TRUE) %>%
             dplyr::arrange(.data$game_date, .data$game_id)
+
         if (isTRUE(include_data_flags)) {
             schedule <- .nhl_attach_data_flags(schedule)
         }
+
         schedule <- make_fastRhockey_data(schedule, "NHL Schedule", Sys.time())
         return(schedule)
     }

@@ -62,3 +62,61 @@ test_that("NHL - nhl_schedule() accepts the three valid game_type values", {
         regexp = NA
     )
 })
+
+test_that("NHL - nhl_schedule(season=, game_type='both') returns regular + playoff rows", {
+    skip_on_cran()
+    skip_nhl_test()
+    x <- nhl_schedule(season = 2024, team_abbr = "TOR", game_type = "both")
+
+    expect_s3_class(x, "data.frame")
+    expect_true(nrow(x) > 0)
+    expect_true("R" %in% x$game_type)
+    expect_true("P" %in% x$game_type)
+
+    # New context columns exist and are populated only on playoff rows.
+    for (col in c("series_letter", "playoff_round", "series_game_number")) {
+        expect_true(col %in% names(x), info = paste("Missing column:", col))
+    }
+    playoff_rows <- x[x$game_type == "P", ]
+    expect_true(all(!is.na(playoff_rows$series_letter)))
+    expect_true(all(!is.na(playoff_rows$playoff_round)))
+    expect_true(all(!is.na(playoff_rows$series_game_number)))
+
+    regular_rows <- x[x$game_type == "R", ]
+    expect_true(all(is.na(regular_rows$series_letter)))
+    expect_true(all(is.na(regular_rows$playoff_round)))
+    expect_true(all(is.na(regular_rows$series_game_number)))
+})
+
+test_that("NHL - nhl_schedule(season=, game_type='playoffs') returns only playoff rows", {
+    skip_on_cran()
+    skip_nhl_test()
+    x <- nhl_schedule(season = 2024, team_abbr = "TOR", game_type = "playoffs")
+
+    expect_s3_class(x, "data.frame")
+    expect_true(nrow(x) > 0)
+    expect_true(all(x$game_type == "P"))
+    expect_true(all(!is.na(x$series_letter)))
+})
+
+test_that("NHL - nhl_schedule(season=, game_type='regular') returns only regular rows", {
+    skip_on_cran()
+    skip_nhl_test()
+    x <- nhl_schedule(season = 2024, team_abbr = "TOR", game_type = "regular")
+
+    expect_s3_class(x, "data.frame")
+    expect_true(nrow(x) > 0)
+    expect_true(all(x$game_type == "R"))
+    # Context columns exist but are all NA in regular-only mode.
+    expect_true(all(is.na(x$series_letter)))
+    expect_true(all(is.na(x$playoff_round)))
+    expect_true(all(is.na(x$series_game_number)))
+})
+
+test_that("NHL - nhl_schedule(day=) ignores game_type", {
+    skip_on_cran()
+    skip_nhl_test()
+    x_default <- nhl_schedule(day = "2024-04-22")
+    x_regular <- nhl_schedule(day = "2024-04-22", game_type = "regular")
+    expect_equal(nrow(x_default), nrow(x_regular))
+})
