@@ -9,6 +9,10 @@
 #'   the full season schedule.
 #' @param team_abbr Character three-letter team abbreviation (e.g., "TOR").
 #'   Required when `season` is used. If NULL, loops through all teams.
+#' @param game_type Character, one of `"both"` (default), `"regular"`, or
+#'   `"playoffs"`. Applies only in season mode; silently ignored when `day`
+#'   is supplied. Default `"both"` returns regular-season and playoff games
+#'   for the requested `season` in a single tibble.
 #' @param include_data_flags Logical (default `FALSE`). When `TRUE`, after
 #'   building the live schedule the result is left-joined against the
 #'   pre-compiled `nhl_games_in_data_repo` index from
@@ -36,7 +40,10 @@
 #'   try(nhl_schedule(day = "2024-01-15", include_data_flags = TRUE))
 #' }
 nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
-                         include_data_flags = FALSE) {
+                         include_data_flags = FALSE,
+                         game_type = c("both", "regular", "playoffs")) {
+    game_type <- match.arg(game_type)
+
     if (is.null(day) && is.null(season)) {
         day <- as.character(Sys.Date())
     }
