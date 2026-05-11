@@ -37,6 +37,7 @@
 #' \donttest{
 #'   try(nhl_schedule(day = "2024-01-15"))
 #'   try(nhl_schedule(season = 2025, team_abbr = "TOR"))
+#'   try(nhl_schedule(season = 2024, team_abbr = "TOR", game_type = "playoffs"))
 #'   try(nhl_schedule(day = "2024-01-15", include_data_flags = TRUE))
 #' }
 nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,

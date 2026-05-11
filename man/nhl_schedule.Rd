@@ -8,7 +8,8 @@ nhl_schedule(
   day = NULL,
   season = NULL,
   team_abbr = NULL,
-  include_data_flags = FALSE
+  include_data_flags = FALSE,
+  game_type = c("both", "regular", "playoffs")
 )
 }
 \arguments{
@@ -33,6 +34,11 @@ to add per-game data-availability flags
 \code{linescore}, \code{three_stars}, \code{shifts}, \code{officials}, \code{shots_by_period},
 \code{shootout}). Games not yet compiled get \code{FALSE}. This requires a
 network call to the data repo and adds a small delay.}
+
+\item{game_type}{Character, one of \code{"both"} (default), \code{"regular"}, or
+\code{"playoffs"}. Applies only in season mode; silently ignored when \code{day}
+is supplied. Default \code{"both"} returns regular-season and playoff games
+for the requested \code{season} in a single tibble.}
 }
 \value{
 Returns a data frame with game schedule information. When
@@ -47,6 +53,7 @@ Uses the NHL API (\code{api-web.nhle.com}).
 \donttest{
   try(nhl_schedule(day = "2024-01-15"))
   try(nhl_schedule(season = 2025, team_abbr = "TOR"))
+  try(nhl_schedule(season = 2024, team_abbr = "TOR", game_type = "playoffs"))
   try(nhl_schedule(day = "2024-01-15", include_data_flags = TRUE))
 }
 }

@@ -1,5 +1,24 @@
 # **fastRhockey 1.0.0 (continued development)**
 
+### **`nhl_schedule()` gains a `game_type` parameter**
+
+* `nhl_schedule()` gains a `game_type` parameter accepting `"both"` (default),
+  `"regular"`, or `"playoffs"`. In season mode the function now returns
+  regular-season and playoff games in a single tibble. Three new columns
+  (`series_letter`, `playoff_round`, `series_game_number`) are appended to
+  the output; they are `NA` on regular-season rows.
+* **Behavior change:** `nhl_schedule(season = ...)` previously returned only
+  what the `club-schedule-season` endpoint provided, which mixed preseason
+  (`PR`), regular (`R`), and playoff (`P`) rows. With this release:
+  - `game_type` defaults to `"both"`, so playoff games are now included by
+    default. Pass `game_type = "regular"` to restore regular-only behavior.
+  - Preseason (`PR`) rows are no longer returned by season-mode calls
+    regardless of `game_type`. Use `nhl_schedule(day = ...)` to retrieve
+    preseason game schedules.
+* `nhl_playoff_schedule()` is unchanged in its public API; internally it now
+  delegates its HTTP call to a new shared internal helper
+  `.fetch_playoff_series()`.
+
 ### **PWHL parity: 3 new NHL loaders + datasets**
 
 Three new season-level NHL loaders that bring NHL coverage in line with

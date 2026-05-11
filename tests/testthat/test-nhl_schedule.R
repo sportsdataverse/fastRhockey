@@ -119,4 +119,9 @@ test_that("NHL - nhl_schedule(day=) ignores game_type", {
     x_default <- nhl_schedule(day = "2024-04-22")
     x_regular <- nhl_schedule(day = "2024-04-22", game_type = "regular")
     expect_equal(nrow(x_default), nrow(x_regular))
+    # Compare the load-bearing columns directly so the assertion ignores
+    # the fastRhockey_data timestamp attribute (which differs by a few
+    # millis between the two calls).
+    expect_identical(x_default$game_id, x_regular$game_id)
+    expect_identical(x_default$game_type, x_regular$game_type)
 })
