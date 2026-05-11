@@ -418,3 +418,36 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
     }
     out
 }
+
+#' Parse games from a playoff-series schedule response into the schedule schema
+#'
+#' Reuses `.parse_club_schedule_games()` for the base 13 columns and appends
+#' the three playoff context columns.
+#'
+#' @param games_df Data frame at `raw$games` from
+#'   `.fetch_playoff_series(..., flatten = FALSE)`.
+#' @param series_letter Character series letter for these games.
+#' @param playoff_round Integer round number (from the carousel).
+#' @return 16-column tibble matching the `nhl_schedule()` output schema.
+#' @keywords internal
+#' @noRd
+.parse_playoff_series_games <- function(games_df, series_letter, playoff_round) {
+    base <- .parse_club_schedule_games(games_df)
+
+    # Prefer an API-provided game number if present; otherwise derive
+    # chronologically. The playoff-series endpoint returns games in date order.
+    sgn <- if ("gameNumber" %in% names(games_df)) {
+        as.integer(games_df$gameNumber)
+    } else if ("seriesStatus" %in% names(games_df) &&
+               is.data.frame(games_df$seriesStatus) &&
+               "gameNumberOfSeries" %in% names(games_df$seriesStatus)) {
+        as.integer(games_df$seriesStatus$gameNumberOfSeries)
+    } else {
+        seq_len(nrow(games_df))
+    }
+
+    base$series_letter <- as.character(series_letter)
+    base$playoff_round <- as.integer(playoff_round)
+    base$series_game_number <- sgn
+    base
+}
