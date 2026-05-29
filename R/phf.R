@@ -15,11 +15,13 @@
 #'
 #' | Function | Purpose |
 #' |---|---|
-#' | [phf_game()]       | Per-game payload (all, details, raw, summary variants) |
-#' | [phf_game_pbp()]   | Per-game play-by-play |
-#' | [phf_pbp()]        | Loader entry point (also exports `update_phf_db`) |
-#' | [phf_player_box()] | Per-game player boxscore |
-#' | [phf_team_box()]   | Per-game team boxscore |
+#' | [phf_game_all()]     | Per-game payload (all sections) |
+#' | [phf_game_raw()]     | Raw API response |
+#' | [phf_game_details()] | Game details only |
+#' | [phf_game_summary()] | Game summary only |
+#' | [phf_pbp()]          | Per-game play-by-play + loader entry point |
+#' | [phf_player_box()]   | Per-game player boxscore |
+#' | [phf_team_box()]     | Per-game team boxscore |
 #'
 #' ## **Season-level**
 #'

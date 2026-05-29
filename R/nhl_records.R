@@ -1,5 +1,5 @@
 #' @name nhl_records
-#' @aliases nhl_records nhl_records_franchise nhl_records_player nhl_records_skater nhl_records_goalie nhl_records_draft
+#' @aliases nhl_records nhl_records_skater nhl_records_goalie
 #' @title **NHL Records API Endpoint Overview**
 #' @description
 #' Wrappers around the NHL Records backend at `records.nhl.com/site/api/...`.

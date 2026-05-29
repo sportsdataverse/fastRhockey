@@ -14,7 +14,7 @@
 #'
 #' | Function | Purpose |
 #' |---|---|
-#' | [helper_nhl_prepare_xg_data()] | Build the model feature frame (event filtering, era dummies, skater counts, rebound / rush / cross-ice flags). |
+#' | `helper_nhl_prepare_xg_data()` | Build the model feature frame (event filtering, era dummies, skater counts, rebound / rush / cross-ice flags). (internal) |
 #' | [helper_nhl_calculate_xg()]    | Run the three XGBoost predictions and append an `xg` column to the PBP frame. |
 #'
 #' ## **Era dummies**

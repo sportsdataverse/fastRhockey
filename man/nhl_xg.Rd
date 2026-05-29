@@ -15,7 +15,7 @@ models (5v5, special teams, penalty shots) are downloaded from
 \details{
 \subsection{\strong{Helpers}}{\tabular{ll}{
    Function \tab Purpose \cr
-   \code{\link[=helper_nhl_prepare_xg_data]{helper_nhl_prepare_xg_data()}} \tab Build the model feature frame (event filtering, era dummies, skater counts, rebound / rush / cross-ice flags). \cr
+   \code{helper_nhl_prepare_xg_data()} \tab Build the model feature frame (event filtering, era dummies, skater counts, rebound / rush / cross-ice flags). (internal) \cr
    \code{\link[=helper_nhl_calculate_xg]{helper_nhl_calculate_xg()}} \tab Run the three XGBoost predictions and append an \code{xg} column to the PBP frame. \cr
 }
 

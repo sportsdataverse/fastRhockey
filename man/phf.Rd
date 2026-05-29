@@ -15,9 +15,11 @@ formally \strong{deprecated} in v1.0.0 and emit
 \details{
 \subsection{\strong{Game-level}}{\tabular{ll}{
    Function \tab Purpose \cr
-   \code{\link[=phf_game]{phf_game()}} \tab Per-game payload (all, details, raw, summary variants) \cr
-   \code{\link[=phf_game_pbp]{phf_game_pbp()}} \tab Per-game play-by-play \cr
-   \code{\link[=phf_pbp]{phf_pbp()}} \tab Loader entry point (also exports \code{update_phf_db}) \cr
+   \code{\link[=phf_game_all]{phf_game_all()}} \tab Per-game payload (all sections) \cr
+   \code{\link[=phf_game_raw]{phf_game_raw()}} \tab Raw API response \cr
+   \code{\link[=phf_game_details]{phf_game_details()}} \tab Game details only \cr
+   \code{\link[=phf_game_summary]{phf_game_summary()}} \tab Game summary only \cr
+   \code{\link[=phf_pbp]{phf_pbp()}} \tab Per-game play-by-play + loader entry point \cr
    \code{\link[=phf_player_box]{phf_player_box()}} \tab Per-game player boxscore \cr
    \code{\link[=phf_team_box]{phf_team_box()}} \tab Per-game team boxscore \cr
 }

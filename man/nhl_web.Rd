@@ -24,7 +24,7 @@ wrapped in the \code{fastRhockey_data} S3 class via \code{make_fastRhockey_data(
    \code{\link[=nhl_game_shifts]{nhl_game_shifts()}} \tab \code{stats/rest/en/shiftcharts} \tab Per-shift records (with HTML fallback for empty endpoints) \cr
    \code{\link[=nhl_game_story]{nhl_game_story()}} \tab \code{wsc/game-story/{id}} \tab Narrative-format recap \cr
    \code{\link[=nhl_game_content]{nhl_game_content()}} \tab \code{gamecenter/{id}/...} \tab Media + content \cr
-   \code{\link[=nhl_gamecenter]{nhl_gamecenter()}} \tab \code{gamecenter/{id}/landing} \tab Game-center landing payload \cr
+   \code{\link[=nhl_gamecenter_landing]{nhl_gamecenter_landing()}} \tab \code{gamecenter/{id}/landing} \tab Game-center landing payload \cr
    \code{\link[=nhl_wsc_pbp]{nhl_wsc_pbp()}} \tab \code{wsc/play-by-play/{id}} \tab WSC narrative-format play-by-play \cr
    \code{\link[=nhl_ppt_replay]{nhl_ppt_replay()}} \tab \code{ppt-replay/...} \tab Event-level replay metadata \cr
    \code{\link[=nhl_ppt_replay_goal]{nhl_ppt_replay_goal()}} \tab \code{ppt-replay/goal/...} \tab Goal-specific replay metadata \cr
@@ -50,7 +50,8 @@ wrapped in the \code{fastRhockey_data} S3 class via \code{make_fastRhockey_data(
    \code{\link[=nhl_standings]{nhl_standings()}} \tab \code{standings/{date}} \tab Current / historical standings \cr
    \code{\link[=nhl_standings_season]{nhl_standings_season()}} \tab \code{standings-season} \tab Season list \cr
    \code{\link[=nhl_seasons]{nhl_seasons()}} \tab \code{seasons} + rankings \tab Seasons + draft rankings \cr
-   \code{\link[=nhl_playoffs]{nhl_playoffs()}} \tab \code{playoff-series/...} \tab Playoff brackets / schedules \cr
+   \code{\link[=nhl_playoff_carousel]{nhl_playoff_carousel()}} \tab \code{playoff-series/carousel/...} \tab Playoff carousel \cr
+   \code{\link[=nhl_playoff_schedule]{nhl_playoff_schedule()}} \tab \code{playoff-series/{year}/{seriesLetter}} \tab Playoff schedule \cr
 }
 
 }

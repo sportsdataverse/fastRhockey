@@ -43,8 +43,8 @@ the catalog table below.
 \subsection{\strong{DB helpers}}{\tabular{ll}{
    Function \tab Purpose \cr
    \code{\link[=update_nhl_db]{update_nhl_db()}} \tab Idempotent loader → DB writer (delta only) \cr
-   \code{\link[=build_nhl_db]{build_nhl_db()}} \tab Bulk-build a DB from release files \cr
-   \code{\link[=get_missing_nhl_games]{get_missing_nhl_games()}} \tab Show games missing from a DB target \cr
+   \code{build_nhl_db()} \tab Bulk-build a DB from release files \cr
+   \code{get_missing_nhl_games()} \tab Show games missing from a DB target \cr
 }
 
 }

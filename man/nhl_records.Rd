@@ -2,11 +2,8 @@
 % Please edit documentation in R/nhl_records.R
 \name{nhl_records}
 \alias{nhl_records}
-\alias{nhl_records_franchise}
-\alias{nhl_records_player}
 \alias{nhl_records_skater}
 \alias{nhl_records_goalie}
-\alias{nhl_records_draft}
 \title{\strong{NHL Records API Endpoint Overview}}
 \description{
 Wrappers around the NHL Records backend at \code{records.nhl.com/site/api/...}.

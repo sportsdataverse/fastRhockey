@@ -42,8 +42,8 @@
 #' | Function | Purpose |
 #' |---|---|
 #' | [update_nhl_db()]         | Idempotent loader → DB writer (delta only) |
-#' | [build_nhl_db()]          | Bulk-build a DB from release files |
-#' | [get_missing_nhl_games()] | Show games missing from a DB target |
+#' | `build_nhl_db()`          | Bulk-build a DB from release files |
+#' | `get_missing_nhl_games()` | Show games missing from a DB target |
 #'
 #' @keywords NHL Loaders
 #' @family NHL Loaders

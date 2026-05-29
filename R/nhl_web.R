@@ -21,7 +21,7 @@
 #' | [nhl_game_shifts()]    | `stats/rest/en/shiftcharts`    | Per-shift records (with HTML fallback for empty endpoints) |
 #' | [nhl_game_story()]     | `wsc/game-story/{id}`          | Narrative-format recap |
 #' | [nhl_game_content()]   | `gamecenter/{id}/...`          | Media + content |
-#' | [nhl_gamecenter()]     | `gamecenter/{id}/landing`      | Game-center landing payload |
+#' | [nhl_gamecenter_landing()]     | `gamecenter/{id}/landing`      | Game-center landing payload |
 #' | [nhl_wsc_pbp()]        | `wsc/play-by-play/{id}`        | WSC narrative-format play-by-play |
 #' | [nhl_ppt_replay()]     | `ppt-replay/...`               | Event-level replay metadata |
 #' | [nhl_ppt_replay_goal()]| `ppt-replay/goal/...`          | Goal-specific replay metadata |
@@ -45,7 +45,8 @@
 #' | [nhl_standings()]         | `standings/{date}`     | Current / historical standings |
 #' | [nhl_standings_season()]  | `standings-season`     | Season list |
 #' | [nhl_seasons()]           | `seasons` + rankings   | Seasons + draft rankings |
-#' | [nhl_playoffs()]          | `playoff-series/...`   | Playoff brackets / schedules |
+#' | [nhl_playoff_carousel()]  | `playoff-series/carousel/...` | Playoff carousel |
+#' | [nhl_playoff_schedule()]  | `playoff-series/{year}/{seriesLetter}` | Playoff schedule |
 #'
 #' ## **Teams**
 #'
