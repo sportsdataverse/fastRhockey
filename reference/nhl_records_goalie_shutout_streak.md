@@ -58,7 +58,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_goalie_shutout_streak(limit = 5))
 #> ── NHL Records Goalie Shutout Streak ────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:44:32 UTC
+#> ℹ Data updated: 2026-05-29 18:27:35 UTC
 #> # A tibble: 5 × 17
 #>      id active_player active_streak duration_min_sec duration_seconds end_date  
 #>   <int> <lgl>         <lgl>         <chr>                       <int> <chr>     

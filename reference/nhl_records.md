@@ -15,7 +15,7 @@ attendance, venues, officials, combine). All 25 wrappers route through
 |  |  |  |
 |----|----|----|
 | Function | Endpoint family | Purpose |
-| [`nhl_records_franchise()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.html) | `franchise` | Franchise listing |
+| [`nhl_records_franchise()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise.md) | `franchise` | Franchise listing |
 | [`nhl_records_franchise_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_detail.md) | `franchise-detail` | Franchise details |
 | [`nhl_records_franchise_totals()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_totals.md) | `franchise-team-totals` | All-time team totals |
 | [`nhl_records_franchise_team_totals()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_team_totals.md) | `franchise-team-totals` | Team totals (alt) |
@@ -27,7 +27,7 @@ attendance, venues, officials, combine). All 25 wrappers route through
 |  |  |  |
 |----|----|----|
 | Function | Endpoint family | Purpose |
-| [`nhl_records_player()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.html) | `player` | Players listing |
+| [`nhl_records_player()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_player.md) | `player` | Players listing |
 | [`nhl_records_player_byteam()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_player_byteam.md) | `player` | Players filtered by team |
 | [`nhl_records_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_player_stats.md) | `player-stats` | Player stats |
 | [`nhl_records_skater_real_time_stats_career()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_skater_real_time_stats_career.md) | `skater-real-time-stats/career` | Career real-time skater stats |
@@ -41,7 +41,7 @@ attendance, venues, officials, combine). All 25 wrappers route through
 |  |  |  |
 |----|----|----|
 | Function | Endpoint family | Purpose |
-| [`nhl_records_draft()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.html) | `draft` | Draft listing |
+| [`nhl_records_draft()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft.md) | `draft` | Draft listing |
 | [`nhl_records_draft_lottery_odds()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft_lottery_odds.md) | `draft-lottery-odds` | Lottery odds |
 | [`nhl_records_draft_lottery_picks()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft_lottery_picks.md) | `draft-lottery-picks` | Lottery pick results |
 | [`nhl_records_draft_prospect()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft_prospect.md) | `draft-prospect` | Draft-eligible prospects |

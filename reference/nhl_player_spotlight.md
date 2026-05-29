@@ -36,7 +36,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_player_spotlight())
 #> ── NHL Player Spotlight ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:44:14 UTC
+#> ℹ Data updated: 2026-05-29 18:27:18 UTC
 #> # A tibble: 10 × 13
 #>    player_id player_slug  position sweater_number team_id headshot team_tri_code
 #>        <int> <chr>        <chr>             <int>   <int> <chr>    <chr>        

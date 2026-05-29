@@ -78,7 +78,7 @@ Returns `NULL` on outer failure.
 # \donttest{
   try(nhl_skater_summary_range(start_season = 2023, end_season = 2024))
 #> ── NHL Skater Summary Range ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:44:48 UTC
+#> ℹ Data updated: 2026-05-29 18:27:52 UTC
 #> # A tibble: 100 × 27
 #>    assists ev_goals ev_points faceoff_win_pct game_winning_goals games_played
 #>      <int>    <int>     <int>           <dbl>              <int>        <int>

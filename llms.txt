@@ -1077,11 +1077,8 @@ Team advanced metrics from NHL Edge (`api-web.nhle.com/v1/edge/team-*`)
 NHL Records API endpoint family overview
 
 - [`nhl_records`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.md)
-  [`nhl_records_franchise`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.md)
-  [`nhl_records_player`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.md)
   [`nhl_records_skater`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.md)
   [`nhl_records_goalie`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.md)
-  [`nhl_records_draft`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.md)
   :
 
   **NHL Records API Endpoint Overview**

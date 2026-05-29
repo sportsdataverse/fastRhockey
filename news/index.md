@@ -174,14 +174,14 @@ wrappers share an internal `.nhl_records_api()` helper in
 (`{data, total}`).
 
 - Franchise:
-  [`nhl_records_franchise()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.html),
+  [`nhl_records_franchise()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise.md),
   [`nhl_records_franchise_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_detail.md),
   [`nhl_records_franchise_totals()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_totals.md),
   [`nhl_records_franchise_team_totals()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_team_totals.md),
   [`nhl_records_franchise_season_results()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_season_results.md),
   [`nhl_records_franchise_playoff_appearances()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_playoff_appearances.md)
 - Player:
-  [`nhl_records_player()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.html),
+  [`nhl_records_player()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_player.md),
   [`nhl_records_player_byteam()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_player_byteam.md),
   [`nhl_records_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_player_stats.md),
   [`nhl_records_skater_real_time_stats_season()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_skater_real_time_stats_season.md),
@@ -191,7 +191,7 @@ wrappers share an internal `.nhl_records_api()` helper in
   [`nhl_records_goalie_season_stats()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_goalie_season_stats.md),
   [`nhl_records_goalie_shutout_streak()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_goalie_shutout_streak.md)
 - Draft:
-  [`nhl_records_draft()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.html),
+  [`nhl_records_draft()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft.md),
   [`nhl_records_draft_lottery_odds()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft_lottery_odds.md),
   [`nhl_records_draft_lottery_picks()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft_lottery_picks.md),
   [`nhl_records_draft_prospect()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft_prospect.md)

@@ -15,9 +15,11 @@ class.
 |  |  |
 |----|----|
 | Function | Purpose |
-| `phf_game()` | Per-game payload (all, details, raw, summary variants) |
-| `phf_game_pbp()` | Per-game play-by-play |
-| [`phf_pbp()`](https://fastRhockey.sportsdataverse.org/reference/phf_pbp.md) | Loader entry point (also exports `update_phf_db`) |
+| [`phf_game_all()`](https://fastRhockey.sportsdataverse.org/reference/phf_game_all.md) | Per-game payload (all sections) |
+| [`phf_game_raw()`](https://fastRhockey.sportsdataverse.org/reference/phf_game_raw.md) | Raw API response |
+| [`phf_game_details()`](https://fastRhockey.sportsdataverse.org/reference/phf_game_details.md) | Game details only |
+| [`phf_game_summary()`](https://fastRhockey.sportsdataverse.org/reference/phf_game_summary.md) | Game summary only |
+| [`phf_pbp()`](https://fastRhockey.sportsdataverse.org/reference/phf_pbp.md) | Per-game play-by-play + loader entry point |
 | [`phf_player_box()`](https://fastRhockey.sportsdataverse.org/reference/phf_player_box.md) | Per-game player boxscore |
 | [`phf_team_box()`](https://fastRhockey.sportsdataverse.org/reference/phf_team_box.md) | Per-game team boxscore |
 

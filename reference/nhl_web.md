@@ -22,7 +22,7 @@ and wrapped in the `fastRhockey_data` S3 class via
 | [`nhl_game_shifts()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_shifts.md) | `stats/rest/en/shiftcharts` | Per-shift records (with HTML fallback for empty endpoints) |
 | [`nhl_game_story()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_story.md) | `wsc/game-story/{id}` | Narrative-format recap |
 | [`nhl_game_content()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_content.md) | `gamecenter/{id}/...` | Media + content |
-| `nhl_gamecenter()` | `gamecenter/{id}/landing` | Game-center landing payload |
+| [`nhl_gamecenter_landing()`](https://fastRhockey.sportsdataverse.org/reference/nhl_gamecenter_landing.md) | `gamecenter/{id}/landing` | Game-center landing payload |
 | [`nhl_wsc_pbp()`](https://fastRhockey.sportsdataverse.org/reference/nhl_wsc_pbp.md) | `wsc/play-by-play/{id}` | WSC narrative-format play-by-play |
 | [`nhl_ppt_replay()`](https://fastRhockey.sportsdataverse.org/reference/nhl_ppt_replay.md) | `ppt-replay/...` | Event-level replay metadata |
 | [`nhl_ppt_replay_goal()`](https://fastRhockey.sportsdataverse.org/reference/nhl_ppt_replay_goal.md) | `ppt-replay/goal/...` | Goal-specific replay metadata |
@@ -48,7 +48,8 @@ and wrapped in the `fastRhockey_data` S3 class via
 | [`nhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/nhl_standings.md) | `standings/{date}` | Current / historical standings |
 | [`nhl_standings_season()`](https://fastRhockey.sportsdataverse.org/reference/nhl_standings_season.md) | `standings-season` | Season list |
 | [`nhl_seasons()`](https://fastRhockey.sportsdataverse.org/reference/nhl_seasons.md) | `seasons` + rankings | Seasons + draft rankings |
-| `nhl_playoffs()` | `playoff-series/...` | Playoff brackets / schedules |
+| [`nhl_playoff_carousel()`](https://fastRhockey.sportsdataverse.org/reference/nhl_playoff_carousel.md) | `playoff-series/carousel/...` | Playoff carousel |
+| [`nhl_playoff_schedule()`](https://fastRhockey.sportsdataverse.org/reference/nhl_playoff_schedule.md) | `playoff-series/{year}/{seriesLetter}` | Playoff schedule |
 
 ### **Teams**
 
