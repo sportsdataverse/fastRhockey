@@ -43,7 +43,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(pwhl_player_search(search_term = "Poulin"))
 #> ── PWHL Player Search ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:37:52 UTC
+#> ℹ Data updated: 2026-05-29 17:45:14 UTC
 #> # A tibble: 2 × 15
 #>   player_id first_name  last_name position team_id person_id team_name team_code
 #>       <dbl> <chr>       <chr>     <chr>      <dbl>     <dbl> <chr>     <chr>    

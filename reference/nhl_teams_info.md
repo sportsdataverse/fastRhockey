@@ -2,7 +2,7 @@
 
 Returns NHL team information for a given team abbreviation. Uses the new
 NHL API via
-[`nhl_teams`](https://fastRhockey.sportsdataverse.org/reference/nhl_teams.md).
+[nhl_teams](https://fastRhockey.sportsdataverse.org/reference/nhl_teams.md).
 
 **Breaking change:** The old `team_id` (integer) parameter has been
 replaced by `team_abbr` (3-letter string, e.g., "TBL") because the new
@@ -54,7 +54,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_teams_info(team_abbr = "TBL"))
 #> ── NHL Teams Information from NHL.com ───────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:37:36 UTC
+#> ℹ Data updated: 2026-05-29 17:44:58 UTC
 #> # A tibble: 1 × 20
 #>   team_abbr team_name team_common_name team_logo conference_abbr conference_name
 #>   <chr>     <chr>     <chr>            <chr>     <chr>           <chr>          

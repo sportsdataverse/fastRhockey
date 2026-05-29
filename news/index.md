@@ -174,14 +174,14 @@ wrappers share an internal `.nhl_records_api()` helper in
 (`{data, total}`).
 
 - Franchise:
-  [`nhl_records_franchise()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise.md),
+  [`nhl_records_franchise()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.html),
   [`nhl_records_franchise_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_detail.md),
   [`nhl_records_franchise_totals()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_totals.md),
   [`nhl_records_franchise_team_totals()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_team_totals.md),
   [`nhl_records_franchise_season_results()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_season_results.md),
   [`nhl_records_franchise_playoff_appearances()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_franchise_playoff_appearances.md)
 - Player:
-  [`nhl_records_player()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_player.md),
+  [`nhl_records_player()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.html),
   [`nhl_records_player_byteam()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_player_byteam.md),
   [`nhl_records_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_player_stats.md),
   [`nhl_records_skater_real_time_stats_season()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_skater_real_time_stats_season.md),
@@ -191,7 +191,7 @@ wrappers share an internal `.nhl_records_api()` helper in
   [`nhl_records_goalie_season_stats()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_goalie_season_stats.md),
   [`nhl_records_goalie_shutout_streak()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_goalie_shutout_streak.md)
 - Draft:
-  [`nhl_records_draft()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft.md),
+  [`nhl_records_draft()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.html),
   [`nhl_records_draft_lottery_odds()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft_lottery_odds.md),
   [`nhl_records_draft_lottery_picks()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft_lottery_picks.md),
   [`nhl_records_draft_prospect()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft_prospect.md)
@@ -461,9 +461,9 @@ return types.
   [`nhl_teams_roster()`](https://fastRhockey.sportsdataverse.org/reference/nhl_teams_roster.md),
   [`nhl_player_info()`](https://fastRhockey.sportsdataverse.org/reference/nhl_player_info.md),
   [`nhl_player_game_log()`](https://fastRhockey.sportsdataverse.org/reference/nhl_player_game_log.md),
-  [`nhl_stats_goalies()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_goalies.md),
-  [`nhl_stats_skaters()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_skaters.md),
-  [`nhl_stats_teams()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_teams.md),
+  [`nhl_stats_goalies()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_goalies.html),
+  [`nhl_stats_skaters()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.html),
+  [`nhl_stats_teams()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.html),
   [`nhl_stats_misc()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_misc.md),
   [`nhl_gamecenter_landing()`](https://fastRhockey.sportsdataverse.org/reference/nhl_gamecenter_landing.md),
   [`nhl_gamecenter_right_rail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_gamecenter_right_rail.md),

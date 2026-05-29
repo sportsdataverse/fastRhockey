@@ -37,13 +37,20 @@ following columns:
 | event_type             | character | Event type code ("CHANGE").               |
 | game_seconds_remaining | numeric   | Seconds remaining in the game.            |
 
+Source of truth is the legacy stats-API shiftcharts endpoint
+(`api.nhle.com/stats/rest/en/shiftcharts`). When that endpoint returns
+`{total: 0, data: []}` – which has become common for 2024-25 and 2025-26
+regular-season games – we fall back to scraping the legacy HTML TOI
+reports at `nhl.com/scores/htmlreports/{season}/T{H|V}{gameno}.HTM`,
+which still publish per-shift records for the same games.
+
 ## Examples
 
 ``` r
 # \donttest{
   try(nhl_game_shifts(game_id = 2021020182))
 #> ── NHL Game Shifts Information from NHL.com ─────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:36:37 UTC
+#> ℹ Data updated: 2026-05-29 17:44:10 UTC
 #> # A tibble: 326 × 14
 #>    event_team   period period_time period_seconds game_seconds num_on players_on
 #>    <chr>         <int> <chr>                <dbl>        <dbl>  <int> <chr>     

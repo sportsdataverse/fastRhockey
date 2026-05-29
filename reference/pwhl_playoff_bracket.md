@@ -46,7 +46,7 @@ A data frame with playoff bracket / series data, or NULL if unavailable.
 ``` r
 # \donttest{
   try(pwhl_playoff_bracket(season = 2024))
-#> 2026-05-29 17:37:53.104707: Error retrieving PWHL playoff bracket. $ operator is invalid for atomic vectors
+#> 2026-05-29 17:45:15.060423: Error retrieving PWHL playoff bracket. $ operator is invalid for atomic vectors
 #> NULL
 # }
 ```

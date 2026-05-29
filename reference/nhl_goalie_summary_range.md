@@ -1,7 +1,7 @@
 # **NHL Goalie Summary (Season Range)**
 
 Aggregator helper that calls
-[`nhl_stats_goalies()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_goalies.md)
+[`nhl_stats_goalies()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_goalies.html)
 with `report_type = "summary"` for every season in
 `[start_season, end_season]` and concatenates the results into a single
 tidy frame. Mirrors the `Stats.goalie_stats_summary` convenience helper
@@ -33,7 +33,7 @@ nhl_goalie_summary_range(start_season, end_season, game_type = 2, limit = 50)
 
   Integer maximum number of rows per season request. Defaults to `50` to
   match
-  [`nhl_stats_goalies()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_goalies.md).
+  [`nhl_stats_goalies()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_goalies.html).
 
 ## Value
 
@@ -73,7 +73,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_goalie_summary_range(start_season = 2023, end_season = 2024))
 #> ── NHL Goalie Summary Range ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:36:40 UTC
+#> ℹ Data updated: 2026-05-29 17:44:12 UTC
 #> # A tibble: 100 × 24
 #>    assists games_played games_started goalie_full_name   goals goals_against
 #>      <int>        <int>         <int> <chr>              <int>         <int>

@@ -2,6 +2,20 @@
 
 ## Professional Women’s Hockey League
 
+### Family Overview
+
+PWHL endpoint family overview
+
+- [`pwhl`](https://fastRhockey.sportsdataverse.org/reference/pwhl.md)
+  [`pwhl_overview`](https://fastRhockey.sportsdataverse.org/reference/pwhl.md)
+  [`pwhl_game`](https://fastRhockey.sportsdataverse.org/reference/pwhl.md)
+  [`pwhl_team`](https://fastRhockey.sportsdataverse.org/reference/pwhl.md)
+  [`pwhl_player`](https://fastRhockey.sportsdataverse.org/reference/pwhl.md)
+  [`pwhl_league`](https://fastRhockey.sportsdataverse.org/reference/pwhl.md)
+  :
+
+  **PWHL (Professional Women's Hockey League) Endpoint Overview**
+
 ### Game Data
 
 Functions for accessing PWHL game-level data
@@ -115,6 +129,16 @@ Functions for accessing PWHL league-level data
 
 ## PWHL Data Loaders
 
+### Family Overview
+
+PWHL loader family overview (release-tag catalog)
+
+- [`pwhl_loaders`](https://fastRhockey.sportsdataverse.org/reference/pwhl_loaders.md)
+  [`load_pwhl`](https://fastRhockey.sportsdataverse.org/reference/pwhl_loaders.md)
+  :
+
+  **PWHL Data Loaders Overview**
+
 ### Full Seasons of PWHL Data
 
 Functions that load full seasons of pre-scraped PWHL data from the
@@ -206,6 +230,19 @@ play-by-play data
   **Update or create a fastRhockey PWHL play-by-play database**
 
 ## NHL Data
+
+### Family Overview
+
+NHL Web API endpoint family overview
+
+- [`nhl_web`](https://fastRhockey.sportsdataverse.org/reference/nhl_web.md)
+  [`nhl_game`](https://fastRhockey.sportsdataverse.org/reference/nhl_web.md)
+  [`nhl_schedule_family`](https://fastRhockey.sportsdataverse.org/reference/nhl_web.md)
+  [`nhl_team_family`](https://fastRhockey.sportsdataverse.org/reference/nhl_web.md)
+  [`nhl_player_family`](https://fastRhockey.sportsdataverse.org/reference/nhl_web.md)
+  :
+
+  **NHL Web API Endpoint Overview**
 
 ### Game Data
 
@@ -483,6 +520,19 @@ stats
 
   **NHL Goalie Stats Leaders**
 
+### NHL Stats REST Family Overview
+
+NHL Stats REST endpoint family overview
+
+- [`nhl_stats_rest`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.md)
+  [`nhl_stats`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.md)
+  [`nhl_stats_skaters`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.md)
+  [`nhl_stats_goalies`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.md)
+  [`nhl_stats_teams`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.md)
+  :
+
+  **NHL Stats REST API Endpoint Overview**
+
 ### Stats REST Dedicated Wrappers
 
 Dedicated wrappers for the NHL Stats REST API that were previously only
@@ -553,6 +603,19 @@ reachable via
   :
 
   **NHL Stats API — Content Module**
+
+### NHL Edge Family Overview
+
+NHL Edge analytics endpoint family overview
+
+- [`nhl_edge`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge.md)
+  [`nhl_edge_skater`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge.md)
+  [`nhl_edge_goalie`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge.md)
+  [`nhl_edge_team`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge.md)
+  [`nhl_cat_edge`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge.md)
+  :
+
+  **NHL Edge Analytics Endpoint Overview**
 
 ### NHL Edge Analytics - Skater
 
@@ -742,6 +805,20 @@ Team advanced metrics from NHL Edge (`api-web.nhle.com/v1/edge/team-*`)
   :
 
   **NHL Edge Team Zone Time Top 10**
+
+### NHL Records Family Overview
+
+NHL Records API endpoint family overview
+
+- [`nhl_records`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.md)
+  [`nhl_records_franchise`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.md)
+  [`nhl_records_player`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.md)
+  [`nhl_records_skater`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.md)
+  [`nhl_records_goalie`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.md)
+  [`nhl_records_draft`](https://fastRhockey.sportsdataverse.org/reference/nhl_records.md)
+  :
+
+  **NHL Records API Endpoint Overview**
 
 ### NHL Records API
 
@@ -998,6 +1075,16 @@ replays, and miscellaneous reference data
 
 ## fastRhockey Data
 
+### Family Overview
+
+NHL loader family overview (release-tag catalog)
+
+- [`nhl_loaders`](https://fastRhockey.sportsdataverse.org/reference/nhl_loaders.md)
+  [`load_nhl`](https://fastRhockey.sportsdataverse.org/reference/nhl_loaders.md)
+  :
+
+  **NHL Data Loaders Overview**
+
 ### Full Seasons of NHL Data
 
 Functions exported by fastRhockey which load full seasons of fastRhockey
@@ -1121,6 +1208,17 @@ Data included within the package
 
 ## Helpers
 
+### NHL xG Family Overview
+
+NHL expected-goals pipeline overview
+
+- [`nhl_xg`](https://fastRhockey.sportsdataverse.org/reference/nhl_xg.md)
+  [`xg`](https://fastRhockey.sportsdataverse.org/reference/nhl_xg.md)
+  [`fastRhockey_xg`](https://fastRhockey.sportsdataverse.org/reference/nhl_xg.md)
+  :
+
+  **NHL Expected Goals (xG) Pipeline Overview**
+
 ### Helper Functions
 
 Functions used internally by fastRhockey which assist in transforming or
@@ -1172,6 +1270,20 @@ loading data
 The Premier Hockey Federation (PHF) has ceased operations. These
 functions are deprecated and will emit warnings when called. Historical
 data may still be available via the load_phf\_\* functions.
+
+### PHF Family Overview
+
+PHF endpoint family overview (all deprecated)
+
+- [`phf`](https://fastRhockey.sportsdataverse.org/reference/phf.md)
+  [`phf_deprecated`](https://fastRhockey.sportsdataverse.org/reference/phf.md)
+  :
+
+  **PHF (Premier Hockey Federation) Endpoint Overview — DEPRECATED**
+
+### Deprecated PHF Functions
+
+PHF function listing (all deprecated)
 
 - [`phf_game_all()`](https://fastRhockey.sportsdataverse.org/reference/phf_game_all.md)
   **\[deprecated\]** :

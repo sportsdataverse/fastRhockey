@@ -83,7 +83,7 @@ per pre-compiled dataset.
 # \donttest{
   try(nhl_schedule(day = "2024-01-15"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:37:13 UTC
+#> ℹ Data updated: 2026-05-29 17:44:43 UTC
 #> # A tibble: 53 × 13
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
@@ -103,7 +103,7 @@ per pre-compiled dataset.
 #> #   venue <chr>
   try(nhl_schedule(season = 2025, team_abbr = "TOR"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:37:17 UTC
+#> ℹ Data updated: 2026-05-29 17:44:44 UTC
 #> # A tibble: 95 × 16
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
@@ -124,7 +124,7 @@ per pre-compiled dataset.
 #> #   series_game_number <int>
   try(nhl_schedule(season = 2024, team_abbr = "TOR", game_type = "playoffs"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:37:20 UTC
+#> ℹ Data updated: 2026-05-29 17:44:45 UTC
 #> # A tibble: 7 × 16
 #>      game_id season_full game_type game_date  game_time           home_team_abbr
 #>        <int> <chr>       <chr>     <chr>      <chr>               <chr>         
@@ -140,6 +140,6 @@ per pre-compiled dataset.
 #> #   venue <chr>, series_letter <chr>, playoff_round <int>,
 #> #   series_game_number <int>
   try(nhl_schedule(day = "2024-01-15", include_data_flags = TRUE))
-#> 2026-05-29 17:37:21.715138: Error fetching schedule for 2024-01-15: `x` and `y` must share the same src.
+#> 2026-05-29 17:44:46.444186: Error fetching schedule for 2024-01-15: `x` and `y` must share the same src.
 # }
 ```

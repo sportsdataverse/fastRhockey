@@ -27,9 +27,9 @@ helper_nhl_calculate_xg(pbp)
 - pbp:
 
   A play-by-play data frame produced by
-  [`nhl_game_pbp`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_pbp.md)
+  [nhl_game_pbp](https://fastRhockey.sportsdataverse.org/reference/nhl_game_pbp.md)
   or
-  [`nhl_game_feed`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_feed.md).
+  [nhl_game_feed](https://fastRhockey.sportsdataverse.org/reference/nhl_game_feed.md).
   Must contain columns needed by
   [`helper_nhl_prepare_xg_data()`](https://fastRhockey.sportsdataverse.org/reference/helper_nhl_prepare_xg_data.md):
   `event_type`, `secondary_type`, `period_type`, `period`,

@@ -103,6 +103,7 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_draft_rankings.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_draft_tracker.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_draft_year.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_edge.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_5v5_detail.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_5v5_top_10.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_comparison.html</loc></url>
@@ -147,6 +148,7 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_gamecenter_right_rail.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_goalie_stats_leaders.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_goalie_summary_range.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_loaders.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_location.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_meta.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_partner_game_odds.html</loc></url>
@@ -161,6 +163,7 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_postal_lookup.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_ppt_replay.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_ppt_replay_goal.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_records.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_records_attendance.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_records_award_details.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_records_combine.html</loc></url>
@@ -210,6 +213,7 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_stats_misc.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_stats_ping.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_stats_players.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_stats_seasons.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_stats_skater_leaders.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_stats_skater_milestones.html</loc></url>
@@ -224,8 +228,11 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_teams_roster.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_teams_stats.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_tv_schedule.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_web.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_where_to_watch.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_wsc_pbp.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/nhl_xg.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/phf.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/phf_game_all.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/phf_game_details.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/phf_game_raw.html</loc></url>
@@ -241,9 +248,11 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/phf_team_roster.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/phf_team_stats.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/progressively.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_game_info.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_game_summary.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_leaders.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_loaders.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_pbp.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_player_box.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/pwhl_player_game_log.html</loc></url>

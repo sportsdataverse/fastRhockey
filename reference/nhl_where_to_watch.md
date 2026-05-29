@@ -19,7 +19,7 @@ Returns a list with streaming availability data.
 try(nhl_where_to_watch())
 #> Request failed [404]. Retrying in 1 seconds...
 #> Request failed [404]. Retrying in 2.7 seconds...
-#> 2026-05-29 17:37:42.051598: Error fetching where to watch: The API returned an error
+#> 2026-05-29 17:45:03.963642: Error fetching where to watch: The API returned an error
 #> NULL
 # }
 ```

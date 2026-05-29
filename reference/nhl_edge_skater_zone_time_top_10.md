@@ -61,7 +61,7 @@ failure / empty response.
   ))
 #> Request failed [500]. Retrying in 1 seconds...
 #> Request failed [500]. Retrying in 1.3 seconds...
-#> 2026-05-29 17:36:21.904334: Error fetching https://api-web.nhle.com/v1/edge/skater-zone-time-top-10/F/all/total/now: The API returned an error
+#> 2026-05-29 17:43:59.332193: Error fetching https://api-web.nhle.com/v1/edge/skater-zone-time-top-10/F/all/total/now: The API returned an error
 #> NULL
 # }
 ```
