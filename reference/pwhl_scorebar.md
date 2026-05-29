@@ -50,27 +50,19 @@ A data frame with recent/upcoming game scores, or NULL if unavailable.
 # \donttest{
   try(pwhl_scorebar(days_back = 7, days_ahead = 7))
 #> ── PWHL Scorebar ────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 18:40:17 UTC
-#> # A tibble: 15 × 15
-#>    game_id season_id date       game_date   status home_team        home_team_id
-#>      <dbl>     <dbl> <chr>      <chr>       <chr>  <chr>                   <dbl>
-#>  1     329         8 2026-04-25 Sat, Apr 25 4      Boston Fleet                1
-#>  2     328         8 2026-04-25 Sat, Apr 25 4      Ottawa Charge               5
-#>  3     327         8 2026-04-25 Sat, Apr 25 4      Vancouver Golde…            9
-#>  4     326         8 2026-04-25 Sat, Apr 25 4      Seattle Torrent             8
-#>  5     338         9 2026-04-30 Thu, Apr 30 4      Boston Fleet                1
-#>  6     340         9 2026-05-02 Sat, May 2  4      Montréal Victoi…            3
-#>  7     339         9 2026-05-02 Sat, May 2  4      Boston Fleet                1
-#>  8     341         9 2026-05-05 Tue, May 5  4      Montréal Victoi…            3
-#>  9     342         9 2026-05-07 Thu, May 7  4      Minnesota Frost             2
-#> 10     343         9 2026-05-08 Fri, May 8  4      Ottawa Charge               5
-#> 11     345         9 2026-05-08 Fri, May 8  4      Minnesota Frost             2
-#> 12     344         9 2026-05-10 Sun, May 10 4      Ottawa Charge               5
-#> 13     347         9 2026-05-11 Mon, May 11 1      Montréal Victoi…            3
-#> 14     348         9 2026-05-18 Mon, May 18 1      Ottawa Charge               5
-#> 15     349         9 2026-05-20 Wed, May 20 1      Ottawa Charge               5
-#> # ℹ 8 more variables: home_team_code <chr>, home_score <chr>, away_team <chr>,
-#> #   away_team_id <dbl>, away_team_code <chr>, away_score <chr>, period <chr>,
-#> #   clock <chr>
+#> ℹ Data updated: 2026-05-29 10:32:26 UTC
+#> # A tibble: 8 × 15
+#>   game_id season_id date  game_date status home_team home_team_id home_team_code
+#>     <dbl>     <dbl> <chr> <chr>     <chr>  <chr>            <dbl> <chr>         
+#> 1     343         9 2026… Fri, May… 4      Ottawa C…            5 OTT           
+#> 2     345         9 2026… Fri, May… 4      Minnesot…            2 MIN           
+#> 3     344         9 2026… Sun, May… 4      Ottawa C…            5 OTT           
+#> 4     347         9 2026… Tue, May… 4      Montréal…            3 MTL           
+#> 5     350         9 2026… Thu, May… 4      Montréal…            3 MTL           
+#> 6     351         9 2026… Sat, May… 4      Montréal…            3 MTL           
+#> 7     348         9 2026… Mon, May… 4      Ottawa C…            5 OTT           
+#> 8     349         9 2026… Wed, May… 4      Ottawa C…            5 OTT           
+#> # ℹ 7 more variables: home_score <chr>, away_team <chr>, away_team_id <dbl>,
+#> #   away_team_code <chr>, away_score <chr>, period <chr>, clock <chr>
 # }
 ```

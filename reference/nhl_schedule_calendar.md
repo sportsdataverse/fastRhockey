@@ -24,16 +24,13 @@ Returns a list with calendar data.
 # \donttest{
   try(nhl_schedule_calendar())
 #> $endDate
-#> [1] "2026-05-17"
-#> 
-#> $nextStartDate
-#> [1] "2026-05-18"
+#> [1] "2026-06-03"
 #> 
 #> $previousStartDate
-#> [1] "2026-05-04"
+#> [1] "2026-05-21"
 #> 
 #> $startDate
-#> [1] "2026-05-11"
+#> [1] "2026-05-28"
 #> 
 #> $teams
 #>    id seasonId abbrev

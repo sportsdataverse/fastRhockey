@@ -21,23 +21,24 @@ Returns a data frame of draft prospect rankings.
 # \donttest{
    try(nhl_draft_prospects())
 #> ── NHL Draft Prospects data from NHL.com ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 18:38:06 UTC
-#> # A tibble: 225 × 13
+#> ℹ Data updated: 2026-05-29 10:30:38 UTC
+#> # A tibble: 253 × 14
 #>    last_name first_name position_code shoots_catches height_in_inches
 #>    <chr>     <chr>      <chr>         <chr>                     <int>
 #>  1 McKenna   Gavin      LW            L                            71
-#>  2 Verhoeff  Keaton     D             R                            76
+#>  2 Reid      Chase      D             R                            74
 #>  3 Carels    Carson     D             L                            74
-#>  4 Reid      Chase      D             R                            74
-#>  5 Malhotra  Caleb      C             L                            74
-#>  6 Rudolph   Daxon      D             R                            74
+#>  4 Verhoeff  Keaton     D             R                            76
+#>  5 Rudolph   Daxon      D             R                            74
+#>  6 Malhotra  Caleb      C             L                            74
 #>  7 Lawrence  Tynan      C             L                            72
-#>  8 Morozov   Ilya       C             L                            75
+#>  8 Klepov    Nikita     RW            L                            72
 #>  9 Belchetz  Ethan      LW            L                            77
-#> 10 Hurlbert  JP         LW            R                            72
-#> # ℹ 215 more rows
-#> # ℹ 8 more variables: weight_in_pounds <int>, last_amateur_club <chr>,
+#> 10 Morozov   Ilya       C             L                            75
+#> # ℹ 243 more rows
+#> # ℹ 9 more variables: weight_in_pounds <int>, last_amateur_club <chr>,
 #> #   last_amateur_league <chr>, birth_date <chr>, birth_city <chr>,
-#> #   birth_state_province <chr>, birth_country <chr>, midterm_rank <int>
+#> #   birth_state_province <chr>, birth_country <chr>, midterm_rank <int>,
+#> #   final_rank <int>
 # }
 ```

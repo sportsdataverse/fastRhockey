@@ -39,7 +39,7 @@ A `fastRhockey_data` tibble of franchises, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_franchise())
 #> ── NHL Stats Franchise ──────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 18:39:51 UTC
+#> ℹ Data updated: 2026-05-29 10:32:04 UTC
 #> # A tibble: 40 × 4
 #>       id full_name             team_common_name team_place_name
 #>    <int> <chr>                 <chr>            <chr>          

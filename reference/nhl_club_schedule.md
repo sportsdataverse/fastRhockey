@@ -52,7 +52,7 @@ Returns a data frame with schedule data.
 # \donttest{
   try(nhl_club_schedule(team_abbr = "TOR"))
 #> ── NHL Club Schedule ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 18:38:03 UTC
+#> ℹ Data updated: 2026-05-29 10:30:35 UTC
 #> # A tibble: 88 × 69
 #>            id   season game_type game_date  neutral_site start_time_utc      
 #>         <int>    <int>     <int> <chr>      <lgl>        <chr>               

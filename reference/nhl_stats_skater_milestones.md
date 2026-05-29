@@ -43,7 +43,7 @@ A `fastRhockey_data` tibble of skater milestones, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_skater_milestones())
 #> ── NHL Stats Skater Milestones ──────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 18:39:56 UTC
+#> ℹ Data updated: 2026-05-29 10:32:08 UTC
 #> # A tibble: 100 × 17
 #>       id assists current_team_id first_name   game_type_id games_played goals
 #>    <int>   <int>           <int> <chr>               <int>        <int> <int>
@@ -53,10 +53,10 @@ A `fastRhockey_data` tibble of skater milestones, or `NULL` on failure.
 #>  4  1776      33              18 Roman                   3           91    12
 #>  5  2393      30               2 Brayden                 3           82    13
 #>  6  2402      45              14 Brayden                 3           99    45
-#>  7  2418      31              30 Marcus                  3          123    19
-#>  8  2423      27              16 Andre                   3           93    20
-#>  9  2425      27              16 Andre                   3           93    20
-#> 10  2444      29              21 Nazem                   3           59    20
+#>  7  2423      27              16 Andre                   3           93    20
+#>  8  2425      27              16 Andre                   3           93    20
+#>  9  2926      67               5 Kris                    3          155    25
+#> 10  3077      70              15 Alex                    3          161    77
 #> # ℹ 90 more rows
 #> # ℹ 10 more variables: last_name <chr>, milestone <chr>,
 #> #   milestone_amount <int>, player_full_name <chr>, player_id <int>,

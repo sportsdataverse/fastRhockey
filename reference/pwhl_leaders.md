@@ -42,7 +42,7 @@ A data frame with league leader statistics, or NULL if unavailable.
 # \donttest{
   try(pwhl_leaders(position = "skaters", season = 2025))
 #> ── PWHL Leaders - skaters ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 18:40:12 UTC
+#> ℹ Data updated: 2026-05-29 10:32:22 UTC
 #> # A tibble: 107 × 88
 #>    player_id shortname    first_name last_name name  phonetic_name active height
 #>    <chr>     <chr>        <chr>      <chr>     <chr> <chr>         <chr>  <chr> 
@@ -65,8 +65,8 @@ A data frame with league leader statistics, or NULL if unavailable.
 #> #   birthdate_year <chr>, hometown <chr>, homeprov <chr>, homecntry <chr>, …
   try(pwhl_leaders(position = "goalies", season = 2025))
 #> ── PWHL Leaders - goalies ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 18:40:12 UTC
-#> # A tibble: 16 × 79
+#> ℹ Data updated: 2026-05-29 10:32:22 UTC
+#> # A tibble: 16 × 84
 #>    player_id shortname    rookie first_name last_name name  phonetic_name active
 #>    <chr>     <chr>        <chr>  <chr>      <chr>     <chr> <chr>         <chr> 
 #>  1 134       C. Jackson   0      Carly      Jackson   Carl… "CAR-lee JAK… 1     
@@ -84,8 +84,8 @@ A data frame with league leader statistics, or NULL if unavailable.
 #> 13 59        E. Maschmey… 0      Emerance   Maschmey… Emer… "EH-muhr-ehn… 1     
 #> 14 19        E. Söderberg 0      Emma       Söderberg Emma… "EH-mah SOH-… 1     
 #> 15 41        A. Levy      0      Abbey      Levy      Abbe… "AH-BEE LEE-… 1     
-#> 16 193       L. Morgan    1      Lucy       Morgan    Lucy… ""            1     
-#> # ℹ 71 more variables: height <chr>, weight <chr>, position <chr>,
+#> 16 193       L. Morgan    0      Lucy       Morgan    Lucy… ""            1     
+#> # ℹ 76 more variables: height <chr>, weight <chr>, position <chr>,
 #> #   suspension_games_remaining <chr>, suspension_indefinite <chr>,
 #> #   start_date <chr>, veteran <chr>, draft_eligible <chr>, jersey_number <chr>,
 #> #   shoots <chr>, catches <chr>, team_name <chr>, team_code <chr>,

@@ -46,24 +46,25 @@ Returns a data frame with skater leaders.
 # \donttest{
   try(nhl_skater_stats_leaders())
 #> ── NHL Skater Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 18:39:47 UTC
-#> # A tibble: 45 × 18
+#> ℹ Data updated: 2026-05-29 10:32:01 UTC
+#> # A tibble: 45 × 21
 #>         id sweater_number headshot          team_abbrev team_logo position value
 #>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>
-#>  1 8479353             21 https://assets.n… VGK         https://… C            2
-#>  2 8478970              5 https://assets.n… CAR         https://… D            1
+#>  1 8479353             21 https://assets.n… VGK         https://… C            3
+#>  2 8478133             71 https://assets.n… MTL         https://… C            1
 #>  3 8475188              3 https://assets.n… VGK         https://… D            1
-#>  4 8480068             25 https://assets.n… ANA         https://… C            1
-#>  5 8476374             52 https://assets.n… BOS         https://… C            1
-#>  6 8482122              7 https://assets.n… MIN         https://… D           12
-#>  7 8478864             97 https://assets.n… MIN         https://… L           11
-#>  8 8475791             71 https://assets.n… CAR         https://… L           10
-#>  9 8480800             43 https://assets.n… MIN         https://… D           10
-#> 10 8477476             62 https://assets.n… COL         https://… L            9
+#>  4 8478970              5 https://assets.n… CAR         https://… D            1
+#>  5 8480835             18 https://assets.n… COL         https://… C            1
+#>  6 8480817             19 https://assets.n… CAR         https://… D           12
+#>  7 8478483             93 https://assets.n… VGK         https://… R           12
+#>  8 8482122              7 https://assets.n… MIN         https://… D           11
+#>  9 8480336             26 https://assets.n… CAR         https://… D           11
+#> 10 8478133             71 https://assets.n… MTL         https://… C           11
 #> # ℹ 35 more rows
-#> # ℹ 11 more variables: first_name_default <chr>, last_name_default <chr>,
+#> # ℹ 14 more variables: first_name_default <chr>, last_name_default <chr>,
 #> #   team_name_default <chr>, category <chr>, first_name_cs <chr>,
 #> #   first_name_de <chr>, first_name_es <chr>, first_name_fi <chr>,
-#> #   first_name_sk <chr>, first_name_sv <chr>, team_name_fr <chr>
+#> #   first_name_sk <chr>, first_name_sv <chr>, last_name_cs <chr>,
+#> #   last_name_sk <chr>, last_name_fi <chr>, team_name_fr <chr>
 # }
 ```

@@ -45,28 +45,28 @@ Returns a data frame with goalie leaders.
 # \donttest{
   try(nhl_goalie_stats_leaders())
 #> ── NHL Goalie Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 18:39:02 UTC
+#> ℹ Data updated: 2026-05-29 10:31:23 UTC
 #> # A tibble: 18 × 17
-#>         id sweater_number headshot          team_abbrev team_logo position value
-#>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>
-#>  1 8475883             31 https://assets.n… CAR         https://… G        8    
-#>  2 8482487             75 https://assets.n… MTL         https://… G        6    
-#>  3 8479394             79 https://assets.n… VGK         https://… G        6    
-#>  4 8480843              1 https://assets.n… ANA         https://… G        6    
-#>  5 8475809             41 https://assets.n… COL         https://… G        6    
-#>  6 8475883             31 https://assets.n… CAR         https://… G        2    
-#>  7 8478435             80 https://assets.n… PHI         https://… G        2    
-#>  8 8476883             88 https://assets.n… TBL         https://… G        1    
-#>  9 8475883             31 https://assets.n… CAR         https://… G        0.950
-#> 10 8481668             37 https://assets.n… PIT         https://… G        0.939
-#> 11 8476999             35 https://assets.n… OTT         https://… G        0.932
-#> 12 8478406             39 https://assets.n… COL         https://… G        0.923
-#> 13 8478435             80 https://assets.n… PHI         https://… G        0.922
-#> 14 8475883             31 https://assets.n… CAR         https://… G        1.12 
-#> 15 8481668             37 https://assets.n… PIT         https://… G        1.52 
-#> 16 8478406             39 https://assets.n… COL         https://… G        1.85 
-#> 17 8476999             35 https://assets.n… OTT         https://… G        2.03 
-#> 18 8478024             33 https://assets.n… ANA         https://… G        2.12 
+#>         id sweater_number headshot         team_abbrev team_logo position  value
+#>      <int>          <int> <chr>            <chr>       <chr>     <chr>     <dbl>
+#>  1 8479394             79 https://assets.… VGK         https://… G        12    
+#>  2 8475883             31 https://assets.… CAR         https://… G        11    
+#>  3 8482487             75 https://assets.… MTL         https://… G         9    
+#>  4 8475809             41 https://assets.… COL         https://… G         7    
+#>  5 8480843              1 https://assets.… ANA         https://… G         6    
+#>  6 8475883             31 https://assets.… CAR         https://… G         3    
+#>  7 8478435             80 https://assets.… PHI         https://… G         2    
+#>  8 8476883             88 https://assets.… TBL         https://… G         1    
+#>  9 8481668             37 https://assets.… PIT         https://… G         0.939
+#> 10 8476999             35 https://assets.… OTT         https://… G         0.932
+#> 11 8475883             31 https://assets.… CAR         https://… G         0.928
+#> 12 8479394             79 https://assets.… VGK         https://… G         0.924
+#> 13 8478435             80 https://assets.… PHI         https://… G         0.922
+#> 14 8475883             31 https://assets.… CAR         https://… G         1.44 
+#> 15 8481668             37 https://assets.… PIT         https://… G         1.52 
+#> 16 8476999             35 https://assets.… OTT         https://… G         2.03 
+#> 17 8478024             33 https://assets.… ANA         https://… G         2.12 
+#> 18 8478435             80 https://assets.… PHI         https://… G         2.18 
 #> # ℹ 10 more variables: first_name_default <chr>, last_name_default <chr>,
 #> #   team_name_default <chr>, first_name_cs <chr>, first_name_sk <chr>,
 #> #   last_name_cs <chr>, last_name_sk <chr>, category <chr>, last_name_fi <chr>,

@@ -34,7 +34,7 @@ failure.
 # \donttest{
   try(nhl_records_goalie_season_stats(limit = 5))
 #> ── NHL Records Goalie Season Stats ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 18:39:23 UTC
+#> ℹ Data updated: 2026-05-29 10:31:43 UTC
 #> # A tibble: 5 × 34
 #>      id active_player first_name franchise_id game_seven_games_played
 #>   <int> <lgl>         <chr>             <int> <lgl>                  

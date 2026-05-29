@@ -8,7 +8,7 @@ Retrieves game-by-game statistics for a PWHL player in a given season.
 pwhl_player_game_log(
   player_id,
   season = most_recent_pwhl_season(),
-  game_type = "regular"
+  game_type = "both"
 )
 ```
 
@@ -26,7 +26,11 @@ pwhl_player_game_log(
 
 - game_type:
 
-  Game type: "regular" (default), "preseason", or "playoffs".
+  Game type: `"both"` (default), `"regular"`, `"playoffs"`, or
+  `"preseason"`. When `"both"`, the player's regular-season and playoff
+  game logs are combined and labeled by a `game_type` column. Game types
+  the player has no games in (e.g. playoffs for a non-qualifying team)
+  are omitted rather than erroring.
 
 ## Value
 
@@ -57,14 +61,16 @@ unavailable.
 
 - `shots` - Shots on goal.
 
+- `game_type` - Game type the row belongs to (`"regular"`/`"playoffs"`).
+
 ## Examples
 
 ``` r
 # \donttest{
   try(pwhl_player_game_log(player_id = 28, season = 2025))
 #> ── PWHL Player Game Log ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 18:40:14 UTC
-#> # A tibble: 21 × 38
+#> ℹ Data updated: 2026-05-29 10:32:24 UTC
+#> # A tibble: 25 × 39
 #>    g_month    id home_team visiting_team date_played  home goalie home_team_code
 #>    <chr>   <dbl> <chr>     <chr>         <chr>       <dbl>  <dbl> <chr>         
 #>  1 Novemb…   106 3         5             2024-11-30      1      1 MTL           
@@ -77,8 +83,8 @@ unavailable.
 #>  8 January   176 3         5             2025-01-19      1      1 MTL           
 #>  9 January   137 3         5             2025-01-29      1      1 MTL           
 #> 10 Februa…   141 4         3             2025-02-02      0      1 NY            
-#> # ℹ 11 more rows
-#> # ℹ 30 more variables: home_team_name <chr>, home_division <chr>,
+#> # ℹ 15 more rows
+#> # ℹ 31 more variables: home_team_name <chr>, home_division <chr>,
 #> #   visiting_team_code <chr>, visiting_team_name <chr>,
 #> #   visiting_division <chr>, goals_against <dbl>, seconds_played <chr>,
 #> #   win <dbl>, tie <chr>, loss <dbl>, total_losses <chr>, shutout <chr>,

@@ -25,15 +25,15 @@ A `fastRhockey_data` tibble of trophies, or `NULL` on failure.
 # \donttest{
   try(nhl_records_trophy())
 #> ── NHL Records Trophy ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 18:39:34 UTC
+#> ℹ Data updated: 2026-05-29 10:31:54 UTC
 #> # A tibble: 25 × 10
 #>       id brief_description           category_id created_on description footnote
 #>    <int> <chr>                             <int> <chr>      <chr>       <lgl>   
 #>  1     1 NHL Champion                          1 2025-08-0… "<p><stron… NA      
 #>  2     2 Coach of the Year                     3 2025-06-0… "<p><b>Des… NA      
 #>  3     3 Sportsmanship and Gentlema…           2 2025-06-1… "<p><b>Des… NA      
-#>  4     4 Rookie of the Year                    2 2025-06-1… "<p><b>Des… NA      
-#>  5     5 Western Conference Champion           1 2025-05-2… "<p><b>Des… NA      
+#>  4     4 Rookie of the Year                    2 2026-05-1… "<p><b>Des… NA      
+#>  5     5 Western Conference Champion           1 2026-05-2… "<p><b>Des… NA      
 #>  6     6 Leadership and Humanitaria…           2 2025-06-0… "<p><b>Des… NA      
 #>  7     7 MVP of Stanley Cup Playoffs           2 2025-06-2… "<p><b>Des… NA      
 #>  8     8 MVP of Regular Season                 2 2025-06-1… "<p><b>Des… NA      

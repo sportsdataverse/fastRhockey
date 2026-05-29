@@ -39,7 +39,7 @@ A `fastRhockey_data` tibble of skater leaders, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_skater_leaders(attribute = "assists"))
 #> ── NHL Stats Skater Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 18:39:55 UTC
+#> ℹ Data updated: 2026-05-29 10:32:08 UTC
 #> # A tibble: 10 × 15
 #>    assists player_id player_current_team_id player_first_name player_full_name
 #>      <int>     <int> <lgl>                  <chr>             <chr>           

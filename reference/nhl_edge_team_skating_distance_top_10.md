@@ -58,18 +58,18 @@ on failure / empty response.
     sort_by = "total"
   ))
 #> ── NHL Edge Team Skating Distance Top 10 ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-11 18:38:51 UTC
+#> ℹ Data updated: 2026-05-29 10:31:15 UTC
 #> # A tibble: 10 × 36
 #>    team_abbrev team_slug           team_common_name_def…¹ team_place_name_with…²
 #>    <chr>       <chr>               <chr>                  <chr>                 
-#>  1 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
-#>  2 PHI         philadelphia-flyer… Flyers                 Philadelphia          
-#>  3 MTL         montreal-canadiens… Canadiens              Montréal              
-#>  4 ANA         anaheim-ducks-24    Ducks                  Anaheim               
-#>  5 MIN         minnesota-wild-30   Wild                   Minnesota             
-#>  6 BUF         buffalo-sabres-7    Sabres                 Buffalo               
-#>  7 CAR         carolina-hurricane… Hurricanes             Carolina              
-#>  8 COL         colorado-avalanche… Avalanche              Colorado              
+#>  1 MTL         montreal-canadiens… Canadiens              Montréal              
+#>  2 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
+#>  3 COL         colorado-avalanche… Avalanche              Colorado              
+#>  4 CAR         carolina-hurricane… Hurricanes             Carolina              
+#>  5 BUF         buffalo-sabres-7    Sabres                 Buffalo               
+#>  6 ANA         anaheim-ducks-24    Ducks                  Anaheim               
+#>  7 MIN         minnesota-wild-30   Wild                   Minnesota             
+#>  8 PHI         philadelphia-flyer… Flyers                 Philadelphia          
 #>  9 TBL         tampa-bay-lightnin… Lightning              Tampa Bay             
 #> 10 UTA         utah-mammoth-68     Mammoth                Utah                  
 #> # ℹ abbreviated names: ¹​team_common_name_default,
