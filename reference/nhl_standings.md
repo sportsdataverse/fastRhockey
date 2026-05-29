@@ -66,7 +66,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_standings())
 #> ── NHL Standings ────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:07:29 UTC
+#> ℹ Data updated: 2026-05-29 17:37:26 UTC
 #> # A tibble: 32 × 36
 #>    team_abbr team_name           team_common_name team_logo      conference_name
 #>    <chr>     <chr>               <chr>            <chr>          <chr>          
@@ -89,7 +89,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #> #   goals_against <int>, goal_differential <int>, home_wins <int>, …
   try(nhl_standings(date = "2024-03-01"))
 #> ── NHL Standings ────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:07:29 UTC
+#> ℹ Data updated: 2026-05-29 17:37:26 UTC
 #> # A tibble: 32 × 36
 #>    team_abbr team_name            team_common_name team_logo     conference_name
 #>    <chr>     <chr>                <chr>            <chr>         <chr>          

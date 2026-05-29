@@ -48,7 +48,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_draft_rankings())
 #> ── NHL Draft Rankings ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:05:58 UTC
+#> ℹ Data updated: 2026-05-29 17:35:44 UTC
 #> # A tibble: 253 × 14
 #>    last_name first_name position_code shoots_catches height_in_inches
 #>    <chr>     <chr>      <chr>         <chr>                     <int>

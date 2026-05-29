@@ -49,7 +49,7 @@ failure / empty response.
   ))
 #> Request failed [404]. Retrying in 1.7 seconds...
 #> Request failed [404]. Retrying in 1 seconds...
-#> 2026-05-29 17:06:28.580422: Error fetching https://api-web.nhle.com/v1/edge/skater-speed-top-10/F/total/now: The API returned an error
+#> 2026-05-29 17:36:18.070847: Error fetching https://api-web.nhle.com/v1/edge/skater-speed-top-10/F/total/now: The API returned an error
 #> NULL
 # }
 ```
