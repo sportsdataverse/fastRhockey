@@ -18,7 +18,7 @@ Returns a data frame with season information.
 # \donttest{
   try(nhl_seasons())
 #> ── NHL Seasons ──────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 10:32:00 UTC
+#> ℹ Data updated: 2026-05-29 14:43:19 UTC
 #> # A tibble: 108 × 1
 #>    season_id
 #>        <int>

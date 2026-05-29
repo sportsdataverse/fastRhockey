@@ -43,7 +43,7 @@ A `fastRhockey_data` tibble of goalie milestones, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_goalie_milestones())
 #> ── NHL Stats Goalie Milestones ──────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 10:32:06 UTC
+#> ℹ Data updated: 2026-05-29 14:43:24 UTC
 #> # A tibble: 54 × 17
 #>       id current_team_id first_name game_type_id games_played last_name 
 #>    <int>           <int> <chr>             <int>        <int> <chr>     

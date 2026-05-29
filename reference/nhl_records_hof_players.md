@@ -27,7 +27,7 @@ A `fastRhockey_data` tibble of HOF inductees, or `NULL` on failure.
 # \donttest{
   try(nhl_records_hof_players())
 #> ── NHL Records HOF Players ──────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 10:31:44 UTC
+#> ℹ Data updated: 2026-05-29 14:43:03 UTC
 #> # A tibble: 761 × 7
 #>       id date_inducted     induction_cat_id misc_full_name office_id official_id
 #>    <int> <chr>                        <int> <chr>              <int> <lgl>      

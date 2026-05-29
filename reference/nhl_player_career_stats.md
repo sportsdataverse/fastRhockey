@@ -33,7 +33,7 @@ landing endpoint's `seasonTotals` payload (e.g. `goals`, `assists`,
 # \donttest{
   try(nhl_player_career_stats(player_id = 8478402))
 #> ── NHL Player Career Stats ──────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 10:31:25 UTC
+#> ℹ Data updated: 2026-05-29 14:42:44 UTC
 #> # A tibble: 36 × 41
 #>    player_id first_name last_name position assists game_type_id games_played
 #>        <int> <chr>      <chr>     <chr>      <int>        <int>        <int>

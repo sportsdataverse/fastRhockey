@@ -50,7 +50,7 @@ A data frame with recent/upcoming game scores, or NULL if unavailable.
 # \donttest{
   try(pwhl_scorebar(days_back = 7, days_ahead = 7))
 #> ── PWHL Scorebar ────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 10:32:26 UTC
+#> ℹ Data updated: 2026-05-29 14:43:46 UTC
 #> # A tibble: 8 × 15
 #>   game_id season_id date  game_date status home_team home_team_id home_team_code
 #>     <dbl>     <dbl> <chr> <chr>     <chr>  <chr>            <dbl> <chr>         

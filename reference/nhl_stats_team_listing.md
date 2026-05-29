@@ -46,7 +46,7 @@ A `fastRhockey_data` tibble of teams, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_team_listing())
 #> ── NHL Stats Team Listing ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 10:32:09 UTC
+#> ℹ Data updated: 2026-05-29 14:43:27 UTC
 #> # A tibble: 62 × 6
 #>       id franchise_id full_name              league_id raw_tricode tri_code
 #>    <int>        <int> <chr>                      <int> <chr>       <chr>   
@@ -63,7 +63,7 @@ A `fastRhockey_data` tibble of teams, or `NULL` on failure.
 #> # ℹ 52 more rows
   try(nhl_stats_team_listing(team_id = 10))
 #> ── NHL Stats Team Listing ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 10:32:09 UTC
+#> ℹ Data updated: 2026-05-29 14:43:28 UTC
 #> # A tibble: 1 × 6
 #>      id franchise_id full_name           league_id raw_tricode tri_code
 #>   <int>        <int> <chr>                   <int> <chr>       <chr>   

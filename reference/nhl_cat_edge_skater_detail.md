@@ -40,7 +40,7 @@ on failure / empty response.
 # \donttest{
   try(nhl_cat_edge_skater_detail(player_id = 8478402))
 #> ── NHL CAT Edge Skater Detail ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 10:30:35 UTC
+#> ℹ Data updated: 2026-05-29 14:41:56 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    

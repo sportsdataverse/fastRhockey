@@ -40,7 +40,7 @@ failure / empty response.
 # \donttest{
   try(nhl_edge_goalie_5v5_detail(player_id = 8475883))
 #> ── NHL Edge Goalie 5v5 Detail ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 10:30:39 UTC
+#> ℹ Data updated: 2026-05-29 14:42:01 UTC
 #> # A tibble: 10 × 20
 #>    game_center_link             save_pctg game_date decision player_on_home_team
 #>    <chr>                            <dbl> <chr>     <chr>    <lgl>              

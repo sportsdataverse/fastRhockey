@@ -54,7 +54,7 @@ failure / empty response.
   ))
 #> Request failed [404]. Retrying in 1 seconds...
 #> Request failed [404]. Retrying in 1.9 seconds...
-#> 2026-05-29 10:30:52.941689: Error fetching https://api-web.nhle.com/v1/edge/goalie-shot-location-top-10/high/savePctg/now: The API returned an error
+#> 2026-05-29 14:42:13.374897: Error fetching https://api-web.nhle.com/v1/edge/goalie-shot-location-top-10/high/savePctg/now: The API returned an error
 #> NULL
 # }
 ```

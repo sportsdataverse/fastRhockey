@@ -36,7 +36,7 @@ on failure.
 # \donttest{
   try(nhl_records_franchise_playoff_appearances())
 #> ── NHL Records Franchise Playoff Appearances ────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 10:31:41 UTC
+#> ℹ Data updated: 2026-05-29 14:43:00 UTC
 #> # A tibble: 38 × 8
 #>       id first_season_id franchise_id franchise_name       playoff_seasons
 #>    <int>           <int>        <int> <chr>                          <int>
