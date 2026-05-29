@@ -21,9 +21,12 @@
 ^logo\.png$
 ^man/figures$
 CLAUDE\.md$
+^CLAUDE\.md$
 ^\.lintr$
 ^\.claude$
 ^\.vscode$
 ^\\.claude$
 ^\\.vscode$
 ^\.positai$
+^\.git$
+^\.gitignore$
