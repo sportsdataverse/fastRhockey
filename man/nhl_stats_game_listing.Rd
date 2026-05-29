@@ -17,7 +17,22 @@ nhl_stats_game_listing(lang = "en", limit = 100, start = 0, cayenne_exp = NULL)
 the \code{cayenneExp} query parameter (e.g., \code{"season=20242025"}).}
 }
 \value{
-A \code{fastRhockey_data} tibble of games, or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique game identifier. \cr
+   eastern_start_time \tab character \tab Game start time in Eastern time. \cr
+   game_date \tab character \tab Game date. \cr
+   game_number \tab integer \tab Game number within the schedule. \cr
+   game_schedule_state_id \tab integer \tab Schedule state identifier. \cr
+   game_state_id \tab integer \tab Game state identifier. \cr
+   game_type \tab integer \tab Game type identifier. \cr
+   home_score \tab integer \tab Home team score. \cr
+   home_team_id \tab integer \tab Home team identifier. \cr
+   period \tab integer \tab Period reached in the game. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   visiting_score \tab integer \tab Visiting team score. \cr
+   visiting_team_id \tab integer \tab Visiting team identifier. \cr
+}
 }
 \description{
 Returns the game listing from the NHL Stats REST API

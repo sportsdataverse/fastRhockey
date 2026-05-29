@@ -18,8 +18,30 @@ season), an 8-character API season (e.g., \code{"20242025"}), or \code{NULL}
 (default), 3 = playoffs.}
 }
 \value{
-A \code{fastRhockey_data} tibble of save-percentage details, or
-\code{NULL} on failure / empty response.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_center_link \tab character \tab Link to the NHL game center page for the game. \cr
+   save_pctg \tab numeric \tab Save percentage for the game. \cr
+   game_date \tab character \tab Game date. \cr
+   decision \tab character \tab Goalie decision (win, loss, or overtime/shootout loss). \cr
+   player_on_home_team \tab logical \tab Whether the goalie played for the home team. \cr
+   home_team_abbrev \tab character \tab Home team abbreviation. \cr
+   home_team_common_name_default \tab character \tab Home team common name (default locale). \cr
+   home_team_common_name_fr \tab character \tab Home team common name (French locale). \cr
+   home_team_place_name_with_preposition_default \tab character \tab Home team place name with preposition (default locale). \cr
+   home_team_place_name_with_preposition_fr \tab character \tab Home team place name with preposition (French locale). \cr
+   home_team_team_logo_light \tab character \tab Home team light-mode logo URL. \cr
+   home_team_team_logo_dark \tab character \tab Home team dark-mode logo URL. \cr
+   away_team_abbrev \tab character \tab Away team abbreviation. \cr
+   away_team_common_name_default \tab character \tab Away team common name (default locale). \cr
+   away_team_place_name_with_preposition_default \tab character \tab Away team place name with preposition (default locale). \cr
+   away_team_place_name_with_preposition_fr \tab character \tab Away team place name with preposition (French locale). \cr
+   away_team_team_logo_light \tab character \tab Away team light-mode logo URL. \cr
+   away_team_team_logo_dark \tab character \tab Away team dark-mode logo URL. \cr
+}
+
+
+Returns \code{NULL} on failure / empty response.
 }
 \description{
 Returns the NHL Edge save-percentage detail payload for a

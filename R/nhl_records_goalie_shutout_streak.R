@@ -4,8 +4,27 @@
 #' @param cayenne_exp Optional Cayenne filter expression string.
 #' @param limit Optional integer page size.
 #' @param start Optional integer pagination offset.
-#' @return A `fastRhockey_data` tibble of goalie shutout streaks, or `NULL`
-#'   on failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name         |types     |description                                  |
+#'    |:----------------|:---------|:--------------------------------------------|
+#'    |id               |integer   |Unique record identifier.                    |
+#'    |active_player    |logical   |Indicator of whether the player is active.   |
+#'    |active_streak    |logical   |Indicator of whether the streak is active.   |
+#'    |duration_min_sec |character |Streak duration (MM:SS).                     |
+#'    |duration_seconds |integer   |Streak duration in seconds.                  |
+#'    |end_date         |character |Date the streak ended.                       |
+#'    |first_name       |character |Player first name.                           |
+#'    |franchise_id     |integer   |Unique franchise identifier.                 |
+#'    |game_type_id     |integer   |Game type the streak belongs to.             |
+#'    |last_name        |character |Player last name.                            |
+#'    |player_id        |integer   |Unique player identifier.                    |
+#'    |saves            |logical   |Saves made during the streak.                |
+#'    |season_id        |integer   |Season identifier.                           |
+#'    |start_date       |character |Date the streak started.                     |
+#'    |team_abbrev      |character |Team abbreviation.                           |
+#'    |team_id          |integer   |Unique team identifier.                      |
+#'    |team_name        |character |Team name.                                   |
 #' @keywords NHL Records Goalie Shutout Streak
 #' @importFrom janitor clean_names
 #' @importFrom dplyr as_tibble

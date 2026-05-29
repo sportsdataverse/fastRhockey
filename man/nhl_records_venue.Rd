@@ -10,7 +10,19 @@ nhl_records_venue(cayenne_exp = NULL)
 \item{cayenne_exp}{Optional Cayenne filter expression string.}
 }
 \value{
-A \code{fastRhockey_data} tibble of venues, or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique venue record identifier. \cr
+   building_id \tab integer \tab Building identifier for the venue. \cr
+   city \tab character \tab City where the venue is located. \cr
+   country_code \tab character \tab Country code of the venue. \cr
+   outdoor \tab logical \tab Whether the venue is an outdoor rink. \cr
+   postal_code \tab character \tab Postal code of the venue. \cr
+   short_country_code \tab character \tab Short country code of the venue. \cr
+   state_province_code \tab character \tab State or province code of the venue. \cr
+   venue_id \tab integer \tab Unique venue identifier. \cr
+   venue_name \tab character \tab Name of the venue. \cr
+}
 }
 \description{
 Returns the NHL arena/venue listing from the NHL Records API

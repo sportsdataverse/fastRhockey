@@ -23,9 +23,25 @@
 #'   `linescore`, `three_stars`, `shifts`, `officials`, `shots_by_period`,
 #'   `shootout`). Games not yet compiled get `FALSE`. This requires a
 #'   network call to the data repo and adds a small delay.
-#' @return Returns a data frame with game schedule information. When
+#' @return A data frame (`fastRhockey_data`) with the following columns. When
 #'   `include_data_flags = TRUE` it additionally carries one logical column
 #'   per pre-compiled dataset.
+#'
+#'    |col_name       |types     |description                              |
+#'    |:--------------|:---------|:----------------------------------------|
+#'    |game_id        |integer   |Unique game identifier.                  |
+#'    |season_full    |character |Full 8-digit season identifier.          |
+#'    |game_type      |character |Game type code (PR/R/P/A).               |
+#'    |game_date      |character |Game date.                               |
+#'    |game_time      |character |Scheduled game start time (UTC).         |
+#'    |home_team_abbr |character |Home team abbreviation.                  |
+#'    |away_team_abbr |character |Away team abbreviation.                  |
+#'    |home_team_name |character |Home team name.                          |
+#'    |away_team_name |character |Away team name.                          |
+#'    |home_score     |integer   |Home team final score.                   |
+#'    |away_score     |integer   |Away team final score.                   |
+#'    |game_state     |character |Current state of the game.               |
+#'    |venue          |character |Name of the venue.                       |
 #' @keywords NHL Schedule
 #' @importFrom jsonlite read_json fromJSON toJSON
 #' @importFrom dplyr bind_rows mutate select rename filter distinct arrange

@@ -10,17 +10,23 @@ pwhl_player_search(search_term)
 \item{search_term}{Character string to search for (e.g., a player name or partial name).}
 }
 \value{
-A data frame with matching players, or NULL if no results.
-\itemize{
-\item \code{player_id} - Player ID.
-\item \code{first_name} - First name.
-\item \code{last_name} - Last name.
-\item \code{position} - Position.
-\item \code{team_id} - Team ID.
-\item \code{team_name} - Team name.
-\item \code{jersey_number} - Jersey number.
-\item \code{birthdate} - Date of birth.
-\item \code{image_url} - Player headshot URL.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab numeric \tab Unique player identifier. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   position \tab character \tab Player position. \cr
+   team_id \tab numeric \tab Unique team identifier. \cr
+   person_id \tab numeric \tab Unique person identifier. \cr
+   team_name \tab character \tab Most recent team name. \cr
+   team_code \tab character \tab Most recent team abbreviation. \cr
+   jersey_number \tab character \tab Jersey number. \cr
+   shoots \tab character \tab Shooting hand. \cr
+   catches \tab character \tab Catching hand (goalies). \cr
+   height \tab character \tab Player height. \cr
+   weight \tab character \tab Player weight. \cr
+   birthdate \tab character \tab Date of birth. \cr
+   image_url \tab character \tab Player headshot URL. \cr
 }
 }
 \description{

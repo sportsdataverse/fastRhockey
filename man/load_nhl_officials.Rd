@@ -22,14 +22,14 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}, with one row per
-official per game. Columns include:\tabular{ll}{
-   column \tab description \cr
-   \code{game_id} \tab NHL game id \cr
-   \code{season} \tab Season end year (e.g. 2026 for 2025-26) \cr
-   \code{game_date} \tab ISO date of the game \cr
-   \code{role} \tab Either \code{"referee"} or \code{"linesman"} \cr
-   \code{name} \tab Full name of the official \cr
+A data frame (\code{fastRhockey_data}) with one row per official per
+game and the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   game_date \tab character \tab Game date. \cr
+   role \tab character \tab Official role (referee or linesman). \cr
+   name \tab character \tab Full name of the official. \cr
 }
 }
 \description{

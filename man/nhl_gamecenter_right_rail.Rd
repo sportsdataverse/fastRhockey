@@ -10,7 +10,51 @@ nhl_gamecenter_right_rail(game_id)
 \item{game_id}{Integer or character game ID (e.g., 2024020001)}
 }
 \value{
-Returns a list with gamecenter right rail data.
+A named list of data frames: \code{seasonSeries}, \code{shotsByPeriod}, \code{teamGameStats}.
+
+\strong{seasonSeries}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique game identifier. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   gameType \tab integer \tab Game type the row belongs to. \cr
+   gameDate \tab character \tab Game date. \cr
+   startTimeUTC \tab character \tab Game start time in UTC. \cr
+   easternUTCOffset \tab character \tab Eastern time UTC offset. \cr
+   venueUTCOffset \tab character \tab Venue local time UTC offset. \cr
+   gameState \tab character \tab Current game state. \cr
+   gameScheduleState \tab character \tab Schedule state of the game. \cr
+   gameCenterLink \tab character \tab Link to the gamecenter page. \cr
+   awayTeam.id \tab integer \tab Away team unique identifier. \cr
+   awayTeam.abbrev \tab character \tab Away team abbreviation. \cr
+   awayTeam.logo \tab character \tab Away team logo URL. \cr
+   awayTeam.score \tab integer \tab Away team score. \cr
+   homeTeam.id \tab integer \tab Home team unique identifier. \cr
+   homeTeam.abbrev \tab character \tab Home team abbreviation. \cr
+   homeTeam.logo \tab character \tab Home team logo URL. \cr
+   homeTeam.score \tab integer \tab Home team score. \cr
+   periodDescriptor.number \tab integer \tab Period number. \cr
+   periodDescriptor.periodType \tab character \tab Period type (REG/OT/SO). \cr
+   periodDescriptor.maxRegulationPeriods \tab integer \tab Maximum number of regulation periods. \cr
+   gameOutcome.lastPeriodType \tab character \tab Period type in which the game ended. \cr
+}
+
+
+\strong{shotsByPeriod}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   away \tab integer \tab Away team shots in the period. \cr
+   home \tab integer \tab Home team shots in the period. \cr
+   periodDescriptor.number \tab integer \tab Period number. \cr
+   periodDescriptor.periodType \tab character \tab Period type (REG/OT/SO). \cr
+   periodDescriptor.maxRegulationPeriods \tab integer \tab Maximum number of regulation periods. \cr
+}
+
+
+\strong{teamGameStats}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   category \tab character \tab Statistic category name. \cr
+   awayValue \tab character \tab Away team value for the category. \cr
+   homeValue \tab character \tab Home team value for the category. \cr
+}
 }
 \description{
 Returns the gamecenter right rail data for a given game,

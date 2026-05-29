@@ -2,7 +2,12 @@
 #' @description Returns the list of seasons for which roster data is available
 #' for a given team.
 #' @param team_abbr Three-letter team abbreviation (e.g., "TOR", "BOS")
-#' @return Returns a data frame with available roster seasons.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name  |types     |description                                       |
+#'    |:---------|:---------|:-------------------------------------------------|
+#'    |season    |integer   |Season for which roster data is available (8-digit, e.g. 20102011). |
+#'    |team_abbr |character |Three-letter team abbreviation.                   |
 #' @keywords NHL Roster Season
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

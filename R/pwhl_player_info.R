@@ -2,24 +2,30 @@
 #' @description Retrieves biographical and profile information for a PWHL player.
 #'
 #' @param player_id Numeric player ID
-#' @return A data frame with player profile data including:
+#' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
-#'   * `player_id` - Player ID.
-#'   * `first_name` - First name.
-#'   * `last_name` - Last name.
-#'   * `jersey_number` - Jersey number.
-#'   * `position` - Position (e.g., "F", "D", "G").
-#'   * `shoots` - Shooting hand.
-#'   * `catches` - Catching hand (goalies).
-#'   * `birthdate` - Date of birth.
-#'   * `height` - Height.
-#'   * `weight` - Weight.
-#'   * `hometown` - Hometown.
-#'   * `nationality` - Nationality.
-#'   * `team_id` - Current team ID.
-#'   * `team_name` - Current team name.
-#'   * `image_url` - Player headshot URL.
-#'   * `draft_info` - Draft information.
+#'    |col_name      |types     |description                                |
+#'    |:-------------|:---------|:------------------------------------------|
+#'    |player_id     |numeric   |Unique player identifier.                  |
+#'    |first_name    |character |Player first name.                         |
+#'    |last_name     |character |Player last name.                          |
+#'    |name          |character |Player full name.                          |
+#'    |jersey_number |character |Jersey number.                             |
+#'    |position      |character |Player position.                           |
+#'    |shoots        |character |Shooting hand.                             |
+#'    |catches       |character |Catching hand (goalies).                   |
+#'    |birthdate     |character |Date of birth.                             |
+#'    |height        |character |Player height.                             |
+#'    |weight        |character |Player weight.                             |
+#'    |birthtown     |character |Town of birth.                             |
+#'    |birthprov     |character |Province/state of birth.                   |
+#'    |birthcntry    |character |Country of birth.                          |
+#'    |nationality   |character |Player nationality.                        |
+#'    |team_id       |numeric   |Current team unique identifier.            |
+#'    |team_name     |character |Current team name.                         |
+#'    |team_code     |character |Current team abbreviation.                 |
+#'    |image_url     |character |Player headshot URL.                       |
+#'    |draft_info    |character |Draft information.                         |
 #' @import jsonlite
 #' @import dplyr
 #' @import httr

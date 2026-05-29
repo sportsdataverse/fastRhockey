@@ -4,9 +4,26 @@
 #' @param season Season (YYYY) to pull the roster from, the concluding year in XXXX-YY format
 #' @param team Team to pull the roster data for
 #' @param regular Bool for whether to pull regular or pre-season rosters
-#' @return A data frame with roster data including columns: player_id, team_id,
-#'   season, player_name, first_name, last_name, primary_hand, dob, height,
-#'   position, home_town, league, age, player_headshot, regular_season, team.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name        |types     |description                                  |
+#'    |:---------------|:---------|:--------------------------------------------|
+#'    |player_id       |numeric   |Unique player identifier.                    |
+#'    |team_id         |numeric   |Unique team identifier.                      |
+#'    |season          |numeric   |Season (concluding year, YYYY).              |
+#'    |player_name     |character |Full player name.                            |
+#'    |first_name      |character |Player first name.                           |
+#'    |last_name       |character |Player last name.                            |
+#'    |primary_hand    |character |Player shooting/catching hand.               |
+#'    |dob             |character |Player date of birth.                        |
+#'    |height          |logical   |Player height.                               |
+#'    |position        |character |Player position.                             |
+#'    |home_town       |character |Player home town.                            |
+#'    |league          |character |League identifier.                           |
+#'    |age             |numeric   |Player age.                                  |
+#'    |player_headshot |character |URL to the player headshot image.            |
+#'    |regular_season  |logical   |Whether the row is regular-season roster.    |
+#'    |team            |character |Team name.                                   |
 #' @import jsonlite
 #' @import dplyr
 #' @import httr

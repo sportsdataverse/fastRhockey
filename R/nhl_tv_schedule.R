@@ -1,7 +1,21 @@
 #' @title **NHL TV Schedule**
 #' @description Returns the TV schedule for NHL games on a given date.
 #' @param date Character date in "YYYY-MM-DD" format. If NULL, returns current.
-#' @return Returns a list with TV schedule data.
+#' @return A named list of data frames: `broadcasts`.
+#'
+#'    **broadcasts**
+#'
+#'    |col_name           |types     |description                                  |
+#'    |:------------------|:---------|:--------------------------------------------|
+#'    |startTime          |character |Broadcast start time (UTC).                  |
+#'    |endTime            |character |Broadcast end time (UTC).                    |
+#'    |durationSeconds    |integer   |Broadcast duration in seconds.               |
+#'    |title              |character |Broadcast title.                             |
+#'    |description        |character |Broadcast description.                       |
+#'    |houseNumber        |character |Internal broadcast house number identifier.  |
+#'    |broadcastType      |character |Type of broadcast.                           |
+#'    |broadcastStatus    |character |Broadcast status.                            |
+#'    |broadcastImageUrl  |character |URL to the broadcast image.                  |
 #' @keywords NHL TV Schedule
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

@@ -12,7 +12,49 @@ nhl_playoff_schedule(season, series_letter)
 \item{series_letter}{Character series letter (e.g., "a", "b", "c", "d").}
 }
 \value{
-Returns a list with playoff schedule data for the series.
+A named list of data frames: \code{games}.
+
+\strong{games}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique game identifier. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   gameType \tab integer \tab Game type identifier (3 for playoffs). \cr
+   gameNumber \tab integer \tab Game number within the series. \cr
+   ifNecessary \tab logical \tab Whether the game is played only if necessary. \cr
+   neutralSite \tab logical \tab Whether the game is at a neutral site. \cr
+   startTimeUTC \tab character \tab Scheduled start time in UTC. \cr
+   easternUTCOffset \tab character \tab UTC offset for US Eastern time. \cr
+   venueUTCOffset \tab character \tab UTC offset at the venue. \cr
+   venueTimezone \tab character \tab Time zone of the venue. \cr
+   gameState \tab character \tab Current game state. \cr
+   gameScheduleState \tab character \tab Schedule state of the game. \cr
+   tvBroadcasts \tab list \tab Nested list of TV broadcast details. \cr
+   gameCenterLink \tab character \tab Relative link to the game center page. \cr
+   venue.default \tab character \tab Venue name (default localization). \cr
+   awayTeam.id \tab integer \tab Away team unique identifier. \cr
+   awayTeam.abbrev \tab character \tab Away team abbreviation. \cr
+   awayTeam.score \tab integer \tab Away team score. \cr
+   awayTeam.commonName.default \tab character \tab Away team common name (default localization). \cr
+   awayTeam.commonName.fr \tab character \tab Away team common name (French localization). \cr
+   awayTeam.placeName.default \tab character \tab Away team place name (default localization). \cr
+   awayTeam.placeNameWithPreposition.default \tab character \tab Away team place name with preposition (default). \cr
+   awayTeam.placeNameWithPreposition.fr \tab character \tab Away team place name with preposition (French). \cr
+   homeTeam.id \tab integer \tab Home team unique identifier. \cr
+   homeTeam.abbrev \tab character \tab Home team abbreviation. \cr
+   homeTeam.score \tab integer \tab Home team score. \cr
+   homeTeam.commonName.default \tab character \tab Home team common name (default localization). \cr
+   homeTeam.commonName.fr \tab character \tab Home team common name (French localization). \cr
+   homeTeam.placeName.default \tab character \tab Home team place name (default localization). \cr
+   homeTeam.placeNameWithPreposition.default \tab character \tab Home team place name with preposition (default). \cr
+   homeTeam.placeNameWithPreposition.fr \tab character \tab Home team place name with preposition (French). \cr
+   periodDescriptor.number \tab integer \tab Period number for the game state. \cr
+   periodDescriptor.periodType \tab character \tab Period type (e.g., REG, OT). \cr
+   periodDescriptor.maxRegulationPeriods \tab integer \tab Maximum number of regulation periods. \cr
+   seriesStatus.topSeedWins \tab integer \tab Series wins by the top-seeded team. \cr
+   seriesStatus.bottomSeedWins \tab integer \tab Series wins by the bottom-seeded team. \cr
+   gameOutcome.lastPeriodType \tab character \tab Period type in which the game ended. \cr
+   gameOutcome.otPeriods \tab integer \tab Number of overtime periods played. \cr
+}
 }
 \description{
 Returns the playoff schedule for a specific round/series.

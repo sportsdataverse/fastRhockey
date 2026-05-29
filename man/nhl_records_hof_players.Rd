@@ -11,7 +11,16 @@ nhl_records_hof_players(office_id = NULL)
 resource becomes \code{hof/players/{office_id}}.}
 }
 \value{
-A \code{fastRhockey_data} tibble of HOF inductees, or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique record identifier. \cr
+   date_inducted \tab character \tab Date the inductee entered the Hall of Fame. \cr
+   induction_cat_id \tab integer \tab Induction category identifier. \cr
+   misc_full_name \tab character \tab Full name of the inductee. \cr
+   office_id \tab integer \tab Office/category identifier. \cr
+   official_id \tab logical \tab Official identifier. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+}
 }
 \description{
 Returns Hall of Fame inductees from the NHL Records API

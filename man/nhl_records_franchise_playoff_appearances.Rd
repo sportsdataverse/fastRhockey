@@ -18,8 +18,17 @@ translated into a \code{cayenneExp=franchiseId={franchise_id}} filter unless
 precedence over \code{franchise_id} when both are supplied.}
 }
 \value{
-A \code{fastRhockey_data} tibble of franchise playoff appearances, or
-\code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique record identifier. \cr
+   first_season_id \tab integer \tab Season identifier of the first season. \cr
+   franchise_id \tab integer \tab Unique franchise identifier. \cr
+   franchise_name \tab character \tab Franchise name. \cr
+   playoff_seasons \tab integer \tab Number of seasons reaching the playoffs. \cr
+   stanley_cup_appearances \tab integer \tab Number of Stanley Cup Final appearances. \cr
+   stanley_cup_wins \tab integer \tab Number of Stanley Cup championships. \cr
+   years \tab integer \tab Number of years the franchise existed. \cr
+}
 }
 \description{
 Returns franchise playoff appearance counts from the NHL Records

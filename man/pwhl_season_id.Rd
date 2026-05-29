@@ -12,17 +12,17 @@ pwhl_season_id(season = NULL, game_type = "regular")
 \item{game_type}{Unused; kept for backwards compatibility. Defaults to "regular".}
 }
 \value{
-A data frame with columns:
-\itemize{
-\item \code{season_id} - Numeric season identifier used by the HockeyTech API.
-\item \code{season_name} - Full season name (e.g., "2024-25 Regular Season").
-\item \code{season_short} - Short season name.
-\item \code{season_yr} - Numeric year derived from the season name (concluding year).
-\item \code{game_type_label} - Game type: "preseason", "regular", or "playoffs".
-\item \code{career} - Whether this is a career-stats season.
-\item \code{playoff} - Whether this is a playoff season.
-\item \code{start_date} - Season start date.
-\item \code{end_date} - Season end date.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season_id \tab numeric \tab Season identifier used by the HockeyTech API. \cr
+   season_name \tab character \tab Full season name (e.g., "2024-25 Regular Season"). \cr
+   season_short \tab character \tab Short season name. \cr
+   career \tab character \tab Whether this is a career-stats season. \cr
+   playoff \tab character \tab Whether this is a playoff season. \cr
+   start_date \tab character \tab Season start date. \cr
+   end_date \tab character \tab Season end date. \cr
+   season_yr \tab numeric \tab Year derived from the season name (concluding year). \cr
+   game_type_label \tab character \tab Game type: "preseason", "regular", or "playoffs". \cr
 }
 }
 \description{

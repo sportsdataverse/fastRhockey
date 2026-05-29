@@ -17,7 +17,13 @@ nhl_stats_franchise(lang = "en", limit = 100, start = 0, cayenne_exp = NULL)
 the \code{cayenneExp} query parameter (e.g., \code{"id=1"}).}
 }
 \value{
-A \code{fastRhockey_data} tibble of franchises, or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique franchise identifier. \cr
+   full_name \tab character \tab Full franchise name. \cr
+   team_common_name \tab character \tab Team common (nickname) name. \cr
+   team_place_name \tab character \tab Team place (city/location) name. \cr
+}
 }
 \description{
 Returns the franchise listing from the NHL Stats REST API

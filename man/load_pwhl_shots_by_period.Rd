@@ -22,16 +22,15 @@ load_pwhl_shots_by_period(
 \item{tablename}{The name of the shots-by-period data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}. One row per period per
-game. Common columns include:\tabular{lll}{
-   column \tab type \tab description \cr
-   \code{game_id} \tab integer \tab PWHL game id \cr
-   \code{period_id} \tab integer \tab period id (1-3, 4 = OT, 5 = SO, etc.) \cr
-   \code{period} \tab character \tab period long name \cr
-   \code{home_goals} \tab integer \tab home goals in period \cr
-   \code{home_shots} \tab integer \tab home shots in period \cr
-   \code{away_goals} \tab integer \tab away goals in period \cr
-   \code{away_shots} \tab integer \tab away shots in period \cr
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   period_id \tab integer \tab Period identifier (1-3, 4 = OT, 5 = SO). \cr
+   period \tab character \tab Period long name. \cr
+   home_goals \tab integer \tab Home goals in the period. \cr
+   home_shots \tab integer \tab Home shots in the period. \cr
+   away_goals \tab integer \tab Away goals in the period. \cr
+   away_shots \tab integer \tab Away shots in the period. \cr
 }
 }
 \description{

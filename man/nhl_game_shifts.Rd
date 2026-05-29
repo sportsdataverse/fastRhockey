@@ -10,7 +10,24 @@ nhl_game_shifts(game_id)
 \item{game_id}{Game unique ID}
 }
 \value{
-Returns a tibble
+A data frame (\code{fastRhockey_data}) with one row per shift change and
+the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   event_team \tab character \tab Team making the line change. \cr
+   period \tab integer \tab Period number. \cr
+   period_time \tab character \tab Time in the period of the change (MM:SS). \cr
+   period_seconds \tab numeric \tab Seconds elapsed in the period. \cr
+   game_seconds \tab numeric \tab Seconds elapsed in the game. \cr
+   num_on \tab integer \tab Number of players coming on the ice. \cr
+   players_on \tab character \tab Names of players coming on the ice. \cr
+   ids_on \tab character \tab Player IDs coming on the ice. \cr
+   num_off \tab integer \tab Number of players going off the ice. \cr
+   players_off \tab character \tab Names of players going off the ice. \cr
+   ids_off \tab character \tab Player IDs going off the ice. \cr
+   event \tab character \tab Event label ("Change"). \cr
+   event_type \tab character \tab Event type code ("CHANGE"). \cr
+   game_seconds_remaining \tab numeric \tab Seconds remaining in the game. \cr
+}
 }
 \description{
 Returns information on game shifts for a given game id

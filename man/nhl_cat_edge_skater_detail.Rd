@@ -18,8 +18,11 @@ season), an 8-character API season (e.g., \code{"20242025"}), or \code{NULL}
 (default), 3 = playoffs.}
 }
 \value{
-A \code{fastRhockey_data} tibble of categorical advanced metrics,
-or \code{NULL} on failure / empty response.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Categorical metric identifier. \cr
+   game_types \tab list \tab Nested per-game-type categorical Edge metric values. \cr
+}
 }
 \description{
 Returns the categorical (CAT) variant of the NHL Edge

@@ -17,8 +17,35 @@ season), an 8-character API season (e.g., \code{"20242025"}), or \code{NULL}
 (default), 3 = playoffs.}
 }
 \value{
-A \code{fastRhockey_data} tibble of skating-distance metrics, or
-\code{NULL} on failure / empty response.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_center_link \tab character \tab Link to the NHL game center page for the game. \cr
+   game_date \tab character \tab Game date. \cr
+   is_home_team \tab logical \tab Whether the team was the home team. \cr
+   toi_all \tab integer \tab Time on ice (all situations), in seconds. \cr
+   toi_even \tab integer \tab Time on ice (even strength), in seconds. \cr
+   toi_pp \tab integer \tab Time on ice (power play), in seconds. \cr
+   toi_pk \tab integer \tab Time on ice (penalty kill), in seconds. \cr
+   distance_skated_all_imperial \tab numeric \tab Distance skated (all situations), in miles. \cr
+   distance_skated_all_metric \tab numeric \tab Distance skated (all situations), in kilometers. \cr
+   distance_skated_even_imperial \tab numeric \tab Distance skated (even strength), in miles. \cr
+   distance_skated_even_metric \tab numeric \tab Distance skated (even strength), in kilometers. \cr
+   distance_skated_pp_imperial \tab numeric \tab Distance skated (power play), in miles. \cr
+   distance_skated_pp_metric \tab numeric \tab Distance skated (power play), in kilometers. \cr
+   distance_skated_pk_imperial \tab numeric \tab Distance skated (penalty kill), in miles. \cr
+   distance_skated_pk_metric \tab numeric \tab Distance skated (penalty kill), in kilometers. \cr
+   home_team_common_name_default \tab character \tab Home team common name (default language). \cr
+   home_team_common_name_fr \tab character \tab Home team common name (French). \cr
+   home_team_place_name_with_preposition_default \tab character \tab Home team place name with preposition (default). \cr
+   home_team_place_name_with_preposition_fr \tab character \tab Home team place name with preposition (French). \cr
+   home_team_team_logo_light \tab character \tab URL to the home team light logo. \cr
+   home_team_team_logo_dark \tab character \tab URL to the home team dark logo. \cr
+   away_team_common_name_default \tab character \tab Away team common name (default language). \cr
+   away_team_place_name_with_preposition_default \tab character \tab Away team place name with preposition (default). \cr
+   away_team_place_name_with_preposition_fr \tab character \tab Away team place name with preposition (French). \cr
+   away_team_team_logo_light \tab character \tab URL to the away team light logo. \cr
+   away_team_team_logo_dark \tab character \tab URL to the away team dark logo. \cr
+}
 }
 \description{
 Returns the NHL Edge skating-distance detail payload for a

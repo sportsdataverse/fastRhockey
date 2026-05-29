@@ -7,10 +7,11 @@
 #'
 #' @param date Character date in "YYYY-MM-DD" format. If NULL, returns
 #'   current conferences.
-#' @return Returns a data frame with columns:
-#'   \itemize{
-#'     \item \code{conference_name} - conference name (e.g. "Eastern", "Western")
-#'   }
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name        |types     |description                                  |
+#'    |:---------------|:---------|:--------------------------------------------|
+#'    |conference_name |character |Conference name (e.g. "Eastern", "Western"). |
 #' @keywords NHL Conferences
 #' @importFrom dplyr distinct select
 #' @export

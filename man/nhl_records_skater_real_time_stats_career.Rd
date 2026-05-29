@@ -18,8 +18,33 @@ nhl_records_skater_real_time_stats_career(
 \item{start}{Optional integer pagination offset.}
 }
 \value{
-A \code{fastRhockey_data} tibble of skater real-time career stats,
-or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique record identifier. \cr
+   active_player \tab logical \tab Whether the player is currently active. \cr
+   blocked_shots \tab integer \tab Career blocked shots. \cr
+   faceoff_win_pctg \tab logical \tab Career faceoff win percentage. \cr
+   faceoffs_lost \tab integer \tab Career faceoffs lost. \cr
+   faceoffs_taken \tab integer \tab Career faceoffs taken. \cr
+   faceoffs_won \tab integer \tab Career faceoffs won. \cr
+   first_name \tab character \tab First name of the player. \cr
+   first_season_for_game_type \tab integer \tab First season for the game type. \cr
+   franchise_id \tab integer \tab Franchise identifier. \cr
+   game_type_id \tab integer \tab Game type identifier (regular/playoffs). \cr
+   games_played \tab integer \tab Career games played. \cr
+   giveaways \tab integer \tab Career giveaways. \cr
+   hits \tab integer \tab Career hits. \cr
+   last_name \tab character \tab Last name of the player. \cr
+   last_season_for_game_type \tab integer \tab Last season for the game type. \cr
+   missed_shots \tab integer \tab Career missed shots. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   position_code \tab character \tab Player position code. \cr
+   seasons_played \tab integer \tab Number of seasons played. \cr
+   shifts \tab integer \tab Career shifts. \cr
+   takeaways \tab integer \tab Career takeaways. \cr
+   team_abbrevs \tab character \tab Team abbreviations the player suited up for. \cr
+   time_on_ice \tab integer \tab Career time on ice. \cr
+}
 }
 \description{
 Returns career skater real-time stats (hits, giveaways,

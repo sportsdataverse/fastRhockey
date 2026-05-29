@@ -7,7 +7,10 @@
 nhl_seasons()
 }
 \value{
-Returns a data frame with season information.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season_id \tab integer \tab Season identifier (e.g., 20232024). \cr
+}
 }
 \description{
 Returns a list of all NHL seasons with their metadata.

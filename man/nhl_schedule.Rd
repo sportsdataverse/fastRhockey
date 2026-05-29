@@ -41,9 +41,24 @@ is supplied. Default \code{"both"} returns regular-season and playoff games
 for the requested \code{season} in a single tibble.}
 }
 \value{
-Returns a data frame with game schedule information. When
+A data frame (\code{fastRhockey_data}) with the following columns. When
 \code{include_data_flags = TRUE} it additionally carries one logical column
-per pre-compiled dataset.
+per pre-compiled dataset.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   season_full \tab character \tab Full 8-digit season identifier. \cr
+   game_type \tab character \tab Game type code (PR/R/P/A). \cr
+   game_date \tab character \tab Game date. \cr
+   game_time \tab character \tab Scheduled game start time (UTC). \cr
+   home_team_abbr \tab character \tab Home team abbreviation. \cr
+   away_team_abbr \tab character \tab Away team abbreviation. \cr
+   home_team_name \tab character \tab Home team name. \cr
+   away_team_name \tab character \tab Away team name. \cr
+   home_score \tab integer \tab Home team final score. \cr
+   away_score \tab integer \tab Away team final score. \cr
+   game_state \tab character \tab Current state of the game. \cr
+   venue \tab character \tab Name of the venue. \cr
+}
 }
 \description{
 Returns NHL schedule data for a given day or season.

@@ -7,8 +7,25 @@
 nhl_draft_tracker()
 }
 \value{
-Returns a data frame of live draft picks, or \code{NULL} if no draft is
-currently active.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   pick_in_round \tab integer \tab Pick number within the round. \cr
+   overall_pick \tab integer \tab Overall pick number in the draft. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team_abbrev \tab character \tab Team abbreviation. \cr
+   team_logo_light \tab character \tab URL to the team logo (light variant). \cr
+   team_logo_dark \tab character \tab URL to the team logo (dark variant). \cr
+   state \tab character \tab Pick state (e.g., on the clock, complete). \cr
+   position_code \tab character \tab Player position code. \cr
+   team_full_name_default \tab character \tab Team full name (default language). \cr
+   team_full_name_fr \tab character \tab Team full name (French). \cr
+   team_common_name_default \tab character \tab Team common name (default language). \cr
+   team_common_name_fr \tab character \tab Team common name (French). \cr
+   team_place_name_with_preposition_default \tab character \tab Team place name with preposition (default). \cr
+   team_place_name_with_preposition_fr \tab character \tab Team place name with preposition (French). \cr
+   last_name_default \tab character \tab Player last name (default language). \cr
+   first_name_default \tab character \tab Player first name (default language). \cr
+}
 }
 \description{
 Returns the live (real-time) NHL draft tracker picks from the

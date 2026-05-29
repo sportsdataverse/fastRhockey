@@ -23,21 +23,47 @@ the player has no games in (e.g. playoffs for a non-qualifying team) are
 omitted rather than erroring.}
 }
 \value{
-A data frame with per-game statistics for the player, or NULL if unavailable.
-\itemize{
-\item \code{player_id} - Player ID.
-\item \code{game_id} - Game ID.
-\item \code{date} - Game date.
-\item \code{team} - Team abbreviation.
-\item \code{opponent} - Opponent abbreviation.
-\item \code{home_away} - Home or Away indicator.
-\item \code{goals} - Goals scored.
-\item \code{assists} - Assists.
-\item \code{points} - Total points.
-\item \code{plus_minus} - Plus/minus rating.
-\item \code{penalty_minutes} - Penalty minutes.
-\item \code{shots} - Shots on goal.
-\item \code{game_type} - Game type the row belongs to (\code{"regular"}/\code{"playoffs"}).
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   g_month \tab character \tab Month the game was played. \cr
+   id \tab numeric \tab Unique game identifier. \cr
+   home_team \tab character \tab Home team identifier. \cr
+   visiting_team \tab character \tab Visiting team identifier. \cr
+   date_played \tab character \tab Date the game was played. \cr
+   home \tab numeric \tab Whether the player's team was home. \cr
+   goalie \tab numeric \tab Whether the player was the goalie. \cr
+   home_team_code \tab character \tab Home team abbreviation. \cr
+   home_team_name \tab character \tab Home team name. \cr
+   home_division \tab character \tab Home team division. \cr
+   visiting_team_code \tab character \tab Visiting team abbreviation. \cr
+   visiting_team_name \tab character \tab Visiting team name. \cr
+   visiting_division \tab character \tab Visiting team division. \cr
+   goals_against \tab numeric \tab Goals against (goalie). \cr
+   seconds_played \tab character \tab Seconds played in the game. \cr
+   win \tab numeric \tab Whether the game was a win (goalie). \cr
+   tie \tab character \tab Whether the game was a tie (goalie). \cr
+   loss \tab numeric \tab Whether the game was a loss (goalie). \cr
+   total_losses \tab character \tab Total losses to date (goalie). \cr
+   shutout \tab character \tab Whether the game was a shutout (goalie). \cr
+   ot_loss \tab character \tab Whether the game was an overtime loss. \cr
+   shootout_loss \tab character \tab Whether the game was a shootout loss. \cr
+   saves \tab numeric \tab Saves made (goalie). \cr
+   shots_against \tab numeric \tab Shots faced (goalie). \cr
+   shootout_saves \tab character \tab Shootout saves made. \cr
+   shootout_goals_against \tab character \tab Shootout goals against. \cr
+   shootout_shots \tab character \tab Shootout shots faced. \cr
+   goals \tab numeric \tab Goals scored. \cr
+   assists \tab numeric \tab Assists. \cr
+   pim \tab character \tab Penalty minutes. \cr
+   points \tab numeric \tab Total points (goals + assists). \cr
+   gaa \tab character \tab Goals against average (goalie). \cr
+   svpct \tab character \tab Save percentage (goalie). \cr
+   shootout_shots_percentage \tab character \tab Shootout save percentage. \cr
+   penalty_minutes \tab numeric \tab Penalty minutes. \cr
+   minutes \tab character \tab Minutes played. \cr
+   player_team \tab character \tab The player's team. \cr
+   player_id \tab numeric \tab Unique player identifier. \cr
+   game_type \tab character \tab Game type the row belongs to ("regular"/"playoffs"). \cr
 }
 }
 \description{

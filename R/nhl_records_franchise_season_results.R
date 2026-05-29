@@ -6,8 +6,48 @@
 #'   `cayenne_exp` is already provided.
 #' @param cayenne_exp Optional Cayenne filter expression string. Takes
 #'   precedence over `franchise_id` when both are supplied.
-#' @return A `fastRhockey_data` tibble of franchise season results, or
-#'   `NULL` on failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name             |types     |description                                |
+#'    |:--------------------|:---------|:------------------------------------------|
+#'    |id                   |integer   |Unique season result record identifier.    |
+#'    |conference_abbrev    |character |Conference abbreviation.                   |
+#'    |conference_name      |character |Conference name.                           |
+#'    |conference_sequence  |integer   |Conference standings position.             |
+#'    |decision             |character |Series/season decision indicator.          |
+#'    |division_abbrev      |character |Division abbreviation.                     |
+#'    |division_name        |character |Division name.                             |
+#'    |division_sequence    |integer   |Division standings position.               |
+#'    |final_playoff_round  |integer   |Final playoff round reached.               |
+#'    |franchise_id         |integer   |Unique franchise identifier.               |
+#'    |game_type_id         |integer   |Game type identifier (regular/playoffs).   |
+#'    |games_played         |integer   |Games played in the season.                |
+#'    |goals                |integer   |Goals scored.                              |
+#'    |goals_against        |integer   |Goals against.                             |
+#'    |home_losses          |integer   |Losses at home.                            |
+#'    |home_overtime_losses |integer   |Overtime losses at home.                   |
+#'    |home_ties            |integer   |Ties at home.                              |
+#'    |home_wins            |integer   |Wins at home.                              |
+#'    |in_playoffs          |logical   |Whether the season reached the playoffs.   |
+#'    |league_sequence      |integer   |League standings position.                 |
+#'    |losses               |integer   |Total losses.                              |
+#'    |overtime_losses      |integer   |Total overtime losses.                     |
+#'    |penalty_minutes      |integer   |Penalty minutes.                           |
+#'    |playoff_round        |integer   |Playoff round identifier.                  |
+#'    |points               |integer   |Standings points earned.                   |
+#'    |road_losses          |integer   |Losses on the road.                        |
+#'    |road_overtime_losses |integer   |Overtime losses on the road.               |
+#'    |road_ties            |integer   |Ties on the road.                          |
+#'    |road_wins            |integer   |Wins on the road.                          |
+#'    |season_id            |integer   |Season identifier.                         |
+#'    |series_abbrev        |character |Playoff series abbreviation.               |
+#'    |series_title         |character |Playoff series title.                      |
+#'    |shutouts             |integer   |Shutouts recorded.                         |
+#'    |team_id              |integer   |Unique team identifier.                    |
+#'    |team_name            |character |Team name.                                 |
+#'    |ties                 |integer   |Total ties.                                |
+#'    |tri_code             |character |Team three-letter code.                    |
+#'    |wins                 |integer   |Total wins.                                |
 #' @keywords NHL Records Franchise Season Results
 #' @importFrom janitor clean_names
 #' @importFrom dplyr as_tibble

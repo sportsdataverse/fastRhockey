@@ -19,7 +19,16 @@ when \code{team_id} is supplied.}
 \code{team_id} is supplied.}
 }
 \value{
-A \code{fastRhockey_data} tibble of teams, or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) of teams, or \code{NULL} on failure,
+with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique team identifier. \cr
+   franchise_id \tab integer \tab Team franchise identifier. \cr
+   full_name \tab character \tab Team full name. \cr
+   league_id \tab integer \tab League identifier of the team. \cr
+   raw_tricode \tab character \tab Team raw three-letter code. \cr
+   tri_code \tab character \tab Team three-letter code. \cr
+}
 }
 \description{
 Returns the top-level team listing from the NHL Stats REST

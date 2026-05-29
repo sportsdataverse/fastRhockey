@@ -10,12 +10,50 @@ nhl_player_career_stats(player_id)
 \item{player_id}{Integer player ID (e.g. \code{8478402} for Connor McDavid).}
 }
 \value{
-A \code{fastRhockey_data} / \code{data.frame} with one row per season
-played. Always includes \code{player_id}, \code{first_name}, \code{last_name},
-\code{position}, \code{season}, \code{game_type_id}, plus the season stat columns
-exposed by the landing endpoint's \code{seasonTotals} payload (e.g.
-\code{goals}, \code{assists}, \code{points}, \code{games_played}, \code{pim}, \code{shots},
-\code{team_name_default}, \code{league_abbrev}, ...). Returns \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   position \tab character \tab Player position. \cr
+   assists \tab integer \tab Assists. \cr
+   game_type_id \tab integer \tab Game type the row belongs to. \cr
+   games_played \tab integer \tab Games played. \cr
+   goals \tab integer \tab Goals scored. \cr
+   league_abbrev \tab character \tab League abbreviation. \cr
+   pim \tab integer \tab Penalty minutes. \cr
+   points \tab integer \tab Total points (goals + assists). \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   sequence \tab integer \tab Sequence order of the season row. \cr
+   game_winning_goals \tab integer \tab Game-winning goals. \cr
+   plus_minus \tab integer \tab Plus/minus rating. \cr
+   power_play_goals \tab integer \tab Power play goals. \cr
+   shorthanded_goals \tab integer \tab Shorthanded goals. \cr
+   shots \tab integer \tab Shots on goal. \cr
+   avg_toi \tab character \tab Average time on ice. \cr
+   faceoff_winning_pctg \tab numeric \tab Faceoff winning percentage. \cr
+   ot_goals \tab integer \tab Overtime goals. \cr
+   power_play_points \tab integer \tab Power play points. \cr
+   shooting_pctg \tab numeric \tab Shooting percentage. \cr
+   shorthanded_points \tab integer \tab Shorthanded points. \cr
+   team_name_default \tab character \tab Team name (default locale). \cr
+   team_name_cs \tab character \tab Team name (Czech locale). \cr
+   team_name_de \tab character \tab Team name (German locale). \cr
+   team_name_es \tab character \tab Team name (Spanish locale). \cr
+   team_name_fi \tab character \tab Team name (Finnish locale). \cr
+   team_name_sk \tab character \tab Team name (Slovak locale). \cr
+   team_name_sv \tab character \tab Team name (Swedish locale). \cr
+   team_name_fr \tab character \tab Team name (French locale). \cr
+   team_common_name_default \tab character \tab Team common name (default locale). \cr
+   team_common_name_cs \tab character \tab Team common name (Czech locale). \cr
+   team_common_name_de \tab character \tab Team common name (German locale). \cr
+   team_common_name_es \tab character \tab Team common name (Spanish locale). \cr
+   team_common_name_fi \tab character \tab Team common name (Finnish locale). \cr
+   team_common_name_sk \tab character \tab Team common name (Slovak locale). \cr
+   team_common_name_sv \tab character \tab Team common name (Swedish locale). \cr
+   team_place_name_with_preposition_default \tab character \tab Team place name with preposition. \cr
+   team_place_name_with_preposition_fr \tab character \tab Team place name with preposition (FR). \cr
+}
 }
 \description{
 Aggregator helper that combines biographical information

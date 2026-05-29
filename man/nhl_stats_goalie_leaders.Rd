@@ -19,8 +19,24 @@ query parameters — passing them produces a 500.}
 the \code{cayenneExp} query parameter (e.g., \code{"seasonId=20242025"}).}
 }
 \value{
-A \code{fastRhockey_data} tibble of goalie leaders, or \code{NULL} on
-failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   save_pctg \tab numeric \tab Save percentage. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   player_current_team_id \tab integer \tab Player's current team identifier. \cr
+   player_first_name \tab character \tab Player first name. \cr
+   player_full_name \tab character \tab Player full name. \cr
+   player_last_name \tab character \tab Player last name. \cr
+   player_position_code \tab character \tab Player position code. \cr
+   player_sweater_number \tab integer \tab Player jersey number. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team_franchise_id \tab integer \tab Team franchise identifier. \cr
+   team_full_name \tab character \tab Full team name. \cr
+   team_league_id \tab integer \tab League identifier. \cr
+   team_logos \tab list \tab Team logo assets. \cr
+   team_raw_tricode \tab character \tab Raw team tri-code. \cr
+   team_tri_code \tab character \tab Team tri-code abbreviation. \cr
+}
 }
 \description{
 Returns a goalie leaderboard for a given statistic attribute

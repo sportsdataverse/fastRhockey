@@ -23,7 +23,32 @@ the season data into a database.}
 \item{tablename}{The name of the player box data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab character \tab Unique player identifier. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   position \tab character \tab Player position. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   league \tab character \tab League code. \cr
+   toi \tab character \tab Time on ice (MM:SS). \cr
+   time_on_ice \tab numeric \tab Time on ice in seconds. \cr
+   goals \tab integer \tab Goals scored. \cr
+   assists \tab integer \tab Assists. \cr
+   points \tab integer \tab Total points (goals + assists). \cr
+   shots \tab integer \tab Shots on goal. \cr
+   hits \tab integer \tab Hits. \cr
+   blocked_shots \tab integer \tab Blocked shots. \cr
+   penalty_minutes \tab integer \tab Penalty minutes. \cr
+   plus_minus \tab integer \tab Plus/minus rating. \cr
+   faceoff_attempts \tab integer \tab Faceoff attempts. \cr
+   faceoff_wins \tab integer \tab Faceoff wins. \cr
+   faceoff_losses \tab integer \tab Faceoff losses. \cr
+   faceoff_pct \tab numeric \tab Faceoff win percentage. \cr
+   starting \tab character \tab Whether the player started the game. \cr
+   player_type \tab character \tab Player type (skater or goalie). \cr
+}
 }
 \description{
 Helper that loads multiple seasons of pre-scraped PWHL

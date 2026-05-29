@@ -22,24 +22,28 @@ load_pwhl_three_stars(
 \item{tablename}{The name of the three stars data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}. Common columns include:\tabular{lll}{
-   column \tab type \tab description \cr
-   \code{game_id} \tab integer \tab PWHL game id \cr
-   \code{star} \tab integer \tab star rank (1-3) \cr
-   \code{team_id} \tab integer \tab star's team id \cr
-   \code{team} \tab character \tab star's team name \cr
-   \code{player_id} \tab integer \tab star's player id \cr
-   \code{first_name} \tab character \tab star's first name \cr
-   \code{last_name} \tab character \tab star's last name \cr
-   \code{jersey_number} \tab integer \tab jersey number \cr
-   \code{position} \tab character \tab position code \cr
-   \code{is_goalie} \tab integer \tab goalie flag \cr
-   \code{is_home} \tab integer \tab home-team flag \cr
-   \code{goals} \tab integer \tab star's goals in this game \cr
-   \code{assists} \tab integer \tab star's assists in this game \cr
-   \code{points} \tab integer \tab star's points in this game \cr
-   \code{saves} \tab integer \tab saves (goalies) \cr
-   \code{shots_against} \tab integer \tab shots against (goalies) \cr
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   star \tab integer \tab Star rank (1-3). \cr
+   team_id \tab integer \tab Star's team identifier. \cr
+   team \tab character \tab Star's team name. \cr
+   team_abbr \tab character \tab Star's team abbreviation. \cr
+   player_id \tab integer \tab Star's player identifier. \cr
+   first_name \tab character \tab Star's first name. \cr
+   last_name \tab character \tab Star's last name. \cr
+   jersey_number \tab integer \tab Jersey number. \cr
+   position \tab character \tab Player position. \cr
+   is_goalie \tab integer \tab Goalie flag. \cr
+   is_home \tab integer \tab Home-team flag. \cr
+   goals \tab integer \tab Goals scored in this game. \cr
+   assists \tab integer \tab Assists in this game. \cr
+   points \tab integer \tab Points in this game. \cr
+   shots \tab integer \tab Shots on goal in this game. \cr
+   saves \tab integer \tab Saves made (goalies). \cr
+   shots_against \tab integer \tab Shots faced (goalies). \cr
+   goals_against \tab integer \tab Goals against (goalies). \cr
+   time_on_ice \tab character \tab Time on ice (MM:SS). \cr
 }
 }
 \description{

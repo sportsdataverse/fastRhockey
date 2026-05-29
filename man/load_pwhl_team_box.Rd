@@ -22,23 +22,31 @@ load_pwhl_team_box(
 \item{tablename}{The name of the team box data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}. Common columns include:\tabular{lll}{
-   column \tab type \tab description \cr
-   \code{game_id} \tab integer \tab PWHL game id \cr
-   \code{team_id} \tab integer \tab HockeyTech team id \cr
-   \code{team} \tab character \tab team full name \cr
-   \code{team_abbr} \tab character \tab three-letter abbreviation \cr
-   \code{team_side} \tab character \tab \code{"home"} or \code{"away"} \cr
-   \code{goals} \tab integer \tab goals scored \cr
-   \code{shots} \tab integer \tab shots on goal \cr
-   \code{pp_goals} \tab integer \tab power-play goals \cr
-   \code{pp_opportunities} \tab integer \tab power-play opportunities \cr
-   \code{penalty_minutes} \tab integer \tab total PIM \cr
-   \code{infraction_count} \tab integer \tab number of infractions \cr
-   \code{faceoff_attempts} \tab integer \tab faceoff attempts \cr
-   \code{faceoff_wins} \tab integer \tab faceoff wins \cr
-   \code{faceoff_win_pct} \tab numeric \tab faceoff win percentage \cr
-   \code{season_record} \tab character \tab season record after this game \cr
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team \tab character \tab Team name. \cr
+   team_abbr \tab character \tab Team abbreviation. \cr
+   team_side \tab character \tab Home or away indicator. \cr
+   shots \tab integer \tab Shots on goal. \cr
+   goals \tab integer \tab Goals scored. \cr
+   hits \tab integer \tab Hits. \cr
+   pp_goals \tab integer \tab Power-play goals. \cr
+   pp_opportunities \tab integer \tab Power-play opportunities. \cr
+   goal_count \tab integer \tab Total goals recorded. \cr
+   assist_count \tab integer \tab Total assists recorded. \cr
+   penalty_minutes \tab integer \tab Penalty minutes. \cr
+   infraction_count \tab integer \tab Number of infractions. \cr
+   faceoff_attempts \tab integer \tab Faceoff attempts. \cr
+   faceoff_wins \tab integer \tab Faceoff wins. \cr
+   faceoff_win_pct \tab numeric \tab Faceoff win percentage. \cr
+   season_wins \tab integer \tab Season wins entering/after the game. \cr
+   season_losses \tab integer \tab Season losses entering/after the game. \cr
+   season_ot_wins \tab integer \tab Season overtime wins. \cr
+   season_ot_losses \tab integer \tab Season overtime losses. \cr
+   season_so_losses \tab integer \tab Season shootout losses. \cr
+   season_record \tab character \tab Season record after this game. \cr
 }
 }
 \description{

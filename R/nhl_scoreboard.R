@@ -4,7 +4,14 @@
 #' @param date Optional character string in `"YYYY-MM-DD"` format. When
 #'   `NULL` (default) the function hits `scoreboard/now`; when a date is
 #'   provided it hits `scoreboard/{date}`.
-#' @return Returns a list with scoreboard data (focusedDate, games by date).
+#' @return A named list of data frames: `gamesByDate`.
+#'
+#'    **gamesByDate**
+#'
+#'    |col_name |types     |description                                     |
+#'    |:--------|:---------|:-----------------------------------------------|
+#'    |date     |character |Date for which the games are listed.            |
+#'    |games    |list      |Nested list of games scheduled on the date.     |
 #' @keywords NHL Scoreboard
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

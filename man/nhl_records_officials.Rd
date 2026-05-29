@@ -11,7 +11,32 @@ nhl_records_officials(type = NULL)
 becomes \code{officials/{type}}.}
 }
 \value{
-A \code{fastRhockey_data} tibble of officials, or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique official record identifier. \cr
+   active \tab logical \tab Whether the official is currently active. \cr
+   association_url \tab character \tab URL to the official's association profile. \cr
+   birth_city \tab character \tab Birth city of the official. \cr
+   birth_date \tab character \tab Birth date of the official. \cr
+   coach_id \tab integer \tab Associated coach identifier, if any. \cr
+   country_code \tab character \tab Country code of the official. \cr
+   deceased \tab logical \tab Whether the official is deceased. \cr
+   deceased_date \tab character \tab Date of death, if applicable. \cr
+   first_name \tab character \tab First name of the official. \cr
+   first_playoff_game_id \tab integer \tab Game ID of the official's first playoff game. \cr
+   first_regular_game_id \tab integer \tab Game ID of the official's first regular game. \cr
+   general_manager_id \tab logical \tab Associated general manager identifier. \cr
+   headshot_url \tab character \tab URL to the official's headshot image. \cr
+   last_name \tab character \tab Last name of the official. \cr
+   nationality_code \tab character \tab Nationality code of the official. \cr
+   official_type \tab character \tab Type of official (e.g. referee, linesman). \cr
+   officials_schema_id \tab integer \tab Officials schema identifier. \cr
+   player_id \tab integer \tab Associated player identifier, if any. \cr
+   referree_association_id \tab integer \tab Referee association identifier. \cr
+   state_province_code \tab character \tab State or province code of the official. \cr
+   sweater_number \tab integer \tab Sweater number worn by the official. \cr
+   thumb_url \tab character \tab URL to the official's thumbnail image. \cr
+}
 }
 \description{
 Returns NHL on-ice official listings from the NHL Records API

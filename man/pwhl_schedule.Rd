@@ -16,9 +16,23 @@ season are combined into a single, chronologically ordered data frame
 \code{game_type = "preseason"}).}
 }
 \value{
-A data frame with schedule data including columns: game_id, season,
-game_date, game_status, home_team, home_team_id, away_team, away_team_id,
-home_score, away_score, winner, venue, venue_url, game_type.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab character \tab Unique game identifier. \cr
+   season \tab numeric \tab Season (concluding year, YYYY). \cr
+   game_date \tab character \tab Game date. \cr
+   game_status \tab character \tab Status of the game. \cr
+   home_team \tab character \tab Home team name. \cr
+   home_team_id \tab character \tab Home team identifier. \cr
+   away_team \tab character \tab Away team name. \cr
+   away_team_id \tab character \tab Away team identifier. \cr
+   home_score \tab character \tab Home team score. \cr
+   away_score \tab character \tab Away team score. \cr
+   winner \tab character \tab Winning team. \cr
+   venue \tab character \tab Venue where the game was played. \cr
+   venue_url \tab character \tab URL for the venue. \cr
+   game_type \tab character \tab Game type the row belongs to. \cr
+}
 }
 \description{
 PWHL Schedule lookup

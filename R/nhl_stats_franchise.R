@@ -7,7 +7,14 @@
 #' @param start Integer pagination start index. Default 0.
 #' @param cayenne_exp Optional Cayenne filter expression string passed via
 #'   the `cayenneExp` query parameter (e.g., `"id=1"`).
-#' @return A `fastRhockey_data` tibble of franchises, or `NULL` on failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name          |types     |description                            |
+#'    |:-----------------|:---------|:--------------------------------------|
+#'    |id                |integer   |Unique franchise identifier.           |
+#'    |full_name         |character |Full franchise name.                   |
+#'    |team_common_name  |character |Team common (nickname) name.           |
+#'    |team_place_name   |character |Team place (city/location) name.       |
 #' @keywords NHL Stats Franchise
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

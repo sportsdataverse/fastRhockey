@@ -23,7 +23,26 @@ If NULL, returns current season leaders.}
 \item{limit}{Integer maximum number of leaders per category. If NULL, uses API default.}
 }
 \value{
-Returns a data frame with goalie leaders.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique player identifier. \cr
+   sweater_number \tab integer \tab Jersey number. \cr
+   headshot \tab character \tab Player headshot image URL. \cr
+   team_abbrev \tab character \tab Team abbreviation. \cr
+   team_logo \tab character \tab Team logo URL. \cr
+   position \tab character \tab Player position. \cr
+   value \tab numeric \tab Statistical value for the category. \cr
+   first_name_default \tab character \tab Player first name (default locale). \cr
+   last_name_default \tab character \tab Player last name (default locale). \cr
+   team_name_default \tab character \tab Team name (default locale). \cr
+   first_name_cs \tab character \tab Player first name (Czech locale). \cr
+   first_name_sk \tab character \tab Player first name (Slovak locale). \cr
+   last_name_cs \tab character \tab Player last name (Czech locale). \cr
+   last_name_sk \tab character \tab Player last name (Slovak locale). \cr
+   category \tab character \tab Stat leader category. \cr
+   last_name_fi \tab character \tab Player last name (Finnish locale). \cr
+   team_name_fr \tab character \tab Team name (French locale). \cr
+}
 }
 \description{
 Returns league-wide goalie statistical leaders for a given season

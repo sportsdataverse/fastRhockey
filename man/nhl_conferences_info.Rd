@@ -13,8 +13,45 @@ nhl_conferences_info(conference_name, date = NULL)
 current conference info.}
 }
 \value{
-Returns a data frame of teams in the specified conference with columns
-from \code{\link{nhl_standings}} filtered by conference.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   team_abbr \tab character \tab Team abbreviation. \cr
+   team_name \tab character \tab Team name. \cr
+   team_common_name \tab character \tab Team common (nickname) name. \cr
+   team_logo \tab character \tab URL to the team logo image. \cr
+   conference_name \tab character \tab Conference name. \cr
+   division_abbrev \tab character \tab Division abbreviation. \cr
+   division_name \tab character \tab Division name. \cr
+   place_name \tab character \tab Team place (city) name. \cr
+   conference_sequence \tab integer \tab Team's seeding position within the conference. \cr
+   division_sequence \tab integer \tab Team's seeding position within the division. \cr
+   league_sequence \tab integer \tab Team's seeding position within the league. \cr
+   wildcard_sequence \tab integer \tab Team's wild card seeding position. \cr
+   games_played \tab integer \tab Games played. \cr
+   wins \tab integer \tab Wins. \cr
+   losses \tab integer \tab Losses. \cr
+   ot_losses \tab integer \tab Overtime losses. \cr
+   points \tab integer \tab Standings points. \cr
+   point_pctg \tab numeric \tab Points percentage. \cr
+   regulation_wins \tab integer \tab Wins in regulation. \cr
+   regulation_plus_ot_wins \tab integer \tab Wins in regulation plus overtime. \cr
+   goals_for \tab integer \tab Goals scored. \cr
+   goals_against \tab integer \tab Goals against. \cr
+   goal_differential \tab integer \tab Goal differential (goals for minus goals against). \cr
+   home_wins \tab integer \tab Home wins. \cr
+   home_losses \tab integer \tab Home losses. \cr
+   home_ot_losses \tab integer \tab Home overtime losses. \cr
+   road_wins \tab integer \tab Road wins. \cr
+   road_losses \tab integer \tab Road losses. \cr
+   road_ot_losses \tab integer \tab Road overtime losses. \cr
+   l10_wins \tab integer \tab Wins in the last ten games. \cr
+   l10_losses \tab integer \tab Losses in the last ten games. \cr
+   l10_ot_losses \tab integer \tab Overtime losses in the last ten games. \cr
+   streak_code \tab character \tab Current streak type code (W/L/OT). \cr
+   streak_count \tab integer \tab Length of the current streak. \cr
+   shootout_wins \tab integer \tab Shootout wins. \cr
+   shootout_losses \tab integer \tab Shootout losses. \cr
+}
 }
 \description{
 Returns teams belonging to a given conference, derived from standings data.

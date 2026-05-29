@@ -22,24 +22,35 @@ load_pwhl_scoring_summary(
 \item{tablename}{The name of the scoring summary data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}. Common columns include:\tabular{lll}{
-   column \tab type \tab description \cr
-   \code{game_id} \tab integer \tab PWHL game id \cr
-   \code{period_id} \tab integer \tab period id \cr
-   \code{period} \tab character \tab period long name (e.g. \verb{1st}, \verb{1st OT}) \cr
-   \code{time} \tab character \tab game clock at goal (\code{MM:SS}) \cr
-   \code{team_id} \tab integer \tab scoring team id \cr
-   \code{team} \tab character \tab scoring team name \cr
-   \code{scorer_id} \tab integer \tab goal scorer id \cr
-   \code{scorer_first} \tab character \tab scorer first name \cr
-   \code{scorer_last} \tab character \tab scorer last name \cr
-   \code{assist_1_id} \tab integer \tab primary assist id \cr
-   \code{assist_2_id} \tab integer \tab secondary assist id \cr
-   \code{is_power_play} \tab integer \tab power-play flag \cr
-   \code{is_short_handed} \tab integer \tab short-handed flag \cr
-   \code{is_empty_net} \tab integer \tab empty-net flag \cr
-   \code{is_penalty_shot} \tab integer \tab penalty-shot flag \cr
-   \code{is_game_winning} \tab integer \tab game-winning-goal flag \cr
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   period_id \tab integer \tab Period identifier. \cr
+   period \tab character \tab Period long name (e.g. 1st, 1st OT). \cr
+   time \tab character \tab Game clock at goal (MM:SS). \cr
+   team_id \tab integer \tab Scoring team identifier. \cr
+   team \tab character \tab Scoring team name. \cr
+   team_abbr \tab character \tab Scoring team abbreviation. \cr
+   game_goal_id \tab integer \tab Goal identifier within the game. \cr
+   scorer_goal_number \tab integer \tab Scorer's season goal number. \cr
+   scorer_id \tab integer \tab Goal scorer identifier. \cr
+   scorer_first \tab character \tab Scorer first name. \cr
+   scorer_last \tab character \tab Scorer last name. \cr
+   scorer_position \tab character \tab Scorer position. \cr
+   assist_1_id \tab integer \tab Primary assist player identifier. \cr
+   assist_1_first \tab character \tab Primary assist first name. \cr
+   assist_1_last \tab character \tab Primary assist last name. \cr
+   assist_2_id \tab integer \tab Secondary assist player identifier. \cr
+   assist_2_first \tab character \tab Secondary assist first name. \cr
+   assist_2_last \tab character \tab Secondary assist last name. \cr
+   is_power_play \tab integer \tab Power-play flag. \cr
+   is_short_handed \tab integer \tab Short-handed flag. \cr
+   is_empty_net \tab integer \tab Empty-net flag. \cr
+   is_penalty_shot \tab integer \tab Penalty-shot flag. \cr
+   is_insurance \tab integer \tab Insurance-goal flag. \cr
+   is_game_winning \tab integer \tab Game-winning-goal flag. \cr
+   x_location \tab logical \tab Goal x-coordinate on the ice. \cr
+   y_location \tab logical \tab Goal y-coordinate on the ice. \cr
 }
 }
 \description{

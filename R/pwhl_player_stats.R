@@ -2,19 +2,52 @@
 #' @description Retrieves career and season-by-season statistics for a PWHL player.
 #'
 #' @param player_id Numeric player ID
-#' @return A data frame with per-season statistics for the player, or NULL if unavailable.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
-#'   * `player_id` - Player ID.
-#'   * `season_name` - Season name.
-#'   * `season_id` - Season ID.
-#'   * `team` - Team abbreviation.
-#'   * `league` - League name.
-#'   * `games_played` - Games played.
-#'   * `goals` - Goals scored.
-#'   * `assists` - Assists.
-#'   * `points` - Total points.
-#'   * `plus_minus` - Plus/minus rating.
-#'   * `penalty_minutes` - Penalty minutes.
+#'    |col_name               |types     |description                                  |
+#'    |:----------------------|:---------|:--------------------------------------------|
+#'    |season_id              |numeric   |Season identifier.                           |
+#'    |season_name            |character |Season name.                                 |
+#'    |shortname              |character |Short season name.                           |
+#'    |playoff                |character |Whether the row is playoff statistics.       |
+#'    |career                 |character |Whether the row is career totals.            |
+#'    |max_start_date         |character |Latest game start date for the season.       |
+#'    |veteran_status         |character |Player veteran status.                       |
+#'    |veteran                |character |Whether the player is a veteran.             |
+#'    |goals_against          |numeric   |Goals against (goalie).                      |
+#'    |shootout_goals_against |character |Shootout goals against.                      |
+#'    |shootout_saves         |character |Shootout saves made.                         |
+#'    |goals_against_average  |numeric   |Goals against average (goalie).              |
+#'    |games_played           |numeric   |Games played.                                |
+#'    |minutes_played         |numeric   |Minutes played.                              |
+#'    |seconds_played         |character |Seconds played.                              |
+#'    |shots_against          |numeric   |Shots faced (goalie).                        |
+#'    |wins                   |numeric   |Wins (goalie).                               |
+#'    |losses                 |numeric   |Losses (goalie).                             |
+#'    |ties                   |character |Ties (goalie).                               |
+#'    |ot_losses              |character |Overtime losses (goalie).                    |
+#'    |total_losses           |character |Total losses (goalie).                       |
+#'    |shootout_losses        |character |Shootout losses (goalie).                    |
+#'    |ot                     |character |Overtime results.                            |
+#'    |sosavepct              |character |Shootout save percentage.                    |
+#'    |shootout_shots         |character |Shootout shots faced.                        |
+#'    |shutouts               |numeric   |Shutouts recorded (goalie).                  |
+#'    |saves                  |numeric   |Saves made (goalie).                         |
+#'    |savepct                |numeric   |Save percentage (goalie).                    |
+#'    |goals                  |numeric   |Goals scored.                                |
+#'    |assists                |numeric   |Assists.                                     |
+#'    |points                 |numeric   |Total points (goals + assists).              |
+#'    |penalty_minutes        |numeric   |Penalty minutes.                             |
+#'    |team_name              |character |Team name.                                   |
+#'    |team_code              |character |Team abbreviation.                           |
+#'    |team_city              |character |Team city.                                   |
+#'    |team_nickname          |character |Team nickname.                               |
+#'    |team_id                |character |Unique team identifier.                      |
+#'    |division               |character |Team division.                               |
+#'    |shotspct               |character |Shooting percentage.                         |
+#'    |gaa                    |character |Goals against average (goalie).              |
+#'    |player_id              |numeric   |Unique player identifier.                    |
+#'    |stat_type              |character |Statistic type ("regular"/"playoff").        |
 #' @import jsonlite
 #' @import dplyr
 #' @import httr

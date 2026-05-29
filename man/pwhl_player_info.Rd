@@ -10,24 +10,28 @@ pwhl_player_info(player_id)
 \item{player_id}{Numeric player ID}
 }
 \value{
-A data frame with player profile data including:
-\itemize{
-\item \code{player_id} - Player ID.
-\item \code{first_name} - First name.
-\item \code{last_name} - Last name.
-\item \code{jersey_number} - Jersey number.
-\item \code{position} - Position (e.g., "F", "D", "G").
-\item \code{shoots} - Shooting hand.
-\item \code{catches} - Catching hand (goalies).
-\item \code{birthdate} - Date of birth.
-\item \code{height} - Height.
-\item \code{weight} - Weight.
-\item \code{hometown} - Hometown.
-\item \code{nationality} - Nationality.
-\item \code{team_id} - Current team ID.
-\item \code{team_name} - Current team name.
-\item \code{image_url} - Player headshot URL.
-\item \code{draft_info} - Draft information.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab numeric \tab Unique player identifier. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   name \tab character \tab Player full name. \cr
+   jersey_number \tab character \tab Jersey number. \cr
+   position \tab character \tab Player position. \cr
+   shoots \tab character \tab Shooting hand. \cr
+   catches \tab character \tab Catching hand (goalies). \cr
+   birthdate \tab character \tab Date of birth. \cr
+   height \tab character \tab Player height. \cr
+   weight \tab character \tab Player weight. \cr
+   birthtown \tab character \tab Town of birth. \cr
+   birthprov \tab character \tab Province/state of birth. \cr
+   birthcntry \tab character \tab Country of birth. \cr
+   nationality \tab character \tab Player nationality. \cr
+   team_id \tab numeric \tab Current team unique identifier. \cr
+   team_name \tab character \tab Current team name. \cr
+   team_code \tab character \tab Current team abbreviation. \cr
+   image_url \tab character \tab Player headshot URL. \cr
+   draft_info \tab character \tab Draft information. \cr
 }
 }
 \description{

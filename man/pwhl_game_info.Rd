@@ -10,10 +10,24 @@ pwhl_game_info(game_id)
 \item{game_id}{Game ID that you want game information for}
 }
 \value{
-A data frame with one row of game metadata including columns:
-game_id, game_season, game_type, game_date, home_team, away_team,
-home_team_id, away_team_id, home_score, away_score, game_duration,
-game_venue, game_report, game_boxscore, game_season_id.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   game_season \tab numeric \tab Season (concluding year, YYYY). \cr
+   game_type \tab character \tab Game type the row belongs to. \cr
+   game_date \tab character \tab Game date. \cr
+   home_team \tab character \tab Home team name. \cr
+   away_team \tab character \tab Away team name. \cr
+   home_team_id \tab integer \tab Home team identifier. \cr
+   away_team_id \tab integer \tab Away team identifier. \cr
+   home_score \tab integer \tab Home team final score. \cr
+   away_score \tab integer \tab Away team final score. \cr
+   game_duration \tab character \tab Game duration. \cr
+   game_venue \tab character \tab Venue where the game was played. \cr
+   game_report \tab character \tab URL to the game report. \cr
+   game_boxscore \tab character \tab URL to the text box score. \cr
+   game_season_id \tab character \tab Season identifier used by the PWHL feed. \cr
+}
 }
 \description{
 PWHL Game Information

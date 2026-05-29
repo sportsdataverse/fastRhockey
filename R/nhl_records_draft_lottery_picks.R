@@ -3,8 +3,19 @@
 #'   NHL Records API
 #'   (`https://records.nhl.com/site/api/draft-lottery-picks`).
 #' @param cayenne_exp Optional Cayenne filter expression string.
-#' @return A `fastRhockey_data` tibble of draft lottery picks, or `NULL`
-#'   on failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name              |types     |description                                  |
+#'    |:---------------------|:---------|:--------------------------------------------|
+#'    |id                    |integer   |Unique lottery pick record identifier.       |
+#'    |draft_team_id         |integer   |Team identifier holding the resulting pick.  |
+#'    |draft_year            |integer   |Draft year the lottery applies to.           |
+#'    |effect_on_draft_order |character |Description of the lottery's effect on order.|
+#'    |lottery_team_id       |integer   |Team identifier participating in the lottery.|
+#'    |phase                 |character |Lottery phase identifier.                    |
+#'    |player_id             |integer   |Unique player identifier of the pick.        |
+#'    |player_notes          |character |Notes about the selected player.             |
+#'    |sequence              |integer   |Lottery sequence/draw order.                 |
 #' @keywords NHL Records Draft Lottery Picks
 #' @importFrom janitor clean_names
 #' @importFrom dplyr as_tibble

@@ -7,12 +7,13 @@
 #'
 #' @param date Character date in "YYYY-MM-DD" format. If NULL, returns
 #'   current divisions.
-#' @return Returns a data frame with columns:
-#'   \itemize{
-#'     \item \code{division_name} - division name (e.g. "Atlantic", "Metropolitan")
-#'     \item \code{division_abbrev} - division abbreviation
-#'     \item \code{conference_name} - parent conference name
-#'   }
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name        |types     |description                                     |
+#'    |:---------------|:---------|:-----------------------------------------------|
+#'    |division_name   |character |Division name (e.g. "Atlantic", "Metropolitan").|
+#'    |division_abbrev |character |Division abbreviation.                          |
+#'    |conference_name |character |Parent conference name.                         |
 #' @keywords NHL Divisions
 #' @importFrom dplyr distinct select
 #' @export

@@ -29,8 +29,18 @@ and \code{\link[=nhl_stats_teams]{nhl_stats_teams()}}.}
 \item{lang}{Character language code. Default \code{"en"}.}
 }
 \value{
-Returns a data frame (\code{fastRhockey_data}) for tabular endpoints,
-or the raw parsed list for non-tabular ones.
+A data frame (\code{fastRhockey_data}) for tabular endpoints, or the
+raw parsed list for non-tabular ones. For the default \code{"glossary"}
+endpoint the columns are:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique glossary entry identifier. \cr
+   abbreviation \tab character \tab Stat abbreviation. \cr
+   definition \tab character \tab Definition of the stat or term. \cr
+   first_season_for_stat \tab integer \tab First season the stat was tracked (YYYYYYYY). \cr
+   full_name \tab character \tab Full name of the stat or term. \cr
+   language_code \tab character \tab Language code of the entry. \cr
+   last_updated \tab character \tab Timestamp the entry was last updated. \cr
+}
 }
 \description{
 Generic dispatcher for the NHL Stats REST API

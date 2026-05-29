@@ -22,7 +22,24 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with one row per shift change and
+the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   event_team \tab character \tab Team associated with the shift change. \cr
+   period \tab integer \tab Period number. \cr
+   period_time \tab character \tab Elapsed time in the period (MM:SS). \cr
+   period_seconds \tab integer \tab Elapsed seconds in the period. \cr
+   game_seconds \tab integer \tab Elapsed seconds in the game. \cr
+   num_on \tab integer \tab Number of players coming on. \cr
+   players_on \tab character \tab Names of players coming on. \cr
+   ids_on \tab character \tab Player ids coming on. \cr
+   num_off \tab integer \tab Number of players going off. \cr
+   players_off \tab character \tab Names of players going off. \cr
+   ids_off \tab character \tab Player ids going off. \cr
+   event \tab character \tab Event description label. \cr
+   event_type \tab character \tab Standardized event type code. \cr
+   game_seconds_remaining \tab integer \tab Seconds remaining in regulation. \cr
+}
 }
 \description{
 Helper that loads multiple seasons of NHL shift-by-shift data

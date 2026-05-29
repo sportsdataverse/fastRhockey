@@ -20,9 +20,33 @@ nhl_goalie_summary_range(start_season, end_season, game_type = 2, limit = 50)
 Defaults to \code{50} to match \code{\link[=nhl_stats_goalies]{nhl_stats_goalies()}}.}
 }
 \value{
-A \code{fastRhockey_data} / \code{data.frame} of concatenated goalie
-summary stats with an added \code{season} column marking the season
-each row came from. Returns \code{NULL} on outer failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   assists \tab integer \tab Assists. \cr
+   games_played \tab integer \tab Games played. \cr
+   games_started \tab integer \tab Games started. \cr
+   goalie_full_name \tab character \tab Goalie full name. \cr
+   goals \tab integer \tab Goals scored. \cr
+   goals_against \tab integer \tab Goals against. \cr
+   goals_against_average \tab numeric \tab Goals against average. \cr
+   last_name \tab character \tab Goalie last name. \cr
+   losses \tab integer \tab Losses. \cr
+   ot_losses \tab integer \tab Overtime losses. \cr
+   penalty_minutes \tab integer \tab Penalty minutes. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   points \tab integer \tab Total points (goals + assists). \cr
+   save_pct \tab numeric \tab Save percentage. \cr
+   saves \tab integer \tab Saves made. \cr
+   season_id \tab integer \tab Season identifier. \cr
+   shoots_catches \tab character \tab Shooting/catching hand. \cr
+   shots_against \tab integer \tab Shots faced. \cr
+   shutouts \tab integer \tab Shutouts. \cr
+   team_abbrevs \tab character \tab Team abbreviation(s). \cr
+   ties \tab logical \tab Ties (legacy; typically NA). \cr
+   time_on_ice \tab integer \tab Time on ice in seconds. \cr
+   wins \tab integer \tab Wins. \cr
+   season \tab character \tab Season the row came from (e.g. 20232024). \cr
+}
 }
 \description{
 Aggregator helper that calls \code{\link[=nhl_stats_goalies]{nhl_stats_goalies()}} with

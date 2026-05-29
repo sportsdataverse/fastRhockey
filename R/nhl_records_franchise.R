@@ -7,7 +7,18 @@
 #' @param franchise_id Optional integer franchise ID.
 #' @param lang Character language code. Default `"en"`. Currently unused
 #'   server-side but reserved for future use.
-#' @return A `fastRhockey_data` tibble of franchises, or `NULL` on failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name            |types     |description                              |
+#'    |:-------------------|:---------|:----------------------------------------|
+#'    |id                  |integer   |Unique franchise identifier.             |
+#'    |first_season_id     |integer   |Season identifier of the first season.   |
+#'    |full_name           |character |Full franchise name.                     |
+#'    |last_season_id      |integer   |Season identifier of the last season.    |
+#'    |most_recent_team_id |integer   |Most recent team identifier.             |
+#'    |team_abbrev         |character |Team abbreviation.                       |
+#'    |team_common_name    |character |Team common (nickname) name.             |
+#'    |team_place_name     |character |Team place (location) name.              |
 #' @keywords NHL Records Franchise
 #' @importFrom janitor clean_names
 #' @importFrom dplyr as_tibble

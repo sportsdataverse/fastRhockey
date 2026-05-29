@@ -23,7 +23,38 @@ the season data into a database.}
 \item{tablename}{The name of the schedule data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab character \tab Unique game identifier. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   game_date \tab character \tab Game date. \cr
+   game_status \tab character \tab Game status text. \cr
+   home_team \tab character \tab Home team name. \cr
+   home_team_id \tab character \tab Home team identifier. \cr
+   away_team \tab character \tab Away team name. \cr
+   away_team_id \tab character \tab Away team identifier. \cr
+   home_score \tab character \tab Home team final score. \cr
+   away_score \tab character \tab Away team final score. \cr
+   winner \tab character \tab Winning team. \cr
+   venue \tab character \tab Venue name. \cr
+   venue_url \tab character \tab Venue URL. \cr
+   game_type \tab character \tab Game type the row belongs to. \cr
+   game_json \tab logical \tab Whether the game JSON is available. \cr
+   game_json_url \tab glue \tab URL to the game JSON feed. \cr
+   PBP \tab logical \tab Whether play-by-play data is available. \cr
+   player_box \tab logical \tab Whether player box data is available. \cr
+   skater_box \tab logical \tab Whether skater box data is available. \cr
+   goalie_box \tab logical \tab Whether goalie box data is available. \cr
+   team_box \tab logical \tab Whether team box data is available. \cr
+   game_info \tab logical \tab Whether game info data is available. \cr
+   game_rosters \tab logical \tab Whether game rosters data is available. \cr
+   scoring_summary \tab logical \tab Whether scoring summary data is available. \cr
+   penalty_summary \tab logical \tab Whether penalty summary data is available. \cr
+   three_stars \tab logical \tab Whether three stars data is available. \cr
+   officials \tab logical \tab Whether officials data is available. \cr
+   shots_by_period \tab logical \tab Whether shots-by-period data is available. \cr
+   shootout \tab logical \tab Whether shootout data is available. \cr
+}
 }
 \description{
 Helper that loads multiple seasons of pre-scraped PWHL

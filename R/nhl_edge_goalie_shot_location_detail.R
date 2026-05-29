@@ -11,8 +11,21 @@
 #'   (default) for the current season via the `/now` endpoint.
 #' @param game_type Integer game type. 1 = preseason, 2 = regular season
 #'   (default), 3 = playoffs.
-#' @return A `fastRhockey_data` tibble of shot-location details, or `NULL`
-#'   on failure / empty response.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name                  |types     |description                                          |
+#'    |:-------------------------|:---------|:----------------------------------------------------|
+#'    |area                      |character |Net/ice zone the shots were taken from.              |
+#'    |shots_against             |integer   |Shots faced from the area.                           |
+#'    |saves                     |integer   |Saves made from the area.                            |
+#'    |goals_against             |integer   |Goals against from the area.                         |
+#'    |save_pctg                 |numeric   |Save percentage for the area.                        |
+#'    |shots_against_percentile  |numeric   |League percentile rank for shots against.            |
+#'    |saves_percentile          |numeric   |League percentile rank for saves.                    |
+#'    |goals_against_percentile  |numeric   |League percentile rank for goals against.            |
+#'    |save_pctg_percentile      |numeric   |League percentile rank for save percentage.          |
+#'
+#'   Returns `NULL` on failure / empty response.
 #' @keywords NHL Edge Goalie
 #' @importFrom glue glue
 #' @importFrom janitor clean_names

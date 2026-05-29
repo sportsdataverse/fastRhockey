@@ -15,7 +15,31 @@ If NULL, returns the current season game log.}
 \item{game_type}{Integer game type: 2 = regular season (default), 3 = playoffs}
 }
 \value{
-Returns a data frame with game-by-game statistics.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   team_abbrev \tab character \tab Player's team abbreviation. \cr
+   home_road_flag \tab character \tab Home or road indicator. \cr
+   game_date \tab character \tab Game date. \cr
+   goals \tab integer \tab Goals scored. \cr
+   assists \tab integer \tab Assists. \cr
+   points \tab integer \tab Total points (goals + assists). \cr
+   plus_minus \tab integer \tab Plus/minus rating. \cr
+   power_play_goals \tab integer \tab Power play goals. \cr
+   power_play_points \tab integer \tab Power play points. \cr
+   game_winning_goals \tab integer \tab Game-winning goals. \cr
+   ot_goals \tab integer \tab Overtime goals. \cr
+   shots \tab integer \tab Shots on goal. \cr
+   shifts \tab integer \tab Number of shifts. \cr
+   shorthanded_goals \tab integer \tab Shorthanded goals. \cr
+   shorthanded_points \tab integer \tab Shorthanded points. \cr
+   pim \tab integer \tab Penalty minutes. \cr
+   toi \tab character \tab Time on ice. \cr
+   opponent_abbrev \tab character \tab Opponent team abbreviation. \cr
+   common_name_default \tab character \tab Player's team common name. \cr
+   opponent_common_name_default \tab character \tab Opponent team common name. \cr
+   player_id \tab numeric \tab Unique player identifier. \cr
+}
 }
 \description{
 Returns game-by-game stats for an NHL player. Supports both

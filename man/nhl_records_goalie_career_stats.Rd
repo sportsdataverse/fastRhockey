@@ -15,8 +15,46 @@ nhl_records_goalie_career_stats(cayenne_exp = NULL, limit = NULL, start = NULL)
 \item{start}{Optional integer pagination offset.}
 }
 \value{
-A \code{fastRhockey_data} tibble of career goalie stats, or \code{NULL}
-on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique record identifier. \cr
+   active_player \tab logical \tab Indicator of whether the player is active. \cr
+   first_name \tab character \tab Player first name. \cr
+   first_season_for_game_type \tab integer \tab First season ID for the game type. \cr
+   franchise_id \tab integer \tab Unique franchise identifier. \cr
+   game_seven_games_played \tab logical \tab Game seven games played. \cr
+   game_seven_losses \tab logical \tab Game seven losses. \cr
+   game_seven_wins \tab logical \tab Game seven wins. \cr
+   game_type_id \tab integer \tab Game type the totals belong to. \cr
+   games_played \tab integer \tab Total games played. \cr
+   goals_against \tab integer \tab Goals against. \cr
+   goals_against_average \tab numeric \tab Goals against average. \cr
+   last_name \tab character \tab Player last name. \cr
+   last_season_for_game_type \tab integer \tab Last season ID for the game type. \cr
+   losses \tab integer \tab Total losses. \cr
+   overtime_games_played \tab integer \tab Overtime games played. \cr
+   overtime_goals_against \tab integer \tab Overtime goals against. \cr
+   overtime_goals_against_average \tab logical \tab Overtime goals against average. \cr
+   overtime_losses \tab logical \tab Overtime losses. \cr
+   overtime_save_pctg \tab numeric \tab Overtime save percentage. \cr
+   overtime_shots_against \tab integer \tab Overtime shots against. \cr
+   overtime_ties \tab integer \tab Overtime ties. \cr
+   overtime_time_on_ice \tab integer \tab Overtime time on ice (seconds). \cr
+   overtime_wins \tab integer \tab Overtime wins. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   position_code \tab character \tab Player position code. \cr
+   save_pctg \tab numeric \tab Save percentage. \cr
+   saves \tab integer \tab Saves made. \cr
+   seasons_played \tab integer \tab Number of seasons played. \cr
+   shots_against \tab integer \tab Shots faced. \cr
+   shutouts \tab integer \tab Shutouts recorded. \cr
+   team_abbrevs \tab character \tab Team abbreviations. \cr
+   team_names \tab character \tab Team names. \cr
+   ties \tab integer \tab Total ties. \cr
+   time_on_ice \tab integer \tab Total time on ice (seconds). \cr
+   time_on_ice_min_sec \tab character \tab Total time on ice (MM:SS). \cr
+   wins \tab integer \tab Total wins. \cr
+}
 }
 \description{
 Returns career goalie statistics from the NHL Records API

@@ -10,15 +10,58 @@ pwhl_player_box(game_id)
 \item{game_id}{Game ID that you want play-by-play for}
 }
 \value{
-A named list with two data frames:
-\itemize{
-\item \verb{$skaters} - Skater box scores with columns: player_id, first_name,
-last_name, position, team_id, game_id, toi, time_on_ice, goals,
-assists, points, shots, hits, blocked_shots, penalty_minutes,
-plus_minus, faceoff_attempts, faceoff_wins, faceoff_pct, starting.
-\item \verb{$goalies} - Goalie box scores with columns: player_id, first_name,
-last_name, position, team_id, game_id, toi, time_on_ice, saves,
-goals_against, shots_against, penalty_minutes, faceoff_pct, starting.
+A named list of data frames: \code{skaters}, \code{goalies}.
+
+\strong{skaters}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab character \tab Unique player identifier. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   position \tab character \tab Player position. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   league \tab character \tab League identifier ("pwhl"). \cr
+   toi \tab character \tab Time on ice (MM:SS). \cr
+   time_on_ice \tab numeric \tab Time on ice in minutes. \cr
+   goals \tab numeric \tab Goals scored. \cr
+   assists \tab numeric \tab Assists. \cr
+   points \tab numeric \tab Total points (goals + assists). \cr
+   shots \tab numeric \tab Shots on goal. \cr
+   hits \tab numeric \tab Hits. \cr
+   blocked_shots \tab numeric \tab Blocked shots. \cr
+   penalty_minutes \tab numeric \tab Penalty minutes. \cr
+   plus_minus \tab numeric \tab Plus/minus rating. \cr
+   faceoff_attempts \tab numeric \tab Faceoffs taken. \cr
+   faceoff_wins \tab numeric \tab Faceoffs won. \cr
+   faceoff_losses \tab numeric \tab Faceoffs lost. \cr
+   faceoff_pct \tab numeric \tab Faceoff win percentage. \cr
+   starting \tab character \tab Whether the player started the game. \cr
+}
+
+
+\strong{goalies}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab character \tab Unique player identifier. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   position \tab character \tab Player position. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   league \tab character \tab League identifier ("pwhl"). \cr
+   toi \tab character \tab Time on ice (MM:SS). \cr
+   time_on_ice \tab numeric \tab Time on ice in minutes. \cr
+   saves \tab numeric \tab Saves made. \cr
+   goals_against \tab numeric \tab Goals against. \cr
+   shots_against \tab numeric \tab Shots faced. \cr
+   goals \tab numeric \tab Goals scored. \cr
+   assists \tab numeric \tab Assists. \cr
+   points \tab numeric \tab Total points (goals + assists). \cr
+   penalty_minutes \tab numeric \tab Penalty minutes. \cr
+   faceoff_attempts \tab numeric \tab Faceoffs taken. \cr
+   faceoff_wins \tab numeric \tab Faceoffs won. \cr
+   faceoff_losses \tab numeric \tab Faceoffs lost. \cr
+   faceoff_pct \tab numeric \tab Faceoff win percentage. \cr
+   starting \tab numeric \tab Whether the goalie started the game. \cr
 }
 }
 \description{

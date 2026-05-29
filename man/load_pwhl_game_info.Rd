@@ -22,28 +22,32 @@ load_pwhl_game_info(
 \item{tablename}{The name of the game info data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}. Common columns include:\tabular{lll}{
-   column \tab type \tab description \cr
-   \code{game_id} \tab integer \tab PWHL game id \cr
-   \code{game_number} \tab character \tab league game number \cr
-   \code{game_date} \tab character \tab human-readable game date \cr
-   \code{game_date_iso} \tab character \tab ISO-8601 game start datetime \cr
-   \code{start_time} \tab character \tab start time (local) \cr
-   \code{end_time} \tab character \tab end time (local) \cr
-   \code{game_duration} \tab character \tab game length (\code{H:MM}) \cr
-   \code{game_venue} \tab character \tab venue name \cr
-   \code{attendance} \tab integer \tab reported attendance \cr
-   \code{game_status} \tab character \tab final / status text \cr
-   \code{game_season_id} \tab integer \tab HockeyTech season id \cr
-   \code{home_team_id} \tab integer \tab home team id \cr
-   \code{home_team} \tab character \tab home team name \cr
-   \code{home_team_abbr} \tab character \tab home abbreviation \cr
-   \code{home_score} \tab integer \tab home final score \cr
-   \code{away_team_id} \tab integer \tab away team id \cr
-   \code{away_team} \tab character \tab away team name \cr
-   \code{away_team_abbr} \tab character \tab away abbreviation \cr
-   \code{away_score} \tab integer \tab away final score \cr
-   \code{has_shootout} \tab integer \tab shootout flag \cr
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   game_number \tab character \tab League game number. \cr
+   game_date \tab character \tab Human-readable game date. \cr
+   game_date_iso \tab character \tab ISO-8601 game start datetime. \cr
+   start_time \tab character \tab Start time (local). \cr
+   end_time \tab character \tab End time (local). \cr
+   game_duration \tab character \tab Game length (H:MM). \cr
+   game_venue \tab character \tab Venue name. \cr
+   attendance \tab integer \tab Reported attendance. \cr
+   game_status \tab character \tab Game status text. \cr
+   game_season_id \tab integer \tab HockeyTech season identifier. \cr
+   started \tab integer \tab Flag for whether the game has started. \cr
+   final \tab integer \tab Flag for whether the game is final. \cr
+   home_team_id \tab integer \tab Home team identifier. \cr
+   home_team \tab character \tab Home team name. \cr
+   home_team_abbr \tab character \tab Home team abbreviation. \cr
+   home_score \tab integer \tab Home team final score. \cr
+   away_team_id \tab integer \tab Away team identifier. \cr
+   away_team \tab character \tab Away team name. \cr
+   away_team_abbr \tab character \tab Away team abbreviation. \cr
+   away_score \tab integer \tab Away team final score. \cr
+   has_shootout \tab integer \tab Flag for whether the game went to shootout. \cr
+   game_report_url \tab character \tab URL to the game report. \cr
+   boxscore_url \tab character \tab URL to the boxscore. \cr
 }
 }
 \description{

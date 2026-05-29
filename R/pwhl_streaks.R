@@ -6,10 +6,36 @@
 #'   or `"preseason"`. When `"both"`, regular-season and playoff streaks are
 #'   combined and labeled by a `game_type` column. Game types with no streak
 #'   data for the season are omitted rather than erroring.
-#' @return A data frame of class `fastRhockey_data` with player streak data
-#'   including columns such as player_id, first_name, last_name, name, length,
-#'   goals, assists, points, games_played, rank, team_name, team_code, and
-#'   game_type. Returns NULL if unavailable.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name             |types     |description                          |
+#'    |:--------------------|:---------|:------------------------------------|
+#'    |id                   |character |Unique streak identifier.            |
+#'    |player_id            |character |Unique player identifier.            |
+#'    |rookie               |character |Whether the player is a rookie.      |
+#'    |first_game_date      |character |Date of the streak's first game.     |
+#'    |last_game_date       |character |Date of the streak's last game.      |
+#'    |first_name           |character |Player first name.                   |
+#'    |last_name            |character |Player last name.                    |
+#'    |name                 |character |Player full name.                    |
+#'    |length               |character |Length of the streak in games.       |
+#'    |goals                |character |Goals scored during the streak.      |
+#'    |assists              |character |Assists during the streak.           |
+#'    |has_split            |character |Whether the streak spans teams.      |
+#'    |games_played         |character |Games played during the streak.      |
+#'    |ongoing              |character |Whether the streak is ongoing.       |
+#'    |points               |character |Total points during the streak.      |
+#'    |streak_start_team_id |character |Team identifier at streak start.     |
+#'    |streak_end_team_id   |character |Team identifier at streak end.       |
+#'    |num_teams            |character |Number of teams during the streak.   |
+#'    |division_short_name  |character |Short division name.                 |
+#'    |division_long_name   |character |Full division name.                  |
+#'    |rank                 |character |Rank of the streak.                  |
+#'    |team_name            |character |Team name.                           |
+#'    |team_city            |character |Team city.                           |
+#'    |team_code            |character |Team abbreviation.                   |
+#'    |team_nickname        |character |Team nickname.                       |
+#'    |game_type            |character |Game type the row belongs to.        |
 #' @import jsonlite
 #' @import dplyr
 #' @import httr

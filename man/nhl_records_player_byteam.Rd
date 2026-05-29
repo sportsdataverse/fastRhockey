@@ -12,7 +12,80 @@ nhl_records_player_byteam(team_id, cayenne_exp = NULL)
 \item{cayenne_exp}{Optional Cayenne filter expression string.}
 }
 \value{
-A \code{fastRhockey_data} tibble of players, or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique player identifier. \cr
+   accrued_seasons \tab integer \tab Number of accrued NHL seasons. \cr
+   add_names \tab logical \tab Additional names for the player. \cr
+   age_sign_waiver \tab integer \tab Age at which the player signed a waiver. \cr
+   age_signel_fa \tab integer \tab Age at which the player signed as a free agent. \cr
+   alert \tab character \tab Alert flag or note. \cr
+   birth_city \tab character \tab Birth city of the player. \cr
+   birth_country \tab character \tab Birth country of the player. \cr
+   birth_date \tab character \tab Birth date of the player. \cr
+   birth_state_province \tab character \tab Birth state or province of the player. \cr
+   career_team_id \tab logical \tab Primary career team identifier. \cr
+   central_registry_position \tab character \tab Position per the central registry. \cr
+   club_elec_arb \tab character \tab Club election to arbitration indicator. \cr
+   current_team_id \tab integer \tab Current team identifier. \cr
+   date_of_death \tab logical \tab Date of death, if applicable. \cr
+   dda_id \tab integer \tab DDA identifier. \cr
+   deceased \tab logical \tab Whether the player is deceased. \cr
+   ep_player_id \tab integer \tab EliteProspects player identifier. \cr
+   fa_group_after_season \tab logical \tab Free agent group after the season. \cr
+   first_name \tab character \tab First name of the player. \cr
+   first_signed_by_team_id \tab integer \tab Team that first signed the player. \cr
+   free_agent_group \tab character \tab Free agent group classification. \cr
+   full_name \tab character \tab Full name of the player. \cr
+   group5election \tab character \tab Group 5 free agency election indicator. \cr
+   group5seasons_earned \tab integer \tab Group 5 seasons earned. \cr
+   group6proration \tab logical \tab Group 6 proration indicator. \cr
+   group6seasons_earned \tab integer \tab Group 6 seasons earned. \cr
+   groups_earned_thru_season \tab integer \tab Season through which groups were earned. \cr
+   height \tab integer \tab Player height in inches. \cr
+   hof_induction_year \tab logical \tab Hockey Hall of Fame induction year. \cr
+   home_town \tab character \tab Home town of the player. \cr
+   iihf_hof_induction_year \tab logical \tab IIHF Hall of Fame induction year. \cr
+   in_hockey_hof \tab logical \tab Whether the player is in the Hockey Hall of Fame. \cr
+   in_iihf_hof \tab integer \tab Whether the player is in the IIHF Hall of Fame. \cr
+   in_top100alltime \tab logical \tab Whether the player is in the all-time top 100. \cr
+   in_us_hockey_hof \tab logical \tab Whether the player is in the US Hockey Hall of Fame. \cr
+   is_defected \tab character \tab Whether the player defected. \cr
+   is_deleted \tab character \tab Whether the record is deleted. \cr
+   is_junior \tab character \tab Whether the player is a junior. \cr
+   is_retired \tab logical \tab Whether the player is retired. \cr
+   is_rookie \tab character \tab Whether the player is a rookie. \cr
+   is_suspended \tab character \tab Whether the player is suspended. \cr
+   last_amateur_league_id \tab integer \tab Last amateur league identifier. \cr
+   last_amateur_team_id \tab integer \tab Last amateur team identifier. \cr
+   last_nhl_team_id \tab integer \tab Last NHL team identifier. \cr
+   last_name \tab character \tab Last name of the player. \cr
+   loan_cap_exception \tab character \tab Loan cap exception indicator. \cr
+   long_term_injury \tab character \tab Long-term injury indicator. \cr
+   message \tab character \tab Status message. \cr
+   middle_name \tab character \tab Middle name of the player. \cr
+   nationality \tab character \tab Nationality of the player. \cr
+   nhl_experience \tab integer \tab Years of NHL experience. \cr
+   on_roster \tab character \tab Whether the player is on a roster. \cr
+   platform_year \tab integer \tab Platform year for contract purposes. \cr
+   position \tab character \tab Player position. \cr
+   pr_name \tab character \tab Public relations display name. \cr
+   pr_stat \tab integer \tab Public relations status code. \cr
+   pro_year_reduction \tab integer \tab Professional year reduction. \cr
+   reentry_waivers \tab character \tab Re-entry waivers indicator. \cr
+   roster_special_code \tab logical \tab Roster special status code. \cr
+   salary_arbitration_exp \tab integer \tab Salary arbitration experience. \cr
+   shoots_catches \tab character \tab Handedness (shoots or catches). \cr
+   sweater_number \tab integer \tab Sweater number worn by the player. \cr
+   update_timestamp \tab character \tab Timestamp of the last record update. \cr
+   us_hof_induction_year \tab logical \tab US Hockey Hall of Fame induction year. \cr
+   vet_cap_excptn \tab character \tab Veteran cap exception indicator. \cr
+   waiver_amount \tab integer \tab Waiver amount. \cr
+   waiver_draft \tab character \tab Waiver draft indicator. \cr
+   waiver_status \tab character \tab Waiver status. \cr
+   weight \tab integer \tab Player weight in pounds. \cr
+   years_pro \tab integer \tab Number of professional years played. \cr
+}
 }
 \description{
 Returns every player who has suited up for a given team via

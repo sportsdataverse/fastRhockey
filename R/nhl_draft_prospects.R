@@ -4,7 +4,24 @@
 #' Uses the new NHL API endpoint at
 #' \code{api-web.nhle.com/v1/draft/rankings/now}.
 #'
-#' @return Returns a data frame of draft prospect rankings.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name             |types     |description                              |
+#'    |:--------------------|:---------|:----------------------------------------|
+#'    |last_name            |character |Prospect's last name.                    |
+#'    |first_name           |character |Prospect's first name.                   |
+#'    |position_code        |character |Prospect's position code.                |
+#'    |shoots_catches       |character |Prospect's shooting/catching hand.       |
+#'    |height_in_inches     |integer   |Prospect's height in inches.             |
+#'    |weight_in_pounds     |integer   |Prospect's weight in pounds.             |
+#'    |last_amateur_club    |character |Prospect's most recent amateur club.     |
+#'    |last_amateur_league  |character |Prospect's most recent amateur league.   |
+#'    |birth_date           |character |Prospect's birth date.                   |
+#'    |birth_city           |character |Prospect's birth city.                   |
+#'    |birth_state_province |character |Prospect's birth state or province.      |
+#'    |birth_country        |character |Prospect's birth country.                |
+#'    |midterm_rank         |integer   |Prospect's midterm draft ranking.        |
+#'    |final_rank           |integer   |Prospect's final draft ranking.          |
 #' @keywords NHL Draft Prospects
 #' @importFrom jsonlite read_json
 #' @importFrom janitor clean_names

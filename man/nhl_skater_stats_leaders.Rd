@@ -23,7 +23,30 @@ If NULL, returns current season leaders.}
 \item{limit}{Integer maximum number of leaders per category. If NULL, uses API default.}
 }
 \value{
-Returns a data frame with skater leaders.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique player identifier. \cr
+   sweater_number \tab integer \tab Jersey number. \cr
+   headshot \tab character \tab URL to the player headshot image. \cr
+   team_abbrev \tab character \tab Team abbreviation. \cr
+   team_logo \tab character \tab URL to the team logo image. \cr
+   position \tab character \tab Player position. \cr
+   value \tab numeric \tab Statistical value for the category. \cr
+   first_name_default \tab character \tab Player first name (default). \cr
+   last_name_default \tab character \tab Player last name (default). \cr
+   team_name_default \tab character \tab Team name (default). \cr
+   category \tab character \tab Stat leader category. \cr
+   first_name_cs \tab character \tab Player first name (Czech). \cr
+   first_name_de \tab character \tab Player first name (German). \cr
+   first_name_es \tab character \tab Player first name (Spanish). \cr
+   first_name_fi \tab character \tab Player first name (Finnish). \cr
+   first_name_sk \tab character \tab Player first name (Slovak). \cr
+   first_name_sv \tab character \tab Player first name (Swedish). \cr
+   last_name_cs \tab character \tab Player last name (Czech). \cr
+   last_name_sk \tab character \tab Player last name (Slovak). \cr
+   last_name_fi \tab character \tab Player last name (Finnish). \cr
+   team_name_fr \tab character \tab Team name (French). \cr
+}
 }
 \description{
 Returns league-wide skater statistical leaders for a given season

@@ -22,8 +22,27 @@ the \code{cayenneExp} query parameter.}
 \item{start}{Integer pagination start index. Default 0.}
 }
 \value{
-A \code{fastRhockey_data} tibble of skater milestones, or \code{NULL} on
-failure.
+A data frame (\code{fastRhockey_data}) of skater milestones, or \code{NULL}
+on failure, with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique milestone record identifier. \cr
+   assists \tab integer \tab Assists. \cr
+   current_team_id \tab integer \tab Player's current team identifier. \cr
+   first_name \tab character \tab Player first name. \cr
+   game_type_id \tab integer \tab Game type identifier (regular season / playoffs). \cr
+   games_played \tab integer \tab Games played. \cr
+   goals \tab integer \tab Goals scored. \cr
+   last_name \tab character \tab Player last name. \cr
+   milestone \tab character \tab Milestone category. \cr
+   milestone_amount \tab integer \tab Milestone threshold amount. \cr
+   player_full_name \tab character \tab Player full name. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   points \tab integer \tab Total points (goals + assists). \cr
+   team_abbrev \tab character \tab Team abbreviation. \cr
+   team_common_name \tab character \tab Team common name. \cr
+   team_full_name \tab character \tab Team full name. \cr
+   team_place_name \tab character \tab Team place (city) name. \cr
+}
 }
 \description{
 Returns skater milestone achievements from the NHL Stats

@@ -15,8 +15,49 @@ If NULL, returns current season stats.}
 \item{game_type}{Integer game type: 2 = regular season (default), 3 = playoffs}
 }
 \value{
-Returns a data frame with per-player stats for the team,
-including both skaters and goalies identified by a \code{player_type} column.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   headshot \tab character \tab URL to the player's headshot image. \cr
+   position_code \tab character \tab Player position code. \cr
+   games_played \tab integer \tab Games played. \cr
+   goals \tab integer \tab Goals scored. \cr
+   assists \tab integer \tab Assists. \cr
+   points \tab integer \tab Total points (goals + assists). \cr
+   plus_minus \tab integer \tab Plus/minus rating. \cr
+   penalty_minutes \tab integer \tab Penalty minutes. \cr
+   power_play_goals \tab integer \tab Power-play goals. \cr
+   shorthanded_goals \tab integer \tab Short-handed goals. \cr
+   game_winning_goals \tab integer \tab Game-winning goals. \cr
+   overtime_goals \tab integer \tab Overtime goals. \cr
+   shots \tab integer \tab Shots on goal. \cr
+   shooting_pctg \tab numeric \tab Shooting percentage. \cr
+   avg_time_on_ice_per_game \tab numeric \tab Average time on ice per game. \cr
+   avg_shifts_per_game \tab numeric \tab Average shifts per game. \cr
+   faceoff_win_pctg \tab numeric \tab Faceoff win percentage. \cr
+   first_name_default \tab character \tab Player first name (default language). \cr
+   last_name_default \tab character \tab Player last name (default language). \cr
+   last_name_cs \tab character \tab Player last name (Czech localization). \cr
+   last_name_fi \tab character \tab Player last name (Finnish localization). \cr
+   last_name_sk \tab character \tab Player last name (Slovak localization). \cr
+   player_type \tab character \tab Player type ("skater" or "goalie"). \cr
+   games_started \tab integer \tab Games started (goalies). \cr
+   wins \tab integer \tab Wins (goalies). \cr
+   losses \tab integer \tab Losses (goalies). \cr
+   overtime_losses \tab integer \tab Overtime losses (goalies). \cr
+   goals_against_average \tab numeric \tab Goals-against average (goalies). \cr
+   save_percentage \tab numeric \tab Save percentage (goalies). \cr
+   shots_against \tab integer \tab Shots faced (goalies). \cr
+   saves \tab integer \tab Saves made (goalies). \cr
+   goals_against \tab integer \tab Goals against (goalies). \cr
+   shutouts \tab integer \tab Shutouts (goalies). \cr
+   time_on_ice \tab integer \tab Total time on ice (goalies). \cr
+   first_name_cs \tab character \tab Player first name (Czech localization). \cr
+   first_name_sk \tab character \tab Player first name (Slovak localization). \cr
+   team_abbr \tab character \tab Team abbreviation. \cr
+   season \tab character \tab Season identifier. \cr
+   game_type \tab integer \tab Game type (2 = regular season, 3 = playoffs). \cr
+}
 }
 \description{
 Returns NHL team player-level stats (skaters and goalies) for a

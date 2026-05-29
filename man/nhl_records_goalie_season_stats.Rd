@@ -14,8 +14,43 @@ nhl_records_goalie_season_stats(cayenne_exp = NULL, limit = NULL, start = NULL)
 \item{start}{Optional integer pagination offset.}
 }
 \value{
-A \code{fastRhockey_data} tibble of goalie season stats, or \code{NULL}
-on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique record identifier. \cr
+   active_player \tab logical \tab Indicator of whether the player is active. \cr
+   first_name \tab character \tab Player first name. \cr
+   franchise_id \tab integer \tab Unique franchise identifier. \cr
+   game_seven_games_played \tab logical \tab Game seven games played. \cr
+   game_seven_losses \tab logical \tab Game seven losses. \cr
+   game_seven_wins \tab logical \tab Game seven wins. \cr
+   game_type \tab integer \tab Game type the totals belong to. \cr
+   games_played \tab integer \tab Total games played. \cr
+   games_started \tab integer \tab Games started. \cr
+   goals_against \tab integer \tab Goals against. \cr
+   goals_against_average \tab numeric \tab Goals against average. \cr
+   last_name \tab character \tab Player last name. \cr
+   losses \tab integer \tab Total losses. \cr
+   number_of_games_in_season \tab integer \tab Number of games in the season. \cr
+   overtime_games_played \tab integer \tab Overtime games played. \cr
+   overtime_goals_against \tab integer \tab Overtime goals against. \cr
+   overtime_losses \tab logical \tab Overtime losses. \cr
+   overtime_ties \tab integer \tab Overtime ties. \cr
+   overtime_wins \tab integer \tab Overtime wins. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   position_code \tab character \tab Player position code. \cr
+   rookie_flag \tab logical \tab Indicator of whether the player was a rookie. \cr
+   save_pctg \tab numeric \tab Save percentage. \cr
+   saves \tab integer \tab Saves made. \cr
+   season_id \tab integer \tab Season identifier. \cr
+   shots_against \tab integer \tab Shots faced. \cr
+   shutouts \tab integer \tab Shutouts recorded. \cr
+   team_abbrevs \tab character \tab Team abbreviations. \cr
+   team_names \tab character \tab Team names. \cr
+   ties \tab integer \tab Total ties. \cr
+   time_on_ice \tab integer \tab Total time on ice (seconds). \cr
+   time_on_ice_min_sec \tab character \tab Total time on ice (MM:SS). \cr
+   wins \tab integer \tab Total wins. \cr
+}
 }
 \description{
 Returns season-by-season goalie statistics from the NHL

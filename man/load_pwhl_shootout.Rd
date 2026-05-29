@@ -22,19 +22,19 @@ load_pwhl_shootout(
 \item{tablename}{The name of the shootout data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}. One row per shootout
-attempt. Common columns include:\tabular{lll}{
-   column \tab type \tab description \cr
-   \code{game_id} \tab integer \tab PWHL game id \cr
-   \code{round} \tab integer \tab shootout round number \cr
-   \code{team_side} \tab character \tab \code{"home"} or \code{"away"} \cr
-   \code{shooter_id} \tab integer \tab shooter player id \cr
-   \code{shooter_first} \tab character \tab shooter first name \cr
-   \code{shooter_last} \tab character \tab shooter last name \cr
-   \code{goalie_id} \tab integer \tab opposing goalie id \cr
-   \code{goalie_first} \tab character \tab goalie first name \cr
-   \code{goalie_last} \tab character \tab goalie last name \cr
-   \code{is_goal} \tab integer \tab scored flag \cr
+A data frame (\code{fastRhockey_data}) with one row per shootout attempt
+and the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   round \tab integer \tab Shootout round number. \cr
+   team_side \tab character \tab Shooting team side ("home"/"away"). \cr
+   shooter_id \tab integer \tab Shooter player identifier. \cr
+   shooter_first \tab character \tab Shooter first name. \cr
+   shooter_last \tab character \tab Shooter last name. \cr
+   goalie_id \tab integer \tab Opposing goalie identifier. \cr
+   goalie_first \tab character \tab Opposing goalie first name. \cr
+   goalie_last \tab character \tab Opposing goalie last name. \cr
+   is_goal \tab integer \tab Whether the attempt scored (1/0). \cr
 }
 }
 \description{

@@ -6,8 +6,28 @@
 #'   the `cayenneExp` query parameter.
 #' @param limit Integer maximum number of results. Default 100.
 #' @param start Integer pagination start index. Default 0.
-#' @return A `fastRhockey_data` tibble of skater milestones, or `NULL` on
-#'   failure.
+#' @return A data frame (`fastRhockey_data`) of skater milestones, or `NULL`
+#'   on failure, with the following columns:
+#'
+#'    |col_name          |types     |description                                          |
+#'    |:-----------------|:---------|:----------------------------------------------------|
+#'    |id                |integer   |Unique milestone record identifier.                  |
+#'    |assists           |integer   |Assists.                                             |
+#'    |current_team_id   |integer   |Player's current team identifier.                    |
+#'    |first_name        |character |Player first name.                                   |
+#'    |game_type_id      |integer   |Game type identifier (regular season / playoffs).    |
+#'    |games_played      |integer   |Games played.                                        |
+#'    |goals             |integer   |Goals scored.                                        |
+#'    |last_name         |character |Player last name.                                    |
+#'    |milestone         |character |Milestone category.                                  |
+#'    |milestone_amount  |integer   |Milestone threshold amount.                          |
+#'    |player_full_name  |character |Player full name.                                    |
+#'    |player_id         |integer   |Unique player identifier.                            |
+#'    |points            |integer   |Total points (goals + assists).                      |
+#'    |team_abbrev       |character |Team abbreviation.                                   |
+#'    |team_common_name  |character |Team common name.                                    |
+#'    |team_full_name    |character |Team full name.                                      |
+#'    |team_place_name   |character |Team place (city) name.                              |
 #' @keywords NHL Stats Skater Milestones
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

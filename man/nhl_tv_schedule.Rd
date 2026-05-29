@@ -10,7 +10,20 @@ nhl_tv_schedule(date = NULL)
 \item{date}{Character date in "YYYY-MM-DD" format. If NULL, returns current.}
 }
 \value{
-Returns a list with TV schedule data.
+A named list of data frames: \code{broadcasts}.
+
+\strong{broadcasts}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   startTime \tab character \tab Broadcast start time (UTC). \cr
+   endTime \tab character \tab Broadcast end time (UTC). \cr
+   durationSeconds \tab integer \tab Broadcast duration in seconds. \cr
+   title \tab character \tab Broadcast title. \cr
+   description \tab character \tab Broadcast description. \cr
+   houseNumber \tab character \tab Internal broadcast house number identifier. \cr
+   broadcastType \tab character \tab Type of broadcast. \cr
+   broadcastStatus \tab character \tab Broadcast status. \cr
+   broadcastImageUrl \tab character \tab URL to the broadcast image. \cr
+}
 }
 \description{
 Returns the TV schedule for NHL games on a given date.

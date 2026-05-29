@@ -12,7 +12,13 @@ nhl_scoreboard(date = NULL)
 provided it hits \code{scoreboard/{date}}.}
 }
 \value{
-Returns a list with scoreboard data (focusedDate, games by date).
+A named list of data frames: \code{gamesByDate}.
+
+\strong{gamesByDate}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   date \tab character \tab Date for which the games are listed. \cr
+   games \tab list \tab Nested list of games scheduled on the date. \cr
+}
 }
 \description{
 Returns the current league-wide scoreboard with today's games,

@@ -22,7 +22,30 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   home_away \tab character \tab Home or away indicator. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team_abbrev \tab character \tab Team abbreviation/code. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   player_name \tab character \tab Player name. \cr
+   sweater_number \tab integer \tab Jersey number. \cr
+   even_strength_shots_against \tab character \tab Even-strength shots against. \cr
+   power_play_shots_against \tab character \tab Power play shots against. \cr
+   shorthanded_shots_against \tab character \tab Shorthanded shots against. \cr
+   save_shots_against \tab character \tab Saves / shots against. \cr
+   save_pctg \tab numeric \tab Save percentage. \cr
+   even_strength_goals_against \tab integer \tab Even-strength goals against. \cr
+   power_play_goals_against \tab integer \tab Power play goals against. \cr
+   shorthanded_goals_against \tab integer \tab Shorthanded goals against. \cr
+   pim \tab integer \tab Penalty minutes. \cr
+   goals_against \tab integer \tab Goals against. \cr
+   toi \tab character \tab Time on ice. \cr
+   starter \tab logical \tab Whether the goalie started the game. \cr
+   decision \tab character \tab Goalie decision (W/L/O). \cr
+   shots_against \tab integer \tab Shots faced. \cr
+   saves \tab integer \tab Saves made. \cr
+}
 }
 \description{
 Helper that loads multiple seasons of pre-scraped NHL goalie

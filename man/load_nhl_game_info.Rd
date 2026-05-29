@@ -22,7 +22,20 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with one row per game and the
+following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   game_type \tab character \tab Game type the row belongs to (regular/playoffs). \cr
+   game_date \tab character \tab Game date. \cr
+   venue \tab character \tab Venue where the game was played. \cr
+   home_team_abbr \tab character \tab Home team abbreviation. \cr
+   away_team_abbr \tab character \tab Away team abbreviation. \cr
+   home_score \tab integer \tab Home team final score. \cr
+   away_score \tab integer \tab Away team final score. \cr
+   game_state \tab character \tab Game status (e.g. FINAL/FUT). \cr
+}
 }
 \description{
 Helper that loads multiple seasons of NHL game-level metadata

@@ -12,15 +12,30 @@ pwhl_transactions(season = most_recent_pwhl_season(), game_type = "regular")
 \item{game_type}{Game type: "regular" (default), "preseason", or "playoffs".}
 }
 \value{
-A data frame with transaction records, or NULL if unavailable.
-\itemize{
-\item \code{transaction_id} - Transaction ID.
-\item \code{date} - Transaction date.
-\item \code{player_name} - Player name.
-\item \code{player_id} - Player ID.
-\item \code{team} - Team involved.
-\item \code{transaction_type} - Type of transaction.
-\item \code{description} - Transaction description.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   transaction_type \tab character \tab Type of transaction. \cr
+   title \tab character \tab Transaction title/headline. \cr
+   ttype \tab character \tab Transaction type code. \cr
+   ttype_text \tab character \tab Transaction type description. \cr
+   transaction_date \tab character \tab Transaction date. \cr
+   transaction_time \tab character \tab Transaction time. \cr
+   formatted_transaction_date \tab character \tab Human-readable transaction date. \cr
+   timezone \tab character \tab Time zone of the transaction. \cr
+   player_id \tab character \tab Unique player identifier. \cr
+   response1 \tab character \tab First response/detail field. \cr
+   response2 \tab character \tab Second response/detail field. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   player_name \tab character \tab Full player name. \cr
+   position \tab character \tab Player position. \cr
+   team_id \tab character \tab Unique team identifier. \cr
+   team_city \tab character \tab Team city. \cr
+   team_name \tab character \tab Team name. \cr
+   team_code \tab character \tab Team abbreviation/code. \cr
+   division \tab character \tab Division identifier. \cr
+   team_logo \tab character \tab URL to the team logo image. \cr
+   detail \tab character \tab Additional transaction detail. \cr
 }
 }
 \description{

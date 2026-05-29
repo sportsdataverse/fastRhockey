@@ -18,8 +18,26 @@ nhl_records_goalie_shutout_streak(
 \item{start}{Optional integer pagination offset.}
 }
 \value{
-A \code{fastRhockey_data} tibble of goalie shutout streaks, or \code{NULL}
-on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique record identifier. \cr
+   active_player \tab logical \tab Indicator of whether the player is active. \cr
+   active_streak \tab logical \tab Indicator of whether the streak is active. \cr
+   duration_min_sec \tab character \tab Streak duration (MM:SS). \cr
+   duration_seconds \tab integer \tab Streak duration in seconds. \cr
+   end_date \tab character \tab Date the streak ended. \cr
+   first_name \tab character \tab Player first name. \cr
+   franchise_id \tab integer \tab Unique franchise identifier. \cr
+   game_type_id \tab integer \tab Game type the streak belongs to. \cr
+   last_name \tab character \tab Player last name. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   saves \tab logical \tab Saves made during the streak. \cr
+   season_id \tab integer \tab Season identifier. \cr
+   start_date \tab character \tab Date the streak started. \cr
+   team_abbrev \tab character \tab Team abbreviation. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team_name \tab character \tab Team name. \cr
+}
 }
 \description{
 Returns goalie shutout streak records from the NHL Records

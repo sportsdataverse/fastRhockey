@@ -10,8 +10,50 @@ nhl_player_stats(player_id)
 \item{player_id}{Player unique ID (e.g., 8476899)}
 }
 \value{
-Returns a data frame with season-by-season stats for the player,
-including games played, goals, assists, and league-specific columns.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_type_id \tab integer \tab Game type identifier (2 regular, 3 playoffs). \cr
+   games_played \tab integer \tab Games played in the season. \cr
+   goals_against_avg \tab numeric \tab Goalie goals-against average. \cr
+   league_abbrev \tab character \tab League abbreviation. \cr
+   save_pctg \tab numeric \tab Goalie save percentage. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   sequence \tab integer \tab Sequence order of the season row. \cr
+   team_name_default \tab character \tab Team name (default localization). \cr
+   goals_against \tab integer \tab Goals against. \cr
+   losses \tab integer \tab Losses. \cr
+   shutouts \tab integer \tab Shutouts. \cr
+   ties \tab integer \tab Ties. \cr
+   time_on_ice \tab character \tab Time on ice. \cr
+   wins \tab integer \tab Wins. \cr
+   shots_against \tab integer \tab Shots faced. \cr
+   team_name_cs \tab character \tab Team name (Czech localization). \cr
+   team_name_de \tab character \tab Team name (German localization). \cr
+   team_name_es \tab character \tab Team name (Spanish localization). \cr
+   team_name_fi \tab character \tab Team name (Finnish localization). \cr
+   team_name_sk \tab character \tab Team name (Slovak localization). \cr
+   team_name_sv \tab character \tab Team name (Swedish localization). \cr
+   team_common_name_default \tab character \tab Team common name (default localization). \cr
+   team_common_name_cs \tab character \tab Team common name (Czech localization). \cr
+   team_common_name_de \tab character \tab Team common name (German localization). \cr
+   team_common_name_es \tab character \tab Team common name (Spanish localization). \cr
+   team_common_name_fi \tab character \tab Team common name (Finnish localization). \cr
+   team_common_name_sk \tab character \tab Team common name (Slovak localization). \cr
+   team_common_name_sv \tab character \tab Team common name (Swedish localization). \cr
+   team_place_name_with_preposition_default \tab character \tab Team place name with preposition (default). \cr
+   ot_losses \tab integer \tab Overtime losses. \cr
+   assists \tab integer \tab Assists. \cr
+   games_started \tab integer \tab Games started (goalies). \cr
+   goals \tab integer \tab Goals scored. \cr
+   pim \tab integer \tab Penalty minutes. \cr
+   team_name_fr \tab character \tab Team name (French localization). \cr
+   team_place_name_with_preposition_fr \tab character \tab Team place name with preposition (French). \cr
+   team_common_name_fr \tab character \tab Team common name (French localization). \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   position \tab character \tab Player position. \cr
+}
 }
 \description{
 Returns season-by-season stats for a given player ID.

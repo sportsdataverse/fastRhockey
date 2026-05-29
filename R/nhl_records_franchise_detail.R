@@ -7,7 +7,23 @@
 #'   unless `cayenne_exp` is already provided.
 #' @param cayenne_exp Optional Cayenne filter expression string. Takes
 #'   precedence over `franchise_id` when both are supplied.
-#' @return A `fastRhockey_data` tibble of franchise details, or `NULL` on failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name                 |types     |description                            |
+#'    |:------------------------|:---------|:--------------------------------------|
+#'    |id                       |integer   |Unique franchise detail identifier.    |
+#'    |active                   |logical   |Whether the franchise is active.       |
+#'    |captain_history          |character |Franchise captain history text.        |
+#'    |coaching_history         |character |Franchise coaching history text.       |
+#'    |date_awarded             |character |Date the franchise was awarded.        |
+#'    |directory_url            |character |Franchise directory URL.               |
+#'    |first_season_id          |integer   |Season identifier of the first season. |
+#'    |general_manager_history  |character |Franchise general manager history text.|
+#'    |hero_image_url           |character |Franchise hero image URL.              |
+#'    |most_recent_team_id      |integer   |Most recent team identifier.           |
+#'    |retired_numbers_summary  |character |Summary of retired jersey numbers.     |
+#'    |team_abbrev              |character |Team abbreviation.                     |
+#'    |team_full_name           |character |Full team name.                        |
 #' @keywords NHL Records Franchise Detail
 #' @importFrom janitor clean_names
 #' @importFrom dplyr as_tibble

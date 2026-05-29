@@ -10,7 +10,17 @@ nhl_game_story(game_id)
 \item{game_id}{Integer or character game ID (e.g., 2024020001)}
 }
 \value{
-Returns a list with game story data (recap, scoring, penalties, etc.)
+A named list with game story data (recap, scoring, penalties, etc.).
+The \code{tvBroadcasts} element is a data frame with the following columns:
+
+\strong{tvBroadcasts}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Broadcast identifier. \cr
+   market \tab character \tab Broadcast market (e.g. home/away). \cr
+   countryCode \tab character \tab Country code of the broadcast. \cr
+   network \tab character \tab Broadcasting network name. \cr
+   sequenceNumber \tab integer \tab Order of the broadcast listing. \cr
+}
 }
 \description{
 Returns the game story / recap for a given game ID from the

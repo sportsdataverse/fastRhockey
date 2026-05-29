@@ -27,9 +27,16 @@ instead of iterating all 32 NHL clubs.}
 API calls when iterating all teams. Defaults to \code{0} (no delay).}
 }
 \value{
-A \code{fastRhockey_data} / \code{data.frame} with one row per unique
-game, containing \code{game_id}, \code{season}, \code{game_type}, \code{game_date},
-\code{home_team}, and \code{away_team}. Returns \code{NULL} on outer failure.
+A data frame (\code{fastRhockey_data}) with one row per unique game and
+the following columns (returns \code{NULL} on outer failure):\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   game_type \tab integer \tab Game type (1=pre, 2=regular, 3=playoffs). \cr
+   game_date \tab character \tab Game date. \cr
+   home_team \tab character \tab Home team abbreviation. \cr
+   away_team \tab character \tab Away team abbreviation. \cr
+}
 }
 \description{
 Aggregator helper that iterates every NHL team's

@@ -2,7 +2,18 @@
 #' @description Returns the game story / recap for a given game ID from the
 #' NHL web service.
 #' @param game_id Integer or character game ID (e.g., 2024020001)
-#' @return Returns a list with game story data (recap, scoring, penalties, etc.)
+#' @return A named list with game story data (recap, scoring, penalties, etc.).
+#' The `tvBroadcasts` element is a data frame with the following columns:
+#'
+#'    **tvBroadcasts**
+#'
+#'    |col_name       |types     |description                          |
+#'    |:--------------|:---------|:------------------------------------|
+#'    |id             |integer   |Broadcast identifier.                |
+#'    |market         |character |Broadcast market (e.g. home/away).   |
+#'    |countryCode    |character |Country code of the broadcast.       |
+#'    |network        |character |Broadcasting network name.           |
+#'    |sequenceNumber |integer   |Order of the broadcast listing.      |
 #' @keywords NHL Game Story
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

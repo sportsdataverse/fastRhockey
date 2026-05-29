@@ -3,19 +3,25 @@
 #'
 #' @param days_back Number of days back to include. Default 3.
 #' @param days_ahead Number of days ahead to include. Default 3.
-#' @return A data frame with recent/upcoming game scores, or NULL if unavailable.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
-#'   * `game_id` - Game ID.
-#'   * `date` - Game date.
-#'   * `status` - Game status.
-#'   * `home_team` - Home team name.
-#'   * `home_team_id` - Home team ID.
-#'   * `home_score` - Home team score.
-#'   * `away_team` - Away team name.
-#'   * `away_team_id` - Away team ID.
-#'   * `away_score` - Away team score.
-#'   * `period` - Current period (for live or completed games).
-#'   * `clock` - Current clock time (for live games).
+#'    |col_name       |types     |description                            |
+#'    |:--------------|:---------|:--------------------------------------|
+#'    |game_id        |numeric   |Unique game identifier.                |
+#'    |season_id      |numeric   |Season identifier.                     |
+#'    |date           |character |Game date.                             |
+#'    |game_date      |character |Game date.                             |
+#'    |status         |character |Status of the game.                    |
+#'    |home_team      |character |Home team name.                        |
+#'    |home_team_id   |numeric   |Home team identifier.                  |
+#'    |home_team_code |character |Home team abbreviation.                |
+#'    |home_score     |character |Home team score.                       |
+#'    |away_team      |character |Away team name.                        |
+#'    |away_team_id   |numeric   |Away team identifier.                  |
+#'    |away_team_code |character |Away team abbreviation.                |
+#'    |away_score     |character |Away team score.                       |
+#'    |period         |character |Current period for live/completed games.|
+#'    |clock          |character |Current clock time for live games.     |
 #' @import jsonlite
 #' @import dplyr
 #' @import httr

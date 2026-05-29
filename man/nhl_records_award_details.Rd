@@ -15,7 +15,29 @@ nhl_records_award_details(season_id = NULL, cayenne_exp = NULL)
 the \code{cayenneExp} query parameter.}
 }
 \value{
-A \code{fastRhockey_data} tibble of award details, or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique award detail identifier. \cr
+   awarded_posthumously \tab logical \tab Whether the award was given posthumously. \cr
+   coach_id \tab integer \tab Coach identifier, if a coach award. \cr
+   created_on \tab character \tab Timestamp the record was created. \cr
+   detail_summary \tab logical \tab Detail summary flag. \cr
+   full_name \tab character \tab Full name of the award winner. \cr
+   general_manager_id \tab integer \tab General manager identifier, if applicable. \cr
+   image_url \tab character \tab URL to the award image. \cr
+   is_rookie \tab logical \tab Whether the winner was a rookie. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   player_image_caption \tab logical \tab Player image caption flag. \cr
+   player_image_url \tab character \tab URL to the player image. \cr
+   season_id \tab integer \tab 8-digit season identifier. \cr
+   status \tab character \tab Award status. \cr
+   summary \tab character \tab Award summary text. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   trophy_category_id \tab integer \tab Trophy category identifier. \cr
+   trophy_id \tab integer \tab Trophy identifier. \cr
+   value \tab integer \tab Award value or statistical measure. \cr
+   vote_count \tab integer \tab Number of votes received. \cr
+}
 }
 \description{
 Returns detailed NHL award winners from the NHL Records API

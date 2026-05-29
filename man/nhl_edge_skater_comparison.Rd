@@ -18,8 +18,14 @@ season), an 8-character API season (e.g., \code{"20242025"}), or \code{NULL}
 (default), 3 = playoffs.}
 }
 \value{
-A \code{fastRhockey_data} tibble comparing the focus player against
-the cohort, or \code{NULL} on failure / empty response.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique player identifier. \cr
+   game_types \tab list \tab Nested list of game-type-specific comparison metrics. \cr
+}
+
+
+Returns \code{NULL} on failure / empty response.
 }
 \description{
 Returns the NHL Edge skater comparison payload for a single

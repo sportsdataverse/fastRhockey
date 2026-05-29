@@ -23,7 +23,101 @@ the season data into a database (used by \code{update_nhl_db()}).}
 \item{tablename}{The name of the play by play data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   event_type \tab character \tab Standardized event type code. \cr
+   event \tab character \tab Event description label. \cr
+   secondary_type \tab character \tab Secondary event type (e.g. shot type). \cr
+   event_team_abbr \tab character \tab Abbreviation of the team credited with the event. \cr
+   event_team_type \tab character \tab Whether the event team is home or away. \cr
+   description \tab character \tab Full text description of the event. \cr
+   period \tab integer \tab Period number. \cr
+   period_type \tab character \tab Period type (REGULAR/OVERTIME/SHOOTOUT). \cr
+   period_time \tab character \tab Elapsed time in the period (MM:SS). \cr
+   period_seconds \tab integer \tab Elapsed seconds in the period. \cr
+   period_seconds_remaining \tab integer \tab Seconds remaining in the period. \cr
+   period_time_remaining \tab character \tab Time remaining in the period (MM:SS). \cr
+   game_seconds \tab integer \tab Elapsed seconds in the game. \cr
+   game_seconds_remaining \tab integer \tab Seconds remaining in regulation. \cr
+   home_score \tab integer \tab Home team score after the event. \cr
+   away_score \tab integer \tab Away team score after the event. \cr
+   event_player_1_name \tab character \tab Name of the primary event player. \cr
+   event_player_1_type \tab character \tab Role of the primary event player. \cr
+   event_player_1_id \tab integer \tab Player id of the primary event player. \cr
+   event_player_2_name \tab character \tab Name of the secondary event player. \cr
+   event_player_2_type \tab character \tab Role of the secondary event player. \cr
+   event_player_2_id \tab integer \tab Player id of the secondary event player. \cr
+   event_player_3_name \tab character \tab Name of the tertiary event player. \cr
+   event_player_3_type \tab character \tab Role of the tertiary event player. \cr
+   event_player_3_id \tab integer \tab Player id of the tertiary event player. \cr
+   event_goalie_name \tab character \tab Name of the goalie on the event. \cr
+   event_goalie_id \tab integer \tab Player id of the goalie on the event. \cr
+   penalty_severity \tab character \tab Severity of the penalty. \cr
+   penalty_minutes \tab integer \tab Penalty minutes assessed. \cr
+   strength_state \tab character \tab Strength state (e.g. 5v5, 5v4). \cr
+   strength_code \tab character \tab Coded strength state. \cr
+   strength \tab character \tab Strength description. \cr
+   empty_net \tab logical \tab Whether the net was empty. \cr
+   extra_attacker \tab logical \tab Whether an extra attacker was on the ice. \cr
+   x \tab integer \tab Raw x-coordinate of the event. \cr
+   y \tab integer \tab Raw y-coordinate of the event. \cr
+   x_fixed \tab integer \tab Side-adjusted x-coordinate. \cr
+   y_fixed \tab integer \tab Side-adjusted y-coordinate. \cr
+   shot_distance \tab numeric \tab Distance of the shot from the net. \cr
+   shot_angle \tab numeric \tab Angle of the shot relative to the net. \cr
+   home_skaters \tab integer \tab Number of home skaters on the ice. \cr
+   away_skaters \tab integer \tab Number of away skaters on the ice. \cr
+   home_on_1 \tab character \tab Name of home skater 1 on the ice. \cr
+   home_on_2 \tab character \tab Name of home skater 2 on the ice. \cr
+   home_on_3 \tab character \tab Name of home skater 3 on the ice. \cr
+   home_on_4 \tab character \tab Name of home skater 4 on the ice. \cr
+   home_on_5 \tab character \tab Name of home skater 5 on the ice. \cr
+   home_on_6 \tab character \tab Name of home skater 6 on the ice. \cr
+   home_on_7 \tab character \tab Name of home skater 7 on the ice. \cr
+   away_on_1 \tab character \tab Name of away skater 1 on the ice. \cr
+   away_on_2 \tab character \tab Name of away skater 2 on the ice. \cr
+   away_on_3 \tab character \tab Name of away skater 3 on the ice. \cr
+   away_on_4 \tab character \tab Name of away skater 4 on the ice. \cr
+   away_on_5 \tab character \tab Name of away skater 5 on the ice. \cr
+   away_on_6 \tab character \tab Name of away skater 6 on the ice. \cr
+   away_on_7 \tab character \tab Name of away skater 7 on the ice. \cr
+   home_goalie \tab character \tab Name of the home goalie on the ice. \cr
+   away_goalie \tab character \tab Name of the away goalie on the ice. \cr
+   num_on \tab integer \tab Number of players coming on (line change). \cr
+   players_on \tab character \tab Names of players coming on. \cr
+   num_off \tab integer \tab Number of players going off (line change). \cr
+   players_off \tab character \tab Names of players going off. \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   season_type \tab character \tab Season type (regular/playoffs). \cr
+   home_abbr \tab character \tab Home team abbreviation. \cr
+   away_abbr \tab character \tab Away team abbreviation. \cr
+   event_idx \tab integer \tab Sequential event index within the game. \cr
+   event_id \tab integer \tab NHL event identifier. \cr
+   away_goalie_in \tab integer \tab Whether the away goalie is in net (1/0). \cr
+   home_goalie_in \tab integer \tab Whether the home goalie is in net (1/0). \cr
+   reason \tab character \tab Reason for the event (e.g. stoppage reason). \cr
+   secondaryReason \tab character \tab Secondary reason for the event. \cr
+   ids_on \tab character \tab Player ids coming on. \cr
+   ids_off \tab character \tab Player ids going off. \cr
+   home_on_1_id \tab integer \tab Player id of home skater 1 on the ice. \cr
+   away_on_1_id \tab integer \tab Player id of away skater 1 on the ice. \cr
+   home_on_2_id \tab integer \tab Player id of home skater 2 on the ice. \cr
+   away_on_2_id \tab integer \tab Player id of away skater 2 on the ice. \cr
+   home_on_3_id \tab integer \tab Player id of home skater 3 on the ice. \cr
+   away_on_3_id \tab integer \tab Player id of away skater 3 on the ice. \cr
+   home_on_4_id \tab integer \tab Player id of home skater 4 on the ice. \cr
+   away_on_4_id \tab integer \tab Player id of away skater 4 on the ice. \cr
+   home_on_5_id \tab integer \tab Player id of home skater 5 on the ice. \cr
+   away_on_5_id \tab integer \tab Player id of away skater 5 on the ice. \cr
+   home_on_6_id \tab integer \tab Player id of home skater 6 on the ice. \cr
+   away_on_6_id \tab integer \tab Player id of away skater 6 on the ice. \cr
+   home_on_7_id \tab integer \tab Player id of home skater 7 on the ice. \cr
+   away_on_7_id \tab integer \tab Player id of away skater 7 on the ice. \cr
+   home_goalie_id \tab integer \tab Player id of the home goalie on the ice. \cr
+   away_goalie_id \tab integer \tab Player id of the away goalie on the ice. \cr
+   xg \tab numeric \tab Expected goals value for the shot event. \cr
+}
 }
 \description{
 Helper that loads multiple seasons of pre-scraped NHL

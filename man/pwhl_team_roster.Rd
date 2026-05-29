@@ -14,9 +14,25 @@ pwhl_team_roster(team, season, regular = TRUE)
 \item{regular}{Bool for whether to pull regular or pre-season rosters}
 }
 \value{
-A data frame with roster data including columns: player_id, team_id,
-season, player_name, first_name, last_name, primary_hand, dob, height,
-position, home_town, league, age, player_headshot, regular_season, team.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab numeric \tab Unique player identifier. \cr
+   team_id \tab numeric \tab Unique team identifier. \cr
+   season \tab numeric \tab Season (concluding year, YYYY). \cr
+   player_name \tab character \tab Full player name. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   primary_hand \tab character \tab Player shooting/catching hand. \cr
+   dob \tab character \tab Player date of birth. \cr
+   height \tab logical \tab Player height. \cr
+   position \tab character \tab Player position. \cr
+   home_town \tab character \tab Player home town. \cr
+   league \tab character \tab League identifier. \cr
+   age \tab numeric \tab Player age. \cr
+   player_headshot \tab character \tab URL to the player headshot image. \cr
+   regular_season \tab logical \tab Whether the row is regular-season roster. \cr
+   team \tab character \tab Team name. \cr
+}
 }
 \description{
 PWHL Rosters lookup

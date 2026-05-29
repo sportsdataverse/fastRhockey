@@ -23,7 +23,21 @@ the season data into a database.}
 \item{tablename}{The name of the rosters data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team \tab character \tab Team name. \cr
+   team_abbr \tab character \tab Team abbreviation. \cr
+   team_side \tab character \tab Home or away indicator. \cr
+   player_type \tab character \tab Player type (skater or goalie). \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   jersey_number \tab integer \tab Jersey number. \cr
+   position \tab character \tab Player position. \cr
+   birth_date \tab character \tab Player birth date. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+}
 }
 \description{
 Helper that loads multiple seasons of pre-scraped PWHL

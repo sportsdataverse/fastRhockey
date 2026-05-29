@@ -4,7 +4,17 @@
 #'   office ID (switches resource to `hof/players/{office_id}`).
 #' @param office_id Optional integer office/category ID. If supplied, the
 #'   resource becomes `hof/players/{office_id}`.
-#' @return A `fastRhockey_data` tibble of HOF inductees, or `NULL` on failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name         |types     |description                                  |
+#'    |:----------------|:---------|:--------------------------------------------|
+#'    |id               |integer   |Unique record identifier.                    |
+#'    |date_inducted    |character |Date the inductee entered the Hall of Fame.  |
+#'    |induction_cat_id |integer   |Induction category identifier.               |
+#'    |misc_full_name   |character |Full name of the inductee.                   |
+#'    |office_id        |integer   |Office/category identifier.                  |
+#'    |official_id      |logical   |Official identifier.                         |
+#'    |player_id        |integer   |Unique player identifier.                    |
 #' @keywords NHL Records Hall of Fame Players
 #' @importFrom janitor clean_names
 #' @importFrom dplyr as_tibble

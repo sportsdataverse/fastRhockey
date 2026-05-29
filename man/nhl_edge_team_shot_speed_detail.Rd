@@ -17,8 +17,36 @@ season), an 8-character API season (e.g., \code{"20242025"}), or \code{NULL}
 (default), 3 = playoffs.}
 }
 \value{
-A \code{fastRhockey_data} tibble of shot-speed metrics, or \code{NULL} on
-failure / empty response.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_center_link \tab character \tab Link to the NHL game center page for the game. \cr
+   game_date \tab character \tab Game date. \cr
+   game_type \tab integer \tab Game type (1 = preseason, 2 = regular, 3 = playoffs). \cr
+   is_home_team \tab logical \tab Whether the team was the home team. \cr
+   time_in_period \tab character \tab Time elapsed in the period when the shot occurred. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   player_slug \tab character \tab URL slug for the player. \cr
+   player_first_name_default \tab character \tab Player first name (default language). \cr
+   player_last_name_default \tab character \tab Player last name (default language). \cr
+   player_last_name_cs \tab character \tab Player last name (Czech). \cr
+   player_last_name_fi \tab character \tab Player last name (Finnish). \cr
+   player_last_name_sk \tab character \tab Player last name (Slovak). \cr
+   shot_speed_imperial \tab numeric \tab Shot speed in miles per hour. \cr
+   shot_speed_metric \tab numeric \tab Shot speed in kilometers per hour. \cr
+   period_descriptor_number \tab integer \tab Period number. \cr
+   period_descriptor_period_type \tab character \tab Period type (e.g., REG, OT). \cr
+   period_descriptor_max_regulation_periods \tab integer \tab Maximum number of regulation periods. \cr
+   home_team_common_name_default \tab character \tab Home team common name (default language). \cr
+   home_team_place_name_with_preposition_default \tab character \tab Home team place name with preposition (default). \cr
+   home_team_place_name_with_preposition_fr \tab character \tab Home team place name with preposition (French). \cr
+   home_team_team_logo_light \tab character \tab URL to the home team light logo. \cr
+   home_team_team_logo_dark \tab character \tab URL to the home team dark logo. \cr
+   away_team_common_name_default \tab character \tab Away team common name (default language). \cr
+   away_team_place_name_with_preposition_default \tab character \tab Away team place name with preposition (default). \cr
+   away_team_place_name_with_preposition_fr \tab character \tab Away team place name with preposition (French). \cr
+   away_team_team_logo_light \tab character \tab URL to the away team light logo. \cr
+   away_team_team_logo_dark \tab character \tab URL to the away team dark logo. \cr
+}
 }
 \description{
 Returns the NHL Edge shot-speed detail payload for a

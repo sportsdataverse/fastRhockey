@@ -21,8 +21,19 @@ season), an 8-character API season (e.g., \code{"20242025"}), or \code{NULL}
 (default), 3 = playoffs.}
 }
 \value{
-A \code{fastRhockey_data} tibble with the top-10 team leaderboard, or
-\code{NULL} on failure / empty response.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   offensive_zone_time \tab numeric \tab Percentage of time spent in the offensive zone. \cr
+   neutral_zone_time \tab numeric \tab Percentage of time spent in the neutral zone. \cr
+   defensive_zone_time \tab numeric \tab Percentage of time spent in the defensive zone. \cr
+   team_abbrev \tab character \tab Team abbreviation. \cr
+   team_slug \tab character \tab Team URL slug. \cr
+   team_common_name_default \tab character \tab Team common name. \cr
+   team_place_name_with_preposition_default \tab character \tab Team place name with preposition. \cr
+   team_place_name_with_preposition_fr \tab character \tab Team place name with preposition (French). \cr
+   team_team_logo_light \tab character \tab Team light logo URL. \cr
+   team_team_logo_dark \tab character \tab Team dark logo URL. \cr
+}
 }
 \description{
 Returns the NHL Edge top-10 team zone-time leaderboard.

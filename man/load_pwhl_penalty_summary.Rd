@@ -22,22 +22,28 @@ load_pwhl_penalty_summary(
 \item{tablename}{The name of the penalty summary data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}. Common columns include:\tabular{lll}{
-   column \tab type \tab description \cr
-   \code{game_id} \tab integer \tab PWHL game id \cr
-   \code{period_id} \tab integer \tab period id \cr
-   \code{period} \tab character \tab period long name \cr
-   \code{time} \tab character \tab game clock at infraction (\code{MM:SS}) \cr
-   \code{team_id} \tab integer \tab penalized team id \cr
-   \code{team} \tab character \tab penalized team name \cr
-   \code{minutes} \tab numeric \tab penalty length in minutes \cr
-   \code{description} \tab character \tab infraction description \cr
-   \code{is_power_play} \tab integer \tab power-play flag \cr
-   \code{is_bench} \tab integer \tab bench-minor flag \cr
-   \code{taken_by_id} \tab integer \tab player who took the penalty \cr
-   \code{taken_by_first} \tab character \tab offender first name \cr
-   \code{taken_by_last} \tab character \tab offender last name \cr
-   \code{served_by_id} \tab integer \tab player serving the penalty \cr
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   period_id \tab integer \tab Period identifier. \cr
+   period \tab character \tab Period long name. \cr
+   time \tab character \tab Game clock at infraction (MM:SS). \cr
+   team_id \tab integer \tab Penalized team identifier. \cr
+   team \tab character \tab Penalized team name. \cr
+   team_abbr \tab character \tab Penalized team abbreviation. \cr
+   game_penalty_id \tab integer \tab Penalty identifier within the game. \cr
+   minutes \tab integer \tab Penalty length in minutes. \cr
+   description \tab character \tab Infraction description. \cr
+   rule_number \tab character \tab Rulebook rule number. \cr
+   is_power_play \tab integer \tab Power-play flag. \cr
+   is_bench \tab integer \tab Bench-minor flag. \cr
+   taken_by_id \tab integer \tab Identifier of the player who took the penalty. \cr
+   taken_by_first \tab character \tab Offender first name. \cr
+   taken_by_last \tab character \tab Offender last name. \cr
+   taken_by_position \tab character \tab Offender position. \cr
+   served_by_id \tab integer \tab Identifier of the player serving the penalty. \cr
+   served_by_first \tab character \tab First name of the player serving. \cr
+   served_by_last \tab character \tab Last name of the player serving. \cr
 }
 }
 \description{

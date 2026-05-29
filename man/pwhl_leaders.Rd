@@ -21,7 +21,97 @@ pwhl_leaders(
 \item{limit}{Maximum number of leaders to return. Default 100.}
 }
 \value{
-A data frame with league leader statistics, or NULL if unavailable.
+A data frame (\code{fastRhockey_data}) with the following columns, or NULL if unavailable:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab character \tab Unique player identifier. \cr
+   shortname \tab character \tab Player short name. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   name \tab character \tab Player full name. \cr
+   phonetic_name \tab character \tab Phonetic spelling of the player name. \cr
+   active \tab character \tab Whether the player is active. \cr
+   height \tab character \tab Player height. \cr
+   weight \tab character \tab Player weight. \cr
+   last_years_club \tab character \tab Player's club in the previous season. \cr
+   age \tab character \tab Player age. \cr
+   shoots \tab character \tab Handedness the player shoots. \cr
+   position \tab character \tab Player position. \cr
+   suspension_games_remaining \tab character \tab Suspension games remaining. \cr
+   suspension_indefinite \tab character \tab Whether the suspension is indefinite. \cr
+   rookie \tab character \tab Whether the player is a rookie. \cr
+   veteran \tab character \tab Whether the player is a veteran. \cr
+   draft_eligible \tab character \tab Whether the player is draft eligible. \cr
+   jersey_number \tab character \tab Jersey number. \cr
+   team_name \tab character \tab Team name. \cr
+   team_code \tab character \tab Team abbreviation. \cr
+   team_id \tab character \tab Unique team identifier. \cr
+   division \tab character \tab Team division. \cr
+   birthdate \tab character \tab Player birthdate. \cr
+   birthdate_year \tab character \tab Player birth year. \cr
+   hometown \tab character \tab Player hometown. \cr
+   homeprov \tab character \tab Player home province/state. \cr
+   homecntry \tab character \tab Player home country. \cr
+   birthtown \tab character \tab Player birth town. \cr
+   birthprov \tab character \tab Player birth province/state. \cr
+   birthcntry \tab character \tab Player birth country. \cr
+   hometownprov \tab character \tab Player hometown and province/state. \cr
+   homeplace \tab character \tab Player home place description. \cr
+   games_played \tab numeric \tab Games played. \cr
+   game_winning_goals \tab character \tab Game-winning goals. \cr
+   game_tieing_goals \tab character \tab Game-tying goals. \cr
+   first_goals \tab character \tab First goals of a game. \cr
+   insurance_goals \tab character \tab Insurance goals. \cr
+   unassisted_goals \tab character \tab Unassisted goals. \cr
+   empty_net_goals \tab character \tab Empty-net goals. \cr
+   overtime_goals \tab character \tab Overtime goals. \cr
+   ice_time \tab character \tab Total ice time. \cr
+   ice_time_avg \tab character \tab Average ice time. \cr
+   goals \tab numeric \tab Goals scored. \cr
+   shots \tab numeric \tab Shots on goal. \cr
+   loose_ball_recoveries \tab character \tab Loose ball recoveries. \cr
+   caused_turnovers \tab character \tab Turnovers caused. \cr
+   turnovers \tab character \tab Turnovers committed. \cr
+   hits \tab character \tab Hits delivered. \cr
+   shots_blocked_by_player \tab character \tab Shots blocked by the player. \cr
+   ice_time_minutes_seconds \tab character \tab Ice time in minutes and seconds. \cr
+   shooting_percentage \tab numeric \tab Shooting percentage. \cr
+   assists \tab numeric \tab Assists. \cr
+   points \tab numeric \tab Total points (goals + assists). \cr
+   points_per_game \tab numeric \tab Points per game. \cr
+   plus_minus \tab numeric \tab Plus/minus rating. \cr
+   penalty_minutes \tab numeric \tab Penalty minutes. \cr
+   penalty_minutes_per_game \tab character \tab Penalty minutes per game. \cr
+   ice_time_per_game_avg \tab character \tab Average ice time per game. \cr
+   hits_per_game_avg \tab character \tab Average hits per game. \cr
+   minor_penalties \tab character \tab Minor penalties. \cr
+   major_penalties \tab character \tab Major penalties. \cr
+   power_play_goals \tab numeric \tab Power-play goals. \cr
+   power_play_assists \tab numeric \tab Power-play assists. \cr
+   power_play_points \tab character \tab Power-play points. \cr
+   short_handed_goals \tab numeric \tab Short-handed goals. \cr
+   short_handed_assists \tab numeric \tab Short-handed assists. \cr
+   short_handed_points \tab character \tab Short-handed points. \cr
+   shootout_goals \tab character \tab Shootout goals. \cr
+   shootout_attempts \tab character \tab Shootout attempts. \cr
+   shootout_winning_goals \tab character \tab Shootout game-winning goals. \cr
+   shootout_games_played \tab character \tab Games played that went to a shootout. \cr
+   faceoff_attempts \tab character \tab Faceoff attempts. \cr
+   faceoff_wins \tab character \tab Faceoffs won. \cr
+   faceoff_pct \tab character \tab Faceoff win percentage. \cr
+   faceoff_wa \tab character \tab Faceoff wins-to-attempts metric. \cr
+   shots_on \tab character \tab Shots on goal count. \cr
+   shootout_percentage \tab character \tab Shootout scoring percentage. \cr
+   latest_team_id \tab character \tab Most recent team identifier. \cr
+   num_teams \tab character \tab Number of teams the player has played for. \cr
+   logo \tab character \tab URL to the team logo. \cr
+   rank \tab numeric \tab Leader rank. \cr
+   player_page_link \tab character \tab URL to the player page. \cr
+   namelink \tab character \tab HTML link for the player name. \cr
+   teamlink \tab character \tab HTML link for the team. \cr
+   photo \tab character \tab URL to the player photo. \cr
+   team_breakdown \tab character \tab Per-team statistical breakdown. \cr
+   is_total \tab character \tab Whether the row is a season total. \cr
+}
 }
 \description{
 Retrieves PWHL league leaders (top scorers or top goalies) for a season.

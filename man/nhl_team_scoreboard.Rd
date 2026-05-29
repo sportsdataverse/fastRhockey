@@ -10,7 +10,13 @@ nhl_team_scoreboard(team_abbr)
 \item{team_abbr}{Three-letter team abbreviation (e.g., "TOR", "BOS")}
 }
 \value{
-Returns a list with scoreboard data including game info.
+A named list of data frames: \code{gamesByDate}.
+
+\strong{gamesByDate}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   date \tab character \tab Date the games are scheduled for. \cr
+   games \tab list \tab List of games scheduled on that date. \cr
+}
 }
 \description{
 Returns current scoreboard information for a specific team,

@@ -18,8 +18,29 @@ season), an 8-character API season (e.g., \code{"20242025"}), or \code{NULL}
 (default), 3 = playoffs.}
 }
 \value{
-A \code{fastRhockey_data} tibble of 5-on-5 advanced metrics, or
-\code{NULL} on failure / empty response.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_center_link \tab character \tab URL to the game center page. \cr
+   save_pctg \tab numeric \tab Save percentage. \cr
+   game_date \tab character \tab Game date. \cr
+   decision \tab character \tab Goalie decision (W/L/OT). \cr
+   player_on_home_team \tab logical \tab Whether the goalie played for the home team. \cr
+   home_team_abbrev \tab character \tab Home team abbreviation. \cr
+   home_team_slug \tab character \tab Home team slug. \cr
+   home_team_common_name_default \tab character \tab Home team common name (default language). \cr
+   home_team_common_name_fr \tab character \tab Home team common name (French). \cr
+   home_team_place_name_with_preposition_default \tab character \tab Home team place name with preposition (def). \cr
+   home_team_place_name_with_preposition_fr \tab character \tab Home team place name with preposition (FR). \cr
+   home_team_team_logo_light \tab character \tab Home team logo URL (light variant). \cr
+   home_team_team_logo_dark \tab character \tab Home team logo URL (dark variant). \cr
+   away_team_abbrev \tab character \tab Away team abbreviation. \cr
+   away_team_slug \tab character \tab Away team slug. \cr
+   away_team_common_name_default \tab character \tab Away team common name (default language). \cr
+   away_team_place_name_with_preposition_default \tab character \tab Away team place name with preposition (def). \cr
+   away_team_place_name_with_preposition_fr \tab character \tab Away team place name with preposition (FR). \cr
+   away_team_team_logo_light \tab character \tab Away team logo URL (light variant). \cr
+   away_team_team_logo_dark \tab character \tab Away team logo URL (dark variant). \cr
+}
 }
 \description{
 Returns the NHL Edge 5-on-5 advanced-metrics detail payload

@@ -18,8 +18,33 @@ season), an 8-character API season (e.g., \code{"20242025"}), or \code{NULL}
 (default), 3 = playoffs.}
 }
 \value{
-A \code{fastRhockey_data} tibble of skating-speed metrics, or \code{NULL}
-on failure / empty response.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_center_link \tab character \tab Link to the NHL game center page. \cr
+   game_date \tab character \tab Game date. \cr
+   game_type \tab integer \tab Game type (1 = preseason, 2 = regular, 3 = playoffs). \cr
+   player_on_home_team \tab logical \tab Whether the player was on the home team. \cr
+   time_in_period \tab character \tab Time within the period of the burst. \cr
+   skating_speed_imperial \tab numeric \tab Skating speed in miles per hour. \cr
+   skating_speed_metric \tab numeric \tab Skating speed in kilometers per hour. \cr
+   period_descriptor_number \tab integer \tab Period number. \cr
+   period_descriptor_period_type \tab character \tab Period type (e.g., REG, OT). \cr
+   period_descriptor_max_regulation_periods \tab integer \tab Maximum number of regulation periods. \cr
+   home_team_abbrev \tab character \tab Home team abbreviation. \cr
+   home_team_slug \tab character \tab Home team URL slug. \cr
+   home_team_common_name_default \tab character \tab Home team common name. \cr
+   home_team_place_name_with_preposition_default \tab character \tab Home team place name with preposition (English). \cr
+   home_team_place_name_with_preposition_fr \tab character \tab Home team place name with preposition (French). \cr
+   home_team_team_logo_light \tab character \tab Home team light logo URL. \cr
+   home_team_team_logo_dark \tab character \tab Home team dark logo URL. \cr
+   away_team_abbrev \tab character \tab Away team abbreviation. \cr
+   away_team_slug \tab character \tab Away team URL slug. \cr
+   away_team_common_name_default \tab character \tab Away team common name. \cr
+   away_team_place_name_with_preposition_default \tab character \tab Away team place name with preposition (English). \cr
+   away_team_place_name_with_preposition_fr \tab character \tab Away team place name with preposition (French). \cr
+   away_team_team_logo_light \tab character \tab Away team light logo URL. \cr
+   away_team_team_logo_dark \tab character \tab Away team dark logo URL. \cr
+}
 }
 \description{
 Returns the NHL Edge skating-speed detail payload for a

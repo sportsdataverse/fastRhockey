@@ -10,7 +10,16 @@ nhl_gamecenter_landing(game_id)
 \item{game_id}{Integer or character game ID (e.g., 2024020001)}
 }
 \value{
-Returns a list with gamecenter landing data.
+A named list of data frames: \code{tvBroadcasts}.
+
+\strong{tvBroadcasts}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique broadcast identifier. \cr
+   market \tab character \tab Broadcast market (national/local). \cr
+   countryCode \tab character \tab Country code of the broadcast. \cr
+   network \tab character \tab Broadcasting network name. \cr
+   sequenceNumber \tab integer \tab Broadcast sequence order number. \cr
+}
 }
 \description{
 Returns the gamecenter landing page data for a given game,

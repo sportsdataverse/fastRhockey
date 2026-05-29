@@ -22,7 +22,28 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the schedule data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   season_full \tab character \tab Full season label (e.g. 20212022). \cr
+   game_type \tab character \tab Game type the row belongs to (regular/playoffs). \cr
+   game_date \tab character \tab Game date. \cr
+   game_time \tab character \tab Scheduled start time of the game. \cr
+   home_team_abbr \tab character \tab Home team abbreviation. \cr
+   away_team_abbr \tab character \tab Away team abbreviation. \cr
+   home_team_name \tab character \tab Home team name. \cr
+   away_team_name \tab character \tab Away team name. \cr
+   home_score \tab integer \tab Home team final score. \cr
+   away_score \tab integer \tab Away team final score. \cr
+   game_state \tab character \tab Game status (e.g. FINAL/FUT). \cr
+   venue \tab character \tab Venue where the game was played. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   game_json \tab logical \tab Whether processed game JSON is available. \cr
+   game_json_url \tab glue \tab URL to the processed game JSON. \cr
+   PBP \tab logical \tab Whether play-by-play data is available. \cr
+   team_box \tab logical \tab Whether team box score data is available. \cr
+   player_box \tab logical \tab Whether player box score data is available. \cr
+}
 }
 \description{
 Helper that loads multiple seasons of pre-scraped NHL

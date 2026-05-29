@@ -22,7 +22,19 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with one row per penalty and the
+following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   timeInPeriod \tab character \tab Time within the period the penalty occurred. \cr
+   type \tab character \tab Penalty type (e.g. minor, major). \cr
+   duration \tab integer \tab Penalty duration in minutes. \cr
+   committedByPlayer \tab list \tab Player who committed the penalty (localized list). \cr
+   teamAbbrev \tab list \tab Penalized team abbreviation (localized list). \cr
+   drawnBy \tab list \tab Player who drew the penalty (localized list). \cr
+   descKey \tab character \tab Penalty description key. \cr
+   period_number \tab integer \tab Period number the penalty occurred in. \cr
+   period_type \tab character \tab Period type (REG/OT/SO). \cr
+}
 }
 \description{
 Helper that loads multiple seasons of NHL penalty event data

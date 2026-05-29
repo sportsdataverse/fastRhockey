@@ -22,21 +22,29 @@ load_pwhl_goalie_box(
 \item{tablename}{The name of the goalie box data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data} with one row per goalie
-per game. Common columns include:\tabular{lll}{
-   column \tab type \tab description \cr
-   \code{game_id} \tab integer \tab PWHL game id \cr
-   \code{team_id} \tab integer \tab HockeyTech team id \cr
-   \code{player_id} \tab integer \tab HockeyTech player id \cr
-   \code{first_name} \tab character \tab goalie first name \cr
-   \code{last_name} \tab character \tab goalie last name \cr
-   \code{jersey_number} \tab integer \tab jersey number \cr
-   \code{time_on_ice} \tab character \tab total TOI (\code{MM:SS}) \cr
-   \code{shots_against} \tab integer \tab shots faced \cr
-   \code{goals_against} \tab integer \tab goals allowed \cr
-   \code{saves} \tab integer \tab saves made \cr
-   \code{starting} \tab character \tab started the game (\code{0}/\code{1}) \cr
-   \code{player_type} \tab character \tab always \code{"goalie"} \cr
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab character \tab Unique player identifier. \cr
+   first_name \tab character \tab Goalie first name. \cr
+   last_name \tab character \tab Goalie last name. \cr
+   position \tab character \tab Player position. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   league \tab character \tab League code. \cr
+   toi \tab character \tab Time on ice (MM:SS). \cr
+   time_on_ice \tab numeric \tab Time on ice in seconds. \cr
+   saves \tab integer \tab Saves made. \cr
+   goals_against \tab integer \tab Goals against. \cr
+   shots_against \tab integer \tab Shots faced. \cr
+   goals \tab integer \tab Goals scored. \cr
+   assists \tab integer \tab Assists. \cr
+   points \tab integer \tab Total points (goals + assists). \cr
+   penalty_minutes \tab integer \tab Penalty minutes. \cr
+   faceoff_attempts \tab integer \tab Faceoff attempts. \cr
+   faceoff_wins \tab integer \tab Faceoff wins. \cr
+   faceoff_losses \tab integer \tab Faceoff losses. \cr
+   faceoff_pct \tab logical \tab Faceoff win percentage. \cr
+   starting \tab integer \tab Whether the goalie started the game. \cr
 }
 }
 \description{

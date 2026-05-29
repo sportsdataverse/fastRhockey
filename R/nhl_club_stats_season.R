@@ -2,7 +2,13 @@
 #' @description Returns season-by-season stats metadata for a club, including
 #' which game types (regular season, playoffs) are available for each season.
 #' @param team_abbr Three-letter team abbreviation (e.g., "TOR", "BOS")
-#' @return Returns a data frame with season/game-type availability.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name    |types     |description                                          |
+#'    |:-----------|:---------|:----------------------------------------------------|
+#'    |season      |integer   |Season in 8-digit API format (e.g., 20252026).       |
+#'    |game_types  |list      |Game types available for the season (regular/playoff).|
+#'    |team_abbr   |character |Team abbreviation queried.                           |
 #' @keywords NHL Club Stats Season
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

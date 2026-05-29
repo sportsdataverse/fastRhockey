@@ -22,7 +22,37 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with the same columns as
+\code{\link[=load_nhl_pbp]{load_nhl_pbp()}} but excluding line-change (\code{CHANGE}) events:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   event_type \tab character \tab Standardized event type code. \cr
+   event \tab character \tab Event description label. \cr
+   secondary_type \tab character \tab Secondary event type (e.g. shot type). \cr
+   event_team_abbr \tab character \tab Abbreviation of the team credited with the event. \cr
+   event_team_type \tab character \tab Whether the event team is home or away. \cr
+   description \tab character \tab Full text description of the event. \cr
+   period \tab integer \tab Period number. \cr
+   period_type \tab character \tab Period type (REGULAR/OVERTIME/SHOOTOUT). \cr
+   period_time \tab character \tab Elapsed time in the period (MM:SS). \cr
+   period_seconds \tab integer \tab Elapsed seconds in the period. \cr
+   game_seconds \tab integer \tab Elapsed seconds in the game. \cr
+   home_score \tab integer \tab Home team score after the event. \cr
+   away_score \tab integer \tab Away team score after the event. \cr
+   event_player_1_name \tab character \tab Name of the primary event player. \cr
+   event_player_1_id \tab integer \tab Player id of the primary event player. \cr
+   event_player_2_name \tab character \tab Name of the secondary event player. \cr
+   event_player_2_id \tab integer \tab Player id of the secondary event player. \cr
+   event_goalie_name \tab character \tab Name of the goalie on the event. \cr
+   event_goalie_id \tab integer \tab Player id of the goalie on the event. \cr
+   strength_state \tab character \tab Strength state (e.g. 5v5, 5v4). \cr
+   x \tab integer \tab Raw x-coordinate of the event. \cr
+   y \tab integer \tab Raw y-coordinate of the event. \cr
+   shot_distance \tab numeric \tab Distance of the shot from the net. \cr
+   shot_angle \tab numeric \tab Angle of the shot relative to the net. \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   xg \tab numeric \tab Expected goals value for the shot event. \cr
+}
 }
 \description{
 Same as \code{load_nhl_pbp()} but without line change (CHANGE) events,

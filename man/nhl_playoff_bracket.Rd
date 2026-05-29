@@ -10,7 +10,46 @@ nhl_playoff_bracket(year)
 \item{year}{Integer 4-digit year (e.g., 2024 for the 2024 playoffs).}
 }
 \value{
-Returns a list with complete bracket data (series, matchups, results).
+A named list of data frames: \code{series}.
+
+\strong{series}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   seriesUrl \tab character \tab Relative URL of the series page. \cr
+   seriesTitle \tab character \tab Full title of the series. \cr
+   seriesAbbrev \tab character \tab Abbreviated series title. \cr
+   seriesLetter \tab character \tab Series letter identifier. \cr
+   playoffRound \tab integer \tab Playoff round number. \cr
+   topSeedRank \tab integer \tab Seed rank of the top-seeded team. \cr
+   topSeedRankAbbrev \tab character \tab Abbreviated seed rank of the top-seeded team. \cr
+   topSeedWins \tab integer \tab Series wins by the top-seeded team. \cr
+   bottomSeedRank \tab integer \tab Seed rank of the bottom-seeded team. \cr
+   bottomSeedRankAbbrev \tab character \tab Abbreviated seed rank of the bottom-seeded team. \cr
+   bottomSeedWins \tab integer \tab Series wins by the bottom-seeded team. \cr
+   winningTeamId \tab integer \tab Unique identifier of the series-winning team. \cr
+   losingTeamId \tab integer \tab Unique identifier of the series-losing team. \cr
+   seriesLogo \tab character \tab URL of the series logo image. \cr
+   seriesLogoFr \tab character \tab URL of the series logo image (French). \cr
+   conferenceAbbrev \tab character \tab Conference abbreviation. \cr
+   conferenceName \tab character \tab Conference name. \cr
+   topSeedTeam.id \tab integer \tab Top-seeded team unique identifier. \cr
+   topSeedTeam.abbrev \tab character \tab Top-seeded team abbreviation. \cr
+   topSeedTeam.logo \tab character \tab Top-seeded team logo URL. \cr
+   topSeedTeam.darkLogo \tab character \tab Top-seeded team dark logo URL. \cr
+   topSeedTeam.name.default \tab character \tab Top-seeded team name (default localization). \cr
+   topSeedTeam.name.fr \tab character \tab Top-seeded team name (French localization). \cr
+   topSeedTeam.commonName.default \tab character \tab Top-seeded team common name (default). \cr
+   topSeedTeam.placeNameWithPreposition.default \tab character \tab Top-seeded team place name with preposition. \cr
+   topSeedTeam.placeNameWithPreposition.fr \tab character \tab Top-seeded team place name with preposition (FR). \cr
+   bottomSeedTeam.id \tab integer \tab Bottom-seeded team unique identifier. \cr
+   bottomSeedTeam.abbrev \tab character \tab Bottom-seeded team abbreviation. \cr
+   bottomSeedTeam.logo \tab character \tab Bottom-seeded team logo URL. \cr
+   bottomSeedTeam.darkLogo \tab character \tab Bottom-seeded team dark logo URL. \cr
+   bottomSeedTeam.name.default \tab character \tab Bottom-seeded team name (default localization). \cr
+   bottomSeedTeam.name.fr \tab character \tab Bottom-seeded team name (French localization). \cr
+   bottomSeedTeam.commonName.default \tab character \tab Bottom-seeded team common name (default). \cr
+   bottomSeedTeam.placeNameWithPreposition.default \tab character \tab Bottom-seeded team place name with preposition. \cr
+   bottomSeedTeam.placeNameWithPreposition.fr \tab character \tab Bottom-seeded team place name with preposition (FR). \cr
+}
 }
 \description{
 Returns the complete playoff bracket for a given year.

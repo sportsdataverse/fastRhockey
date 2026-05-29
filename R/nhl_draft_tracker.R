@@ -6,8 +6,26 @@
 #' returns the static draft board. The draft tracker is only populated during
 #' an active NHL draft window and will return `NULL` (or an empty payload)
 #' outside of that window.
-#' @return Returns a data frame of live draft picks, or `NULL` if no draft is
-#'   currently active.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name                                 |types     |description                                  |
+#'    |:----------------------------------------|:---------|:--------------------------------------------|
+#'    |pick_in_round                            |integer   |Pick number within the round.                |
+#'    |overall_pick                             |integer   |Overall pick number in the draft.            |
+#'    |team_id                                  |integer   |Unique team identifier.                      |
+#'    |team_abbrev                              |character |Team abbreviation.                           |
+#'    |team_logo_light                          |character |URL to the team logo (light variant).        |
+#'    |team_logo_dark                           |character |URL to the team logo (dark variant).         |
+#'    |state                                    |character |Pick state (e.g., on the clock, complete).   |
+#'    |position_code                            |character |Player position code.                        |
+#'    |team_full_name_default                   |character |Team full name (default language).           |
+#'    |team_full_name_fr                        |character |Team full name (French).                     |
+#'    |team_common_name_default                 |character |Team common name (default language).         |
+#'    |team_common_name_fr                      |character |Team common name (French).                   |
+#'    |team_place_name_with_preposition_default |character |Team place name with preposition (default).  |
+#'    |team_place_name_with_preposition_fr      |character |Team place name with preposition (French).   |
+#'    |last_name_default                        |character |Player last name (default language).         |
+#'    |first_name_default                       |character |Player first name (default language).        |
 #' @keywords NHL Draft Tracker
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

@@ -7,21 +7,33 @@
 espn_nhl_teams()
 }
 \value{
-A teams data frame with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   espn_team_id \tab integer \cr
-   abbreviation \tab character \cr
-   display_name \tab character \cr
-   short_name \tab character \cr
-   mascot \tab character \cr
-   nickname \tab character \cr
-   team \tab character \cr
-   color \tab character \cr
-   alternate_color \tab character \cr
-   logo \tab character \cr
-   logo_dark \tab character \cr
-   logos_href_3 \tab character \cr
-   logos_href_4 \tab character \cr
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   abbreviation \tab character \tab Team abbreviation. \cr
+   alternate_color \tab character \tab Team alternate color hex code. \cr
+   color \tab character \tab Team primary color hex code. \cr
+   display_name \tab character \tab Full team display name. \cr
+   espn_team_id \tab integer \tab ESPN team identifier. \cr
+   team \tab character \tab Team location name. \cr
+   logo \tab character \tab URL to the team logo. \cr
+   logo_dark \tab character \tab URL to the dark-variant team logo. \cr
+   logos_href_3 \tab character \tab URL to an additional team logo variant. \cr
+   logos_href_4 \tab character \tab URL to an additional team logo variant. \cr
+   logos_href_5 \tab character \tab URL to an additional team logo variant. \cr
+   logos_href_6 \tab character \tab URL to an additional team logo variant. \cr
+   logos_href_7 \tab character \tab URL to an additional team logo variant. \cr
+   logos_href_8 \tab character \tab URL to an additional team logo variant. \cr
+   logos_href_9 \tab character \tab URL to an additional team logo variant. \cr
+   logos_href_10 \tab character \tab URL to an additional team logo variant. \cr
+   logos_href_11 \tab character \tab URL to an additional team logo variant. \cr
+   logos_href_12 \tab character \tab URL to an additional team logo variant. \cr
+   logos_href_13 \tab character \tab URL to an additional team logo variant. \cr
+   logos_href_14 \tab character \tab URL to an additional team logo variant. \cr
+   logos_href_15 \tab character \tab URL to an additional team logo variant. \cr
+   logos_href_16 \tab character \tab URL to an additional team logo variant. \cr
+   mascot \tab character \tab Team mascot name. \cr
+   nickname \tab character \tab Team nickname. \cr
+   short_name \tab character \tab Short team display name. \cr
 }
 }
 \description{

@@ -12,9 +12,33 @@ pwhl_standings(season = 2023, regular = TRUE)
 \item{regular}{Bool for whether to pull regular or pre-season rosters}
 }
 \value{
-A data frame with columns including: team_rank, team, team_code,
-games_played, points, wins, losses, goals_for, goals_against,
-ot_wins, ot_losses, power_play_pct, penalty_kill_pct.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   team_rank \tab integer \tab Team rank in the standings. \cr
+   team \tab character \tab Team name. \cr
+   team_code \tab character \tab Team abbreviation. \cr
+   games_played \tab character \tab Games played. \cr
+   points \tab character \tab Standings points. \cr
+   wins \tab character \tab Wins. \cr
+   non_reg_wins \tab character \tab Non-regulation wins. \cr
+   losses \tab character \tab Losses. \cr
+   non_reg_losses \tab character \tab Non-regulation losses. \cr
+   goals_for \tab character \tab Goals scored. \cr
+   goals_against \tab character \tab Goals against. \cr
+   games_remaining \tab character \tab Games remaining in the season. \cr
+   ot_wins \tab character \tab Overtime wins. \cr
+   ot_losses \tab character \tab Overtime losses. \cr
+   so_wins \tab character \tab Shootout wins. \cr
+   so_losses \tab character \tab Shootout losses. \cr
+   power_play_goals \tab character \tab Power-play goals scored. \cr
+   power_play_goals_against \tab character \tab Power-play goals against. \cr
+   power_plays \tab character \tab Power-play opportunities. \cr
+   power_play_pct \tab character \tab Power-play percentage. \cr
+   short_handed_goals \tab character \tab Short-handed goals scored. \cr
+   short_handed_goals_against \tab character \tab Short-handed goals against. \cr
+   times_short_handed \tab character \tab Times short-handed. \cr
+   penalty_kill_pct \tab character \tab Penalty-kill percentage. \cr
+}
 }
 \description{
 PWHL Standings lookup

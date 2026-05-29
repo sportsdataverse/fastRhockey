@@ -22,7 +22,35 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with one row per goal and the
+following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   situationCode \tab character \tab Strength/situation code for the goal. \cr
+   eventId \tab integer \tab NHL event identifier. \cr
+   strength \tab character \tab Strength state at which the goal was scored. \cr
+   playerId \tab integer \tab Player id of the goal scorer. \cr
+   firstName \tab list \tab Scorer first name (localized list). \cr
+   lastName \tab list \tab Scorer last name (localized list). \cr
+   name \tab list \tab Scorer display name (localized list). \cr
+   teamAbbrev \tab list \tab Scoring team abbreviation (localized list). \cr
+   headshot \tab character \tab URL to the scorer headshot image. \cr
+   highlightClipSharingUrl \tab character \tab Shareable URL for the goal highlight clip. \cr
+   highlightClip \tab numeric \tab Highlight clip identifier. \cr
+   discreteClip \tab numeric \tab Discrete clip identifier. \cr
+   goalsToDate \tab integer \tab Scorer goal total to date in the season. \cr
+   awayScore \tab integer \tab Away team score after the goal. \cr
+   homeScore \tab integer \tab Home team score after the goal. \cr
+   leadingTeamAbbrev \tab list \tab Abbreviation of the leading team (localized list). \cr
+   timeInPeriod \tab character \tab Time within the period the goal was scored. \cr
+   shotType \tab character \tab Type of shot on the goal. \cr
+   goalModifier \tab character \tab Goal modifier (e.g. empty-net, power-play). \cr
+   assists \tab list \tab List of assisting players on the goal. \cr
+   pptReplayUrl \tab character \tab URL to the power-play replay, if any. \cr
+   homeTeamDefendingSide \tab character \tab Side of the ice the home team defended. \cr
+   isHome \tab logical \tab Whether the scoring team is the home team. \cr
+   period_number \tab integer \tab Period number the goal was scored in. \cr
+   period_type \tab character \tab Period type (REG/OT/SO). \cr
+}
 }
 \description{
 Helper that loads multiple seasons of NHL goal-scoring event

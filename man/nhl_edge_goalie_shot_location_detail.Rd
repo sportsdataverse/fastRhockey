@@ -18,8 +18,21 @@ season), an 8-character API season (e.g., \code{"20242025"}), or \code{NULL}
 (default), 3 = playoffs.}
 }
 \value{
-A \code{fastRhockey_data} tibble of shot-location details, or \code{NULL}
-on failure / empty response.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   area \tab character \tab Net/ice zone the shots were taken from. \cr
+   shots_against \tab integer \tab Shots faced from the area. \cr
+   saves \tab integer \tab Saves made from the area. \cr
+   goals_against \tab integer \tab Goals against from the area. \cr
+   save_pctg \tab numeric \tab Save percentage for the area. \cr
+   shots_against_percentile \tab numeric \tab League percentile rank for shots against. \cr
+   saves_percentile \tab numeric \tab League percentile rank for saves. \cr
+   goals_against_percentile \tab numeric \tab League percentile rank for goals against. \cr
+   save_pctg_percentile \tab numeric \tab League percentile rank for save percentage. \cr
+}
+
+
+Returns \code{NULL} on failure / empty response.
 }
 \description{
 Returns the NHL Edge shot-location detail payload for a

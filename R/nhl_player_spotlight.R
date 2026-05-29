@@ -1,7 +1,23 @@
 #' @title **NHL Player Spotlight**
 #' @description Returns the current NHL player spotlight — featured players
 #' highlighted by the league.
-#' @return Returns a data frame with spotlight player information.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name       |types     |description                                |
+#'    |:--------------|:---------|:------------------------------------------|
+#'    |player_id      |integer   |Unique player identifier.                  |
+#'    |player_slug    |character |URL slug for the player.                   |
+#'    |position       |character |Player position.                           |
+#'    |sweater_number |integer   |Player sweater (jersey) number.            |
+#'    |team_id        |integer   |Unique team identifier.                    |
+#'    |headshot       |character |URL of the player headshot image.          |
+#'    |team_tri_code  |character |Three-letter team code.                    |
+#'    |team_logo      |character |URL of the team logo image.                |
+#'    |sort_id        |integer   |Sort order identifier for the spotlight.   |
+#'    |name_default   |character |Player name (default localization).        |
+#'    |name_cs        |character |Player name (Czech localization).          |
+#'    |name_fi        |character |Player name (Finnish localization).        |
+#'    |name_sk        |character |Player name (Slovak localization).         |
 #' @keywords NHL Player Spotlight
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

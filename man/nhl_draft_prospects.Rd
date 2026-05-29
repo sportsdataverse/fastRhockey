@@ -7,7 +7,23 @@
 nhl_draft_prospects()
 }
 \value{
-Returns a data frame of draft prospect rankings.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   last_name \tab character \tab Prospect's last name. \cr
+   first_name \tab character \tab Prospect's first name. \cr
+   position_code \tab character \tab Prospect's position code. \cr
+   shoots_catches \tab character \tab Prospect's shooting/catching hand. \cr
+   height_in_inches \tab integer \tab Prospect's height in inches. \cr
+   weight_in_pounds \tab integer \tab Prospect's weight in pounds. \cr
+   last_amateur_club \tab character \tab Prospect's most recent amateur club. \cr
+   last_amateur_league \tab character \tab Prospect's most recent amateur league. \cr
+   birth_date \tab character \tab Prospect's birth date. \cr
+   birth_city \tab character \tab Prospect's birth city. \cr
+   birth_state_province \tab character \tab Prospect's birth state or province. \cr
+   birth_country \tab character \tab Prospect's birth country. \cr
+   midterm_rank \tab integer \tab Prospect's midterm draft ranking. \cr
+   final_rank \tab integer \tab Prospect's final draft ranking. \cr
+}
 }
 \description{
 Returns current draft prospect rankings.

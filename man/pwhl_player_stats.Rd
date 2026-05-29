@@ -10,19 +10,50 @@ pwhl_player_stats(player_id)
 \item{player_id}{Numeric player ID}
 }
 \value{
-A data frame with per-season statistics for the player, or NULL if unavailable.
-\itemize{
-\item \code{player_id} - Player ID.
-\item \code{season_name} - Season name.
-\item \code{season_id} - Season ID.
-\item \code{team} - Team abbreviation.
-\item \code{league} - League name.
-\item \code{games_played} - Games played.
-\item \code{goals} - Goals scored.
-\item \code{assists} - Assists.
-\item \code{points} - Total points.
-\item \code{plus_minus} - Plus/minus rating.
-\item \code{penalty_minutes} - Penalty minutes.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season_id \tab numeric \tab Season identifier. \cr
+   season_name \tab character \tab Season name. \cr
+   shortname \tab character \tab Short season name. \cr
+   playoff \tab character \tab Whether the row is playoff statistics. \cr
+   career \tab character \tab Whether the row is career totals. \cr
+   max_start_date \tab character \tab Latest game start date for the season. \cr
+   veteran_status \tab character \tab Player veteran status. \cr
+   veteran \tab character \tab Whether the player is a veteran. \cr
+   goals_against \tab numeric \tab Goals against (goalie). \cr
+   shootout_goals_against \tab character \tab Shootout goals against. \cr
+   shootout_saves \tab character \tab Shootout saves made. \cr
+   goals_against_average \tab numeric \tab Goals against average (goalie). \cr
+   games_played \tab numeric \tab Games played. \cr
+   minutes_played \tab numeric \tab Minutes played. \cr
+   seconds_played \tab character \tab Seconds played. \cr
+   shots_against \tab numeric \tab Shots faced (goalie). \cr
+   wins \tab numeric \tab Wins (goalie). \cr
+   losses \tab numeric \tab Losses (goalie). \cr
+   ties \tab character \tab Ties (goalie). \cr
+   ot_losses \tab character \tab Overtime losses (goalie). \cr
+   total_losses \tab character \tab Total losses (goalie). \cr
+   shootout_losses \tab character \tab Shootout losses (goalie). \cr
+   ot \tab character \tab Overtime results. \cr
+   sosavepct \tab character \tab Shootout save percentage. \cr
+   shootout_shots \tab character \tab Shootout shots faced. \cr
+   shutouts \tab numeric \tab Shutouts recorded (goalie). \cr
+   saves \tab numeric \tab Saves made (goalie). \cr
+   savepct \tab numeric \tab Save percentage (goalie). \cr
+   goals \tab numeric \tab Goals scored. \cr
+   assists \tab numeric \tab Assists. \cr
+   points \tab numeric \tab Total points (goals + assists). \cr
+   penalty_minutes \tab numeric \tab Penalty minutes. \cr
+   team_name \tab character \tab Team name. \cr
+   team_code \tab character \tab Team abbreviation. \cr
+   team_city \tab character \tab Team city. \cr
+   team_nickname \tab character \tab Team nickname. \cr
+   team_id \tab character \tab Unique team identifier. \cr
+   division \tab character \tab Team division. \cr
+   shotspct \tab character \tab Shooting percentage. \cr
+   gaa \tab character \tab Goals against average (goalie). \cr
+   player_id \tab numeric \tab Unique player identifier. \cr
+   stat_type \tab character \tab Statistic type ("regular"/"playoff"). \cr
 }
 }
 \description{

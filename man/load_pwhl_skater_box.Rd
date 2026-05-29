@@ -22,27 +22,30 @@ load_pwhl_skater_box(
 \item{tablename}{The name of the skater box data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data} with one row per
-skater per game. Common columns include:\tabular{lll}{
-   column \tab type \tab description \cr
-   \code{game_id} \tab integer \tab PWHL game id \cr
-   \code{team_id} \tab integer \tab HockeyTech team id \cr
-   \code{player_id} \tab integer \tab HockeyTech player id \cr
-   \code{first_name} \tab character \tab player first name \cr
-   \code{last_name} \tab character \tab player last name \cr
-   \code{jersey_number} \tab integer \tab jersey number \cr
-   \code{position} \tab character \tab position code (C, LW, RW, LD, RD) \cr
-   \code{goals} \tab integer \tab goals \cr
-   \code{assists} \tab integer \tab assists \cr
-   \code{points} \tab integer \tab total points \cr
-   \code{penalty_minutes} \tab integer \tab PIM \cr
-   \code{plus_minus} \tab integer \tab plus/minus \cr
-   \code{shots} \tab integer \tab shots on goal \cr
-   \code{faceoff_attempts} \tab integer \tab faceoff attempts \cr
-   \code{faceoff_wins} \tab integer \tab faceoff wins \cr
-   \code{time_on_ice} \tab character \tab total TOI (\code{MM:SS}) \cr
-   \code{starting} \tab character \tab started the game (\code{0}/\code{1}) \cr
-   \code{player_type} \tab character \tab always \code{"skater"} \cr
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab character \tab Unique player identifier. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   position \tab character \tab Player position. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   league \tab character \tab League code. \cr
+   toi \tab character \tab Time on ice (MM:SS). \cr
+   time_on_ice \tab numeric \tab Time on ice in seconds. \cr
+   goals \tab integer \tab Goals scored. \cr
+   assists \tab integer \tab Assists. \cr
+   points \tab integer \tab Total points (goals + assists). \cr
+   shots \tab integer \tab Shots on goal. \cr
+   hits \tab integer \tab Hits. \cr
+   blocked_shots \tab integer \tab Blocked shots. \cr
+   penalty_minutes \tab integer \tab Penalty minutes. \cr
+   plus_minus \tab integer \tab Plus/minus rating. \cr
+   faceoff_attempts \tab integer \tab Faceoff attempts. \cr
+   faceoff_wins \tab integer \tab Faceoff wins. \cr
+   faceoff_losses \tab integer \tab Faceoff losses. \cr
+   faceoff_pct \tab numeric \tab Faceoff win percentage. \cr
+   starting \tab character \tab Whether the player started the game. \cr
 }
 }
 \description{

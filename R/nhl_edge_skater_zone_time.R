@@ -11,8 +11,20 @@
 #'   (default) for the current season via the `/now` endpoint.
 #' @param game_type Integer game type. 1 = preseason, 2 = regular season
 #'   (default), 3 = playoffs.
-#' @return A `fastRhockey_data` tibble of zone-time metrics, or `NULL` on
-#'   failure / empty response.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name                   |types     |description                                       |
+#'    |:--------------------------|:---------|:-------------------------------------------------|
+#'    |strength_code              |character |Strength state code (e.g., all, even, pp, pk).    |
+#'    |offensive_zone_pctg        |numeric   |Percentage of time in the offensive zone.         |
+#'    |offensive_zone_percentile  |numeric   |League percentile rank for offensive-zone time.   |
+#'    |offensive_zone_league_avg  |numeric   |League average offensive-zone time percentage.    |
+#'    |neutral_zone_pctg          |numeric   |Percentage of time in the neutral zone.           |
+#'    |neutral_zone_percentile    |numeric   |League percentile rank for neutral-zone time.     |
+#'    |neutral_zone_league_avg    |numeric   |League average neutral-zone time percentage.      |
+#'    |defensive_zone_pctg        |numeric   |Percentage of time in the defensive zone.         |
+#'    |defensive_zone_percentile  |numeric   |League percentile rank for defensive-zone time.   |
+#'    |defensive_zone_league_avg  |numeric   |League average defensive-zone time percentage.    |
 #' @keywords NHL Edge Skater
 #' @importFrom glue glue
 #' @importFrom janitor clean_names

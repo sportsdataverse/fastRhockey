@@ -13,8 +13,20 @@
 #'   (default) for the current season via the `/now` endpoint.
 #' @param game_type Integer game type. 1 = preseason, 2 = regular season
 #'   (default), 3 = playoffs.
-#' @return A `fastRhockey_data` tibble with the top-10 team leaderboard, or
-#'   `NULL` on failure / empty response.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name                                 |types     |description                                     |
+#'    |:----------------------------------------|:---------|:-----------------------------------------------|
+#'    |offensive_zone_time                      |numeric   |Percentage of time spent in the offensive zone. |
+#'    |neutral_zone_time                        |numeric   |Percentage of time spent in the neutral zone.   |
+#'    |defensive_zone_time                      |numeric   |Percentage of time spent in the defensive zone. |
+#'    |team_abbrev                              |character |Team abbreviation.                              |
+#'    |team_slug                                |character |Team URL slug.                                  |
+#'    |team_common_name_default                 |character |Team common name.                               |
+#'    |team_place_name_with_preposition_default |character |Team place name with preposition.               |
+#'    |team_place_name_with_preposition_fr      |character |Team place name with preposition (French).      |
+#'    |team_team_logo_light                     |character |Team light logo URL.                            |
+#'    |team_team_logo_dark                      |character |Team dark logo URL.                             |
 #' @keywords NHL Edge Team
 #' @importFrom glue glue
 #' @importFrom janitor clean_names

@@ -15,10 +15,35 @@ combined and labeled by a \code{game_type} column. Game types with no streak
 data for the season are omitted rather than erroring.}
 }
 \value{
-A data frame of class \code{fastRhockey_data} with player streak data
-including columns such as player_id, first_name, last_name, name, length,
-goals, assists, points, games_played, rank, team_name, team_code, and
-game_type. Returns NULL if unavailable.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab character \tab Unique streak identifier. \cr
+   player_id \tab character \tab Unique player identifier. \cr
+   rookie \tab character \tab Whether the player is a rookie. \cr
+   first_game_date \tab character \tab Date of the streak's first game. \cr
+   last_game_date \tab character \tab Date of the streak's last game. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   name \tab character \tab Player full name. \cr
+   length \tab character \tab Length of the streak in games. \cr
+   goals \tab character \tab Goals scored during the streak. \cr
+   assists \tab character \tab Assists during the streak. \cr
+   has_split \tab character \tab Whether the streak spans teams. \cr
+   games_played \tab character \tab Games played during the streak. \cr
+   ongoing \tab character \tab Whether the streak is ongoing. \cr
+   points \tab character \tab Total points during the streak. \cr
+   streak_start_team_id \tab character \tab Team identifier at streak start. \cr
+   streak_end_team_id \tab character \tab Team identifier at streak end. \cr
+   num_teams \tab character \tab Number of teams during the streak. \cr
+   division_short_name \tab character \tab Short division name. \cr
+   division_long_name \tab character \tab Full division name. \cr
+   rank \tab character \tab Rank of the streak. \cr
+   team_name \tab character \tab Team name. \cr
+   team_city \tab character \tab Team city. \cr
+   team_code \tab character \tab Team abbreviation. \cr
+   team_nickname \tab character \tab Team nickname. \cr
+   game_type \tab character \tab Game type the row belongs to. \cr
+}
 }
 \description{
 Retrieves player streak data for a PWHL season.

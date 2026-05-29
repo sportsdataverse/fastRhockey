@@ -14,9 +14,17 @@
 #'   instead of iterating all 32 NHL clubs.
 #' @param sleep_rate Numeric seconds to `Sys.sleep()` between per-team
 #'   API calls when iterating all teams. Defaults to `0` (no delay).
-#' @return A `fastRhockey_data` / `data.frame` with one row per unique
-#'   game, containing `game_id`, `season`, `game_type`, `game_date`,
-#'   `home_team`, and `away_team`. Returns `NULL` on outer failure.
+#' @return A data frame (`fastRhockey_data`) with one row per unique game and
+#'   the following columns (returns `NULL` on outer failure):
+#'
+#'    |col_name  |types     |description                        |
+#'    |:---------|:---------|:----------------------------------|
+#'    |game_id   |integer   |Unique game identifier.            |
+#'    |season    |integer   |Season (concluding year, YYYY).    |
+#'    |game_type |integer   |Game type (1=pre, 2=regular, 3=playoffs). |
+#'    |game_date |character |Game date.                         |
+#'    |home_team |character |Home team abbreviation.            |
+#'    |away_team |character |Away team abbreviation.            |
 #' @keywords NHL Helpers Aggregator
 #' @importFrom dplyr bind_rows distinct filter select tibble
 #' @importFrom glue glue

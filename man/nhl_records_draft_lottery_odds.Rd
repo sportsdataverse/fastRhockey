@@ -10,8 +10,14 @@ nhl_records_draft_lottery_odds(cayenne_exp = NULL)
 \item{cayenne_exp}{Optional Cayenne filter expression string.}
 }
 \value{
-A \code{fastRhockey_data} tibble of draft lottery odds, or \code{NULL}
-on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique lottery odds record identifier. \cr
+   draft_year \tab integer \tab Draft year the odds apply to. \cr
+   format_content \tab character \tab Description of the lottery format. \cr
+   odds_content \tab character \tab Description of the lottery odds. \cr
+   result_notes \tab character \tab Notes on the lottery results. \cr
+}
 }
 \description{
 Returns NHL draft lottery odds from the NHL Records API

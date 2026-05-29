@@ -2,7 +2,20 @@
 #' @description Returns the NHL trophy listing from the NHL Records API
 #'   (`https://records.nhl.com/site/api/trophy`).
 #' @param cayenne_exp Optional Cayenne filter expression string.
-#' @return A `fastRhockey_data` tibble of trophies, or `NULL` on failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name          |types     |description                              |
+#'    |:-----------------|:---------|:----------------------------------------|
+#'    |id                |integer   |Unique trophy identifier.                |
+#'    |brief_description |character |Brief description of the trophy.         |
+#'    |category_id       |integer   |Trophy category identifier.              |
+#'    |created_on        |character |Date the trophy record was created.      |
+#'    |description       |character |Full description of the trophy.          |
+#'    |footnote          |logical   |Footnote associated with the trophy.     |
+#'    |home_page_url     |character |URL to the trophy's home page.           |
+#'    |image_url         |character |URL to the trophy's image.               |
+#'    |name              |character |Full name of the trophy.                 |
+#'    |short_name        |character |Short name of the trophy.                |
 #' @keywords NHL Records Trophy
 #' @importFrom janitor clean_names
 #' @importFrom dplyr as_tibble

@@ -23,7 +23,104 @@ the season data into a database (used by \code{update_pwhl_db()}).}
 \item{tablename}{The name of the play-by-play data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   event \tab character \tab Play-by-play event description. \cr
+   team_id \tab integer \tab Team identifier for the event. \cr
+   period_of_game \tab character \tab Period in which the event occurred. \cr
+   time_of_period \tab character \tab Game clock time within the period. \cr
+   player_id \tab integer \tab Primary player identifier. \cr
+   player_name_first \tab character \tab Primary player first name. \cr
+   player_name_last \tab character \tab Primary player last name. \cr
+   player_position \tab character \tab Primary player position. \cr
+   player_two_id \tab integer \tab Second player identifier. \cr
+   player_two_name_first \tab character \tab Second player first name. \cr
+   player_two_name_last \tab character \tab Second player last name. \cr
+   player_two_position \tab character \tab Second player position. \cr
+   x_coord \tab numeric \tab Event x-coordinate on the ice. \cr
+   y_coord \tab numeric \tab Event y-coordinate on the ice. \cr
+   home_win \tab integer \tab Flag for whether the home team won. \cr
+   player_team_id \tab integer \tab Team identifier of the primary player. \cr
+   event_type \tab character \tab Categorized event type. \cr
+   shot_quality \tab character \tab Shot quality descriptor. \cr
+   goal \tab logical \tab Flag for whether the event was a goal. \cr
+   goalie_id \tab integer \tab Goalie identifier on the play. \cr
+   goalie_first \tab character \tab Goalie first name. \cr
+   goalie_last \tab character \tab Goalie last name. \cr
+   player_three_id \tab integer \tab Third player identifier. \cr
+   player_three_name_first \tab character \tab Third player first name. \cr
+   player_three_name_last \tab character \tab Third player last name. \cr
+   player_three_position \tab character \tab Third player position. \cr
+   empty_net \tab character \tab Empty-net flag. \cr
+   game_winner \tab character \tab Game-winning-goal flag. \cr
+   penalty_shot \tab character \tab Penalty-shot flag. \cr
+   insurance \tab character \tab Insurance-goal flag. \cr
+   power_play \tab integer \tab Power-play flag. \cr
+   short_handed \tab character \tab Short-handed flag. \cr
+   plus_player_one_id \tab integer \tab On-ice plus player one identifier. \cr
+   plus_player_one_first \tab character \tab On-ice plus player one first name. \cr
+   plus_player_one_last \tab character \tab On-ice plus player one last name. \cr
+   plus_player_one_position \tab character \tab On-ice plus player one position. \cr
+   plus_player_two_id \tab integer \tab On-ice plus player two identifier. \cr
+   plus_player_two_first \tab character \tab On-ice plus player two first name. \cr
+   plus_player_two_last \tab character \tab On-ice plus player two last name. \cr
+   plus_player_two_position \tab character \tab On-ice plus player two position. \cr
+   plus_player_three_id \tab integer \tab On-ice plus player three identifier. \cr
+   plus_player_three_first \tab character \tab On-ice plus player three first name. \cr
+   plus_player_three_last \tab character \tab On-ice plus player three last name. \cr
+   plus_player_three_position \tab character \tab On-ice plus player three position. \cr
+   plus_player_four_id \tab integer \tab On-ice plus player four identifier. \cr
+   plus_player_four_first \tab character \tab On-ice plus player four first name. \cr
+   plus_player_four_last \tab character \tab On-ice plus player four last name. \cr
+   plus_player_four_position \tab character \tab On-ice plus player four position. \cr
+   plus_player_five_id \tab integer \tab On-ice plus player five identifier. \cr
+   plus_player_five_first \tab character \tab On-ice plus player five first name. \cr
+   plus_player_five_last \tab character \tab On-ice plus player five last name. \cr
+   plus_player_five_position \tab character \tab On-ice plus player five position. \cr
+   minus_player_one_id \tab integer \tab On-ice minus player one identifier. \cr
+   minus_player_one_first \tab character \tab On-ice minus player one first name. \cr
+   minus_player_one_last \tab character \tab On-ice minus player one last name. \cr
+   minus_player_one_position \tab character \tab On-ice minus player one position. \cr
+   minus_player_two_id \tab integer \tab On-ice minus player two identifier. \cr
+   minus_player_two_first \tab character \tab On-ice minus player two first name. \cr
+   minus_player_two_last \tab character \tab On-ice minus player two last name. \cr
+   minus_player_two_position \tab character \tab On-ice minus player two position. \cr
+   minus_player_three_id \tab integer \tab On-ice minus player three identifier. \cr
+   minus_player_three_first \tab character \tab On-ice minus player three first name. \cr
+   minus_player_three_last \tab character \tab On-ice minus player three last name. \cr
+   minus_player_three_position \tab character \tab On-ice minus player three position. \cr
+   minus_player_four_id \tab integer \tab On-ice minus player four identifier. \cr
+   minus_player_four_first \tab character \tab On-ice minus player four first name. \cr
+   minus_player_four_last \tab character \tab On-ice minus player four last name. \cr
+   minus_player_four_position \tab character \tab On-ice minus player four position. \cr
+   minus_player_five_id \tab integer \tab On-ice minus player five identifier. \cr
+   minus_player_five_first \tab character \tab On-ice minus player five first name. \cr
+   minus_player_five_last \tab character \tab On-ice minus player five last name. \cr
+   minus_player_five_position \tab character \tab On-ice minus player five position. \cr
+   penalty_length \tab character \tab Penalty length in minutes. \cr
+   game_date \tab character \tab Game date. \cr
+   game_season \tab integer \tab Season (concluding year, YYYY). \cr
+   game_season_id \tab character \tab HockeyTech season identifier. \cr
+   home_team_id \tab integer \tab Home team identifier. \cr
+   home_team \tab character \tab Home team name. \cr
+   away_team_id \tab integer \tab Away team identifier. \cr
+   away_team \tab character \tab Away team name. \cr
+   x_coord_original \tab integer \tab Original raw x-coordinate. \cr
+   y_coord_original \tab integer \tab Original raw y-coordinate. \cr
+   x_coord_neutral \tab integer \tab Neutral-orientation x-coordinate. \cr
+   y_coord_neutral \tab integer \tab Neutral-orientation y-coordinate. \cr
+   x_coord_fixed \tab numeric \tab Fixed-orientation x-coordinate. \cr
+   y_coord_fixed \tab numeric \tab Fixed-orientation y-coordinate. \cr
+   x_coord_right \tab numeric \tab Right-orientation x-coordinate. \cr
+   y_coord_right \tab numeric \tab Right-orientation y-coordinate. \cr
+   x_coord_vertical \tab numeric \tab Vertical-orientation x-coordinate. \cr
+   y_coord_vertical \tab numeric \tab Vertical-orientation y-coordinate. \cr
+   minute_start \tab integer \tab Minute the event started. \cr
+   second_start \tab integer \tab Second the event started. \cr
+   clock \tab character \tab Game clock string. \cr
+   sec_from_start \tab integer \tab Seconds elapsed from the start of the game. \cr
+}
 }
 \description{
 Helper that loads multiple seasons of pre-scraped PWHL

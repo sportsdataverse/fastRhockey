@@ -78,7 +78,105 @@ NULL
 #'   the season data into a database (used by `update_pwhl_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the play-by-play data table within the database
-#' @return A data frame of class `fastRhockey_data`
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name                    |types     |description                                  |
+#'    |:---------------------------|:---------|:--------------------------------------------|
+#'    |game_id                     |integer   |Unique game identifier.                      |
+#'    |event                       |character |Play-by-play event description.              |
+#'    |team_id                     |integer   |Team identifier for the event.               |
+#'    |period_of_game              |character |Period in which the event occurred.          |
+#'    |time_of_period              |character |Game clock time within the period.           |
+#'    |player_id                   |integer   |Primary player identifier.                   |
+#'    |player_name_first           |character |Primary player first name.                   |
+#'    |player_name_last            |character |Primary player last name.                    |
+#'    |player_position             |character |Primary player position.                     |
+#'    |player_two_id               |integer   |Second player identifier.                    |
+#'    |player_two_name_first       |character |Second player first name.                    |
+#'    |player_two_name_last        |character |Second player last name.                     |
+#'    |player_two_position         |character |Second player position.                      |
+#'    |x_coord                     |numeric   |Event x-coordinate on the ice.               |
+#'    |y_coord                     |numeric   |Event y-coordinate on the ice.               |
+#'    |home_win                    |integer   |Flag for whether the home team won.          |
+#'    |player_team_id              |integer   |Team identifier of the primary player.       |
+#'    |event_type                  |character |Categorized event type.                      |
+#'    |shot_quality                |character |Shot quality descriptor.                     |
+#'    |goal                        |logical   |Flag for whether the event was a goal.       |
+#'    |goalie_id                   |integer   |Goalie identifier on the play.               |
+#'    |goalie_first                |character |Goalie first name.                           |
+#'    |goalie_last                 |character |Goalie last name.                            |
+#'    |player_three_id             |integer   |Third player identifier.                     |
+#'    |player_three_name_first     |character |Third player first name.                     |
+#'    |player_three_name_last      |character |Third player last name.                      |
+#'    |player_three_position       |character |Third player position.                       |
+#'    |empty_net                   |character |Empty-net flag.                              |
+#'    |game_winner                 |character |Game-winning-goal flag.                      |
+#'    |penalty_shot                |character |Penalty-shot flag.                           |
+#'    |insurance                   |character |Insurance-goal flag.                         |
+#'    |power_play                  |integer   |Power-play flag.                             |
+#'    |short_handed                |character |Short-handed flag.                           |
+#'    |plus_player_one_id          |integer   |On-ice plus player one identifier.           |
+#'    |plus_player_one_first       |character |On-ice plus player one first name.           |
+#'    |plus_player_one_last        |character |On-ice plus player one last name.            |
+#'    |plus_player_one_position    |character |On-ice plus player one position.             |
+#'    |plus_player_two_id          |integer   |On-ice plus player two identifier.           |
+#'    |plus_player_two_first       |character |On-ice plus player two first name.           |
+#'    |plus_player_two_last        |character |On-ice plus player two last name.            |
+#'    |plus_player_two_position    |character |On-ice plus player two position.             |
+#'    |plus_player_three_id        |integer   |On-ice plus player three identifier.         |
+#'    |plus_player_three_first     |character |On-ice plus player three first name.         |
+#'    |plus_player_three_last      |character |On-ice plus player three last name.          |
+#'    |plus_player_three_position  |character |On-ice plus player three position.           |
+#'    |plus_player_four_id         |integer   |On-ice plus player four identifier.          |
+#'    |plus_player_four_first      |character |On-ice plus player four first name.          |
+#'    |plus_player_four_last       |character |On-ice plus player four last name.           |
+#'    |plus_player_four_position   |character |On-ice plus player four position.            |
+#'    |plus_player_five_id         |integer   |On-ice plus player five identifier.          |
+#'    |plus_player_five_first      |character |On-ice plus player five first name.          |
+#'    |plus_player_five_last       |character |On-ice plus player five last name.           |
+#'    |plus_player_five_position   |character |On-ice plus player five position.            |
+#'    |minus_player_one_id         |integer   |On-ice minus player one identifier.          |
+#'    |minus_player_one_first      |character |On-ice minus player one first name.          |
+#'    |minus_player_one_last       |character |On-ice minus player one last name.           |
+#'    |minus_player_one_position   |character |On-ice minus player one position.            |
+#'    |minus_player_two_id         |integer   |On-ice minus player two identifier.          |
+#'    |minus_player_two_first      |character |On-ice minus player two first name.          |
+#'    |minus_player_two_last       |character |On-ice minus player two last name.           |
+#'    |minus_player_two_position   |character |On-ice minus player two position.            |
+#'    |minus_player_three_id       |integer   |On-ice minus player three identifier.        |
+#'    |minus_player_three_first    |character |On-ice minus player three first name.        |
+#'    |minus_player_three_last     |character |On-ice minus player three last name.         |
+#'    |minus_player_three_position |character |On-ice minus player three position.          |
+#'    |minus_player_four_id        |integer   |On-ice minus player four identifier.         |
+#'    |minus_player_four_first     |character |On-ice minus player four first name.         |
+#'    |minus_player_four_last      |character |On-ice minus player four last name.          |
+#'    |minus_player_four_position  |character |On-ice minus player four position.           |
+#'    |minus_player_five_id        |integer   |On-ice minus player five identifier.         |
+#'    |minus_player_five_first     |character |On-ice minus player five first name.         |
+#'    |minus_player_five_last      |character |On-ice minus player five last name.          |
+#'    |minus_player_five_position  |character |On-ice minus player five position.           |
+#'    |penalty_length              |character |Penalty length in minutes.                   |
+#'    |game_date                   |character |Game date.                                   |
+#'    |game_season                 |integer   |Season (concluding year, YYYY).              |
+#'    |game_season_id              |character |HockeyTech season identifier.                |
+#'    |home_team_id                |integer   |Home team identifier.                        |
+#'    |home_team                   |character |Home team name.                              |
+#'    |away_team_id                |integer   |Away team identifier.                        |
+#'    |away_team                   |character |Away team name.                              |
+#'    |x_coord_original            |integer   |Original raw x-coordinate.                   |
+#'    |y_coord_original            |integer   |Original raw y-coordinate.                   |
+#'    |x_coord_neutral             |integer   |Neutral-orientation x-coordinate.            |
+#'    |y_coord_neutral             |integer   |Neutral-orientation y-coordinate.            |
+#'    |x_coord_fixed               |numeric   |Fixed-orientation x-coordinate.              |
+#'    |y_coord_fixed               |numeric   |Fixed-orientation y-coordinate.              |
+#'    |x_coord_right               |numeric   |Right-orientation x-coordinate.              |
+#'    |y_coord_right               |numeric   |Right-orientation y-coordinate.              |
+#'    |x_coord_vertical            |numeric   |Vertical-orientation x-coordinate.           |
+#'    |y_coord_vertical            |numeric   |Vertical-orientation y-coordinate.           |
+#'    |minute_start                |integer   |Minute the event started.                    |
+#'    |second_start                |integer   |Second the event started.                    |
+#'    |clock                       |character |Game clock string.                           |
+#'    |sec_from_start              |integer   |Seconds elapsed from the start of the game.  |
 #' @export
 #' @examples
 #' \donttest{
@@ -109,7 +207,33 @@ NULL
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the player box data table within the database
-#' @return A data frame of class `fastRhockey_data`
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name         |types     |description                              |
+#'    |:----------------|:---------|:----------------------------------------|
+#'    |player_id        |character |Unique player identifier.                |
+#'    |first_name       |character |Player first name.                       |
+#'    |last_name        |character |Player last name.                        |
+#'    |position         |character |Player position.                         |
+#'    |team_id          |integer   |Unique team identifier.                  |
+#'    |game_id          |integer   |Unique game identifier.                  |
+#'    |league           |character |League code.                             |
+#'    |toi              |character |Time on ice (MM:SS).                     |
+#'    |time_on_ice      |numeric   |Time on ice in seconds.                  |
+#'    |goals            |integer   |Goals scored.                            |
+#'    |assists          |integer   |Assists.                                 |
+#'    |points           |integer   |Total points (goals + assists).          |
+#'    |shots            |integer   |Shots on goal.                           |
+#'    |hits             |integer   |Hits.                                    |
+#'    |blocked_shots    |integer   |Blocked shots.                           |
+#'    |penalty_minutes  |integer   |Penalty minutes.                         |
+#'    |plus_minus       |integer   |Plus/minus rating.                       |
+#'    |faceoff_attempts |integer   |Faceoff attempts.                        |
+#'    |faceoff_wins     |integer   |Faceoff wins.                            |
+#'    |faceoff_losses   |integer   |Faceoff losses.                          |
+#'    |faceoff_pct      |numeric   |Faceoff win percentage.                  |
+#'    |starting         |character |Whether the player started the game.     |
+#'    |player_type      |character |Player type (skater or goalie).          |
 #' @export
 #' @examples
 #' \donttest{
@@ -140,7 +264,39 @@ NULL
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the schedule data table within the database
-#' @return A data frame of class `fastRhockey_data`
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name        |types     |description                                     |
+#'    |:---------------|:---------|:-----------------------------------------------|
+#'    |game_id         |character |Unique game identifier.                         |
+#'    |season          |integer   |Season (concluding year, YYYY).                 |
+#'    |game_date       |character |Game date.                                      |
+#'    |game_status     |character |Game status text.                               |
+#'    |home_team       |character |Home team name.                                 |
+#'    |home_team_id    |character |Home team identifier.                           |
+#'    |away_team       |character |Away team name.                                 |
+#'    |away_team_id    |character |Away team identifier.                           |
+#'    |home_score      |character |Home team final score.                          |
+#'    |away_score      |character |Away team final score.                          |
+#'    |winner          |character |Winning team.                                   |
+#'    |venue           |character |Venue name.                                     |
+#'    |venue_url       |character |Venue URL.                                      |
+#'    |game_type       |character |Game type the row belongs to.                   |
+#'    |game_json       |logical   |Whether the game JSON is available.             |
+#'    |game_json_url   |glue      |URL to the game JSON feed.                      |
+#'    |PBP             |logical   |Whether play-by-play data is available.         |
+#'    |player_box      |logical   |Whether player box data is available.           |
+#'    |skater_box      |logical   |Whether skater box data is available.           |
+#'    |goalie_box      |logical   |Whether goalie box data is available.           |
+#'    |team_box        |logical   |Whether team box data is available.             |
+#'    |game_info       |logical   |Whether game info data is available.            |
+#'    |game_rosters    |logical   |Whether game rosters data is available.         |
+#'    |scoring_summary |logical   |Whether scoring summary data is available.      |
+#'    |penalty_summary |logical   |Whether penalty summary data is available.      |
+#'    |three_stars     |logical   |Whether three stars data is available.          |
+#'    |officials       |logical   |Whether officials data is available.            |
+#'    |shots_by_period |logical   |Whether shots-by-period data is available.      |
+#'    |shootout        |logical   |Whether shootout data is available.             |
 #' @export
 #' @examples
 #' \donttest{
@@ -171,7 +327,22 @@ NULL
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the rosters data table within the database
-#' @return A data frame of class `fastRhockey_data`
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name      |types     |description                            |
+#'    |:-------------|:---------|:--------------------------------------|
+#'    |team_id       |integer   |Unique team identifier.                |
+#'    |team          |character |Team name.                             |
+#'    |team_abbr     |character |Team abbreviation.                     |
+#'    |team_side     |character |Home or away indicator.                |
+#'    |player_type   |character |Player type (skater or goalie).        |
+#'    |player_id     |integer   |Unique player identifier.              |
+#'    |first_name    |character |Player first name.                     |
+#'    |last_name     |character |Player last name.                      |
+#'    |jersey_number |integer   |Jersey number.                         |
+#'    |position      |character |Player position.                       |
+#'    |birth_date    |character |Player birth date.                     |
+#'    |season        |integer   |Season (concluding year, YYYY).        |
 #' @export
 #' @examples
 #' \donttest{
@@ -209,29 +380,32 @@ NULL
 #' @param ... Additional arguments (currently unused; kept for API symmetry).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the skater box data table within the database
-#' @return A data frame of class `fastRhockey_data` with one row per
-#'   skater per game. Common columns include:
+#' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
-#'   | column            | type      | description                            |
-#'   |-------------------|-----------|----------------------------------------|
-#'   | `game_id`         | integer   | PWHL game id                           |
-#'   | `team_id`         | integer   | HockeyTech team id                     |
-#'   | `player_id`       | integer   | HockeyTech player id                   |
-#'   | `first_name`      | character | player first name                      |
-#'   | `last_name`       | character | player last name                       |
-#'   | `jersey_number`   | integer   | jersey number                          |
-#'   | `position`        | character | position code (C, LW, RW, LD, RD)      |
-#'   | `goals`           | integer   | goals                                  |
-#'   | `assists`         | integer   | assists                                |
-#'   | `points`          | integer   | total points                           |
-#'   | `penalty_minutes` | integer   | PIM                                    |
-#'   | `plus_minus`      | integer   | plus/minus                             |
-#'   | `shots`           | integer   | shots on goal                          |
-#'   | `faceoff_attempts`| integer   | faceoff attempts                       |
-#'   | `faceoff_wins`    | integer   | faceoff wins                           |
-#'   | `time_on_ice`     | character | total TOI (`MM:SS`)                    |
-#'   | `starting`        | character | started the game (`0`/`1`)             |
-#'   | `player_type`     | character | always `"skater"`                      |
+#'    |col_name         |types     |description                              |
+#'    |:----------------|:---------|:----------------------------------------|
+#'    |player_id        |character |Unique player identifier.                |
+#'    |first_name       |character |Player first name.                       |
+#'    |last_name        |character |Player last name.                        |
+#'    |position         |character |Player position.                         |
+#'    |team_id          |integer   |Unique team identifier.                  |
+#'    |game_id          |integer   |Unique game identifier.                  |
+#'    |league           |character |League code.                             |
+#'    |toi              |character |Time on ice (MM:SS).                     |
+#'    |time_on_ice      |numeric   |Time on ice in seconds.                  |
+#'    |goals            |integer   |Goals scored.                            |
+#'    |assists          |integer   |Assists.                                 |
+#'    |points           |integer   |Total points (goals + assists).          |
+#'    |shots            |integer   |Shots on goal.                           |
+#'    |hits             |integer   |Hits.                                    |
+#'    |blocked_shots    |integer   |Blocked shots.                           |
+#'    |penalty_minutes  |integer   |Penalty minutes.                         |
+#'    |plus_minus       |integer   |Plus/minus rating.                       |
+#'    |faceoff_attempts |integer   |Faceoff attempts.                        |
+#'    |faceoff_wins     |integer   |Faceoff wins.                            |
+#'    |faceoff_losses   |integer   |Faceoff losses.                          |
+#'    |faceoff_pct      |numeric   |Faceoff win percentage.                  |
+#'    |starting         |character |Whether the player started the game.     |
 #' @export
 #' @examples
 #' \donttest{
@@ -265,23 +439,31 @@ NULL
 #' @param ... Additional arguments (currently unused; kept for API symmetry).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the goalie box data table within the database
-#' @return A data frame of class `fastRhockey_data` with one row per goalie
-#'   per game. Common columns include:
+#' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
-#'   | column          | type      | description                              |
-#'   |-----------------|-----------|------------------------------------------|
-#'   | `game_id`       | integer   | PWHL game id                             |
-#'   | `team_id`       | integer   | HockeyTech team id                       |
-#'   | `player_id`     | integer   | HockeyTech player id                     |
-#'   | `first_name`    | character | goalie first name                        |
-#'   | `last_name`     | character | goalie last name                         |
-#'   | `jersey_number` | integer   | jersey number                            |
-#'   | `time_on_ice`   | character | total TOI (`MM:SS`)                      |
-#'   | `shots_against` | integer   | shots faced                              |
-#'   | `goals_against` | integer   | goals allowed                            |
-#'   | `saves`         | integer   | saves made                               |
-#'   | `starting`      | character | started the game (`0`/`1`)               |
-#'   | `player_type`   | character | always `"goalie"`                        |
+#'    |col_name         |types     |description                              |
+#'    |:----------------|:---------|:----------------------------------------|
+#'    |player_id        |character |Unique player identifier.                |
+#'    |first_name       |character |Goalie first name.                       |
+#'    |last_name        |character |Goalie last name.                        |
+#'    |position         |character |Player position.                         |
+#'    |team_id          |integer   |Unique team identifier.                  |
+#'    |game_id          |integer   |Unique game identifier.                  |
+#'    |league           |character |League code.                             |
+#'    |toi              |character |Time on ice (MM:SS).                     |
+#'    |time_on_ice      |numeric   |Time on ice in seconds.                  |
+#'    |saves            |integer   |Saves made.                              |
+#'    |goals_against    |integer   |Goals against.                           |
+#'    |shots_against    |integer   |Shots faced.                             |
+#'    |goals            |integer   |Goals scored.                            |
+#'    |assists          |integer   |Assists.                                 |
+#'    |points           |integer   |Total points (goals + assists).          |
+#'    |penalty_minutes  |integer   |Penalty minutes.                         |
+#'    |faceoff_attempts |integer   |Faceoff attempts.                        |
+#'    |faceoff_wins     |integer   |Faceoff wins.                            |
+#'    |faceoff_losses   |integer   |Faceoff losses.                          |
+#'    |faceoff_pct      |logical   |Faceoff win percentage.                  |
+#'    |starting         |integer   |Whether the goalie started the game.     |
 #' @export
 #' @examples
 #' \donttest{
@@ -315,25 +497,33 @@ NULL
 #' @param ... Additional arguments (currently unused; kept for API symmetry).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the team box data table within the database
-#' @return A data frame of class `fastRhockey_data`. Common columns include:
+#' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
-#'   | column             | type      | description                              |
-#'   |--------------------|-----------|------------------------------------------|
-#'   | `game_id`          | integer   | PWHL game id                             |
-#'   | `team_id`          | integer   | HockeyTech team id                       |
-#'   | `team`             | character | team full name                           |
-#'   | `team_abbr`        | character | three-letter abbreviation                |
-#'   | `team_side`        | character | `"home"` or `"away"`                     |
-#'   | `goals`            | integer   | goals scored                             |
-#'   | `shots`            | integer   | shots on goal                            |
-#'   | `pp_goals`         | integer   | power-play goals                         |
-#'   | `pp_opportunities` | integer   | power-play opportunities                 |
-#'   | `penalty_minutes`  | integer   | total PIM                                |
-#'   | `infraction_count` | integer   | number of infractions                    |
-#'   | `faceoff_attempts` | integer   | faceoff attempts                         |
-#'   | `faceoff_wins`     | integer   | faceoff wins                             |
-#'   | `faceoff_win_pct`  | numeric   | faceoff win percentage                   |
-#'   | `season_record`    | character | season record after this game            |
+#'    |col_name          |types     |description                              |
+#'    |:-----------------|:---------|:----------------------------------------|
+#'    |game_id           |integer   |Unique game identifier.                  |
+#'    |team_id           |integer   |Unique team identifier.                  |
+#'    |team              |character |Team name.                               |
+#'    |team_abbr         |character |Team abbreviation.                       |
+#'    |team_side         |character |Home or away indicator.                  |
+#'    |shots             |integer   |Shots on goal.                           |
+#'    |goals             |integer   |Goals scored.                            |
+#'    |hits              |integer   |Hits.                                    |
+#'    |pp_goals          |integer   |Power-play goals.                        |
+#'    |pp_opportunities  |integer   |Power-play opportunities.                |
+#'    |goal_count        |integer   |Total goals recorded.                    |
+#'    |assist_count      |integer   |Total assists recorded.                  |
+#'    |penalty_minutes   |integer   |Penalty minutes.                         |
+#'    |infraction_count  |integer   |Number of infractions.                   |
+#'    |faceoff_attempts  |integer   |Faceoff attempts.                        |
+#'    |faceoff_wins      |integer   |Faceoff wins.                            |
+#'    |faceoff_win_pct   |numeric   |Faceoff win percentage.                  |
+#'    |season_wins       |integer   |Season wins entering/after the game.     |
+#'    |season_losses     |integer   |Season losses entering/after the game.   |
+#'    |season_ot_wins    |integer   |Season overtime wins.                    |
+#'    |season_ot_losses  |integer   |Season overtime losses.                  |
+#'    |season_so_losses  |integer   |Season shootout losses.                  |
+#'    |season_record     |character |Season record after this game.           |
 #' @export
 #' @examples
 #' \donttest{
@@ -367,30 +557,34 @@ NULL
 #' @param ... Additional arguments (currently unused; kept for API symmetry).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the game info data table within the database
-#' @return A data frame of class `fastRhockey_data`. Common columns include:
+#' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
-#'   | column            | type      | description                                |
-#'   |-------------------|-----------|--------------------------------------------|
-#'   | `game_id`         | integer   | PWHL game id                               |
-#'   | `game_number`     | character | league game number                         |
-#'   | `game_date`       | character | human-readable game date                   |
-#'   | `game_date_iso`   | character | ISO-8601 game start datetime               |
-#'   | `start_time`      | character | start time (local)                         |
-#'   | `end_time`        | character | end time (local)                           |
-#'   | `game_duration`   | character | game length (`H:MM`)                       |
-#'   | `game_venue`      | character | venue name                                 |
-#'   | `attendance`      | integer   | reported attendance                        |
-#'   | `game_status`     | character | final / status text                        |
-#'   | `game_season_id`  | integer   | HockeyTech season id                       |
-#'   | `home_team_id`    | integer   | home team id                               |
-#'   | `home_team`       | character | home team name                             |
-#'   | `home_team_abbr`  | character | home abbreviation                          |
-#'   | `home_score`      | integer   | home final score                           |
-#'   | `away_team_id`    | integer   | away team id                               |
-#'   | `away_team`       | character | away team name                             |
-#'   | `away_team_abbr`  | character | away abbreviation                          |
-#'   | `away_score`      | integer   | away final score                           |
-#'   | `has_shootout`    | integer   | shootout flag                              |
+#'    |col_name        |types     |description                                |
+#'    |:---------------|:---------|:------------------------------------------|
+#'    |game_id         |integer   |Unique game identifier.                    |
+#'    |game_number     |character |League game number.                        |
+#'    |game_date       |character |Human-readable game date.                  |
+#'    |game_date_iso   |character |ISO-8601 game start datetime.              |
+#'    |start_time      |character |Start time (local).                        |
+#'    |end_time        |character |End time (local).                          |
+#'    |game_duration   |character |Game length (H:MM).                        |
+#'    |game_venue      |character |Venue name.                                |
+#'    |attendance      |integer   |Reported attendance.                       |
+#'    |game_status     |character |Game status text.                          |
+#'    |game_season_id  |integer   |HockeyTech season identifier.              |
+#'    |started         |integer   |Flag for whether the game has started.     |
+#'    |final           |integer   |Flag for whether the game is final.        |
+#'    |home_team_id    |integer   |Home team identifier.                      |
+#'    |home_team       |character |Home team name.                            |
+#'    |home_team_abbr  |character |Home team abbreviation.                    |
+#'    |home_score      |integer   |Home team final score.                     |
+#'    |away_team_id    |integer   |Away team identifier.                      |
+#'    |away_team       |character |Away team name.                            |
+#'    |away_team_abbr  |character |Away team abbreviation.                    |
+#'    |away_score      |integer   |Away team final score.                     |
+#'    |has_shootout    |integer   |Flag for whether the game went to shootout.|
+#'    |game_report_url |character |URL to the game report.                    |
+#'    |boxscore_url    |character |URL to the boxscore.                       |
 #' @export
 #' @examples
 #' \donttest{
@@ -424,26 +618,37 @@ NULL
 #' @param ... Additional arguments (currently unused; kept for API symmetry).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the scoring summary data table within the database
-#' @return A data frame of class `fastRhockey_data`. Common columns include:
+#' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
-#'   | column                | type      | description                              |
-#'   |-----------------------|-----------|------------------------------------------|
-#'   | `game_id`             | integer   | PWHL game id                             |
-#'   | `period_id`           | integer   | period id                                |
-#'   | `period`              | character | period long name (e.g. `1st`, `1st OT`)  |
-#'   | `time`                | character | game clock at goal (`MM:SS`)             |
-#'   | `team_id`             | integer   | scoring team id                          |
-#'   | `team`                | character | scoring team name                        |
-#'   | `scorer_id`           | integer   | goal scorer id                           |
-#'   | `scorer_first`        | character | scorer first name                        |
-#'   | `scorer_last`         | character | scorer last name                         |
-#'   | `assist_1_id`         | integer   | primary assist id                        |
-#'   | `assist_2_id`         | integer   | secondary assist id                      |
-#'   | `is_power_play`       | integer   | power-play flag                          |
-#'   | `is_short_handed`     | integer   | short-handed flag                        |
-#'   | `is_empty_net`        | integer   | empty-net flag                           |
-#'   | `is_penalty_shot`     | integer   | penalty-shot flag                        |
-#'   | `is_game_winning`     | integer   | game-winning-goal flag                   |
+#'    |col_name           |types     |description                                |
+#'    |:------------------|:---------|:------------------------------------------|
+#'    |game_id            |integer   |Unique game identifier.                    |
+#'    |period_id          |integer   |Period identifier.                         |
+#'    |period             |character |Period long name (e.g. 1st, 1st OT).       |
+#'    |time               |character |Game clock at goal (MM:SS).                |
+#'    |team_id            |integer   |Scoring team identifier.                   |
+#'    |team               |character |Scoring team name.                         |
+#'    |team_abbr          |character |Scoring team abbreviation.                 |
+#'    |game_goal_id       |integer   |Goal identifier within the game.           |
+#'    |scorer_goal_number |integer   |Scorer's season goal number.               |
+#'    |scorer_id          |integer   |Goal scorer identifier.                    |
+#'    |scorer_first       |character |Scorer first name.                         |
+#'    |scorer_last        |character |Scorer last name.                          |
+#'    |scorer_position    |character |Scorer position.                           |
+#'    |assist_1_id        |integer   |Primary assist player identifier.          |
+#'    |assist_1_first     |character |Primary assist first name.                 |
+#'    |assist_1_last      |character |Primary assist last name.                  |
+#'    |assist_2_id        |integer   |Secondary assist player identifier.        |
+#'    |assist_2_first     |character |Secondary assist first name.               |
+#'    |assist_2_last      |character |Secondary assist last name.                |
+#'    |is_power_play      |integer   |Power-play flag.                           |
+#'    |is_short_handed    |integer   |Short-handed flag.                         |
+#'    |is_empty_net       |integer   |Empty-net flag.                            |
+#'    |is_penalty_shot    |integer   |Penalty-shot flag.                         |
+#'    |is_insurance       |integer   |Insurance-goal flag.                       |
+#'    |is_game_winning    |integer   |Game-winning-goal flag.                    |
+#'    |x_location         |logical   |Goal x-coordinate on the ice.              |
+#'    |y_location         |logical   |Goal y-coordinate on the ice.              |
 #' @export
 #' @examples
 #' \donttest{
@@ -477,24 +682,30 @@ NULL
 #' @param ... Additional arguments (currently unused; kept for API symmetry).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the penalty summary data table within the database
-#' @return A data frame of class `fastRhockey_data`. Common columns include:
+#' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
-#'   | column            | type      | description                                  |
-#'   |-------------------|-----------|----------------------------------------------|
-#'   | `game_id`         | integer   | PWHL game id                                 |
-#'   | `period_id`       | integer   | period id                                    |
-#'   | `period`          | character | period long name                             |
-#'   | `time`            | character | game clock at infraction (`MM:SS`)           |
-#'   | `team_id`         | integer   | penalized team id                            |
-#'   | `team`            | character | penalized team name                          |
-#'   | `minutes`         | numeric   | penalty length in minutes                    |
-#'   | `description`     | character | infraction description                       |
-#'   | `is_power_play`   | integer   | power-play flag                              |
-#'   | `is_bench`        | integer   | bench-minor flag                             |
-#'   | `taken_by_id`     | integer   | player who took the penalty                  |
-#'   | `taken_by_first`  | character | offender first name                          |
-#'   | `taken_by_last`   | character | offender last name                           |
-#'   | `served_by_id`    | integer   | player serving the penalty                   |
+#'    |col_name          |types     |description                                 |
+#'    |:-----------------|:---------|:-------------------------------------------|
+#'    |game_id           |integer   |Unique game identifier.                     |
+#'    |period_id         |integer   |Period identifier.                          |
+#'    |period            |character |Period long name.                           |
+#'    |time              |character |Game clock at infraction (MM:SS).           |
+#'    |team_id           |integer   |Penalized team identifier.                  |
+#'    |team              |character |Penalized team name.                        |
+#'    |team_abbr         |character |Penalized team abbreviation.                |
+#'    |game_penalty_id   |integer   |Penalty identifier within the game.         |
+#'    |minutes           |integer   |Penalty length in minutes.                  |
+#'    |description       |character |Infraction description.                     |
+#'    |rule_number       |character |Rulebook rule number.                       |
+#'    |is_power_play     |integer   |Power-play flag.                            |
+#'    |is_bench          |integer   |Bench-minor flag.                           |
+#'    |taken_by_id       |integer   |Identifier of the player who took the penalty.|
+#'    |taken_by_first    |character |Offender first name.                        |
+#'    |taken_by_last     |character |Offender last name.                         |
+#'    |taken_by_position |character |Offender position.                          |
+#'    |served_by_id      |integer   |Identifier of the player serving the penalty.|
+#'    |served_by_first   |character |First name of the player serving.           |
+#'    |served_by_last    |character |Last name of the player serving.            |
 #' @export
 #' @examples
 #' \donttest{
@@ -528,26 +739,30 @@ NULL
 #' @param ... Additional arguments (currently unused; kept for API symmetry).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the three stars data table within the database
-#' @return A data frame of class `fastRhockey_data`. Common columns include:
+#' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
-#'   | column           | type      | description                                |
-#'   |------------------|-----------|--------------------------------------------|
-#'   | `game_id`        | integer   | PWHL game id                               |
-#'   | `star`           | integer   | star rank (1-3)                            |
-#'   | `team_id`        | integer   | star's team id                             |
-#'   | `team`           | character | star's team name                           |
-#'   | `player_id`      | integer   | star's player id                           |
-#'   | `first_name`     | character | star's first name                          |
-#'   | `last_name`      | character | star's last name                           |
-#'   | `jersey_number`  | integer   | jersey number                              |
-#'   | `position`       | character | position code                              |
-#'   | `is_goalie`      | integer   | goalie flag                                |
-#'   | `is_home`        | integer   | home-team flag                             |
-#'   | `goals`          | integer   | star's goals in this game                  |
-#'   | `assists`        | integer   | star's assists in this game                |
-#'   | `points`         | integer   | star's points in this game                 |
-#'   | `saves`          | integer   | saves (goalies)                            |
-#'   | `shots_against`  | integer   | shots against (goalies)                    |
+#'    |col_name      |types     |description                              |
+#'    |:-------------|:---------|:----------------------------------------|
+#'    |game_id       |integer   |Unique game identifier.                  |
+#'    |star          |integer   |Star rank (1-3).                         |
+#'    |team_id       |integer   |Star's team identifier.                  |
+#'    |team          |character |Star's team name.                        |
+#'    |team_abbr     |character |Star's team abbreviation.                |
+#'    |player_id     |integer   |Star's player identifier.                |
+#'    |first_name    |character |Star's first name.                       |
+#'    |last_name     |character |Star's last name.                        |
+#'    |jersey_number |integer   |Jersey number.                           |
+#'    |position      |character |Player position.                         |
+#'    |is_goalie     |integer   |Goalie flag.                             |
+#'    |is_home       |integer   |Home-team flag.                          |
+#'    |goals         |integer   |Goals scored in this game.               |
+#'    |assists       |integer   |Assists in this game.                    |
+#'    |points        |integer   |Points in this game.                     |
+#'    |shots         |integer   |Shots on goal in this game.              |
+#'    |saves         |integer   |Saves made (goalies).                    |
+#'    |shots_against |integer   |Shots faced (goalies).                   |
+#'    |goals_against |integer   |Goals against (goalies).                 |
+#'    |time_on_ice   |character |Time on ice (MM:SS).                     |
 #' @export
 #' @examples
 #' \donttest{
@@ -581,16 +796,16 @@ NULL
 #' @param ... Additional arguments (currently unused; kept for API symmetry).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the officials data table within the database
-#' @return A data frame of class `fastRhockey_data`. Common columns include:
+#' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
-#'   | column          | type      | description                                |
-#'   |-----------------|-----------|--------------------------------------------|
-#'   | `game_id`       | integer   | PWHL game id                               |
-#'   | `role`          | character | grouped role (Referee/Linesperson/etc)     |
-#'   | `first_name`    | character | official's first name                      |
-#'   | `last_name`     | character | official's last name                       |
-#'   | `jersey_number` | integer   | official's jersey number                   |
-#'   | `official_role` | character | official's specific role                   |
+#'    |col_name      |types     |description                                  |
+#'    |:-------------|:---------|:--------------------------------------------|
+#'    |game_id       |integer   |Unique game identifier.                      |
+#'    |role          |character |Grouped official role (Referee/Linesperson). |
+#'    |first_name    |character |Official's first name.                       |
+#'    |last_name     |character |Official's last name.                        |
+#'    |jersey_number |integer   |Official's jersey number.                    |
+#'    |official_role |character |Official's specific role.                    |
 #' @export
 #' @examples
 #' \donttest{
@@ -624,18 +839,17 @@ NULL
 #' @param ... Additional arguments (currently unused; kept for API symmetry).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the shots-by-period data table within the database
-#' @return A data frame of class `fastRhockey_data`. One row per period per
-#'   game. Common columns include:
+#' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
-#'   | column        | type      | description                                |
-#'   |---------------|-----------|--------------------------------------------|
-#'   | `game_id`     | integer   | PWHL game id                               |
-#'   | `period_id`   | integer   | period id (1-3, 4 = OT, 5 = SO, etc.)      |
-#'   | `period`      | character | period long name                           |
-#'   | `home_goals`  | integer   | home goals in period                       |
-#'   | `home_shots`  | integer   | home shots in period                       |
-#'   | `away_goals`  | integer   | away goals in period                       |
-#'   | `away_shots`  | integer   | away shots in period                       |
+#'    |col_name   |types     |description                                |
+#'    |:----------|:---------|:------------------------------------------|
+#'    |game_id    |integer   |Unique game identifier.                    |
+#'    |period_id  |integer   |Period identifier (1-3, 4 = OT, 5 = SO).   |
+#'    |period     |character |Period long name.                          |
+#'    |home_goals |integer   |Home goals in the period.                  |
+#'    |home_shots |integer   |Home shots in the period.                  |
+#'    |away_goals |integer   |Away goals in the period.                  |
+#'    |away_shots |integer   |Away shots in the period.                  |
 #' @export
 #' @examples
 #' \donttest{
@@ -670,21 +884,21 @@ NULL
 #' @param ... Additional arguments (currently unused; kept for API symmetry).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the shootout data table within the database
-#' @return A data frame of class `fastRhockey_data`. One row per shootout
-#'   attempt. Common columns include:
+#' @return A data frame (`fastRhockey_data`) with one row per shootout attempt
+#'   and the following columns:
 #'
-#'   | column         | type      | description                                |
-#'   |----------------|-----------|--------------------------------------------|
-#'   | `game_id`      | integer   | PWHL game id                               |
-#'   | `round`        | integer   | shootout round number                      |
-#'   | `team_side`    | character | `"home"` or `"away"`                       |
-#'   | `shooter_id`   | integer   | shooter player id                          |
-#'   | `shooter_first`| character | shooter first name                         |
-#'   | `shooter_last` | character | shooter last name                          |
-#'   | `goalie_id`    | integer   | opposing goalie id                         |
-#'   | `goalie_first` | character | goalie first name                          |
-#'   | `goalie_last`  | character | goalie last name                           |
-#'   | `is_goal`      | integer   | scored flag                                |
+#'    |col_name      |types     |description                          |
+#'    |:-------------|:---------|:------------------------------------|
+#'    |game_id       |integer   |Unique game identifier.              |
+#'    |round         |integer   |Shootout round number.               |
+#'    |team_side     |character |Shooting team side ("home"/"away").  |
+#'    |shooter_id    |integer   |Shooter player identifier.           |
+#'    |shooter_first |character |Shooter first name.                  |
+#'    |shooter_last  |character |Shooter last name.                   |
+#'    |goalie_id     |integer   |Opposing goalie identifier.          |
+#'    |goalie_first  |character |Opposing goalie first name.          |
+#'    |goalie_last   |character |Opposing goalie last name.           |
+#'    |is_goal       |integer   |Whether the attempt scored (1/0).    |
 #' @export
 #' @examples
 #' \donttest{
@@ -720,24 +934,24 @@ NULL
 #' @param ... Additional arguments (currently unused; kept for API symmetry).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the per-game rosters data table within the database
-#' @return A data frame of class `fastRhockey_data`. Common columns include:
+#' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
-#'   | column          | type      | description                                |
-#'   |-----------------|-----------|--------------------------------------------|
-#'   | `game_id`       | integer   | PWHL game id                               |
-#'   | `team_id`       | integer   | team id                                    |
-#'   | `team`          | character | team name                                  |
-#'   | `team_abbr`     | character | three-letter abbreviation                  |
-#'   | `team_side`     | character | `"home"` or `"away"`                       |
-#'   | `player_type`   | character | `"skater"` or `"goalie"`                   |
-#'   | `player_id`     | integer   | player id                                  |
-#'   | `first_name`    | character | player first name                          |
-#'   | `last_name`     | character | player last name                           |
-#'   | `jersey_number` | integer   | jersey number                              |
-#'   | `position`      | character | position code                              |
-#'   | `birth_date`    | character | birth date                                 |
-#'   | `starting`      | integer   | started the game (`0`/`1`)                 |
-#'   | `status`        | character | status string (e.g. captain markers)       |
+#'    |col_name      |types     |description                              |
+#'    |:-------------|:---------|:----------------------------------------|
+#'    |game_id       |integer   |Unique game identifier.                  |
+#'    |team_id       |integer   |Unique team identifier.                  |
+#'    |team          |character |Team name.                               |
+#'    |team_abbr     |character |Team abbreviation.                       |
+#'    |team_side     |character |Home or away indicator.                  |
+#'    |player_type   |character |Player type (skater or goalie).          |
+#'    |player_id     |integer   |Unique player identifier.                |
+#'    |first_name    |character |Player first name.                       |
+#'    |last_name     |character |Player last name.                        |
+#'    |jersey_number |integer   |Jersey number.                           |
+#'    |position      |character |Player position.                         |
+#'    |birth_date    |character |Player birth date.                       |
+#'    |starting      |integer   |Whether the player started the game.     |
+#'    |status        |character |Status string (e.g. captain markers).    |
 #' @export
 #' @examples
 #' \donttest{

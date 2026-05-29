@@ -13,7 +13,17 @@ nhl_records_franchise(franchise_id = NULL, lang = "en")
 server-side but reserved for future use.}
 }
 \value{
-A \code{fastRhockey_data} tibble of franchises, or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique franchise identifier. \cr
+   first_season_id \tab integer \tab Season identifier of the first season. \cr
+   full_name \tab character \tab Full franchise name. \cr
+   last_season_id \tab integer \tab Season identifier of the last season. \cr
+   most_recent_team_id \tab integer \tab Most recent team identifier. \cr
+   team_abbrev \tab character \tab Team abbreviation. \cr
+   team_common_name \tab character \tab Team common (nickname) name. \cr
+   team_place_name \tab character \tab Team place (location) name. \cr
+}
 }
 \description{
 Returns the franchise listing from the NHL Records API

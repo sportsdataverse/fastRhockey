@@ -6,8 +6,18 @@
 #'   `cayenne_exp` is already provided.
 #' @param cayenne_exp Optional Cayenne filter expression string. Takes
 #'   precedence over `franchise_id` when both are supplied.
-#' @return A `fastRhockey_data` tibble of franchise playoff appearances, or
-#'   `NULL` on failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name                |types     |description                            |
+#'    |:-----------------------|:---------|:--------------------------------------|
+#'    |id                      |integer   |Unique record identifier.              |
+#'    |first_season_id         |integer   |Season identifier of the first season. |
+#'    |franchise_id            |integer   |Unique franchise identifier.           |
+#'    |franchise_name          |character |Franchise name.                        |
+#'    |playoff_seasons         |integer   |Number of seasons reaching the playoffs.|
+#'    |stanley_cup_appearances |integer   |Number of Stanley Cup Final appearances.|
+#'    |stanley_cup_wins        |integer   |Number of Stanley Cup championships.   |
+#'    |years                   |integer   |Number of years the franchise existed. |
 #' @keywords NHL Records Franchise Playoff Appearances
 #' @importFrom janitor clean_names
 #' @importFrom dplyr as_tibble

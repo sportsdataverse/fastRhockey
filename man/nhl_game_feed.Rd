@@ -16,9 +16,40 @@ player tracking. Default TRUE.}
 instead of parsed/enriched data. Default FALSE.}
 }
 \value{
-A named list with elements: pbp (play-by-play data frame),
-game_info (game metadata), rosters (player roster data frame).
-When \code{raw = TRUE}, returns the raw JSON response as a nested list.
+A named list of data frames: \code{pbp}, \code{game_info}, \code{rosters}. When
+\code{raw = TRUE}, returns the raw JSON response as a nested list.
+
+\strong{pbp}
+
+See \code{\link[=nhl_game_pbp]{nhl_game_pbp()}} for the full play-by-play column dictionary; the
+\code{pbp} element returns the same one-row-per-event data frame.
+
+\strong{game_info}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   game_type \tab character \tab Game type code (PR, R, P, A). \cr
+   game_date \tab character \tab Game date. \cr
+   venue \tab character \tab Venue name. \cr
+   home_team_abbr \tab character \tab Home team abbreviation. \cr
+   away_team_abbr \tab character \tab Away team abbreviation. \cr
+   home_score \tab integer \tab Final home team score. \cr
+   away_score \tab integer \tab Final away team score. \cr
+   game_state \tab character \tab Current state of the game. \cr
+}
+
+
+\strong{rosters}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   full_name \tab character \tab Player full name. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   team_abbr \tab character \tab Team abbreviation. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   position_code \tab character \tab Player position code. \cr
+   sweater_number \tab integer \tab Jersey number. \cr
+}
 }
 \description{
 Returns a named list with play-by-play data plus game metadata

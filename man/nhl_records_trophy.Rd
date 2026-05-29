@@ -10,7 +10,19 @@ nhl_records_trophy(cayenne_exp = NULL)
 \item{cayenne_exp}{Optional Cayenne filter expression string.}
 }
 \value{
-A \code{fastRhockey_data} tibble of trophies, or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique trophy identifier. \cr
+   brief_description \tab character \tab Brief description of the trophy. \cr
+   category_id \tab integer \tab Trophy category identifier. \cr
+   created_on \tab character \tab Date the trophy record was created. \cr
+   description \tab character \tab Full description of the trophy. \cr
+   footnote \tab logical \tab Footnote associated with the trophy. \cr
+   home_page_url \tab character \tab URL to the trophy's home page. \cr
+   image_url \tab character \tab URL to the trophy's image. \cr
+   name \tab character \tab Full name of the trophy. \cr
+   short_name \tab character \tab Short name of the trophy. \cr
+}
 }
 \description{
 Returns the NHL trophy listing from the NHL Records API

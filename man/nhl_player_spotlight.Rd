@@ -7,7 +7,22 @@
 nhl_player_spotlight()
 }
 \value{
-Returns a data frame with spotlight player information.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   player_slug \tab character \tab URL slug for the player. \cr
+   position \tab character \tab Player position. \cr
+   sweater_number \tab integer \tab Player sweater (jersey) number. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   headshot \tab character \tab URL of the player headshot image. \cr
+   team_tri_code \tab character \tab Three-letter team code. \cr
+   team_logo \tab character \tab URL of the team logo image. \cr
+   sort_id \tab integer \tab Sort order identifier for the spotlight. \cr
+   name_default \tab character \tab Player name (default localization). \cr
+   name_cs \tab character \tab Player name (Czech localization). \cr
+   name_fi \tab character \tab Player name (Finnish localization). \cr
+   name_sk \tab character \tab Player name (Slovak localization). \cr
+}
 }
 \description{
 Returns the current NHL player spotlight — featured players

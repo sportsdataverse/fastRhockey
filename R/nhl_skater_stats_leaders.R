@@ -7,7 +7,31 @@
 #' @param categories Character vector of stat categories (e.g., "goals", "assists",
 #'   "points", "plusMinus", "penaltyMins"). If NULL, returns all available categories.
 #' @param limit Integer maximum number of leaders per category. If NULL, uses API default.
-#' @return Returns a data frame with skater leaders.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name           |types     |description                |
+#'    |:------------------|:---------|:--------------------------|
+#'    |id                 |integer   |Unique player identifier.  |
+#'    |sweater_number     |integer   |Jersey number.             |
+#'    |headshot           |character |URL to the player headshot image. |
+#'    |team_abbrev        |character |Team abbreviation.         |
+#'    |team_logo          |character |URL to the team logo image. |
+#'    |position           |character |Player position.           |
+#'    |value              |numeric   |Statistical value for the category. |
+#'    |first_name_default |character |Player first name (default). |
+#'    |last_name_default  |character |Player last name (default). |
+#'    |team_name_default  |character |Team name (default).       |
+#'    |category           |character |Stat leader category.      |
+#'    |first_name_cs      |character |Player first name (Czech). |
+#'    |first_name_de      |character |Player first name (German). |
+#'    |first_name_es      |character |Player first name (Spanish). |
+#'    |first_name_fi      |character |Player first name (Finnish). |
+#'    |first_name_sk      |character |Player first name (Slovak). |
+#'    |first_name_sv      |character |Player first name (Swedish). |
+#'    |last_name_cs       |character |Player last name (Czech).  |
+#'    |last_name_sk       |character |Player last name (Slovak). |
+#'    |last_name_fi       |character |Player last name (Finnish). |
+#'    |team_name_fr       |character |Team name (French).        |
 #' @keywords NHL Skater Stats Leaders
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON toJSON

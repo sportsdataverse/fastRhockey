@@ -10,7 +10,11 @@ nhl_roster_season(team_abbr)
 \item{team_abbr}{Three-letter team abbreviation (e.g., "TOR", "BOS")}
 }
 \value{
-Returns a data frame with available roster seasons.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season for which roster data is available (8-digit, e.g. 20102011). \cr
+   team_abbr \tab character \tab Three-letter team abbreviation. \cr
+}
 }
 \description{
 Returns the list of seasons for which roster data is available

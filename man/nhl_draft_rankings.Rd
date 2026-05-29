@@ -14,7 +14,23 @@ skaters, 3 = North American goalies, 4 = International goalies.
 Default 1.}
 }
 \value{
-Returns a data frame with draft ranking data.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   last_name \tab character \tab Prospect last name. \cr
+   first_name \tab character \tab Prospect first name. \cr
+   position_code \tab character \tab Player position code. \cr
+   shoots_catches \tab character \tab Handedness (shoots/catches). \cr
+   height_in_inches \tab integer \tab Height in inches. \cr
+   weight_in_pounds \tab integer \tab Weight in pounds. \cr
+   last_amateur_club \tab character \tab Most recent amateur club. \cr
+   last_amateur_league \tab character \tab Most recent amateur league. \cr
+   birth_date \tab character \tab Date of birth. \cr
+   birth_city \tab character \tab City of birth. \cr
+   birth_state_province \tab character \tab State or province of birth. \cr
+   birth_country \tab character \tab Country of birth. \cr
+   midterm_rank \tab integer \tab Midterm draft ranking. \cr
+   final_rank \tab integer \tab Final draft ranking. \cr
+}
 }
 \description{
 Returns NHL draft rankings for a given season and category.

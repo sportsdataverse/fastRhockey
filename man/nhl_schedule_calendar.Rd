@@ -10,7 +10,25 @@ nhl_schedule_calendar(date = NULL)
 \item{date}{Character date in "YYYY-MM-DD" format. If NULL, returns current.}
 }
 \value{
-Returns a list with calendar data.
+A named list of data frames: \code{teams}.
+
+\strong{teams}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique team identifier. \cr
+   seasonId \tab integer \tab Season identifier (8-digit). \cr
+   abbrev \tab character \tab Team abbreviation. \cr
+   logo \tab character \tab URL of the team logo. \cr
+   darkLogo \tab character \tab URL of the team dark-mode logo. \cr
+   french \tab logical \tab Whether the team uses French naming. \cr
+   commonName.default \tab character \tab Team common name (default language). \cr
+   commonName.fr \tab character \tab Team common name (French). \cr
+   name.default \tab character \tab Team name (default language). \cr
+   name.fr \tab character \tab Team name (French). \cr
+   placeNameWithPreposition.default \tab character \tab Place name with preposition (default). \cr
+   placeNameWithPreposition.fr \tab character \tab Place name with preposition (French). \cr
+   placeName.default \tab character \tab Place name (default language). \cr
+   placeName.fr \tab character \tab Place name (French). \cr
+}
 }
 \description{
 Returns the schedule calendar showing which dates have games.

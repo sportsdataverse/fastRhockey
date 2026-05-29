@@ -10,8 +10,26 @@
 #' @param lang Character language code. Default `"en"`.
 #' @param cayenne_exp Optional Cayenne filter expression string passed via
 #'   the `cayenneExp` query parameter (e.g., `"seasonId=20242025"`).
-#' @return A `fastRhockey_data` tibble of skater leaders, or `NULL` on
-#'   failure.
+#' @return A data frame (`fastRhockey_data`) of skater leaders, or `NULL` on
+#'   failure. When ranking by `"assists"` the columns are:
+#'
+#'    |col_name                |types     |description                                  |
+#'    |:-----------------------|:---------|:--------------------------------------------|
+#'    |assists                 |integer   |Assists (the ranked attribute).              |
+#'    |player_id               |integer   |Unique player identifier.                    |
+#'    |player_current_team_id  |logical   |Player's current team identifier.            |
+#'    |player_first_name       |character |Player first name.                           |
+#'    |player_full_name        |character |Player full name.                            |
+#'    |player_last_name        |character |Player last name.                            |
+#'    |player_position_code    |character |Player position code.                        |
+#'    |player_sweater_number   |integer   |Player jersey number.                        |
+#'    |team_id                 |integer   |Unique team identifier.                      |
+#'    |team_franchise_id       |integer   |Team franchise identifier.                   |
+#'    |team_full_name          |character |Team full name.                              |
+#'    |team_league_id          |integer   |League identifier of the team.               |
+#'    |team_logos              |list      |Team logo metadata.                          |
+#'    |team_raw_tricode        |character |Team raw three-letter code.                  |
+#'    |team_tri_code           |character |Team three-letter code.                      |
 #' @keywords NHL Stats Skater Leaders
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

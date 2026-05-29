@@ -10,8 +10,37 @@ nhl_game_content(game_id)
 \item{game_id}{Game unique ID (e.g., 2024020001)}
 }
 \value{
-Returns a data frame with game summary information including teams,
-scores, venue, and period scoring details.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   game_type \tab integer \tab Game type code (2 = regular, 3 = playoffs). \cr
+   game_date \tab character \tab Game date. \cr
+   venue \tab character \tab Venue name. \cr
+   away_team_abbrev \tab character \tab Away team abbreviation. \cr
+   away_team_name \tab character \tab Away team name. \cr
+   away_team_score \tab integer \tab Away team final score. \cr
+   away_team_sog \tab integer \tab Away team shots on goal. \cr
+   home_team_abbrev \tab character \tab Home team abbreviation. \cr
+   home_team_name \tab character \tab Home team name. \cr
+   home_team_score \tab integer \tab Home team final score. \cr
+   home_team_sog \tab integer \tab Home team shots on goal. \cr
+   game_state \tab character \tab Game state (e.g., FINAL, LIVE). \cr
+   period \tab integer \tab Last period number played. \cr
+   period_type \tab character \tab Last period type (REG, OT, SO). \cr
+   star_1_player_id \tab integer \tab First star player identifier. \cr
+   star_1_name \tab character \tab First star player name. \cr
+   star_1_team_abbrev \tab character \tab First star player team abbreviation. \cr
+   star_1_position \tab character \tab First star player position. \cr
+   star_2_player_id \tab integer \tab Second star player identifier. \cr
+   star_2_name \tab character \tab Second star player name. \cr
+   star_2_team_abbrev \tab character \tab Second star player team abbreviation. \cr
+   star_2_position \tab character \tab Second star player position. \cr
+   star_3_player_id \tab integer \tab Third star player identifier. \cr
+   star_3_name \tab character \tab Third star player name. \cr
+   star_3_team_abbrev \tab character \tab Third star player team abbreviation. \cr
+   star_3_position \tab character \tab Third star player position. \cr
+}
 }
 \description{
 Returns game summary content for a given game ID.

@@ -1,6 +1,10 @@
 #' @title **NHL Seasons**
 #' @description Returns a list of all NHL seasons with their metadata.
-#' @return Returns a data frame with season information.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name  |types   |description                |
+#'    |:---------|:-------|:--------------------------|
+#'    |season_id |integer |Season identifier (e.g., 20232024). |
 #' @keywords NHL Seasons
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
@@ -56,7 +60,24 @@ nhl_seasons <- function() {
 #' @param category Integer category: 1 = North American skaters, 2 = International
 #'   skaters, 3 = North American goalies, 4 = International goalies.
 #'   Default 1.
-#' @return Returns a data frame with draft ranking data.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name             |types     |description                |
+#'    |:--------------------|:---------|:--------------------------|
+#'    |last_name            |character |Prospect last name.        |
+#'    |first_name           |character |Prospect first name.       |
+#'    |position_code        |character |Player position code.      |
+#'    |shoots_catches       |character |Handedness (shoots/catches).|
+#'    |height_in_inches     |integer   |Height in inches.          |
+#'    |weight_in_pounds     |integer   |Weight in pounds.          |
+#'    |last_amateur_club    |character |Most recent amateur club.  |
+#'    |last_amateur_league  |character |Most recent amateur league.|
+#'    |birth_date           |character |Date of birth.             |
+#'    |birth_city           |character |City of birth.             |
+#'    |birth_state_province |character |State or province of birth.|
+#'    |birth_country        |character |Country of birth.          |
+#'    |midterm_rank         |integer   |Midterm draft ranking.     |
+#'    |final_rank           |integer   |Final draft ranking.       |
 #' @keywords NHL Draft Rankings
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

@@ -13,7 +13,23 @@ nhl_teams_roster(team_abbr, season = NULL)
 If NULL, returns the current roster.}
 }
 \value{
-Returns a data frame with roster information.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   full_name \tab character \tab Player full name. \cr
+   sweater_number \tab integer \tab Jersey number. \cr
+   position_code \tab character \tab Player position code (F/D/G). \cr
+   shoots_catches \tab character \tab Handedness (shoots/catches). \cr
+   height_inches \tab integer \tab Height in inches. \cr
+   weight_pounds \tab integer \tab Weight in pounds. \cr
+   birth_date \tab character \tab Player birth date. \cr
+   birth_city \tab character \tab Player birth city. \cr
+   birth_country \tab character \tab Player birth country. \cr
+   headshot_url \tab character \tab URL to the player's headshot image. \cr
+   team_abbr \tab character \tab Team abbreviation. \cr
+}
 }
 \description{
 Returns the roster for a given NHL team.

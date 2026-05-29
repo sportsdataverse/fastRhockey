@@ -22,7 +22,27 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with one row per star selection
+(plus the game winner/loser goalie decision) and the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   star \tab integer \tab Star ranking (1, 2, or 3). \cr
+   playerId \tab integer \tab Player id of the selected star. \cr
+   teamAbbrev \tab character \tab Team abbreviation of the selected star. \cr
+   headshot \tab character \tab URL to the player headshot image. \cr
+   name \tab list \tab Player display name (localized list). \cr
+   sweaterNo \tab integer \tab Jersey number. \cr
+   position \tab character \tab Player position. \cr
+   goals \tab integer \tab Goals scored in the game (skaters). \cr
+   assists \tab integer \tab Assists in the game (skaters). \cr
+   points \tab integer \tab Total points in the game (skaters). \cr
+   goalsAgainstAverage \tab numeric \tab Goals-against average (goalies). \cr
+   savePctg \tab numeric \tab Save percentage (goalies). \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   winner_id \tab integer \tab Player id of the winning goalie. \cr
+   winner_name \tab character \tab Name of the winning goalie. \cr
+   loser_id \tab integer \tab Player id of the losing goalie. \cr
+   loser_name \tab character \tab Name of the losing goalie. \cr
+}
 }
 \description{
 Helper that loads multiple seasons of NHL three-star selections

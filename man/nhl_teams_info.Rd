@@ -10,7 +10,29 @@ nhl_teams_info(team_abbr)
 \item{team_abbr}{Three-letter team abbreviation (e.g., "TBL", "TOR", "SEA")}
 }
 \value{
-Returns a data frame with team information filtered to the given team.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   team_abbr \tab character \tab Team abbreviation. \cr
+   team_name \tab character \tab Team name. \cr
+   team_common_name \tab character \tab Team common name. \cr
+   team_logo \tab character \tab URL to the team logo image. \cr
+   conference_abbr \tab character \tab Conference abbreviation. \cr
+   conference_name \tab character \tab Conference name. \cr
+   division_abbr \tab character \tab Division abbreviation. \cr
+   division_name \tab character \tab Division name. \cr
+   place_name \tab character \tab Team place/city name. \cr
+   games_played \tab integer \tab Games played. \cr
+   wins \tab integer \tab Wins. \cr
+   losses \tab integer \tab Losses. \cr
+   ot_losses \tab integer \tab Overtime losses. \cr
+   points \tab integer \tab Total points. \cr
+   point_pctg \tab numeric \tab Points percentage. \cr
+   goals_for \tab integer \tab Goals for. \cr
+   goals_against \tab integer \tab Goals against. \cr
+   goal_differential \tab integer \tab Goal differential. \cr
+   streak_code \tab character \tab Current streak code (W/L/OT). \cr
+   streak_count \tab integer \tab Length of the current streak. \cr
+}
 }
 \description{
 Returns NHL team information for a given team abbreviation.

@@ -18,7 +18,23 @@ nhl_draft_prospects_info(year, prospect_category = 1)
 }}
 }
 \value{
-Returns a data frame of draft prospect rankings.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   last_name \tab character \tab Prospect last name. \cr
+   first_name \tab character \tab Prospect first name. \cr
+   position_code \tab character \tab Player position code. \cr
+   shoots_catches \tab character \tab Handedness (shoots/catches). \cr
+   height_in_inches \tab integer \tab Height in inches. \cr
+   weight_in_pounds \tab integer \tab Weight in pounds. \cr
+   last_amateur_club \tab character \tab Last amateur club played for. \cr
+   last_amateur_league \tab character \tab Last amateur league played in. \cr
+   birth_date \tab character \tab Prospect birth date. \cr
+   birth_city \tab character \tab Prospect birth city. \cr
+   birth_state_province \tab character \tab Prospect birth state or province. \cr
+   birth_country \tab character \tab Prospect birth country. \cr
+   midterm_rank \tab integer \tab Midterm ranking for the prospect. \cr
+   final_rank \tab integer \tab Final ranking for the prospect. \cr
+}
 }
 \description{
 Returns draft prospect rankings for a given year and prospect category.

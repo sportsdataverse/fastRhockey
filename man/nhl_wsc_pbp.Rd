@@ -10,7 +10,53 @@ nhl_wsc_pbp(game_id)
 \item{game_id}{Integer or character game ID (e.g., 2023020001).}
 }
 \value{
-Returns a list with narrative-format play-by-play data.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique play event identifier. \cr
+   eventId \tab integer \tab Event identifier within the game. \cr
+   period \tab integer \tab Period number. \cr
+   timeInPeriod \tab character \tab Elapsed time in the period (MM:SS). \cr
+   secondsRemaining \tab integer \tab Seconds remaining in the period. \cr
+   situationCode \tab character \tab On-ice situation code. \cr
+   typeCode \tab integer \tab Numeric event type code. \cr
+   typeDescKey \tab character \tab Event type description key. \cr
+   homeTeamDefendingSide \tab character \tab Side of the ice the home team is defending. \cr
+   sortOrder \tab integer \tab Sort order of the event. \cr
+   utc \tab character \tab UTC timestamp of the event. \cr
+   eventOwnerTeamId \tab integer \tab Team identifier that owns the event. \cr
+   losingPlayerId \tab integer \tab Player identifier who lost the faceoff. \cr
+   winningPlayerId \tab integer \tab Player identifier who won the faceoff. \cr
+   xCoord \tab integer \tab X coordinate of the event on the ice. \cr
+   yCoord \tab integer \tab Y coordinate of the event on the ice. \cr
+   zoneCode \tab character \tab Zone code where the event occurred. \cr
+   hittingPlayerId \tab integer \tab Player identifier delivering the hit. \cr
+   hitteePlayerId \tab integer \tab Player identifier receiving the hit. \cr
+   playerId \tab integer \tab Player identifier involved in the event. \cr
+   shotType \tab character \tab Type of shot. \cr
+   shootingPlayerId \tab integer \tab Player identifier taking the shot. \cr
+   goalieInNetId \tab integer \tab Goalie identifier in net for the event. \cr
+   awaySOG \tab integer \tab Away team shots on goal at the event. \cr
+   homeSOG \tab integer \tab Home team shots on goal at the event. \cr
+   reason \tab character \tab Reason associated with the event. \cr
+   blockingPlayerId \tab integer \tab Player identifier blocking the shot. \cr
+   goalModifier \tab character \tab Goal modifier description. \cr
+   strength \tab character \tab Strength state of the goal. \cr
+   scoringPlayerId \tab integer \tab Player identifier scoring the goal. \cr
+   assist1PlayerId \tab integer \tab Player identifier for the primary assist. \cr
+   assist2PlayerId \tab integer \tab Player identifier for the secondary assist. \cr
+   awayScore \tab integer \tab Away team score at the event. \cr
+   homeScore \tab integer \tab Home team score at the event. \cr
+   strengthCode \tab integer \tab Numeric strength state code. \cr
+   goalCode \tab integer \tab Numeric goal code. \cr
+   scoringPlayerTotal \tab integer \tab Season goal total for the scorer. \cr
+   assist1PlayerTotal \tab integer \tab Season assist total for the primary assister. \cr
+   assist2PlayerTotal \tab integer \tab Season assist total for the secondary assister. \cr
+   penaltyTypeCode \tab character \tab Penalty type code. \cr
+   descKey \tab character \tab Penalty description key. \cr
+   duration \tab integer \tab Penalty duration in minutes. \cr
+   committedByPlayerId \tab integer \tab Player identifier who committed the penalty. \cr
+   drawnByPlayerId \tab integer \tab Player identifier who drew the penalty. \cr
+}
 }
 \description{
 Returns the narrative-format (Web Services Content) play-by-play

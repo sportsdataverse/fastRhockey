@@ -30,8 +30,83 @@ season), an 8-character API season (e.g., \code{"20242025"}), or \code{NULL}
 (default), 3 = playoffs.}
 }
 \value{
-A \code{fastRhockey_data} tibble with the top-10 leaderboard, or
-\code{NULL} on failure / empty response.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_slug \tab character \tab URL-friendly player slug. \cr
+   player_headshot \tab character \tab Player headshot image URL. \cr
+   player_position \tab character \tab Player position. \cr
+   player_sweater_number \tab integer \tab Jersey number. \cr
+   player_first_name_default \tab character \tab Player first name (default locale). \cr
+   player_first_name_cs \tab character \tab Player first name (Czech locale). \cr
+   player_first_name_de \tab character \tab Player first name (German locale). \cr
+   player_first_name_es \tab character \tab Player first name (Spanish locale). \cr
+   player_first_name_fi \tab character \tab Player first name (Finnish locale). \cr
+   player_first_name_sk \tab character \tab Player first name (Slovak locale). \cr
+   player_first_name_sv \tab character \tab Player first name (Swedish locale). \cr
+   player_last_name_default \tab character \tab Player last name (default locale). \cr
+   player_last_name_cs \tab character \tab Player last name (Czech locale). \cr
+   player_last_name_sk \tab character \tab Player last name (Slovak locale). \cr
+   player_team_abbrev \tab character \tab Player team abbreviation. \cr
+   player_team_slug \tab character \tab Player team URL-friendly slug. \cr
+   player_team_common_name_default \tab character \tab Player team common name (default locale). \cr
+   player_team_place_name_with_preposition_default \tab character \tab Player team place name with preposition (default locale). \cr
+   player_team_place_name_with_preposition_fr \tab character \tab Player team place name with preposition (French locale). \cr
+   player_team_team_logo_light \tab character \tab Player team light-mode logo URL. \cr
+   player_team_team_logo_dark \tab character \tab Player team dark-mode logo URL. \cr
+   distance_total_imperial \tab numeric \tab Total skating distance (imperial units). \cr
+   distance_total_metric \tab numeric \tab Total skating distance (metric units). \cr
+   distance_per60_imperial \tab numeric \tab Skating distance per 60 minutes (imperial units). \cr
+   distance_per60_metric \tab numeric \tab Skating distance per 60 minutes (metric units). \cr
+   distance_max_per_game_imperial \tab numeric \tab Maximum single-game skating distance (imperial units). \cr
+   distance_max_per_game_metric \tab numeric \tab Maximum single-game skating distance (metric units). \cr
+   distance_max_per_game_overlay_game_date \tab character \tab Game date of the max-per-game performance. \cr
+   distance_max_per_game_overlay_game_type \tab integer \tab Game type of the max-per-game performance. \cr
+   distance_max_per_game_overlay_player_first_name_default \tab character \tab Max-per-game player first name (default locale). \cr
+   distance_max_per_game_overlay_player_first_name_cs \tab character \tab Max-per-game player first name (Czech locale). \cr
+   distance_max_per_game_overlay_player_first_name_de \tab character \tab Max-per-game player first name (German locale). \cr
+   distance_max_per_game_overlay_player_first_name_es \tab character \tab Max-per-game player first name (Spanish locale). \cr
+   distance_max_per_game_overlay_player_first_name_fi \tab character \tab Max-per-game player first name (Finnish locale). \cr
+   distance_max_per_game_overlay_player_first_name_sk \tab character \tab Max-per-game player first name (Slovak locale). \cr
+   distance_max_per_game_overlay_player_first_name_sv \tab character \tab Max-per-game player first name (Swedish locale). \cr
+   distance_max_per_game_overlay_player_last_name_default \tab character \tab Max-per-game player last name (default locale). \cr
+   distance_max_per_game_overlay_player_last_name_cs \tab character \tab Max-per-game player last name (Czech locale). \cr
+   distance_max_per_game_overlay_player_last_name_sk \tab character \tab Max-per-game player last name (Slovak locale). \cr
+   distance_max_per_game_overlay_away_team_abbrev \tab character \tab Away team abbreviation in the max-per-game game. \cr
+   distance_max_per_game_overlay_away_team_score \tab integer \tab Away team score in the max-per-game game. \cr
+   distance_max_per_game_overlay_home_team_abbrev \tab character \tab Home team abbreviation in the max-per-game game. \cr
+   distance_max_per_game_overlay_home_team_score \tab integer \tab Home team score in the max-per-game game. \cr
+   distance_max_per_game_overlay_game_outcome_last_period_type \tab character \tab Last period type of the max-per-game game outcome. \cr
+   distance_max_per_game_overlay_game_outcome_ot_periods \tab integer \tab Number of overtime periods in the max-per-game game. \cr
+   distance_max_per_game_overlay_period_descriptor_max_regulation_periods \tab integer \tab Maximum regulation periods for the max-per-game game. \cr
+   distance_max_per_game_overlay_period_descriptor_number \tab integer \tab Period number for the max-per-game descriptor. \cr
+   distance_max_per_game_overlay_period_descriptor_period_type \tab character \tab Period type for the max-per-game descriptor. \cr
+   distance_max_per_period_imperial \tab numeric \tab Maximum single-period skating distance (imperial units). \cr
+   distance_max_per_period_metric \tab numeric \tab Maximum single-period skating distance (metric units). \cr
+   distance_max_per_period_overlay_game_date \tab character \tab Game date of the max-per-period performance. \cr
+   distance_max_per_period_overlay_game_type \tab integer \tab Game type of the max-per-period performance. \cr
+   distance_max_per_period_overlay_player_first_name_default \tab character \tab Max-per-period player first name (default locale). \cr
+   distance_max_per_period_overlay_player_first_name_cs \tab character \tab Max-per-period player first name (Czech locale). \cr
+   distance_max_per_period_overlay_player_first_name_de \tab character \tab Max-per-period player first name (German locale). \cr
+   distance_max_per_period_overlay_player_first_name_es \tab character \tab Max-per-period player first name (Spanish locale). \cr
+   distance_max_per_period_overlay_player_first_name_fi \tab character \tab Max-per-period player first name (Finnish locale). \cr
+   distance_max_per_period_overlay_player_first_name_sk \tab character \tab Max-per-period player first name (Slovak locale). \cr
+   distance_max_per_period_overlay_player_first_name_sv \tab character \tab Max-per-period player first name (Swedish locale). \cr
+   distance_max_per_period_overlay_player_last_name_default \tab character \tab Max-per-period player last name (default locale). \cr
+   distance_max_per_period_overlay_player_last_name_cs \tab character \tab Max-per-period player last name (Czech locale). \cr
+   distance_max_per_period_overlay_player_last_name_sk \tab character \tab Max-per-period player last name (Slovak locale). \cr
+   distance_max_per_period_overlay_away_team_abbrev \tab character \tab Away team abbreviation in the max-per-period game. \cr
+   distance_max_per_period_overlay_away_team_score \tab integer \tab Away team score in the max-per-period game. \cr
+   distance_max_per_period_overlay_home_team_abbrev \tab character \tab Home team abbreviation in the max-per-period game. \cr
+   distance_max_per_period_overlay_home_team_score \tab integer \tab Home team score in the max-per-period game. \cr
+   distance_max_per_period_overlay_game_outcome_last_period_type \tab character \tab Last period type of the max-per-period game outcome. \cr
+   distance_max_per_period_overlay_game_outcome_ot_periods \tab integer \tab Number of overtime periods in the max-per-period game. \cr
+   distance_max_per_period_overlay_period_descriptor_max_regulation_periods \tab integer \tab Maximum regulation periods for the max-per-period game. \cr
+   distance_max_per_period_overlay_period_descriptor_number \tab integer \tab Period number for the max-per-period descriptor. \cr
+   distance_max_per_period_overlay_period_descriptor_period_type \tab character \tab Period type for the max-per-period descriptor. \cr
+}
+
+
+Returns \code{NULL} on failure / empty response.
 }
 \description{
 Returns the NHL Edge top-10 "iron-man / mileage" skating

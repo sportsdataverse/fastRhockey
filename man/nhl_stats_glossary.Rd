@@ -10,8 +10,16 @@ nhl_stats_glossary(lang = "en")
 \item{lang}{Character language code. Default \code{"en"}.}
 }
 \value{
-A \code{fastRhockey_data} tibble of glossary entries, or \code{NULL} on
-failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique glossary entry identifier. \cr
+   abbreviation \tab character \tab Statistic abbreviation. \cr
+   definition \tab character \tab Definition of the statistic. \cr
+   first_season_for_stat \tab integer \tab First season the stat was tracked. \cr
+   full_name \tab character \tab Full name of the statistic. \cr
+   language_code \tab character \tab Language code of the entry. \cr
+   last_updated \tab character \tab Timestamp the entry was last updated. \cr
+}
 }
 \description{
 Returns the glossary of stat definitions from the NHL Stats

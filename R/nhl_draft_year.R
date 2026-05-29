@@ -13,7 +13,30 @@
 #' @param round Integer, character, or NULL. Specific round (1-7), the
 #'   literal string `"all"`, or `NULL` (treated the same as `"all"`) to
 #'   fetch every round at once.
-#' @return Returns a data frame of draft picks.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name                         |types      |description                                  |
+#'    |:--------------------------------|:----------|:--------------------------------------------|
+#'    |round                            |integer    |Draft round.                                 |
+#'    |pick_in_round                    |integer    |Pick number within the round.                |
+#'    |overall_pick                     |integer    |Overall pick number in the draft.            |
+#'    |team_id                          |integer    |Unique team identifier.                      |
+#'    |team_abbrev                      |character  |Team abbreviation.                           |
+#'    |team_name                        |data.frame |Team name (localized variants).              |
+#'    |team_common_name                 |data.frame |Team common name (localized variants).       |
+#'    |team_place_name_with_preposition |data.frame |Team place name with preposition (localized).|
+#'    |display_abbrev                   |data.frame |Display abbreviation (localized variants).   |
+#'    |team_logo_light                  |character  |URL to the team logo (light variant).        |
+#'    |team_logo_dark                   |character  |URL to the team logo (dark variant).         |
+#'    |team_pick_history                |character  |Team pick history string.                    |
+#'    |first_name                       |data.frame |Player first name (localized variants).      |
+#'    |last_name                        |data.frame |Player last name (localized variants).       |
+#'    |position_code                    |character  |Player position code.                        |
+#'    |country_code                     |character  |Player country code.                         |
+#'    |height                           |integer    |Player height in inches.                     |
+#'    |weight                           |integer    |Player weight in pounds.                     |
+#'    |amateur_league                   |character  |Amateur league played in.                    |
+#'    |amateur_club_name                |character  |Amateur club played for.                     |
 #' @keywords NHL Draft Year
 #' @importFrom jsonlite read_json
 #' @importFrom janitor clean_names

@@ -1,7 +1,25 @@
 #' @title **NHL Game Shifts**
 #' @description Returns information on game shifts for a given game id
 #' @param game_id Game unique ID
-#' @return Returns a tibble
+#' @return A data frame (`fastRhockey_data`) with one row per shift change and
+#' the following columns:
+#'
+#'    |col_name               |types     |description                              |
+#'    |:----------------------|:---------|:----------------------------------------|
+#'    |event_team             |character |Team making the line change.             |
+#'    |period                 |integer   |Period number.                           |
+#'    |period_time            |character |Time in the period of the change (MM:SS).|
+#'    |period_seconds         |numeric   |Seconds elapsed in the period.           |
+#'    |game_seconds           |numeric   |Seconds elapsed in the game.             |
+#'    |num_on                 |integer   |Number of players coming on the ice.     |
+#'    |players_on             |character |Names of players coming on the ice.      |
+#'    |ids_on                 |character |Player IDs coming on the ice.            |
+#'    |num_off                |integer   |Number of players going off the ice.     |
+#'    |players_off            |character |Names of players going off the ice.      |
+#'    |ids_off                |character |Player IDs going off the ice.            |
+#'    |event                  |character |Event label ("Change").                  |
+#'    |event_type             |character |Event type code ("CHANGE").              |
+#'    |game_seconds_remaining |numeric   |Seconds remaining in the game.           |
 #' @keywords NHL Game Shifts
 #' @import rvest
 #' @importFrom rlang .data

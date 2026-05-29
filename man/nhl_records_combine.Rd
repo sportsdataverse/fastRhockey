@@ -10,8 +10,19 @@ nhl_records_combine(cayenne_exp = NULL)
 \item{cayenne_exp}{Optional Cayenne filter expression string.}
 }
 \value{
-A \code{fastRhockey_data} tibble of combine measurements, or \code{NULL}
-on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique combine record identifier. \cr
+   amateur_club_name \tab character \tab Amateur club the player played for. \cr
+   amateur_league \tab character \tab Amateur league the player played in. \cr
+   draft_year \tab integer \tab Draft year for the player. \cr
+   event \tab character \tab Combine measurement event name. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   position_code \tab character \tab Player position code. \cr
+   value \tab numeric \tab Measured value for the combine event. \cr
+}
 }
 \description{
 Returns NHL Scouting Combine measurements from the NHL

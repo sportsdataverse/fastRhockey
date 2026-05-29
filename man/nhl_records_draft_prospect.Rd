@@ -14,7 +14,37 @@ becomes \code{draft-prospect/{prospect_id}}.}
 \code{prospect_id} is supplied.}
 }
 \value{
-A \code{fastRhockey_data} tibble of draft prospects, or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique prospect record identifier. \cr
+   birth_city \tab character \tab Prospect birth city. \cr
+   birth_country3code \tab character \tab Prospect birth country three-letter code. \cr
+   birth_date \tab character \tab Prospect date of birth. \cr
+   birth_state_prov_code \tab character \tab Prospect birth state/province code. \cr
+   category_id \tab integer \tab Prospect category identifier. \cr
+   created_on \tab character \tab Record creation timestamp. \cr
+   cs_player_id \tab integer \tab Central Scouting player identifier. \cr
+   draft_status_code \tab character \tab Draft eligibility status code. \cr
+   ep_player_id \tab integer \tab EliteProspects player identifier. \cr
+   first_name \tab character \tab Prospect first name. \cr
+   headshot_id \tab integer \tab Headshot image identifier. \cr
+   height \tab integer \tab Prospect height (inches). \cr
+   hometown \tab character \tab Prospect hometown. \cr
+   last_club_name \tab character \tab Most recent club name. \cr
+   last_league_abbr \tab character \tab Most recent league abbreviation. \cr
+   last_name \tab character \tab Prospect last name. \cr
+   nationality_code \tab character \tab Prospect nationality code. \cr
+   news_articles \tab character \tab Associated news articles. \cr
+   playerid \tab integer \tab Unique player identifier. \cr
+   position_desc \tab character \tab Player position description. \cr
+   profile \tab character \tab Prospect profile text. \cr
+   quotes \tab character \tab Quotes about the prospect. \cr
+   scouting_report \tab character \tab Scouting report text. \cr
+   shoots_catches \tab character \tab Shooting/catching handedness. \cr
+   stats_text \tab character \tab Statistical summary text. \cr
+   video \tab character \tab Associated video content. \cr
+   weight \tab integer \tab Prospect weight (pounds). \cr
+}
 }
 \description{
 Returns the draft prospect listing from the NHL Records API

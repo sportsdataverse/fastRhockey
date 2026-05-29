@@ -10,8 +10,18 @@ nhl_records_draft_lottery_picks(cayenne_exp = NULL)
 \item{cayenne_exp}{Optional Cayenne filter expression string.}
 }
 \value{
-A \code{fastRhockey_data} tibble of draft lottery picks, or \code{NULL}
-on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique lottery pick record identifier. \cr
+   draft_team_id \tab integer \tab Team identifier holding the resulting pick. \cr
+   draft_year \tab integer \tab Draft year the lottery applies to. \cr
+   effect_on_draft_order \tab character \tab Description of the lottery's effect on order. \cr
+   lottery_team_id \tab integer \tab Team identifier participating in the lottery. \cr
+   phase \tab character \tab Lottery phase identifier. \cr
+   player_id \tab integer \tab Unique player identifier of the pick. \cr
+   player_notes \tab character \tab Notes about the selected player. \cr
+   sequence \tab integer \tab Lottery sequence/draw order. \cr
+}
 }
 \description{
 Returns historical NHL draft lottery picks/results from the

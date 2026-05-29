@@ -7,7 +7,19 @@
 nhl_standings_season()
 }
 \value{
-Returns a data frame with available standings seasons.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Season identifier (e.g., 20232024). \cr
+   conferences_in_use \tab logical \tab Whether conferences were in use that season. \cr
+   divisions_in_use \tab logical \tab Whether divisions were in use that season. \cr
+   point_for_o_tloss_in_use \tab logical \tab Whether a point for overtime losses was in use. \cr
+   regulation_wins_in_use \tab logical \tab Whether regulation wins were tracked. \cr
+   row_in_use \tab logical \tab Whether regulation/overtime wins (ROW) were in use. \cr
+   standings_end \tab character \tab End date of the standings period. \cr
+   standings_start \tab character \tab Start date of the standings period. \cr
+   ties_in_use \tab logical \tab Whether ties were in use that season. \cr
+   wildcard_in_use \tab logical \tab Whether wildcard standings were in use. \cr
+}
 }
 \description{
 Returns the list of seasons for which standings data is available.

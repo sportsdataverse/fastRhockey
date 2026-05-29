@@ -22,7 +22,18 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with one row per player per game
+and the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   full_name \tab character \tab Player full name. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   team_abbr \tab character \tab Team abbreviation/code. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   position_code \tab character \tab Player position code. \cr
+   sweater_number \tab integer \tab Jersey number. \cr
+}
 }
 \description{
 Helper that loads multiple seasons of NHL per-game roster data

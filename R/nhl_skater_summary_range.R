@@ -12,9 +12,39 @@
 #'   `3` = playoffs.
 #' @param limit Integer maximum number of rows per season request.
 #'   Defaults to `50` to match [nhl_stats_skaters()].
-#' @return A `fastRhockey_data` / `data.frame` of concatenated skater
-#'   summary stats with an added `season` column marking the season
-#'   each row came from. Returns `NULL` on outer failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name             |types     |description                |
+#'    |:--------------------|:---------|:--------------------------|
+#'    |assists              |integer   |Assists.                   |
+#'    |ev_goals             |integer   |Even-strength goals.       |
+#'    |ev_points            |integer   |Even-strength points.      |
+#'    |faceoff_win_pct      |numeric   |Faceoff win percentage.    |
+#'    |game_winning_goals   |integer   |Game-winning goals.        |
+#'    |games_played         |integer   |Games played.              |
+#'    |goals                |integer   |Goals scored.              |
+#'    |last_name            |character |Player last name.          |
+#'    |ot_goals             |integer   |Overtime goals.            |
+#'    |penalty_minutes      |integer   |Penalty minutes.           |
+#'    |player_id            |integer   |Unique player identifier.  |
+#'    |plus_minus           |integer   |Plus/minus rating.         |
+#'    |points               |integer   |Total points (goals + assists). |
+#'    |points_per_game      |numeric   |Points per game.           |
+#'    |position_code        |character |Player position code.      |
+#'    |pp_goals             |integer   |Power-play goals.          |
+#'    |pp_points            |integer   |Power-play points.         |
+#'    |season_id            |integer   |Season identifier.         |
+#'    |sh_goals             |integer   |Short-handed goals.        |
+#'    |sh_points            |integer   |Short-handed points.       |
+#'    |shooting_pct         |numeric   |Shooting percentage.       |
+#'    |shoots_catches       |character |Handedness (shoots/catches).|
+#'    |shots                |integer   |Shots on goal.             |
+#'    |skater_full_name     |character |Player full name.          |
+#'    |team_abbrevs         |character |Team abbreviation(s).      |
+#'    |time_on_ice_per_game |numeric   |Average time on ice per game. |
+#'    |season               |character |Season the row came from (e.g., "20232024"). |
+#'
+#' Returns `NULL` on outer failure.
 #' @keywords NHL Helpers Aggregator
 #' @importFrom dplyr bind_rows
 #' @importFrom glue glue

@@ -22,7 +22,14 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with one row per scratched player
+per game and the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique player identifier. \cr
+   firstName \tab character \tab Player first name. \cr
+   lastName \tab character \tab Player last name. \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+}
 }
 \description{
 Helper that loads multiple seasons of NHL healthy scratch data

@@ -14,7 +14,29 @@ literal string \code{"all"}, or \code{NULL} (treated the same as \code{"all"}) t
 fetch every round at once.}
 }
 \value{
-Returns a data frame of draft picks.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   round \tab integer \tab Draft round. \cr
+   pick_in_round \tab integer \tab Pick number within the round. \cr
+   overall_pick \tab integer \tab Overall pick number in the draft. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team_abbrev \tab character \tab Team abbreviation. \cr
+   team_name \tab data.frame \tab Team name (localized variants). \cr
+   team_common_name \tab data.frame \tab Team common name (localized variants). \cr
+   team_place_name_with_preposition \tab data.frame \tab Team place name with preposition (localized). \cr
+   display_abbrev \tab data.frame \tab Display abbreviation (localized variants). \cr
+   team_logo_light \tab character \tab URL to the team logo (light variant). \cr
+   team_logo_dark \tab character \tab URL to the team logo (dark variant). \cr
+   team_pick_history \tab character \tab Team pick history string. \cr
+   first_name \tab data.frame \tab Player first name (localized variants). \cr
+   last_name \tab data.frame \tab Player last name (localized variants). \cr
+   position_code \tab character \tab Player position code. \cr
+   country_code \tab character \tab Player country code. \cr
+   height \tab integer \tab Player height in inches. \cr
+   weight \tab integer \tab Player weight in pounds. \cr
+   amateur_league \tab character \tab Amateur league played in. \cr
+   amateur_club_name \tab character \tab Amateur club played for. \cr
+}
 }
 \description{
 Returns draft pick information for a given year.

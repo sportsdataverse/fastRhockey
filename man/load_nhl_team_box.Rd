@@ -22,7 +22,25 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the team box data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   home_away \tab character \tab Home or away indicator. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team_abbrev \tab character \tab Team abbreviation/code. \cr
+   team_name \tab character \tab Team name. \cr
+   goals \tab integer \tab Goals scored. \cr
+   shots_on_goal \tab integer \tab Shots on goal. \cr
+   pim \tab integer \tab Penalty minutes. \cr
+   hits \tab integer \tab Hits. \cr
+   blocked_shots \tab integer \tab Blocked shots. \cr
+   giveaways \tab integer \tab Giveaways. \cr
+   takeaways \tab integer \tab Takeaways. \cr
+   power_play_goals \tab integer \tab Power play goals. \cr
+   faceoff_win_pctg \tab numeric \tab Faceoff win percentage. \cr
+   saves \tab integer \tab Saves made. \cr
+   save_pctg \tab numeric \tab Save percentage. \cr
+   goals_against \tab integer \tab Goals against. \cr
+}
 }
 \description{
 Helper that loads multiple seasons of pre-scraped NHL team box

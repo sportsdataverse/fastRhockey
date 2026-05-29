@@ -11,7 +11,15 @@ nhl_playoff_carousel(season = NULL)
 If NULL, uses most recent season.}
 }
 \value{
-Returns a list with playoff series carousel data.
+A named list of data frames: \code{rounds}.
+
+\strong{rounds}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   roundNumber \tab integer \tab Playoff round number. \cr
+   roundLabel \tab character \tab Full label for the playoff round. \cr
+   roundAbbrev \tab character \tab Abbreviated label for the playoff round. \cr
+   series \tab list \tab Nested list of series within the round. \cr
+}
 }
 \description{
 Returns playoff series carousel data for a given season.

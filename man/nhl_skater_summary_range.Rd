@@ -20,9 +20,39 @@ nhl_skater_summary_range(start_season, end_season, game_type = 2, limit = 50)
 Defaults to \code{50} to match \code{\link[=nhl_stats_skaters]{nhl_stats_skaters()}}.}
 }
 \value{
-A \code{fastRhockey_data} / \code{data.frame} of concatenated skater
-summary stats with an added \code{season} column marking the season
-each row came from. Returns \code{NULL} on outer failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   assists \tab integer \tab Assists. \cr
+   ev_goals \tab integer \tab Even-strength goals. \cr
+   ev_points \tab integer \tab Even-strength points. \cr
+   faceoff_win_pct \tab numeric \tab Faceoff win percentage. \cr
+   game_winning_goals \tab integer \tab Game-winning goals. \cr
+   games_played \tab integer \tab Games played. \cr
+   goals \tab integer \tab Goals scored. \cr
+   last_name \tab character \tab Player last name. \cr
+   ot_goals \tab integer \tab Overtime goals. \cr
+   penalty_minutes \tab integer \tab Penalty minutes. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   plus_minus \tab integer \tab Plus/minus rating. \cr
+   points \tab integer \tab Total points (goals + assists). \cr
+   points_per_game \tab numeric \tab Points per game. \cr
+   position_code \tab character \tab Player position code. \cr
+   pp_goals \tab integer \tab Power-play goals. \cr
+   pp_points \tab integer \tab Power-play points. \cr
+   season_id \tab integer \tab Season identifier. \cr
+   sh_goals \tab integer \tab Short-handed goals. \cr
+   sh_points \tab integer \tab Short-handed points. \cr
+   shooting_pct \tab numeric \tab Shooting percentage. \cr
+   shoots_catches \tab character \tab Handedness (shoots/catches). \cr
+   shots \tab integer \tab Shots on goal. \cr
+   skater_full_name \tab character \tab Player full name. \cr
+   team_abbrevs \tab character \tab Team abbreviation(s). \cr
+   time_on_ice_per_game \tab numeric \tab Average time on ice per game. \cr
+   season \tab character \tab Season the row came from (e.g., "20232024"). \cr
+}
+
+
+Returns \code{NULL} on outer failure.
 }
 \description{
 Aggregator helper that calls \code{\link[=nhl_stats_skaters]{nhl_stats_skaters()}} with

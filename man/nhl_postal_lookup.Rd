@@ -11,8 +11,17 @@ nhl_postal_lookup(postal_code)
 \code{"10001"} for New York City).}
 }
 \value{
-Returns a list with broadcast region information for the given
-postal code.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   stateProvince \tab character \tab State or province for the postal code. \cr
+   networkType \tab character \tab Broadcast network type for the region. \cr
+   county \tab character \tab County for the postal code. \cr
+   postalCode \tab character \tab Postal or ZIP code looked up. \cr
+   country \tab character \tab Country for the postal code. \cr
+   city \tab character \tab City for the postal code. \cr
+   teamName.default \tab character \tab Local broadcast team name (default). \cr
+   teamName.fr \tab character \tab Local broadcast team name (French). \cr
+}
 }
 \description{
 Returns broadcast region / geo-lookup information for a given

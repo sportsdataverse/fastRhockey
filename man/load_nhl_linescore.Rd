@@ -22,7 +22,20 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with one row per game and the
+following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   home_team_id \tab integer \tab Unique home team identifier. \cr
+   home_team_abbr \tab character \tab Home team abbreviation. \cr
+   home_goals \tab integer \tab Home team goals. \cr
+   home_shots \tab integer \tab Home team shots on goal. \cr
+   away_team_id \tab integer \tab Unique away team identifier. \cr
+   away_team_abbr \tab character \tab Away team abbreviation. \cr
+   away_goals \tab integer \tab Away team goals. \cr
+   away_shots \tab integer \tab Away team shots on goal. \cr
+   has_shootout \tab logical \tab Whether the game ended in a shootout. \cr
+}
 }
 \description{
 Helper that loads multiple seasons of NHL linescore data (per-game

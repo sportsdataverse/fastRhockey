@@ -10,8 +10,14 @@ nhl_records_attendance(cayenne_exp = NULL)
 \item{cayenne_exp}{Optional Cayenne filter expression string.}
 }
 \value{
-A \code{fastRhockey_data} tibble of attendance records, or \code{NULL}
-on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique attendance record identifier. \cr
+   playoff_attendance \tab integer \tab Total playoff attendance. \cr
+   regular_attendance \tab integer \tab Total regular-season attendance. \cr
+   season_id \tab integer \tab 8-digit season identifier. \cr
+   total_attendance \tab integer \tab Total attendance for the season. \cr
+}
 }
 \description{
 Returns historical NHL season attendance from the NHL Records

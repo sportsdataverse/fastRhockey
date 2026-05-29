@@ -12,19 +12,23 @@ pwhl_scorebar(days_back = 3, days_ahead = 3)
 \item{days_ahead}{Number of days ahead to include. Default 3.}
 }
 \value{
-A data frame with recent/upcoming game scores, or NULL if unavailable.
-\itemize{
-\item \code{game_id} - Game ID.
-\item \code{date} - Game date.
-\item \code{status} - Game status.
-\item \code{home_team} - Home team name.
-\item \code{home_team_id} - Home team ID.
-\item \code{home_score} - Home team score.
-\item \code{away_team} - Away team name.
-\item \code{away_team_id} - Away team ID.
-\item \code{away_score} - Away team score.
-\item \code{period} - Current period (for live or completed games).
-\item \code{clock} - Current clock time (for live games).
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab numeric \tab Unique game identifier. \cr
+   season_id \tab numeric \tab Season identifier. \cr
+   date \tab character \tab Game date. \cr
+   game_date \tab character \tab Game date. \cr
+   status \tab character \tab Status of the game. \cr
+   home_team \tab character \tab Home team name. \cr
+   home_team_id \tab numeric \tab Home team identifier. \cr
+   home_team_code \tab character \tab Home team abbreviation. \cr
+   home_score \tab character \tab Home team score. \cr
+   away_team \tab character \tab Away team name. \cr
+   away_team_id \tab numeric \tab Away team identifier. \cr
+   away_team_code \tab character \tab Away team abbreviation. \cr
+   away_score \tab character \tab Away team score. \cr
+   period \tab character \tab Current period for live/completed games. \cr
+   clock \tab character \tab Current clock time for live games. \cr
 }
 }
 \description{

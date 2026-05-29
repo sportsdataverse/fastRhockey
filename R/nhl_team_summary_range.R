@@ -12,9 +12,36 @@
 #'   `3` = playoffs.
 #' @param limit Integer maximum number of rows per season request.
 #'   Defaults to `50` to match [nhl_stats_teams()].
-#' @return A `fastRhockey_data` / `data.frame` of concatenated team
-#'   summary stats with an added `season` column marking the season each
-#'   row came from. Returns `NULL` on outer failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name                |types     |description                                  |
+#'    |:-----------------------|:---------|:--------------------------------------------|
+#'    |faceoff_win_pct         |numeric   |Faceoff win percentage.                      |
+#'    |games_played            |integer   |Games played.                                |
+#'    |goals_against           |integer   |Goals against.                               |
+#'    |goals_against_per_game  |numeric   |Goals against per game.                       |
+#'    |goals_for               |integer   |Goals for.                                   |
+#'    |goals_for_per_game      |numeric   |Goals for per game.                          |
+#'    |losses                  |integer   |Losses.                                      |
+#'    |ot_losses               |integer   |Overtime losses.                             |
+#'    |penalty_kill_net_pct    |numeric   |Net penalty kill percentage.                 |
+#'    |penalty_kill_pct        |numeric   |Penalty kill percentage.                     |
+#'    |point_pct               |numeric   |Points percentage.                           |
+#'    |points                  |integer   |Total points.                               |
+#'    |power_play_net_pct      |numeric   |Net power play percentage.                   |
+#'    |power_play_pct          |numeric   |Power play percentage.                       |
+#'    |regulation_and_ot_wins  |integer   |Wins in regulation and overtime.             |
+#'    |season_id               |integer   |Season identifier.                           |
+#'    |shots_against_per_game  |numeric   |Shots against per game.                      |
+#'    |shots_for_per_game      |numeric   |Shots for per game.                          |
+#'    |team_full_name          |character |Full team name.                              |
+#'    |team_id                 |integer   |Unique team identifier.                      |
+#'    |team_shutouts           |integer   |Team shutouts.                               |
+#'    |ties                    |logical   |Ties (legacy; typically unused).             |
+#'    |wins                    |integer   |Wins.                                        |
+#'    |wins_in_regulation      |integer   |Wins in regulation.                          |
+#'    |wins_in_shootout        |integer   |Wins in shootout.                            |
+#'    |season                  |character |Season the row came from (YYYYYYYY).         |
 #' @keywords NHL Helpers Aggregator
 #' @importFrom dplyr bind_rows
 #' @importFrom glue glue

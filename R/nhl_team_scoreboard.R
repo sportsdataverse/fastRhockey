@@ -2,7 +2,14 @@
 #' @description Returns current scoreboard information for a specific team,
 #' including upcoming and recent games.
 #' @param team_abbr Three-letter team abbreviation (e.g., "TOR", "BOS")
-#' @return Returns a list with scoreboard data including game info.
+#' @return A named list of data frames: `gamesByDate`.
+#'
+#'    **gamesByDate**
+#'
+#'    |col_name |types     |description                                  |
+#'    |:--------|:---------|:--------------------------------------------|
+#'    |date     |character |Date the games are scheduled for.            |
+#'    |games    |list      |List of games scheduled on that date.        |
 #' @keywords NHL Team Scoreboard
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

@@ -22,22 +22,22 @@ load_pwhl_game_rosters(
 \item{tablename}{The name of the per-game rosters data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}. Common columns include:\tabular{lll}{
-   column \tab type \tab description \cr
-   \code{game_id} \tab integer \tab PWHL game id \cr
-   \code{team_id} \tab integer \tab team id \cr
-   \code{team} \tab character \tab team name \cr
-   \code{team_abbr} \tab character \tab three-letter abbreviation \cr
-   \code{team_side} \tab character \tab \code{"home"} or \code{"away"} \cr
-   \code{player_type} \tab character \tab \code{"skater"} or \code{"goalie"} \cr
-   \code{player_id} \tab integer \tab player id \cr
-   \code{first_name} \tab character \tab player first name \cr
-   \code{last_name} \tab character \tab player last name \cr
-   \code{jersey_number} \tab integer \tab jersey number \cr
-   \code{position} \tab character \tab position code \cr
-   \code{birth_date} \tab character \tab birth date \cr
-   \code{starting} \tab integer \tab started the game (\code{0}/\code{1}) \cr
-   \code{status} \tab character \tab status string (e.g. captain markers) \cr
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team \tab character \tab Team name. \cr
+   team_abbr \tab character \tab Team abbreviation. \cr
+   team_side \tab character \tab Home or away indicator. \cr
+   player_type \tab character \tab Player type (skater or goalie). \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   jersey_number \tab integer \tab Jersey number. \cr
+   position \tab character \tab Player position. \cr
+   birth_date \tab character \tab Player birth date. \cr
+   starting \tab integer \tab Whether the player started the game. \cr
+   status \tab character \tab Status string (e.g. captain markers). \cr
 }
 }
 \description{

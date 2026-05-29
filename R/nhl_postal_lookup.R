@@ -5,8 +5,18 @@
 #' local broadcast rights.
 #' @param postal_code Character. Postal or ZIP code to look up (e.g.,
 #'   `"10001"` for New York City).
-#' @return Returns a list with broadcast region information for the given
-#'   postal code.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name         |types     |description                                |
+#'    |:----------------|:---------|:------------------------------------------|
+#'    |stateProvince    |character |State or province for the postal code.     |
+#'    |networkType      |character |Broadcast network type for the region.     |
+#'    |county           |character |County for the postal code.                |
+#'    |postalCode       |character |Postal or ZIP code looked up.              |
+#'    |country          |character |Country for the postal code.               |
+#'    |city             |character |City for the postal code.                  |
+#'    |teamName.default |character |Local broadcast team name (default).       |
+#'    |teamName.fr      |character |Local broadcast team name (French).        |
 #' @keywords NHL Postal Lookup
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

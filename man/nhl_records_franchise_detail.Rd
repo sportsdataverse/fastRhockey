@@ -15,7 +15,22 @@ unless \code{cayenne_exp} is already provided.}
 precedence over \code{franchise_id} when both are supplied.}
 }
 \value{
-A \code{fastRhockey_data} tibble of franchise details, or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique franchise detail identifier. \cr
+   active \tab logical \tab Whether the franchise is active. \cr
+   captain_history \tab character \tab Franchise captain history text. \cr
+   coaching_history \tab character \tab Franchise coaching history text. \cr
+   date_awarded \tab character \tab Date the franchise was awarded. \cr
+   directory_url \tab character \tab Franchise directory URL. \cr
+   first_season_id \tab integer \tab Season identifier of the first season. \cr
+   general_manager_history \tab character \tab Franchise general manager history text. \cr
+   hero_image_url \tab character \tab Franchise hero image URL. \cr
+   most_recent_team_id \tab integer \tab Most recent team identifier. \cr
+   retired_numbers_summary \tab character \tab Summary of retired jersey numbers. \cr
+   team_abbrev \tab character \tab Team abbreviation. \cr
+   team_full_name \tab character \tab Full team name. \cr
+}
 }
 \description{
 Returns detailed franchise metadata from the NHL Records API

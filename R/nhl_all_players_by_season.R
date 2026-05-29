@@ -9,10 +9,26 @@
 #'   convention used by [nhl_teams_roster()].
 #' @param sleep_rate Numeric seconds to `Sys.sleep()` between per-team
 #'   API calls. Defaults to `0` (no delay).
-#' @return A `fastRhockey_data` / `data.frame` with one row per player
-#'   across all NHL rosters, including `player_id`, `first_name`,
-#'   `last_name`, `position_code`, `team_abbr`, and `season`. Returns
-#'   `NULL` on outer failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name        |types     |description                                  |
+#'    |:---------------|:---------|:--------------------------------------------|
+#'    |player_id       |integer   |Unique player identifier.                    |
+#'    |first_name      |character |Player first name.                           |
+#'    |last_name       |character |Player last name.                            |
+#'    |full_name       |character |Player full name.                            |
+#'    |sweater_number  |integer   |Jersey number.                               |
+#'    |position_code   |character |Player position code.                        |
+#'    |shoots_catches  |character |Handedness (shoots/catches).                 |
+#'    |height_inches   |integer   |Player height in inches.                     |
+#'    |weight_pounds   |integer   |Player weight in pounds.                     |
+#'    |birth_date      |character |Player birth date.                           |
+#'    |birth_city      |character |Player birth city.                           |
+#'    |birth_country   |character |Player birth country.                        |
+#'    |headshot_url    |character |URL to the player headshot image.            |
+#'    |team_abbr       |character |Team abbreviation.                           |
+#'    |season          |numeric   |Season start year (e.g., 2024 for 2024-25).  |
+#'
 #' @keywords NHL Helpers Aggregator
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom glue glue

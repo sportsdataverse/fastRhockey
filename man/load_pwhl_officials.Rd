@@ -22,14 +22,14 @@ load_pwhl_officials(
 \item{tablename}{The name of the officials data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}. Common columns include:\tabular{lll}{
-   column \tab type \tab description \cr
-   \code{game_id} \tab integer \tab PWHL game id \cr
-   \code{role} \tab character \tab grouped role (Referee/Linesperson/etc) \cr
-   \code{first_name} \tab character \tab official's first name \cr
-   \code{last_name} \tab character \tab official's last name \cr
-   \code{jersey_number} \tab integer \tab official's jersey number \cr
-   \code{official_role} \tab character \tab official's specific role \cr
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   role \tab character \tab Grouped official role (Referee/Linesperson). \cr
+   first_name \tab character \tab Official's first name. \cr
+   last_name \tab character \tab Official's last name. \cr
+   jersey_number \tab integer \tab Official's jersey number. \cr
+   official_role \tab character \tab Official's specific role. \cr
 }
 }
 \description{

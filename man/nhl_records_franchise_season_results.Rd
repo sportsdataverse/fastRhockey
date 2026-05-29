@@ -15,8 +15,47 @@ translated into a \code{cayenneExp=franchiseId={franchise_id}} filter unless
 precedence over \code{franchise_id} when both are supplied.}
 }
 \value{
-A \code{fastRhockey_data} tibble of franchise season results, or
-\code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique season result record identifier. \cr
+   conference_abbrev \tab character \tab Conference abbreviation. \cr
+   conference_name \tab character \tab Conference name. \cr
+   conference_sequence \tab integer \tab Conference standings position. \cr
+   decision \tab character \tab Series/season decision indicator. \cr
+   division_abbrev \tab character \tab Division abbreviation. \cr
+   division_name \tab character \tab Division name. \cr
+   division_sequence \tab integer \tab Division standings position. \cr
+   final_playoff_round \tab integer \tab Final playoff round reached. \cr
+   franchise_id \tab integer \tab Unique franchise identifier. \cr
+   game_type_id \tab integer \tab Game type identifier (regular/playoffs). \cr
+   games_played \tab integer \tab Games played in the season. \cr
+   goals \tab integer \tab Goals scored. \cr
+   goals_against \tab integer \tab Goals against. \cr
+   home_losses \tab integer \tab Losses at home. \cr
+   home_overtime_losses \tab integer \tab Overtime losses at home. \cr
+   home_ties \tab integer \tab Ties at home. \cr
+   home_wins \tab integer \tab Wins at home. \cr
+   in_playoffs \tab logical \tab Whether the season reached the playoffs. \cr
+   league_sequence \tab integer \tab League standings position. \cr
+   losses \tab integer \tab Total losses. \cr
+   overtime_losses \tab integer \tab Total overtime losses. \cr
+   penalty_minutes \tab integer \tab Penalty minutes. \cr
+   playoff_round \tab integer \tab Playoff round identifier. \cr
+   points \tab integer \tab Standings points earned. \cr
+   road_losses \tab integer \tab Losses on the road. \cr
+   road_overtime_losses \tab integer \tab Overtime losses on the road. \cr
+   road_ties \tab integer \tab Ties on the road. \cr
+   road_wins \tab integer \tab Wins on the road. \cr
+   season_id \tab integer \tab Season identifier. \cr
+   series_abbrev \tab character \tab Playoff series abbreviation. \cr
+   series_title \tab character \tab Playoff series title. \cr
+   shutouts \tab integer \tab Shutouts recorded. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team_name \tab character \tab Team name. \cr
+   ties \tab integer \tab Total ties. \cr
+   tri_code \tab character \tab Team three-letter code. \cr
+   wins \tab integer \tab Total wins. \cr
+}
 }
 \description{
 Returns franchise season-by-season results from the NHL Records

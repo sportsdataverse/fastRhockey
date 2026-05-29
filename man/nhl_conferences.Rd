@@ -11,9 +11,9 @@ nhl_conferences(date = NULL)
 current conferences.}
 }
 \value{
-Returns a data frame with columns:
-\itemize{
-\item \code{conference_name} - conference name (e.g. "Eastern", "Western")
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   conference_name \tab character \tab Conference name (e.g. "Eastern", "Western"). \cr
 }
 }
 \description{

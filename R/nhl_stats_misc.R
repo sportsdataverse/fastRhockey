@@ -7,7 +7,13 @@
 #' @param limit Integer maximum number of results. Default 100.
 #' @param start Integer start index for pagination. Default 0.
 #' @param lang Character language code. Default "en".
-#' @return Returns a data frame with columns: id, draft_year, rounds.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name   |types     |description                          |
+#'    |:----------|:---------|:------------------------------------|
+#'    |id         |integer   |Unique draft summary identifier.     |
+#'    |draft_year |integer   |Draft year.                          |
+#'    |rounds     |integer   |Number of rounds in the draft.       |
 #' @keywords NHL Stats Draft
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
@@ -73,7 +79,33 @@ nhl_stats_draft <- function(
 #' @title **NHL Stats API — Seasons List**
 #' @description Returns a list of all seasons from the Stats REST API.
 #' @param lang Character language code. Default "en".
-#' @return Returns a data frame with season data.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name                                          |types     |description                                                       |
+#'    |:-------------------------------------------------|:---------|:-----------------------------------------------------------------|
+#'    |id                                                |integer   |Season identifier (YYYYYYYY).                                     |
+#'    |all_star_game_in_use                              |integer   |Whether an All-Star Game was held this season.                    |
+#'    |conferences_in_use                                |integer   |Whether conferences were in use this season.                      |
+#'    |divisions_in_use                                  |integer   |Whether divisions were in use this season.                        |
+#'    |end_date                                          |character |Season end date.                                                  |
+#'    |entry_draft_in_use                                |integer   |Whether an entry draft was in use this season.                    |
+#'    |formatted_season_id                               |character |Human-readable season string (e.g. "2023-24").                    |
+#'    |minimum_playoff_minutes_for_goalie_stats_leaders  |integer   |Minimum playoff minutes to qualify for goalie stats leaders.      |
+#'    |minimum_regular_games_for_goalie_stats_leaders    |integer   |Minimum regular-season games to qualify for goalie stats leaders. |
+#'    |nhl_stanley_cup_owner                             |integer   |Whether the NHL owned the Stanley Cup this season.                |
+#'    |number_of_games                                   |integer   |Number of games per team this season.                             |
+#'    |olympics_participation                            |integer   |Whether NHL players participated in the Olympics this season.     |
+#'    |point_for_ot_loss_in_use                          |integer   |Whether the overtime-loss point was in use this season.           |
+#'    |preseason_startdate                               |character |Preseason start date.                                             |
+#'    |regular_season_end_date                           |character |Regular-season end date.                                          |
+#'    |row_in_use                                         |integer   |Whether the regulation/overtime/shootout format was in use.       |
+#'    |season_ordinal                                    |integer   |Ordinal sequence number of the season.                            |
+#'    |start_date                                        |character |Season start date.                                                |
+#'    |supplemental_draft_in_use                         |integer   |Whether a supplemental draft was in use this season.              |
+#'    |ties_in_use                                       |integer   |Whether ties were in use this season.                             |
+#'    |total_playoff_games                               |integer   |Total number of playoff games this season.                        |
+#'    |total_regular_season_games                        |integer   |Total number of regular-season games this season.                 |
+#'    |wildcard_in_use                                   |integer   |Whether the wild-card playoff format was in use this season.      |
 #' @keywords NHL Stats Seasons
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
@@ -144,8 +176,19 @@ nhl_stats_seasons <- function(lang = "en") {
 #'   and [nhl_stats_teams()].
 #' @param game_id Optional game ID (required for `endpoint = "shiftcharts"`).
 #' @param lang Character language code. Default `"en"`.
-#' @return Returns a data frame (`fastRhockey_data`) for tabular endpoints,
-#'   or the raw parsed list for non-tabular ones.
+#' @return A data frame (`fastRhockey_data`) for tabular endpoints, or the
+#'   raw parsed list for non-tabular ones. For the default `"glossary"`
+#'   endpoint the columns are:
+#'
+#'    |col_name              |types     |description                                       |
+#'    |:---------------------|:---------|:-------------------------------------------------|
+#'    |id                    |integer   |Unique glossary entry identifier.                 |
+#'    |abbreviation          |character |Stat abbreviation.                                |
+#'    |definition            |character |Definition of the stat or term.                   |
+#'    |first_season_for_stat |integer   |First season the stat was tracked (YYYYYYYY).     |
+#'    |full_name             |character |Full name of the stat or term.                    |
+#'    |language_code         |character |Language code of the entry.                        |
+#'    |last_updated          |character |Timestamp the entry was last updated.             |
 #' @keywords NHL Stats Miscellaneous
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

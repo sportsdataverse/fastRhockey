@@ -16,11 +16,27 @@ pwhl_stats(position = "goalie", team = "all", season = 2024, regular = TRUE)
 \item{regular}{Bool for whether to pull regular or pre-season stats}
 }
 \value{
-A data frame with player stats. Columns vary by position:
-goalies include games_played, minutes, goals_against, goals_against_avg,
-save_percentage, shutouts, wins, losses; skaters include goals, assists,
-points, plus_minus, penalty_minutes, shots, shooting_pct, power_play_goals,
-faceoff_pct.
+A data frame (\code{fastRhockey_data}) with player stats. Columns vary by
+position; the goalie variant returns the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab character \tab Unique player identifier. \cr
+   player_name \tab character \tab Player name. \cr
+   team \tab character \tab Team name. \cr
+   games_played \tab character \tab Games played. \cr
+   minutes \tab character \tab Total minutes played. \cr
+   minute \tab character \tab Minutes component of time on ice. \cr
+   second \tab character \tab Seconds component of time on ice. \cr
+   shots_faced \tab character \tab Shots faced. \cr
+   goals_against \tab character \tab Goals against. \cr
+   goals_against_avg \tab character \tab Goals-against average. \cr
+   save_percentage \tab character \tab Save percentage. \cr
+   shutouts \tab character \tab Shutouts. \cr
+   wins \tab character \tab Wins. \cr
+   losses \tab character \tab Losses. \cr
+   so_att \tab character \tab Shootout attempts faced. \cr
+   so_goals_against \tab character \tab Shootout goals against. \cr
+   so_save_percentage \tab character \tab Shootout save percentage. \cr
+}
 }
 \description{
 PWHL Stats lookup

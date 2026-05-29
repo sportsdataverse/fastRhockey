@@ -13,7 +13,17 @@
 #'   when `team_id` is supplied.
 #' @param start Integer pagination start index. Default 0. Ignored when
 #'   `team_id` is supplied.
-#' @return A `fastRhockey_data` tibble of teams, or `NULL` on failure.
+#' @return A data frame (`fastRhockey_data`) of teams, or `NULL` on failure,
+#'   with the following columns:
+#'
+#'    |col_name     |types     |description                       |
+#'    |:------------|:---------|:---------------------------------|
+#'    |id           |integer   |Unique team identifier.           |
+#'    |franchise_id |integer   |Team franchise identifier.        |
+#'    |full_name    |character |Team full name.                   |
+#'    |league_id    |integer   |League identifier of the team.    |
+#'    |raw_tricode  |character |Team raw three-letter code.       |
+#'    |tri_code     |character |Team three-letter code.           |
 #' @keywords NHL Stats Team Listing
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

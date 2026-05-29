@@ -7,7 +7,23 @@
 #' @param start Integer pagination start index. Default 0.
 #' @param cayenne_exp Optional Cayenne filter expression string passed via
 #'   the `cayenneExp` query parameter (e.g., `"season=20242025"`).
-#' @return A `fastRhockey_data` tibble of games, or `NULL` on failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name                |types     |description                          |
+#'    |:-----------------------|:---------|:------------------------------------|
+#'    |id                      |integer   |Unique game identifier.              |
+#'    |eastern_start_time      |character |Game start time in Eastern time.     |
+#'    |game_date               |character |Game date.                           |
+#'    |game_number             |integer   |Game number within the schedule.     |
+#'    |game_schedule_state_id  |integer   |Schedule state identifier.           |
+#'    |game_state_id           |integer   |Game state identifier.               |
+#'    |game_type               |integer   |Game type identifier.                |
+#'    |home_score              |integer   |Home team score.                     |
+#'    |home_team_id            |integer   |Home team identifier.                |
+#'    |period                  |integer   |Period reached in the game.          |
+#'    |season                  |integer   |Season (concluding year, YYYY).      |
+#'    |visiting_score          |integer   |Visiting team score.                 |
+#'    |visiting_team_id        |integer   |Visiting team identifier.            |
 #' @keywords NHL Stats Game Listing
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

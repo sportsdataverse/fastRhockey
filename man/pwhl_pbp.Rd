@@ -10,11 +10,104 @@ pwhl_pbp(game_id)
 \item{game_id}{Game ID that you want play-by-play for}
 }
 \value{
-A data frame with play-by-play event data including columns:
-game_id, event, team_id, period_of_game, time_of_period, player_id,
-player_name_first, player_name_last, player_position, x_coord, y_coord,
-and additional event-specific columns (shot_quality, goal, penalty_length,
-home_win, etc.). Coordinate columns are provided in multiple projections.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab numeric \tab Unique game identifier. \cr
+   event \tab character \tab Event type (faceoff, shot, goal, penalty, etc.). \cr
+   team_id \tab numeric \tab Unique team identifier for the event. \cr
+   period_of_game \tab character \tab Period number within the game. \cr
+   time_of_period \tab character \tab Elapsed time within the period (MM:SS). \cr
+   player_id \tab integer \tab Primary player's unique identifier. \cr
+   player_name_first \tab character \tab Primary player first name. \cr
+   player_name_last \tab character \tab Primary player last name. \cr
+   player_position \tab character \tab Primary player position. \cr
+   player_two_id \tab integer \tab Second player's unique identifier. \cr
+   player_two_name_first \tab character \tab Second player first name. \cr
+   player_two_name_last \tab character \tab Second player last name. \cr
+   player_two_position \tab character \tab Second player position. \cr
+   x_coord \tab numeric \tab Transformed x-coordinate of the event. \cr
+   y_coord \tab numeric \tab Transformed y-coordinate of the event. \cr
+   home_win \tab numeric \tab Whether the home player won the faceoff. \cr
+   player_team_id \tab numeric \tab Unique team identifier of the primary player. \cr
+   event_type \tab character \tab Detailed event sub-type (shot type, penalty type). \cr
+   shot_quality \tab character \tab Shot quality rating. \cr
+   goal \tab logical \tab Whether the shot resulted in a goal. \cr
+   goalie_id \tab integer \tab Goalie's unique identifier. \cr
+   goalie_first \tab character \tab Goalie first name. \cr
+   goalie_last \tab character \tab Goalie last name. \cr
+   penalty_length \tab character \tab Penalty length in minutes. \cr
+   power_play \tab numeric \tab Whether the event occurred on a power play. \cr
+   player_three_id \tab integer \tab Third player's unique identifier. \cr
+   player_three_name_first \tab character \tab Third player first name. \cr
+   player_three_name_last \tab character \tab Third player last name. \cr
+   player_three_position \tab character \tab Third player position. \cr
+   empty_net \tab character \tab Whether the goal was scored on an empty net. \cr
+   game_winner \tab character \tab Whether the goal was the game-winning goal. \cr
+   penalty_shot \tab character \tab Whether the goal came on a penalty shot. \cr
+   insurance \tab character \tab Whether the goal was an insurance goal. \cr
+   short_handed \tab character \tab Whether the event occurred while short-handed. \cr
+   plus_player_one_id \tab integer \tab On-ice plus player one unique identifier. \cr
+   plus_player_one_first \tab character \tab On-ice plus player one first name. \cr
+   plus_player_one_last \tab character \tab On-ice plus player one last name. \cr
+   plus_player_one_position \tab character \tab On-ice plus player one position. \cr
+   plus_player_two_id \tab integer \tab On-ice plus player two unique identifier. \cr
+   plus_player_two_first \tab character \tab On-ice plus player two first name. \cr
+   plus_player_two_last \tab character \tab On-ice plus player two last name. \cr
+   plus_player_two_position \tab character \tab On-ice plus player two position. \cr
+   plus_player_three_id \tab integer \tab On-ice plus player three unique identifier. \cr
+   plus_player_three_first \tab character \tab On-ice plus player three first name. \cr
+   plus_player_three_last \tab character \tab On-ice plus player three last name. \cr
+   plus_player_three_position \tab character \tab On-ice plus player three position. \cr
+   plus_player_four_id \tab integer \tab On-ice plus player four unique identifier. \cr
+   plus_player_four_first \tab character \tab On-ice plus player four first name. \cr
+   plus_player_four_last \tab character \tab On-ice plus player four last name. \cr
+   plus_player_four_position \tab character \tab On-ice plus player four position. \cr
+   plus_player_five_id \tab integer \tab On-ice plus player five unique identifier. \cr
+   plus_player_five_first \tab character \tab On-ice plus player five first name. \cr
+   plus_player_five_last \tab character \tab On-ice plus player five last name. \cr
+   plus_player_five_position \tab character \tab On-ice plus player five position. \cr
+   minus_player_one_id \tab integer \tab On-ice minus player one unique identifier. \cr
+   minus_player_one_first \tab character \tab On-ice minus player one first name. \cr
+   minus_player_one_last \tab character \tab On-ice minus player one last name. \cr
+   minus_player_one_position \tab character \tab On-ice minus player one position. \cr
+   minus_player_two_id \tab integer \tab On-ice minus player two unique identifier. \cr
+   minus_player_two_first \tab character \tab On-ice minus player two first name. \cr
+   minus_player_two_last \tab character \tab On-ice minus player two last name. \cr
+   minus_player_two_position \tab character \tab On-ice minus player two position. \cr
+   minus_player_three_id \tab integer \tab On-ice minus player three unique identifier. \cr
+   minus_player_three_first \tab character \tab On-ice minus player three first name. \cr
+   minus_player_three_last \tab character \tab On-ice minus player three last name. \cr
+   minus_player_three_position \tab character \tab On-ice minus player three position. \cr
+   minus_player_four_id \tab integer \tab On-ice minus player four unique identifier. \cr
+   minus_player_four_first \tab character \tab On-ice minus player four first name. \cr
+   minus_player_four_last \tab character \tab On-ice minus player four last name. \cr
+   minus_player_four_position \tab character \tab On-ice minus player four position. \cr
+   minus_player_five_id \tab integer \tab On-ice minus player five unique identifier. \cr
+   minus_player_five_first \tab character \tab On-ice minus player five first name. \cr
+   minus_player_five_last \tab character \tab On-ice minus player five last name. \cr
+   minus_player_five_position \tab character \tab On-ice minus player five position. \cr
+   game_date \tab character \tab Game date. \cr
+   game_season \tab numeric \tab Season (concluding year, YYYY). \cr
+   game_season_id \tab character \tab Season identifier. \cr
+   home_team_id \tab integer \tab Home team unique identifier. \cr
+   home_team \tab character \tab Home team name. \cr
+   away_team_id \tab integer \tab Away team unique identifier. \cr
+   away_team \tab character \tab Away team name. \cr
+   x_coord_original \tab integer \tab Original raw x-coordinate from the feed. \cr
+   y_coord_original \tab integer \tab Original raw y-coordinate from the feed. \cr
+   x_coord_neutral \tab numeric \tab Neutral-zone-centered x-coordinate. \cr
+   y_coord_neutral \tab numeric \tab Neutral-zone-centered y-coordinate. \cr
+   x_coord_fixed \tab numeric \tab Fixed-projection x-coordinate. \cr
+   y_coord_fixed \tab numeric \tab Fixed-projection y-coordinate. \cr
+   x_coord_right \tab numeric \tab Right-oriented x-coordinate. \cr
+   y_coord_right \tab numeric \tab Right-oriented y-coordinate. \cr
+   x_coord_vertical \tab numeric \tab Vertical-projection x-coordinate. \cr
+   y_coord_vertical \tab numeric \tab Vertical-projection y-coordinate. \cr
+   minute_start \tab numeric \tab Minute mark of the period when the event started. \cr
+   second_start \tab numeric \tab Second mark of the period when the event started. \cr
+   clock \tab character \tab Game clock time remaining (MM:SS). \cr
+   sec_from_start \tab numeric \tab Seconds elapsed since the start of the game. \cr
+}
 }
 \description{
 PWHL Play-by-play

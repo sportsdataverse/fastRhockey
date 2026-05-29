@@ -2,7 +2,30 @@
 #' @description Returns current NHL team information.
 #' Uses the NHL API standings endpoint to get up-to-date team info.
 #' @param season Integer four-digit year (e.g., 2024). If NULL, returns current teams.
-#' @return Returns a data frame with team information.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name          |types     |description                                  |
+#'    |:-----------------|:---------|:--------------------------------------------|
+#'    |team_abbr         |character |Team abbreviation.                           |
+#'    |team_name         |character |Team name.                                   |
+#'    |team_common_name  |character |Team common name.                            |
+#'    |team_logo         |character |URL to the team logo image.                  |
+#'    |conference_abbr   |character |Conference abbreviation.                     |
+#'    |conference_name   |character |Conference name.                             |
+#'    |division_abbr     |character |Division abbreviation.                       |
+#'    |division_name     |character |Division name.                               |
+#'    |place_name        |character |Team place/city name.                        |
+#'    |games_played      |integer   |Games played.                                |
+#'    |wins              |integer   |Wins.                                        |
+#'    |losses            |integer   |Losses.                                      |
+#'    |ot_losses         |integer   |Overtime losses.                             |
+#'    |points            |integer   |Total points.                                |
+#'    |point_pctg        |numeric   |Points percentage.                           |
+#'    |goals_for         |integer   |Goals for.                                   |
+#'    |goals_against     |integer   |Goals against.                               |
+#'    |goal_differential |integer   |Goal differential.                           |
+#'    |streak_code       |character |Current streak code (W/L/OT).                |
+#'    |streak_count      |integer   |Length of the current streak.                |
 #' @keywords NHL Teams
 #' @importFrom jsonlite read_json
 #' @importFrom dplyr tibble bind_rows mutate

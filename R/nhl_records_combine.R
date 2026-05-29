@@ -2,8 +2,20 @@
 #' @description Returns NHL Scouting Combine measurements from the NHL
 #'   Records API (`https://records.nhl.com/site/api/combine`).
 #' @param cayenne_exp Optional Cayenne filter expression string.
-#' @return A `fastRhockey_data` tibble of combine measurements, or `NULL`
-#'   on failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name          |types     |description                              |
+#'    |:-----------------|:---------|:----------------------------------------|
+#'    |id                |integer   |Unique combine record identifier.        |
+#'    |amateur_club_name |character |Amateur club the player played for.      |
+#'    |amateur_league    |character |Amateur league the player played in.     |
+#'    |draft_year        |integer   |Draft year for the player.               |
+#'    |event             |character |Combine measurement event name.          |
+#'    |first_name        |character |Player first name.                       |
+#'    |last_name         |character |Player last name.                        |
+#'    |player_id         |integer   |Unique player identifier.                |
+#'    |position_code     |character |Player position code.                    |
+#'    |value             |numeric   |Measured value for the combine event.    |
 #' @keywords NHL Records Combine
 #' @importFrom janitor clean_names
 #' @importFrom dplyr as_tibble

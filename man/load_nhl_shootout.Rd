@@ -22,21 +22,21 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}, with one row per
-shootout attempt. Only games that ended in a shootout contribute
-rows. Columns include:\tabular{ll}{
-   column \tab description \cr
-   \code{game_id} \tab NHL game id \cr
-   \code{season} \tab Season end year (e.g. 2026 for 2025-26) \cr
-   \code{game_date} \tab ISO date of the game \cr
-   \code{sequence} \tab Order of the attempt within the shootout (1, 2, ...) \cr
-   \code{team_abbrev} \tab Three-letter abbreviation of the shooting team \cr
-   \code{player_id} \tab NHL player id of the shooter \cr
-   \code{first_name} \tab Shooter first name \cr
-   \code{last_name} \tab Shooter last name \cr
-   \code{shot_type} \tab e.g. \code{"wrist"}, \code{"snap"}, \code{"backhand"} \cr
-   \code{result} \tab \code{"goal"}, \code{"save"}, or \code{"miss"} \cr
-   \code{game_winner} \tab \code{TRUE} for the decisive attempt, \code{FALSE} otherwise \cr
+A data frame (\code{fastRhockey_data}) with one row per shootout attempt
+(only games that ended in a shootout contribute rows) and the following
+columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   game_date \tab character \tab Game date. \cr
+   sequence \tab integer \tab Order of the attempt within the shootout. \cr
+   team_abbrev \tab character \tab Abbreviation of the shooting team. \cr
+   player_id \tab integer \tab Player id of the shooter. \cr
+   first_name \tab character \tab Shooter first name. \cr
+   last_name \tab character \tab Shooter last name. \cr
+   shot_type \tab character \tab Type of shot taken (e.g. wrist, snap, backhand). \cr
+   result \tab character \tab Attempt result (goal/save/miss). \cr
+   game_winner \tab logical \tab Whether this attempt was the decisive one. \cr
 }
 }
 \description{

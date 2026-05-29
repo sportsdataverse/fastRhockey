@@ -22,8 +22,26 @@ the \code{cayenneExp} query parameter.}
 \item{start}{Integer pagination start index. Default 0.}
 }
 \value{
-A \code{fastRhockey_data} tibble of goalie milestones, or \code{NULL} on
-failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique milestone record identifier. \cr
+   current_team_id \tab integer \tab Player's current team identifier. \cr
+   first_name \tab character \tab Player first name. \cr
+   game_type_id \tab integer \tab Game type identifier. \cr
+   games_played \tab integer \tab Games played. \cr
+   last_name \tab character \tab Player last name. \cr
+   milestone \tab character \tab Milestone category. \cr
+   milestone_amount \tab integer \tab Amount remaining to reach the milestone. \cr
+   player_full_name \tab character \tab Player full name. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   so \tab integer \tab Shutouts. \cr
+   team_abbrev \tab character \tab Team abbreviation. \cr
+   team_common_name \tab character \tab Team common (nickname) name. \cr
+   team_full_name \tab character \tab Full team name. \cr
+   team_place_name \tab character \tab Team place (city/location) name. \cr
+   toi_minutes \tab integer \tab Time on ice in minutes. \cr
+   wins \tab integer \tab Wins. \cr
+}
 }
 \description{
 Returns goalie milestone achievements from the NHL Stats

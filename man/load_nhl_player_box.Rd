@@ -22,7 +22,44 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the player box data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}
+A data frame (\code{fastRhockey_data}) with the following columns
+(combined skaters + goalies; goalie-only fields are \code{NA} for skaters):\tabular{lll}{
+   col_name \tab types \tab description \cr
+   home_away \tab character \tab Home or away indicator. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team_abbrev \tab character \tab Team abbreviation/code. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   player_name \tab character \tab Player name. \cr
+   sweater_number \tab integer \tab Jersey number. \cr
+   position \tab character \tab Player position. \cr
+   goals \tab integer \tab Goals scored. \cr
+   assists \tab integer \tab Assists. \cr
+   points \tab integer \tab Total points (goals + assists). \cr
+   plus_minus \tab integer \tab Plus/minus rating. \cr
+   pim \tab integer \tab Penalty minutes. \cr
+   hits \tab integer \tab Hits. \cr
+   power_play_goals \tab integer \tab Power play goals. \cr
+   shots_on_goal \tab integer \tab Shots on goal. \cr
+   faceoff_winning_pctg \tab numeric \tab Faceoff win percentage. \cr
+   toi \tab character \tab Time on ice. \cr
+   blocked_shots \tab integer \tab Blocked shots. \cr
+   shifts \tab integer \tab Number of shifts. \cr
+   giveaways \tab integer \tab Giveaways. \cr
+   takeaways \tab integer \tab Takeaways. \cr
+   even_strength_shots_against \tab character \tab Even-strength shots against (goalies). \cr
+   power_play_shots_against \tab character \tab Power play shots against (goalies). \cr
+   shorthanded_shots_against \tab character \tab Shorthanded shots against (goalies). \cr
+   save_shots_against \tab character \tab Saves / shots against (goalies). \cr
+   save_pctg \tab numeric \tab Save percentage (goalies). \cr
+   even_strength_goals_against \tab integer \tab Even-strength goals against (goalies). \cr
+   power_play_goals_against \tab integer \tab Power play goals against (goalies). \cr
+   shorthanded_goals_against \tab integer \tab Shorthanded goals against (goalies). \cr
+   goals_against \tab integer \tab Goals against (goalies). \cr
+   starter \tab logical \tab Whether the goalie started the game. \cr
+   decision \tab character \tab Goalie decision (W/L/O). \cr
+   shots_against \tab integer \tab Shots faced (goalies). \cr
+   saves \tab integer \tab Saves made (goalies). \cr
+}
 }
 \description{
 Helper that loads multiple seasons of pre-scraped NHL

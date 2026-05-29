@@ -17,8 +17,11 @@ season), an 8-character API season (e.g., \code{"20242025"}), or \code{NULL}
 (default), 3 = playoffs.}
 }
 \value{
-A \code{fastRhockey_data} tibble of advanced metrics, or \code{NULL} on
-failure / empty response.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique team identifier. \cr
+   game_types \tab list \tab List of game types available for the team's data. \cr
+}
 }
 \description{
 Returns the NHL Edge advanced-metrics detail payload for a

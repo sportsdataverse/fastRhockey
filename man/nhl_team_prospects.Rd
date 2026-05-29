@@ -10,7 +10,39 @@ nhl_team_prospects(team_abbr)
 \item{team_abbr}{Three-letter team abbreviation (e.g., "TOR", "BOS")}
 }
 \value{
-Returns a data frame with prospect player data.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique player identifier. \cr
+   headshot \tab character \tab URL to the prospect's headshot image. \cr
+   position_code \tab character \tab Player position code. \cr
+   shoots_catches \tab character \tab Handedness (shoots/catches). \cr
+   height_in_inches \tab integer \tab Height in inches. \cr
+   weight_in_pounds \tab integer \tab Weight in pounds. \cr
+   height_in_centimeters \tab integer \tab Height in centimeters. \cr
+   weight_in_kilograms \tab integer \tab Weight in kilograms. \cr
+   birth_date \tab character \tab Player birth date. \cr
+   birth_country \tab character \tab Player birth country. \cr
+   sweater_number \tab integer \tab Jersey number. \cr
+   first_name_default \tab character \tab First name (default localization). \cr
+   first_name_cs \tab character \tab First name (Czech localization). \cr
+   first_name_sk \tab character \tab First name (Slovak localization). \cr
+   last_name_default \tab character \tab Last name (default localization). \cr
+   last_name_cs \tab character \tab Last name (Czech localization). \cr
+   last_name_sk \tab character \tab Last name (Slovak localization). \cr
+   birth_city_default \tab character \tab Birth city (default localization). \cr
+   birth_city_cs \tab character \tab Birth city (Czech localization). \cr
+   birth_city_de \tab character \tab Birth city (German localization). \cr
+   birth_city_fi \tab character \tab Birth city (Finnish localization). \cr
+   birth_city_fr \tab character \tab Birth city (French localization). \cr
+   birth_city_sk \tab character \tab Birth city (Slovak localization). \cr
+   birth_city_sv \tab character \tab Birth city (Swedish localization). \cr
+   birth_state_province_default \tab character \tab Birth state/province (default localization). \cr
+   birth_state_province_fr \tab character \tab Birth state/province (French localization). \cr
+   birth_state_province_sk \tab character \tab Birth state/province (Slovak localization). \cr
+   birth_state_province_sv \tab character \tab Birth state/province (Swedish localization). \cr
+   prospect_group \tab character \tab Prospect position group the player belongs to. \cr
+   team_abbr \tab character \tab Team abbreviation. \cr
+}
 }
 \description{
 Returns prospect information for a given team.

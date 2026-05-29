@@ -22,16 +22,16 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \item{tablename}{The name of the data table within the database}
 }
 \value{
-A data frame of class \code{fastRhockey_data}, with one row per team
-per period per game. Columns include:\tabular{ll}{
-   column \tab description \cr
-   \code{game_id} \tab NHL game id \cr
-   \code{season} \tab Season end year (e.g. 2026 for 2025-26) \cr
-   \code{game_date} \tab ISO date of the game \cr
-   \code{home_away} \tab \code{"home"} or \code{"away"} \cr
-   \code{period_number} \tab 1-3 for regulation, 4+ for OT/SO \cr
-   \code{period_type} \tab \code{"REG"}, \code{"OT"}, or \code{"SO"} \cr
-   \code{shots} \tab Shots on goal in the period \cr
+A data frame (\code{fastRhockey_data}) with one row per team per period
+per game and the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   game_date \tab character \tab Game date. \cr
+   home_away \tab character \tab Home or away indicator. \cr
+   period_number \tab integer \tab Period number (1-3 regulation, 4+ for OT/SO). \cr
+   period_type \tab character \tab Period type (REG/OT/SO). \cr
+   shots \tab integer \tab Shots on goal in the period. \cr
 }
 }
 \description{

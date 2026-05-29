@@ -20,9 +20,35 @@ nhl_team_summary_range(start_season, end_season, game_type = 2, limit = 50)
 Defaults to \code{50} to match \code{\link[=nhl_stats_teams]{nhl_stats_teams()}}.}
 }
 \value{
-A \code{fastRhockey_data} / \code{data.frame} of concatenated team
-summary stats with an added \code{season} column marking the season each
-row came from. Returns \code{NULL} on outer failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   faceoff_win_pct \tab numeric \tab Faceoff win percentage. \cr
+   games_played \tab integer \tab Games played. \cr
+   goals_against \tab integer \tab Goals against. \cr
+   goals_against_per_game \tab numeric \tab Goals against per game. \cr
+   goals_for \tab integer \tab Goals for. \cr
+   goals_for_per_game \tab numeric \tab Goals for per game. \cr
+   losses \tab integer \tab Losses. \cr
+   ot_losses \tab integer \tab Overtime losses. \cr
+   penalty_kill_net_pct \tab numeric \tab Net penalty kill percentage. \cr
+   penalty_kill_pct \tab numeric \tab Penalty kill percentage. \cr
+   point_pct \tab numeric \tab Points percentage. \cr
+   points \tab integer \tab Total points. \cr
+   power_play_net_pct \tab numeric \tab Net power play percentage. \cr
+   power_play_pct \tab numeric \tab Power play percentage. \cr
+   regulation_and_ot_wins \tab integer \tab Wins in regulation and overtime. \cr
+   season_id \tab integer \tab Season identifier. \cr
+   shots_against_per_game \tab numeric \tab Shots against per game. \cr
+   shots_for_per_game \tab numeric \tab Shots for per game. \cr
+   team_full_name \tab character \tab Full team name. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team_shutouts \tab integer \tab Team shutouts. \cr
+   ties \tab logical \tab Ties (legacy; typically unused). \cr
+   wins \tab integer \tab Wins. \cr
+   wins_in_regulation \tab integer \tab Wins in regulation. \cr
+   wins_in_shootout \tab integer \tab Wins in shootout. \cr
+   season \tab character \tab Season the row came from (YYYYYYYY). \cr
+}
 }
 \description{
 Aggregator helper that calls \code{\link[=nhl_stats_teams]{nhl_stats_teams()}} with

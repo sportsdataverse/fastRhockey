@@ -10,13 +10,66 @@ pwhl_game_summary(game_id)
 \item{game_id}{Game ID to retrieve the summary for.}
 }
 \value{
-A named list with the following elements:
-\itemize{
-\item \code{details} - Data frame with one row of game metadata (teams, date, venue, score).
-\item \code{scoring} - Data frame of goals with period, time, team, scorer, and assists.
-\item \code{penalties} - Data frame of penalties with period, time, team, player, and infraction.
-\item \code{shots_by_period} - Data frame of shots per period for each team.
-\item \code{three_stars} - Data frame with the game's three stars.
+A named list of data frames: \code{details}, \code{scoring}, \code{penalties}, \code{shots_by_period}, \code{three_stars}.
+
+\strong{details}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab numeric \tab Unique game identifier. \cr
+   date \tab character \tab Game date. \cr
+   status \tab character \tab Game status. \cr
+   venue \tab character \tab Venue where the game was played. \cr
+   attendance \tab character \tab Reported attendance. \cr
+   home_team \tab character \tab Home team name. \cr
+   home_team_id \tab numeric \tab Home team identifier. \cr
+   home_score \tab numeric \tab Home team final score. \cr
+   away_team \tab character \tab Away team name. \cr
+   away_team_id \tab numeric \tab Away team identifier. \cr
+   away_score \tab numeric \tab Away team final score. \cr
+}
+
+
+\strong{scoring}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   period \tab character \tab Period in which the goal was scored. \cr
+   time \tab character \tab Time of the goal. \cr
+   team \tab character \tab Team that scored. \cr
+   team_id \tab numeric \tab Identifier of the scoring team. \cr
+   scorer \tab character \tab Name of the goal scorer. \cr
+   scorer_id \tab numeric \tab Identifier of the goal scorer. \cr
+   assist_1 \tab character \tab Name of the primary assister. \cr
+   assist_2 \tab character \tab Name of the secondary assister. \cr
+   goal_type \tab character \tab Type of goal. \cr
+}
+
+
+\strong{penalties}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   period \tab character \tab Period in which the penalty occurred. \cr
+   time \tab character \tab Time of the penalty. \cr
+   team \tab character \tab Penalized team. \cr
+   team_id \tab numeric \tab Identifier of the penalized team. \cr
+   player \tab character \tab Penalized player name. \cr
+   player_id \tab numeric \tab Identifier of the penalized player. \cr
+   infraction \tab character \tab Penalty infraction description. \cr
+   minutes \tab numeric \tab Penalty minutes. \cr
+}
+
+
+\strong{shots_by_period}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   period \tab character \tab Period number. \cr
+   home_shots \tab numeric \tab Home team shots in the period. \cr
+   away_shots \tab numeric \tab Away team shots in the period. \cr
+}
+
+
+\strong{three_stars}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   star \tab numeric \tab Star ranking (1 to 3). \cr
+   player_id \tab numeric \tab Identifier of the selected player. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   team_id \tab numeric \tab Identifier of the player's team. \cr
 }
 }
 \description{

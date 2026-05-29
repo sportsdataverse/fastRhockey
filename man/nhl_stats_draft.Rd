@@ -17,7 +17,12 @@ draft years (1963-present).}
 \item{lang}{Character language code. Default "en".}
 }
 \value{
-Returns a data frame with columns: id, draft_year, rounds.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique draft summary identifier. \cr
+   draft_year \tab integer \tab Draft year. \cr
+   rounds \tab integer \tab Number of rounds in the draft. \cr
+}
 }
 \description{
 Queries the NHL Stats REST API for draft-year summaries

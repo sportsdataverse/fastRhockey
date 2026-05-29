@@ -28,7 +28,78 @@ If provided, returns that month's schedule. Ignored if view is "week".}
 If NULL with view="week", returns current week.}
 }
 \value{
-Returns a data frame with schedule data.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique game identifier. \cr
+   season \tab integer \tab Season in 8-digit API format (e.g., 20252026). \cr
+   game_type \tab integer \tab Game type code (1 preseason, 2 regular, 3 playoff). \cr
+   game_date \tab character \tab Game date. \cr
+   neutral_site \tab logical \tab Whether the game is at a neutral site. \cr
+   start_time_utc \tab character \tab Scheduled start time in UTC. \cr
+   eastern_utc_offset \tab character \tab Eastern time UTC offset. \cr
+   venue_utc_offset \tab character \tab Venue UTC offset. \cr
+   venue_timezone \tab character \tab Venue time zone. \cr
+   game_state \tab character \tab Current game state. \cr
+   game_schedule_state \tab character \tab Schedule state of the game. \cr
+   tv_broadcasts \tab list \tab Nested list of TV broadcast details. \cr
+   three_min_recap \tab character \tab Link to the three-minute recap. \cr
+   game_center_link \tab character \tab Link to the game center page. \cr
+   three_min_recap_fr \tab character \tab Link to the French three-minute recap. \cr
+   condensed_game_fr \tab character \tab Link to the French condensed game video. \cr
+   condensed_game \tab character \tab Link to the condensed game video. \cr
+   venue_default \tab character \tab Venue name (default language). \cr
+   venue_fr \tab character \tab Venue name (French). \cr
+   venue_es \tab character \tab Venue name (Spanish). \cr
+   away_team_id \tab integer \tab Away team identifier. \cr
+   away_team_abbrev \tab character \tab Away team abbreviation. \cr
+   away_team_logo \tab character \tab URL to the away team logo. \cr
+   away_team_dark_logo \tab character \tab URL to the away team dark logo. \cr
+   away_team_away_split_squad \tab logical \tab Whether the away team is a split squad. \cr
+   away_team_score \tab integer \tab Away team score. \cr
+   away_team_hotel_link \tab character \tab Link to away team hotel info. \cr
+   away_team_hotel_desc \tab character \tab Away team hotel description. \cr
+   away_team_airline_link \tab character \tab Link to away team airline info. \cr
+   away_team_airline_desc \tab character \tab Away team airline description. \cr
+   away_team_common_name_default \tab character \tab Away team common name (default language). \cr
+   away_team_common_name_fr \tab character \tab Away team common name (French). \cr
+   away_team_place_name_default \tab character \tab Away team place name (default language). \cr
+   away_team_place_name_fr \tab character \tab Away team place name (French). \cr
+   away_team_place_name_with_preposition_default \tab character \tab Away team place name with preposition (default). \cr
+   away_team_place_name_with_preposition_fr \tab character \tab Away team place name with preposition (French). \cr
+   home_team_id \tab integer \tab Home team identifier. \cr
+   home_team_abbrev \tab character \tab Home team abbreviation. \cr
+   home_team_logo \tab character \tab URL to the home team logo. \cr
+   home_team_dark_logo \tab character \tab URL to the home team dark logo. \cr
+   home_team_home_split_squad \tab logical \tab Whether the home team is a split squad. \cr
+   home_team_score \tab integer \tab Home team score. \cr
+   home_team_hotel_link \tab character \tab Link to home team hotel info. \cr
+   home_team_hotel_desc \tab character \tab Home team hotel description. \cr
+   home_team_airline_link \tab character \tab Link to home team airline info. \cr
+   home_team_airline_desc \tab character \tab Home team airline description. \cr
+   home_team_common_name_default \tab character \tab Home team common name (default language). \cr
+   home_team_common_name_fr \tab character \tab Home team common name (French). \cr
+   home_team_place_name_default \tab character \tab Home team place name (default language). \cr
+   home_team_place_name_fr \tab character \tab Home team place name (French). \cr
+   home_team_place_name_with_preposition_default \tab character \tab Home team place name with preposition (default). \cr
+   home_team_place_name_with_preposition_fr \tab character \tab Home team place name with preposition (French). \cr
+   period_descriptor_period_type \tab character \tab Period type descriptor. \cr
+   period_descriptor_max_regulation_periods \tab integer \tab Maximum number of regulation periods. \cr
+   game_outcome_last_period_type \tab character \tab Period type in which the game ended. \cr
+   winning_goalie_player_id \tab integer \tab Winning goalie player identifier. \cr
+   winning_goalie_first_initial_default \tab character \tab Winning goalie first initial (default language). \cr
+   winning_goalie_last_name_default \tab character \tab Winning goalie last name (default language). \cr
+   winning_goalie_last_name_cs \tab character \tab Winning goalie last name (Czech). \cr
+   winning_goalie_last_name_fi \tab character \tab Winning goalie last name (Finnish). \cr
+   winning_goalie_last_name_sk \tab character \tab Winning goalie last name (Slovak). \cr
+   winning_goalie_last_name_sv \tab character \tab Winning goalie last name (Swedish). \cr
+   winning_goal_scorer_player_id \tab integer \tab Winning goal scorer player identifier. \cr
+   winning_goal_scorer_first_initial_default \tab character \tab Winning goal scorer first initial (default). \cr
+   winning_goal_scorer_last_name_default \tab character \tab Winning goal scorer last name (default language). \cr
+   winning_goal_scorer_last_name_cs \tab character \tab Winning goal scorer last name (Czech). \cr
+   winning_goal_scorer_last_name_sk \tab character \tab Winning goal scorer last name (Slovak). \cr
+   winning_goal_scorer_last_name_fi \tab character \tab Winning goal scorer last name (Finnish). \cr
+   team_abbr \tab character \tab Team abbreviation queried. \cr
+}
 }
 \description{
 Returns schedule data for a given team. Supports season, month,

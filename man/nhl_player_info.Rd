@@ -10,7 +10,31 @@ nhl_player_info(player_id)
 \item{player_id}{Integer player ID (e.g., 8476899)}
 }
 \value{
-Returns a data frame with player biographical information.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   full_name \tab character \tab Player full name. \cr
+   team_abbr \tab character \tab Current team abbreviation. \cr
+   team_name \tab character \tab Current team name. \cr
+   sweater_number \tab integer \tab Player sweater (jersey) number. \cr
+   position \tab character \tab Player position. \cr
+   shoots_catches \tab character \tab Handedness (shoots or catches). \cr
+   height_inches \tab integer \tab Player height in inches. \cr
+   weight_pounds \tab integer \tab Player weight in pounds. \cr
+   birth_date \tab character \tab Player date of birth. \cr
+   birth_city \tab character \tab City of birth. \cr
+   birth_state \tab character \tab State or province of birth. \cr
+   birth_country \tab character \tab Country of birth. \cr
+   draft_year \tab integer \tab Year the player was drafted. \cr
+   draft_round \tab integer \tab Draft round. \cr
+   draft_pick \tab integer \tab Draft pick within the round. \cr
+   draft_overall \tab integer \tab Overall draft selection number. \cr
+   draft_team_abbr \tab character \tab Abbreviation of the drafting team. \cr
+   is_active \tab logical \tab Whether the player is currently active. \cr
+   headshot_url \tab character \tab URL of the player headshot image. \cr
+}
 }
 \description{
 Returns biographical and career information for an NHL player.

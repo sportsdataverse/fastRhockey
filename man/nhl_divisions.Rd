@@ -11,11 +11,11 @@ nhl_divisions(date = NULL)
 current divisions.}
 }
 \value{
-Returns a data frame with columns:
-\itemize{
-\item \code{division_name} - division name (e.g. "Atlantic", "Metropolitan")
-\item \code{division_abbrev} - division abbreviation
-\item \code{conference_name} - parent conference name
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   division_name \tab character \tab Division name (e.g. "Atlantic", "Metropolitan"). \cr
+   division_abbrev \tab character \tab Division abbreviation. \cr
+   conference_name \tab character \tab Parent conference name. \cr
 }
 }
 \description{

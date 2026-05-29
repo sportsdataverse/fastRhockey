@@ -7,7 +7,29 @@
 nhl_draft()
 }
 \value{
-Returns a data frame of draft picks.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   round \tab integer \tab Draft round number. \cr
+   pick_in_round \tab integer \tab Pick number within the round. \cr
+   overall_pick \tab integer \tab Overall pick number in the draft. \cr
+   team_id \tab integer \tab Unique team identifier of the drafting team. \cr
+   team_abbrev \tab character \tab Drafting team abbreviation. \cr
+   team_name \tab data.frame \tab Drafting team name (localized). \cr
+   team_common_name \tab data.frame \tab Drafting team common (nickname) name (localized). \cr
+   team_place_name_with_preposition \tab data.frame \tab Drafting team place name with preposition. \cr
+   display_abbrev \tab data.frame \tab Drafting team display abbreviation. \cr
+   team_logo_light \tab character \tab URL to the team's light-theme logo. \cr
+   team_logo_dark \tab character \tab URL to the team's dark-theme logo. \cr
+   team_pick_history \tab character \tab History of the team's picks at this slot. \cr
+   first_name \tab data.frame \tab Drafted player's first name (localized). \cr
+   last_name \tab data.frame \tab Drafted player's last name (localized). \cr
+   position_code \tab character \tab Drafted player's position code. \cr
+   country_code \tab character \tab Drafted player's country code. \cr
+   height \tab integer \tab Drafted player's height in inches. \cr
+   weight \tab integer \tab Drafted player's weight in pounds. \cr
+   amateur_league \tab character \tab Drafted player's amateur league. \cr
+   amateur_club_name \tab character \tab Drafted player's amateur club name. \cr
+}
 }
 \description{
 Returns information on the most recent NHL draft picks.

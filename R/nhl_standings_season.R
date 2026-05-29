@@ -1,6 +1,19 @@
 #' @title **NHL Standings Season List**
 #' @description Returns the list of seasons for which standings data is available.
-#' @return Returns a data frame with available standings seasons.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name                 |types     |description                |
+#'    |:------------------------|:---------|:--------------------------|
+#'    |id                       |integer   |Season identifier (e.g., 20232024). |
+#'    |conferences_in_use       |logical   |Whether conferences were in use that season. |
+#'    |divisions_in_use         |logical   |Whether divisions were in use that season. |
+#'    |point_for_o_tloss_in_use |logical   |Whether a point for overtime losses was in use. |
+#'    |regulation_wins_in_use   |logical   |Whether regulation wins were tracked. |
+#'    |row_in_use               |logical   |Whether regulation/overtime wins (ROW) were in use. |
+#'    |standings_end            |character |End date of the standings period. |
+#'    |standings_start          |character |Start date of the standings period. |
+#'    |ties_in_use              |logical   |Whether ties were in use that season. |
+#'    |wildcard_in_use          |logical   |Whether wildcard standings were in use. |
 #' @keywords NHL Standings Season
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

@@ -3,8 +3,17 @@
 #'   REST API (`https://api.nhle.com/stats/rest/{lang}/glossary`). Useful to
 #'   look up what a given abbreviation or statistic (e.g., `PIM`) means.
 #' @param lang Character language code. Default `"en"`.
-#' @return A `fastRhockey_data` tibble of glossary entries, or `NULL` on
-#'   failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name                |types     |description                          |
+#'    |:-----------------------|:---------|:------------------------------------|
+#'    |id                      |integer   |Unique glossary entry identifier.    |
+#'    |abbreviation            |character |Statistic abbreviation.              |
+#'    |definition              |character |Definition of the statistic.         |
+#'    |first_season_for_stat   |integer   |First season the stat was tracked.   |
+#'    |full_name               |character |Full name of the statistic.          |
+#'    |language_code           |character |Language code of the entry.          |
+#'    |last_updated            |character |Timestamp the entry was last updated.|
 #' @keywords NHL Stats Glossary
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

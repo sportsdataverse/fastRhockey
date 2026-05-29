@@ -7,15 +7,15 @@
 pwhl_teams()
 }
 \value{
-A data frame with columns:
-\itemize{
-\item \code{team_name} - Full team name (e.g., "PWHL Boston")
-\item \code{team_id} - Numeric team identifier
-\item \code{team_code} - Three-letter team code (e.g., "BOS")
-\item \code{team_nickname} - Team nickname
-\item \code{team_label} - Short city label (e.g., "Boston")
-\item \code{division} - Division identifier
-\item \code{team_logo} - URL to team logo image
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   team_name \tab character \tab Full team name. \cr
+   team_id \tab character \tab Unique team identifier. \cr
+   team_code \tab character \tab Team abbreviation/code. \cr
+   team_nickname \tab character \tab Team nickname. \cr
+   team_label \tab character \tab Short city label. \cr
+   division \tab character \tab Division identifier. \cr
+   team_logo \tab character \tab URL to the team logo image. \cr
 }
 }
 \description{

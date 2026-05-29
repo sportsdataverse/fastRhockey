@@ -10,7 +10,32 @@ nhl_stats_seasons(lang = "en")
 \item{lang}{Character language code. Default "en".}
 }
 \value{
-Returns a data frame with season data.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Season identifier (YYYYYYYY). \cr
+   all_star_game_in_use \tab integer \tab Whether an All-Star Game was held this season. \cr
+   conferences_in_use \tab integer \tab Whether conferences were in use this season. \cr
+   divisions_in_use \tab integer \tab Whether divisions were in use this season. \cr
+   end_date \tab character \tab Season end date. \cr
+   entry_draft_in_use \tab integer \tab Whether an entry draft was in use this season. \cr
+   formatted_season_id \tab character \tab Human-readable season string (e.g. "2023-24"). \cr
+   minimum_playoff_minutes_for_goalie_stats_leaders \tab integer \tab Minimum playoff minutes to qualify for goalie stats leaders. \cr
+   minimum_regular_games_for_goalie_stats_leaders \tab integer \tab Minimum regular-season games to qualify for goalie stats leaders. \cr
+   nhl_stanley_cup_owner \tab integer \tab Whether the NHL owned the Stanley Cup this season. \cr
+   number_of_games \tab integer \tab Number of games per team this season. \cr
+   olympics_participation \tab integer \tab Whether NHL players participated in the Olympics this season. \cr
+   point_for_ot_loss_in_use \tab integer \tab Whether the overtime-loss point was in use this season. \cr
+   preseason_startdate \tab character \tab Preseason start date. \cr
+   regular_season_end_date \tab character \tab Regular-season end date. \cr
+   row_in_use \tab integer \tab Whether the regulation/overtime/shootout format was in use. \cr
+   season_ordinal \tab integer \tab Ordinal sequence number of the season. \cr
+   start_date \tab character \tab Season start date. \cr
+   supplemental_draft_in_use \tab integer \tab Whether a supplemental draft was in use this season. \cr
+   ties_in_use \tab integer \tab Whether ties were in use this season. \cr
+   total_playoff_games \tab integer \tab Total number of playoff games this season. \cr
+   total_regular_season_games \tab integer \tab Total number of regular-season games this season. \cr
+   wildcard_in_use \tab integer \tab Whether the wild-card playoff format was in use this season. \cr
+}
 }
 \description{
 Returns a list of all seasons from the Stats REST API.

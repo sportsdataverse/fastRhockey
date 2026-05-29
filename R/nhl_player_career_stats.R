@@ -5,12 +5,51 @@
 #'   Mirrors the `Stats.player_career_stats` convenience helper from the
 #'   `nhl-api-py` Python client.
 #' @param player_id Integer player ID (e.g. `8478402` for Connor McDavid).
-#' @return A `fastRhockey_data` / `data.frame` with one row per season
-#'   played. Always includes `player_id`, `first_name`, `last_name`,
-#'   `position`, `season`, `game_type_id`, plus the season stat columns
-#'   exposed by the landing endpoint's `seasonTotals` payload (e.g.
-#'   `goals`, `assists`, `points`, `games_played`, `pim`, `shots`,
-#'   `team_name_default`, `league_abbrev`, ...). Returns `NULL` on failure.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name                                 |types     |description                              |
+#'    |:----------------------------------------|:---------|:----------------------------------------|
+#'    |player_id                                |integer   |Unique player identifier.                |
+#'    |first_name                               |character |Player first name.                       |
+#'    |last_name                                |character |Player last name.                        |
+#'    |position                                 |character |Player position.                         |
+#'    |assists                                  |integer   |Assists.                                 |
+#'    |game_type_id                             |integer   |Game type the row belongs to.            |
+#'    |games_played                             |integer   |Games played.                            |
+#'    |goals                                    |integer   |Goals scored.                            |
+#'    |league_abbrev                            |character |League abbreviation.                     |
+#'    |pim                                      |integer   |Penalty minutes.                         |
+#'    |points                                   |integer   |Total points (goals + assists).          |
+#'    |season                                   |integer   |Season (concluding year, YYYY).          |
+#'    |sequence                                 |integer   |Sequence order of the season row.        |
+#'    |game_winning_goals                       |integer   |Game-winning goals.                      |
+#'    |plus_minus                               |integer   |Plus/minus rating.                       |
+#'    |power_play_goals                         |integer   |Power play goals.                        |
+#'    |shorthanded_goals                        |integer   |Shorthanded goals.                       |
+#'    |shots                                    |integer   |Shots on goal.                           |
+#'    |avg_toi                                  |character |Average time on ice.                     |
+#'    |faceoff_winning_pctg                     |numeric   |Faceoff winning percentage.              |
+#'    |ot_goals                                 |integer   |Overtime goals.                          |
+#'    |power_play_points                        |integer   |Power play points.                       |
+#'    |shooting_pctg                            |numeric   |Shooting percentage.                     |
+#'    |shorthanded_points                       |integer   |Shorthanded points.                      |
+#'    |team_name_default                        |character |Team name (default locale).              |
+#'    |team_name_cs                             |character |Team name (Czech locale).                |
+#'    |team_name_de                             |character |Team name (German locale).               |
+#'    |team_name_es                             |character |Team name (Spanish locale).              |
+#'    |team_name_fi                             |character |Team name (Finnish locale).              |
+#'    |team_name_sk                             |character |Team name (Slovak locale).               |
+#'    |team_name_sv                             |character |Team name (Swedish locale).              |
+#'    |team_name_fr                             |character |Team name (French locale).               |
+#'    |team_common_name_default                 |character |Team common name (default locale).       |
+#'    |team_common_name_cs                      |character |Team common name (Czech locale).         |
+#'    |team_common_name_de                      |character |Team common name (German locale).        |
+#'    |team_common_name_es                      |character |Team common name (Spanish locale).       |
+#'    |team_common_name_fi                      |character |Team common name (Finnish locale).       |
+#'    |team_common_name_sk                      |character |Team common name (Slovak locale).        |
+#'    |team_common_name_sv                      |character |Team common name (Swedish locale).       |
+#'    |team_place_name_with_preposition_default |character |Team place name with preposition.        |
+#'    |team_place_name_with_preposition_fr      |character |Team place name with preposition (FR).   |
 #' @keywords NHL Helpers Aggregator
 #' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON

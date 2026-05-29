@@ -10,8 +10,12 @@
 #'   (default) for the current season via the `/now` endpoint.
 #' @param game_type Integer game type. 1 = preseason, 2 = regular season
 #'   (default), 3 = playoffs.
-#' @return A `fastRhockey_data` tibble of advanced metrics, or `NULL` on
-#'   failure / empty response.
+#' @return A data frame (`fastRhockey_data`) with the following columns:
+#'
+#'    |col_name   |types     |description                                        |
+#'    |:----------|:---------|:--------------------------------------------------|
+#'    |id         |integer   |Unique team identifier.                            |
+#'    |game_types |list      |List of game types available for the team's data.  |
 #' @keywords NHL Edge Team
 #' @importFrom glue glue
 #' @importFrom janitor clean_names

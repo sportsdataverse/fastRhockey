@@ -10,15 +10,101 @@ nhl_game_boxscore(game_id)
 \item{game_id}{\emph{(integer)} NHL game ID, e.g. \code{2024020001}.}
 }
 \value{
-A named \code{list} containing:
-\itemize{
-\item \strong{game_info} — one-row tibble with game metadata (id, season,
-game type, date, venue, teams, final score, shots on goal).
-\item \strong{team_box} — two-row tibble (away / home) with team-level totals.
-\item \strong{skater_stats} — tibble of all skater (forward + defense)
-individual stats for both teams.
-\item \strong{goalie_stats} — tibble of all goalie individual stats for both
-teams.
+A named list of data frames: \code{game_info}, \code{team_box},
+\code{skater_stats}, \code{goalie_stats}.
+
+\strong{game_info}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab integer \tab Unique game identifier. \cr
+   season \tab integer \tab Season (concluding year, YYYY). \cr
+   game_type \tab integer \tab Game type code (2 = regular, 3 = playoffs). \cr
+   game_date \tab character \tab Game date. \cr
+   venue \tab character \tab Venue name. \cr
+   game_state \tab character \tab Game state (e.g., FINAL, LIVE). \cr
+   away_team_id \tab integer \tab Away team identifier. \cr
+   away_team_abbrev \tab character \tab Away team abbreviation. \cr
+   away_team_name \tab character \tab Away team name. \cr
+   away_score \tab integer \tab Away team final score. \cr
+   away_sog \tab integer \tab Away team shots on goal. \cr
+   home_team_id \tab integer \tab Home team identifier. \cr
+   home_team_abbrev \tab character \tab Home team abbreviation. \cr
+   home_team_name \tab character \tab Home team name. \cr
+   home_score \tab integer \tab Home team final score. \cr
+   home_sog \tab integer \tab Home team shots on goal. \cr
+   last_period_type \tab character \tab Type of the last period played (REG, OT, SO). \cr
+}
+
+
+\strong{team_box}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   home_away \tab character \tab Home or away indicator. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team_abbrev \tab character \tab Team abbreviation. \cr
+   team_name \tab character \tab Team name. \cr
+   goals \tab integer \tab Goals scored. \cr
+   shots_on_goal \tab integer \tab Shots on goal. \cr
+   pim \tab integer \tab Penalty minutes. \cr
+   hits \tab integer \tab Hits. \cr
+   blocked_shots \tab integer \tab Blocked shots. \cr
+   giveaways \tab integer \tab Giveaways. \cr
+   takeaways \tab integer \tab Takeaways. \cr
+   power_play_goals \tab integer \tab Power-play goals. \cr
+   faceoff_win_pctg \tab numeric \tab Faceoff win percentage. \cr
+   saves \tab integer \tab Saves made. \cr
+   save_pctg \tab numeric \tab Save percentage. \cr
+   goals_against \tab integer \tab Goals against. \cr
+}
+
+
+\strong{skater_stats}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   home_away \tab character \tab Home or away indicator. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team_abbrev \tab character \tab Team abbreviation. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   player_name \tab character \tab Player name. \cr
+   sweater_number \tab integer \tab Jersey number. \cr
+   position \tab character \tab Player position. \cr
+   goals \tab integer \tab Goals scored. \cr
+   assists \tab integer \tab Assists. \cr
+   points \tab integer \tab Total points (goals + assists). \cr
+   plus_minus \tab integer \tab Plus/minus rating. \cr
+   pim \tab integer \tab Penalty minutes. \cr
+   hits \tab integer \tab Hits. \cr
+   power_play_goals \tab integer \tab Power-play goals. \cr
+   shots_on_goal \tab integer \tab Shots on goal. \cr
+   faceoff_winning_pctg \tab numeric \tab Faceoff win percentage. \cr
+   toi \tab character \tab Time on ice. \cr
+   blocked_shots \tab integer \tab Blocked shots. \cr
+   shifts \tab integer \tab Number of shifts. \cr
+   giveaways \tab integer \tab Giveaways. \cr
+   takeaways \tab integer \tab Takeaways. \cr
+}
+
+
+\strong{goalie_stats}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   home_away \tab character \tab Home or away indicator. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team_abbrev \tab character \tab Team abbreviation. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   player_name \tab character \tab Player name. \cr
+   sweater_number \tab integer \tab Jersey number. \cr
+   even_strength_shots_against \tab character \tab Even-strength shots against (saves/total). \cr
+   power_play_shots_against \tab character \tab Power-play shots against (saves/total). \cr
+   shorthanded_shots_against \tab character \tab Shorthanded shots against (saves/total). \cr
+   save_shots_against \tab character \tab Total shots against (saves/total). \cr
+   save_pctg \tab numeric \tab Save percentage. \cr
+   even_strength_goals_against \tab integer \tab Even-strength goals against. \cr
+   power_play_goals_against \tab integer \tab Power-play goals against. \cr
+   shorthanded_goals_against \tab integer \tab Shorthanded goals against. \cr
+   pim \tab integer \tab Penalty minutes. \cr
+   goals_against \tab integer \tab Goals against. \cr
+   toi \tab character \tab Time on ice. \cr
+   starter \tab logical \tab Whether the goalie started the game. \cr
+   decision \tab character \tab Goalie decision (W, L, O). \cr
+   shots_against \tab integer \tab Shots faced. \cr
+   saves \tab integer \tab Saves made. \cr
 }
 }
 \description{

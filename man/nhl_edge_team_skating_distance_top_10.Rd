@@ -29,8 +29,45 @@ season), an 8-character API season (e.g., \code{"20242025"}), or \code{NULL}
 (default), 3 = playoffs.}
 }
 \value{
-A \code{fastRhockey_data} tibble with the top-10 team leaderboard, or
-\code{NULL} on failure / empty response.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   team_abbrev \tab character \tab Team abbreviation. \cr
+   team_slug \tab character \tab URL slug for the team. \cr
+   team_common_name_default \tab character \tab Team common name (default language). \cr
+   team_place_name_with_preposition_default \tab character \tab Team place name with preposition (default language). \cr
+   team_team_logo_light \tab character \tab URL to the team light logo. \cr
+   team_team_logo_dark \tab character \tab URL to the team dark logo. \cr
+   distance_total_imperial \tab numeric \tab Total distance skated, in miles. \cr
+   distance_total_metric \tab numeric \tab Total distance skated, in kilometers. \cr
+   distance_per60_imperial \tab numeric \tab Distance skated per 60 minutes, in miles. \cr
+   distance_per60_metric \tab numeric \tab Distance skated per 60 minutes, in kilometers. \cr
+   distance_max_per_game_imperial \tab numeric \tab Maximum distance skated in a single game, in miles. \cr
+   distance_max_per_game_metric \tab numeric \tab Maximum distance skated in a single game, in kilometers. \cr
+   distance_max_per_game_overlay_game_date \tab character \tab Game date of the max-per-game performance. \cr
+   distance_max_per_game_overlay_game_type \tab integer \tab Game type of the max-per-game performance. \cr
+   distance_max_per_game_overlay_away_team_abbrev \tab character \tab Away team abbreviation in the max-per-game game. \cr
+   distance_max_per_game_overlay_away_team_score \tab integer \tab Away team score in the max-per-game game. \cr
+   distance_max_per_game_overlay_home_team_abbrev \tab character \tab Home team abbreviation in the max-per-game game. \cr
+   distance_max_per_game_overlay_home_team_score \tab integer \tab Home team score in the max-per-game game. \cr
+   distance_max_per_game_overlay_game_outcome_last_period_type \tab character \tab Last period type of the max-per-game game outcome. \cr
+   distance_max_per_game_overlay_game_outcome_ot_periods \tab integer \tab Number of overtime periods in the max-per-game game. \cr
+   distance_max_per_game_overlay_period_descriptor_max_regulation_periods \tab integer \tab Maximum regulation periods for the max-per-game game. \cr
+   distance_max_per_game_overlay_period_descriptor_number \tab integer \tab Period number for the max-per-game game descriptor. \cr
+   distance_max_per_game_overlay_period_descriptor_period_type \tab character \tab Period type for the max-per-game game descriptor. \cr
+   distance_max_per_period_imperial \tab numeric \tab Maximum distance skated in a single period, in miles. \cr
+   distance_max_per_period_metric \tab numeric \tab Maximum distance skated in a single period, in kilometers. \cr
+   distance_max_per_period_overlay_game_date \tab character \tab Game date of the max-per-period performance. \cr
+   distance_max_per_period_overlay_game_type \tab integer \tab Game type of the max-per-period performance. \cr
+   distance_max_per_period_overlay_away_team_abbrev \tab character \tab Away team abbreviation in the max-per-period game. \cr
+   distance_max_per_period_overlay_away_team_score \tab integer \tab Away team score in the max-per-period game. \cr
+   distance_max_per_period_overlay_home_team_abbrev \tab character \tab Home team abbreviation in the max-per-period game. \cr
+   distance_max_per_period_overlay_home_team_score \tab integer \tab Home team score in the max-per-period game. \cr
+   distance_max_per_period_overlay_game_outcome_last_period_type \tab character \tab Last period type of the max-per-period game outcome. \cr
+   distance_max_per_period_overlay_game_outcome_ot_periods \tab integer \tab Number of overtime periods in the max-per-period game. \cr
+   distance_max_per_period_overlay_period_descriptor_max_regulation_periods \tab integer \tab Maximum regulation periods for the max-per-period game. \cr
+   distance_max_per_period_overlay_period_descriptor_number \tab integer \tab Period number for the max-per-period game descriptor. \cr
+   distance_max_per_period_overlay_period_descriptor_period_type \tab character \tab Period type for the max-per-period game descriptor. \cr
+}
 }
 \description{
 Returns the NHL Edge top-10 team skating-distance

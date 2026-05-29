@@ -1,22 +1,34 @@
 #' @title **Get ESPN NHL team names and IDs**
 #' @author Saiem Gilani
-#' @return A teams data frame with the following columns:
+#' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
-#'   |col_name        |types     |
-#'   |:---------------|:---------|
-#'   |espn_team_id    |integer   |
-#'   |abbreviation    |character |
-#'   |display_name    |character |
-#'   |short_name      |character |
-#'   |mascot          |character |
-#'   |nickname        |character |
-#'   |team            |character |
-#'   |color           |character |
-#'   |alternate_color |character |
-#'   |logo            |character |
-#'   |logo_dark       |character |
-#'   |logos_href_3    |character |
-#'   |logos_href_4    |character |
+#'    |col_name        |types     |description                                  |
+#'    |:---------------|:---------|:--------------------------------------------|
+#'    |abbreviation    |character |Team abbreviation.                           |
+#'    |alternate_color |character |Team alternate color hex code.               |
+#'    |color           |character |Team primary color hex code.                 |
+#'    |display_name    |character |Full team display name.                      |
+#'    |espn_team_id    |integer   |ESPN team identifier.                        |
+#'    |team            |character |Team location name.                          |
+#'    |logo            |character |URL to the team logo.                        |
+#'    |logo_dark       |character |URL to the dark-variant team logo.           |
+#'    |logos_href_3    |character |URL to an additional team logo variant.      |
+#'    |logos_href_4    |character |URL to an additional team logo variant.      |
+#'    |logos_href_5    |character |URL to an additional team logo variant.      |
+#'    |logos_href_6    |character |URL to an additional team logo variant.      |
+#'    |logos_href_7    |character |URL to an additional team logo variant.      |
+#'    |logos_href_8    |character |URL to an additional team logo variant.      |
+#'    |logos_href_9    |character |URL to an additional team logo variant.      |
+#'    |logos_href_10   |character |URL to an additional team logo variant.      |
+#'    |logos_href_11   |character |URL to an additional team logo variant.      |
+#'    |logos_href_12   |character |URL to an additional team logo variant.      |
+#'    |logos_href_13   |character |URL to an additional team logo variant.      |
+#'    |logos_href_14   |character |URL to an additional team logo variant.      |
+#'    |logos_href_15   |character |URL to an additional team logo variant.      |
+#'    |logos_href_16   |character |URL to an additional team logo variant.      |
+#'    |mascot          |character |Team mascot name.                            |
+#'    |nickname        |character |Team nickname.                               |
+#'    |short_name      |character |Short team display name.                     |
 #'
 #' @keywords NHL Teams
 #' @importFrom jsonlite fromJSON toJSON

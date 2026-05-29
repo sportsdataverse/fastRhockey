@@ -15,7 +15,46 @@ translated into a \code{cayenneExp=franchiseId={franchise_id}} filter unless
 precedence over \code{franchise_id} when both are supplied.}
 }
 \value{
-A \code{fastRhockey_data} tibble of franchise totals, or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique record identifier. \cr
+   active_franchise \tab integer \tab Indicator of whether the franchise is active. \cr
+   cups \tab integer \tab Number of Stanley Cup championships. \cr
+   first_season_id \tab integer \tab Season ID of the franchise's first season. \cr
+   franchise_id \tab integer \tab Unique franchise identifier. \cr
+   game_type_id \tab integer \tab Game type the totals belong to. \cr
+   game_win_pctg \tab numeric \tab Game-winning percentage. \cr
+   games_played \tab integer \tab Total games played. \cr
+   goals_against \tab integer \tab Goals against. \cr
+   goals_for \tab integer \tab Goals for. \cr
+   home_losses \tab integer \tab Losses at home. \cr
+   home_overtime_losses \tab integer \tab Overtime losses at home. \cr
+   home_ties \tab integer \tab Ties at home. \cr
+   home_wins \tab integer \tab Wins at home. \cr
+   last_season_id \tab integer \tab Season ID of the franchise's last season. \cr
+   losses \tab integer \tab Total losses. \cr
+   overtime_losses \tab integer \tab Total overtime losses. \cr
+   penalty_minutes \tab integer \tab Penalty minutes. \cr
+   playoff_seasons \tab integer \tab Number of playoff seasons. \cr
+   point_pctg \tab numeric \tab Points percentage. \cr
+   points \tab integer \tab Total standings points. \cr
+   road_losses \tab integer \tab Losses on the road. \cr
+   road_overtime_losses \tab integer \tab Overtime losses on the road. \cr
+   road_ties \tab integer \tab Ties on the road. \cr
+   road_wins \tab integer \tab Wins on the road. \cr
+   series_losses \tab integer \tab Playoff series losses. \cr
+   series_played \tab integer \tab Playoff series played. \cr
+   series_win_pctg \tab numeric \tab Playoff series win percentage. \cr
+   series_wins \tab integer \tab Playoff series wins. \cr
+   shootout_losses \tab integer \tab Shootout losses. \cr
+   shootout_wins \tab integer \tab Shootout wins. \cr
+   shutouts \tab integer \tab Shutouts recorded. \cr
+   team_abbrev \tab character \tab Team abbreviation. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team_name \tab character \tab Team name. \cr
+   ties \tab integer \tab Total ties. \cr
+   wins \tab integer \tab Total wins. \cr
+}
 }
 \description{
 Returns all-time franchise totals from the NHL Records API

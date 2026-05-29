@@ -18,8 +18,19 @@ season), an 8-character API season (e.g., \code{"20242025"}), or \code{NULL}
 (default), 3 = playoffs.}
 }
 \value{
-A \code{fastRhockey_data} tibble of zone-time metrics, or \code{NULL} on
-failure / empty response.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   strength_code \tab character \tab Strength state code (e.g., all, even, pp, pk). \cr
+   offensive_zone_pctg \tab numeric \tab Percentage of time in the offensive zone. \cr
+   offensive_zone_percentile \tab numeric \tab League percentile rank for offensive-zone time. \cr
+   offensive_zone_league_avg \tab numeric \tab League average offensive-zone time percentage. \cr
+   neutral_zone_pctg \tab numeric \tab Percentage of time in the neutral zone. \cr
+   neutral_zone_percentile \tab numeric \tab League percentile rank for neutral-zone time. \cr
+   neutral_zone_league_avg \tab numeric \tab League average neutral-zone time percentage. \cr
+   defensive_zone_pctg \tab numeric \tab Percentage of time in the defensive zone. \cr
+   defensive_zone_percentile \tab numeric \tab League percentile rank for defensive-zone time. \cr
+   defensive_zone_league_avg \tab numeric \tab League average defensive-zone time percentage. \cr
+}
 }
 \description{
 Returns the NHL Edge zone-time payload (offensive,

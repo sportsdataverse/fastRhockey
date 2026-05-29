@@ -15,8 +15,11 @@ season), an 8-character API season (e.g., \code{"20242025"}), or \code{NULL}
 (default), 3 = playoffs.}
 }
 \value{
-A \code{fastRhockey_data} tibble containing the skater landing
-payload, or \code{NULL} on failure / empty response.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab NHL Edge season identifier. \cr
+   game_types \tab list \tab List of available game types for the season. \cr
+}
 }
 \description{
 Returns the NHL Edge skater landing-page payload. Wraps

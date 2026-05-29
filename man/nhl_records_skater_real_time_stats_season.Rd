@@ -18,8 +18,34 @@ nhl_records_skater_real_time_stats_season(
 \item{start}{Optional integer pagination offset.}
 }
 \value{
-A \code{fastRhockey_data} tibble of skater real-time season stats,
-or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique record identifier. \cr
+   active_player \tab logical \tab Whether the player is currently active. \cr
+   blocked_shots \tab integer \tab Blocked shots in the season. \cr
+   faceoff_win_pctg \tab logical \tab Faceoff win percentage for the season. \cr
+   faceoffs_lost \tab integer \tab Faceoffs lost in the season. \cr
+   faceoffs_taken \tab integer \tab Faceoffs taken in the season. \cr
+   faceoffs_won \tab integer \tab Faceoffs won in the season. \cr
+   first_name \tab character \tab First name of the player. \cr
+   franchise_id \tab integer \tab Franchise identifier. \cr
+   game_type_id \tab integer \tab Game type identifier (regular/playoffs). \cr
+   games_in_schedule \tab integer \tab Games in the schedule. \cr
+   games_played \tab integer \tab Games played in the season. \cr
+   giveaways \tab integer \tab Giveaways in the season. \cr
+   hits \tab integer \tab Hits in the season. \cr
+   last_name \tab character \tab Last name of the player. \cr
+   missed_shots \tab integer \tab Missed shots in the season. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   position_code \tab character \tab Player position code. \cr
+   rookie_flag \tab logical \tab Whether the season was a rookie season. \cr
+   season_id \tab integer \tab Season identifier. \cr
+   shifts \tab integer \tab Shifts in the season. \cr
+   takeaways \tab integer \tab Takeaways in the season. \cr
+   team_abbrevs \tab character \tab Team abbreviations for the season. \cr
+   team_names \tab character \tab Team names for the season. \cr
+   time_on_ice \tab integer \tab Time on ice in the season. \cr
+}
 }
 \description{
 Returns season-by-season skater real-time stats (hits,

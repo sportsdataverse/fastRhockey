@@ -15,7 +15,40 @@ nhl_records_draft(cayenne_exp = NULL, limit = NULL, start = NULL)
 \item{start}{Optional integer pagination offset.}
 }
 \value{
-A \code{fastRhockey_data} tibble of draft picks, or \code{NULL} on failure.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab Unique draft record identifier. \cr
+   age_in_days \tab integer \tab Player age in days. \cr
+   age_in_days_for_year \tab integer \tab Player age in days for the draft year. \cr
+   age_in_years \tab integer \tab Player age in years. \cr
+   amateur_club_name \tab character \tab Amateur club the player played for. \cr
+   amateur_league \tab character \tab Amateur league the player played in. \cr
+   birth_date \tab character \tab Player birth date. \cr
+   birth_place \tab character \tab Player birth place. \cr
+   country_code \tab character \tab Player country code. \cr
+   cs_player_id \tab integer \tab Central Scouting player identifier. \cr
+   draft_date \tab character \tab Date the player was drafted. \cr
+   draft_master_id \tab integer \tab Draft master record identifier. \cr
+   draft_year \tab integer \tab Year of the draft. \cr
+   drafted_by_team_id \tab integer \tab Identifier of the drafting team. \cr
+   first_name \tab character \tab Player first name. \cr
+   height \tab integer \tab Player height in inches. \cr
+   last_name \tab character \tab Player last name. \cr
+   notes \tab logical \tab Notes flag for the pick. \cr
+   overall_pick_number \tab integer \tab Overall pick number in the draft. \cr
+   pick_in_round \tab integer \tab Pick number within the round. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   player_name \tab character \tab Player full name. \cr
+   position \tab character \tab Player position. \cr
+   removed_outright \tab character \tab Removed-outright indicator. \cr
+   removed_outright_why \tab logical \tab Reason the pick was removed outright. \cr
+   round_number \tab integer \tab Draft round number. \cr
+   shoots_catches \tab character \tab Player shooting/catching hand. \cr
+   supplemental_draft \tab character \tab Supplemental draft indicator. \cr
+   team_pick_history \tab character \tab History of the team's pick. \cr
+   tri_code \tab character \tab Three-letter team code. \cr
+   weight \tab integer \tab Player weight in pounds. \cr
+}
 }
 \description{
 Returns the NHL Entry Draft listing from the NHL Records API

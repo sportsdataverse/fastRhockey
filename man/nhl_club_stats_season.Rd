@@ -10,7 +10,12 @@ nhl_club_stats_season(team_abbr)
 \item{team_abbr}{Three-letter team abbreviation (e.g., "TOR", "BOS")}
 }
 \value{
-Returns a data frame with season/game-type availability.
+A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season in 8-digit API format (e.g., 20252026). \cr
+   game_types \tab list \tab Game types available for the season (regular/playoff). \cr
+   team_abbr \tab character \tab Team abbreviation queried. \cr
+}
 }
 \description{
 Returns season-by-season stats metadata for a club, including
