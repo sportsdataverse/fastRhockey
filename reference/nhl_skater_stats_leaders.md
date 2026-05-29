@@ -38,7 +38,32 @@ nhl_skater_stats_leaders(
 
 ## Value
 
-Returns a data frame with skater leaders.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                    |           |                                     |
+|--------------------|-----------|-------------------------------------|
+| col_name           | types     | description                         |
+| id                 | integer   | Unique player identifier.           |
+| sweater_number     | integer   | Jersey number.                      |
+| headshot           | character | URL to the player headshot image.   |
+| team_abbrev        | character | Team abbreviation.                  |
+| team_logo          | character | URL to the team logo image.         |
+| position           | character | Player position.                    |
+| value              | numeric   | Statistical value for the category. |
+| first_name_default | character | Player first name (default).        |
+| last_name_default  | character | Player last name (default).         |
+| team_name_default  | character | Team name (default).                |
+| category           | character | Stat leader category.               |
+| first_name_cs      | character | Player first name (Czech).          |
+| first_name_de      | character | Player first name (German).         |
+| first_name_es      | character | Player first name (Spanish).        |
+| first_name_fi      | character | Player first name (Finnish).        |
+| first_name_sk      | character | Player first name (Slovak).         |
+| first_name_sv      | character | Player first name (Swedish).        |
+| last_name_cs       | character | Player last name (Czech).           |
+| last_name_sk       | character | Player last name (Slovak).          |
+| last_name_fi       | character | Player last name (Finnish).         |
+| team_name_fr       | character | Team name (French).                 |
 
 ## Examples
 
@@ -46,7 +71,7 @@ Returns a data frame with skater leaders.
 # \donttest{
   try(nhl_skater_stats_leaders())
 #> ── NHL Skater Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:42 UTC
+#> ℹ Data updated: 2026-05-29 16:27:20 UTC
 #> # A tibble: 45 × 21
 #>         id sweater_number headshot          team_abbrev team_logo position value
 #>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>

@@ -38,7 +38,32 @@ load_nhl_skater_box(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                      |           |                                 |
+|----------------------|-----------|---------------------------------|
+| col_name             | types     | description                     |
+| home_away            | character | Home or away indicator.         |
+| team_id              | integer   | Unique team identifier.         |
+| team_abbrev          | character | Team abbreviation/code.         |
+| player_id            | integer   | Unique player identifier.       |
+| player_name          | character | Player name.                    |
+| sweater_number       | integer   | Jersey number.                  |
+| position             | character | Player position.                |
+| goals                | integer   | Goals scored.                   |
+| assists              | integer   | Assists.                        |
+| points               | integer   | Total points (goals + assists). |
+| plus_minus           | integer   | Plus/minus rating.              |
+| pim                  | integer   | Penalty minutes.                |
+| hits                 | integer   | Hits.                           |
+| power_play_goals     | integer   | Power play goals.               |
+| shots_on_goal        | integer   | Shots on goal.                  |
+| faceoff_winning_pctg | numeric   | Faceoff win percentage.         |
+| toi                  | character | Time on ice.                    |
+| blocked_shots        | integer   | Blocked shots.                  |
+| shifts               | integer   | Number of shifts.               |
+| giveaways            | integer   | Giveaways.                      |
+| takeaways            | integer   | Takeaways.                      |
 
 ## Examples
 

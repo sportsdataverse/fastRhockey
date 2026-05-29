@@ -38,7 +38,22 @@ load_nhl_game_info(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with one row per game and the
+following columns:
+
+|                |           |                                                  |
+|----------------|-----------|--------------------------------------------------|
+| col_name       | types     | description                                      |
+| game_id        | integer   | Unique game identifier.                          |
+| season         | integer   | Season (concluding year, YYYY).                  |
+| game_type      | character | Game type the row belongs to (regular/playoffs). |
+| game_date      | character | Game date.                                       |
+| venue          | character | Venue where the game was played.                 |
+| home_team_abbr | character | Home team abbreviation.                          |
+| away_team_abbr | character | Away team abbreviation.                          |
+| home_score     | integer   | Home team final score.                           |
+| away_score     | integer   | Away team final score.                           |
+| game_state     | character | Game status (e.g. FINAL/FUT).                    |
 
 ## Examples
 

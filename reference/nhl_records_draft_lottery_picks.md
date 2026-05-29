@@ -17,8 +17,20 @@ nhl_records_draft_lottery_picks(cayenne_exp = NULL)
 
 ## Value
 
-A `fastRhockey_data` tibble of draft lottery picks, or `NULL` on
-failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| id | integer | Unique lottery pick record identifier. |
+| draft_team_id | integer | Team identifier holding the resulting pick. |
+| draft_year | integer | Draft year the lottery applies to. |
+| effect_on_draft_order | character | Description of the lottery's effect on order. |
+| lottery_team_id | integer | Team identifier participating in the lottery. |
+| phase | character | Lottery phase identifier. |
+| player_id | integer | Unique player identifier of the pick. |
+| player_notes | character | Notes about the selected player. |
+| sequence | integer | Lottery sequence/draw order. |
 
 ## Examples
 
@@ -26,7 +38,7 @@ failure.
 # \donttest{
   try(nhl_records_draft_lottery_picks())
 #> ── NHL Records Draft Lottery Picks ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:05 UTC
+#> ℹ Data updated: 2026-05-29 16:26:46 UTC
 #> # A tibble: 48 × 9
 #>       id draft_team_id draft_year effect_on_draft_order    lottery_team_id phase
 #>    <int>         <int>      <int> <chr>                              <int> <chr>

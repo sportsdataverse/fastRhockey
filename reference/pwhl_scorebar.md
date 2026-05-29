@@ -20,29 +20,26 @@ pwhl_scorebar(days_back = 3, days_ahead = 3)
 
 ## Value
 
-A data frame with recent/upcoming game scores, or NULL if unavailable.
+A data frame (`fastRhockey_data`) with the following columns:
 
-- `game_id` - Game ID.
-
-- `date` - Game date.
-
-- `status` - Game status.
-
-- `home_team` - Home team name.
-
-- `home_team_id` - Home team ID.
-
-- `home_score` - Home team score.
-
-- `away_team` - Away team name.
-
-- `away_team_id` - Away team ID.
-
-- `away_score` - Away team score.
-
-- `period` - Current period (for live or completed games).
-
-- `clock` - Current clock time (for live games).
+|                |           |                                          |
+|----------------|-----------|------------------------------------------|
+| col_name       | types     | description                              |
+| game_id        | numeric   | Unique game identifier.                  |
+| season_id      | numeric   | Season identifier.                       |
+| date           | character | Game date.                               |
+| game_date      | character | Game date.                               |
+| status         | character | Status of the game.                      |
+| home_team      | character | Home team name.                          |
+| home_team_id   | numeric   | Home team identifier.                    |
+| home_team_code | character | Home team abbreviation.                  |
+| home_score     | character | Home team score.                         |
+| away_team      | character | Away team name.                          |
+| away_team_id   | numeric   | Away team identifier.                    |
+| away_team_code | character | Away team abbreviation.                  |
+| away_score     | character | Away team score.                         |
+| period         | character | Current period for live/completed games. |
+| clock          | character | Current clock time for live games.       |
 
 ## Examples
 
@@ -50,7 +47,7 @@ A data frame with recent/upcoming game scores, or NULL if unavailable.
 # \donttest{
   try(pwhl_scorebar(days_back = 7, days_ahead = 7))
 #> ── PWHL Scorebar ────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:16:08 UTC
+#> ℹ Data updated: 2026-05-29 16:27:45 UTC
 #> # A tibble: 8 × 15
 #>   game_id season_id date  game_date status home_team home_team_id home_team_code
 #>     <dbl>     <dbl> <chr> <chr>     <chr>  <chr>            <dbl> <chr>         

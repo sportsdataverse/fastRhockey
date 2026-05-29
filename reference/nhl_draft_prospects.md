@@ -13,7 +13,25 @@ nhl_draft_prospects()
 
 ## Value
 
-Returns a data frame of draft prospect rankings.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                      |           |                                        |
+|----------------------|-----------|----------------------------------------|
+| col_name             | types     | description                            |
+| last_name            | character | Prospect's last name.                  |
+| first_name           | character | Prospect's first name.                 |
+| position_code        | character | Prospect's position code.              |
+| shoots_catches       | character | Prospect's shooting/catching hand.     |
+| height_in_inches     | integer   | Prospect's height in inches.           |
+| weight_in_pounds     | integer   | Prospect's weight in pounds.           |
+| last_amateur_club    | character | Prospect's most recent amateur club.   |
+| last_amateur_league  | character | Prospect's most recent amateur league. |
+| birth_date           | character | Prospect's birth date.                 |
+| birth_city           | character | Prospect's birth city.                 |
+| birth_state_province | character | Prospect's birth state or province.    |
+| birth_country        | character | Prospect's birth country.              |
+| midterm_rank         | integer   | Prospect's midterm draft ranking.      |
+| final_rank           | integer   | Prospect's final draft ranking.        |
 
 ## Examples
 
@@ -21,7 +39,7 @@ Returns a data frame of draft prospect rankings.
 # \donttest{
    try(nhl_draft_prospects())
 #> ── NHL Draft Prospects data from NHL.com ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:06 UTC
+#> ℹ Data updated: 2026-05-29 16:25:53 UTC
 #> # A tibble: 253 × 14
 #>    last_name first_name position_code shoots_catches height_in_inches
 #>    <chr>     <chr>      <chr>         <chr>                     <int>

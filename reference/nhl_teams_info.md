@@ -22,7 +22,31 @@ nhl_teams_info(team_abbr)
 
 ## Value
 
-Returns a data frame with team information filtered to the given team.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                   |           |                               |
+|-------------------|-----------|-------------------------------|
+| col_name          | types     | description                   |
+| team_abbr         | character | Team abbreviation.            |
+| team_name         | character | Team name.                    |
+| team_common_name  | character | Team common name.             |
+| team_logo         | character | URL to the team logo image.   |
+| conference_abbr   | character | Conference abbreviation.      |
+| conference_name   | character | Conference name.              |
+| division_abbr     | character | Division abbreviation.        |
+| division_name     | character | Division name.                |
+| place_name        | character | Team place/city name.         |
+| games_played      | integer   | Games played.                 |
+| wins              | integer   | Wins.                         |
+| losses            | integer   | Losses.                       |
+| ot_losses         | integer   | Overtime losses.              |
+| points            | integer   | Total points.                 |
+| point_pctg        | numeric   | Points percentage.            |
+| goals_for         | integer   | Goals for.                    |
+| goals_against     | integer   | Goals against.                |
+| goal_differential | integer   | Goal differential.            |
+| streak_code       | character | Current streak code (W/L/OT). |
+| streak_count      | integer   | Length of the current streak. |
 
 ## Examples
 
@@ -30,7 +54,7 @@ Returns a data frame with team information filtered to the given team.
 # \donttest{
   try(nhl_teams_info(team_abbr = "TBL"))
 #> ── NHL Teams Information from NHL.com ───────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:52 UTC
+#> ℹ Data updated: 2026-05-29 16:27:29 UTC
 #> # A tibble: 1 × 20
 #>   team_abbr team_name team_common_name team_logo conference_abbr conference_name
 #>   <chr>     <chr>     <chr>            <chr>     <chr>           <chr>          

@@ -118,15 +118,14 @@ the <code>cayenneExp</code> query parameter (e.g., <code>"season=20242025"</code
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>fastRhockey_data</code> tibble of games, or <code>NULL</code> on failure.</p>
-    </div>
+    <p>A data frame (<code>fastRhockey_data</code>) with the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>id</td><td>integer</td><td>Unique game identifier.</td></tr><tr><td>eastern_start_time</td><td>character</td><td>Game start time in Eastern time.</td></tr><tr><td>game_date</td><td>character</td><td>Game date.</td></tr><tr><td>game_number</td><td>integer</td><td>Game number within the schedule.</td></tr><tr><td>game_schedule_state_id</td><td>integer</td><td>Schedule state identifier.</td></tr><tr><td>game_state_id</td><td>integer</td><td>Game state identifier.</td></tr><tr><td>game_type</td><td>integer</td><td>Game type identifier.</td></tr><tr><td>home_score</td><td>integer</td><td>Home team score.</td></tr><tr><td>home_team_id</td><td>integer</td><td>Home team identifier.</td></tr><tr><td>period</td><td>integer</td><td>Period reached in the game.</td></tr><tr><td>season</td><td>integer</td><td>Season (concluding year, YYYY).</td></tr><tr><td>visiting_score</td><td>integer</td><td>Visiting team score.</td></tr><tr><td>visiting_team_id</td><td>integer</td><td>Visiting team identifier.</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_stats_game_listing</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Stats Game Listing ───────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:15:46 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:27:23 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 100 × 13</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            id eastern_start_time  game_date  game_number game_schedule_state_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>

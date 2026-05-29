@@ -38,7 +38,18 @@ nhl_stats_team_listing(team_id = NULL, lang = "en", limit = 100, start = 0)
 
 ## Value
 
-A `fastRhockey_data` tibble of teams, or `NULL` on failure.
+A data frame (`fastRhockey_data`) of teams, or `NULL` on failure, with
+the following columns:
+
+|              |           |                                |
+|--------------|-----------|--------------------------------|
+| col_name     | types     | description                    |
+| id           | integer   | Unique team identifier.        |
+| franchise_id | integer   | Team franchise identifier.     |
+| full_name    | character | Team full name.                |
+| league_id    | integer   | League identifier of the team. |
+| raw_tricode  | character | Team raw three-letter code.    |
+| tri_code     | character | Team three-letter code.        |
 
 ## Examples
 
@@ -46,7 +57,7 @@ A `fastRhockey_data` tibble of teams, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_team_listing())
 #> ── NHL Stats Team Listing ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:49 UTC
+#> ℹ Data updated: 2026-05-29 16:27:27 UTC
 #> # A tibble: 62 × 6
 #>       id franchise_id full_name              league_id raw_tricode tri_code
 #>    <int>        <int> <chr>                      <int> <chr>       <chr>   
@@ -63,7 +74,7 @@ A `fastRhockey_data` tibble of teams, or `NULL` on failure.
 #> # ℹ 52 more rows
   try(nhl_stats_team_listing(team_id = 10))
 #> ── NHL Stats Team Listing ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:49 UTC
+#> ℹ Data updated: 2026-05-29 16:27:27 UTC
 #> # A tibble: 1 × 6
 #>      id franchise_id full_name           league_id raw_tricode tri_code
 #>   <int>        <int> <chr>                   <int> <chr>       <chr>   

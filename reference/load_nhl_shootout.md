@@ -38,24 +38,24 @@ load_nhl_shootout(
 
 ## Value
 
-A data frame of class `fastRhockey_data`, with one row per shootout
-attempt. Only games that ended in a shootout contribute rows. Columns
-include:
+A data frame (`fastRhockey_data`) with one row per shootout attempt
+(only games that ended in a shootout contribute rows) and the following
+columns:
 
-|               |                                                      |
-|---------------|------------------------------------------------------|
-| column        | description                                          |
-| `game_id`     | NHL game id                                          |
-| `season`      | Season end year (e.g. 2026 for 2025-26)              |
-| `game_date`   | ISO date of the game                                 |
-| `sequence`    | Order of the attempt within the shootout (1, 2, ...) |
-| `team_abbrev` | Three-letter abbreviation of the shooting team       |
-| `player_id`   | NHL player id of the shooter                         |
-| `first_name`  | Shooter first name                                   |
-| `last_name`   | Shooter last name                                    |
-| `shot_type`   | e.g. `"wrist"`, `"snap"`, `"backhand"`               |
-| `result`      | `"goal"`, `"save"`, or `"miss"`                      |
-| `game_winner` | `TRUE` for the decisive attempt, `FALSE` otherwise   |
+|             |           |                                                  |
+|-------------|-----------|--------------------------------------------------|
+| col_name    | types     | description                                      |
+| game_id     | integer   | Unique game identifier.                          |
+| season      | integer   | Season (concluding year, YYYY).                  |
+| game_date   | character | Game date.                                       |
+| sequence    | integer   | Order of the attempt within the shootout.        |
+| team_abbrev | character | Abbreviation of the shooting team.               |
+| player_id   | integer   | Player id of the shooter.                        |
+| first_name  | character | Shooter first name.                              |
+| last_name   | character | Shooter last name.                               |
+| shot_type   | character | Type of shot taken (e.g. wrist, snap, backhand). |
+| result      | character | Attempt result (goal/save/miss).                 |
+| game_winner | logical   | Whether this attempt was the decisive one.       |
 
 ## Examples
 

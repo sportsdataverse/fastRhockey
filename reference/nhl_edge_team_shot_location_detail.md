@@ -31,8 +31,18 @@ nhl_edge_team_shot_location_detail(team_id, season = NULL, game_type = 2)
 
 ## Value
 
-A `fastRhockey_data` tibble of shot-location metrics, or `NULL` on
-failure / empty response.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| area | character | Shot-location area on the ice. |
+| sog | integer | Shots on goal from the area. |
+| sog_rank | integer | League rank for shots on goal from the area. |
+| goals | integer | Goals scored from the area. |
+| goals_rank | integer | League rank for goals scored from the area. |
+| shooting_pctg | numeric | Shooting percentage from the area. |
+| shooting_pctg_rank | integer | League rank for shooting percentage from the area. |
 
 ## Examples
 
@@ -40,7 +50,7 @@ failure / empty response.
 # \donttest{
   try(nhl_edge_team_shot_location_detail(team_id = 10))
 #> ── NHL Edge Team Shot Location Detail ───────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:42 UTC
+#> ℹ Data updated: 2026-05-29 16:26:26 UTC
 #> # A tibble: 17 × 7
 #>    area           sog sog_rank goals goals_rank shooting_pctg shooting_pctg_rank
 #>    <chr>        <int>    <int> <int>      <int>         <dbl>              <int>

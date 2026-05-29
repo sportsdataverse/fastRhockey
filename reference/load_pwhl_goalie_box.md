@@ -41,24 +41,32 @@ load_pwhl_goalie_box(
 
 ## Value
 
-A data frame of class `fastRhockey_data` with one row per goalie per
-game. Common columns include:
+A data frame (`fastRhockey_data`) with the following columns:
 
-|                 |           |                            |
-|-----------------|-----------|----------------------------|
-| column          | type      | description                |
-| `game_id`       | integer   | PWHL game id               |
-| `team_id`       | integer   | HockeyTech team id         |
-| `player_id`     | integer   | HockeyTech player id       |
-| `first_name`    | character | goalie first name          |
-| `last_name`     | character | goalie last name           |
-| `jersey_number` | integer   | jersey number              |
-| `time_on_ice`   | character | total TOI (`MM:SS`)        |
-| `shots_against` | integer   | shots faced                |
-| `goals_against` | integer   | goals allowed              |
-| `saves`         | integer   | saves made                 |
-| `starting`      | character | started the game (`0`/`1`) |
-| `player_type`   | character | always `"goalie"`          |
+|                  |           |                                      |
+|------------------|-----------|--------------------------------------|
+| col_name         | types     | description                          |
+| player_id        | character | Unique player identifier.            |
+| first_name       | character | Goalie first name.                   |
+| last_name        | character | Goalie last name.                    |
+| position         | character | Player position.                     |
+| team_id          | integer   | Unique team identifier.              |
+| game_id          | integer   | Unique game identifier.              |
+| league           | character | League code.                         |
+| toi              | character | Time on ice (MM:SS).                 |
+| time_on_ice      | numeric   | Time on ice in seconds.              |
+| saves            | integer   | Saves made.                          |
+| goals_against    | integer   | Goals against.                       |
+| shots_against    | integer   | Shots faced.                         |
+| goals            | integer   | Goals scored.                        |
+| assists          | integer   | Assists.                             |
+| points           | integer   | Total points (goals + assists).      |
+| penalty_minutes  | integer   | Penalty minutes.                     |
+| faceoff_attempts | integer   | Faceoff attempts.                    |
+| faceoff_wins     | integer   | Faceoff wins.                        |
+| faceoff_losses   | integer   | Faceoff losses.                      |
+| faceoff_pct      | logical   | Faceoff win percentage.              |
+| starting         | integer   | Whether the goalie started the game. |
 
 ## Examples
 

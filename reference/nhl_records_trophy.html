@@ -102,15 +102,14 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>fastRhockey_data</code> tibble of trophies, or <code>NULL</code> on failure.</p>
-    </div>
+    <p>A data frame (<code>fastRhockey_data</code>) with the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>id</td><td>integer</td><td>Unique trophy identifier.</td></tr><tr><td>brief_description</td><td>character</td><td>Brief description of the trophy.</td></tr><tr><td>category_id</td><td>integer</td><td>Trophy category identifier.</td></tr><tr><td>created_on</td><td>character</td><td>Date the trophy record was created.</td></tr><tr><td>description</td><td>character</td><td>Full description of the trophy.</td></tr><tr><td>footnote</td><td>logical</td><td>Footnote associated with the trophy.</td></tr><tr><td>home_page_url</td><td>character</td><td>URL to the trophy's home page.</td></tr><tr><td>image_url</td><td>character</td><td>URL to the trophy's image.</td></tr><tr><td>name</td><td>character</td><td>Full name of the trophy.</td></tr><tr><td>short_name</td><td>character</td><td>Short name of the trophy.</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_records_trophy</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Records Trophy ───────────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:15:31 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:27:09 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 25 × 10</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       id brief_description           category_id created_on description footnote</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   </span>

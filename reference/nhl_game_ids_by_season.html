@@ -134,17 +134,15 @@ API calls when iterating all teams. Defaults to <code>0</code> (no delay).</p></
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>fastRhockey_data</code> / <code>data.frame</code> with one row per unique
-game, containing <code>game_id</code>, <code>season</code>, <code>game_type</code>, <code>game_date</code>,
-<code>home_team</code>, and <code>away_team</code>. Returns <code>NULL</code> on outer failure.</p>
-    </div>
+    <p>A data frame (<code>fastRhockey_data</code>) with one row per unique game and
+the following columns (returns <code>NULL</code> on outer failure):</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>game_id</td><td>integer</td><td>Unique game identifier.</td></tr><tr><td>season</td><td>integer</td><td>Season (concluding year, YYYY).</td></tr><tr><td>game_type</td><td>integer</td><td>Game type (1=pre, 2=regular, 3=playoffs).</td></tr><tr><td>game_date</td><td>character</td><td>Game date.</td></tr><tr><td>home_team</td><td>character</td><td>Home team abbreviation.</td></tr><tr><td>away_team</td><td>character</td><td>Away team abbreviation.</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_game_ids_by_season</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span>, team_abbr <span class="op">=</span> <span class="st">"TOR"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game IDs by Season ───────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:14:53 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:26:37 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 82 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       game_id   season game_type game_date  home_team away_team</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>

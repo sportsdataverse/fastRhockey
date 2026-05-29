@@ -10,7 +10,12 @@ nhl_seasons()
 
 ## Value
 
-Returns a data frame with season information.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|           |         |                                     |
+|-----------|---------|-------------------------------------|
+| col_name  | types   | description                         |
+| season_id | integer | Season identifier (e.g., 20232024). |
 
 ## Examples
 
@@ -18,7 +23,7 @@ Returns a data frame with season information.
 # \donttest{
   try(nhl_seasons())
 #> ── NHL Seasons ──────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:41 UTC
+#> ℹ Data updated: 2026-05-29 16:27:19 UTC
 #> # A tibble: 108 × 1
 #>    season_id
 #>        <int>

@@ -120,16 +120,14 @@ the <code>cayenneExp</code> query parameter.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>fastRhockey_data</code> tibble of goalie milestones, or <code>NULL</code> on
-failure.</p>
-    </div>
+    <p>A data frame (<code>fastRhockey_data</code>) with the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>id</td><td>integer</td><td>Unique milestone record identifier.</td></tr><tr><td>current_team_id</td><td>integer</td><td>Player's current team identifier.</td></tr><tr><td>first_name</td><td>character</td><td>Player first name.</td></tr><tr><td>game_type_id</td><td>integer</td><td>Game type identifier.</td></tr><tr><td>games_played</td><td>integer</td><td>Games played.</td></tr><tr><td>last_name</td><td>character</td><td>Player last name.</td></tr><tr><td>milestone</td><td>character</td><td>Milestone category.</td></tr><tr><td>milestone_amount</td><td>integer</td><td>Amount remaining to reach the milestone.</td></tr><tr><td>player_full_name</td><td>character</td><td>Player full name.</td></tr><tr><td>player_id</td><td>integer</td><td>Unique player identifier.</td></tr><tr><td>so</td><td>integer</td><td>Shutouts.</td></tr><tr><td>team_abbrev</td><td>character</td><td>Team abbreviation.</td></tr><tr><td>team_common_name</td><td>character</td><td>Team common (nickname) name.</td></tr><tr><td>team_full_name</td><td>character</td><td>Full team name.</td></tr><tr><td>team_place_name</td><td>character</td><td>Team place (city/location) name.</td></tr><tr><td>toi_minutes</td><td>integer</td><td>Time on ice in minutes.</td></tr><tr><td>wins</td><td>integer</td><td>Wins.</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_stats_goalie_milestones</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Stats Goalie Milestones ──────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:15:46 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:27:24 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 54 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       id current_team_id first_name game_type_id games_played last_name </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>

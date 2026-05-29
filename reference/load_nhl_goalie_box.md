@@ -38,7 +38,32 @@ load_nhl_goalie_box(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                             |           |                                      |
+|-----------------------------|-----------|--------------------------------------|
+| col_name                    | types     | description                          |
+| home_away                   | character | Home or away indicator.              |
+| team_id                     | integer   | Unique team identifier.              |
+| team_abbrev                 | character | Team abbreviation/code.              |
+| player_id                   | integer   | Unique player identifier.            |
+| player_name                 | character | Player name.                         |
+| sweater_number              | integer   | Jersey number.                       |
+| even_strength_shots_against | character | Even-strength shots against.         |
+| power_play_shots_against    | character | Power play shots against.            |
+| shorthanded_shots_against   | character | Shorthanded shots against.           |
+| save_shots_against          | character | Saves / shots against.               |
+| save_pctg                   | numeric   | Save percentage.                     |
+| even_strength_goals_against | integer   | Even-strength goals against.         |
+| power_play_goals_against    | integer   | Power play goals against.            |
+| shorthanded_goals_against   | integer   | Shorthanded goals against.           |
+| pim                         | integer   | Penalty minutes.                     |
+| goals_against               | integer   | Goals against.                       |
+| toi                         | character | Time on ice.                         |
+| starter                     | logical   | Whether the goalie started the game. |
+| decision                    | character | Goalie decision (W/L/O).             |
+| shots_against               | integer   | Shots faced.                         |
+| saves                       | integer   | Saves made.                          |
 
 ## Examples
 

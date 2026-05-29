@@ -27,9 +27,45 @@ nhl_game_feed(game_id, include_shifts = TRUE, raw = FALSE)
 
 ## Value
 
-A named list with elements: pbp (play-by-play data frame), game_info
-(game metadata), rosters (player roster data frame). When `raw = TRUE`,
-returns the raw JSON response as a nested list.
+A named list of data frames: `pbp`, `game_info`, `rosters`. When
+`raw = TRUE`, returns the raw JSON response as a nested list.
+
+**pbp**
+
+See
+[`nhl_game_pbp()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_pbp.md)
+for the full play-by-play column dictionary; the `pbp` element returns
+the same one-row-per-event data frame.
+
+**game_info**
+
+|                |           |                                 |
+|----------------|-----------|---------------------------------|
+| col_name       | types     | description                     |
+| game_id        | integer   | Unique game identifier.         |
+| season         | integer   | Season (concluding year, YYYY). |
+| game_type      | character | Game type code (PR, R, P, A).   |
+| game_date      | character | Game date.                      |
+| venue          | character | Venue name.                     |
+| home_team_abbr | character | Home team abbreviation.         |
+| away_team_abbr | character | Away team abbreviation.         |
+| home_score     | integer   | Final home team score.          |
+| away_score     | integer   | Final away team score.          |
+| game_state     | character | Current state of the game.      |
+
+**rosters**
+
+|                |           |                           |
+|----------------|-----------|---------------------------|
+| col_name       | types     | description               |
+| player_id      | integer   | Unique player identifier. |
+| full_name      | character | Player full name.         |
+| first_name     | character | Player first name.        |
+| last_name      | character | Player last name.         |
+| team_abbr      | character | Team abbreviation.        |
+| team_id        | integer   | Unique team identifier.   |
+| position_code  | character | Player position code.     |
+| sweater_number | integer   | Jersey number.            |
 
 ## Examples
 
@@ -38,7 +74,7 @@ returns the raw JSON response as a nested list.
   try(nhl_game_feed(game_id = 2024020001))
 #> $pbp
 #> ── NHL Game PBP from NHL.com ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:52 UTC
+#> ℹ Data updated: 2026-05-29 16:26:36 UTC
 #> # A tibble: 850 × 93
 #>    event_type   event secondary_type event_team_abbr event_team_type description
 #>    <chr>        <chr> <chr>          <chr>           <chr>           <glue>     

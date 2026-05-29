@@ -34,7 +34,100 @@ pwhl_leaders(
 
 ## Value
 
-A data frame with league leader statistics, or NULL if unavailable.
+A data frame (`fastRhockey_data`) with the following columns, or NULL if
+unavailable:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| player_id | character | Unique player identifier. |
+| shortname | character | Player short name. |
+| first_name | character | Player first name. |
+| last_name | character | Player last name. |
+| name | character | Player full name. |
+| phonetic_name | character | Phonetic spelling of the player name. |
+| active | character | Whether the player is active. |
+| height | character | Player height. |
+| weight | character | Player weight. |
+| last_years_club | character | Player's club in the previous season. |
+| age | character | Player age. |
+| shoots | character | Handedness the player shoots. |
+| position | character | Player position. |
+| suspension_games_remaining | character | Suspension games remaining. |
+| suspension_indefinite | character | Whether the suspension is indefinite. |
+| rookie | character | Whether the player is a rookie. |
+| veteran | character | Whether the player is a veteran. |
+| draft_eligible | character | Whether the player is draft eligible. |
+| jersey_number | character | Jersey number. |
+| team_name | character | Team name. |
+| team_code | character | Team abbreviation. |
+| team_id | character | Unique team identifier. |
+| division | character | Team division. |
+| birthdate | character | Player birthdate. |
+| birthdate_year | character | Player birth year. |
+| hometown | character | Player hometown. |
+| homeprov | character | Player home province/state. |
+| homecntry | character | Player home country. |
+| birthtown | character | Player birth town. |
+| birthprov | character | Player birth province/state. |
+| birthcntry | character | Player birth country. |
+| hometownprov | character | Player hometown and province/state. |
+| homeplace | character | Player home place description. |
+| games_played | numeric | Games played. |
+| game_winning_goals | character | Game-winning goals. |
+| game_tieing_goals | character | Game-tying goals. |
+| first_goals | character | First goals of a game. |
+| insurance_goals | character | Insurance goals. |
+| unassisted_goals | character | Unassisted goals. |
+| empty_net_goals | character | Empty-net goals. |
+| overtime_goals | character | Overtime goals. |
+| ice_time | character | Total ice time. |
+| ice_time_avg | character | Average ice time. |
+| goals | numeric | Goals scored. |
+| shots | numeric | Shots on goal. |
+| loose_ball_recoveries | character | Loose ball recoveries. |
+| caused_turnovers | character | Turnovers caused. |
+| turnovers | character | Turnovers committed. |
+| hits | character | Hits delivered. |
+| shots_blocked_by_player | character | Shots blocked by the player. |
+| ice_time_minutes_seconds | character | Ice time in minutes and seconds. |
+| shooting_percentage | numeric | Shooting percentage. |
+| assists | numeric | Assists. |
+| points | numeric | Total points (goals + assists). |
+| points_per_game | numeric | Points per game. |
+| plus_minus | numeric | Plus/minus rating. |
+| penalty_minutes | numeric | Penalty minutes. |
+| penalty_minutes_per_game | character | Penalty minutes per game. |
+| ice_time_per_game_avg | character | Average ice time per game. |
+| hits_per_game_avg | character | Average hits per game. |
+| minor_penalties | character | Minor penalties. |
+| major_penalties | character | Major penalties. |
+| power_play_goals | numeric | Power-play goals. |
+| power_play_assists | numeric | Power-play assists. |
+| power_play_points | character | Power-play points. |
+| short_handed_goals | numeric | Short-handed goals. |
+| short_handed_assists | numeric | Short-handed assists. |
+| short_handed_points | character | Short-handed points. |
+| shootout_goals | character | Shootout goals. |
+| shootout_attempts | character | Shootout attempts. |
+| shootout_winning_goals | character | Shootout game-winning goals. |
+| shootout_games_played | character | Games played that went to a shootout. |
+| faceoff_attempts | character | Faceoff attempts. |
+| faceoff_wins | character | Faceoffs won. |
+| faceoff_pct | character | Faceoff win percentage. |
+| faceoff_wa | character | Faceoff wins-to-attempts metric. |
+| shots_on | character | Shots on goal count. |
+| shootout_percentage | character | Shootout scoring percentage. |
+| latest_team_id | character | Most recent team identifier. |
+| num_teams | character | Number of teams the player has played for. |
+| logo | character | URL to the team logo. |
+| rank | numeric | Leader rank. |
+| player_page_link | character | URL to the player page. |
+| namelink | character | HTML link for the player name. |
+| teamlink | character | HTML link for the team. |
+| photo | character | URL to the player photo. |
+| team_breakdown | character | Per-team statistical breakdown. |
+| is_total | character | Whether the row is a season total. |
 
 ## Examples
 
@@ -42,7 +135,7 @@ A data frame with league leader statistics, or NULL if unavailable.
 # \donttest{
   try(pwhl_leaders(position = "skaters", season = 2025))
 #> ── PWHL Leaders - skaters ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:16:03 UTC
+#> ℹ Data updated: 2026-05-29 16:27:41 UTC
 #> # A tibble: 107 × 88
 #>    player_id shortname    first_name last_name name  phonetic_name active height
 #>    <chr>     <chr>        <chr>      <chr>     <chr> <chr>         <chr>  <chr> 
@@ -65,7 +158,7 @@ A data frame with league leader statistics, or NULL if unavailable.
 #> #   birthdate_year <chr>, hometown <chr>, homeprov <chr>, homecntry <chr>, …
   try(pwhl_leaders(position = "goalies", season = 2025))
 #> ── PWHL Leaders - goalies ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:16:03 UTC
+#> ℹ Data updated: 2026-05-29 16:27:41 UTC
 #> # A tibble: 16 × 84
 #>    player_id shortname    rookie first_name last_name name  phonetic_name active
 #>    <chr>     <chr>        <chr>  <chr>      <chr>     <chr> <chr>         <chr> 

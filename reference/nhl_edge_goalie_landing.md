@@ -26,8 +26,15 @@ nhl_edge_goalie_landing(season = NULL, game_type = 2)
 
 ## Value
 
-A `fastRhockey_data` tibble containing the goalie landing payload, or
-`NULL` on failure / empty response.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|            |         |                                                    |
+|------------|---------|----------------------------------------------------|
+| col_name   | types   | description                                        |
+| id         | integer | Unique player identifier.                          |
+| game_types | list    | Nested list of game-type-specific landing metrics. |
+
+Returns `NULL` on failure / empty response.
 
 ## Examples
 
@@ -35,7 +42,7 @@ A `fastRhockey_data` tibble containing the goalie landing payload, or
 # \donttest{
   try(nhl_edge_goalie_landing())
 #> ── NHL Edge Goalie Landing ──────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:17 UTC
+#> ℹ Data updated: 2026-05-29 16:26:03 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    

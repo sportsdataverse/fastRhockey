@@ -38,7 +38,37 @@ load_nhl_scoring(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with one row per goal and the
+following columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| situationCode | character | Strength/situation code for the goal. |
+| eventId | integer | NHL event identifier. |
+| strength | character | Strength state at which the goal was scored. |
+| playerId | integer | Player id of the goal scorer. |
+| firstName | list | Scorer first name (localized list). |
+| lastName | list | Scorer last name (localized list). |
+| name | list | Scorer display name (localized list). |
+| teamAbbrev | list | Scoring team abbreviation (localized list). |
+| headshot | character | URL to the scorer headshot image. |
+| highlightClipSharingUrl | character | Shareable URL for the goal highlight clip. |
+| highlightClip | numeric | Highlight clip identifier. |
+| discreteClip | numeric | Discrete clip identifier. |
+| goalsToDate | integer | Scorer goal total to date in the season. |
+| awayScore | integer | Away team score after the goal. |
+| homeScore | integer | Home team score after the goal. |
+| leadingTeamAbbrev | list | Abbreviation of the leading team (localized list). |
+| timeInPeriod | character | Time within the period the goal was scored. |
+| shotType | character | Type of shot on the goal. |
+| goalModifier | character | Goal modifier (e.g. empty-net, power-play). |
+| assists | list | List of assisting players on the goal. |
+| pptReplayUrl | character | URL to the power-play replay, if any. |
+| homeTeamDefendingSide | character | Side of the ice the home team defended. |
+| isHome | logical | Whether the scoring team is the home team. |
+| period_number | integer | Period number the goal was scored in. |
+| period_type | character | Period type (REG/OT/SO). |
 
 ## Examples
 

@@ -41,27 +41,38 @@ load_pwhl_scoring_summary(
 
 ## Value
 
-A data frame of class `fastRhockey_data`. Common columns include:
+A data frame (`fastRhockey_data`) with the following columns:
 
-|                   |           |                                         |
-|-------------------|-----------|-----------------------------------------|
-| column            | type      | description                             |
-| `game_id`         | integer   | PWHL game id                            |
-| `period_id`       | integer   | period id                               |
-| `period`          | character | period long name (e.g. `1st`, `1st OT`) |
-| `time`            | character | game clock at goal (`MM:SS`)            |
-| `team_id`         | integer   | scoring team id                         |
-| `team`            | character | scoring team name                       |
-| `scorer_id`       | integer   | goal scorer id                          |
-| `scorer_first`    | character | scorer first name                       |
-| `scorer_last`     | character | scorer last name                        |
-| `assist_1_id`     | integer   | primary assist id                       |
-| `assist_2_id`     | integer   | secondary assist id                     |
-| `is_power_play`   | integer   | power-play flag                         |
-| `is_short_handed` | integer   | short-handed flag                       |
-| `is_empty_net`    | integer   | empty-net flag                          |
-| `is_penalty_shot` | integer   | penalty-shot flag                       |
-| `is_game_winning` | integer   | game-winning-goal flag                  |
+|                    |           |                                      |
+|--------------------|-----------|--------------------------------------|
+| col_name           | types     | description                          |
+| game_id            | integer   | Unique game identifier.              |
+| period_id          | integer   | Period identifier.                   |
+| period             | character | Period long name (e.g. 1st, 1st OT). |
+| time               | character | Game clock at goal (MM:SS).          |
+| team_id            | integer   | Scoring team identifier.             |
+| team               | character | Scoring team name.                   |
+| team_abbr          | character | Scoring team abbreviation.           |
+| game_goal_id       | integer   | Goal identifier within the game.     |
+| scorer_goal_number | integer   | Scorer's season goal number.         |
+| scorer_id          | integer   | Goal scorer identifier.              |
+| scorer_first       | character | Scorer first name.                   |
+| scorer_last        | character | Scorer last name.                    |
+| scorer_position    | character | Scorer position.                     |
+| assist_1_id        | integer   | Primary assist player identifier.    |
+| assist_1_first     | character | Primary assist first name.           |
+| assist_1_last      | character | Primary assist last name.            |
+| assist_2_id        | integer   | Secondary assist player identifier.  |
+| assist_2_first     | character | Secondary assist first name.         |
+| assist_2_last      | character | Secondary assist last name.          |
+| is_power_play      | integer   | Power-play flag.                     |
+| is_short_handed    | integer   | Short-handed flag.                   |
+| is_empty_net       | integer   | Empty-net flag.                      |
+| is_penalty_shot    | integer   | Penalty-shot flag.                   |
+| is_insurance       | integer   | Insurance-goal flag.                 |
+| is_game_winning    | integer   | Game-winning-goal flag.              |
+| x_location         | logical   | Goal x-coordinate on the ice.        |
+| y_location         | logical   | Goal y-coordinate on the ice.        |
 
 ## Examples
 

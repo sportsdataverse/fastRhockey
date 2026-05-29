@@ -132,8 +132,7 @@ releases either into memory or writes it into a database.</p>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A data frame of class <code>fastRhockey_data</code>. One row per period per
-game. Common columns include:</p><table class="table table"><tr><td>column</td><td>type</td><td>description</td></tr><tr><td><code>game_id</code></td><td>integer</td><td>PWHL game id</td></tr><tr><td><code>period_id</code></td><td>integer</td><td>period id (1-3, 4 = OT, 5 = SO, etc.)</td></tr><tr><td><code>period</code></td><td>character</td><td>period long name</td></tr><tr><td><code>home_goals</code></td><td>integer</td><td>home goals in period</td></tr><tr><td><code>home_shots</code></td><td>integer</td><td>home shots in period</td></tr><tr><td><code>away_goals</code></td><td>integer</td><td>away goals in period</td></tr><tr><td><code>away_shots</code></td><td>integer</td><td>away shots in period</td></tr></table></div>
+    <p>A data frame (<code>fastRhockey_data</code>) with the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>game_id</td><td>integer</td><td>Unique game identifier.</td></tr><tr><td>period_id</td><td>integer</td><td>Period identifier (1-3, 4 = OT, 5 = SO).</td></tr><tr><td>period</td><td>character</td><td>Period long name.</td></tr><tr><td>home_goals</td><td>integer</td><td>Home goals in the period.</td></tr><tr><td>home_shots</td><td>integer</td><td>Home shots in the period.</td></tr><tr><td>away_goals</td><td>integer</td><td>Away goals in the period.</td></tr><tr><td>away_shots</td><td>integer</td><td>Away shots in the period.</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>

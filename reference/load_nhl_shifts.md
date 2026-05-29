@@ -37,7 +37,26 @@ load_nhl_shifts(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with one row per shift change and the
+following columns:
+
+|                        |           |                                        |
+|------------------------|-----------|----------------------------------------|
+| col_name               | types     | description                            |
+| event_team             | character | Team associated with the shift change. |
+| period                 | integer   | Period number.                         |
+| period_time            | character | Elapsed time in the period (MM:SS).    |
+| period_seconds         | integer   | Elapsed seconds in the period.         |
+| game_seconds           | integer   | Elapsed seconds in the game.           |
+| num_on                 | integer   | Number of players coming on.           |
+| players_on             | character | Names of players coming on.            |
+| ids_on                 | character | Player ids coming on.                  |
+| num_off                | integer   | Number of players going off.           |
+| players_off            | character | Names of players going off.            |
+| ids_off                | character | Player ids going off.                  |
+| event                  | character | Event description label.               |
+| event_type             | character | Standardized event type code.          |
+| game_seconds_remaining | integer   | Seconds remaining in regulation.       |
 
 ## Examples
 

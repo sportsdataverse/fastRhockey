@@ -22,7 +22,25 @@ nhl_teams_roster(team_abbr, season = NULL)
 
 ## Value
 
-Returns a data frame with roster information.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                |           |                                     |
+|----------------|-----------|-------------------------------------|
+| col_name       | types     | description                         |
+| player_id      | integer   | Unique player identifier.           |
+| first_name     | character | Player first name.                  |
+| last_name      | character | Player last name.                   |
+| full_name      | character | Player full name.                   |
+| sweater_number | integer   | Jersey number.                      |
+| position_code  | character | Player position code (F/D/G).       |
+| shoots_catches | character | Handedness (shoots/catches).        |
+| height_inches  | integer   | Height in inches.                   |
+| weight_pounds  | integer   | Weight in pounds.                   |
+| birth_date     | character | Player birth date.                  |
+| birth_city     | character | Player birth city.                  |
+| birth_country  | character | Player birth country.               |
+| headshot_url   | character | URL to the player's headshot image. |
+| team_abbr      | character | Team abbreviation.                  |
 
 ## Examples
 
@@ -30,7 +48,7 @@ Returns a data frame with roster information.
 # \donttest{
   try(nhl_teams_roster(team_abbr = "TOR"))
 #> ── NHL Roster ───────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:52 UTC
+#> ℹ Data updated: 2026-05-29 16:27:30 UTC
 #> # A tibble: 22 × 14
 #>    player_id first_name last_name full_name        sweater_number position_code
 #>        <int> <chr>      <chr>     <chr>                     <int> <chr>        
@@ -50,7 +68,7 @@ Returns a data frame with roster information.
 #> #   birth_country <chr>, headshot_url <chr>, team_abbr <chr>
   try(nhl_teams_roster(team_abbr = "TOR", season = 2024))
 #> ── NHL Roster ───────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:52 UTC
+#> ℹ Data updated: 2026-05-29 16:27:30 UTC
 #> # A tibble: 42 × 14
 #>    player_id first_name last_name full_name       sweater_number position_code
 #>        <int> <chr>      <chr>     <chr>                    <int> <chr>        

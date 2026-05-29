@@ -38,7 +38,30 @@ load_nhl_schedule(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                |           |                                                  |
+|----------------|-----------|--------------------------------------------------|
+| col_name       | types     | description                                      |
+| game_id        | integer   | Unique game identifier.                          |
+| season_full    | character | Full season label (e.g. 20212022).               |
+| game_type      | character | Game type the row belongs to (regular/playoffs). |
+| game_date      | character | Game date.                                       |
+| game_time      | character | Scheduled start time of the game.                |
+| home_team_abbr | character | Home team abbreviation.                          |
+| away_team_abbr | character | Away team abbreviation.                          |
+| home_team_name | character | Home team name.                                  |
+| away_team_name | character | Away team name.                                  |
+| home_score     | integer   | Home team final score.                           |
+| away_score     | integer   | Away team final score.                           |
+| game_state     | character | Game status (e.g. FINAL/FUT).                    |
+| venue          | character | Venue where the game was played.                 |
+| season         | integer   | Season (concluding year, YYYY).                  |
+| game_json      | logical   | Whether processed game JSON is available.        |
+| game_json_url  | glue      | URL to the processed game JSON.                  |
+| PBP            | logical   | Whether play-by-play data is available.          |
+| team_box       | logical   | Whether team box score data is available.        |
+| player_box     | logical   | Whether player box score data is available.      |
 
 ## Examples
 

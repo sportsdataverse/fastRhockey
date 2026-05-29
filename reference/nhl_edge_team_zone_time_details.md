@@ -30,8 +30,21 @@ nhl_edge_team_zone_time_details(team_id, season = NULL, game_type = 2)
 
 ## Value
 
-A `fastRhockey_data` tibble of zone-time metrics, or `NULL` on failure /
-empty response.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| strength_code | character | Game-strength state the row applies to. |
+| offensive_zone_pctg | numeric | Percentage of time spent in the offensive zone. |
+| offensive_zone_rank | integer | League rank for offensive zone time. |
+| offensive_zone_league_avg | numeric | League-average offensive zone time percentage. |
+| neutral_zone_pctg | numeric | Percentage of time spent in the neutral zone. |
+| neutral_zone_rank | integer | League rank for neutral zone time. |
+| neutral_zone_league_avg | numeric | League-average neutral zone time percentage. |
+| defensive_zone_pctg | numeric | Percentage of time spent in the defensive zone. |
+| defensive_zone_rank | integer | League rank for defensive zone time. |
+| defensive_zone_league_avg | numeric | League-average defensive zone time percentage. |
 
 ## Examples
 
@@ -39,7 +52,7 @@ empty response.
 # \donttest{
   try(nhl_edge_team_zone_time_details(team_id = 10))
 #> ── NHL Edge Team Zone Time Details ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:50 UTC
+#> ℹ Data updated: 2026-05-29 16:26:34 UTC
 #> # A tibble: 4 × 10
 #>   strength_code offensive_zone_pctg offensive_zone_rank offensive_zone_league_…¹
 #>   <chr>                       <dbl>               <int>                    <dbl>

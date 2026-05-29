@@ -21,13 +21,14 @@ nhl_divisions(date = NULL)
 
 ## Value
 
-Returns a data frame with columns:
+A data frame (`fastRhockey_data`) with the following columns:
 
-- `division_name` - division name (e.g. "Atlantic", "Metropolitan")
-
-- `division_abbrev` - division abbreviation
-
-- `conference_name` - parent conference name
+|                 |           |                                                  |
+|-----------------|-----------|--------------------------------------------------|
+| col_name        | types     | description                                      |
+| division_name   | character | Division name (e.g. "Atlantic", "Metropolitan"). |
+| division_abbrev | character | Division abbreviation.                           |
+| conference_name | character | Parent conference name.                          |
 
 ## Examples
 
@@ -35,7 +36,7 @@ Returns a data frame with columns:
 # \donttest{
    try(nhl_divisions())
 #> ── NHL Divisions from NHL.com ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:05 UTC
+#> ℹ Data updated: 2026-05-29 16:25:51 UTC
 #> # A tibble: 4 × 3
 #>   division_name division_abbrev conference_name
 #>   <chr>         <chr>           <chr>          

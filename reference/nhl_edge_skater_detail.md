@@ -31,8 +31,15 @@ nhl_edge_skater_detail(player_id, season = NULL, game_type = 2)
 
 ## Value
 
-A `fastRhockey_data` tibble of advanced metrics, or `NULL` on failure /
-empty response.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|            |         |                                                   |
+|------------|---------|---------------------------------------------------|
+| col_name   | types   | description                                       |
+| id         | integer | Unique player identifier.                         |
+| game_types | list    | Nested list of game-type-specific detail metrics. |
+
+Returns `NULL` on failure / empty response.
 
 ## Examples
 
@@ -40,7 +47,7 @@ empty response.
 # \donttest{
   try(nhl_edge_skater_detail(player_id = 8478402))
 #> ── NHL Edge Skater Detail ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:23 UTC
+#> ℹ Data updated: 2026-05-29 16:26:08 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    

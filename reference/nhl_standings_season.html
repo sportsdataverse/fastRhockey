@@ -91,15 +91,14 @@
 
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns a data frame with available standings seasons.</p>
-    </div>
+    <p>A data frame (<code>fastRhockey_data</code>) with the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>id</td><td>integer</td><td>Season identifier (e.g., 20232024).</td></tr><tr><td>conferences_in_use</td><td>logical</td><td>Whether conferences were in use that season.</td></tr><tr><td>divisions_in_use</td><td>logical</td><td>Whether divisions were in use that season.</td></tr><tr><td>point_for_o_tloss_in_use</td><td>logical</td><td>Whether a point for overtime losses was in use.</td></tr><tr><td>regulation_wins_in_use</td><td>logical</td><td>Whether regulation wins were tracked.</td></tr><tr><td>row_in_use</td><td>logical</td><td>Whether regulation/overtime wins (ROW) were in use.</td></tr><tr><td>standings_end</td><td>character</td><td>End date of the standings period.</td></tr><tr><td>standings_start</td><td>character</td><td>Start date of the standings period.</td></tr><tr><td>ties_in_use</td><td>logical</td><td>Whether ties were in use that season.</td></tr><tr><td>wildcard_in_use</td><td>logical</td><td>Whether wildcard standings were in use.</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_standings_season</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Standings Season ─────────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:15:44 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:27:21 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 108 × 10</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          id conferences_in_use divisions_in_use point_for_o_tloss_in_use</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>                   </span>

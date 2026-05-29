@@ -20,26 +20,20 @@ pwhl_season_id(season = NULL, game_type = "regular")
 
 ## Value
 
-A data frame with columns:
+A data frame (`fastRhockey_data`) with the following columns:
 
-- `season_id` - Numeric season identifier used by the HockeyTech API.
-
-- `season_name` - Full season name (e.g., "2024-25 Regular Season").
-
-- `season_short` - Short season name.
-
-- `season_yr` - Numeric year derived from the season name (concluding
-  year).
-
-- `game_type_label` - Game type: "preseason", "regular", or "playoffs".
-
-- `career` - Whether this is a career-stats season.
-
-- `playoff` - Whether this is a playoff season.
-
-- `start_date` - Season start date.
-
-- `end_date` - Season end date.
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| season_id | numeric | Season identifier used by the HockeyTech API. |
+| season_name | character | Full season name (e.g., "2024-25 Regular Season"). |
+| season_short | character | Short season name. |
+| career | character | Whether this is a career-stats season. |
+| playoff | character | Whether this is a playoff season. |
+| start_date | character | Season start date. |
+| end_date | character | Season end date. |
+| season_yr | numeric | Year derived from the season name (concluding year). |
+| game_type_label | character | Game type: "preseason", "regular", or "playoffs". |
 
 ## Examples
 

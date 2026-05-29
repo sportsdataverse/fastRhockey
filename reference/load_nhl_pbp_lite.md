@@ -38,7 +38,40 @@ load_nhl_pbp_lite(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with the same columns as
+[`load_nhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp.md)
+but excluding line-change (`CHANGE`) events:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| event_type | character | Standardized event type code. |
+| event | character | Event description label. |
+| secondary_type | character | Secondary event type (e.g. shot type). |
+| event_team_abbr | character | Abbreviation of the team credited with the event. |
+| event_team_type | character | Whether the event team is home or away. |
+| description | character | Full text description of the event. |
+| period | integer | Period number. |
+| period_type | character | Period type (REGULAR/OVERTIME/SHOOTOUT). |
+| period_time | character | Elapsed time in the period (MM:SS). |
+| period_seconds | integer | Elapsed seconds in the period. |
+| game_seconds | integer | Elapsed seconds in the game. |
+| home_score | integer | Home team score after the event. |
+| away_score | integer | Away team score after the event. |
+| event_player_1_name | character | Name of the primary event player. |
+| event_player_1_id | integer | Player id of the primary event player. |
+| event_player_2_name | character | Name of the secondary event player. |
+| event_player_2_id | integer | Player id of the secondary event player. |
+| event_goalie_name | character | Name of the goalie on the event. |
+| event_goalie_id | integer | Player id of the goalie on the event. |
+| strength_state | character | Strength state (e.g. 5v5, 5v4). |
+| x | integer | Raw x-coordinate of the event. |
+| y | integer | Raw y-coordinate of the event. |
+| shot_distance | numeric | Distance of the shot from the net. |
+| shot_angle | numeric | Angle of the shot relative to the net. |
+| game_id | integer | Unique game identifier. |
+| season | integer | Season (concluding year, YYYY). |
+| xg | numeric | Expected goals value for the shot event. |
 
 ## Examples
 

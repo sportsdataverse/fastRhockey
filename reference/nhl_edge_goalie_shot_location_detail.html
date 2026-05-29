@@ -123,8 +123,7 @@ season), an 8-character API season (e.g., <code>"20242025"</code>), or <code>NUL
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>fastRhockey_data</code> tibble of shot-location details, or <code>NULL</code>
-on failure / empty response.</p>
+    <p>A data frame (<code>fastRhockey_data</code>) with the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>area</td><td>character</td><td>Net/ice zone the shots were taken from.</td></tr><tr><td>shots_against</td><td>integer</td><td>Shots faced from the area.</td></tr><tr><td>saves</td><td>integer</td><td>Saves made from the area.</td></tr><tr><td>goals_against</td><td>integer</td><td>Goals against from the area.</td></tr><tr><td>save_pctg</td><td>numeric</td><td>Save percentage for the area.</td></tr><tr><td>shots_against_percentile</td><td>numeric</td><td>League percentile rank for shots against.</td></tr><tr><td>saves_percentile</td><td>numeric</td><td>League percentile rank for saves.</td></tr><tr><td>goals_against_percentile</td><td>numeric</td><td>League percentile rank for goals against.</td></tr><tr><td>save_pctg_percentile</td><td>numeric</td><td>League percentile rank for save percentage.</td></tr></table><p>Returns <code>NULL</code> on failure / empty response.</p>
     </div>
 
     <div class="section level2">
@@ -132,7 +131,7 @@ on failure / empty response.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_edge_goalie_shot_location_detail</span><span class="op">(</span>player_id <span class="op">=</span> <span class="fl">8475883</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Edge Goalie Shot Location Detail ─────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:14:18 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:26:04 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 17 × 9</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    area       shots_against saves goals_against save_pctg shots_against_percen…¹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>

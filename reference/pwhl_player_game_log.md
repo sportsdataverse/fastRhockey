@@ -34,34 +34,50 @@ pwhl_player_game_log(
 
 ## Value
 
-A data frame with per-game statistics for the player, or NULL if
-unavailable.
+A data frame (`fastRhockey_data`) with the following columns:
 
-- `player_id` - Player ID.
-
-- `game_id` - Game ID.
-
-- `date` - Game date.
-
-- `team` - Team abbreviation.
-
-- `opponent` - Opponent abbreviation.
-
-- `home_away` - Home or Away indicator.
-
-- `goals` - Goals scored.
-
-- `assists` - Assists.
-
-- `points` - Total points.
-
-- `plus_minus` - Plus/minus rating.
-
-- `penalty_minutes` - Penalty minutes.
-
-- `shots` - Shots on goal.
-
-- `game_type` - Game type the row belongs to (`"regular"`/`"playoffs"`).
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| g_month | character | Month the game was played. |
+| id | numeric | Unique game identifier. |
+| home_team | character | Home team identifier. |
+| visiting_team | character | Visiting team identifier. |
+| date_played | character | Date the game was played. |
+| home | numeric | Whether the player's team was home. |
+| goalie | numeric | Whether the player was the goalie. |
+| home_team_code | character | Home team abbreviation. |
+| home_team_name | character | Home team name. |
+| home_division | character | Home team division. |
+| visiting_team_code | character | Visiting team abbreviation. |
+| visiting_team_name | character | Visiting team name. |
+| visiting_division | character | Visiting team division. |
+| goals_against | numeric | Goals against (goalie). |
+| seconds_played | character | Seconds played in the game. |
+| win | numeric | Whether the game was a win (goalie). |
+| tie | character | Whether the game was a tie (goalie). |
+| loss | numeric | Whether the game was a loss (goalie). |
+| total_losses | character | Total losses to date (goalie). |
+| shutout | character | Whether the game was a shutout (goalie). |
+| ot_loss | character | Whether the game was an overtime loss. |
+| shootout_loss | character | Whether the game was a shootout loss. |
+| saves | numeric | Saves made (goalie). |
+| shots_against | numeric | Shots faced (goalie). |
+| shootout_saves | character | Shootout saves made. |
+| shootout_goals_against | character | Shootout goals against. |
+| shootout_shots | character | Shootout shots faced. |
+| goals | numeric | Goals scored. |
+| assists | numeric | Assists. |
+| pim | character | Penalty minutes. |
+| points | numeric | Total points (goals + assists). |
+| gaa | character | Goals against average (goalie). |
+| svpct | character | Save percentage (goalie). |
+| shootout_shots_percentage | character | Shootout save percentage. |
+| penalty_minutes | numeric | Penalty minutes. |
+| minutes | character | Minutes played. |
+| player_team | character | The player's team. |
+| player_id | numeric | Unique player identifier. |
+| game_type | character | Game type the row belongs to ("regular"/"playoffs"). |
 
 ## Examples
 
@@ -69,7 +85,7 @@ unavailable.
 # \donttest{
   try(pwhl_player_game_log(player_id = 28, season = 2025))
 #> ── PWHL Player Game Log ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:16:06 UTC
+#> ℹ Data updated: 2026-05-29 16:27:43 UTC
 #> # A tibble: 25 × 39
 #>    g_month    id home_team visiting_team date_played  home goalie home_team_code
 #>    <chr>   <dbl> <chr>     <chr>         <chr>       <dbl>  <dbl> <chr>         

@@ -42,22 +42,22 @@ load_pwhl_shootout(
 
 ## Value
 
-A data frame of class `fastRhockey_data`. One row per shootout attempt.
-Common columns include:
+A data frame (`fastRhockey_data`) with one row per shootout attempt and
+the following columns:
 
-|                 |           |                       |
-|-----------------|-----------|-----------------------|
-| column          | type      | description           |
-| `game_id`       | integer   | PWHL game id          |
-| `round`         | integer   | shootout round number |
-| `team_side`     | character | `"home"` or `"away"`  |
-| `shooter_id`    | integer   | shooter player id     |
-| `shooter_first` | character | shooter first name    |
-| `shooter_last`  | character | shooter last name     |
-| `goalie_id`     | integer   | opposing goalie id    |
-| `goalie_first`  | character | goalie first name     |
-| `goalie_last`   | character | goalie last name      |
-| `is_goal`       | integer   | scored flag           |
+|               |           |                                     |
+|---------------|-----------|-------------------------------------|
+| col_name      | types     | description                         |
+| game_id       | integer   | Unique game identifier.             |
+| round         | integer   | Shootout round number.              |
+| team_side     | character | Shooting team side ("home"/"away"). |
+| shooter_id    | integer   | Shooter player identifier.          |
+| shooter_first | character | Shooter first name.                 |
+| shooter_last  | character | Shooter last name.                  |
+| goalie_id     | integer   | Opposing goalie identifier.         |
+| goalie_first  | character | Opposing goalie first name.         |
+| goalie_last   | character | Opposing goalie last name.          |
+| is_goal       | integer   | Whether the attempt scored (1/0).   |
 
 ## Examples
 

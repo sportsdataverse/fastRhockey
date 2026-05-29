@@ -37,7 +37,16 @@ load_nhl_scratches(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with one row per scratched player per
+game and the following columns:
+
+|           |           |                           |
+|-----------|-----------|---------------------------|
+| col_name  | types     | description               |
+| id        | integer   | Unique player identifier. |
+| firstName | character | Player first name.        |
+| lastName  | character | Player last name.         |
+| game_id   | integer   | Unique game identifier.   |
 
 ## Examples
 

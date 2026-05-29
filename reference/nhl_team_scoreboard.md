@@ -17,7 +17,15 @@ nhl_team_scoreboard(team_abbr)
 
 ## Value
 
-Returns a list with scoreboard data including game info.
+A named list of data frames: `gamesByDate`.
+
+**gamesByDate**
+
+|          |           |                                       |
+|----------|-----------|---------------------------------------|
+| col_name | types     | description                           |
+| date     | character | Date the games are scheduled for.     |
+| games    | list      | List of games scheduled on that date. |
 
 ## Examples
 

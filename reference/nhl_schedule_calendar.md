@@ -16,7 +16,27 @@ nhl_schedule_calendar(date = NULL)
 
 ## Value
 
-Returns a list with calendar data.
+A named list of data frames: `teams`.
+
+**teams**
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| id | integer | Unique team identifier. |
+| seasonId | integer | Season identifier (8-digit). |
+| abbrev | character | Team abbreviation. |
+| logo | character | URL of the team logo. |
+| darkLogo | character | URL of the team dark-mode logo. |
+| french | logical | Whether the team uses French naming. |
+| commonName.default | character | Team common name (default language). |
+| commonName.fr | character | Team common name (French). |
+| name.default | character | Team name (default language). |
+| name.fr | character | Team name (French). |
+| placeNameWithPreposition.default | character | Place name with preposition (default). |
+| placeNameWithPreposition.fr | character | Place name with preposition (French). |
+| placeName.default | character | Place name (default language). |
+| placeName.fr | character | Place name (French). |
 
 ## Examples
 

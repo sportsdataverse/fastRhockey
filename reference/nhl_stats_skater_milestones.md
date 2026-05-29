@@ -35,7 +35,29 @@ nhl_stats_skater_milestones(
 
 ## Value
 
-A `fastRhockey_data` tibble of skater milestones, or `NULL` on failure.
+A data frame (`fastRhockey_data`) of skater milestones, or `NULL` on
+failure, with the following columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| id | integer | Unique milestone record identifier. |
+| assists | integer | Assists. |
+| current_team_id | integer | Player's current team identifier. |
+| first_name | character | Player first name. |
+| game_type_id | integer | Game type identifier (regular season / playoffs). |
+| games_played | integer | Games played. |
+| goals | integer | Goals scored. |
+| last_name | character | Player last name. |
+| milestone | character | Milestone category. |
+| milestone_amount | integer | Milestone threshold amount. |
+| player_full_name | character | Player full name. |
+| player_id | integer | Unique player identifier. |
+| points | integer | Total points (goals + assists). |
+| team_abbrev | character | Team abbreviation. |
+| team_common_name | character | Team common name. |
+| team_full_name | character | Team full name. |
+| team_place_name | character | Team place (city) name. |
 
 ## Examples
 
@@ -43,7 +65,7 @@ A `fastRhockey_data` tibble of skater milestones, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_skater_milestones())
 #> ── NHL Stats Skater Milestones ──────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:49 UTC
+#> ℹ Data updated: 2026-05-29 16:27:26 UTC
 #> # A tibble: 100 × 17
 #>       id assists current_team_id first_name   game_type_id games_played goals
 #>    <int>   <int>           <int> <chr>               <int>        <int> <int>

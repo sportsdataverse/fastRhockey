@@ -30,11 +30,29 @@ pwhl_stats(position = "goalie", team = "all", season = 2024, regular = TRUE)
 
 ## Value
 
-A data frame with player stats. Columns vary by position: goalies
-include games_played, minutes, goals_against, goals_against_avg,
-save_percentage, shutouts, wins, losses; skaters include goals, assists,
-points, plus_minus, penalty_minutes, shots, shooting_pct,
-power_play_goals, faceoff_pct.
+A data frame (`fastRhockey_data`) with player stats. Columns vary by
+position; the goalie variant returns the following columns:
+
+|                    |           |                                   |
+|--------------------|-----------|-----------------------------------|
+| col_name           | types     | description                       |
+| player_id          | character | Unique player identifier.         |
+| player_name        | character | Player name.                      |
+| team               | character | Team name.                        |
+| games_played       | character | Games played.                     |
+| minutes            | character | Total minutes played.             |
+| minute             | character | Minutes component of time on ice. |
+| second             | character | Seconds component of time on ice. |
+| shots_faced        | character | Shots faced.                      |
+| goals_against      | character | Goals against.                    |
+| goals_against_avg  | character | Goals-against average.            |
+| save_percentage    | character | Save percentage.                  |
+| shutouts           | character | Shutouts.                         |
+| wins               | character | Wins.                             |
+| losses             | character | Losses.                           |
+| so_att             | character | Shootout attempts faced.          |
+| so_goals_against   | character | Shootout goals against.           |
+| so_save_percentage | character | Shootout save percentage.         |
 
 ## Examples
 

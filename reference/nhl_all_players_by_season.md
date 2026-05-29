@@ -28,10 +28,26 @@ nhl_all_players_by_season(season, sleep_rate = 0)
 
 ## Value
 
-A `fastRhockey_data` / `data.frame` with one row per player across all
-NHL rosters, including `player_id`, `first_name`, `last_name`,
-`position_code`, `team_abbr`, and `season`. Returns `NULL` on outer
-failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                |           |                                             |
+|----------------|-----------|---------------------------------------------|
+| col_name       | types     | description                                 |
+| player_id      | integer   | Unique player identifier.                   |
+| first_name     | character | Player first name.                          |
+| last_name      | character | Player last name.                           |
+| full_name      | character | Player full name.                           |
+| sweater_number | integer   | Jersey number.                              |
+| position_code  | character | Player position code.                       |
+| shoots_catches | character | Handedness (shoots/catches).                |
+| height_inches  | integer   | Player height in inches.                    |
+| weight_pounds  | integer   | Player weight in pounds.                    |
+| birth_date     | character | Player birth date.                          |
+| birth_city     | character | Player birth city.                          |
+| birth_country  | character | Player birth country.                       |
+| headshot_url   | character | URL to the player headshot image.           |
+| team_abbr      | character | Team abbreviation.                          |
+| season         | numeric   | Season start year (e.g., 2024 for 2024-25). |
 
 ## Examples
 
@@ -39,7 +55,7 @@ failure.
 # \donttest{
   try(nhl_all_players_by_season(season = 2024))
 #> ── NHL All Players by Season ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:02 UTC
+#> ℹ Data updated: 2026-05-29 16:25:48 UTC
 #> # A tibble: 853 × 15
 #>    player_id first_name last_name full_name         sweater_number position_code
 #>        <int> <chr>      <chr>     <chr>                      <int> <chr>        

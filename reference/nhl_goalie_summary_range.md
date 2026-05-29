@@ -37,9 +37,35 @@ nhl_goalie_summary_range(start_season, end_season, game_type = 2, limit = 50)
 
 ## Value
 
-A `fastRhockey_data` / `data.frame` of concatenated goalie summary stats
-with an added `season` column marking the season each row came from.
-Returns `NULL` on outer failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                       |           |                                           |
+|-----------------------|-----------|-------------------------------------------|
+| col_name              | types     | description                               |
+| assists               | integer   | Assists.                                  |
+| games_played          | integer   | Games played.                             |
+| games_started         | integer   | Games started.                            |
+| goalie_full_name      | character | Goalie full name.                         |
+| goals                 | integer   | Goals scored.                             |
+| goals_against         | integer   | Goals against.                            |
+| goals_against_average | numeric   | Goals against average.                    |
+| last_name             | character | Goalie last name.                         |
+| losses                | integer   | Losses.                                   |
+| ot_losses             | integer   | Overtime losses.                          |
+| penalty_minutes       | integer   | Penalty minutes.                          |
+| player_id             | integer   | Unique player identifier.                 |
+| points                | integer   | Total points (goals + assists).           |
+| save_pct              | numeric   | Save percentage.                          |
+| saves                 | integer   | Saves made.                               |
+| season_id             | integer   | Season identifier.                        |
+| shoots_catches        | character | Shooting/catching hand.                   |
+| shots_against         | integer   | Shots faced.                              |
+| shutouts              | integer   | Shutouts.                                 |
+| team_abbrevs          | character | Team abbreviation(s).                     |
+| ties                  | logical   | Ties (legacy; typically NA).              |
+| time_on_ice           | integer   | Time on ice in seconds.                   |
+| wins                  | integer   | Wins.                                     |
+| season                | character | Season the row came from (e.g. 20232024). |
 
 ## Examples
 
@@ -47,7 +73,7 @@ Returns `NULL` on outer failure.
 # \donttest{
   try(nhl_goalie_summary_range(start_season = 2023, end_season = 2024))
 #> ── NHL Goalie Summary Range ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:57 UTC
+#> ℹ Data updated: 2026-05-29 16:26:40 UTC
 #> # A tibble: 100 × 24
 #>    assists games_played games_started goalie_full_name   goals goals_against
 #>      <int>        <int>         <int> <chr>              <int>         <int>

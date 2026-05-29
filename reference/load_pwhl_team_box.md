@@ -41,26 +41,34 @@ load_pwhl_team_box(
 
 ## Value
 
-A data frame of class `fastRhockey_data`. Common columns include:
+A data frame (`fastRhockey_data`) with the following columns:
 
-|                    |           |                               |
-|--------------------|-----------|-------------------------------|
-| column             | type      | description                   |
-| `game_id`          | integer   | PWHL game id                  |
-| `team_id`          | integer   | HockeyTech team id            |
-| `team`             | character | team full name                |
-| `team_abbr`        | character | three-letter abbreviation     |
-| `team_side`        | character | `"home"` or `"away"`          |
-| `goals`            | integer   | goals scored                  |
-| `shots`            | integer   | shots on goal                 |
-| `pp_goals`         | integer   | power-play goals              |
-| `pp_opportunities` | integer   | power-play opportunities      |
-| `penalty_minutes`  | integer   | total PIM                     |
-| `infraction_count` | integer   | number of infractions         |
-| `faceoff_attempts` | integer   | faceoff attempts              |
-| `faceoff_wins`     | integer   | faceoff wins                  |
-| `faceoff_win_pct`  | numeric   | faceoff win percentage        |
-| `season_record`    | character | season record after this game |
+|                  |           |                                        |
+|------------------|-----------|----------------------------------------|
+| col_name         | types     | description                            |
+| game_id          | integer   | Unique game identifier.                |
+| team_id          | integer   | Unique team identifier.                |
+| team             | character | Team name.                             |
+| team_abbr        | character | Team abbreviation.                     |
+| team_side        | character | Home or away indicator.                |
+| shots            | integer   | Shots on goal.                         |
+| goals            | integer   | Goals scored.                          |
+| hits             | integer   | Hits.                                  |
+| pp_goals         | integer   | Power-play goals.                      |
+| pp_opportunities | integer   | Power-play opportunities.              |
+| goal_count       | integer   | Total goals recorded.                  |
+| assist_count     | integer   | Total assists recorded.                |
+| penalty_minutes  | integer   | Penalty minutes.                       |
+| infraction_count | integer   | Number of infractions.                 |
+| faceoff_attempts | integer   | Faceoff attempts.                      |
+| faceoff_wins     | integer   | Faceoff wins.                          |
+| faceoff_win_pct  | numeric   | Faceoff win percentage.                |
+| season_wins      | integer   | Season wins entering/after the game.   |
+| season_losses    | integer   | Season losses entering/after the game. |
+| season_ot_wins   | integer   | Season overtime wins.                  |
+| season_ot_losses | integer   | Season overtime losses.                |
+| season_so_losses | integer   | Season shootout losses.                |
+| season_record    | character | Season record after this game.         |
 
 ## Examples
 

@@ -122,16 +122,14 @@ season), an 8-character API season (e.g., <code>"20242025"</code>), or <code>NUL
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>fastRhockey_data</code> tibble of zone-time metrics, or <code>NULL</code> on
-failure / empty response.</p>
-    </div>
+    <p>A data frame (<code>fastRhockey_data</code>) with the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>strength_code</td><td>character</td><td>Game-strength state the row applies to.</td></tr><tr><td>offensive_zone_pctg</td><td>numeric</td><td>Percentage of time spent in the offensive zone.</td></tr><tr><td>offensive_zone_rank</td><td>integer</td><td>League rank for offensive zone time.</td></tr><tr><td>offensive_zone_league_avg</td><td>numeric</td><td>League-average offensive zone time percentage.</td></tr><tr><td>neutral_zone_pctg</td><td>numeric</td><td>Percentage of time spent in the neutral zone.</td></tr><tr><td>neutral_zone_rank</td><td>integer</td><td>League rank for neutral zone time.</td></tr><tr><td>neutral_zone_league_avg</td><td>numeric</td><td>League-average neutral zone time percentage.</td></tr><tr><td>defensive_zone_pctg</td><td>numeric</td><td>Percentage of time spent in the defensive zone.</td></tr><tr><td>defensive_zone_rank</td><td>integer</td><td>League rank for defensive zone time.</td></tr><tr><td>defensive_zone_league_avg</td><td>numeric</td><td>League-average defensive zone time percentage.</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_edge_team_zone_time_details</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Edge Team Zone Time Details ──────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:14:50 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:26:34 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 10</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   strength_code offensive_zone_pctg offensive_zone_rank offensive_zone_league_…¹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>

@@ -41,25 +41,31 @@ load_pwhl_penalty_summary(
 
 ## Value
 
-A data frame of class `fastRhockey_data`. Common columns include:
+A data frame (`fastRhockey_data`) with the following columns:
 
-|                  |           |                                    |
-|------------------|-----------|------------------------------------|
-| column           | type      | description                        |
-| `game_id`        | integer   | PWHL game id                       |
-| `period_id`      | integer   | period id                          |
-| `period`         | character | period long name                   |
-| `time`           | character | game clock at infraction (`MM:SS`) |
-| `team_id`        | integer   | penalized team id                  |
-| `team`           | character | penalized team name                |
-| `minutes`        | numeric   | penalty length in minutes          |
-| `description`    | character | infraction description             |
-| `is_power_play`  | integer   | power-play flag                    |
-| `is_bench`       | integer   | bench-minor flag                   |
-| `taken_by_id`    | integer   | player who took the penalty        |
-| `taken_by_first` | character | offender first name                |
-| `taken_by_last`  | character | offender last name                 |
-| `served_by_id`   | integer   | player serving the penalty         |
+|                   |           |                                                |
+|-------------------|-----------|------------------------------------------------|
+| col_name          | types     | description                                    |
+| game_id           | integer   | Unique game identifier.                        |
+| period_id         | integer   | Period identifier.                             |
+| period            | character | Period long name.                              |
+| time              | character | Game clock at infraction (MM:SS).              |
+| team_id           | integer   | Penalized team identifier.                     |
+| team              | character | Penalized team name.                           |
+| team_abbr         | character | Penalized team abbreviation.                   |
+| game_penalty_id   | integer   | Penalty identifier within the game.            |
+| minutes           | integer   | Penalty length in minutes.                     |
+| description       | character | Infraction description.                        |
+| rule_number       | character | Rulebook rule number.                          |
+| is_power_play     | integer   | Power-play flag.                               |
+| is_bench          | integer   | Bench-minor flag.                              |
+| taken_by_id       | integer   | Identifier of the player who took the penalty. |
+| taken_by_first    | character | Offender first name.                           |
+| taken_by_last     | character | Offender last name.                            |
+| taken_by_position | character | Offender position.                             |
+| served_by_id      | integer   | Identifier of the player serving the penalty.  |
+| served_by_first   | character | First name of the player serving.              |
+| served_by_last    | character | Last name of the player serving.               |
 
 ## Examples
 

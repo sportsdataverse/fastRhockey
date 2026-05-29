@@ -26,8 +26,13 @@ nhl_edge_skater_landing(season = NULL, game_type = 2)
 
 ## Value
 
-A `fastRhockey_data` tibble containing the skater landing payload, or
-`NULL` on failure / empty response.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|            |         |                                              |
+|------------|---------|----------------------------------------------|
+| col_name   | types   | description                                  |
+| id         | integer | NHL Edge season identifier.                  |
+| game_types | list    | List of available game types for the season. |
 
 ## Examples
 
@@ -35,7 +40,7 @@ A `fastRhockey_data` tibble containing the skater landing payload, or
 # \donttest{
   try(nhl_edge_skater_landing())
 #> ── NHL Edge Skater Landing ──────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:24 UTC
+#> ℹ Data updated: 2026-05-29 16:26:09 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    

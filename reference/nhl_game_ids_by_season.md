@@ -46,9 +46,18 @@ nhl_game_ids_by_season(
 
 ## Value
 
-A `fastRhockey_data` / `data.frame` with one row per unique game,
-containing `game_id`, `season`, `game_type`, `game_date`, `home_team`,
-and `away_team`. Returns `NULL` on outer failure.
+A data frame (`fastRhockey_data`) with one row per unique game and the
+following columns (returns `NULL` on outer failure):
+
+|           |           |                                           |
+|-----------|-----------|-------------------------------------------|
+| col_name  | types     | description                               |
+| game_id   | integer   | Unique game identifier.                   |
+| season    | integer   | Season (concluding year, YYYY).           |
+| game_type | integer   | Game type (1=pre, 2=regular, 3=playoffs). |
+| game_date | character | Game date.                                |
+| home_team | character | Home team abbreviation.                   |
+| away_team | character | Away team abbreviation.                   |
 
 ## Examples
 
@@ -56,7 +65,7 @@ and `away_team`. Returns `NULL` on outer failure.
 # \donttest{
   try(nhl_game_ids_by_season(season = 2025, team_abbr = "TOR"))
 #> ── NHL Game IDs by Season ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:53 UTC
+#> ℹ Data updated: 2026-05-29 16:26:37 UTC
 #> # A tibble: 82 × 6
 #>       game_id   season game_type game_date  home_team away_team
 #>         <int>    <int>     <int> <chr>      <chr>     <chr>    

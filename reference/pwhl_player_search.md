@@ -16,25 +16,26 @@ pwhl_player_search(search_term)
 
 ## Value
 
-A data frame with matching players, or NULL if no results.
+A data frame (`fastRhockey_data`) with the following columns:
 
-- `player_id` - Player ID.
-
-- `first_name` - First name.
-
-- `last_name` - Last name.
-
-- `position` - Position.
-
-- `team_id` - Team ID.
-
-- `team_name` - Team name.
-
-- `jersey_number` - Jersey number.
-
-- `birthdate` - Date of birth.
-
-- `image_url` - Player headshot URL.
+|               |           |                                |
+|---------------|-----------|--------------------------------|
+| col_name      | types     | description                    |
+| player_id     | numeric   | Unique player identifier.      |
+| first_name    | character | Player first name.             |
+| last_name     | character | Player last name.              |
+| position      | character | Player position.               |
+| team_id       | numeric   | Unique team identifier.        |
+| person_id     | numeric   | Unique person identifier.      |
+| team_name     | character | Most recent team name.         |
+| team_code     | character | Most recent team abbreviation. |
+| jersey_number | character | Jersey number.                 |
+| shoots        | character | Shooting hand.                 |
+| catches       | character | Catching hand (goalies).       |
+| height        | character | Player height.                 |
+| weight        | character | Player weight.                 |
+| birthdate     | character | Date of birth.                 |
+| image_url     | character | Player headshot URL.           |
 
 ## Examples
 
@@ -42,7 +43,7 @@ A data frame with matching players, or NULL if no results.
 # \donttest{
   try(pwhl_player_search(search_term = "Poulin"))
 #> ── PWHL Player Search ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:16:06 UTC
+#> ℹ Data updated: 2026-05-29 16:27:44 UTC
 #> # A tibble: 2 × 15
 #>   player_id first_name  last_name position team_id person_id team_name team_code
 #>       <dbl> <chr>       <chr>     <chr>      <dbl>     <dbl> <chr>     <chr>    

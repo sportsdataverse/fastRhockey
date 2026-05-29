@@ -41,27 +41,31 @@ load_pwhl_three_stars(
 
 ## Value
 
-A data frame of class `fastRhockey_data`. Common columns include:
+A data frame (`fastRhockey_data`) with the following columns:
 
-|                 |           |                             |
-|-----------------|-----------|-----------------------------|
-| column          | type      | description                 |
-| `game_id`       | integer   | PWHL game id                |
-| `star`          | integer   | star rank (1-3)             |
-| `team_id`       | integer   | star's team id              |
-| `team`          | character | star's team name            |
-| `player_id`     | integer   | star's player id            |
-| `first_name`    | character | star's first name           |
-| `last_name`     | character | star's last name            |
-| `jersey_number` | integer   | jersey number               |
-| `position`      | character | position code               |
-| `is_goalie`     | integer   | goalie flag                 |
-| `is_home`       | integer   | home-team flag              |
-| `goals`         | integer   | star's goals in this game   |
-| `assists`       | integer   | star's assists in this game |
-| `points`        | integer   | star's points in this game  |
-| `saves`         | integer   | saves (goalies)             |
-| `shots_against` | integer   | shots against (goalies)     |
+|               |           |                             |
+|---------------|-----------|-----------------------------|
+| col_name      | types     | description                 |
+| game_id       | integer   | Unique game identifier.     |
+| star          | integer   | Star rank (1-3).            |
+| team_id       | integer   | Star's team identifier.     |
+| team          | character | Star's team name.           |
+| team_abbr     | character | Star's team abbreviation.   |
+| player_id     | integer   | Star's player identifier.   |
+| first_name    | character | Star's first name.          |
+| last_name     | character | Star's last name.           |
+| jersey_number | integer   | Jersey number.              |
+| position      | character | Player position.            |
+| is_goalie     | integer   | Goalie flag.                |
+| is_home       | integer   | Home-team flag.             |
+| goals         | integer   | Goals scored in this game.  |
+| assists       | integer   | Assists in this game.       |
+| points        | integer   | Points in this game.        |
+| shots         | integer   | Shots on goal in this game. |
+| saves         | integer   | Saves made (goalies).       |
+| shots_against | integer   | Shots faced (goalies).      |
+| goals_against | integer   | Goals against (goalies).    |
+| time_on_ice   | character | Time on ice (MM:SS).        |
 
 ## Examples
 

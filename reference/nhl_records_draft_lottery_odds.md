@@ -17,7 +17,16 @@ nhl_records_draft_lottery_odds(cayenne_exp = NULL)
 
 ## Value
 
-A `fastRhockey_data` tibble of draft lottery odds, or `NULL` on failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                |           |                                        |
+|----------------|-----------|----------------------------------------|
+| col_name       | types     | description                            |
+| id             | integer   | Unique lottery odds record identifier. |
+| draft_year     | integer   | Draft year the odds apply to.          |
+| format_content | character | Description of the lottery format.     |
+| odds_content   | character | Description of the lottery odds.       |
+| result_notes   | character | Notes on the lottery results.          |
 
 ## Examples
 
@@ -25,7 +34,7 @@ A `fastRhockey_data` tibble of draft lottery odds, or `NULL` on failure.
 # \donttest{
   try(nhl_records_draft_lottery_odds())
 #> ── NHL Records Draft Lottery Odds ───────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:05 UTC
+#> ℹ Data updated: 2026-05-29 16:26:46 UTC
 #> # A tibble: 32 × 5
 #>       id draft_year format_content                     odds_content result_notes
 #>    <int>      <int> <chr>                              <chr>        <chr>       

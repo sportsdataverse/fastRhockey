@@ -97,15 +97,14 @@ api-web.nhle.com/v1/draft/rankings/now."><meta property="og:image" content="http
 
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns a data frame of draft prospect rankings.</p>
-    </div>
+    <p>A data frame (<code>fastRhockey_data</code>) with the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>last_name</td><td>character</td><td>Prospect's last name.</td></tr><tr><td>first_name</td><td>character</td><td>Prospect's first name.</td></tr><tr><td>position_code</td><td>character</td><td>Prospect's position code.</td></tr><tr><td>shoots_catches</td><td>character</td><td>Prospect's shooting/catching hand.</td></tr><tr><td>height_in_inches</td><td>integer</td><td>Prospect's height in inches.</td></tr><tr><td>weight_in_pounds</td><td>integer</td><td>Prospect's weight in pounds.</td></tr><tr><td>last_amateur_club</td><td>character</td><td>Prospect's most recent amateur club.</td></tr><tr><td>last_amateur_league</td><td>character</td><td>Prospect's most recent amateur league.</td></tr><tr><td>birth_date</td><td>character</td><td>Prospect's birth date.</td></tr><tr><td>birth_city</td><td>character</td><td>Prospect's birth city.</td></tr><tr><td>birth_state_province</td><td>character</td><td>Prospect's birth state or province.</td></tr><tr><td>birth_country</td><td>character</td><td>Prospect's birth country.</td></tr><tr><td>midterm_rank</td><td>integer</td><td>Prospect's midterm draft ranking.</td></tr><tr><td>final_rank</td><td>integer</td><td>Prospect's final draft ranking.</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>   <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_draft_prospects</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Draft Prospects data from NHL.com ────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:14:06 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:25:53 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 253 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    last_name first_name position_code shoots_catches height_in_inches</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>

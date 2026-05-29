@@ -38,7 +38,29 @@ load_nhl_three_stars(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with one row per star selection (plus
+the game winner/loser goalie decision) and the following columns:
+
+|                     |           |                                         |
+|---------------------|-----------|-----------------------------------------|
+| col_name            | types     | description                             |
+| star                | integer   | Star ranking (1, 2, or 3).              |
+| playerId            | integer   | Player id of the selected star.         |
+| teamAbbrev          | character | Team abbreviation of the selected star. |
+| headshot            | character | URL to the player headshot image.       |
+| name                | list      | Player display name (localized list).   |
+| sweaterNo           | integer   | Jersey number.                          |
+| position            | character | Player position.                        |
+| goals               | integer   | Goals scored in the game (skaters).     |
+| assists             | integer   | Assists in the game (skaters).          |
+| points              | integer   | Total points in the game (skaters).     |
+| goalsAgainstAverage | numeric   | Goals-against average (goalies).        |
+| savePctg            | numeric   | Save percentage (goalies).              |
+| game_id             | integer   | Unique game identifier.                 |
+| winner_id           | integer   | Player id of the winning goalie.        |
+| winner_name         | character | Name of the winning goalie.             |
+| loser_id            | integer   | Player id of the losing goalie.         |
+| loser_name          | character | Name of the losing goalie.              |
 
 ## Examples
 

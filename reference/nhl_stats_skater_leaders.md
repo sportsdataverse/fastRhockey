@@ -31,7 +31,27 @@ nhl_stats_skater_leaders(attribute, lang = "en", cayenne_exp = NULL)
 
 ## Value
 
-A `fastRhockey_data` tibble of skater leaders, or `NULL` on failure.
+A data frame (`fastRhockey_data`) of skater leaders, or `NULL` on
+failure. When ranking by `"assists"` the columns are:
+
+|                        |           |                                   |
+|------------------------|-----------|-----------------------------------|
+| col_name               | types     | description                       |
+| assists                | integer   | Assists (the ranked attribute).   |
+| player_id              | integer   | Unique player identifier.         |
+| player_current_team_id | logical   | Player's current team identifier. |
+| player_first_name      | character | Player first name.                |
+| player_full_name       | character | Player full name.                 |
+| player_last_name       | character | Player last name.                 |
+| player_position_code   | character | Player position code.             |
+| player_sweater_number  | integer   | Player jersey number.             |
+| team_id                | integer   | Unique team identifier.           |
+| team_franchise_id      | integer   | Team franchise identifier.        |
+| team_full_name         | character | Team full name.                   |
+| team_league_id         | integer   | League identifier of the team.    |
+| team_logos             | list      | Team logo metadata.               |
+| team_raw_tricode       | character | Team raw three-letter code.       |
+| team_tri_code          | character | Team three-letter code.           |
 
 ## Examples
 
@@ -39,7 +59,7 @@ A `fastRhockey_data` tibble of skater leaders, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_skater_leaders(attribute = "assists"))
 #> ── NHL Stats Skater Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:48 UTC
+#> ℹ Data updated: 2026-05-29 16:27:26 UTC
 #> # A tibble: 10 × 15
 #>    assists player_id player_current_team_id player_first_name player_full_name
 #>      <int>     <int> <lgl>                  <chr>             <chr>           

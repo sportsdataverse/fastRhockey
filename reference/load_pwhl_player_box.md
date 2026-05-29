@@ -39,7 +39,34 @@ load_pwhl_player_box(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                  |           |                                      |
+|------------------|-----------|--------------------------------------|
+| col_name         | types     | description                          |
+| player_id        | character | Unique player identifier.            |
+| first_name       | character | Player first name.                   |
+| last_name        | character | Player last name.                    |
+| position         | character | Player position.                     |
+| team_id          | integer   | Unique team identifier.              |
+| game_id          | integer   | Unique game identifier.              |
+| league           | character | League code.                         |
+| toi              | character | Time on ice (MM:SS).                 |
+| time_on_ice      | numeric   | Time on ice in seconds.              |
+| goals            | integer   | Goals scored.                        |
+| assists          | integer   | Assists.                             |
+| points           | integer   | Total points (goals + assists).      |
+| shots            | integer   | Shots on goal.                       |
+| hits             | integer   | Hits.                                |
+| blocked_shots    | integer   | Blocked shots.                       |
+| penalty_minutes  | integer   | Penalty minutes.                     |
+| plus_minus       | integer   | Plus/minus rating.                   |
+| faceoff_attempts | integer   | Faceoff attempts.                    |
+| faceoff_wins     | integer   | Faceoff wins.                        |
+| faceoff_losses   | integer   | Faceoff losses.                      |
+| faceoff_pct      | numeric   | Faceoff win percentage.              |
+| starting         | character | Whether the player started the game. |
+| player_type      | character | Player type (skater or goalie).      |
 
 ## Examples
 

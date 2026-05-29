@@ -31,7 +31,24 @@ nhl_stats_game_listing(lang = "en", limit = 100, start = 0, cayenne_exp = NULL)
 
 ## Value
 
-A `fastRhockey_data` tibble of games, or `NULL` on failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                        |           |                                  |
+|------------------------|-----------|----------------------------------|
+| col_name               | types     | description                      |
+| id                     | integer   | Unique game identifier.          |
+| eastern_start_time     | character | Game start time in Eastern time. |
+| game_date              | character | Game date.                       |
+| game_number            | integer   | Game number within the schedule. |
+| game_schedule_state_id | integer   | Schedule state identifier.       |
+| game_state_id          | integer   | Game state identifier.           |
+| game_type              | integer   | Game type identifier.            |
+| home_score             | integer   | Home team score.                 |
+| home_team_id           | integer   | Home team identifier.            |
+| period                 | integer   | Period reached in the game.      |
+| season                 | integer   | Season (concluding year, YYYY).  |
+| visiting_score         | integer   | Visiting team score.             |
+| visiting_team_id       | integer   | Visiting team identifier.        |
 
 ## Examples
 
@@ -39,7 +56,7 @@ A `fastRhockey_data` tibble of games, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_game_listing())
 #> ── NHL Stats Game Listing ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:46 UTC
+#> ℹ Data updated: 2026-05-29 16:27:23 UTC
 #> # A tibble: 100 × 13
 #>            id eastern_start_time  game_date  game_number game_schedule_state_id
 #>         <int> <chr>               <chr>            <int>                  <int>

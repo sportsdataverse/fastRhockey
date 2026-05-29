@@ -25,10 +25,25 @@ pwhl_schedule(season, game_type = "both")
 
 ## Value
 
-A data frame with schedule data including columns: game_id, season,
-game_date, game_status, home_team, home_team_id, away_team,
-away_team_id, home_score, away_score, winner, venue, venue_url,
-game_type.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|              |           |                                  |
+|--------------|-----------|----------------------------------|
+| col_name     | types     | description                      |
+| game_id      | character | Unique game identifier.          |
+| season       | numeric   | Season (concluding year, YYYY).  |
+| game_date    | character | Game date.                       |
+| game_status  | character | Status of the game.              |
+| home_team    | character | Home team name.                  |
+| home_team_id | character | Home team identifier.            |
+| away_team    | character | Away team name.                  |
+| away_team_id | character | Away team identifier.            |
+| home_score   | character | Home team score.                 |
+| away_score   | character | Away team score.                 |
+| winner       | character | Winning team.                    |
+| venue        | character | Venue where the game was played. |
+| venue_url    | character | URL for the venue.               |
+| game_type    | character | Game type the row belongs to.    |
 
 ## Examples
 

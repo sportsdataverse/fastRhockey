@@ -41,31 +41,35 @@ load_pwhl_game_info(
 
 ## Value
 
-A data frame of class `fastRhockey_data`. Common columns include:
+A data frame (`fastRhockey_data`) with the following columns:
 
-|                  |           |                              |
-|------------------|-----------|------------------------------|
-| column           | type      | description                  |
-| `game_id`        | integer   | PWHL game id                 |
-| `game_number`    | character | league game number           |
-| `game_date`      | character | human-readable game date     |
-| `game_date_iso`  | character | ISO-8601 game start datetime |
-| `start_time`     | character | start time (local)           |
-| `end_time`       | character | end time (local)             |
-| `game_duration`  | character | game length (`H:MM`)         |
-| `game_venue`     | character | venue name                   |
-| `attendance`     | integer   | reported attendance          |
-| `game_status`    | character | final / status text          |
-| `game_season_id` | integer   | HockeyTech season id         |
-| `home_team_id`   | integer   | home team id                 |
-| `home_team`      | character | home team name               |
-| `home_team_abbr` | character | home abbreviation            |
-| `home_score`     | integer   | home final score             |
-| `away_team_id`   | integer   | away team id                 |
-| `away_team`      | character | away team name               |
-| `away_team_abbr` | character | away abbreviation            |
-| `away_score`     | integer   | away final score             |
-| `has_shootout`   | integer   | shootout flag                |
+|                 |           |                                             |
+|-----------------|-----------|---------------------------------------------|
+| col_name        | types     | description                                 |
+| game_id         | integer   | Unique game identifier.                     |
+| game_number     | character | League game number.                         |
+| game_date       | character | Human-readable game date.                   |
+| game_date_iso   | character | ISO-8601 game start datetime.               |
+| start_time      | character | Start time (local).                         |
+| end_time        | character | End time (local).                           |
+| game_duration   | character | Game length (H:MM).                         |
+| game_venue      | character | Venue name.                                 |
+| attendance      | integer   | Reported attendance.                        |
+| game_status     | character | Game status text.                           |
+| game_season_id  | integer   | HockeyTech season identifier.               |
+| started         | integer   | Flag for whether the game has started.      |
+| final           | integer   | Flag for whether the game is final.         |
+| home_team_id    | integer   | Home team identifier.                       |
+| home_team       | character | Home team name.                             |
+| home_team_abbr  | character | Home team abbreviation.                     |
+| home_score      | integer   | Home team final score.                      |
+| away_team_id    | integer   | Away team identifier.                       |
+| away_team       | character | Away team name.                             |
+| away_team_abbr  | character | Away team abbreviation.                     |
+| away_score      | integer   | Away team final score.                      |
+| has_shootout    | integer   | Flag for whether the game went to shootout. |
+| game_report_url | character | URL to the game report.                     |
+| boxscore_url    | character | URL to the boxscore.                        |
 
 ## Examples
 

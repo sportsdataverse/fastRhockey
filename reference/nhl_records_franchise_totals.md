@@ -25,7 +25,48 @@ nhl_records_franchise_totals(franchise_id = NULL, cayenne_exp = NULL)
 
 ## Value
 
-A `fastRhockey_data` tibble of franchise totals, or `NULL` on failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| id | integer | Unique record identifier. |
+| active_franchise | integer | Indicator of whether the franchise is active. |
+| cups | integer | Number of Stanley Cup championships. |
+| first_season_id | integer | Season ID of the franchise's first season. |
+| franchise_id | integer | Unique franchise identifier. |
+| game_type_id | integer | Game type the totals belong to. |
+| game_win_pctg | numeric | Game-winning percentage. |
+| games_played | integer | Total games played. |
+| goals_against | integer | Goals against. |
+| goals_for | integer | Goals for. |
+| home_losses | integer | Losses at home. |
+| home_overtime_losses | integer | Overtime losses at home. |
+| home_ties | integer | Ties at home. |
+| home_wins | integer | Wins at home. |
+| last_season_id | integer | Season ID of the franchise's last season. |
+| losses | integer | Total losses. |
+| overtime_losses | integer | Total overtime losses. |
+| penalty_minutes | integer | Penalty minutes. |
+| playoff_seasons | integer | Number of playoff seasons. |
+| point_pctg | numeric | Points percentage. |
+| points | integer | Total standings points. |
+| road_losses | integer | Losses on the road. |
+| road_overtime_losses | integer | Overtime losses on the road. |
+| road_ties | integer | Ties on the road. |
+| road_wins | integer | Wins on the road. |
+| series_losses | integer | Playoff series losses. |
+| series_played | integer | Playoff series played. |
+| series_win_pctg | numeric | Playoff series win percentage. |
+| series_wins | integer | Playoff series wins. |
+| shootout_losses | integer | Shootout losses. |
+| shootout_wins | integer | Shootout wins. |
+| shutouts | integer | Shutouts recorded. |
+| team_abbrev | character | Team abbreviation. |
+| team_id | integer | Unique team identifier. |
+| team_name | character | Team name. |
+| ties | integer | Total ties. |
+| wins | integer | Total wins. |
 
 ## Examples
 
@@ -33,7 +74,7 @@ A `fastRhockey_data` tibble of franchise totals, or `NULL` on failure.
 # \donttest{
   try(nhl_records_franchise_totals())
 #> ── NHL Records Franchise Totals ─────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:19 UTC
+#> ℹ Data updated: 2026-05-29 16:26:57 UTC
 #> # A tibble: 80 × 37
 #>       id active_franchise  cups first_season_id franchise_id game_type_id
 #>    <int>            <int> <int>           <int>        <int>        <int>

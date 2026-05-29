@@ -41,19 +41,18 @@ load_pwhl_shots_by_period(
 
 ## Value
 
-A data frame of class `fastRhockey_data`. One row per period per game.
-Common columns include:
+A data frame (`fastRhockey_data`) with the following columns:
 
-|              |           |                                       |
-|--------------|-----------|---------------------------------------|
-| column       | type      | description                           |
-| `game_id`    | integer   | PWHL game id                          |
-| `period_id`  | integer   | period id (1-3, 4 = OT, 5 = SO, etc.) |
-| `period`     | character | period long name                      |
-| `home_goals` | integer   | home goals in period                  |
-| `home_shots` | integer   | home shots in period                  |
-| `away_goals` | integer   | away goals in period                  |
-| `away_shots` | integer   | away shots in period                  |
+|            |           |                                          |
+|------------|-----------|------------------------------------------|
+| col_name   | types     | description                              |
+| game_id    | integer   | Unique game identifier.                  |
+| period_id  | integer   | Period identifier (1-3, 4 = OT, 5 = SO). |
+| period     | character | Period long name.                        |
+| home_goals | integer   | Home goals in the period.                |
+| home_shots | integer   | Home shots in the period.                |
+| away_goals | integer   | Away goals in the period.                |
+| away_shots | integer   | Away shots in the period.                |
 
 ## Examples
 

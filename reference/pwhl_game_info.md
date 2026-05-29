@@ -16,10 +16,26 @@ pwhl_game_info(game_id)
 
 ## Value
 
-A data frame with one row of game metadata including columns: game_id,
-game_season, game_type, game_date, home_team, away_team, home_team_id,
-away_team_id, home_score, away_score, game_duration, game_venue,
-game_report, game_boxscore, game_season_id.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                |           |                                          |
+|----------------|-----------|------------------------------------------|
+| col_name       | types     | description                              |
+| game_id        | integer   | Unique game identifier.                  |
+| game_season    | numeric   | Season (concluding year, YYYY).          |
+| game_type      | character | Game type the row belongs to.            |
+| game_date      | character | Game date.                               |
+| home_team      | character | Home team name.                          |
+| away_team      | character | Away team name.                          |
+| home_team_id   | integer   | Home team identifier.                    |
+| away_team_id   | integer   | Away team identifier.                    |
+| home_score     | integer   | Home team final score.                   |
+| away_score     | integer   | Away team final score.                   |
+| game_duration  | character | Game duration.                           |
+| game_venue     | character | Venue where the game was played.         |
+| game_report    | character | URL to the game report.                  |
+| game_boxscore  | character | URL to the text box score.               |
+| game_season_id | character | Season identifier used by the PWHL feed. |
 
 ## Examples
 

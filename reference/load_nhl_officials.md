@@ -38,17 +38,17 @@ load_nhl_officials(
 
 ## Value
 
-A data frame of class `fastRhockey_data`, with one row per official per
-game. Columns include:
+A data frame (`fastRhockey_data`) with one row per official per game and
+the following columns:
 
-|             |                                         |
-|-------------|-----------------------------------------|
-| column      | description                             |
-| `game_id`   | NHL game id                             |
-| `season`    | Season end year (e.g. 2026 for 2025-26) |
-| `game_date` | ISO date of the game                    |
-| `role`      | Either `"referee"` or `"linesman"`      |
-| `name`      | Full name of the official               |
+|           |           |                                      |
+|-----------|-----------|--------------------------------------|
+| col_name  | types     | description                          |
+| game_id   | integer   | Unique game identifier.              |
+| season    | integer   | Season (concluding year, YYYY).      |
+| game_date | character | Game date.                           |
+| role      | character | Official role (referee or linesman). |
+| name      | character | Full name of the official.           |
 
 ## Examples
 

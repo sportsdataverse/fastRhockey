@@ -17,7 +17,14 @@ nhl_club_stats_season(team_abbr)
 
 ## Value
 
-Returns a data frame with season/game-type availability.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| season | integer | Season in 8-digit API format (e.g., 20252026). |
+| game_types | list | Game types available for the season (regular/playoff). |
+| team_abbr | character | Team abbreviation queried. |
 
 ## Examples
 
@@ -25,7 +32,7 @@ Returns a data frame with season/game-type availability.
 # \donttest{
   try(nhl_club_stats_season(team_abbr = "TOR"))
 #> ── NHL Club Stats Season ────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:04 UTC
+#> ℹ Data updated: 2026-05-29 16:25:50 UTC
 #> # A tibble: 98 × 3
 #>      season game_types team_abbr
 #>       <int> <list>     <chr>    

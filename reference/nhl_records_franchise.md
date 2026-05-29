@@ -25,7 +25,19 @@ nhl_records_franchise(franchise_id = NULL, lang = "en")
 
 ## Value
 
-A `fastRhockey_data` tibble of franchises, or `NULL` on failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                     |           |                                        |
+|---------------------|-----------|----------------------------------------|
+| col_name            | types     | description                            |
+| id                  | integer   | Unique franchise identifier.           |
+| first_season_id     | integer   | Season identifier of the first season. |
+| full_name           | character | Full franchise name.                   |
+| last_season_id      | integer   | Season identifier of the last season.  |
+| most_recent_team_id | integer   | Most recent team identifier.           |
+| team_abbrev         | character | Team abbreviation.                     |
+| team_common_name    | character | Team common (nickname) name.           |
+| team_place_name     | character | Team place (location) name.            |
 
 ## Examples
 
@@ -33,7 +45,7 @@ A `fastRhockey_data` tibble of franchises, or `NULL` on failure.
 # \donttest{
   try(nhl_records_franchise())
 #> ── NHL Records Franchise ────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:17 UTC
+#> ℹ Data updated: 2026-05-29 16:26:55 UTC
 #> # A tibble: 40 × 8
 #>       id first_season_id full_name            last_season_id most_recent_team_id
 #>    <int>           <int> <chr>                         <int>               <int>
@@ -52,7 +64,7 @@ A `fastRhockey_data` tibble of franchises, or `NULL` on failure.
 #> #   team_place_name <chr>
   try(nhl_records_franchise(franchise_id = 5))
 #> ── NHL Records Franchise ────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:17 UTC
+#> ℹ Data updated: 2026-05-29 16:26:55 UTC
 #> # A tibble: 1 × 8
 #>      id first_season_id full_name last_season_id most_recent_team_id team_abbrev
 #>   <int>           <int> <chr>     <lgl>                        <int> <chr>      

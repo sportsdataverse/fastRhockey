@@ -10,21 +10,18 @@ pwhl_teams()
 
 ## Value
 
-A data frame with columns:
+A data frame (`fastRhockey_data`) with the following columns:
 
-- `team_name` - Full team name (e.g., "PWHL Boston")
-
-- `team_id` - Numeric team identifier
-
-- `team_code` - Three-letter team code (e.g., "BOS")
-
-- `team_nickname` - Team nickname
-
-- `team_label` - Short city label (e.g., "Boston")
-
-- `division` - Division identifier
-
-- `team_logo` - URL to team logo image
+|               |           |                             |
+|---------------|-----------|-----------------------------|
+| col_name      | types     | description                 |
+| team_name     | character | Full team name.             |
+| team_id       | character | Unique team identifier.     |
+| team_code     | character | Team abbreviation/code.     |
+| team_nickname | character | Team nickname.              |
+| team_label    | character | Short city label.           |
+| division      | character | Division identifier.        |
+| team_logo     | character | URL to the team logo image. |
 
 ## Examples
 

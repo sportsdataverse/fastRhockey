@@ -17,7 +17,18 @@ nhl_gamecenter_landing(game_id)
 
 ## Value
 
-Returns a list with gamecenter landing data.
+A named list of data frames: `tvBroadcasts`.
+
+**tvBroadcasts**
+
+|                |           |                                    |
+|----------------|-----------|------------------------------------|
+| col_name       | types     | description                        |
+| id             | integer   | Unique broadcast identifier.       |
+| market         | character | Broadcast market (national/local). |
+| countryCode    | character | Country code of the broadcast.     |
+| network        | character | Broadcasting network name.         |
+| sequenceNumber | integer   | Broadcast sequence order number.   |
 
 ## Examples
 

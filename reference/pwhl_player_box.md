@@ -16,16 +16,62 @@ pwhl_player_box(game_id)
 
 ## Value
 
-A named list with two data frames:
+A named list of data frames: `skaters`, `goalies`.
 
-- `$skaters` - Skater box scores with columns: player_id, first_name,
-  last_name, position, team_id, game_id, toi, time_on_ice, goals,
-  assists, points, shots, hits, blocked_shots, penalty_minutes,
-  plus_minus, faceoff_attempts, faceoff_wins, faceoff_pct, starting.
+**skaters**
 
-- `$goalies` - Goalie box scores with columns: player_id, first_name,
-  last_name, position, team_id, game_id, toi, time_on_ice, saves,
-  goals_against, shots_against, penalty_minutes, faceoff_pct, starting.
+|                  |           |                                      |
+|------------------|-----------|--------------------------------------|
+| col_name         | types     | description                          |
+| player_id        | character | Unique player identifier.            |
+| first_name       | character | Player first name.                   |
+| last_name        | character | Player last name.                    |
+| position         | character | Player position.                     |
+| team_id          | integer   | Unique team identifier.              |
+| game_id          | integer   | Unique game identifier.              |
+| league           | character | League identifier ("pwhl").          |
+| toi              | character | Time on ice (MM:SS).                 |
+| time_on_ice      | numeric   | Time on ice in minutes.              |
+| goals            | numeric   | Goals scored.                        |
+| assists          | numeric   | Assists.                             |
+| points           | numeric   | Total points (goals + assists).      |
+| shots            | numeric   | Shots on goal.                       |
+| hits             | numeric   | Hits.                                |
+| blocked_shots    | numeric   | Blocked shots.                       |
+| penalty_minutes  | numeric   | Penalty minutes.                     |
+| plus_minus       | numeric   | Plus/minus rating.                   |
+| faceoff_attempts | numeric   | Faceoffs taken.                      |
+| faceoff_wins     | numeric   | Faceoffs won.                        |
+| faceoff_losses   | numeric   | Faceoffs lost.                       |
+| faceoff_pct      | numeric   | Faceoff win percentage.              |
+| starting         | character | Whether the player started the game. |
+
+**goalies**
+
+|                  |           |                                      |
+|------------------|-----------|--------------------------------------|
+| col_name         | types     | description                          |
+| player_id        | character | Unique player identifier.            |
+| first_name       | character | Player first name.                   |
+| last_name        | character | Player last name.                    |
+| position         | character | Player position.                     |
+| team_id          | integer   | Unique team identifier.              |
+| game_id          | integer   | Unique game identifier.              |
+| league           | character | League identifier ("pwhl").          |
+| toi              | character | Time on ice (MM:SS).                 |
+| time_on_ice      | numeric   | Time on ice in minutes.              |
+| saves            | numeric   | Saves made.                          |
+| goals_against    | numeric   | Goals against.                       |
+| shots_against    | numeric   | Shots faced.                         |
+| goals            | numeric   | Goals scored.                        |
+| assists          | numeric   | Assists.                             |
+| points           | numeric   | Total points (goals + assists).      |
+| penalty_minutes  | numeric   | Penalty minutes.                     |
+| faceoff_attempts | numeric   | Faceoffs taken.                      |
+| faceoff_wins     | numeric   | Faceoffs won.                        |
+| faceoff_losses   | numeric   | Faceoffs lost.                       |
+| faceoff_pct      | numeric   | Faceoff win percentage.              |
+| starting         | numeric   | Whether the goalie started the game. |
 
 ## Examples
 

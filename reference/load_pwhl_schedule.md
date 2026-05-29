@@ -39,7 +39,40 @@ load_pwhl_schedule(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                 |           |                                            |
+|-----------------|-----------|--------------------------------------------|
+| col_name        | types     | description                                |
+| game_id         | character | Unique game identifier.                    |
+| season          | integer   | Season (concluding year, YYYY).            |
+| game_date       | character | Game date.                                 |
+| game_status     | character | Game status text.                          |
+| home_team       | character | Home team name.                            |
+| home_team_id    | character | Home team identifier.                      |
+| away_team       | character | Away team name.                            |
+| away_team_id    | character | Away team identifier.                      |
+| home_score      | character | Home team final score.                     |
+| away_score      | character | Away team final score.                     |
+| winner          | character | Winning team.                              |
+| venue           | character | Venue name.                                |
+| venue_url       | character | Venue URL.                                 |
+| game_type       | character | Game type the row belongs to.              |
+| game_json       | logical   | Whether the game JSON is available.        |
+| game_json_url   | glue      | URL to the game JSON feed.                 |
+| PBP             | logical   | Whether play-by-play data is available.    |
+| player_box      | logical   | Whether player box data is available.      |
+| skater_box      | logical   | Whether skater box data is available.      |
+| goalie_box      | logical   | Whether goalie box data is available.      |
+| team_box        | logical   | Whether team box data is available.        |
+| game_info       | logical   | Whether game info data is available.       |
+| game_rosters    | logical   | Whether game rosters data is available.    |
+| scoring_summary | logical   | Whether scoring summary data is available. |
+| penalty_summary | logical   | Whether penalty summary data is available. |
+| three_stars     | logical   | Whether three stars data is available.     |
+| officials       | logical   | Whether officials data is available.       |
+| shots_by_period | logical   | Whether shots-by-period data is available. |
+| shootout        | logical   | Whether shootout data is available.        |
 
 ## Examples
 

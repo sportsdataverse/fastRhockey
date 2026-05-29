@@ -17,7 +17,13 @@ nhl_roster_season(team_abbr)
 
 ## Value
 
-Returns a data frame with available roster seasons.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| season | integer | Season for which roster data is available (8-digit, e.g. 20102011). |
+| team_abbr | character | Three-letter team abbreviation. |
 
 ## Examples
 
@@ -25,7 +31,7 @@ Returns a data frame with available roster seasons.
 # \donttest{
   try(nhl_roster_season(team_abbr = "TOR"))
 #> ── NHL Roster Season ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:31 UTC
+#> ℹ Data updated: 2026-05-29 16:27:10 UTC
 #> # A tibble: 98 × 2
 #>      season team_abbr
 #>       <int> <chr>    

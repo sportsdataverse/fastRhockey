@@ -43,25 +43,25 @@ load_pwhl_game_rosters(
 
 ## Value
 
-A data frame of class `fastRhockey_data`. Common columns include:
+A data frame (`fastRhockey_data`) with the following columns:
 
-|                 |           |                                      |
-|-----------------|-----------|--------------------------------------|
-| column          | type      | description                          |
-| `game_id`       | integer   | PWHL game id                         |
-| `team_id`       | integer   | team id                              |
-| `team`          | character | team name                            |
-| `team_abbr`     | character | three-letter abbreviation            |
-| `team_side`     | character | `"home"` or `"away"`                 |
-| `player_type`   | character | `"skater"` or `"goalie"`             |
-| `player_id`     | integer   | player id                            |
-| `first_name`    | character | player first name                    |
-| `last_name`     | character | player last name                     |
-| `jersey_number` | integer   | jersey number                        |
-| `position`      | character | position code                        |
-| `birth_date`    | character | birth date                           |
-| `starting`      | integer   | started the game (`0`/`1`)           |
-| `status`        | character | status string (e.g. captain markers) |
+|               |           |                                       |
+|---------------|-----------|---------------------------------------|
+| col_name      | types     | description                           |
+| game_id       | integer   | Unique game identifier.               |
+| team_id       | integer   | Unique team identifier.               |
+| team          | character | Team name.                            |
+| team_abbr     | character | Team abbreviation.                    |
+| team_side     | character | Home or away indicator.               |
+| player_type   | character | Player type (skater or goalie).       |
+| player_id     | integer   | Unique player identifier.             |
+| first_name    | character | Player first name.                    |
+| last_name     | character | Player last name.                     |
+| jersey_number | integer   | Jersey number.                        |
+| position      | character | Player position.                      |
+| birth_date    | character | Player birth date.                    |
+| starting      | integer   | Whether the player started the game.  |
+| status        | character | Status string (e.g. captain markers). |
 
 ## Examples
 

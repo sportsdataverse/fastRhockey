@@ -18,7 +18,18 @@ nhl_stats_glossary(lang = "en")
 
 ## Value
 
-A `fastRhockey_data` tibble of glossary entries, or `NULL` on failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                       |           |                                       |
+|-----------------------|-----------|---------------------------------------|
+| col_name              | types     | description                           |
+| id                    | integer   | Unique glossary entry identifier.     |
+| abbreviation          | character | Statistic abbreviation.               |
+| definition            | character | Definition of the statistic.          |
+| first_season_for_stat | integer   | First season the stat was tracked.    |
+| full_name             | character | Full name of the statistic.           |
+| language_code         | character | Language code of the entry.           |
+| last_updated          | character | Timestamp the entry was last updated. |
 
 ## Examples
 
@@ -26,7 +37,7 @@ A `fastRhockey_data` tibble of glossary entries, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_glossary())
 #> ── NHL Stats Glossary ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:46 UTC
+#> ℹ Data updated: 2026-05-29 16:27:23 UTC
 #> # A tibble: 321 × 7
 #>       id abbreviation   definition first_season_for_stat full_name language_code
 #>    <int> <chr>          <chr>                      <int> <chr>     <chr>        

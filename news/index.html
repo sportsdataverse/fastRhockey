@@ -82,6 +82,10 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0" id="fastrhockey-100-continued-development"><strong>fastRhockey 1.0.0 (continued development)</strong><a class="anchor" aria-label="anchor" href="#fastrhockey-100-continued-development"></a></h2>
 <div class="section level4">
+<h4 id="documentation-return-column-tables-for-all-working-functions-1-0-0"><strong>Documentation: <code>@return</code> column tables for all working functions</strong><a class="anchor" aria-label="anchor" href="#documentation-return-column-tables-for-all-working-functions-1-0-0"></a></h4>
+<ul><li>Every working exported function (165 across the NHL, NHL Edge, NHL Records, PWHL, and loader families) now documents its return value with a <code>col_name | types | description</code> table, matching the convention used in <code>hoopR</code>, <code>wehoop</code>, and <code>cfbfastR</code>. Functions that return a named list of data frames get one table per frame. Column names and types were captured from live API responses, so the tables reflect the actual returned schema.</li>
+</ul></div>
+<div class="section level4">
 <h4 id="nhl_schedule-gains-a-game_type-parameter-1-0-0"><strong><code>nhl_schedule()</code> gains a <code>game_type</code> parameter</strong><a class="anchor" aria-label="anchor" href="#nhl_schedule-gains-a-game_type-parameter-1-0-0"></a></h4>
 <ul><li>
 <code><a href="../reference/nhl_schedule.html">nhl_schedule()</a></code> gains a <code>game_type</code> parameter accepting <code>"both"</code> (default), <code>"regular"</code>, or <code>"playoffs"</code>. In season mode the function now returns regular-season and playoff games in a single tibble. Three new columns (<code>series_letter</code>, <code>playoff_round</code>, <code>series_game_number</code>) are appended to the output; they are <code>NA</code> on regular-season rows.</li>

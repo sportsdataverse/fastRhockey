@@ -31,8 +31,22 @@ nhl_edge_goalie_shot_location_detail(player_id, season = NULL, game_type = 2)
 
 ## Value
 
-A `fastRhockey_data` tibble of shot-location details, or `NULL` on
-failure / empty response.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| area | character | Net/ice zone the shots were taken from. |
+| shots_against | integer | Shots faced from the area. |
+| saves | integer | Saves made from the area. |
+| goals_against | integer | Goals against from the area. |
+| save_pctg | numeric | Save percentage for the area. |
+| shots_against_percentile | numeric | League percentile rank for shots against. |
+| saves_percentile | numeric | League percentile rank for saves. |
+| goals_against_percentile | numeric | League percentile rank for goals against. |
+| save_pctg_percentile | numeric | League percentile rank for save percentage. |
+
+Returns `NULL` on failure / empty response.
 
 ## Examples
 
@@ -40,7 +54,7 @@ failure / empty response.
 # \donttest{
   try(nhl_edge_goalie_shot_location_detail(player_id = 8475883))
 #> ── NHL Edge Goalie Shot Location Detail ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:18 UTC
+#> ℹ Data updated: 2026-05-29 16:26:04 UTC
 #> # A tibble: 17 × 9
 #>    area       shots_against saves goals_against save_pctg shots_against_percen…¹
 #>    <chr>              <int> <int>         <int>     <dbl>                  <dbl>

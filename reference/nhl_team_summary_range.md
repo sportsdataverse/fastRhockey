@@ -37,9 +37,37 @@ nhl_team_summary_range(start_season, end_season, game_type = 2, limit = 50)
 
 ## Value
 
-A `fastRhockey_data` / `data.frame` of concatenated team summary stats
-with an added `season` column marking the season each row came from.
-Returns `NULL` on outer failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                        |           |                                      |
+|------------------------|-----------|--------------------------------------|
+| col_name               | types     | description                          |
+| faceoff_win_pct        | numeric   | Faceoff win percentage.              |
+| games_played           | integer   | Games played.                        |
+| goals_against          | integer   | Goals against.                       |
+| goals_against_per_game | numeric   | Goals against per game.              |
+| goals_for              | integer   | Goals for.                           |
+| goals_for_per_game     | numeric   | Goals for per game.                  |
+| losses                 | integer   | Losses.                              |
+| ot_losses              | integer   | Overtime losses.                     |
+| penalty_kill_net_pct   | numeric   | Net penalty kill percentage.         |
+| penalty_kill_pct       | numeric   | Penalty kill percentage.             |
+| point_pct              | numeric   | Points percentage.                   |
+| points                 | integer   | Total points.                        |
+| power_play_net_pct     | numeric   | Net power play percentage.           |
+| power_play_pct         | numeric   | Power play percentage.               |
+| regulation_and_ot_wins | integer   | Wins in regulation and overtime.     |
+| season_id              | integer   | Season identifier.                   |
+| shots_against_per_game | numeric   | Shots against per game.              |
+| shots_for_per_game     | numeric   | Shots for per game.                  |
+| team_full_name         | character | Full team name.                      |
+| team_id                | integer   | Unique team identifier.              |
+| team_shutouts          | integer   | Team shutouts.                       |
+| ties                   | logical   | Ties (legacy; typically unused).     |
+| wins                   | integer   | Wins.                                |
+| wins_in_regulation     | integer   | Wins in regulation.                  |
+| wins_in_shootout       | integer   | Wins in shootout.                    |
+| season                 | character | Season the row came from (YYYYYYYY). |
 
 ## Examples
 
@@ -47,7 +75,7 @@ Returns `NULL` on outer failure.
 # \donttest{
   try(nhl_team_summary_range(start_season = 2023, end_season = 2024))
 #> ── NHL Team Summary Range ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:51 UTC
+#> ℹ Data updated: 2026-05-29 16:27:28 UTC
 #> # A tibble: 64 × 26
 #>    faceoff_win_pct games_played goals_against goals_against_per_game goals_for
 #>              <dbl>        <int>         <int>                  <dbl>     <int>

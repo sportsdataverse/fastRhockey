@@ -31,8 +31,13 @@ nhl_edge_goalie_comparison(player_id, season = NULL, game_type = 2)
 
 ## Value
 
-A `fastRhockey_data` tibble comparing the focus goalie against the
-cohort, or `NULL` on failure / empty response.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|            |         |                                              |
+|------------|---------|----------------------------------------------|
+| col_name   | types   | description                                  |
+| id         | integer | Goalie player identifier in the cohort.      |
+| game_types | list    | Game-type metrics for the goalie comparison. |
 
 ## Examples
 
@@ -40,7 +45,7 @@ cohort, or `NULL` on failure / empty response.
 # \donttest{
   try(nhl_edge_goalie_comparison(player_id = 8475883))
 #> ── NHL Edge Goalie Comparison ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:14 UTC
+#> ℹ Data updated: 2026-05-29 16:26:00 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    

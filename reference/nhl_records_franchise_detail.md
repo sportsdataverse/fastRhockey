@@ -25,7 +25,24 @@ nhl_records_franchise_detail(franchise_id = NULL, cayenne_exp = NULL)
 
 ## Value
 
-A `fastRhockey_data` tibble of franchise details, or `NULL` on failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                         |           |                                         |
+|-------------------------|-----------|-----------------------------------------|
+| col_name                | types     | description                             |
+| id                      | integer   | Unique franchise detail identifier.     |
+| active                  | logical   | Whether the franchise is active.        |
+| captain_history         | character | Franchise captain history text.         |
+| coaching_history        | character | Franchise coaching history text.        |
+| date_awarded            | character | Date the franchise was awarded.         |
+| directory_url           | character | Franchise directory URL.                |
+| first_season_id         | integer   | Season identifier of the first season.  |
+| general_manager_history | character | Franchise general manager history text. |
+| hero_image_url          | character | Franchise hero image URL.               |
+| most_recent_team_id     | integer   | Most recent team identifier.            |
+| retired_numbers_summary | character | Summary of retired jersey numbers.      |
+| team_abbrev             | character | Team abbreviation.                      |
+| team_full_name          | character | Full team name.                         |
 
 ## Examples
 
@@ -33,7 +50,7 @@ A `fastRhockey_data` tibble of franchise details, or `NULL` on failure.
 # \donttest{
   try(nhl_records_franchise_detail())
 #> ── NHL Records Franchise Detail ─────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:17 UTC
+#> ℹ Data updated: 2026-05-29 16:26:56 UTC
 #> # A tibble: 40 × 13
 #>       id active captain_history      coaching_history date_awarded directory_url
 #>    <int> <lgl>  <chr>                <chr>            <chr>        <chr>        

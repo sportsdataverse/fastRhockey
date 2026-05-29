@@ -30,8 +30,13 @@ nhl_edge_team_detail(team_id, season = NULL, game_type = 2)
 
 ## Value
 
-A `fastRhockey_data` tibble of advanced metrics, or `NULL` on failure /
-empty response.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|            |         |                                                   |
+|------------|---------|---------------------------------------------------|
+| col_name   | types   | description                                       |
+| id         | integer | Unique team identifier.                           |
+| game_types | list    | List of game types available for the team's data. |
 
 ## Examples
 
@@ -39,7 +44,7 @@ empty response.
 # \donttest{
   try(nhl_edge_team_detail(team_id = 10))
 #> ── NHL Edge Team Detail ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:41 UTC
+#> ℹ Data updated: 2026-05-29 16:26:25 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    

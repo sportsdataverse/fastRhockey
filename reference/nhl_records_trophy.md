@@ -17,7 +17,21 @@ nhl_records_trophy(cayenne_exp = NULL)
 
 ## Value
 
-A `fastRhockey_data` tibble of trophies, or `NULL` on failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                   |           |                                      |
+|-------------------|-----------|--------------------------------------|
+| col_name          | types     | description                          |
+| id                | integer   | Unique trophy identifier.            |
+| brief_description | character | Brief description of the trophy.     |
+| category_id       | integer   | Trophy category identifier.          |
+| created_on        | character | Date the trophy record was created.  |
+| description       | character | Full description of the trophy.      |
+| footnote          | logical   | Footnote associated with the trophy. |
+| home_page_url     | character | URL to the trophy's home page.       |
+| image_url         | character | URL to the trophy's image.           |
+| name              | character | Full name of the trophy.             |
+| short_name        | character | Short name of the trophy.            |
 
 ## Examples
 
@@ -25,7 +39,7 @@ A `fastRhockey_data` tibble of trophies, or `NULL` on failure.
 # \donttest{
   try(nhl_records_trophy())
 #> ── NHL Records Trophy ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:31 UTC
+#> ℹ Data updated: 2026-05-29 16:27:09 UTC
 #> # A tibble: 25 × 10
 #>       id brief_description           category_id created_on description footnote
 #>    <int> <chr>                             <int> <chr>      <chr>       <lgl>   

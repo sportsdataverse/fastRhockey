@@ -35,7 +35,28 @@ nhl_stats_goalie_milestones(
 
 ## Value
 
-A `fastRhockey_data` tibble of goalie milestones, or `NULL` on failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                  |           |                                          |
+|------------------|-----------|------------------------------------------|
+| col_name         | types     | description                              |
+| id               | integer   | Unique milestone record identifier.      |
+| current_team_id  | integer   | Player's current team identifier.        |
+| first_name       | character | Player first name.                       |
+| game_type_id     | integer   | Game type identifier.                    |
+| games_played     | integer   | Games played.                            |
+| last_name        | character | Player last name.                        |
+| milestone        | character | Milestone category.                      |
+| milestone_amount | integer   | Amount remaining to reach the milestone. |
+| player_full_name | character | Player full name.                        |
+| player_id        | integer   | Unique player identifier.                |
+| so               | integer   | Shutouts.                                |
+| team_abbrev      | character | Team abbreviation.                       |
+| team_common_name | character | Team common (nickname) name.             |
+| team_full_name   | character | Full team name.                          |
+| team_place_name  | character | Team place (city/location) name.         |
+| toi_minutes      | integer   | Time on ice in minutes.                  |
+| wins             | integer   | Wins.                                    |
 
 ## Examples
 
@@ -43,7 +64,7 @@ A `fastRhockey_data` tibble of goalie milestones, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_goalie_milestones())
 #> ── NHL Stats Goalie Milestones ──────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:46 UTC
+#> ℹ Data updated: 2026-05-29 16:27:24 UTC
 #> # A tibble: 54 × 17
 #>       id current_team_id first_name game_type_id games_played last_name 
 #>    <int>           <int> <chr>             <int>        <int> <chr>     

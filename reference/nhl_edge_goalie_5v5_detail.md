@@ -31,8 +31,31 @@ nhl_edge_goalie_5v5_detail(player_id, season = NULL, game_type = 2)
 
 ## Value
 
-A `fastRhockey_data` tibble of 5-on-5 advanced metrics, or `NULL` on
-failure / empty response.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| game_center_link | character | URL to the game center page. |
+| save_pctg | numeric | Save percentage. |
+| game_date | character | Game date. |
+| decision | character | Goalie decision (W/L/OT). |
+| player_on_home_team | logical | Whether the goalie played for the home team. |
+| home_team_abbrev | character | Home team abbreviation. |
+| home_team_slug | character | Home team slug. |
+| home_team_common_name_default | character | Home team common name (default language). |
+| home_team_common_name_fr | character | Home team common name (French). |
+| home_team_place_name_with_preposition_default | character | Home team place name with preposition (def). |
+| home_team_place_name_with_preposition_fr | character | Home team place name with preposition (FR). |
+| home_team_team_logo_light | character | Home team logo URL (light variant). |
+| home_team_team_logo_dark | character | Home team logo URL (dark variant). |
+| away_team_abbrev | character | Away team abbreviation. |
+| away_team_slug | character | Away team slug. |
+| away_team_common_name_default | character | Away team common name (default language). |
+| away_team_place_name_with_preposition_default | character | Away team place name with preposition (def). |
+| away_team_place_name_with_preposition_fr | character | Away team place name with preposition (FR). |
+| away_team_team_logo_light | character | Away team logo URL (light variant). |
+| away_team_team_logo_dark | character | Away team logo URL (dark variant). |
 
 ## Examples
 
@@ -40,7 +63,7 @@ failure / empty response.
 # \donttest{
   try(nhl_edge_goalie_5v5_detail(player_id = 8475883))
 #> ── NHL Edge Goalie 5v5 Detail ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:08 UTC
+#> ℹ Data updated: 2026-05-29 16:25:55 UTC
 #> # A tibble: 10 × 20
 #>    game_center_link             save_pctg game_date decision player_on_home_team
 #>    <chr>                            <dbl> <chr>     <chr>    <lgl>              

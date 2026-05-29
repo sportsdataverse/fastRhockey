@@ -31,7 +31,26 @@ nhl_stats_goalie_leaders(attribute, lang = "en", cayenne_exp = NULL)
 
 ## Value
 
-A `fastRhockey_data` tibble of goalie leaders, or `NULL` on failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                        |           |                                   |
+|------------------------|-----------|-----------------------------------|
+| col_name               | types     | description                       |
+| save_pctg              | numeric   | Save percentage.                  |
+| player_id              | integer   | Unique player identifier.         |
+| player_current_team_id | integer   | Player's current team identifier. |
+| player_first_name      | character | Player first name.                |
+| player_full_name       | character | Player full name.                 |
+| player_last_name       | character | Player last name.                 |
+| player_position_code   | character | Player position code.             |
+| player_sweater_number  | integer   | Player jersey number.             |
+| team_id                | integer   | Unique team identifier.           |
+| team_franchise_id      | integer   | Team franchise identifier.        |
+| team_full_name         | character | Full team name.                   |
+| team_league_id         | integer   | League identifier.                |
+| team_logos             | list      | Team logo assets.                 |
+| team_raw_tricode       | character | Raw team tri-code.                |
+| team_tri_code          | character | Team tri-code abbreviation.       |
 
 ## Examples
 
@@ -39,7 +58,7 @@ A `fastRhockey_data` tibble of goalie leaders, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_goalie_leaders(attribute = "savePctg"))
 #> ── NHL Stats Goalie Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:46 UTC
+#> ℹ Data updated: 2026-05-29 16:27:24 UTC
 #> # A tibble: 10 × 15
 #>    save_pctg player_id player_current_team_id player_first_name player_full_name
 #>        <dbl>     <int>                  <int> <chr>             <chr>           

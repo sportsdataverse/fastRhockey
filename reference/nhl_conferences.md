@@ -21,9 +21,12 @@ nhl_conferences(date = NULL)
 
 ## Value
 
-Returns a data frame with columns:
+A data frame (`fastRhockey_data`) with the following columns:
 
-- `conference_name` - conference name (e.g. "Eastern", "Western")
+|                 |           |                                              |
+|-----------------|-----------|----------------------------------------------|
+| col_name        | types     | description                                  |
+| conference_name | character | Conference name (e.g. "Eastern", "Western"). |
 
 ## Examples
 
@@ -31,7 +34,7 @@ Returns a data frame with columns:
 # \donttest{
   try(nhl_conferences())
 #> ── NHL Conferences from NHL.com ─────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:04 UTC
+#> ℹ Data updated: 2026-05-29 16:25:50 UTC
 #> # A tibble: 2 × 1
 #>   conference_name
 #>   <chr>          

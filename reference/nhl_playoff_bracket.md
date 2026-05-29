@@ -16,7 +16,48 @@ nhl_playoff_bracket(year)
 
 ## Value
 
-Returns a list with complete bracket data (series, matchups, results).
+A named list of data frames: `series`.
+
+**series**
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| seriesUrl | character | Relative URL of the series page. |
+| seriesTitle | character | Full title of the series. |
+| seriesAbbrev | character | Abbreviated series title. |
+| seriesLetter | character | Series letter identifier. |
+| playoffRound | integer | Playoff round number. |
+| topSeedRank | integer | Seed rank of the top-seeded team. |
+| topSeedRankAbbrev | character | Abbreviated seed rank of the top-seeded team. |
+| topSeedWins | integer | Series wins by the top-seeded team. |
+| bottomSeedRank | integer | Seed rank of the bottom-seeded team. |
+| bottomSeedRankAbbrev | character | Abbreviated seed rank of the bottom-seeded team. |
+| bottomSeedWins | integer | Series wins by the bottom-seeded team. |
+| winningTeamId | integer | Unique identifier of the series-winning team. |
+| losingTeamId | integer | Unique identifier of the series-losing team. |
+| seriesLogo | character | URL of the series logo image. |
+| seriesLogoFr | character | URL of the series logo image (French). |
+| conferenceAbbrev | character | Conference abbreviation. |
+| conferenceName | character | Conference name. |
+| topSeedTeam.id | integer | Top-seeded team unique identifier. |
+| topSeedTeam.abbrev | character | Top-seeded team abbreviation. |
+| topSeedTeam.logo | character | Top-seeded team logo URL. |
+| topSeedTeam.darkLogo | character | Top-seeded team dark logo URL. |
+| topSeedTeam.name.default | character | Top-seeded team name (default localization). |
+| topSeedTeam.name.fr | character | Top-seeded team name (French localization). |
+| topSeedTeam.commonName.default | character | Top-seeded team common name (default). |
+| topSeedTeam.placeNameWithPreposition.default | character | Top-seeded team place name with preposition. |
+| topSeedTeam.placeNameWithPreposition.fr | character | Top-seeded team place name with preposition (FR). |
+| bottomSeedTeam.id | integer | Bottom-seeded team unique identifier. |
+| bottomSeedTeam.abbrev | character | Bottom-seeded team abbreviation. |
+| bottomSeedTeam.logo | character | Bottom-seeded team logo URL. |
+| bottomSeedTeam.darkLogo | character | Bottom-seeded team dark logo URL. |
+| bottomSeedTeam.name.default | character | Bottom-seeded team name (default localization). |
+| bottomSeedTeam.name.fr | character | Bottom-seeded team name (French localization). |
+| bottomSeedTeam.commonName.default | character | Bottom-seeded team common name (default). |
+| bottomSeedTeam.placeNameWithPreposition.default | character | Bottom-seeded team place name with preposition. |
+| bottomSeedTeam.placeNameWithPreposition.fr | character | Bottom-seeded team place name with preposition (FR). |
 
 ## Examples
 

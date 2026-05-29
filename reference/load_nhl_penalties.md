@@ -37,7 +37,21 @@ load_nhl_penalties(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with one row per penalty and the
+following columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| timeInPeriod | character | Time within the period the penalty occurred. |
+| type | character | Penalty type (e.g. minor, major). |
+| duration | integer | Penalty duration in minutes. |
+| committedByPlayer | list | Player who committed the penalty (localized list). |
+| teamAbbrev | list | Penalized team abbreviation (localized list). |
+| drawnBy | list | Player who drew the penalty (localized list). |
+| descKey | character | Penalty description key. |
+| period_number | integer | Period number the penalty occurred in. |
+| period_type | character | Period type (REG/OT/SO). |
 
 ## Examples
 

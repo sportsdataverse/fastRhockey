@@ -17,7 +17,56 @@ nhl_gamecenter_right_rail(game_id)
 
 ## Value
 
-Returns a list with gamecenter right rail data.
+A named list of data frames: `seasonSeries`, `shotsByPeriod`,
+`teamGameStats`.
+
+**seasonSeries**
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| id | integer | Unique game identifier. |
+| season | integer | Season (concluding year, YYYY). |
+| gameType | integer | Game type the row belongs to. |
+| gameDate | character | Game date. |
+| startTimeUTC | character | Game start time in UTC. |
+| easternUTCOffset | character | Eastern time UTC offset. |
+| venueUTCOffset | character | Venue local time UTC offset. |
+| gameState | character | Current game state. |
+| gameScheduleState | character | Schedule state of the game. |
+| gameCenterLink | character | Link to the gamecenter page. |
+| awayTeam.id | integer | Away team unique identifier. |
+| awayTeam.abbrev | character | Away team abbreviation. |
+| awayTeam.logo | character | Away team logo URL. |
+| awayTeam.score | integer | Away team score. |
+| homeTeam.id | integer | Home team unique identifier. |
+| homeTeam.abbrev | character | Home team abbreviation. |
+| homeTeam.logo | character | Home team logo URL. |
+| homeTeam.score | integer | Home team score. |
+| periodDescriptor.number | integer | Period number. |
+| periodDescriptor.periodType | character | Period type (REG/OT/SO). |
+| periodDescriptor.maxRegulationPeriods | integer | Maximum number of regulation periods. |
+| gameOutcome.lastPeriodType | character | Period type in which the game ended. |
+
+**shotsByPeriod**
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| away | integer | Away team shots in the period. |
+| home | integer | Home team shots in the period. |
+| periodDescriptor.number | integer | Period number. |
+| periodDescriptor.periodType | character | Period type (REG/OT/SO). |
+| periodDescriptor.maxRegulationPeriods | integer | Maximum number of regulation periods. |
+
+**teamGameStats**
+
+|           |           |                                   |
+|-----------|-----------|-----------------------------------|
+| col_name  | types     | description                       |
+| category  | character | Statistic category name.          |
+| awayValue | character | Away team value for the category. |
+| homeValue | character | Home team value for the category. |
 
 ## Examples
 

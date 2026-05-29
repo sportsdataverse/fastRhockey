@@ -105,16 +105,14 @@ NHL Records API
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>fastRhockey_data</code> tibble of draft lottery picks, or <code>NULL</code>
-on failure.</p>
-    </div>
+    <p>A data frame (<code>fastRhockey_data</code>) with the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>id</td><td>integer</td><td>Unique lottery pick record identifier.</td></tr><tr><td>draft_team_id</td><td>integer</td><td>Team identifier holding the resulting pick.</td></tr><tr><td>draft_year</td><td>integer</td><td>Draft year the lottery applies to.</td></tr><tr><td>effect_on_draft_order</td><td>character</td><td>Description of the lottery's effect on order.</td></tr><tr><td>lottery_team_id</td><td>integer</td><td>Team identifier participating in the lottery.</td></tr><tr><td>phase</td><td>character</td><td>Lottery phase identifier.</td></tr><tr><td>player_id</td><td>integer</td><td>Unique player identifier of the pick.</td></tr><tr><td>player_notes</td><td>character</td><td>Notes about the selected player.</td></tr><tr><td>sequence</td><td>integer</td><td>Lottery sequence/draw order.</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_records_draft_lottery_picks</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Records Draft Lottery Picks ──────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:15:05 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:26:46 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 48 × 9</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       id draft_team_id draft_year effect_on_draft_order    lottery_team_id phase</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>

@@ -30,8 +30,36 @@ nhl_records_skater_real_time_stats_season(
 
 ## Value
 
-A `fastRhockey_data` tibble of skater real-time season stats, or `NULL`
-on failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                   |           |                                          |
+|-------------------|-----------|------------------------------------------|
+| col_name          | types     | description                              |
+| id                | integer   | Unique record identifier.                |
+| active_player     | logical   | Whether the player is currently active.  |
+| blocked_shots     | integer   | Blocked shots in the season.             |
+| faceoff_win_pctg  | logical   | Faceoff win percentage for the season.   |
+| faceoffs_lost     | integer   | Faceoffs lost in the season.             |
+| faceoffs_taken    | integer   | Faceoffs taken in the season.            |
+| faceoffs_won      | integer   | Faceoffs won in the season.              |
+| first_name        | character | First name of the player.                |
+| franchise_id      | integer   | Franchise identifier.                    |
+| game_type_id      | integer   | Game type identifier (regular/playoffs). |
+| games_in_schedule | integer   | Games in the schedule.                   |
+| games_played      | integer   | Games played in the season.              |
+| giveaways         | integer   | Giveaways in the season.                 |
+| hits              | integer   | Hits in the season.                      |
+| last_name         | character | Last name of the player.                 |
+| missed_shots      | integer   | Missed shots in the season.              |
+| player_id         | integer   | Unique player identifier.                |
+| position_code     | character | Player position code.                    |
+| rookie_flag       | logical   | Whether the season was a rookie season.  |
+| season_id         | integer   | Season identifier.                       |
+| shifts            | integer   | Shifts in the season.                    |
+| takeaways         | integer   | Takeaways in the season.                 |
+| team_abbrevs      | character | Team abbreviations for the season.       |
+| team_names        | character | Team names for the season.               |
+| time_on_ice       | integer   | Time on ice in the season.               |
 
 ## Examples
 
@@ -39,7 +67,7 @@ on failure.
 # \donttest{
   try(nhl_records_skater_real_time_stats_season(limit = 5))
 #> ── NHL Records Skater Real-Time Stats Season ────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:30 UTC
+#> ℹ Data updated: 2026-05-29 16:27:09 UTC
 #> # A tibble: 5 × 25
 #>      id active_player blocked_shots faceoff_win_pctg faceoffs_lost
 #>   <int> <lgl>                 <int> <lgl>                    <int>

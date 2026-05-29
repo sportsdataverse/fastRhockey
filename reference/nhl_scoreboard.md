@@ -19,7 +19,15 @@ nhl_scoreboard(date = NULL)
 
 ## Value
 
-Returns a list with scoreboard data (focusedDate, games by date).
+A named list of data frames: `gamesByDate`.
+
+**gamesByDate**
+
+|          |           |                                             |
+|----------|-----------|---------------------------------------------|
+| col_name | types     | description                                 |
+| date     | character | Date for which the games are listed.        |
+| games    | list      | Nested list of games scheduled on the date. |
 
 ## Examples
 

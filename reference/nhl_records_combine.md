@@ -17,8 +17,21 @@ nhl_records_combine(cayenne_exp = NULL)
 
 ## Value
 
-A `fastRhockey_data` tibble of combine measurements, or `NULL` on
-failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                   |           |                                       |
+|-------------------|-----------|---------------------------------------|
+| col_name          | types     | description                           |
+| id                | integer   | Unique combine record identifier.     |
+| amateur_club_name | character | Amateur club the player played for.   |
+| amateur_league    | character | Amateur league the player played in.  |
+| draft_year        | integer   | Draft year for the player.            |
+| event             | character | Combine measurement event name.       |
+| first_name        | character | Player first name.                    |
+| last_name         | character | Player last name.                     |
+| player_id         | integer   | Unique player identifier.             |
+| position_code     | character | Player position code.                 |
+| value             | numeric   | Measured value for the combine event. |
 
 ## Examples
 
@@ -26,7 +39,7 @@ failure.
 # \donttest{
   try(nhl_records_combine())
 #> ── NHL Records Combine ──────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:04 UTC
+#> ℹ Data updated: 2026-05-29 16:26:45 UTC
 #> # A tibble: 182 × 10
 #>       id amateur_club_name  amateur_league draft_year event first_name last_name
 #>    <int> <chr>              <chr>               <int> <chr> <chr>      <chr>    

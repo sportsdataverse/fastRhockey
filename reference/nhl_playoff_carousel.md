@@ -17,7 +17,17 @@ nhl_playoff_carousel(season = NULL)
 
 ## Value
 
-Returns a list with playoff series carousel data.
+A named list of data frames: `rounds`.
+
+**rounds**
+
+|             |           |                                          |
+|-------------|-----------|------------------------------------------|
+| col_name    | types     | description                              |
+| roundNumber | integer   | Playoff round number.                    |
+| roundLabel  | character | Full label for the playoff round.        |
+| roundAbbrev | character | Abbreviated label for the playoff round. |
+| series      | list      | Nested list of series within the round.  |
 
 ## Examples
 

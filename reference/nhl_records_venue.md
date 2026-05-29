@@ -17,7 +17,21 @@ nhl_records_venue(cayenne_exp = NULL)
 
 ## Value
 
-A `fastRhockey_data` tibble of venues, or `NULL` on failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                     |           |                                       |
+|---------------------|-----------|---------------------------------------|
+| col_name            | types     | description                           |
+| id                  | integer   | Unique venue record identifier.       |
+| building_id         | integer   | Building identifier for the venue.    |
+| city                | character | City where the venue is located.      |
+| country_code        | character | Country code of the venue.            |
+| outdoor             | logical   | Whether the venue is an outdoor rink. |
+| postal_code         | character | Postal code of the venue.             |
+| short_country_code  | character | Short country code of the venue.      |
+| state_province_code | character | State or province code of the venue.  |
+| venue_id            | integer   | Unique venue identifier.              |
+| venue_name          | character | Name of the venue.                    |
 
 ## Examples
 
@@ -25,7 +39,7 @@ A `fastRhockey_data` tibble of venues, or `NULL` on failure.
 # \donttest{
   try(nhl_records_venue())
 #> ── NHL Records Venue ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:31 UTC
+#> ℹ Data updated: 2026-05-29 16:27:10 UTC
 #> # A tibble: 618 × 10
 #>       id building_id city    country_code outdoor postal_code short_country_code
 #>    <int>       <int> <chr>   <chr>        <lgl>   <chr>       <chr>             

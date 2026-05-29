@@ -31,7 +31,15 @@ nhl_stats_franchise(lang = "en", limit = 100, start = 0, cayenne_exp = NULL)
 
 ## Value
 
-A `fastRhockey_data` tibble of franchises, or `NULL` on failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                  |           |                                  |
+|------------------|-----------|----------------------------------|
+| col_name         | types     | description                      |
+| id               | integer   | Unique franchise identifier.     |
+| full_name        | character | Full franchise name.             |
+| team_common_name | character | Team common (nickname) name.     |
+| team_place_name  | character | Team place (city/location) name. |
 
 ## Examples
 
@@ -39,7 +47,7 @@ A `fastRhockey_data` tibble of franchises, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_franchise())
 #> ── NHL Stats Franchise ──────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:45 UTC
+#> ℹ Data updated: 2026-05-29 16:27:23 UTC
 #> # A tibble: 40 × 4
 #>       id full_name             team_common_name team_place_name
 #>    <int> <chr>                 <chr>            <chr>          

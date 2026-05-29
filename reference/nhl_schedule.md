@@ -56,9 +56,26 @@ nhl_schedule(
 
 ## Value
 
-Returns a data frame with game schedule information. When
+A data frame (`fastRhockey_data`) with the following columns. When
 `include_data_flags = TRUE` it additionally carries one logical column
 per pre-compiled dataset.
+
+|                |           |                                  |
+|----------------|-----------|----------------------------------|
+| col_name       | types     | description                      |
+| game_id        | integer   | Unique game identifier.          |
+| season_full    | character | Full 8-digit season identifier.  |
+| game_type      | character | Game type code (PR/R/P/A).       |
+| game_date      | character | Game date.                       |
+| game_time      | character | Scheduled game start time (UTC). |
+| home_team_abbr | character | Home team abbreviation.          |
+| away_team_abbr | character | Away team abbreviation.          |
+| home_team_name | character | Home team name.                  |
+| away_team_name | character | Away team name.                  |
+| home_score     | integer   | Home team final score.           |
+| away_score     | integer   | Away team final score.           |
+| game_state     | character | Current state of the game.       |
+| venue          | character | Name of the venue.               |
 
 ## Examples
 
@@ -66,7 +83,7 @@ per pre-compiled dataset.
 # \donttest{
   try(nhl_schedule(day = "2024-01-15"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:32 UTC
+#> ℹ Data updated: 2026-05-29 16:27:10 UTC
 #> # A tibble: 53 × 13
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
@@ -86,7 +103,7 @@ per pre-compiled dataset.
 #> #   venue <chr>
   try(nhl_schedule(season = 2025, team_abbr = "TOR"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:35 UTC
+#> ℹ Data updated: 2026-05-29 16:27:13 UTC
 #> # A tibble: 95 × 16
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
@@ -107,7 +124,7 @@ per pre-compiled dataset.
 #> #   series_game_number <int>
   try(nhl_schedule(season = 2024, team_abbr = "TOR", game_type = "playoffs"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:39 UTC
+#> ℹ Data updated: 2026-05-29 16:27:16 UTC
 #> # A tibble: 7 × 16
 #>      game_id season_full game_type game_date  game_time           home_team_abbr
 #>        <int> <chr>       <chr>     <chr>      <chr>               <chr>         
@@ -123,6 +140,6 @@ per pre-compiled dataset.
 #> #   venue <chr>, series_letter <chr>, playoff_round <int>,
 #> #   series_game_number <int>
   try(nhl_schedule(day = "2024-01-15", include_data_flags = TRUE))
-#> 2026-05-29 16:15:39.963514: Error fetching schedule for 2024-01-15: `x` and `y` must share the same src.
+#> 2026-05-29 16:27:17.949935: Error fetching schedule for 2024-01-15: `x` and `y` must share the same src.
 # }
 ```

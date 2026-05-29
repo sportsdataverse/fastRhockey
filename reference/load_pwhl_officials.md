@@ -41,17 +41,17 @@ load_pwhl_officials(
 
 ## Value
 
-A data frame of class `fastRhockey_data`. Common columns include:
+A data frame (`fastRhockey_data`) with the following columns:
 
-|                 |           |                                        |
-|-----------------|-----------|----------------------------------------|
-| column          | type      | description                            |
-| `game_id`       | integer   | PWHL game id                           |
-| `role`          | character | grouped role (Referee/Linesperson/etc) |
-| `first_name`    | character | official's first name                  |
-| `last_name`     | character | official's last name                   |
-| `jersey_number` | integer   | official's jersey number               |
-| `official_role` | character | official's specific role               |
+|               |           |                                              |
+|---------------|-----------|----------------------------------------------|
+| col_name      | types     | description                                  |
+| game_id       | integer   | Unique game identifier.                      |
+| role          | character | Grouped official role (Referee/Linesperson). |
+| first_name    | character | Official's first name.                       |
+| last_name     | character | Official's last name.                        |
+| jersey_number | integer   | Official's jersey number.                    |
+| official_role | character | Official's specific role.                    |
 
 ## Examples
 

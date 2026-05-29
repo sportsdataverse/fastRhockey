@@ -17,7 +17,19 @@ nhl_game_story(game_id)
 
 ## Value
 
-Returns a list with game story data (recap, scoring, penalties, etc.)
+A named list with game story data (recap, scoring, penalties, etc.). The
+`tvBroadcasts` element is a data frame with the following columns:
+
+**tvBroadcasts**
+
+|                |           |                                    |
+|----------------|-----------|------------------------------------|
+| col_name       | types     | description                        |
+| id             | integer   | Broadcast identifier.              |
+| market         | character | Broadcast market (e.g. home/away). |
+| countryCode    | character | Country code of the broadcast.     |
+| network        | character | Broadcasting network name.         |
+| sequenceNumber | integer   | Order of the broadcast listing.    |
 
 ## Examples
 

@@ -21,9 +21,35 @@ pwhl_standings(season = 2023, regular = TRUE)
 
 ## Value
 
-A data frame with columns including: team_rank, team, team_code,
-games_played, points, wins, losses, goals_for, goals_against, ot_wins,
-ot_losses, power_play_pct, penalty_kill_pct.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                            |           |                                |
+|----------------------------|-----------|--------------------------------|
+| col_name                   | types     | description                    |
+| team_rank                  | integer   | Team rank in the standings.    |
+| team                       | character | Team name.                     |
+| team_code                  | character | Team abbreviation.             |
+| games_played               | character | Games played.                  |
+| points                     | character | Standings points.              |
+| wins                       | character | Wins.                          |
+| non_reg_wins               | character | Non-regulation wins.           |
+| losses                     | character | Losses.                        |
+| non_reg_losses             | character | Non-regulation losses.         |
+| goals_for                  | character | Goals scored.                  |
+| goals_against              | character | Goals against.                 |
+| games_remaining            | character | Games remaining in the season. |
+| ot_wins                    | character | Overtime wins.                 |
+| ot_losses                  | character | Overtime losses.               |
+| so_wins                    | character | Shootout wins.                 |
+| so_losses                  | character | Shootout losses.               |
+| power_play_goals           | character | Power-play goals scored.       |
+| power_play_goals_against   | character | Power-play goals against.      |
+| power_plays                | character | Power-play opportunities.      |
+| power_play_pct             | character | Power-play percentage.         |
+| short_handed_goals         | character | Short-handed goals scored.     |
+| short_handed_goals_against | character | Short-handed goals against.    |
+| times_short_handed         | character | Times short-handed.            |
+| penalty_kill_pct           | character | Penalty-kill percentage.       |
 
 ## Examples
 

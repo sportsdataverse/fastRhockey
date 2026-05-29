@@ -38,7 +38,46 @@ load_nhl_player_box(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with the following columns (combined
+skaters + goalies; goalie-only fields are `NA` for skaters):
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| home_away | character | Home or away indicator. |
+| team_id | integer | Unique team identifier. |
+| team_abbrev | character | Team abbreviation/code. |
+| player_id | integer | Unique player identifier. |
+| player_name | character | Player name. |
+| sweater_number | integer | Jersey number. |
+| position | character | Player position. |
+| goals | integer | Goals scored. |
+| assists | integer | Assists. |
+| points | integer | Total points (goals + assists). |
+| plus_minus | integer | Plus/minus rating. |
+| pim | integer | Penalty minutes. |
+| hits | integer | Hits. |
+| power_play_goals | integer | Power play goals. |
+| shots_on_goal | integer | Shots on goal. |
+| faceoff_winning_pctg | numeric | Faceoff win percentage. |
+| toi | character | Time on ice. |
+| blocked_shots | integer | Blocked shots. |
+| shifts | integer | Number of shifts. |
+| giveaways | integer | Giveaways. |
+| takeaways | integer | Takeaways. |
+| even_strength_shots_against | character | Even-strength shots against (goalies). |
+| power_play_shots_against | character | Power play shots against (goalies). |
+| shorthanded_shots_against | character | Shorthanded shots against (goalies). |
+| save_shots_against | character | Saves / shots against (goalies). |
+| save_pctg | numeric | Save percentage (goalies). |
+| even_strength_goals_against | integer | Even-strength goals against (goalies). |
+| power_play_goals_against | integer | Power play goals against (goalies). |
+| shorthanded_goals_against | integer | Shorthanded goals against (goalies). |
+| goals_against | integer | Goals against (goalies). |
+| starter | logical | Whether the goalie started the game. |
+| decision | character | Goalie decision (W/L/O). |
+| shots_against | integer | Shots faced (goalies). |
+| saves | integer | Saves made (goalies). |
 
 ## Examples
 

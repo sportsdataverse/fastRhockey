@@ -2,6 +2,16 @@
 
 ## **fastRhockey 1.0.0 (continued development)**
 
+#### **Documentation: `@return` column tables for all working functions**
+
+- Every working exported function (165 across the NHL, NHL Edge, NHL
+  Records, PWHL, and loader families) now documents its return value
+  with a `col_name | types | description` table, matching the convention
+  used in `hoopR`, `wehoop`, and `cfbfastR`. Functions that return a
+  named list of data frames get one table per frame. Column names and
+  types were captured from live API responses, so the tables reflect the
+  actual returned schema.
+
 #### **`nhl_schedule()` gains a `game_type` parameter**
 
 - [`nhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/nhl_schedule.md)

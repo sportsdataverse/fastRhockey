@@ -27,8 +27,19 @@ nhl_records_franchise_playoff_appearances(
 
 ## Value
 
-A `fastRhockey_data` tibble of franchise playoff appearances, or `NULL`
-on failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                         |           |                                          |
+|-------------------------|-----------|------------------------------------------|
+| col_name                | types     | description                              |
+| id                      | integer   | Unique record identifier.                |
+| first_season_id         | integer   | Season identifier of the first season.   |
+| franchise_id            | integer   | Unique franchise identifier.             |
+| franchise_name          | character | Franchise name.                          |
+| playoff_seasons         | integer   | Number of seasons reaching the playoffs. |
+| stanley_cup_appearances | integer   | Number of Stanley Cup Final appearances. |
+| stanley_cup_wins        | integer   | Number of Stanley Cup championships.     |
+| years                   | integer   | Number of years the franchise existed.   |
 
 ## Examples
 
@@ -36,7 +47,7 @@ on failure.
 # \donttest{
   try(nhl_records_franchise_playoff_appearances())
 #> ── NHL Records Franchise Playoff Appearances ────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:18 UTC
+#> ℹ Data updated: 2026-05-29 16:26:56 UTC
 #> # A tibble: 38 × 8
 #>       id first_season_id franchise_id franchise_name       playoff_seasons
 #>    <int>           <int>        <int> <chr>                          <int>

@@ -16,7 +16,22 @@ nhl_tv_schedule(date = NULL)
 
 ## Value
 
-Returns a list with TV schedule data.
+A named list of data frames: `broadcasts`.
+
+**broadcasts**
+
+|                   |           |                                             |
+|-------------------|-----------|---------------------------------------------|
+| col_name          | types     | description                                 |
+| startTime         | character | Broadcast start time (UTC).                 |
+| endTime           | character | Broadcast end time (UTC).                   |
+| durationSeconds   | integer   | Broadcast duration in seconds.              |
+| title             | character | Broadcast title.                            |
+| description       | character | Broadcast description.                      |
+| houseNumber       | character | Internal broadcast house number identifier. |
+| broadcastType     | character | Type of broadcast.                          |
+| broadcastStatus   | character | Broadcast status.                           |
+| broadcastImageUrl | character | URL to the broadcast image.                 |
 
 ## Examples
 

@@ -48,8 +48,20 @@ nhl_stats_misc(endpoint = "glossary", game_id = NULL, lang = "en")
 
 ## Value
 
-Returns a data frame (`fastRhockey_data`) for tabular endpoints, or the
-raw parsed list for non-tabular ones.
+A data frame (`fastRhockey_data`) for tabular endpoints, or the raw
+parsed list for non-tabular ones. For the default `"glossary"` endpoint
+the columns are:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| id | integer | Unique glossary entry identifier. |
+| abbreviation | character | Stat abbreviation. |
+| definition | character | Definition of the stat or term. |
+| first_season_for_stat | integer | First season the stat was tracked (YYYYYYYY). |
+| full_name | character | Full name of the stat or term. |
+| language_code | character | Language code of the entry. |
+| last_updated | character | Timestamp the entry was last updated. |
 
 ## Examples
 
@@ -57,7 +69,7 @@ raw parsed list for non-tabular ones.
 # \donttest{
   try(nhl_stats_misc(endpoint = "glossary"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:47 UTC
+#> ℹ Data updated: 2026-05-29 16:27:25 UTC
 #> # A tibble: 321 × 7
 #>       id abbreviation   definition first_season_for_stat full_name language_code
 #>    <int> <chr>          <chr>                      <int> <chr>     <chr>        
@@ -75,7 +87,7 @@ raw parsed list for non-tabular ones.
 #> # ℹ 1 more variable: last_updated <chr>
   try(nhl_stats_misc(endpoint = "franchise"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:47 UTC
+#> ℹ Data updated: 2026-05-29 16:27:25 UTC
 #> # A tibble: 40 × 4
 #>       id full_name             team_common_name team_place_name
 #>    <int> <chr>                 <chr>            <chr>          
@@ -92,7 +104,7 @@ raw parsed list for non-tabular ones.
 #> # ℹ 30 more rows
   try(nhl_stats_misc(endpoint = "country"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:47 UTC
+#> ℹ Data updated: 2026-05-29 16:27:25 UTC
 #> # A tibble: 49 × 11
 #>    id    country3code country_code country_name   has_player_stats image_url    
 #>    <chr> <chr>        <chr>        <chr>                     <int> <chr>        

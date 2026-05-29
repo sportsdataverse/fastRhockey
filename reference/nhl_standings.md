@@ -18,7 +18,47 @@ nhl_standings(date = NULL)
 
 ## Value
 
-Returns a data frame with standings information.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                         |           |                                   |
+|-------------------------|-----------|-----------------------------------|
+| col_name                | types     | description                       |
+| team_abbr               | character | Team abbreviation.                |
+| team_name               | character | Team name.                        |
+| team_common_name        | character | Team common name.                 |
+| team_logo               | character | URL to the team logo image.       |
+| conference_name         | character | Conference name.                  |
+| division_abbrev         | character | Division abbreviation.            |
+| division_name           | character | Division name.                    |
+| place_name              | character | Place (city) name.                |
+| conference_sequence     | integer   | Rank within the conference.       |
+| division_sequence       | integer   | Rank within the division.         |
+| league_sequence         | integer   | Rank within the league.           |
+| wildcard_sequence       | integer   | Wildcard standing rank.           |
+| games_played            | integer   | Games played.                     |
+| wins                    | integer   | Wins.                             |
+| losses                  | integer   | Losses.                           |
+| ot_losses               | integer   | Overtime losses.                  |
+| points                  | integer   | Standings points.                 |
+| point_pctg              | numeric   | Points percentage.                |
+| regulation_wins         | integer   | Regulation wins.                  |
+| regulation_plus_ot_wins | integer   | Regulation plus overtime wins.    |
+| goals_for               | integer   | Goals scored for.                 |
+| goals_against           | integer   | Goals allowed against.            |
+| goal_differential       | integer   | Goal differential.                |
+| home_wins               | integer   | Home wins.                        |
+| home_losses             | integer   | Home losses.                      |
+| home_ot_losses          | integer   | Home overtime losses.             |
+| road_wins               | integer   | Road wins.                        |
+| road_losses             | integer   | Road losses.                      |
+| road_ot_losses          | integer   | Road overtime losses.             |
+| l10_wins                | integer   | Wins in last 10 games.            |
+| l10_losses              | integer   | Losses in last 10 games.          |
+| l10_ot_losses           | integer   | Overtime losses in last 10 games. |
+| streak_code             | character | Current streak code (W/L/OT).     |
+| streak_count            | integer   | Length of current streak.         |
+| shootout_wins           | integer   | Shootout wins.                    |
+| shootout_losses         | integer   | Shootout losses.                  |
 
 ## Examples
 
@@ -26,7 +66,7 @@ Returns a data frame with standings information.
 # \donttest{
   try(nhl_standings())
 #> ── NHL Standings ────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:43 UTC
+#> ℹ Data updated: 2026-05-29 16:27:21 UTC
 #> # A tibble: 32 × 36
 #>    team_abbr team_name           team_common_name team_logo      conference_name
 #>    <chr>     <chr>               <chr>            <chr>          <chr>          
@@ -49,7 +89,7 @@ Returns a data frame with standings information.
 #> #   goals_against <int>, goal_differential <int>, home_wins <int>, …
   try(nhl_standings(date = "2024-03-01"))
 #> ── NHL Standings ────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:43 UTC
+#> ℹ Data updated: 2026-05-29 16:27:21 UTC
 #> # A tibble: 32 × 36
 #>    team_abbr team_name            team_common_name team_logo     conference_name
 #>    <chr>     <chr>                <chr>            <chr>         <chr>          

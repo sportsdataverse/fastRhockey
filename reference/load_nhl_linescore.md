@@ -38,7 +38,22 @@ load_nhl_linescore(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with one row per game and the
+following columns:
+
+|                |           |                                       |
+|----------------|-----------|---------------------------------------|
+| col_name       | types     | description                           |
+| game_id        | integer   | Unique game identifier.               |
+| home_team_id   | integer   | Unique home team identifier.          |
+| home_team_abbr | character | Home team abbreviation.               |
+| home_goals     | integer   | Home team goals.                      |
+| home_shots     | integer   | Home team shots on goal.              |
+| away_team_id   | integer   | Unique away team identifier.          |
+| away_team_abbr | character | Away team abbreviation.               |
+| away_goals     | integer   | Away team goals.                      |
+| away_shots     | integer   | Away team shots on goal.              |
+| has_shootout   | logical   | Whether the game ended in a shootout. |
 
 ## Examples
 

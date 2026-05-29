@@ -19,7 +19,18 @@ nhl_records_hof_players(office_id = NULL)
 
 ## Value
 
-A `fastRhockey_data` tibble of HOF inductees, or `NULL` on failure.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                  |           |                                             |
+|------------------|-----------|---------------------------------------------|
+| col_name         | types     | description                                 |
+| id               | integer   | Unique record identifier.                   |
+| date_inducted    | character | Date the inductee entered the Hall of Fame. |
+| induction_cat_id | integer   | Induction category identifier.              |
+| misc_full_name   | character | Full name of the inductee.                  |
+| office_id        | integer   | Office/category identifier.                 |
+| official_id      | logical   | Official identifier.                        |
+| player_id        | integer   | Unique player identifier.                   |
 
 ## Examples
 
@@ -27,7 +38,7 @@ A `fastRhockey_data` tibble of HOF inductees, or `NULL` on failure.
 # \donttest{
   try(nhl_records_hof_players())
 #> ── NHL Records HOF Players ──────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:20 UTC
+#> ℹ Data updated: 2026-05-29 16:26:58 UTC
 #> # A tibble: 761 × 7
 #>       id date_inducted     induction_cat_id misc_full_name office_id official_id
 #>    <int> <chr>                        <int> <chr>              <int> <lgl>      

@@ -31,8 +31,21 @@ nhl_edge_skater_zone_time(player_id, season = NULL, game_type = 2)
 
 ## Value
 
-A `fastRhockey_data` tibble of zone-time metrics, or `NULL` on failure /
-empty response.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| strength_code | character | Strength state code (e.g., all, even, pp, pk). |
+| offensive_zone_pctg | numeric | Percentage of time in the offensive zone. |
+| offensive_zone_percentile | numeric | League percentile rank for offensive-zone time. |
+| offensive_zone_league_avg | numeric | League average offensive-zone time percentage. |
+| neutral_zone_pctg | numeric | Percentage of time in the neutral zone. |
+| neutral_zone_percentile | numeric | League percentile rank for neutral-zone time. |
+| neutral_zone_league_avg | numeric | League average neutral-zone time percentage. |
+| defensive_zone_pctg | numeric | Percentage of time in the defensive zone. |
+| defensive_zone_percentile | numeric | League percentile rank for defensive-zone time. |
+| defensive_zone_league_avg | numeric | League average defensive-zone time percentage. |
 
 ## Examples
 
@@ -40,7 +53,7 @@ empty response.
 # \donttest{
   try(nhl_edge_skater_zone_time(player_id = 8478402))
 #> ── NHL Edge Skater Zone Time ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:38 UTC
+#> ℹ Data updated: 2026-05-29 16:26:21 UTC
 #> # A tibble: 4 × 10
 #>   strength_code offensive_zone_pctg offensive_zone_percentile
 #>   <chr>                       <dbl>                     <dbl>

@@ -118,16 +118,14 @@ the <code>cayenneExp</code> query parameter (e.g., <code>"seasonId=20242025"</co
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>fastRhockey_data</code> tibble of goalie leaders, or <code>NULL</code> on
-failure.</p>
-    </div>
+    <p>A data frame (<code>fastRhockey_data</code>) with the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>save_pctg</td><td>numeric</td><td>Save percentage.</td></tr><tr><td>player_id</td><td>integer</td><td>Unique player identifier.</td></tr><tr><td>player_current_team_id</td><td>integer</td><td>Player's current team identifier.</td></tr><tr><td>player_first_name</td><td>character</td><td>Player first name.</td></tr><tr><td>player_full_name</td><td>character</td><td>Player full name.</td></tr><tr><td>player_last_name</td><td>character</td><td>Player last name.</td></tr><tr><td>player_position_code</td><td>character</td><td>Player position code.</td></tr><tr><td>player_sweater_number</td><td>integer</td><td>Player jersey number.</td></tr><tr><td>team_id</td><td>integer</td><td>Unique team identifier.</td></tr><tr><td>team_franchise_id</td><td>integer</td><td>Team franchise identifier.</td></tr><tr><td>team_full_name</td><td>character</td><td>Full team name.</td></tr><tr><td>team_league_id</td><td>integer</td><td>League identifier.</td></tr><tr><td>team_logos</td><td>list</td><td>Team logo assets.</td></tr><tr><td>team_raw_tricode</td><td>character</td><td>Raw team tri-code.</td></tr><tr><td>team_tri_code</td><td>character</td><td>Team tri-code abbreviation.</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_stats_goalie_leaders</span><span class="op">(</span>attribute <span class="op">=</span> <span class="st">"savePctg"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Stats Goalie Leaders ─────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:15:46 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 16:27:24 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 15</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    save_pctg player_id player_current_team_id player_first_name player_full_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>

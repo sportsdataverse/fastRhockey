@@ -38,7 +38,20 @@ load_nhl_game_rosters(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with one row per player per game and
+the following columns:
+
+|                |           |                           |
+|----------------|-----------|---------------------------|
+| col_name       | types     | description               |
+| player_id      | integer   | Unique player identifier. |
+| full_name      | character | Player full name.         |
+| first_name     | character | Player first name.        |
+| last_name      | character | Player last name.         |
+| team_abbr      | character | Team abbreviation/code.   |
+| team_id        | integer   | Unique team identifier.   |
+| position_code  | character | Player position code.     |
+| sweater_number | integer   | Jersey number.            |
 
 ## Examples
 

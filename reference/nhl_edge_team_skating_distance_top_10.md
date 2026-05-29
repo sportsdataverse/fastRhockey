@@ -45,8 +45,47 @@ nhl_edge_team_skating_distance_top_10(
 
 ## Value
 
-A `fastRhockey_data` tibble with the top-10 team leaderboard, or `NULL`
-on failure / empty response.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| team_abbrev | character | Team abbreviation. |
+| team_slug | character | URL slug for the team. |
+| team_common_name_default | character | Team common name (default language). |
+| team_place_name_with_preposition_default | character | Team place name with preposition (default language). |
+| team_team_logo_light | character | URL to the team light logo. |
+| team_team_logo_dark | character | URL to the team dark logo. |
+| distance_total_imperial | numeric | Total distance skated, in miles. |
+| distance_total_metric | numeric | Total distance skated, in kilometers. |
+| distance_per60_imperial | numeric | Distance skated per 60 minutes, in miles. |
+| distance_per60_metric | numeric | Distance skated per 60 minutes, in kilometers. |
+| distance_max_per_game_imperial | numeric | Maximum distance skated in a single game, in miles. |
+| distance_max_per_game_metric | numeric | Maximum distance skated in a single game, in kilometers. |
+| distance_max_per_game_overlay_game_date | character | Game date of the max-per-game performance. |
+| distance_max_per_game_overlay_game_type | integer | Game type of the max-per-game performance. |
+| distance_max_per_game_overlay_away_team_abbrev | character | Away team abbreviation in the max-per-game game. |
+| distance_max_per_game_overlay_away_team_score | integer | Away team score in the max-per-game game. |
+| distance_max_per_game_overlay_home_team_abbrev | character | Home team abbreviation in the max-per-game game. |
+| distance_max_per_game_overlay_home_team_score | integer | Home team score in the max-per-game game. |
+| distance_max_per_game_overlay_game_outcome_last_period_type | character | Last period type of the max-per-game game outcome. |
+| distance_max_per_game_overlay_game_outcome_ot_periods | integer | Number of overtime periods in the max-per-game game. |
+| distance_max_per_game_overlay_period_descriptor_max_regulation_periods | integer | Maximum regulation periods for the max-per-game game. |
+| distance_max_per_game_overlay_period_descriptor_number | integer | Period number for the max-per-game game descriptor. |
+| distance_max_per_game_overlay_period_descriptor_period_type | character | Period type for the max-per-game game descriptor. |
+| distance_max_per_period_imperial | numeric | Maximum distance skated in a single period, in miles. |
+| distance_max_per_period_metric | numeric | Maximum distance skated in a single period, in kilometers. |
+| distance_max_per_period_overlay_game_date | character | Game date of the max-per-period performance. |
+| distance_max_per_period_overlay_game_type | integer | Game type of the max-per-period performance. |
+| distance_max_per_period_overlay_away_team_abbrev | character | Away team abbreviation in the max-per-period game. |
+| distance_max_per_period_overlay_away_team_score | integer | Away team score in the max-per-period game. |
+| distance_max_per_period_overlay_home_team_abbrev | character | Home team abbreviation in the max-per-period game. |
+| distance_max_per_period_overlay_home_team_score | integer | Home team score in the max-per-period game. |
+| distance_max_per_period_overlay_game_outcome_last_period_type | character | Last period type of the max-per-period game outcome. |
+| distance_max_per_period_overlay_game_outcome_ot_periods | integer | Number of overtime periods in the max-per-period game. |
+| distance_max_per_period_overlay_period_descriptor_max_regulation_periods | integer | Maximum regulation periods for the max-per-period game. |
+| distance_max_per_period_overlay_period_descriptor_number | integer | Period number for the max-per-period game descriptor. |
+| distance_max_per_period_overlay_period_descriptor_period_type | character | Period type for the max-per-period game descriptor. |
 
 ## Examples
 
@@ -58,7 +97,7 @@ on failure / empty response.
     sort_by = "total"
   ))
 #> ── NHL Edge Team Skating Distance Top 10 ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:46 UTC
+#> ℹ Data updated: 2026-05-29 16:26:30 UTC
 #> # A tibble: 10 × 36
 #>    team_abbrev team_slug           team_common_name_def…¹ team_place_name_with…²
 #>    <chr>       <chr>               <chr>                  <chr>                 

@@ -39,7 +39,23 @@ load_pwhl_rosters(
 
 ## Value
 
-A data frame of class `fastRhockey_data`
+A data frame (`fastRhockey_data`) with the following columns:
+
+|               |           |                                 |
+|---------------|-----------|---------------------------------|
+| col_name      | types     | description                     |
+| team_id       | integer   | Unique team identifier.         |
+| team          | character | Team name.                      |
+| team_abbr     | character | Team abbreviation.              |
+| team_side     | character | Home or away indicator.         |
+| player_type   | character | Player type (skater or goalie). |
+| player_id     | integer   | Unique player identifier.       |
+| first_name    | character | Player first name.              |
+| last_name     | character | Player last name.               |
+| jersey_number | integer   | Jersey number.                  |
+| position      | character | Player position.                |
+| birth_date    | character | Player birth date.              |
+| season        | integer   | Season (concluding year, YYYY). |
 
 ## Examples
 

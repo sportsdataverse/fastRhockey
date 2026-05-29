@@ -29,8 +29,105 @@ nhl_game_pbp(game_id, include_shifts = TRUE, raw = FALSE)
 
 ## Value
 
-A data frame with one row per event (default), or the raw API response
-list when `raw = TRUE`.
+A data frame (`fastRhockey_data`) with one row per event and the
+following columns (or the raw API response list when `raw = TRUE`):
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| event_type | character | Normalized event type code. |
+| event | character | Human-readable event label. |
+| secondary_type | character | Secondary type (shot type or penalty type). |
+| event_team_abbr | character | Abbreviation of the team that owns the event. |
+| event_team_type | character | Whether the event team is home or away. |
+| description | glue | Text description of the event. |
+| period | integer | Period number. |
+| period_type | character | Period type (regular, overtime, shootout). |
+| period_time | character | Time elapsed in the period (MM:SS). |
+| period_seconds | numeric | Seconds elapsed in the period. |
+| period_seconds_remaining | numeric | Seconds remaining in the period. |
+| period_time_remaining | character | Time remaining in the period (MM:SS). |
+| game_seconds | numeric | Seconds elapsed in the game. |
+| game_seconds_remaining | numeric | Seconds remaining in the game. |
+| home_score | integer | Home team score at the event. |
+| away_score | integer | Away team score at the event. |
+| event_player_1_name | character | Name of the primary event player. |
+| event_player_1_type | character | Role of the primary event player. |
+| event_player_1_id | integer | Player ID of the primary event player. |
+| event_player_2_name | character | Name of the secondary event player. |
+| event_player_2_type | character | Role of the secondary event player. |
+| event_player_2_id | integer | Player ID of the secondary event player. |
+| event_player_3_name | character | Name of the tertiary event player. |
+| event_player_3_type | character | Role of the tertiary event player. |
+| event_player_3_id | integer | Player ID of the tertiary event player. |
+| event_goalie_name | character | Name of the goalie involved in the event. |
+| event_goalie_id | integer | Player ID of the goalie involved in the event. |
+| penalty_severity | character | Severity of the penalty. |
+| penalty_minutes | integer | Penalty minutes assessed. |
+| strength_state | glue | On-ice strength state (e.g. 5v5). |
+| strength_code | character | Strength code (EV, PP, SH). |
+| strength | character | Strength label (Even, Power Play, Shorthanded). |
+| empty_net | logical | Whether the event occurred with an empty net. |
+| extra_attacker | logical | Whether an extra attacker was on the ice. |
+| x | numeric | Raw x coordinate of the event. |
+| y | numeric | Raw y coordinate of the event. |
+| x_fixed | numeric | Normalized x coordinate (home shoots right). |
+| y_fixed | numeric | Normalized y coordinate (home shoots right). |
+| shot_distance | numeric | Distance from the net for shot events. |
+| shot_angle | numeric | Angle to the net for shot events. |
+| home_skaters | integer | Number of home skaters on the ice. |
+| away_skaters | integer | Number of away skaters on the ice. |
+| home_on_1 | character | Name of home on-ice skater 1. |
+| home_on_2 | character | Name of home on-ice skater 2. |
+| home_on_3 | character | Name of home on-ice skater 3. |
+| home_on_4 | character | Name of home on-ice skater 4. |
+| home_on_5 | character | Name of home on-ice skater 5. |
+| home_on_6 | character | Name of home on-ice skater 6. |
+| home_on_7 | character | Name of home on-ice skater 7. |
+| away_on_1 | character | Name of away on-ice skater 1. |
+| away_on_2 | character | Name of away on-ice skater 2. |
+| away_on_3 | character | Name of away on-ice skater 3. |
+| away_on_4 | character | Name of away on-ice skater 4. |
+| away_on_5 | character | Name of away on-ice skater 5. |
+| away_on_6 | character | Name of away on-ice skater 6. |
+| away_on_7 | character | Name of away on-ice skater 7. |
+| home_goalie | character | Name of the home goalie on the ice. |
+| away_goalie | character | Name of the away goalie on the ice. |
+| num_on | integer | Number of players coming on for a change. |
+| players_on | character | Names of players coming on for a change. |
+| num_off | integer | Number of players going off for a change. |
+| players_off | character | Names of players going off for a change. |
+| game_id | integer | Unique game identifier. |
+| season | character | Season (concluding year, YYYY). |
+| season_type | character | Season type code (PR, R, P, A). |
+| home_abbr | character | Home team abbreviation. |
+| away_abbr | character | Away team abbreviation. |
+| event_idx | integer | Sequential event index within the game. |
+| event_id | integer | Event identifier. |
+| pptReplayUrl | character | URL to the play replay, if available. |
+| away_goalie_in | integer | Whether the away goalie is on the ice (1/0). |
+| home_goalie_in | integer | Whether the home goalie is on the ice (1/0). |
+| reason | character | Reason for a stoppage. |
+| secondaryReason | character | Secondary reason for a stoppage. |
+| ids_on | character | Player IDs coming on for a change. |
+| ids_off | character | Player IDs going off for a change. |
+| home_on_1_id | integer | Player ID of home on-ice skater 1. |
+| away_on_1_id | integer | Player ID of away on-ice skater 1. |
+| home_on_2_id | integer | Player ID of home on-ice skater 2. |
+| away_on_2_id | integer | Player ID of away on-ice skater 2. |
+| home_on_3_id | integer | Player ID of home on-ice skater 3. |
+| away_on_3_id | integer | Player ID of away on-ice skater 3. |
+| home_on_4_id | integer | Player ID of home on-ice skater 4. |
+| away_on_4_id | integer | Player ID of away on-ice skater 4. |
+| home_on_5_id | integer | Player ID of home on-ice skater 5. |
+| away_on_5_id | integer | Player ID of away on-ice skater 5. |
+| home_on_6_id | integer | Player ID of home on-ice skater 6. |
+| away_on_6_id | integer | Player ID of away on-ice skater 6. |
+| home_on_7_id | integer | Player ID of home on-ice skater 7. |
+| away_on_7_id | integer | Player ID of away on-ice skater 7. |
+| home_goalie_id | integer | Player ID of the home goalie on the ice. |
+| away_goalie_id | integer | Player ID of the away goalie on the ice. |
+| xg | numeric | Expected goals value for the event. |
 
 ## Examples
 
@@ -38,7 +135,7 @@ list when `raw = TRUE`.
 # \donttest{
   try(nhl_game_pbp(game_id = 2024020001))
 #> ── NHL Game PBP from NHL.com ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:54 UTC
+#> ℹ Data updated: 2026-05-29 16:26:37 UTC
 #> # A tibble: 850 × 93
 #>    event_type   event secondary_type event_team_abbr event_team_type description
 #>    <chr>        <chr> <chr>          <chr>           <chr>           <glue>     

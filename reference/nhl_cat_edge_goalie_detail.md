@@ -31,8 +31,13 @@ nhl_cat_edge_goalie_detail(player_id, season = NULL, game_type = 2)
 
 ## Value
 
-A `fastRhockey_data` tibble of categorical advanced metrics, or `NULL`
-on failure / empty response.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|            |         |                                                      |
+|------------|---------|------------------------------------------------------|
+| col_name   | types   | description                                          |
+| id         | integer | Categorical metric identifier.                       |
+| game_types | list    | Nested per-game-type categorical Edge metric values. |
 
 ## Examples
 
@@ -40,7 +45,7 @@ on failure / empty response.
 # \donttest{
   try(nhl_cat_edge_goalie_detail(player_id = 8475883))
 #> ── NHL CAT Edge Goalie Detail ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:02 UTC
+#> ℹ Data updated: 2026-05-29 16:25:49 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    

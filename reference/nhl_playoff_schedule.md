@@ -20,7 +20,51 @@ nhl_playoff_schedule(season, series_letter)
 
 ## Value
 
-Returns a list with playoff schedule data for the series.
+A named list of data frames: `games`.
+
+**games**
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| id | integer | Unique game identifier. |
+| season | integer | Season (concluding year, YYYY). |
+| gameType | integer | Game type identifier (3 for playoffs). |
+| gameNumber | integer | Game number within the series. |
+| ifNecessary | logical | Whether the game is played only if necessary. |
+| neutralSite | logical | Whether the game is at a neutral site. |
+| startTimeUTC | character | Scheduled start time in UTC. |
+| easternUTCOffset | character | UTC offset for US Eastern time. |
+| venueUTCOffset | character | UTC offset at the venue. |
+| venueTimezone | character | Time zone of the venue. |
+| gameState | character | Current game state. |
+| gameScheduleState | character | Schedule state of the game. |
+| tvBroadcasts | list | Nested list of TV broadcast details. |
+| gameCenterLink | character | Relative link to the game center page. |
+| venue.default | character | Venue name (default localization). |
+| awayTeam.id | integer | Away team unique identifier. |
+| awayTeam.abbrev | character | Away team abbreviation. |
+| awayTeam.score | integer | Away team score. |
+| awayTeam.commonName.default | character | Away team common name (default localization). |
+| awayTeam.commonName.fr | character | Away team common name (French localization). |
+| awayTeam.placeName.default | character | Away team place name (default localization). |
+| awayTeam.placeNameWithPreposition.default | character | Away team place name with preposition (default). |
+| awayTeam.placeNameWithPreposition.fr | character | Away team place name with preposition (French). |
+| homeTeam.id | integer | Home team unique identifier. |
+| homeTeam.abbrev | character | Home team abbreviation. |
+| homeTeam.score | integer | Home team score. |
+| homeTeam.commonName.default | character | Home team common name (default localization). |
+| homeTeam.commonName.fr | character | Home team common name (French localization). |
+| homeTeam.placeName.default | character | Home team place name (default localization). |
+| homeTeam.placeNameWithPreposition.default | character | Home team place name with preposition (default). |
+| homeTeam.placeNameWithPreposition.fr | character | Home team place name with preposition (French). |
+| periodDescriptor.number | integer | Period number for the game state. |
+| periodDescriptor.periodType | character | Period type (e.g., REG, OT). |
+| periodDescriptor.maxRegulationPeriods | integer | Maximum number of regulation periods. |
+| seriesStatus.topSeedWins | integer | Series wins by the top-seeded team. |
+| seriesStatus.bottomSeedWins | integer | Series wins by the bottom-seeded team. |
+| gameOutcome.lastPeriodType | character | Period type in which the game ended. |
+| gameOutcome.otPeriods | integer | Number of overtime periods played. |
 
 ## Examples
 

@@ -16,7 +16,26 @@ nhl_game_shifts(game_id)
 
 ## Value
 
-Returns a tibble
+A data frame (`fastRhockey_data`) with one row per shift change and the
+following columns:
+
+|                        |           |                                           |
+|------------------------|-----------|-------------------------------------------|
+| col_name               | types     | description                               |
+| event_team             | character | Team making the line change.              |
+| period                 | integer   | Period number.                            |
+| period_time            | character | Time in the period of the change (MM:SS). |
+| period_seconds         | numeric   | Seconds elapsed in the period.            |
+| game_seconds           | numeric   | Seconds elapsed in the game.              |
+| num_on                 | integer   | Number of players coming on the ice.      |
+| players_on             | character | Names of players coming on the ice.       |
+| ids_on                 | character | Player IDs coming on the ice.             |
+| num_off                | integer   | Number of players going off the ice.      |
+| players_off            | character | Names of players going off the ice.       |
+| ids_off                | character | Player IDs going off the ice.             |
+| event                  | character | Event label ("Change").                   |
+| event_type             | character | Event type code ("CHANGE").               |
+| game_seconds_remaining | numeric   | Seconds remaining in the game.            |
 
 ## Examples
 
@@ -24,7 +43,7 @@ Returns a tibble
 # \donttest{
   try(nhl_game_shifts(game_id = 2021020182))
 #> ── NHL Game Shifts Information from NHL.com ─────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:54 UTC
+#> ℹ Data updated: 2026-05-29 16:26:38 UTC
 #> # A tibble: 326 × 14
 #>    event_team   period period_time period_seconds game_seconds num_on players_on
 #>    <chr>         <int> <chr>                <dbl>        <dbl>  <int> <chr>     

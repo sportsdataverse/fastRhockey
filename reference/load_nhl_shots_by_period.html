@@ -126,8 +126,8 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A data frame of class <code>fastRhockey_data</code>, with one row per team
-per period per game. Columns include:</p><table class="table table"><tr><td>column</td><td>description</td></tr><tr><td><code>game_id</code></td><td>NHL game id</td></tr><tr><td><code>season</code></td><td>Season end year (e.g. 2026 for 2025-26)</td></tr><tr><td><code>game_date</code></td><td>ISO date of the game</td></tr><tr><td><code>home_away</code></td><td><code>"home"</code> or <code>"away"</code></td></tr><tr><td><code>period_number</code></td><td>1-3 for regulation, 4+ for OT/SO</td></tr><tr><td><code>period_type</code></td><td><code>"REG"</code>, <code>"OT"</code>, or <code>"SO"</code></td></tr><tr><td><code>shots</code></td><td>Shots on goal in the period</td></tr></table></div>
+    <p>A data frame (<code>fastRhockey_data</code>) with one row per team per period
+per game and the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>game_id</td><td>integer</td><td>Unique game identifier.</td></tr><tr><td>season</td><td>integer</td><td>Season (concluding year, YYYY).</td></tr><tr><td>game_date</td><td>character</td><td>Game date.</td></tr><tr><td>home_away</td><td>character</td><td>Home or away indicator.</td></tr><tr><td>period_number</td><td>integer</td><td>Period number (1-3 regulation, 4+ for OT/SO).</td></tr><tr><td>period_type</td><td>character</td><td>Period type (REG/OT/SO).</td></tr><tr><td>shots</td><td>integer</td><td>Shots on goal in the period.</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>

@@ -37,7 +37,28 @@ nhl_goalie_stats_leaders(
 
 ## Value
 
-Returns a data frame with goalie leaders.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                    |           |                                     |
+|--------------------|-----------|-------------------------------------|
+| col_name           | types     | description                         |
+| id                 | integer   | Unique player identifier.           |
+| sweater_number     | integer   | Jersey number.                      |
+| headshot           | character | Player headshot image URL.          |
+| team_abbrev        | character | Team abbreviation.                  |
+| team_logo          | character | Team logo URL.                      |
+| position           | character | Player position.                    |
+| value              | numeric   | Statistical value for the category. |
+| first_name_default | character | Player first name (default locale). |
+| last_name_default  | character | Player last name (default locale).  |
+| team_name_default  | character | Team name (default locale).         |
+| first_name_cs      | character | Player first name (Czech locale).   |
+| first_name_sk      | character | Player first name (Slovak locale).  |
+| last_name_cs       | character | Player last name (Czech locale).    |
+| last_name_sk       | character | Player last name (Slovak locale).   |
+| category           | character | Stat leader category.               |
+| last_name_fi       | character | Player last name (Finnish locale).  |
+| team_name_fr       | character | Team name (French locale).          |
 
 ## Examples
 
@@ -45,7 +66,7 @@ Returns a data frame with goalie leaders.
 # \donttest{
   try(nhl_goalie_stats_leaders())
 #> ── NHL Goalie Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:56 UTC
+#> ℹ Data updated: 2026-05-29 16:26:39 UTC
 #> # A tibble: 18 × 17
 #>         id sweater_number headshot         team_abbrev team_logo position  value
 #>      <int>          <int> <chr>            <chr>       <chr>     <chr>     <dbl>

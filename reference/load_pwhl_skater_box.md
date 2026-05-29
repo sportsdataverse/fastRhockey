@@ -41,30 +41,33 @@ load_pwhl_skater_box(
 
 ## Value
 
-A data frame of class `fastRhockey_data` with one row per skater per
-game. Common columns include:
+A data frame (`fastRhockey_data`) with the following columns:
 
-|                    |           |                                   |
-|--------------------|-----------|-----------------------------------|
-| column             | type      | description                       |
-| `game_id`          | integer   | PWHL game id                      |
-| `team_id`          | integer   | HockeyTech team id                |
-| `player_id`        | integer   | HockeyTech player id              |
-| `first_name`       | character | player first name                 |
-| `last_name`        | character | player last name                  |
-| `jersey_number`    | integer   | jersey number                     |
-| `position`         | character | position code (C, LW, RW, LD, RD) |
-| `goals`            | integer   | goals                             |
-| `assists`          | integer   | assists                           |
-| `points`           | integer   | total points                      |
-| `penalty_minutes`  | integer   | PIM                               |
-| `plus_minus`       | integer   | plus/minus                        |
-| `shots`            | integer   | shots on goal                     |
-| `faceoff_attempts` | integer   | faceoff attempts                  |
-| `faceoff_wins`     | integer   | faceoff wins                      |
-| `time_on_ice`      | character | total TOI (`MM:SS`)               |
-| `starting`         | character | started the game (`0`/`1`)        |
-| `player_type`      | character | always `"skater"`                 |
+|                  |           |                                      |
+|------------------|-----------|--------------------------------------|
+| col_name         | types     | description                          |
+| player_id        | character | Unique player identifier.            |
+| first_name       | character | Player first name.                   |
+| last_name        | character | Player last name.                    |
+| position         | character | Player position.                     |
+| team_id          | integer   | Unique team identifier.              |
+| game_id          | integer   | Unique game identifier.              |
+| league           | character | League code.                         |
+| toi              | character | Time on ice (MM:SS).                 |
+| time_on_ice      | numeric   | Time on ice in seconds.              |
+| goals            | integer   | Goals scored.                        |
+| assists          | integer   | Assists.                             |
+| points           | integer   | Total points (goals + assists).      |
+| shots            | integer   | Shots on goal.                       |
+| hits             | integer   | Hits.                                |
+| blocked_shots    | integer   | Blocked shots.                       |
+| penalty_minutes  | integer   | Penalty minutes.                     |
+| plus_minus       | integer   | Plus/minus rating.                   |
+| faceoff_attempts | integer   | Faceoff attempts.                    |
+| faceoff_wins     | integer   | Faceoff wins.                        |
+| faceoff_losses   | integer   | Faceoff losses.                      |
+| faceoff_pct      | numeric   | Faceoff win percentage.              |
+| starting         | character | Whether the player started the game. |
 
 ## Examples
 

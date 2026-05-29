@@ -22,8 +22,39 @@ nhl_game_content(game_id)
 
 ## Value
 
-Returns a data frame with game summary information including teams,
-scores, venue, and period scoring details.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                    |           |                                             |
+|--------------------|-----------|---------------------------------------------|
+| col_name           | types     | description                                 |
+| game_id            | integer   | Unique game identifier.                     |
+| season             | integer   | Season (concluding year, YYYY).             |
+| game_type          | integer   | Game type code (2 = regular, 3 = playoffs). |
+| game_date          | character | Game date.                                  |
+| venue              | character | Venue name.                                 |
+| away_team_abbrev   | character | Away team abbreviation.                     |
+| away_team_name     | character | Away team name.                             |
+| away_team_score    | integer   | Away team final score.                      |
+| away_team_sog      | integer   | Away team shots on goal.                    |
+| home_team_abbrev   | character | Home team abbreviation.                     |
+| home_team_name     | character | Home team name.                             |
+| home_team_score    | integer   | Home team final score.                      |
+| home_team_sog      | integer   | Home team shots on goal.                    |
+| game_state         | character | Game state (e.g., FINAL, LIVE).             |
+| period             | integer   | Last period number played.                  |
+| period_type        | character | Last period type (REG, OT, SO).             |
+| star_1_player_id   | integer   | First star player identifier.               |
+| star_1_name        | character | First star player name.                     |
+| star_1_team_abbrev | character | First star player team abbreviation.        |
+| star_1_position    | character | First star player position.                 |
+| star_2_player_id   | integer   | Second star player identifier.              |
+| star_2_name        | character | Second star player name.                    |
+| star_2_team_abbrev | character | Second star player team abbreviation.       |
+| star_2_position    | character | Second star player position.                |
+| star_3_player_id   | integer   | Third star player identifier.               |
+| star_3_name        | character | Third star player name.                     |
+| star_3_team_abbrev | character | Third star player team abbreviation.        |
+| star_3_position    | character | Third star player position.                 |
 
 ## Examples
 
@@ -31,7 +62,7 @@ scores, venue, and period scoring details.
 # \donttest{
   try(nhl_game_content(game_id = 2024020001))
 #> ── NHL Game Content Information from NHL.com ────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:14:51 UTC
+#> ℹ Data updated: 2026-05-29 16:26:35 UTC
 #> # A tibble: 1 × 28
 #>      game_id   season game_type game_date  venue away_team_abbrev away_team_name
 #>        <int>    <int>     <int> <chr>      <chr> <chr>            <chr>         

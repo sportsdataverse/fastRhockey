@@ -21,21 +21,33 @@ pwhl_transactions(season = most_recent_pwhl_season(), game_type = "regular")
 
 ## Value
 
-A data frame with transaction records, or NULL if unavailable.
+A data frame (`fastRhockey_data`) with the following columns:
 
-- `transaction_id` - Transaction ID.
-
-- `date` - Transaction date.
-
-- `player_name` - Player name.
-
-- `player_id` - Player ID.
-
-- `team` - Team involved.
-
-- `transaction_type` - Type of transaction.
-
-- `description` - Transaction description.
+|                            |           |                                  |
+|----------------------------|-----------|----------------------------------|
+| col_name                   | types     | description                      |
+| transaction_type           | character | Type of transaction.             |
+| title                      | character | Transaction title/headline.      |
+| ttype                      | character | Transaction type code.           |
+| ttype_text                 | character | Transaction type description.    |
+| transaction_date           | character | Transaction date.                |
+| transaction_time           | character | Transaction time.                |
+| formatted_transaction_date | character | Human-readable transaction date. |
+| timezone                   | character | Time zone of the transaction.    |
+| player_id                  | character | Unique player identifier.        |
+| response1                  | character | First response/detail field.     |
+| response2                  | character | Second response/detail field.    |
+| first_name                 | character | Player first name.               |
+| last_name                  | character | Player last name.                |
+| player_name                | character | Full player name.                |
+| position                   | character | Player position.                 |
+| team_id                    | character | Unique team identifier.          |
+| team_city                  | character | Team city.                       |
+| team_name                  | character | Team name.                       |
+| team_code                  | character | Team abbreviation/code.          |
+| division                   | character | Division identifier.             |
+| team_logo                  | character | URL to the team logo image.      |
+| detail                     | character | Additional transaction detail.   |
 
 ## Examples
 
@@ -43,7 +55,7 @@ A data frame with transaction records, or NULL if unavailable.
 # \donttest{
   try(pwhl_transactions(season = 2025))
 #> ── PWHL Transactions ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:16:10 UTC
+#> ℹ Data updated: 2026-05-29 16:27:47 UTC
 #> # A tibble: 20 × 22
 #>    transaction_type title     ttype ttype_text transaction_date transaction_time
 #>    <chr>            <chr>     <chr> <chr>      <chr>            <chr>           

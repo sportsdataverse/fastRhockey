@@ -126,8 +126,8 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A data frame of class <code>fastRhockey_data</code></p>
-    </div>
+    <p>A data frame (<code>fastRhockey_data</code>) with one row per shift change and
+the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>event_team</td><td>character</td><td>Team associated with the shift change.</td></tr><tr><td>period</td><td>integer</td><td>Period number.</td></tr><tr><td>period_time</td><td>character</td><td>Elapsed time in the period (MM:SS).</td></tr><tr><td>period_seconds</td><td>integer</td><td>Elapsed seconds in the period.</td></tr><tr><td>game_seconds</td><td>integer</td><td>Elapsed seconds in the game.</td></tr><tr><td>num_on</td><td>integer</td><td>Number of players coming on.</td></tr><tr><td>players_on</td><td>character</td><td>Names of players coming on.</td></tr><tr><td>ids_on</td><td>character</td><td>Player ids coming on.</td></tr><tr><td>num_off</td><td>integer</td><td>Number of players going off.</td></tr><tr><td>players_off</td><td>character</td><td>Names of players going off.</td></tr><tr><td>ids_off</td><td>character</td><td>Player ids going off.</td></tr><tr><td>event</td><td>character</td><td>Event description label.</td></tr><tr><td>event_type</td><td>character</td><td>Standardized event type code.</td></tr><tr><td>game_seconds_remaining</td><td>integer</td><td>Seconds remaining in regulation.</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>

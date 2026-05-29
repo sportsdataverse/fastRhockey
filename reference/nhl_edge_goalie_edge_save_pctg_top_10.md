@@ -41,7 +41,7 @@ failure / empty response.
   try(nhl_edge_goalie_edge_save_pctg_top_10(sort_by = "savePctg"))
 #> Request failed [404]. Retrying in 1.2 seconds...
 #> Request failed [404]. Retrying in 1 seconds...
-#> 2026-05-29 16:14:17.28449: Error fetching https://api-web.nhle.com/v1/edge/goalie-edge-save-pctg-top-10/savePctg/now: The API returned an error
+#> 2026-05-29 16:26:03.673719: Error fetching https://api-web.nhle.com/v1/edge/goalie-edge-save-pctg-top-10/savePctg/now: The API returned an error
 #> NULL
 # }
 ```

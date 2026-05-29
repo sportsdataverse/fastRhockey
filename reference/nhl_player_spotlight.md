@@ -11,7 +11,24 @@ nhl_player_spotlight()
 
 ## Value
 
-Returns a data frame with spotlight player information.
+A data frame (`fastRhockey_data`) with the following columns:
+
+|                |           |                                          |
+|----------------|-----------|------------------------------------------|
+| col_name       | types     | description                              |
+| player_id      | integer   | Unique player identifier.                |
+| player_slug    | character | URL slug for the player.                 |
+| position       | character | Player position.                         |
+| sweater_number | integer   | Player sweater (jersey) number.          |
+| team_id        | integer   | Unique team identifier.                  |
+| headshot       | character | URL of the player headshot image.        |
+| team_tri_code  | character | Three-letter team code.                  |
+| team_logo      | character | URL of the team logo image.              |
+| sort_id        | integer   | Sort order identifier for the spotlight. |
+| name_default   | character | Player name (default localization).      |
+| name_cs        | character | Player name (Czech localization).        |
+| name_fi        | character | Player name (Finnish localization).      |
+| name_sk        | character | Player name (Slovak localization).       |
 
 ## Examples
 
@@ -19,7 +36,7 @@ Returns a data frame with spotlight player information.
 # \donttest{
   try(nhl_player_spotlight())
 #> ── NHL Player Spotlight ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:15:00 UTC
+#> ℹ Data updated: 2026-05-29 16:26:42 UTC
 #> # A tibble: 10 × 13
 #>    player_id player_slug  position sweater_number team_id headshot team_tri_code
 #>        <int> <chr>        <chr>             <int>   <int> <chr>    <chr>        
