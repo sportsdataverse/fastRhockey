@@ -4,18 +4,21 @@
 \alias{pwhl_streaks}
 \title{\strong{PWHL Player Streaks}}
 \usage{
-pwhl_streaks(season = most_recent_pwhl_season(), game_type = "regular")
+pwhl_streaks(season = most_recent_pwhl_season(), game_type = "both")
 }
 \arguments{
 \item{season}{Season (YYYY) to pull streaks from. Defaults to \code{most_recent_pwhl_season()}.}
 
-\item{game_type}{Game type: "regular" (default), "preseason", or "playoffs".}
+\item{game_type}{Game type: \code{"both"} (default), \code{"regular"}, \code{"playoffs"},
+or \code{"preseason"}. When \code{"both"}, regular-season and playoff streaks are
+combined and labeled by a \code{game_type} column. Game types with no streak
+data for the season are omitted rather than erroring.}
 }
 \value{
 A data frame of class \code{fastRhockey_data} with player streak data
 including columns such as player_id, first_name, last_name, name, length,
-goals, assists, points, games_played, rank, team_name, team_code.
-Returns NULL if unavailable.
+goals, assists, points, games_played, rank, team_name, team_code, and
+game_type. Returns NULL if unavailable.
 }
 \description{
 Retrieves player streak data for a PWHL season.

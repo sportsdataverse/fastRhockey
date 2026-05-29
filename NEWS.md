@@ -33,6 +33,44 @@
   for consistency and to remove the foot-gun before it surfaces (e.g., if
   the function is ever refactored to handle multiple players).
 
+### **`pwhl_schedule()` defaults to combined regular season + playoffs**
+
+* `pwhl_schedule()` gains a `game_type` parameter accepting `"both"`
+  (default), `"regular"`, `"playoffs"`, or `"preseason"`. A new `game_type`
+  column is appended labeling each row.
+* **Behavior change:** `game_type` now defaults to `"both"`, so a call such
+  as `pwhl_schedule(season = 2024)` returns regular-season **and** playoff
+  games in a single, chronologically ordered data frame. Pass
+  `game_type = "regular"` to restore the previous regular-only behavior.
+  Preseason is excluded from `"both"`; request it with
+  `game_type = "preseason"`.
+* When a requested `game_type` does not yet exist for a season (e.g. playoffs
+  for an in-progress season), it is skipped rather than erroring, so `"both"`
+  still returns the regular-season games that do exist.
+* The HockeyTech schedule feed exposes no machine-readable date, so rows are
+  ordered by a date parsed locale-independently from the feed's
+  `"date_with_day"` display string.
+* **Fix:** `pwhl_schedule()`'s `winner` column is now derived from
+  `game_status` and an integer comparison of the goal counts. Previously the
+  character goal counts were compared with `>`, so a double-digit score
+  sorted lexically (`"10" < "9"`) and could name the wrong winner; games that
+  have not been played now yield `winner = NA` (the prior code emitted a `"-"`
+  placeholder). PWHL games cannot end in a regulation tie, so the former
+  `"Tie"` branch is gone.
+
+### **`pwhl_player_game_log()` and `pwhl_streaks()` default to combined types**
+
+* `pwhl_player_game_log()` and `pwhl_streaks()` gain the same `game_type`
+  parameter (`"both"` default, plus `"regular"`, `"playoffs"`, `"preseason"`)
+  and a `game_type` column labeling each row. With `"both"`, a player's
+  regular-season and playoff data are returned together. A game type the
+  player/season has no data in (e.g. playoffs for a non-qualifying team) is
+  skipped rather than erroring, so the call still returns the data that does
+  exist.
+* `pwhl_transactions()` is intentionally unchanged: transactions are not
+  scoped to a game type (the playoff season feed carries none), so a combined
+  view would add no information.
+
 ### **PWHL parity: 3 new NHL loaders + datasets**
 
 Three new season-level NHL loaders that bring NHL coverage in line with

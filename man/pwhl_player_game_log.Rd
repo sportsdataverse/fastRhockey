@@ -7,7 +7,7 @@
 pwhl_player_game_log(
   player_id,
   season = most_recent_pwhl_season(),
-  game_type = "regular"
+  game_type = "both"
 )
 }
 \arguments{
@@ -16,7 +16,11 @@ pwhl_player_game_log(
 \item{season}{Season (YYYY) to pull the game log from, the concluding year in XXXX-YY format.
 Defaults to \code{most_recent_pwhl_season()}.}
 
-\item{game_type}{Game type: "regular" (default), "preseason", or "playoffs".}
+\item{game_type}{Game type: \code{"both"} (default), \code{"regular"}, \code{"playoffs"},
+or \code{"preseason"}. When \code{"both"}, the player's regular-season and playoff
+game logs are combined and labeled by a \code{game_type} column. Game types
+the player has no games in (e.g. playoffs for a non-qualifying team) are
+omitted rather than erroring.}
 }
 \value{
 A data frame with per-game statistics for the player, or NULL if unavailable.
@@ -33,6 +37,7 @@ A data frame with per-game statistics for the player, or NULL if unavailable.
 \item \code{plus_minus} - Plus/minus rating.
 \item \code{penalty_minutes} - Penalty minutes.
 \item \code{shots} - Shots on goal.
+\item \code{game_type} - Game type the row belongs to (\code{"regular"}/\code{"playoffs"}).
 }
 }
 \description{

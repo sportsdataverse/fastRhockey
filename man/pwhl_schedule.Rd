@@ -4,23 +4,28 @@
 \alias{pwhl_schedule}
 \title{\strong{PWHL Schedule}}
 \usage{
-pwhl_schedule(season, game_type = "regular")
+pwhl_schedule(season, game_type = "both")
 }
 \arguments{
 \item{season}{Season (YYYY) to pull the schedule from, the concluding year in XXXX-YY format}
 
-\item{game_type}{Game type: "regular" (default), "preseason", or "playoffs".}
+\item{game_type}{Game type: \code{"both"} (default), \code{"regular"}, \code{"playoffs"},
+or \code{"preseason"}. When \code{"both"}, regular-season and playoff games for the
+season are combined into a single, chronologically ordered data frame
+(preseason is excluded from \code{"both"} -- request it explicitly with
+\code{game_type = "preseason"}).}
 }
 \value{
 A data frame with schedule data including columns: game_id, season,
 game_date, game_status, home_team, home_team_id, away_team, away_team_id,
-home_score, away_score, winner, venue, venue_url.
+home_score, away_score, winner, venue, venue_url, game_type.
 }
 \description{
 PWHL Schedule lookup
 }
 \examples{
 \donttest{
-  try(pwhl_schedule(season = 2023))
+  try(pwhl_schedule(season = 2024))
+  try(pwhl_schedule(season = 2024, game_type = "playoffs"))
 }
 }
