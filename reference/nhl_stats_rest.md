@@ -15,9 +15,9 @@ parameters.
 |  |  |  |
 |----|----|----|
 | Function | Endpoint | Purpose |
-| [`nhl_stats_skaters()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.html) | `skater/summary` | Skater season stats |
-| [`nhl_stats_goalies()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_goalies.html) | `goalie/summary` | Goalie season stats |
-| [`nhl_stats_teams()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.html) | `team/summary` | Team season stats |
+| [`nhl_stats_skaters()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_skaters.md) | `skater/summary` | Skater season stats |
+| [`nhl_stats_goalies()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_goalies.md) | `goalie/summary` | Goalie season stats |
+| [`nhl_stats_teams()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_teams.md) | `team/summary` | Team season stats |
 | [`nhl_stats_misc()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_misc.md) | `miscellaneousSkaterStats` | Misc skater stats + draft + season list |
 | [`nhl_stats_skater_leaders()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_skater_leaders.md) | `leaders/skaters/{attribute}` | Skater leaderboards by attribute |
 | [`nhl_stats_goalie_leaders()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_goalie_leaders.md) | `leaders/goalies/{attribute}` | Goalie leaderboards by attribute |

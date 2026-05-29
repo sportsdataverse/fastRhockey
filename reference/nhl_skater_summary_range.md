@@ -1,7 +1,7 @@
 # **NHL Skater Summary (Season Range)**
 
 Aggregator helper that calls
-[`nhl_stats_skaters()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.html)
+[`nhl_stats_skaters()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_skaters.md)
 with `report_type = "summary"` for every season in
 `[start_season, end_season]` and concatenates the results into a single
 tidy frame. Mirrors the `Stats.skater_stats_summary` convenience helper
@@ -33,7 +33,7 @@ nhl_skater_summary_range(start_season, end_season, game_type = 2, limit = 50)
 
   Integer maximum number of rows per season request. Defaults to `50` to
   match
-  [`nhl_stats_skaters()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.html).
+  [`nhl_stats_skaters()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_skaters.md).
 
 ## Value
 
@@ -78,14 +78,14 @@ Returns `NULL` on outer failure.
 # \donttest{
   try(nhl_skater_summary_range(start_season = 2023, end_season = 2024))
 #> ── NHL Skater Summary Range ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 18:27:52 UTC
+#> ℹ Data updated: 2026-05-29 18:47:39 UTC
 #> # A tibble: 100 × 27
 #>    assists ev_goals ev_points faceoff_win_pct game_winning_goals games_played
 #>      <int>    <int>     <int>           <dbl>              <int>        <int>
 #>  1      89       39        75           0.519                 11           82
 #>  2      76       19        64           0.549                 11           80
-#>  3      83       22        63           1                      4           82
-#>  4      52       43        76           0.421                 13           82
+#>  3      52       43        76           0.421                 13           82
+#>  4      83       22        63           1                      4           82
 #>  5      69       30        77           0.444                  9           71
 #>  6      69       26        72           0.448                  6           79
 #>  7      63       33        68           0                      7           82

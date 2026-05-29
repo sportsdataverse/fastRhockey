@@ -87,7 +87,7 @@ nhl-api-py Python client.'><meta property="og:image" content="https://raw.github
     </div>
 
     <div class="ref-description section level2">
-    <p>Aggregator helper that calls <code><a href="https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.html">nhl_stats_teams()</a></code> with
+    <p>Aggregator helper that calls <code><a href="nhl_stats_teams.html">nhl_stats_teams()</a></code> with
 <code>report_type = "summary"</code> for every season in <code>[start_season, end_season]</code> and concatenates the results into a single tidy frame.
 Mirrors the <code>Stats.team_summary</code> convenience helper from the
 <code>nhl-api-py</code> Python client.</p>
@@ -119,7 +119,7 @@ Mirrors the <code>Stats.team_summary</code> convenience helper from the
 
 <dt id="arg-limit">limit<a class="anchor" aria-label="anchor" href="#arg-limit"></a></dt>
 <dd><p>Integer maximum number of rows per season request.
-Defaults to <code>50</code> to match <code><a href="https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.html">nhl_stats_teams()</a></code>.</p></dd>
+Defaults to <code>50</code> to match <code><a href="nhl_stats_teams.html">nhl_stats_teams()</a></code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -131,7 +131,7 @@ Defaults to <code>50</code> to match <code><a href="https://fastRhockey.sportsda
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_team_summary_range</span><span class="op">(</span>start_season <span class="op">=</span> <span class="fl">2023</span>, end_season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Team Summary Range ───────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 18:28:01 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-29 18:47:48 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 64 × 26</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    faceoff_win_pct games_played goals_against goals_against_per_game goals_for</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>

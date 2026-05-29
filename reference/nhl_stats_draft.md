@@ -46,7 +46,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_stats_draft())
 #> ── NHL Stats Draft ──────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 18:27:55 UTC
+#> ℹ Data updated: 2026-05-29 18:47:41 UTC
 #> # A tibble: 64 × 3
 #>       id draft_year rounds
 #>    <int>      <int>  <int>
@@ -63,7 +63,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #> # ℹ 54 more rows
   try(nhl_stats_draft(draft_year = 2024))
 #> ── NHL Stats Draft ──────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 18:27:55 UTC
+#> ℹ Data updated: 2026-05-29 18:47:41 UTC
 #> # A tibble: 1 × 3
 #>      id draft_year rounds
 #>   <int>      <int>  <int>

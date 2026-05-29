@@ -135,7 +135,7 @@ following columns (or the raw API response list when `raw = TRUE`):
 # \donttest{
   try(nhl_game_pbp(game_id = 2024020001))
 #> ── NHL Game PBP from NHL.com ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 18:27:14 UTC
+#> ℹ Data updated: 2026-05-29 18:46:51 UTC
 #> # A tibble: 850 × 93
 #>    event_type   event secondary_type event_team_abbr event_team_type description
 #>    <chr>        <chr> <chr>          <chr>           <chr>           <glue>     

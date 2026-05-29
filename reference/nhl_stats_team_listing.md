@@ -6,7 +6,7 @@ Returns the top-level team listing from the NHL Stats REST API. When
 league-wide listing; when `team_id` is supplied it hits
 `https://api.nhle.com/stats/rest/{lang}/team/id/{team_id}` and returns a
 single-team payload. Distinct from
-[`nhl_stats_teams()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.html),
+[`nhl_stats_teams()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_teams.md),
 which hits the per-report stats endpoints.
 
 ## Usage
@@ -57,7 +57,7 @@ the following columns:
 # \donttest{
   try(nhl_stats_team_listing())
 #> ── NHL Stats Team Listing ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 18:27:59 UTC
+#> ℹ Data updated: 2026-05-29 18:47:46 UTC
 #> # A tibble: 62 × 6
 #>       id franchise_id full_name              league_id raw_tricode tri_code
 #>    <int>        <int> <chr>                      <int> <chr>       <chr>   
@@ -74,7 +74,7 @@ the following columns:
 #> # ℹ 52 more rows
   try(nhl_stats_team_listing(team_id = 10))
 #> ── NHL Stats Team Listing ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 18:27:59 UTC
+#> ℹ Data updated: 2026-05-29 18:47:47 UTC
 #> # A tibble: 1 × 6
 #>      id franchise_id full_name           league_id raw_tricode tri_code
 #>   <int>        <int> <chr>                   <int> <chr>       <chr>   

@@ -526,9 +526,6 @@ NHL Stats REST endpoint family overview
 
 - [`nhl_stats_rest`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.md)
   [`nhl_stats`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.md)
-  [`nhl_stats_skaters`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.md)
-  [`nhl_stats_goalies`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.md)
-  [`nhl_stats_teams`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_rest.md)
   :
 
   **NHL Stats REST API Endpoint Overview**
