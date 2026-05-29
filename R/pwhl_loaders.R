@@ -1,3 +1,53 @@
+#' @name pwhl_loaders
+#' @aliases pwhl_loaders load_pwhl
+#' @title **PWHL Data Loaders Overview**
+#' @description
+#' Loaders for season-level PWHL datasets published as GitHub releases on
+#' `sportsdataverse/sportsdataverse-data`. Each helper is a thin wrapper
+#' around [.pwhl_release_loader()] which validates seasons, builds the
+#' per-asset URLs from a `(release_tag, file_prefix)` pair, downloads in
+#' parallel with optional `progressr` progress + optional `DBI::DBIConnection`
+#' insertion, and tags the result with the `fastRhockey_data` S3 class.
+#' Adding a new dataset is one new row in the catalog table below.
+#'
+#' @details
+#'
+#' ## **Loader catalog**
+#'
+#' | Function | Release tag | File prefix |
+#' |---|---|---|
+#' | [load_pwhl_pbp()]            | `pwhl_pbp`              | `play_by_play`    |
+#' | [load_pwhl_player_box()]     | `pwhl_player_boxscores` | `player_box`      |
+#' | [load_pwhl_skater_box()]     | `pwhl_skater_boxscores` | `skater_box`      |
+#' | [load_pwhl_goalie_box()]     | `pwhl_goalie_boxscores` | `goalie_box`      |
+#' | [load_pwhl_team_box()]       | `pwhl_team_boxscores`   | `team_box`        |
+#' | [load_pwhl_schedule()]       | `pwhl_schedules`        | `pwhl_schedule`   |
+#' | [load_pwhl_rosters()]        | `pwhl_rosters`          | `rosters`         |
+#' | [load_pwhl_game_rosters()]   | `pwhl_game_rosters`     | `game_rosters`    |
+#' | [load_pwhl_game_info()]      | `pwhl_game_info`        | `game_info`       |
+#' | [load_pwhl_scoring_summary()]| `pwhl_scoring_summary`  | `scoring_summary` |
+#' | [load_pwhl_penalty_summary()]| `pwhl_penalty_summary`  | `penalty_summary` |
+#' | [load_pwhl_three_stars()]    | `pwhl_three_stars`      | `three_stars`     |
+#' | [load_pwhl_officials()]      | `pwhl_officials`        | `officials`       |
+#' | [load_pwhl_shots_by_period()]| `pwhl_shots_by_period`  | `shots_by_period` |
+#' | [load_pwhl_shootout()]       | `pwhl_shootout`         | `shootout_summary`|
+#'
+#' ## **DB helper**
+#'
+#' | Function | Purpose |
+#' |---|---|
+#' | [update_pwhl_db()] | Idempotent loader -> DB writer (delta only) |
+#'
+#' @section Season Convention:
+#'
+#' PWHL loaders use the **end year** of the season (e.g. `2026` for the
+#' 2025-26 season), matching `most_recent_pwhl_season()`.
+#'
+#' @keywords PWHL Loaders
+#' @family PWHL Loaders
+NULL
+
+
 ## ─── PWHL release-tag → loader catalog ────────────────────────────────────
 ##
 ## Each row defines one season-level dataset published to a GitHub release on

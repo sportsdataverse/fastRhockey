@@ -28,6 +28,14 @@ the following columns:\tabular{lll}{
    event_type \tab character \tab Event type code ("CHANGE"). \cr
    game_seconds_remaining \tab numeric \tab Seconds remaining in the game. \cr
 }
+
+
+Source of truth is the legacy stats-API shiftcharts endpoint
+(\code{api.nhle.com/stats/rest/en/shiftcharts}). When that endpoint returns
+\verb{\{total: 0, data: []\}} -- which has become common for 2024-25 and 2025-26
+regular-season games -- we fall back to scraping the legacy HTML TOI
+reports at \verb{nhl.com/scores/htmlreports/\{season\}/T\{H|V\}\{gameno\}.HTM},
+which still publish per-shift records for the same games.
 }
 \description{
 Returns information on game shifts for a given game id

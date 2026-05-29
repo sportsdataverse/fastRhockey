@@ -36,7 +36,7 @@ A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
 }
 \description{
 Returns NHL team information for a given team abbreviation.
-Uses the new NHL API via \code{\link{nhl_teams}}.
+Uses the new NHL API via \link{nhl_teams}.
 
 \strong{Breaking change:} The old \code{team_id} (integer) parameter has been replaced
 by \code{team_abbr} (3-letter string, e.g., "TBL") because the new NHL API no

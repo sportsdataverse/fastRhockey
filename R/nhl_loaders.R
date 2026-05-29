@@ -1,3 +1,55 @@
+#' @name nhl_loaders
+#' @aliases nhl_loaders load_nhl
+#' @title **NHL Data Loaders Overview**
+#' @description
+#' Loaders for season-level NHL datasets published as GitHub releases on
+#' `sportsdataverse/sportsdataverse-data`. Each helper is a thin wrapper
+#' around [.nhl_release_loader()] which validates the requested seasons,
+#' builds the per-asset URLs from a `(release_tag, file_prefix)` pair,
+#' downloads in parallel (with optional `progressr` progress + optional
+#' `DBI::DBIConnection` insertion), and tags the result with the
+#' `fastRhockey_data` S3 class. Adding a new dataset is one new row in
+#' the catalog table below.
+#'
+#' @details
+#'
+#' ## **Loader catalog**
+#'
+#' | Function | Release tag | File prefix |
+#' |---|---|---|
+#' | [load_nhl_pbp()]             | `nhl_pbp_full`           | `play_by_play`       |
+#' | [load_nhl_pbp_lite()]        | `nhl_pbp_lite`           | `play_by_play_lite`  |
+#' | [load_nhl_player_box()]      | `nhl_player_boxscores`   | `player_box`         |
+#' | [load_nhl_skater_box()]      | `nhl_skater_boxscores`   | `skater_box`         |
+#' | [load_nhl_goalie_box()]      | `nhl_goalie_boxscores`   | `goalie_box`         |
+#' | [load_nhl_team_box()]        | `nhl_team_boxscores`     | `team_box`           |
+#' | [load_nhl_schedule()]        | `nhl_schedules`          | `nhl_schedule`       |
+#' | [load_nhl_rosters()]         | `nhl_rosters`            | `rosters`            |
+#' | [load_nhl_game_rosters()]    | `nhl_game_rosters`       | `game_rosters`       |
+#' | [load_nhl_game_info()]       | `nhl_game_info`          | `game_info`          |
+#' | [load_nhl_scoring()]         | `nhl_scoring`            | `scoring`            |
+#' | [load_nhl_penalties()]       | `nhl_penalties`          | `penalties`          |
+#' | [load_nhl_three_stars()]     | `nhl_three_stars`        | `three_stars`        |
+#' | [load_nhl_scratches()]       | `nhl_scratches`          | `scratches`          |
+#' | [load_nhl_linescore()]       | `nhl_linescore`          | `linescore`          |
+#' | [load_nhl_shifts()]          | `nhl_shifts`             | `shifts`             |
+#' | [load_nhl_officials()]       | `nhl_officials`          | `officials`          |
+#' | [load_nhl_shots_by_period()] | `nhl_shots_by_period`    | `shots_by_period`    |
+#' | [load_nhl_shootout()]        | `nhl_shootout`           | `shootout_summary`   |
+#'
+#' ## **DB helpers**
+#'
+#' | Function | Purpose |
+#' |---|---|
+#' | [update_nhl_db()]         | Idempotent loader → DB writer (delta only) |
+#' | [build_nhl_db()]          | Bulk-build a DB from release files |
+#' | [get_missing_nhl_games()] | Show games missing from a DB target |
+#'
+#' @keywords NHL Loaders
+#' @family NHL Loaders
+NULL
+
+
 ## ─── NHL release-tag → loader catalog ─────────────────────────────────────
 ##
 ## Each row defines one season-level dataset published to a GitHub release on

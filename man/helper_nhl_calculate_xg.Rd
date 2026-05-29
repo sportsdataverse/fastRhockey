@@ -8,7 +8,7 @@ helper_nhl_calculate_xg(pbp)
 }
 \arguments{
 \item{pbp}{A play-by-play data frame produced by
-\code{\link{nhl_game_pbp}} or \code{\link{nhl_game_feed}}.
+\link{nhl_game_pbp} or \link{nhl_game_feed}.
 Must contain columns needed by \code{helper_nhl_prepare_xg_data()}: \code{event_type},
 \code{secondary_type}, \code{period_type}, \code{period}, \code{game_seconds}, \code{x}, \code{y},
 \code{x_fixed}, \code{event_team_abbr}, \code{home_abbr}, \code{away_abbr}, \code{home_skaters},

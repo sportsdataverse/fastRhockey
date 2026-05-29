@@ -157,6 +157,10 @@ navbar:
 
 reference:
   - title: "Professional Women's Hockey League"
+  - subtitle: Family Overview
+    desc: PWHL endpoint family overview
+    contents:
+      - "`pwhl`"
   - subtitle: Game Data
     desc: Functions for accessing PWHL game-level data
     contents:
@@ -189,6 +193,10 @@ reference:
       - "`pwhl_transactions`"
       - "`pwhl_playoff_bracket`"
   - title: "PWHL Data Loaders"
+  - subtitle: Family Overview
+    desc: PWHL loader family overview (release-tag catalog)
+    contents:
+      - "`pwhl_loaders`"
   - subtitle: Full Seasons of PWHL Data
     desc: Functions that load full seasons of pre-scraped PWHL data from the sportsdataverse-data releases
     contents:
@@ -212,6 +220,10 @@ reference:
     contents:
       - "`update_pwhl_db`"
   - title: "NHL Data"
+  - subtitle: Family Overview
+    desc: NHL Web API endpoint family overview
+    contents:
+      - "`nhl_web`"
   - subtitle: Game Data
     desc: Functions exported by fastRhockey sourced from the game endpoint of the NHL API
     contents:
@@ -290,6 +302,10 @@ reference:
       - "`nhl_stats_misc`"
       - "`nhl_skater_stats_leaders`"
       - "`nhl_goalie_stats_leaders`"
+  - subtitle: NHL Stats REST Family Overview
+    desc: NHL Stats REST endpoint family overview
+    contents:
+      - "`nhl_stats_rest`"
   - subtitle: Stats REST Dedicated Wrappers
     desc: Dedicated wrappers for the NHL Stats REST API that were previously only reachable via `nhl_stats_misc()`
     contents:
@@ -306,6 +322,10 @@ reference:
       - "`nhl_stats_team_listing`"
       - "`nhl_stats_game_listing`"
       - "`nhl_stats_content_module`"
+  - subtitle: NHL Edge Family Overview
+    desc: NHL Edge analytics endpoint family overview
+    contents:
+      - "`nhl_edge`"
   - subtitle: NHL Edge Analytics - Skater
     desc: Skater advanced metrics from NHL Edge (`api-web.nhle.com/v1/edge/skater-*`)
     contents:
@@ -350,6 +370,10 @@ reference:
       - "`nhl_edge_team_skating_distance_top_10`"
       - "`nhl_edge_team_zone_time_details`"
       - "`nhl_edge_team_zone_time_top_10`"
+  - subtitle: NHL Records Family Overview
+    desc: NHL Records API endpoint family overview
+    contents:
+      - "`nhl_records`"
   - subtitle: NHL Records API
     desc: Historical records from `records.nhl.com/site/api/`
     contents:
@@ -412,6 +436,10 @@ reference:
       - "`nhl_postal_lookup`"
       - "`nhl_smartlinks`"
   - title: "fastRhockey Data"
+  - subtitle: Family Overview
+    desc: NHL loader family overview (release-tag catalog)
+    contents:
+      - "`nhl_loaders`"
   - subtitle: Full Seasons of NHL Data
     desc: Functions exported by fastRhockey which load full seasons of fastRhockey NHL data
     contents:
@@ -443,6 +471,10 @@ reference:
     contents:
       - "`data`"
   - title: "Helpers"
+  - subtitle: NHL xG Family Overview
+    desc: NHL expected-goals pipeline overview
+    contents:
+      - "`nhl_xg`"
   - subtitle: Helper Functions
     desc: Functions used internally by fastRhockey which assist in transforming or loading data
     contents:
@@ -460,6 +492,12 @@ reference:
       The Premier Hockey Federation (PHF) has ceased operations. These functions are
       deprecated and will emit warnings when called. Historical data may still be
       available via the load_phf_* functions.
+  - subtitle: PHF Family Overview
+    desc: PHF endpoint family overview (all deprecated)
+    contents:
+      - "`phf`"
+  - subtitle: Deprecated PHF Functions
+    desc: PHF function listing (all deprecated)
     contents:
       - "`phf_game_all`"
       - "`phf_pbp`"

@@ -11,10 +11,10 @@ nhl_draft_prospects_info(year, prospect_category = 1)
 
 \item{prospect_category}{Integer. Prospect category:
 \itemize{
-\item 1 = North American Skater
-\item 2 = International Skater
-\item 3 = North American Goalie
-\item 4 = International Goalie
+\item \code{1} = North American Skater
+\item \code{2} = International Skater
+\item \code{3} = North American Goalie
+\item \code{4} = International Goalie
 }}
 }
 \value{

@@ -8,8 +8,8 @@ helper_nhl_prepare_xg_data(x)
 }
 \arguments{
 \item{x}{A play-by-play data frame produced by
-\code{\link{nhl_game_pbp}} or
-\code{\link{nhl_game_feed}}.}
+\link{nhl_game_pbp} or
+\link{nhl_game_feed}.}
 }
 \value{
 A tibble with model features plus identifiers
