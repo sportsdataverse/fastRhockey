@@ -44,6 +44,9 @@ nhl_game_shifts <- function(game_id){
   # Check the result
   check_status(res)
 
+  # Default return so the outer `return(shifts)` cannot error with
+  # "object 'shifts' not found" if the body below short-circuits or errors.
+  shifts <- NULL
 
   tryCatch(
     expr = {
@@ -51,6 +54,19 @@ nhl_game_shifts <- function(game_id){
         httr::content(as = "text", encoding = "UTF-8")
       site <- jsonlite::fromJSON(resp)
 
+      # The endpoint is no longer populated for a growing share of
+      # 2024-25 and 2025-26 games (~38% of 2025-26 as of late 2026).
+      # When the API returns `{total: 0, data: []}`, short-circuit with
+      # an empty tibble rather than letting the dplyr pipeline error
+      # on missing columns and trip the misleading "no game shifts
+      # data for X available!" message below.
+      data_empty <- is.null(site$data) ||
+        (is.data.frame(site$data) && nrow(site$data) == 0) ||
+        (is.list(site$data) && length(site$data) == 0)
+
+      if (data_empty) {
+        shifts <- tibble::tibble()
+      } else {
       shifts_raw <- site$data %>%
         dplyr::tibble() %>%
         janitor::clean_names() %>%
@@ -121,6 +137,7 @@ nhl_game_shifts <- function(game_id){
           ids_off = ifelse(is.na(.data$ids_off), 0, .data$ids_off)
         ) %>%
         make_fastRhockey_data("NHL Game Shifts Information from NHL.com",Sys.time())
+      } # end else (non-empty branch)
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no game shifts data for {game_id} available!"))
