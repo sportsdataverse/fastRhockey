@@ -3,7 +3,6 @@
 \name{update_phf_db}
 \alias{update_phf_db}
 \alias{phf_db}
-\alias{phf}
 \alias{phf_pbp_db}
 \title{\strong{Update or create a fastRhockey PHF play-by-play database}}
 \usage{

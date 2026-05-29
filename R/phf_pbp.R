@@ -287,7 +287,7 @@ load_phf_games <- function(){
 }
 
 #' @name update_phf_db
-#' @aliases update_phf_db phf_db phf phf_pbp_db
+#' @aliases update_phf_db phf_db phf_pbp_db
 #' @title
 #' **Update or create a fastRhockey PHF play-by-play database**
 #' @description update_phf_db() updates or creates a database with `fastRhockey`

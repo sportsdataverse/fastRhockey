@@ -3,9 +3,6 @@
 \name{nhl_stats_rest}
 \alias{nhl_stats_rest}
 \alias{nhl_stats}
-\alias{nhl_stats_skaters}
-\alias{nhl_stats_goalies}
-\alias{nhl_stats_teams}
 \title{\strong{NHL Stats REST API Endpoint Overview}}
 \description{
 Wrappers around the NHL Stats REST backend at

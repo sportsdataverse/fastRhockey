@@ -4,7 +4,7 @@
 #' @description
 #' Loaders for season-level NHL datasets published as GitHub releases on
 #' `sportsdataverse/sportsdataverse-data`. Each helper is a thin wrapper
-#' around [.nhl_release_loader()] which validates the requested seasons,
+#' around `.nhl_release_loader()` which validates the requested seasons,
 #' builds the per-asset URLs from a `(release_tag, file_prefix)` pair,
 #' downloads in parallel (with optional `progressr` progress + optional
 #' `DBI::DBIConnection` insertion), and tags the result with the

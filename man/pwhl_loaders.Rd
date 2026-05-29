@@ -7,7 +7,7 @@
 \description{
 Loaders for season-level PWHL datasets published as GitHub releases on
 \code{sportsdataverse/sportsdataverse-data}. Each helper is a thin wrapper
-around \code{\link[=.pwhl_release_loader]{.pwhl_release_loader()}} which validates seasons, builds the
+around \code{.pwhl_release_loader()} which validates seasons, builds the
 per-asset URLs from a \verb{(release_tag, file_prefix)} pair, downloads in
 parallel with optional \code{progressr} progress + optional \code{DBI::DBIConnection}
 insertion, and tags the result with the \code{fastRhockey_data} S3 class.

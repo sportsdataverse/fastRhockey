@@ -1,5 +1,5 @@
 #' @name nhl_stats_rest
-#' @aliases nhl_stats_rest nhl_stats nhl_stats_skaters nhl_stats_goalies nhl_stats_teams
+#' @aliases nhl_stats_rest nhl_stats
 #' @title **NHL Stats REST API Endpoint Overview**
 #' @description
 #' Wrappers around the NHL Stats REST backend at
