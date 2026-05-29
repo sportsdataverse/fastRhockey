@@ -65,7 +65,7 @@ Returns a data frame with team statistics.
 ``` r
 # \donttest{
   try(nhl_stats_teams())
-#> 2026-05-29 16:36:59.755903: No team stats data
+#> 2026-05-29 16:57:16.32785: No team stats data
 #> NULL
 # }
 ```

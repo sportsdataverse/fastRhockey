@@ -45,7 +45,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_cat_edge_goalie_detail(player_id = 8475883))
 #> ── NHL CAT Edge Goalie Detail ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:35:05 UTC
+#> ℹ Data updated: 2026-05-29 16:55:38 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    

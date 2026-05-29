@@ -74,7 +74,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_franchise_season_results())
 #> ── NHL Records Franchise Season Results ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:36:24 UTC
+#> ℹ Data updated: 2026-05-29 16:56:49 UTC
 #> # A tibble: 2,833 × 38
 #>       id conference_abbrev conference_name conference_sequence decision
 #>    <int> <chr>             <chr>                         <int> <chr>   

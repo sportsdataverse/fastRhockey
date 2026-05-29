@@ -65,7 +65,7 @@ failure, with the following columns:
 # \donttest{
   try(nhl_stats_skater_milestones())
 #> ── NHL Stats Skater Milestones ──────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 16:36:58 UTC
+#> ℹ Data updated: 2026-05-29 16:57:15 UTC
 #> # A tibble: 100 × 17
 #>       id assists current_team_id first_name   game_type_id games_played goals
 #>    <int>   <int>           <int> <chr>               <int>        <int> <int>
