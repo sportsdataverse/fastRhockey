@@ -171,6 +171,32 @@ nhl_game_shifts <- function(game_id){
 }
 
 
+#' Title-case a name string from an uppercase NHL TOI report
+#'
+#' `stringr::str_to_title()` alone produces "Mcdonald" / "O'brien" — fix the
+#' usual hockey-name prefixes (Mc, Mac, leading apostrophe) so the
+#' HTML-fallback `player_name` column matches the proper-case shape the JSON
+#' shiftcharts endpoint returns.
+#' @keywords internal
+#' @noRd
+.smart_titlecase <- function(x) {
+  if (length(x) == 0 || is.na(x)) return(x)
+  s <- stringr::str_to_title(x)
+  fix_prefix <- function(s, pattern) {
+    stringr::str_replace_all(s, pattern, function(m) {
+      paste0(stringr::str_sub(m, 1, -2), toupper(stringr::str_sub(m, -1, -1)))
+    })
+  }
+  # Capitalize the letter immediately following Mc / Mac / a single quote.
+  # Order matters: do Mac before Mc so "Macdonald" maps to "MacDonald" not
+  # "McAcdonald".
+  s <- fix_prefix(s, "\\bMac[a-z]")
+  s <- fix_prefix(s, "\\bMc[a-z]")
+  s <- fix_prefix(s, "'[a-z]")
+  s
+}
+
+
 #' Fallback to the legacy HTML TOI reports
 #'
 #' For games where `api.nhle.com/stats/rest/en/shiftcharts` returns an empty
@@ -187,9 +213,12 @@ nhl_game_shifts <- function(game_id){
 #' `Shift # | Per | StartElapsed/Remaining | EndElapsed/Remaining | Duration | Event`.
 #'
 #' We walk both reports' player-headings and shift rows in document order,
-#' map sweater numbers back to NHL `player_id`s via `nhl_game_boxscore()`,
-#' and return a tibble in the same shape as the JSON `shifts_raw` so the
-#' aggregation pipeline downstream is identical regardless of source.
+#' parse `LAST, FIRST` into a proper-case `Firstname Lastname` (matching the
+#' JSON shiftcharts output), normalize the team name to title case
+#' (`"BUFFALO SABRES"` -> `"Buffalo Sabres"`), and map sweater numbers back
+#' to NHL `player_id`s via `nhl_game_boxscore()`. The result is a tibble in
+#' the same shape as the JSON `shifts_raw` so the aggregation pipeline
+#' downstream is identical regardless of source.
 #' @keywords internal
 #' @noRd
 .parse_toi_html <- function(game_id) {
@@ -209,7 +238,7 @@ nhl_game_shifts <- function(game_id){
       rvest::html_nodes("td.teamHeading") %>%
       rvest::html_text(trim = TRUE)
     team_name <- if (length(team_heads) >= 1 && nzchar(team_heads[[1]])) {
-      team_heads[[1]]
+      .smart_titlecase(team_heads[[1]])
     } else {
       return(NULL)
     }
@@ -259,9 +288,32 @@ nhl_game_shifts <- function(game_id){
   raw <- dplyr::bind_rows(parse_side("H"), parse_side("V"))
   if (is.null(raw) || nrow(raw) == 0) return(NULL)
 
+  # Convert each "LAST, FIRST" heading (uppercase per the TOI report) into a
+  # proper-case "First Last" matching the JSON shiftcharts output. Done once
+  # over the unique set so repeated shifts for the same player don't re-run
+  # the regex pipeline.
+  unique_lf <- unique(raw$last_first)
+  name_lookup <- tibble::tibble(
+    last_first = unique_lf,
+    player_name_html = vapply(unique_lf, function(lf) {
+      if (is.na(lf) || !nzchar(lf)) return(NA_character_)
+      parts <- stringr::str_split(lf, ",\\s*", n = 2)[[1]]
+      if (length(parts) == 2L) {
+        last <- .smart_titlecase(stringr::str_trim(parts[[1]]))
+        first <- .smart_titlecase(stringr::str_trim(parts[[2]]))
+        paste(first, last)
+      } else {
+        .smart_titlecase(lf)
+      }
+    }, character(1))
+  )
+  raw <- raw %>% dplyr::left_join(name_lookup, by = "last_first")
+
   # Resolve sweater -> player_id via the boxscore. boxscore$skater_stats and
   # $goalie_stats both expose home_away + team_id + team_abbrev + player_id
   # + sweater_number, so a join on (home_away, sweater_number) is unambiguous.
+  # The boxscore's player_name column comes through in api-web initial form
+  # ("B. Byram"); we prefer the HTML-derived proper-case full name above.
   box <- tryCatch(nhl_game_boxscore(game_id = game_id), error = function(e) NULL)
   if (is.null(box) || is.null(box$skater_stats)) return(NULL)
 
@@ -269,7 +321,7 @@ nhl_game_shifts <- function(game_id){
     if (!is.null(box$skater_stats)) box$skater_stats else NULL,
     if (!is.null(box$goalie_stats)) box$goalie_stats else NULL
   )
-  needed_lookup_cols <- c("home_away", "sweater_number", "player_id", "player_name", "team_id", "team_abbrev")
+  needed_lookup_cols <- c("home_away", "sweater_number", "player_id", "team_id", "team_abbrev")
   if (!all(needed_lookup_cols %in% names(lookup))) return(NULL)
   lookup <- lookup %>%
     dplyr::select(dplyr::all_of(needed_lookup_cols))
@@ -277,7 +329,8 @@ nhl_game_shifts <- function(game_id){
   raw <- raw %>%
     dplyr::mutate(home_away = ifelse(.data$side == "H", "home", "away")) %>%
     dplyr::left_join(lookup, by = c("home_away", "sweater_number")) %>%
-    dplyr::filter(!is.na(.data$player_id))
+    dplyr::filter(!is.na(.data$player_id)) %>%
+    dplyr::mutate(player_name = dplyr::coalesce(.data$player_name_html, NA_character_))
   if (nrow(raw) == 0) return(NULL)
 
   raw <- raw %>%
