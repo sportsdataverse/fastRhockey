@@ -25,7 +25,7 @@ A `fastRhockey_data` tibble of attendance records, or `NULL` on failure.
 # \donttest{
   try(nhl_records_attendance())
 #> ── NHL Records Attendance ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:42:48 UTC
+#> ℹ Data updated: 2026-05-29 16:15:03 UTC
 #> # A tibble: 80 × 5
 #>       id playoff_attendance regular_attendance season_id total_attendance
 #>    <int>              <int>              <int>     <int>            <int>

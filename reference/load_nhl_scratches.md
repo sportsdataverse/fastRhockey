@@ -44,9 +44,20 @@ A data frame of class `fastRhockey_data`
 ``` r
 # \donttest{
   try(load_nhl_scratches(2026))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_scratches/scratches_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_scratches/scratches_2026.rds>
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 9,302 × 4
+#>         id firstName lastName      game_id
+#>      <int> <chr>     <chr>           <int>
+#>  1 8478881 Brett     Seney      2025020001
+#>  2 8478981 Cavan     Fitzgerald 2025020001
+#>  3 8481568 Alex      Vlasic     2025020001
+#>  4 8481806 Louis     Crevier    2025020001
+#>  5 8482117 Lukas     Reichel    2025020001
+#>  6 8483611 Mitchell  Weeks      2025020001
+#>  7 8479393 Noah      Gregor     2025020001
+#>  8 8481655 Cole      Schwindt   2025020001
+#>  9 8484304 Uvis      Balinskis  2025020001
+#> 10 8476856 Mathew    Dumba      2025020002
+#> # ℹ 9,292 more rows
 # }
 ```

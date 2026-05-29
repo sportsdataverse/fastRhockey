@@ -40,7 +40,7 @@ cohort, or `NULL` on failure / empty response.
 # \donttest{
   try(nhl_edge_goalie_comparison(player_id = 8475883))
 #> ── NHL Edge Goalie Comparison ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:42:06 UTC
+#> ℹ Data updated: 2026-05-29 16:14:14 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    

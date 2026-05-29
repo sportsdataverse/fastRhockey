@@ -34,7 +34,7 @@ failure.
 # \donttest{
   try(nhl_records_franchise_team_totals())
 #> ── NHL Records Franchise Team Totals ────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:43:01 UTC
+#> ℹ Data updated: 2026-05-29 16:15:18 UTC
 #> # A tibble: 120 × 38
 #>       id active_franchise active_team  cups first_season_id franchise_id
 #>    <int>            <int> <lgl>       <int>           <int>        <int>

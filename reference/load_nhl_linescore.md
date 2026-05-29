@@ -45,9 +45,22 @@ A data frame of class `fastRhockey_data`
 ``` r
 # \donttest{
   try(load_nhl_linescore(2026))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_linescore/linescore_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_linescore/linescore_2026.rds>
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 1,387 × 10
+#>       game_id home_team_id home_team_abbr home_goals home_shots away_team_id
+#>         <int>        <int> <chr>               <int>      <int>        <int>
+#>  1 2025020001           13 FLA                     3         37           16
+#>  2 2025020002            3 NYR                     0         25            5
+#>  3 2025020003           26 LAK                     1         25           21
+#>  4 2025020004           10 TOR                     5         27            8
+#>  5 2025020005           15 WSH                     1         36            6
+#>  6 2025020006           22 EDM                     3         35           20
+#>  7 2025020007           54 VGK                     5         35           26
+#>  8 2025020008            6 BOS                     4         33           16
+#>  9 2025020009            7 BUF                     0         37            3
+#> 10 2025020010           17 DET                     1         31            8
+#> # ℹ 1,377 more rows
+#> # ℹ 4 more variables: away_team_abbr <chr>, away_goals <int>, away_shots <int>,
+#> #   has_shootout <lgl>
 # }
 ```

@@ -39,7 +39,7 @@ empty response.
 # \donttest{
   try(nhl_edge_team_detail(team_id = 10))
 #> ── NHL Edge Team Detail ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:42:30 UTC
+#> ℹ Data updated: 2026-05-29 16:14:41 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    

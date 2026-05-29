@@ -39,7 +39,7 @@ Returns a data frame with columns: id, draft_year, rounds.
 # \donttest{
   try(nhl_stats_draft())
 #> ── NHL Stats Draft ──────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:43:23 UTC
+#> ℹ Data updated: 2026-05-29 16:15:45 UTC
 #> # A tibble: 64 × 3
 #>       id draft_year rounds
 #>    <int>      <int>  <int>
@@ -56,7 +56,7 @@ Returns a data frame with columns: id, draft_year, rounds.
 #> # ℹ 54 more rows
   try(nhl_stats_draft(draft_year = 2024))
 #> ── NHL Stats Draft ──────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:43:23 UTC
+#> ℹ Data updated: 2026-05-29 16:15:45 UTC
 #> # A tibble: 1 × 3
 #>      id draft_year rounds
 #>   <int>      <int>  <int>

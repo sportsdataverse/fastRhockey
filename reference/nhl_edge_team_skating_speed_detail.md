@@ -40,7 +40,7 @@ failure / empty response.
 # \donttest{
   try(nhl_edge_team_skating_speed_detail(team_id = 10))
 #> ── NHL Edge Team Skating Speed Detail ───────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:42:35 UTC
+#> ℹ Data updated: 2026-05-29 16:14:47 UTC
 #> # A tibble: 10 × 24
 #>    game_center_link    game_date game_type is_home_team time_in_period player_id
 #>    <chr>               <chr>         <int> <lgl>        <chr>              <int>

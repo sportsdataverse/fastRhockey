@@ -47,22 +47,21 @@ A data frame of class `fastRhockey_data`
 # \donttest{
   try(load_pwhl_rosters(2024))
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 174 × 16
-#>    player_id team_id season player_name  first_name last_name primary_hand dob  
-#>        <dbl>   <dbl>  <int> <chr>        <chr>      <chr>     <chr>        <chr>
-#>  1        49       1   2024 Lexie Adzija Lexie      Adzija    L            2000…
-#>  2        18       1   2024 Sophie Shir… Sophie     Shirley   R            1999…
-#>  3        15       1   2024 Alina Müller Alina      Müller    L            1998…
-#>  4       111       1   2024 Taylor Wenc… Taylor     Wenczkow… R            1997…
-#>  5       176       1   2024 Caitrin Lon… Caitrin    Lonergan  R            1997…
-#>  6       110       1   2024 Amanda Pelk… Amanda     Pelkey    R            1993…
-#>  7         9       1   2024 Taylor Gira… Taylor     Girard    L            1998…
-#>  8       109       1   2024 Gigi Marvin  Gigi       Marvin    R            1987…
-#>  9         1       1   2024 Hannah Bran… Hannah     Brandt    R            1993…
-#> 10        13       1   2024 Hilary Knig… Hilary     Knight    R            1989…
-#> # ℹ 164 more rows
-#> # ℹ 8 more variables: height <lgl>, position <chr>, home_town <chr>,
-#> #   league <chr>, age <dbl>, player_headshot <chr>, regular_season <lgl>,
-#> #   team <chr>
+#> # A tibble: 604 × 12
+#>    team_id team   team_abbr team_side player_type player_id first_name last_name
+#>      <int> <chr>  <chr>     <chr>     <chr>           <int> <chr>      <chr>    
+#>  1       6 PWHL … TOR       home      skater             71 Jocelyne   Larocque 
+#>  2       6 PWHL … TOR       home      skater            133 Lauriane   Rougeau  
+#>  3       6 PWHL … TOR       home      skater             68 Kali       Flanagan 
+#>  4       6 PWHL … TOR       home      skater            131 Olivia     Knowles  
+#>  5       6 PWHL … TOR       home      skater            101 Alexa      Vasko    
+#>  6       6 PWHL … TOR       home      skater             74 Allie      Munroe   
+#>  7       6 PWHL … TOR       home      skater             67 Renata     Fast     
+#>  8       6 PWHL … TOR       home      skater            126 Samantha   Cogan    
+#>  9       6 PWHL … TOR       home      skater             65 Jesse      Compher  
+#> 10       6 PWHL … TOR       home      skater             72 Rebecca    Leslie   
+#> # ℹ 594 more rows
+#> # ℹ 4 more variables: jersey_number <int>, position <chr>, birth_date <chr>,
+#> #   season <int>
 # }
 ```

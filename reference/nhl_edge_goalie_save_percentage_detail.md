@@ -40,7 +40,7 @@ failure / empty response.
 # \donttest{
   try(nhl_edge_goalie_save_percentage_detail(player_id = 8475883))
 #> ── NHL Edge Goalie Save Percentage Detail ───────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:42:09 UTC
+#> ℹ Data updated: 2026-05-29 16:14:18 UTC
 #> # A tibble: 10 × 18
 #>    game_center_link             save_pctg game_date decision player_on_home_team
 #>    <chr>                            <dbl> <chr>     <chr>    <lgl>              

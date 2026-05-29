@@ -81,8 +81,8 @@ A data frame of class `fastRhockey_data`. Common columns include:
 #>  3       4 3           Wednesda… 2024-01-03T1… 7:14 pm E… 9:35 pm… 2:21         
 #>  4       5 4           Friday, … 2024-01-05T1… 7:15 pm E… 9:40 pm… 2:25         
 #>  5       6 5           Saturday… 2024-01-06T1… 2:42 pm C… 5:03 pm… 2:21         
-#>  6       9 8           Wednesda… 2024-01-10T1… 7:11 pm E… 9:37 pm… 2:26         
-#>  7       8 7           Wednesda… 2024-01-10T1… 7:08 pm C… 9:28 pm… 2:20         
+#>  6       8 7           Wednesda… 2024-01-10T1… 7:08 pm C… 9:28 pm… 2:20         
+#>  7       9 8           Wednesda… 2024-01-10T1… 7:11 pm E… 9:37 pm… 2:26         
 #>  8      10 9           Saturday… 2024-01-13T1… 1:09 pm E… 3:25 pm… 2:16         
 #>  9      11 10          Saturday… 2024-01-13T1… 3:48 pm E… 6:18 pm… 2:30         
 #> 10      12 11          Sunday, … 2024-01-14T1… 3:08 pm C… 5:32 pm… 2:24         

@@ -66,7 +66,7 @@ game. Common columns include:
 # \donttest{
   try(load_pwhl_goalie_box(2024))
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 340 × 22
+#> # A tibble: 340 × 21
 #>    player_id first_name last_name  position team_id game_id league toi  
 #>    <chr>     <chr>      <chr>      <chr>      <int>   <int> <chr>  <chr>
 #>  1 70        Erica      Howe       G              6       2 pwhl   0    
@@ -80,9 +80,9 @@ game. Common columns include:
 #>  9 19        Emma       Söderberg  G              1       4 pwhl   0    
 #> 10 6         Aerin      Frankel    G              1       4 pwhl   60:00
 #> # ℹ 330 more rows
-#> # ℹ 14 more variables: time_on_ice <dbl>, saves <int>, goals_against <int>,
+#> # ℹ 13 more variables: time_on_ice <dbl>, saves <int>, goals_against <int>,
 #> #   shots_against <int>, goals <int>, assists <int>, points <int>,
 #> #   penalty_minutes <int>, faceoff_attempts <int>, faceoff_wins <int>,
-#> #   faceoff_losses <int>, faceoff_pct <lgl>, starting <chr>, player_type <chr>
+#> #   faceoff_losses <int>, faceoff_pct <lgl>, starting <int>
 # }
 ```

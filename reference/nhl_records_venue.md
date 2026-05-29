@@ -25,7 +25,7 @@ A `fastRhockey_data` tibble of venues, or `NULL` on failure.
 # \donttest{
   try(nhl_records_venue())
 #> ── NHL Records Venue ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:43:13 UTC
+#> ℹ Data updated: 2026-05-29 16:15:31 UTC
 #> # A tibble: 618 × 10
 #>       id building_id city    country_code outdoor postal_code short_country_code
 #>    <int>       <int> <chr>   <chr>        <lgl>   <chr>       <chr>             

@@ -25,7 +25,7 @@ A `fastRhockey_data` tibble of trophies, or `NULL` on failure.
 # \donttest{
   try(nhl_records_trophy())
 #> ── NHL Records Trophy ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:43:13 UTC
+#> ℹ Data updated: 2026-05-29 16:15:31 UTC
 #> # A tibble: 25 × 10
 #>       id brief_description           category_id created_on description footnote
 #>    <int> <chr>                             <int> <chr>      <chr>       <lgl>   

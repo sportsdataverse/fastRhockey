@@ -72,7 +72,7 @@ game. Common columns include:
 # \donttest{
   try(load_pwhl_skater_box(2024))
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 3,205 × 23
+#> # A tibble: 3,205 × 22
 #>    player_id first_name last_name position team_id game_id league toi  
 #>    <chr>     <chr>      <chr>     <chr>      <int>   <int> <chr>  <chr>
 #>  1 71        Jocelyne   Larocque  LD             6       2 pwhl   26:41
@@ -86,10 +86,9 @@ game. Common columns include:
 #>  9 65        Jesse      Compher   C              6       2 pwhl   14:55
 #> 10 72        Rebecca    Leslie    RW             6       2 pwhl   10:48
 #> # ℹ 3,195 more rows
-#> # ℹ 15 more variables: time_on_ice <dbl>, goals <int>, assists <int>,
+#> # ℹ 14 more variables: time_on_ice <dbl>, goals <int>, assists <int>,
 #> #   points <int>, shots <int>, hits <int>, blocked_shots <int>,
 #> #   penalty_minutes <int>, plus_minus <int>, faceoff_attempts <int>,
-#> #   faceoff_wins <int>, faceoff_losses <int>, faceoff_pct <dbl>,
-#> #   starting <chr>, player_type <chr>
+#> #   faceoff_wins <int>, faceoff_losses <int>, faceoff_pct <dbl>, starting <chr>
 # }
 ```

@@ -45,9 +45,21 @@ A data frame of class `fastRhockey_data`
 ``` r
 # \donttest{
   try(load_nhl_game_info(2026))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_game_info/game_info_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_game_info/game_info_2026.rds>
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 1,387 × 10
+#>       game_id   season game_type game_date  venue  home_team_abbr away_team_abbr
+#>         <int>    <int> <chr>     <chr>      <chr>  <chr>          <chr>         
+#>  1 2025020001 20252026 R         2025-10-07 Amera… FLA            CHI           
+#>  2 2025020002 20252026 R         2025-10-07 Madis… NYR            PIT           
+#>  3 2025020003 20252026 R         2025-10-07 Crypt… LAK            COL           
+#>  4 2025020004 20252026 R         2025-10-08 Scoti… TOR            MTL           
+#>  5 2025020005 20252026 R         2025-10-08 Capit… WSH            BOS           
+#>  6 2025020006 20252026 R         2025-10-08 Roger… EDM            CGY           
+#>  7 2025020007 20252026 R         2025-10-08 T-Mob… VGK            LAK           
+#>  8 2025020008 20252026 R         2025-10-09 TD Ga… BOS            CHI           
+#>  9 2025020009 20252026 R         2025-10-09 KeyBa… BUF            NYR           
+#> 10 2025020010 20252026 R         2025-10-09 Littl… DET            MTL           
+#> # ℹ 1,377 more rows
+#> # ℹ 3 more variables: home_score <int>, away_score <int>, game_state <chr>
 # }
 ```

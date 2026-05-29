@@ -84,6 +84,6 @@ A data frame of class `fastRhockey_data`. Common columns include:
 #> 10       2       6 PWHL To… TOR       home      skater             72 Rebecca   
 #> # ℹ 3,535 more rows
 #> # ℹ 6 more variables: last_name <chr>, jersey_number <int>, position <chr>,
-#> #   birth_date <chr>, starting <chr>, status <chr>
+#> #   birth_date <chr>, starting <int>, status <chr>
 # }
 ```
