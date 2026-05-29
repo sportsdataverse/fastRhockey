@@ -20,6 +20,13 @@
 #'    |event                  |character |Event label ("Change").                  |
 #'    |event_type             |character |Event type code ("CHANGE").              |
 #'    |game_seconds_remaining |numeric   |Seconds remaining in the game.           |
+#'
+#' Source of truth is the legacy stats-API shiftcharts endpoint
+#' (`api.nhle.com/stats/rest/en/shiftcharts`). When that endpoint returns
+#' `{total: 0, data: []}` -- which has become common for 2024-25 and 2025-26
+#' regular-season games -- we fall back to scraping the legacy HTML TOI
+#' reports at `nhl.com/scores/htmlreports/{season}/T{H|V}{gameno}.HTM`,
+#' which still publish per-shift records for the same games.
 #' @keywords NHL Game Shifts
 #' @import rvest
 #' @importFrom rlang .data
@@ -56,88 +63,40 @@ nhl_game_shifts <- function(game_id){
 
       # The endpoint is no longer populated for a growing share of
       # 2024-25 and 2025-26 games (~38% of 2025-26 as of late 2026).
-      # When the API returns `{total: 0, data: []}`, short-circuit with
-      # an empty tibble rather than letting the dplyr pipeline error
-      # on missing columns and trip the misleading "no game shifts
-      # data for X available!" message below.
+      # When the API returns `{total: 0, data: []}`, fall back to the
+      # legacy HTML TOI reports before declaring the game data-less.
       data_empty <- is.null(site$data) ||
         (is.data.frame(site$data) && nrow(site$data) == 0) ||
         (is.list(site$data) && length(site$data) == 0)
 
       if (data_empty) {
+        shifts_raw <- .parse_toi_html(game_id)
+      } else {
+        shifts_raw <- site$data %>%
+          dplyr::tibble() %>%
+          janitor::clean_names() %>%
+          tidyr::unite("player_name", c("first_name", "last_name"), sep = " ") %>%
+          dplyr::select("game_id", "player_id", "player_name", "team_abbrev", "team_id",
+                        "team_name", "period", "start_time", "end_time", "duration") %>%
+          dplyr::filter(!is.na(.data$duration)) %>%
+          dplyr::mutate(
+            start_time_ms = lubridate::ms(.data$start_time),
+            start_seconds = lubridate::period_to_seconds(.data$start_time_ms),
+            start_game_seconds = .data$start_seconds + (1200 * (.data$period-1)),
+            end_time_ms = lubridate::ms(.data$end_time),
+            end_seconds = lubridate::period_to_seconds(.data$end_time_ms),
+            end_game_seconds = .data$end_seconds + (1200 * (.data$period-1)),
+            duration = lubridate::ms(.data$duration),
+            duration_seconds = lubridate::period_to_seconds(.data$duration)
+          ) %>%
+          dplyr::filter(.data$duration_seconds > 0)
+      }
+
+      if (is.null(shifts_raw) || nrow(shifts_raw) == 0) {
         shifts <- tibble::tibble()
       } else {
-      shifts_raw <- site$data %>%
-        dplyr::tibble() %>%
-        janitor::clean_names() %>%
-        tidyr::unite("player_name", c("first_name", "last_name"), sep = " ") %>%
-        dplyr::select("game_id", "player_id", "player_name", "team_abbrev", "team_id",
-                      "team_name", "period", "start_time", "end_time", "duration") %>%
-        dplyr::filter(!is.na(.data$duration)) %>%
-        dplyr::mutate(
-          start_time_ms = lubridate::ms(.data$start_time),
-          start_seconds = lubridate::period_to_seconds(.data$start_time_ms),
-          start_game_seconds = .data$start_seconds + (1200 * (.data$period-1)),
-          end_time_ms = lubridate::ms(.data$end_time),
-          end_seconds = lubridate::period_to_seconds(.data$end_time_ms),
-          end_game_seconds = .data$end_seconds + (1200 * (.data$period-1)),
-          duration = lubridate::ms(.data$duration),
-          duration_seconds = lubridate::period_to_seconds(.data$duration)
-        ) %>%
-        dplyr::filter(.data$duration_seconds > 0)
-
-      shifts_on <- shifts_raw %>%
-        dplyr::group_by(
-          .data$team_name, .data$period, .data$start_time, .data$start_seconds, .data$start_game_seconds
-        ) %>%
-        dplyr::summarize(
-          num_on = dplyr::n(),
-          players_on = paste(.data$player_name, collapse = ", "),
-          ids_on = paste(.data$player_id, collapse = ", "),
-          .groups = "drop"
-        ) %>%
-        dplyr::rename(
-          "period_time" = "start_time",
-          "period_seconds" = "start_seconds",
-          "game_seconds" = "start_game_seconds"
-        )
-
-      shifts_off <- shifts_raw %>%
-        dplyr::group_by(
-          .data$team_name, .data$period, .data$end_time, .data$end_seconds, .data$end_game_seconds
-        ) %>%
-        dplyr::summarize(
-          num_off = dplyr::n(),
-          players_off = paste(.data$player_name, collapse = ", "),
-          ids_off = paste(.data$player_id, collapse = ", "),
-          .groups = "drop"
-        ) %>%
-        dplyr::rename(
-          "period_time" = "end_time",
-          "period_seconds" = "end_seconds",
-          "game_seconds" = "end_game_seconds"
-        )
-
-      shifts <- dplyr::full_join(
-        shifts_on, shifts_off,
-        by = c("game_seconds", "team_name", "period", "period_time", "period_seconds")
-      ) %>%
-        dplyr::arrange(.data$game_seconds) %>%
-        dplyr::mutate(
-          event = "Change",
-          event_type = "CHANGE",
-          game_seconds_remaining = 3600 - .data$game_seconds
-        ) %>%
-        dplyr::rename("event_team" = "team_name") %>%
-        # removing NA values at start and end of periods
-        dplyr::mutate(
-          players_on = ifelse(is.na(.data$players_on), "None", .data$players_on),
-          players_off = ifelse(is.na(.data$players_off), "None", .data$players_off),
-          ids_on = ifelse(is.na(.data$ids_on), 0, .data$ids_on),
-          ids_off = ifelse(is.na(.data$ids_off), 0, .data$ids_off)
-        ) %>%
-        make_fastRhockey_data("NHL Game Shifts Information from NHL.com",Sys.time())
-      } # end else (non-empty branch)
+        shifts <- .aggregate_shifts(shifts_raw)
+      }
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no game shifts data for {game_id} available!"))
@@ -148,4 +107,198 @@ nhl_game_shifts <- function(game_id){
     }
   )
   return(shifts)
+}
+
+
+#' Aggregate per-player-shift records into one row per (team, period, time)
+#' change, with comma-joined `players_on` / `ids_on` / `players_off` /
+#' `ids_off` columns. Shared by both the JSON and HTML code paths so the
+#' shape returned by `nhl_game_shifts()` is identical regardless of source.
+#' @keywords internal
+#' @noRd
+.aggregate_shifts <- function(shifts_raw) {
+  shifts_on <- shifts_raw %>%
+    dplyr::group_by(
+      .data$team_name, .data$period, .data$start_time, .data$start_seconds, .data$start_game_seconds
+    ) %>%
+    dplyr::summarize(
+      num_on = dplyr::n(),
+      players_on = paste(.data$player_name, collapse = ", "),
+      ids_on = paste(.data$player_id, collapse = ", "),
+      .groups = "drop"
+    ) %>%
+    dplyr::rename(
+      "period_time" = "start_time",
+      "period_seconds" = "start_seconds",
+      "game_seconds" = "start_game_seconds"
+    )
+
+  shifts_off <- shifts_raw %>%
+    dplyr::group_by(
+      .data$team_name, .data$period, .data$end_time, .data$end_seconds, .data$end_game_seconds
+    ) %>%
+    dplyr::summarize(
+      num_off = dplyr::n(),
+      players_off = paste(.data$player_name, collapse = ", "),
+      ids_off = paste(.data$player_id, collapse = ", "),
+      .groups = "drop"
+    ) %>%
+    dplyr::rename(
+      "period_time" = "end_time",
+      "period_seconds" = "end_seconds",
+      "game_seconds" = "end_game_seconds"
+    )
+
+  dplyr::full_join(
+    shifts_on, shifts_off,
+    by = c("game_seconds", "team_name", "period", "period_time", "period_seconds")
+  ) %>%
+    dplyr::arrange(.data$game_seconds) %>%
+    dplyr::mutate(
+      event = "Change",
+      event_type = "CHANGE",
+      game_seconds_remaining = 3600 - .data$game_seconds
+    ) %>%
+    dplyr::rename("event_team" = "team_name") %>%
+    # removing NA values at start and end of periods
+    dplyr::mutate(
+      players_on = ifelse(is.na(.data$players_on), "None", .data$players_on),
+      players_off = ifelse(is.na(.data$players_off), "None", .data$players_off),
+      ids_on = ifelse(is.na(.data$ids_on), 0, .data$ids_on),
+      ids_off = ifelse(is.na(.data$ids_off), 0, .data$ids_off)
+    ) %>%
+    make_fastRhockey_data("NHL Game Shifts Information from NHL.com", Sys.time())
+}
+
+
+#' Fallback to the legacy HTML TOI reports
+#'
+#' For games where `api.nhle.com/stats/rest/en/shiftcharts` returns an empty
+#' payload, the per-shift records still exist in the two legacy HTML reports
+#' that the NHL game-center UI links to:
+#'
+#'   `nhl.com/scores/htmlreports/{season}/TH{gameno}.HTM`   (home team)
+#'   `nhl.com/scores/htmlreports/{season}/TV{gameno}.HTM`   (visitor team)
+#'
+#' Each report has one `<td class="teamHeading">` (the full team name),
+#' followed by per-player blocks. Each block starts with a
+#' `<td class="playerHeading">` containing the player's sweater number plus
+#' `LAST, FIRST`, then a 6-column table of shifts:
+#' `Shift # | Per | StartElapsed/Remaining | EndElapsed/Remaining | Duration | Event`.
+#'
+#' We walk both reports' player-headings and shift rows in document order,
+#' map sweater numbers back to NHL `player_id`s via `nhl_game_boxscore()`,
+#' and return a tibble in the same shape as the JSON `shifts_raw` so the
+#' aggregation pipeline downstream is identical regardless of source.
+#' @keywords internal
+#' @noRd
+.parse_toi_html <- function(game_id) {
+  gid <- as.character(game_id)
+  if (!grepl("^[0-9]{10}$", gid)) return(NULL)
+  season_year <- substr(gid, 1, 4)
+  season_str <- paste0(season_year, as.integer(season_year) + 1L)
+  gameno <- substr(gid, 5, 10)
+  base_path <- paste0("https://www.nhl.com/scores/htmlreports/", season_str)
+
+  parse_side <- function(side_letter) {
+    url <- paste0(base_path, "/T", side_letter, gameno, ".HTM")
+    html <- tryCatch(rvest::read_html(url), error = function(e) NULL)
+    if (is.null(html)) return(NULL)
+
+    team_heads <- html %>%
+      rvest::html_nodes("td.teamHeading") %>%
+      rvest::html_text(trim = TRUE)
+    team_name <- if (length(team_heads) >= 1 && nzchar(team_heads[[1]])) {
+      team_heads[[1]]
+    } else {
+      return(NULL)
+    }
+
+    nodes <- xml2::xml_find_all(
+      html,
+      ".//td[contains(@class, 'playerHeading')] | .//tr[contains(@class, 'oddColor') or contains(@class, 'evenColor')]"
+    )
+    if (length(nodes) == 0) return(NULL)
+
+    rows <- vector("list", length(nodes))
+    cur_sweater <- NA_integer_
+    cur_last_first <- NA_character_
+    for (i in seq_along(nodes)) {
+      n <- nodes[[i]]
+      if (xml2::xml_name(n) == "td") {
+        txt <- stringr::str_trim(xml2::xml_text(n))
+        m <- regmatches(txt, regexec("^([0-9]+)\\s+(.*)$", txt))[[1]]
+        if (length(m) == 3L) {
+          cur_sweater <- suppressWarnings(as.integer(m[[2]]))
+          cur_last_first <- m[[3]]
+        }
+        next
+      }
+      cells <- stringr::str_trim(xml2::xml_text(xml2::xml_find_all(n, "./td")))
+      if (length(cells) != 6L) next
+      if (!grepl("^[0-9]+$", cells[[1]])) next
+      if (!grepl("^[0-9]+$", cells[[2]])) next
+      if (!grepl(":", cells[[3]])) next
+      if (is.na(cur_sweater)) next
+      rows[[i]] <- tibble::tibble(
+        team_name      = team_name,
+        side           = side_letter,
+        sweater_number = cur_sweater,
+        last_first     = cur_last_first,
+        period         = as.integer(cells[[2]]),
+        start_time     = sub("^([0-9]+:[0-9]+).*", "\\1", cells[[3]]),
+        end_time       = sub("^([0-9]+:[0-9]+).*", "\\1", cells[[4]]),
+        duration       = cells[[5]]
+      )
+    }
+    rows <- purrr::compact(rows)
+    if (length(rows) == 0L) return(NULL)
+    dplyr::bind_rows(rows)
+  }
+
+  raw <- dplyr::bind_rows(parse_side("H"), parse_side("V"))
+  if (is.null(raw) || nrow(raw) == 0) return(NULL)
+
+  # Resolve sweater -> player_id via the boxscore. boxscore$skater_stats and
+  # $goalie_stats both expose home_away + team_id + team_abbrev + player_id
+  # + sweater_number, so a join on (home_away, sweater_number) is unambiguous.
+  box <- tryCatch(nhl_game_boxscore(game_id = game_id), error = function(e) NULL)
+  if (is.null(box) || is.null(box$skater_stats)) return(NULL)
+
+  lookup <- dplyr::bind_rows(
+    if (!is.null(box$skater_stats)) box$skater_stats else NULL,
+    if (!is.null(box$goalie_stats)) box$goalie_stats else NULL
+  )
+  needed_lookup_cols <- c("home_away", "sweater_number", "player_id", "player_name", "team_id", "team_abbrev")
+  if (!all(needed_lookup_cols %in% names(lookup))) return(NULL)
+  lookup <- lookup %>%
+    dplyr::select(dplyr::all_of(needed_lookup_cols))
+
+  raw <- raw %>%
+    dplyr::mutate(home_away = ifelse(.data$side == "H", "home", "away")) %>%
+    dplyr::left_join(lookup, by = c("home_away", "sweater_number")) %>%
+    dplyr::filter(!is.na(.data$player_id))
+  if (nrow(raw) == 0) return(NULL)
+
+  raw <- raw %>%
+    dplyr::mutate(
+      game_id            = as.integer(game_id),
+      start_time_ms      = lubridate::ms(.data$start_time),
+      start_seconds      = lubridate::period_to_seconds(.data$start_time_ms),
+      start_game_seconds = .data$start_seconds + (1200 * (.data$period - 1L)),
+      end_time_ms        = lubridate::ms(.data$end_time),
+      end_seconds        = lubridate::period_to_seconds(.data$end_time_ms),
+      end_game_seconds   = .data$end_seconds + (1200 * (.data$period - 1L)),
+      duration_period    = lubridate::ms(.data$duration),
+      duration_seconds   = lubridate::period_to_seconds(.data$duration_period),
+      duration           = .data$duration_period
+    ) %>%
+    dplyr::filter(.data$duration_seconds > 0) %>%
+    dplyr::select(
+      "game_id", "player_id", "player_name", "team_abbrev", "team_id",
+      "team_name", "period", "start_time", "end_time", "duration",
+      "start_time_ms", "start_seconds", "start_game_seconds",
+      "end_time_ms", "end_seconds", "end_game_seconds", "duration_seconds"
+    )
+  raw
 }
