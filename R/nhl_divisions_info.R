@@ -3,7 +3,7 @@
 #'
 #' The original NHL Stats API divisions endpoint is no longer available.
 #' This function now extracts division information from the standings endpoint
-#' at \code{api-web.nhle.com}.
+#' at `api-web.nhle.com`.
 #'
 #' @param division_name Character. Division name (e.g. "Atlantic", "Metropolitan",
 #'   "Central", "Pacific").

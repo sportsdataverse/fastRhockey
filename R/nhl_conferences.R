@@ -3,7 +3,7 @@
 #'
 #' The original NHL Stats API conferences endpoint is no longer available.
 #' This function now extracts conference information from the standings endpoint
-#' at \code{api-web.nhle.com}.
+#' at `api-web.nhle.com`.
 #'
 #' @param date Character date in "YYYY-MM-DD" format. If NULL, returns
 #'   current conferences.

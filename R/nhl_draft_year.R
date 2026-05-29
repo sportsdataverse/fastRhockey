@@ -2,11 +2,11 @@
 #' @description Returns draft pick information for a given year.
 #'
 #' Uses the NHL API endpoint at
-#' \code{api-web.nhle.com/v1/draft/picks/{year}/{round}}.
+#' `api-web.nhle.com/v1/draft/picks/{year}/{round}`.
 #'
 #' When `round` is `NULL` (default) or the literal string `"all"`, the
 #' function takes the fast path and hits
-#' \code{draft/picks/{year}/all} in a single request instead of looping over
+#' `draft/picks/{year}/all` in a single request instead of looping over
 #' rounds 1-7.
 #'
 #' @param year Integer. Draft year (e.g. 2023).

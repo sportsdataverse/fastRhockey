@@ -11,11 +11,11 @@
 #'   * **Penalty shot model** — A constant xG value for penalty shot attempts
 #'
 #'   Models are loaded into the package namespace on package load via
-#'   \code{.onLoad()} (see `zzz.R`).
+#'   `.onLoad()` (see `zzz.R`).
 #'
 #' @param pbp A play-by-play data frame produced by
-#'   \code{\link{nhl_game_pbp}} or \code{\link{nhl_game_feed}}.
-#'   Must contain columns needed by \code{helper_nhl_prepare_xg_data()}: `event_type`,
+#'   [nhl_game_pbp] or [nhl_game_feed].
+#'   Must contain columns needed by `helper_nhl_prepare_xg_data()`: `event_type`,
 #'   `secondary_type`, `period_type`, `period`, `game_seconds`, `x`, `y`,
 #'   `x_fixed`, `event_team_abbr`, `home_abbr`, `away_abbr`, `home_skaters`,
 #'   `away_skaters`, `shot_distance`, `shot_angle`, `empty_net`,
@@ -127,8 +127,8 @@ helper_nhl_calculate_xg <- function(pbp) {
 #'   same xgboost models can be used for inference.
 #'
 #' @param x A play-by-play data frame produced by
-#'   \code{\link{nhl_game_pbp}} or
-#'   \code{\link{nhl_game_feed}}.
+#'   [nhl_game_pbp] or
+#'   [nhl_game_feed].
 #'
 #' @return A tibble with model features plus identifiers
 #'   (`season`, `game_id`, `event_id`, `strength_state`).

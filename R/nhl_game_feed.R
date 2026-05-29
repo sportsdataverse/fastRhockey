@@ -10,7 +10,7 @@
 #' @param raw Logical; if TRUE, return the unprocessed API response as a list
 #' instead of the parsed data frame. Default FALSE.
 #' @return A data frame (`fastRhockey_data`) with one row per event and the
-#' following columns (or the raw API response list when \code{raw = TRUE}):
+#' following columns (or the raw API response list when `raw = TRUE`):
 #'
 #'    |col_name                 |types     |description                                         |
 #'    |:------------------------|:---------|:---------------------------------------------------|
@@ -142,7 +142,7 @@ nhl_game_pbp <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 #' @param raw Logical; if TRUE, return the unprocessed API response as a list
 #' instead of parsed/enriched data. Default FALSE.
 #' @return A named list of data frames: `pbp`, `game_info`, `rosters`. When
-#' \code{raw = TRUE}, returns the raw JSON response as a nested list.
+#' `raw = TRUE`, returns the raw JSON response as a nested list.
 #'
 #'    **pbp**
 #'

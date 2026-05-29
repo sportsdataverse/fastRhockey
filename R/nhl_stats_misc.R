@@ -1,7 +1,7 @@
 #' @title **NHL Stats API — Draft Summaries**
 #' @description Queries the NHL Stats REST API for draft-year summaries
 #'   (draft year and number of rounds). Optionally filter to a specific
-#'   draft year via \code{draft_year}.
+#'   draft year via `draft_year`.
 #' @param draft_year Integer draft year (e.g., 2024). If NULL, returns all
 #'   draft years (1963-present).
 #' @param limit Integer maximum number of results. Default 100.

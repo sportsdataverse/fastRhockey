@@ -1,7 +1,7 @@
 #' @title **NHL Draft**
 #' @description Returns information on the most recent NHL draft picks.
 #'
-#' Uses the new NHL API endpoint at \code{api-web.nhle.com/v1/draft/picks/now}.
+#' Uses the new NHL API endpoint at `api-web.nhle.com/v1/draft/picks/now`.
 #'
 #' @return A data frame (`fastRhockey_data`) with the following columns:
 #'

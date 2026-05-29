@@ -1,6 +1,6 @@
 #' @title **NHL Teams Info**
 #' @description Returns NHL team information for a given team abbreviation.
-#' Uses the new NHL API via \code{\link{nhl_teams}}.
+#' Uses the new NHL API via [nhl_teams].
 #'
 #' **Breaking change:** The old `team_id` (integer) parameter has been replaced
 #' by `team_abbr` (3-letter string, e.g., "TBL") because the new NHL API no

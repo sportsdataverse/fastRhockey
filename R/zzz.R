@@ -35,7 +35,7 @@
 #' Load xG models from cache or download from GitHub
 #'
 #' Models are cached in the user's R cache directory
-#' (\code{tools::R_user_dir()}) so they are only downloaded once.
+#' (`tools::R_user_dir()`) so they are only downloaded once.
 #'
 #' @keywords internal
 .load_xg_models <- function(pkgname) {

@@ -2,13 +2,13 @@
 #' @description Returns NHL metadata (players, teams, season states, game types).
 #'
 #' Three branches are supported:
-#' \itemize{
-#'   \item Both `year` and `series_letter` supplied — returns playoff-series
-#'     metadata via `meta/playoff-series/{year}/{seriesLetter}`.
-#'   \item Only `game_id` supplied — returns per-game metadata via
-#'     `meta/game/{game_id}`.
-#'   \item No arguments — returns general league meta via `meta`.
-#' }
+#'
+#' - Both `year` and `series_letter` supplied — returns playoff-series
+#'   metadata via `meta/playoff-series/{year}/{seriesLetter}`.
+#' - Only `game_id` supplied — returns per-game metadata via
+#'   `meta/game/{game_id}`.
+#' - No arguments — returns general league meta via `meta`.
+#'
 #' @param game_id Optional game ID. If provided (and `year` / `series_letter`
 #'   are not), returns metadata for that game.
 #' @param year Optional integer playoff year (e.g., `2024`). Must be supplied

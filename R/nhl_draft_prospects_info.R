@@ -2,19 +2,19 @@
 #' @description Returns draft prospect rankings for a given year and prospect category.
 #'
 #' Uses the new NHL API endpoint at
-#' \code{api-web.nhle.com/v1/draft/rankings/{year}/{prospect_category}}.
+#' `api-web.nhle.com/v1/draft/rankings/{year}/{prospect_category}`.
 #'
 #' The original per-prospect-ID endpoint is no longer available. This function
 #' now returns rankings filtered by year and category.
 #'
 #' @param year Integer. Draft year (e.g. 2024).
 #' @param prospect_category Integer. Prospect category:
-#'   \itemize{
-#'     \item 1 = North American Skater
-#'     \item 2 = International Skater
-#'     \item 3 = North American Goalie
-#'     \item 4 = International Goalie
-#'   }
+#'
+#'   - `1` = North American Skater
+#'   - `2` = International Skater
+#'   - `3` = North American Goalie
+#'   - `4` = International Goalie
+#'
 #' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
 #'    |col_name             |types     |description                                  |

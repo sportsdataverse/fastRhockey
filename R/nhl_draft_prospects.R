@@ -2,7 +2,7 @@
 #' @description Returns current draft prospect rankings.
 #'
 #' Uses the new NHL API endpoint at
-#' \code{api-web.nhle.com/v1/draft/rankings/now}.
+#' `api-web.nhle.com/v1/draft/rankings/now`.
 #'
 #' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
