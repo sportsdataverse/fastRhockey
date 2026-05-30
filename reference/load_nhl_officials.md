@@ -55,9 +55,20 @@ the following columns:
 ``` r
 # \donttest{
   try(load_nhl_officials(2026))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_officials/officials_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_officials/officials_2026.rds>
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 5,546 × 5
+#>    role     name                   game_id   season game_date 
+#>    <chr>    <chr>                    <int>    <int> <chr>     
+#>  1 referee  Kelly Sutherland    2025020001 20252026 2025-10-07
+#>  2 referee  Eric Furlatt        2025020001 20252026 2025-10-07
+#>  3 linesman Scott Cherrey       2025020001 20252026 2025-10-07
+#>  4 linesman Matt MacPherson     2025020001 20252026 2025-10-07
+#>  5 referee  Wes McCauley        2025020002 20252026 2025-10-07
+#>  6 referee  Jake Brenk          2025020002 20252026 2025-10-07
+#>  7 linesman Libor Suchanek      2025020002 20252026 2025-10-07
+#>  8 linesman Devin Berg          2025020002 20252026 2025-10-07
+#>  9 referee  Frederick L'Ecuyer  2025020003 20252026 2025-10-07
+#> 10 referee  Thomas John Luxmore 2025020003 20252026 2025-10-07
+#> # ℹ 5,536 more rows
 # }
 ```

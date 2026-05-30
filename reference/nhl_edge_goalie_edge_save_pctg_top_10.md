@@ -39,9 +39,7 @@ failure / empty response.
 ``` r
 # \donttest{
   try(nhl_edge_goalie_edge_save_pctg_top_10(sort_by = "savePctg"))
-#> Request failed [404]. Retrying in 1.2 seconds...
-#> Request failed [404]. Retrying in 1 seconds...
-#> 2026-05-29 18:46:11.837884: Error fetching https://api-web.nhle.com/v1/edge/goalie-edge-save-pctg-top-10/savePctg/now: The API returned an error
+#> 2026-05-30 03:09:17.704324: Error fetching https://api-web.nhle.com/v1/edge/goalie-edge-save-pctg-top-10/savePctg/now: The API returned an error
 #> NULL
 # }
 ```

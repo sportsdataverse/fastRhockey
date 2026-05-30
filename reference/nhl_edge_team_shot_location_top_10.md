@@ -58,9 +58,7 @@ on failure / empty response.
     category = "high",
     sort_by = "total"
   ))
-#> Request failed [404]. Retrying in 1 seconds...
-#> Request failed [404]. Retrying in 1 seconds...
-#> 2026-05-29 18:46:41.397008: Error fetching https://api-web.nhle.com/v1/edge/team-shot-location-top-10/F/high/total/now: The API returned an error
+#> 2026-05-30 03:09:30.826642: Error fetching https://api-web.nhle.com/v1/edge/team-shot-location-top-10/F/high/total/now: The API returned an error
 #> NULL
 # }
 ```

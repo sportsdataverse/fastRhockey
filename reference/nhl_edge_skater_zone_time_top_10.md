@@ -60,8 +60,8 @@ failure / empty response.
       sort_by = "total"
   ))
 #> Request failed [500]. Retrying in 1 seconds...
-#> Request failed [500]. Retrying in 1.3 seconds...
-#> 2026-05-29 18:46:36.916617: Error fetching https://api-web.nhle.com/v1/edge/skater-zone-time-top-10/F/all/total/now: The API returned an error
+#> Request failed [500]. Retrying in 3.3 seconds...
+#> 2026-05-30 03:09:29.44698: Error fetching https://api-web.nhle.com/v1/edge/skater-zone-time-top-10/F/all/total/now: The API returned an error
 #> NULL
 # }
 ```

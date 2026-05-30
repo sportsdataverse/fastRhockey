@@ -59,9 +59,7 @@ failure / empty response.
       category = "high",
       sort_by = "total"
   ))
-#> Request failed [404]. Retrying in 1 seconds...
-#> Request failed [404]. Retrying in 1.2 seconds...
-#> 2026-05-29 18:46:22.865111: Error fetching https://api-web.nhle.com/v1/edge/skater-shot-location-top-10/F/high/total/now: The API returned an error
+#> 2026-05-30 03:09:22.027096: Error fetching https://api-web.nhle.com/v1/edge/skater-shot-location-top-10/F/high/total/now: The API returned an error
 #> NULL
 # }
 ```

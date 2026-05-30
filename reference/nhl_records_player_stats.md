@@ -34,9 +34,9 @@ failure.
 ``` r
 # \donttest{
   try(nhl_records_player_stats(cayenne_exp = "playerId=8478402"))
+#> Request failed [400]. Retrying in 1.2 seconds...
 #> Request failed [400]. Retrying in 1 seconds...
-#> Request failed [400]. Retrying in 3.9 seconds...
-#> 2026-05-29 18:47:26.173387: Error fetching records resource 'player-stats': The API returned an error
+#> 2026-05-30 03:10:04.921508: Error fetching records resource 'player-stats': The API returned an error
 #> NULL
 # }
 ```

@@ -71,20 +71,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_skater_stats_leaders())
 #> ── NHL Skater Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 18:47:38 UTC
+#> ℹ Data updated: 2026-05-30 03:10:15 UTC
 #> # A tibble: 45 × 21
 #>         id sweater_number headshot          team_abbrev team_logo position value
 #>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>
 #>  1 8479353             21 https://assets.n… VGK         https://… C            3
 #>  2 8478133             71 https://assets.n… MTL         https://… C            1
-#>  3 8475188              3 https://assets.n… VGK         https://… D            1
-#>  4 8478970              5 https://assets.n… CAR         https://… D            1
+#>  3 8478970              5 https://assets.n… CAR         https://… D            1
+#>  4 8475188              3 https://assets.n… VGK         https://… D            1
 #>  5 8480835             18 https://assets.n… COL         https://… C            1
-#>  6 8480817             19 https://assets.n… CAR         https://… D           12
-#>  7 8478483             93 https://assets.n… VGK         https://… R           12
-#>  8 8482122              7 https://assets.n… MIN         https://… D           11
-#>  9 8480336             26 https://assets.n… CAR         https://… D           11
-#> 10 8478133             71 https://assets.n… MTL         https://… C           11
+#>  6 8480817             19 https://assets.n… CAR         https://… D           14
+#>  7 8480336             26 https://assets.n… CAR         https://… D           13
+#>  8 8478483             93 https://assets.n… VGK         https://… R           12
+#>  9 8482122              7 https://assets.n… MIN         https://… D           11
+#> 10 8475791             71 https://assets.n… CAR         https://… L           11
 #> # ℹ 35 more rows
 #> # ℹ 14 more variables: first_name_default <chr>, last_name_default <chr>,
 #> #   team_name_default <chr>, category <chr>, first_name_cs <chr>,

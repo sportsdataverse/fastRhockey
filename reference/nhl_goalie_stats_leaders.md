@@ -66,12 +66,12 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_goalie_stats_leaders())
 #> ── NHL Goalie Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 18:46:54 UTC
+#> ℹ Data updated: 2026-05-30 03:09:37 UTC
 #> # A tibble: 18 × 17
 #>         id sweater_number headshot         team_abbrev team_logo position  value
 #>      <int>          <int> <chr>            <chr>       <chr>     <chr>     <dbl>
 #>  1 8479394             79 https://assets.… VGK         https://… G        12    
-#>  2 8475883             31 https://assets.… CAR         https://… G        11    
+#>  2 8475883             31 https://assets.… CAR         https://… G        12    
 #>  3 8482487             75 https://assets.… MTL         https://… G         9    
 #>  4 8475809             41 https://assets.… COL         https://… G         7    
 #>  5 8480843              1 https://assets.… ANA         https://… G         6    
@@ -80,10 +80,10 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8 8476883             88 https://assets.… TBL         https://… G         1    
 #>  9 8481668             37 https://assets.… PIT         https://… G         0.939
 #> 10 8476999             35 https://assets.… OTT         https://… G         0.932
-#> 11 8475883             31 https://assets.… CAR         https://… G         0.928
+#> 11 8475883             31 https://assets.… CAR         https://… G         0.931
 #> 12 8479394             79 https://assets.… VGK         https://… G         0.924
 #> 13 8478435             80 https://assets.… PHI         https://… G         0.922
-#> 14 8475883             31 https://assets.… CAR         https://… G         1.44 
+#> 14 8475883             31 https://assets.… CAR         https://… G         1.41 
 #> 15 8481668             37 https://assets.… PIT         https://… G         1.52 
 #> 16 8476999             35 https://assets.… OTT         https://… G         2.03 
 #> 17 8478024             33 https://assets.… ANA         https://… G         2.12 

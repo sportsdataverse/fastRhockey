@@ -83,7 +83,7 @@ per pre-compiled dataset.
 # \donttest{
   try(nhl_schedule(day = "2024-01-15"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 18:47:28 UTC
+#> ℹ Data updated: 2026-05-30 03:10:07 UTC
 #> # A tibble: 53 × 13
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
@@ -103,7 +103,7 @@ per pre-compiled dataset.
 #> #   venue <chr>
   try(nhl_schedule(season = 2025, team_abbr = "TOR"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 18:47:31 UTC
+#> ℹ Data updated: 2026-05-30 03:10:10 UTC
 #> # A tibble: 95 × 16
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
@@ -124,7 +124,7 @@ per pre-compiled dataset.
 #> #   series_game_number <int>
   try(nhl_schedule(season = 2024, team_abbr = "TOR", game_type = "playoffs"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-29 18:47:35 UTC
+#> ℹ Data updated: 2026-05-30 03:10:13 UTC
 #> # A tibble: 7 × 16
 #>      game_id season_full game_type game_date  game_time           home_team_abbr
 #>        <int> <chr>       <chr>     <chr>      <chr>               <chr>         
@@ -140,6 +140,27 @@ per pre-compiled dataset.
 #> #   venue <chr>, series_letter <chr>, playoff_round <int>,
 #> #   series_game_number <int>
   try(nhl_schedule(day = "2024-01-15", include_data_flags = TRUE))
-#> 2026-05-29 18:47:36.022187: Error fetching schedule for 2024-01-15: `x` and `y` must share the same src.
+#> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-05-30 03:10:13 UTC
+#> # A tibble: 53 × 29
+#>       game_id season_full game_type game_date  game_time          home_team_abbr
+#>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
+#>  1 2023020672 20232024    R         2024-01-15 2024-01-15T17:00:… BUF           
+#>  2 2023020671 20232024    R         2024-01-15 2024-01-15T18:00:… BOS           
+#>  3 2023020673 20232024    R         2024-01-15 2024-01-15T18:00:… CBJ           
+#>  4 2023020674 20232024    R         2024-01-15 2024-01-15T18:00:… FLA           
+#>  5 2023020677 20232024    R         2024-01-15 2024-01-15T18:00:… PIT           
+#>  6 2023020675 20232024    R         2024-01-15 2024-01-15T20:00:… CAR           
+#>  7 2023020676 20232024    R         2024-01-15 2024-01-15T23:00:… MIN           
+#>  8 2023020680 20232024    R         2024-01-15 2024-01-15T23:00:… VGK           
+#>  9 2023020678 20232024    R         2024-01-15 2024-01-16T00:00:… MTL           
+#> 10 2023020679 20232024    R         2024-01-15 2024-01-16T01:00:… STL           
+#> # ℹ 43 more rows
+#> # ℹ 23 more variables: away_team_abbr <chr>, home_team_name <chr>,
+#> #   away_team_name <chr>, home_score <int>, away_score <int>, game_state <chr>,
+#> #   venue <chr>, PBP <lgl>, team_box <lgl>, player_box <lgl>, skater_box <lgl>,
+#> #   goalie_box <lgl>, game_info <lgl>, game_rosters <lgl>, scoring <lgl>,
+#> #   penalties <lgl>, scratches <lgl>, linescore <lgl>, three_stars <lgl>,
+#> #   shifts <lgl>, officials <lgl>, shots_by_period <lgl>, shootout <lgl>
 # }
 ```

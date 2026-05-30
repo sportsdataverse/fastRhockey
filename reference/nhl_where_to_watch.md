@@ -18,8 +18,8 @@ Returns a list with streaming availability data.
 # \donttest{
 try(nhl_where_to_watch())
 #> Request failed [404]. Retrying in 1 seconds...
-#> Request failed [404]. Retrying in 2.7 seconds...
-#> 2026-05-29 18:47:55.811697: Error fetching where to watch: The API returned an error
+#> Request failed [404]. Retrying in 1.9 seconds...
+#> 2026-05-30 03:10:29.543892: Error fetching where to watch: The API returned an error
 #> NULL
 # }
 ```

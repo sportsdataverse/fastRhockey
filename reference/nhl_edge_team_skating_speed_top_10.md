@@ -51,9 +51,7 @@ on failure / empty response.
     positions = "F",
     sort_by = "total"
   ))
-#> Request failed [404]. Retrying in 1 seconds...
-#> Request failed [404]. Retrying in 1 seconds...
-#> 2026-05-29 18:46:46.715293: Error fetching https://api-web.nhle.com/v1/edge/team-skating-speed-top-10/F/total/now: The API returned an error
+#> 2026-05-30 03:09:32.702985: Error fetching https://api-web.nhle.com/v1/edge/team-skating-speed-top-10/F/total/now: The API returned an error
 #> NULL
 # }
 ```

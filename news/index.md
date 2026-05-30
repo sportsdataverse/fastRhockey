@@ -2,6 +2,28 @@
 
 ## **fastRhockey 1.0.0 (continued development)**
 
+#### **CI: NHL loader + xG tests, and two fixes**
+
+- **Fix:** `nhl_schedule(include_data_flags = TRUE)` failed with
+  `` `x` and `y` must share the same src `` and returned a schedule with
+  no flag columns. `load_nhl_games()` returns a `data.table`, so the
+  flag left-join was being routed through the dtplyr backend, and the
+  data.table `[, <character>]` subset evaluated to the literal column
+  names rather than selecting columns. The index is now coerced to a
+  tibble before the join, so the 16 data-availability flag columns
+  attach correctly.
+- **Fix:** NHL Edge “top-10” leaderboard endpoints the NHL has removed
+  return HTTP 404. The Edge fetch helper now passes `terminate_on` to
+  [`httr::RETRY`](https://httr.r-lib.org/reference/RETRY.html) so
+  permanent client errors (400/401/403/404/410/422) are not retried —
+  the functions still return `NULL` gracefully, but without the wasteful
+  retry loop and log noise. Transient 5xx/timeouts are still retried.
+- **Test infrastructure:** `test-load_nhl.R` and `test-calculate_xg.R`
+  no longer `skip_on_ci()`, so the NHL loaders and the xG pipeline are
+  exercised on CI (`xgboost` is installed explicitly in the workflow).
+  Loader tests now request seasons that are actually published per table
+  and assert on the keys each release carries.
+
 #### **Documentation: `@return` column tables for all working functions**
 
 - Every working exported function (165 across the NHL, NHL Edge, NHL

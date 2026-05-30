@@ -46,6 +46,9 @@ A named list of data frames: `teams`.
 #> $endDate
 #> [1] "2026-06-04"
 #> 
+#> $nextStartDate
+#> [1] "2026-06-05"
+#> 
 #> $previousStartDate
 #> [1] "2026-05-22"
 #> 

@@ -58,9 +58,26 @@ following columns:
 ``` r
 # \donttest{
   try(load_nhl_penalties(2026))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_penalties/penalties_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_penalties/penalties_2026.rds>
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 10,396 × 47
+#>    timeInPeriod type  duration descKey         game_id period_number period_type
+#>    <chr>        <chr>    <int> <chr>             <int>         <int> <chr>      
+#>  1 06:58        MIN          2 slashing         2.03e9             1 REG        
+#>  2 12:26        MIN          2 tripping         2.03e9             1 REG        
+#>  3 16:50        MAJ          5 fighting         2.03e9             1 REG        
+#>  4 16:50        MAJ          5 fighting         2.03e9             1 REG        
+#>  5 01:12        MIN          2 holding-the-st…  2.03e9             2 REG        
+#>  6 08:17        MIN          2 slashing         2.03e9             2 REG        
+#>  7 05:56        MIN          2 high-sticking    2.03e9             3 REG        
+#>  8 00:59        MIN          2 hooking          2.03e9             1 REG        
+#>  9 07:33        MIN          2 interference     2.03e9             1 REG        
+#> 10 18:55        MIN          2 tripping         2.03e9             2 REG        
+#> # ℹ 10,386 more rows
+#> # ℹ 40 more variables: committedByPlayer.sweaterNumber <int>,
+#> #   committedByPlayer.firstName.default <chr>,
+#> #   committedByPlayer.firstName.cs <chr>, committedByPlayer.firstName.de <chr>,
+#> #   committedByPlayer.firstName.es <chr>, committedByPlayer.firstName.fi <chr>,
+#> #   committedByPlayer.firstName.sk <chr>, committedByPlayer.firstName.sv <chr>,
+#> #   committedByPlayer.firstName.fr <chr>, …
 # }
 ```

@@ -82,6 +82,15 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0" id="fastrhockey-100-continued-development"><strong>fastRhockey 1.0.0 (continued development)</strong><a class="anchor" aria-label="anchor" href="#fastrhockey-100-continued-development"></a></h2>
 <div class="section level4">
+<h4 id="ci-nhl-loader--xg-tests-and-two-fixes-1-0-0"><strong>CI: NHL loader + xG tests, and two fixes</strong><a class="anchor" aria-label="anchor" href="#ci-nhl-loader--xg-tests-and-two-fixes-1-0-0"></a></h4>
+<ul><li>
+<strong>Fix:</strong> <code>nhl_schedule(include_data_flags = TRUE)</code> failed with <code>`x` and `y` must share the same src</code> and returned a schedule with no flag columns. <code>load_nhl_games()</code> returns a <code>data.table</code>, so the flag left-join was being routed through the dtplyr backend, and the data.table <code>[, &lt;character&gt;]</code> subset evaluated to the literal column names rather than selecting columns. The index is now coerced to a tibble before the join, so the 16 data-availability flag columns attach correctly.</li>
+<li>
+<strong>Fix:</strong> NHL Edge “top-10” leaderboard endpoints the NHL has removed return HTTP 404. The Edge fetch helper now passes <code>terminate_on</code> to <code><a href="https://httr.r-lib.org/reference/RETRY.html" class="external-link">httr::RETRY</a></code> so permanent client errors (400/401/403/404/410/422) are not retried — the functions still return <code>NULL</code> gracefully, but without the wasteful retry loop and log noise. Transient 5xx/timeouts are still retried.</li>
+<li>
+<strong>Test infrastructure:</strong> <code>test-load_nhl.R</code> and <code>test-calculate_xg.R</code> no longer <code>skip_on_ci()</code>, so the NHL loaders and the xG pipeline are exercised on CI (<code>xgboost</code> is installed explicitly in the workflow). Loader tests now request seasons that are actually published per table and assert on the keys each release carries.</li>
+</ul></div>
+<div class="section level4">
 <h4 id="documentation-return-column-tables-for-all-working-functions-1-0-0"><strong>Documentation: <code>@return</code> column tables for all working functions</strong><a class="anchor" aria-label="anchor" href="#documentation-return-column-tables-for-all-working-functions-1-0-0"></a></h4>
 <ul><li>Every working exported function (165 across the NHL, NHL Edge, NHL Records, PWHL, and loader families) now documents its return value with a <code>col_name | types | description</code> table, matching the convention used in <code>hoopR</code>, <code>wehoop</code>, and <code>cfbfastR</code>. Functions that return a named list of data frames get one table per frame. Column names and types were captured from live API responses, so the tables reflect the actual returned schema.</li>
 </ul></div>
