@@ -39,7 +39,7 @@ failure / empty response.
 ``` r
 # \donttest{
   try(nhl_edge_goalie_5v5_top_10(sort_by = "savePctg"))
-#> 2026-05-30 03:09:16.633474: Error fetching https://api-web.nhle.com/v1/edge/goalie-5v5-top-10/savePctg/now: The API returned an error
+#> 2026-05-30 03:32:08.661823: Error fetching https://api-web.nhle.com/v1/edge/goalie-5v5-top-10/savePctg/now: The API returned an error
 #> NULL
 # }
 ```

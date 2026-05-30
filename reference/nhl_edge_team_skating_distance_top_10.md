@@ -97,7 +97,7 @@ A data frame (`fastRhockey_data`) with the following columns:
     sort_by = "total"
   ))
 #> ── NHL Edge Team Skating Distance Top 10 ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-30 03:09:32 UTC
+#> ℹ Data updated: 2026-05-30 03:32:27 UTC
 #> # A tibble: 10 × 36
 #>    team_abbrev team_slug           team_common_name_def…¹ team_place_name_with…²
 #>    <chr>       <chr>               <chr>                  <chr>                 

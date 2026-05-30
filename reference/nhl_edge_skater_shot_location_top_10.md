@@ -59,7 +59,7 @@ failure / empty response.
       category = "high",
       sort_by = "total"
   ))
-#> 2026-05-30 03:09:22.027096: Error fetching https://api-web.nhle.com/v1/edge/skater-shot-location-top-10/F/high/total/now: The API returned an error
+#> 2026-05-30 03:32:15.11107: Error fetching https://api-web.nhle.com/v1/edge/skater-shot-location-top-10/F/high/total/now: The API returned an error
 #> NULL
 # }
 ```

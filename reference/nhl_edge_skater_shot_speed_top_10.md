@@ -52,7 +52,7 @@ failure / empty response.
       positions = "F",
       sort_by = "total"
   ))
-#> 2026-05-30 03:09:22.806322: Error fetching https://api-web.nhle.com/v1/edge/skater-shot-speed-top-10/F/total/now: The API returned an error
+#> 2026-05-30 03:32:16.349294: Error fetching https://api-web.nhle.com/v1/edge/skater-shot-speed-top-10/F/total/now: The API returned an error
 #> NULL
 # }
 ```
