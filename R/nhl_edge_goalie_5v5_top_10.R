@@ -27,6 +27,15 @@ nhl_edge_goalie_5v5_top_10 <- function(
     season = NULL,
     game_type = 2
 ) {
+    lifecycle::deprecate_warn(
+        "1.0.0",
+        "nhl_edge_goalie_5v5_top_10()",
+        details = paste(
+            "The NHL has removed this Edge top-10 leaderboard endpoint;",
+            "the function returns NULL."
+        )
+    )
+
     raw <- .nhl_edge_api(
         base = glue::glue("goalie-5v5-top-10/{sort_by}"),
         season = season,

@@ -34,6 +34,15 @@ nhl_edge_skater_shot_speed_top_10 <- function(
     season = NULL,
     game_type = 2
 ) {
+    lifecycle::deprecate_warn(
+        "1.0.0",
+        "nhl_edge_skater_shot_speed_top_10()",
+        details = paste(
+            "The NHL has removed this Edge top-10 leaderboard endpoint;",
+            "the function returns NULL."
+        )
+    )
+
     raw <- .nhl_edge_api(
         base = glue::glue("skater-shot-speed-top-10/{positions}/{sort_by}"),
         season = season,
