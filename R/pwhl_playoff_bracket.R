@@ -67,21 +67,30 @@ pwhl_playoff_bracket <- function(season = most_recent_pwhl_season()) {
               for (j in seq_along(round$matchups)) {
                 m <- round$matchups[[j]]
 
-                t1_id <- m$team1$id %||% NA
-                t2_id <- m$team2$id %||% NA
+                # The HockeyTech brackets feed returns team1/team2 as bare id
+                # strings (not nested {id, wins} objects), and wins live in
+                # sibling team1_wins/team2_wins fields. winner is "" until the
+                # series is decided. Using m$team1$id here threw "$ operator is
+                # invalid for atomic vectors".
+                t1_id <- m$team1 %||% NA
+                t2_id <- m$team2 %||% NA
+                winner_raw <- m$winner %||% NA
+                if (is.character(winner_raw) && !nzchar(winner_raw)) {
+                  winner_raw <- NA
+                }
 
                 row <- data.frame(
                   series_letter = as.character(m$series_letter %||% NA),
                   round = as.numeric(round_num),
                   round_name = as.character(round_name),
                   series_name = as.character(m$series_name %||% NA),
-                  team_1_id = as.numeric(t1_id),
+                  team_1_id = suppressWarnings(as.numeric(t1_id)),
                   team_1_name = .get_team_name(t1_id),
-                  team_1_wins = as.numeric(m$team1$wins %||% 0),
-                  team_2_id = as.numeric(t2_id),
+                  team_1_wins = suppressWarnings(as.numeric(m$team1_wins %||% 0)),
+                  team_2_id = suppressWarnings(as.numeric(t2_id)),
                   team_2_name = .get_team_name(t2_id),
-                  team_2_wins = as.numeric(m$team2$wins %||% 0),
-                  winner_id = as.numeric(m$winner %||% NA),
+                  team_2_wins = suppressWarnings(as.numeric(m$team2_wins %||% 0)),
+                  winner_id = suppressWarnings(as.numeric(winner_raw)),
                   stringsAsFactors = FALSE
                 )
                 bracket_df <- dplyr::bind_rows(bracket_df, row)
