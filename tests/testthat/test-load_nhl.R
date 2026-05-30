@@ -4,9 +4,10 @@
 # or a not-yet-published season skips gracefully instead of failing.
 #
 # NOTE on game_id: the box-score releases (team/player/skater/goalie box,
-# game_rosters, rosters) and shifts do NOT currently carry a game_id column in
-# the data repo, so those tests assert on the keys that ARE present (team_id /
-# period). game_id is asserted only for the tables that include it.
+# game_rosters) now carry a game_id column (attached during data generation),
+# so those tests assert it. Two exceptions keep their natural key instead:
+# `rosters` is a season-unique per-player list (no game_id by design) and
+# `shifts` is keyed on period.
 
 test_that("NHL - Load NHL PBP", {
     skip_on_cran()
@@ -51,7 +52,7 @@ test_that("NHL - Load NHL Team Box", {
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
         expect_s3_class(x, "fastRhockey_data")
-        # Team box releases key on team_id (no game_id column upstream).
+        expect_true("game_id" %in% names(x))
         expect_true("team_id" %in% names(x))
         expect_true("team_abbrev" %in% names(x))
     }
@@ -65,6 +66,7 @@ test_that("NHL - Load NHL Player Box", {
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
         expect_s3_class(x, "fastRhockey_data")
+        expect_true("game_id" %in% names(x))
         expect_true("team_id" %in% names(x))
     }
 })
@@ -77,6 +79,7 @@ test_that("NHL - Load NHL Skater Box", {
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
         expect_s3_class(x, "fastRhockey_data")
+        expect_true("game_id" %in% names(x))
         expect_true("team_id" %in% names(x))
     }
 })
@@ -89,6 +92,7 @@ test_that("NHL - Load NHL Goalie Box", {
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
         expect_s3_class(x, "fastRhockey_data")
+        expect_true("game_id" %in% names(x))
         expect_true("team_id" %in% names(x))
     }
 })
@@ -112,6 +116,7 @@ test_that("NHL - Load NHL Game Rosters", {
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
         expect_s3_class(x, "fastRhockey_data")
+        expect_true("game_id" %in% names(x))
         expect_true("team_id" %in% names(x))
     }
 })
@@ -225,10 +230,11 @@ test_that("NHL - Load NHL Shots By Period", {
         expect_s3_class(x, "data.frame")
         expect_s3_class(x, "fastRhockey_data")
         expect_true("game_id" %in% names(x))
-        # Released in wide per-period form: home/away shot counts plus a
-        # periodDescriptor.* block (one row per game-period).
+        # Wide per-period form: home/away shot counts + cleaned period columns
+        # (periodDescriptor.* renamed to period / period_type during generation;
+        # one row per game-period).
         expect_true(all(c("home", "away") %in% names(x)))
-        expect_true(any(grepl("period", names(x), ignore.case = TRUE)))
+        expect_true("period" %in% names(x))
     }
 })
 
