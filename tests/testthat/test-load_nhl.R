@@ -1,6 +1,15 @@
+# Loader tests run live against the sportsdataverse-data releases. Seasons are
+# chosen per table to match what is actually published (some tables only exist
+# from 2024/2026 onward). Each call is guarded so a transient download failure
+# or a not-yet-published season skips gracefully instead of failing.
+#
+# NOTE on game_id: the box-score releases (team/player/skater/goalie box,
+# game_rosters, rosters) and shifts do NOT currently carry a game_id column in
+# the data repo, so those tests assert on the keys that ARE present (team_id /
+# period). game_id is asserted only for the tables that include it.
+
 test_that("NHL - Load NHL PBP", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
     x <- suppressWarnings(tryCatch(load_nhl_pbp(seasons = 2021), error = function(e) NULL))
 
@@ -13,9 +22,8 @@ test_that("NHL - Load NHL PBP", {
 
 test_that("NHL - Load NHL PBP Lite", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_pbp_lite(seasons = 2021), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_pbp_lite(seasons = 2024), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
@@ -26,7 +34,6 @@ test_that("NHL - Load NHL PBP Lite", {
 
 test_that("NHL - Load NHL Schedule", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
     x <- suppressWarnings(tryCatch(load_nhl_schedule(seasons = 2021), error = function(e) NULL))
 
@@ -38,60 +45,58 @@ test_that("NHL - Load NHL Schedule", {
 
 test_that("NHL - Load NHL Team Box", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_team_box(seasons = 2021), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_team_box(seasons = 2024), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
         expect_s3_class(x, "fastRhockey_data")
-        expect_true("game_id" %in% names(x))
+        # Team box releases key on team_id (no game_id column upstream).
+        expect_true("team_id" %in% names(x))
+        expect_true("team_abbrev" %in% names(x))
     }
 })
 
 test_that("NHL - Load NHL Player Box", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_player_box(seasons = 2021), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_player_box(seasons = 2024), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
         expect_s3_class(x, "fastRhockey_data")
+        expect_true("team_id" %in% names(x))
     }
 })
 
 test_that("NHL - Load NHL Skater Box", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_skater_box(seasons = 2021), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_skater_box(seasons = 2024), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
         expect_s3_class(x, "fastRhockey_data")
-        expect_true("game_id" %in% names(x))
+        expect_true("team_id" %in% names(x))
     }
 })
 
 test_that("NHL - Load NHL Goalie Box", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_goalie_box(seasons = 2021), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_goalie_box(seasons = 2024), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
         expect_s3_class(x, "fastRhockey_data")
-        expect_true("game_id" %in% names(x))
+        expect_true("team_id" %in% names(x))
     }
 })
 
 test_that("NHL - Load NHL Rosters", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_rosters(seasons = 2021), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_rosters(seasons = 2024), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
@@ -101,22 +106,20 @@ test_that("NHL - Load NHL Rosters", {
 
 test_that("NHL - Load NHL Game Rosters", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_game_rosters(seasons = 2021), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_game_rosters(seasons = 2024), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
         expect_s3_class(x, "fastRhockey_data")
-        expect_true("game_id" %in% names(x))
+        expect_true("team_id" %in% names(x))
     }
 })
 
 test_that("NHL - Load NHL Game Info", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_game_info(seasons = 2021), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_game_info(seasons = 2024), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
@@ -127,9 +130,8 @@ test_that("NHL - Load NHL Game Info", {
 
 test_that("NHL - Load NHL Scoring", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_scoring(seasons = 2021), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_scoring(seasons = 2026), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
@@ -140,9 +142,8 @@ test_that("NHL - Load NHL Scoring", {
 
 test_that("NHL - Load NHL Penalties", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_penalties(seasons = 2021), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_penalties(seasons = 2026), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
@@ -153,9 +154,8 @@ test_that("NHL - Load NHL Penalties", {
 
 test_that("NHL - Load NHL Three Stars", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_three_stars(seasons = 2021), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_three_stars(seasons = 2026), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
@@ -166,9 +166,8 @@ test_that("NHL - Load NHL Three Stars", {
 
 test_that("NHL - Load NHL Scratches", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_scratches(seasons = 2021), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_scratches(seasons = 2024), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
@@ -179,9 +178,8 @@ test_that("NHL - Load NHL Scratches", {
 
 test_that("NHL - Load NHL Linescore", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_linescore(seasons = 2021), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_linescore(seasons = 2024), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
@@ -192,22 +190,21 @@ test_that("NHL - Load NHL Linescore", {
 
 test_that("NHL - Load NHL Shifts", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_shifts(seasons = 2021), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_shifts(seasons = 2025), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
         expect_s3_class(x, "fastRhockey_data")
-        expect_true("game_id" %in% names(x))
+        # Shift releases key on period (no game_id column upstream).
+        expect_true("period" %in% names(x))
     }
 })
 
 test_that("NHL - Load NHL Officials", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_officials(seasons = 2024), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_officials(seasons = 2026), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
@@ -221,27 +218,24 @@ test_that("NHL - Load NHL Officials", {
 
 test_that("NHL - Load NHL Shots By Period", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_shots_by_period(seasons = 2024), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_shots_by_period(seasons = 2026), error = function(e) NULL))
 
     if (!is.null(x) && nrow(x) > 0) {
         expect_s3_class(x, "data.frame")
         expect_s3_class(x, "fastRhockey_data")
         expect_true("game_id" %in% names(x))
-        expect_true("home_away" %in% names(x))
-        expect_true(any(c("period_number", "period") %in% names(x)))
-        expect_true("shots" %in% names(x))
-        # home_away should only be "home" or "away"
-        expect_true(all(unique(x$home_away) %in% c("home", "away")))
+        # Released in wide per-period form: home/away shot counts plus a
+        # periodDescriptor.* block (one row per game-period).
+        expect_true(all(c("home", "away") %in% names(x)))
+        expect_true(any(grepl("period", names(x), ignore.case = TRUE)))
     }
 })
 
 test_that("NHL - Load NHL Shootout", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_shootout(seasons = 2024), error = function(e) NULL))
+    x <- suppressWarnings(tryCatch(load_nhl_shootout(seasons = 2026), error = function(e) NULL))
 
     # Shootout is sparse (only games that went to SO contribute rows).
     # Empty result is acceptable.
@@ -257,7 +251,6 @@ test_that("NHL - Load NHL Shootout", {
 
 test_that("NHL - nhl_schedule(include_data_flags = TRUE) attaches flag columns", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
     sched <- suppressWarnings(tryCatch(
         nhl_schedule(day = "2024-01-15", include_data_flags = TRUE),

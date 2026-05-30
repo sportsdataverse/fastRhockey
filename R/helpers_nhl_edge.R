@@ -49,7 +49,13 @@
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url, query = query)
+            # Don't retry permanent client errors (e.g. 404 for Edge leaderboard
+            # endpoints the NHL has removed) -- retrying can't recover them and
+            # only adds noise/latency. Transient 5xx/timeouts are still retried.
+            res <- httr::RETRY(
+                "GET", url, query = query,
+                terminate_on = c(400L, 401L, 403L, 404L, 410L, 422L)
+            )
             check_status(res)
 
             resp_text <- httr::content(res, as = "text", encoding = "UTF-8")

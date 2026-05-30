@@ -239,13 +239,21 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
         for (fc in flag_cols) schedule[[fc]] <- FALSE
         return(schedule)
     }
+    # load_nhl_games() returns a data.table; `dt[, <char vec>]` would evaluate
+    # to the literal column names rather than selecting columns. Coerce to a
+    # tibble first so plain data-frame column selection works.
+    games_idx <- dplyr::as_tibble(games_idx)
 
     have_cols <- intersect(flag_cols, names(games_idx))
     join_df <- games_idx[, c("game_id", have_cols), drop = FALSE]
 
+    # `schedule` and `games_idx` can carry a `data.table` class (via
+    # make_fastRhockey_data() / load_nhl_games()), which routes dplyr::left_join
+    # through the dtplyr backend and errors with "`x` and `y` must share the
+    # same src". Coerce both sides to plain tibbles so the join is a local one.
     out <- dplyr::left_join(
-        schedule,
-        join_df,
+        dplyr::as_tibble(schedule),
+        dplyr::as_tibble(join_df),
         by = "game_id"
     )
     # Coalesce any new flag columns to FALSE for non-matching rows

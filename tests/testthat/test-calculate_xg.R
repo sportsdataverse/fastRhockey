@@ -1,6 +1,5 @@
 test_that("NHL - helper_nhl_calculate_xg adds xg column", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
     skip_if_not_installed("xgboost")
 
@@ -22,7 +21,6 @@ test_that("NHL - helper_nhl_calculate_xg adds xg column", {
 
 test_that("NHL - helper_nhl_calculate_xg values are in [0, 1]", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
     skip_if_not_installed("xgboost")
 
@@ -46,7 +44,6 @@ test_that("NHL - helper_nhl_calculate_xg values are in [0, 1]", {
 
 test_that("NHL - helper_nhl_calculate_xg only fills shot events", {
     skip_on_cran()
-    skip_on_ci()
     skip_nhl_test()
     skip_if_not_installed("xgboost")
 
