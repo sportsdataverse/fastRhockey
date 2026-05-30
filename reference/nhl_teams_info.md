@@ -54,7 +54,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_teams_info(team_abbr = "TBL"))
 #> ── NHL Teams Information from NHL.com ───────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-30 03:33:26 UTC
+#> ℹ Data updated: 2026-05-30 03:53:51 UTC
 #> # A tibble: 1 × 20
 #>   team_abbr team_name team_common_name team_logo conference_abbr conference_name
 #>   <chr>     <chr>     <chr>            <chr>     <chr>           <chr>          

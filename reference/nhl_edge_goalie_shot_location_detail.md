@@ -54,7 +54,7 @@ Returns `NULL` on failure / empty response.
 # \donttest{
   try(nhl_edge_goalie_shot_location_detail(player_id = 8475883))
 #> ── NHL Edge Goalie Shot Location Detail ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-30 03:32:11 UTC
+#> ℹ Data updated: 2026-05-30 03:52:29 UTC
 #> # A tibble: 17 × 9
 #>    area       shots_against saves goals_against save_pctg shots_against_percen…¹
 #>    <chr>              <int> <int>         <int>     <dbl>                  <dbl>
@@ -62,19 +62,19 @@ Returns `NULL` on failure / empty response.
 #>  2 Beyond Re…            20    20             0     1                      1    
 #>  3 Center Po…            13    13             0     1                      0.667
 #>  4 Crease                14    12             2     0.857                  0.958
-#>  5 High Slot             26    20             6     0.769                  0.833
-#>  6 L Circle              25    25             0     1                      0.75 
+#>  5 High Slot             29    23             6     0.793                  0.917
+#>  6 L Circle              27    27             0     1                      0.833
 #>  7 L Corner               0     0             0     0                      0.75 
-#>  8 L Net Side            13    12             1     0.923                  0.917
-#>  9 L Point               18    18             0     1                      0.875
-#> 10 Low Slot              57    49             8     0.860                  0.75 
+#>  8 L Net Side            15    14             1     0.933                  0.958
+#>  9 L Point               22    22             0     1                      0.917
+#> 10 Low Slot              63    54             9     0.857                  0.833
 #> 11 Offensive…             9     9             0     1                      0.833
-#> 12 Outside L             14    14             0     1                      0.75 
-#> 13 Outside R             19    18             1     0.947                  0.875
-#> 14 R Circle              17    17             0     1                      0.583
+#> 12 Outside L             16    16             0     1                      0.75 
+#> 13 Outside R             20    19             1     0.95                   0.875
+#> 14 R Circle              18    18             0     1                      0.583
 #> 15 R Corner               0     0             0     0                      0.792
-#> 16 R Net Side             6     5             1     0.833                  0.792
-#> 17 R Point               11    11             0     1                      0.667
+#> 16 R Net Side             8     7             1     0.875                  0.917
+#> 17 R Point               12    12             0     1                      0.667
 #> # ℹ abbreviated name: ¹​shots_against_percentile
 #> # ℹ 3 more variables: saves_percentile <dbl>, goals_against_percentile <dbl>,
 #> #   save_pctg_percentile <dbl>

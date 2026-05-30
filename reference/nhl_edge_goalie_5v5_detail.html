@@ -129,28 +129,8 @@ season), an 8-character API season (e.g., <code>"20242025"</code>), or <code>NUL
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_edge_goalie_5v5_detail</span><span class="op">(</span>player_id <span class="op">=</span> <span class="fl">8475883</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Edge Goalie 5v5 Detail ───────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-30 03:32:08 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 20</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    game_center_link             save_pctg game_date decision player_on_home_team</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> /gamecenter/car-vs-mtl/2026…     1     2026-05-… W        FALSE              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> /gamecenter/car-vs-mtl/2026…     0.909 2026-05-… W        FALSE              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> /gamecenter/mtl-vs-car/2026…     0.833 2026-05-… W        TRUE               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> /gamecenter/mtl-vs-car/2026…     0.733 2026-05-… L        TRUE               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> /gamecenter/car-vs-phi/2026…     0.867 2026-05-… W        FALSE              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> /gamecenter/car-vs-phi/2026…     1     2026-05-… W        FALSE              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> /gamecenter/phi-vs-car/2026…     0.966 2026-05-… W        TRUE               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> /gamecenter/phi-vs-car/2026…     1     2026-05-… W        TRUE               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> /gamecenter/car-vs-ott/2026…     1     2026-04-… W        FALSE              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> /gamecenter/car-vs-ott/2026…     0.941 2026-04-… W        FALSE              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 15 more variables: home_team_abbrev &lt;chr&gt;, home_team_slug &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_common_name_default &lt;chr&gt;, home_team_common_name_fr &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_place_name_with_preposition_default &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_place_name_with_preposition_fr &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_team_logo_light &lt;chr&gt;, home_team_team_logo_dark &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   away_team_abbrev &lt;chr&gt;, away_team_slug &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   away_team_common_name_default &lt;chr&gt;, …</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 2026-05-30 03:52:26.252511: No NHL Edge goalie 5v5 detail returned for player_id=8475883</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

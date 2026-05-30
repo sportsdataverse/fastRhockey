@@ -39,7 +39,10 @@ failure / empty response.
 ``` r
 # \donttest{
   try(nhl_edge_goalie_edge_save_pctg_top_10(sort_by = "savePctg"))
-#> 2026-05-30 03:32:10.025107: Error fetching https://api-web.nhle.com/v1/edge/goalie-edge-save-pctg-top-10/savePctg/now: The API returned an error
+#> Warning: `nhl_edge_goalie_edge_save_pctg_top_10()` was deprecated in fastRhockey 1.0.0.
+#> ℹ The NHL has removed this Edge top-10 leaderboard endpoint; the function
+#>   returns NULL.
+#> 2026-05-30 03:52:28.255234: Error fetching https://api-web.nhle.com/v1/edge/goalie-edge-save-pctg-top-10/savePctg/now: The API returned an error
 #> NULL
 # }
 ```

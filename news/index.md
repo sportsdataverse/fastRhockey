@@ -2,6 +2,32 @@
 
 ## **fastRhockey 1.0.0 (continued development)**
 
+#### **Deprecations & fixes**
+
+- **Deprecated:** nine NHL Edge “top-10” leaderboard wrappers whose
+  upstream endpoints the NHL has removed (every request returns HTTP
+  404):
+  [`nhl_edge_goalie_5v5_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_5v5_top_10.md),
+  [`nhl_edge_goalie_edge_save_pctg_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_edge_save_pctg_top_10.md),
+  [`nhl_edge_goalie_shot_location_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_shot_location_top_10.md),
+  [`nhl_edge_skater_shot_location_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_shot_location_top_10.md),
+  [`nhl_edge_skater_shot_speed_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_shot_speed_top_10.md),
+  [`nhl_edge_skater_speed_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_speed_top_10.md),
+  [`nhl_edge_skater_zone_time_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_skater_zone_time_top_10.md),
+  [`nhl_edge_team_shot_location_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_shot_location_top_10.md),
+  and
+  [`nhl_edge_team_skating_speed_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_team_skating_speed_top_10.md).
+  They now emit a
+  [`lifecycle::deprecate_warn()`](https://lifecycle.r-lib.org/reference/deprecate_soft.html)
+  and return `NULL`. The Edge “top-10” wrappers that remain live (skater
+  distance, team skating-distance, team zone-time) are unaffected.
+- **Fix:**
+  [`pwhl_playoff_bracket()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_playoff_bracket.md)
+  errored with `$ operator is invalid for atomic vectors` and returned
+  `NULL`. The HockeyTech feed returns `team1`/`team2` as bare id strings
+  (not nested objects) with wins in sibling `team1_wins`/`team2_wins`
+  fields; the parser now reads these correctly.
+
 #### **CI: NHL loader + xG tests, and two fixes**
 
 - **Fix:** `nhl_schedule(include_data_flags = TRUE)` failed with
