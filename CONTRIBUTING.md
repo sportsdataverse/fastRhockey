@@ -309,6 +309,21 @@ my_old_function <- function(param) {
 Add a **Deprecations** section in `NEWS.md` listing every deprecated function
 and its replacement.
 
+## Proxy support
+
+All HTTP requests flow through an internal `httr2` helper (`.retry_request()`)
+that resolves a proxy in this order:
+
+1. an explicit `proxy =` argument (only on wrappers that thread `...`);
+2. `getOption("fastRhockey.proxy")` — set once per session with
+   `options(fastRhockey.proxy = "http://host:port")`;
+3. the `http_proxy` / `https_proxy` / `no_proxy` environment variables.
+
+The proxy value may be a URL string (`"http://host:port"`) or a named list
+spread into `httr2::req_proxy()` for authenticated proxies
+(`list(url=, port=, username=, password=, auth=)`). The session-`options()`
+form is recommended when one proxy covers many calls.
+
 ## Reporting Issues
 
 - Use the [bug report template](.github/ISSUE_TEMPLATE/bug_report.md) for bugs

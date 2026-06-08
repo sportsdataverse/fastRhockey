@@ -10,6 +10,24 @@
 
 A utility to scrape and load play-by-play data and statistics from the Professional Women's Hockey League \url{https://www.thepwhl.com/}, formerly known as the Premier Hockey Federation (PHF) or National Women's Hockey League (NWHL). Additionally, allows access to the National Hockey League's stats API \url{https://www.nhl.com/}.
 }
+\section{Proxy support}{
+
+All HTTP requests flow through an internal httr2 helper that resolves a proxy
+in this order:
+\enumerate{
+\item an explicit \verb{proxy =} argument (only on wrappers that pass \code{...});
+\item \code{getOption("fastRhockey.proxy")} -- set once per session with
+\code{options(fastRhockey.proxy = "http://host:port")} and every call
+picks it up;
+\item the \code{http_proxy} / \code{https_proxy} / \code{no_proxy} environment variables,
+read by libcurl when no explicit proxy is supplied.
+}
+The proxy value may be a URL string (\code{"http://host:port"}) or a named list
+spread into \code{\link[httr2:req_proxy]{httr2::req_proxy()}} for authenticated proxies, e.g.
+\code{list(url = "http://host", port = 8080, username = "u", password = "p", auth = "basic")}. The session-\code{options()} form is recommended when one proxy
+covers many calls.
+}
+
 \seealso{
 Useful links:
 \itemize{
