@@ -304,6 +304,174 @@ load_nhl_pbp_lite <- function(seasons = most_recent_nhl_season(), ...,
 }
 
 
+#' **Load fastRhockey NHL play-by-play (full, alias)**
+#' @name load_nhl_pbp_full
+NULL
+#' @title **Load cleaned NHL play-by-play (full) -- alias of load_nhl_pbp()**
+#' @rdname load_nhl_pbp_full
+#' @description Alias of [load_nhl_pbp()] for naming parity with
+#'   sportsdataverse-py. In this package \code{load_nhl_pbp()} already serves
+#'   the full \code{nhl_pbp_full} release.
+#' @inheritParams load_nhl_pbp
+#' @return See [load_nhl_pbp()].
+#' @seealso [load_nhl_pbp()] [load_nhl_pbp_lite()]
+#' @export
+#' @family NHL Loader Functions
+#' @examples
+#' \donttest{
+#'   try(load_nhl_pbp_full(2024))
+#' }
+load_nhl_pbp_full <- function(seasons = most_recent_nhl_season(), ...) {
+  load_nhl_pbp(seasons = seasons, ...)
+}
+
+
+# ── NHL sdv-py naming-parity aliases ─────────────────────────────────────────
+# These thin wrappers exist solely for naming parity with sportsdataverse-py,
+# which uses the plural/boxscore(s) forms. They forward all arguments verbatim
+# to the canonical load_nhl_*() functions.
+
+#' **Load NHL team box scores (alias)**
+#' @name load_nhl_team_boxscore
+NULL
+#' @title **Load cleaned NHL team box scores (alias)**
+#' @rdname load_nhl_team_boxscore
+#' @description Alias of [load_nhl_team_box()] for naming parity with
+#'   sportsdataverse-py.
+#' @inheritParams load_nhl_team_box
+#' @return See [load_nhl_team_box()].
+#' @seealso [load_nhl_team_box()]
+#' @export
+#' @family NHL Loader Functions
+#' @examples
+#' \donttest{
+#'   try(load_nhl_team_boxscore(2022))
+#' }
+load_nhl_team_boxscore <- function(seasons = most_recent_nhl_season(), ...) {
+  load_nhl_team_box(seasons = seasons, ...)
+}
+
+#' **Load NHL team box scores (alias)**
+#' @name load_nhl_team_boxscores
+NULL
+#' @title **Load cleaned NHL team box scores (alias)**
+#' @rdname load_nhl_team_boxscores
+#' @description Alias of [load_nhl_team_box()] for naming parity with
+#'   sportsdataverse-py.
+#' @inheritParams load_nhl_team_box
+#' @return See [load_nhl_team_box()].
+#' @seealso [load_nhl_team_box()]
+#' @export
+#' @family NHL Loader Functions
+#' @examples
+#' \donttest{
+#'   try(load_nhl_team_boxscores(2022))
+#' }
+load_nhl_team_boxscores <- function(seasons = most_recent_nhl_season(), ...) {
+  load_nhl_team_box(seasons = seasons, ...)
+}
+
+#' **Load NHL player box scores (alias)**
+#' @name load_nhl_player_boxscore
+NULL
+#' @title **Load cleaned NHL player box scores (alias)**
+#' @rdname load_nhl_player_boxscore
+#' @description Alias of [load_nhl_player_box()] for naming parity with
+#'   sportsdataverse-py.
+#' @inheritParams load_nhl_player_box
+#' @return See [load_nhl_player_box()].
+#' @seealso [load_nhl_player_box()]
+#' @export
+#' @family NHL Loader Functions
+#' @examples
+#' \donttest{
+#'   try(load_nhl_player_boxscore(2022))
+#' }
+load_nhl_player_boxscore <- function(seasons = most_recent_nhl_season(), ...) {
+  load_nhl_player_box(seasons = seasons, ...)
+}
+
+#' **Load NHL player box scores (alias)**
+#' @name load_nhl_player_boxscores
+NULL
+#' @title **Load cleaned NHL player box scores (alias)**
+#' @rdname load_nhl_player_boxscores
+#' @description Alias of [load_nhl_player_box()] for naming parity with
+#'   sportsdataverse-py.
+#' @inheritParams load_nhl_player_box
+#' @return See [load_nhl_player_box()].
+#' @seealso [load_nhl_player_box()]
+#' @export
+#' @family NHL Loader Functions
+#' @examples
+#' \donttest{
+#'   try(load_nhl_player_boxscores(2022))
+#' }
+load_nhl_player_boxscores <- function(seasons = most_recent_nhl_season(), ...) {
+  load_nhl_player_box(seasons = seasons, ...)
+}
+
+#' **Load NHL skater box scores (alias)**
+#' @name load_nhl_skater_boxscores
+NULL
+#' @title **Load cleaned NHL skater box scores (alias)**
+#' @rdname load_nhl_skater_boxscores
+#' @description Alias of [load_nhl_skater_box()] for naming parity with
+#'   sportsdataverse-py.
+#' @inheritParams load_nhl_skater_box
+#' @return See [load_nhl_skater_box()].
+#' @seealso [load_nhl_skater_box()]
+#' @export
+#' @family NHL Loader Functions
+#' @examples
+#' \donttest{
+#'   try(load_nhl_skater_boxscores(2022))
+#' }
+load_nhl_skater_boxscores <- function(seasons = most_recent_nhl_season(), ...) {
+  load_nhl_skater_box(seasons = seasons, ...)
+}
+
+#' **Load NHL goalie box scores (alias)**
+#' @name load_nhl_goalie_boxscores
+NULL
+#' @title **Load cleaned NHL goalie box scores (alias)**
+#' @rdname load_nhl_goalie_boxscores
+#' @description Alias of [load_nhl_goalie_box()] for naming parity with
+#'   sportsdataverse-py.
+#' @inheritParams load_nhl_goalie_box
+#' @return See [load_nhl_goalie_box()].
+#' @seealso [load_nhl_goalie_box()]
+#' @export
+#' @family NHL Loader Functions
+#' @examples
+#' \donttest{
+#'   try(load_nhl_goalie_boxscores(2022))
+#' }
+load_nhl_goalie_boxscores <- function(seasons = most_recent_nhl_season(), ...) {
+  load_nhl_goalie_box(seasons = seasons, ...)
+}
+
+#' **Load NHL schedules (alias)**
+#' @name load_nhl_schedules
+NULL
+#' @title **Load cleaned NHL schedules (alias)**
+#' @rdname load_nhl_schedules
+#' @description Alias of [load_nhl_schedule()] for naming parity with
+#'   sportsdataverse-py.
+#' @inheritParams load_nhl_schedule
+#' @return See [load_nhl_schedule()].
+#' @seealso [load_nhl_schedule()]
+#' @export
+#' @family NHL Loader Functions
+#' @examples
+#' \donttest{
+#'   try(load_nhl_schedules(2022))
+#' }
+load_nhl_schedules <- function(seasons = most_recent_nhl_season(), ...) {
+  load_nhl_schedule(seasons = seasons, ...)
+}
+
+
 #' **Load fastRhockey NHL team box scores**
 #' @name load_nhl_team_box
 NULL

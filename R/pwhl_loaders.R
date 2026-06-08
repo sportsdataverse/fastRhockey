@@ -1016,6 +1016,112 @@ load_pwhl_game_rosters <- function(seasons = most_recent_pwhl_season(), ...,
 }
 
 
+# ── PWHL sdv-py naming-parity aliases ────────────────────────────────────────
+# These thin wrappers exist solely for naming parity with sportsdataverse-py,
+# which uses the plural/boxscore(s) forms. They forward all arguments verbatim
+# to the canonical load_pwhl_*() functions.
+
+#' **Load PWHL team box scores (alias)**
+#' @name load_pwhl_team_boxscores
+NULL
+#' @title **Load cleaned PWHL team box scores (alias)**
+#' @rdname load_pwhl_team_boxscores
+#' @description Alias of [load_pwhl_team_box()] for naming parity with
+#'   sportsdataverse-py.
+#' @inheritParams load_pwhl_team_box
+#' @return See [load_pwhl_team_box()].
+#' @seealso [load_pwhl_team_box()]
+#' @export
+#' @family PWHL Loader Functions
+#' @examples
+#' \donttest{
+#'   try(load_pwhl_team_boxscores(2024))
+#' }
+load_pwhl_team_boxscores <- function(seasons = most_recent_pwhl_season(), ...) {
+  load_pwhl_team_box(seasons = seasons, ...)
+}
+
+#' **Load PWHL player box scores (alias)**
+#' @name load_pwhl_player_boxscores
+NULL
+#' @title **Load cleaned PWHL player box scores (alias)**
+#' @rdname load_pwhl_player_boxscores
+#' @description Alias of [load_pwhl_player_box()] for naming parity with
+#'   sportsdataverse-py.
+#' @inheritParams load_pwhl_player_box
+#' @return See [load_pwhl_player_box()].
+#' @seealso [load_pwhl_player_box()]
+#' @export
+#' @family PWHL Loader Functions
+#' @examples
+#' \donttest{
+#'   try(load_pwhl_player_boxscores(2024))
+#' }
+load_pwhl_player_boxscores <- function(seasons = most_recent_pwhl_season(), ...) {
+  load_pwhl_player_box(seasons = seasons, ...)
+}
+
+#' **Load PWHL skater box scores (alias)**
+#' @name load_pwhl_skater_boxscores
+NULL
+#' @title **Load cleaned PWHL skater box scores (alias)**
+#' @rdname load_pwhl_skater_boxscores
+#' @description Alias of [load_pwhl_skater_box()] for naming parity with
+#'   sportsdataverse-py.
+#' @inheritParams load_pwhl_skater_box
+#' @return See [load_pwhl_skater_box()].
+#' @seealso [load_pwhl_skater_box()]
+#' @export
+#' @family PWHL Loader Functions
+#' @examples
+#' \donttest{
+#'   try(load_pwhl_skater_boxscores(2024))
+#' }
+load_pwhl_skater_boxscores <- function(seasons = most_recent_pwhl_season(), ...) {
+  load_pwhl_skater_box(seasons = seasons, ...)
+}
+
+#' **Load PWHL goalie box scores (alias)**
+#' @name load_pwhl_goalie_boxscores
+NULL
+#' @title **Load cleaned PWHL goalie box scores (alias)**
+#' @rdname load_pwhl_goalie_boxscores
+#' @description Alias of [load_pwhl_goalie_box()] for naming parity with
+#'   sportsdataverse-py.
+#' @inheritParams load_pwhl_goalie_box
+#' @return See [load_pwhl_goalie_box()].
+#' @seealso [load_pwhl_goalie_box()]
+#' @export
+#' @family PWHL Loader Functions
+#' @examples
+#' \donttest{
+#'   try(load_pwhl_goalie_boxscores(2024))
+#' }
+load_pwhl_goalie_boxscores <- function(seasons = most_recent_pwhl_season(), ...) {
+  load_pwhl_goalie_box(seasons = seasons, ...)
+}
+
+#' **Load PWHL schedules (alias)**
+#' @name load_pwhl_schedules
+NULL
+#' @title **Load cleaned PWHL schedules (alias)**
+#' @rdname load_pwhl_schedules
+#' @description Alias of [load_pwhl_schedule()] for naming parity with
+#'   sportsdataverse-py.
+#' @inheritParams load_pwhl_schedule
+#' @return See [load_pwhl_schedule()].
+#' @seealso [load_pwhl_schedule()]
+#' @export
+#' @family PWHL Loader Functions
+#' @examples
+#' \donttest{
+#'   try(load_pwhl_schedules(2024))
+#' }
+load_pwhl_schedules <- function(seasons = most_recent_pwhl_season(), ...) {
+  load_pwhl_schedule(seasons = seasons, ...)
+}
+
+
 # load PWHL games file (internal helper for update_pwhl_db)
 load_pwhl_games <- function() {
   release_url <- paste0(

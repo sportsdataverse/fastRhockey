@@ -12,6 +12,19 @@
   built on a shared league-generic helper layer. Endpoints ESPN does not populate
   for the NHL degrade gracefully to an empty frame with a warning.
 
+### **Data loaders**
+
+* Added 13 naming-parity aliases for sportsdataverse-py compatibility:
+  `load_nhl_pbp_full()` (parity alias of `load_nhl_pbp()`, which already serves
+  the full `nhl_pbp_full` release),
+  `load_nhl_team_boxscore()`, `load_nhl_team_boxscores()`,
+  `load_nhl_player_boxscore()`, `load_nhl_player_boxscores()`,
+  `load_nhl_skater_boxscores()`, `load_nhl_goalie_boxscores()`,
+  `load_nhl_schedules()` (NHL), and `load_pwhl_team_boxscores()`,
+  `load_pwhl_player_boxscores()`, `load_pwhl_skater_boxscores()`,
+  `load_pwhl_goalie_boxscores()`, `load_pwhl_schedules()` (PWHL). Each alias
+  forwards all arguments to its canonical counterpart.
+
 ### **Dependencies**
 
 * Migrated the entire package from `httr` to `httr2` behind a single internal
