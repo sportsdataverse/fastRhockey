@@ -16,16 +16,19 @@ espn_nhl_leaders(
 \arguments{
 \item{category}{Stat category to display. For NHL one of \code{"offensive"},
 \code{"defensive"}, \code{"general"}, \code{"penalties"}, or \code{NULL} for all
-categories. Defaults to \code{"offensive"}.
-\strong{Note}: the \code{season} and \code{season_type} query parameters are not
-supported by the underlying ESPN endpoint for NHL and are ignored
-server-side; they are echoed on the output rows only.}
+categories. Defaults to \code{"offensive"}.}
 
 \item{season}{Season end-year (e.g. \code{2025}). Defaults to
-\code{most_recent_nhl_season()}. Echoed on output rows; not sent to API.}
+\code{most_recent_nhl_season()}. \strong{ESPN's NHL \code{statistics/byathlete} endpoint
+currently ignores this parameter and always returns the current/most-recent
+season.} The argument is accepted for forward-compatibility but does not
+filter upstream. The returned \code{season} and \code{season_type} columns reflect
+the season ESPN actually served, not this value.}
 
 \item{season_type}{Season type code (1 = pre, 2 = regular, 3 = post).
-Defaults to \code{2}. Echoed on output rows; not sent to API.}
+Defaults to \code{2}. \strong{ESPN's NHL \code{statistics/byathlete} endpoint currently
+ignores this parameter.} The returned \code{season_type} column reflects the
+type ESPN actually served.}
 
 \item{limit}{Athletes per page (default \code{50}).}
 
@@ -36,9 +39,9 @@ Defaults to \code{2}. Echoed on output rows; not sent to API.}
 \value{
 A \code{fastRhockey_data} tibble with one row per athlete:\tabular{lll}{
    col_name \tab types \tab description \cr
-   season \tab integer \tab Season end-year (echoed from arg). \cr
-   season_type \tab integer \tab Season type code (echoed from arg). \cr
-   requested_season_year \tab integer \tab Season year returned by the API. \cr
+   season \tab integer \tab Season end-year ESPN actually served (from \code{currentSeason$year}). \cr
+   season_type \tab integer \tab Season type id ESPN actually served (from \code{currentSeason$type$id}). \cr
+   requested_season_year \tab integer \tab Season year from \code{requestedSeason} (mirrors \code{season}). \cr
    page \tab integer \tab Current page. \cr
    pagination_count \tab integer \tab Total athlete count. \cr
    pagination_limit \tab integer \tab Athletes per page. \cr

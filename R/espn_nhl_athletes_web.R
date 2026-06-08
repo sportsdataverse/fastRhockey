@@ -514,15 +514,17 @@ espn_nhl_player_splits <- function(athlete_id,
 #'
 #' **NOTE**: The `season` and `seasontype` query parameters return 400 for
 #' NHL on the web-v3 host. The endpoint always returns the current/most
-#' recent season. Pass `season = NULL` and `season_type = NULL` (or omit
-#' them) to hit the endpoint successfully. The `season` and `season_type`
-#' arguments are echoed on the output rows for bookkeeping only.
+#' recent season. The `season` and `season_type` arguments are NOT sent as
+#' query parameters. The output `season` and `season_type` columns are
+#' derived from `currentSeason` in the API response, not from the caller args.
 #'
 #' @param league ESPN league slug.
 #' @param category Stat category filter. For NHL: `"offensive"`,
 #'   `"defensive"`, `"general"`, `"penalties"`. `NULL` returns all.
-#' @param season Season end-year. Echoed on output; not sent as query param.
-#' @param season_type Season type code. Echoed on output; not sent as query.
+#' @param season Season end-year. Accepted for forward-compatibility; not
+#'   sent to the API. Output `season` reflects what ESPN served.
+#' @param season_type Season type code. Accepted for forward-compatibility;
+#'   not sent to the API. Output `season_type` reflects what ESPN served.
 #' @param limit Number of athletes per page (default 50).
 #' @param page Page number (default 1).
 #' @param ... Passed through.
@@ -572,7 +574,22 @@ espn_nhl_player_splits <- function(athlete_id,
       # League meta
       lg <- raw[["league"]] %||% list()
 
-      # requestedSeason meta
+      # currentSeason meta: reflects the season ESPN actually served,
+      # regardless of any season/seasontype query parameters (which are
+      # ignored server-side for NHL on this endpoint).
+      cs      <- raw[["currentSeason"]] %||% list()
+      cs_year <- as.integer(cs[["year"]] %||% NA_integer_)
+      cs_type_obj <- cs[["type"]] %||% list()
+      cs_type_id  <- as.integer(
+        if (is.list(cs_type_obj)) cs_type_obj[["id"]] %||% NA_integer_
+        else cs_type_obj %||% NA_integer_
+      )
+      # Fall back to most_recent_nhl_season() if the payload omits the year
+      served_season      <- if (!is.na(cs_year)) cs_year else most_recent_nhl_season()
+      served_season_type <- cs_type_id
+
+      # requestedSeason meta (kept for diagnostics — mirrors currentSeason
+      # because the endpoint ignores the season/seasontype query params)
       rs <- raw[["requestedSeason"]] %||% list()
       rs_year <- as.integer(rs[["year"]] %||% NA_integer_)
 
@@ -588,8 +605,8 @@ espn_nhl_player_splits <- function(athlete_id,
         team_logo <- if (length(logos) > 0) logos[[1]][["href"]] %||% NA_character_ else NA_character_
 
         row <- list(
-          season              = as.integer(season      %||% NA_integer_),
-          season_type         = as.integer(season_type %||% NA_integer_),
+          season              = as.integer(served_season),
+          season_type         = as.integer(served_season_type %||% NA_integer_),
           requested_season_year = rs_year,
           page                = pg_page,
           pagination_count    = pg_count,
@@ -680,13 +697,16 @@ NULL
 #' @param category Stat category to display. For NHL one of `"offensive"`,
 #'   `"defensive"`, `"general"`, `"penalties"`, or `NULL` for all
 #'   categories. Defaults to `"offensive"`.
-#'   **Note**: the `season` and `season_type` query parameters are not
-#'   supported by the underlying ESPN endpoint for NHL and are ignored
-#'   server-side; they are echoed on the output rows only.
 #' @param season Season end-year (e.g. `2025`). Defaults to
-#'   `most_recent_nhl_season()`. Echoed on output rows; not sent to API.
+#'   `most_recent_nhl_season()`. **ESPN's NHL `statistics/byathlete` endpoint
+#'   currently ignores this parameter and always returns the current/most-recent
+#'   season.** The argument is accepted for forward-compatibility but does not
+#'   filter upstream. The returned `season` and `season_type` columns reflect
+#'   the season ESPN actually served, not this value.
 #' @param season_type Season type code (1 = pre, 2 = regular, 3 = post).
-#'   Defaults to `2`. Echoed on output rows; not sent to API.
+#'   Defaults to `2`. **ESPN's NHL `statistics/byathlete` endpoint currently
+#'   ignores this parameter.** The returned `season_type` column reflects the
+#'   type ESPN actually served.
 #' @param limit Athletes per page (default `50`).
 #' @param page Page number (default `1`).
 #' @param ... Reserved for forward compatibility.
@@ -694,9 +714,9 @@ NULL
 #'
 #'    |col_name                    |types     |description                                       |
 #'    |:---------------------------|:---------|:-------------------------------------------------|
-#'    |season                      |integer   |Season end-year (echoed from arg).                |
-#'    |season_type                 |integer   |Season type code (echoed from arg).               |
-#'    |requested_season_year       |integer   |Season year returned by the API.                  |
+#'    |season                      |integer   |Season end-year ESPN actually served (from `currentSeason$year`). |
+#'    |season_type                 |integer   |Season type id ESPN actually served (from `currentSeason$type$id`). |
+#'    |requested_season_year       |integer   |Season year from `requestedSeason` (mirrors `season`). |
 #'    |page                        |integer   |Current page.                                     |
 #'    |pagination_count            |integer   |Total athlete count.                              |
 #'    |pagination_limit            |integer   |Athletes per page.                                |
