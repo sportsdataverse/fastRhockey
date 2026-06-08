@@ -222,6 +222,45 @@ rule_footer <- function(x) {
   proxy
 }
 
+#' Perform an HTTP GET with retries (httr2).
+#'
+#' Replacement for `httr::RETRY("GET", ...)`. Non-2xx responses do NOT throw
+#' (`req_error(is_error = ~ FALSE)`) so callers inspect status via
+#' [check_status()]. Proxy resolved via [.resolve_proxy()]; accepts a URL string
+#' or a named list spread into [httr2::req_proxy()].
+#'
+#' @param url Request URL.
+#' @param params Named list of query parameters.
+#' @param headers Named character vector / list of request headers.
+#' @param timeout Seconds before timeout (default 60).
+#' @param proxy `NULL`, URL string, or named list (see [.resolve_proxy()]).
+#' @param max_tries Maximum attempts (default 3).
+#' @return An httr2 response object.
+#' @keywords internal
+.retry_request <- function(url, params = list(), headers = NULL,
+                           timeout = 60, proxy = NULL, max_tries = 3) {
+  req <- httr2::request(url)
+  if (length(params) > 0) {
+    req <- httr2::req_url_query(req, !!!params)
+  }
+  if (!is.null(headers)) {
+    req <- httr2::req_headers(req, !!!as.list(headers))
+  }
+  proxy <- .resolve_proxy(proxy)
+  if (!is.null(proxy)) {
+    req <- if (is.list(proxy)) {
+      do.call(httr2::req_proxy, c(list(req = req), proxy))
+    } else {
+      httr2::req_proxy(req, url = proxy)
+    }
+  }
+  req |>
+    httr2::req_timeout(timeout) |>
+    httr2::req_retry(max_tries = max_tries) |>
+    httr2::req_error(is_error = function(resp) FALSE) |>
+    httr2::req_perform()
+}
+
 #' @import rvest
 check_status <- function(res) {
   x = httr::status_code(res)
