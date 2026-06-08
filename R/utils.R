@@ -261,6 +261,23 @@ rule_footer <- function(x) {
     httr2::req_perform()
 }
 
+#' Response body as UTF-8 text (replaces `httr::content(as = "text")`).
+#' @param resp An httr2 response.
+#' @return Character scalar.
+#' @keywords internal
+.resp_text <- function(resp) {
+  httr2::resp_body_string(resp, encoding = "UTF-8")
+}
+
+#' Response body parsed from JSON.
+#' @param resp An httr2 response.
+#' @param ... Passed to [jsonlite::fromJSON()].
+#' @return Parsed R object.
+#' @keywords internal
+.resp_json <- function(resp, ...) {
+  jsonlite::fromJSON(.resp_text(resp), ...)
+}
+
 #' @import rvest
 check_status <- function(res) {
   x = httr::status_code(res)

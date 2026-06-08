@@ -35,3 +35,19 @@ test_that(".retry_request builds URL query + headers + proxy onto the request", 
   expect_equal(captured$headers$Origin, "https://x.test")
   expect_true(!is.null(captured$options$proxy))
 })
+
+# ---------------------------------------------------------------------------
+# Step C: .resp_text() / .resp_json()
+# ---------------------------------------------------------------------------
+
+test_that(".resp_text and .resp_json read an httr2 response body", {
+  resp <- httr2::response(
+    status_code = 200,
+    headers = list("Content-Type" = "application/json"),
+    body = charToRaw('{"a":1,"b":"x"}')
+  )
+  expect_equal(.resp_text(resp), '{"a":1,"b":"x"}')
+  parsed <- .resp_json(resp)
+  expect_equal(parsed$a, 1)
+  expect_equal(parsed$b, "x")
+})
