@@ -206,6 +206,22 @@ rule_footer <- function(x) {
   )
 }
 
+# ---------------------------------------------------------------------------
+# httr2 helper layer
+# ---------------------------------------------------------------------------
+
+#' Resolve the proxy to use for a request.
+#'
+#' Resolution order: explicit `proxy` arg, then `getOption("fastRhockey.proxy")`,
+#' else `NULL` (libcurl then reads `http_proxy`/`https_proxy`/`no_proxy`).
+#' @param proxy `NULL`, a URL string, or a named list for [httr2::req_proxy()].
+#' @return The resolved proxy value, or `NULL`.
+#' @keywords internal
+.resolve_proxy <- function(proxy = NULL) {
+  if (is.null(proxy)) proxy <- getOption("fastRhockey.proxy", default = NULL)
+  proxy
+}
+
 #' @import rvest
 check_status <- function(res) {
   x = httr::status_code(res)
