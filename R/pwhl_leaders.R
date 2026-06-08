@@ -99,7 +99,6 @@
 #'    |is_total                   |character |Whether the row is a season total.                |
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples

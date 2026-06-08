@@ -18,7 +18,6 @@
 #'    |game_type_label |character |Game type: "preseason", "regular", or "playoffs".|
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples

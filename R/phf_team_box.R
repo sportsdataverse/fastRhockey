@@ -10,7 +10,6 @@
 #' @return A dataframe of team-level box score information
 #' @import rvest
 #' @import janitor
-#' @import httr
 #' @import stringr
 #' @import jsonlite
 #' @importFrom glue glue

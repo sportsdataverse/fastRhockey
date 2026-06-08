@@ -30,9 +30,9 @@
 An httr2 response object.
 }
 \description{
-Replacement for \code{httr::RETRY("GET", ...)}. Non-2xx responses do NOT throw
+Replacement for the legacy httr RETRY-based GET. Non-2xx responses do NOT throw
 (\code{req_error(is_error = ~ FALSE)}) so callers inspect status via
-\code{\link[=check_status]{check_status()}}. Proxy resolved via \code{\link[=.resolve_proxy]{.resolve_proxy()}}; accepts a URL string
+\code{check_status()}. Proxy resolved via \code{\link[=.resolve_proxy]{.resolve_proxy()}}; accepts a URL string
 or a named list spread into \code{\link[httr2:req_proxy]{httr2::req_proxy()}}.
 }
 \keyword{internal}

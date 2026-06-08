@@ -224,9 +224,9 @@ rule_footer <- function(x) {
 
 #' Perform an HTTP GET with retries (httr2).
 #'
-#' Replacement for `httr::RETRY("GET", ...)`. Non-2xx responses do NOT throw
+#' Replacement for the legacy httr RETRY-based GET. Non-2xx responses do NOT throw
 #' (`req_error(is_error = ~ FALSE)`) so callers inspect status via
-#' [check_status()]. Proxy resolved via [.resolve_proxy()]; accepts a URL string
+#' `check_status()`. Proxy resolved via [.resolve_proxy()]; accepts a URL string
 #' or a named list spread into [httr2::req_proxy()].
 #'
 #' @param url Request URL.
@@ -261,7 +261,7 @@ rule_footer <- function(x) {
     httr2::req_perform()
 }
 
-#' Response body as UTF-8 text (replaces `httr::content(as = "text")`).
+#' Response body as UTF-8 text (replaces the legacy httr content text reader).
 #' @param resp An httr2 response.
 #' @return Character scalar.
 #' @keywords internal
@@ -339,11 +339,7 @@ rule_footer <- function(x) {
 
 #' @keywords internal
 check_status <- function(res) {
-  x <- if (inherits(res, "httr2_response")) {
-    httr2::resp_status(res)
-  } else {
-    httr::status_code(res)
-  }
+  x <- httr2::resp_status(res)
   if (x != 200) stop("The API returned an error", call. = FALSE)
 }
 

@@ -63,13 +63,6 @@ test_that("check_status passes on 200 and errors on non-200 (httr2)", {
   expect_error(check_status(bad), "API returned an error")
 })
 
-test_that("check_status also accepts legacy httr responses during the transition", {
-  ok_httr  <- structure(list(status_code = 200L), class = "response")
-  bad_httr <- structure(list(status_code = 500L), class = "response")
-  expect_silent(check_status(ok_httr))
-  expect_error(check_status(bad_httr), "API returned an error")
-})
-
 # ---------------------------------------------------------------------------
 # Step E: .capture_args() + .report_api_error() / .report_api_warning()
 # ---------------------------------------------------------------------------

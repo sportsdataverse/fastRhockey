@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{.resp_text}
 \alias{.resp_text}
-\title{Response body as UTF-8 text (replaces \code{httr::content(as = "text")}).}
+\title{Response body as UTF-8 text (replaces the legacy httr content text reader).}
 \usage{
 .resp_text(resp)
 }
@@ -13,6 +13,6 @@
 Character scalar.
 }
 \description{
-Response body as UTF-8 text (replaces \code{httr::content(as = "text")}).
+Response body as UTF-8 text (replaces the legacy httr content text reader).
 }
 \keyword{internal}

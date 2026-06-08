@@ -1,5 +1,12 @@
 # **fastRhockey 1.0.0 (continued development)**
 
+### **Dependencies**
+
+* Migrated the entire package from `httr` to `httr2` behind a single internal
+  `.retry_request()` helper, and added session / environment / per-call **proxy
+  support** via `options(fastRhockey.proxy = ...)` (documented in `?fastRhockey`).
+  Function outputs are unchanged.
+
 ### **Deprecations & fixes**
 
 * **Deprecated:** nine NHL Edge "top-10" leaderboard wrappers whose upstream

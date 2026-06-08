@@ -50,7 +50,6 @@
 #'    |stat_type              |character |Statistic type ("regular"/"playoff").        |
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples
