@@ -24,7 +24,6 @@
 #' @return Parsed JSON list returned by `jsonlite::fromJSON(..., flatten =
 #'   TRUE)`, or `NULL` on error.
 #' @keywords Internal
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @noRd
@@ -52,13 +51,11 @@
             # Don't retry permanent client errors (e.g. 404 for Edge leaderboard
             # endpoints the NHL has removed) -- retrying can't recover them and
             # only adds noise/latency. Transient 5xx/timeouts are still retried.
-            res <- httr::RETRY(
-                "GET", url, query = query,
-                terminate_on = c(400L, 401L, 403L, 404L, 410L, 422L)
-            )
+            # (httr2 req_retry does not retry 4xx by default; terminate_on dropped.)
+            res <- .retry_request(url, params = query)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             jsonlite::fromJSON(resp_text, flatten = TRUE)
         },
         error = function(e) {

@@ -18,7 +18,6 @@
 #' @return A `data.frame` if the response contains a `data` element,
 #'   otherwise the raw parsed list, or `NULL` on failure.
 #' @keywords Internal
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @noRd
@@ -40,9 +39,9 @@
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", base_url, query = q)
+            res <- .retry_request(base_url, params = q)
             check_status(res)
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
             if (is.list(raw) && !is.null(raw$data)) {
                 return(raw$data)
