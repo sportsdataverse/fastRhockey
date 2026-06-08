@@ -5,7 +5,6 @@
 #' @param lang Character language code. Default `"en"`.
 #' @return A `fastRhockey_data` tibble of countries, or `NULL` on failure.
 #' @keywords NHL Stats Country
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom glue glue
@@ -22,10 +21,10 @@ nhl_stats_country <- function(lang = "en") {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             if (

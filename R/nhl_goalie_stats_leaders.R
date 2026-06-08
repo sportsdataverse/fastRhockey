@@ -29,7 +29,6 @@
 #'    |last_name_fi       |character |Player last name (Finnish locale).       |
 #'    |team_name_fr       |character |Team name (French locale).               |
 #' @keywords NHL Goalie Stats Leaders
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -64,10 +63,10 @@ nhl_goalie_stats_leaders <- function(
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url, query = params)
+            res <- .retry_request(url, params = params)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             result_frames <- list()

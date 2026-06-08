@@ -10,7 +10,6 @@
 #'   the `cayenneExp` query parameter.
 #' @return A `fastRhockey_data` tibble of players, or `NULL` on failure.
 #' @keywords NHL Stats Players
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom glue glue
@@ -40,10 +39,10 @@ nhl_stats_players <- function(
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             # The endpoint returns `data: []` (an empty list, not a 0-row

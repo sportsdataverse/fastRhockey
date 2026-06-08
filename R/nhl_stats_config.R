@@ -6,7 +6,6 @@
 #' @param lang Character language code. Default `"en"`.
 #' @return A parsed list of configuration values, or `NULL` on failure.
 #' @keywords NHL Stats Config
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @export
@@ -21,10 +20,10 @@ nhl_stats_config <- function(lang = "en") {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             return(raw)

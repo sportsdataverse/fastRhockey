@@ -29,7 +29,6 @@
 #'    |team_full_name    |character |Team full name.                                      |
 #'    |team_place_name   |character |Team place (city) name.                              |
 #' @keywords NHL Stats Skater Milestones
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom glue glue
@@ -59,10 +58,10 @@ nhl_stats_skater_milestones <- function(
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             if (

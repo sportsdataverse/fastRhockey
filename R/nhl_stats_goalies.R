@@ -14,7 +14,6 @@
 #' @param lang Character language code. Default "en".
 #' @return Returns a data frame with goalie statistics.
 #' @keywords NHL Stats Goalie
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom glue glue
@@ -79,10 +78,10 @@ nhl_stats_goalies <- function(
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             if (is.null(raw$data) || length(raw$data) == 0) {
