@@ -183,10 +183,15 @@ espn_nhl_team <- function(team_id, ...) {
         stats_flat <- stats
         if (is.list(stats)) {
           sv <- tryCatch(
-            setNames(
-              lapply(stats, function(s) s[["value"]] %||% NA_real_),
-              vapply(stats, function(s) janitor::make_clean_names(s[["name"]] %||% "stat"), character(1))
-            ),
+            {
+              .vals <- lapply(stats, function(s) s[["value"]] %||% NA_real_)
+              names(.vals) <- vapply(
+                stats,
+                function(s) janitor::make_clean_names(s[["name"]] %||% "stat"),
+                character(1)
+              )
+              .vals
+            },
             error = function(e) list()
           )
           stats_flat <- sv
