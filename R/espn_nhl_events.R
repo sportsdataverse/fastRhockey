@@ -872,19 +872,19 @@ NULL
 #' @param team_id ESPN team/competitor identifier.
 #' @param ... Reserved for forward compatibility.
 #' @return A wide one-row `fastRhockey_data` tibble. The first three columns are
-#'   always present; the remaining stat columns are named
-#'   `{category}_{stat_name}` (display value) and `{category}_{stat_name}_value`
-#'   (numeric value) for each stat in each category. For a typical completed NHL
-#'   game there are 5 stat categories (defensive, general, offensive, specialTeams,
-#'   goalie) producing ~30 column pairs:
+#'   always present; the remaining stat columns are named `<category>_<stat>`
+#'   (display value) and `<category>_<stat>_value` (numeric value) for each stat
+#'   in each category. For a typical completed NHL game there are 5 stat
+#'   categories (defensive, general, offensive, specialTeams, goalie) producing
+#'   ~30 column pairs:
 #'
 #'    |col_name                 |types     |description                                     |
 #'    |:------------------------|:---------|:-----------------------------------------------|
 #'    |event_id                 |character |ESPN event id (echoed from arg).                |
 #'    |cid                      |character |Competition id (echoed from arg).               |
 #'    |team_id                  |character |ESPN team id (echoed from arg).                 |
-#'    |{cat}_{stat}             |character |Display value for `{stat}` in `{cat}` category. |
-#'    |{cat}_{stat}_value       |numeric   |Numeric value for `{stat}` in `{cat}` category. |
+#'    |category_stat            |character |Display value for a stat within a category (e.g. offensive_goals).      |
+#'    |category_stat_value      |numeric   |Numeric value for a stat within a category (e.g. offensive_goals_value).|
 #'
 #' @importFrom janitor make_clean_names
 #' @export

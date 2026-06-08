@@ -109,6 +109,8 @@
 
 #' @title **Get ESPN NHL team names and IDs**
 #' @author Saiem Gilani
+#' @param ... Additional arguments passed through to the underlying request
+#'   (e.g. `proxy =`).
 #' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
 #'    |col_name        |types     |description                                  |

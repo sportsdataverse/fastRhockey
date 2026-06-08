@@ -17,17 +17,17 @@ espn_nhl_game_team_statistics(event_id, cid = event_id, team_id, ...)
 }
 \value{
 A wide one-row \code{fastRhockey_data} tibble. The first three columns are
-always present; the remaining stat columns are named
-\verb{\{category\}_\{stat_name\}} (display value) and \verb{\{category\}_\{stat_name\}_value}
-(numeric value) for each stat in each category. For a typical completed NHL
-game there are 5 stat categories (defensive, general, offensive, specialTeams,
-goalie) producing ~30 column pairs:\tabular{lll}{
+always present; the remaining stat columns are named \verb{<category>_<stat>}
+(display value) and \verb{<category>_<stat>_value} (numeric value) for each stat
+in each category. For a typical completed NHL game there are 5 stat
+categories (defensive, general, offensive, specialTeams, goalie) producing
+~30 column pairs:\tabular{lll}{
    col_name \tab types \tab description \cr
    event_id \tab character \tab ESPN event id (echoed from arg). \cr
    cid \tab character \tab Competition id (echoed from arg). \cr
    team_id \tab character \tab ESPN team id (echoed from arg). \cr
-   {cat}_{stat} \tab character \tab Display value for \code{{stat}} in \code{{cat}} category. \cr
-   {cat}_{stat}_value \tab numeric \tab Numeric value for \code{{stat}} in \code{{cat}} category. \cr
+   category_stat \tab character \tab Display value for a stat within a category (e.g. offensive_goals). \cr
+   category_stat_value \tab numeric \tab Numeric value for a stat within a category (e.g. offensive_goals_value). \cr
 }
 }
 \description{

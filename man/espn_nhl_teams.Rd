@@ -6,6 +6,10 @@
 \usage{
 espn_nhl_teams(...)
 }
+\arguments{
+\item{...}{Additional arguments passed through to the underlying request
+(e.g. \verb{proxy =}).}
+}
 \value{
 A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
    col_name \tab types \tab description \cr
