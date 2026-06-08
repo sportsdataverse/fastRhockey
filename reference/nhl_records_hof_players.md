@@ -38,7 +38,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_hof_players())
 #> ── NHL Records HOF Players ──────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-08 11:44:42 UTC
+#> ℹ Data updated: 2026-06-08 16:03:16 UTC
 #> # A tibble: 761 × 7
 #>       id date_inducted     induction_cat_id misc_full_name office_id official_id
 #>    <int> <chr>                        <int> <chr>              <int> <lgl>      

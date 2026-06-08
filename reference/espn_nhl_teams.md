@@ -5,8 +5,15 @@
 ## Usage
 
 ``` r
-espn_nhl_teams()
+espn_nhl_teams(...)
 ```
+
+## Arguments
+
+- ...:
+
+  Additional arguments passed through to the underlying request (e.g.
+  `proxy =`).
 
 ## Value
 
@@ -51,7 +58,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_teams())
 #> ── NHL Teams data from ESPN.com ─────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-08 11:43:06 UTC
+#> ℹ Data updated: 2026-06-08 16:01:24 UTC
 #> # A tibble: 32 × 25
 #>    abbreviation alternate_color color  display_name     espn_team_id team  logo 
 #>    <chr>        <chr>           <chr>  <chr>                   <int> <chr> <chr>

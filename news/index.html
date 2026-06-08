@@ -82,6 +82,10 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0" id="fastrhockey-100-continued-development"><strong>fastRhockey 1.0.0 (continued development)</strong><a class="anchor" aria-label="anchor" href="#fastrhockey-100-continued-development"></a></h2>
 <div class="section level4">
+<h4 id="espn-nhl-endpoints-1-0-0"><strong>ESPN NHL endpoints</strong><a class="anchor" aria-label="anchor" href="#espn-nhl-endpoints-1-0-0"></a></h4>
+<ul><li>Added a comprehensive family of <strong>ESPN NHL endpoint wrappers</strong> (<code>espn_nhl_*</code>, 125 functions) covering the full ESPN hockey API surface across the site, web, and core hosts — game data (<code>espn_nhl_pbp</code>, <code>espn_nhl_team_box</code>, <code>espn_nhl_player_box</code>, <code>espn_nhl_game_all</code>, <code>espn_nhl_summary</code>, <code>espn_nhl_scoreboard</code>, <code>espn_nhl_schedule</code>, <code>espn_nhl_standings</code>), athletes, leaders, season structure, event detail, and reference catalog. Each returns a wide, self-describing <code>fastRhockey_data</code> tibble with a documented column table, built on a shared league-generic helper layer. Endpoints ESPN does not populate for the NHL degrade gracefully to an empty frame with a warning.</li>
+</ul></div>
+<div class="section level4">
 <h4 id="dependencies-1-0-0"><strong>Dependencies</strong><a class="anchor" aria-label="anchor" href="#dependencies-1-0-0"></a></h4>
 <ul><li>Migrated the entire package from <code>httr</code> to <code>httr2</code> behind a single internal <code><a href="../reference/dot-retry_request.html">.retry_request()</a></code> helper, and added session / environment / per-call <strong>proxy support</strong> via <code>options(fastRhockey.proxy = ...)</code> (documented in <code><a href="../reference/fastRhockey-package.html">?fastRhockey</a></code>). Function outputs are unchanged.</li>
 <li>Raised the minimum R version to <strong>4.1.0</strong> (the new <code>httr2</code> request helpers use the native <code>|&gt;</code> pipe).</li>

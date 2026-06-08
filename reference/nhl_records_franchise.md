@@ -45,7 +45,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_franchise())
 #> ── NHL Records Franchise ────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-08 11:44:39 UTC
+#> ℹ Data updated: 2026-06-08 16:03:12 UTC
 #> # A tibble: 40 × 8
 #>       id first_season_id full_name            last_season_id most_recent_team_id
 #>    <int>           <int> <chr>                         <int>               <int>
@@ -64,7 +64,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #> #   team_place_name <chr>
   try(nhl_records_franchise(franchise_id = 5))
 #> ── NHL Records Franchise ────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-08 11:44:39 UTC
+#> ℹ Data updated: 2026-06-08 16:03:12 UTC
 #> # A tibble: 1 × 8
 #>      id first_season_id full_name last_season_id most_recent_team_id team_abbrev
 #>   <int>           <int> <chr>     <lgl>                        <int> <chr>      

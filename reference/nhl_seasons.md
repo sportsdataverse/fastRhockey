@@ -23,7 +23,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_seasons())
 #> ── NHL Seasons ──────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-08 11:44:57 UTC
+#> ℹ Data updated: 2026-06-08 16:03:35 UTC
 #> # A tibble: 108 × 1
 #>    season_id
 #>        <int>

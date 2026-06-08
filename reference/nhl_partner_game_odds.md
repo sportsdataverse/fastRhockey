@@ -24,7 +24,7 @@ Returns a list with game odds data.
 # \donttest{
 try(nhl_partner_game_odds())
 #> $currentOddsDate
-#> [1] "2026-06-07"
+#> [1] "2026-06-08"
 #> 
 #> $bettingPartner
 #> $bettingPartner$partnerId
