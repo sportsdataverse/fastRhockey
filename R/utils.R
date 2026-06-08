@@ -279,6 +279,11 @@ rule_footer <- function(x) {
 }
 
 #' Capture the calling function's bound formals (excluding `...`).
+#'
+#' @details Must be called **directly** from the function whose arguments you
+#'   want to capture. It reads `sys.function(sys.parent())` and
+#'   `parent.frame()` exactly one level up; wrapping it inside another helper
+#'   would return the wrong call frame.
 #' @return Named list (empty if the caller has no non-... formals).
 #' @keywords internal
 .capture_args <- function() {
@@ -334,7 +339,11 @@ rule_footer <- function(x) {
 
 #' @keywords internal
 check_status <- function(res) {
-  x <- httr2::resp_status(res)
+  x <- if (inherits(res, "httr2_response")) {
+    httr2::resp_status(res)
+  } else {
+    httr::status_code(res)
+  }
   if (x != 200) stop("The API returned an error", call. = FALSE)
 }
 

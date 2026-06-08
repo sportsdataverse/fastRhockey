@@ -32,7 +32,7 @@ test_that(".retry_request builds URL query + headers + proxy onto the request", 
   )
   expect_true(grepl("season=2024", captured$url))
   expect_true(grepl("page=2", captured$url))
-  expect_equal(captured$headers$Origin, "https://x.test")
+  expect_equal(captured$headers[["Origin"]], "https://x.test")
   expect_true(!is.null(captured$options$proxy))
 })
 
@@ -61,6 +61,13 @@ test_that("check_status passes on 200 and errors on non-200 (httr2)", {
   bad <- httr2::response(status_code = 404, body = charToRaw("{}"))
   expect_silent(check_status(ok))
   expect_error(check_status(bad), "API returned an error")
+})
+
+test_that("check_status also accepts legacy httr responses during the transition", {
+  ok_httr  <- structure(list(status_code = 200L), class = "response")
+  bad_httr <- structure(list(status_code = 500L), class = "response")
+  expect_silent(check_status(ok_httr))
+  expect_error(check_status(bad_httr), "API returned an error")
 })
 
 # ---------------------------------------------------------------------------
