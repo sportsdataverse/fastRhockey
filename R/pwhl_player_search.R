@@ -23,7 +23,6 @@
 #'    |image_url     |character |Player headshot URL.                       |
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples

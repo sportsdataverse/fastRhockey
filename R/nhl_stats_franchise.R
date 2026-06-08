@@ -16,7 +16,6 @@
 #'    |team_common_name  |character |Team common (nickname) name.           |
 #'    |team_place_name   |character |Team place (city/location) name.       |
 #' @keywords NHL Stats Franchise
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom glue glue
@@ -46,10 +45,10 @@ nhl_stats_franchise <- function(
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             if (

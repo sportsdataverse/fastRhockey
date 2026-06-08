@@ -24,7 +24,6 @@
 #'    |clock          |character |Current clock time for live games.     |
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples

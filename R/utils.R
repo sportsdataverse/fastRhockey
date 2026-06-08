@@ -206,9 +206,140 @@ rule_footer <- function(x) {
   )
 }
 
-#' @import rvest
+# ---------------------------------------------------------------------------
+# httr2 helper layer
+# ---------------------------------------------------------------------------
+
+#' Resolve the proxy to use for a request.
+#'
+#' Resolution order: explicit `proxy` arg, then `getOption("fastRhockey.proxy")`,
+#' else `NULL` (libcurl then reads `http_proxy`/`https_proxy`/`no_proxy`).
+#' @param proxy `NULL`, a URL string, or a named list for [httr2::req_proxy()].
+#' @return The resolved proxy value, or `NULL`.
+#' @keywords internal
+.resolve_proxy <- function(proxy = NULL) {
+  if (is.null(proxy)) proxy <- getOption("fastRhockey.proxy", default = NULL)
+  proxy
+}
+
+#' Perform an HTTP GET with retries (httr2).
+#'
+#' Replacement for the legacy httr RETRY-based GET. Non-2xx responses do NOT throw
+#' (`req_error(is_error = ~ FALSE)`) so callers inspect status via
+#' `check_status()`. Proxy resolved via [.resolve_proxy()]; accepts a URL string
+#' or a named list spread into [httr2::req_proxy()].
+#'
+#' @param url Request URL.
+#' @param params Named list of query parameters.
+#' @param headers Named character vector / list of request headers.
+#' @param timeout Seconds before timeout (default 60).
+#' @param proxy `NULL`, URL string, or named list (see [.resolve_proxy()]).
+#' @param max_tries Maximum attempts (default 3).
+#' @return An httr2 response object.
+#' @keywords internal
+.retry_request <- function(url, params = list(), headers = NULL,
+                           timeout = 60, proxy = NULL, max_tries = 3) {
+  req <- httr2::request(url)
+  if (length(params) > 0) {
+    req <- httr2::req_url_query(req, !!!params)
+  }
+  if (!is.null(headers)) {
+    req <- httr2::req_headers(req, !!!as.list(headers))
+  }
+  proxy <- .resolve_proxy(proxy)
+  if (!is.null(proxy)) {
+    req <- if (is.list(proxy)) {
+      do.call(httr2::req_proxy, c(list(req = req), proxy))
+    } else {
+      httr2::req_proxy(req, url = proxy)
+    }
+  }
+  req |>
+    httr2::req_timeout(timeout) |>
+    httr2::req_retry(max_tries = max_tries) |>
+    httr2::req_error(is_error = function(resp) FALSE) |>
+    httr2::req_perform()
+}
+
+#' Response body as UTF-8 text (replaces the legacy httr content text reader).
+#' @param resp An httr2 response.
+#' @return Character scalar.
+#' @keywords internal
+.resp_text <- function(resp) {
+  httr2::resp_body_string(resp, encoding = "UTF-8")
+}
+
+#' Response body parsed from JSON.
+#' @param resp An httr2 response.
+#' @param ... Passed to [jsonlite::fromJSON()].
+#' @return Parsed R object.
+#' @keywords internal
+.resp_json <- function(resp, ...) {
+  jsonlite::fromJSON(.resp_text(resp), ...)
+}
+
+#' Capture the calling function's bound formals (excluding `...`).
+#'
+#' @details Must be called **directly** from the function whose arguments you
+#'   want to capture. It reads `sys.function(sys.parent())` and
+#'   `parent.frame()` exactly one level up; wrapping it inside another helper
+#'   would return the wrong call frame.
+#' @return Named list (empty if the caller has no non-... formals).
+#' @keywords internal
+.capture_args <- function() {
+  parent_fn <- sys.function(sys.parent())
+  if (is.null(parent_fn)) return(list())
+  fmls <- formals(parent_fn)
+  if (length(fmls) == 0L) return(list())
+  nms <- setdiff(names(fmls), "...")
+  if (length(nms) == 0L) return(list())
+  mget(nms, envir = parent.frame(), ifnotfound = list(NULL))
+}
+
+#' Report an API error via cli (optional brace-interpolated hint + args).
+#' @param e Captured condition.
+#' @param hint Optional glue-style template evaluated against `args`.
+#' @param args Named list of caller args (see [.capture_args()]).
+#' @return invisible(NULL)
+#' @keywords internal
+.report_api_error <- function(e, hint = NULL, args = list()) {
+  hint_text <- if (!is.null(hint)) {
+    tryCatch(glue::glue_data(args, hint), error = function(...) hint)
+  } else "Request failed"
+  cli::cli_alert_danger("{Sys.time()}: {hint_text}")
+  if (length(args) > 0) {
+    args_str <- paste0(
+      names(args), " = ",
+      vapply(args, function(a) {
+        s <- tryCatch(deparse(a, width.cutoff = 60)[1], error = function(...) "<?>")
+        if (nchar(s) > 60) paste0(substr(s, 1, 60), "...") else s
+      }, character(1)),
+      collapse = ", "
+    )
+    cli::cli_alert_danger("Args: {args_str}")
+  }
+  cli::cli_alert_danger("Error: {conditionMessage(e)}")
+  invisible(NULL)
+}
+
+#' Report an API warning via cli.
+#' @param w Captured condition.
+#' @param hint Optional glue-style template evaluated against `args`.
+#' @param args Named list of caller args.
+#' @return invisible(NULL)
+#' @keywords internal
+.report_api_warning <- function(w, hint = NULL, args = list()) {
+  hint_text <- if (!is.null(hint)) {
+    tryCatch(glue::glue_data(args, hint), error = function(...) hint)
+  } else "Request warning"
+  cli::cli_alert_warning("{Sys.time()}: {hint_text}")
+  cli::cli_alert_warning("Warning: {conditionMessage(w)}")
+  invisible(NULL)
+}
+
+#' @keywords internal
 check_status <- function(res) {
-  x = httr::status_code(res)
+  x <- httr2::resp_status(res)
   if (x != 200) stop("The API returned an error", call. = FALSE)
 }
 

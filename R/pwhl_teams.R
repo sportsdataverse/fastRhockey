@@ -14,7 +14,6 @@
 #'    |team_logo     |character |URL to the team logo image.          |
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples
@@ -27,13 +26,8 @@ pwhl_teams <- function() {
 
   full_url = "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=teamsForSeason&season=2&key=694cfeed58c932ee&client_code=pwhl&site_id=2&callback=angular.callbacks._4"
 
-  res <- httr::RETRY(
-    "GET",
-    full_url
-  )
-
-  res <- res %>%
-    httr::content(as = "text", encoding = "utf-8")
+  res <- .retry_request(full_url)
+  res <- .resp_text(res)
 
   res <- gsub("angular.callbacks._4\\(", "", res)
   res <- gsub("}]})", "}]}", res)

@@ -54,7 +54,6 @@
 #'    |game_type                 |character |Game type the row belongs to ("regular"/"playoffs").|
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples

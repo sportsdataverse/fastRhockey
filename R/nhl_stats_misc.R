@@ -15,7 +15,6 @@
 #'    |draft_year |integer   |Draft year.                          |
 #'    |rounds     |integer   |Number of rounds in the draft.       |
 #' @keywords NHL Stats Draft
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom glue glue
@@ -48,10 +47,10 @@ nhl_stats_draft <- function(
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             if (is.null(raw$data) || nrow(raw$data) == 0) {
@@ -107,7 +106,6 @@ nhl_stats_draft <- function(
 #'    |total_regular_season_games                        |integer   |Total number of regular-season games this season.                 |
 #'    |wildcard_in_use                                   |integer   |Whether the wild-card playoff format was in use this season.      |
 #' @keywords NHL Stats Seasons
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom glue glue
@@ -123,10 +121,10 @@ nhl_stats_seasons <- function(lang = "en") {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             if (is.null(raw$data) || length(raw$data) == 0) {
@@ -190,7 +188,6 @@ nhl_stats_seasons <- function(lang = "en") {
 #'    |language_code         |character |Language code of the entry.                        |
 #'    |last_updated          |character |Timestamp the entry was last updated.             |
 #' @keywords NHL Stats Miscellaneous
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom glue glue
@@ -218,10 +215,10 @@ nhl_stats_misc <- function(endpoint = "glossary", game_id = NULL, lang = "en") {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             if (

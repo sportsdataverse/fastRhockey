@@ -28,7 +28,6 @@
 #'    |draft_info    |character |Draft information.                         |
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples

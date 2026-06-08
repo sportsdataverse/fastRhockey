@@ -67,7 +67,6 @@
 #'    |team_id     |numeric   |Identifier of the player's team.     |
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples

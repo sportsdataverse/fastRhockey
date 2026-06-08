@@ -11,7 +11,6 @@
 #' scoring_summary, shootout_summary,
 #' penalty_summary, officials, team_staff, timeouts
 #' @import rvest
-#' @import httr
 #' @import dplyr
 #' @importFrom jsonlite parse_json
 #' @importFrom purrr pluck map_dfr
@@ -34,8 +33,7 @@ phf_game_all <- function(game_id) {
   )
 
   # the link for the game + authorization for accessing the API
-  res <- httr::RETRY("GET", full_url,
-                     httr::add_headers(`Authorization`= auth_ticket))
+  res <- .retry_request(full_url, headers = c(`Authorization` = auth_ticket))
   # Check the result
   # check_status(res)
   Sys.sleep(3)
@@ -43,8 +41,7 @@ phf_game_all <- function(game_id) {
 
   tryCatch(
     expr = {
-      data <- res %>%
-        httr::content(as = "text", encoding="utf-8") %>%
+      data <- .resp_text(res) %>%
         jsonlite::fromJSON() %>%
         purrr::pluck("content") %>%
         rvest::read_html() %>%
@@ -140,7 +137,6 @@ phf_game_all <- function(game_id) {
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @return A list of data frames
 #' @import rvest
-#' @import httr
 #' @import jsonlite
 #' @importFrom purrr pluck
 #' @export
@@ -162,13 +158,11 @@ phf_game_raw <- function(game_id) {
   )
 
   # the link for the game + authorization for accessing the API
-  res <- httr::RETRY("GET", full_url,
-                     httr::add_headers(`Authorization`= auth_ticket))
+  res <- .retry_request(full_url, headers = c(`Authorization` = auth_ticket))
   # Check the result
   check_status(res)
   Sys.sleep(3)
-  resp <- res %>%
-    httr::content(as = "text", encoding="utf-8") %>%
+  resp <- .resp_text(res) %>%
     jsonlite::parse_json() %>%
     purrr::pluck("content") %>%
     rvest::read_html() %>%
@@ -188,7 +182,6 @@ phf_game_raw <- function(game_id) {
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @return A data frame with game team details
 #' @import rvest
-#' @import httr
 #' @import jsonlite
 #' @importFrom purrr pluck
 #' @export
@@ -210,20 +203,18 @@ phf_game_details <- function(game_id) {
   )
 
   # the link for the game + authorization for accessing the API
-  res <- httr::RETRY("GET", full_url,
-                     httr::add_headers(`Authorization` = auth_ticket))
+  res <- .retry_request(full_url, headers = c(`Authorization` = auth_ticket))
   # Check the result
   check_status(res)
   Sys.sleep(3)
-  date_resp <- (res %>%
-    httr::content(as = "text", encoding = "utf-8") %>%
+  resp_text <- .resp_text(res)
+  date_resp <- (resp_text %>%
     jsonlite::parse_json() %>%
     purrr::pluck("content") %>%
     rvest::read_html() %>%
     rvest::html_elements(".center > div") %>%
     rvest::html_text())[1]
-  resp <- (res %>%
-    httr::content(as = "text", encoding = "utf-8") %>%
+  resp <- (resp_text %>%
     jsonlite::parse_json() %>%
     purrr::pluck("content") %>%
     rvest::read_html() %>%
@@ -293,7 +284,6 @@ phf_game_details <- function(game_id) {
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @return A named list of data frames: scoring_summary,shootout_summary, penalty_summary, officials, team_staff, timeouts
 #' @import rvest
-#' @import httr
 #' @import jsonlite
 #' @importFrom purrr pluck
 #' @export
@@ -315,14 +305,12 @@ phf_game_summary <- function(game_id) {
   )
 
   # the link for the game + authorization for accessing the API
-  res <- httr::RETRY("GET", full_url,
-                     httr::add_headers(`Authorization`= auth_ticket))
+  res <- .retry_request(full_url, headers = c(`Authorization` = auth_ticket))
   # Check the result
   check_status(res)
   Sys.sleep(3)
 
-  resp <- res %>%
-             httr::content(as = "text", encoding="utf-8") %>%
+  resp <- .resp_text(res) %>%
              jsonlite::parse_json() %>%
              purrr::pluck("content") %>%
              rvest::read_html() %>%

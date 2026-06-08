@@ -57,7 +57,6 @@
 #'    |committedByPlayerId   |integer   |Player identifier who committed the penalty.      |
 #'    |drawnByPlayerId       |integer   |Player identifier who drew the penalty.           |
 #' @keywords NHL WSC PBP
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @export
@@ -72,10 +71,10 @@ nhl_wsc_pbp <- function(game_id) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             return(raw)

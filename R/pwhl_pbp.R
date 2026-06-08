@@ -103,7 +103,6 @@
 #'    |sec_from_start             |numeric   |Seconds elapsed since the start of the game.           |
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples \donttest{
@@ -112,9 +111,8 @@
 pwhl_pbp <- function(game_id) {
   URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=gameCenterPlayByPlay&game_id={game_id}&key=694cfeed58c932ee&client_code=pwhl&lang=en&league_id=&callback=angular.callbacks._8")
 
-  res <- httr::RETRY("GET", URL)
-  res <- res %>%
-    httr::content(as = "text", encoding = "utf-8")
+  res <- .retry_request(URL)
+  res <- .resp_text(res)
   callback_pattern <- "angular.callbacks._\\d+\\("
   res <- gsub(callback_pattern, "", res)
   res <- gsub("}}])", "}}]", res)

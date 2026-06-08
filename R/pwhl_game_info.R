@@ -23,7 +23,6 @@
 #'    |game_season_id  |character |Season identifier used by the PWHL feed.     |
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples \donttest{
@@ -33,9 +32,8 @@
 pwhl_game_info <- function(game_id) {
   URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=gameSummary&game_id={game_id}&key=446521baf8c38984&site_id=0&client_code=pwhl&lang=en&league_id=&callback=angular.callbacks._5")
 
-  res <- httr::RETRY("GET", URL)
-  res <- res %>%
-    httr::content(as = "text", encoding = "utf-8")
+  res <- .retry_request(URL)
+  res <- .resp_text(res)
   callback_pattern <- "angular.callbacks._\\d+\\("
   res <- gsub(callback_pattern, "", res)
   res <- gsub("}}})", "}}}", res)

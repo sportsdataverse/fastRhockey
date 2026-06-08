@@ -33,7 +33,6 @@
 #'    |last_name_fi       |character |Player last name (Finnish). |
 #'    |team_name_fr       |character |Team name (French).        |
 #' @keywords NHL Skater Stats Leaders
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -69,10 +68,10 @@ nhl_skater_stats_leaders <- function(
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url, query = params)
+            res <- .retry_request(url, params = params)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             # The response has named elements per category, each with a list of leaders

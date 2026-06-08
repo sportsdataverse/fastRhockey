@@ -9,7 +9,6 @@
 #'    |season    |integer   |Season for which roster data is available (8-digit, e.g. 20102011). |
 #'    |team_abbr |character |Three-letter team abbreviation.                   |
 #' @keywords NHL Roster Season
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom glue glue
@@ -26,10 +25,10 @@ nhl_roster_season <- function(team_abbr) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             if (is.null(raw) || length(raw) == 0) {

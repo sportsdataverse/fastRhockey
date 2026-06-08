@@ -11,7 +11,6 @@
 #'    |date     |character |Date the games are scheduled for.            |
 #'    |games    |list      |List of games scheduled on that date.        |
 #' @keywords NHL Team Scoreboard
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @export
@@ -26,10 +25,10 @@ nhl_team_scoreboard <- function(team_abbr) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             return(raw)

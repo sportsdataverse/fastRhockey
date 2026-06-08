@@ -9,7 +9,6 @@
 #' @param game_id The unique ID code for the game that you are interested in viewing the data for
 #' @return A data frame of play by play information
 #' @import rvest
-#' @import httr
 #' @import dplyr
 #' @importFrom jsonlite parse_json
 #' @importFrom purrr pluck map_dfr
@@ -32,16 +31,14 @@ phf_pbp <- function(game_id) {
   )
 
   # the link for the game + authorization for accessing the API
-  res <- httr::RETRY("GET", full_url,
-                     httr::add_headers(`Authorization`= auth_ticket))
+  res <- .retry_request(full_url, headers = c(`Authorization` = auth_ticket))
   # Check the result
   check_status(res)
 
   plays_data <- data.frame()
   tryCatch(
     expr = {
-      data <- res %>%
-        httr::content(as = "text", encoding="utf-8") %>%
+      data <- .resp_text(res) %>%
         jsonlite::fromJSON() %>%
         purrr::pluck("content") %>%
         rvest::read_html() %>%

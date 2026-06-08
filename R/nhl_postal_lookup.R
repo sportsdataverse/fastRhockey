@@ -18,7 +18,6 @@
 #'    |teamName.default |character |Local broadcast team name (default).       |
 #'    |teamName.fr      |character |Local broadcast team name (French).        |
 #' @keywords NHL Postal Lookup
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @export
@@ -33,10 +32,10 @@ nhl_postal_lookup <- function(postal_code) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             return(raw)

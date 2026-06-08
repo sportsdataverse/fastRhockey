@@ -27,7 +27,6 @@
 #'    |game_type    |character |Game type the row belongs to.            |
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples
@@ -141,8 +140,7 @@ pwhl_schedule <- function(season, game_type = "both") {
 
   tryCatch(
     expr = {
-      res <- httr::RETRY("GET", full_url) %>%
-        httr::content(as = "text", encoding = "utf-8")
+      res <- .resp_text(.retry_request(full_url))
 
       callback_pattern <- "angular.callbacks._\\d+\\("
       res <- gsub(callback_pattern, "", res)

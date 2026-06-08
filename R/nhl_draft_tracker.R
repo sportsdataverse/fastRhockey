@@ -27,7 +27,6 @@
 #'    |last_name_default                        |character |Player last name (default language).         |
 #'    |first_name_default                       |character |Player first name (default language).        |
 #' @keywords NHL Draft Tracker
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom glue glue
@@ -41,10 +40,10 @@ nhl_draft_tracker <- function() {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             picks <- NULL

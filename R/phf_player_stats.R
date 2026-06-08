@@ -10,7 +10,6 @@
 #' @return A named list of data frames: career, game_log
 #' @import rvest
 #' @import janitor
-#' @import httr
 #' @import stringr
 #' @import jsonlite
 #' @importFrom glue glue
@@ -39,13 +38,11 @@ phf_player_stats <- function(player_id) {
       )
 
       # the link for the game + authorization for accessing the API
-      res <- httr::RETRY("GET", full_url,
-                         httr::add_headers(`Authorization`= auth_ticket))
+      res <- .retry_request(full_url, headers = c(`Authorization` = auth_ticket))
       # Check the result
       check_status(res)
 
-      resp_all <- res %>%
-        httr::content(as = "text", encoding="utf-8") %>%
+      resp_all <- .resp_text(res) %>%
         jsonlite::parse_json() %>%
         purrr::pluck("content") %>%
         rvest::read_html()

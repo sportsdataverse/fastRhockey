@@ -18,7 +18,6 @@
 #'   * `winner_id` - Winning team ID (if series is complete).
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples

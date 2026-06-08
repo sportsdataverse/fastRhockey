@@ -6,7 +6,6 @@
 #' @return A parsed list with the health-check payload, or `NULL` on
 #'   failure.
 #' @keywords NHL Stats Ping
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @export
@@ -19,10 +18,10 @@ nhl_stats_ping <- function() {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- tryCatch(
                 jsonlite::fromJSON(resp_text, flatten = TRUE),
                 error = function(e) resp_text

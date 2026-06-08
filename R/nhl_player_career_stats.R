@@ -51,7 +51,6 @@
 #'    |team_place_name_with_preposition_default |character |Team place name with preposition.        |
 #'    |team_place_name_with_preposition_fr      |character |Team place name with preposition (FR).   |
 #' @keywords NHL Helpers Aggregator
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom dplyr bind_cols tibble
@@ -68,10 +67,10 @@ nhl_player_career_stats <- function(player_id) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             season_totals <- raw$seasonTotals

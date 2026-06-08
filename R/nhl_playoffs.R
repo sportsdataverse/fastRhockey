@@ -13,7 +13,6 @@
 #'    |roundAbbrev |character |Abbreviated label for the playoff round.   |
 #'    |series      |list      |Nested list of series within the round.    |
 #' @keywords NHL Playoff Carousel
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @export
@@ -36,10 +35,10 @@ nhl_playoff_carousel <- function(season = NULL) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             return(raw)
@@ -103,7 +102,6 @@ nhl_playoff_carousel <- function(season = NULL) {
 #'    |gameOutcome.lastPeriodType                |character |Period type in which the game ended.             |
 #'    |gameOutcome.otPeriods                     |integer   |Number of overtime periods played.               |
 #' @keywords NHL Playoff Schedule
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @export
@@ -166,7 +164,6 @@ nhl_playoff_schedule <- function(season, series_letter) {
 #'    |bottomSeedTeam.placeNameWithPreposition.default  |character |Bottom-seeded team place name with preposition.   |
 #'    |bottomSeedTeam.placeNameWithPreposition.fr       |character |Bottom-seeded team place name with preposition (FR).|
 #' @keywords NHL Playoff Bracket
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @export
@@ -181,10 +178,10 @@ nhl_playoff_bracket <- function(year) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             return(raw)

@@ -31,7 +31,6 @@
 #'    |detail                     |character |Additional transaction detail.           |
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples

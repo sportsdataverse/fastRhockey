@@ -190,9 +190,9 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
         game_id,
         "/play-by-play"
     )
-    res <- httr::RETRY("GET", pbp_url)
+    res <- .retry_request(pbp_url)
     check_status(res)
-    resp <- httr::content(res, as = "text", encoding = "UTF-8")
+    resp <- .resp_text(res)
     raw_data <- jsonlite::fromJSON(
         resp, simplifyVector = TRUE, flatten = TRUE
     )
@@ -239,9 +239,9 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
         game_id,
         "/play-by-play"
     )
-    res <- httr::RETRY("GET", pbp_url)
+    res <- .retry_request(pbp_url)
     check_status(res)
-    resp <- httr::content(res, as = "text", encoding = "UTF-8")
+    resp <- .resp_text(res)
     jsonlite::fromJSON(resp, simplifyVector = TRUE, flatten = TRUE)
 }
 
