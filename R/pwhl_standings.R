@@ -33,7 +33,6 @@
 #'    |penalty_kill_pct           |character |Penalty-kill percentage.          |
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples
@@ -50,26 +49,16 @@ pwhl_standings <- function(season = 2023, regular = TRUE) {
 
   REG_URL = paste0("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=teams&groupTeamsBy=league&context=overall&site_id=2&season=", season_id, "&special=false&key=694cfeed58c932ee&client_code=pwhl&league_id=1&division=undefined&sort=points&lang=en&callback=angular.callbacks._b")
   URL = paste0("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=teams&groupTeamsBy=division&context=overall&site_id=2&season=", season_id, "&special=true&key=694cfeed58c932ee&client_code=pwhl&league_id=1&division=-1&sort=points&lang=en&callback=angular.callbacks._4")
-  reg_res <- httr::RETRY(
-    "GET",
-    REG_URL
-  )
-
-  reg_res <- reg_res %>%
-    httr::content(as = "text", encoding = "utf-8")
+  reg_res <- .retry_request(REG_URL)
+  reg_res <- .resp_text(reg_res)
 
   reg_res <- gsub("angular.callbacks._b\\(", "", reg_res)
   reg_res <- gsub("}}]}]}])", "}}]}]}]", reg_res)
   r_reg <- reg_res %>%
     jsonlite::parse_json()
 
-  res <- httr::RETRY(
-    "GET",
-    URL
-  )
-
-  res <- res %>%
-    httr::content(as = "text", encoding = "utf-8")
+  res <- .retry_request(URL)
+  res <- .resp_text(res)
 
   res <- gsub("angular.callbacks._4\\(", "", res)
   res <- gsub("}}]}]}])", "}}]}]}]", res)

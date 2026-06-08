@@ -29,7 +29,6 @@
 #'    |so_save_percentage |character |Shootout save percentage.              |
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @importFrom tidyr separate
 #' @export
@@ -54,9 +53,8 @@ pwhl_stats <- function(position = "goalie", team = "all", season = 2024, regular
 
         URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season={season_id}&team=all&position=goalies&rookies=0&statsType=expanded&rosterstatus=undefined&site_id=2&first=0&limit=100&sort=gaa&league_id=1&lang=en&division=-1&qualified=all&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._5")
 
-        res <- httr::RETRY("GET", URL)
-        res <- res %>%
-          httr::content(as = "text", encoding = "utf-8")
+        res <- .retry_request(URL)
+        res <- .resp_text(res)
 
         callback_pattern <- "angular.callbacks._\\d+\\("
         res <- gsub(callback_pattern, "", res)
@@ -106,9 +104,8 @@ pwhl_stats <- function(position = "goalie", team = "all", season = 2024, regular
 
         URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season={season_id}&team={team_param}&position=skaters&rookies=0&statsType=standard&rosterstatus=undefined&site_id=2&first=0&limit=100&sort=points&league_id=1&lang=en&division=-1&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._6")
 
-        res <- httr::RETRY("GET", URL)
-        res <- res %>%
-          httr::content(as = "text", encoding = "utf-8")
+        res <- .retry_request(URL)
+        res <- .resp_text(res)
 
         callback_pattern <- "angular.callbacks._\\d+\\("
         res <- gsub(callback_pattern, "", res)

@@ -5,8 +5,8 @@
 #' @return Parsed JSON as an R list
 #' @noRd
 .pwhl_api <- function(url) {
-  res <- httr::RETRY("GET", url)
-  res <- httr::content(res, as = "text", encoding = "utf-8")
+  res <- .retry_request(url)
+  res <- .resp_text(res)
   # Strip JSONP callback wrapper: angular.callbacks._X(...)
   res <- sub("^angular\\.callbacks\\._\\w+\\(", "", res)
   res <- sub("\\)\\s*$", "", res)

@@ -26,7 +26,6 @@
 #'    |team            |character |Team name.                                   |
 #' @import jsonlite
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples
@@ -54,13 +53,8 @@ pwhl_team_roster <- function(team, season, regular = TRUE) {
     "&key=694cfeed58c932ee&client_code=pwhl&site_id=8&league_id=1&lang=en&callback=angular.callbacks._h"
   )
 
-  res <- httr::RETRY(
-    "GET",
-    full_url
-  )
-
-  res <- res %>%
-    httr::content(as = "text", encoding = "utf-8")
+  res <- .retry_request(full_url)
+  res <- .resp_text(res)
 
   res <- gsub("angular.callbacks._h\\(", "", res)
   res <- gsub("}}]}]}]})", "}}]}]}]}", res)
