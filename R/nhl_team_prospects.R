@@ -36,7 +36,6 @@
 #'    |prospect_group               |character |Prospect position group the player belongs to.|
 #'    |team_abbr                    |character |Team abbreviation.                           |
 #' @keywords NHL Team Prospects
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -53,10 +52,10 @@ nhl_team_prospects <- function(team_abbr) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             # Prospects may be nested under position groups

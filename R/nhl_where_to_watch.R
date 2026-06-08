@@ -2,7 +2,6 @@
 #' @description Returns streaming/broadcast availability information.
 #' @return Returns a list with streaming availability data.
 #' @keywords NHL Where to Watch
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @export
 #' @examples
@@ -14,10 +13,10 @@ nhl_where_to_watch <- function() {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             return(raw)
@@ -37,7 +36,6 @@ nhl_where_to_watch <- function() {
 #' @param country_code Two-letter country code (e.g., "US", "CA"). Default "US".
 #' @return Returns a list with game odds data.
 #' @keywords NHL Partner Game Odds
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @export
@@ -52,10 +50,10 @@ nhl_partner_game_odds <- function(country_code = "US") {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             return(raw)

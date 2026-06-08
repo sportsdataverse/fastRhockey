@@ -84,7 +84,6 @@
 #'    |winning_goal_scorer_last_name_fi              |character |Winning goal scorer last name (Finnish).          |
 #'    |team_abbr                                     |character |Team abbreviation queried.                        |
 #' @keywords NHL Club Schedule
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom glue glue
@@ -137,10 +136,10 @@ nhl_club_schedule <- function(
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             games <- raw$games

@@ -6,7 +6,6 @@
 #'    |:---------|:-------|:--------------------------|
 #'    |season_id |integer |Season identifier (e.g., 20232024). |
 #' @keywords NHL Seasons
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @export
@@ -19,10 +18,10 @@ nhl_seasons <- function() {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             if (is.null(raw) || length(raw) == 0) {
@@ -79,7 +78,6 @@ nhl_seasons <- function() {
 #'    |midterm_rank         |integer   |Midterm draft ranking.     |
 #'    |final_rank           |integer   |Final draft ranking.       |
 #' @keywords NHL Draft Rankings
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom glue glue
@@ -101,10 +99,10 @@ nhl_draft_rankings <- function(season = NULL, category = 1) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             if (is.null(raw) || length(raw) == 0) {

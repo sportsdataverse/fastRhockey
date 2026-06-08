@@ -15,7 +15,6 @@
 #'    |ties_in_use              |logical   |Whether ties were in use that season. |
 #'    |wildcard_in_use          |logical   |Whether wildcard standings were in use. |
 #' @keywords NHL Standings Season
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr tibble
 #' @export
@@ -28,10 +27,10 @@ nhl_standings_season <- function() {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             if (is.null(raw) || length(raw) == 0) {

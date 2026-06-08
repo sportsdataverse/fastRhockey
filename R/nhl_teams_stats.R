@@ -56,7 +56,6 @@
 #'    |season                   |character |Season identifier.                                   |
 #'    |game_type                |integer   |Game type (2 = regular season, 3 = playoffs).        |
 #' @keywords NHL Teams Stats
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom glue glue
@@ -80,10 +79,10 @@ nhl_teams_stats <- function(team_abbr, season = NULL, game_type = 2) {
 
   tryCatch(
     expr = {
-      res <- httr::RETRY("GET", url)
+      res <- .retry_request(url)
       check_status(res)
 
-      resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+      resp_text <- .resp_text(res)
       raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
       result_frames <- list()

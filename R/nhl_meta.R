@@ -17,7 +17,6 @@
 #'   (e.g., `"a"`). Must be supplied together with `year`.
 #' @return Returns a list with NHL metadata.
 #' @keywords NHL Meta
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @export
@@ -42,10 +41,10 @@ nhl_meta <- function(game_id = NULL, year = NULL, series_letter = NULL) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             return(raw)
@@ -64,7 +63,6 @@ nhl_meta <- function(game_id = NULL, year = NULL, series_letter = NULL) {
 #' @description Returns country/location configuration data from the NHL API.
 #' @return Returns a list with location data.
 #' @keywords NHL Location
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @export
 #' @examples
@@ -76,10 +74,10 @@ nhl_location <- function() {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             return(raw)

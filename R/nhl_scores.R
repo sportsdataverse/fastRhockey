@@ -3,7 +3,6 @@
 #' @param date Character date in "YYYY-MM-DD" format. If NULL, returns current scores.
 #' @return Returns a data frame with game scores.
 #' @keywords NHL Scores
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom glue glue
@@ -21,10 +20,10 @@ nhl_scores <- function(date = NULL) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             games <- raw$games

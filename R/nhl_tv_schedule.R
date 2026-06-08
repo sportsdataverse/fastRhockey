@@ -17,7 +17,6 @@
 #'    |broadcastStatus    |character |Broadcast status.                            |
 #'    |broadcastImageUrl  |character |URL to the broadcast image.                  |
 #' @keywords NHL TV Schedule
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @export
@@ -36,10 +35,10 @@ nhl_tv_schedule <- function(date = NULL) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             return(raw)

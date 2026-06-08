@@ -23,7 +23,6 @@
 #'    |headshot_url   |character |URL to the player's headshot image.          |
 #'    |team_abbr      |character |Team abbreviation.                           |
 #' @keywords NHL Roster
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr tibble bind_rows mutate
 #' @importFrom glue glue
@@ -47,10 +46,10 @@ nhl_teams_roster <- function(team_abbr, season = NULL) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             parse_position_group <- function(players, position) {

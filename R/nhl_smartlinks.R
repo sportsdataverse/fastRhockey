@@ -6,7 +6,6 @@
 #'   narrowed to a single smart link via the `handle` query parameter.
 #' @return Returns a list with smart link routing data.
 #' @keywords NHL Smart Links
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @export
@@ -20,17 +19,13 @@ nhl_smartlinks <- function(handle = NULL) {
     tryCatch(
         expr = {
             if (is.null(handle)) {
-                res <- httr::RETRY("GET", url)
+                res <- .retry_request(url)
             } else {
-                res <- httr::RETRY(
-                    "GET",
-                    url,
-                    query = list(handle = handle)
-                )
+                res <- .retry_request(url, params = list(handle = handle))
             }
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             return(raw)
