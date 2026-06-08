@@ -48,8 +48,12 @@ A \code{fastRhockey_data} tibble with one row per team:\tabular{lll}{
 Other ESPN NHL Functions: 
 \code{\link{espn_nhl_calendar}()},
 \code{\link{espn_nhl_game_all}()},
+\code{\link{espn_nhl_leaders}()},
 \code{\link{espn_nhl_pbp}()},
 \code{\link{espn_nhl_player_box}()},
+\code{\link{espn_nhl_player_overview}()},
+\code{\link{espn_nhl_player_splits}()},
+\code{\link{espn_nhl_player_stats_v3}()},
 \code{\link{espn_nhl_schedule}()},
 \code{\link{espn_nhl_scoreboard}()},
 \code{\link{espn_nhl_summary}()},
