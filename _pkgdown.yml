@@ -449,6 +449,7 @@ reference:
     contents:
       - "`load_nhl_pbp`"
       - "`load_nhl_pbp_lite`"
+      - "`load_nhl_pbp_full`"
       - "`load_nhl_team_box`"
       - "`load_nhl_player_box`"
       - "`load_nhl_skater_box`"
