@@ -40,6 +40,12 @@ of the last tracked play:\tabular{lll}{
 Other ESPN NHL Functions: 
 \code{\link{espn_nhl_athletes_index}()},
 \code{\link{espn_nhl_calendar}()},
+\code{\link{espn_nhl_coach}()},
+\code{\link{espn_nhl_coach_record}()},
+\code{\link{espn_nhl_coaches}()},
+\code{\link{espn_nhl_countries}()},
+\code{\link{espn_nhl_franchise}()},
+\code{\link{espn_nhl_franchises}()},
 \code{\link{espn_nhl_game}()},
 \code{\link{espn_nhl_game_all}()},
 \code{\link{espn_nhl_game_broadcasts}()},
@@ -75,6 +81,9 @@ Other ESPN NHL Functions:
 \code{\link{espn_nhl_player_statisticslog}()},
 \code{\link{espn_nhl_player_stats_v3}()},
 \code{\link{espn_nhl_player_vs_player}()},
+\code{\link{espn_nhl_position}()},
+\code{\link{espn_nhl_positions}()},
+\code{\link{espn_nhl_providers}()},
 \code{\link{espn_nhl_schedule}()},
 \code{\link{espn_nhl_scoreboard}()},
 \code{\link{espn_nhl_season_athletes}()},
@@ -97,7 +106,9 @@ Other ESPN NHL Functions:
 \code{\link{espn_nhl_standings}()},
 \code{\link{espn_nhl_summary}()},
 \code{\link{espn_nhl_team_box}()},
-\code{\link{espn_nhl_team_roster}()}
+\code{\link{espn_nhl_team_roster}()},
+\code{\link{espn_nhl_venue}()},
+\code{\link{espn_nhl_venues}()}
 }
 \author{
 Saiem Gilani
