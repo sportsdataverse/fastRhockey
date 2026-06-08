@@ -62,3 +62,22 @@ test_that("check_status passes on 200 and errors on non-200 (httr2)", {
   expect_silent(check_status(ok))
   expect_error(check_status(bad), "API returned an error")
 })
+
+# ---------------------------------------------------------------------------
+# Step E: .capture_args() + .report_api_error() / .report_api_warning()
+# ---------------------------------------------------------------------------
+
+test_that(".capture_args returns the caller's non-... formals", {
+  demo <- function(team_id, season = 2024, ...) .capture_args()
+  out <- demo(team_id = "1", season = 2025)
+  expect_equal(out$team_id, "1")
+  expect_equal(out$season, 2025)
+  expect_false("..." %in% names(out))
+})
+
+test_that("reporters emit cli messages and return invisibly", {
+  e <- simpleError("boom")
+  expect_message(.report_api_error(e, hint = "load {team_id}", args = list(team_id = "7")), "boom")
+  w <- simpleWarning("careful")
+  expect_message(.report_api_warning(w, args = list(team_id = "7")), "careful")
+})

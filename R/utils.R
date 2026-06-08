@@ -278,6 +278,60 @@ rule_footer <- function(x) {
   jsonlite::fromJSON(.resp_text(resp), ...)
 }
 
+#' Capture the calling function's bound formals (excluding `...`).
+#' @return Named list (empty if the caller has no non-... formals).
+#' @keywords internal
+.capture_args <- function() {
+  parent_fn <- sys.function(sys.parent())
+  if (is.null(parent_fn)) return(list())
+  fmls <- formals(parent_fn)
+  if (length(fmls) == 0L) return(list())
+  nms <- setdiff(names(fmls), "...")
+  if (length(nms) == 0L) return(list())
+  mget(nms, envir = parent.frame(), ifnotfound = list(NULL))
+}
+
+#' Report an API error via cli (optional brace-interpolated hint + args).
+#' @param e Captured condition.
+#' @param hint Optional glue-style template evaluated against `args`.
+#' @param args Named list of caller args (see [.capture_args()]).
+#' @return invisible(NULL)
+#' @keywords internal
+.report_api_error <- function(e, hint = NULL, args = list()) {
+  hint_text <- if (!is.null(hint)) {
+    tryCatch(glue::glue_data(args, hint), error = function(...) hint)
+  } else "Request failed"
+  cli::cli_alert_danger("{Sys.time()}: {hint_text}")
+  if (length(args) > 0) {
+    args_str <- paste0(
+      names(args), " = ",
+      vapply(args, function(a) {
+        s <- tryCatch(deparse(a, width.cutoff = 60)[1], error = function(...) "<?>")
+        if (nchar(s) > 60) paste0(substr(s, 1, 60), "...") else s
+      }, character(1)),
+      collapse = ", "
+    )
+    cli::cli_alert_danger("Args: {args_str}")
+  }
+  cli::cli_alert_danger("Error: {conditionMessage(e)}")
+  invisible(NULL)
+}
+
+#' Report an API warning via cli.
+#' @param w Captured condition.
+#' @param hint Optional glue-style template evaluated against `args`.
+#' @param args Named list of caller args.
+#' @return invisible(NULL)
+#' @keywords internal
+.report_api_warning <- function(w, hint = NULL, args = list()) {
+  hint_text <- if (!is.null(hint)) {
+    tryCatch(glue::glue_data(args, hint), error = function(...) hint)
+  } else "Request warning"
+  cli::cli_alert_warning("{Sys.time()}: {hint_text}")
+  cli::cli_alert_warning("Warning: {conditionMessage(w)}")
+  invisible(NULL)
+}
+
 #' @keywords internal
 check_status <- function(res) {
   x <- httr2::resp_status(res)
