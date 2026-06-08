@@ -51,3 +51,14 @@ test_that(".resp_text and .resp_json read an httr2 response body", {
   expect_equal(parsed$a, 1)
   expect_equal(parsed$b, "x")
 })
+
+# ---------------------------------------------------------------------------
+# Step D: check_status() -- httr2-based
+# ---------------------------------------------------------------------------
+
+test_that("check_status passes on 200 and errors on non-200 (httr2)", {
+  ok  <- httr2::response(status_code = 200, body = charToRaw("{}"))
+  bad <- httr2::response(status_code = 404, body = charToRaw("{}"))
+  expect_silent(check_status(ok))
+  expect_error(check_status(bad), "API returned an error")
+})

@@ -278,9 +278,9 @@ rule_footer <- function(x) {
   jsonlite::fromJSON(.resp_text(resp), ...)
 }
 
-#' @import rvest
+#' @keywords internal
 check_status <- function(res) {
-  x = httr::status_code(res)
+  x <- httr2::resp_status(res)
   if (x != 200) stop("The API returned an error", call. = FALSE)
 }
 
