@@ -121,10 +121,10 @@ nhl_game_boxscore <- function(game_id) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", full_url)
+            res <- .retry_request(full_url)
             check_status(res)
 
-            raw <- httr::content(res, as = "text", encoding = "UTF-8")
+            raw <- .resp_text(res)
             data <- jsonlite::fromJSON(raw, flatten = FALSE)
 
             # ── game info ─────────────────────────────────────────────────

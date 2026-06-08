@@ -53,7 +53,6 @@
 #'    |last_name                                |character |Player last name.                                 |
 #'    |position                                 |character |Player position.                                  |
 #' @keywords NHL Player Stats
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr tibble bind_cols
 #' @importFrom glue glue
@@ -68,10 +67,10 @@ nhl_player_stats <- function(player_id) {
 
   tryCatch(
     expr = {
-      res <- httr::RETRY("GET", url)
+      res <- .retry_request(url)
       check_status(res)
 
-      resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+      resp_text <- .resp_text(res)
       raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
       # seasonTotals contains year-by-year stats across all leagues

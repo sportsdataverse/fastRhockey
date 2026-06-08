@@ -29,7 +29,6 @@
 #'    |is_active       |logical   |Whether the player is currently active.      |
 #'    |headshot_url    |character |URL of the player headshot image.            |
 #' @keywords NHL Player Info
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr tibble
 #' @importFrom glue glue
@@ -43,10 +42,10 @@ nhl_player_info <- function(player_id) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             # Use if/else (not ifelse) for NULL guards. ifelse() returns a

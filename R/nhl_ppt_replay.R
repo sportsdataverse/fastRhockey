@@ -7,7 +7,6 @@
 #' @return Returns a list with event replay metadata (clip IDs, video URLs,
 #'   event context).
 #' @keywords NHL PPT Replay
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @export
@@ -22,10 +21,10 @@ nhl_ppt_replay <- function(game_id, event_number) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             return(raw)

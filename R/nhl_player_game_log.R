@@ -32,7 +32,6 @@
 #'    |opponent_common_name_default |character |Opponent team common name.           |
 #'    |player_id                    |numeric   |Unique player identifier.            |
 #' @keywords NHL Player Game Log
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom glue glue
@@ -55,10 +54,10 @@ nhl_player_game_log <- function(player_id, season = NULL, game_type = 2) {
 
     tryCatch(
         expr = {
-            res <- httr::RETRY("GET", url)
+            res <- .retry_request(url)
             check_status(res)
 
-            resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+            resp_text <- .resp_text(res)
             raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
             game_log <- raw$gameLog

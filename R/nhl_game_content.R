@@ -40,7 +40,6 @@
 #'    |star_3_team_abbrev |character |Third star player team abbreviation.         |
 #'    |star_3_position    |character |Third star player position.                  |
 #' @keywords NHL Game Content
-#' @importFrom httr RETRY content
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr tibble bind_rows
 #' @importFrom glue glue
@@ -55,10 +54,10 @@ nhl_game_content <- function(game_id) {
 
   tryCatch(
     expr = {
-      res <- httr::RETRY("GET", url)
+      res <- .retry_request(url)
       check_status(res)
 
-      resp_text <- httr::content(res, as = "text", encoding = "UTF-8")
+      resp_text <- .resp_text(res)
       raw <- jsonlite::fromJSON(resp_text, flatten = TRUE)
 
       # Extract safe helper

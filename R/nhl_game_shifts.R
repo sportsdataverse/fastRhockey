@@ -46,7 +46,7 @@ nhl_game_shifts <- function(game_id){
 
   full_url <- paste0(base_url,
                      game_id)
-  res <- httr::RETRY("GET", full_url)
+  res <- .retry_request(full_url)
 
   # Check the result
   check_status(res)
@@ -57,8 +57,7 @@ nhl_game_shifts <- function(game_id){
 
   tryCatch(
     expr = {
-      resp <- res %>%
-        httr::content(as = "text", encoding = "UTF-8")
+      resp <- .resp_text(res)
       site <- jsonlite::fromJSON(resp)
 
       # The endpoint is no longer populated for a growing share of
