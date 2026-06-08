@@ -244,7 +244,6 @@ reference:
       - "`nhl_teams_stats`"
       - "`nhl_team_prospects`"
       - "`nhl_team_scoreboard`"
-      - "`espn_nhl_teams`"
   - subtitle: Club Data
     desc: Functions exported by fastRhockey for NHL club-level schedule and stats
     contents:
@@ -435,6 +434,11 @@ reference:
       - "`nhl_ppt_replay_goal`"
       - "`nhl_postal_lookup`"
       - "`nhl_smartlinks`"
+  - title: "ESPN NHL"
+  - subtitle: ESPN NHL Data
+    desc: Functions exported by fastRhockey sourced from ESPN's NHL API (`site.api.espn.com`)
+    contents:
+      - starts_with("espn_nhl_")
   - title: "fastRhockey Data"
   - subtitle: Family Overview
     desc: NHL loader family overview (release-tag catalog)
