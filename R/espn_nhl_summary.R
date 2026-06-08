@@ -287,6 +287,8 @@
 
       labels <- grp[["labels"]]       %||% character(0)
       descriptions <- grp[["descriptions"]] %||% character(0)
+      # Remap "+/-" before clean_names so it becomes "plus_minus" (not "x")
+      labels[labels == "+/-"] <- "plus_minus"
       clean_labels <- janitor::make_clean_names(labels)
 
       for (ath_entry in grp[["athletes"]] %||% list()) {
@@ -618,7 +620,7 @@ NULL
 #'    |bs                              |character |Blocked shots (skaters).                               |
 #'    |ht                              |character |Hits (skaters).                                        |
 #'    |tk                              |character |Takeaways (skaters).                                   |
-#'    |x                               |character |Plus/minus rating (skaters; col named "x" after clean_names of "+/-"). |
+#'    |plus_minus                      |integer   |Plus/minus rating (skaters).                                           |
 #'    |toi                             |character |Time on ice (skaters, MM:SS).                          |
 #'    |pptoi                           |character |Power play time on ice (skaters, MM:SS).               |
 #'    |shtoi                           |character |Short-handed time on ice (skaters, MM:SS).             |

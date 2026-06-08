@@ -42,7 +42,7 @@ not applicable to a position group are \code{NA}. Key columns:\tabular{lll}{
    bs \tab character \tab Blocked shots (skaters). \cr
    ht \tab character \tab Hits (skaters). \cr
    tk \tab character \tab Takeaways (skaters). \cr
-   x \tab character \tab Plus/minus rating (skaters; col named "x" after clean_names of "+/-"). \cr
+   plus_minus \tab integer \tab Plus/minus rating (skaters). \cr
    toi \tab character \tab Time on ice (skaters, MM:SS). \cr
    pptoi \tab character \tab Power play time on ice (skaters, MM:SS). \cr
    shtoi \tab character \tab Short-handed time on ice (skaters, MM:SS). \cr
