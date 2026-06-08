@@ -6,6 +6,28 @@ known as the Premier Hockey Federation (PHF) or National Women's Hockey
 League (NWHL). Additionally, allows access to the National Hockey
 League's stats API <https://www.nhl.com/>.
 
+## Proxy support
+
+All HTTP requests flow through an internal httr2 helper that resolves a
+proxy in this order:
+
+1.  an explicit `proxy =` argument (only on wrappers that pass `...`);
+
+2.  `getOption("fastRhockey.proxy")` – set once per session with
+    `options(fastRhockey.proxy = "http://host:port")` and every call
+    picks it up;
+
+3.  the `http_proxy` / `https_proxy` / `no_proxy` environment variables,
+    read by libcurl when no explicit proxy is supplied.
+
+The proxy value may be a URL string (`"http://host:port"`) or a named
+list spread into
+[`httr2::req_proxy()`](https://httr2.r-lib.org/reference/req_proxy.html)
+for authenticated proxies, e.g.
+`list(url = "http://host", port = 8080, username = "u", password = "p", auth = "basic")`.
+The session-[`options()`](https://rdrr.io/r/base/options.html) form is
+recommended when one proxy covers many calls.
+
 ## See also
 
 Useful links:

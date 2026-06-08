@@ -55,7 +55,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_officials())
 #> ── NHL Records Officials ────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-30 03:53:20 UTC
+#> ℹ Data updated: 2026-06-08 11:44:43 UTC
 #> # A tibble: 600 × 23
 #>       id active association_url birth_city     birth_date  coach_id country_code
 #>    <int> <lgl>  <chr>           <chr>          <chr>          <int> <chr>       

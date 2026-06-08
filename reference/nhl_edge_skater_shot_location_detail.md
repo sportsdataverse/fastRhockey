@@ -50,24 +50,24 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_skater_shot_location_detail(player_id = 8478402))
 #> ── NHL Edge Skater Shot Location Detail ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-30 03:52:33 UTC
+#> ℹ Data updated: 2026-06-08 11:44:06 UTC
 #> # A tibble: 17 × 7
 #>    area                  sog goals shooting_pctg sog_percentile goals_percentile
 #>    <chr>               <int> <int>         <dbl>          <dbl>            <dbl>
 #>  1 Behind the Net          1     0           0            0.856            0    
 #>  2 Beyond Red Line         0     0           0            0                0    
 #>  3 Center Point            0     0           0            0                0    
-#>  4 Crease                  1     0           0            0.613            0    
-#>  5 High Slot               4     0           0            0.896            0    
-#>  6 L Circle                4     0           0            0.874            0    
+#>  4 Crease                  1     0           0            0.604            0    
+#>  5 High Slot               4     0           0            0.887            0    
+#>  6 L Circle                4     0           0            0.851            0    
 #>  7 L Corner                0     0           0            0                0    
 #>  8 L Net Side              0     0           0            0                0    
 #>  9 L Point                 0     0           0            0                0    
-#> 10 Low Slot                3     0           0            0.423            0    
-#> 11 Offensive Neutral …     1     0           0            0.685            0    
-#> 12 Outside L               2     0           0            0.820            0    
-#> 13 Outside R               2     1           0.5          0.797            0.928
-#> 14 R Circle                1     0           0            0.387            0    
+#> 10 Low Slot                3     0           0            0.419            0    
+#> 11 Offensive Neutral …     1     0           0            0.676            0    
+#> 12 Outside L               2     0           0            0.806            0    
+#> 13 Outside R               2     1           0.5          0.793            0.923
+#> 14 R Circle                1     0           0            0.378            0    
 #> 15 R Corner                0     0           0            0                0    
 #> 16 R Net Side              1     0           0            0.725            0    
 #> 17 R Point                 0     0           0            0                0    

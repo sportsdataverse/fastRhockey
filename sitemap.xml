@@ -19,6 +19,7 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-add_strength_states.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-build_onice_matrix.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-build_pbp.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-capture_args.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-coalesce_int.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-extract_empty_net.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-extract_event_players.html</loc></url>
@@ -39,6 +40,12 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-parse_plays.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-parse_schedule_games.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-parse_situation_code.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-report_api_error.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-report_api_warning.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-resolve_proxy.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-resp_json.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-resp_text.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-retry_request.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/dot-time_to_seconds.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_nhl_teams.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/fastRhockey-package.html</loc></url>

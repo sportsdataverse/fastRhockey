@@ -43,12 +43,12 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(pwhl_player_search(search_term = "Poulin"))
 #> ── PWHL Player Search ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-30 03:54:07 UTC
+#> ℹ Data updated: 2026-06-08 11:45:19 UTC
 #> # A tibble: 2 × 15
 #>   player_id first_name  last_name position team_id person_id team_name team_code
 #>       <dbl> <chr>       <chr>     <chr>      <dbl>     <dbl> <chr>     <chr>    
-#> 1        31 Marie-Phil… Poulin    F              3        33 Montréal… MTL      
-#> 2       165 Maude       Poulin-L… D              1       200 Boston F… BOS      
+#> 1       165 Maude       Poulin-L… D              1       200 Boston F… BOS      
+#> 2        31 Marie-Phil… Poulin    F              3        33 Montréal… MTL      
 #> # ℹ 7 more variables: jersey_number <chr>, shoots <chr>, catches <chr>,
 #> #   height <chr>, weight <chr>, birthdate <chr>, image_url <chr>
 # }

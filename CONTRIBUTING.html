@@ -401,6 +401,15 @@ refactor(nhl): extract common parsing into .parse_schedule()</code></pre>
 </div>
 </div>
 <div class="section level2">
+<h2 id="proxy-support">Proxy support<a class="anchor" aria-label="anchor" href="#proxy-support"></a></h2>
+<p>All HTTP requests flow through an internal <code>httr2</code> helper (<code><a href="reference/dot-retry_request.html">.retry_request()</a></code>) that resolves a proxy in this order:</p>
+<ol style="list-style-type: decimal"><li>an explicit <code>proxy =</code> argument (only on wrappers that thread <code>...</code>);</li>
+<li>
+<code>getOption("fastRhockey.proxy")</code> — set once per session with <code>options(fastRhockey.proxy = "http://host:port")</code>;</li>
+<li>the <code>http_proxy</code> / <code>https_proxy</code> / <code>no_proxy</code> environment variables.</li>
+</ol><p>The proxy value may be a URL string (<code>"http://host:port"</code>) or a named list spread into <code><a href="https://httr2.r-lib.org/reference/req_proxy.html" class="external-link">httr2::req_proxy()</a></code> for authenticated proxies (<code>list(url=, port=, username=, password=, auth=)</code>). The session-<code><a href="https://rdrr.io/r/base/options.html" class="external-link">options()</a></code> form is recommended when one proxy covers many calls.</p>
+</div>
+<div class="section level2">
 <h2 id="reporting-issues">Reporting Issues<a class="anchor" aria-label="anchor" href="#reporting-issues"></a></h2>
 <ul><li>Use the <a href="ISSUE_TEMPLATE/bug_report.html">bug report template</a> for bugs</li>
 <li>Use the <a href="ISSUE_TEMPLATE/feature_request.html">feature request template</a> for enhancements</li>

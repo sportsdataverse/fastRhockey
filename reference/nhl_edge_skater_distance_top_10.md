@@ -137,26 +137,26 @@ Returns `NULL` on failure / empty response.
       sort_by = "total"
   ))
 #> ── NHL Edge Skater Distance Top 10 ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-30 03:52:32 UTC
-#> # A tibble: 10 × 71
+#> ℹ Data updated: 2026-06-08 11:44:05 UTC
+#> # A tibble: 10 × 74
 #>    player_slug             player_headshot player_position player_sweater_number
 #>    <chr>                   <chr>           <chr>                           <int>
-#>  1 nick-suzuki-8480018     https://assets… C                                  14
-#>  2 jack-eichel-8478403     https://assets… C                                   9
-#>  3 juraj-slafkovský-84835… https://assets… L                                  20
-#>  4 cole-caufield-8481540   https://assets… R                                  13
-#>  5 mitch-marner-8478483    https://assets… R                                  93
-#>  6 martin-necas-8480039    https://assets… C                                  88
-#>  7 ivan-demidov-8484984    https://assets… R                                  93
-#>  8 jake-evans-8478133      https://assets… C                                  71
-#>  9 alex-newhook-8481618    https://assets… C                                  15
-#> 10 nathan-mackinnon-84774… https://assets… C                                  29
-#> # ℹ 67 more variables: player_first_name_default <chr>,
+#>  1 jack-eichel-8478403     https://assets… C                                   9
+#>  2 nick-suzuki-8480018     https://assets… C                                  14
+#>  3 mitch-marner-8478483    https://assets… R                                  93
+#>  4 juraj-slafkovský-84835… https://assets… L                                  20
+#>  5 cole-caufield-8481540   https://assets… R                                  13
+#>  6 sebastian-aho-8478427   https://assets… C                                  20
+#>  7 ivan-barbashev-8477964  https://assets… L                                  49
+#>  8 brett-howden-8479353    https://assets… C                                  21
+#>  9 seth-jarvis-8482093     https://assets… R                                  24
+#> 10 pavel-dorofeyev-8481604 https://assets… R                                  16
+#> # ℹ 70 more variables: player_first_name_default <chr>,
 #> #   player_first_name_cs <chr>, player_first_name_de <chr>,
 #> #   player_first_name_es <chr>, player_first_name_fi <chr>,
 #> #   player_first_name_sk <chr>, player_first_name_sv <chr>,
 #> #   player_last_name_default <chr>, player_last_name_cs <chr>,
-#> #   player_last_name_sk <chr>, player_team_abbrev <chr>,
-#> #   player_team_slug <chr>, player_team_common_name_default <chr>, …
+#> #   player_last_name_fi <chr>, player_last_name_sk <chr>,
+#> #   player_team_abbrev <chr>, player_team_slug <chr>, …
 # }
 ```

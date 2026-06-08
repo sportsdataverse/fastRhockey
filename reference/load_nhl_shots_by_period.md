@@ -58,22 +58,20 @@ game and the following columns:
 # \donttest{
   try(load_nhl_shots_by_period(2026))
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 4,629 × 9
-#>     away  home    game_id   season game_date  periodDescriptor.number
-#>    <int> <int>      <int>    <int> <chr>                        <int>
-#>  1     3    17 2025020001 20252026 2025-10-07                       1
-#>  2    11     9 2025020001 20252026 2025-10-07                       2
-#>  3     5    11 2025020001 20252026 2025-10-07                       3
-#>  4     8     7 2025020002 20252026 2025-10-07                       1
-#>  5     8    13 2025020002 20252026 2025-10-07                       2
-#>  6    15     5 2025020002 20252026 2025-10-07                       3
-#>  7     7     6 2025020003 20252026 2025-10-07                       1
-#>  8    11     5 2025020003 20252026 2025-10-07                       2
-#>  9     5    14 2025020003 20252026 2025-10-07                       3
-#> 10    11     8 2025020004 20252026 2025-10-08                       1
-#> # ℹ 4,619 more rows
-#> # ℹ 3 more variables: periodDescriptor.periodType <chr>,
-#> #   periodDescriptor.maxRegulationPeriods <int>,
-#> #   periodDescriptor.otPeriods <int>
+#> # A tibble: 4,639 × 9
+#>     away  home    game_id   season game_date  period period_type
+#>    <int> <int>      <int>    <int> <chr>       <int> <chr>      
+#>  1     3    17 2025020001 20252026 2025-10-07      1 REG        
+#>  2    11     9 2025020001 20252026 2025-10-07      2 REG        
+#>  3     5    11 2025020001 20252026 2025-10-07      3 REG        
+#>  4     8     7 2025020002 20252026 2025-10-07      1 REG        
+#>  5     8    13 2025020002 20252026 2025-10-07      2 REG        
+#>  6    15     5 2025020002 20252026 2025-10-07      3 REG        
+#>  7     7     6 2025020003 20252026 2025-10-07      1 REG        
+#>  8    11     5 2025020003 20252026 2025-10-07      2 REG        
+#>  9     5    14 2025020003 20252026 2025-10-07      3 REG        
+#> 10    11     8 2025020004 20252026 2025-10-08      1 REG        
+#> # ℹ 4,629 more rows
+#> # ℹ 2 more variables: max_regulation_periods <int>, ot_periods <int>
 # }
 ```

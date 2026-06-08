@@ -324,11 +324,6 @@ NHL API
 
   **NHL Team Scoreboard**
 
-- [`espn_nhl_teams()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_teams.md)
-  :
-
-  **Get ESPN NHL team names and IDs**
-
 ### Club Data
 
 Functions exported by fastRhockey for NHL club-level schedule and stats
@@ -1066,6 +1061,18 @@ replays, and miscellaneous reference data
   :
 
   **NHL Smart Links**
+
+## ESPN NHL
+
+### ESPN NHL Data
+
+Functions exported by fastRhockey sourced from ESPN’s NHL API
+(`site.api.espn.com`)
+
+- [`espn_nhl_teams()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_teams.md)
+  :
+
+  **Get ESPN NHL team names and IDs**
 
 ## fastRhockey Data
 

@@ -33,7 +33,7 @@ A named list of data frames: `gamesByDate`.
 # \donttest{
   try(nhl_team_scoreboard(team_abbr = "TOR"))
 #> $focusedDate
-#> [1] "2026-05-29"
+#> [1] "2026-06-02"
 #> 
 #> $focusedDateCount
 #> [1] 3

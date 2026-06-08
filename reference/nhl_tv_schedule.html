@@ -107,119 +107,99 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_tv_schedule</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-05-30"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-06-08"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $startDate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-05-16"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-05-25"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $endDate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-06-10"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-06-22"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $broadcasts</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              startTime             endTime durationSeconds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2026-05-30T00:30:00 2026-05-30T01:30:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2026-05-30T01:30:00 2026-05-30T02:30:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2026-05-30T02:30:00 2026-05-30T03:30:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2026-05-30T03:30:00 2026-05-30T04:00:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2026-05-30T04:00:00 2026-05-30T05:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2026-05-30T05:00:00 2026-05-30T06:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2026-05-30T06:00:00 2026-05-30T07:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2026-05-30T07:00:00 2026-05-30T08:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2026-05-30T08:00:00 2026-05-30T09:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2026-05-30T09:00:00 2026-05-30T11:30:00            9000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2026-05-30T11:30:00 2026-05-30T12:30:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2026-05-30T12:30:00 2026-05-30T13:30:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2026-05-30T13:30:00 2026-05-30T14:00:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2026-05-30T14:00:00 2026-05-30T16:30:00            9000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2026-05-30T16:30:00 2026-05-30T17:00:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2026-05-30T17:00:00 2026-05-30T18:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2026-05-30T18:00:00 2026-05-30T19:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2026-05-30T19:00:00 2026-05-30T20:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2026-05-30T20:00:00 2026-05-30T21:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2026-05-30T20:30:00 2026-05-30T21:00:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 2026-05-30T21:00:00 2026-05-30T22:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 2026-05-30T21:30:00 2026-05-30T22:00:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 2026-05-30T22:00:00 2026-05-30T23:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 2026-05-30T22:30:00 2026-05-30T23:00:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 2026-05-30T23:00:00 2026-05-31T00:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                          title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                      NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                      NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                      NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                      NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                      NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                      NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                      NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                      NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                      NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                IIHF World Championship Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                     NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                     NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13               NHL Network Countdown: Greatest Rookie Debuts</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                     IIHF World Championship</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 NHL Network Originals: Picture Perfect - The 1992-93 Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                       Hawkeytown: Portland to the Pros Ep 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                       Hawkeytown: Portland to the Pros Ep 4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                       NHL Tonight: Conference Final Edition</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                       NHL Tonight: Conference Final Edition</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                       NHL Tonight: Conference Final Edition</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                       NHL Tonight: Conference Final Edition</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                       NHL Tonight: Conference Final Edition</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23                       Hawkeytown: Portland to the Pros Ep 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                       NHL Tonight: Conference Final Edition</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                       Hawkeytown: Portland to the Pros Ep 4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                                                                                                                                                                                                                                                          description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                                                                                                                                                                                                                                                                                                                            NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                                                                                                                                                                                                                                                                                                            NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                                                                                                                                                                                                                                                                                                                            NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                                                                                                                                                                                                                                                                                                                            NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                                                                                                                                                                                                                                                                                                                            NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                                                                                                                                                                                                                                                                                                                            NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                                                                                                                                                                                                                                                                                                                                                            NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                                                                                                                                                                                                                                                                                                                                                            NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                                                                                                                                                                                                                                                                                                                                                            NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                                                                                                                                                                                                                                                                                                     SF1: Switzerland at Norway on 5/30/2026 From Swiss Life Arena</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                                                                                                                                                                                                                                                                                                                                           NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                                                                                                                                                                                                                                                                                                                                           NHL Tonight: Conference Final Post Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                                                                                                                                                                                                                                                                                                                                                     NHL Network Countdown: Greatest Rookie Debuts</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                                                                                                                                                                                                                                                                                                                                         SF2: Canada at Finland on 5/30/2026 From Swiss Life Arena</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 The 1992-92 NHL season is regarded by many to be the greatest season in NHL history.  Highlighted by thrilling performances from some of the league's all-time greats in Wayne Gretzky, Mario Lemieux, and Patrick Roy and the emergence of rookie sensations Eric Lindros and Teemu Selanne.  The documentary teaches the greatest of the season to new fans and fosters nostalgia to fans who lived through it.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                                                                                                                                                                                                                                                                                                                                             Hawkeytown: Portland to the Pros Ep 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                                                                                                                                                                                                                                                                                                                                                             Hawkeytown: Portland to the Pros Ep 4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                                                                                                                                                                                                                                                                                                                                                             NHL Tonight: Conference Final Edition</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                                                                                                                                                                                                                                                                                                                                             NHL Tonight: Conference Final Edition</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                                                                                                                                                                                                                                                                                                                                                                             NHL Tonight: Conference Final Edition</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                                                                                                                                                                                                                                                                                                                                                                             NHL Tonight: Conference Final Edition</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                                                                                                                                                                                                                                                                                                                                                                             NHL Tonight: Conference Final Edition</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23                                                                                                                                                                                                                                                                                                                                                                             Hawkeytown: Portland to the Pros Ep 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                                                                                                                                                                                                                                                                                                                                                                             NHL Tonight: Conference Final Edition</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                                                                                                                                                                                                                                                                                                                                                                             Hawkeytown: Portland to the Pros Ep 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2026-06-08T01:00:00 2026-06-08T02:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2026-06-08T02:00:00 2026-06-08T03:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2026-06-08T03:00:00 2026-06-08T04:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2026-06-08T04:00:00 2026-06-08T05:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2026-06-08T05:00:00 2026-06-08T06:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2026-06-08T06:00:00 2026-06-08T07:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2026-06-08T07:00:00 2026-06-08T08:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2026-06-08T08:00:00 2026-06-08T09:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2026-06-08T09:00:00 2026-06-08T10:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2026-06-08T10:00:00 2026-06-08T11:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2026-06-08T11:00:00 2026-06-08T12:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2026-06-08T12:00:00 2026-06-08T13:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2026-06-08T13:00:00 2026-06-08T15:00:00            7200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2026-06-08T15:00:00 2026-06-08T17:00:00            7200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2026-06-08T17:00:00 2026-06-08T18:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2026-06-08T18:00:00 2026-06-08T19:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2026-06-08T19:00:00 2026-06-08T20:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2026-06-08T20:00:00 2026-06-08T21:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2026-06-08T21:00:00 2026-06-08T23:00:00            7200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2026-06-08T23:00:00 2026-06-09T00:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                     title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     NHL Tonight: Top 32 Draft Prospects</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     NHL Tonight: Top 32 Draft Prospects</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                               NHL Game</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                               NHL Game</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                NHL Now</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17    NHL Tonight: Top 32 Draft Prospects</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19                               NHL Game</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20    NHL Tonight: Top 32 Draft Prospects</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                               description</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                  NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                     NHL Tonight: Top 32 Draft Prospects</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                  NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                     NHL Tonight: Top 32 Draft Prospects</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                  NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                  NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                                                  NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                                                  NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                                                  NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                 NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                                 NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                                 NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13   Conference Finals: Montreal Canadiens at Carolina Hurricanes, Game 5 on 5/29/2026 From Lenovo Center</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 Conference Finals: Colorado Avalanche at Vegas Golden Knights, Game 4 on 5/26/2026 From T-Mobile Arena</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                                                                                NHL Now</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                                 NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                                                    NHL Tonight: Top 32 Draft Prospects</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                                                 NHL Tonight: Stanley Cup Final Edition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 Stanley Cup Final: Carolina Hurricanes at Vegas Golden Knights, Game 3 on 6/6/2026 From T-Mobile Arena</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20                                                                    NHL Tonight: Top 32 Draft Prospects</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            houseNumber broadcastType broadcastStatus broadcastImageUrl</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  HNHLT26CFPG052926CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  HNHLT26CFPG052926CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  HNHLT26CFPG052926CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  HNHLT26CFPG052926CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  HNHLT26CFPG052926CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  HNHLT26CFPG052926CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  HNHLT26CFPG052926CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  HNHLT26CFPG052926CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  HNHLT26CFPG052926CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  H150SF1SF105302026            HD            LIVE    nhlnetwork.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 HNHLT26CFPG052926CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 HNHLT26CFPG052926CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13    HNHLNCTDWN181901            HD                 nhlncountdown.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  H150SF2SF205302026            HD            LIVE    nhlnetwork.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15     H30NHLNORIG9293            HD                    nhlnetwork.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16   HNHLWINTERHAWKSE3            HD                    nhlnetwork.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17   HNHLWINTERHAWKSE4            HD                    nhlnetwork.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  HNHLT26CFE053026LV            HD            LIVE    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  HNHLT26CFE053026CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  HNHLT26CFE053026CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  HNHLT26CFE053026CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  HNHLT26CFE053026CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23   HNHLWINTERHAWKSE3            HD                    nhlnetwork.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24  HNHLT26CFE053026CC            HD                    nhltonight.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25   HNHLWINTERHAWKSE4            HD                    nhlnetwork.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  HNHLT26SCFE060726CC            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     HNHLT26PE32DFTCC            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  HNHLT26SCFE060726CC            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     HNHLT26PE32DFTCC            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  HNHLT26SCFE060726CC            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  HNHLT26SCFE060726CC            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  HNHLT26SCFE060726CC            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  HNHLT26SCFE060726CC            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  HNHLT26SCFE060726CC            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 HNHLT26SCFE060726CC            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 HNHLT26SCFE060726CC            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 HNHLT26SCFE060726CC            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13  H120MTLCAR05292026            HD                           nhl.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14  H120COLVGK05262026            HD                           nhl.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15    HNOW26PE060826LV            HD            LIVE        nhlnow.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 HNHLT26SCFE060826LV            HD            LIVE    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17    HNHLT26PE32DFTCC            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 HNHLT26SCFE060826CC            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19  H120CARVGK06062026            HD                           nhl.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20    HNHLT26PE32DFTCC            HD                    nhltonight.png</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

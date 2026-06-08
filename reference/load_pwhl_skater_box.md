@@ -92,6 +92,6 @@ A data frame (`fastRhockey_data`) with the following columns:
 #> # ℹ 14 more variables: time_on_ice <dbl>, goals <int>, assists <int>,
 #> #   points <int>, shots <int>, hits <int>, blocked_shots <int>,
 #> #   penalty_minutes <int>, plus_minus <int>, faceoff_attempts <int>,
-#> #   faceoff_wins <int>, faceoff_losses <int>, faceoff_pct <dbl>, starting <chr>
+#> #   faceoff_wins <int>, faceoff_losses <int>, faceoff_pct <dbl>, starting <int>
 # }
 ```

@@ -64,8 +64,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_stats_goalie_milestones())
 #> ── NHL Stats Goalie Milestones ──────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-30 03:53:45 UTC
-#> # A tibble: 54 × 17
+#> ℹ Data updated: 2026-06-08 11:45:02 UTC
+#> # A tibble: 53 × 17
 #>       id current_team_id first_name game_type_id games_played last_name 
 #>    <int>           <int> <chr>             <int>        <int> <chr>     
 #>  1   390               3 Jonathan              3           92 Quick     
@@ -78,7 +78,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8   595              55 Philipp               3           47 Grubauer  
 #>  9   607              26 Darcy                 2          489 Kuemper   
 #> 10   627              26 Darcy                 3           40 Kuemper   
-#> # ℹ 44 more rows
+#> # ℹ 43 more rows
 #> # ℹ 11 more variables: milestone <chr>, milestone_amount <int>,
 #> #   player_full_name <chr>, player_id <int>, so <int>, team_abbrev <chr>,
 #> #   team_common_name <chr>, team_full_name <chr>, team_place_name <chr>,

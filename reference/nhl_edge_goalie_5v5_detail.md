@@ -62,7 +62,27 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_edge_goalie_5v5_detail(player_id = 8475883))
-#> 2026-05-30 03:52:26.252511: No NHL Edge goalie 5v5 detail returned for player_id=8475883
-#> NULL
+#> ── NHL Edge Goalie 5v5 Detail ───────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-06-08 11:44:00 UTC
+#> # A tibble: 10 × 19
+#>    game_center_link             save_pctg game_date player_on_home_team decision
+#>    <chr>                            <dbl> <chr>     <lgl>               <chr>   
+#>  1 /gamecenter/car-vs-vgk/2026…     0.786 2026-06-… FALSE               NA      
+#>  2 /gamecenter/vgk-vs-car/2026…     0.913 2026-06-… TRUE                W       
+#>  3 /gamecenter/vgk-vs-car/2026…     0.75  2026-06-… TRUE                L       
+#>  4 /gamecenter/mtl-vs-car/2026…     1     2026-05-… TRUE                W       
+#>  5 /gamecenter/car-vs-mtl/2026…     1     2026-05-… FALSE               W       
+#>  6 /gamecenter/car-vs-mtl/2026…     0.909 2026-05-… FALSE               W       
+#>  7 /gamecenter/mtl-vs-car/2026…     0.833 2026-05-… TRUE                W       
+#>  8 /gamecenter/mtl-vs-car/2026…     0.733 2026-05-… TRUE                L       
+#>  9 /gamecenter/car-vs-phi/2026…     0.867 2026-05-… FALSE               W       
+#> 10 /gamecenter/car-vs-phi/2026…     1     2026-05-… FALSE               W       
+#> # ℹ 14 more variables: home_team_abbrev <chr>, home_team_slug <chr>,
+#> #   home_team_common_name_default <chr>,
+#> #   home_team_place_name_with_preposition_default <chr>,
+#> #   home_team_place_name_with_preposition_fr <chr>,
+#> #   home_team_team_logo_light <chr>, home_team_team_logo_dark <chr>,
+#> #   away_team_abbrev <chr>, away_team_slug <chr>,
+#> #   away_team_common_name_default <chr>, …
 # }
 ```

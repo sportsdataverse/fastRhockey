@@ -97,14 +97,14 @@ A data frame (`fastRhockey_data`) with the following columns:
     sort_by = "total"
   ))
 #> ── NHL Edge Team Skating Distance Top 10 ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-05-30 03:52:47 UTC
+#> ℹ Data updated: 2026-06-08 11:44:14 UTC
 #> # A tibble: 10 × 36
 #>    team_abbrev team_slug           team_common_name_def…¹ team_place_name_with…²
 #>    <chr>       <chr>               <chr>                  <chr>                 
-#>  1 MTL         montreal-canadiens… Canadiens              Montréal              
-#>  2 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
-#>  3 COL         colorado-avalanche… Avalanche              Colorado              
-#>  4 CAR         carolina-hurricane… Hurricanes             Carolina              
+#>  1 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
+#>  2 MTL         montreal-canadiens… Canadiens              Montréal              
+#>  3 CAR         carolina-hurricane… Hurricanes             Carolina              
+#>  4 COL         colorado-avalanche… Avalanche              Colorado              
 #>  5 BUF         buffalo-sabres-7    Sabres                 Buffalo               
 #>  6 ANA         anaheim-ducks-24    Ducks                  Anaheim               
 #>  7 MIN         minnesota-wild-30   Wild                   Minnesota             
