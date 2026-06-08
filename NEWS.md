@@ -2,19 +2,16 @@
 
 ### **Data loaders**
 
-* `load_nhl_pbp_full()` added — loads the full NHL play-by-play release
-  (`nhl_pbp_full` / `play_by_play_{season}.rds`), the richest NHL PBP dataset
-  including all on-ice tracking and line-change columns. Mirrors the
-  `load_nhl_pbp_full` function in sportsdataverse-py.
-* Added 12 naming-parity aliases for sportsdataverse-py compatibility:
+* Added 13 naming-parity aliases for sportsdataverse-py compatibility:
+  `load_nhl_pbp_full()` (parity alias of `load_nhl_pbp()`, which already serves
+  the full `nhl_pbp_full` release),
   `load_nhl_team_boxscore()`, `load_nhl_team_boxscores()`,
   `load_nhl_player_boxscore()`, `load_nhl_player_boxscores()`,
   `load_nhl_skater_boxscores()`, `load_nhl_goalie_boxscores()`,
   `load_nhl_schedules()` (NHL), and `load_pwhl_team_boxscores()`,
   `load_pwhl_player_boxscores()`, `load_pwhl_skater_boxscores()`,
   `load_pwhl_goalie_boxscores()`, `load_pwhl_schedules()` (PWHL). Each alias
-  forwards all arguments to its canonical `load_*_box()` / `load_*_schedule()`
-  counterpart.
+  forwards all arguments to its canonical counterpart.
 
 ### **Dependencies**
 
