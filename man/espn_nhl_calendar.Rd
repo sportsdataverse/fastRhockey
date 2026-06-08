@@ -29,9 +29,14 @@ A \code{fastRhockey_data} tibble with one row per game date:\tabular{lll}{
 }
 \seealso{
 Other ESPN NHL Functions: 
+\code{\link{espn_nhl_game_all}()},
+\code{\link{espn_nhl_pbp}()},
+\code{\link{espn_nhl_player_box}()},
 \code{\link{espn_nhl_schedule}()},
 \code{\link{espn_nhl_scoreboard}()},
 \code{\link{espn_nhl_standings}()},
+\code{\link{espn_nhl_summary}()},
+\code{\link{espn_nhl_team_box}()},
 \code{\link{espn_nhl_team_roster}()}
 }
 \author{
