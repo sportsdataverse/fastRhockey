@@ -10,7 +10,6 @@
 #'
 #' @import rvest
 #' @import dplyr
-#' @import httr
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @export
@@ -25,15 +24,12 @@ phf_league_info <- function(season = most_recent_phf_season()){
   base_url <- "https://web.api.digitalshift.ca/partials/stats/filters?type=season&id="
   full_url <- paste0(base_url,
                      season_id)
-  res <- httr::RETRY("GET", full_url,
-                     httr::add_headers(
-                       `Authorization`='ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'))
+  res <- .retry_request(full_url, headers = c(`Authorization` = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'))
   check_status(res)
 
   tryCatch(
     expr = {
-      data <- res %>%
-        httr::content(as = "text", encoding="utf-8") %>%
+      data <- .resp_text(res) %>%
         jsonlite::fromJSON()
       seasons <- data$season$options %>%
         make_fastRhockey_data("PHF Seasons Information from PremierHockeyFederation.com",Sys.time())
@@ -43,13 +39,10 @@ phf_league_info <- function(season = most_recent_phf_season()){
       base_url <- "https://web.api.digitalshift.ca/partials/stats/filters?type=division&id="
       full_url <- paste0(base_url,
                          division_id)
-      res <- httr::RETRY("GET", full_url,
-                         httr::add_headers(
-                           `Authorization`='ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'))
+      res <- .retry_request(full_url, headers = c(`Authorization` = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'))
       check_status(res)
 
-      data <- res %>%
-        httr::content(as = "text", encoding="utf-8") %>%
+      data <- .resp_text(res) %>%
         jsonlite::fromJSON()
 
       teams <- data$team$options %>%

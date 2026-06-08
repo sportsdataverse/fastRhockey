@@ -10,7 +10,6 @@
 #' @return A data frame with schedule data
 #' @import rvest
 #' @import dplyr
-#' @import httr
 #' @importFrom glue glue
 #' @export
 #' @examples
@@ -28,12 +27,7 @@ phf_schedule <- function(season = NULL) {
   )
 
   # the link for the game + authorization for accessing the API
-  res <- httr::RETRY(
-    "GET", full_url,
-    httr::add_headers(
-      `Authorization` = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'
-    )
-  )
+  res <- .retry_request(full_url, headers = c(`Authorization` = 'ticket="4dM1QOOKk-PQTSZxW_zfXnOgbh80dOGK6eUb_MaSl7nUN0_k4LxLMvZyeaYGXQuLyWBOQhY8Q65k6_uwMu6oojuO"'))
 
   # Check the result
   check_status(res)
@@ -41,8 +35,7 @@ phf_schedule <- function(season = NULL) {
   schedule_data <- data.frame()
   tryCatch(
     expr = {
-      data <- res %>%
-        httr::content(as = "text", encoding = "utf-8") %>%
+      data <- .resp_text(res) %>%
         jsonlite::parse_json() %>%
         purrr::pluck("content") %>%
         rvest::read_html() %>%

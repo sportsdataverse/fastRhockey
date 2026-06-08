@@ -9,7 +9,6 @@
 #' @param season Season (YYYY) to pull the standings from, the concluding year in XXXX-YY format
 #' @return A data frame of standings data
 #' @import rvest
-#' @import httr
 #' @import dplyr
 #' @importFrom jsonlite parse_json
 #' @importFrom purrr pluck map_dfr
@@ -34,8 +33,7 @@ phf_standings <- function(season = most_recent_phf_season()) {
   )
 
   # the link for the game + authorization for accessing the API
-  res <- httr::RETRY("GET", full_url,
-                     httr::add_headers(`Authorization`= auth_ticket))
+  res <- .retry_request(full_url, headers = c(`Authorization` = auth_ticket))
   # Check the result
   check_status(res)
 
@@ -44,8 +42,7 @@ phf_standings <- function(season = most_recent_phf_season()) {
   tryCatch(
     expr = {
 
-      data <- res %>%
-        httr::content(as = "text", encoding="utf-8") %>%
+      data <- .resp_text(res) %>%
         jsonlite::fromJSON() %>%
         purrr::pluck("content") %>%
         rvest::read_html() %>%
