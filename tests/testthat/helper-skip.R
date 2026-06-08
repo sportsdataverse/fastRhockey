@@ -26,3 +26,11 @@ skip_pwhl_test <- function() {
     }
     invisible(TRUE)
 }
+
+skip_espn_test <- function() {
+    val <- Sys.getenv("RUN_ESPN_TESTS", unset = "true")
+    if (!identical(tolower(val), "true")) {
+        skip("ESPN tests skipped (set RUN_ESPN_TESTS=true to enable)")
+    }
+    invisible(TRUE)
+}

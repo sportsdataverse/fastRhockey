@@ -4,7 +4,11 @@
 \alias{espn_nhl_teams}
 \title{\strong{Get ESPN NHL team names and IDs}}
 \usage{
-espn_nhl_teams()
+espn_nhl_teams(...)
+}
+\arguments{
+\item{...}{Additional arguments passed through to the underlying request
+(e.g. \verb{proxy =}).}
 }
 \value{
 A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
