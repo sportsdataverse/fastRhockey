@@ -1,5 +1,17 @@
 # **fastRhockey 1.0.0 (continued development)**
 
+### **ESPN NHL endpoints**
+
+* Added a comprehensive family of **ESPN NHL endpoint wrappers** (`espn_nhl_*`,
+  125 functions) covering the full ESPN hockey API surface across the site, web,
+  and core hosts — game data (`espn_nhl_pbp`, `espn_nhl_team_box`,
+  `espn_nhl_player_box`, `espn_nhl_game_all`, `espn_nhl_summary`,
+  `espn_nhl_scoreboard`, `espn_nhl_schedule`, `espn_nhl_standings`), athletes,
+  leaders, season structure, event detail, and reference catalog. Each returns a
+  wide, self-describing `fastRhockey_data` tibble with a documented column table,
+  built on a shared league-generic helper layer. Endpoints ESPN does not populate
+  for the NHL degrade gracefully to an empty frame with a warning.
+
 ### **Dependencies**
 
 * Migrated the entire package from `httr` to `httr2` behind a single internal
