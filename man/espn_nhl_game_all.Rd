@@ -41,6 +41,13 @@ See \code{\link[=espn_nhl_player_box]{espn_nhl_player_box()}} for the full colum
 Other ESPN NHL Functions: 
 \code{\link{espn_nhl_athletes_index}()},
 \code{\link{espn_nhl_calendar}()},
+\code{\link{espn_nhl_game}()},
+\code{\link{espn_nhl_game_competition}()},
+\code{\link{espn_nhl_game_team}()},
+\code{\link{espn_nhl_game_team_linescores}()},
+\code{\link{espn_nhl_game_team_roster}()},
+\code{\link{espn_nhl_game_team_statistics}()},
+\code{\link{espn_nhl_game_teams}()},
 \code{\link{espn_nhl_leaders}()},
 \code{\link{espn_nhl_league_root}()},
 \code{\link{espn_nhl_pbp}()},
