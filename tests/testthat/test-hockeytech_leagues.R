@@ -11,7 +11,9 @@ test_that("env var overrides the api key", {
   withr::with_envvar(c(SDV_PWHL_API_KEY = "override123"), {
     expect_equal(fastRhockey:::.hockeytech_resolve_key("pwhl"), "override123")
   })
-  expect_equal(fastRhockey:::.hockeytech_resolve_key("pwhl"), "446521baf8c38984")
+  withr::with_envvar(c(SDV_PWHL_API_KEY = NA), {
+    expect_equal(fastRhockey:::.hockeytech_resolve_key("pwhl"), "446521baf8c38984")
+  })
 })
 
 test_that("pbp view uses the override key", {

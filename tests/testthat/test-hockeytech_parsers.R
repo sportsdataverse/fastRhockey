@@ -9,6 +9,12 @@ test_that(".mmss_to_seconds converts MM:SS", {
   expect_true(is.na(fastRhockey:::.mmss_to_seconds("")))
 })
 
+test_that(".derive_season_year handles century rollover", {
+  expect_equal(fastRhockey:::.derive_season_year("1999-00 Regular Season"), 2000L)
+  expect_equal(fastRhockey:::.derive_season_year("2024-25 Regular Season"), 2025L)
+  expect_equal(fastRhockey:::.derive_season_year("2024 Regular Season"), 2024L)
+})
+
 test_that(".parse_hockeytech_seasons derives end-year + game type", {
   df <- fastRhockey:::.parse_hockeytech_seasons(.load_fx("pwhl_seasons"))
   expect_s3_class(df, "data.frame")

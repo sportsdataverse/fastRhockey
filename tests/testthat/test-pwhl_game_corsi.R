@@ -22,6 +22,7 @@ test_that("PWHL - pwhl_game_corsi returns expected columns", {
     label = "all expected Corsi columns present"
   )
   expect_s3_class(x, "data.frame")
+  expect_s3_class(x, "fastRhockey_data")
   expect_true(nrow(x) > 0, label = "at least one on-ice player row")
   expect_false(
     any(x$corsi_includes_missed, na.rm = TRUE),

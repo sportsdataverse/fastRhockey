@@ -33,11 +33,13 @@
   # Try "YYYY-YY" format first (e.g., "2024-25 Regular Season")
   m <- regexpr("(\\d{4})-(\\d{2})", name, perl = TRUE)
   if (m > 0L) {
-    full <- regmatches(name, m)
+    full   <- regmatches(name, m)
     pieces <- strsplit(full, "-")[[1]]
-    start_century <- as.integer(substr(pieces[1], 1L, 2L))
-    end_short <- as.integer(pieces[2])
-    return(start_century * 100L + end_short)
+    start  <- as.integer(pieces[1])
+    end2   <- as.integer(pieces[2])
+    end    <- (start %/% 100L) * 100L + end2
+    if (end < start) end <- end + 100L
+    return(end)
   }
   # Try standalone "YYYY" format
   m2 <- regexpr("(\\d{4})", name, perl = TRUE)

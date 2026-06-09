@@ -36,19 +36,37 @@ pwhl_game_corsi <- function(game_id) {
   corsi_df <- data.frame()
   tryCatch(
     expr = {
-      pbp    <- pwhl_pbp(game_id = game_id)
-      corsi  <- hockeytech_corsi_fenwick_on_ice(pbp)
-      toi    <- hockeytech_player_toi(pwhl_game_shifts(game_id = game_id))
+      pbp   <- pwhl_pbp(game_id = game_id)
+      corsi <- hockeytech_corsi_fenwick_on_ice(pbp)
 
-      # Coerce join keys to character for safe matching across id types
+      # Coerce join key to character for safe matching across id types
       corsi$player_id <- as.character(corsi$player_id)
-      toi$player_id   <- as.character(toi$player_id)
 
-      corsi <- dplyr::left_join(
-        corsi,
-        toi[, c("player_id", "toi_seconds")],
-        by = "player_id"
+      # TOI join: wrap in its own tryCatch so a shift-feed failure degrades
+      # gracefully -- corsi is still returned with toi_seconds/corsi_for_per60 = NA.
+      toi <- tryCatch(
+        {
+          t <- hockeytech_player_toi(pwhl_game_shifts(game_id = game_id))
+          t$player_id <- as.character(t$player_id)
+          t
+        },
+        error = function(e) {
+          cli::cli_alert_warning(
+            "{Sys.time()}: TOI fetch failed for game_id {game_id}; corsi_for_per60 will be NA. {e}"
+          )
+          NULL
+        }
       )
+
+      if (!is.null(toi) && nrow(toi) > 0) {
+        corsi <- dplyr::left_join(
+          corsi,
+          toi[, c("player_id", "toi_seconds")],
+          by = "player_id"
+        )
+      } else {
+        corsi$toi_seconds <- NA_integer_
+      }
 
       # Per-60 rate; guard divide-by-zero / NA toi_seconds
       corsi$corsi_for_per60 <- ifelse(

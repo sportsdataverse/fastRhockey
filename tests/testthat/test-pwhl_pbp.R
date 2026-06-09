@@ -21,10 +21,8 @@ test_that("PWHL - Get PWHL Play-by-Play", {
             expect_true(col %in% names(x), info = paste("Missing enriched column:", col))
         }
         # blocked_shot events appear in the parser superset but not every game
-        # has them; verify the column exists and the value is valid when present.
-        if (any(x$event == "blocked_shot")) {
-          expect_true(any(x$event == "blocked_shot"))
-        }
+        # has them; the parity test already verifies the blocked_shot count on
+        # the shared fixture so no additional assertion is needed here.
     } else {
         expect_s3_class(x, "data.frame")
     }

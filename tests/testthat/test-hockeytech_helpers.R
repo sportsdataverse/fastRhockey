@@ -1,4 +1,5 @@
 test_that(".hockeytech_url builds a feed URL with key + client_code", {
+  withr::local_envvar(SDV_PWHL_API_KEY = NA)
   u <- fastRhockey:::.hockeytech_url("pwhl", feed = "modulekit", view = "seasons", params = list(site_id = 0))
   expect_true(grepl("^https://lscluster.hockeytech.com/feed/index.php\\?", u))
   expect_true(grepl("feed=modulekit", u) && grepl("view=seasons", u))
