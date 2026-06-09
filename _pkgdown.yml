@@ -192,6 +192,36 @@ reference:
       - "`pwhl_season_id`"
       - "`pwhl_transactions`"
       - "`pwhl_playoff_bracket`"
+  - subtitle: PWHL Analytics
+    desc: On-ice analytics for PWHL games (shifts, TOI, Corsi/Fenwick)
+    contents:
+      - "`pwhl_game_shifts`"
+      - "`pwhl_player_toi`"
+      - "`pwhl_game_corsi`"
+  - title: "AHL Data"
+  - subtitle: AHL Endpoint Family
+    desc: Live HockeyTech wrappers for the American Hockey League
+    contents:
+      - starts_with("ahl_")
+      - "`most_recent_ahl_season`"
+  - title: "OHL Data"
+  - subtitle: OHL Endpoint Family
+    desc: Live HockeyTech wrappers for the Ontario Hockey League
+    contents:
+      - starts_with("ohl_")
+      - "`most_recent_ohl_season`"
+  - title: "WHL Data"
+  - subtitle: WHL Endpoint Family
+    desc: Live HockeyTech wrappers for the Western Hockey League
+    contents:
+      - starts_with("whl_")
+      - "`most_recent_whl_season`"
+  - title: "QMJHL Data"
+  - subtitle: QMJHL Endpoint Family
+    desc: Live HockeyTech wrappers for the Quebec Major Junior Hockey League
+    contents:
+      - starts_with("qmjhl_")
+      - "`most_recent_qmjhl_season`"
   - title: "PWHL Data Loaders"
   - subtitle: Family Overview
     desc: PWHL loader family overview (release-tag catalog)

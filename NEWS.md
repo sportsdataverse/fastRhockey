@@ -1,5 +1,18 @@
 # **fastRhockey 1.0.0 (continued development)**
 
+### New features
+
+* Added live HockeyTech wrappers for **AHL**, **OHL**, **WHL**, and **QMJHL**
+  (`<lg>_schedule()`, `<lg>_pbp()`, `<lg>_standings()`, `<lg>_teams()`,
+  `<lg>_team_roster()`, `<lg>_player_stats()`, `<lg>_leaders()`,
+  `<lg>_game_summary()`, `<lg>_season_id()`, `most_recent_<lg>_season()`).
+* Added on-ice / Corsi-Fenwick / TOI analytics across all five HockeyTech
+  leagues (`*_game_shifts()`, `*_player_toi()`, `*_game_corsi()`). Corsi/Fenwick
+  are proxies — the feed has no missed-shot event (`corsi_includes_missed`).
+* `pwhl_pbp()` now returns a superset: added `shot_distance`, `shot_angle`,
+  `scoring_chance`, `on_ice_home`, `on_ice_away`, coordinate-transform + clock
+  columns, and `blocked_shot`/`hit` events.
+
 ### **ESPN NHL endpoints**
 
 * Added a comprehensive family of **ESPN NHL endpoint wrappers** (`espn_nhl_*`,
