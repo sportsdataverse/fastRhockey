@@ -192,7 +192,7 @@ Saiem Gilani
     espn_nhl_game_broadcasts(event_id = sb$game_id[1])
   })
 #> ── NHL Game Broadcasts data from ESPN core-v2 ───────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-08 16:00:01 UTC
+#> ℹ Data updated: 2026-06-09 20:25:55 UTC
 #> # A tibble: 3 × 20
 #>   event_id  cid       type_id type_short_name type_long_name type_slug channel
 #>   <chr>     <chr>     <chr>   <chr>           <chr>          <chr>       <int>

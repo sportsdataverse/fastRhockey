@@ -35,27 +35,22 @@
     <li><a class="external-link dropdown-item" href="https://hoopR.sportsdataverse.org/">hoopR</a></li>
     <li><a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a></li>
     <li><a class="dropdown-item" href="https://fastRhockey.sportsdataverse.org/">fastRhockey</a></li>
-    <li><a class="external-link dropdown-item" href="https://hockeyr.netlify.app/">hockeyR</a></li>
     <li><a class="external-link dropdown-item" href="https://abhiamishra.github.io/ggshakeR/">ggshakeR</a></li>
     <li><a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a></li>
-    <li><a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a></li>
     <li><a class="external-link dropdown-item" href="https://usfootballR.sportsdataverse.org/">usfootballR</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/Dato-Futbol/soccerAnimate/">soccerAnimate</a></li>
     <li><a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a></li>
     <li><a class="external-link dropdown-item" href="https://oddsapiR.sportsdataverse.org/">oddsapiR</a></li>
     <li><a class="external-link dropdown-item" href="https://sportyR.sportsdataverse.org/">sportyR</a></li>
-    <li><a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a></li>
     <li><a class="external-link dropdown-item" href="https://cfbplotR.sportsdataverse.org/">cfbplotR</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/camdenk/mlbplotR">mlbplotR</a></li>
     <li><a class="external-link dropdown-item" href="https://cfb4th.sportsdataverse.org/">cfb4th</a></li>
-    <li><a class="external-link dropdown-item" href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a></li>
-    <li><a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a></li>
+    <li><a class="external-link dropdown-item" href="https://recruitR.sportsdataverse.org/">recruitR</a></li>
     <li><a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Python Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://py.sportsdataverse.org/">sportsdataverse-py</a></li>
     <li><a class="external-link dropdown-item" href="https://sportypy.sportsdataverse.org/">sportypy</a></li>
-    <li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/recruitR-py/">recruitR-py</a></li>
     <li><a class="external-link dropdown-item" href="https://collegebaseball.readthedocs.io/en/latest/index.html">collegebaseball</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Node.js Packages</h6></li>
@@ -82,8 +77,19 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0" id="fastrhockey-100-continued-development"><strong>fastRhockey 1.0.0 (continued development)</strong><a class="anchor" aria-label="anchor" href="#fastrhockey-100-continued-development"></a></h2>
 <div class="section level4">
+<h4 id="new-features-1-0-0">New features<a class="anchor" aria-label="anchor" href="#new-features-1-0-0"></a></h4>
+<ul><li>Added live HockeyTech wrappers for <strong>AHL</strong>, <strong>OHL</strong>, <strong>WHL</strong>, and <strong>QMJHL</strong> (<code>&lt;lg&gt;_schedule()</code>, <code>&lt;lg&gt;_pbp()</code>, <code>&lt;lg&gt;_standings()</code>, <code>&lt;lg&gt;_teams()</code>, <code>&lt;lg&gt;_team_roster()</code>, <code>&lt;lg&gt;_player_stats()</code>, <code>&lt;lg&gt;_leaders()</code>, <code>&lt;lg&gt;_game_summary()</code>, <code>&lt;lg&gt;_season_id()</code>, <code>most_recent_&lt;lg&gt;_season()</code>).</li>
+<li>Added on-ice / Corsi-Fenwick / TOI analytics across all five HockeyTech leagues (<code>*_game_shifts()</code>, <code>*_player_toi()</code>, <code>*_game_corsi()</code>). Corsi/Fenwick are proxies — the feed has no missed-shot event (<code>corsi_includes_missed</code>).</li>
+<li>
+<code><a href="../reference/pwhl_pbp.html">pwhl_pbp()</a></code> now returns a superset: added <code>shot_distance</code>, <code>shot_angle</code>, <code>scoring_chance</code>, <code>on_ice_home</code>, <code>on_ice_away</code>, coordinate-transform + clock columns, and <code>blocked_shot</code>/<code>hit</code> events.</li>
+</ul></div>
+<div class="section level4">
 <h4 id="espn-nhl-endpoints-1-0-0"><strong>ESPN NHL endpoints</strong><a class="anchor" aria-label="anchor" href="#espn-nhl-endpoints-1-0-0"></a></h4>
 <ul><li>Added a comprehensive family of <strong>ESPN NHL endpoint wrappers</strong> (<code>espn_nhl_*</code>, 125 functions) covering the full ESPN hockey API surface across the site, web, and core hosts — game data (<code>espn_nhl_pbp</code>, <code>espn_nhl_team_box</code>, <code>espn_nhl_player_box</code>, <code>espn_nhl_game_all</code>, <code>espn_nhl_summary</code>, <code>espn_nhl_scoreboard</code>, <code>espn_nhl_schedule</code>, <code>espn_nhl_standings</code>), athletes, leaders, season structure, event detail, and reference catalog. Each returns a wide, self-describing <code>fastRhockey_data</code> tibble with a documented column table, built on a shared league-generic helper layer. Endpoints ESPN does not populate for the NHL degrade gracefully to an empty frame with a warning.</li>
+</ul></div>
+<div class="section level4">
+<h4 id="data-loaders-1-0-0"><strong>Data loaders</strong><a class="anchor" aria-label="anchor" href="#data-loaders-1-0-0"></a></h4>
+<ul><li>Added 13 naming-parity aliases for sportsdataverse-py compatibility: <code><a href="../reference/load_nhl_pbp_full.html">load_nhl_pbp_full()</a></code> (parity alias of <code><a href="../reference/load_nhl_pbp.html">load_nhl_pbp()</a></code>, which already serves the full <code>nhl_pbp_full</code> release), <code><a href="../reference/load_nhl_team_boxscore.html">load_nhl_team_boxscore()</a></code>, <code><a href="../reference/load_nhl_team_boxscores.html">load_nhl_team_boxscores()</a></code>, <code><a href="../reference/load_nhl_player_boxscore.html">load_nhl_player_boxscore()</a></code>, <code><a href="../reference/load_nhl_player_boxscores.html">load_nhl_player_boxscores()</a></code>, <code><a href="../reference/load_nhl_skater_boxscores.html">load_nhl_skater_boxscores()</a></code>, <code><a href="../reference/load_nhl_goalie_boxscores.html">load_nhl_goalie_boxscores()</a></code>, <code><a href="../reference/load_nhl_schedules.html">load_nhl_schedules()</a></code> (NHL), and <code><a href="../reference/load_pwhl_team_boxscores.html">load_pwhl_team_boxscores()</a></code>, <code><a href="../reference/load_pwhl_player_boxscores.html">load_pwhl_player_boxscores()</a></code>, <code><a href="../reference/load_pwhl_skater_boxscores.html">load_pwhl_skater_boxscores()</a></code>, <code><a href="../reference/load_pwhl_goalie_boxscores.html">load_pwhl_goalie_boxscores()</a></code>, <code><a href="../reference/load_pwhl_schedules.html">load_pwhl_schedules()</a></code> (PWHL). Each alias forwards all arguments to its canonical counterpart.</li>
 </ul></div>
 <div class="section level4">
 <h4 id="dependencies-1-0-0"><strong>Dependencies</strong><a class="anchor" aria-label="anchor" href="#dependencies-1-0-0"></a></h4>

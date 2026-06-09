@@ -1,0 +1,47 @@
+# **AHL Player Time On Ice**
+
+Per-player time-on-ice totals for an AHL game.
+
+## Usage
+
+``` r
+ahl_player_toi(game_id)
+```
+
+## Arguments
+
+- game_id:
+
+  Numeric AHL game identifier.
+
+## Value
+
+A `fastRhockey_data` data frame, one row per player.
+
+## See also
+
+Other AHL Functions:
+[`ahl`](https://fastRhockey.sportsdataverse.org/reference/ahl.md),
+[`ahl_game_corsi()`](https://fastRhockey.sportsdataverse.org/reference/ahl_game_corsi.md),
+[`ahl_game_shifts()`](https://fastRhockey.sportsdataverse.org/reference/ahl_game_shifts.md),
+[`ahl_game_summary()`](https://fastRhockey.sportsdataverse.org/reference/ahl_game_summary.md),
+[`ahl_leaders()`](https://fastRhockey.sportsdataverse.org/reference/ahl_leaders.md),
+[`ahl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/ahl_pbp.md),
+[`ahl_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/ahl_player_stats.md),
+[`ahl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/ahl_schedule.md),
+[`ahl_season_id()`](https://fastRhockey.sportsdataverse.org/reference/ahl_season_id.md),
+[`ahl_standings()`](https://fastRhockey.sportsdataverse.org/reference/ahl_standings.md),
+[`ahl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/ahl_team_roster.md),
+[`ahl_teams()`](https://fastRhockey.sportsdataverse.org/reference/ahl_teams.md),
+[`most_recent_ahl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_ahl_season.md)
+
+## Examples
+
+``` r
+ try(ahl_player_toi(game_id = 1000093924)) 
+#> ── AHL Player TOI from HockeyTech ───────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-06-09 20:25:31 UTC
+#> # A tibble: 0 × 6
+#> # ℹ 6 variables: player_id <int>, first_name <chr>, last_name <chr>,
+#> #   toi_seconds <int>, num_shifts <int>, avg_shift_s <dbl>
+```

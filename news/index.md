@@ -2,6 +2,22 @@
 
 ## **fastRhockey 1.0.0 (continued development)**
 
+#### New features
+
+- Added live HockeyTech wrappers for **AHL**, **OHL**, **WHL**, and
+  **QMJHL** (`<lg>_schedule()`, `<lg>_pbp()`, `<lg>_standings()`,
+  `<lg>_teams()`, `<lg>_team_roster()`, `<lg>_player_stats()`,
+  `<lg>_leaders()`, `<lg>_game_summary()`, `<lg>_season_id()`,
+  `most_recent_<lg>_season()`).
+- Added on-ice / Corsi-Fenwick / TOI analytics across all five
+  HockeyTech leagues (`*_game_shifts()`, `*_player_toi()`,
+  `*_game_corsi()`). Corsi/Fenwick are proxies — the feed has no
+  missed-shot event (`corsi_includes_missed`).
+- [`pwhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_pbp.md)
+  now returns a superset: added `shot_distance`, `shot_angle`,
+  `scoring_chance`, `on_ice_home`, `on_ice_away`, coordinate-transform +
+  clock columns, and `blocked_shot`/`hit` events.
+
 #### **ESPN NHL endpoints**
 
 - Added a comprehensive family of **ESPN NHL endpoint wrappers**
@@ -15,6 +31,29 @@
   table, built on a shared league-generic helper layer. Endpoints ESPN
   does not populate for the NHL degrade gracefully to an empty frame
   with a warning.
+
+#### **Data loaders**
+
+- Added 13 naming-parity aliases for sportsdataverse-py compatibility:
+  [`load_nhl_pbp_full()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp_full.md)
+  (parity alias of
+  [`load_nhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp.md),
+  which already serves the full `nhl_pbp_full` release),
+  [`load_nhl_team_boxscore()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_boxscore.md),
+  [`load_nhl_team_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_boxscores.md),
+  [`load_nhl_player_boxscore()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_player_boxscore.md),
+  [`load_nhl_player_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_player_boxscores.md),
+  [`load_nhl_skater_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_skater_boxscores.md),
+  [`load_nhl_goalie_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_goalie_boxscores.md),
+  [`load_nhl_schedules()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_schedules.md)
+  (NHL), and
+  [`load_pwhl_team_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_team_boxscores.md),
+  [`load_pwhl_player_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_player_boxscores.md),
+  [`load_pwhl_skater_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_skater_boxscores.md),
+  [`load_pwhl_goalie_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_goalie_boxscores.md),
+  [`load_pwhl_schedules()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_schedules.md)
+  (PWHL). Each alias forwards all arguments to its canonical
+  counterpart.
 
 #### **Dependencies**
 

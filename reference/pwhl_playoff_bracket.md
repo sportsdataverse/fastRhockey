@@ -47,7 +47,7 @@ A data frame with playoff bracket / series data, or NULL if unavailable.
 # \donttest{
   try(pwhl_playoff_bracket(season = 2024))
 #> ── PWHL Playoff Bracket ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-08 16:04:03 UTC
+#> ℹ Data updated: 2026-06-09 20:30:14 UTC
 #> # A tibble: 3 × 11
 #>   series_letter round round_name  series_name team_1_id team_1_name  team_1_wins
 #>   <chr>         <dbl> <chr>       <chr>           <dbl> <chr>              <dbl>

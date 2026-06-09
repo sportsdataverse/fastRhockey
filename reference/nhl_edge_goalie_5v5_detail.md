@@ -63,7 +63,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_goalie_5v5_detail(player_id = 8475883))
 #> ── NHL Edge Goalie 5v5 Detail ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-08 16:02:27 UTC
+#> ℹ Data updated: 2026-06-09 20:28:35 UTC
 #> # A tibble: 10 × 19
 #>    game_center_link             save_pctg game_date player_on_home_team decision
 #>    <chr>                            <dbl> <chr>     <lgl>               <chr>   

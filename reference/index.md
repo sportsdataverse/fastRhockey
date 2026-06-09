@@ -127,6 +127,326 @@ Functions for accessing PWHL league-level data
 
   **PWHL Playoff Bracket**
 
+### PWHL Analytics
+
+On-ice analytics for PWHL games (shifts, TOI, Corsi/Fenwick)
+
+- [`pwhl_game_shifts()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_game_shifts.md)
+  :
+
+  **PWHL Game Shifts**
+
+- [`pwhl_player_toi()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_toi.md)
+  :
+
+  **PWHL Player Time On Ice**
+
+- [`pwhl_game_corsi()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_game_corsi.md)
+  :
+
+  **PWHL Game Corsi/Fenwick (player-level on-ice)**
+
+## AHL Data
+
+### AHL Endpoint Family
+
+Live HockeyTech wrappers for the American Hockey League
+
+- [`ahl`](https://fastRhockey.sportsdataverse.org/reference/ahl.md) :
+
+  **AHL (American Hockey League) Endpoint Overview**
+
+- [`ahl_game_corsi()`](https://fastRhockey.sportsdataverse.org/reference/ahl_game_corsi.md)
+  :
+
+  **AHL Game Corsi/Fenwick (player-level on-ice)**
+
+- [`ahl_game_shifts()`](https://fastRhockey.sportsdataverse.org/reference/ahl_game_shifts.md)
+  :
+
+  **AHL Game Shifts**
+
+- [`ahl_game_summary()`](https://fastRhockey.sportsdataverse.org/reference/ahl_game_summary.md)
+  :
+
+  **AHL Game Summary**
+
+- [`ahl_leaders()`](https://fastRhockey.sportsdataverse.org/reference/ahl_leaders.md)
+  :
+
+  **AHL Statistical Leaders**
+
+- [`ahl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/ahl_pbp.md)
+  :
+
+  **AHL Play-by-Play**
+
+- [`ahl_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/ahl_player_stats.md)
+  :
+
+  **AHL Player Stats**
+
+- [`ahl_player_toi()`](https://fastRhockey.sportsdataverse.org/reference/ahl_player_toi.md)
+  :
+
+  **AHL Player Time On Ice**
+
+- [`ahl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/ahl_schedule.md)
+  :
+
+  **AHL Schedule**
+
+- [`ahl_season_id()`](https://fastRhockey.sportsdataverse.org/reference/ahl_season_id.md)
+  :
+
+  **AHL Season IDs**
+
+- [`ahl_standings()`](https://fastRhockey.sportsdataverse.org/reference/ahl_standings.md)
+  :
+
+  **AHL Standings**
+
+- [`ahl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/ahl_team_roster.md)
+  :
+
+  **AHL Team Roster**
+
+- [`ahl_teams()`](https://fastRhockey.sportsdataverse.org/reference/ahl_teams.md)
+  :
+
+  **AHL Teams**
+
+- [`most_recent_ahl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_ahl_season.md)
+  :
+
+  **Most Recent AHL Season**
+
+## OHL Data
+
+### OHL Endpoint Family
+
+Live HockeyTech wrappers for the Ontario Hockey League
+
+- [`ohl`](https://fastRhockey.sportsdataverse.org/reference/ohl.md) :
+
+  **OHL (Ontario Hockey League) Endpoint Overview**
+
+- [`ohl_game_corsi()`](https://fastRhockey.sportsdataverse.org/reference/ohl_game_corsi.md)
+  :
+
+  **OHL Game Corsi/Fenwick (player-level on-ice)**
+
+- [`ohl_game_shifts()`](https://fastRhockey.sportsdataverse.org/reference/ohl_game_shifts.md)
+  :
+
+  **OHL Game Shifts**
+
+- [`ohl_game_summary()`](https://fastRhockey.sportsdataverse.org/reference/ohl_game_summary.md)
+  :
+
+  **OHL Game Summary**
+
+- [`ohl_leaders()`](https://fastRhockey.sportsdataverse.org/reference/ohl_leaders.md)
+  :
+
+  **OHL Statistical Leaders**
+
+- [`ohl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/ohl_pbp.md)
+  :
+
+  **OHL Play-by-Play**
+
+- [`ohl_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/ohl_player_stats.md)
+  :
+
+  **OHL Player Stats**
+
+- [`ohl_player_toi()`](https://fastRhockey.sportsdataverse.org/reference/ohl_player_toi.md)
+  :
+
+  **OHL Player Time On Ice**
+
+- [`ohl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/ohl_schedule.md)
+  :
+
+  **OHL Schedule**
+
+- [`ohl_season_id()`](https://fastRhockey.sportsdataverse.org/reference/ohl_season_id.md)
+  :
+
+  **OHL Season IDs**
+
+- [`ohl_standings()`](https://fastRhockey.sportsdataverse.org/reference/ohl_standings.md)
+  :
+
+  **OHL Standings**
+
+- [`ohl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/ohl_team_roster.md)
+  :
+
+  **OHL Team Roster**
+
+- [`ohl_teams()`](https://fastRhockey.sportsdataverse.org/reference/ohl_teams.md)
+  :
+
+  **OHL Teams**
+
+- [`most_recent_ohl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_ohl_season.md)
+  :
+
+  **Most Recent OHL Season**
+
+## WHL Data
+
+### WHL Endpoint Family
+
+Live HockeyTech wrappers for the Western Hockey League
+
+- [`whl`](https://fastRhockey.sportsdataverse.org/reference/whl.md) :
+
+  **WHL (Western Hockey League) Endpoint Overview**
+
+- [`whl_game_corsi()`](https://fastRhockey.sportsdataverse.org/reference/whl_game_corsi.md)
+  :
+
+  **WHL Game Corsi/Fenwick (player-level on-ice)**
+
+- [`whl_game_shifts()`](https://fastRhockey.sportsdataverse.org/reference/whl_game_shifts.md)
+  :
+
+  **WHL Game Shifts**
+
+- [`whl_game_summary()`](https://fastRhockey.sportsdataverse.org/reference/whl_game_summary.md)
+  :
+
+  **WHL Game Summary**
+
+- [`whl_leaders()`](https://fastRhockey.sportsdataverse.org/reference/whl_leaders.md)
+  :
+
+  **WHL Statistical Leaders**
+
+- [`whl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/whl_pbp.md)
+  :
+
+  **WHL Play-by-Play**
+
+- [`whl_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/whl_player_stats.md)
+  :
+
+  **WHL Player Stats**
+
+- [`whl_player_toi()`](https://fastRhockey.sportsdataverse.org/reference/whl_player_toi.md)
+  :
+
+  **WHL Player Time On Ice**
+
+- [`whl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/whl_schedule.md)
+  :
+
+  **WHL Schedule**
+
+- [`whl_season_id()`](https://fastRhockey.sportsdataverse.org/reference/whl_season_id.md)
+  :
+
+  **WHL Season IDs**
+
+- [`whl_standings()`](https://fastRhockey.sportsdataverse.org/reference/whl_standings.md)
+  :
+
+  **WHL Standings**
+
+- [`whl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/whl_team_roster.md)
+  :
+
+  **WHL Team Roster**
+
+- [`whl_teams()`](https://fastRhockey.sportsdataverse.org/reference/whl_teams.md)
+  :
+
+  **WHL Teams**
+
+- [`most_recent_whl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_whl_season.md)
+  :
+
+  **Most Recent WHL Season**
+
+## QMJHL Data
+
+### QMJHL Endpoint Family
+
+Live HockeyTech wrappers for the Quebec Major Junior Hockey League
+
+- [`qmjhl`](https://fastRhockey.sportsdataverse.org/reference/qmjhl.md)
+  :
+
+  **QMJHL (Quebec Maritimes Junior Hockey League) Endpoint Overview**
+
+- [`qmjhl_game_corsi()`](https://fastRhockey.sportsdataverse.org/reference/qmjhl_game_corsi.md)
+  :
+
+  **QMJHL Game Corsi/Fenwick (player-level on-ice)**
+
+- [`qmjhl_game_shifts()`](https://fastRhockey.sportsdataverse.org/reference/qmjhl_game_shifts.md)
+  :
+
+  **QMJHL Game Shifts**
+
+- [`qmjhl_game_summary()`](https://fastRhockey.sportsdataverse.org/reference/qmjhl_game_summary.md)
+  :
+
+  **QMJHL Game Summary**
+
+- [`qmjhl_leaders()`](https://fastRhockey.sportsdataverse.org/reference/qmjhl_leaders.md)
+  :
+
+  **QMJHL Statistical Leaders**
+
+- [`qmjhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/qmjhl_pbp.md)
+  :
+
+  **QMJHL Play-by-Play**
+
+- [`qmjhl_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/qmjhl_player_stats.md)
+  :
+
+  **QMJHL Player Stats**
+
+- [`qmjhl_player_toi()`](https://fastRhockey.sportsdataverse.org/reference/qmjhl_player_toi.md)
+  :
+
+  **QMJHL Player Time On Ice**
+
+- [`qmjhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/qmjhl_schedule.md)
+  :
+
+  **QMJHL Schedule**
+
+- [`qmjhl_season_id()`](https://fastRhockey.sportsdataverse.org/reference/qmjhl_season_id.md)
+  :
+
+  **QMJHL Season IDs**
+
+- [`qmjhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/qmjhl_standings.md)
+  :
+
+  **QMJHL Standings**
+
+- [`qmjhl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/qmjhl_team_roster.md)
+  :
+
+  **QMJHL Team Roster**
+
+- [`qmjhl_teams()`](https://fastRhockey.sportsdataverse.org/reference/qmjhl_teams.md)
+  :
+
+  **QMJHL Teams**
+
+- [`most_recent_qmjhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_qmjhl_season.md)
+  :
+
+  **Most Recent QMJHL Season**
+
 ## PWHL Data Loaders
 
 ### Family Overview
@@ -218,6 +538,36 @@ sportsdataverse-data releases
   :
 
   **Load fastRhockey PWHL shootout summaries**
+
+### Naming-parity Aliases (sportsdataverse-py)
+
+Aliases of the canonical PWHL loaders, named to match
+sportsdataverse-py.
+
+- [`load_pwhl_player_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_player_boxscores.md)
+  :
+
+  **Load PWHL player box scores (alias)**
+
+- [`load_pwhl_skater_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_skater_boxscores.md)
+  :
+
+  **Load PWHL skater box scores (alias)**
+
+- [`load_pwhl_goalie_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_goalie_boxscores.md)
+  :
+
+  **Load PWHL goalie box scores (alias)**
+
+- [`load_pwhl_team_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_team_boxscores.md)
+  :
+
+  **Load PWHL team box scores (alias)**
+
+- [`load_pwhl_schedules()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_schedules.md)
+  :
+
+  **Load PWHL schedules (alias)**
 
 ### Update or Create PWHL Database
 
@@ -1728,6 +2078,11 @@ NHL data
 
   **Load fastRhockey NHL play-by-play (lite)**
 
+- [`load_nhl_pbp_full()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp_full.md)
+  :
+
+  **Load fastRhockey NHL play-by-play (full, alias)**
+
 - [`load_nhl_team_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_box.md)
   :
 
@@ -1812,6 +2167,45 @@ NHL data
   :
 
   **Load fastRhockey NHL shootout summary**
+
+### Naming-parity Aliases (sportsdataverse-py)
+
+Aliases of the canonical NHL loaders, named to match sportsdataverse-py.
+
+- [`load_nhl_player_boxscore()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_player_boxscore.md)
+  :
+
+  **Load NHL player box scores (alias)**
+
+- [`load_nhl_player_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_player_boxscores.md)
+  :
+
+  **Load NHL player box scores (alias)**
+
+- [`load_nhl_skater_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_skater_boxscores.md)
+  :
+
+  **Load NHL skater box scores (alias)**
+
+- [`load_nhl_goalie_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_goalie_boxscores.md)
+  :
+
+  **Load NHL goalie box scores (alias)**
+
+- [`load_nhl_team_boxscore()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_boxscore.md)
+  :
+
+  **Load NHL team box scores (alias)**
+
+- [`load_nhl_team_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_boxscores.md)
+  :
+
+  **Load NHL team box scores (alias)**
+
+- [`load_nhl_schedules()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_schedules.md)
+  :
+
+  **Load NHL schedules (alias)**
 
 ### Update or Create NHL Database
 
