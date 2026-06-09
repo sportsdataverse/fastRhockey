@@ -2,6 +2,13 @@
 
 This is version 1.0.0. Continued development on the 1.0.0 release adds:
 
+* **HockeyTech multi-league analytics**: live wrappers for AHL, OHL, WHL, and
+  QMJHL (schedule, PBP, standings, teams, roster, player stats, leaders, game
+  summary, season ID, most-recent season helpers), plus on-ice Corsi/Fenwick/TOI
+  analytics across all five HockeyTech leagues (AHL/OHL/WHL/QMJHL/PWHL);
+  `pwhl_pbp()` extended with shot geometry, coordinate transforms, clock columns,
+  blocked-shot/hit events, and on-ice player tracking.
+
 * **NHL Edge advanced-metrics integration (33 new functions)** wrapping
   `https://api-web.nhle.com/v1/edge/...` for skater, goalie, and team
   positional / shot-tracking analytics. All wrappers share an internal
