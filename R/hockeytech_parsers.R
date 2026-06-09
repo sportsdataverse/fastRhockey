@@ -381,3 +381,458 @@
   if (length(rows) == 0L) return(data.frame())
   dplyr::bind_rows(rows)
 }
+
+
+# ===========================================================================
+# New parsers (B3.1a): schedule, standings, teams, roster, player_stats,
+# leaders, game_summary. Mirror Python _parsers.py behaviour exactly.
+# ===========================================================================
+
+#' @keywords internal
+#' Parse a HockeyTech modulekit/scorebar JSON payload into a data.frame.
+#'
+#' Mirrors Python sportsdataverse/hockeytech/_parsers.py::parse_schedule().
+#' Reads payload$SiteKit$Scorebar and applies the canonical _SCOREBAR_RENAME
+#' mapping plus game_type pass-through.
+#' An empty or NULL payload returns an empty data.frame().
+#'
+#' @param payload Parsed JSON list from .hockeytech_api().
+#' @return A data.frame, one row per game.
+#' @noRd
+.parse_hockeytech_schedule <- function(payload) {
+  games <- ((payload %||% list())$SiteKit %||% list())$Scorebar %||% list()
+  if (length(games) == 0L) return(data.frame())
+
+  rows <- vector("list", length(games))
+  for (i in seq_along(games)) {
+    g <- games[[i]]
+    rows[[i]] <- list(
+      game_id      = g[["ID"]],
+      game_date    = as.character(g[["GameDateISO8601"]] %||% NA_character_),
+      game_status  = as.character(g[["GameStatusStringLong"]] %||% NA_character_),
+      home_team    = as.character(g[["HomeLongName"]]     %||% NA_character_),
+      home_team_id = g[["HomeID"]],
+      home_score   = g[["HomeGoals"]],
+      away_team    = as.character(g[["VisitorLongName"]]  %||% NA_character_),
+      away_team_id = g[["VisitorID"]],
+      away_score   = g[["VisitorGoals"]],
+      venue        = as.character(g[["venue_name"]]       %||% NA_character_),
+      season_id    = g[["SeasonID"]],
+      game_type    = g[["game_type"]]
+    )
+  }
+  dplyr::bind_rows(rows)
+}
+
+
+#' @keywords internal
+#' Parse a HockeyTech statviewfeed/teams (standings) JSON payload into a
+#' data.frame.
+#'
+#' Mirrors Python sportsdataverse/hockeytech/_parsers.py::parse_standings().
+#' The payload may be:
+#'   - A list of section dicts (each with data[].row sub-structure)
+#'   - A single dict with a "sections" key containing that list
+#' Renames rank -> team_rank, name -> team. Computes wins = regulation_wins +
+#' non_reg_wins (PWHL 3-2-1-0 system). An empty or NULL payload returns an
+#' empty data.frame().
+#'
+#' @param payload Parsed JSON list from .hockeytech_api().
+#' @return A data.frame, one row per team.
+#' @noRd
+.parse_hockeytech_standings <- function(payload) {
+  if (is.null(payload) || length(payload) == 0L) return(data.frame())
+
+  # Normalise to a list of section dicts.
+  # Python: sections = payload if isinstance(payload, list) else (payload or {}).get("sections", [])
+  if (is.list(payload) && !is.null(names(payload))) {
+    # Named list -> single dict with optional "sections" key
+    sections <- payload[["sections"]] %||% list()
+  } else if (is.list(payload) && is.null(names(payload))) {
+    # Unnamed list -> treat as list of section dicts directly
+    sections <- payload
+  } else {
+    sections <- list()
+  }
+
+  rows <- list()
+  for (sec in sections) {
+    if (!is.list(sec)) next
+
+    # Handle two levels: outer section may have inner sections (like Python's
+    # `for blk in sec.get("sections", [sec])`) or data directly.
+    inner_sections <- sec[["sections"]]
+    if (!is.null(inner_sections) && is.list(inner_sections) && length(inner_sections) > 0L) {
+      blocks <- inner_sections
+    } else {
+      blocks <- list(sec)
+    }
+
+    for (blk in blocks) {
+      data_items <- blk[["data"]] %||% list()
+      for (item in data_items) {
+        r <- if (is.list(item)) item[["row"]] else NULL
+        if (is.list(r) && length(r) > 0L) {
+          rows[[length(rows) + 1L]] <- r
+        }
+      }
+    }
+  }
+
+  if (length(rows) == 0L) return(data.frame())
+
+  df <- dplyr::bind_rows(rows)
+
+  # Rename rank -> team_rank, name -> team
+  if ("rank" %in% names(df)) names(df)[names(df) == "rank"] <- "team_rank"
+  if ("name" %in% names(df)) names(df)[names(df) == "name"] <- "team"
+
+  # Coerce numeric-like standings columns
+  for (col in c("regulation_wins", "non_reg_wins", "non_reg_losses",
+                "games_played", "points", "losses")) {
+    if (col %in% names(df)) {
+      df[[col]] <- suppressWarnings(as.numeric(df[[col]]))
+    }
+  }
+
+  # Compute total wins = regulation_wins + non_reg_wins (PWHL 3-2-1-0)
+  if ("regulation_wins" %in% names(df) && "non_reg_wins" %in% names(df)) {
+    df$wins <- df$regulation_wins + df$non_reg_wins
+  }
+
+  df
+}
+
+
+#' @keywords internal
+#' Parse a HockeyTech modulekit/teamsbyseason JSON payload into a data.frame.
+#'
+#' Mirrors Python sportsdataverse/hockeytech/_parsers.py::parse_teams().
+#' Reads payload$SiteKit$Teamsbyseason and maps to canonical column names:
+#' team_name, team_id, team_code, team_nickname, team_label (city), division,
+#' team_logo. An empty or NULL payload returns an empty data.frame().
+#'
+#' @param payload Parsed JSON list from .hockeytech_api().
+#' @return A data.frame, one row per team.
+#' @noRd
+.parse_hockeytech_teams <- function(payload) {
+  raw <- ((payload %||% list())$SiteKit %||% list())$Teamsbyseason %||% list()
+  if (length(raw) == 0L) return(data.frame())
+
+  rows <- vector("list", length(raw))
+  for (i in seq_along(raw)) {
+    t <- raw[[i]]
+    rows[[i]] <- list(
+      team_name     = as.character(t[["name"]]     %||% NA_character_),
+      team_id       = t[["id"]],
+      team_code     = as.character(t[["code"]]     %||% NA_character_),
+      team_nickname = as.character(t[["nickname"]] %||% NA_character_),
+      team_label    = as.character(t[["city"]]     %||% NA_character_),
+      division      = t[["division_id"]] %||% t[["division"]],
+      team_logo     = as.character(t[["team_logo_url"]] %||% t[["logo"]] %||% NA_character_)
+    )
+  }
+  dplyr::bind_rows(rows)
+}
+
+
+#' @keywords internal
+#' Parse a HockeyTech modulekit/roster JSON payload into a data.frame.
+#'
+#' Mirrors Python sportsdataverse/hockeytech/_parsers.py::parse_roster().
+#' Reads payload$SiteKit$Roster, skipping non-dict (non-list) entries such as
+#' the coaching-staff sub-list. List-valued fields (e.g. draftinfo) are dropped
+#' before row binding because they cannot be coerced to scalar columns.
+#' An empty or NULL payload returns an empty data.frame().
+#'
+#' @param payload Parsed JSON list from .hockeytech_api().
+#' @return A data.frame, one row per player.
+#' @noRd
+.parse_hockeytech_roster <- function(payload) {
+  raw <- ((payload %||% list())$SiteKit %||% list())$Roster %||% list()
+  if (length(raw) == 0L) return(data.frame())
+
+  rows <- list()
+  for (player in raw) {
+    # Skip non-dict entries (coaching-staff sub-lists etc.)
+    if (!is.list(player) || is.null(names(player))) next
+    # Drop list-valued fields (e.g. draftinfo)
+    flat <- player[vapply(player, function(v) !is.list(v), logical(1))]
+    if (length(flat) > 0L) rows[[length(rows) + 1L]] <- flat
+  }
+
+  if (length(rows) == 0L) return(data.frame())
+  df <- dplyr::bind_rows(rows)
+  # Apply snake_case via janitor if available, otherwise leave as-is
+  if (requireNamespace("janitor", quietly = TRUE)) {
+    df <- janitor::clean_names(df)
+  }
+  df
+}
+
+
+#' @keywords internal
+#' Parse a HockeyTech modulekit/player (seasonstats) JSON payload into a
+#' data.frame.
+#'
+#' Mirrors Python sportsdataverse/hockeytech/_parsers.py::parse_player_stats().
+#' SiteKit$Player is a dict with regular/exhibition/playoff sub-lists; all are
+#' concatenated with a stat_type column. Scalar values are coerced to character
+#' to avoid mixed-type column errors (matches Python's str() coercion).
+#' An empty or NULL payload returns an empty data.frame().
+#'
+#' @param payload Parsed JSON list from .hockeytech_api().
+#' @return A data.frame with one row per season-stat entry.
+#' @noRd
+.parse_hockeytech_player_stats <- function(payload) {
+  player <- ((payload %||% list())$SiteKit %||% list())$Player %||% list()
+  if (length(player) == 0L) return(data.frame())
+
+  rows <- list()
+  for (stat_type in c("regular", "exhibition", "playoff")) {
+    sub <- player[[stat_type]]
+    if (is.null(sub) || !is.list(sub)) next
+    for (season in sub) {
+      if (!is.list(season) || is.null(names(season))) next
+      # Coerce all scalar values to character (matches Python str() coercion)
+      row <- lapply(season, function(v) {
+        if (is.null(v) || is.list(v)) v
+        else as.character(v)
+      })
+      row[["stat_type"]] <- stat_type
+      rows[[length(rows) + 1L]] <- row
+    }
+  }
+
+  if (length(rows) == 0L) return(data.frame())
+  dplyr::bind_rows(rows)
+}
+
+
+#' @keywords internal
+#' Parse a HockeyTech leaders payload into a data.frame.
+#'
+#' Mirrors Python sportsdataverse/hockeytech/_parsers.py::parse_leaders().
+#' Handles two payload shapes:
+#'   Shape 1: SiteKit$Statviewtype -- list of flat player dicts.
+#'   Shape 2: Top-level skaters/goalies categories with results lists (as in
+#'            the captured pwhl_leaders_5.json fixture).
+#' For Shape 2, each result is treated as a flat player dict (the fixture shows
+#' flat dicts directly in results, not wrapped under a "player" key).
+#' An empty or NULL payload returns an empty data.frame().
+#'
+#' @param payload Parsed JSON list from .hockeytech_api().
+#' @return A data.frame, one row per player entry.
+#' @noRd
+.parse_hockeytech_leaders <- function(payload) {
+  if (is.null(payload) || length(payload) == 0L) return(data.frame())
+
+  # Shape 1: SiteKit.Statviewtype
+  stat_view <- ((payload %||% list())$SiteKit %||% list())$Statviewtype
+  if (!is.null(stat_view)) {
+    rows <- Filter(function(p) is.list(p) && !is.null(names(p)), stat_view)
+    if (length(rows) == 0L) return(data.frame())
+    return(dplyr::bind_rows(rows))
+  }
+
+  # Shape 2: top-level skaters/goalies categories (leadersExtended-style)
+  rows <- list()
+  top <- if (is.list(payload) && !is.null(names(payload))) payload else list()
+  for (pos_key in c("skaters", "goalies")) {
+    pos_data <- top[[pos_key]]
+    if (!is.list(pos_data) || is.null(names(pos_data))) next
+    for (cat_key in names(pos_data)) {
+      cat_val <- pos_data[[cat_key]]
+      if (!is.list(cat_val)) next
+      results <- cat_val[["results"]] %||% list()
+      for (entry in results) {
+        if (!is.list(entry)) next
+        # Entry may be flat OR wrap player under a "player" key
+        player <- entry[["player"]] %||% entry
+        if (is.list(player) && !is.null(names(player))) {
+          rows[[length(rows) + 1L]] <- player
+        }
+      }
+    }
+  }
+
+  if (length(rows) == 0L) return(data.frame())
+  dplyr::bind_rows(rows)
+}
+
+
+#' @keywords internal
+#' Flatten one row dict by expanding named sub-lists (dicts) with "_" separator
+#' and dropping unnamed sub-lists (arrays like plus/minus player arrays).
+#'
+#' This mirrors Python pd.json_normalize(records, sep="_") for one record.
+#' Recursion is limited to one level deep (dict fields may themselves contain
+#' named sub-lists which are expanded, but arrays within those are dropped).
+#'
+#' @param row A named list representing one raw row from a parsed payload.
+#' @param prefix Character prefix to prepend (used for recursive calls).
+#' @return A flat named list suitable for dplyr::bind_rows().
+#' @noRd
+.ht_flatten_row <- function(row, prefix = "") {
+  if (!is.list(row)) return(row)
+  out <- list()
+  for (key in names(row)) {
+    val   <- row[[key]]
+    fkey  <- if (nzchar(prefix)) paste0(prefix, "_", key) else key
+    if (is.null(val) || length(val) == 0L) {
+      out[[fkey]] <- NA
+    } else if (is.list(val) && !is.null(names(val))) {
+      # Named sub-list (dict): expand recursively with prefix
+      sub_flat <- .ht_flatten_row(val, prefix = fkey)
+      out <- c(out, sub_flat)
+    } else if (is.list(val) && is.null(names(val))) {
+      # Unnamed sub-list (array like plus/minus): drop it
+      # (matches pd.json_normalize which would error on bare arrays)
+    } else {
+      # Scalar or atomic vector length-1
+      out[[fkey]] <- val
+    }
+  }
+  out
+}
+
+
+#' @keywords internal
+#' Normalise shotsByPeriod into a list of flat row dicts.
+#'
+#' The PWHL gc/gamesummary endpoint returns:
+#'   {"visitor": {"1": 11, "2": 11, "3": 9}, "home": {"1": 10, "2": 13, ...}}
+#' This converts that to one row per (side, period) pair. If sbp is already a
+#' list (old/alternate dialect), it is returned unchanged. NULL yields list().
+#'
+#' @param sbp The raw shotsByPeriod field from GC.Gamesummary.
+#' @return A list of row dicts for dplyr::bind_rows().
+#' @noRd
+.ht_shots_by_period_to_records <- function(sbp) {
+  if (is.null(sbp)) return(list())
+  # Already a list of row dicts
+  if (is.list(sbp) && (is.null(names(sbp)) || !any(c("visitor", "home") %in% names(sbp)))) {
+    return(sbp)
+  }
+  # Dict format: {visitor: {period: shots}, home: {period: shots}}
+  if (is.list(sbp) && !is.null(names(sbp))) {
+    rows <- list()
+    for (side in c("visitor", "home")) {
+      per_period <- sbp[[side]]
+      if (!is.list(per_period) || is.null(names(per_period))) next
+      for (period in names(per_period)) {
+        rows[[length(rows) + 1L]] <- list(
+          side   = side,
+          period = period,
+          shots  = per_period[[period]]
+        )
+      }
+    }
+    return(rows)
+  }
+  list()
+}
+
+
+#' @keywords internal
+#' Parse a HockeyTech gc/gamesummary JSON payload into a named list of
+#' data.frames.
+#'
+#' Mirrors Python sportsdataverse/hockeytech/_parsers.py::parse_game_summary().
+#' Returns a list with five data.frame elements:
+#'   game          -- one-row header (date, status, venue, attendance, scores).
+#'   goals         -- scoring summary (one row per goal).
+#'   penalties     -- penalty summary (one row per penalty).
+#'   shots_by_period -- shots breakdown (one row per side/period pair).
+#'   three_stars   -- post-game three-star selections (falls back to mvps).
+#'
+#' The PWHL gc/gamesummary response nests all data under GC.Gamesummary. The
+#' visitor/home keys are flat team dicts; totalGoals carries the final score;
+#' shotsByPeriod is a {visitor: {period: shots}, home: {period: shots}} dict.
+#' When threeStars is empty, mvps is used as fallback.
+#'
+#' An empty or NULL payload returns the five-key list with zero-row frames
+#' (except game which has one row with only game_id set).
+#'
+#' @param payload Parsed JSON list from .hockeytech_api().
+#' @param game_id Optional game identifier echoed onto the game row.
+#' @return A named list of data.frames.
+#' @noRd
+.parse_hockeytech_game_summary <- function(payload, game_id = NULL) {
+  gc_root <- ((payload %||% list())[["GC"]] %||% list())
+
+  # Prefer GC.Gamesummary (live PWHL path); fall back to direct GC keys
+  if (!is.null(gc_root[["Gamesummary"]])) {
+    summary <- gc_root[["Gamesummary"]] %||% list()
+  } else if (!is.null(gc_root[["details"]]) || !is.null(gc_root[["homeTeam"]])) {
+    summary <- gc_root
+  } else {
+    summary <- gc_root[["Gamesummary"]] %||% list()
+  }
+
+  # Team info: live path -> flat home/visitor dicts;
+  # alternate -> homeTeam/visitingTeam with info/stats sub-keys.
+  home_raw <- summary[["home"]] %||% summary[["homeTeam"]] %||% list()
+  away_raw <- summary[["visitor"]] %||% summary[["visitingTeam"]] %||% list()
+  home_info  <- home_raw[["info"]] %||% home_raw
+  away_info  <- away_raw[["info"]] %||% away_raw
+  home_stats <- home_raw[["stats"]] %||% list()
+  away_stats <- away_raw[["stats"]] %||% list()
+
+  details     <- summary[["details"]] %||% list()
+  total_goals <- summary[["totalGoals"]] %||% list()
+
+  game_row <- list(
+    game_id    = game_id,
+    date       = as.character(
+      summary[["game_date"]] %||% details[["date"]] %||%
+      summary[["date_played"]] %||% NA_character_
+    ),
+    status     = as.character(
+      summary[["status_value"]] %||% details[["status"]] %||%
+      summary[["status"]] %||% NA_character_
+    ),
+    venue      = as.character(summary[["venue"]] %||% details[["venue"]] %||% NA_character_),
+    attendance = summary[["attendance"]] %||% details[["attendance"]],
+    home_team    = as.character(home_info[["name"]] %||% NA_character_),
+    home_team_id = home_info[["id"]] %||% home_info[["team_id"]],
+    home_score   = home_stats[["goals"]] %||% total_goals[["home"]],
+    away_team    = as.character(away_info[["name"]] %||% NA_character_),
+    away_team_id = away_info[["id"]] %||% away_info[["team_id"]],
+    away_score   = away_stats[["goals"]] %||% total_goals[["visitor"]]
+  )
+
+  goals_raw    <- summary[["goals"]]    %||% list()
+  penalties_raw <- summary[["penalties"]] %||% list()
+
+  # shotsByPeriod: dict {side: {period: shots}} or plain list
+  sbp_raw <- .ht_shots_by_period_to_records(
+    summary[["shotsByPeriod"]] %||% summary[["shots_by_period"]]
+  )
+
+  # threeStars falls back to mvps
+  stars_raw <- summary[["threeStars"]] %||% summary[["three_stars"]] %||%
+               summary[["mvps"]] %||% list()
+
+  # Ensure lists (not NULL) before bind_rows
+  if (!is.list(goals_raw))    goals_raw    <- list()
+  if (!is.list(penalties_raw)) penalties_raw <- list()
+  if (!is.list(stars_raw))    stars_raw    <- list()
+
+  to_df <- function(lst) {
+    if (length(lst) == 0L) return(data.frame())
+    # Flatten each row: named sub-lists (dicts) are expanded with "_" separator;
+    # unnamed sub-lists (arrays like plus/minus) are dropped. This mirrors
+    # Python's pd.json_normalize(records, sep="_") behaviour.
+    flat_lst <- lapply(lst, .ht_flatten_row)
+    dplyr::bind_rows(flat_lst)
+  }
+
+  list(
+    game           = dplyr::bind_rows(list(game_row)),
+    goals          = to_df(goals_raw),
+    penalties      = to_df(penalties_raw),
+    shots_by_period = to_df(sbp_raw),
+    three_stars    = to_df(stars_raw)
+  )
+}
