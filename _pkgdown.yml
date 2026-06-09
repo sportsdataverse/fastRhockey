@@ -192,24 +192,28 @@ reference:
   - subtitle: AHL Endpoint Family
     desc: Live HockeyTech wrappers for the American Hockey League
     contents:
+      - "`ahl`"
       - starts_with("ahl_")
       - "`most_recent_ahl_season`"
   - title: "OHL Data"
   - subtitle: OHL Endpoint Family
     desc: Live HockeyTech wrappers for the Ontario Hockey League
     contents:
+      - "`ohl`"
       - starts_with("ohl_")
       - "`most_recent_ohl_season`"
   - title: "WHL Data"
   - subtitle: WHL Endpoint Family
     desc: Live HockeyTech wrappers for the Western Hockey League
     contents:
+      - "`whl`"
       - starts_with("whl_")
       - "`most_recent_whl_season`"
   - title: "QMJHL Data"
   - subtitle: QMJHL Endpoint Family
     desc: Live HockeyTech wrappers for the Quebec Major Junior Hockey League
     contents:
+      - "`qmjhl`"
       - starts_with("qmjhl_")
       - "`most_recent_qmjhl_season`"
   - title: "PWHL Data Loaders"
@@ -235,6 +239,14 @@ reference:
       - "`load_pwhl_officials`"
       - "`load_pwhl_shots_by_period`"
       - "`load_pwhl_shootout`"
+  - subtitle: "Naming-parity Aliases (sportsdataverse-py)"
+    desc: Aliases of the canonical PWHL loaders, named to match sportsdataverse-py.
+    contents:
+      - "`load_pwhl_player_boxscores`"
+      - "`load_pwhl_skater_boxscores`"
+      - "`load_pwhl_goalie_boxscores`"
+      - "`load_pwhl_team_boxscores`"
+      - "`load_pwhl_schedules`"
   - subtitle: "Update or Create PWHL Database"
     desc: Functions that update and create a database of fastRhockey PWHL play-by-play data
     contents:
@@ -487,6 +499,16 @@ reference:
       - "`load_nhl_officials`"
       - "`load_nhl_shots_by_period`"
       - "`load_nhl_shootout`"
+  - subtitle: "Naming-parity Aliases (sportsdataverse-py)"
+    desc: Aliases of the canonical NHL loaders, named to match sportsdataverse-py.
+    contents:
+      - "`load_nhl_player_boxscore`"
+      - "`load_nhl_player_boxscores`"
+      - "`load_nhl_skater_boxscores`"
+      - "`load_nhl_goalie_boxscores`"
+      - "`load_nhl_team_boxscore`"
+      - "`load_nhl_team_boxscores`"
+      - "`load_nhl_schedules`"
   - subtitle: "Update or Create NHL Database"
     desc: Functions exported by fastRhockey which update and create a database of fastRhockey NHL play-by-play data
     contents:
