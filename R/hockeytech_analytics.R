@@ -371,3 +371,457 @@ hockeytech_corsi_fenwick_on_ice <- function(pbp) {
 hockeytech_per60 <- function(value, toi_seconds) {
   value / toi_seconds * 3600
 }
+
+
+# ---------------------------------------------------------------------------
+# Coordinate transforms
+# ---------------------------------------------------------------------------
+
+#' Add normalized coordinate columns from raw x_coord / y_coord.
+#'
+#' Ported from Python sportsdataverse/hockeytech/_analytics.py::add_coord_transforms(),
+#' which itself was ported from fastRhockey R/pwhl_pbp.R lines ~484-496.
+#'
+#' Raw coordinates (x_coord, y_coord) come from the HockeyTech feed on an
+#' approximately 850x400 canvas. This function adds ten derived columns:
+#'
+#'   x_coord_original / y_coord_original = raw x_coord, y_coord
+#'   x_coord_neutral  = ox - 300
+#'   y_coord_neutral  = oy - 150
+#'   x_t = (ox / 3) - 100                            [intermediate]
+#'   y_t = 42.5 - (oy * 85 / 300)                    [intermediate, simplified]
+#'   x_coord_fixed    = x_t / 3
+#'   y_coord_fixed    = 42.5 - ((y_t * 85 / 300) - 42.5)
+#'   x_coord_right    = if (team_id == home_team_id) 100 + (100 - x_t) else x_t
+#'   y_coord_right    = if (team_id == home_team_id) 42.5 - (y_t - 42.5) else y_t
+#'   x_coord_vertical = 42.5 - (y_coord_right - 42.5)
+#'   y_coord_vertical = x_coord_right
+#'
+#' Rows with null x_coord or y_coord produce NA for all ten columns.
+#' Rows with null team_id or home_team_id produce NA for the team-dependent
+#' transforms (x/y_coord_right, x/y_coord_vertical).
+#'
+#' x_coord and y_coord are MUTATED in place to the transformed values
+#' (x_t, y_t) to match the R/pwhl_pbp.R behaviour exactly; the raw values
+#' are preserved in x_coord_original / y_coord_original.
+#'
+#' @param pbp data.frame with at least x_coord, y_coord columns. If
+#'   home_team_id is present, the team-dependent right/vertical transforms
+#'   use it; otherwise those columns are NA.
+#' @return pbp with ten coordinate columns appended (or replaced). x_coord
+#'   and y_coord are overwritten with the transformed feet-scale values.
+#' @noRd
+hockeytech_add_coord_transforms <- function(pbp) {
+  if (nrow(pbp) == 0) {
+    for (col in c("x_coord_original", "y_coord_original",
+                  "x_coord_neutral",  "y_coord_neutral",
+                  "x_coord_fixed",    "y_coord_fixed",
+                  "x_coord_right",    "y_coord_right",
+                  "x_coord_vertical", "y_coord_vertical")) {
+      pbp[[col]] <- numeric(0)
+    }
+    return(pbp)
+  }
+
+  ox <- suppressWarnings(as.numeric(pbp$x_coord))
+  oy <- suppressWarnings(as.numeric(pbp$y_coord))
+
+  # Intermediate transformed coords (R pwhl_pbp.R lines 489-490)
+  x_t <- (ox / 3) - 100
+  y_t <- 42.5 - ((oy * 85) / 300)      # simplified: 42.5 - ((oy*85/300 - 42.5) - 42.5) = 42.5 - oy*85/300
+
+  pbp$x_coord_original <- ox
+  pbp$y_coord_original <- oy
+  pbp$x_coord_neutral  <- ox - 300
+  pbp$y_coord_neutral  <- oy - 150
+
+  # Overwrite x_coord / y_coord with transformed values (matches pwhl_pbp.R)
+  pbp$x_coord <- x_t
+  pbp$y_coord <- y_t
+
+  pbp$x_coord_fixed <- x_t / 3
+  pbp$y_coord_fixed <- 42.5 - (((y_t * 85) / 300) - 42.5)
+
+  # Team-dependent right/vertical transforms
+  if ("home_team_id" %in% names(pbp)) {
+    is_home <- !is.na(pbp$team_id) & !is.na(pbp$home_team_id) &
+               as.character(pbp$team_id) == as.character(pbp$home_team_id)
+    pbp$x_coord_right <- ifelse(is_home, 100 + (100 - x_t), x_t)
+    pbp$y_coord_right <- ifelse(is_home, 42.5 - (y_t - 42.5), y_t)
+  } else {
+    pbp$x_coord_right <- x_t
+    pbp$y_coord_right <- y_t
+  }
+
+  pbp$x_coord_vertical <- 42.5 - (pbp$y_coord_right - 42.5)
+  pbp$y_coord_vertical <- pbp$x_coord_right
+
+  pbp
+}
+
+
+# ---------------------------------------------------------------------------
+# Clock columns
+# ---------------------------------------------------------------------------
+
+#' Add period-clock columns derived from time_of_period (elapsed MM:SS).
+#'
+#' Ported from Python sportsdataverse/hockeytech/_analytics.py::add_clock_columns(),
+#' which itself was ported from fastRhockey R/pwhl_pbp.R lines ~498-525.
+#'
+#' time_of_period is ELAPSED seconds counting UP from "0:00" at the start of
+#' each period. Adds four columns:
+#'
+#'   minute_start (integer): elapsed minutes component.
+#'   second_start (integer): elapsed seconds component.
+#'   clock (character): remaining time formatted as "M:SS". Computed as
+#'     (19 - minute_start):(60 - second_start) with R special-cases:
+#'     - When minute_start == 0 AND second_start == 0 (start of period):
+#'       clock = "20:00".
+#'     - When second_start == 0 (but not both zero): second = 0.
+#'   sec_from_start (integer): cumulative game-seconds elapsed since start.
+#'     Within each period: minute_start * 60 + second_start; plus per-period
+#'     offsets: period 1 -> +0, 2 -> +1200, 3 -> +2400, 4 -> +3600, 5 -> +4800.
+#'
+#' Rows with NA time_of_period receive NA for all four columns.
+#'
+#' @param pbp data.frame with at least time_of_period (character "M:SS") and
+#'   period_of_game (character or castable to integer).
+#' @return pbp with minute_start, second_start, clock, sec_from_start added.
+#' @noRd
+hockeytech_add_clock_columns <- function(pbp) {
+  if (nrow(pbp) == 0) {
+    pbp$minute_start  <- integer(0)
+    pbp$second_start  <- integer(0)
+    pbp$clock         <- character(0)
+    pbp$sec_from_start <- integer(0)
+    return(pbp)
+  }
+
+  top <- pbp$time_of_period
+
+  # Parse "M:SS" into minute_start and second_start
+  parts <- strsplit(as.character(top), ":", fixed = TRUE)
+  minute_start <- suppressWarnings(
+    as.integer(vapply(parts, function(p) if (length(p) >= 1) p[[1]] else NA_character_, character(1)))
+  )
+  second_start <- suppressWarnings(
+    as.integer(vapply(parts, function(p) if (length(p) >= 2) p[[2]] else NA_character_, character(1)))
+  )
+
+  # Remaining clock time (mirrors R pwhl_pbp.R lines 502-512)
+  clock_minute <- ifelse(
+    !is.na(minute_start) & !is.na(second_start) &
+    (19L - minute_start == 19L) & (60L - second_start == 60L),
+    20L,
+    19L - minute_start
+  )
+  clock_second <- ifelse(!is.na(second_start) & (60L - second_start == 60L),
+                         0L,
+                         60L - second_start)
+  # Zero-pad seconds
+  clock_second_str <- ifelse(
+    !is.na(clock_second) & clock_second < 10L,
+    paste0("0", clock_second),
+    as.character(clock_second)
+  )
+  clock <- ifelse(is.na(clock_minute) | is.na(clock_second),
+                  NA_character_,
+                  paste0(clock_minute, ":", clock_second_str))
+
+  # sec_from_start = elapsed seconds within period + per-period offset
+  base_sfs <- minute_start * 60L + second_start
+  period_int <- suppressWarnings(as.integer(pbp$period_of_game))
+  sec_from_start <- dplyr::case_when(
+    period_int == 2L ~ base_sfs + 1200L,
+    period_int == 3L ~ base_sfs + 2400L,
+    period_int == 4L ~ base_sfs + 3600L,
+    period_int == 5L ~ base_sfs + 4800L,
+    TRUE             ~ base_sfs
+  )
+
+  pbp$minute_start   <- minute_start
+  pbp$second_start   <- second_start
+  pbp$clock          <- clock
+  pbp$sec_from_start <- sec_from_start
+  pbp
+}
+
+
+# ---------------------------------------------------------------------------
+# Power-play / short-handed back-fill
+# ---------------------------------------------------------------------------
+
+#' Back-fill power_play and short_handed for shot/faceoff events.
+#'
+#' Ported from Python sportsdataverse/hockeytech/_analytics.py::backfill_power_play(),
+#' which itself was ported from fastRhockey R/pwhl_pbp.R lines ~522-565.
+#'
+#' For each penalty event whose power_play flag is "1", a PP window
+#' [start_sec, end_sec] is derived:
+#'   start_sec = sec_from_start of the penalty event.
+#'   end_sec   = start_sec + penalty_length * 60, truncated at the first goal
+#'               scored during that window (power-kill-ends-on-goal logic).
+#'
+#' For every shot or faceoff event inside a PP window:
+#'   If the event team_id == advantage_team: power_play="1", short_handed="0".
+#'   Otherwise:                              power_play="0", short_handed="1".
+#'
+#' All other rows are left unchanged. Safe when zero penalty events exist.
+#' Requires sec_from_start, event, power_play, penalty_length, team_id,
+#' home_team_id, away_team_id columns. Creates short_handed if absent.
+#'
+#' @param df PBP data.frame after hockeytech_add_clock_columns has run.
+#' @return df with power_play / short_handed back-filled for shot/faceoff
+#'   events during active PP windows.
+#' @noRd
+hockeytech_backfill_power_play <- function(df) {
+  # Ensure short_handed column exists
+  if (!"short_handed" %in% names(df)) df$short_handed <- NA_character_
+  if (!"power_play"   %in% names(df)) df$power_play   <- NA_character_
+
+  if (nrow(df) == 0) return(df)
+
+  # Extract penalty rows with power_play == "1" and valid sec_from_start
+  pen_mask <- !is.na(df$event) & df$event == "penalty" &
+              !is.na(df$power_play) & df$power_play == "1" &
+              !is.na(df$sec_from_start)
+  pens_df <- df[pen_mask, , drop = FALSE]
+
+  if (nrow(pens_df) == 0) return(df)
+
+  # Derive advantage_team: team NOT penalized
+  # penalized = team_id on penalty row; advantage = the other side
+  is_home_pen <- !is.na(pens_df$team_id) & !is.na(pens_df$home_team_id) &
+                 as.character(pens_df$team_id) == as.character(pens_df$home_team_id)
+  pens_df$advantage_team <- ifelse(is_home_pen, pens_df$away_team_id, pens_df$home_team_id)
+
+  # Penalty interval: start_sec, end_sec, advantage_team
+  pen_length_s <- suppressWarnings(as.numeric(pens_df$penalty_length)) * 60
+  starts <- as.numeric(pens_df$sec_from_start)
+  ends   <- starts + pen_length_s
+  adv    <- as.character(pens_df$advantage_team)
+
+  # Goal times for PP truncation
+  goal_mask  <- !is.na(df$event) & df$event == "goal" & !is.na(df$sec_from_start)
+  goal_times <- sort(as.numeric(df$sec_from_start[goal_mask]))
+
+  # Truncate each penalty window at first goal within it
+  # (mirrors R pwhl_pbp.R loop)
+  n_pen <- length(starts)
+  pen_intervals <- vector("list", n_pen)
+  for (i in seq_len(n_pen)) {
+    s <- starts[[i]]; e <- ends[[i]]; adv_i <- adv[[i]]
+    if (is.na(s) || is.na(e)) next
+    prev_end <- if (i > 1 && !is.null(pen_intervals[[i - 1L]])) pen_intervals[[i - 1L]][[2]] else NULL
+    for (g in goal_times) {
+      if (g >= s && g <= e) {
+        if (is.null(prev_end) || g > prev_end) {
+          e <- g
+          break
+        }
+      }
+    }
+    pen_intervals[[i]] <- list(s, e, adv_i)
+  }
+  pen_intervals <- Filter(Negate(is.null), pen_intervals)
+
+  if (length(pen_intervals) == 0) return(df)
+
+  # Back-fill shot/faceoff rows using computed intervals
+  event_col <- df$event
+  sec_col   <- suppressWarnings(as.numeric(df$sec_from_start))
+  team_col  <- as.character(df$team_id)
+  pp_col    <- as.character(df$power_play)
+  sh_col    <- as.character(df$short_handed)
+
+  new_pp <- pp_col
+  new_sh <- sh_col
+
+  for (idx in seq_len(nrow(df))) {
+    ev  <- event_col[[idx]]
+    if (is.na(ev) || !ev %in% c("shot", "faceoff")) next
+    sec <- sec_col[[idx]]
+    if (is.na(sec)) next
+    team <- team_col[[idx]]
+    for (pint in pen_intervals) {
+      ps <- pint[[1]]; pe <- pint[[2]]; padv <- pint[[3]]
+      if (!is.na(ps) && !is.na(pe) && ps <= sec && sec <= pe) {
+        if (!is.na(team) && team == padv) {
+          new_pp[[idx]] <- "1"
+          new_sh[[idx]] <- "0"
+        } else {
+          new_pp[[idx]] <- "0"
+          new_sh[[idx]] <- "1"
+        }
+        break  # first matching interval only
+      }
+    }
+  }
+
+  df$power_play   <- new_pp
+  df$short_handed <- new_sh
+  df
+}
+
+
+# ---------------------------------------------------------------------------
+# Enrich PBP orchestrator
+# ---------------------------------------------------------------------------
+
+#' Enrich a parsed HockeyTech PBP frame -- league-generic.
+#'
+#' Ported from Python sportsdataverse/hockeytech/_analytics.py::enrich_pbp().
+#'
+#' Applies the full enrichment pipeline:
+#'   1. Game-meta join (game_date, game_season, game_season_id, home_team,
+#'      home_team_id, away_team, away_team_id) from gc/gamesummary.
+#'   2. Coordinate transforms via hockeytech_add_coord_transforms().
+#'   3. Clock columns via hockeytech_add_clock_columns().
+#'   4. PP/SH back-fill via hockeytech_backfill_power_play().
+#'   5. Shot geometry (shot_distance, shot_angle, scoring_chance) using the
+#'      intermediate feet-scale coords: x_t = x_coord_original/3 - 100,
+#'      y_t = 42.5 - (y_coord_original * 85 / 300).
+#'   6. On-ice player tracking (on_ice_home, on_ice_away) from gameshifts via
+#'      .parse_hockeytech_shifts() + hockeytech_build_on_ice().
+#'
+#' Pure when meta_payload and shifts_payload are injected (no network calls).
+#' When either is NULL the function attempts a live fetch via .hockeytech_api().
+#'
+#' @param df data.frame produced by .parse_hockeytech_pbp().
+#' @param league HockeyTech league code (e.g. "pwhl", "ohl", "whl").
+#' @param game_id Numeric game identifier.
+#' @param meta_payload Optional pre-fetched gc/gamesummary JSON list.
+#' @param shifts_payload Optional pre-fetched modulekit/gameshifts JSON list.
+#'   Pass list() to suppress on-ice computation entirely.
+#' @return data.frame; the enriched play-by-play.
+#' @noRd
+hockeytech_enrich_pbp <- function(df, league, game_id,
+                                   meta_payload = NULL,
+                                   shifts_payload = NULL) {
+  # ------------------------------------------------------------------
+  # Step 1: fetch meta if not provided
+  # ------------------------------------------------------------------
+  if (is.null(meta_payload)) {
+    meta_payload <- .hockeytech_api(
+      .hockeytech_url(league, "gc", "gamesummary", list(game_id = game_id))
+    )
+  }
+
+  # ------------------------------------------------------------------
+  # Step 2: extract game-meta fields from GC.Gamesummary
+  # ------------------------------------------------------------------
+  gc_root <- (meta_payload %||% list())[["GC"]] %||% list()
+  gs <- gc_root[["Gamesummary"]] %||% gc_root
+  gs_meta  <- gs[["meta"]] %||% list()
+  home_raw <- gs[["home"]] %||% list()
+  away_raw <- gs[["visitor"]] %||% list()
+
+  home_team    <- as.character(home_raw[["name"]] %||% home_raw[["city"]] %||% "")
+  home_team_id <- as.character(
+    gs_meta[["home_team"]] %||% home_raw[["id"]] %||% home_raw[["team_id"]] %||% ""
+  )
+  away_team    <- as.character(away_raw[["name"]] %||% away_raw[["city"]] %||% "")
+  away_team_id <- as.character(
+    gs_meta[["visiting_team"]] %||% away_raw[["id"]] %||% away_raw[["team_id"]] %||% ""
+  )
+
+  game_date_raw <- gs_meta[["date_played"]] %||%
+                   gs[["game_date_iso_8601"]] %||%
+                   gs[["game_date"]] %||% ""
+  game_date  <- as.character(game_date_raw)
+  game_season_raw <- if (nchar(game_date) >= 4) substr(game_date, 1, 4) else NA_character_
+  game_season <- suppressWarnings(as.integer(game_season_raw))
+  game_season_id <- as.character(gs_meta[["season_id"]] %||% "")
+
+  # ------------------------------------------------------------------
+  # Step 3: add game-meta literal columns BEFORE coord transforms
+  #   (coord transforms need home_team_id to compute right/vertical)
+  # ------------------------------------------------------------------
+  df$game_date      <- game_date
+  df$game_season    <- game_season
+  df$game_season_id <- game_season_id
+  df$home_team      <- home_team
+  df$home_team_id   <- home_team_id
+  df$away_team      <- away_team
+  df$away_team_id   <- away_team_id
+
+  # ------------------------------------------------------------------
+  # Step 4: coordinate transforms
+  # ------------------------------------------------------------------
+  df <- hockeytech_add_coord_transforms(df)
+
+  # ------------------------------------------------------------------
+  # Step 5: clock columns
+  # ------------------------------------------------------------------
+  df <- hockeytech_add_clock_columns(df)
+
+  # ------------------------------------------------------------------
+  # Step 5b: PP / SH back-fill
+  # ------------------------------------------------------------------
+  df <- hockeytech_backfill_power_play(df)
+
+  # ------------------------------------------------------------------
+  # Step 6: shot geometry on feet-scale intermediate coords
+  #   Python uses: x_t = x_coord_original/3 - 100
+  #                y_t = 42.5 - (y_coord_original * 85 / 300)
+  # ------------------------------------------------------------------
+  # Build a temporary frame with feet-scale x/y for shot geometry
+  geo_df <- df
+  geo_df$x_coord <- suppressWarnings(as.numeric(geo_df$x_coord_original)) / 3 - 100
+  geo_df$y_coord <- 42.5 - (suppressWarnings(as.numeric(geo_df$y_coord_original)) * 85 / 300)
+  geo_df <- hockeytech_shot_distance_angle(geo_df)
+  geo_df <- hockeytech_scoring_chances(geo_df)
+
+  df$shot_distance  <- geo_df$shot_distance
+  df$shot_angle     <- geo_df$shot_angle
+  df$scoring_chance <- geo_df$scoring_chance
+
+  # ------------------------------------------------------------------
+  # Step 7: on-ice player tracking via shifts
+  # ------------------------------------------------------------------
+  if (is.null(shifts_payload)) {
+    shifts_payload <- .hockeytech_api(
+      .hockeytech_url(league, "modulekit", "gameshifts", list(game_id = game_id))
+    )
+  }
+
+  shifts <- NULL
+  if (is.list(shifts_payload) && length(shifts_payload) > 0) {
+    shifts <- .parse_hockeytech_shifts(shifts_payload, game_id = game_id)
+  }
+
+  if (!is.null(shifts) && nrow(df) > 0 && nrow(shifts) > 0) {
+    # Compute per-period ceiling from shifts: max(start_s) in each period.
+    # Fallback to 1200 when a period has no shifts.
+    period_len_map <- tapply(shifts$start_s, shifts$period, function(x) {
+      v <- max(x, na.rm = TRUE)
+      if (is.finite(v)) as.integer(v) else 1200L
+    })
+
+    period_int <- suppressWarnings(as.integer(df$period_of_game))
+    plen <- vapply(period_int, function(p) {
+      if (is.na(p)) return(1200L)
+      pmap_val <- period_len_map[as.character(p)]
+      if (length(pmap_val) == 0 || is.na(pmap_val)) 1200L else as.integer(pmap_val)
+    }, integer(1))
+
+    elapsed_s  <- df$minute_start * 60L + df$second_start
+    df$time_s  <- plen - elapsed_s
+
+    # Save original period_of_game (string) and cast to integer for join
+    orig_period <- df$period_of_game
+    df$period_of_game <- period_int
+
+    df <- hockeytech_build_on_ice(df, shifts)
+
+    # Restore string period_of_game
+    df$period_of_game <- orig_period
+    df$time_s <- NULL
+  } else {
+    df$on_ice_home <- NA_character_
+    df$on_ice_away <- NA_character_
+  }
+
+  df
+}
