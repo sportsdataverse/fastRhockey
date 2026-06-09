@@ -5,13 +5,7 @@
 #' @return Parsed JSON as an R list
 #' @noRd
 .pwhl_api <- function(url) {
-  res <- .retry_request(url)
-  res <- .resp_text(res)
-  # Strip JSONP callback wrapper: angular.callbacks._X(...)
-  res <- sub("^angular\\.callbacks\\._\\w+\\(", "", res)
-  res <- sub("\\)\\s*$", "", res)
-
-  jsonlite::parse_json(res)
+  .hockeytech_api(url)
 }
 
 #' @keywords internal
