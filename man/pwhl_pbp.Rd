@@ -13,7 +13,7 @@ pwhl_pbp(game_id)
 A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
    col_name \tab types \tab description \cr
    game_id \tab numeric \tab Unique game identifier. \cr
-   event \tab character \tab Event type (faceoff, shot, goal, penalty, etc.). \cr
+   event \tab character \tab Event type (faceoff, shot, goal, penalty, blocked_shot, hit, etc.). \cr
    team_id \tab numeric \tab Unique team identifier for the event. \cr
    period_of_game \tab character \tab Period number within the game. \cr
    time_of_period \tab character \tab Elapsed time within the period (MM:SS). \cr
@@ -25,8 +25,8 @@ A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
    player_two_name_first \tab character \tab Second player first name. \cr
    player_two_name_last \tab character \tab Second player last name. \cr
    player_two_position \tab character \tab Second player position. \cr
-   x_coord \tab numeric \tab Transformed x-coordinate of the event. \cr
-   y_coord \tab numeric \tab Transformed y-coordinate of the event. \cr
+   x_coord \tab numeric \tab Transformed x-coordinate of the event (feet scale). \cr
+   y_coord \tab numeric \tab Transformed y-coordinate of the event (feet scale). \cr
    home_win \tab numeric \tab Whether the home player won the faceoff. \cr
    player_team_id \tab numeric \tab Unique team identifier of the primary player. \cr
    event_type \tab character \tab Detailed event sub-type (shot type, penalty type). \cr
@@ -107,6 +107,11 @@ A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
    second_start \tab numeric \tab Second mark of the period when the event started. \cr
    clock \tab character \tab Game clock time remaining (MM:SS). \cr
    sec_from_start \tab numeric \tab Seconds elapsed since the start of the game. \cr
+   shot_distance \tab numeric \tab Distance from the net in feet (shot/blocked_shot/goal events). \cr
+   shot_angle \tab numeric \tab Angle from the net in degrees (shot/blocked_shot/goal events). \cr
+   scoring_chance \tab logical \tab TRUE when event is a shot-type within 25 ft of the net. \cr
+   on_ice_home \tab character \tab Comma-joined sorted player_ids on ice for the home team. \cr
+   on_ice_away \tab character \tab Comma-joined sorted player_ids on ice for the away team. \cr
 }
 }
 \description{
