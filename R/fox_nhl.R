@@ -180,7 +180,7 @@
 # ---- dispatcher ------------------------------------------------------------
 #' @keywords internal
 #' @importFrom janitor clean_names
-#' @importFrom tibble as_tibble
+#' @importFrom dplyr as_tibble bind_rows
 .fox_nhl_resource <- function(sport, resource, game_id = NULL, team_id = NULL,
                              category = "scoring", who = "player", page = 0) {
   out <- data.frame()
@@ -202,7 +202,7 @@
         team_stats = .fox_nhl_team_stats(raw, team_id), gamelog = .fox_nhl_gamelog(raw, team_id),
         standings = .fox_nhl_standings(raw, team_id), league_leaders = .fox_nhl_leaders(raw))
       out <- df |>
-        tibble::as_tibble() |>
+        dplyr::as_tibble() |>
         janitor::clean_names() |>
         make_fastRhockey_data(paste0("Fox Sports ", toupper(sport), " ", resource), Sys.time())
     },
