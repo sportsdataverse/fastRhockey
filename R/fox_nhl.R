@@ -8,21 +8,22 @@
 .FOX_NHL_KEY <- "jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq"
 .fox_or <- function(a, b) if (is.null(a) || length(a) == 0) b else a
 
-#' @keywords internal
-#' @importFrom httr2 request req_url_query req_headers req_retry req_perform resp_body_string
-#' @importFrom jsonlite fromJSON
+# Fetch + parse a Fox Bifrost endpoint via the package's shared httr2 layer.
+# Routes through .retry_request()/.resp_json() like every other NHL endpoint
+# wrapper, so it honors getOption("fastRhockey.proxy"), applies the standard
+# timeout/retry policy, and surfaces non-2xx responses via check_status().
+#' @noRd
 .fox_nhl_get <- function(path, query = list()) {
   query[["apikey"]] <- .fox_or(query[["apikey"]], getOption("fastRhockey.fox_key", .FOX_NHL_KEY))
   query[["api-version"]] <- .fox_or(query[["api-version"]], "1.1")
-  res <- httr2::request(paste0("https://api.foxsports.com/bifrost/v1/", path)) |>
-    httr2::req_url_query(!!!query) |>
-    httr2::req_headers(Origin = "https://www.foxsports.com",
-                       Referer = "https://www.foxsports.com/") |>
-    httr2::req_retry(max_tries = 3, backoff = ~ 2) |>
-    httr2::req_perform()
-  res |>
-    httr2::resp_body_string(encoding = "UTF-8") |>
-    jsonlite::fromJSON(simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE)
+  resp <- .retry_request(
+    url     = paste0("https://api.foxsports.com/bifrost/v1/", path),
+    params  = query,
+    headers = list(Origin = "https://www.foxsports.com",
+                   Referer = "https://www.foxsports.com/")
+  )
+  check_status(resp)
+  .resp_json(resp, simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE)
 }
 
 .fox_cells <- function(cols) {
@@ -183,6 +184,7 @@
 #' @importFrom dplyr as_tibble bind_rows
 .fox_nhl_resource <- function(sport, resource, game_id = NULL, team_id = NULL,
                              category = "scoring", who = "player", page = 0) {
+  .args <- .capture_args()
   out <- data.frame()
   tryCatch(
     expr = {
@@ -207,8 +209,11 @@
         make_fastRhockey_data(paste0("Fox Sports ", toupper(sport), " ", resource), Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: invalid arguments or no Fox {sport} {resource} data available!"))
-    }
+      .report_api_error(e,
+        hint = "Invalid arguments or no Fox {sport} {resource} data available!",
+        args = .args)
+    },
+    finally = {}
   )
   out
 }

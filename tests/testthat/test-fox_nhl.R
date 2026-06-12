@@ -4,6 +4,7 @@
 
 test_that("Fox NHL play-by-play", {
   skip_on_cran()
+  skip_nhl_test()
   x <- fox_nhl_pbp("44398")
   if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) skip("No Fox NHL pbp at test time")
   expect_in(c("game_id", "period", "play_id", "clock", "play_text", "team"), colnames(x))
@@ -13,6 +14,7 @@ test_that("Fox NHL play-by-play", {
 
 test_that("Fox NHL boxscore", {
   skip_on_cran()
+  skip_nhl_test()
   x <- fox_nhl_boxscore("44398")
   if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) skip("No Fox NHL boxscore at test time")
   expect_in(c("game_id", "team", "stat_group", "player", "stat", "value"), colnames(x))
@@ -21,6 +23,7 @@ test_that("Fox NHL boxscore", {
 
 test_that("Fox NHL team roster + stats + gamelog", {
   skip_on_cran()
+  skip_nhl_test()
   ro <- fox_nhl_team_roster("1")
   if (is.null(ro) || !is.data.frame(ro) || nrow(ro) == 0) skip("No Fox NHL roster at test time")
   expect_in(c("team_id", "position_group", "player", "athlete_id"), colnames(ro))
@@ -35,6 +38,7 @@ test_that("Fox NHL team roster + stats + gamelog", {
 
 test_that("Fox NHL standings + leaders + odds", {
   skip_on_cran()
+  skip_nhl_test()
   sd <- fox_nhl_standings("1")
   if (!is.null(sd) && nrow(sd) > 0) expect_in(c("team_id", "section", "entity_id"), colnames(sd))
   Sys.sleep(1)
