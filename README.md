@@ -1,7 +1,7 @@
 
 # 
 
-# fastRhockey <a href='https://fastRhockey.sportsdataverse.org/'><img src='https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/logo.png' align="right" width="20%" min-width="100" /></a>
+# fastRhockey <a href='https://fastRhockey.sportsdataverse.org/'><img src='https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/logo.png' align="right" width="20%" min-width="100" alt='fastRhockey hex logo' /></a>
 
 <!-- badges: start -->
 
@@ -92,7 +92,7 @@ R/Python packages for sports analytics.
 
 <center>
 
-<img src='https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png' width="70%" />
+<img src='https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png' width="70%" alt='fastRhockey holographic logo banner' />
 
 </center>
 

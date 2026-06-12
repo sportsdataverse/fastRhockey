@@ -27,7 +27,7 @@ Part of the [SportsDataverse](https://sportsdataverse.org/) family of R/Python p
 
 <center>
 
-![](https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png){width=70%}
+![fastRhockey holographic logo banner](https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png){width=70%}
 
 </center>
 

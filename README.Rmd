@@ -4,7 +4,7 @@ output: github_document
 
 #
 
-# fastRhockey <a href='https://fastRhockey.sportsdataverse.org/'><img src='https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/logo.png' align="right" width="20%" min-width="100" /></a>
+# fastRhockey <a href='https://fastRhockey.sportsdataverse.org/'><img src='https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/logo.png' align="right" width="20%" min-width="100" alt='fastRhockey hex logo' /></a>
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -40,7 +40,7 @@ Part of the [SportsDataverse](https://sportsdataverse.org/) family of R/Python p
 > **Note:** PHF (Premier Hockey Federation) functions are deprecated as of v1.0.0. The league ceased operations; use PWHL functions instead.
 
 <center>
-<img src='https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png' width="70%" />
+<img src='https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png' width="70%" alt='fastRhockey holographic logo banner' />
 </center>
 
 *****************************************************************
