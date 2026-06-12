@@ -233,3 +233,14 @@ small.nav-text {
 [data-bs-theme="dark"] :is(#main, aside) a {
   color: #C9D3FE;
 }
+
+/* Navbar menu-item font/colour. BS5 navbars dropped the .navbar-dark class (they
+   use data-bs-theme), so the original `.navbar-dark .navbar-nav .nav-link` rule
+   never matched and the items fell back to the template font. Target the live
+   `.navbar-nav .nav-link` instead (same idea as the brand fix). Hover/focus keep
+   their existing #4FD5E1 rules above. */
+.navbar-nav .nav-link {
+  font-family: "Fira Mono";
+  font-size: small;
+  color: #4FD5E1;
+}
