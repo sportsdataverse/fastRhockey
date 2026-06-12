@@ -32,19 +32,19 @@ columns).
 ``` r
  try(fox_nhl_league_leaders("scoring")) 
 #> ── Fox Sports NHL league_leaders ────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 02:20:54 UTC
+#> ℹ Data updated: 2026-06-12 13:20:42 UTC
 #> # A tibble: 100 × 7
 #>    players v2           gp    entity_id g     a     p    
 #>    <chr>   <chr>        <chr> <chr>     <chr> <chr> <chr>
-#>  1 1       S. Theodore  20    3534      NA    NA    NA   
-#>  2 2       C. Sissons   20    3916      NA    NA    NA   
-#>  3 3       T. Hertl     20    4109      NA    NA    NA   
-#>  4 4       N. Dowd      20    4328      NA    NA    NA   
-#>  5 5       I. Barbashev 20    4412      NA    NA    NA   
-#>  6 6       J. Eichel    20    4741      NA    NA    NA   
-#>  7 7       N. Hanifin   20    4742      NA    NA    NA   
-#>  8 8       K. Kolesar   20    4849      NA    NA    NA   
-#>  9 9       M. Marner    20    4908      NA    NA    NA   
-#> 10 10      R. Andersson 20    4913      NA    NA    NA   
+#>  1 1       S. Theodore  21    3534      NA    NA    NA   
+#>  2 2       C. Sissons   21    3916      NA    NA    NA   
+#>  3 3       T. Hertl     21    4109      NA    NA    NA   
+#>  4 4       N. Dowd      21    4328      NA    NA    NA   
+#>  5 5       I. Barbashev 21    4412      NA    NA    NA   
+#>  6 6       J. Eichel    21    4741      NA    NA    NA   
+#>  7 7       N. Hanifin   21    4742      NA    NA    NA   
+#>  8 8       K. Kolesar   21    4849      NA    NA    NA   
+#>  9 9       M. Marner    21    4908      NA    NA    NA   
+#> 10 10      R. Andersson 21    4913      NA    NA    NA   
 #> # ℹ 90 more rows
 ```

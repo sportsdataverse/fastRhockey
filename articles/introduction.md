@@ -10,7 +10,10 @@ includes integrated **expected goals (xG)** models for NHL data.
 Part of the [SportsDataverse](https://sportsdataverse.org/) family of
 R/Python packages for sports analytics.
 
-![](https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png)
+![fastRhockey holographic logo
+banner](https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png)
+
+fastRhockey holographic logo banner
 
 ------------------------------------------------------------------------
 

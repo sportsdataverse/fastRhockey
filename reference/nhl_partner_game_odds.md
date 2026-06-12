@@ -27,7 +27,7 @@ try(nhl_partner_game_odds())
 #> [1] "2026-06-11"
 #> 
 #> $lastUpdatedUTC
-#> [1] "2026-06-12T02:00:38Z"
+#> [1] "2026-06-12T02:30:38Z"
 #> 
 #> $bettingPartner
 #> $bettingPartner$partnerId
@@ -60,14 +60,14 @@ try(nhl_partner_game_odds())
 #> 1 2025030415        3 2026-06-12T00:00:00Z          12             CAR
 #>                                         homeTeam.logo
 #> 1 https://assets.nhle.com/logos/nhl/svg/CAR_light.svg
-#>                                                                                                                                                   homeTeam.odds
-#> 1 MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_2_WAY_TNB, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, -1450, 120, -7000, -120, -650, 650, , O6.5, , -2.5, , Draw
+#>                                                                                                                                                      homeTeam.odds
+#> 1 MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_2_WAY_TNB, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, -8500, -125, -7000, -195, -2500, 1600, , O5.5, , -2.5, , Draw
 #>   homeTeam.name.default awayTeam.id awayTeam.abbrev
 #> 1            Hurricanes          54             VGK
 #>                                         awayTeam.logo
 #> 1 https://assets.nhle.com/logos/nhl/svg/VGK_light.svg
-#>                                                                                                                                                 awayTeam.odds
-#> 1 MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_2_WAY_TNB, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, 750, -154, 1800, -110, 2500, 650, , U6.5, , +2.5, , Draw
+#>                                                                                                                                                   awayTeam.odds
+#> 1 MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_2_WAY_TNB, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, 2000, -105, 1800, 150, 10000, 1600, , U5.5, , +2.5, , Draw
 #>   awayTeam.name.default
 #> 1        Golden Knights
 #> 

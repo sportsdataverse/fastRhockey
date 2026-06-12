@@ -112,7 +112,8 @@ R/Python packages for sports analytics.
 > **Note:** PHF (Premier Hockey Federation) functions are deprecated as
 > of v1.0.0. The league ceased operations; use PWHL functions instead.
 
-![](https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png)
+![fastRhockey holographic logo
+banner](https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png)
 
 ------------------------------------------------------------------------
 

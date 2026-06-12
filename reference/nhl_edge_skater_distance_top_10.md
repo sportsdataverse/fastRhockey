@@ -137,19 +137,19 @@ Returns `NULL` on failure / empty response.
       sort_by = "total"
   ))
 #> ── NHL Edge Skater Distance Top 10 ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 02:22:13 UTC
+#> ℹ Data updated: 2026-06-12 13:21:57 UTC
 #> # A tibble: 10 × 74
 #>    player_slug             player_headshot player_position player_sweater_number
 #>    <chr>                   <chr>           <chr>                           <int>
 #>  1 jack-eichel-8478403     https://assets… C                                   9
-#>  2 nick-suzuki-8480018     https://assets… C                                  14
-#>  3 mitch-marner-8478483    https://assets… R                                  93
-#>  4 juraj-slafkovský-84835… https://assets… L                                  20
-#>  5 sebastian-aho-8478427   https://assets… C                                  20
-#>  6 cole-caufield-8481540   https://assets… R                                  13
-#>  7 ivan-barbashev-8477964  https://assets… L                                  49
-#>  8 brett-howden-8479353    https://assets… C                                  21
-#>  9 seth-jarvis-8482093     https://assets… R                                  24
+#>  2 mitch-marner-8478483    https://assets… R                                  93
+#>  3 nick-suzuki-8480018     https://assets… C                                  14
+#>  4 sebastian-aho-8478427   https://assets… C                                  20
+#>  5 juraj-slafkovský-84835… https://assets… L                                  20
+#>  6 ivan-barbashev-8477964  https://assets… L                                  49
+#>  7 cole-caufield-8481540   https://assets… R                                  13
+#>  8 seth-jarvis-8482093     https://assets… R                                  24
+#>  9 brett-howden-8479353    https://assets… C                                  21
 #> 10 pavel-dorofeyev-8481604 https://assets… R                                  16
 #> # ℹ 70 more variables: player_first_name_default <chr>,
 #> #   player_first_name_cs <chr>, player_first_name_de <chr>,

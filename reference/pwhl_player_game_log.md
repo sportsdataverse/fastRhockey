@@ -85,7 +85,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(pwhl_player_game_log(player_id = 28, season = 2025))
 #> ── PWHL Player Game Log ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 02:23:33 UTC
+#> ℹ Data updated: 2026-06-12 13:23:11 UTC
 #> # A tibble: 25 × 39
 #>    g_month    id home_team visiting_team date_played  home goalie home_team_code
 #>    <chr>   <dbl> <chr>     <chr>         <chr>       <dbl>  <dbl> <chr>         

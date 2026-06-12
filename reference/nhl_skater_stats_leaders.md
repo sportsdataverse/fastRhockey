@@ -71,7 +71,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_skater_stats_leaders())
 #> ── NHL Skater Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 02:23:03 UTC
+#> ℹ Data updated: 2026-06-12 13:22:45 UTC
 #> # A tibble: 45 × 21
 #>         id sweater_number headshot          team_abbrev team_logo position value
 #>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>
@@ -80,11 +80,11 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  3 8478970              5 https://assets.n… CAR         https://… D            1
 #>  4 8475188              3 https://assets.n… VGK         https://… D            1
 #>  5 8480835             18 https://assets.n… COL         https://… C            1
-#>  6 8478483             93 https://assets.n… VGK         https://… R           15
-#>  7 8479353             21 https://assets.n… VGK         https://… C           14
-#>  8 8475188              3 https://assets.n… VGK         https://… D           13
+#>  6 8478483             93 https://assets.n… VGK         https://… R           14
+#>  7 8475188              3 https://assets.n… VGK         https://… D           13
+#>  8 8479353             21 https://assets.n… VGK         https://… C           13
 #>  9 8475791             71 https://assets.n… CAR         https://… L           12
-#> 10 8477447             27 https://assets.n… VGK         https://… D           12
+#> 10 8482122              7 https://assets.n… MIN         https://… D           11
 #> # ℹ 35 more rows
 #> # ℹ 14 more variables: first_name_default <chr>, last_name_default <chr>,
 #> #   team_name_default <chr>, category <chr>, first_name_cs <chr>,
