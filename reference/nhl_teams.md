@@ -49,7 +49,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_teams())
 #> ── NHL Teams ────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:20:39 UTC
+#> ℹ Data updated: 2026-06-12 22:26:17 UTC
 #> # A tibble: 32 × 20
 #>    team_abbr team_name           team_common_name team_logo      conference_abbr
 #>    <chr>     <chr>               <chr>            <chr>          <chr>          

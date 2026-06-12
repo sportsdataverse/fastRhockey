@@ -170,7 +170,7 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns an empty tibble for NHL (404 from ESPN)
   try(espn_nhl_season_draft(season = 2025))
-#> ! 2026-06-12 14:18:01.790747: ESPN nhl season draft for 2025 is not available (HTTP 404 is normal for NHL).
+#> ! 2026-06-12 22:23:18.992961: ESPN nhl season draft for 2025 is not available (HTTP 404 is normal for NHL).
 #> ! Warning: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }

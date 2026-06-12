@@ -39,6 +39,6 @@ Other WHL Functions:
 
 ``` r
  try(whl_game_corsi(game_id = 27225)) 
-#> ✖ 2026-06-12 14:21:41.771562: WHL game Corsi for game_id 27225 unavailable! Error in `$<-.data.frame`(`*tmp*`, "corsi_for_per60", value = NA_real_): replacement has 1 row, data has 0
+#> ✖ 2026-06-12 22:26:53.130699: WHL game Corsi for game_id 27225 unavailable! Error in `$<-.data.frame`(`*tmp*`, "corsi_for_per60", value = NA_real_): replacement has 1 row, data has 0
 #> data frame with 0 columns and 0 rows
 ```

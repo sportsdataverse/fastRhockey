@@ -58,7 +58,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_team_prospects(team_abbr = "TOR"))
 #> ── NHL Team Prospects ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:20:38 UTC
+#> ℹ Data updated: 2026-06-12 22:26:17 UTC
 #> # A tibble: 6 × 30
 #>       id headshot position_code shoots_catches height_in_inches weight_in_pounds
 #>    <int> <chr>    <chr>         <chr>                     <int>            <int>

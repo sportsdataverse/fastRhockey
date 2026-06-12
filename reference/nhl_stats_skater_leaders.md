@@ -59,7 +59,7 @@ failure. When ranking by `"assists"` the columns are:
 # \donttest{
   try(nhl_stats_skater_leaders(attribute = "assists"))
 #> ── NHL Stats Skater Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:20:37 UTC
+#> ℹ Data updated: 2026-06-12 22:26:15 UTC
 #> # A tibble: 10 × 15
 #>    assists player_id player_current_team_id player_first_name player_full_name
 #>      <int>     <int> <lgl>                  <chr>             <chr>           

@@ -54,7 +54,7 @@ on failure / empty response.
 #> Warning: `nhl_edge_team_skating_speed_top_10()` was deprecated in fastRhockey 1.0.0.
 #> ℹ The NHL has removed this Edge top-10 leaderboard endpoint; the function
 #>   returns NULL.
-#> 2026-06-12 14:19:56.753996: Error fetching https://api-web.nhle.com/v1/edge/team-skating-speed-top-10/F/total/now: The API returned an error
+#> 2026-06-12 22:25:28.660961: Error fetching https://api-web.nhle.com/v1/edge/team-skating-speed-top-10/F/total/now: The API returned an error
 #> NULL
 # }
 ```
