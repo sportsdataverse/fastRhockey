@@ -244,3 +244,18 @@ small.nav-text {
   font-size: small;
   color: #4FD5E1;
 }
+
+/* Restore the original purple navbar in LIGHT mode. The old BS3
+   `.navbar-default { background-color: #6f0dde }` rule is dead under BS5, which
+   left a near-white (body-bg-mixed) navbar the turquoise/lilac text couldn't
+   contrast against. Dark mode keeps its auto navbar (same expression BS5 uses). */
+.navbar {
+  background-color: #6f0dde !important;
+}
+[data-bs-theme="dark"] .navbar {
+  background-color: color-mix(in oklab, color-mix(in oklab, var(--bs-body-bg) 95%, var(--bs-primary)) 95%, var(--bs-body-color)) !important;
+}
+/* Version badge legible on the purple navbar (BS5 .text-muted otherwise wins). */
+small.nav-text.text-muted {
+  color: #F3F3F3 !important;
+}
