@@ -166,7 +166,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_calendar_ondays())
 #> ── NHL Calendar On-Days data from ESPN core-v2 ──────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:19:28 UTC
+#> ℹ Data updated: 2026-06-12 13:43:56 UTC
 #> # A tibble: 227 × 4
 #>    date              date_type start_date        end_date         
 #>    <chr>             <chr>     <chr>             <chr>            

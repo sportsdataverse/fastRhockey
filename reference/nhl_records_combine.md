@@ -39,7 +39,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_combine())
 #> ── NHL Records Combine ──────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:22:18 UTC
+#> ℹ Data updated: 2026-06-12 13:46:52 UTC
 #> # A tibble: 185 × 10
 #>       id amateur_club_name  amateur_league draft_year event first_name last_name
 #>    <int> <chr>              <chr>               <int> <chr> <chr>      <chr>    
