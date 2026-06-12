@@ -1,6 +1,7 @@
 url: https://fastRhockey.sportsdataverse.org/
 template:
   bootstrap: 5
+  light-switch: true
   bootswatch: cosmo
   bslib:
     primary: "#531896"
@@ -49,13 +50,14 @@ home:
 navbar:
   structure:
     left: [home, reference, articles, news, network, data]
-    right: [twitter, github]
+    right: [search, x, github, lightswitch]
   components:
     home:
       title: fastRhockey
       description: "fastRhockey v1.0.0: Data and Tools for Professional Women's Hockey League (PWHL) and NHL play-by-play data."
       icon: fa-home
       href: index.html
+      aria-label: Home
       links:
         - text: Getting started with fastRhockey
           href: articles/introduction.html
@@ -138,12 +140,14 @@ navbar:
       menu:
         - text: "Data Repository"
           href: "https://github.com/sportsdataverse/fastRhockey-data"
-    twitter:
+    x:
       icon: "fab fa-x-twitter fa-lg"
       href: https://x.com/benhowell71
+      aria-label: X (Twitter)
     github:
       icon: "fab fa-github fa-lg"
       href: https://github.com/sportsdataverse/fastRhockey
+      aria-label: GitHub
 
 reference:
   - title: "Professional Women's Hockey League"
