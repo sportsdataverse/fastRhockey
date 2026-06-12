@@ -471,6 +471,10 @@ reference:
     desc: Functions exported by fastRhockey sourced from ESPN's NHL API (`site.api.espn.com`)
     contents:
       - starts_with("espn_nhl_")
+  - subtitle: Fox Sports NHL Data
+    desc: Read-only Fox Sports (Bifrost) NHL wrappers (play-by-play, boxscore, odds, roster, stats, game log, standings, leaders)
+    contents:
+      - starts_with("fox_nhl_")
   - title: "fastRhockey Data"
   - subtitle: Family Overview
     desc: NHL loader family overview (release-tag catalog)
