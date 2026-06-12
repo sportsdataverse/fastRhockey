@@ -59,7 +59,7 @@ following columns:
 # \donttest{
   try(load_nhl_penalties(2026))
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 10,424 × 45
+#> # A tibble: 10,432 × 45
 #>    timeInPeriod type  duration descKey         game_id period_number period_type
 #>    <chr>        <chr>    <int> <chr>             <int>         <int> <chr>      
 #>  1 06:58        MIN          2 slashing         2.03e9             1 REG        
@@ -72,7 +72,7 @@ following columns:
 #>  8 00:59        MIN          2 hooking          2.03e9             1 REG        
 #>  9 07:33        MIN          2 interference     2.03e9             1 REG        
 #> 10 18:55        MIN          2 tripping         2.03e9             2 REG        
-#> # ℹ 10,414 more rows
+#> # ℹ 10,422 more rows
 #> # ℹ 38 more variables: committedByPlayer.sweaterNumber <int>,
 #> #   committedByPlayer.firstName.default <chr>,
 #> #   committedByPlayer.firstName.cs <chr>, committedByPlayer.firstName.de <chr>,

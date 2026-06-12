@@ -64,7 +64,7 @@ following columns:
 # \donttest{
   try(load_nhl_shifts(2026))
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 654,927 × 17
+#> # A tibble: 655,455 × 17
 #>    event_team   period period_time period_seconds game_seconds num_on players_on
 #>    <chr>         <int> <chr>                <int>        <int>  <int> <chr>     
 #>  1 Chicago Bla…      1 00:00                    0            0      6 Connor Mu…
@@ -77,7 +77,7 @@ following columns:
 #>  8 Florida Pan…      1 01:05                   65           65      1 Mackie Sa…
 #>  9 Chicago Bla…      1 01:06                   66           66      1 Ryan Dona…
 #> 10 Florida Pan…      1 01:06                   66           66      2 Evan Rodr…
-#> # ℹ 654,917 more rows
+#> # ℹ 655,445 more rows
 #> # ℹ 10 more variables: ids_on <chr>, num_off <int>, players_off <chr>,
 #> #   ids_off <chr>, event <chr>, event_type <chr>, game_seconds_remaining <int>,
 #> #   game_id <int>, season <int>, game_date <chr>

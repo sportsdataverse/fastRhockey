@@ -71,7 +71,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_skater_stats_leaders())
 #> ── NHL Skater Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:29:35 UTC
+#> ℹ Data updated: 2026-06-12 02:23:03 UTC
 #> # A tibble: 45 × 21
 #>         id sweater_number headshot          team_abbrev team_logo position value
 #>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>
@@ -80,16 +80,16 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  3 8478970              5 https://assets.n… CAR         https://… D            1
 #>  4 8475188              3 https://assets.n… VGK         https://… D            1
 #>  5 8480835             18 https://assets.n… COL         https://… C            1
-#>  6 8478483             93 https://assets.n… VGK         https://… R           16
-#>  7 8477447             27 https://assets.n… VGK         https://… D           14
+#>  6 8478483             93 https://assets.n… VGK         https://… R           15
+#>  7 8479353             21 https://assets.n… VGK         https://… C           14
 #>  8 8475188              3 https://assets.n… VGK         https://… D           13
-#>  9 8479353             21 https://assets.n… VGK         https://… C           13
-#> 10 8480817             19 https://assets.n… CAR         https://… D           12
+#>  9 8475791             71 https://assets.n… CAR         https://… L           12
+#> 10 8477447             27 https://assets.n… VGK         https://… D           12
 #> # ℹ 35 more rows
 #> # ℹ 14 more variables: first_name_default <chr>, last_name_default <chr>,
 #> #   team_name_default <chr>, category <chr>, first_name_cs <chr>,
 #> #   first_name_de <chr>, first_name_es <chr>, first_name_fi <chr>,
 #> #   first_name_sk <chr>, first_name_sv <chr>, last_name_cs <chr>,
-#> #   last_name_sk <chr>, last_name_fi <chr>, team_name_fr <chr>
+#> #   last_name_fi <chr>, last_name_sk <chr>, team_name_fr <chr>
 # }
 ```

@@ -188,7 +188,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_season_athletes(season = 2026, limit = 10, page = 1))
 #> ── NHL Season Athletes data from ESPN core-v2 ───────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:26:34 UTC
+#> ℹ Data updated: 2026-06-12 02:20:15 UTC
 #> # A tibble: 10 × 6
 #>    ref                                  athlete_id season  page count page_count
 #>    <chr>                                <chr>       <int> <int> <int>      <int>

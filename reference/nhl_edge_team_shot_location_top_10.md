@@ -61,7 +61,7 @@ on failure / empty response.
 #> Warning: `nhl_edge_team_shot_location_top_10()` was deprecated in fastRhockey 1.0.0.
 #> ℹ The NHL has removed this Edge top-10 leaderboard endpoint; the function
 #>   returns NULL.
-#> 2026-06-09 20:28:49.101744: Error fetching https://api-web.nhle.com/v1/edge/team-shot-location-top-10/F/high/total/now: The API returned an error
+#> 2026-06-12 02:22:19.51518: Error fetching https://api-web.nhle.com/v1/edge/team-shot-location-top-10/F/high/total/now: The API returned an error
 #> NULL
 # }
 ```

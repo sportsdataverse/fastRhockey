@@ -61,7 +61,7 @@ following columns:
 # \donttest{
   try(load_nhl_linescore(2026))
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 1,391 × 10
+#> # A tibble: 1,392 × 10
 #>       game_id home_team_id home_team_abbr home_goals home_shots away_team_id
 #>         <int>        <int> <chr>               <int>      <int>        <int>
 #>  1 2025020001           13 FLA                     3         37           16
@@ -74,7 +74,7 @@ following columns:
 #>  8 2025020008            6 BOS                     4         33           16
 #>  9 2025020009            7 BUF                     0         37            3
 #> 10 2025020010           17 DET                     1         31            8
-#> # ℹ 1,381 more rows
+#> # ℹ 1,382 more rows
 #> # ℹ 4 more variables: away_team_abbr <chr>, away_goals <int>, away_shots <int>,
 #> #   has_shootout <lgl>
 # }

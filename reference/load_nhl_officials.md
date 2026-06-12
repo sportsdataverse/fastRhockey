@@ -56,7 +56,7 @@ the following columns:
 # \donttest{
   try(load_nhl_officials(2026))
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 5,562 × 5
+#> # A tibble: 5,566 × 5
 #>    role     name                   game_id   season game_date 
 #>    <chr>    <chr>                    <int>    <int> <chr>     
 #>  1 referee  Kelly Sutherland    2025020001 20252026 2025-10-07
@@ -69,6 +69,6 @@ the following columns:
 #>  8 linesman Devin Berg          2025020002 20252026 2025-10-07
 #>  9 referee  Frederick L'Ecuyer  2025020003 20252026 2025-10-07
 #> 10 referee  Thomas John Luxmore 2025020003 20252026 2025-10-07
-#> # ℹ 5,552 more rows
+#> # ℹ 5,556 more rows
 # }
 ```

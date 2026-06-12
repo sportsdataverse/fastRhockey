@@ -4,6 +4,22 @@
 
 #### New features
 
+- Added read-only **Fox Sports “Bifrost”** NHL wrappers (`fox_nhl_*`)
+  over `api.foxsports.com/bifrost/v1/nhl/*`, complementing the
+  `espn_nhl_*` family:
+  [`fox_nhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_pbp.md)
+  (period-based play-by-play),
+  [`fox_nhl_boxscore()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_boxscore.md),
+  [`fox_nhl_odds()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_odds.md),
+  [`fox_nhl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_team_roster.md),
+  [`fox_nhl_team_stats()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_team_stats.md),
+  [`fox_nhl_team_gamelog()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_team_gamelog.md),
+  [`fox_nhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_standings.md),
+  [`fox_nhl_league_leaders()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_league_leaders.md).
+  Flatten Fox’s layout JSON into tidy `fastRhockey_data` tibbles.
+  Parallels the cfbfastR / hoopR / sportsdataverse-py `fox_*` families;
+  reverse-engineering notes + an OpenAPI 3.1 spec live in the
+  `sdv-internal-refs` repo.
 - Added live HockeyTech wrappers for **AHL**, **OHL**, **WHL**, and
   **QMJHL** (`<lg>_schedule()`, `<lg>_pbp()`, `<lg>_standings()`,
   `<lg>_teams()`, `<lg>_team_roster()`, `<lg>_player_stats()`,

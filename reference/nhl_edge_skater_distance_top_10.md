@@ -137,7 +137,7 @@ Returns `NULL` on failure / empty response.
       sort_by = "total"
   ))
 #> ── NHL Edge Skater Distance Top 10 ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:28:41 UTC
+#> ℹ Data updated: 2026-06-12 02:22:13 UTC
 #> # A tibble: 10 × 74
 #>    player_slug             player_headshot player_position player_sweater_number
 #>    <chr>                   <chr>           <chr>                           <int>
@@ -145,8 +145,8 @@ Returns `NULL` on failure / empty response.
 #>  2 nick-suzuki-8480018     https://assets… C                                  14
 #>  3 mitch-marner-8478483    https://assets… R                                  93
 #>  4 juraj-slafkovský-84835… https://assets… L                                  20
-#>  5 cole-caufield-8481540   https://assets… R                                  13
-#>  6 sebastian-aho-8478427   https://assets… C                                  20
+#>  5 sebastian-aho-8478427   https://assets… C                                  20
+#>  6 cole-caufield-8481540   https://assets… R                                  13
 #>  7 ivan-barbashev-8477964  https://assets… L                                  49
 #>  8 brett-howden-8479353    https://assets… C                                  21
 #>  9 seth-jarvis-8482093     https://assets… R                                  24

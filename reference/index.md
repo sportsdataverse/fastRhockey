@@ -2051,6 +2051,51 @@ Functions exported by fastRhockey sourced from ESPN’s NHL API
 
   **Get ESPN NHL Venues (core-v2)**
 
+### Fox Sports NHL Data
+
+Read-only Fox Sports (Bifrost) NHL wrappers (play-by-play, boxscore,
+odds, roster, stats, game log, standings, leaders)
+
+- [`fox_nhl_boxscore()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_boxscore.md)
+  :
+
+  **Get Fox Sports NHL boxscore**
+
+- [`fox_nhl_league_leaders()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_league_leaders.md)
+  :
+
+  **Get Fox Sports NHL statistical leaders**
+
+- [`fox_nhl_odds()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_odds.md)
+  :
+
+  **Get Fox Sports NHL game odds**
+
+- [`fox_nhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_pbp.md)
+  :
+
+  **Get Fox Sports NHL play-by-play**
+
+- [`fox_nhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_standings.md)
+  :
+
+  **Get Fox Sports NHL standings**
+
+- [`fox_nhl_team_gamelog()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_team_gamelog.md)
+  :
+
+  **Get Fox Sports NHL team game log**
+
+- [`fox_nhl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_team_roster.md)
+  :
+
+  **Get Fox Sports NHL team roster**
+
+- [`fox_nhl_team_stats()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_team_stats.md)
+  :
+
+  **Get Fox Sports NHL team stat leaders**
+
 ## fastRhockey Data
 
 ### Family Overview

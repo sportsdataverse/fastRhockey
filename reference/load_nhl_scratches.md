@@ -54,7 +54,7 @@ game and the following columns:
 # \donttest{
   try(load_nhl_scratches(2026))
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 9,375 × 4
+#> # A tibble: 9,395 × 4
 #>         id firstName lastName      game_id
 #>      <int> <chr>     <chr>           <int>
 #>  1 8478881 Brett     Seney      2025020001
@@ -67,6 +67,6 @@ game and the following columns:
 #>  8 8481655 Cole      Schwindt   2025020001
 #>  9 8484304 Uvis      Balinskis  2025020001
 #> 10 8476856 Mathew    Dumba      2025020002
-#> # ℹ 9,365 more rows
+#> # ℹ 9,385 more rows
 # }
 ```

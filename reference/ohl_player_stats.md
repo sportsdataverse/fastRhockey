@@ -40,7 +40,7 @@ Other OHL Functions:
 ``` r
  try(ohl_player_stats(player_id = 1)) 
 #> ── OHL Player Stats from HockeyTech ─────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:29:54 UTC
+#> ℹ Data updated: 2026-06-12 02:23:17 UTC
 #> # A tibble: 8 × 52
 #>   season_id season_name             shortname playoff career sopt_track_faceoffs
 #>   <chr>     <chr>                   <chr>     <chr>   <chr>  <chr>              

@@ -41,7 +41,7 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_pbp(game_id = 27225)) 
 #> ── QMJHL Play-by-Play from HockeyTech ───────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:30:49 UTC
+#> ℹ Data updated: 2026-06-12 02:23:41 UTC
 #> # A tibble: 193 × 100
 #>    game_id event team_id period_of_game time_of_period x_coord y_coord player_id
 #>      <dbl> <chr> <chr>   <chr>          <chr>            <dbl>   <dbl>     <int>

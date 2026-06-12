@@ -44,28 +44,28 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_standings()) 
 #> ── QMJHL Standings from HockeyTech ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:31:08 UTC
+#> ℹ Data updated: 2026-06-12 02:23:48 UTC
 #> # A tibble: 18 × 20
 #>    team_code wins  losses ot_losses ot_wins shootout_wins shootout_losses row  
 #>    <chr>     <chr>  <dbl> <chr>     <chr>   <chr>         <chr>           <chr>
-#>  1 xyz - Mon 50        10 2         4       5             2               45   
-#>  2 x - Chi   49        10 3         2       1             2               48   
-#>  3 x - NFL   38        22 3         5       2             1               36   
-#>  4 x - Cha   33        23 2         7       3             6               30   
-#>  5 x - Que   32        25 6         3       1             1               31   
-#>  6 x - Cap   28        23 4         1       3             9               25   
-#>  7 x - Hal   29        29 3         5       4             3               25   
-#>  8 x - SNB   23        36 5         4       0             0               23   
-#>  9 Rim       19        44 0         7       2             1               17   
-#> 10 BaC       15        42 5         2       0             2               15   
-#> 11 xy - Rou  40        17 5         3       2             2               38   
-#> 12 x - BLB   40        18 5         2       0             1               40   
-#> 13 x - Dru   40        18 3         4       0             3               40   
-#> 14 x - Sha   35        23 2         4       1             4               34   
-#> 15 x - She   33        26 5         6       5             0               28   
-#> 16 x - VdO   26        31 4         1       1             3               25   
-#> 17 x - Vic   23        36 5         3       6             0               17   
-#> 18 x - Gat   21        38 4         2       5             1               16   
+#>  1 Rim       0          0 0         0       0             0               0    
+#>  2 Mon       0          0 0         0       0             0               0    
+#>  3 BaC       0          0 0         0       0             0               0    
+#>  4 Chi       0          0 0         0       0             0               0    
+#>  5 Que       0          0 0         0       0             0               0    
+#>  6 SNB       0          0 0         0       0             0               0    
+#>  7 Cha       0          0 0         0       0             0               0    
+#>  8 Hal       0          0 0         0       0             0               0    
+#>  9 Cap       0          0 0         0       0             0               0    
+#> 10 NFL       0          0 0         0       0             0               0    
+#> 11 She       0          0 0         0       0             0               0    
+#> 12 BLB       0          0 0         0       0             0               0    
+#> 13 Vic       0          0 0         0       0             0               0    
+#> 14 VdO       0          0 0         0       0             0               0    
+#> 15 Dru       0          0 0         0       0             0               0    
+#> 16 Sha       0          0 0         0       0             0               0    
+#> 17 Gat       0          0 0         0       0             0               0    
+#> 18 Rou       0          0 0         0       0             0               0    
 #> # ℹ 12 more variables: points <dbl>, penalty_minutes <chr>, streak <chr>,
 #> #   goals_for <chr>, goals_against <chr>, goals_diff <chr>, percentage <chr>,
 #> #   overall_rank <chr>, games_played <dbl>, team_rank <int>, past_10 <chr>,

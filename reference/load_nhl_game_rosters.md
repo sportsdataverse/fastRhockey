@@ -59,7 +59,7 @@ the following columns:
 # \donttest{
   try(load_nhl_game_rosters(2026))
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 55,638 × 11
+#> # A tibble: 55,678 × 11
 #>    player_id full_name      first_name last_name team_abbr team_id position_code
 #>        <int> <chr>          <chr>      <chr>     <chr>       <int> <chr>        
 #>  1   8473419 Brad Marchand  Brad       Marchand  FLA            13 L            
@@ -72,7 +72,7 @@ the following columns:
 #>  8   8476891 Matt Grzelcyk  Matt       Grzelcyk  CHI            16 D            
 #>  9   8477409 Carter Verhae… Carter     Verhaeghe FLA            13 C            
 #> 10   8477444 Andre Burakov… Andre      Burakovs… CHI            16 L            
-#> # ℹ 55,628 more rows
+#> # ℹ 55,668 more rows
 #> # ℹ 4 more variables: sweater_number <int>, game_id <int>, season <int>,
 #> #   game_date <chr>
 # }
