@@ -190,7 +190,7 @@ small.nav-text {
     color: #C9D3FE;
     animation: glow 3s ease-in-out infinite alternate;
 }
-.navbar-dark .navbar-brand {
+.navbar-brand {
     font-family: "Bungee";
     font-size: 16px;
     color: #C9D3FE;
@@ -218,18 +218,29 @@ small.nav-text {
 [data-bs-theme="dark"] body {
   color: #F3F3F3;
 }
-[data-bs-theme="dark"] #main h1,
-[data-bs-theme="dark"] #main h2,
-[data-bs-theme="dark"] #main h3,
-[data-bs-theme="dark"] #main h4,
-[data-bs-theme="dark"] #main h5,
-[data-bs-theme="dark"] #main h6,
-[data-bs-theme="dark"] #main .h1,
-[data-bs-theme="dark"] #main .h2,
-[data-bs-theme="dark"] #main .h3,
-[data-bs-theme="dark"] #main .h4 {
+[data-bs-theme="dark"] :is(#main, aside) h1,
+[data-bs-theme="dark"] :is(#main, aside) h2,
+[data-bs-theme="dark"] :is(#main, aside) h3,
+[data-bs-theme="dark"] :is(#main, aside) h4,
+[data-bs-theme="dark"] :is(#main, aside) h5,
+[data-bs-theme="dark"] :is(#main, aside) h6,
+[data-bs-theme="dark"] :is(#main, aside) .h1,
+[data-bs-theme="dark"] :is(#main, aside) .h2,
+[data-bs-theme="dark"] :is(#main, aside) .h3,
+[data-bs-theme="dark"] :is(#main, aside) .h4 {
   color: #F3F3F3;
 }
-[data-bs-theme="dark"] #main a {
+[data-bs-theme="dark"] :is(#main, aside) a {
   color: #C9D3FE;
+}
+
+/* Navbar menu-item font/colour. BS5 navbars dropped the .navbar-dark class (they
+   use data-bs-theme), so the original `.navbar-dark .navbar-nav .nav-link` rule
+   never matched and the items fell back to the template font. Target the live
+   `.navbar-nav .nav-link` instead (same idea as the brand fix). Hover/focus keep
+   their existing #4FD5E1 rules above. */
+.navbar-nav .nav-link {
+  font-family: "Fira Mono";
+  font-size: small;
+  color: #4FD5E1;
 }

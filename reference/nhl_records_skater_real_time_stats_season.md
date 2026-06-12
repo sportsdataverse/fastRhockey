@@ -67,7 +67,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_skater_real_time_stats_season(limit = 5))
 #> ── NHL Records Skater Real-Time Stats Season ────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:47:08 UTC
+#> ℹ Data updated: 2026-06-12 14:20:26 UTC
 #> # A tibble: 5 × 25
 #>      id active_player blocked_shots faceoff_win_pctg faceoffs_lost
 #>   <int> <lgl>                 <int> <lgl>                    <int>

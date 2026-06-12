@@ -64,7 +64,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_stats_goalie_milestones())
 #> ── NHL Stats Goalie Milestones ──────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:47:23 UTC
+#> ℹ Data updated: 2026-06-12 14:20:35 UTC
 #> # A tibble: 53 × 17
 #>       id current_team_id first_name game_type_id games_played last_name 
 #>    <int>           <int> <chr>             <int>        <int> <chr>     

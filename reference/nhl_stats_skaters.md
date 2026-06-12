@@ -66,7 +66,7 @@ Returns a data frame with skater statistics.
 ``` r
 # \donttest{
   try(nhl_stats_skaters())
-#> 2026-06-12 13:47:25.960849: No skater stats data
+#> 2026-06-12 14:20:38.00617: No skater stats data
 #> NULL
 # }
 ```

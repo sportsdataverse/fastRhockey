@@ -184,7 +184,7 @@ Saiem Gilani
     espn_nhl_game_officials(event_id = sb$game_id[1])
   })
 #> ── NHL Game Officials data from ESPN core-v2 ────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:44:03 UTC
+#> ℹ Data updated: 2026-06-12 14:17:30 UTC
 #> # A tibble: 4 × 12
 #>   event_id  cid    official_id first_name last_name full_name display_name order
 #>   <chr>     <chr>  <chr>       <chr>      <chr>     <chr>     <chr>        <int>

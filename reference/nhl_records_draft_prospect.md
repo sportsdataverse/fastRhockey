@@ -65,7 +65,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_draft_prospect())
 #> ── NHL Records Draft Prospect ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:47:00 UTC
+#> ℹ Data updated: 2026-06-12 14:20:18 UTC
 #> # A tibble: 135,794 × 28
 #>       id birth_city birth_country3code birth_date birth_state_prov_code
 #>    <int> <chr>      <chr>              <chr>      <chr>                

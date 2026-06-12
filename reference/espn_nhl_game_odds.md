@@ -192,7 +192,7 @@ Saiem Gilani
     espn_nhl_game_odds(event_id = sb$game_id[1])
   })
 #> ── NHL Game Odds data from ESPN core-v2 ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:44:02 UTC
+#> ℹ Data updated: 2026-06-12 14:17:29 UTC
 #> # A tibble: 2 × 20
 #>   event_id  cid   provider_id provider_name provider_priority details over_under
 #>   <chr>     <chr> <chr>       <chr>                     <int> <chr>        <dbl>

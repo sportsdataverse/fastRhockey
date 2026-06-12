@@ -165,7 +165,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_conferences())
 #> ── NHL Conferences data from ESPN.com ───────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:43:58 UTC
+#> ℹ Data updated: 2026-06-12 14:17:25 UTC
 #> # A tibble: 4 × 4
 #>   conference_name    conference_abbreviation division_name division_abbreviation
 #>   <chr>              <chr>                   <chr>         <chr>                

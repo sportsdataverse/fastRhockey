@@ -75,17 +75,17 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_team_summary_range(start_season = 2023, end_season = 2024))
 #> ── NHL Team Summary Range ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:47:27 UTC
+#> ℹ Data updated: 2026-06-12 14:20:39 UTC
 #> # A tibble: 64 × 26
 #>    faceoff_win_pct games_played goals_against goals_against_per_game goals_for
 #>              <dbl>        <int>         <int>                  <dbl>     <int>
 #>  1           0.545           82           174                   2.12       301
 #>  2           0.529           82           210                   2.56       262
 #>  3           0.513           82           222                   2.71       289
-#>  4           0.523           82           225                   2.74       267
-#>  5           0.531           82           220                   2.68       278
-#>  6           0.508           82           256                   3.12       325
-#>  7           0.467           82           223                   2.72       274
+#>  4           0.531           82           220                   2.68       278
+#>  5           0.523           82           225                   2.74       267
+#>  6           0.467           82           223                   2.72       274
+#>  7           0.508           82           256                   3.12       325
 #>  8           0.548           82           215                   2.62       281
 #>  9           0.491           82           216                   2.63       273
 #> 10           0.533           82           254                   3.10       274
