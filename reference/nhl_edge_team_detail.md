@@ -44,7 +44,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_team_detail(team_id = 10))
 #> ── NHL Edge Team Detail ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 22:25:24 UTC
+#> ℹ Data updated: 2026-06-13 02:49:20 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    

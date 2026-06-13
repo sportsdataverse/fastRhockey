@@ -192,7 +192,7 @@ Saiem Gilani
     espn_nhl_game_competition(event_id = sb$game_id[1])
   })
 #> ── NHL Game Competition data from ESPN core-v2 ──────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-12 22:22:45 UTC
+#> ℹ Data updated: 2026-06-13 02:46:50 UTC
 #> # A tibble: 1 × 20
 #>   event_id  cid       id    guid  uid   date  attendance neutral_site time_valid
 #>   <chr>     <chr>     <chr> <chr> <chr> <chr>      <int> <lgl>        <lgl>     

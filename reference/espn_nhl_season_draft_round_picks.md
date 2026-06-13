@@ -188,7 +188,7 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns an empty tibble for NHL (404 from ESPN)
   try(espn_nhl_season_draft_round_picks(season = 2025, round_num = 1))
-#> ! 2026-06-12 22:23:19.211346: ESPN nhl season draft round picks for 2025 round 1 is not available (HTTP 404 is normal for NHL).
+#> ! 2026-06-13 02:47:25.524115: ESPN nhl season draft round picks for 2025 round 1 is not available (HTTP 404 is normal for NHL).
 #> ! Warning: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }

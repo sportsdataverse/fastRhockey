@@ -185,7 +185,7 @@ Saiem Gilani
     sb <- espn_nhl_scoreboard(dates = "20250110")
     espn_nhl_game_probabilities(event_id = sb$game_id[1])
   })
-#> ✖ 2026-06-12 22:22:49.517991: Invalid arguments or no ESPN nhl game probabilities for event 401688263 available!
+#> ✖ 2026-06-13 02:46:54.760203: Invalid arguments or no ESPN nhl game probabilities for event 401688263 available!
 #> ✖ Args: league = "nhl", event_id = "401688263", cid = "401688263", limit = 300
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows
