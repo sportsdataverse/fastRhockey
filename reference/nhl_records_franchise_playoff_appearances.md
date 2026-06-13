@@ -47,7 +47,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_franchise_playoff_appearances())
 #> ── NHL Records Franchise Playoff Appearances ────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 02:49:45 UTC
+#> ℹ Data updated: 2026-06-13 03:25:40 UTC
 #> # A tibble: 38 × 8
 #>       id first_season_id franchise_id franchise_name       playoff_seasons
 #>    <int>           <int>        <int> <chr>                          <int>

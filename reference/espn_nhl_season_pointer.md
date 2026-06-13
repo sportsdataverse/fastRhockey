@@ -169,7 +169,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_season_pointer())
 #> ── NHL Current Season Pointer data from ESPN core-v2 ────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 02:47:27 UTC
+#> ℹ Data updated: 2026-06-13 03:23:03 UTC
 #> # A tibble: 1 × 9
 #>   season start_date        end_date    display_name current_type_id current_type
 #>    <int> <chr>             <chr>       <chr>        <chr>                  <int>

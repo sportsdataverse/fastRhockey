@@ -17,7 +17,7 @@ Returns a list with streaming availability data.
 ``` r
 # \donttest{
 try(nhl_where_to_watch())
-#> 2026-06-13 02:50:13.982862: Error fetching where to watch: The API returned an error
+#> 2026-06-13 03:26:11.137678: Error fetching where to watch: The API returned an error
 #> NULL
 # }
 ```
