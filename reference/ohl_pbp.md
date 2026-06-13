@@ -41,7 +41,7 @@ Other OHL Functions:
 ``` r
  try(ohl_pbp(game_id = 27225)) 
 #> ── OHL Play-by-Play from HockeyTech ─────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 04:22:15 UTC
+#> ℹ Data updated: 2026-06-13 07:21:13 UTC
 #> # A tibble: 149 × 100
 #>    game_id event team_id period_of_game time_of_period x_coord y_coord player_id
 #>      <dbl> <chr> <chr>   <chr>          <chr>            <dbl>   <dbl>     <int>

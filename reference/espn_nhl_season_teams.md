@@ -175,7 +175,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_season_teams(season = 2026))
 #> ── NHL Season Teams data from ESPN core-v2 ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 04:19:12 UTC
+#> ℹ Data updated: 2026-06-13 07:17:59 UTC
 #> # A tibble: 32 × 5
 #>    ref                                           team_id season count page_count
 #>    <chr>                                         <chr>    <int> <int>      <int>

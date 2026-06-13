@@ -185,7 +185,7 @@ Saiem Gilani
     espn_nhl_game_status(event_id = sb$game_id[1])
   })
 #> ── NHL Game Status data from ESPN core-v2 ───────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 04:18:39 UTC
+#> ℹ Data updated: 2026-06-13 07:17:26 UTC
 #> # A tibble: 1 × 13
 #>   event_id  cid       clock display_clock period type_id type_name    type_state
 #>   <chr>     <chr>     <dbl> <chr>          <int> <chr>   <chr>        <chr>     

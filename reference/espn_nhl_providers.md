@@ -170,20 +170,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_providers())
 #> ── NHL Providers data from ESPN core-v2 ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 04:19:06 UTC
-#> # A tibble: 33 × 4
+#> ℹ Data updated: 2026-06-13 07:17:53 UTC
+#> # A tibble: 31 × 4
 #>    ref                                              provider_id count page_count
 #>    <chr>                                            <chr>       <int>      <int>
-#>  1 http://sports.core.api.espn.com/v2/sports/hocke… 25             33          1
-#>  2 http://sports.core.api.espn.com/v2/sports/hocke… 28             33          1
-#>  3 http://sports.core.api.espn.com/v2/sports/hocke… 31             33          1
-#>  4 http://sports.core.api.espn.com/v2/sports/hocke… 32             33          1
-#>  5 http://sports.core.api.espn.com/v2/sports/hocke… 35             33          1
-#>  6 http://sports.core.api.espn.com/v2/sports/hocke… 36             33          1
-#>  7 http://sports.core.api.espn.com/v2/sports/hocke… 37             33          1
-#>  8 http://sports.core.api.espn.com/v2/sports/hocke… 38             33          1
-#>  9 http://sports.core.api.espn.com/v2/sports/hocke… 39             33          1
-#> 10 http://sports.core.api.espn.com/v2/sports/hocke… 40             33          1
-#> # ℹ 23 more rows
+#>  1 http://sports.core.api.espn.com/v2/sports/hocke… 25             31          1
+#>  2 http://sports.core.api.espn.com/v2/sports/hocke… 28             31          1
+#>  3 http://sports.core.api.espn.com/v2/sports/hocke… 31             31          1
+#>  4 http://sports.core.api.espn.com/v2/sports/hocke… 32             31          1
+#>  5 http://sports.core.api.espn.com/v2/sports/hocke… 35             31          1
+#>  6 http://sports.core.api.espn.com/v2/sports/hocke… 36             31          1
+#>  7 http://sports.core.api.espn.com/v2/sports/hocke… 37             31          1
+#>  8 http://sports.core.api.espn.com/v2/sports/hocke… 38             31          1
+#>  9 http://sports.core.api.espn.com/v2/sports/hocke… 39             31          1
+#> 10 http://sports.core.api.espn.com/v2/sports/hocke… 40             31          1
+#> # ℹ 21 more rows
 # }
 ```

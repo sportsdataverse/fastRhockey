@@ -56,7 +56,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_stats_game_listing())
 #> ── NHL Stats Game Listing ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 04:22:05 UTC
+#> ℹ Data updated: 2026-06-13 07:20:56 UTC
 #> # A tibble: 100 × 13
 #>            id eastern_start_time  game_date  game_number game_schedule_state_id
 #>         <int> <chr>               <chr>            <int>                  <int>

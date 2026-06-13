@@ -74,7 +74,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_conferences_info(conference_name = "Eastern"))
 #> ── NHL Conference Information from NHL.com ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 04:21:03 UTC
+#> ℹ Data updated: 2026-06-13 07:19:52 UTC
 #> # A tibble: 16 × 36
 #>    team_abbr team_name             team_common_name team_logo    conference_name
 #>    <chr>     <chr>                 <chr>            <chr>        <chr>          
