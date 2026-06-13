@@ -44,7 +44,7 @@ Other OHL Functions:
 ``` r
  try(ohl_standings()) 
 #> ── OHL Standings from HockeyTech ────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 03:26:22 UTC
+#> ℹ Data updated: 2026-06-13 04:22:21 UTC
 #> # A tibble: 2 × 21
 #>   team_code wins  losses ot_losses ot_wins shootout_wins shootout_losses
 #>   <chr>     <chr>  <dbl> <chr>     <chr>   <chr>         <chr>          

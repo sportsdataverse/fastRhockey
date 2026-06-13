@@ -75,7 +75,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_team_summary_range(start_season = 2023, end_season = 2024))
 #> ── NHL Team Summary Range ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 03:26:08 UTC
+#> ℹ Data updated: 2026-06-13 04:22:10 UTC
 #> # A tibble: 64 × 26
 #>    faceoff_win_pct games_played goals_against goals_against_per_game goals_for
 #>              <dbl>        <int>         <int>                  <dbl>     <int>

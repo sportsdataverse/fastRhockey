@@ -34,7 +34,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_attendance())
 #> ── NHL Records Attendance ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 03:25:29 UTC
+#> ℹ Data updated: 2026-06-13 04:21:33 UTC
 #> # A tibble: 80 × 5
 #>       id playoff_attendance regular_attendance season_id total_attendance
 #>    <int>              <int>              <int>     <int>            <int>
