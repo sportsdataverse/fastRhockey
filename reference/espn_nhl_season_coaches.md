@@ -175,20 +175,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_season_coaches(season = 2026))
 #> ── NHL Season Coaches data from ESPN core-v2 ────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:17:55 UTC
-#> # A tibble: 30 × 5
+#> ℹ Data updated: 2026-06-24 02:03:09 UTC
+#> # A tibble: 32 × 5
 #>    ref                                          coach_id season count page_count
 #>    <chr>                                        <chr>     <int> <int>      <int>
-#>  1 http://sports.core.api.espn.com/v2/sports/h… 900        2026    30          1
-#>  2 http://sports.core.api.espn.com/v2/sports/h… 2018453    2026    30          1
-#>  3 http://sports.core.api.espn.com/v2/sports/h… 4626       2026    30          1
-#>  4 http://sports.core.api.espn.com/v2/sports/h… 2591437    2026    30          1
-#>  5 http://sports.core.api.espn.com/v2/sports/h… 2017787    2026    30          1
-#>  6 http://sports.core.api.espn.com/v2/sports/h… 105        2026    30          1
-#>  7 http://sports.core.api.espn.com/v2/sports/h… 870        2026    30          1
-#>  8 http://sports.core.api.espn.com/v2/sports/h… 2560932    2026    30          1
-#>  9 http://sports.core.api.espn.com/v2/sports/h… 883        2026    30          1
-#> 10 http://sports.core.api.espn.com/v2/sports/h… 441        2026    30          1
-#> # ℹ 20 more rows
+#>  1 http://sports.core.api.espn.com/v2/sports/h… 900        2026    32          1
+#>  2 http://sports.core.api.espn.com/v2/sports/h… 2018453    2026    32          1
+#>  3 http://sports.core.api.espn.com/v2/sports/h… 4626       2026    32          1
+#>  4 http://sports.core.api.espn.com/v2/sports/h… 2591437    2026    32          1
+#>  5 http://sports.core.api.espn.com/v2/sports/h… 2017787    2026    32          1
+#>  6 http://sports.core.api.espn.com/v2/sports/h… 5013       2026    32          1
+#>  7 http://sports.core.api.espn.com/v2/sports/h… 105        2026    32          1
+#>  8 http://sports.core.api.espn.com/v2/sports/h… 2017380    2026    32          1
+#>  9 http://sports.core.api.espn.com/v2/sports/h… 2560932    2026    32          1
+#> 10 http://sports.core.api.espn.com/v2/sports/h… 883        2026    32          1
+#> # ℹ 22 more rows
 # }
 ```

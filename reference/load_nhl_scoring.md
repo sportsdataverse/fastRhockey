@@ -76,7 +76,7 @@ following columns:
 # \donttest{
   try(load_nhl_scoring(2026))
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 8,682 × 47
+#> # A tibble: 8,691 × 47
 #>    situationCode eventId strength playerId headshot       highlightClipSharing…¹
 #>    <chr>           <int> <chr>       <int> <chr>          <chr>                 
 #>  1 1551              258 ev        8483493 https://asset… https://nhl.com/video…
@@ -89,7 +89,7 @@ following columns:
 #>  8 1560              112 ev        8481481 https://asset… https://nhl.com/video…
 #>  9 1551              562 ev        8480039 https://asset… https://nhl.com/video…
 #> 10 1551              647 ev        8484258 https://asset… https://nhl.com/video…
-#> # ℹ 8,672 more rows
+#> # ℹ 8,681 more rows
 #> # ℹ abbreviated name: ¹​highlightClipSharingUrl
 #> # ℹ 41 more variables: highlightClipSharingUrlFr <chr>, highlightClip <dbl>,
 #> #   highlightClipFr <dbl>, discreteClip <dbl>, discreteClipFr <dbl>,

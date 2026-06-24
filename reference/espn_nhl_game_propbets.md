@@ -182,7 +182,7 @@ Saiem Gilani
     sb <- espn_nhl_scoreboard(dates = "20250110")
     espn_nhl_game_propbets(event_id = sb$game_id[1])
   })
-#> ✖ 2026-06-13 07:17:24.853775: Invalid arguments or no ESPN nhl propbets for event 401688263 available!
+#> ✖ 2026-06-24 02:02:37.508194: Invalid arguments or no ESPN nhl propbets for event 401688263 available!
 #> ✖ Args: league = "nhl", event_id = "401688263", cid = "401688263"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

@@ -164,7 +164,9 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_team_history(team_id = "4"))
-#> ! ESPN NHL team history returned no data for team_id=4. This endpoint may not be populated for NHL.
+#> ✖ 2026-06-24 02:03:42.641999: Invalid arguments or no ESPN nhl team history data for team_id=4 available!
+#> ✖ Args: league = "nhl", team_id = "4"
+#> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }
 ```

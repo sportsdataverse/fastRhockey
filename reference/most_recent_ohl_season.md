@@ -33,5 +33,5 @@ Other OHL Functions:
 
 ``` r
  try(most_recent_ohl_season()) 
-#> [1] 2026
+#> [1] 2027
 ```

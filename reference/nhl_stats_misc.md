@@ -69,7 +69,7 @@ the columns are:
 # \donttest{
   try(nhl_stats_misc(endpoint = "glossary"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:20:57 UTC
+#> ℹ Data updated: 2026-06-24 02:06:30 UTC
 #> # A tibble: 321 × 7
 #>       id abbreviation   definition first_season_for_stat full_name language_code
 #>    <int> <chr>          <chr>                      <int> <chr>     <chr>        
@@ -87,7 +87,7 @@ the columns are:
 #> # ℹ 1 more variable: last_updated <chr>
   try(nhl_stats_misc(endpoint = "franchise"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:20:58 UTC
+#> ℹ Data updated: 2026-06-24 02:06:31 UTC
 #> # A tibble: 40 × 4
 #>       id full_name             team_common_name team_place_name
 #>    <int> <chr>                 <chr>            <chr>          
@@ -104,7 +104,7 @@ the columns are:
 #> # ℹ 30 more rows
   try(nhl_stats_misc(endpoint = "country"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:20:58 UTC
+#> ℹ Data updated: 2026-06-24 02:06:31 UTC
 #> # A tibble: 49 × 11
 #>    id    country3code country_code country_name   has_player_stats image_url    
 #>    <chr> <chr>        <chr>        <chr>                     <int> <chr>        

@@ -44,7 +44,7 @@ Other AHL Functions:
 ``` r
  try(ahl_leaders()) 
 #> ── AHL Leaders from HockeyTech ──────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:16:57 UTC
+#> ℹ Data updated: 2026-06-24 02:02:07 UTC
 #> # A tibble: 10 × 15
 #>     rank player_id jersey_number name      team_id team_name team_code team_logo
 #>    <int> <chr>     <chr>         <chr>     <chr>   <chr>     <chr>     <chr>    

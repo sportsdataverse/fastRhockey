@@ -42,7 +42,7 @@ failure / empty response.
 #> Warning: `nhl_edge_goalie_5v5_top_10()` was deprecated in fastRhockey 1.0.0.
 #> ℹ The NHL has removed this Edge top-10 leaderboard endpoint; the function
 #>   returns NULL.
-#> 2026-06-13 07:19:56.499021: Error fetching https://api-web.nhle.com/v1/edge/goalie-5v5-top-10/savePctg/now: The API returned an error
+#> 2026-06-24 02:05:22.570211: Error fetching https://api-web.nhle.com/v1/edge/goalie-5v5-top-10/savePctg/now: The API returned an error
 #> NULL
 # }
 ```

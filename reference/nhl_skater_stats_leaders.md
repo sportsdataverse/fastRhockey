@@ -71,25 +71,23 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_skater_stats_leaders())
 #> ── NHL Skater Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:20:52 UTC
-#> # A tibble: 45 × 21
+#> ℹ Data updated: 2026-06-24 02:06:25 UTC
+#> # A tibble: 45 × 15
 #>         id sweater_number headshot          team_abbrev team_logo position value
 #>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>
-#>  1 8479353             21 https://assets.n… VGK         https://… C            3
-#>  2 8478133             71 https://assets.n… MTL         https://… C            1
-#>  3 8478970              5 https://assets.n… CAR         https://… D            1
-#>  4 8475188              3 https://assets.n… VGK         https://… D            1
-#>  5 8480835             18 https://assets.n… COL         https://… C            1
-#>  6 8478483             93 https://assets.n… VGK         https://… R           14
-#>  7 8475188              3 https://assets.n… VGK         https://… D           13
-#>  8 8479353             21 https://assets.n… VGK         https://… C           13
-#>  9 8475791             71 https://assets.n… CAR         https://… L           12
-#> 10 8482122              7 https://assets.n… MIN         https://… D           11
+#>  1 8480802             71 https://assets.n… BUF         https://… C            5
+#>  2 8480797             86 https://assets.n… CGY         https://… L            4
+#>  3 8476399             20 https://assets.n… CGY         https://… L            4
+#>  4 8481557             12 https://assets.n… MIN         https://… L            4
+#>  5 8482093             24 https://assets.n… CAR         https://… R            4
+#>  6 8477492             29 https://assets.n… COL         https://… C           57
+#>  7 8480039             88 https://assets.n… COL         https://… C           47
+#>  8 8476453             86 https://assets.n… TBL         https://… R           43
+#>  9 8484258             70 https://assets.n… COL         https://… D           43
+#> 10 8476312             42 https://assets.n… COL         https://… D           42
 #> # ℹ 35 more rows
-#> # ℹ 14 more variables: first_name_default <chr>, last_name_default <chr>,
-#> #   team_name_default <chr>, category <chr>, first_name_cs <chr>,
-#> #   first_name_de <chr>, first_name_es <chr>, first_name_fi <chr>,
-#> #   first_name_sk <chr>, first_name_sv <chr>, last_name_cs <chr>,
-#> #   last_name_fi <chr>, last_name_sk <chr>, team_name_fr <chr>
+#> # ℹ 8 more variables: first_name_default <chr>, last_name_default <chr>,
+#> #   team_name_default <chr>, category <chr>, last_name_cs <chr>,
+#> #   last_name_sk <chr>, last_name_fi <chr>, team_name_fr <chr>
 # }
 ```

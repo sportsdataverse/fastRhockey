@@ -68,7 +68,7 @@ the game winner/loser goalie decision) and the following columns:
 # \donttest{
   try(load_nhl_three_stars(2026))
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 4,176 × 22
+#> # A tibble: 4,182 × 22
 #>     star playerId teamAbbrev headshot    sweaterNo position goals assists points
 #>    <int>    <int> <chr>      <chr>           <int> <chr>    <int>   <int>  <int>
 #>  1     1  8480003 FLA        https://as…        70 C            1       0      1
@@ -81,7 +81,7 @@ the game winner/loser goalie decision) and the following columns:
 #>  8     2  8477492 COL        https://as…        29 C            0       2      2
 #>  9     3  8477476 COL        https://as…        62 L            1       1      2
 #> 10     1  8477939 TOR        https://as…        88 R            1       2      3
-#> # ℹ 4,166 more rows
+#> # ℹ 4,172 more rows
 #> # ℹ 13 more variables: game_id <int>, winner_id <int>, winner_name <chr>,
 #> #   loser_id <int>, loser_name <chr>, goalsAgainstAverage <dbl>,
 #> #   savePctg <dbl>, name.default <chr>, name.cs <chr>, name.sk <chr>,

@@ -168,20 +168,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_transactions())
 #> ── NHL Transactions data from ESPN.com ──────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:18:31 UTC
+#> ℹ Data updated: 2026-06-24 02:03:48 UTC
 #> # A tibble: 25 × 8
 #>    date            description team_id team_location team_name team_abbreviation
 #>    <chr>           <chr>       <chr>   <chr>         <chr>     <chr>            
-#>  1 2026-06-09T07:… Signed F M… 30      Minnesota     Wild      MIN              
-#>  2 2026-06-08T07:… Signed G C… 26      Florida       Panthers  FLA              
-#>  3 2026-06-08T07:… F Filip Ko… 16      Pittsburgh    Penguins  PIT              
-#>  4 2026-06-07T07:… Signed F V… 129764  Utah          Mammoth   UTA              
-#>  5 2026-06-07T07:… F Milan Lu… 1       Boston        Bruins    BOS              
-#>  6 2026-06-04T07:… Signed F D… 19      St. Louis     Blues     STL              
-#>  7 2026-06-04T07:… Signed F N… 1       Boston        Bruins    BOS              
-#>  8 2026-06-03T07:… Re-signed … 19      St. Louis     Blues     STL              
-#>  9 2026-06-02T07:… Signed F I… 22      Vancouver     Canucks   VAN              
-#> 10 2026-06-01T07:… Signed D M… 26      Florida       Panthers  FLA              
+#>  1 2026-06-23T07:… Signed D N… 18      San Jose      Sharks    SJ               
+#>  2 2026-06-23T07:… Acquired t… 11      New Jersey    Devils    NJ               
+#>  3 2026-06-23T07:… Acquired D… 3       Calgary       Flames    CGY              
+#>  4 2026-06-23T07:… Signed G S… 1       Boston        Bruins    BOS              
+#>  5 2026-06-22T07:… Signed Con… 6       Edmonton      Oilers    EDM              
+#>  6 2026-06-21T07:… Acquired F… 124292  Seattle       Kraken    SEA              
+#>  7 2026-06-21T07:… Acquired a… 26      Florida       Panthers  FLA              
+#>  8 2026-06-21T07:… Acquired 2… 14      Ottawa        Senators  OTT              
+#>  9 2026-06-21T07:… Signed G D… 13      New York      Rangers   NYR              
+#> 10 2026-06-21T07:… Signed F J… 6       Edmonton      Oilers    EDM              
 #> # ℹ 15 more rows
 #> # ℹ 2 more variables: team_display_name <chr>, team_color <chr>
 # }

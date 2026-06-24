@@ -54,12 +54,12 @@ Returns `NULL` on failure / empty response.
 # \donttest{
   try(nhl_edge_goalie_shot_location_detail(player_id = 8475883))
 #> ── NHL Edge Goalie Shot Location Detail ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:19:59 UTC
+#> ℹ Data updated: 2026-06-24 02:05:25 UTC
 #> # A tibble: 17 × 9
 #>    area       shots_against saves goals_against save_pctg shots_against_percen…¹
 #>    <chr>              <int> <int>         <int>     <dbl>                  <dbl>
 #>  1 Behind th…             3     3             0     1                       0.84
-#>  2 Beyond Re…            21    21             0     1                       1   
+#>  2 Beyond Re…            21    21             0     1                       0.96
 #>  3 Center Po…            17    17             0     1                       0.8 
 #>  4 Crease                19    15             4     0.789                   0.92
 #>  5 High Slot             34    26             8     0.765                   0.92
@@ -72,7 +72,7 @@ Returns `NULL` on failure / empty response.
 #> 12 Outside L             17    17             0     1                       0.8 
 #> 13 Outside R             29    27             2     0.931                   0.96
 #> 14 R Circle              23    22             1     0.957                   0.84
-#> 15 R Corner               1     1             0     1                       0.92
+#> 15 R Corner               1     1             0     1                       0.88
 #> 16 R Net Side             8     7             1     0.875                   0.92
 #> 17 R Point               19    18             1     0.947                   0.76
 #> # ℹ abbreviated name: ¹​shots_against_percentile

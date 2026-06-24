@@ -61,7 +61,7 @@ following columns:
 # \donttest{
   try(load_nhl_game_info(2026))
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 1,392 × 10
+#> # A tibble: 1,394 × 10
 #>       game_id   season game_type game_date  venue  home_team_abbr away_team_abbr
 #>         <int>    <int> <chr>     <chr>      <chr>  <chr>          <chr>         
 #>  1 2025020001 20252026 R         2025-10-07 Amera… FLA            CHI           
@@ -74,7 +74,7 @@ following columns:
 #>  8 2025020008 20252026 R         2025-10-09 TD Ga… BOS            CHI           
 #>  9 2025020009 20252026 R         2025-10-09 KeyBa… BUF            NYR           
 #> 10 2025020010 20252026 R         2025-10-09 Littl… DET            MTL           
-#> # ℹ 1,382 more rows
+#> # ℹ 1,384 more rows
 #> # ℹ 3 more variables: home_score <int>, away_score <int>, game_state <chr>
 # }
 ```

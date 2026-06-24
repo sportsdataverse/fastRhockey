@@ -48,8 +48,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_teams_roster(team_abbr = "TOR"))
 #> ── NHL Roster ───────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:21:05 UTC
-#> # A tibble: 22 × 14
+#> ℹ Data updated: 2026-06-24 02:06:36 UTC
+#> # A tibble: 24 × 14
 #>    player_id first_name last_name full_name        sweater_number position_code
 #>        <int> <chr>      <chr>     <chr>                     <int> <chr>        
 #>  1   8477503 Max        Domi      Max Domi                     11 F            
@@ -62,13 +62,13 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8   8481711 Matias     Maccelli  Matias Maccelli              63 F            
 #>  9   8479318 Auston     Matthews  Auston Matthews              34 F            
 #> 10   8477939 William    Nylander  William Nylander             88 F            
-#> # ℹ 12 more rows
+#> # ℹ 14 more rows
 #> # ℹ 8 more variables: shoots_catches <chr>, height_inches <int>,
 #> #   weight_pounds <int>, birth_date <chr>, birth_city <chr>,
 #> #   birth_country <chr>, headshot_url <chr>, team_abbr <chr>
   try(nhl_teams_roster(team_abbr = "TOR", season = 2024))
 #> ── NHL Roster ───────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:21:06 UTC
+#> ℹ Data updated: 2026-06-24 02:06:36 UTC
 #> # A tibble: 42 × 14
 #>    player_id first_name last_name full_name       sweater_number position_code
 #>        <int> <chr>      <chr>     <chr>                    <int> <chr>        

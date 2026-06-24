@@ -39,8 +39,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_combine())
 #> ── NHL Records Combine ──────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:20:22 UTC
-#> # A tibble: 185 × 10
+#> ℹ Data updated: 2026-06-24 02:05:53 UTC
+#> # A tibble: 184 × 10
 #>       id amateur_club_name  amateur_league draft_year event first_name last_name
 #>    <int> <chr>              <chr>               <int> <chr> <chr>      <chr>    
 #>  1     1 Poprad             SLOVAKIA             2022 Benc… Filip      Mesar    
@@ -53,7 +53,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8     8 Northeastern Univ. H-EAST               2022 Benc… Jack       Hughes   
 #>  9     9 Skelleftea Jr.     SWEDEN-JR            2023 Benc… Axel       Sandin-P…
 #> 10    10 Sarnia             OHL                  2024 Benc… Lukas      Fischer  
-#> # ℹ 175 more rows
+#> # ℹ 174 more rows
 #> # ℹ 3 more variables: player_id <int>, position_code <chr>, value <dbl>
 # }
 ```

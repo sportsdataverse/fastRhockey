@@ -168,19 +168,19 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_seasons(limit = 10))
 #> ── NHL Seasons List data from ESPN core-v2 ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:18:01 UTC
+#> ℹ Data updated: 2026-06-24 02:03:16 UTC
 #> # A tibble: 10 × 4
 #>    ref                                                   season count page_count
 #>    <chr>                                                  <int> <int>      <int>
-#>  1 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2026    66          7
-#>  2 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2025    66          7
-#>  3 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2024    66          7
-#>  4 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2023    66          7
-#>  5 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2022    66          7
-#>  6 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2021    66          7
-#>  7 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2020    66          7
-#>  8 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2019    66          7
-#>  9 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2018    66          7
-#> 10 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2017    66          7
+#>  1 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2027    67          7
+#>  2 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2026    67          7
+#>  3 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2025    67          7
+#>  4 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2024    67          7
+#>  5 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2023    67          7
+#>  6 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2022    67          7
+#>  7 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2021    67          7
+#>  8 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2020    67          7
+#>  9 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2019    67          7
+#> 10 http://sports.core.api.espn.com/v2/sports/hockey/lea…   2018    67          7
 # }
 ```

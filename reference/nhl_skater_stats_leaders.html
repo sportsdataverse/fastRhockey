@@ -134,26 +134,24 @@ If NULL, returns current season leaders.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_skater_stats_leaders</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Skater Stats Leaders ─────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-13 07:20:52 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 45 × 21</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-24 02:06:25 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 45 × 15</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         id sweater_number headshot          team_abbrev team_logo position value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 8<span style="text-decoration: underline;">479</span>353             21 https://assets.n… VGK         https://… C            3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 8<span style="text-decoration: underline;">478</span>133             71 https://assets.n… MTL         https://… C            1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 8<span style="text-decoration: underline;">478</span>970              5 https://assets.n… CAR         https://… D            1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 8<span style="text-decoration: underline;">475</span>188              3 https://assets.n… VGK         https://… D            1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 8<span style="text-decoration: underline;">480</span>835             18 https://assets.n… COL         https://… C            1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 8<span style="text-decoration: underline;">478</span>483             93 https://assets.n… VGK         https://… R           14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 8<span style="text-decoration: underline;">475</span>188              3 https://assets.n… VGK         https://… D           13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 8<span style="text-decoration: underline;">479</span>353             21 https://assets.n… VGK         https://… C           13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 8<span style="text-decoration: underline;">475</span>791             71 https://assets.n… CAR         https://… L           12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 8<span style="text-decoration: underline;">482</span>122              7 https://assets.n… MIN         https://… D           11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 8<span style="text-decoration: underline;">480</span>802             71 https://assets.n… BUF         https://… C            5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 8<span style="text-decoration: underline;">480</span>797             86 https://assets.n… CGY         https://… L            4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 8<span style="text-decoration: underline;">476</span>399             20 https://assets.n… CGY         https://… L            4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 8<span style="text-decoration: underline;">481</span>557             12 https://assets.n… MIN         https://… L            4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 8<span style="text-decoration: underline;">482</span>093             24 https://assets.n… CAR         https://… R            4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 8<span style="text-decoration: underline;">477</span>492             29 https://assets.n… COL         https://… C           57</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 8<span style="text-decoration: underline;">480</span>039             88 https://assets.n… COL         https://… C           47</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 8<span style="text-decoration: underline;">476</span>453             86 https://assets.n… TBL         https://… R           43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 8<span style="text-decoration: underline;">484</span>258             70 https://assets.n… COL         https://… D           43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 8<span style="text-decoration: underline;">476</span>312             42 https://assets.n… COL         https://… D           42</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 35 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 14 more variables: first_name_default &lt;chr&gt;, last_name_default &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_name_default &lt;chr&gt;, category &lt;chr&gt;, first_name_cs &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   first_name_de &lt;chr&gt;, first_name_es &lt;chr&gt;, first_name_fi &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   first_name_sk &lt;chr&gt;, first_name_sv &lt;chr&gt;, last_name_cs &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   last_name_fi &lt;chr&gt;, last_name_sk &lt;chr&gt;, team_name_fr &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 8 more variables: first_name_default &lt;chr&gt;, last_name_default &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_name_default &lt;chr&gt;, category &lt;chr&gt;, last_name_cs &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   last_name_sk &lt;chr&gt;, last_name_fi &lt;chr&gt;, team_name_fr &lt;chr&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

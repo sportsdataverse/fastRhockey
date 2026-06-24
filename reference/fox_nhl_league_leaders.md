@@ -32,19 +32,19 @@ columns).
 ``` r
  try(fox_nhl_league_leaders("scoring")) 
 #> ── Fox Sports NHL league_leaders ────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:18:35 UTC
+#> ℹ Data updated: 2026-06-24 02:03:50 UTC
 #> # A tibble: 100 × 7
-#>    players v2           gp    entity_id g     a     p    
-#>    <chr>   <chr>        <chr> <chr>     <chr> <chr> <chr>
-#>  1 1       S. Theodore  21    3534      NA    NA    NA   
-#>  2 2       C. Sissons   21    3916      NA    NA    NA   
-#>  3 3       T. Hertl     21    4109      NA    NA    NA   
-#>  4 4       N. Dowd      21    4328      NA    NA    NA   
-#>  5 5       I. Barbashev 21    4412      NA    NA    NA   
-#>  6 6       J. Eichel    21    4741      NA    NA    NA   
-#>  7 7       N. Hanifin   21    4742      NA    NA    NA   
-#>  8 8       K. Kolesar   21    4849      NA    NA    NA   
-#>  9 9       M. Marner    21    4908      NA    NA    NA   
-#> 10 10      R. Andersson 21    4913      NA    NA    NA   
+#>    players v2          gp    entity_id g     a     p    
+#>    <chr>   <chr>       <chr> <chr>     <chr> <chr> <chr>
+#>  1 1       B. Kulak    83    3603      NA    NA    NA   
+#>  2 2       B. Burns    82    2225      NA    NA    NA   
+#>  3 3       A. Ovechkin 82    2513      NA    NA    NA   
+#>  4 4       J. Toews    82    2690      NA    NA    NA   
+#>  5 5       C. Giroux   82    2762      NA    NA    NA   
+#>  6 6       M. Backlund 82    2820      NA    NA    NA   
+#>  7 7       S. Stamkos  82    2949      NA    NA    NA   
+#>  8 8       J. Tavares  82    3057      NA    NA    NA   
+#>  9 9       C. Fowler   82    3109      NA    NA    NA   
+#> 10 10      I. Cole     82    3233      NA    NA    NA   
 #> # ℹ 90 more rows
 ```

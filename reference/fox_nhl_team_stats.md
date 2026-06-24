@@ -24,25 +24,25 @@ A `fastRhockey_data` tibble (`team_id`, `category`, `stat`,
 ``` r
  try(fox_nhl_team_stats("1")) 
 #> ── Fox Sports NHL team_stats ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:18:39 UTC
+#> ℹ Data updated: 2026-06-24 02:03:52 UTC
 #> # A tibble: 17 × 6
 #>    team_id category     stat                      stat_abbreviation player value
 #>    <chr>   <chr>        <chr>                     <chr>             <chr>  <chr>
-#>  1 1       PLAYER STATS Goals                     G                 David… 3    
-#>  2 1       PLAYER STATS Points                    P                 David… 7    
-#>  3 1       PLAYER STATS Plus/Minus                +/-               Andre… 2    
-#>  4 1       PLAYER STATS Shots On Goal             S                 David… 22   
-#>  5 1       PLAYER STATS Takeaways                 TA                Mark … 5    
-#>  6 1       PLAYER STATS Goals Against Average     GAA               Jerem… 2.91 
-#>  7 1       PLAYER STATS Shutouts                  SO                Joona… 0    
-#>  8 1       PLAYER STATS Time On Ice Per Game      TOI/G             Charl… 25:37
-#>  9 1       PLAYER STATS Faceoff Wins              W                 Elias… 53   
-#> 10 1       PLAYER STATS Penalty Minutes           PIM               Nikit… 37   
-#> 11 1       TEAM STATS   Goal Differential         DIFF              NA     -8   
-#> 12 1       TEAM STATS   Power Play Percentage     PCT               NA     12.5 
-#> 13 1       TEAM STATS   Power Play Kill Percenta… KPCT              NA     95.8 
-#> 14 1       TEAM STATS   Shorthanded Percentage    PCT               NA     4.2  
-#> 15 1       TEAM STATS   Penalty Minute Different… DIFF              NA     30.0 
-#> 16 1       TEAM STATS   Takeaway / Giveaway       TA/GA             NA     0.27 
-#> 17 1       TEAM STATS   Faceoff Win Percentage    FPWPCT            NA     56.2 
+#>  1 1       PLAYER STATS Goals                     G                 Morga… 39   
+#>  2 1       PLAYER STATS Points                    P                 David… 100  
+#>  3 1       PLAYER STATS Plus/Minus                +/-               Jonat… 30   
+#>  4 1       PLAYER STATS Shots On Goal             S                 David… 261  
+#>  5 1       PLAYER STATS Takeaways                 TA                Nikit… 33   
+#>  6 1       PLAYER STATS Goals Against Average     GAA               Jerem… 2.71 
+#>  7 1       PLAYER STATS Shutouts                  SO                Jerem… 2    
+#>  8 1       PLAYER STATS Time On Ice Per Game      TOI/G             Charl… 24:23
+#>  9 1       PLAYER STATS Faceoff Wins              W                 Elias… 660  
+#> 10 1       PLAYER STATS Penalty Minutes           PIM               Nikit… 152  
+#> 11 1       TEAM STATS   Goal Differential         DIFF              NA     21   
+#> 12 1       TEAM STATS   Power Play Percentage     PCT               NA     23.4 
+#> 13 1       TEAM STATS   Power Play Kill Percenta… KPCT              NA     76.9 
+#> 14 1       TEAM STATS   Shorthanded Percentage    PCT               NA     0.7  
+#> 15 1       TEAM STATS   Penalty Minute Different… DIFF              NA     117.0
+#> 16 1       TEAM STATS   Takeaway / Giveaway       TA/GA             NA     0.28 
+#> 17 1       TEAM STATS   Faceoff Win Percentage    FPWPCT            NA     53.1 
 ```

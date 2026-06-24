@@ -45,7 +45,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_goalie_comparison(player_id = 8475883))
 #> ── NHL Edge Goalie Comparison ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:19:56 UTC
+#> ℹ Data updated: 2026-06-24 02:05:23 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    

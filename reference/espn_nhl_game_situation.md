@@ -178,7 +178,7 @@ Saiem Gilani
     espn_nhl_game_situation(event_id = sb$game_id[1])
   })
 #> ── NHL Game Situation data from ESPN core-v2 ────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:17:25 UTC
+#> ℹ Data updated: 2026-06-24 02:02:38 UTC
 #> # A tibble: 1 × 6
 #>   event_id  cid       power_play empty_net last_play_ref           situation_ref
 #>   <chr>     <chr>     <lgl>      <lgl>     <chr>                   <chr>        

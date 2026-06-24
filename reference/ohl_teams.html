@@ -133,26 +133,30 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">ohl_teams</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> </span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── OHL Teams from HockeyTech ────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-13 07:21:28 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 16 × 7</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-24 02:06:49 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 20 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    team_name       team_id team_code team_nickname team_label division team_logo</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Barrie Colts    7       BAR       Colts         Barrie     2        https://…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Brantford Bull… 1       BFD       Bulldogs      Brantford  1        https://…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Flint Firebirds 13      FLNT      Firebirds     Flint      3        https://…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Guelph Storm    9       GUE       Storm         Guelph     4        https://…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Kingston Front… 2       KGN       Frontenacs    Kingston   1        https://…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Kitchener Rang… 10      KIT       Rangers       Kitchener  4        https://…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> London Knights  14      LDN       Knights       London     4        https://…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Niagara IceDogs 20      NIAG      IceDogs       Niagara    2        https://…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> North Bay Batt… 19      NB        Battalion     North Bay  2        https://…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Ottawa 67's     5       OTT       67's          Ottawa     1        https://…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> Owen Sound Att… 11      OS        Attack        Owen Sound 4        https://…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> Peterborough P… 6       PBO       Petes         Peterboro… 1        https://…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> Saginaw Spirit  34      SAG       Spirit        Saginaw    3        https://…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> Soo Greyhounds  16      SOO       Greyhounds    Sault Ste… 3        https://…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> Sudbury Wolves  12      SBY       Wolves        Sudbury    2        https://…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> Windsor Spitfi… 17      WSR       Spitfires     Windsor    3        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Brampton Steel… 18      BRAM      Steelheads    Brampton   2        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Brantford Bull… 1       BFD       Bulldogs      Brantford  1        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Erie Otters     8       ER        Otters        Erie       4        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Flint Firebirds 13      FLNT      Firebirds     Flint      3        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Guelph Storm    9       GUE       Storm         Guelph     4        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Kingston Front… 2       KGN       Frontenacs    Kingston   1        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Kitchener Rang… 10      KIT       Rangers       Kitchener  4        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> London Knights  14      LDN       Knights       London     4        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Niagara IceDogs 20      NIAG      IceDogs       Niagara    2        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> North Bay Batt… 19      NB        Battalion     North Bay  2        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> Oshawa Generals 4       OSH       Generals      Oshawa     1        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> Ottawa 67's     5       OTT       67's          Ottawa     1        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> Owen Sound Att… 11      OS        Attack        Owen Sound 4        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> Peterborough P… 6       PBO       Petes         Peterboro… 1        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> Saginaw Spirit  34      SAG       Spirit        Saginaw    3        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> Sarnia Sting    15      SAR       Sting         Sarnia     3        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span> Soo Greyhounds  16      SOO       Greyhounds    Sault Ste… 3        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span> Sudbury Wolves  12      SBY       Wolves        Sudbury    2        https://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">20</span> Windsor Spitfi… 17      WSR       Spitfires     Windsor    3        https://…</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

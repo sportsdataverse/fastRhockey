@@ -24,7 +24,10 @@ Returns a list with game odds data.
 # \donttest{
 try(nhl_partner_game_odds())
 #> $currentOddsDate
-#> [1] "2026-06-12"
+#> [1] "2026-06-14"
+#> 
+#> $lastUpdatedUTC
+#> [1] "2026-06-15T02:30:38Z"
 #> 
 #> $bettingPartner
 #> $bettingPartner$partnerId
@@ -53,7 +56,20 @@ try(nhl_partner_game_odds())
 #> 
 #> 
 #> $games
-#> list()
+#>       gameId gameType         startTimeUTC homeTeam.id homeTeam.abbrev
+#> 1 2025030416        3 2026-06-15T00:00:00Z          54             VGK
+#>                                         homeTeam.logo
+#> 1 https://assets.nhle.com/logos/nhl/svg/VGK_light.svg
+#>                                                                                                                                                  homeTeam.odds
+#> 1 PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, MONEY_LINE_3_WAY, OVER_UNDER, -110, 1000, 850, 2500, 3500, -140, +2.5, , Draw, , , O3.5
+#>   homeTeam.name.default awayTeam.id awayTeam.abbrev
+#> 1        Golden Knights          12             CAR
+#>                                         awayTeam.logo
+#> 1 https://assets.nhle.com/logos/nhl/svg/CAR_light.svg
+#>                                                                                                                                                     awayTeam.odds
+#> 1 PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, MONEY_LINE_3_WAY, OVER_UNDER, -120, -2100, 850, -20000, -1000, 110, -2.5, , Draw, , , U3.5
+#>   awayTeam.name.default
+#> 1            Hurricanes
 #> 
 # }
 ```

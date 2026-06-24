@@ -58,8 +58,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_team_prospects(team_abbr = "TOR"))
 #> ── NHL Team Prospects ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-13 07:21:04 UTC
-#> # A tibble: 6 × 30
+#> ℹ Data updated: 2026-06-24 02:06:34 UTC
+#> # A tibble: 5 × 30
 #>       id headshot position_code shoots_catches height_in_inches weight_in_pounds
 #>    <int> <chr>    <chr>         <chr>                     <int>            <int>
 #> 1 8.48e6 https:/… L             L                            76              223
@@ -67,7 +67,6 @@ A data frame (`fastRhockey_data`) with the following columns:
 #> 3 8.48e6 https:/… L             L                            73              187
 #> 4 8.48e6 https:/… R             L                            72              176
 #> 5 8.48e6 https:/… L             L                            69              180
-#> 6 8.48e6 https:/… G             L                            75              212
 #> # ℹ 24 more variables: height_in_centimeters <int>, weight_in_kilograms <int>,
 #> #   birth_date <chr>, birth_country <chr>, sweater_number <int>,
 #> #   first_name_default <chr>, first_name_cs <chr>, first_name_sk <chr>,
