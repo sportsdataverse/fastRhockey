@@ -116,7 +116,10 @@ hockeytech_player_toi <- function(shifts) {
 #' Attach on_ice_home / on_ice_away (comma-joined sorted integer player_ids) per event.
 #'
 #' `pbp` must have integer `period_of_game` and `time_s` (countdown seconds).
-#' A player is on ice iff a shift in that period has start_s >= time_s >= end_s.
+#' A player is on ice iff a shift in that period has start_s >= time_s > end_s
+#' (end boundary EXCLUSIVE, so a line-change instant -- outgoing end_s == incoming
+#' start_s == event time_s -- is owned only by the incoming shift, not double-counted
+#' across both lines, which produced impossible ~10-skater on-ice counts).
 #' `shifts` must have `player_id`, `home` (1=home, 0=away), `period`,
 #' `start_s`, `end_s`.
 #'
@@ -159,8 +162,12 @@ hockeytech_build_on_ice <- function(pbp, shifts) {
     all   = FALSE
   )
 
-  # Keep only shifts covering the event time (countdown: start_s >= time_s >= end_s)
-  on_ice <- joined[joined$start_s >= joined$time_s & joined$time_s >= joined$end_s, ]
+  # Keep only shifts covering the event time. End boundary EXCLUSIVE (`> end_s`,
+  # not `>= end_s`): at a line change the outgoing shift's end_s equals the incoming
+  # shift's start_s equals the event time_s; a closed interval counts BOTH lines
+  # (impossible ~10-v-10 on-ice states). Half-open assigns the instant to the
+  # incoming shift only. Mirrors sdv-py hockeytech/_analytics.py::build_on_ice.
+  on_ice <- joined[joined$start_s >= joined$time_s & joined$time_s > joined$end_s, ]
 
   # Helper: aggregate one side into comma-joined sorted integer ids
   .agg_side <- function(side_flag) {
@@ -199,6 +206,75 @@ hockeytech_build_on_ice <- function(pbp, shifts) {
   pbp <- pbp[order(pbp$.eidx), ]
   pbp$.eidx <- NULL
 
+  pbp
+}
+
+# ---------------------------------------------------------------------------
+# Strength state from on-ice ids
+# ---------------------------------------------------------------------------
+
+#' Derive strength_state + skater counts from on-ice ids.
+#'
+#' Requires `on_ice_home` / `on_ice_away` (comma-joined player ids from
+#' [hockeytech_build_on_ice()]). `goalie_ids` is a character vector of goalie
+#' player_ids for the game (from `game_rosters` or the pbp `goalie_id` column);
+#' goalies are stripped from the skater counts. When `goalie_ids` is NULL/empty
+#' each side is assumed to carry exactly one goalie (`skaters = on-ice - 1`).
+#'
+#' The skater count is robust to HockeyTech goalie shift-tracking gaps: a pulled
+#' goalie (6 skaters, no goalie) reads "6v5" and an omitted goalie still leaves
+#' the 5 skaters counted. That is why an empty-net flag is NOT derived here --
+#' goalie on-ice presence is unreliable in the shift feed (~40% false positives);
+#' use the authoritative goal-level `empty_net` field or `goalie_change` events.
+#'
+#' Adds `skaters_home`, `skaters_away` (integer), `strength_state`
+#' ("{home}v{away}", home perspective; e.g. "5v5", "5v4" home-PP, "6v5" home net
+#' empty), and `strength_state_valid` (logical; FALSE when a count is < 3 or > 6
+#' -- the HockeyTech shift-boundary noise that survives the build_on_ice fix).
+#' Mirrors sdv-py hockeytech/_analytics.py::add_strength_state.
+#'
+#' @param pbp        data.frame with `on_ice_home` / `on_ice_away`.
+#' @param goalie_ids goalie player_ids for the game (coerced to character).
+#' @return `pbp` with the three columns above appended.
+#' @noRd
+hockeytech_add_strength_state <- function(pbp, goalie_ids = NULL) {
+  gset <- as.character(goalie_ids)
+  gset <- gset[!is.na(gset)]
+  have_g <- length(gset) > 0
+  n <- nrow(pbp)
+
+  if (n == 0 || !all(c("on_ice_home", "on_ice_away") %in% names(pbp))) {
+    pbp$skaters_home <- integer(0)[seq_len(n)]
+    pbp$skaters_away <- integer(0)[seq_len(n)]
+    pbp$strength_state <- character(0)[seq_len(n)]
+    pbp$strength_state_valid <- logical(0)[seq_len(n)]
+    return(pbp)
+  }
+
+  side_counts <- function(col) {
+    raw <- pbp[[col]]
+    isna <- is.na(raw)
+    ids_list <- strsplit(raw, ",", fixed = TRUE)
+    total <- vapply(seq_len(n), function(i) if (isna[i]) NA_integer_ else length(ids_list[[i]]), integer(1))
+    if (have_g) {
+      goalies <- vapply(seq_len(n), function(i) if (isna[i]) NA_integer_ else sum(ids_list[[i]] %in% gset), integer(1))
+    } else {
+      goalies <- ifelse(isna, NA_integer_, 1L)
+    }
+    list(goalies = goalies, skaters = total - goalies)
+  }
+
+  h <- side_counts("on_ice_home")
+  a <- side_counts("on_ice_away")
+  pbp$skaters_home <- h$skaters
+  pbp$skaters_away <- a$skaters
+  both <- !is.na(pbp$skaters_home) & !is.na(pbp$skaters_away)
+  pbp$strength_state <- ifelse(both, paste0(pbp$skaters_home, "v", pbp$skaters_away), NA_character_)
+  # NOTE: empty-net is NOT derived here -- goalie on-ice presence is unreliable in
+  # the HockeyTech shift feed (~40% false positives). Use the authoritative
+  # goal-level `empty_net` field or the `goalie_change` events instead.
+  pbp$strength_state_valid <- pbp$skaters_home >= 3 & pbp$skaters_home <= 6 &
+    pbp$skaters_away >= 3 & pbp$skaters_away <= 6
   pbp
 }
 
@@ -822,6 +898,14 @@ hockeytech_enrich_pbp <- function(df, league, game_id,
     df$on_ice_home <- NA_character_
     df$on_ice_away <- NA_character_
   }
+
+  # Strength state / empty net from the on-ice ids. Goalie ids come from the
+  # pbp's own `goalie_id` column (shot/goal events) -- the same HockeyTech
+  # player-id space as the shift ids -- so goalies are stripped from the skater
+  # counts without a roster fetch. Derived upstream HERE so fastRhockey-pwhl-data
+  # only reshapes the resulting pbp columns (never derives strength itself).
+  goalie_ids <- if ("goalie_id" %in% names(df)) unique(df$goalie_id[!is.na(df$goalie_id)]) else NULL
+  df <- hockeytech_add_strength_state(df, goalie_ids = goalie_ids)
 
   df
 }
