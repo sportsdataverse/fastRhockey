@@ -58,21 +58,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_team_prospects(team_abbr = "TOR"))
 #> ── NHL Team Prospects ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:06:34 UTC
-#> # A tibble: 5 × 30
+#> ℹ Data updated: 2026-07-12 18:42:27 UTC
+#> # A tibble: 4 × 26
 #>       id headshot position_code shoots_catches height_in_inches weight_in_pounds
 #>    <int> <chr>    <chr>         <chr>                     <int>            <int>
 #> 1 8.48e6 https:/… L             L                            76              223
 #> 2 8.48e6 https:/… C             R                            70              173
 #> 3 8.48e6 https:/… L             L                            73              187
 #> 4 8.48e6 https:/… R             L                            72              176
-#> 5 8.48e6 https:/… L             L                            69              180
-#> # ℹ 24 more variables: height_in_centimeters <int>, weight_in_kilograms <int>,
+#> # ℹ 20 more variables: height_in_centimeters <int>, weight_in_kilograms <int>,
 #> #   birth_date <chr>, birth_country <chr>, sweater_number <int>,
 #> #   first_name_default <chr>, first_name_cs <chr>, first_name_sk <chr>,
 #> #   last_name_default <chr>, last_name_cs <chr>, last_name_sk <chr>,
 #> #   birth_city_default <chr>, birth_city_cs <chr>, birth_city_de <chr>,
 #> #   birth_city_fi <chr>, birth_city_fr <chr>, birth_city_sk <chr>,
-#> #   birth_city_sv <chr>, birth_state_province_default <chr>, …
+#> #   birth_city_sv <chr>, prospect_group <chr>, team_abbr <chr>
 # }
 ```

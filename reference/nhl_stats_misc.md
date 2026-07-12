@@ -69,7 +69,7 @@ the columns are:
 # \donttest{
   try(nhl_stats_misc(endpoint = "glossary"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:06:30 UTC
+#> ℹ Data updated: 2026-07-12 18:42:24 UTC
 #> # A tibble: 321 × 7
 #>       id abbreviation   definition first_season_for_stat full_name language_code
 #>    <int> <chr>          <chr>                      <int> <chr>     <chr>        
@@ -87,7 +87,7 @@ the columns are:
 #> # ℹ 1 more variable: last_updated <chr>
   try(nhl_stats_misc(endpoint = "franchise"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:06:31 UTC
+#> ℹ Data updated: 2026-07-12 18:42:24 UTC
 #> # A tibble: 40 × 4
 #>       id full_name             team_common_name team_place_name
 #>    <int> <chr>                 <chr>            <chr>          
@@ -104,8 +104,8 @@ the columns are:
 #> # ℹ 30 more rows
   try(nhl_stats_misc(endpoint = "country"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:06:31 UTC
-#> # A tibble: 49 × 11
+#> ℹ Data updated: 2026-07-12 18:42:24 UTC
+#> # A tibble: 50 × 11
 #>    id    country3code country_code country_name   has_player_stats image_url    
 #>    <chr> <chr>        <chr>        <chr>                     <int> <chr>        
 #>  1 RUS   RUS          RU           Russia                        1 /images/coun…
@@ -118,7 +118,7 @@ the columns are:
 #>  8 KOR   KOR          KR           Korea (South)                 1 /images/coun…
 #>  9 GBR   GBR          GB           United Kingdom                1 /images/coun…
 #> 10 YUG   YUG          YU           Yugoslavia                    0 NA           
-#> # ℹ 39 more rows
+#> # ℹ 40 more rows
 #> # ℹ 5 more variables: ioc_code <chr>, is_active <int>, nationality_name <chr>,
 #> #   olympic_url <chr>, thumbnail_url <chr>
 # }

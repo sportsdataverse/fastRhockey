@@ -44,14 +44,21 @@ Other AHL Functions:
 ``` r
  try(ahl_standings()) 
 #> ── AHL Standings from HockeyTech ────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:02:15 UTC
-#> # A tibble: 4 × 19
-#>   team_code wins  losses ot_losses shootout_losses regulation_wins row   points
-#>   <chr>     <chr>  <dbl> <chr>     <chr>                     <dbl> <chr>  <dbl>
-#> 1 PAC       3          1 0         0                             3 3          6
-#> 2 ATL       1          1 0         0                             1 1          3
-#> 3 CEN       1          2 0         0                             1 1          3
-#> 4 NOR       1          2 0         0                             1 1          2
+#> ℹ Data updated: 2026-07-12 18:38:58 UTC
+#> # A tibble: 32 × 19
+#>    team_code wins  losses ot_losses shootout_losses regulation_wins row   points
+#>    <chr>     <chr>  <dbl> <chr>     <chr>                     <dbl> <chr>  <dbl>
+#>  1 HFD       0          0 0         0                            NA 0          0
+#>  2 SPR       0          0 0         0                            NA 0          0
+#>  3 CLT       0          0 0         0                            NA 0          0
+#>  4 HER       0          0 0         0                            NA 0          0
+#>  5 WBS       0          0 0         0                            NA 0          0
+#>  6 LV        0          0 0         0                            NA 0          0
+#>  7 PRO       0          0 0         0                            NA 0          0
+#>  8 HAM       0          0 0         0                            NA 0          0
+#>  9 LAV       0          0 0         0                            NA 0          0
+#> 10 BEL       0          0 0         0                            NA 0          0
+#> # ℹ 22 more rows
 #> # ℹ 11 more variables: penalty_minutes <chr>, streak <chr>, goals_for <chr>,
 #> #   goals_against <chr>, games_remaining <chr>, percentage <chr>,
 #> #   overall_rank <chr>, games_played <dbl>, team_rank <int>, past_10 <chr>,

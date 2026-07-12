@@ -41,8 +41,8 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_pbp(game_id = 27225)) 
 #> ── QMJHL Play-by-Play from HockeyTech ───────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:07:08 UTC
-#> # A tibble: 193 × 100
+#> ℹ Data updated: 2026-07-12 18:43:00 UTC
+#> # A tibble: 193 × 104
 #>    game_id event team_id period_of_game time_of_period x_coord y_coord player_id
 #>      <dbl> <chr> <chr>   <chr>          <chr>            <dbl>   <dbl>     <int>
 #>  1   27225 goal… 14      1              0:00              NA      NA          NA
@@ -56,7 +56,7 @@ Other QMJHL Functions:
 #>  9   27225 face… NA      1              0:29              52.3   -15.9     14696
 #> 10   27225 shot  14      1              1:40             -66.7   -12.8     17001
 #> # ℹ 183 more rows
-#> # ℹ 92 more variables: player_name_first <chr>, player_name_last <chr>,
+#> # ℹ 96 more variables: player_name_first <chr>, player_name_last <chr>,
 #> #   player_position <chr>, goal <lgl>, goalie_id <int>, goalie_first <chr>,
 #> #   goalie_last <chr>, home_win <chr>, player_team_id <chr>, event_type <chr>,
 #> #   shot_quality <chr>, player_two_id <int>, player_two_name_first <chr>,

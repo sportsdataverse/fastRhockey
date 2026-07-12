@@ -41,8 +41,8 @@ Other WHL Functions:
 ``` r
  try(whl_pbp(game_id = 27225)) 
 #> ── WHL Play-by-Play from HockeyTech ─────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:07:20 UTC
-#> # A tibble: 29 × 97
+#> ℹ Data updated: 2026-07-12 18:43:16 UTC
+#> # A tibble: 29 × 101
 #>    game_id event team_id period_of_game time_of_period x_coord y_coord player_id
 #>      <dbl> <chr> <chr>   <chr>          <chr>            <dbl>   <dbl>     <int>
 #>  1   27225 goal… 201     1              0:00                NA      NA        NA
@@ -56,7 +56,7 @@ Other WHL Functions:
 #>  9   27225 pena… 204     1              18:59               NA      NA     23492
 #> 10   27225 pena… 201     1              18:59               NA      NA     22345
 #> # ℹ 19 more rows
-#> # ℹ 89 more variables: player_name_first <chr>, player_name_last <chr>,
+#> # ℹ 93 more variables: player_name_first <chr>, player_name_last <chr>,
 #> #   player_position <chr>, goal <lgl>, goalie_id <int>, goalie_first <chr>,
 #> #   goalie_last <chr>, empty_net <chr>, game_winner <chr>, penalty_shot <chr>,
 #> #   insurance <chr>, short_handed <chr>, power_play <chr>,

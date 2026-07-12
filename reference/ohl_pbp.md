@@ -41,8 +41,8 @@ Other OHL Functions:
 ``` r
  try(ohl_pbp(game_id = 27225)) 
 #> ── OHL Play-by-Play from HockeyTech ─────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:06:41 UTC
-#> # A tibble: 149 × 100
+#> ℹ Data updated: 2026-07-12 18:42:33 UTC
+#> # A tibble: 149 × 104
 #>    game_id event team_id period_of_game time_of_period x_coord y_coord player_id
 #>      <dbl> <chr> <chr>   <chr>          <chr>            <dbl>   <dbl>     <int>
 #>  1   27225 goal… 11      1              0:00              NA     NA           NA
@@ -56,7 +56,7 @@ Other OHL Functions:
 #>  9   27225 shot  11      1              2:51             -55.7    2.27      8600
 #> 10   27225 face… NA      1              2:51             -52.3  -28.6       9027
 #> # ℹ 139 more rows
-#> # ℹ 92 more variables: player_name_first <chr>, player_name_last <chr>,
+#> # ℹ 96 more variables: player_name_first <chr>, player_name_last <chr>,
 #> #   player_position <chr>, goal <lgl>, goalie_id <int>, goalie_first <chr>,
 #> #   goalie_last <chr>, home_win <chr>, player_team_id <chr>, event_type <chr>,
 #> #   shot_quality <chr>, player_two_id <int>, player_two_name_first <chr>,

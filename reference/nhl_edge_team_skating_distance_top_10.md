@@ -97,23 +97,23 @@ A data frame (`fastRhockey_data`) with the following columns:
     sort_by = "total"
   ))
 #> ── NHL Edge Team Skating Distance Top 10 ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:37 UTC
-#> # A tibble: 10 × 36
+#> ℹ Data updated: 2026-07-12 18:41:42 UTC
+#> # A tibble: 10 × 35
 #>    team_abbrev team_slug           team_common_name_def…¹ team_place_name_with…²
 #>    <chr>       <chr>               <chr>                  <chr>                 
-#>  1 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
-#>  2 CAR         carolina-hurricane… Hurricanes             Carolina              
-#>  3 MTL         montreal-canadiens… Canadiens              Montréal              
-#>  4 COL         colorado-avalanche… Avalanche              Colorado              
-#>  5 BUF         buffalo-sabres-7    Sabres                 Buffalo               
-#>  6 ANA         anaheim-ducks-24    Ducks                  Anaheim               
-#>  7 MIN         minnesota-wild-30   Wild                   Minnesota             
-#>  8 PHI         philadelphia-flyer… Flyers                 Philadelphia          
-#>  9 TBL         tampa-bay-lightnin… Lightning              Tampa Bay             
-#> 10 UTA         utah-mammoth-68     Mammoth                Utah                  
+#>  1 COL         colorado-avalanche… Avalanche              Colorado              
+#>  2 SEA         seattle-kraken-55   Kraken                 Seattle               
+#>  3 NJD         new-jersey-devils-1 Devils                 New Jersey            
+#>  4 PHI         philadelphia-flyer… Flyers                 Philadelphia          
+#>  5 FLA         florida-panthers-13 Panthers               Florida               
+#>  6 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
+#>  7 DET         detroit-red-wings-… Red Wings              Detroit               
+#>  8 CGY         calgary-flames-20   Flames                 Calgary               
+#>  9 WPG         winnipeg-jets-52    Jets                   Winnipeg              
+#> 10 CAR         carolina-hurricane… Hurricanes             Carolina              
 #> # ℹ abbreviated names: ¹​team_common_name_default,
 #> #   ²​team_place_name_with_preposition_default
-#> # ℹ 32 more variables: team_team_logo_light <chr>, team_team_logo_dark <chr>,
+#> # ℹ 31 more variables: team_team_logo_light <chr>, team_team_logo_dark <chr>,
 #> #   distance_total_imperial <dbl>, distance_total_metric <dbl>,
 #> #   distance_per60_imperial <dbl>, distance_per60_metric <dbl>,
 #> #   distance_max_per_game_imperial <dbl>, distance_max_per_game_metric <dbl>,

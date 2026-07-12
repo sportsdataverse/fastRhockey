@@ -174,7 +174,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_player_eventlog(athlete_id = "4024820"))
 #> ── NHL Player Eventlog data from ESPN core-v2 ───────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:02:53 UTC
+#> ℹ Data updated: 2026-07-12 18:39:30 UTC
 #> # A tibble: 18 × 9
 #>    athlete_id event_id  team_id played event_ref  competition_ref statistics_ref
 #>    <chr>      <chr>     <chr>   <lgl>  <chr>      <chr>           <chr>         

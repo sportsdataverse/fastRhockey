@@ -38,7 +38,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_draft_lottery_picks())
 #> ── NHL Records Draft Lottery Picks ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:54 UTC
+#> ℹ Data updated: 2026-07-12 18:41:55 UTC
 #> # A tibble: 48 × 9
 #>       id draft_team_id draft_year effect_on_draft_order    lottery_team_id phase
 #>    <int>         <int>      <int> <chr>                              <int> <chr>

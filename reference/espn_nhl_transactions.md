@@ -168,20 +168,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_transactions())
 #> ── NHL Transactions data from ESPN.com ──────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:03:48 UTC
+#> ℹ Data updated: 2026-07-12 18:40:20 UTC
 #> # A tibble: 25 × 8
 #>    date            description team_id team_location team_name team_abbreviation
 #>    <chr>           <chr>       <chr>   <chr>         <chr>     <chr>            
-#>  1 2026-06-23T07:… Signed D N… 18      San Jose      Sharks    SJ               
-#>  2 2026-06-23T07:… Acquired t… 11      New Jersey    Devils    NJ               
-#>  3 2026-06-23T07:… Acquired D… 3       Calgary       Flames    CGY              
-#>  4 2026-06-23T07:… Signed G S… 1       Boston        Bruins    BOS              
-#>  5 2026-06-22T07:… Signed Con… 6       Edmonton      Oilers    EDM              
-#>  6 2026-06-21T07:… Acquired F… 124292  Seattle       Kraken    SEA              
-#>  7 2026-06-21T07:… Acquired a… 26      Florida       Panthers  FLA              
-#>  8 2026-06-21T07:… Acquired 2… 14      Ottawa        Senators  OTT              
-#>  9 2026-06-21T07:… Signed G D… 13      New York      Rangers   NYR              
-#> 10 2026-06-21T07:… Signed F J… 6       Edmonton      Oilers    EDM              
+#>  1 2026-07-10T07:… Signed G V… 124292  Seattle       Kraken    SEA              
+#>  2 2026-07-10T07:… Signed F C… 30      Minnesota     Wild      MIN              
+#>  3 2026-07-10T07:… Signed F O… 19      St. Louis     Blues     STL              
+#>  4 2026-07-10T07:… Signed F T… 14      Ottawa        Senators  OTT              
+#>  5 2026-07-10T07:… Signed D B… 10      Montreal      Canadiens MTL              
+#>  6 2026-07-09T07:… Signed D T… 16      Pittsburgh    Penguins  PIT              
+#>  7 2026-07-09T07:… Signed F X… 14      Ottawa        Senators  OTT              
+#>  8 2026-07-09T07:… Signed F B… 10      Montreal      Canadiens MTL              
+#>  9 2026-07-09T07:… Signed D A… 7       Carolina      Hurrican… CAR              
+#> 10 2026-07-09T07:… Signed F R… 1       Boston        Bruins    BOS              
 #> # ℹ 15 more rows
 #> # ℹ 2 more variables: team_display_name <chr>, team_color <chr>
 # }

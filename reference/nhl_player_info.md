@@ -51,11 +51,11 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_player_info(player_id = 8476899))
 #> ── NHL Player Info ──────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:49 UTC
+#> ℹ Data updated: 2026-07-12 18:41:51 UTC
 #> # A tibble: 1 × 22
-#>   player_id first_name last_name full_name   team_abbr team_name  sweater_number
-#>       <int> <chr>      <chr>     <chr>       <chr>     <chr>               <int>
-#> 1   8476899 Matt       Murray    Matt Murray SEA       Seattle K…             30
+#>   player_id first_name last_name full_name   team_abbr team_name sweater_number
+#>       <int> <chr>      <chr>     <chr>       <chr>     <chr>              <int>
+#> 1   8476899 Matt       Murray    Matt Murray NA        NA                    30
 #> # ℹ 15 more variables: position <chr>, shoots_catches <chr>,
 #> #   height_inches <int>, weight_pounds <int>, birth_date <chr>,
 #> #   birth_city <chr>, birth_state <chr>, birth_country <chr>, draft_year <int>,

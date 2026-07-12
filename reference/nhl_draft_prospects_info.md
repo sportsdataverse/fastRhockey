@@ -60,7 +60,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
    try(nhl_draft_prospects_info(year = 2024, prospect_category = 1))
 #> ── NHL Draft Prospects Information from NHL.com ─────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:19 UTC
+#> ℹ Data updated: 2026-07-12 18:41:29 UTC
 #> # A tibble: 251 × 14
 #>    last_name first_name position_code shoots_catches height_in_inches
 #>    <chr>     <chr>      <chr>         <chr>                     <int>

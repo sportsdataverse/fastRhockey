@@ -169,7 +169,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_teams_core(limit = 100))
 #> ── NHL Teams Core data from ESPN core-v2 ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:03:46 UTC
+#> ℹ Data updated: 2026-07-12 18:40:19 UTC
 #> # A tibble: 32 × 4
 #>    ref                                                  team_id count page_count
 #>    <chr>                                                <chr>   <int>      <int>

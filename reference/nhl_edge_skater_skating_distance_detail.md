@@ -76,22 +76,26 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_skater_skating_distance_detail(player_id = 8478402))
 #> ── NHL Edge Skater Skating Distance Detail ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:31 UTC
-#> # A tibble: 6 × 29
-#>   game_center_link  game_date player_on_home_team toi_all toi_even toi_pk toi_pp
-#>   <chr>             <chr>     <lgl>                 <int>    <int>  <int>  <int>
-#> 1 /gamecenter/edm-… 2026-04-… FALSE                  1489     1407     82     NA
-#> 2 /gamecenter/ana-… 2026-04-… TRUE                   1449     1118     NA    331
-#> 3 /gamecenter/edm-… 2026-04-… FALSE                  1172      999    113     60
-#> 4 /gamecenter/edm-… 2026-04-… FALSE                  1430     1201     54    175
-#> 5 /gamecenter/ana-… 2026-04-… TRUE                   1447      924    110    413
-#> 6 /gamecenter/ana-… 2026-04-… TRUE                   1490     1214     51    225
+#> ℹ Data updated: 2026-07-12 18:41:37 UTC
+#> # A tibble: 10 × 29
+#>    game_center_link game_date player_on_home_team toi_all toi_even toi_pp toi_pk
+#>    <chr>            <chr>     <lgl>                 <int>    <int>  <int>  <int>
+#>  1 /gamecenter/van… 2026-04-… TRUE                   1096      935    116     45
+#>  2 /gamecenter/col… 2026-04-… TRUE                   1675     1307    269     99
+#>  3 /gamecenter/edm… 2026-04-… FALSE                  1610     1493    117     NA
+#>  4 /gamecenter/edm… 2026-04-… FALSE                  1270     1028    205     37
+#>  5 /gamecenter/edm… 2026-04-… FALSE                  1325     1115    178     32
+#>  6 /gamecenter/vgk… 2026-04-… TRUE                   1405     1067    338     NA
+#>  7 /gamecenter/chi… 2026-04-… TRUE                   1305     1002    303     NA
+#>  8 /gamecenter/sea… 2026-03-… TRUE                   1186     1064    106     16
+#>  9 /gamecenter/ana… 2026-03-… TRUE                   1349     1032    313      4
+#> 10 /gamecenter/edm… 2026-03-… FALSE                  1332     1160    160     12
 #> # ℹ 22 more variables: distance_skated_all_imperial <dbl>,
 #> #   distance_skated_all_metric <dbl>, distance_skated_even_imperial <dbl>,
-#> #   distance_skated_even_metric <dbl>, distance_skated_pk_imperial <dbl>,
+#> #   distance_skated_even_metric <dbl>, distance_skated_pp_imperial <dbl>,
+#> #   distance_skated_pp_metric <dbl>, distance_skated_pk_imperial <dbl>,
 #> #   distance_skated_pk_metric <dbl>, home_team_abbrev <chr>,
 #> #   home_team_slug <chr>, home_team_common_name_default <chr>,
-#> #   home_team_place_name_with_preposition_default <chr>,
-#> #   home_team_place_name_with_preposition_fr <chr>, …
+#> #   home_team_place_name_with_preposition_default <chr>, …
 # }
 ```

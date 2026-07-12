@@ -51,8 +51,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_stats_seasons())
 #> ── NHL Stats Seasons ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:06:32 UTC
-#> # A tibble: 108 × 23
+#> ℹ Data updated: 2026-07-12 18:42:25 UTC
+#> # A tibble: 109 × 23
 #>          id all_star_game_in_use conferences_in_use divisions_in_use end_date   
 #>       <int>                <int>              <int>            <int> <chr>      
 #>  1 19531954                    1                  0                0 1954-04-16…
@@ -65,7 +65,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8 19691970                    1                  0                1 1970-05-10…
 #>  9 19321933                    0                  0                1 1933-04-13…
 #> 10 19461947                    1                  0                0 1947-04-19…
-#> # ℹ 98 more rows
+#> # ℹ 99 more rows
 #> # ℹ 18 more variables: entry_draft_in_use <int>, formatted_season_id <chr>,
 #> #   minimum_playoff_minutes_for_goalie_stats_leaders <int>,
 #> #   minimum_regular_games_for_goalie_stats_leaders <int>,

@@ -45,8 +45,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_draft_tracker())
 #> ── NHL Draft Tracker data from NHL.com ──────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:20 UTC
-#> # A tibble: 32 × 13
+#> ℹ Data updated: 2026-07-12 18:41:30 UTC
+#> # A tibble: 32 × 16
 #>    pick_in_round overall_pick team_id team_abbrev team_logo_light team_logo_dark
 #>            <int>        <int>   <int> <chr>       <chr>           <chr>         
 #>  1             1            1      10 TOR         https://assets… https://asset…
@@ -60,9 +60,11 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  9             9            9      28 SJS         https://assets… https://asset…
 #> 10            10           10      18 NSH         https://assets… https://asset…
 #> # ℹ 22 more rows
-#> # ℹ 7 more variables: state <chr>, team_full_name_default <chr>,
-#> #   team_full_name_fr <chr>, team_common_name_default <chr>,
-#> #   team_common_name_fr <chr>, team_place_name_with_preposition_default <chr>,
-#> #   team_place_name_with_preposition_fr <chr>
+#> # ℹ 10 more variables: state <chr>, position_code <chr>,
+#> #   team_full_name_default <chr>, team_full_name_fr <chr>,
+#> #   team_common_name_default <chr>, team_common_name_fr <chr>,
+#> #   team_place_name_with_preposition_default <chr>,
+#> #   team_place_name_with_preposition_fr <chr>, last_name_default <chr>,
+#> #   first_name_default <chr>
 # }
 ```

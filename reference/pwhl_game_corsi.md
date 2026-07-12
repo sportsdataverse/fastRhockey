@@ -54,20 +54,20 @@ Saiem Gilani
 # \donttest{
   try(pwhl_game_corsi(game_id = 42))
 #> ── PWHL Game Corsi from HockeyTech ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:06:54 UTC
+#> ℹ Data updated: 2026-07-12 18:42:49 UTC
 #> # A tibble: 39 × 10
 #>    player_id corsi_for corsi_against corsi_for_pct fenwick_for fenwick_against
 #>    <chr>         <int>         <int>         <dbl>       <int>           <int>
-#>  1 30               13            17         0.433          10              12
-#>  2 84               21            18         0.538          17              15
-#>  3 85               49            46         0.516          38              32
-#>  4 157              22            12         0.647          18              10
-#>  5 161              17            11         0.607          13               8
-#>  6 163              14            19         0.424          12              15
-#>  7 2                15            23         0.395          12              19
+#>  1 30               13            13         0.5            10               9
+#>  2 84               14            17         0.452          11              14
+#>  3 85               47            46         0.505          37              32
+#>  4 157              22            10         0.688          18               9
+#>  5 161              17             8         0.68           13               6
+#>  6 163              10            19         0.345           8              15
+#>  7 2                14            22         0.389          11              18
 #>  8 6                31            32         0.492          23              25
-#>  9 8                14            10         0.583          10               8
-#> 10 16               12             9         0.571           7               6
+#>  9 8                12            10         0.545           8               8
+#> 10 16                9             8         0.529           5               5
 #> # ℹ 29 more rows
 #> # ℹ 4 more variables: fenwick_for_pct <dbl>, corsi_includes_missed <lgl>,
 #> #   toi_seconds <int>, corsi_for_per60 <dbl>

@@ -44,12 +44,21 @@ Other WHL Functions:
 ``` r
  try(whl_standings()) 
 #> ── WHL Standings from HockeyTech ────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:07:27 UTC
-#> # A tibble: 2 × 21
-#>   team_code wins  losses ties  ot_losses ot_wins shootout_wins shootout_losses
-#>   <chr>     <chr>  <dbl> <chr> <chr>     <chr>   <chr>         <chr>          
-#> 1 East      1          0 0     0         0       0             0              
-#> 2 West      0          1 0     0         0       0             0              
+#> ℹ Data updated: 2026-07-12 18:43:28 UTC
+#> # A tibble: 23 × 21
+#>    team_code wins  losses ties  ot_losses ot_wins shootout_wins shootout_losses
+#>    <chr>     <chr>  <dbl> <chr> <chr>     <chr>   <chr>         <chr>          
+#>  1 BDN       0          0 0     0         ""      0             0              
+#>  2 SC        0          0 0     0         ""      0             0              
+#>  3 SAS       0          0 0     0         ""      0             0              
+#>  4 REG       0          0 0     0         ""      0             0              
+#>  5 PA        0          0 0     0         ""      0             0              
+#>  6 MJ        0          0 0     0         ""      0             0              
+#>  7 EDM       0          0 0     0         ""      0             0              
+#>  8 RD        0          0 0     0         ""      0             0              
+#>  9 MH        0          0 0     0         ""      0             0              
+#> 10 LET       0          0 0     0         ""      0             0              
+#> # ℹ 13 more rows
 #> # ℹ 13 more variables: regulation_wins <dbl>, row <chr>, points <dbl>,
 #> #   penalty_minutes <chr>, streak <chr>, goals_for <chr>, goals_against <chr>,
 #> #   goals_diff <chr>, percentage <chr>, games_played <dbl>, team_rank <int>,

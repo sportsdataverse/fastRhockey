@@ -54,27 +54,27 @@ Returns `NULL` on failure / empty response.
 # \donttest{
   try(nhl_edge_goalie_shot_location_detail(player_id = 8475883))
 #> ── NHL Edge Goalie Shot Location Detail ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:25 UTC
+#> ℹ Data updated: 2026-07-12 18:41:33 UTC
 #> # A tibble: 17 × 9
 #>    area       shots_against saves goals_against save_pctg shots_against_percen…¹
 #>    <chr>              <int> <int>         <int>     <dbl>                  <dbl>
-#>  1 Behind th…             3     3             0     1                       0.84
-#>  2 Beyond Re…            21    21             0     1                       0.96
-#>  3 Center Po…            17    17             0     1                       0.8 
-#>  4 Crease                19    15             4     0.789                   0.92
-#>  5 High Slot             34    26             8     0.765                   0.92
-#>  6 L Circle              33    32             1     0.970                   0.92
-#>  7 L Corner               0     0             0     0                       0.76
-#>  8 L Net Side            17    16             1     0.941                   1   
-#>  9 L Point               24    24             0     1                       0.92
-#> 10 Low Slot              76    63            13     0.829                   0.88
-#> 11 Offensive…            13    13             0     1                       0.88
-#> 12 Outside L             17    17             0     1                       0.8 
-#> 13 Outside R             29    27             2     0.931                   0.96
-#> 14 R Circle              23    22             1     0.957                   0.84
-#> 15 R Corner               1     1             0     1                       0.88
-#> 16 R Net Side             8     7             1     0.875                   0.92
-#> 17 R Point               19    18             1     0.947                   0.76
+#>  1 Behind th…            11    11             0     1                      0.867
+#>  2 Beyond Re…            37    37             0     1                      0.888
+#>  3 Center Po…            44    41             3     0.932                  0.398
+#>  4 Crease                40    28            12     0.7                    0.796
+#>  5 High Slot             86    70            16     0.814                  0.612
+#>  6 L Circle              78    71             7     0.910                  0.520
+#>  7 L Corner               1     1             0     1                      0.561
+#>  8 L Net Side            17    14             3     0.824                  0.5  
+#>  9 L Point               45    44             1     0.978                  0.510
+#> 10 Low Slot             255   207            48     0.812                  0.674
+#> 11 Offensive…            18    18             0     1                      0.602
+#> 12 Outside L             54    53             1     0.981                  0.663
+#> 13 Outside R             31    31             0     1                      0.398
+#> 14 R Circle              62    51            11     0.823                  0.418
+#> 15 R Corner               1     1             0     1                      0.765
+#> 16 R Net Side            22    17             5     0.773                  0.663
+#> 17 R Point               47    47             0     1                      0.5  
 #> # ℹ abbreviated name: ¹​shots_against_percentile
 #> # ℹ 3 more variables: saves_percentile <dbl>, goals_against_percentile <dbl>,
 #> #   save_pctg_percentile <dbl>

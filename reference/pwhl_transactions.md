@@ -55,7 +55,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(pwhl_transactions(season = 2025))
 #> ── PWHL Transactions ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:07:05 UTC
+#> ℹ Data updated: 2026-07-12 18:42:58 UTC
 #> # A tibble: 20 × 22
 #>    transaction_type title     ttype ttype_text transaction_date transaction_time
 #>    <chr>            <chr>     <chr> <chr>      <chr>            <chr>           

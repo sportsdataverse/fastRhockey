@@ -74,8 +74,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_franchise_season_results())
 #> ── NHL Records Franchise Season Results ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:06:04 UTC
-#> # A tibble: 2,833 × 38
+#> ℹ Data updated: 2026-07-12 18:42:06 UTC
+#> # A tibble: 2,865 × 38
 #>       id conference_abbrev conference_name conference_sequence decision
 #>    <int> <chr>             <chr>                         <int> <chr>   
 #>  1  2476 NA                NA                                0 L       
@@ -88,7 +88,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8  2483 NA                NA                                0 L       
 #>  9  2484 NA                NA                                0 NA      
 #> 10  2485 NA                NA                                0 W       
-#> # ℹ 2,823 more rows
+#> # ℹ 2,855 more rows
 #> # ℹ 33 more variables: division_abbrev <chr>, division_name <chr>,
 #> #   division_sequence <int>, final_playoff_round <int>, franchise_id <int>,
 #> #   game_type_id <int>, games_played <int>, goals <int>, goals_against <int>,

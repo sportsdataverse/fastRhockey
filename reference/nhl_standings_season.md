@@ -32,8 +32,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_standings_season())
 #> ── NHL Standings Season ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:06:27 UTC
-#> # A tibble: 108 × 10
+#> ℹ Data updated: 2026-07-12 18:42:21 UTC
+#> # A tibble: 109 × 10
 #>          id conferences_in_use divisions_in_use point_for_o_tloss_in_use
 #>       <int> <lgl>              <lgl>            <lgl>                   
 #>  1 19171918 FALSE              FALSE            FALSE                   
@@ -46,7 +46,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8 19241925 FALSE              FALSE            FALSE                   
 #>  9 19251926 FALSE              FALSE            FALSE                   
 #> 10 19261927 FALSE              TRUE             FALSE                   
-#> # ℹ 98 more rows
+#> # ℹ 99 more rows
 #> # ℹ 6 more variables: regulation_wins_in_use <lgl>, row_in_use <lgl>,
 #> #   standings_end <chr>, standings_start <chr>, ties_in_use <lgl>,
 #> #   wildcard_in_use <lgl>

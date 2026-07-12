@@ -44,8 +44,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
    try(nhl_draft())
 #> ── NHL Draft Data from NHL.com ──────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:18 UTC
-#> # A tibble: 32 × 12
+#> ℹ Data updated: 2026-07-12 18:41:28 UTC
+#> # A tibble: 32 × 20
 #>    round pick_in_round overall_pick team_id team_abbrev team_name$default  $fr  
 #>    <int>         <int>        <int>   <int> <chr>       <chr>              <chr>
 #>  1     1             1            1      10 TOR         Toronto Maple Lea… Mapl…
@@ -59,8 +59,11 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  9     1             9            9      28 SJS         San Jose Sharks    Shar…
 #> 10     1            10           10      18 NSH         Nashville Predato… Pred…
 #> # ℹ 22 more rows
-#> # ℹ 6 more variables: team_common_name <df[,2]>,
+#> # ℹ 14 more variables: team_common_name <df[,2]>,
 #> #   team_place_name_with_preposition <df[,2]>, display_abbrev <df[,1]>,
-#> #   team_logo_light <chr>, team_logo_dark <chr>, team_pick_history <chr>
+#> #   team_logo_light <chr>, team_logo_dark <chr>, team_pick_history <chr>,
+#> #   first_name <df[,1]>, last_name <df[,1]>, position_code <chr>,
+#> #   country_code <chr>, height <int>, weight <int>, amateur_league <chr>,
+#> #   amateur_club_name <chr>
 # }
 ```

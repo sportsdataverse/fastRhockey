@@ -63,22 +63,22 @@ Returns `NULL` on failure / empty response.
 # \donttest{
   try(nhl_edge_goalie_save_percentage_detail(player_id = 8475883))
 #> ── NHL Edge Goalie Save Percentage Detail ───────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:25 UTC
-#> # A tibble: 10 × 17
-#>    game_center_link             save_pctg game_date player_on_home_team decision
-#>    <chr>                            <dbl> <chr>     <lgl>               <chr>   
-#>  1 /gamecenter/vgk-vs-car/2026…     0.75  2026-06-… FALSE               NA      
-#>  2 /gamecenter/car-vs-vgk/2026…     0.885 2026-06-… TRUE                W       
-#>  3 /gamecenter/car-vs-vgk/2026…     0.783 2026-06-… TRUE                L       
-#>  4 /gamecenter/car-vs-mtl/2026…     0.958 2026-05-… TRUE                W       
-#>  5 /gamecenter/mtl-vs-car/2026…     1     2026-05-… FALSE               W       
-#>  6 /gamecenter/mtl-vs-car/2026…     0.846 2026-05-… FALSE               W       
-#>  7 /gamecenter/car-vs-mtl/2026…     0.833 2026-05-… TRUE                W       
-#>  8 /gamecenter/car-vs-mtl/2026…     0.762 2026-05-… TRUE                L       
-#>  9 /gamecenter/phi-vs-car/2026…     0.882 2026-05-… FALSE               W       
-#> 10 /gamecenter/phi-vs-car/2026…     0.947 2026-05-… FALSE               W       
-#> # ℹ 12 more variables: home_team_abbrev <chr>,
-#> #   home_team_common_name_default <chr>,
+#> ℹ Data updated: 2026-07-12 18:41:33 UTC
+#> # A tibble: 10 × 18
+#>    game_center_link             save_pctg game_date decision player_on_home_team
+#>    <chr>                            <dbl> <chr>     <chr>    <lgl>              
+#>  1 /gamecenter/uta-vs-car/2026…     0.963 2026-04-… W        FALSE              
+#>  2 /gamecenter/chi-vs-car/2026…     0.92  2026-04-… W        FALSE              
+#>  3 /gamecenter/ott-vs-car/2026…     0.833 2026-04-… L        FALSE              
+#>  4 /gamecenter/car-vs-cbj/2026…     0.9   2026-04-… W        TRUE               
+#>  5 /gamecenter/car-vs-mtl/2026…     0.833 2026-03-… L        TRUE               
+#>  6 /gamecenter/mtl-vs-car/2026…     0.778 2026-03-… L        FALSE              
+#>  7 /gamecenter/pit-vs-car/2026…     0.947 2026-03-… W        FALSE              
+#>  8 /gamecenter/car-vs-pit/2026…     0.857 2026-03-… W        TRUE               
+#>  9 /gamecenter/tbl-vs-car/2026…     0.895 2026-03-… W        FALSE              
+#> 10 /gamecenter/car-vs-pit/2026…     0.857 2026-03-… W        TRUE               
+#> # ℹ 13 more variables: home_team_abbrev <chr>,
+#> #   home_team_common_name_default <chr>, home_team_common_name_fr <chr>,
 #> #   home_team_place_name_with_preposition_default <chr>,
 #> #   home_team_place_name_with_preposition_fr <chr>,
 #> #   home_team_team_logo_light <chr>, home_team_team_logo_dark <chr>,

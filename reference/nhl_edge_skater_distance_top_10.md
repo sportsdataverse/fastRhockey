@@ -137,26 +137,26 @@ Returns `NULL` on failure / empty response.
       sort_by = "total"
   ))
 #> ── NHL Edge Skater Distance Top 10 ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:27 UTC
-#> # A tibble: 10 × 74
+#> ℹ Data updated: 2026-07-12 18:41:35 UTC
+#> # A tibble: 10 × 53
 #>    player_slug             player_headshot player_position player_sweater_number
 #>    <chr>                   <chr>           <chr>                           <int>
-#>  1 jack-eichel-8478403     https://assets… C                                   9
-#>  2 mitch-marner-8478483    https://assets… R                                  93
-#>  3 nick-suzuki-8480018     https://assets… C                                  14
-#>  4 sebastian-aho-8478427   https://assets… C                                  20
-#>  5 ivan-barbashev-8477964  https://assets… L                                  49
-#>  6 seth-jarvis-8482093     https://assets… R                                  24
-#>  7 brett-howden-8479353    https://assets… C                                  21
-#>  8 juraj-slafkovský-84835… https://assets… L                                  20
-#>  9 pavel-dorofeyev-8481604 https://assets… R                                  16
-#> 10 cole-caufield-8481540   https://assets… R                                  13
-#> # ℹ 70 more variables: player_first_name_default <chr>,
-#> #   player_first_name_cs <chr>, player_first_name_de <chr>,
-#> #   player_first_name_es <chr>, player_first_name_fi <chr>,
-#> #   player_first_name_sk <chr>, player_first_name_sv <chr>,
+#>  1 connor-mcdavid-8478402  https://assets… C                                  97
+#>  2 macklin-celebrini-8484… https://assets… C                                  71
+#>  3 kyle-connor-8478398     https://assets… L                                  81
+#>  4 mark-scheifele-8476460  https://assets… C                                  55
+#>  5 martin-necas-8480039    https://assets… C                                  88
+#>  6 nathan-mackinnon-84774… https://assets… C                                  29
+#>  7 kirill-kaprizov-8478864 https://assets… L                                  97
+#>  8 mathew-barzal-8478445   https://assets… C                                  13
+#>  9 nick-suzuki-8480018     https://assets… C                                  14
+#> 10 mika-zibanejad-8476459  https://assets… C                                  93
+#> # ℹ 49 more variables: player_first_name_default <chr>,
 #> #   player_last_name_default <chr>, player_last_name_cs <chr>,
-#> #   player_last_name_fi <chr>, player_last_name_sk <chr>,
-#> #   player_team_abbrev <chr>, player_team_slug <chr>, …
+#> #   player_last_name_sk <chr>, player_team_abbrev <chr>,
+#> #   player_team_slug <chr>, player_team_common_name_default <chr>,
+#> #   player_team_place_name_with_preposition_default <chr>,
+#> #   player_team_place_name_with_preposition_fr <chr>,
+#> #   player_team_team_logo_light <chr>, player_team_team_logo_dark <chr>, …
 # }
 ```

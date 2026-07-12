@@ -128,8 +128,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
 try(pwhl_pbp(game_id = 27))
 #> ── PWHL Play-by-Play data from HockeyTech ───────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:06:57 UTC
-#> # A tibble: 114 × 100
+#> ℹ Data updated: 2026-07-12 18:42:52 UTC
+#> # A tibble: 114 × 104
 #>    game_id event team_id period_of_game time_of_period x_coord y_coord player_id
 #>      <dbl> <chr> <chr>   <chr>          <chr>            <dbl>   <dbl>     <int>
 #>  1      27 goal… 1       1              0:00              NA     NA           NA
@@ -143,7 +143,7 @@ try(pwhl_pbp(game_id = 27))
 #>  9      27 shot  3       1              4:27              65.3   11.0         84
 #> 10      27 shot  3       1              4:41              51      1.42        32
 #> # ℹ 104 more rows
-#> # ℹ 92 more variables: player_name_first <chr>, player_name_last <chr>,
+#> # ℹ 96 more variables: player_name_first <chr>, player_name_last <chr>,
 #> #   player_position <chr>, goal <lgl>, goalie_id <int>, goalie_first <chr>,
 #> #   goalie_last <chr>, home_win <chr>, player_team_id <chr>, event_type <chr>,
 #> #   shot_quality <chr>, player_two_id <int>, player_two_name_first <chr>,
