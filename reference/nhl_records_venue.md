@@ -39,8 +39,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_venue())
 #> ── NHL Records Venue ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-12 18:42:13 UTC
-#> # A tibble: 618 × 10
+#> ℹ Data updated: 2026-07-18 17:04:31 UTC
+#> # A tibble: 626 × 10
 #>       id building_id city    country_code outdoor postal_code short_country_code
 #>    <int>       <int> <chr>   <chr>        <lgl>   <chr>       <chr>             
 #>  1     1          94 Uniond… USA          FALSE   NA          US                
@@ -53,7 +53,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8     8          53 Salzbu… AUT          FALSE   NA          AT                
 #>  9     9         375 Hamilt… CAN          FALSE   L9A 2N3     CA                
 #> 10    10         318 Pentic… CAN          FALSE   V2A 9C4     CA                
-#> # ℹ 608 more rows
+#> # ℹ 616 more rows
 #> # ℹ 3 more variables: state_province_code <chr>, venue_id <int>,
 #> #   venue_name <chr>
 # }

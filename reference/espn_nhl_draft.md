@@ -165,7 +165,6 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns empty tibble for NHL (ESPN returns HTTP 500 for this endpoint)
   try(espn_nhl_draft())
-#> ! ESPN NHL draft endpoint is not available (HTTP 500 is normal for NHL).
 #> data frame with 0 columns and 0 rows
 # }
 ```

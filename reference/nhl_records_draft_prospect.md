@@ -65,8 +65,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_draft_prospect())
 #> ── NHL Records Draft Prospect ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-12 18:42:04 UTC
-#> # A tibble: 135,888 × 28
+#> ℹ Data updated: 2026-07-18 17:04:21 UTC
+#> # A tibble: 136,579 × 28
 #>       id birth_city birth_country3code birth_date birth_state_prov_code
 #>    <int> <chr>      <chr>              <chr>      <chr>                
 #>  1     1 Markham    CAN                1990-02-07 ON                   
@@ -79,7 +79,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8    13 Dauphin    CAN                1990-04-24 MB                   
 #>  9    18 Whiterock  CAN                1990-03-08 BC                   
 #> 10    22 Courtice   CAN                1990-06-05 ON                   
-#> # ℹ 135,878 more rows
+#> # ℹ 136,569 more rows
 #> # ℹ 23 more variables: category_id <int>, created_on <chr>, cs_player_id <int>,
 #> #   draft_status_code <chr>, ep_player_id <int>, first_name <chr>,
 #> #   headshot_id <int>, height <int>, hometown <chr>, last_club_name <chr>,

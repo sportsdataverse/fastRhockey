@@ -169,20 +169,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_venues())
 #> ── NHL Venues data from ESPN core-v2 ────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-12 18:40:20 UTC
-#> # A tibble: 181 × 4
+#> ℹ Data updated: 2026-07-18 17:02:38 UTC
+#> # A tibble: 185 × 4
 #>    ref                                                 venue_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>
-#>  1 http://sports.core.api.espn.com/v2/sports/hockey/l… 1          181          1
-#>  2 http://sports.core.api.espn.com/v2/sports/hockey/l… 4          181          1
-#>  3 http://sports.core.api.espn.com/v2/sports/hockey/l… 8          181          1
-#>  4 http://sports.core.api.espn.com/v2/sports/hockey/l… 9          181          1
-#>  5 http://sports.core.api.espn.com/v2/sports/hockey/l… 10         181          1
-#>  6 http://sports.core.api.espn.com/v2/sports/hockey/l… 14         181          1
-#>  7 http://sports.core.api.espn.com/v2/sports/hockey/l… 19         181          1
-#>  8 http://sports.core.api.espn.com/v2/sports/hockey/l… 20         181          1
-#>  9 http://sports.core.api.espn.com/v2/sports/hockey/l… 21         181          1
-#> 10 http://sports.core.api.espn.com/v2/sports/hockey/l… 22         181          1
-#> # ℹ 171 more rows
+#>  1 http://sports.core.api.espn.com/v2/sports/hockey/l… 1          185          1
+#>  2 http://sports.core.api.espn.com/v2/sports/hockey/l… 4          185          1
+#>  3 http://sports.core.api.espn.com/v2/sports/hockey/l… 8          185          1
+#>  4 http://sports.core.api.espn.com/v2/sports/hockey/l… 9          185          1
+#>  5 http://sports.core.api.espn.com/v2/sports/hockey/l… 10         185          1
+#>  6 http://sports.core.api.espn.com/v2/sports/hockey/l… 14         185          1
+#>  7 http://sports.core.api.espn.com/v2/sports/hockey/l… 19         185          1
+#>  8 http://sports.core.api.espn.com/v2/sports/hockey/l… 20         185          1
+#>  9 http://sports.core.api.espn.com/v2/sports/hockey/l… 21         185          1
+#> 10 http://sports.core.api.espn.com/v2/sports/hockey/l… 22         185          1
+#> # ℹ 175 more rows
 # }
 ```

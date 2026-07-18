@@ -191,19 +191,19 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_season_players(season = 2026, limit = 10, page = 1))
 #> ── NHL Season Players data from ESPN core-v2 ────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-12 18:39:48 UTC
+#> ℹ Data updated: 2026-07-18 17:02:07 UTC
 #> # A tibble: 10 × 6
 #>    ref                                   player_id season  page count page_count
 #>    <chr>                                 <chr>      <int> <int> <int>      <int>
-#>  1 http://sports.core.api.espn.com/v2/s… 1           2026     1 11772       1178
-#>  2 http://sports.core.api.espn.com/v2/s… 2           2026     1 11772       1178
-#>  3 http://sports.core.api.espn.com/v2/s… 3           2026     1 11772       1178
-#>  4 http://sports.core.api.espn.com/v2/s… 4           2026     1 11772       1178
-#>  5 http://sports.core.api.espn.com/v2/s… 5           2026     1 11772       1178
-#>  6 http://sports.core.api.espn.com/v2/s… 6           2026     1 11772       1178
-#>  7 http://sports.core.api.espn.com/v2/s… 7           2026     1 11772       1178
-#>  8 http://sports.core.api.espn.com/v2/s… 8           2026     1 11772       1178
-#>  9 http://sports.core.api.espn.com/v2/s… 9           2026     1 11772       1178
-#> 10 http://sports.core.api.espn.com/v2/s… 10          2026     1 11772       1178
+#>  1 http://sports.core.api.espn.com/v2/s… 1           2026     1 11773       1178
+#>  2 http://sports.core.api.espn.com/v2/s… 2           2026     1 11773       1178
+#>  3 http://sports.core.api.espn.com/v2/s… 3           2026     1 11773       1178
+#>  4 http://sports.core.api.espn.com/v2/s… 4           2026     1 11773       1178
+#>  5 http://sports.core.api.espn.com/v2/s… 5           2026     1 11773       1178
+#>  6 http://sports.core.api.espn.com/v2/s… 6           2026     1 11773       1178
+#>  7 http://sports.core.api.espn.com/v2/s… 7           2026     1 11773       1178
+#>  8 http://sports.core.api.espn.com/v2/s… 8           2026     1 11773       1178
+#>  9 http://sports.core.api.espn.com/v2/s… 9           2026     1 11773       1178
+#> 10 http://sports.core.api.espn.com/v2/s… 10          2026     1 11773       1178
 # }
 ```

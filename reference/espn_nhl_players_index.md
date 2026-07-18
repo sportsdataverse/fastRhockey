@@ -189,7 +189,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_players_index(active = TRUE, limit = 10, page = 1))
 #> ── NHL Players Index data from ESPN.com ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-12 18:39:43 UTC
+#> ℹ Data updated: 2026-07-18 17:02:02 UTC
 #> # A tibble: 10 × 6
 #>    ref                                  athlete_id active  page count page_count
 #>    <chr>                                <chr>      <lgl>  <int> <int>      <int>

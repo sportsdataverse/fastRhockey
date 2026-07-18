@@ -39,6 +39,6 @@ Other OHL Functions:
 
 ``` r
  try(ohl_game_corsi(game_id = 27225)) 
-#> ✖ 2026-07-12 18:42:31.752792: OHL game Corsi for game_id 27225 unavailable! Error in `$<-.data.frame`(`*tmp*`, "corsi_for_per60", value = NA_real_): replacement has 1 row, data has 0
+#> ✖ 2026-07-18 17:04:48.924494: OHL game Corsi for game_id 27225 unavailable! Error in `$<-.data.frame`(`*tmp*`, "corsi_for_per60", value = NA_real_): replacement has 1 row, data has 0
 #> data frame with 0 columns and 0 rows
 ```
