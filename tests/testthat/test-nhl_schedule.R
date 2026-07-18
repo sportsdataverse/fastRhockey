@@ -159,6 +159,10 @@ test_that(".parse_club_schedule_games: preserves per-row distinct values", {
         default = c("Toronto", "Montréal", "Boston"),
         stringsAsFactors = FALSE
     )
+    games_df$homeTeam$commonName <- data.frame(
+        default = c("Maple Leafs", "Canadiens", "Bruins"),
+        stringsAsFactors = FALSE
+    )
     games_df$awayTeam <- data.frame(
         abbrev = c("MTL", "BOS", "TOR"),
         score = c(2L, 0L, 5L),
@@ -166,6 +170,10 @@ test_that(".parse_club_schedule_games: preserves per-row distinct values", {
     )
     games_df$awayTeam$placeName <- data.frame(
         default = c("Montréal", "Boston", "Toronto"),
+        stringsAsFactors = FALSE
+    )
+    games_df$awayTeam$commonName <- data.frame(
+        default = c("Canadiens", "Bruins", "Maple Leafs"),
         stringsAsFactors = FALSE
     )
     games_df$venue <- data.frame(
@@ -177,9 +185,15 @@ test_that(".parse_club_schedule_games: preserves per-row distinct values", {
 
     # Every column derived from a nested field must have 3 distinct values
     # in this fixture. If any collapses to 1, the ifelse-recycling bug
-    # has regressed.
-    expect_equal(out$home_team_name, c("Toronto", "Montréal", "Boston"))
-    expect_equal(out$away_team_name, c("Montréal", "Boston", "Toronto"))
+    # has regressed. team_name is the full place + common name.
+    expect_equal(
+        out$home_team_name,
+        c("Toronto Maple Leafs", "Montréal Canadiens", "Boston Bruins")
+    )
+    expect_equal(
+        out$away_team_name,
+        c("Montréal Canadiens", "Boston Bruins", "Toronto Maple Leafs")
+    )
     expect_equal(out$home_score, c(3L, 1L, 4L))
     expect_equal(out$away_score, c(2L, 0L, 5L))
     expect_equal(
@@ -212,6 +226,10 @@ test_that(".parse_schedule_games: preserves per-row distinct values", {
         default = c("Toronto", "New York"),
         stringsAsFactors = FALSE
     )
+    games_df$homeTeam$commonName <- data.frame(
+        default = c("Maple Leafs", "Rangers"),
+        stringsAsFactors = FALSE
+    )
     games_df$awayTeam <- data.frame(
         abbrev = c("MTL", "PIT"),
         score = c(2L, 0L),
@@ -221,6 +239,10 @@ test_that(".parse_schedule_games: preserves per-row distinct values", {
         default = c("Montréal", "Pittsburgh"),
         stringsAsFactors = FALSE
     )
+    games_df$awayTeam$commonName <- data.frame(
+        default = c("Canadiens", "Penguins"),
+        stringsAsFactors = FALSE
+    )
     games_df$venue <- data.frame(
         default = c("Scotiabank Arena", "Madison Square Garden"),
         stringsAsFactors = FALSE
@@ -228,12 +250,37 @@ test_that(".parse_schedule_games: preserves per-row distinct values", {
 
     out <- fastRhockey:::.parse_schedule_games(games_df)
 
-    expect_equal(out$home_team_name, c("Toronto", "New York"))
-    expect_equal(out$away_team_name, c("Montréal", "Pittsburgh"))
+    expect_equal(out$home_team_name, c("Toronto Maple Leafs", "New York Rangers"))
+    expect_equal(out$away_team_name, c("Montréal Canadiens", "Pittsburgh Penguins"))
     expect_equal(out$home_score, c(3L, 6L))
     expect_equal(out$away_score, c(2L, 0L))
     expect_equal(
         out$venue,
         c("Scotiabank Arena", "Madison Square Garden")
     )
+})
+
+
+test_that(".nhl_full_team_name: falls back to place name when common is absent", {
+    # Older / partial payloads may omit commonName entirely -> place-only,
+    # with no trailing space. A per-row NA common yields the place alone too.
+    team_no_common <- list(placeName = data.frame(
+        default = c("Toronto", "Boston"), stringsAsFactors = FALSE
+    ))
+    expect_equal(
+        fastRhockey:::.nhl_full_team_name(team_no_common),
+        c("Toronto", "Boston")
+    )
+
+    team_partial <- list(
+        placeName = data.frame(default = c("Toronto", "Boston"), stringsAsFactors = FALSE),
+        commonName = data.frame(default = c("Maple Leafs", NA_character_), stringsAsFactors = FALSE)
+    )
+    expect_equal(
+        fastRhockey:::.nhl_full_team_name(team_partial),
+        c("Toronto Maple Leafs", "Boston")
+    )
+
+    # No place name at all -> scalar NA (whole column is missing).
+    expect_equal(fastRhockey:::.nhl_full_team_name(list()), NA_character_)
 })
