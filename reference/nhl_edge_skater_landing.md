@@ -40,7 +40,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_skater_landing())
 #> ── NHL Edge Skater Landing ──────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-18 17:03:55 UTC
+#> ℹ Data updated: 2026-07-18 18:47:47 UTC
 #> # A tibble: 5 × 2
 #>         id game_types
 #>      <int> <list>    

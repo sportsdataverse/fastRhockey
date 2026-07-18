@@ -180,7 +180,7 @@ Saiem Gilani
   # NOTE: Returns empty tibble for NHL (ESPN does not populate weeks for hockey)
   try(espn_nhl_season_weeks(season = 2026, season_type = 2))
 #> ── NHL Season Weeks data from ESPN core-v2 ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-18 17:02:10 UTC
+#> ℹ Data updated: 2026-07-18 18:45:59 UTC
 #> # A tibble: 25 × 6
 #>    ref                                  week season season_type count page_count
 #>    <chr>                               <int>  <int>       <int> <int>      <int>

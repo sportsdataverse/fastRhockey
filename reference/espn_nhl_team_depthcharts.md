@@ -183,11 +183,11 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_team_depthcharts(team_id = "4"))
 #> ── NHL Team Depth Charts data from ESPN.com ─────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-18 17:02:34 UTC
+#> ℹ Data updated: 2026-07-18 18:46:27 UTC
 #> # A tibble: 1 × 16
 #>   team_id timestamp      status season_year season_type season_name team_espn_id
 #>   <chr>   <chr>          <chr>        <int>       <int> <chr>       <chr>       
-#> 1 4       2026-07-18T17… succe…        2026           4 Off Season  4           
+#> 1 4       2026-07-18T18… succe…        2026           4 Off Season  4           
 #> # ℹ 9 more variables: abbreviation <chr>, location <chr>, name <chr>,
 #> #   display_name <chr>, color <chr>, logo <chr>, record_summary <chr>,
 #> #   season_summary <chr>, standing_summary <chr>

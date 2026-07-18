@@ -71,7 +71,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_goalie_season_stats(limit = 5))
 #> ── NHL Records Goalie Season Stats ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-18 17:04:25 UTC
+#> ℹ Data updated: 2026-07-18 18:48:15 UTC
 #> # A tibble: 5 × 34
 #>      id active_player first_name franchise_id game_seven_games_played
 #>   <int> <lgl>         <chr>             <int> <lgl>                  

@@ -37,7 +37,7 @@ Other WHL Functions:
 ``` r
  try(whl_season_id()) 
 #> ── WHL Season IDs from HockeyTech ───────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-18 17:05:54 UTC
+#> ℹ Data updated: 2026-07-18 18:49:35 UTC
 #> # A tibble: 80 × 9
 #>    season_id season_name         season_short career playoff start_date end_date
 #>        <dbl> <chr>               <chr>        <chr>  <chr>   <chr>      <chr>   

@@ -24,7 +24,7 @@ A `fastRhockey_data` tibble, one row per player (`team_id`,
 ``` r
  try(fox_nhl_team_roster("1")) 
 #> ── Fox Sports NHL roster ────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-18 17:02:42 UTC
+#> ℹ Data updated: 2026-07-18 18:46:35 UTC
 #> # A tibble: 27 × 9
 #>    team_id position_group player      pos   age   ht    wt    college athlete_id
 #>    <chr>   <chr>          <chr>       <chr> <chr> <chr> <chr> <chr>   <chr>     

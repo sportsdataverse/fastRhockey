@@ -37,7 +37,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_stats_glossary())
 #> ── NHL Stats Glossary ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-18 17:04:41 UTC
+#> ℹ Data updated: 2026-07-18 18:48:31 UTC
 #> # A tibble: 321 × 7
 #>       id abbreviation   definition first_season_for_stat full_name language_code
 #>    <int> <chr>          <chr>                      <int> <chr>     <chr>        

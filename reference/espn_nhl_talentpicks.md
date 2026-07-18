@@ -167,7 +167,7 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns empty tibble for NHL (ESPN does not populate this endpoint)
   try(espn_nhl_talentpicks())
-#> ✖ 2026-07-18 17:02:33.583876: Invalid arguments or no ESPN nhl talent picks available!
+#> ✖ 2026-07-18 18:46:25.898536: Invalid arguments or no ESPN nhl talent picks available!
 #> ✖ Args: league = "nhl"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

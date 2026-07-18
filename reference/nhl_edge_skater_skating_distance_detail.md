@@ -76,7 +76,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_skater_skating_distance_detail(player_id = 8478402))
 #> ── NHL Edge Skater Skating Distance Detail ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-18 17:03:57 UTC
+#> ℹ Data updated: 2026-07-18 18:47:49 UTC
 #> # A tibble: 10 × 29
 #>    game_center_link game_date player_on_home_team toi_all toi_even toi_pp toi_pk
 #>    <chr>            <chr>     <lgl>                 <int>    <int>  <int>  <int>

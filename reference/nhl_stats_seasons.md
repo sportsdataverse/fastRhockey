@@ -51,7 +51,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_stats_seasons())
 #> ── NHL Stats Seasons ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-18 17:04:43 UTC
+#> ℹ Data updated: 2026-07-18 18:48:33 UTC
 #> # A tibble: 109 × 23
 #>          id all_star_game_in_use conferences_in_use divisions_in_use end_date   
 #>       <int>                <int>              <int>            <int> <chr>      

@@ -55,7 +55,7 @@ failure / empty response.
 #> Warning: `nhl_edge_goalie_shot_location_top_10()` was deprecated in fastRhockey 1.0.0.
 #> ℹ The NHL has removed this Edge top-10 leaderboard endpoint; the function
 #>   returns NULL.
-#> 2026-07-18 17:03:53.953004: Error fetching https://api-web.nhle.com/v1/edge/goalie-shot-location-top-10/high/savePctg/now: The API returned an error
+#> 2026-07-18 18:47:45.478785: Error fetching https://api-web.nhle.com/v1/edge/goalie-shot-location-top-10/high/savePctg/now: The API returned an error
 #> NULL
 # }
 ```
