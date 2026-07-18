@@ -286,7 +286,17 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
     if (is.null(common)) return(as.character(place))
     # ifelse() here is element-wise over the per-row `common` vector (correct
     # use); paste()/trimws() are vectorized, so length is preserved.
-    trimws(paste(place, ifelse(is.na(common), "", common)))
+    joined <- trimws(paste(place, ifelse(is.na(common), "", common)))
+    # api-web overlaps place/common inconsistently across seasons, doubling a
+    # token both ways: "NY Rangers" + "Rangers" -> "NY Rangers Rangers", and
+    # "Utah" + "Utah Hockey Club" -> "Utah Utah Hockey Club". Collapse adjacent
+    # duplicate words so the full name stays canonical either way.
+    vapply(joined, function(s) {
+        if (is.na(s)) return(NA_character_)
+        w <- strsplit(s, " ", fixed = TRUE)[[1]]
+        if (length(w) < 2) return(s)
+        paste(w[c(TRUE, w[-1] != w[-length(w)])], collapse = " ")
+    }, character(1), USE.NAMES = FALSE)
 }
 
 
