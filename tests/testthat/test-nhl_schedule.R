@@ -284,3 +284,20 @@ test_that(".nhl_full_team_name: falls back to place name when common is absent",
     # No place name at all -> scalar NA (whole column is missing).
     expect_equal(fastRhockey:::.nhl_full_team_name(list()), NA_character_)
 })
+
+
+test_that(".nhl_full_team_name: collapses api-web's inconsistent token doubling", {
+    # api-web overlaps place/common inconsistently across seasons: placeName can
+    # trail into the common name ("NY Rangers" + "Rangers") and commonName can
+    # lead with the place ("Utah" + "Utah Hockey Club"). Both must de-double.
+    team <- list(
+        placeName = data.frame(
+            default = c("NY Rangers", "Utah", "New York"), stringsAsFactors = FALSE),
+        commonName = data.frame(
+            default = c("Rangers", "Utah Hockey Club", "Rangers"), stringsAsFactors = FALSE)
+    )
+    expect_equal(
+        fastRhockey:::.nhl_full_team_name(team),
+        c("NY Rangers", "Utah Hockey Club", "New York Rangers")
+    )
+})
