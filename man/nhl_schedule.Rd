@@ -52,8 +52,8 @@ per pre-compiled dataset.\tabular{lll}{
    game_time \tab character \tab Scheduled game start time (UTC). \cr
    home_team_abbr \tab character \tab Home team abbreviation. \cr
    away_team_abbr \tab character \tab Away team abbreviation. \cr
-   home_team_name \tab character \tab Home team name. \cr
-   away_team_name \tab character \tab Away team name. \cr
+   home_team_name \tab character \tab Home team full name (place + common, e.g. \verb{Tampa Bay Lightning}). \cr
+   away_team_name \tab character \tab Away team full name (place + common, e.g. \verb{Boston Bruins}). \cr
    home_score \tab integer \tab Home team final score. \cr
    away_score \tab integer \tab Away team final score. \cr
    game_state \tab character \tab Current state of the game. \cr

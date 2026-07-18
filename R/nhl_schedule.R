@@ -36,8 +36,8 @@
 #'    |game_time      |character |Scheduled game start time (UTC).         |
 #'    |home_team_abbr |character |Home team abbreviation.                  |
 #'    |away_team_abbr |character |Away team abbreviation.                  |
-#'    |home_team_name |character |Home team name.                          |
-#'    |away_team_name |character |Away team name.                          |
+#'    |home_team_name |character |Home team full name (place + common, e.g. `Tampa Bay Lightning`). |
+#'    |away_team_name |character |Away team full name (place + common, e.g. `Boston Bruins`).       |
 #'    |home_score     |integer   |Home team final score.                   |
 #'    |away_score     |integer   |Away team final score.                   |
 #'    |game_state     |character |Current state of the game.               |
@@ -268,6 +268,28 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
 }
 
 
+#' Build the full NHL team name (place + common) from an api-web team struct
+#'
+#' The api-web schedule team object carries the city in `placeName$default`
+#' ("Tampa Bay") and the mascot in `commonName$default` ("Lightning")
+#' separately; joining them yields the conventional full team name
+#' ("Tampa Bay Lightning") every other source uses. Vector-safe and null-safe:
+#' returns the place name alone when no common name is present, and a scalar
+#' `NA_character_` only when the team carries no place name at all.
+#' @param team The `homeTeam` / `awayTeam` struct from the parsed games frame.
+#' @return Character vector of full team names (one per game).
+#' @keywords internal
+.nhl_full_team_name <- function(team) {
+    place <- team$placeName$default
+    if (is.null(place)) return(NA_character_)
+    common <- team$commonName$default
+    if (is.null(common)) return(as.character(place))
+    # ifelse() here is element-wise over the per-row `common` vector (correct
+    # use); paste()/trimws() are vectorized, so length is preserved.
+    trimws(paste(place, ifelse(is.na(common), "", common)))
+}
+
+
 #' Parse games from the daily schedule endpoint
 #' @param games_df Data frame of games from the gameWeek structure
 #' @return Parsed data frame
@@ -293,18 +315,11 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
         game_time = games_df$startTimeUTC,
         home_team_abbr = games_df$homeTeam$abbrev,
         away_team_abbr = games_df$awayTeam$abbrev,
-        # Use if/else (not ifelse) so the result preserves vector length.
-        # ifelse(scalar_test, vec, scalar) returns length(test) == 1, which
-        # tibble then recycles across all rows — silently duplicating one
-        # value into every row.
-        home_team_name = if (!is.null(games_df$homeTeam$placeName$default))
-            games_df$homeTeam$placeName$default
-        else
-            NA_character_,
-        away_team_name = if (!is.null(games_df$awayTeam$placeName$default))
-            games_df$awayTeam$placeName$default
-        else
-            NA_character_,
+        # Full team name = place + common ("Tampa Bay" + "Lightning"). The
+        # helper is vector-safe; see .nhl_full_team_name() for the recycling
+        # note (a scalar collapses one value into every row).
+        home_team_name = .nhl_full_team_name(games_df$homeTeam),
+        away_team_name = .nhl_full_team_name(games_df$awayTeam),
         home_score = if (!is.null(games_df$homeTeam$score))
             games_df$homeTeam$score
         else
@@ -342,17 +357,9 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
         game_time = games_df$startTimeUTC,
         home_team_abbr = games_df$homeTeam$abbrev,
         away_team_abbr = games_df$awayTeam$abbrev,
-        # See note in .parse_schedule_games(): ifelse() collapses vector
-        # results to length 1 when the test is a scalar !is.null(). Use
-        # if/else instead so per-row values are preserved.
-        home_team_name = if (!is.null(games_df$homeTeam$placeName$default))
-            games_df$homeTeam$placeName$default
-        else
-            NA_character_,
-        away_team_name = if (!is.null(games_df$awayTeam$placeName$default))
-            games_df$awayTeam$placeName$default
-        else
-            NA_character_,
+        # Full team name = place + common; see .nhl_full_team_name().
+        home_team_name = .nhl_full_team_name(games_df$homeTeam),
+        away_team_name = .nhl_full_team_name(games_df$awayTeam),
         home_score = if (!is.null(games_df$homeTeam$score))
             games_df$homeTeam$score
         else
