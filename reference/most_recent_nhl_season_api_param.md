@@ -14,3 +14,10 @@ most_recent_nhl_season_api_param()
 ## Value
 
 Value for most recent NHL season in the format of the NHL API
+
+## Examples
+
+``` r
+most_recent_nhl_season_api_param()
+#> 20252026
+```

@@ -4,6 +4,47 @@
 
 #### New features
 
+- [`load_pwhl_shifts()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shifts.md)
+  and
+  [`load_pwhl_xg_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_xg_pbp.md)
+  — loaders for the two published PWHL release datasets that had no R
+  access (per-player shift charts and xG-enriched play-by-play),
+  completing coverage of every hockey tag on the sportsdataverse-data
+  releases.
+- [`nhl_game_shifts()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_shifts.md)
+  gains a `detailed` argument: `detailed = TRUE` returns the per-player
+  shift records (one row per player-shift with game-second on/off times)
+  instead of the aggregated one-row-per-change frame
+  ([\#26](https://github.com/sportsdataverse/fastRhockey/issues/26)).
+
+#### Bug fixes
+
+- [`pwhl_stats()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_stats.md)
+  now resolves the `season` argument to the correct HockeyTech season id
+  instead of always returning the inaugural 2024 season
+  ([\#50](https://github.com/sportsdataverse/fastRhockey/issues/50)),
+  and the `team` filter works for both positions and accepts a team code
+  (`"OTT"`), label (`"Ottawa"`), or full name — an unknown team now
+  errors informatively instead of silently returning the whole league
+  ([\#49](https://github.com/sportsdataverse/fastRhockey/issues/49)).
+- [`pwhl_stats()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_stats.md),
+  [`pwhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_schedule.md),
+  and
+  [`pwhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_standings.md)
+  now strip the HockeyTech JSONP envelope through the shared
+  `.hockeytech_api()` helper instead of per-function regexes that broke
+  on payload-shape changes (empty results for 2025 onward).
+- [`pwhl_stats()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_stats.md)
+  skater results are resilient to the shootout stat block dropping out
+  of the feed (absent after the inaugural season).
+
+#### Housekeeping
+
+- Documentation migrated to roxygen2 8.1.0; the full test suite now
+  skips on CRAN (everything runs in CI on every push); `cph` role added
+  to `Authors@R`; LICENSE year refreshed; R-hub workflow moved to the
+  rolling `r-hub/actions@v1` tag (node24 runtime).
+
 - Added read-only **Fox Sports “Bifrost”** NHL wrappers (`fox_nhl_*`)
   over `api.foxsports.com/bifrost/v1/nhl/*`, complementing the
   `espn_nhl_*` family:
@@ -20,15 +61,18 @@
   Parallels the cfbfastR / hoopR / sportsdataverse-py `fox_*` families;
   reverse-engineering notes + an OpenAPI 3.1 spec live in the
   `sdv-internal-refs` repo.
+
 - Added live HockeyTech wrappers for **AHL**, **OHL**, **WHL**, and
   **QMJHL** (`<lg>_schedule()`, `<lg>_pbp()`, `<lg>_standings()`,
   `<lg>_teams()`, `<lg>_team_roster()`, `<lg>_player_stats()`,
   `<lg>_leaders()`, `<lg>_game_summary()`, `<lg>_season_id()`,
   `most_recent_<lg>_season()`).
+
 - Added on-ice / Corsi-Fenwick / TOI analytics across all five
   HockeyTech leagues (`*_game_shifts()`, `*_player_toi()`,
   `*_game_corsi()`). Corsi/Fenwick are proxies — the feed has no
   missed-shot event (`corsi_includes_missed`).
+
 - [`pwhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_pbp.md)
   now returns a superset: added `shot_distance`, `shot_angle`,
   `scoring_chance`, `on_ice_home`, `on_ice_away`, coordinate-transform +

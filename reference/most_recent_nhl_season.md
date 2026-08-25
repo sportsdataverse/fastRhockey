@@ -13,3 +13,10 @@ most_recent_nhl_season()
 ## Value
 
 Value for most recent NHL season
+
+## Examples
+
+``` r
+most_recent_nhl_season()
+#> [1] 2026
+```

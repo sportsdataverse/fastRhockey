@@ -45,8 +45,13 @@ Useful links:
 
 Authors:
 
+- Saiem Gilani <saiem.gilani@gmail.com>
+  ([ORCID](https://orcid.org/0000-0002-7194-9067))
+
 - Ben Howell <benhowell71@gmail.com>
 
 Other contributors:
 
 - Alyssa Longmuir <aklongmuir@gmail.com> \[contributor\]
+
+- fastRhockey authors \[copyright holder\]

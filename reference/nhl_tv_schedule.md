@@ -39,91 +39,75 @@ A named list of data frames: `broadcasts`.
 # \donttest{
   try(nhl_tv_schedule())
 #> $date
-#> [1] "2026-07-18"
+#> [1] "2026-08-25"
 #> 
 #> $startDate
-#> [1] "2026-07-04"
+#> [1] "2026-08-11"
 #> 
 #> $endDate
-#> [1] "2026-08-01"
+#> [1] "2026-09-08"
 #> 
 #> $broadcasts
 #>              startTime             endTime durationSeconds
-#> 1  2026-07-18T00:00:00 2026-07-18T01:00:00            3600
-#> 2  2026-07-18T01:00:00 2026-07-18T02:00:00            3600
-#> 3  2026-07-18T02:00:00 2026-07-18T03:00:00            3600
-#> 4  2026-07-18T03:00:00 2026-07-18T04:00:00            3600
-#> 5  2026-07-18T04:00:00 2026-07-18T05:00:00            3600
-#> 6  2026-07-18T05:00:00 2026-07-18T06:00:00            3600
-#> 7  2026-07-18T06:00:00 2026-07-18T07:00:00            3600
-#> 8  2026-07-18T07:00:00 2026-07-18T08:00:00            3600
-#> 9  2026-07-18T08:00:00 2026-07-18T09:00:00            3600
-#> 10 2026-07-18T09:00:00 2026-07-18T10:00:00            3600
-#> 11 2026-07-18T10:00:00 2026-07-18T11:00:00            3600
-#> 12 2026-07-18T11:00:00 2026-07-18T12:00:00            3600
-#> 13 2026-07-18T12:00:00 2026-07-18T15:00:00           10800
-#> 14 2026-07-18T15:00:00 2026-07-18T17:00:00            7200
-#> 15 2026-07-18T17:00:00 2026-07-18T20:00:00           10800
-#> 16 2026-07-18T20:00:00 2026-07-18T22:00:00            7200
-#> 17 2026-07-18T22:00:00 2026-07-18T22:30:00            1800
-#> 18 2026-07-18T22:30:00 2026-07-19T01:30:00           10800
-#>                                                                title
-#> 1                                                        NHL Tonight
-#> 2                                                        NHL Tonight
-#> 3                                                        NHL Tonight
-#> 4                                                        NHL Tonight
-#> 5                                                        NHL Tonight
-#> 6                                                        NHL Tonight
-#> 7                                                        NHL Tonight
-#> 8                                                        NHL Tonight
-#> 9                                                        NHL Tonight
-#> 10                                                       NHL Tonight
-#> 11                                                       NHL Tonight
-#> 12                                                       NHL Tonight
-#> 13                                    IIHF World Junior Championship
-#> 14                                    IIHF World Junior Championship
-#> 15                                    IIHF World Junior Championship
-#> 16                                    IIHF World Junior Championship
-#> 17 NHL Network Countdown: World Junior Championship All-Time Moments
-#> 18                                    IIHF World Junior Championship
-#>                                                                                                     description
-#> 1                                                                                                   NHL Tonight
-#> 2                                                                                                   NHL Tonight
-#> 3                                                                                                   NHL Tonight
-#> 4                                                                                                   NHL Tonight
-#> 5                                                                                                   NHL Tonight
-#> 6                                                                                                   NHL Tonight
-#> 7                                                                                                   NHL Tonight
-#> 8                                                                                                   NHL Tonight
-#> 9                                                                                                   NHL Tonight
-#> 10                                                                                                  NHL Tonight
-#> 11                                                                                                  NHL Tonight
-#> 12                                                                                                  NHL Tonight
-#> 13                                          2017 IIHF World Junior Championship Gold Medal Game: Canada vs. USA
-#> 14 2021 IIHF World Junior Championship: Gold Medal Game - United States at Canada on 1/5/2021 From Rogers Place
-#> 15                                    2024 World Junior Championship Gold Medal Game: USA at Sweden on 1/5/2024
-#> 16                                             2025 World Junior Gold Game: Finland at USA on 1/5/2025 From CTC
-#> 17                                            NHL Network Countdown: World Junior Championship All-Time Moments
-#> 18                                    2024 World Junior Championship Gold Medal Game: USA at Sweden on 1/5/2024
-#>              houseNumber broadcastType broadcastStatus broadcastImageUrl
-#> 1       HNHLTS26071726CC            HD                    nhltonight.png
-#> 2       HNHLTS26071726CC            HD                    nhltonight.png
-#> 3       HNHLTS26071726CC            HD                    nhltonight.png
-#> 4       HNHLTS26071726CC            HD                    nhltonight.png
-#> 5       HNHLTS26071726CC            HD                    nhltonight.png
-#> 6       HNHLTS26071726CC            HD                    nhltonight.png
-#> 7       HNHLTS26071726CC            HD                    nhltonight.png
-#> 8       HNHLTS26071726CC            HD                    nhltonight.png
-#> 9       HNHLTS26071726CC            HD                    nhltonight.png
-#> 10      HNHLTS26071726CC            HD                    nhltonight.png
-#> 11      HNHLTS26071726CC            HD                    nhltonight.png
-#> 12      HNHLTS26071726CC            HD                    nhltonight.png
-#> 13       H180WJC2017GOLD            HD                    nhlnetwork.png
-#> 14    H120USACAN01052021            HD                    nhlnetwork.png
-#> 15    H180USASWE01052024            HD                    nhlnetwork.png
-#> 16 H120WJCGOLD01052025CC            HD                    nhlnetwork.png
-#> 17        HNHLNCTDWN1805            HD                 nhlncountdown.png
-#> 18    H180USASWE01052024            HD                    nhlnetwork.png
+#> 1  2026-08-25T01:00:00 2026-08-25T03:00:00            7200
+#> 2  2026-08-25T03:00:00 2026-08-25T05:00:00            7200
+#> 3  2026-08-25T05:00:00 2026-08-25T06:00:00            3600
+#> 4  2026-08-25T06:00:00 2026-08-25T07:00:00            3600
+#> 5  2026-08-25T07:00:00 2026-08-25T10:00:00           10800
+#> 6  2026-08-25T10:00:00 2026-08-25T12:00:00            7200
+#> 7  2026-08-25T12:00:00 2026-08-25T14:00:00            7200
+#> 8  2026-08-25T14:00:00 2026-08-25T16:00:00            7200
+#> 9  2026-08-25T16:00:00 2026-08-25T18:00:00            7200
+#> 10 2026-08-25T18:00:00 2026-08-25T19:00:00            3600
+#> 11 2026-08-25T19:00:00 2026-08-25T20:00:00            3600
+#> 12 2026-08-25T20:00:00 2026-08-25T21:00:00            3600
+#> 13 2026-08-25T21:00:00 2026-08-25T22:00:00            3600
+#> 14 2026-08-25T22:00:00 2026-08-26T00:00:00            7200
+#>                       title
+#> 1                  NHL Game
+#> 2                  NHL Game
+#> 3  Top 10 Goalies Right Now
+#> 4  Top 20 Centers Right Now
+#> 5                3ICE: Ep 5
+#> 6                  NHL Game
+#> 7                  NHL Game
+#> 8                  NHL Game
+#> 9                  NHL Game
+#> 10              NHL Tonight
+#> 11              NHL Tonight
+#> 12              NHL Tonight
+#> 13              NHL Tonight
+#> 14                 NHL Game
+#>                                                                                               description
+#> 1  Stanley Cup Final: Carolina Hurricanes at Vegas Golden Knights, Game 3 on 6/6/2026 From T-Mobile Arena
+#> 2  Stanley Cup Final: Carolina Hurricanes at Vegas Golden Knights, Game 4 on 6/9/2026 From T-Mobile Arena
+#> 3                                                                                Top 10 Goalies Right Now
+#> 4                                                                                Top 20 Centers Right Now
+#> 5                                                                                              3ICE: Ep 5
+#> 6                                      SuperStar Summer: Brett Hull - Hull Hat Trick DET @ STL on 1/26/02
+#> 7                            SuperStar Summer: Brett Hull - 2002 WCQF GM 6 Hat Trick DET @ VAN on 4/27/02
+#> 8                                       SuperStar Summer: Brett Hull - 1999 SCF GM 6 DAL @ BUF on 6/19/99
+#> 9                                  SuperStar Summer: Brett Hull - Hull's 4 Goal Game DET @ STL on 4/16/95
+#> 10                                                                                            NHL Tonight
+#> 11                                                                                            NHL Tonight
+#> 12                                                                                            NHL Tonight
+#> 13                                                                                            NHL Tonight
+#> 14                           SuperStar Summer: Brett Hull - 2002 WCQF GM 6 Hat Trick DET @ VAN on 4/27/02
+#>               houseNumber broadcastType broadcastStatus broadcastImageUrl
+#> 1      H120CARVGK06062026            HD                           nhl.png
+#> 2      H120CARVGK06092026            HD                           nhl.png
+#> 3       H60S26T10GOALRNCC            HD                    nhlnetwork.png
+#> 4       H60S26T20CTRSRNCC            HD                    nhlnetwork.png
+#> 5        HNHL263ICE082126            HD                    nhlnetwork.png
+#> 6      H120SSDETSTL012602            HD                           nhl.png
+#> 7      H120SSDETVAN042702            HD                           nhl.png
+#> 8  H120SSDALBUF061999HULL            HD                           nhl.png
+#> 9      H120SSDETSTL041695            HD                           nhl.png
+#> 10       HNHLTS26082526LV            HD            LIVE    nhltonight.png
+#> 11       HNHLTS26082526CC            HD                    nhltonight.png
+#> 12       HNHLTS26082526CC            HD                    nhltonight.png
+#> 13       HNHLTS26082526CC            HD                    nhltonight.png
+#> 14     H120SSDETVAN042702            HD                           nhl.png
 #> 
 # }
 ```

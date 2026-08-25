@@ -117,14 +117,14 @@ A named list of data frames: `seasonSeries`, `shotsByPeriod`,
 #> 
 #> $gameInfo
 #> $gameInfo$referees
-#>           default
-#> 1 Ghislain Hebert
-#> 2       Chris Lee
+#>   sweaterNumber fullName.default
+#> 1            22  Ghislain Hebert
+#> 2            28        Chris Lee
 #> 
 #> $gameInfo$linesmen
-#>          default
-#> 1  Brad Kovachik
-#> 2 Michel Cormier
+#>   sweaterNumber fullName.default
+#> 1            71    Brad Kovachik
+#> 2            76   Michel Cormier
 #> 
 #> $gameInfo$awayTeam
 #> $gameInfo$awayTeam$headCoach

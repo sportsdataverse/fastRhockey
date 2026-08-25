@@ -5,7 +5,7 @@ Returns information on game shifts for a given game id
 ## Usage
 
 ``` r
-nhl_game_shifts(game_id)
+nhl_game_shifts(game_id, detailed = FALSE)
 ```
 
 ## Arguments
@@ -13,6 +13,13 @@ nhl_game_shifts(game_id)
 - game_id:
 
   Game unique ID
+
+- detailed:
+
+  If `TRUE`, return the per-player shift records (one row per
+  player-shift with `start_game_seconds` / `end_game_seconds` /
+  `duration_seconds`) instead of the aggregated one-row-per-change
+  frame.
 
 ## Value
 
@@ -50,7 +57,7 @@ which still publish per-shift records for the same games.
 # \donttest{
   try(nhl_game_shifts(game_id = 2021020182))
 #> ── NHL Game Shifts Information from NHL.com ─────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-18 18:47:57 UTC
+#> ℹ Data updated: 2026-08-25 11:26:37 UTC
 #> # A tibble: 326 × 14
 #>    event_team   period period_time period_seconds game_seconds num_on players_on
 #>    <chr>         <int> <chr>                <dbl>        <dbl>  <int> <chr>     

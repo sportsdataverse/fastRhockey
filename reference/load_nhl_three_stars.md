@@ -67,24 +67,25 @@ the game winner/loser goalie decision) and the following columns:
 ``` r
 # \donttest{
   try(load_nhl_three_stars(2026))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── NHL three stars / decisions ──────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-07-22 23:49:22 UTC
 #> # A tibble: 4,182 × 22
-#>     star playerId teamAbbrev headshot    sweaterNo position goals assists points
-#>    <int>    <int> <chr>      <chr>           <int> <chr>    <int>   <int>  <int>
-#>  1     1  8480003 FLA        https://as…        70 C            1       0      1
-#>  2     2  8482713 FLA        https://as…        11 R            0       2      2
-#>  3     3  8478421 FLA        https://as…        10 L            1       0      1
-#>  4     1  8481668 PIT        https://as…        37 G           NA      NA     NA
-#>  5     2  8479638 PIT        https://as…        16 R            2       0      2
-#>  6     3  8478048 NYR        https://as…        31 G           NA      NA     NA
-#>  7     1  8480039 COL        https://as…        88 C            2       0      2
-#>  8     2  8477492 COL        https://as…        29 C            0       2      2
-#>  9     3  8477476 COL        https://as…        62 L            1       1      2
-#> 10     1  8477939 TOR        https://as…        88 R            1       2      3
+#>     star playerId teamAbbrev headshot       name.default name.cs name.de name.fi
+#>    <int>    <int> <chr>      <chr>          <chr>        <chr>   <chr>   <chr>  
+#>  1     1  8480003 FLA        https://asset… J. Boqvist   NA      NA      NA     
+#>  2     2  8482713 FLA        https://asset… M. Samoskev… NA      NA      NA     
+#>  3     3  8478421 FLA        https://asset… A. Greer     NA      NA      NA     
+#>  4     1  8481668 PIT        https://asset… A. Silovs    A. Šil… NA      NA     
+#>  5     2  8479638 PIT        https://asset… J. Brazeau   NA      NA      NA     
+#>  6     3  8478048 NYR        https://asset… I. Shesterk… I. Šes… NA      I. She…
+#>  7     1  8480039 COL        https://asset… M. Necas     M. Neč… NA      NA     
+#>  8     2  8477492 COL        https://asset… N. MacKinnon NA      NA      NA     
+#>  9     3  8477476 COL        https://asset… A. Lehkonen  NA      NA      NA     
+#> 10     1  8477939 TOR        https://asset… W. Nylander  NA      NA      NA     
 #> # ℹ 4,172 more rows
-#> # ℹ 13 more variables: game_id <int>, winner_id <int>, winner_name <chr>,
-#> #   loser_id <int>, loser_name <chr>, goalsAgainstAverage <dbl>,
-#> #   savePctg <dbl>, name.default <chr>, name.cs <chr>, name.sk <chr>,
-#> #   name.fi <chr>, name.sv <chr>, name.de <chr>
+#> # ℹ 14 more variables: name.sk <chr>, name.sv <chr>, sweaterNo <int>,
+#> #   position <chr>, goals <int>, assists <int>, points <int>, game_id <int>,
+#> #   winner_id <int>, winner_name <chr>, loser_id <int>, loser_name <chr>,
+#> #   goalsAgainstAverage <dbl>, savePctg <dbl>
 # }
 ```

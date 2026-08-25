@@ -10,8 +10,19 @@ HockeyTech leagues. Part of the
 `load_*`), and the legacy `fastRhockey-data` (PHF archive + older NHL
 JSON).
 
-- License MIT \| R (\>= 4.1.0) \| roxygen2 markdown \| testthat edition
-  3 \| v1.0.0
+- License MIT \| R (\>= 4.1.0) \| roxygen2 8.1.0 markdown \| testthat
+  edition 3 \| v1.0.0
+- The ENTIRE test suite skips on CRAN (every `test_that` leads with
+  `skip_on_cran()`); tests run in CI (`NOT_CRAN=true`) on every push.
+  New tests must follow this.
+- HockeyTech JSONP is stripped ONLY via `.hockeytech_api()`
+  (`hockeytech_helpers.R`) — never per-function regex on the callback
+  tail (the tail shape varies by payload and has silently emptied
+  results).
+- sdv-py parity note: Python carries 20 HockeyTech league families
+  (echl/ushl/sphl/… via `build_family`); R carries pwhl +
+  ahl/ohl/whl/qmjhl. The 15-league gap is a known, deliberate divergence
+  — port via the registry pattern if ever needed, not ad hoc.
 
 ## Commands
 
@@ -69,9 +80,12 @@ responses go through
 ## Loaders & xG
 
 - `load_nhl_*` (27, incl. parity aliases) share `.nhl_release_loader()`
-  in `nhl_loaders.R`; `load_pwhl_*` (20) share `.pwhl_release_loader()`
-  in `pwhl_loaders.R`. Both validate seasons, build release URLs from a
-  `(release_tag, file_prefix)` catalog row, download in parallel
+  in `nhl_loaders.R`; `load_pwhl_*` (22, incl. `load_pwhl_shifts` +
+  `load_pwhl_xg_pbp`) share `.pwhl_release_loader()` in
+  `pwhl_loaders.R`. Every hockey tag on the sportsdataverse-data
+  releases has a loader (verified 2026-08-25); `nhl_xg_models` is model
+  artifacts, not a dataset. Both validate seasons, build release URLs
+  from a `(release_tag, file_prefix)` catalog row, download in parallel
   (optional `progressr`), optionally write to a `DBIConnection`, and tag
   output `fastRhockey_data`. Add a dataset = one catalog row + a thin
   wrapper. DB helpers:

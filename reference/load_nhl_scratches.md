@@ -53,7 +53,8 @@ game and the following columns:
 ``` r
 # \donttest{
   try(load_nhl_scratches(2026))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── NHL scratches ────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-07-22 23:49:22 UTC
 #> # A tibble: 9,435 × 4
 #>         id firstName lastName      game_id
 #>      <int> <chr>     <chr>           <int>

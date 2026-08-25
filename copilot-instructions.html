@@ -405,6 +405,13 @@ vignettes/                  # Vignettes for pkgdown site</code></pre>
 <strong>glue::glue()</strong> for string interpolation and URL construction</li>
 <li>Internal helper functions prefixed with <code>.</code> (e.g., <code><a href="reference/dot-parse_game_rosters.html">.parse_game_rosters()</a></code>, <code><a href="reference/dot-build_pbp.html">.build_pbp()</a></code>)</li>
 <li>
+<strong>HockeyTech JSONP</strong>: strip the callback envelope ONLY via <code>.hockeytech_api()</code> (<code>R/hockeytech_helpers.R</code>) — never a per-function regex on the callback tail; the tail shape varies by payload and hardcoded <code>gsub</code> fixes have silently emptied results</li>
+<li>
+<strong>Tests skip on CRAN</strong>: every <code>test_that</code> block leads with <code><a href="https://testthat.r-lib.org/reference/skip.html" class="external-link">testthat::skip_on_cran()</a></code>; the suite runs in CI (<code>NOT_CRAN=true</code>) on every push. New tests must follow this</li>
+<li>
+<strong>Release loaders</strong>: one loader per sportsdataverse-data hockey tag; add a dataset = one <code>(release_tag, file_prefix)</code> catalog row + a thin wrapper on <code>.nhl_release_loader()</code> / <code>.pwhl_release_loader()</code>
+</li>
+<li>
 <code><a href="https://rdrr.io/r/utils/globalVariables.html" class="external-link">globalVariables()</a></code> declarations in <code>utils.R</code> suppress R CMD check NSE notes</li>
 </ul></div>
 <div class="section level3">

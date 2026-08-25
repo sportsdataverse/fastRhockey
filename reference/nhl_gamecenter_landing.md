@@ -117,7 +117,7 @@ A named list of data frames: `tvBroadcasts`.
 #> 
 #> $specialEvent$name
 #> $specialEvent$name$default
-#> [1] "2024 NHL Global Series"
+#> [1] "2024 Global Series"
 #> 
 #> 
 #> $specialEvent$lightLogoUrl

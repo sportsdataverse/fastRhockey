@@ -534,6 +534,17 @@ sportsdataverse-data releases
 
   **Load fastRhockey PWHL shots-by-period**
 
+- [`load_pwhl_shifts()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shifts.md)
+  :
+
+  **Load PWHL shift charts from the SportsDataverse data repo**
+
+- [`load_pwhl_xg_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_xg_pbp.md)
+  :
+
+  **Load PWHL expected-goals play-by-play from the SportsDataverse data
+  repo**
+
 - [`load_pwhl_shootout()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shootout.md)
   :
 

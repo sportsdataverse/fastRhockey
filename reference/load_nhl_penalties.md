@@ -58,24 +58,25 @@ following columns:
 ``` r
 # \donttest{
   try(load_nhl_penalties(2026))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── NHL penalty summary ──────────────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-07-22 23:49:22 UTC
 #> # A tibble: 10,445 × 45
-#>    timeInPeriod type  duration descKey         game_id period_number period_type
-#>    <chr>        <chr>    <int> <chr>             <int>         <int> <chr>      
-#>  1 06:58        MIN          2 slashing         2.03e9             1 REG        
-#>  2 12:26        MIN          2 tripping         2.03e9             1 REG        
-#>  3 16:50        MAJ          5 fighting         2.03e9             1 REG        
-#>  4 16:50        MAJ          5 fighting         2.03e9             1 REG        
-#>  5 01:12        MIN          2 holding-the-st…  2.03e9             2 REG        
-#>  6 08:17        MIN          2 slashing         2.03e9             2 REG        
-#>  7 05:56        MIN          2 high-sticking    2.03e9             3 REG        
-#>  8 00:59        MIN          2 hooking          2.03e9             1 REG        
-#>  9 07:33        MIN          2 interference     2.03e9             1 REG        
-#> 10 18:55        MIN          2 tripping         2.03e9             2 REG        
+#>    timeInPeriod type  duration committedByPlayer.firstN…¹ committedByPlayer.fi…²
+#>    <chr>        <chr>    <int> <chr>                      <chr>                 
+#>  1 06:58        MIN          2 Artyom                     NA                    
+#>  2 12:26        MIN          2 Artyom                     NA                    
+#>  3 16:50        MAJ          5 Nick                       NA                    
+#>  4 16:50        MAJ          5 A.J.                       NA                    
+#>  5 01:12        MIN          2 Brad                       NA                    
+#>  6 08:17        MIN          2 Seth                       NA                    
+#>  7 05:56        MIN          2 Luke                       NA                    
+#>  8 00:59        MIN          2 Harrison                   NA                    
+#>  9 07:33        MIN          2 Adam                       NA                    
+#> 10 18:55        MIN          2 Kris                       NA                    
 #> # ℹ 10,435 more rows
-#> # ℹ 38 more variables: committedByPlayer.sweaterNumber <int>,
-#> #   committedByPlayer.firstName.default <chr>,
-#> #   committedByPlayer.firstName.cs <chr>, committedByPlayer.firstName.de <chr>,
+#> # ℹ abbreviated names: ¹​committedByPlayer.firstName.default,
+#> #   ²​committedByPlayer.firstName.cs
+#> # ℹ 40 more variables: committedByPlayer.firstName.de <chr>,
 #> #   committedByPlayer.firstName.es <chr>, committedByPlayer.firstName.fi <chr>,
 #> #   committedByPlayer.firstName.sk <chr>, committedByPlayer.firstName.sv <chr>,
 #> #   committedByPlayer.firstName.fr <chr>, …

@@ -9,6 +9,8 @@
 
 - **[Alyssa Longmuir](https://x.com/alyssastweeting)**. Contributor.
 
+- **fastRhockey authors**. Copyright holder.
+
 ## Citation
 
 Source:

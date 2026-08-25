@@ -63,7 +63,8 @@ following columns:
 ``` r
 # \donttest{
   try(load_nhl_shifts(2026))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── NHL shifts ───────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-07-22 23:49:22 UTC
 #> # A tibble: 656,504 × 17
 #>    event_team   period period_time period_seconds game_seconds num_on players_on
 #>    <chr>         <int> <chr>                <int>        <int>  <int> <chr>     

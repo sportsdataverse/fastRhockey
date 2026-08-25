@@ -307,6 +307,17 @@ and raise errors - Tests for deprecated functions check for
 - Internal helper functions prefixed with `.` (e.g.,
   [`.parse_game_rosters()`](https://fastRhockey.sportsdataverse.org/reference/dot-parse_game_rosters.md),
   [`.build_pbp()`](https://fastRhockey.sportsdataverse.org/reference/dot-build_pbp.md))
+- **HockeyTech JSONP**: strip the callback envelope ONLY via
+  `.hockeytech_api()` (`R/hockeytech_helpers.R`) — never a per-function
+  regex on the callback tail; the tail shape varies by payload and
+  hardcoded `gsub` fixes have silently emptied results
+- **Tests skip on CRAN**: every `test_that` block leads with
+  [`testthat::skip_on_cran()`](https://testthat.r-lib.org/reference/skip.html);
+  the suite runs in CI (`NOT_CRAN=true`) on every push. New tests must
+  follow this
+- **Release loaders**: one loader per sportsdataverse-data hockey tag;
+  add a dataset = one `(release_tag, file_prefix)` catalog row + a thin
+  wrapper on `.nhl_release_loader()` / `.pwhl_release_loader()`
 - [`globalVariables()`](https://rdrr.io/r/utils/globalVariables.html)
   declarations in `utils.R` suppress R CMD check NSE notes
 

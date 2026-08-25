@@ -50,7 +50,7 @@ A named list of data frames: `teams`.
 #> [1] "2026-10-06"
 #> 
 #> $previousStartDate
-#> [1] "2026-06-09"
+#> [1] "2026-09-22"
 #> 
 #> $startDate
 #> [1] "2026-09-29"

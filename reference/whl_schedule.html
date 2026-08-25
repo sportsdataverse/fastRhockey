@@ -133,20 +133,20 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">whl_schedule</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> </span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── WHL Schedule from HockeyTech ─────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-07-18 18:49:35 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-25 11:27:51 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10,000 × 12</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    game_id game_date     game_status home_team home_team_id home_score away_team</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 21510   <span style="color: #949494;">""</span>            Final       Calgary … 202          1          Saskatoo…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 23060   <span style="color: #949494;">""</span>            Final       Calgary … 202          3          Kootenay…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 20021   <span style="color: #949494;">"</span>1996-03-20T… Final       Prince A… 209          8          Medicine…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 20025   <span style="color: #949494;">"</span>1996-03-20T… Final       Regina P… 212          5          Lethbrid…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 20013   <span style="color: #949494;">"</span>1996-03-21T… Final       Brandon … 201          3          Saskatoo…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 20019   <span style="color: #949494;">"</span>1996-03-21T… Final OT    Swift Cu… 216          3          Red Deer…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 20022   <span style="color: #949494;">"</span>1996-03-21T… Final       Prince A… 209          6          Medicine…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 20026   <span style="color: #949494;">"</span>1996-03-21T… Final 2nd … Regina P… 212          3          Lethbrid…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 20014   <span style="color: #949494;">"</span>1996-03-22T… Final       Brandon … 201          4          Saskatoo…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 20020   <span style="color: #949494;">"</span>1996-03-22T… Final       Swift Cu… 216          5          Red Deer…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 21510   <span style="color: #BB0000;">NA</span>            Final       Calgary … 202          1          Saskatoo…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 23060   <span style="color: #BB0000;">NA</span>            Final       Calgary … 202          3          Kootenay…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 20021   1996-03-20T1… Final       Prince A… 209          8          Medicine…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 20025   1996-03-20T1… Final       Regina P… 212          5          Lethbrid…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 20013   1996-03-21T1… Final       Brandon … 201          3          Saskatoo…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 20019   1996-03-21T1… Final OT    Swift Cu… 216          3          Red Deer…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 20022   1996-03-21T1… Final       Prince A… 209          6          Medicine…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 20026   1996-03-21T1… Final 2nd … Regina P… 212          3          Lethbrid…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 20014   1996-03-22T1… Final       Brandon … 201          4          Saskatoo…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 20020   1996-03-22T1… Final       Swift Cu… 216          5          Red Deer…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 9,990 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5 more variables: away_team_id &lt;chr&gt;, away_score &lt;chr&gt;, venue &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   season_id &lt;chr&gt;, game_type &lt;chr&gt;</span></span>

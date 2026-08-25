@@ -37,7 +37,7 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_season_id()) 
 #> ── QMJHL Season IDs from HockeyTech ─────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-18 18:49:20 UTC
+#> ℹ Data updated: 2026-08-25 11:27:42 UTC
 #> # A tibble: 131 × 9
 #>    season_id season_name         season_short career playoff start_date end_date
 #>        <dbl> <chr>               <chr>        <chr>  <chr>   <chr>      <chr>   

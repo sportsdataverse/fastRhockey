@@ -75,26 +75,27 @@ following columns:
 ``` r
 # \donttest{
   try(load_nhl_scoring(2026))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── NHL scoring summary ──────────────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-07-22 23:49:22 UTC
 #> # A tibble: 8,691 × 48
-#>    situationCode eventId strength playerId headshot       highlightClipSharing…¹
-#>    <chr>           <int> <chr>       <int> <chr>          <chr>                 
-#>  1 1551              258 ev        8483493 https://asset… https://nhl.com/video…
-#>  2 1551              274 ev        8478421 https://asset… https://nhl.com/video…
-#>  3 1451              366 pp        8477409 https://asset… https://nhl.com/video…
-#>  4 1551              630 ev        8476882 https://asset… https://nhl.com/video…
-#>  5 1551             1101 ev        8480003 https://asset… https://nhl.com/video…
-#>  6 1551              481 ev        8479638 https://asset… https://nhl.com/video…
-#>  7 1560             1123 ev        8479638 https://asset… https://nhl.com/video…
-#>  8 1560              112 ev        8481481 https://asset… https://nhl.com/video…
-#>  9 1551              562 ev        8480039 https://asset… https://nhl.com/video…
-#> 10 1551              647 ev        8484258 https://asset… https://nhl.com/video…
+#>    situationCode eventId strength playerId firstName.default firstName.cs
+#>    <chr>           <int> <chr>       <int> <chr>             <chr>       
+#>  1 1551              258 ev        8483493 Frank             NA          
+#>  2 1551              274 ev        8478421 A.J.              NA          
+#>  3 1451              366 pp        8477409 Carter            NA          
+#>  4 1551              630 ev        8476882 Teuvo             NA          
+#>  5 1551             1101 ev        8480003 Jesper            NA          
+#>  6 1551              481 ev        8479638 Justin            NA          
+#>  7 1560             1123 ev        8479638 Justin            NA          
+#>  8 1560              112 ev        8481481 Blake             NA          
+#>  9 1551              562 ev        8480039 Martin            NA          
+#> 10 1551              647 ev        8484258 Sam               NA          
 #> # ℹ 8,681 more rows
-#> # ℹ abbreviated name: ¹​highlightClipSharingUrl
-#> # ℹ 42 more variables: highlightClipSharingUrlFr <chr>, highlightClip <dbl>,
-#> #   highlightClipFr <dbl>, discreteClip <dbl>, discreteClipFr <dbl>,
-#> #   goalsToDate <int>, awayScore <int>, homeScore <int>, timeInPeriod <chr>,
-#> #   shotType <chr>, goalModifier <chr>, assists <chr>, pptReplayUrl <chr>,
-#> #   homeTeamDefendingSide <chr>, isHome <lgl>, game_id <int>, …
+#> # ℹ 42 more variables: firstName.de <chr>, firstName.es <chr>,
+#> #   firstName.fi <chr>, firstName.sk <chr>, firstName.sv <chr>,
+#> #   firstName.fr <chr>, lastName.default <chr>, lastName.cs <chr>,
+#> #   lastName.fi <chr>, lastName.sk <chr>, lastName.de <chr>, lastName.es <chr>,
+#> #   lastName.sv <chr>, name.default <chr>, name.cs <chr>, name.de <chr>,
+#> #   name.fi <chr>, name.sk <chr>, name.sv <chr>, teamAbbrev.default <chr>, …
 # }
 ```

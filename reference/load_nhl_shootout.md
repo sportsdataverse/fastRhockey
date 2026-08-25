@@ -62,26 +62,27 @@ columns:
 ``` r
 # \donttest{
   try(load_nhl_shootout(2026))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── NHL shootout summary ─────────────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-07-22 23:49:22 UTC
 #> # A tibble: 929 × 32
-#>     home  away sequence playerId shotType result headshot   gameWinner homeScore
-#>    <int> <int>    <int>    <int> <chr>    <chr>  <chr>      <lgl>          <int>
-#>  1     1     2       NA       NA NA       NA     NA         NA                NA
-#>  2    NA    NA        1  8478402 wrist    save   https://a… FALSE              0
-#>  3    NA    NA        2  8477993 snap     save   https://a… FALSE              0
-#>  4    NA    NA        3  8477934 wrist    goal   https://a… FALSE              1
-#>  5    NA    NA        4  8480028 snap     goal   https://a… FALSE              1
-#>  6    NA    NA        5  8476454 snap     save   https://a… FALSE              1
-#>  7    NA    NA        6  8478397 wrist    save   https://a… FALSE              1
-#>  8    NA    NA        7  8485493 backhand save   https://a… FALSE              1
-#>  9    NA    NA        8  8482679 wrist    save   https://a… FALSE              1
-#> 10    NA    NA        9  8483455 wrist    save   https://a… FALSE              1
+#>     home  away    game_id  season game_date sequence playerId teamAbbrev.default
+#>    <int> <int>      <int>   <int> <chr>        <int>    <int> <chr>             
+#>  1     1     2 2025020006  2.03e7 2025-10-…       NA       NA NA                
+#>  2    NA    NA 2025020006  2.03e7 2025-10-…        1  8478402 EDM               
+#>  3    NA    NA 2025020006  2.03e7 2025-10-…        2  8477993 CGY               
+#>  4    NA    NA 2025020006  2.03e7 2025-10-…        3  8477934 EDM               
+#>  5    NA    NA 2025020006  2.03e7 2025-10-…        4  8480028 CGY               
+#>  6    NA    NA 2025020006  2.03e7 2025-10-…        5  8476454 EDM               
+#>  7    NA    NA 2025020006  2.03e7 2025-10-…        6  8478397 CGY               
+#>  8    NA    NA 2025020006  2.03e7 2025-10-…        7  8485493 EDM               
+#>  9    NA    NA 2025020006  2.03e7 2025-10-…        8  8482679 CGY               
+#> 10    NA    NA 2025020006  2.03e7 2025-10-…        9  8483455 EDM               
 #> # ℹ 919 more rows
-#> # ℹ 23 more variables: awayScore <int>, game_id <int>, season <int>,
-#> #   game_date <chr>, discreteClip <dbl>, discreteClipFr <dbl>,
-#> #   highlightClipSharingUrl <chr>, highlightClipSharingUrlFr <chr>,
-#> #   highlightClip <dbl>, highlightClipFr <dbl>, teamAbbrev.default <chr>,
-#> #   firstName.default <chr>, firstName.cs <chr>, firstName.fi <chr>,
-#> #   firstName.sk <chr>, firstName.de <chr>, firstName.es <chr>, …
+#> # ℹ 24 more variables: firstName.default <chr>, firstName.cs <chr>,
+#> #   firstName.de <chr>, firstName.es <chr>, firstName.fi <chr>,
+#> #   firstName.sk <chr>, firstName.sv <chr>, lastName.default <chr>,
+#> #   lastName.cs <chr>, lastName.fi <chr>, lastName.sk <chr>, lastName.sv <chr>,
+#> #   shotType <chr>, result <chr>, headshot <chr>, gameWinner <lgl>,
+#> #   homeScore <int>, awayScore <int>, discreteClip <dbl>, …
 # }
 ```

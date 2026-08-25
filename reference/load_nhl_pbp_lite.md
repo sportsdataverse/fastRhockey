@@ -78,7 +78,8 @@ but excluding line-change (`CHANGE`) events:
 ``` r
 # \donttest{
   try(load_nhl_pbp_lite(2026))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── NHL play-by-play data (lite) ─────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-07-22 23:49:22 UTC
 #> # A tibble: 443,569 × 94
 #>    event_type   event secondary_type event_team_abbr event_team_type description
 #>    <chr>        <chr> <chr>          <chr>           <chr>           <chr>      

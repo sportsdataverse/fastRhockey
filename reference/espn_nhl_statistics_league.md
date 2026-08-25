@@ -170,23 +170,9 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_statistics_league())
-#> ── NHL League Statistics data from ESPN.com ─────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-18 18:46:25 UTC
-#> # A tibble: 394 × 8
-#>    category_name category_abbreviation display_value value athlete_id
-#>    <chr>         <chr>                 <chr>         <dbl> <chr>     
-#>  1 goals         G                     4                 4 5216883   
-#>  2 goals         G                     4                 4 4024988   
-#>  3 goals         G                     4                 4 3114755   
-#>  4 goals         G                     4                 4 4874723   
-#>  5 goals         G                     4                 4 5080157   
-#>  6 goals         G                     4                 4 5080217   
-#>  7 goals         G                     4                 4 4233888   
-#>  8 goals         G                     3                 3 4874740   
-#>  9 goals         G                     3                 3 4233627   
-#> 10 goals         G                     3                 3 4233875   
-#> # ℹ 384 more rows
-#> # ℹ 3 more variables: athlete_display_name <chr>, team_id <chr>,
-#> #   team_abbreviation <chr>
+#> ✖ 2026-08-25 11:25:17.881505: Invalid arguments or no ESPN nhl league statistics available!
+#> ✖ Args: league = "nhl"
+#> ✖ Error: The API returned an error
+#> data frame with 0 columns and 0 rows
 # }
 ```

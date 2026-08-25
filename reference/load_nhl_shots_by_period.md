@@ -57,21 +57,22 @@ game and the following columns:
 ``` r
 # \donttest{
   try(load_nhl_shots_by_period(2026))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── NHL shots by period ──────────────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-07-22 23:49:22 UTC
 #> # A tibble: 4,653 × 9
-#>     away  home    game_id   season game_date  period period_type
-#>    <int> <int>      <int>    <int> <chr>       <int> <chr>      
-#>  1     3    17 2025020001 20252026 2025-10-07      1 REG        
-#>  2    11     9 2025020001 20252026 2025-10-07      2 REG        
-#>  3     5    11 2025020001 20252026 2025-10-07      3 REG        
-#>  4     8     7 2025020002 20252026 2025-10-07      1 REG        
-#>  5     8    13 2025020002 20252026 2025-10-07      2 REG        
-#>  6    15     5 2025020002 20252026 2025-10-07      3 REG        
-#>  7     7     6 2025020003 20252026 2025-10-07      1 REG        
-#>  8    11     5 2025020003 20252026 2025-10-07      2 REG        
-#>  9     5    14 2025020003 20252026 2025-10-07      3 REG        
-#> 10    11     8 2025020004 20252026 2025-10-08      1 REG        
+#>    period period_type max_regulation_periods ot_periods  away  home    game_id
+#>     <int> <chr>                        <int>      <int> <int> <int>      <int>
+#>  1      1 REG                              3         NA     3    17 2025020001
+#>  2      2 REG                              3         NA    11     9 2025020001
+#>  3      3 REG                              3         NA     5    11 2025020001
+#>  4      1 REG                              3         NA     8     7 2025020002
+#>  5      2 REG                              3         NA     8    13 2025020002
+#>  6      3 REG                              3         NA    15     5 2025020002
+#>  7      1 REG                              3         NA     7     6 2025020003
+#>  8      2 REG                              3         NA    11     5 2025020003
+#>  9      3 REG                              3         NA     5    14 2025020003
+#> 10      1 REG                              3         NA    11     8 2025020004
 #> # ℹ 4,643 more rows
-#> # ℹ 2 more variables: max_regulation_periods <int>, ot_periods <int>
+#> # ℹ 2 more variables: season <int>, game_date <chr>
 # }
 ```
