@@ -19,19 +19,19 @@ Per-player time-on-ice totals for an OHL game.
 \donttest{ try(ohl_player_toi(game_id = 27225)) }
 }
 \seealso{
-Other OHL Functions: 
-\code{\link{most_recent_ohl_season}()},
+Other OHL Functions:
+\code{\link[=most_recent_ohl_season]{most_recent_ohl_season()}},
 \code{\link{ohl}},
-\code{\link{ohl_game_corsi}()},
-\code{\link{ohl_game_shifts}()},
-\code{\link{ohl_game_summary}()},
-\code{\link{ohl_leaders}()},
-\code{\link{ohl_pbp}()},
-\code{\link{ohl_player_stats}()},
-\code{\link{ohl_schedule}()},
-\code{\link{ohl_season_id}()},
-\code{\link{ohl_standings}()},
-\code{\link{ohl_team_roster}()},
-\code{\link{ohl_teams}()}
+\code{\link[=ohl_game_corsi]{ohl_game_corsi()}},
+\code{\link[=ohl_game_shifts]{ohl_game_shifts()}},
+\code{\link[=ohl_game_summary]{ohl_game_summary()}},
+\code{\link[=ohl_leaders]{ohl_leaders()}},
+\code{\link[=ohl_pbp]{ohl_pbp()}},
+\code{\link[=ohl_player_stats]{ohl_player_stats()}},
+\code{\link[=ohl_schedule]{ohl_schedule()}},
+\code{\link[=ohl_season_id]{ohl_season_id()}},
+\code{\link[=ohl_standings]{ohl_standings()}},
+\code{\link[=ohl_team_roster]{ohl_team_roster()}},
+\code{\link[=ohl_teams]{ohl_teams()}}
 }
 \concept{OHL Functions}

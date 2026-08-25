@@ -29,13 +29,13 @@ the full \code{nhl_pbp_full} release.
 \seealso{
 \code{\link[=load_nhl_pbp]{load_nhl_pbp()}} \code{\link[=load_nhl_pbp_lite]{load_nhl_pbp_lite()}}
 
-Other NHL Loader Functions: 
-\code{\link{load_nhl_goalie_boxscores}()},
-\code{\link{load_nhl_player_boxscore}()},
-\code{\link{load_nhl_player_boxscores}()},
-\code{\link{load_nhl_schedules}()},
-\code{\link{load_nhl_skater_boxscores}()},
-\code{\link{load_nhl_team_boxscore}()},
-\code{\link{load_nhl_team_boxscores}()}
+Other NHL Loader Functions:
+\code{\link[=load_nhl_goalie_boxscores]{load_nhl_goalie_boxscores()}},
+\code{\link[=load_nhl_player_boxscore]{load_nhl_player_boxscore()}},
+\code{\link[=load_nhl_player_boxscores]{load_nhl_player_boxscores()}},
+\code{\link[=load_nhl_schedules]{load_nhl_schedules()}},
+\code{\link[=load_nhl_skater_boxscores]{load_nhl_skater_boxscores()}},
+\code{\link[=load_nhl_team_boxscore]{load_nhl_team_boxscore()}},
+\code{\link[=load_nhl_team_boxscores]{load_nhl_team_boxscores()}}
 }
 \concept{NHL Loader Functions}

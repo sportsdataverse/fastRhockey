@@ -20,19 +20,19 @@ AHL game summary -- named list of data frames
 \donttest{ try(ahl_game_summary(game_id = 1000093924)) }
 }
 \seealso{
-Other AHL Functions: 
+Other AHL Functions:
 \code{\link{ahl}},
-\code{\link{ahl_game_corsi}()},
-\code{\link{ahl_game_shifts}()},
-\code{\link{ahl_leaders}()},
-\code{\link{ahl_pbp}()},
-\code{\link{ahl_player_stats}()},
-\code{\link{ahl_player_toi}()},
-\code{\link{ahl_schedule}()},
-\code{\link{ahl_season_id}()},
-\code{\link{ahl_standings}()},
-\code{\link{ahl_team_roster}()},
-\code{\link{ahl_teams}()},
-\code{\link{most_recent_ahl_season}()}
+\code{\link[=ahl_game_corsi]{ahl_game_corsi()}},
+\code{\link[=ahl_game_shifts]{ahl_game_shifts()}},
+\code{\link[=ahl_leaders]{ahl_leaders()}},
+\code{\link[=ahl_pbp]{ahl_pbp()}},
+\code{\link[=ahl_player_stats]{ahl_player_stats()}},
+\code{\link[=ahl_player_toi]{ahl_player_toi()}},
+\code{\link[=ahl_schedule]{ahl_schedule()}},
+\code{\link[=ahl_season_id]{ahl_season_id()}},
+\code{\link[=ahl_standings]{ahl_standings()}},
+\code{\link[=ahl_team_roster]{ahl_team_roster()}},
+\code{\link[=ahl_teams]{ahl_teams()}},
+\code{\link[=most_recent_ahl_season]{most_recent_ahl_season()}}
 }
 \concept{AHL Functions}

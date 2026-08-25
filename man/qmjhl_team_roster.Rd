@@ -23,19 +23,19 @@ QMJHL roster for a given team and season from the HockeyTech feed.
 \donttest{ try(qmjhl_team_roster(team_id = 1)) }
 }
 \seealso{
-Other QMJHL Functions: 
-\code{\link{most_recent_qmjhl_season}()},
+Other QMJHL Functions:
+\code{\link[=most_recent_qmjhl_season]{most_recent_qmjhl_season()}},
 \code{\link{qmjhl}},
-\code{\link{qmjhl_game_corsi}()},
-\code{\link{qmjhl_game_shifts}()},
-\code{\link{qmjhl_game_summary}()},
-\code{\link{qmjhl_leaders}()},
-\code{\link{qmjhl_pbp}()},
-\code{\link{qmjhl_player_stats}()},
-\code{\link{qmjhl_player_toi}()},
-\code{\link{qmjhl_schedule}()},
-\code{\link{qmjhl_season_id}()},
-\code{\link{qmjhl_standings}()},
-\code{\link{qmjhl_teams}()}
+\code{\link[=qmjhl_game_corsi]{qmjhl_game_corsi()}},
+\code{\link[=qmjhl_game_shifts]{qmjhl_game_shifts()}},
+\code{\link[=qmjhl_game_summary]{qmjhl_game_summary()}},
+\code{\link[=qmjhl_leaders]{qmjhl_leaders()}},
+\code{\link[=qmjhl_pbp]{qmjhl_pbp()}},
+\code{\link[=qmjhl_player_stats]{qmjhl_player_stats()}},
+\code{\link[=qmjhl_player_toi]{qmjhl_player_toi()}},
+\code{\link[=qmjhl_schedule]{qmjhl_schedule()}},
+\code{\link[=qmjhl_season_id]{qmjhl_season_id()}},
+\code{\link[=qmjhl_standings]{qmjhl_standings()}},
+\code{\link[=qmjhl_teams]{qmjhl_teams()}}
 }
 \concept{QMJHL Functions}

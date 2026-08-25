@@ -27,10 +27,12 @@ sportsdataverse-py.
 \seealso{
 \code{\link[=load_pwhl_goalie_box]{load_pwhl_goalie_box()}}
 
-Other PWHL Loader Functions: 
-\code{\link{load_pwhl_player_boxscores}()},
-\code{\link{load_pwhl_schedules}()},
-\code{\link{load_pwhl_skater_boxscores}()},
-\code{\link{load_pwhl_team_boxscores}()}
+Other PWHL Loader Functions:
+\code{\link[=load_pwhl_player_boxscores]{load_pwhl_player_boxscores()}},
+\code{\link[=load_pwhl_schedules]{load_pwhl_schedules()}},
+\code{\link[=load_pwhl_shifts]{load_pwhl_shifts()}},
+\code{\link[=load_pwhl_skater_boxscores]{load_pwhl_skater_boxscores()}},
+\code{\link[=load_pwhl_team_boxscores]{load_pwhl_team_boxscores()}},
+\code{\link[=load_pwhl_xg_pbp]{load_pwhl_xg_pbp()}}
 }
 \concept{PWHL Loader Functions}

@@ -17,19 +17,19 @@ Returns the most-recent OHL season as an end-year integer
 \donttest{ try(most_recent_ohl_season()) }
 }
 \seealso{
-Other OHL Functions: 
+Other OHL Functions:
 \code{\link{ohl}},
-\code{\link{ohl_game_corsi}()},
-\code{\link{ohl_game_shifts}()},
-\code{\link{ohl_game_summary}()},
-\code{\link{ohl_leaders}()},
-\code{\link{ohl_pbp}()},
-\code{\link{ohl_player_stats}()},
-\code{\link{ohl_player_toi}()},
-\code{\link{ohl_schedule}()},
-\code{\link{ohl_season_id}()},
-\code{\link{ohl_standings}()},
-\code{\link{ohl_team_roster}()},
-\code{\link{ohl_teams}()}
+\code{\link[=ohl_game_corsi]{ohl_game_corsi()}},
+\code{\link[=ohl_game_shifts]{ohl_game_shifts()}},
+\code{\link[=ohl_game_summary]{ohl_game_summary()}},
+\code{\link[=ohl_leaders]{ohl_leaders()}},
+\code{\link[=ohl_pbp]{ohl_pbp()}},
+\code{\link[=ohl_player_stats]{ohl_player_stats()}},
+\code{\link[=ohl_player_toi]{ohl_player_toi()}},
+\code{\link[=ohl_schedule]{ohl_schedule()}},
+\code{\link[=ohl_season_id]{ohl_season_id()}},
+\code{\link[=ohl_standings]{ohl_standings()}},
+\code{\link[=ohl_team_roster]{ohl_team_roster()}},
+\code{\link[=ohl_teams]{ohl_teams()}}
 }
 \concept{OHL Functions}

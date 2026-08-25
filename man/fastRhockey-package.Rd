@@ -42,12 +42,14 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Saiem Gilani \email{saiem.gilani@gmail.com} (\href{https://orcid.org/0000-0002-7194-9067}{ORCID})
   \item Ben Howell \email{benhowell71@gmail.com}
 }
 
 Other contributors:
 \itemize{
   \item Alyssa Longmuir \email{aklongmuir@gmail.com} [contributor]
+  \item fastRhockey authors [copyright holder]
 }
 
 }

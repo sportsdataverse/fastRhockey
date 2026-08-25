@@ -288,6 +288,9 @@ The package uses `lifecycle` for formal deprecation of PHF functions:
 - **tryCatch** with `message()` for error handling — functions return `NULL` on failure, not errors
 - **glue::glue()** for string interpolation and URL construction
 - Internal helper functions prefixed with `.` (e.g., `.parse_game_rosters()`, `.build_pbp()`)
+- **HockeyTech JSONP**: strip the callback envelope ONLY via `.hockeytech_api()` (`R/hockeytech_helpers.R`) — never a per-function regex on the callback tail; the tail shape varies by payload and hardcoded `gsub` fixes have silently emptied results
+- **Tests skip on CRAN**: every `test_that` block leads with `testthat::skip_on_cran()`; the suite runs in CI (`NOT_CRAN=true`) on every push. New tests must follow this
+- **Release loaders**: one loader per sportsdataverse-data hockey tag; add a dataset = one `(release_tag, file_prefix)` catalog row + a thin wrapper on `.nhl_release_loader()` / `.pwhl_release_loader()`
 - `globalVariables()` declarations in `utils.R` suppress R CMD check NSE notes
 
 ### Season Format

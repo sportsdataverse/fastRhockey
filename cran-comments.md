@@ -72,6 +72,12 @@ This is version 1.0.0. Continued development on the 1.0.0 release adds:
   were internally refactored to share a single helper without changing their
   public signatures.
 
+* **CRAN-prep pass (2026-08-25)**: `load_pwhl_shifts()` + `load_pwhl_xg_pbp()`
+  loaders (completing coverage of the published hockey datasets);
+  `nhl_game_shifts(detailed = TRUE)`; `pwhl_stats()` season/team resolution
+  fixes; HockeyTech JSONP handling centralized; documentation migrated to
+  roxygen2 8.1.0; `cph` role added to `Authors@R`; LICENSE year refreshed.
+
 No breaking changes. All previously exported functions retain their
 public signatures.
 
@@ -119,9 +125,29 @@ endpoints. Key changes:
   `nhl_playoff_schedule()`, `nhl_playoff_carousel()`.
 * xG model integration via `helper_nhl_calculate_xg()`.
 
+## Test environments
+
+* local Windows 10, R 4.6.1
+* GitHub Actions: windows-latest (release), ubuntu-latest (release, oldrel-1)
+* R-hub: linux, windows, macos (R-devel)
+
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes
+
+(The local Windows run shows one NOTE about a `''NULL''` file in the check
+directory; this is a known artifact of rcmdcheck on Windows in the local
+environment and does not appear on the CI platforms.)
+
+## Internet resources
+
+The full test suite skips on CRAN (`skip_on_cran()` in every test; the tests
+validate live APIs and committed fixtures in continuous integration on every
+push). All functions that access internet resources (the NHL and HockeyTech
+APIs, and the pre-built season datasets on GitHub release assets) fail
+gracefully with an informative message and return an empty table when the
+resource is unavailable; examples for these functions are wrapped in
+`\donttest{try(...)}`.
 
 ## revdepcheck results
 

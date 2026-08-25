@@ -1,4 +1,3 @@
-#' @keywords internal
 #' Convert a "MM:SS" countdown-clock string to total integer seconds.
 #'
 #' Returns NA_integer_ for NA or empty-string inputs. Countdown-clock values
@@ -8,6 +7,7 @@
 #' @param x A character string of the form "MM:SS" (e.g., "03:16").
 #' @return An integer, or NA_integer_ when x is NA or "".
 #' @noRd
+#' @keywords internal
 .mmss_to_seconds <- function(x) {
   if (is.na(x) || identical(x, "")) return(NA_integer_)
   parts <- strsplit(as.character(x), ":", fixed = TRUE)[[1]]
@@ -19,7 +19,6 @@
 }
 
 
-#' @keywords internal
 #' Derive the end-year (integer) from a season name string.
 #'
 #' Handles both "YYYY-YY" (e.g., "2024-25 Regular Season" -> 2025) and
@@ -28,6 +27,7 @@
 #' @param name A season name character string.
 #' @return An integer year, or NA_integer_ if no year pattern is matched.
 #' @noRd
+#' @keywords internal
 .derive_season_year <- function(name) {
   if (is.na(name) || !nzchar(name)) return(NA_integer_)
   # Try "YYYY-YY" format first (e.g., "2024-25 Regular Season")
@@ -50,7 +50,6 @@
 }
 
 
-#' @keywords internal
 #' Derive a game-type label from a HockeyTech season name string.
 #'
 #' Named with the .ht_ prefix to avoid collision with the NHL .game_type_label
@@ -59,6 +58,7 @@
 #' @param name A season name character string.
 #' @return One of "preseason", "playoffs", or "regular".
 #' @noRd
+#' @keywords internal
 .ht_game_type_label <- function(name) {
   n <- tolower(name %||% "")
   if (grepl("pre[- ]?season", n, perl = TRUE)) return("preseason")
@@ -67,7 +67,6 @@
 }
 
 
-#' @keywords internal
 #' Parse a HockeyTech modulekit/seasons JSON payload into a data.frame.
 #'
 #' Mirrors Python sportsdataverse/hockeytech/_parsers.py::parse_seasons().
@@ -79,6 +78,7 @@
 #' @param payload Parsed JSON list from .hockeytech_api().
 #' @return A data.frame, one row per season.
 #' @noRd
+#' @keywords internal
 .parse_hockeytech_seasons <- function(payload) {
   raw <- ((payload %||% list())$SiteKit %||% list())$Seasons %||% list()
   if (length(raw) == 0L) return(data.frame())
@@ -104,20 +104,6 @@
 }
 
 
-#' @keywords internal
-#' Parse a HockeyTech modulekit/gameshifts JSON payload into a data.frame.
-#'
-#' Mirrors Python sportsdataverse/hockeytech/_parsers.py::parse_shifts().
-#' Reads payload$SiteKit$Gameshifts$home and $visitor (lists of player dicts,
-#' each with a $shifts list of shift dicts). Emits one row per player-shift
-#' stint with start_s/end_s as countdown-clock seconds (start_s >= end_s).
-#' An empty or NULL payload returns an empty data.frame().
-#'
-#' @param payload Parsed JSON list from .hockeytech_api().
-#' @param game_id Optional game identifier echoed onto every row.
-#' @return A data.frame, one row per shift stint.
-#' @noRd
-#' @keywords internal
 #' Extract a flat player sub-dict from a raw player sub-object (or NULL).
 #'
 #' Mirrors Python _parsers.py::_player(). Returns a list with id/first/last/pos,
@@ -126,6 +112,7 @@
 #' @param d A list (player sub-object from parsed JSON) or NULL.
 #' @return A named list: id, first, last, pos.
 #' @noRd
+#' @keywords internal
 .ht_player <- function(d) {
   d <- d %||% list()
   list(
@@ -137,7 +124,6 @@
 }
 
 
-#' @keywords internal
 #' Coerce a value to character, returning NA_character_ for NULL/empty.
 #'
 #' Mirrors Python _parsers.py::_str_or_none().
@@ -145,6 +131,7 @@
 #' @param v Any scalar value.
 #' @return character(1) or NA_character_.
 #' @noRd
+#' @keywords internal
 .ht_str_or_na <- function(v) {
   if (is.null(v)) return(NA_character_)
   s <- as.character(v)
@@ -152,7 +139,6 @@
 }
 
 
-#' @keywords internal
 #' Parse a HockeyTech play-by-play payload (list of event dicts) into a
 #' data.frame.
 #'
@@ -180,6 +166,7 @@
 #' @return A data.frame, one row per event. Column set is union of all
 #'   event-type columns; missing columns for a given event type are NA.
 #' @noRd
+#' @keywords internal
 .parse_hockeytech_pbp <- function(payload, pbp_style = "hockeytech_a",
                                    game_id = NULL) {
   events <- if (is.list(payload)) payload else list()
@@ -351,6 +338,19 @@
 }
 
 
+#' Parse a HockeyTech modulekit/gameshifts JSON payload into a data.frame.
+#'
+#' Mirrors Python sportsdataverse/hockeytech/_parsers.py::parse_shifts().
+#' Reads payload$SiteKit$Gameshifts$home and $visitor (lists of player dicts,
+#' each with a $shifts list of shift dicts). Emits one row per player-shift
+#' stint with start_s/end_s as countdown-clock seconds (start_s >= end_s).
+#' An empty or NULL payload returns an empty data.frame().
+#'
+#' @param payload Parsed JSON list from .hockeytech_api().
+#' @param game_id Optional game identifier echoed onto every row.
+#' @return A data.frame, one row per shift stint.
+#' @keywords internal
+#' @noRd
 .parse_hockeytech_shifts <- function(payload, game_id = NULL) {
   gs <- ((payload %||% list())$SiteKit %||% list())$Gameshifts %||% list()
 
@@ -390,7 +390,6 @@
 # leaders, game_summary. Mirror Python _parsers.py behaviour exactly.
 # ===========================================================================
 
-#' @keywords internal
 #' Parse a HockeyTech modulekit/scorebar JSON payload into a data.frame.
 #'
 #' Mirrors Python sportsdataverse/hockeytech/_parsers.py::parse_schedule().
@@ -401,6 +400,7 @@
 #' @param payload Parsed JSON list from .hockeytech_api().
 #' @return A data.frame, one row per game.
 #' @noRd
+#' @keywords internal
 .parse_hockeytech_schedule <- function(payload) {
   games <- ((payload %||% list())$SiteKit %||% list())$Scorebar %||% list()
   if (length(games) == 0L) return(data.frame())
@@ -427,7 +427,6 @@
 }
 
 
-#' @keywords internal
 #' Parse a HockeyTech statviewfeed/teams (standings) JSON payload into a
 #' data.frame.
 #'
@@ -442,6 +441,7 @@
 #' @param payload Parsed JSON list from .hockeytech_api().
 #' @return A data.frame, one row per team.
 #' @noRd
+#' @keywords internal
 .parse_hockeytech_standings <- function(payload) {
   if (is.null(payload) || length(payload) == 0L) return(data.frame())
 
@@ -506,7 +506,6 @@
 }
 
 
-#' @keywords internal
 #' Parse a HockeyTech modulekit/teamsbyseason JSON payload into a data.frame.
 #'
 #' Mirrors Python sportsdataverse/hockeytech/_parsers.py::parse_teams().
@@ -517,6 +516,7 @@
 #' @param payload Parsed JSON list from .hockeytech_api().
 #' @return A data.frame, one row per team.
 #' @noRd
+#' @keywords internal
 .parse_hockeytech_teams <- function(payload) {
   raw <- ((payload %||% list())$SiteKit %||% list())$Teamsbyseason %||% list()
   if (length(raw) == 0L) return(data.frame())
@@ -538,7 +538,6 @@
 }
 
 
-#' @keywords internal
 #' Parse a HockeyTech modulekit/roster JSON payload into a data.frame.
 #'
 #' Mirrors Python sportsdataverse/hockeytech/_parsers.py::parse_roster().
@@ -550,6 +549,7 @@
 #' @param payload Parsed JSON list from .hockeytech_api().
 #' @return A data.frame, one row per player.
 #' @noRd
+#' @keywords internal
 .parse_hockeytech_roster <- function(payload) {
   raw <- ((payload %||% list())$SiteKit %||% list())$Roster %||% list()
   if (length(raw) == 0L) return(data.frame())
@@ -573,7 +573,6 @@
 }
 
 
-#' @keywords internal
 #' Parse a HockeyTech modulekit/player (seasonstats) JSON payload into a
 #' data.frame.
 #'
@@ -586,6 +585,7 @@
 #' @param payload Parsed JSON list from .hockeytech_api().
 #' @return A data.frame with one row per season-stat entry.
 #' @noRd
+#' @keywords internal
 .parse_hockeytech_player_stats <- function(payload) {
   player <- ((payload %||% list())$SiteKit %||% list())$Player %||% list()
   if (length(player) == 0L) return(data.frame())
@@ -611,7 +611,6 @@
 }
 
 
-#' @keywords internal
 #' Parse a HockeyTech leaders payload into a data.frame.
 #'
 #' Mirrors Python sportsdataverse/hockeytech/_parsers.py::parse_leaders().
@@ -626,6 +625,7 @@
 #' @param payload Parsed JSON list from .hockeytech_api().
 #' @return A data.frame, one row per player entry.
 #' @noRd
+#' @keywords internal
 .parse_hockeytech_leaders <- function(payload) {
   if (is.null(payload) || length(payload) == 0L) return(data.frame())
 
@@ -663,7 +663,6 @@
 }
 
 
-#' @keywords internal
 #' Flatten one row dict by expanding named sub-lists (dicts) with "_" separator
 #' and dropping unnamed sub-lists (arrays like plus/minus player arrays).
 #'
@@ -675,6 +674,7 @@
 #' @param prefix Character prefix to prepend (used for recursive calls).
 #' @return A flat named list suitable for dplyr::bind_rows().
 #' @noRd
+#' @keywords internal
 .ht_flatten_row <- function(row, prefix = "") {
   if (!is.list(row)) return(row)
   out <- list()
@@ -699,7 +699,6 @@
 }
 
 
-#' @keywords internal
 #' Normalise shotsByPeriod into a list of flat row dicts.
 #'
 #' The PWHL gc/gamesummary endpoint returns:
@@ -710,6 +709,7 @@
 #' @param sbp The raw shotsByPeriod field from GC.Gamesummary.
 #' @return A list of row dicts for dplyr::bind_rows().
 #' @noRd
+#' @keywords internal
 .ht_shots_by_period_to_records <- function(sbp) {
   if (is.null(sbp)) return(list())
   # Already a list of row dicts
@@ -736,7 +736,6 @@
 }
 
 
-#' @keywords internal
 #' Parse a HockeyTech gc/gamesummary JSON payload into a named list of
 #' data.frames.
 #'
@@ -760,6 +759,7 @@
 #' @param game_id Optional game identifier echoed onto the game row.
 #' @return A named list of data.frames.
 #' @noRd
+#' @keywords internal
 .parse_hockeytech_game_summary <- function(payload, game_id = NULL) {
   gc_root <- ((payload %||% list())[["GC"]] %||% list())
 

@@ -32,9 +32,9 @@ internal \code{hockeytech_player_toi()} helper.
 }
 }
 \seealso{
-Other PWHL Functions: 
-\code{\link{pwhl_game_corsi}()},
-\code{\link{pwhl_game_shifts}()}
+Other PWHL Functions:
+\code{\link[=pwhl_game_corsi]{pwhl_game_corsi()}},
+\code{\link[=pwhl_game_shifts]{pwhl_game_shifts()}}
 }
 \author{
 Saiem Gilani

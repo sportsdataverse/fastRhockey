@@ -4,10 +4,14 @@
 \alias{nhl_game_shifts}
 \title{\strong{NHL Game Shifts}}
 \usage{
-nhl_game_shifts(game_id)
+nhl_game_shifts(game_id, detailed = FALSE)
 }
 \arguments{
 \item{game_id}{Game unique ID}
+
+\item{detailed}{If \code{TRUE}, return the per-player shift records (one row per
+player-shift with \code{start_game_seconds} / \code{end_game_seconds} /
+\code{duration_seconds}) instead of the aggregated one-row-per-change frame.}
 }
 \value{
 A data frame (\code{fastRhockey_data}) with one row per shift change and

@@ -38,9 +38,9 @@ data is absent (resulting in \code{NA} \code{toi_seconds}).
 }
 }
 \seealso{
-Other PWHL Functions: 
-\code{\link{pwhl_game_shifts}()},
-\code{\link{pwhl_player_toi}()}
+Other PWHL Functions:
+\code{\link[=pwhl_game_shifts]{pwhl_game_shifts()}},
+\code{\link[=pwhl_player_toi]{pwhl_player_toi()}}
 }
 \author{
 Saiem Gilani

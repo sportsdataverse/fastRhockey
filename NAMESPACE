@@ -193,6 +193,7 @@ export(load_pwhl_rosters)
 export(load_pwhl_schedule)
 export(load_pwhl_schedules)
 export(load_pwhl_scoring_summary)
+export(load_pwhl_shifts)
 export(load_pwhl_shootout)
 export(load_pwhl_shots_by_period)
 export(load_pwhl_skater_box)
@@ -200,6 +201,7 @@ export(load_pwhl_skater_boxscores)
 export(load_pwhl_team_box)
 export(load_pwhl_team_boxscores)
 export(load_pwhl_three_stars)
+export(load_pwhl_xg_pbp)
 export(most_recent_ahl_season)
 export(most_recent_nhl_season)
 export(most_recent_nhl_season_api_param)
@@ -430,65 +432,87 @@ import(stringr)
 import(utils)
 importFrom(Rcpp,getRcppVersion)
 importFrom(RcppParallel,defaultNumThreads)
-importFrom(data.table,data.table)
-importFrom(data.table,fread)
-importFrom(data.table,setDT)
-importFrom(dplyr,across)
-importFrom(dplyr,all_of)
-importFrom(dplyr,any_of)
-importFrom(dplyr,arrange)
-importFrom(dplyr,as_tibble)
-importFrom(dplyr,bind_cols)
-importFrom(dplyr,bind_rows)
-importFrom(dplyr,case_when)
-importFrom(dplyr,coalesce)
-importFrom(dplyr,distinct)
-importFrom(dplyr,ends_with)
-importFrom(dplyr,filter)
-importFrom(dplyr,group_by)
-importFrom(dplyr,lag)
-importFrom(dplyr,lead)
-importFrom(dplyr,left_join)
-importFrom(dplyr,mutate)
-importFrom(dplyr,mutate_at)
-importFrom(dplyr,pull)
-importFrom(dplyr,rename)
-importFrom(dplyr,row_number)
-importFrom(dplyr,select)
-importFrom(dplyr,starts_with)
-importFrom(dplyr,summarize)
-importFrom(dplyr,tibble)
-importFrom(dplyr,ungroup)
+importFrom(cli,cli_abort)
+importFrom(data.table,
+  data.table,
+  fread,
+  setDT
+)
+importFrom(dplyr,
+  across,
+  all_of,
+  any_of,
+  arrange,
+  as_tibble,
+  bind_cols,
+  bind_rows,
+  case_when,
+  coalesce,
+  distinct,
+  ends_with,
+  filter,
+  group_by,
+  lag,
+  lead,
+  left_join,
+  mutate,
+  mutate_at,
+  pull,
+  rename,
+  row_number,
+  select,
+  starts_with,
+  summarize,
+  tibble,
+  ungroup
+)
 importFrom(glue,glue)
-importFrom(janitor,clean_names)
-importFrom(janitor,make_clean_names)
-importFrom(jsonlite,fromJSON)
-importFrom(jsonlite,parse_json)
-importFrom(jsonlite,read_json)
-importFrom(jsonlite,toJSON)
+importFrom(janitor,
+  clean_names,
+  make_clean_names
+)
+importFrom(jsonlite,
+  fromJSON,
+  parse_json,
+  read_json,
+  toJSON
+)
 importFrom(lifecycle,deprecated)
-importFrom(lubridate,ms)
-importFrom(lubridate,period_to_seconds)
-importFrom(lubridate,ymd)
+importFrom(lubridate,
+  ms,
+  period_to_seconds,
+  ymd
+)
 importFrom(magrittr,"%>%")
-importFrom(purrr,map_dfr)
-importFrom(purrr,map_if)
-importFrom(purrr,pluck)
-importFrom(rlang,":=")
-importFrom(rlang,.data)
-importFrom(stringr,str_detect)
-importFrom(stringr,str_extract)
-importFrom(stringr,str_extract_all)
-importFrom(stringr,str_pad)
-importFrom(stringr,str_replace)
-importFrom(stringr,str_replace_all)
-importFrom(stringr,str_trim)
-importFrom(tidyr,everything)
-importFrom(tidyr,fill)
-importFrom(tidyr,pivot_wider)
-importFrom(tidyr,replace_na)
-importFrom(tidyr,separate)
-importFrom(tidyr,unnest)
-importFrom(tidyr,unnest_wider)
-importFrom(utils,packageName)
-importFrom(utils,read.csv)
+importFrom(purrr,
+  map_dfr,
+  map_if,
+  pluck
+)
+importFrom(rlang,
+  "%||%",
+  ":=",
+  .data
+)
+importFrom(stringr,
+  str_detect,
+  str_extract,
+  str_extract_all,
+  str_pad,
+  str_replace,
+  str_replace_all,
+  str_trim
+)
+importFrom(tidyr,
+  everything,
+  fill,
+  pivot_wider,
+  replace_na,
+  separate,
+  unnest,
+  unnest_wider
+)
+importFrom(utils,
+  packageName,
+  read.csv
+)

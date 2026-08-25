@@ -27,13 +27,13 @@ sportsdataverse-py.
 \seealso{
 \code{\link[=load_nhl_team_box]{load_nhl_team_box()}}
 
-Other NHL Loader Functions: 
-\code{\link{load_nhl_goalie_boxscores}()},
-\code{\link{load_nhl_pbp_full}()},
-\code{\link{load_nhl_player_boxscore}()},
-\code{\link{load_nhl_player_boxscores}()},
-\code{\link{load_nhl_schedules}()},
-\code{\link{load_nhl_skater_boxscores}()},
-\code{\link{load_nhl_team_boxscore}()}
+Other NHL Loader Functions:
+\code{\link[=load_nhl_goalie_boxscores]{load_nhl_goalie_boxscores()}},
+\code{\link[=load_nhl_pbp_full]{load_nhl_pbp_full()}},
+\code{\link[=load_nhl_player_boxscore]{load_nhl_player_boxscore()}},
+\code{\link[=load_nhl_player_boxscores]{load_nhl_player_boxscores()}},
+\code{\link[=load_nhl_schedules]{load_nhl_schedules()}},
+\code{\link[=load_nhl_skater_boxscores]{load_nhl_skater_boxscores()}},
+\code{\link[=load_nhl_team_boxscore]{load_nhl_team_boxscore()}}
 }
 \concept{NHL Loader Functions}

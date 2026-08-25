@@ -109,13 +109,13 @@ pwhl_season_id <- function(season = NULL, game_type = "regular") {
   )
 }
 
-#' @keywords internal
 #' Resolve a season year and game type to a HockeyTech season_id.
 #'
 #' @param season Numeric year (e.g., 2025)
 #' @param game_type Character: "regular", "preseason", or "playoffs"
 #' @return Numeric season_id
 #' @noRd
+#' @keywords internal
 .pwhl_resolve_season_id <- function(season, game_type = "regular") {
   seasons <- pwhl_season_id()
   match <- seasons %>%

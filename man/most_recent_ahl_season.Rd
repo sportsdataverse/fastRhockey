@@ -17,19 +17,19 @@ Returns the most-recent AHL season as an end-year integer
 \donttest{ try(most_recent_ahl_season()) }
 }
 \seealso{
-Other AHL Functions: 
+Other AHL Functions:
 \code{\link{ahl}},
-\code{\link{ahl_game_corsi}()},
-\code{\link{ahl_game_shifts}()},
-\code{\link{ahl_game_summary}()},
-\code{\link{ahl_leaders}()},
-\code{\link{ahl_pbp}()},
-\code{\link{ahl_player_stats}()},
-\code{\link{ahl_player_toi}()},
-\code{\link{ahl_schedule}()},
-\code{\link{ahl_season_id}()},
-\code{\link{ahl_standings}()},
-\code{\link{ahl_team_roster}()},
-\code{\link{ahl_teams}()}
+\code{\link[=ahl_game_corsi]{ahl_game_corsi()}},
+\code{\link[=ahl_game_shifts]{ahl_game_shifts()}},
+\code{\link[=ahl_game_summary]{ahl_game_summary()}},
+\code{\link[=ahl_leaders]{ahl_leaders()}},
+\code{\link[=ahl_pbp]{ahl_pbp()}},
+\code{\link[=ahl_player_stats]{ahl_player_stats()}},
+\code{\link[=ahl_player_toi]{ahl_player_toi()}},
+\code{\link[=ahl_schedule]{ahl_schedule()}},
+\code{\link[=ahl_season_id]{ahl_season_id()}},
+\code{\link[=ahl_standings]{ahl_standings()}},
+\code{\link[=ahl_team_roster]{ahl_team_roster()}},
+\code{\link[=ahl_teams]{ahl_teams()}}
 }
 \concept{AHL Functions}
