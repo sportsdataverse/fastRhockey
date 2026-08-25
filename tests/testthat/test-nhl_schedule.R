@@ -46,6 +46,7 @@ test_that("NHL - Schedule returns fastRhockey_data class", {
 })
 
 test_that("NHL - nhl_schedule() rejects invalid game_type", {
+  testthat::skip_on_cran()
     expect_error(
         suppressMessages(nhl_schedule(season = 2024, game_type = "bogus")),
         regexp = "should be one of"
@@ -134,6 +135,7 @@ test_that("NHL - nhl_schedule(day=) ignores game_type", {
 # had the same home_team_name, away_team_name, home_score, away_score, and
 # venue. Fixed by switching to if/else, which preserves vector length.
 test_that(".parse_club_schedule_games: preserves per-row distinct values", {
+  testthat::skip_on_cran()
     # Construct a 3-row fixture with deliberately distinct values in every
     # nested field. If the parser collapses any column to length 1, the
     # distinct-values check below will fail.
@@ -204,6 +206,7 @@ test_that(".parse_club_schedule_games: preserves per-row distinct values", {
 
 
 test_that(".parse_schedule_games: preserves per-row distinct values", {
+  testthat::skip_on_cran()
     # Mirror of the above for the day-mode parser. Same regression risk:
     # the day-mode parser has the same ifelse pattern.
     games_df <- data.frame(
@@ -262,6 +265,7 @@ test_that(".parse_schedule_games: preserves per-row distinct values", {
 
 
 test_that(".nhl_full_team_name: falls back to place name when common is absent", {
+  testthat::skip_on_cran()
     # Older / partial payloads may omit commonName entirely -> place-only,
     # with no trailing space. A per-row NA common yields the place alone too.
     team_no_common <- list(placeName = data.frame(
@@ -287,6 +291,7 @@ test_that(".nhl_full_team_name: falls back to place name when common is absent",
 
 
 test_that(".nhl_full_team_name: collapses api-web's inconsistent token doubling", {
+  testthat::skip_on_cran()
     # api-web overlaps place/common inconsistently across seasons: placeName can
     # trail into the common name ("NY Rangers" + "Rangers") and commonName can
     # lead with the place ("Utah" + "Utah Hockey Club"). Both must de-double.

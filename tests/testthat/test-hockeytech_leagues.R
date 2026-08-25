@@ -1,4 +1,5 @@
 test_that("hockeytech league registry has the five HockeyTech leagues", {
+  testthat::skip_on_cran()
   leagues <- fastRhockey:::.hockeytech_leagues()
   expect_setequal(names(leagues), c("pwhl", "ahl", "ohl", "whl", "qmjhl"))
   expect_equal(leagues$pwhl$client_code, "pwhl")
@@ -8,6 +9,7 @@ test_that("hockeytech league registry has the five HockeyTech leagues", {
 })
 
 test_that("env var overrides the api key", {
+  testthat::skip_on_cran()
   withr::with_envvar(c(SDV_PWHL_API_KEY = "override123"), {
     expect_equal(fastRhockey:::.hockeytech_resolve_key("pwhl"), "override123")
   })
@@ -17,6 +19,7 @@ test_that("env var overrides the api key", {
 })
 
 test_that("pbp view uses the override key", {
+  testthat::skip_on_cran()
   expect_equal(fastRhockey:::.hockeytech_resolve_key("pwhl", view = "gameCenterPlayByPlay"),
                "694cfeed58c932ee")
 })

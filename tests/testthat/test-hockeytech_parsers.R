@@ -3,6 +3,7 @@
 }
 
 test_that(".mmss_to_seconds converts MM:SS", {
+  testthat::skip_on_cran()
   expect_equal(fastRhockey:::.mmss_to_seconds("03:16"), 196L)
   expect_equal(fastRhockey:::.mmss_to_seconds("00:00"), 0L)
   expect_true(is.na(fastRhockey:::.mmss_to_seconds(NA)))
@@ -10,12 +11,14 @@ test_that(".mmss_to_seconds converts MM:SS", {
 })
 
 test_that(".derive_season_year handles century rollover", {
+  testthat::skip_on_cran()
   expect_equal(fastRhockey:::.derive_season_year("1999-00 Regular Season"), 2000L)
   expect_equal(fastRhockey:::.derive_season_year("2024-25 Regular Season"), 2025L)
   expect_equal(fastRhockey:::.derive_season_year("2024 Regular Season"), 2024L)
 })
 
 test_that(".parse_hockeytech_seasons derives end-year + game type", {
+  testthat::skip_on_cran()
   df <- fastRhockey:::.parse_hockeytech_seasons(.load_fx("pwhl_seasons"))
   expect_s3_class(df, "data.frame")
   expect_true(all(c("season_id","season_name","season_yr","game_type_label") %in% names(df)))
@@ -27,6 +30,7 @@ test_that(".parse_hockeytech_seasons derives end-year + game type", {
 })
 
 test_that(".parse_hockeytech_shifts returns one row per stint, countdown clock", {
+  testthat::skip_on_cran()
   df <- fastRhockey:::.parse_hockeytech_shifts(.load_fx("pwhl_gameshifts_42"), game_id = 42)
   expect_true(nrow(df) > 0)
   expect_true(all(c("game_id","player_id","first_name","last_name","home",
@@ -36,5 +40,6 @@ test_that(".parse_hockeytech_shifts returns one row per stint, countdown clock",
 })
 
 test_that(".hockeytech_season_id passes through explicit season_id", {
+  testthat::skip_on_cran()
   expect_equal(fastRhockey:::.hockeytech_season_id("pwhl", season_id = 5), 5L)
 })

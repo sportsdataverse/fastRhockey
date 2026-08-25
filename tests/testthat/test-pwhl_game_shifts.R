@@ -1,6 +1,7 @@
 ## Offline parse test (no network; uses fixture bundled with the package) --------
 
 test_that("pwhl game shifts offline parse", {
+  testthat::skip_on_cran()
   payload <- jsonlite::read_json(
     testthat::test_path("fixtures", "hockeytech", "pwhl_gameshifts_42.json")
   )

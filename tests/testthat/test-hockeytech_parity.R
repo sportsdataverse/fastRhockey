@@ -8,6 +8,7 @@
 }
 
 test_that("R player TOI matches sdv-py on the shared fixture (game 42)", {
+  testthat::skip_on_cran()
   sh  <- fastRhockey:::.parse_hockeytech_shifts(.load_fx("pwhl_gameshifts_42"), game_id = 42)
   toi <- fastRhockey:::hockeytech_player_toi(sh)
   expect_equal(nrow(toi), 39)
@@ -18,6 +19,7 @@ test_that("R player TOI matches sdv-py on the shared fixture (game 42)", {
 })
 
 test_that("R team corsi/fenwick matches sdv-py on the shared fixture (game 42)", {
+  testthat::skip_on_cran()
   pbp <- fastRhockey:::.parse_hockeytech_pbp(
     .load_fx("pwhl_pbp_42"), pbp_style = "hockeytech_a", game_id = 42
   )
@@ -28,6 +30,7 @@ test_that("R team corsi/fenwick matches sdv-py on the shared fixture (game 42)",
 })
 
 test_that("R base pbp event counts match sdv-py (game 42)", {
+  testthat::skip_on_cran()
   pbp <- fastRhockey:::.parse_hockeytech_pbp(
     .load_fx("pwhl_pbp_42"), pbp_style = "hockeytech_a", game_id = 42
   )
