@@ -1343,3 +1343,55 @@ get_missing_pwhl_games <- function(completed_games, dbConnection, tablename) {
   )
   return(need_scrape)
 }
+
+#' **Load PWHL shift charts from the SportsDataverse data repo**
+#'
+#' @description Loads season-level PWHL shift data built from the HockeyTech
+#'   game-center feeds -- one row per player-shift with on/off times.
+#'   Published to the `pwhl_shifts` release tag on the sportsdataverse-data
+#'   repo.
+#' @param seasons A vector of 4-digit season-ending years (2024 onward), or
+#'   `TRUE` for every published season.
+#' @param ... Additional arguments passed to the underlying database write.
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
+#' @param tablename The name of the data table within the database
+#' @return A `fastRhockey_data` tibble with one row per player-shift.
+#' @family PWHL Loader Functions
+#' @export
+#' @examples
+#' \donttest{
+#'   try(load_pwhl_shifts(2024))
+#' }
+load_pwhl_shifts <- function(seasons = most_recent_pwhl_season(), ...,
+                             dbConnection = NULL, tablename = NULL) {
+  .pwhl_release_loader(seasons,
+    release_tag = "pwhl_shifts", file_prefix = "shifts",
+    dbConnection = dbConnection, tablename = tablename
+  )
+}
+
+#' **Load PWHL expected-goals play-by-play from the SportsDataverse data repo**
+#'
+#' @description Loads season-level PWHL play-by-play enriched with the
+#'   fastRhockey expected-goals (xG) model outputs -- one row per event with
+#'   the xG probability columns appended. Published to the `pwhl_xg_pbp`
+#'   release tag on the sportsdataverse-data repo.
+#' @param seasons A vector of 4-digit season-ending years (2024 onward), or
+#'   `TRUE` for every published season.
+#' @param ... Additional arguments passed to the underlying database write.
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
+#' @param tablename The name of the data table within the database
+#' @return A `fastRhockey_data` tibble with one row per play event.
+#' @family PWHL Loader Functions
+#' @export
+#' @examples
+#' \donttest{
+#'   try(load_pwhl_xg_pbp(2024))
+#' }
+load_pwhl_xg_pbp <- function(seasons = most_recent_pwhl_season(), ...,
+                             dbConnection = NULL, tablename = NULL) {
+  .pwhl_release_loader(seasons,
+    release_tag = "pwhl_xg_pbp", file_prefix = "pwhl_xg_pbp",
+    dbConnection = dbConnection, tablename = tablename
+  )
+}

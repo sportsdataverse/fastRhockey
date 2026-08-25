@@ -163,3 +163,25 @@ test_that("PWHL - Load PWHL Game Rosters", {
         expect_true(all(c("game_id", "player_id", "player_type") %in% names(x)))
     }
 })
+
+test_that("PWHL - Load PWHL Shifts", {
+    skip_on_cran()
+    skip_pwhl_test()
+    x <- suppressWarnings(tryCatch(load_pwhl_shifts(2024), error = function(e) NULL))
+
+    if (!is.null(x) && nrow(x) > 0) {
+        expect_s3_class(x, "data.frame")
+        expect_true("player_id" %in% names(x))
+    }
+})
+
+test_that("PWHL - Load PWHL xG Play-by-Play", {
+    skip_on_cran()
+    skip_pwhl_test()
+    x <- suppressWarnings(tryCatch(load_pwhl_xg_pbp(2024), error = function(e) NULL))
+
+    if (!is.null(x) && nrow(x) > 0) {
+        expect_s3_class(x, "data.frame")
+        expect_gt(ncol(x), 15)
+    }
+})

@@ -248,6 +248,8 @@ reference:
       - "`load_pwhl_three_stars`"
       - "`load_pwhl_officials`"
       - "`load_pwhl_shots_by_period`"
+      - "`load_pwhl_shifts`"
+      - "`load_pwhl_xg_pbp`"
       - "`load_pwhl_shootout`"
   - subtitle: "Naming-parity Aliases (sportsdataverse-py)"
     desc: Aliases of the canonical PWHL loaders, named to match sportsdataverse-py.

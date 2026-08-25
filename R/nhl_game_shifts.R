@@ -1,6 +1,9 @@
 #' @title **NHL Game Shifts**
 #' @description Returns information on game shifts for a given game id
 #' @param game_id Game unique ID
+#' @param detailed If `TRUE`, return the per-player shift records (one row per
+#'   player-shift with `start_game_seconds` / `end_game_seconds` /
+#'   `duration_seconds`) instead of the aggregated one-row-per-change frame.
 #' @return A data frame (`fastRhockey_data`) with one row per shift change and
 #' the following columns:
 #'
@@ -40,7 +43,7 @@
 #' \donttest{
 #'   try(nhl_game_shifts(game_id = 2021020182))
 #' }
-nhl_game_shifts <- function(game_id){
+nhl_game_shifts <- function(game_id, detailed = FALSE){
 
   base_url <- "https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId="
 
@@ -93,6 +96,9 @@ nhl_game_shifts <- function(game_id){
 
       if (is.null(shifts_raw) || nrow(shifts_raw) == 0) {
         shifts <- tibble::tibble()
+      } else if (detailed) {
+        shifts <- shifts_raw %>%
+          dplyr::arrange(.data$period, .data$start_game_seconds, .data$team_abbrev)
       } else {
         shifts <- .aggregate_shifts(shifts_raw)
       }
