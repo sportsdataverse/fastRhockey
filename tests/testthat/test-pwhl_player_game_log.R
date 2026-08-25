@@ -35,6 +35,7 @@ test_that("PWHL - Player game log honors a single game_type", {
 })
 
 test_that("PWHL - Player game log rejects an invalid game_type", {
+  testthat::skip_on_cran()
     expect_error(
         pwhl_player_game_log(player_id = 28, season = 2024, game_type = "bogus")
     )

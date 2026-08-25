@@ -77,6 +77,8 @@ custom_mode <- function(x, na.rm = TRUE) {
 #' **Most Recent NHL Season**
 #' @description Returns the concluding year for the most recent NHL season. The NHL season typically runs from October to June, so a game played in November 2024 belongs to the 2025 season.
 #' @return Value for most recent NHL season
+#' @examples
+#' most_recent_nhl_season()
 #' @export
 most_recent_nhl_season <- function() {
   dplyr::if_else(
@@ -89,6 +91,8 @@ most_recent_nhl_season <- function() {
 #' **Most Recent NHL Season for NHL API**
 #' @description Returns the most recent NHL season in the format required by the NHL API (e.g., "20242025"). The NHL season typically runs from October to June, so a game played in November 2024 belongs to the 2025 season, which is represented as "20242025" in the NHL API.
 #' @return Value for most recent NHL season in the format of the NHL API
+#' @examples
+#' most_recent_nhl_season_api_param()
 #' @export
 most_recent_nhl_season_api_param <- function() {
   season <- dplyr::if_else(
@@ -124,6 +128,8 @@ most_recent_phf_season <- function() {
 #'   The PWHL season typically runs from January to May, so a game played
 #'   in March 2025 belongs to the 2025 season.
 #' @return Numeric value for the most recent PWHL season year (e.g., 2025).
+#' @examples
+#' most_recent_pwhl_season()
 #' @export
 most_recent_pwhl_season <- function() {
   current_month <- as.double(substr(Sys.Date(), 6, 7))

@@ -1,19 +1,19 @@
-#' @keywords internal
 #' Internal helper to call a PWHL HockeyTech API endpoint and parse the JSONP response.
 #'
 #' @param url Full URL including callback parameter
 #' @return Parsed JSON as an R list
 #' @noRd
+#' @keywords internal
 .pwhl_api <- function(url) {
   .hockeytech_api(url)
 }
 
-#' @keywords internal
 #' Build a PWHL modulekit API URL.
 #'
 #' @param params Named list of query parameters (excluding key, client_code, callback)
 #' @return Full URL string
 #' @noRd
+#' @keywords internal
 .pwhl_modulekit_url <- function(params) {
   base <- "https://lscluster.hockeytech.com/feed/index.php"
   defaults <- list(
@@ -29,12 +29,12 @@
   paste0(base, "?", query)
 }
 
-#' @keywords internal
 #' Build a PWHL game center (gc) API URL.
 #'
 #' @param params Named list of query parameters (excluding key, client_code, callback)
 #' @return Full URL string
 #' @noRd
+#' @keywords internal
 .pwhl_gc_url <- function(params) {
   base <- "https://lscluster.hockeytech.com/feed/index.php"
   defaults <- list(

@@ -23,19 +23,19 @@ WHL roster for a given team and season from the HockeyTech feed.
 \donttest{ try(whl_team_roster(team_id = 1)) }
 }
 \seealso{
-Other WHL Functions: 
-\code{\link{most_recent_whl_season}()},
+Other WHL Functions:
+\code{\link[=most_recent_whl_season]{most_recent_whl_season()}},
 \code{\link{whl}},
-\code{\link{whl_game_corsi}()},
-\code{\link{whl_game_shifts}()},
-\code{\link{whl_game_summary}()},
-\code{\link{whl_leaders}()},
-\code{\link{whl_pbp}()},
-\code{\link{whl_player_stats}()},
-\code{\link{whl_player_toi}()},
-\code{\link{whl_schedule}()},
-\code{\link{whl_season_id}()},
-\code{\link{whl_standings}()},
-\code{\link{whl_teams}()}
+\code{\link[=whl_game_corsi]{whl_game_corsi()}},
+\code{\link[=whl_game_shifts]{whl_game_shifts()}},
+\code{\link[=whl_game_summary]{whl_game_summary()}},
+\code{\link[=whl_leaders]{whl_leaders()}},
+\code{\link[=whl_pbp]{whl_pbp()}},
+\code{\link[=whl_player_stats]{whl_player_stats()}},
+\code{\link[=whl_player_toi]{whl_player_toi()}},
+\code{\link[=whl_schedule]{whl_schedule()}},
+\code{\link[=whl_season_id]{whl_season_id()}},
+\code{\link[=whl_standings]{whl_standings()}},
+\code{\link[=whl_teams]{whl_teams()}}
 }
 \concept{WHL Functions}

@@ -7,20 +7,20 @@
 Thin exported wrappers around the HockeyTech feeds for the OHL.
 }
 \seealso{
-Other OHL Functions: 
-\code{\link{most_recent_ohl_season}()},
-\code{\link{ohl_game_corsi}()},
-\code{\link{ohl_game_shifts}()},
-\code{\link{ohl_game_summary}()},
-\code{\link{ohl_leaders}()},
-\code{\link{ohl_pbp}()},
-\code{\link{ohl_player_stats}()},
-\code{\link{ohl_player_toi}()},
-\code{\link{ohl_schedule}()},
-\code{\link{ohl_season_id}()},
-\code{\link{ohl_standings}()},
-\code{\link{ohl_team_roster}()},
-\code{\link{ohl_teams}()}
+Other OHL Functions:
+\code{\link[=most_recent_ohl_season]{most_recent_ohl_season()}},
+\code{\link[=ohl_game_corsi]{ohl_game_corsi()}},
+\code{\link[=ohl_game_shifts]{ohl_game_shifts()}},
+\code{\link[=ohl_game_summary]{ohl_game_summary()}},
+\code{\link[=ohl_leaders]{ohl_leaders()}},
+\code{\link[=ohl_pbp]{ohl_pbp()}},
+\code{\link[=ohl_player_stats]{ohl_player_stats()}},
+\code{\link[=ohl_player_toi]{ohl_player_toi()}},
+\code{\link[=ohl_schedule]{ohl_schedule()}},
+\code{\link[=ohl_season_id]{ohl_season_id()}},
+\code{\link[=ohl_standings]{ohl_standings()}},
+\code{\link[=ohl_team_roster]{ohl_team_roster()}},
+\code{\link[=ohl_teams]{ohl_teams()}}
 }
 \concept{OHL Functions}
 \keyword{OHL}

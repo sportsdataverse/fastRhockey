@@ -39,5 +39,6 @@ test_that("PWHL - Schedule honors a single game_type", {
 })
 
 test_that("PWHL - Schedule rejects an invalid game_type", {
+  testthat::skip_on_cran()
     expect_error(pwhl_schedule(season = 2024, game_type = "bogus"))
 })

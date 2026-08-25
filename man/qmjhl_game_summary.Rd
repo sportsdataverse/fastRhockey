@@ -20,19 +20,19 @@ QMJHL game summary -- named list of data frames
 \donttest{ try(qmjhl_game_summary(game_id = 27225)) }
 }
 \seealso{
-Other QMJHL Functions: 
-\code{\link{most_recent_qmjhl_season}()},
+Other QMJHL Functions:
+\code{\link[=most_recent_qmjhl_season]{most_recent_qmjhl_season()}},
 \code{\link{qmjhl}},
-\code{\link{qmjhl_game_corsi}()},
-\code{\link{qmjhl_game_shifts}()},
-\code{\link{qmjhl_leaders}()},
-\code{\link{qmjhl_pbp}()},
-\code{\link{qmjhl_player_stats}()},
-\code{\link{qmjhl_player_toi}()},
-\code{\link{qmjhl_schedule}()},
-\code{\link{qmjhl_season_id}()},
-\code{\link{qmjhl_standings}()},
-\code{\link{qmjhl_team_roster}()},
-\code{\link{qmjhl_teams}()}
+\code{\link[=qmjhl_game_corsi]{qmjhl_game_corsi()}},
+\code{\link[=qmjhl_game_shifts]{qmjhl_game_shifts()}},
+\code{\link[=qmjhl_leaders]{qmjhl_leaders()}},
+\code{\link[=qmjhl_pbp]{qmjhl_pbp()}},
+\code{\link[=qmjhl_player_stats]{qmjhl_player_stats()}},
+\code{\link[=qmjhl_player_toi]{qmjhl_player_toi()}},
+\code{\link[=qmjhl_schedule]{qmjhl_schedule()}},
+\code{\link[=qmjhl_season_id]{qmjhl_season_id()}},
+\code{\link[=qmjhl_standings]{qmjhl_standings()}},
+\code{\link[=qmjhl_team_roster]{qmjhl_team_roster()}},
+\code{\link[=qmjhl_teams]{qmjhl_teams()}}
 }
 \concept{QMJHL Functions}

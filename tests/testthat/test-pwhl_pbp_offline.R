@@ -4,6 +4,7 @@
 }
 
 test_that("pwhl_pbp pipeline (offline) yields enriched superset", {
+  testthat::skip_on_cran()
   pbp      <- .load_fx("pwhl_pbp_42")
   df       <- fastRhockey:::.parse_hockeytech_pbp(pbp, game_id = 42)
   out      <- fastRhockey:::hockeytech_enrich_pbp(

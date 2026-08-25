@@ -140,14 +140,7 @@ pwhl_schedule <- function(season, game_type = "both") {
 
   tryCatch(
     expr = {
-      res <- .resp_text(.retry_request(full_url))
-
-      callback_pattern <- "angular.callbacks._\\d+\\("
-      res <- gsub(callback_pattern, "", res)
-      res <- gsub("}}]}]}])", "}}]}]}]", res)
-
-      r <- res %>%
-        jsonlite::parse_json()
+      r <- .hockeytech_api(full_url)
 
       gm <- r[[1]]$sections[[1]]$data
 

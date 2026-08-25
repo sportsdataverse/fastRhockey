@@ -49,21 +49,9 @@ pwhl_standings <- function(season = 2023, regular = TRUE) {
 
   REG_URL = paste0("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=teams&groupTeamsBy=league&context=overall&site_id=2&season=", season_id, "&special=false&key=694cfeed58c932ee&client_code=pwhl&league_id=1&division=undefined&sort=points&lang=en&callback=angular.callbacks._b")
   URL = paste0("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=teams&groupTeamsBy=division&context=overall&site_id=2&season=", season_id, "&special=true&key=694cfeed58c932ee&client_code=pwhl&league_id=1&division=-1&sort=points&lang=en&callback=angular.callbacks._4")
-  reg_res <- .retry_request(REG_URL)
-  reg_res <- .resp_text(reg_res)
+  r_reg <- .hockeytech_api(REG_URL)
 
-  reg_res <- gsub("angular.callbacks._b\\(", "", reg_res)
-  reg_res <- gsub("}}]}]}])", "}}]}]}]", reg_res)
-  r_reg <- reg_res %>%
-    jsonlite::parse_json()
-
-  res <- .retry_request(URL)
-  res <- .resp_text(res)
-
-  res <- gsub("angular.callbacks._4\\(", "", res)
-  res <- gsub("}}]}]}])", "}}]}]}]", res)
-  r <- res %>%
-    jsonlite::parse_json()
+  r <- .hockeytech_api(URL)
 
   reg_data <- r_reg[[1]]$sections[[1]]$data
   data <- r[[1]]$sections[[1]]$data

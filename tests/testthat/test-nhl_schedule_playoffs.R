@@ -1,10 +1,12 @@
 test_that(".extract_series_map: handles empty/NULL carousel", {
+  testthat::skip_on_cran()
     expect_null(fastRhockey:::.extract_series_map(NULL))
     expect_null(fastRhockey:::.extract_series_map(list()))
     expect_null(fastRhockey:::.extract_series_map(list(rounds = NULL)))
 })
 
 test_that(".extract_series_map: extracts letter and round from nested rounds", {
+  testthat::skip_on_cran()
     # Carousel structure produced by jsonlite::fromJSON(..., flatten = TRUE):
     # $rounds is a data frame; each row has $series (a list-column of data frames).
     fake_carousel <- list(
@@ -38,6 +40,7 @@ test_that(".extract_series_map: extracts letter and round from nested rounds", {
 })
 
 test_that(".extract_series_map: tolerates letterCode alternate field name", {
+  testthat::skip_on_cran()
     fake_carousel <- list(
         rounds = data.frame(
             roundNumber = 1L,
@@ -56,6 +59,7 @@ test_that(".extract_series_map: tolerates letterCode alternate field name", {
 })
 
 test_that(".parse_playoff_series_games: returns 16-column tibble with context populated", {
+  testthat::skip_on_cran()
     # Construct minimal games_df with the nested structure that
     # jsonlite::fromJSON(..., flatten = FALSE) produces.
     games_df <- data.frame(
@@ -116,6 +120,7 @@ test_that(".parse_playoff_series_games: returns 16-column tibble with context po
 })
 
 test_that(".parse_playoff_series_games: uses gameNumber when present", {
+  testthat::skip_on_cran()
     games_df <- data.frame(
         id = c(2023030111L, 2023030112L, 2023030113L),
         season = c("20232024", "20232024", "20232024"),
@@ -179,6 +184,7 @@ test_that(".fetch_nhl_season_playoffs: returns playoff games for 2023-24", {
 })
 
 test_that(".fetch_nhl_season_playoffs: returns empty tibble with the 16-col schema when carousel is NULL", {
+  testthat::skip_on_cran()
     local_mocked_bindings(
         nhl_playoff_carousel = function(...) NULL,
         .package = "fastRhockey"

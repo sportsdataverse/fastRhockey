@@ -2,6 +2,35 @@
 
 ### New features
 
+* `load_pwhl_shifts()` and `load_pwhl_xg_pbp()` — loaders for the two
+  published PWHL release datasets that had no R access (per-player shift
+  charts and xG-enriched play-by-play), completing coverage of every
+  hockey tag on the sportsdataverse-data releases.
+* `nhl_game_shifts()` gains a `detailed` argument: `detailed = TRUE` returns
+  the per-player shift records (one row per player-shift with game-second
+  on/off times) instead of the aggregated one-row-per-change frame (#26).
+
+### Bug fixes
+
+* `pwhl_stats()` now resolves the `season` argument to the correct HockeyTech
+  season id instead of always returning the inaugural 2024 season (#50), and
+  the `team` filter works for both positions and accepts a team code
+  (`"OTT"`), label (`"Ottawa"`), or full name — an unknown team now errors
+  informatively instead of silently returning the whole league (#49).
+* `pwhl_stats()`, `pwhl_schedule()`, and `pwhl_standings()` now strip the
+  HockeyTech JSONP envelope through the shared `.hockeytech_api()` helper
+  instead of per-function regexes that broke on payload-shape changes
+  (empty results for 2025 onward).
+* `pwhl_stats()` skater results are resilient to the shootout stat block
+  dropping out of the feed (absent after the inaugural season).
+
+### Housekeeping
+
+* Documentation migrated to roxygen2 8.1.0; the full test suite now skips on
+  CRAN (everything runs in CI on every push); `cph` role added to
+  `Authors@R`; LICENSE year refreshed; R-hub workflow moved to the rolling
+  `r-hub/actions@v1` tag (node24 runtime).
+
 * Added read-only **Fox Sports "Bifrost"** NHL wrappers (`fox_nhl_*`) over
   `api.foxsports.com/bifrost/v1/nhl/*`, complementing the `espn_nhl_*` family:
   `fox_nhl_pbp()` (period-based play-by-play), `fox_nhl_boxscore()`,

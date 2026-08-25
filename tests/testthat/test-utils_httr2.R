@@ -6,6 +6,7 @@
 # ---------------------------------------------------------------------------
 
 test_that(".resolve_proxy prefers the explicit arg, then the option, else NULL", {
+  testthat::skip_on_cran()
   withr::local_options(fastRhockey.proxy = NULL)
   expect_null(.resolve_proxy(NULL))
 
@@ -19,6 +20,7 @@ test_that(".resolve_proxy prefers the explicit arg, then the option, else NULL",
 # ---------------------------------------------------------------------------
 
 test_that(".retry_request builds URL query + headers + proxy onto the request", {
+  testthat::skip_on_cran()
   captured <- NULL
   testthat::local_mocked_bindings(
     .package = "httr2",
@@ -41,6 +43,7 @@ test_that(".retry_request builds URL query + headers + proxy onto the request", 
 # ---------------------------------------------------------------------------
 
 test_that(".resp_text and .resp_json read an httr2 response body", {
+  testthat::skip_on_cran()
   resp <- httr2::response(
     status_code = 200,
     headers = list("Content-Type" = "application/json"),
@@ -57,6 +60,7 @@ test_that(".resp_text and .resp_json read an httr2 response body", {
 # ---------------------------------------------------------------------------
 
 test_that("check_status passes on 200 and errors on non-200 (httr2)", {
+  testthat::skip_on_cran()
   ok  <- httr2::response(status_code = 200, body = charToRaw("{}"))
   bad <- httr2::response(status_code = 404, body = charToRaw("{}"))
   expect_silent(check_status(ok))
@@ -68,6 +72,7 @@ test_that("check_status passes on 200 and errors on non-200 (httr2)", {
 # ---------------------------------------------------------------------------
 
 test_that(".capture_args returns the caller's non-... formals", {
+  testthat::skip_on_cran()
   demo <- function(team_id, season = 2024, ...) .capture_args()
   out <- demo(team_id = "1", season = 2025)
   expect_equal(out$team_id, "1")
@@ -76,6 +81,7 @@ test_that(".capture_args returns the caller's non-... formals", {
 })
 
 test_that("reporters emit cli messages and return invisibly", {
+  testthat::skip_on_cran()
   e <- simpleError("boom")
   expect_message(.report_api_error(e, hint = "load {team_id}", args = list(team_id = "7")), "boom")
   w <- simpleWarning("careful")

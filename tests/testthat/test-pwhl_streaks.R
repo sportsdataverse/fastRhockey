@@ -25,5 +25,6 @@ test_that("PWHL - Streaks honor a single game_type", {
 })
 
 test_that("PWHL - Streaks reject an invalid game_type", {
+  testthat::skip_on_cran()
     expect_error(pwhl_streaks(season = 2024, game_type = "bogus"))
 })

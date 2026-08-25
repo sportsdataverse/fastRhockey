@@ -52,7 +52,7 @@ hockeytech_shot_distance_angle <- function(pbp, goal_x = 89) {
 #' Flag scoring_chance for shot-type events within threshold_ft of the net.
 #'
 #' @param pbp          data.frame. If `shot_distance` is absent,
-#'                     [hockeytech_shot_distance_angle()] is called first.
+#'                     `hockeytech_shot_distance_angle()` is called first.
 #' @param threshold_ft Distance threshold in feet. Default 25.
 #' @return pbp with logical `scoring_chance` column added.
 #' @noRd
@@ -216,7 +216,7 @@ hockeytech_build_on_ice <- function(pbp, shifts) {
 #' Derive strength_state + skater counts from on-ice ids.
 #'
 #' Requires `on_ice_home` / `on_ice_away` (comma-joined player ids from
-#' [hockeytech_build_on_ice()]). `goalie_ids` is a character vector of goalie
+#' `hockeytech_build_on_ice()`). `goalie_ids` is a character vector of goalie
 #' player_ids for the game (from `game_rosters` or the pbp `goalie_id` column);
 #' goalies are stripped from the skater counts. When `goalie_ids` is NULL/empty
 #' each side is assumed to carry exactly one goalie (`skaters = on-ice - 1`).
@@ -464,8 +464,8 @@ hockeytech_per60 <- function(value, toi_seconds) {
 #'   x_coord_original / y_coord_original = raw x_coord, y_coord
 #'   x_coord_neutral  = ox - 300
 #'   y_coord_neutral  = oy - 150
-#'   x_t = (ox / 3) - 100                            [intermediate]
-#'   y_t = 42.5 - (oy * 85 / 300)                    [intermediate, simplified]
+#'   x_t = (ox / 3) - 100                            (intermediate)
+#'   y_t = 42.5 - (oy * 85 / 300)                    (intermediate, simplified)
 #'   x_coord_fixed    = x_t / 3
 #'   y_coord_fixed    = 42.5 - ((y_t * 85 / 300) - 42.5)
 #'   x_coord_right    = if (team_id == home_team_id) 100 + (100 - x_t) else x_t
@@ -634,7 +634,7 @@ hockeytech_add_clock_columns <- function(pbp) {
 #' which itself was ported from fastRhockey R/pwhl_pbp.R lines ~522-565.
 #'
 #' For each penalty event whose power_play flag is "1", a PP window
-#' [start_sec, end_sec] is derived:
+#' `start_sec, end_sec` is derived:
 #'   start_sec = sec_from_start of the penalty event.
 #'   end_sec   = start_sec + penalty_length * 60, truncated at the first goal
 #'               scored during that window (power-kill-ends-on-goal logic).

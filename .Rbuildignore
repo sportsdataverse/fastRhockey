@@ -30,3 +30,7 @@ CLAUDE\.md$
 ^\.positai$
 ^\.git$
 ^\.gitignore$
+^\.omc$
+^\.understand-anything$
+^\.ruff_cache$
+^CRAN-SUBMISSION$

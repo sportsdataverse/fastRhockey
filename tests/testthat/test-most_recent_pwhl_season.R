@@ -1,4 +1,5 @@
 test_that("most_recent_pwhl_season returns a numeric year", {
+  testthat::skip_on_cran()
     x <- most_recent_pwhl_season()
     expect_true(is.numeric(x))
     expect_true(x >= 2024)

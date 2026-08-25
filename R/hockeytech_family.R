@@ -16,7 +16,6 @@
 # Season helpers
 # ---------------------------------------------------------------------------
 
-#' @keywords internal
 #' All seasons for a league, with end-year and game-type labels.
 #'
 #' Mirrors Python build_family()::_season_id(). Calls the modulekit/seasons
@@ -26,6 +25,7 @@
 #' @return A data.frame with columns: season_id, season_name, season_short,
 #'   career, playoff, start_date, end_date, season_yr, game_type_label.
 #' @noRd
+#' @keywords internal
 .hockeytech_season_id_df <- function(league) {
   payload <- tryCatch(
     .hockeytech_api(.hockeytech_url(league, "modulekit", "seasons", list())),
@@ -35,7 +35,6 @@
 }
 
 
-#' @keywords internal
 #' Most-recent season as an end-year integer.
 #'
 #' Mirrors Python build_family()::_most_recent_season(). Returns the maximum
@@ -45,6 +44,7 @@
 #' @param league HockeyTech league key.
 #' @return Integer end-year (e.g. 2025L), or 2026L on failure.
 #' @noRd
+#' @keywords internal
 .hockeytech_most_recent_season <- function(league) {
   df <- tryCatch(.hockeytech_season_id_df(league), error = function(e) data.frame())
   if (is.data.frame(df) && nrow(df) > 0 && "season_yr" %in% names(df)) {
@@ -59,7 +59,6 @@
 # Schedule
 # ---------------------------------------------------------------------------
 
-#' @keywords internal
 #' Schedule for a league -- one row per game.
 #'
 #' Mirrors Python build_family()::_schedule(). Uses the modulekit/scorebar
@@ -71,6 +70,7 @@
 #' @param season_id Optional explicit numeric season_id (short-circuits lookup).
 #' @return A data.frame, one row per game.
 #' @noRd
+#' @keywords internal
 .hockeytech_schedule <- function(league, season = NULL, season_id = NULL) {
   cfg <- .hockeytech_leagues()[[league]]
   params <- list(
@@ -96,7 +96,6 @@
 # PBP (enriched)
 # ---------------------------------------------------------------------------
 
-#' @keywords internal
 #' Play-by-play for a single game -- one row per event, fully enriched.
 #'
 #' Mirrors Python build_family()::_pbp(). Fetches and parses the
@@ -108,6 +107,7 @@
 #' @param game_id Numeric game identifier.
 #' @return A data.frame, one row per play-by-play event.
 #' @noRd
+#' @keywords internal
 .hockeytech_pbp <- function(league, game_id) {
   cfg <- .hockeytech_leagues()[[league]]
   pbp_payload <- tryCatch(
@@ -138,7 +138,6 @@
 # Standings
 # ---------------------------------------------------------------------------
 
-#' @keywords internal
 #' Standings for a league -- one row per team.
 #'
 #' Mirrors Python build_family()::_standings(). Uses the statviewfeed/teams
@@ -149,6 +148,7 @@
 #' @param season_id Optional explicit numeric season_id.
 #' @return A data.frame, one row per team.
 #' @noRd
+#' @keywords internal
 .hockeytech_standings <- function(league, season = NULL, season_id = NULL) {
   cfg <- .hockeytech_leagues()[[league]]
   effective_season <- season %||% .hockeytech_most_recent_season(league)
@@ -173,7 +173,6 @@
 # Teams
 # ---------------------------------------------------------------------------
 
-#' @keywords internal
 #' Teams for a league in a given season.
 #'
 #' Mirrors Python build_family()::_teams(). Uses modulekit/teamsbyseason.
@@ -183,6 +182,7 @@
 #' @param season_id Optional explicit numeric season_id.
 #' @return A data.frame, one row per team.
 #' @noRd
+#' @keywords internal
 .hockeytech_teams <- function(league, season = NULL, season_id = NULL) {
   effective_season <- season %||% .hockeytech_most_recent_season(league)
   sid <- .hockeytech_season_id(league, season = effective_season, season_id = season_id)
@@ -198,7 +198,6 @@
 # Team roster
 # ---------------------------------------------------------------------------
 
-#' @keywords internal
 #' Team roster for a given team and season.
 #'
 #' Mirrors Python build_family()::_team_roster(). Uses modulekit/roster.
@@ -209,6 +208,7 @@
 #' @param season_id Optional explicit numeric season_id.
 #' @return A data.frame, one row per player.
 #' @noRd
+#' @keywords internal
 .hockeytech_team_roster <- function(league, team_id, season = NULL, season_id = NULL) {
   effective_season <- season %||% .hockeytech_most_recent_season(league)
   sid <- .hockeytech_season_id(league, season = effective_season, season_id = season_id)
@@ -227,7 +227,6 @@
 # Player stats
 # ---------------------------------------------------------------------------
 
-#' @keywords internal
 #' Player season stats across all seasons.
 #'
 #' Mirrors Python build_family()::_player_stats(). Uses modulekit/player with
@@ -237,6 +236,7 @@
 #' @param player_id Numeric or character player identifier.
 #' @return A data.frame with one row per season-stat entry.
 #' @noRd
+#' @keywords internal
 .hockeytech_player_stats <- function(league, player_id) {
   payload <- tryCatch(
     .hockeytech_api(
@@ -253,7 +253,6 @@
 # Leaders
 # ---------------------------------------------------------------------------
 
-#' @keywords internal
 #' Statistical leaders for a league in a given season.
 #'
 #' Mirrors Python build_family()::_leaders(). Uses the statviewfeed/
@@ -265,6 +264,7 @@
 #' @param season_id Optional explicit numeric season_id.
 #' @return A data.frame, one row per player entry.
 #' @noRd
+#' @keywords internal
 .hockeytech_leaders <- function(league, season = NULL, season_id = NULL) {
   effective_season <- season %||% .hockeytech_most_recent_season(league)
   sid <- .hockeytech_season_id(league, season = effective_season, season_id = season_id)
@@ -287,7 +287,6 @@
 # Game summary
 # ---------------------------------------------------------------------------
 
-#' @keywords internal
 #' Game summary -- named list of data.frames (game/goals/penalties/shots_by_period/three_stars).
 #'
 #' Mirrors Python build_family()::_game_summary(). Uses gc/gamesummary.
@@ -296,6 +295,7 @@
 #' @param game_id Numeric game identifier.
 #' @return A named list of data.frames.
 #' @noRd
+#' @keywords internal
 .hockeytech_game_summary <- function(league, game_id) {
   payload <- tryCatch(
     .hockeytech_api(.hockeytech_url(league, "gc", "gamesummary", list(game_id = game_id))),
@@ -309,7 +309,6 @@
 # Game shifts
 # ---------------------------------------------------------------------------
 
-#' @keywords internal
 #' Parsed shift stints for a single game.
 #'
 #' Mirrors Python build_family()::_game_shifts(). Uses modulekit/gameshifts.
@@ -318,6 +317,7 @@
 #' @param game_id Numeric game identifier.
 #' @return A data.frame, one row per shift stint.
 #' @noRd
+#' @keywords internal
 .hockeytech_game_shifts <- function(league, game_id) {
   payload <- tryCatch(
     .hockeytech_api(.hockeytech_url(league, "modulekit", "gameshifts", list(game_id = game_id))),
@@ -331,7 +331,6 @@
 # Player TOI
 # ---------------------------------------------------------------------------
 
-#' @keywords internal
 #' Per-player time-on-ice totals for a single game.
 #'
 #' Mirrors Python build_family()::_player_toi(). Calls .hockeytech_game_shifts()
@@ -342,6 +341,7 @@
 #' @return A data.frame with one row per player: player_id, first_name,
 #'   last_name, toi_seconds, num_shifts, avg_shift_s.
 #' @noRd
+#' @keywords internal
 .hockeytech_player_toi <- function(league, game_id) {
   shifts <- .hockeytech_game_shifts(league, game_id)
   hockeytech_player_toi(shifts)
@@ -352,7 +352,6 @@
 # Game Corsi
 # ---------------------------------------------------------------------------
 
-#' @keywords internal
 #' Player-level on-ice Corsi and Fenwick for a single game.
 #'
 #' Mirrors Python build_family()::_game_corsi(). Fetches enriched PBP via
@@ -363,6 +362,7 @@
 #' @param game_id Numeric game identifier.
 #' @return A data.frame, one row per player.
 #' @noRd
+#' @keywords internal
 .hockeytech_game_corsi <- function(league, game_id) {
   pbp   <- .hockeytech_pbp(league, game_id)
   corsi <- hockeytech_corsi_fenwick_on_ice(pbp)

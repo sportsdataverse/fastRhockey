@@ -113,8 +113,8 @@
 #' @importFrom lubridate ms period_to_seconds
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr mutate filter select rename bind_cols bind_rows arrange
-#' left_join group_by ungroup summarize case_when coalesce lag lead row_number
-#' across all_of
+#'   left_join group_by ungroup summarize case_when coalesce lag lead row_number
+#'   across all_of
 #' @importFrom tidyr unnest_wider fill pivot_wider
 #' @importFrom stringr str_detect str_pad
 #' @importFrom glue glue

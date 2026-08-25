@@ -1,4 +1,3 @@
-#' @keywords internal
 #' Build a HockeyTech feed URL for any league.
 #'
 #' The `gc` feed uses a `tab` parameter (not `view`); all other feeds use
@@ -11,6 +10,7 @@
 #' @param params   Named list of additional query parameters.
 #' @return Full URL string.
 #' @noRd
+#' @keywords internal
 .hockeytech_url <- function(league, feed, view, params = list()) {
   cfg <- .hockeytech_leagues()[[league]]
   base_params <- list(
@@ -31,7 +31,6 @@
   paste0(cfg$base_url, "?", query)
 }
 
-#' @keywords internal
 #' Fetch a HockeyTech URL and strip the JSONP callback wrapper.
 #'
 #' Strips a leading `angular.callbacks._N(` (or any valid JS identifier
@@ -40,6 +39,7 @@
 #' @param url Full URL string including callback parameter.
 #' @return Parsed JSON as an R list.
 #' @noRd
+#' @keywords internal
 .hockeytech_api <- function(url) {
   res <- .retry_request(url)
   res <- .resp_text(res)

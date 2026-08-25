@@ -10,6 +10,7 @@
 }
 
 test_that("parse_hockeytech_pbp one row per event with fastRhockey columns", {
+  testthat::skip_on_cran()
   df <- fastRhockey:::.parse_hockeytech_pbp(.load_fx("pwhl_pbp_42"), game_id = 42)
   expect_true(nrow(df) > 0)
   for (col in c("game_id", "event", "period_of_game", "time_of_period", "player_id",
@@ -20,12 +21,14 @@ test_that("parse_hockeytech_pbp one row per event with fastRhockey columns", {
 })
 
 test_that("parse_hockeytech_pbp handles empty payload", {
+  testthat::skip_on_cran()
   df <- fastRhockey:::.parse_hockeytech_pbp(list(), game_id = 99)
   expect_true(is.data.frame(df))
   expect_equal(nrow(df), 0L)
 })
 
 test_that("parse_hockeytech_pbp penalty: servedBy -> player_id, takenBy -> player_two_*", {
+  testthat::skip_on_cran()
   df <- fastRhockey:::.parse_hockeytech_pbp(.load_fx("pwhl_pbp_42"), game_id = 42)
   pens <- df[!is.na(df$event) & df$event == "penalty", ]
   expect_true(nrow(pens) > 0)
@@ -34,6 +37,7 @@ test_that("parse_hockeytech_pbp penalty: servedBy -> player_id, takenBy -> playe
 })
 
 test_that("parse_hockeytech_pbp goal: plus/minus word ordinals", {
+  testthat::skip_on_cran()
   df <- fastRhockey:::.parse_hockeytech_pbp(.load_fx("pwhl_pbp_42"), game_id = 42)
   for (col in c("plus_player_one_id", "plus_player_two_id",
                 "minus_player_one_id", "minus_player_two_id")) {
@@ -42,6 +46,7 @@ test_that("parse_hockeytech_pbp goal: plus/minus word ordinals", {
 })
 
 test_that("coord + clock transforms add parity columns", {
+  testthat::skip_on_cran()
   df <- fastRhockey:::.parse_hockeytech_pbp(.load_fx("pwhl_pbp_42"), game_id = 42)
   df <- fastRhockey:::hockeytech_add_coord_transforms(df)
   df <- fastRhockey:::hockeytech_add_clock_columns(df)
@@ -56,6 +61,7 @@ test_that("coord + clock transforms add parity columns", {
 })
 
 test_that("hockeytech_add_clock_columns: period 2 offset by 1200", {
+  testthat::skip_on_cran()
   df <- fastRhockey:::.parse_hockeytech_pbp(.load_fx("pwhl_pbp_42"), game_id = 42)
   df <- fastRhockey:::hockeytech_add_clock_columns(df)
   p2 <- df[!is.na(df$period_of_game) & df$period_of_game == "2" &
@@ -67,6 +73,7 @@ test_that("hockeytech_add_clock_columns: period 2 offset by 1200", {
 })
 
 test_that("hockeytech_backfill_power_play adds short_handed column", {
+  testthat::skip_on_cran()
   df <- fastRhockey:::.parse_hockeytech_pbp(.load_fx("pwhl_pbp_42"), game_id = 42)
   df <- fastRhockey:::hockeytech_add_clock_columns(df)
   # backfill needs home_team_id and away_team_id
@@ -78,6 +85,7 @@ test_that("hockeytech_backfill_power_play adds short_handed column", {
 })
 
 test_that("enrich_pbp (offline injected payloads) adds geometry + on-ice + meta", {
+  testthat::skip_on_cran()
   pbp <- .load_fx("pwhl_pbp_42")
   df <- fastRhockey:::.parse_hockeytech_pbp(pbp, game_id = 42)
   meta <- .load_fx("pwhl_game_summary_42")

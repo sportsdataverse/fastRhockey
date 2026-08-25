@@ -40,9 +40,9 @@ returns one row per player-shift stint via the internal
 }
 }
 \seealso{
-Other PWHL Functions: 
-\code{\link{pwhl_game_corsi}()},
-\code{\link{pwhl_player_toi}()}
+Other PWHL Functions:
+\code{\link[=pwhl_game_corsi]{pwhl_game_corsi()}},
+\code{\link[=pwhl_player_toi]{pwhl_player_toi()}}
 }
 \author{
 Saiem Gilani

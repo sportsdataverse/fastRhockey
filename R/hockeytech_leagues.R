@@ -1,6 +1,6 @@
-#' @keywords internal
 #' HockeyTech league registry. Mirrors sdv-py sportsdataverse/hockeytech/_leagues.py.
 #' @noRd
+#' @keywords internal
 .hockeytech_leagues <- function() {
   ls <- "https://lscluster.hockeytech.com/feed/index.php"
   lg <- "https://cluster.leaguestat.com/feed/index.php"
@@ -18,10 +18,10 @@
   )
 }
 
-#' @keywords internal
 #' Resolve an end-year `season` to integer HockeyTech season_id. Explicit season_id
 #' short-circuits. PWHL falls back to the hardcoded table via .pwhl_resolve_season_id.
 #' @noRd
+#' @keywords internal
 .hockeytech_season_id <- function(league, season = NULL, game_type = "regular", season_id = NULL) {
   if (!is.null(season_id)) return(as.integer(season_id))
   if (is.null(season)) stop("Provide season (end-year) or season_id", call. = FALSE)
