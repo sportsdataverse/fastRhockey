@@ -30,6 +30,8 @@
 #' @import jsonlite
 #' @import dplyr
 #' @importFrom glue glue
+#' @importFrom cli cli_abort
+#' @importFrom rlang %||%
 #' @importFrom tidyr separate
 #' @export
 #' @examples
@@ -39,10 +41,25 @@
 
 pwhl_stats <- function(position = "goalie", team = "all", season = 2024, regular = TRUE) {
 
-  if (regular) {
-    season_id <- 1
-  } else {
-    season_id <- 2
+  season_id <- .pwhl_resolve_season_id(season, if (regular) "regular" else "preseason")
+
+  # Resolve a team code/label/name to the HockeyTech team_id for the URL;
+  # "all" (or NULL) keeps the league-wide view.
+  team_param <- "all"
+  if (!is.null(team) && !identical(tolower(team), "all")) {
+    teams_df <- pwhl_teams()
+    team_row <- teams_df %>%
+      dplyr::filter(
+        tolower(.data$team_code) == tolower(team) |
+          tolower(.data$team_label) == tolower(team) |
+          tolower(.data$team_name) == tolower(team)
+      )
+    if (nrow(team_row) == 0) {
+      cli::cli_abort(
+        "No PWHL team matches {.val {team}}. Use a team code ({.val OTT}), label ({.val Ottawa}), or {.val all}."
+      )
+    }
+    team_param <- team_row$team_id[1]
   }
 
   players <- data.frame()
@@ -51,16 +68,9 @@ pwhl_stats <- function(position = "goalie", team = "all", season = 2024, regular
     expr = {
       if (position == "goalie") {
 
-        URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season={season_id}&team=all&position=goalies&rookies=0&statsType=expanded&rosterstatus=undefined&site_id=2&first=0&limit=100&sort=gaa&league_id=1&lang=en&division=-1&qualified=all&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._5")
+        URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season={season_id}&team={team_param}&position=goalies&rookies=0&statsType=expanded&rosterstatus=undefined&site_id=2&first=0&limit=100&sort=gaa&league_id=1&lang=en&division=-1&qualified=all&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._5")
 
-        res <- .retry_request(URL)
-        res <- .resp_text(res)
-
-        callback_pattern <- "angular.callbacks._\\d+\\("
-        res <- gsub(callback_pattern, "", res)
-        res <- gsub("}}]}]}])", "}}]}]}]", res)
-        r <- res %>%
-          jsonlite::parse_json()
+        r <- .hockeytech_api(URL)
 
         data <- r[[1]]$sections[[1]]$data
 
@@ -92,26 +102,9 @@ pwhl_stats <- function(position = "goalie", team = "all", season = 2024, regular
           tidyr::separate(col = "minutes", into = c("minute", "second"), sep = ":", remove = FALSE)
       } else {
 
-        # Resolve team abbreviation to team_id for the URL
-        team_param <- "all"
-        if (!is.null(team) && team != "all") {
-          teams_df <- pwhl_teams()
-          team_row <- teams_df %>% dplyr::filter(.data$team_label == team)
-          if (nrow(team_row) > 0) {
-            team_param <- team_row$team_id[1]
-          }
-        }
-
         URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season={season_id}&team={team_param}&position=skaters&rookies=0&statsType=standard&rosterstatus=undefined&site_id=2&first=0&limit=100&sort=points&league_id=1&lang=en&division=-1&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._6")
 
-        res <- .retry_request(URL)
-        res <- .resp_text(res)
-
-        callback_pattern <- "angular.callbacks._\\d+\\("
-        res <- gsub(callback_pattern, "", res)
-        res <- gsub("}}]}]}])", "}}]}]}]", res)
-        r <- res %>%
-          jsonlite::parse_json()
+        r <- .hockeytech_api(URL)
 
         data <- r[[1]]$sections[[1]]$data
 
@@ -137,10 +130,12 @@ pwhl_stats <- function(position = "goalie", team = "all", season = 2024, regular
             power_play_assists = c(data[[y]]$row$power_play_assists),
             short_handed_goals = c(data[[y]]$row$short_handed_goals),
             short_handed_assists = c(data[[y]]$row$short_handed_assists),
-            shootout_goals = c(data[[y]]$row$shootout_goals),
-            shootout_attempts = c(data[[y]]$row$shootout_attempts),
-            shootout_pct = c(data[[y]]$row$shootout_percentage),
-            shootout_winning_goals = c(data[[y]]$row$shootout_winning_goals),
+            # the shootout block dropped out of the feed after the
+            # inaugural season -- keep the columns, null-safe
+            shootout_goals = c(data[[y]]$row$shootout_goals %||% NA),
+            shootout_attempts = c(data[[y]]$row$shootout_attempts %||% NA),
+            shootout_pct = c(data[[y]]$row$shootout_percentage %||% NA),
+            shootout_winning_goals = c(data[[y]]$row$shootout_winning_goals %||% NA),
             faceoff_attempts = c(data[[y]]$row$faceoff_attempts),
             faceoff_wins = c(data[[y]]$row$faceoff_wins),
             faceoff_pct = c(data[[y]]$row$faceoff_pct)
