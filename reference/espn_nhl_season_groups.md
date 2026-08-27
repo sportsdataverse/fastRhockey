@@ -175,7 +175,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_season_groups(season = 2026, season_type = 2))
 #> ── NHL Season Groups data from ESPN core-v2 ─────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-25 11:25:00 UTC
+#> ℹ Data updated: 2026-08-27 11:04:27 UTC
 #> # A tibble: 2 × 4
 #>   ref                                                group_id season season_type
 #>   <chr>                                                 <int>  <int>       <int>

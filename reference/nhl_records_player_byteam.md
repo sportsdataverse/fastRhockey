@@ -105,7 +105,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_player_byteam(team_id = 10))
 #> ── NHL Records Player by Team ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-25 11:26:59 UTC
+#> ℹ Data updated: 2026-08-27 11:06:52 UTC
 #> # A tibble: 79 × 71
 #>         id accrued_seasons add_names age_sign_waiver age_signel_fa alert
 #>      <int>           <int> <lgl>               <int>         <int> <chr>

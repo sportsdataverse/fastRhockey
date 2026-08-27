@@ -2,6 +2,8 @@
 
 ## **fastRhockey 1.0.0 (continued development)**
 
+CRAN release: 2026-08-25
+
 #### New features
 
 - [`load_pwhl_shifts()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shifts.md)
@@ -553,6 +555,8 @@ were refactored to share a single internal worker
 return types.
 
 ## **fastRhockey 1.0.0**
+
+CRAN release: 2026-08-25
 
 #### **Breaking Changes**
 

@@ -44,7 +44,7 @@ Other OHL Functions:
 ``` r
  try(ohl_teams()) 
 #> ── OHL Teams from HockeyTech ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-25 11:27:24 UTC
+#> ℹ Data updated: 2026-08-27 11:07:22 UTC
 #> # A tibble: 22 × 7
 #>    team_name       team_id team_code team_nickname team_label division team_logo
 #>    <chr>           <chr>   <chr>     <chr>         <chr>      <chr>    <chr>    
@@ -57,6 +57,6 @@ Other OHL Functions:
 #>  7 Kingston Front… 2       KGN       Frontenacs    Kingston   1        https://…
 #>  8 Kitchener Rang… 10      KIT       Rangers       Kitchener  4        https://…
 #>  9 London Knights  14      LDN       Knights       London     4        https://…
-#> 10 Newfoundland    76      NFLD      Regiment      Newfoundl… 3        https://…
+#> 10 Newfoundland R… 76      NFLD      Regiment      Newfoundl… 3        https://…
 #> # ℹ 12 more rows
 ```

@@ -176,8 +176,8 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_injuries())
 #> ── NHL Injuries data from ESPN.com ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-25 11:24:40 UTC
-#> # A tibble: 192 × 16
+#> ℹ Data updated: 2026-08-27 11:04:03 UTC
+#> # A tibble: 198 × 16
 #>    team_id team_display_name player_id player_display_name player_short_name
 #>    <chr>   <chr>             <chr>     <chr>               <chr>            
 #>  1 25      Anaheim Ducks     NA        Nick Jensen         N. Jensen        
@@ -190,7 +190,7 @@ Saiem Gilani
 #>  8 25      Anaheim Ducks     NA        Drew Helleson       D. Helleson      
 #>  9 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
 #> 10 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
-#> # ℹ 182 more rows
+#> # ℹ 188 more rows
 #> # ℹ 11 more variables: player_position <chr>, injury_id <chr>,
 #> #   injury_status <chr>, injury_date <chr>, injury_short_comment <chr>,
 #> #   injury_long_comment <chr>, injury_type <chr>, injury_abbreviation <chr>,

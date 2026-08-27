@@ -25,7 +25,7 @@ Returns a data frame with game scores.
 # \donttest{
   try(nhl_scores())
 #> ── NHL Scores ───────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-25 11:27:06 UTC
+#> ℹ Data updated: 2026-08-27 11:07:02 UTC
 #> # A tibble: 5 × 27
 #>           id   season game_type game_date  start_time_utc     eastern_utc_offset
 #>        <int>    <int>     <int> <chr>      <chr>              <chr>             

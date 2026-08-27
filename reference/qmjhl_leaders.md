@@ -44,6 +44,6 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_leaders()) 
 #> ── QMJHL Leaders from HockeyTech ────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-25 11:27:35 UTC
+#> ℹ Data updated: 2026-08-27 11:07:35 UTC
 #> # A tibble: 0 × 0
 ```

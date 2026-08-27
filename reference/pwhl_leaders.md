@@ -135,7 +135,7 @@ unavailable:
 # \donttest{
   try(pwhl_leaders(position = "skaters", season = 2025))
 #> ── PWHL Leaders - skaters ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-25 11:27:28 UTC
+#> ℹ Data updated: 2026-08-27 11:07:27 UTC
 #> # A tibble: 107 × 88
 #>    player_id shortname    first_name last_name name  phonetic_name active height
 #>    <chr>     <chr>        <chr>      <chr>     <chr> <chr>         <chr>  <chr> 
@@ -148,7 +148,7 @@ unavailable:
 #>  7 36        J. Eldridge  Jessie     Eldridge  Jess… "jeh-see EHL… 1      "5'9\…
 #>  8 161       T. Vanišová  Tereza     Vanišová  Tere… " TAH-ree-zu… 1      "5'7" 
 #>  9 32        L. Stacey    Laura      Stacey    Laur… "STAY-see"    1      "5'10…
-#> 10 21        T. Heise     Taylor     Heise     Tayl… "TAY-luhr HI… 1      "5'10"
+#> 10 21        T. Fox       Taylor     Fox       Tayl… "TAY-luhr HI… 1      "5'10"
 #> # ℹ 97 more rows
 #> # ℹ 80 more variables: weight <chr>, last_years_club <chr>, age <chr>,
 #> #   shoots <chr>, position <chr>, suspension_games_remaining <chr>,
@@ -158,7 +158,7 @@ unavailable:
 #> #   birthdate_year <chr>, hometown <chr>, homeprov <chr>, homecntry <chr>, …
   try(pwhl_leaders(position = "goalies", season = 2025))
 #> ── PWHL Leaders - goalies ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-25 11:27:28 UTC
+#> ℹ Data updated: 2026-08-27 11:07:27 UTC
 #> # A tibble: 16 × 84
 #>    player_id shortname    rookie first_name last_name name  phonetic_name active
 #>    <chr>     <chr>        <chr>  <chr>      <chr>     <chr> <chr>         <chr> 

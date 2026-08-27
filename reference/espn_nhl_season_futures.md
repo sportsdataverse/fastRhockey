@@ -177,7 +177,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_season_futures(season = 2026))
 #> ── NHL Season Futures data from ESPN core-v2 ────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-25 11:24:59 UTC
+#> ℹ Data updated: 2026-08-27 11:04:26 UTC
 #> # A tibble: 11 × 10
 #>    future_ref  future_id future_name future_type future_display_name provider_id
 #>    <chr>       <chr>     <chr>       <chr>       <chr>               <chr>      
