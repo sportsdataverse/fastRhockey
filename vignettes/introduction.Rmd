@@ -240,7 +240,7 @@ The Premier Hockey Federation (PHF), formerly the National Women's Hockey League
 
 To cite the [**`fastRhockey`**](https://fastRhockey.sportsdataverse.org/) R package in publications, use:
 
-BibTex Citation
+BibTeX Citation
 ```bibtex
 @misc{howell_gilani_fastRhockey,
   author = {Ben Howell and Saiem Gilani},
