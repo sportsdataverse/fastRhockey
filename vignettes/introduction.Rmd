@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with fastRhockey"
 description: "A walkthrough of <code>fastRhockey</code> for accessing PWHL and NHL hockey data."
-author: "Ben Howell, Saiem Gilani"
+author: "Ben Howell, Saiem Gilani <br><a href='https://x.com/BenHowell71' target='blank'><img src='https://img.shields.io/twitter/follow/BenHowell71?color=blue&amp;label=%40BenHowell71&amp;logo=x&amp;style=for-the-badge' alt='@BenHowell71'/></a> <a href='https://github.com/BenHowell71' target='blank'><img src='https://img.shields.io/github/followers/BenHowell71?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@BenHowell71'/></a> <a href='https://x.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
 opengraph:
   image:
     src: "https://github.com/sportsdataverse/fastRhockey-data/blob/main/themes/fastRhockey_card.png?raw=true"
