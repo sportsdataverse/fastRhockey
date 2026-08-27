@@ -30,11 +30,11 @@ Play-by-play scraper for the PHF (formerly known as the NWHL)
 You can install the released version of [**`whockeyR`**](https://github.com/BenHowell71/whockeyR/) from [GitHub](https://github.com/BenHowell71/whockeyR) with:
 
 ``` r
-# You can install using the pacman package using the following code:
-if (!requireNamespace('pacman', quietly = TRUE)){
-  install.packages('pacman')
+# You can install using the pak package using the following code:
+if (!requireNamespace('pak', quietly = TRUE)){
+  install.packages('pak')
 }
-pacman::p_load_current_gh("BenHowell71/whockeyR", dependencies = TRUE, update = TRUE)
+pak::pak("BenHowell71/whockeyR", dependencies = TRUE, update = TRUE)
 ```
 If you would prefer the `devtools` installation:
 ``` r
