@@ -121,6 +121,9 @@ load_pwhl_game_info(seasons = 2024)
 
 You can find the [documentation](https://fastRhockey.sportsdataverse.org/) for [**`fastRhockey`**](https://github.com/sportsdataverse/fastRhockey) on [GitHub pages](https://fastRhockey.sportsdataverse.org/).
 
+There is also a printable [**`fastRhockey` cheat sheet (PDF)**](https://sportsdataverse.org/cheatsheets/fastRhockey.pdf), one of [a set covering every SportsDataverse package](https://sportsdataverse.org/cheatsheets).
+
+
 You can view CSVs of historical boxscore and play-by-play on the [**`fastRhockey`**](https://github.com/sportsdataverse/fastRhockey/) [data repo](https://github.com/sportsdataverse/fastRhockey-data), as well as the process for scraping that historical data.
 
 *********************************************************
@@ -156,6 +159,17 @@ You can view CSVs of historical boxscore and play-by-play on the [**`fastRhockey
 -   [Tan Ho](https://twitter.com/_TanHo)
 <a href="https://twitter.com/_TanHo" target="blank"></a>
 <a href="https://github.com/tanho63" target="blank"><img src="https://img.shields.io/github/followers/tanho63?color=eee&logo=Github&style=for-the-badge" alt="@tanho63" /></a>
+
+<!-- cheatsheet-section -->
+## **Cheat sheet**
+
+A printable one-page reference for **`fastRhockey`** — the function families, the loaders, and what each one returns.
+
+📄 **[Download the fastRhockey cheat sheet (PDF)](https://sportsdataverse.org/cheatsheets/fastRhockey.pdf)**
+
+Free to download, print and hand out; light and dark, US Letter landscape.
+Every SportsDataverse package has one — browse them all at
+**[sportsdataverse.org/cheatsheets](https://sportsdataverse.org/cheatsheets)**.
 
 ## **Citations**
 

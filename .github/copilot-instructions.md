@@ -413,3 +413,10 @@ Use Conventional Commits format:
   HockeyTech-consuming packages) — this is intentional and expected
 - **Never** commit user cache paths or local file paths
 - xG model files are downloaded from a public GitHub repository — no credentials needed
+
+## Cheat sheet
+
+There is a printable one-page reference for this package at
+<https://sportsdataverse.org/cheatsheets/fastRhockey.pdf>, one of [a set covering every SportsDataverse package](https://sportsdataverse.org/cheatsheets).
+Keep it in mind when adding or renaming an exported function: the sheet is a
+hand-built canvas, so a surface change means the sheet needs a revision too.
