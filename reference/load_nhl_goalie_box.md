@@ -70,9 +70,27 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_nhl_goalie_box(2022))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_goalie_boxscores/goalie_box_2022.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_goalie_boxscores/goalie_box_2022.rds>
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 0 × 0
+#> ── NHL goalie boxscores ─────────────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-09-09 07:37:00 UTC
+#> # A tibble: 5,605 × 24
+#>    home_away team_id team_abbrev player_id player_name     sweater_number
+#>    <chr>       <int> <chr>           <int> <chr>                    <int>
+#>  1 away            5 PIT           8479193 C. DeSmith                   1
+#>  2 away            5 PIT           8477465 T. Jarry                    35
+#>  3 home           14 TBL           8470880 B. Elliott                   1
+#>  4 home           14 TBL           8476883 A. Vasilevskiy              88
+#>  5 away           55 SEA           8475831 P. Grubauer                 31
+#>  6 away           55 SEA           8476904 C. Driedger                 60
+#>  7 home           54 VGK           8476316 L. Brossoit                 39
+#>  8 home           54 VGK           8475215 R. Lehner                   90
+#>  9 away            8 MTL           8474596 J. Allen                    34
+#> 10 away            8 MTL           8478470 S. Montembeault             35
+#> # ℹ 5,595 more rows
+#> # ℹ 18 more variables: even_strength_shots_against <chr>,
+#> #   power_play_shots_against <chr>, shorthanded_shots_against <chr>,
+#> #   save_shots_against <chr>, save_pctg <dbl>,
+#> #   even_strength_goals_against <int>, power_play_goals_against <int>,
+#> #   shorthanded_goals_against <int>, pim <int>, goals_against <int>, toi <chr>,
+#> #   starter <lgl>, decision <chr>, shots_against <int>, saves <int>, …
 # }
 ```

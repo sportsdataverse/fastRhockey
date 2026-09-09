@@ -59,8 +59,8 @@ the following columns:
 # \donttest{
   try(load_nhl_game_rosters(2026))
 #> ── NHL per-game rosters ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-22 23:49:22 UTC
-#> # A tibble: 55,758 × 11
+#> ℹ Data updated: 2026-09-07 08:56:52 UTC
+#> # A tibble: 55,758 × 12
 #>    player_id full_name      first_name last_name team_abbr team_id position_code
 #>        <int> <chr>          <chr>      <chr>     <chr>       <int> <chr>        
 #>  1   8473419 Brad Marchand  Brad       Marchand  FLA            13 L            
@@ -74,7 +74,7 @@ the following columns:
 #>  9   8477409 Carter Verhae… Carter     Verhaeghe FLA            13 C            
 #> 10   8477444 Andre Burakov… Andre      Burakovs… CHI            16 L            
 #> # ℹ 55,748 more rows
-#> # ℹ 4 more variables: sweater_number <int>, game_id <int>, season <int>,
-#> #   game_date <chr>
+#> # ℹ 5 more variables: sweater_number <int>, game_id <int>, season <int>,
+#> #   game_date <chr>, shoots_catches <chr>
 # }
 ```

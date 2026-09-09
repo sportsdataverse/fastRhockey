@@ -44,6 +44,6 @@ Other WHL Functions:
 ``` r
  try(whl_leaders()) 
 #> ── WHL Leaders from HockeyTech ──────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-27 11:07:46 UTC
+#> ℹ Data updated: 2026-09-09 22:13:37 UTC
 #> # A tibble: 0 × 0
 ```

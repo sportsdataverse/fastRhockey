@@ -54,7 +54,7 @@ Returns `NULL` on failure / empty response.
 # \donttest{
   try(nhl_edge_goalie_shot_location_detail(player_id = 8475883))
 #> ── NHL Edge Goalie Shot Location Detail ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-27 11:06:15 UTC
+#> ℹ Data updated: 2026-09-09 22:11:51 UTC
 #> # A tibble: 17 × 9
 #>    area       shots_against saves goals_against save_pctg shots_against_percen…¹
 #>    <chr>              <int> <int>         <int>     <dbl>                  <dbl>

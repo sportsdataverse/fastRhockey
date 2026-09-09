@@ -28,6 +28,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--sdv" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-project-diagram"></span>  SDV</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--sdv"><li><a class="external-link dropdown-item" href="https://sportsdataverse.org/">SportsDataverse</a></li>
+    <li><a class="external-link dropdown-item" href="https://sportsdataverse.org/cheatsheets/fastRhockey.pdf">Cheat Sheet (PDF)</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>R Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://r.sportsdataverse.org/">sportsdataverse-R</a></li>
@@ -248,20 +249,20 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_nhl_news</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL News data from ESPN.com ──────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-27 11:04:08 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-09 22:09:32 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 12</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    article_id now_id     content_key    type  headline description last_modified</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 49733545   1-49733545 49733545-1-5-1 Head… ASU inv… <span style="color: #949494;">"</span>Arizona S… 2026-08-26T1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 49731635   1-49731635 49731635-1-6-1 Story NHL on … <span style="color: #949494;">"</span>ESPN's 20… 2026-08-26T1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 49716165   1-49716165 49716165-1-5-1 Head… Missing… <span style="color: #949494;">"</span>The Montr… 2026-08-24T2…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 49707432   1-49707432 49707432-1-5-1 Head… Sakic '… <span style="color: #949494;">"</span>Speaking … 2026-08-24T0…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 49685317   1-49685317 49685317-1-5-1 Head… Garrett… <span style="color: #949494;">"</span>NHL refer… 2026-08-21T2…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 49685092   1-49685092 49685092-1-5-1 Head… Replica… <span style="color: #949494;">"</span>A replica… 2026-08-22T0…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 49675714   1-49675714 49675714-1-6-1 Story Islande… <span style="color: #949494;">"</span>The New Y… 2026-08-21T0…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 49672634   1-49672634 49672634-1-29… Media Leon Dr… <span style="color: #949494;">"</span>Leon Drai… 2026-08-20T1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 49658834   1-49658834 49658834-1-6-1 Story 2027 NH… <span style="color: #949494;">"</span>With the … 2026-08-20T1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 49669317   1-49669317 49669317-1-5-1 Head… Bruins … <span style="color: #949494;">"</span>The Bruin… 2026-08-20T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 49883706   1-49883706 49883706-1-5-1 Head… Zach We… Zach Weren… 2026-09-09T2…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 49882578   1-49882578 49882578-1-5-1 Head… Alex De… Alex DeBri… 2026-09-09T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 49881489   1-49881489 49881489-1-5-1 Head… Sources… The Ducks … 2026-09-09T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 49880962   1-49880962 49880962-1-5-1 Head… Forment… Alex Forme… 2026-09-09T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 49816274   1-49816274 49816274-1-6-1 Story Fantasy… Use these … 2026-09-09T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 49870408   1-49870408 49870408-1-5-1 Head… Bruins … The Bruins… 2026-09-08T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 49851388   1-49851388 49851388-1-6-1 Story How to … It's not j… 2026-09-08T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 49867971   1-49867971 49867971-1-5-1 Head… Arena f… The 76ers … 2026-09-09T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 49829326   1-49829326 49829326-1-5-1 Head… Canucks… The Canuck… 2026-09-05T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 49785332   1-49785332 49785332-1-6-1 Story Fantasy… Use these … 2026-09-04T1…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5 more variables: published &lt;chr&gt;, byline &lt;chr&gt;, premium &lt;lgl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   image_href &lt;chr&gt;, web_href &lt;chr&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>

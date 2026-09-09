@@ -44,6 +44,6 @@ Other OHL Functions:
 ``` r
  try(ohl_leaders()) 
 #> ── OHL Leaders from HockeyTech ──────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-27 11:07:14 UTC
+#> ℹ Data updated: 2026-09-09 22:13:02 UTC
 #> # A tibble: 0 × 0
 ```

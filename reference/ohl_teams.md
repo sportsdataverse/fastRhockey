@@ -44,7 +44,7 @@ Other OHL Functions:
 ``` r
  try(ohl_teams()) 
 #> ── OHL Teams from HockeyTech ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-27 11:07:22 UTC
+#> ℹ Data updated: 2026-09-09 22:13:11 UTC
 #> # A tibble: 22 × 7
 #>    team_name       team_id team_code team_nickname team_label division team_logo
 #>    <chr>           <chr>   <chr>     <chr>         <chr>      <chr>    <chr>    

@@ -30,6 +30,7 @@ for a given NHL game. Uses the new NHL API at api-web.nhle.com."><meta property=
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--sdv" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-project-diagram"></span>  SDV</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--sdv"><li><a class="external-link dropdown-item" href="https://sportsdataverse.org/">SportsDataverse</a></li>
+    <li><a class="external-link dropdown-item" href="https://sportsdataverse.org/cheatsheets/fastRhockey.pdf">Cheat Sheet (PDF)</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>R Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://r.sportsdataverse.org/">sportsdataverse-R</a></li>
@@ -131,7 +132,7 @@ instead of parsed/enriched data. Default FALSE.</p></dd>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_game_feed</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">2024020001</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $pbp</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game PBP from NHL.com ────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-27 11:06:26 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-09 22:12:06 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 850 × 93</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    event_type   event secondary_type event_team_abbr event_team_type description</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;glue&gt;</span>     </span>
@@ -2678,7 +2679,7 @@ instead of parsed/enriched data. Default FALSE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 201             31                O                      NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 202            -39                D                 8478414</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 203             33                D                      NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 204              5                D                      NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 204              5                O                      NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 205             NA             &lt;NA&gt;                      NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 206             22                N                      NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 207            -14                O                      NA</span>

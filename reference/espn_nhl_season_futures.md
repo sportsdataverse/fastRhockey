@@ -177,21 +177,12 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_season_futures(season = 2026))
 #> ── NHL Season Futures data from ESPN core-v2 ────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-27 11:04:26 UTC
-#> # A tibble: 11 × 10
-#>    future_ref  future_id future_name future_type future_display_name provider_id
-#>    <chr>       <chr>     <chr>       <chr>       <chr>               <chr>      
-#>  1 http://spo… 2118      NHL - Stan… winLeague   Stanley Cup Winner  58         
-#>  2 http://spo… 14492     NHL - West… winConfere… Western Conference… 58         
-#>  3 http://spo… 14493     NHL - East… winConfere… Eastern Conference… 58         
-#>  4 http://spo… 14494     NHL - Rock… NA          NHL - Rocket Richa… 58         
-#>  5 http://spo… 14495     NHL - Hart… NA          NHL - Hart Trophy … 58         
-#>  6 http://spo… 14496     NHL - Art … NA          NHL - Art Ross Tro… 58         
-#>  7 http://spo… 15719     NHL - Atla… NA          Atlantic Division … 58         
-#>  8 http://spo… 15722     NHL - Cent… NA          Central Division W… 58         
-#>  9 http://spo… 15724     NHL - Paci… NA          Pacific Division W… 58         
-#> 10 http://spo… 74045     NHL - Metr… NA          Metropolitan Divis… 58         
-#> 11 http://spo… 100126    NHL - Pres… NA          Presidents Trophy   58         
+#> ℹ Data updated: 2026-09-09 22:09:49 UTC
+#> # A tibble: 2 × 10
+#>   future_ref   future_id future_name future_type future_display_name provider_id
+#>   <chr>        <chr>     <chr>       <chr>       <chr>               <chr>      
+#> 1 http://spor… 2118      NHL - Stan… winLeague   Stanley Cup Winner  58         
+#> 2 http://spor… 14495     NHL - Hart… NA          NHL - Hart Trophy … 58         
 #> # ℹ 4 more variables: provider_name <chr>, provider_active <lgl>,
 #> #   provider_priority <int>, season <int>
 # }

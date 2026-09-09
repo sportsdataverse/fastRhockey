@@ -138,3 +138,12 @@ responses go through
   `dfleis/nhl-api-docs` catalog (working `*.md` notes are untracked).
 - `_pkgdown.yml` reference index is hand-grouped by family — add new
   exports to the matching section.
+
+## Cheat sheet
+
+There is a printable one-page reference for this package at
+<https://sportsdataverse.org/cheatsheets/fastRhockey.pdf>, one of [a set
+covering every SportsDataverse
+package](https://sportsdataverse.org/cheatsheets). Keep it in mind when
+adding or renaming an exported function: the sheet is a hand-built
+canvas, so a surface change means the sheet needs a revision too.

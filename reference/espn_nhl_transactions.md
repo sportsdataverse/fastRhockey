@@ -168,20 +168,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_transactions())
 #> ── NHL Transactions data from ESPN.com ──────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-27 11:04:59 UTC
+#> ℹ Data updated: 2026-09-09 22:10:19 UTC
 #> # A tibble: 25 × 8
 #>    date            description team_id team_location team_name team_abbreviation
 #>    <chr>           <chr>       <chr>   <chr>         <chr>     <chr>            
-#>  1 2026-08-21T07:… Signed F C… 25      Anaheim       Ducks     ANA              
-#>  2 2026-08-20T07:… Acquired f… 27      Nashville     Predators NSH              
-#>  3 2026-08-20T07:… Acquired F… 5       Detroit       Red Wings DET              
-#>  4 2026-08-18T07:… Acquired F… 25      Anaheim       Ducks     ANA              
-#>  5 2026-08-18T07:… Acquired f… 16      Pittsburgh    Penguins  PIT              
-#>  6 2026-08-18T07:… Signed D H… 15      Philadelphia  Flyers    PHI              
-#>  7 2026-08-18T07:… Signed D S… 13      New York      Rangers   NYR              
-#>  8 2026-08-17T07:… Acquired F… 7       Carolina      Hurrican… CAR              
-#>  9 2026-08-17T07:… Acquired f… 2       Buffalo       Sabres    BUF              
-#> 10 2026-08-11T07:… Signed F A… 22      Vancouver     Canucks   VAN              
+#>  1 2026-09-09T07:… Placed LW … 25      Anaheim       Ducks     ANA              
+#>  2 2026-09-09T07:… Signed G C… 7       Carolina      Hurrican… CAR              
+#>  3 2026-09-09T07:… Signed LW … 6       Edmonton      Oilers    EDM              
+#>  4 2026-09-08T07:… Signed D P… 7       Carolina      Hurrican… CAR              
+#>  5 2026-09-08T07:… Signed C F… 1       Boston        Bruins    BOS              
+#>  6 2026-09-04T07:… Signed F J… 124292  Seattle       Kraken    SEA              
+#>  7 2026-09-04T07:… Signed F B… 21      Toronto       Maple Le… TOR              
+#>  8 2026-09-01T07:… Acquired a… 27      Nashville     Predators NSH              
+#>  9 2026-09-01T07:… Signed LW … 13      New York      Rangers   NYR              
+#> 10 2026-09-01T07:… Acquired F… 11      New Jersey    Devils    NJ               
 #> # ℹ 15 more rows
 #> # ℹ 2 more variables: team_display_name <chr>, team_color <chr>
 # }

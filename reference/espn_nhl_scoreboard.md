@@ -216,7 +216,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_scoreboard(dates = "20250110"))
 #> ── NHL Scoreboard data from ESPN.com ────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-27 11:04:25 UTC
+#> ℹ Data updated: 2026-09-09 22:09:48 UTC
 #> # A tibble: 5 × 50
 #>   game_id   uid       date  name  short_name season_year season_type season_slug
 #>   <chr>     <chr>     <chr> <chr> <chr>            <int>       <int> <chr>      

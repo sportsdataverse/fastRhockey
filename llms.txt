@@ -207,6 +207,11 @@ You can find the
 [**`fastRhockey`**](https://github.com/sportsdataverse/fastRhockey) on
 [GitHub pages](https://fastRhockey.sportsdataverse.org/).
 
+There is also a printable [**`fastRhockey` cheat sheet
+(PDF)**](https://sportsdataverse.org/cheatsheets/fastRhockey.pdf), one
+of [a set covering every SportsDataverse
+package](https://sportsdataverse.org/cheatsheets).
+
 You can view CSVs of historical boxscore and play-by-play on the
 [**`fastRhockey`**](https://github.com/sportsdataverse/fastRhockey/)
 [data repo](https://github.com/sportsdataverse/fastRhockey-data), as
@@ -246,6 +251,18 @@ stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color
   [![@Aklongmuir](https://img.shields.io/github/followers/Aklongmuir?color=eee&logo=Github&style=for-the-badge)](https://github.com/Aklongmuir)
 - [Tan Ho](https://twitter.com/_TanHo) [](https://twitter.com/_TanHo)
   [![@tanho63](https://img.shields.io/github/followers/tanho63?color=eee&logo=Github&style=for-the-badge)](https://github.com/tanho63)
+
+## **Cheat sheet**
+
+A printable one-page reference for **`fastRhockey`** — the function
+families, the loaders, and what each one returns.
+
+📄 **[Download the fastRhockey cheat sheet
+(PDF)](https://sportsdataverse.org/cheatsheets/fastRhockey.pdf)**
+
+Free to download, print and hand out; light and dark, US Letter
+landscape. Every SportsDataverse package has one — browse them all at
+**[sportsdataverse.org/cheatsheets](https://sportsdataverse.org/cheatsheets)**.
 
 ## **Citations**
 

@@ -39,91 +39,87 @@ A named list of data frames: `broadcasts`.
 # \donttest{
   try(nhl_tv_schedule())
 #> $date
-#> [1] "2026-08-27"
+#> [1] "2026-09-09"
 #> 
 #> $startDate
-#> [1] "2026-08-13"
+#> [1] "2026-08-26"
 #> 
 #> $endDate
-#> [1] "2026-09-10"
+#> [1] "2026-09-23"
 #> 
 #> $broadcasts
 #>              startTime             endTime durationSeconds
-#> 1  2026-08-27T01:00:00 2026-08-27T02:00:00            3600
-#> 2  2026-08-27T02:00:00 2026-08-27T03:00:00            3600
-#> 3  2026-08-27T03:00:00 2026-08-27T04:00:00            3600
-#> 4  2026-08-27T04:00:00 2026-08-27T05:00:00            3600
-#> 5  2026-08-27T05:00:00 2026-08-27T06:00:00            3600
-#> 6  2026-08-27T06:00:00 2026-08-27T07:00:00            3600
-#> 7  2026-08-27T07:00:00 2026-08-27T08:00:00            3600
-#> 8  2026-08-27T08:00:00 2026-08-27T09:00:00            3600
-#> 9  2026-08-27T09:00:00 2026-08-27T10:00:00            3600
-#> 10 2026-08-27T10:00:00 2026-08-27T12:00:00            7200
-#> 11 2026-08-27T12:00:00 2026-08-27T14:00:00            7200
-#> 12 2026-08-27T14:00:00 2026-08-27T16:00:00            7200
-#> 13 2026-08-27T16:00:00 2026-08-27T18:00:00            7200
-#> 14 2026-08-27T18:00:00 2026-08-27T19:00:00            3600
-#> 15 2026-08-27T19:00:00 2026-08-27T20:00:00            3600
-#> 16 2026-08-27T20:00:00 2026-08-27T21:00:00            3600
-#> 17 2026-08-27T21:00:00 2026-08-27T22:00:00            3600
-#> 18 2026-08-27T22:00:00 2026-08-28T00:00:00            7200
-#>                          title
-#> 1       Top 20 Wings Right Now
-#> 2     Top 10 Goalies Right Now
-#> 3  Top 20 Defensemen Right Now
-#> 4     Top 20 Centers Right Now
-#> 5       Top 20 Wings Right Now
-#> 6     Top 10 Goalies Right Now
-#> 7  Top 20 Defensemen Right Now
-#> 8     Top 20 Centers Right Now
-#> 9       Top 20 Wings Right Now
-#> 10                    NHL Game
-#> 11                    NHL Game
-#> 12                    NHL Game
-#> 13                    NHL Game
-#> 14                 NHL Tonight
-#> 15                 NHL Tonight
-#> 16                 NHL Tonight
-#> 17                 NHL Tonight
-#> 18                    NHL Game
-#>                                                                                                              description
-#> 1                                                                                                 Top 20 Wings Right Now
-#> 2                                                                                               Top 10 Goalies Right Now
-#> 3                                                                                            Top 20 Defensemen Right Now
-#> 4                                                                                               Top 20 Centers Right Now
-#> 5                                                                                                 Top 20 Wings Right Now
-#> 6                                                                                               Top 10 Goalies Right Now
-#> 7                                                                                            Top 20 Defensemen Right Now
-#> 8                                                                                               Top 20 Centers Right Now
-#> 9                                                                                                 Top 20 Wings Right Now
-#> 10   2025 Hart Trophy Winner Conner Hellebuyck: Winnipeg Jets at Calgary Flames on 10/20/2025 From Scotiabank Saddledome
-#> 11 2026 Hart Trophy Winner Nikita Kucherov: Tampa Bay Lightning at Seattle Kraken on 3/17/2026 From Climate Pledge Arena
-#> 12             2023 Hart Trophy Winner Connor McDavid: Calgary Flames at Edmonton Oilers on 12/23/2025 From Rogers Place
-#> 13  2024 Hart Trophy Winner Nathan MacKinnon: Colorado Avalanche at Minnesota Wild on 12/21/2025 From Grand Casino Arena
-#> 14                                                                                                           NHL Tonight
-#> 15                                                                                                           NHL Tonight
-#> 16                                                                                                           NHL Tonight
-#> 17                                                                                                           NHL Tonight
-#> 18             2023 Hart Trophy Winner Connor McDavid: Calgary Flames at Edmonton Oilers on 12/23/2025 From Rogers Place
-#>           houseNumber broadcastType broadcastStatus broadcastImageUrl
-#> 1  H60S26T20WINGSRNCC            HD                    nhlnetwork.png
-#> 2   H60S26T10GOALRNCC            HD                    nhlnetwork.png
-#> 3    H60S26T20DEFRNCC            HD                    nhlnetwork.png
-#> 4   H60S26T20CTRSRNCC            HD                    nhlnetwork.png
-#> 5  H60S26T20WINGSRNCC            HD                    nhlnetwork.png
-#> 6   H60S26T10GOALRNCC            HD                    nhlnetwork.png
-#> 7    H60S26T20DEFRNCC            HD                    nhlnetwork.png
-#> 8   H60S26T20CTRSRNCC            HD                    nhlnetwork.png
-#> 9  H60S26T20WINGSRNCC            HD                    nhlnetwork.png
-#> 10 H120WPGCGY10202025            HD                           nhl.png
-#> 11 H120TBLSEA03172026            HD                           nhl.png
-#> 12 H120CGYEDM12232025            HD                           nhl.png
-#> 13 H120COLMIN12212025            HD                           nhl.png
-#> 14   HNHLTS26082726LV            HD            LIVE    nhltonight.png
-#> 15   HNHLTS26082726CC            HD                    nhltonight.png
-#> 16   HNHLTS26082726CC            HD                    nhltonight.png
-#> 17   HNHLTS26082726CC            HD                    nhltonight.png
-#> 18 H120CGYEDM12232025            HD                           nhl.png
+#> 1  2026-09-09T00:00:00 2026-09-09T01:00:00            3600
+#> 2  2026-09-09T01:00:00 2026-09-09T02:00:00            3600
+#> 3  2026-09-09T02:00:00 2026-09-09T04:00:00            7200
+#> 4  2026-09-09T04:00:00 2026-09-09T05:00:00            3600
+#> 5  2026-09-09T05:00:00 2026-09-09T06:00:00            3600
+#> 6  2026-09-09T06:00:00 2026-09-09T07:00:00            3600
+#> 7  2026-09-09T07:00:00 2026-09-09T08:00:00            3600
+#> 8  2026-09-09T08:00:00 2026-09-09T09:00:00            3600
+#> 9  2026-09-09T09:00:00 2026-09-09T10:00:00            3600
+#> 10 2026-09-09T10:00:00 2026-09-09T11:00:00            3600
+#> 11 2026-09-09T11:00:00 2026-09-09T12:00:00            3600
+#> 12 2026-09-09T12:00:00 2026-09-09T14:00:00            7200
+#> 13 2026-09-09T14:00:00 2026-09-09T16:00:00            7200
+#> 14 2026-09-09T16:00:00 2026-09-09T18:00:00            7200
+#> 15 2026-09-09T18:00:00 2026-09-09T19:00:00            3600
+#> 16 2026-09-09T19:00:00 2026-09-09T20:00:00            3600
+#> 17 2026-09-09T20:00:00 2026-09-10T00:00:00           14400
+#>                                                                                                     title
+#> 1                                                                                             NHL Tonight
+#> 2                                                                                             NHL Tonight
+#> 3                                                                                                NHL Game
+#> 4                                                                                             NHL Tonight
+#> 5                                                                                             NHL Tonight
+#> 6                                                                                             NHL Tonight
+#> 7                                                                                             NHL Tonight
+#> 8                                                                                             NHL Tonight
+#> 9                                                                                             NHL Tonight
+#> 10                                                                                            NHL Tonight
+#> 11                                                                                            NHL Tonight
+#> 12              Raising The Cup: 2015 Stanley Cup Final Tampa Bay Lightning at Chicago Blackhawks, Game 6
+#> 13     Raising The Cup: 2016 Stanley Cup Final Pittsburgh Penguins at San Jose Sharks Game 6 on 6/12/2016
+#> 14 Raising The Cup: 2017 Stanley Cup Final Pittsburgh Penguins at Nashville Predators Game 6 on 6/11/2017
+#> 15                                                                       Top 50 Players Right Now (50-41)
+#> 16                                                                       Top 50 Players Right Now (40-31)
+#> 17                                                                                 2026 NHL Draft Round 1
+#>                                                                                               description
+#> 1                                                                                             NHL Tonight
+#> 2                                                                                             NHL Tonight
+#> 3                          SuperStar Summer: Bryan Trottier - 1981 Playoffs RD 1 GM 2 NYI @ TOR on 4/9/81
+#> 4                                                                                             NHL Tonight
+#> 5                                                                                             NHL Tonight
+#> 6                                                                                             NHL Tonight
+#> 7                                                                                             NHL Tonight
+#> 8                                                                                             NHL Tonight
+#> 9                                                                                             NHL Tonight
+#> 10                                                                                            NHL Tonight
+#> 11                                                                                            NHL Tonight
+#> 12              Raising The Cup: 2015 Stanley Cup Final Tampa Bay Lightning at Chicago Blackhawks, Game 6
+#> 13     Raising The Cup: 2016 Stanley Cup Final Pittsburgh Penguins at San Jose Sharks Game 6 on 6/12/2016
+#> 14 Raising The Cup: 2017 Stanley Cup Final Pittsburgh Penguins at Nashville Predators Game 6 on 6/11/2017
+#> 15                                                                       Top 50 Players Right Now (50-41)
+#> 16                                                                       Top 50 Players Right Now (40-31)
+#> 17                                                                                 2026 NHL Draft Round 1
+#>               houseNumber broadcastType broadcastStatus broadcastImageUrl
+#> 1        HNHLTS26090826CC            HD                    nhltonight.png
+#> 2        HNHLTS26090826CC            HD                    nhltonight.png
+#> 3      H120SSNYITOR040981            HD                           nhl.png
+#> 4        HNHLTS26090826CC            HD                    nhltonight.png
+#> 5        HNHLTS26090826CC            HD                    nhltonight.png
+#> 6        HNHLTS26090826CC            HD                    nhltonight.png
+#> 7        HNHLTS26090826CC            HD                    nhltonight.png
+#> 8        HNHLTS26090826CC            HD                    nhltonight.png
+#> 9        HNHLTS26090826CC            HD                    nhltonight.png
+#> 10       HNHLTS26090826CC            HD                    nhltonight.png
+#> 11       HNHLTS26090826CC            HD                    nhltonight.png
+#> 12    H120TBLCHI061515NBC            HD                           rtc.png
+#> 13             HRTC2016CC            HD                           rtc.png
+#> 14             HRTC2017CC            HD                           rtc.png
+#> 15   H60S26T50PLYRS5041CC            HD                    nhlnetwork.png
+#> 16   H60S26T50PLYRS4031CC            HD                    nhlnetwork.png
+#> 17 HNHLDFTRD1062626ESPNCC            HD                     2016draft.png
 #> 
 # }
 ```

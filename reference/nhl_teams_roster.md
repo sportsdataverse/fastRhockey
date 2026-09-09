@@ -48,27 +48,27 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_teams_roster(team_abbr = "TOR"))
 #> ── NHL Roster ───────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-27 11:07:11 UTC
-#> # A tibble: 49 × 14
+#> ℹ Data updated: 2026-09-09 22:12:58 UTC
+#> # A tibble: 50 × 14
 #>    player_id first_name last_name full_name        sweater_number position_code
 #>        <int> <chr>      <chr>     <chr>                     <int> <chr>        
 #>  1   8476927 Teddy      Blueger   Teddy Blueger                NA F            
-#>  2   8486129 Brandon    Buhr      Brandon Buhr                 NA F            
-#>  3   8484158 Easton     Cowan     Easton Cowan                 53 F            
-#>  4   8477503 Max        Domi      Max Domi                     11 F            
-#>  5   8479520 Brandon    Duhaime   Brandon Duhaime              NA F            
-#>  6   8480870 Bo         Groulx    Bo Groulx                    29 F            
-#>  7   8485467 Luke       Haymes    Luke Haymes                  43 F            
-#>  8   8485049 Miroslav   Holinka   Miroslav Holinka             98 F            
-#>  9   8478057 Dakota     Joshua    Dakota Joshua                81 F            
-#> 10   8482720 Matthew    Knies     Matthew Knies                23 F            
-#> # ℹ 39 more rows
+#>  2   8482153 Brendan    Brisson   Brendan Brisson              NA F            
+#>  3   8486129 Brandon    Buhr      Brandon Buhr                 NA F            
+#>  4   8484158 Easton     Cowan     Easton Cowan                 53 F            
+#>  5   8477503 Max        Domi      Max Domi                     11 F            
+#>  6   8479520 Brandon    Duhaime   Brandon Duhaime              NA F            
+#>  7   8480870 Bo         Groulx    Bo Groulx                    29 F            
+#>  8   8485467 Luke       Haymes    Luke Haymes                  43 F            
+#>  9   8485049 Miroslav   Holinka   Miroslav Holinka             98 F            
+#> 10   8478057 Dakota     Joshua    Dakota Joshua                81 F            
+#> # ℹ 40 more rows
 #> # ℹ 8 more variables: shoots_catches <chr>, height_inches <int>,
 #> #   weight_pounds <int>, birth_date <chr>, birth_city <chr>,
 #> #   birth_country <chr>, headshot_url <chr>, team_abbr <chr>
   try(nhl_teams_roster(team_abbr = "TOR", season = 2024))
 #> ── NHL Roster ───────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-08-27 11:07:11 UTC
+#> ℹ Data updated: 2026-09-09 22:12:58 UTC
 #> # A tibble: 42 × 14
 #>    player_id first_name last_name full_name       sweater_number position_code
 #>        <int> <chr>      <chr>     <chr>                    <int> <chr>        
