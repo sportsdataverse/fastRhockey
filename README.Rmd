@@ -182,6 +182,6 @@ BibTex Citation
   title = {fastRhockey: Functions to Access Professional Women's Hockey League and National Hockey League Play by Play Data.},
   url = {https://fastRhockey.sportsdataverse.org/},
   doi = {10.32614/CRAN.package.fastRhockey},
-  year = {2021}
+  year = {2026}
 }
 ```
