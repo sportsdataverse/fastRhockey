@@ -5,7 +5,10 @@ bibentry(
     person("Ben", "Howell"),
     person("Saiem", "Gilani", comment = c(ORCID = "0000-0002-7194-9067"))
   ),
-  year     = sub("-.*", "", meta$Date),
+  # PINNED to the first CRAN release year (2021-12-10). DESCRIPTION has no
+  # Date field, so sub() on meta$Date yielded an EMPTY year and citation()
+  # printed no year at all. Keep in sync with the bibtex block in README.md.
+  year     = 2021,
   note     = sprintf("R package version %s", meta$Version),
   url      = "https://fastRhockey.sportsdataverse.org/",
   doi      = "10.32614/CRAN.package.fastRhockey"
