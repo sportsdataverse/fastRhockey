@@ -41,7 +41,7 @@ Other WHL Functions:
 ``` r
  try(whl_pbp(game_id = 27225)) 
 #> ── WHL Play-by-Play from HockeyTech ─────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-09 22:13:38 UTC
+#> ℹ Data updated: 2026-09-10 00:48:13 UTC
 #> # A tibble: 29 × 101
 #>    game_id event team_id period_of_game time_of_period x_coord y_coord player_id
 #>      <dbl> <chr> <chr>   <chr>          <chr>            <dbl>   <dbl>     <int>

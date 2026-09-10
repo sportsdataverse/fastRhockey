@@ -192,7 +192,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_player_core(athlete_id = "4024820"))
 #> ── NHL Player Core data from ESPN core-v2 ───────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-09 22:09:35 UTC
+#> ℹ Data updated: 2026-09-10 00:44:26 UTC
 #> # A tibble: 1 × 28
 #>   athlete_id uid         guid  type  first_name last_name full_name display_name
 #>   <chr>      <chr>       <chr> <chr> <chr>      <chr>     <chr>     <chr>       

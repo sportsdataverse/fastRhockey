@@ -16,7 +16,7 @@
 Source:
 [`inst/CITATION`](https://github.com/sportsdataverse/fastRhockey/blob/main/inst/CITATION)
 
-Howell B, Gilani S (????). *fastRhockey: Functions to Access
+Howell B, Gilani S (2026). *fastRhockey: Functions to Access
 Professional Women's Hockey League and National Hockey League Play by
 Play Data*.
 [doi:10.32614/CRAN.package.fastRhockey](https://doi.org/10.32614/CRAN.package.fastRhockey).
@@ -25,6 +25,7 @@ R package version 1.0.0, <https://fastRhockey.sportsdataverse.org/>.
     @Manual{,
       title = {fastRhockey: Functions to Access Professional Women's Hockey League and National Hockey League Play by Play Data},
       author = {Ben Howell and Saiem Gilani},
+      year = {2026},
       note = {R package version 1.0.0},
       url = {https://fastRhockey.sportsdataverse.org/},
       doi = {10.32614/CRAN.package.fastRhockey},

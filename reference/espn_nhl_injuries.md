@@ -176,21 +176,21 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_injuries())
 #> ── NHL Injuries data from ESPN.com ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-09 22:09:28 UTC
-#> # A tibble: 112 × 16
+#> ℹ Data updated: 2026-09-10 00:44:19 UTC
+#> # A tibble: 154 × 16
 #>    team_id team_display_name player_id player_display_name player_short_name
 #>    <chr>   <chr>             <chr>     <chr>               <chr>            
 #>  1 25      Anaheim Ducks     NA        Nick Jensen         N. Jensen        
 #>  2 25      Anaheim Ducks     NA        Nick Jensen         N. Jensen        
 #>  3 25      Anaheim Ducks     NA        Petr Mrazek         P. Mrazek        
 #>  4 25      Anaheim Ducks     NA        Petr Mrazek         P. Mrazek        
-#>  5 25      Anaheim Ducks     NA        Drew Helleson       D. Helleson      
-#>  6 25      Anaheim Ducks     NA        Drew Helleson       D. Helleson      
-#>  7 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
-#>  8 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
-#>  9 1       Boston Bruins     NA        Charlie McAvoy      C. McAvoy        
-#> 10 1       Boston Bruins     NA        Charlie McAvoy      C. McAvoy        
-#> # ℹ 102 more rows
+#>  5 25      Anaheim Ducks     NA        Troy Terry          T. Terry         
+#>  6 25      Anaheim Ducks     NA        Troy Terry          T. Terry         
+#>  7 25      Anaheim Ducks     NA        Drew Helleson       D. Helleson      
+#>  8 25      Anaheim Ducks     NA        Drew Helleson       D. Helleson      
+#>  9 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
+#> 10 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
+#> # ℹ 144 more rows
 #> # ℹ 11 more variables: player_position <chr>, injury_id <chr>,
 #> #   injury_status <chr>, injury_date <chr>, injury_short_comment <chr>,
 #> #   injury_long_comment <chr>, injury_type <chr>, injury_abbreviation <chr>,

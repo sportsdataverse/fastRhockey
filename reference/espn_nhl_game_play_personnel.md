@@ -189,7 +189,7 @@ Saiem Gilani
     espn_nhl_game_play_personnel(event_id = eid, play_id = pls$id[1])
   })
 #> ── NHL Game Play Personnel data from ESPN core-v2 ───────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-09 22:09:22 UTC
+#> ℹ Data updated: 2026-09-10 00:44:12 UTC
 #> # A tibble: 2 × 7
 #>   event_id  cid      play_id competitor_id competitor_ref athlete_ref athlete_id
 #>   <chr>     <chr>    <chr>   <chr>         <chr>          <chr>       <chr>     

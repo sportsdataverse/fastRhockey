@@ -39,7 +39,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_venue())
 #> ── NHL Records Venue ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-09 22:12:37 UTC
+#> ℹ Data updated: 2026-09-10 00:47:14 UTC
 #> # A tibble: 629 × 10
 #>       id building_id city    country_code outdoor postal_code short_country_code
 #>    <int>       <int> <chr>   <chr>        <lgl>   <chr>       <chr>             

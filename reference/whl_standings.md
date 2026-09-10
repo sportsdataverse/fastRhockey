@@ -44,7 +44,7 @@ Other WHL Functions:
 ``` r
  try(whl_standings()) 
 #> ── WHL Standings from HockeyTech ────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-09 22:13:45 UTC
+#> ℹ Data updated: 2026-09-10 00:48:21 UTC
 #> # A tibble: 23 × 21
 #>    team_code wins  losses ties  ot_losses ot_wins shootout_wins shootout_losses
 #>    <chr>     <chr>  <dbl> <chr> <chr>     <chr>   <chr>         <chr>          

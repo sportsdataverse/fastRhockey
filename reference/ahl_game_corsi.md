@@ -39,6 +39,6 @@ Other AHL Functions:
 
 ``` r
  try(ahl_game_corsi(game_id = 1000093924)) 
-#> ✖ 2026-09-09 22:08:56.81872: AHL game Corsi for game_id 1000093924 unavailable! Error in `$<-.data.frame`(`*tmp*`, "game_date", value = ""): replacement has 1 row, data has 0
+#> ✖ 2026-09-10 00:43:46.515819: AHL game Corsi for game_id 1000093924 unavailable! Error in `$<-.data.frame`(`*tmp*`, "game_date", value = ""): replacement has 1 row, data has 0
 #> data frame with 0 columns and 0 rows
 ```

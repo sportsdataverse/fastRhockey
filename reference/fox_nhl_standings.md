@@ -24,7 +24,7 @@ standings columns, `entity_id`).
 ``` r
  try(fox_nhl_standings("1")) 
 #> ── Fox Sports NHL standings ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-09 22:10:24 UTC
+#> ℹ Data updated: 2026-09-10 00:45:16 UTC
 #> # A tibble: 128 × 24
 #>    team_id section    eastern_conference v2      w_l_otl pts   gp    row   sow  
 #>    <chr>   <chr>      <chr>              <chr>   <chr>   <chr> <chr> <chr> <chr>

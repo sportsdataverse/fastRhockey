@@ -137,7 +137,7 @@ Returns `NULL` on failure / empty response.
       sort_by = "total"
   ))
 #> ── NHL Edge Skater Distance Top 10 ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-09 22:11:53 UTC
+#> ℹ Data updated: 2026-09-10 00:46:35 UTC
 #> # A tibble: 10 × 53
 #>    player_slug             player_headshot player_position player_sweater_number
 #>    <chr>                   <chr>           <chr>                           <int>
