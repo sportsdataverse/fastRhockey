@@ -173,29 +173,9 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_player_eventlog(athlete_id = "4024820"))
-#> ── NHL Player Eventlog data from ESPN core-v2 ───────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:44:26 UTC
-#> # A tibble: 18 × 9
-#>    athlete_id event_id  team_id played event_ref  competition_ref statistics_ref
-#>    <chr>      <chr>     <chr>   <lgl>  <chr>      <chr>           <chr>         
-#>  1 4024820    401802355 10      TRUE   http://sp… http://sports.… http://sports…
-#>  2 4024820    401802361 10      TRUE   http://sp… http://sports.… http://sports…
-#>  3 4024820    401802382 10      TRUE   http://sp… http://sports.… http://sports…
-#>  4 4024820    401802401 10      TRUE   http://sp… http://sports.… http://sports…
-#>  5 4024820    401802413 10      TRUE   http://sp… http://sports.… http://sports…
-#>  6 4024820    401802431 10      FALSE  http://sp… http://sports.… NA            
-#>  7 4024820    401802446 10      FALSE  http://sp… http://sports.… NA            
-#>  8 4024820    401802461 10      FALSE  http://sp… http://sports.… NA            
-#>  9 4024820    401802473 10      FALSE  http://sp… http://sports.… NA            
-#> 10 4024820    401802487 10      FALSE  http://sp… http://sports.… NA            
-#> 11 4024820    401802515 10      FALSE  http://sp… http://sports.… NA            
-#> 12 4024820    401802538 10      FALSE  http://sp… http://sports.… NA            
-#> 13 4024820    401802555 10      FALSE  http://sp… http://sports.… NA            
-#> 14 4024820    401802571 10      FALSE  http://sp… http://sports.… NA            
-#> 15 4024820    401802586 10      FALSE  http://sp… http://sports.… NA            
-#> 16 4024820    401802608 10      FALSE  http://sp… http://sports.… NA            
-#> 17 4024820    401802621 10      FALSE  http://sp… http://sports.… NA            
-#> 18 4024820    401802636 10      FALSE  http://sp… http://sports.… NA            
-#> # ℹ 2 more variables: count <int>, page_count <int>
+#> ✖ 2026-09-26 06:37:28.134221: Invalid arguments or no ESPN nhl player eventlog for athlete 4024820 available!
+#> ✖ Args: league = "nhl", athlete_id = "4024820"
+#> ✖ Error: The API returned an error
+#> data frame with 0 columns and 0 rows
 # }
 ```

@@ -24,19 +24,19 @@ A `fastRhockey_data` tibble, one row per player (`team_id`,
 ``` r
  try(fox_nhl_team_roster("1")) 
 #> ── Fox Sports NHL roster ────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:45:17 UTC
-#> # A tibble: 28 × 9
+#> ℹ Data updated: 2026-09-26 06:38:21 UTC
+#> # A tibble: 47 × 9
 #>    team_id position_group player      pos   age   ht    wt    college athlete_id
 #>    <chr>   <chr>          <chr>       <chr> <chr> <chr> <chr> <chr>   <chr>     
-#>  1 1       CENTER         Michael Ey… C     30    "6'0… 195 … St. Cl… 5808      
-#>  2 1       CENTER         Brendan Ga… C     32    "6'2… 222 … -       4202      
-#>  3 1       CENTER         Morgan Gee… C     28    "6'3… 212 … -       5576      
-#>  4 1       CENTER         James Hage… C     19    "5'1… 177 … Boston… 8378      
-#>  5 1       CENTER         Mark Kaste… C     27    "6'4… 234 … -       5732      
-#>  6 1       CENTER         Marat Khus… C     24    "5'1… 184 … -       6400      
-#>  7 1       CENTER         Sean Kuraly C     33    "6'2… 208 … Miami … 5053      
-#>  8 1       CENTER         Elias Lind… C     31    "6'1… 200 … -       3619      
-#>  9 1       CENTER         Dans Locme… C     22    "6'0… 179 … -       8662      
-#> 10 1       CENTER         Fraser Min… C     22    "6'2… 204 … -       7178      
-#> # ℹ 18 more rows
+#>  1 1       CENTER         Riley Duran C     24    "6'2… 174 … Provid… 6539      
+#>  2 1       CENTER         Michael Ey… C     30    "6'0… 195 … St. Cl… 5808      
+#>  3 1       CENTER         Brendan Ga… C     32    "6'2… 222 … -       4202      
+#>  4 1       CENTER         Morgan Gee… C     28    "6'3… 212 … -       5576      
+#>  5 1       CENTER         James Hage… C     19    "5'1… 177 … Boston… 8378      
+#>  6 1       CENTER         Ivan Ivan   C     24    "6'0… 201 … -       7342      
+#>  7 1       CENTER         Mark Kaste… C     27    "6'4… 234 … -       5732      
+#>  8 1       CENTER         Marat Khus… C     24    "5'1… 184 … -       6400      
+#>  9 1       CENTER         Sean Kuraly C     33    "6'2… 208 … Miami … 5053      
+#> 10 1       CENTER         Elias Lind… C     31    "6'1… 200 … -       3619      
+#> # ℹ 37 more rows
 ```

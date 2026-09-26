@@ -36,18 +36,21 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_player_spotlight())
 #> ── NHL Player Spotlight ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:46:54 UTC
-#> # A tibble: 8 × 10
-#>   player_id player_slug   position sweater_number team_id headshot team_tri_code
-#>       <int> <chr>         <chr>             <int>   <int> <chr>    <chr>        
-#> 1   8484144 connor-bedar… C                    98      16 https:/… CHI          
-#> 2   8483548 brandon-buss… G                    32      12 https:/… CAR          
-#> 3   8484801 macklin-cele… C                    71      28 https:/… SJS          
-#> 4   8471675 sidney-crosb… C                    87       5 https:/… PIT          
-#> 5   8484984 ivan-demidov… R                    93       8 https:/… MTL          
-#> 6   8481559 jack-hughes-… C                    86       1 https:/… NJD          
-#> 7   8478402 connor-mcdav… C                    97      22 https:/… EDM          
-#> 8   8485366 matthew-scha… D                    48       2 https:/… NYI          
-#> # ℹ 3 more variables: team_logo <chr>, sort_id <int>, name_default <chr>
+#> ℹ Data updated: 2026-09-26 06:39:54 UTC
+#> # A tibble: 10 × 13
+#>    player_id player_slug  position sweater_number team_id headshot team_tri_code
+#>        <int> <chr>        <chr>             <int>   <int> <chr>    <chr>        
+#>  1   8481540 cole-caufie… R                    13       8 https:/… MTL          
+#>  2   8484801 macklin-cel… C                    71      28 https:/… SJS          
+#>  3   8471675 sidney-cros… C                    87       5 https:/… PIT          
+#>  4   8481559 jack-hughes… C                    86       1 https:/… NJD          
+#>  5   8477492 nathan-mack… C                    29      21 https:/… COL          
+#>  6   8478402 connor-mcda… C                    97      22 https:/… EDM          
+#>  7   8471214 alex-ovechk… L                     8      15 https:/… WSH          
+#>  8   8485366 matthew-sch… D                    48       2 https:/… NYI          
+#>  9   8480801 brady-tkach… L                     8      13 https:/… FLA          
+#> 10   8476883 andrei-vasi… G                    88      14 https:/… TBL          
+#> # ℹ 6 more variables: team_logo <chr>, sort_id <int>, name_default <chr>,
+#> #   name_cs <chr>, name_fi <chr>, name_sk <chr>
 # }
 ```

@@ -171,21 +171,21 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_statistics_league())
 #> ── NHL League Statistics data from ESPN.com ─────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:45:05 UTC
-#> # A tibble: 394 × 8
+#> ℹ Data updated: 2026-09-26 06:38:11 UTC
+#> # A tibble: 379 × 8
 #>    category_name category_abbreviation display_value value athlete_id
 #>    <chr>         <chr>                 <chr>         <dbl> <chr>     
-#>  1 goals         G                     4                 4 5216883   
-#>  2 goals         G                     4                 4 4024988   
-#>  3 goals         G                     4                 4 3114755   
-#>  4 goals         G                     4                 4 4874723   
-#>  5 goals         G                     4                 4 5080157   
-#>  6 goals         G                     4                 4 5080217   
-#>  7 goals         G                     4                 4 4233888   
-#>  8 goals         G                     3                 3 4874740   
-#>  9 goals         G                     3                 3 4233627   
-#> 10 goals         G                     3                 3 4233875   
-#> # ℹ 384 more rows
+#>  1 goals         G                     3                 3 4319858   
+#>  2 goals         G                     3                 3 5136616   
+#>  3 goals         G                     3                 3 5361709   
+#>  4 goals         G                     3                 3 4894702   
+#>  5 goals         G                     3                 3 4565225   
+#>  6 goals         G                     3                 3 5188613   
+#>  7 goals         G                     3                 3 5216858   
+#>  8 goals         G                     2                 2 5291934   
+#>  9 goals         G                     2                 2 3041970   
+#> 10 goals         G                     2                 2 5216907   
+#> # ℹ 369 more rows
 #> # ℹ 3 more variables: athlete_display_name <chr>, team_id <chr>,
 #> #   team_abbreviation <chr>
 # }

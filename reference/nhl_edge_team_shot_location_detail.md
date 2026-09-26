@@ -50,17 +50,17 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_team_shot_location_detail(team_id = 10))
 #> ── NHL Edge Team Shot Location Detail ───────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:46:41 UTC
+#> ℹ Data updated: 2026-09-26 06:39:42 UTC
 #> # A tibble: 17 × 7
 #>    area           sog sog_rank goals goals_rank shooting_pctg shooting_pctg_rank
 #>    <chr>        <int>    <int> <int>      <int>         <dbl>              <int>
-#>  1 Behind the …    10       28     0         20        0                      20
+#>  1 Behind the …    10       28     0         20       NA                      NA
 #>  2 Beyond Red …    82        3     4         19        0.0488                 25
 #>  3 Center Point   146       30     5         29        0.0342                 26
 #>  4 Crease          76       19    18         20        0.237                  20
 #>  5 High Slot      224       12    39          8        0.174                   5
 #>  6 L Circle       228       12    28          5        0.123                   4
-#>  7 L Corner         1       30     0          6        0                       6
+#>  7 L Corner         1       30     0          6       NA                      NA
 #>  8 L Net Side      56       13     2         29        0.0357                 31
 #>  9 L Point        149       12     7          4        0.047                   4
 #> 10 Low Slot       559       19   112         11        0.200                   8
@@ -68,8 +68,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 #> 12 Outside L      131       14     8          4        0.0611                  7
 #> 13 Outside R       88       29     4         19        0.0455                 16
 #> 14 R Circle       170       32    18         27        0.106                  15
-#> 15 R Corner         2       20     0          3        0                       3
+#> 15 R Corner         2       20     0          3       NA                      NA
 #> 16 R Net Side      50       16     4         16        0.08                   21
-#> 17 R Point        123       27     0         31        0                      31
+#> 17 R Point        123       27     0         31       NA                      NA
 # }
 ```

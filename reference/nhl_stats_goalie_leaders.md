@@ -58,20 +58,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_stats_goalie_leaders(attribute = "savePctg"))
 #> ── NHL Stats Goalie Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:47:28 UTC
+#> ℹ Data updated: 2026-09-26 06:40:30 UTC
 #> # A tibble: 10 × 15
 #>    save_pctg player_id player_current_team_id player_first_name player_full_name
 #>        <dbl>     <int>                  <int> <chr>             <chr>           
-#>  1      1.41   8449959                     NA Bruce             Bruce Gamble    
-#>  2      1      8484910                     55 Victor            Victor Ostman   
-#>  3      1      8484293                     NA Yaniv             Yaniv Perets    
-#>  4      1      8483575                     18 Matt              Matt Murray     
-#>  5      1      8483158                     NA Matthew           Matthew Berlin  
-#>  6      1      8481033                     13 Akira             Akira Schmid    
-#>  7      1      8480313                     15 Logan             Logan Thompson  
-#>  8      1      8480022                      6 Michael           Michael DiPietro
-#>  9      1      8479979                     25 Jake              Jake Oettinger  
-#> 10      1      8479288                     NA Kasimir           Kasimir Kaskisuo
+#>  1         1   8484910                     55 Victor            Victor Ostman   
+#>  2         1   8484293                     NA Yaniv             Yaniv Perets    
+#>  3         1   8483575                     18 Matt              Matt Murray     
+#>  4         1   8483158                     NA Matthew           Matthew Berlin  
+#>  5         1   8481033                     13 Akira             Akira Schmid    
+#>  6         1   8480313                     15 Logan             Logan Thompson  
+#>  7         1   8480022                      6 Michael           Michael DiPietro
+#>  8         1   8479979                     25 Jake              Jake Oettinger  
+#>  9         1   8479288                     NA Kasimir           Kasimir Kaskisuo
+#> 10         1   8479138                     NA Scott             Scott Foster    
 #> # ℹ 10 more variables: player_last_name <chr>, player_position_code <chr>,
 #> #   player_sweater_number <int>, team_id <int>, team_franchise_id <int>,
 #> #   team_full_name <chr>, team_league_id <int>, team_logos <list>,

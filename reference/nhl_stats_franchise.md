@@ -47,7 +47,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_stats_franchise())
 #> ── NHL Stats Franchise ──────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:47:27 UTC
+#> ℹ Data updated: 2026-09-26 06:40:29 UTC
 #> # A tibble: 40 × 4
 #>       id full_name             team_common_name team_place_name
 #>    <int> <chr>                 <chr>            <chr>          
@@ -59,8 +59,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  6    36 Columbus Blue Jackets Blue Jackets     Columbus       
 #>  7    11 Chicago Blackhawks    Blackhawks       Chicago        
 #>  8    33 Florida Panthers      Panthers         Florida        
-#>  9    28 Arizona Coyotes       Coyotes          Arizona        
-#> 10    29 San Jose Sharks       Sharks           San Jose       
+#>  9    29 San Jose Sharks       Sharks           San Jose       
+#> 10    17 Pittsburgh Penguins   Penguins         Pittsburgh     
 #> # ℹ 30 more rows
 # }
 ```

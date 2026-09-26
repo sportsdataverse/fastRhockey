@@ -69,7 +69,7 @@ the columns are:
 # \donttest{
   try(nhl_stats_misc(endpoint = "glossary"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:47:29 UTC
+#> ℹ Data updated: 2026-09-26 06:40:31 UTC
 #> # A tibble: 321 × 7
 #>       id abbreviation   definition first_season_for_stat full_name language_code
 #>    <int> <chr>          <chr>                      <int> <chr>     <chr>        
@@ -87,7 +87,7 @@ the columns are:
 #> # ℹ 1 more variable: last_updated <chr>
   try(nhl_stats_misc(endpoint = "franchise"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:47:29 UTC
+#> ℹ Data updated: 2026-09-26 06:40:31 UTC
 #> # A tibble: 40 × 4
 #>       id full_name             team_common_name team_place_name
 #>    <int> <chr>                 <chr>            <chr>          
@@ -99,12 +99,12 @@ the columns are:
 #>  6    36 Columbus Blue Jackets Blue Jackets     Columbus       
 #>  7    11 Chicago Blackhawks    Blackhawks       Chicago        
 #>  8    33 Florida Panthers      Panthers         Florida        
-#>  9    28 Arizona Coyotes       Coyotes          Arizona        
-#> 10    29 San Jose Sharks       Sharks           San Jose       
+#>  9    29 San Jose Sharks       Sharks           San Jose       
+#> 10    17 Pittsburgh Penguins   Penguins         Pittsburgh     
 #> # ℹ 30 more rows
   try(nhl_stats_misc(endpoint = "country"))
 #> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:47:29 UTC
+#> ℹ Data updated: 2026-09-26 06:40:31 UTC
 #> # A tibble: 50 × 11
 #>    id    country3code country_code country_name   has_player_stats image_url    
 #>    <chr> <chr>        <chr>        <chr>                     <int> <chr>        

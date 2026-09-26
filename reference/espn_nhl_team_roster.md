@@ -218,21 +218,21 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_team_roster(team_id = "4"))
 #> ── NHL Team Roster data from ESPN.com ───────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:45:09 UTC
-#> # A tibble: 34 × 53
+#> ℹ Data updated: 2026-09-26 06:38:14 UTC
+#> # A tibble: 48 × 53
 #>    position_group id      uid    guid  alternate_id alternate_ids_sdr first_name
 #>    <chr>          <chr>   <chr>  <chr> <chr>        <chr>             <chr>     
 #>  1 Centers        5149125 s:70~… 81dd… 5149125      5149125           Connor    
-#>  2 Centers        5216886 s:70~… 908d… 5216886      5216886           Sacha     
-#>  3 Centers        3115033 s:70~… 73cf… 3115033      3115033           Ryan      
-#>  4 Centers        5291935 s:70~… a477… 5291935      5291935           Anton     
-#>  5 Centers        5080227 s:70~… 0825… 5080227      5080227           Ryan      
+#>  2 Centers        3115033 s:70~… 73cf… 3115033      3115033           Ryan      
+#>  3 Centers        5291935 s:70~… a477… 5291935      5291935           Anton     
+#>  4 Centers        5080227 s:70~… 0825… 5080227      5080227           Ryan      
+#>  5 Centers        5080209 s:70~… 09b5… 5080209      5080209           Paul      
 #>  6 Centers        5149194 s:70~… 4852… 5149194      5149194           Oliver    
 #>  7 Centers        5080157 s:70~… eaef… 5080157      5080157           Frank     
 #>  8 Centers        2592095 s:70~… 527b… 2592095      2592095           Teuvo     
 #>  9 Centers        3942809 s:70~… 21ba… 3942809      3942809           Dominic   
 #> 10 Left Wings     3042056 s:70~… 5075… 3042056      3042056           Tyler     
-#> # ℹ 24 more rows
+#> # ℹ 38 more rows
 #> # ℹ 46 more variables: last_name <chr>, full_name <chr>, display_name <chr>,
 #> #   short_name <chr>, weight <dbl>, display_weight <chr>, height <dbl>,
 #> #   display_height <chr>, age <int>, date_of_birth <chr>, slug <chr>,

@@ -48,6 +48,25 @@ Other OHL Functions:
 ``` r
  try(ohl_team_roster(team_id = 1)) 
 #> ── OHL Team Roster from HockeyTech ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:47:46 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-09-26 06:40:47 UTC
+#> # A tibble: 26 × 45
+#>    id    person_id active first_name last_name phonetic_name display_name shoots
+#>    <chr> <chr>     <chr>  <chr>      <chr>     <chr>         <chr>        <chr> 
+#>  1 9509  9270      1      George     Komadoski "COMM-uh-DAH… ""           R     
+#>  2 9781  9573      1      Jean-Samu… Daigneau… ""            ""           L     
+#>  3 9777  9569      1      Nathan     Hauad     ""            ""           R     
+#>  4 9475  9221      1      Jeremy     Freeman   "FREE-man"    ""           R     
+#>  5 9773  9565      1      Jason      Musa      ""            ""           L     
+#>  6 9766  9558      1      Jack       Torr      "TOR"         ""           R     
+#>  7 9778  9570      1      Abe        Barnett   ""            ""           L     
+#>  8 9552  9313      1      Kaden      McGregor  "MUH-GREG-ER" ""           R     
+#>  9 9765  9557      1      Xavier     Lieb      "LEEB"        ""           R     
+#> 10 9141  8830      1      Camden     McCuaig   ""            ""           L     
+#> # ℹ 16 more rows
+#> # ℹ 37 more variables: hometown <chr>, homeprov <chr>, homecntry <chr>,
+#> #   homeplace <chr>, birthtown <chr>, birthprov <chr>, birthcntry <chr>,
+#> #   birthplace <chr>, height <chr>, weight <chr>, height_hyphenated <chr>,
+#> #   hidden <chr>, current_team <chr>, player_id <chr>, status <chr>,
+#> #   birthdate <chr>, birthdate_year <chr>, rawbirthdate <chr>,
+#> #   latest_team_id <chr>, veteran_status <chr>, veteran_description <chr>, …
 ```

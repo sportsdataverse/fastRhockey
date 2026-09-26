@@ -7,7 +7,10 @@ Python client."><meta property="og:description" content="Aggregator helper that 
 season roster (via nhl_teams_roster()) and flattens forwards,
 defensemen, and goalies into a single tidy data frame. Mirrors the
 Helpers.all_players convenience helper from the nhl-api-py
-Python client."><meta property="og:image" content="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/logo.png"><meta name="twitter:card" content="summary"><meta name="twitter:creator" content="@benhowell71"><meta name="twitter:site" content="@sportsdataverse"></head><body>
+Python client."><meta property="og:image" content="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/logo.png"><meta name="twitter:card" content="summary"><meta name="twitter:creator" content="@benhowell71"><meta name="twitter:site" content="@sportsdataverse"><!-- Privacy-friendly analytics by Plausible --><script async src="https://plausible.io/js/pa-brBVQD203BOf00XIGIeR-.js"></script><script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -132,7 +135,7 @@ API calls. Defaults to <code>0</code> (no delay).</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_all_players_by_season</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL All Players by Season ────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-10 00:46:25 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-26 06:39:28 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 853 × 15</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    player_id first_name last_name full_name         sweater_number position_code</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>

@@ -40,6 +40,6 @@ Other WHL Functions:
 ``` r
  try(whl_player_stats(player_id = 1)) 
 #> ── WHL Player Stats from HockeyTech ─────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:48:14 UTC
+#> ℹ Data updated: 2026-09-26 06:41:14 UTC
 #> # A tibble: 0 × 0
 ```

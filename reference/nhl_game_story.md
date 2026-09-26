@@ -94,6 +94,16 @@ A named list with game story data (recap, scoring, penalties, etc.). The
 #> 2 282      N          CA      SN            107
 #> 3 324      N          US    NHLN             35
 #> 4 409      A          US   MSGSN            411
+#>                                          logoUrls.light
+#> 1                                                  <NA>
+#> 2 https://assets.nhle.com/logos/broadcast/282-light.svg
+#> 3 https://assets.nhle.com/logos/broadcast/324-light.svg
+#> 4                                                  <NA>
+#>                                          logoUrls.dark
+#> 1                                                 <NA>
+#> 2 https://assets.nhle.com/logos/broadcast/282-dark.svg
+#> 3 https://assets.nhle.com/logos/broadcast/324-dark.svg
+#> 4                                                 <NA>
 #> 
 #> $gameState
 #> [1] "OFF"

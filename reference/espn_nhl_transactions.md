@@ -168,20 +168,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_transactions())
 #> ── NHL Transactions data from ESPN.com ──────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:45:11 UTC
+#> ℹ Data updated: 2026-09-26 06:38:17 UTC
 #> # A tibble: 25 × 8
 #>    date            description team_id team_location team_name team_abbreviation
 #>    <chr>           <chr>       <chr>   <chr>         <chr>     <chr>            
-#>  1 2026-09-09T07:… Placed LW … 25      Anaheim       Ducks     ANA              
-#>  2 2026-09-09T07:… Signed G C… 7       Carolina      Hurrican… CAR              
-#>  3 2026-09-09T07:… Signed LW … 6       Edmonton      Oilers    EDM              
-#>  4 2026-09-08T07:… Signed D P… 7       Carolina      Hurrican… CAR              
-#>  5 2026-09-08T07:… Signed C F… 1       Boston        Bruins    BOS              
-#>  6 2026-09-04T07:… Signed F J… 124292  Seattle       Kraken    SEA              
-#>  7 2026-09-04T07:… Signed F B… 21      Toronto       Maple Le… TOR              
-#>  8 2026-09-01T07:… Acquired a… 27      Nashville     Predators NSH              
-#>  9 2026-09-01T07:… Signed LW … 13      New York      Rangers   NYR              
-#> 10 2026-09-01T07:… Acquired F… 11      New Jersey    Devils    NJ               
+#>  1 2026-09-25T07:… Assigned F… 129764  Utah          Mammoth   UTA              
+#>  2 2026-09-25T07:… Loaned G N… 29      Columbus      Blue Jac… CBJ              
+#>  3 2026-09-25T07:… Assigned F… 27      Nashville     Predators NSH              
+#>  4 2026-09-25T07:… Assigned F… 25      Anaheim       Ducks     ANA              
+#>  5 2026-09-25T07:… Claimed G … 22      Vancouver     Canucks   VAN              
+#>  6 2026-09-25T07:… Assigned F… 20      Tampa Bay     Lightning TB               
+#>  7 2026-09-25T07:… Reassigned… 17      Colorado      Avalanche COL              
+#>  8 2026-09-25T07:… Assigned F… 16      Pittsburgh    Penguins  PIT              
+#>  9 2026-09-25T07:… Loaned Fs … 15      Philadelphia  Flyers    PHI              
+#> 10 2026-09-25T07:… Assigned D… 11      New Jersey    Devils    NJ               
 #> # ℹ 15 more rows
 #> # ℹ 2 more variables: team_display_name <chr>, team_color <chr>
 # }

@@ -176,7 +176,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_teams_site())
 #> ── NHL Teams data from ESPN.com ─────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:45:11 UTC
+#> ℹ Data updated: 2026-09-26 06:38:16 UTC
 #> # A tibble: 32 × 25
 #>    abbreviation alternate_color color  display_name     espn_team_id team  logo 
 #>    <chr>        <chr>           <chr>  <chr>                   <int> <chr> <chr>
