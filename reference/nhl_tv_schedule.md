@@ -45,7 +45,7 @@ A named list of data frames: `broadcasts`.
 #> [1] "2026-09-12"
 #> 
 #> $endDate
-#> [1] "2026-10-09"
+#> [1] "2026-10-10"
 #> 
 #> $broadcasts
 #>              startTime             endTime durationSeconds

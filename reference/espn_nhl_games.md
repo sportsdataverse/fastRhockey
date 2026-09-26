@@ -174,13 +174,19 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_games(limit = 10))
 #> ── NHL Games data from ESPN core-v2 ─────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:37:19 UTC
-#> # A tibble: 4 × 4
-#>   ref                                                  event_id count page_count
-#>   <chr>                                                <chr>    <int>      <int>
-#> 1 http://sports.core.api.espn.com/v2/sports/hockey/le… 4018793…     4          1
-#> 2 http://sports.core.api.espn.com/v2/sports/hockey/le… 4018796…     4          1
-#> 3 http://sports.core.api.espn.com/v2/sports/hockey/le… 4018864…     4          1
-#> 4 http://sports.core.api.espn.com/v2/sports/hockey/le… 4018781…     4          1
+#> ℹ Data updated: 2026-09-26 19:57:31 UTC
+#> # A tibble: 10 × 4
+#>    ref                                                 event_id count page_count
+#>    <chr>                                               <chr>    <int>      <int>
+#>  1 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018794…    14          2
+#>  2 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018799…    14          2
+#>  3 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018793…    14          2
+#>  4 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018793…    14          2
+#>  5 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018793…    14          2
+#>  6 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018811…    14          2
+#>  7 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018794…    14          2
+#>  8 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018796…    14          2
+#>  9 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018796…    14          2
+#> 10 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018817…    14          2
 # }
 ```

@@ -171,8 +171,8 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_statistics_league())
 #> ── NHL League Statistics data from ESPN.com ─────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:38:11 UTC
-#> # A tibble: 379 × 8
+#> ℹ Data updated: 2026-09-26 19:58:22 UTC
+#> # A tibble: 381 × 8
 #>    category_name category_abbreviation display_value value athlete_id
 #>    <chr>         <chr>                 <chr>         <dbl> <chr>     
 #>  1 goals         G                     3                 3 4319858   
@@ -185,7 +185,7 @@ Saiem Gilani
 #>  8 goals         G                     2                 2 5291934   
 #>  9 goals         G                     2                 2 3041970   
 #> 10 goals         G                     2                 2 5216907   
-#> # ℹ 369 more rows
+#> # ℹ 371 more rows
 #> # ℹ 3 more variables: athlete_display_name <chr>, team_id <chr>,
 #> #   team_abbreviation <chr>
 # }

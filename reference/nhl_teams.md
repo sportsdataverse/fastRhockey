@@ -13,7 +13,9 @@ nhl_teams(season = NULL)
 
 - season:
 
-  Integer four-digit year (e.g., 2024). If NULL, returns current teams.
+  Integer four-digit year the season starts in (e.g., 2024 for 2024-25;
+  [`most_recent_nhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_nhl_season.md)
+  returns the year it ends). If NULL, returns current teams.
 
 ## Value
 
@@ -49,7 +51,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_teams())
 #> ── NHL Teams ────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:40:35 UTC
+#> ℹ Data updated: 2026-09-26 20:00:31 UTC
 #> # A tibble: 32 × 20
 #>    team_abbr team_name           team_common_name team_logo      conference_abbr
 #>    <chr>     <chr>               <chr>            <chr>          <chr>          

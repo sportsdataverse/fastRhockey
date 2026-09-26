@@ -44,7 +44,7 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_standings()) 
 #> ── QMJHL Standings from HockeyTech ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:41:10 UTC
+#> ℹ Data updated: 2026-09-26 20:01:05 UTC
 #> # A tibble: 18 × 20
 #>    team_code wins  losses ot_losses ot_wins shootout_wins shootout_losses row  
 #>    <chr>     <chr>  <dbl> <chr>     <chr>   <chr>         <chr>           <chr>

@@ -21,6 +21,16 @@ CRAN release: 2026-08-25
 
 #### Bug fixes
 
+- `nhl_teams(season =)` stopped with “missing value where TRUE/FALSE
+  needed” (reported as “Error fetching teams”) instead of returning
+  `NULL` with “No team data found” when the NHL API has no standings for
+  the date it asks for: the API then returns an empty list, whose
+  [`nrow()`](https://rdrr.io/r/base/nrow.html) is `NULL`. It also now
+  says that `season` is the year the season starts in (2024 for
+  2024-25), which is what it queries (January of `season + 1`), while
+  [`most_recent_nhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_nhl_season.md)
+  returns the year the season ends.
+
 - [`pwhl_stats()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_stats.md)
   now resolves the `season` argument to the correct HockeyTech season id
   instead of always returning the inaugural 2024 season
@@ -29,6 +39,7 @@ CRAN release: 2026-08-25
   (`"OTT"`), label (`"Ottawa"`), or full name — an unknown team now
   errors informatively instead of silently returning the whole league
   ([\#49](https://github.com/sportsdataverse/fastRhockey/issues/49)).
+
 - [`pwhl_stats()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_stats.md),
   [`pwhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_schedule.md),
   and
@@ -36,6 +47,7 @@ CRAN release: 2026-08-25
   now strip the HockeyTech JSONP envelope through the shared
   `.hockeytech_api()` helper instead of per-function regexes that broke
   on payload-shape changes (empty results for 2025 onward).
+
 - [`pwhl_stats()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_stats.md)
   skater results are resilient to the shootout stat block dropping out
   of the feed (absent after the inaugural season).
