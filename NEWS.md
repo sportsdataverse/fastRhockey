@@ -12,6 +12,14 @@
 
 ### Bug fixes
 
+* `nhl_teams(season =)` stopped with "missing value where TRUE/FALSE needed"
+  (reported as "Error fetching teams") instead of returning `NULL` with "No
+  team data found" when the NHL API has no standings for the date it asks
+  for: the API then returns an empty list, whose `nrow()` is `NULL`. It also
+  now says that `season` is the year the season starts in (2024 for 2024-25),
+  which is what it queries (January of `season + 1`), while
+  `most_recent_nhl_season()` returns the year the season ends.
+
 * `pwhl_stats()` now resolves the `season` argument to the correct HockeyTech
   season id instead of always returning the inaugural 2024 season (#50), and
   the `team` filter works for both positions and accepts a team code

@@ -19,3 +19,9 @@ test_that("NHL - Teams returns fastRhockey_data class", {
     x <- nhl_teams()
     expect_s3_class(x, "fastRhockey_data")
 })
+
+test_that("NHL - Teams returns NULL when the API has no standings for the date", {
+    local_mocked_bindings(read_json = function(...) list(standings = list()), .package = "jsonlite")
+    expect_message(x <- nhl_teams(season = 2099), "No team data found")
+    expect_null(x)
+})
