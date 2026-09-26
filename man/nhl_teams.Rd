@@ -7,7 +7,9 @@
 nhl_teams(season = NULL)
 }
 \arguments{
-\item{season}{Integer four-digit year (e.g., 2024). If NULL, returns current teams.}
+\item{season}{Integer four-digit year the season starts in (e.g., 2024 for
+2024-25; \code{most_recent_nhl_season()} returns the year it ends). If NULL,
+returns current teams.}
 }
 \value{
 A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{

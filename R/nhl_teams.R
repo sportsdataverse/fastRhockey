@@ -1,7 +1,9 @@
 #' @title **NHL Teams**
 #' @description Returns current NHL team information.
 #' Uses the NHL API standings endpoint to get up-to-date team info.
-#' @param season Integer four-digit year (e.g., 2024). If NULL, returns current teams.
+#' @param season Integer four-digit year the season starts in (e.g., 2024 for
+#'   2024-25; `most_recent_nhl_season()` returns the year it ends). If NULL,
+#'   returns current teams.
 #' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
 #'    |col_name          |types     |description                                  |
@@ -50,7 +52,8 @@ nhl_teams <- function(season = NULL) {
             raw <- jsonlite::read_json(url, simplifyVector = TRUE)
             standings <- raw[["standings"]]
 
-            if (is.null(standings) || nrow(standings) == 0) {
+            # a date with no standings returns an empty list, where nrow() is NULL
+            if (NROW(standings) == 0) {
                 message(glue::glue("{Sys.time()}: No team data found"))
                 return(NULL)
             }
