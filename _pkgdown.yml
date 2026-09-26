@@ -1,8 +1,24 @@
 url: https://fastRhockey.sportsdataverse.org/
+# pkgdown renders every top-level and .github/*.md file as a page; keep the
+# contributor/agent notes out of the search index so results stay on-topic.
+search:
+  exclude:
+  - CLAUDE.html
+  - copilot-instructions.html
+  - PULL_REQUEST_TEMPLATE.html
+
 template:
   bootstrap: 5
   light-switch: true
   bootswatch: cosmo
+  includes:
+    in_header: |
+      <!-- Privacy-friendly analytics by Plausible -->
+      <script async src="https://plausible.io/js/pa-brBVQD203BOf00XIGIeR-.js"></script>
+      <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        plausible.init()
+      </script>
   bslib:
     primary: "#531896"
     secondary: "#A6E5F3"
