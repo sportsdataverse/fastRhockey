@@ -74,6 +74,9 @@ This is version 1.0.0. Continued development on the 1.0.0 release adds:
 
 * **CRAN-prep pass (2026-08-25)**: `load_pwhl_shifts()` + `load_pwhl_xg_pbp()`
   loaders (completing coverage of the published hockey datasets);
+  four `load_nhl_*()` conference / division reference loaders
+  (`load_nhl_groups()`, `load_nhl_group_seasons()`,
+  `load_nhl_group_aliases()`, `load_nhl_team_group_seasons()`);
   `nhl_game_shifts(detailed = TRUE)`; `pwhl_stats()` season/team resolution
   fixes; HockeyTech JSONP handling centralized; documentation migrated to
   roxygen2 8.1.0; `cph` role added to `Authors@R`; LICENSE year refreshed.

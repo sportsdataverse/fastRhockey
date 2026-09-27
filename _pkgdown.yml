@@ -533,6 +533,13 @@ reference:
       - "`load_nhl_officials`"
       - "`load_nhl_shots_by_period`"
       - "`load_nhl_shootout`"
+  - subtitle: NHL Conference and Division Reference
+    desc: Functions exported by fastRhockey which load season-by-season NHL conference and division memberships from the nhl_groups release
+    contents:
+      - "`load_nhl_groups`"
+      - "`load_nhl_group_seasons`"
+      - "`load_nhl_group_aliases`"
+      - "`load_nhl_team_group_seasons`"
   - subtitle: "Naming-parity Aliases (sportsdataverse-py)"
     desc: Aliases of the canonical NHL loaders, named to match sportsdataverse-py.
     contents:
