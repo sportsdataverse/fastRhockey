@@ -2224,6 +2224,34 @@ NHL data
 
   **Load fastRhockey NHL shootout summary**
 
+### NHL Conference and Division Reference
+
+Functions exported by fastRhockey which load season-by-season NHL
+conference and division memberships from the nhl_groups release
+
+- [`load_nhl_groups()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_groups.md)
+  :
+
+  **Load NHL groups (conferences and divisions) from the SportsDataverse
+  data repo**
+
+- [`load_nhl_group_seasons()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_group_seasons.md)
+  :
+
+  **Load NHL conference and division names and parents by season from
+  the SportsDataverse data repo**
+
+- [`load_nhl_group_aliases()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_group_aliases.md)
+  :
+
+  **Load NHL group aliases from the SportsDataverse data repo**
+
+- [`load_nhl_team_group_seasons()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_group_seasons.md)
+  :
+
+  **Load NHL team conference and division memberships by season from the
+  SportsDataverse data repo**
+
 ### Naming-parity Aliases (sportsdataverse-py)
 
 Aliases of the canonical NHL loaders, named to match sportsdataverse-py.

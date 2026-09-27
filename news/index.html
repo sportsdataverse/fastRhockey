@@ -96,6 +96,8 @@
 <ul><li>
 <code><a href="../reference/load_pwhl_shifts.html">load_pwhl_shifts()</a></code> and <code><a href="../reference/load_pwhl_xg_pbp.html">load_pwhl_xg_pbp()</a></code> — loaders for the two published PWHL release datasets that had no R access (per-player shift charts and xG-enriched play-by-play), completing coverage of every hockey tag on the sportsdataverse-data releases.</li>
 <li>
+<code><a href="../reference/load_nhl_groups.html">load_nhl_groups()</a></code>, <code><a href="../reference/load_nhl_group_seasons.html">load_nhl_group_seasons()</a></code>, <code><a href="../reference/load_nhl_group_aliases.html">load_nhl_group_aliases()</a></code> and <code><a href="../reference/load_nhl_team_group_seasons.html">load_nhl_team_group_seasons()</a></code> — season-by-season conference and division reference tables from the <code>nhl_groups</code> sportsdataverse-data release: each group’s name and parent as of every season, every source’s ids and names for it, and each team’s conference and division by season (1918+, keyed by the season’s end year).</li>
+<li>
 <code><a href="../reference/nhl_game_shifts.html">nhl_game_shifts()</a></code> gains a <code>detailed</code> argument: <code>detailed = TRUE</code> returns the per-player shift records (one row per player-shift with game-second on/off times) instead of the aggregated one-row-per-change frame (<a href="https://github.com/sportsdataverse/fastRhockey/issues/26" class="external-link">#26</a>).</li>
 </ul></div>
 <div class="section level4">

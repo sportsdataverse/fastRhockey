@@ -13,6 +13,16 @@ CRAN release: 2026-08-25
   access (per-player shift charts and xG-enriched play-by-play),
   completing coverage of every hockey tag on the sportsdataverse-data
   releases.
+- [`load_nhl_groups()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_groups.md),
+  [`load_nhl_group_seasons()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_group_seasons.md),
+  [`load_nhl_group_aliases()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_group_aliases.md)
+  and
+  [`load_nhl_team_group_seasons()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_group_seasons.md)
+  — season-by-season conference and division reference tables from the
+  `nhl_groups` sportsdataverse-data release: each group’s name and
+  parent as of every season, every source’s ids and names for it, and
+  each team’s conference and division by season (1918+, keyed by the
+  season’s end year).
 - [`nhl_game_shifts()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_shifts.md)
   gains a `detailed` argument: `detailed = TRUE` returns the per-player
   shift records (one row per player-shift with game-second on/off times)

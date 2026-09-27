@@ -203,6 +203,9 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_game_rosters.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_goalie_box.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_goalie_boxscores.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_group_aliases.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_group_seasons.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_groups.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_linescore.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_officials.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp.html</loc></url>
@@ -225,6 +228,7 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_box.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_boxscore.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_boxscores.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_group_seasons.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_nhl_three_stars.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_phf_pbp.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/load_phf_player_box.html</loc></url>

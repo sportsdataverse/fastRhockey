@@ -196,7 +196,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_team_core(team_id = "4"))
 #> ── NHL Team Core data from ESPN core-v2 ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-26 19:58:24 UTC
+#> ℹ Data updated: 2026-09-27 04:35:39 UTC
 #> # A tibble: 1 × 29
 #>   team_id id    guid        uid   alternate_id_sdr slug  location name  nickname
 #>   <chr>   <chr> <chr>       <chr> <chr>            <chr> <chr>    <chr> <chr>   

@@ -117,87 +117,103 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_tv_schedule</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-09-26"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-09-27"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $startDate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-09-12"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-09-13"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $endDate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-10-10"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $broadcasts</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              startTime             endTime durationSeconds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2026-09-26T00:00:00 2026-09-26T00:30:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2026-09-26T00:30:00 2026-09-26T02:30:00            7200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2026-09-26T02:30:00 2026-09-26T03:30:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2026-09-26T03:30:00 2026-09-26T04:00:00            1800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2026-09-26T04:00:00 2026-09-26T06:00:00            7200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2026-09-26T06:00:00 2026-09-26T07:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2026-09-26T07:00:00 2026-09-26T08:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2026-09-26T08:00:00 2026-09-26T09:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2026-09-26T09:00:00 2026-09-26T10:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2026-09-26T10:00:00 2026-09-26T11:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2026-09-26T11:00:00 2026-09-26T12:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2026-09-26T12:00:00 2026-09-26T14:00:00            7200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2026-09-26T14:00:00 2026-09-26T15:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2026-09-26T15:00:00 2026-09-26T18:00:00           10800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2026-09-26T18:00:00 2026-09-26T19:00:00            3600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2026-09-26T19:00:00 2026-09-26T22:00:00           10800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2026-09-26T22:00:00 2026-09-27T01:00:00           10800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                    title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           NHL Network Countdown: Top Lines of All-Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                               NHL Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                               Top 10 Goalies Right Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  NHL Network Countdown: Top Goal Scorers of the 2000's</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                               NHL Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                  Hawkeytown: Portland to the Pros Ep 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                  Hawkeytown: Portland to the Pros Ep 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                  Hawkeytown: Portland to the Pros Ep 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                  Hawkeytown: Portland to the Pros Ep 4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                NHL Network Countdown: Top Draft Picks</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11       NHL Network Countdown: Top Captains of All-Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                              NHL Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                           Top 20 Defensemen Right Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                      Pre-Season Hockey on NHL Network</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                              Top 20 Centers Right Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                      Pre-Season Hockey on NHL Network</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                      Pre-Season Hockey on NHL Network</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                 description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                              NHL Network Countdown: Top Lines of All-Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  Boston Bruins at Washington Capitals on 9/25/2026 From Capital One Arena</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                  Top 10 Goalies Right Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                     NHL Network Countdown: Top Goal Scorers of the 2000's</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5        New York Rangers at New York Islanders on 9/25/2026 From UBS Arena</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                     Hawkeytown: Portland to the Pros Ep 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                     Hawkeytown: Portland to the Pros Ep 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                     Hawkeytown: Portland to the Pros Ep 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                     Hawkeytown: Portland to the Pros Ep 4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                   NHL Network Countdown: Top Draft Picks</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                          NHL Network Countdown: Top Captains of All-Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12      Dallas Stars at Minnesota Wild on 9/25/2026 From Grand Casino Arena</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                              Top 20 Defensemen Right Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14   Pittsburgh Penguins at Buffalo Sabres on 9/26/2026 From KeyBank Center</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                                 Top 20 Centers Right Now</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16    St. Louis Blues at Chicago Blackhawks on 9/26/2026 From United Center</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 San Jose Sharks at Vegas Golden Knights on 9/26/2026 From T-Mobile Arena</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           houseNumber broadcastType broadcastStatus broadcastImageUrl</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        HNHLNCTDWN12            HD                 nhlncountdown.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  H120BOSWSH09252026            HD                           nhl.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   H60S26T10GOALRNCC            HD                    nhlnetwork.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4      HNHLNCTDWN1803            HD                 nhlncountdown.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  H120NYRNYI09252026            HD                           nhl.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   HNHLWINTERHAWKSE1            HD                    nhlnetwork.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   HNHLWINTERHAWKSE2            HD                    nhlnetwork.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   HNHLWINTERHAWKSE3            HD                    nhlnetwork.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   HNHLWINTERHAWKSE4            HD                    nhlnetwork.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10       HNHLNCTDWN20            HD                 nhlncountdown.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11     HNHLNCTDWN1807            HD                 nhlncountdown.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 H120DALMIN09252026            HD                           nhl.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13   H60S26T20DEFRNCC            HD                    nhlnetwork.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 H180PITBUF09262026            HD            LIVE           nhl.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  H60S26T20CTRSRNCC            HD                    nhlnetwork.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 H180STLCHI09262026            HD            LIVE           nhl.png</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 H180SJSVGK09262026            HD            LIVE           nhl.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2026-09-27T01:00:00 2026-09-27T02:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2026-09-27T02:00:00 2026-09-27T04:00:00            7200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2026-09-27T04:00:00 2026-09-27T05:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2026-09-27T05:00:00 2026-09-27T06:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2026-09-27T06:00:00 2026-09-27T08:00:00            7200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2026-09-27T08:00:00 2026-09-27T08:30:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2026-09-27T08:30:00 2026-09-27T09:00:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2026-09-27T09:00:00 2026-09-27T09:30:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2026-09-27T09:30:00 2026-09-27T10:00:00            1800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2026-09-27T10:00:00 2026-09-27T11:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2026-09-27T11:00:00 2026-09-27T13:00:00            7200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2026-09-27T13:00:00 2026-09-27T15:00:00            7200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2026-09-27T15:00:00 2026-09-27T16:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2026-09-27T16:00:00 2026-09-27T17:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2026-09-27T17:00:00 2026-09-27T18:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2026-09-27T18:00:00 2026-09-27T19:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2026-09-27T19:00:00 2026-09-27T20:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2026-09-27T20:00:00 2026-09-27T21:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2026-09-27T21:00:00 2026-09-27T22:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2026-09-27T22:00:00 2026-09-27T23:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 2026-09-27T23:00:00 2026-09-28T00:00:00            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                            title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  NHL Network Countdown: 50 Most Bizarre Moments in NHL History</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                       NHL Game</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                               Top 50 Players Right Now (30-21)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                               Top 50 Players Right Now (20-11)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                       NHL Game</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6       Breaking Down Barriers: S3 - The Future Of Girls' Hockey</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7          Breaking Down Barriers: S3 - Best Of The Season PT. 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                          Breaking Down Barriers: S3- Connected</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                      Breaking Down Barriers: S3 - First Assist</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                      Top 10 Goalies Right Now</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                      NHL Game</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                      NHL Game</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                              Top 50 Players Right Now (50-41)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                              Top 50 Players Right Now (40-31)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                              Top 50 Players Right Now (30-21)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                              Top 50 Players Right Now (20-11)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17                               Top 50 Players Right Now (10-1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                NHL Tonight: Analytics Special</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19                               Top 50 Players Right Now (10-1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20                                NHL Tonight: Analytics Special</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21                               Top 50 Players Right Now (10-1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                                                                      description</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                                                                                                                  NHL Network Countdown: 50 Most Bizarre Moments in NHL History</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                                                                                         Pittsburgh Penguins at Buffalo Sabres on 9/26/2026 From KeyBank Center</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                                                                                                                                               Top 50 Players Right Now (30-21)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                                                                                                                                               Top 50 Players Right Now (20-11)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                                                                                                          St. Louis Blues at Chicago Blackhawks on 9/26/2026 From United Center</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                     Exploring the challenges girls and women face in hockey, including ice time and retention issues, while highlighting Gillian Apps' leadership in the sport</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                                                                                                                                     A countdown of the top hockey moments in BREAKING DOWN BARRIERS Season 03.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                              The PWHL showcases its connection to Indigenous communities by creating a trip of a lifetime for a group of young female hockey players from remote Nain, Newfoundland, to attend a playoff game.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  First Assist, founded by former NHL player John Chabot, aims to help Indigenous students succeed in school by using sports as a motivational tool to boost attendance, classroom engagement, and promote healthy life habits.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                                                                                                                                                      Top 10 Goalies Right Now</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                                                                                                                      San Jose Sharks at Vegas Golden Knights on 9/26/2026 From T-Mobile Arena</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                                                                                                                Carolina Hurricanes at Nashville Predators on 9/26/2026 From Bridgestone Arena</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                                                                                                                                                                              Top 50 Players Right Now (50-41)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                                                                                                                                                                              Top 50 Players Right Now (40-31)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                                                                                                                                                                              Top 50 Players Right Now (30-21)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                                                                                                                                                              Top 50 Players Right Now (20-11)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                                                                                                                                                                               Top 50 Players Right Now (10-1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                                                                                                                                                                                NHL Tonight: Analytics Special</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                                                                                                                                                               Top 50 Players Right Now (10-1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20                                                                                                                                                                                                NHL Tonight: Analytics Special</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21                                                                                                                                                                                               Top 50 Players Right Now (10-1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             houseNumber broadcastType broadcastStatus broadcastImageUrl</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1           HNHLNCTDWN8            HD                 nhlncountdown.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    H120PITBUF09262026            HD                           nhl.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  H60S26T50PLYRS3021CC            HD                    nhlnetwork.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  H60S26T50PLYRS2011CC            HD                    nhlnetwork.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    H120STLCHI09262026            HD                           nhl.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6         HTSNBDBS3EP08            HD                    nhlnetwork.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7         HTSNBDBS3EP09            HD                    nhlnetwork.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8         HTSNBDBS3EP01            HD                    nhlnetwork.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9         HTSNBDBS3EP02            HD                    nhlnetwork.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10    H60S26T10GOALRNCC            HD                    nhlnetwork.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11   H120SJSVGK09262026            HD                           nhl.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12   H120CARNSH09262026            HD                           nhl.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 H60S26T50PLYRS5041CC            HD                    nhlnetwork.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 H60S26T50PLYRS4031CC            HD                    nhlnetwork.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 H60S26T50PLYRS3021CC            HD                    nhlnetwork.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 H60S26T50PLYRS2011CC            HD                    nhlnetwork.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17  H60S26T50PLYRS101PT            HD                    nhlnetwork.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18     HNHLTS26AYSPECPT            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19  H60S26T50PLYRS101CC            HD                    nhlnetwork.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20     HNHLTS26AYSPECCC            HD                    nhltonight.png</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21  H60S26T50PLYRS101CC            HD                    nhlnetwork.png</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

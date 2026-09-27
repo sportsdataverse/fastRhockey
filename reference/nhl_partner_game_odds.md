@@ -27,7 +27,7 @@ try(nhl_partner_game_odds())
 #> [1] "2026-09-26"
 #> 
 #> $lastUpdatedUTC
-#> [1] "2026-09-26T19:30:39Z"
+#> [1] "2026-09-27T04:00:38Z"
 #> 
 #> $bettingPartner
 #> $bettingPartner$partnerId
@@ -80,18 +80,18 @@ try(nhl_partner_game_odds())
 #> 9  https://assets.nhle.com/logos/nhl/svg/DET_light.svg
 #> 10 https://assets.nhle.com/logos/nhl/svg/NYI_light.svg
 #> 11 https://assets.nhle.com/logos/nhl/svg/VGK_light.svg
-#>                                                              homeTeam.odds
-#> 1   MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, -155, 154, -110, , -1.5, O6.5
-#> 2    PUCK_LINE, MONEY_LINE_2_WAY, OVER_UNDER, 110, 470, -154, +2.5, , O6.5
-#> 3    MONEY_LINE_2_WAY, OVER_UNDER, PUCK_LINE, 270, 124, -140, , O7.5, +2.5
-#> 4   OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, -115, -250, 100, O5.5, +1.5, 
-#> 5  PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, -115, -130, -298, -1.5, O5.5, 
-#> 6   OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, -120, -205, 130, O5.5, +1.5, 
-#> 7   MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, 105, -245, -105, , +1.5, O5.5
-#> 8    PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, 100, 110, -250, -1.5, O6.5, 
-#> 9   MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, 102, -230, -130, , +1.5, O5.5
-#> 10  MONEY_LINE_2_WAY, OVER_UNDER, PUCK_LINE, 120, -110, -245, , O5.5, +1.5
-#> 11  OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, -105, 130, -185, O6.5, -1.5, 
+#>                                                                homeTeam.odds
+#> 1     MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, -445, 280, -110, , -4.5, O8.5
+#> 2     PUCK_LINE, MONEY_LINE_2_WAY, OVER_UNDER, 210, 1100, -115, +3.5, , O5.5
+#> 3     MONEY_LINE_2_WAY, OVER_UNDER, PUCK_LINE, 650, -180, -175, , O3.5, +1.5
+#> 4     OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, 420, 1200, -105, O7.5, -1.5, 
+#> 5      PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, 124, -175, 950, +2.5, O6.5, 
+#> 6     OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, 160, 124, -3500, O5.5, -2.5, 
+#> 7      MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, -115, 130, 154, , -1.5, O5.5
+#> 8  PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, -130, -115, -1e+05, -3.5, O4.5, 
+#> 9    MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, 1200, -166, -160, , +3.5, O4.5
+#> 10    MONEY_LINE_2_WAY, OVER_UNDER, PUCK_LINE, 470, -200, -345, , O4.5, +4.5
+#> 11     OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, 124, -220, 180, O5.5, +1.5, 
 #>    homeTeam.name.default awayTeam.id awayTeam.abbrev
 #> 1                  Kings          24             ANA
 #> 2              Predators          12             CAR
@@ -116,18 +116,18 @@ try(nhl_partner_game_odds())
 #> 9            https://assets.nhle.com/logos/nhl/svg/CBJ_light.svg
 #> 10           https://assets.nhle.com/logos/nhl/svg/NJD_light.svg
 #> 11           https://assets.nhle.com/logos/nhl/svg/SJS_light.svg
-#>                                                             awayTeam.odds
-#> 1  MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, 130, -185, -110, , +1.5, U6.5
-#> 2  PUCK_LINE, MONEY_LINE_2_WAY, OVER_UNDER, -140, -750, 120, -2.5, , U6.5
-#> 3  MONEY_LINE_2_WAY, OVER_UNDER, PUCK_LINE, -375, -160, 110, , U7.5, -2.5
-#> 4  OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, -105, 205, -120, U5.5, -1.5, 
-#> 5   PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, -105, 110, 240, +1.5, U5.5, 
-#> 6   OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, 100, 170, -155, U5.5, -1.5, 
-#> 7  MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, -125, 200, -115, , -1.5, U5.5
-#> 8  PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, -120, -130, 205, +1.5, U6.5, 
-#> 9   MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, -122, 190, 110, , -1.5, U5.5
-#> 10 MONEY_LINE_2_WAY, OVER_UNDER, PUCK_LINE, -142, -110, 200, , U5.5, -1.5
-#> 11 OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, -115, -155, 154, U6.5, +1.5, 
+#>                                                               awayTeam.odds
+#> 1    MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, 310, -395, -120, , +4.5, U8.5
+#> 2  PUCK_LINE, MONEY_LINE_2_WAY, OVER_UNDER, -280, -2500, -115, -3.5, , U5.5
+#> 3    MONEY_LINE_2_WAY, OVER_UNDER, PUCK_LINE, -1150, 140, 135, , U3.5, -1.5
+#> 4  OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, -660, -2800, -125, U7.5, +1.5, 
+#> 5   PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, -160, 135, -1950, -2.5, U6.5, 
+#> 6   OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, -210, -160, 1400, U5.5, +2.5, 
+#> 7   MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, -115, -166, -200, , +1.5, U5.5
+#> 8    PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, 100, -115, 4000, +3.5, U4.5, 
+#> 9    MONEY_LINE_2_WAY, PUCK_LINE, OVER_UNDER, -2800, 130, 124, , -3.5, U4.5
+#> 10    MONEY_LINE_2_WAY, OVER_UNDER, PUCK_LINE, -750, 154, 250, , U4.5, -4.5
+#> 11   OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, -160, 170, -238, U5.5, -1.5, 
 #>    awayTeam.name.default
 #> 1                  Ducks
 #> 2             Hurricanes

@@ -44,20 +44,20 @@ Other WHL Functions:
 ``` r
  try(whl_standings()) 
 #> ── WHL Standings from HockeyTech ────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-26 20:01:16 UTC
+#> ℹ Data updated: 2026-09-27 04:38:37 UTC
 #> # A tibble: 23 × 21
 #>    team_code wins  losses ties  ot_losses ot_wins shootout_wins shootout_losses
 #>    <chr>     <chr>  <dbl> <chr> <chr>     <chr>   <chr>         <chr>          
-#>  1 SC        2          0 0     0         0       0             0              
-#>  2 BDN       2          0 0     0         0       1             0              
-#>  3 SAS       1          1 0     1         0       0             0              
-#>  4 MJ        1          1 0     0         1       0             0              
-#>  5 PA        1          2 0     0         0       0             0              
+#>  1 SAS       2          1 0     1         0       0             0              
+#>  2 SC        2          0 0     0         0       0             0              
+#>  3 MJ        2          1 0     0         1       0             0              
+#>  4 BDN       2          1 0     0         0       1             0              
+#>  5 PA        1          3 0     0         0       0             0              
 #>  6 REG       0          1 0     0         0       0             1              
 #>  7 CGY       3          0 0     0         1       1             0              
-#>  8 MH        2          0 0     0         0       0             0              
-#>  9 EDM       1          1 0     1         0       0             0              
-#> 10 RD        1          1 0     0         0       0             1              
+#>  8 RD        2          1 0     0         0       0             1              
+#>  9 MH        2          1 0     0         0       0             0              
+#> 10 EDM       1          1 0     1         0       0             0              
 #> # ℹ 13 more rows
 #> # ℹ 13 more variables: regulation_wins <dbl>, row <chr>, points <dbl>,
 #> #   penalty_minutes <chr>, streak <chr>, goals_for <chr>, goals_against <chr>,
