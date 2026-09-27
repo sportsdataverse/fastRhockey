@@ -80,12 +80,15 @@ test_that("NHL - a failed group download warns and returns the contract columns"
 test_that("NHL - Load NHL team group seasons (live): Detroit to the Atlantic in 2014", {
     skip_on_cran()
     skip_nhl_test()
-    x <- suppressWarnings(tryCatch(load_nhl_team_group_seasons(seasons = 2013:2014), error = function(e) NULL))
+    x <- load_nhl_team_group_seasons(seasons = 2013:2014)
 
-    if (!is.null(x) && nrow(x) > 0) {
-        expect_s3_class(x, "data.frame")
-        expect_s3_class(x, "fastRhockey_data")
-        red_wings <- x[x$team_id == "5", ]
-        expect_equal(red_wings$division_id[order(red_wings$season)], c("nhl:norris-central", "nhl:atlantic"))
-    }
+    expect_s3_class(x, "fastRhockey_data")
+    expect_setequal(unique(x$season), c(2013L, 2014L))
+    red_wings <- x[x$team_id == "5", ]
+    expect_equal(red_wings$division_id[order(red_wings$season)], c("nhl:norris-central", "nhl:atlantic"))
+})
+
+test_that("NHL - group loaders reject fractional seasons", {
+    skip_on_cran()
+    expect_error(load_nhl_team_group_seasons(seasons = 2014.5))
 })
