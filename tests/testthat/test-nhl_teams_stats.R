@@ -1,7 +1,10 @@
 test_that("NHL - Get NHL Teams Stats", {
   skip_on_cran()
   skip_nhl_test()
-  x <- nhl_teams_stats(team_abbr = "TBL")
+  # A completed season, not the default "now": at the season rollover the NHL
+  # API answers /club-stats/{team}/now with no skaters or goalies yet, which
+  # failed every platform on 2026-09-30.
+  x <- nhl_teams_stats(team_abbr = "TBL", season = 2024)
 
   expect_s3_class(x, "data.frame")
   expect_true(nrow(x) > 0)
