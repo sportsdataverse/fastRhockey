@@ -60,20 +60,15 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_player_game_log(player_id = 8478402))
 #> ── NHL Player Game Log ──────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:37:18 UTC
-#> # A tibble: 6 × 22
+#> ℹ Data updated: 2026-09-30 14:44:51 UTC
+#> # A tibble: 1 × 22
 #>     game_id team_abbrev home_road_flag game_date goals assists points plus_minus
 #>       <int> <chr>       <chr>          <chr>     <int>   <int>  <int>      <int>
-#> 1    2.03e9 EDM         R              2026-04-…     0       0      0         -3
-#> 2    2.03e9 EDM         H              2026-04-…     0       2      2          1
-#> 3    2.03e9 EDM         R              2026-04-…     0       2      2          0
-#> 4    2.03e9 EDM         R              2026-04-…     1       1      2         -4
-#> 5    2.03e9 EDM         H              2026-04-…     0       0      0         -2
-#> 6    2.03e9 EDM         H              2026-04-…     0       0      0          0
+#> 1    2.03e9 EDM         H              2026-09-…     0       2      2          1
 #> # ℹ 14 more variables: power_play_goals <int>, power_play_points <int>,
 #> #   game_winning_goals <int>, ot_goals <int>, shots <int>, shifts <int>,
-#> #   shorthanded_goals <int>, shorthanded_points <int>, opponent_abbrev <chr>,
-#> #   pim <int>, toi <chr>, common_name_default <chr>,
+#> #   shorthanded_goals <int>, shorthanded_points <int>, pim <int>, toi <chr>,
+#> #   opponent_abbrev <chr>, common_name_default <chr>,
 #> #   opponent_common_name_default <chr>, player_id <dbl>
 # }
 ```

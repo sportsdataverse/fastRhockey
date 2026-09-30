@@ -169,7 +169,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_franchises())
 #> ── NHL Franchises data from ESPN core-v2 ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:34:44 UTC
+#> ℹ Data updated: 2026-09-30 14:41:45 UTC
 #> # A tibble: 32 × 4
 #>    ref                                             franchise_id count page_count
 #>    <chr>                                           <chr>        <int>      <int>

@@ -55,20 +55,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_all_players_by_season(season = 2024))
 #> ── NHL All Players by Season ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:36:52 UTC
+#> ℹ Data updated: 2026-09-30 14:44:22 UTC
 #> # A tibble: 853 × 15
-#>    player_id first_name last_name full_name         sweater_number position_code
-#>        <int> <chr>      <chr>     <chr>                      <int> <chr>        
-#>  1   8479525 Ross       Colton    Ross Colton                   20 F            
-#>  2   8477494 Jonathan   Drouin    Jonathan Drouin               27 F            
-#>  3   8480835 Jack       Drury     Jack Drury                    18 F            
-#>  4   8480448 Parker     Kelly     Parker Kelly                  17 F            
-#>  5   8481641 Joel       Kiviranta Joel Kiviranta                94 F            
-#>  6   8476455 Gabriel    Landeskog Gabriel Landeskog             92 F            
-#>  7   8477476 Artturi    Lehkonen  Artturi Lehkonen              62 F            
-#>  8   8477492 Nathan     MacKinnon Nathan MacKinnon              29 F            
-#>  9   8480039 Martin     Necas     Martin Necas                  88 F            
-#> 10   8475754 Brock      Nelson    Brock Nelson                  11 F            
+#>    player_id first_name last_name full_name        sweater_number position_code
+#>        <int> <chr>      <chr>     <chr>                     <int> <chr>        
+#>  1   8477964 Ivan       Barbashev Ivan Barbashev               49 F            
+#>  2   8481604 Pavel      Dorofeyev Pavel Dorofeyev              16 F            
+#>  3   8478403 Jack       Eichel    Jack Eichel                   9 F            
+#>  4   8476881 Tomas      Hertl     Tomas Hertl                  48 F            
+#>  5   8482125 Alexander  Holtz     Alexander Holtz              26 F            
+#>  6   8479353 Brett      Howden    Brett Howden                 21 F            
+#>  7   8476448 William    Karlsson  William Karlsson             71 F            
+#>  8   8478434 Keegan     Kolesar   Keegan Kolesar               55 F            
+#>  9   8479550 Tanner     Laczynski Tanner Laczynski             28 F            
+#> 10   8481534 Raphael    Lavoie    Raphael Lavoie               36 F            
 #> # ℹ 843 more rows
 #> # ℹ 9 more variables: shoots_catches <chr>, height_inches <int>,
 #> #   weight_pounds <int>, birth_date <chr>, birth_city <chr>,

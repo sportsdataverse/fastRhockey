@@ -168,20 +168,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_transactions())
 #> ── NHL Transactions data from ESPN.com ──────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:35:43 UTC
+#> ℹ Data updated: 2026-09-30 14:42:58 UTC
 #> # A tibble: 25 × 8
 #>    date            description team_id team_location team_name team_abbreviation
 #>    <chr>           <chr>       <chr>   <chr>         <chr>     <chr>            
-#>  1 2026-09-26T07:… Claimed D … 27      Nashville     Predators NSH              
-#>  2 2026-09-26T07:… Waived LW … 26      Florida       Panthers  FLA              
-#>  3 2026-09-26T07:… Placed D J… 23      Washington    Capitals  WSH              
-#>  4 2026-09-26T07:… Placed D C… 16      Pittsburgh    Penguins  PIT              
-#>  5 2026-09-26T07:… Waived Fs … 12      New York      Islanders NYI              
-#>  6 2026-09-26T07:… Waived G R… 9       Dallas        Stars     DAL              
-#>  7 2026-09-26T07:… Waived F A… 3       Calgary       Flames    CGY              
-#>  8 2026-09-26T07:… Placed C/L… 1       Boston        Bruins    BOS              
-#>  9 2026-09-25T07:… Assigned F… 129764  Utah          Mammoth   UTA              
-#> 10 2026-09-25T07:… Loaned G N… 29      Columbus      Blue Jac… CBJ              
+#>  1 2026-09-29T07:… Placed C J… 37      Vegas         Golden K… VGK              
+#>  2 2026-09-29T07:… Placed D C… 21      Toronto       Maple Le… TOR              
+#>  3 2026-09-27T07:… Placed LW … 129764  Utah          Mammoth   UTA              
+#>  4 2026-09-27T07:… Placed C J… 124292  Seattle       Kraken    SEA              
+#>  5 2026-09-27T07:… Assigned G… 29      Columbus      Blue Jac… CBJ              
+#>  6 2026-09-27T07:… Placed RD … 27      Nashville     Predators NSH              
+#>  7 2026-09-27T07:… Placed RW/… 26      Florida       Panthers  FLA              
+#>  8 2026-09-27T07:… Placed G L… 25      Anaheim       Ducks     ANA              
+#>  9 2026-09-27T07:… Placed G C… 23      Washington    Capitals  WSH              
+#> 10 2026-09-27T07:… Placed G N… 22      Vancouver     Canucks   VAN              
 #> # ℹ 15 more rows
 #> # ℹ 2 more variables: team_display_name <chr>, team_color <chr>
 # }

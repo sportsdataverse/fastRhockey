@@ -176,21 +176,21 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_injuries())
 #> ── NHL Injuries data from ESPN.com ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:34:54 UTC
-#> # A tibble: 194 × 16
+#> ℹ Data updated: 2026-09-30 14:41:58 UTC
+#> # A tibble: 240 × 16
 #>    team_id team_display_name player_id player_display_name player_short_name
 #>    <chr>   <chr>             <chr>     <chr>               <chr>            
-#>  1 25      Anaheim Ducks     NA        Pavel Mintyukov     P. Mintyukov     
-#>  2 25      Anaheim Ducks     NA        Pavel Mintyukov     P. Mintyukov     
-#>  3 25      Anaheim Ducks     NA        Drew Helleson       D. Helleson      
-#>  4 25      Anaheim Ducks     NA        Drew Helleson       D. Helleson      
+#>  1 25      Anaheim Ducks     NA        Ian Moore           I. Moore         
+#>  2 25      Anaheim Ducks     NA        Ian Moore           I. Moore         
+#>  3 25      Anaheim Ducks     NA        Troy Terry          T. Terry         
+#>  4 25      Anaheim Ducks     NA        Troy Terry          T. Terry         
 #>  5 25      Anaheim Ducks     NA        A.J. Greer          A.J. Greer       
 #>  6 25      Anaheim Ducks     NA        A.J. Greer          A.J. Greer       
-#>  7 25      Anaheim Ducks     NA        Troy Terry          T. Terry         
-#>  8 25      Anaheim Ducks     NA        Troy Terry          T. Terry         
-#>  9 25      Anaheim Ducks     NA        Ian Moore           I. Moore         
-#> 10 25      Anaheim Ducks     NA        Ian Moore           I. Moore         
-#> # ℹ 184 more rows
+#>  7 25      Anaheim Ducks     NA        Drew Helleson       D. Helleson      
+#>  8 25      Anaheim Ducks     NA        Drew Helleson       D. Helleson      
+#>  9 1       Boston Bruins     NA        Matthew Poitras     M. Poitras       
+#> 10 1       Boston Bruins     NA        Matthew Poitras     M. Poitras       
+#> # ℹ 230 more rows
 #> # ℹ 11 more variables: player_position <chr>, injury_id <chr>,
 #> #   injury_status <chr>, injury_date <chr>, injury_short_comment <chr>,
 #> #   injury_long_comment <chr>, injury_type <chr>, injury_abbreviation <chr>,

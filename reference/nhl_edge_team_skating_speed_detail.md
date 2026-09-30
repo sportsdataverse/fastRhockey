@@ -67,26 +67,26 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_team_skating_speed_detail(team_id = 10))
 #> ── NHL Edge Team Skating Speed Detail ───────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:37:09 UTC
-#> # A tibble: 10 × 24
+#> ℹ Data updated: 2026-09-30 14:44:41 UTC
+#> # A tibble: 10 × 27
 #>    game_center_link    game_date game_type is_home_team time_in_period player_id
 #>    <chr>               <chr>         <int> <lgl>        <chr>              <int>
-#>  1 /gamecenter/sea-vs… 2025-10-…         2 TRUE         02:45            8477939
-#>  2 /gamecenter/col-vs… 2026-01-…         2 TRUE         06:23            8477503
-#>  3 /gamecenter/tor-vs… 2025-10-…         2 FALSE        01:05            8481122
-#>  4 /gamecenter/tor-vs… 2026-01-…         2 FALSE        17:56            8481711
-#>  5 /gamecenter/tor-vs… 2026-01-…         2 FALSE        12:30            8478904
-#>  6 /gamecenter/pit-vs… 2025-11-…         2 TRUE         09:09            8476853
-#>  7 /gamecenter/tor-vs… 2025-10-…         2 FALSE        04:11            8476931
-#>  8 /gamecenter/cgy-vs… 2025-10-…         2 TRUE         10:15            8481582
-#>  9 /gamecenter/tor-vs… 2026-01-…         2 FALSE        13:29            8475166
-#> 10 /gamecenter/det-vs… 2025-10-…         2 TRUE         07:39            8481122
-#> # ℹ 18 more variables: player_slug <chr>, player_first_name_default <chr>,
-#> #   player_last_name_default <chr>, skating_speed_imperial <dbl>,
-#> #   skating_speed_metric <dbl>, period_descriptor_number <int>,
-#> #   period_descriptor_period_type <chr>,
+#>  1 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         18:42            8480893
+#>  2 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         03:02            8479318
+#>  3 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         00:16            8476931
+#>  4 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         04:52            8484158
+#>  5 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         04:02            8477939
+#>  6 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         19:07            8486067
+#>  7 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         00:13            8478458
+#>  8 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         01:57            8475171
+#>  9 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         12:49            8475166
+#> 10 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         06:10            8477426
+#> # ℹ 21 more variables: player_slug <chr>, player_first_name_default <chr>,
+#> #   player_last_name_default <chr>, player_last_name_cs <chr>,
+#> #   player_last_name_fi <chr>, player_last_name_sk <chr>,
+#> #   skating_speed_imperial <dbl>, skating_speed_metric <dbl>,
+#> #   period_descriptor_number <int>, period_descriptor_period_type <chr>,
 #> #   period_descriptor_max_regulation_periods <int>,
-#> #   home_team_common_name_default <chr>,
-#> #   home_team_place_name_with_preposition_default <chr>, …
+#> #   home_team_common_name_default <chr>, …
 # }
 ```

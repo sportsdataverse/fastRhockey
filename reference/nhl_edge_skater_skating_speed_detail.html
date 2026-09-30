@@ -76,6 +76,7 @@ fetch the current season."><meta property="og:image" content="https://raw.github
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--data" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-database"></span>  Data</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--data"><li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/fastRhockey-data">Data Repository</a></li>
   </ul></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://sportsdataverse.org/status">Data status</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://x.com/benhowell71" aria-label="X (Twitter)"><span class="fa fab fa-x-twitter fa-lg"></span></a></li>
@@ -140,20 +141,20 @@ season), an 8-character API season (e.g., <code>"20242025"</code>), or <code>NUL
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_edge_skater_skating_speed_detail</span><span class="op">(</span>player_id <span class="op">=</span> <span class="fl">8478402</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Edge Skater Skating Speed Detail ─────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-27 04:37:05 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-30 14:44:36 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 24</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    game_center_link       game_date game_type player_on_home_team time_in_period</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> /gamecenter/cgy-vs-ed… 2025-10-…         2 TRUE                08:04         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> /gamecenter/sea-vs-ed… 2026-03-…         2 TRUE                14:12         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> /gamecenter/edm-vs-va… 2025-10-…         2 FALSE               13:51         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> /gamecenter/edm-vs-tb… 2025-11-…         2 FALSE               03:30         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> /gamecenter/wpg-vs-ed… 2025-12-…         2 TRUE                10:57         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> /gamecenter/wpg-vs-ed… 2025-12-…         2 TRUE                16:30         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> /gamecenter/min-vs-ed… 2026-01-…         2 TRUE                16:39         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> /gamecenter/edm-vs-la… 2026-04-…         2 FALSE               08:19         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> /gamecenter/stl-vs-ed… 2026-01-…         2 TRUE                09:34         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> /gamecenter/chi-vs-ed… 2025-11-…         2 TRUE                03:49         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> /gamecenter/van-vs-ed… 2026-09-…         2 TRUE                09:39         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> /gamecenter/van-vs-ed… 2026-09-…         2 TRUE                03:55         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> /gamecenter/van-vs-ed… 2026-09-…         2 TRUE                18:07         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> /gamecenter/van-vs-ed… 2026-09-…         2 TRUE                06:33         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> /gamecenter/van-vs-ed… 2026-09-…         2 TRUE                14:54         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> /gamecenter/van-vs-ed… 2026-09-…         2 TRUE                02:44         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> /gamecenter/van-vs-ed… 2026-09-…         2 TRUE                18:26         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> /gamecenter/van-vs-ed… 2026-09-…         2 TRUE                00:18         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> /gamecenter/van-vs-ed… 2026-09-…         2 TRUE                13:57         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> /gamecenter/van-vs-ed… 2026-09-…         2 TRUE                09:49         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 19 more variables: skating_speed_imperial &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   skating_speed_metric &lt;dbl&gt;, period_descriptor_number &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   period_descriptor_period_type &lt;chr&gt;,</span></span>

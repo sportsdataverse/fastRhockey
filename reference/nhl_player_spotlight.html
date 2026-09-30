@@ -70,6 +70,7 @@ highlighted by the league."><meta property="og:image" content="https://raw.githu
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--data" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-database"></span>  Data</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--data"><li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/fastRhockey-data">Data Repository</a></li>
   </ul></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://sportsdataverse.org/status">Data status</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://x.com/benhowell71" aria-label="X (Twitter)"><span class="fa fab fa-x-twitter fa-lg"></span></a></li>
@@ -111,19 +112,19 @@ highlighted by the league.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_player_spotlight</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Player Spotlight ─────────────────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-27 04:37:18 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-30 14:44:51 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 13</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    player_id player_slug  position sweater_number team_id headshot team_tri_code</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   8<span style="text-decoration: underline;">481</span>540 cole-caufie… R                    13       8 https:/… MTL          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   8<span style="text-decoration: underline;">480</span>803 evan-boucha… D                     2      22 https:/… EDM          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   8<span style="text-decoration: underline;">484</span>801 macklin-cel… C                    71      28 https:/… SJS          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   8<span style="text-decoration: underline;">471</span>675 sidney-cros… C                    87       5 https:/… PIT          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   8<span style="text-decoration: underline;">481</span>559 jack-hughes… C                    86       1 https:/… NJD          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>   8<span style="text-decoration: underline;">477</span>492 nathan-mack… C                    29      21 https:/… COL          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   8<span style="text-decoration: underline;">478</span>402 connor-mcda… C                    97      22 https:/… EDM          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>   8<span style="text-decoration: underline;">471</span>214 alex-ovechk… L                     8      15 https:/… WSH          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   8<span style="text-decoration: underline;">485</span>366 matthew-sch… D                    48       2 https:/… NYI          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   8<span style="text-decoration: underline;">480</span>801 brady-tkach… L                     8      13 https:/… FLA          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   8<span style="text-decoration: underline;">477</span>956 david-pastr… R                    88       6 https:/… BOS          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   8<span style="text-decoration: underline;">485</span>366 matthew-sch… D                    48       2 https:/… NYI          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   8<span style="text-decoration: underline;">476</span>883 andrei-vasi… G                    88      14 https:/… TBL          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6 more variables: team_logo &lt;chr&gt;, sort_id &lt;int&gt;, name_default &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   name_cs &lt;chr&gt;, name_fi &lt;chr&gt;, name_sk &lt;chr&gt;</span></span>

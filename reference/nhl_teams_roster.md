@@ -48,27 +48,27 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_teams_roster(team_abbr = "TOR"))
 #> ── NHL Roster ───────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:37:55 UTC
-#> # A tibble: 24 × 14
-#>    player_id first_name last_name full_name       sweater_number position_code
-#>        <int> <chr>      <chr>     <chr>                    <int> <chr>        
-#>  1   8476927 Teddy      Blueger   Teddy Blueger               NA F            
-#>  2   8484158 Easton     Cowan     Easton Cowan                53 F            
-#>  3   8479520 Brandon    Duhaime   Brandon Duhaime             NA F            
-#>  4   8480870 Bo         Groulx    Bo Groulx                   29 F            
-#>  5   8485467 Luke       Haymes    Luke Haymes                 43 F            
-#>  6   8478057 Dakota     Joshua    Dakota Joshua               81 F            
-#>  7   8482720 Matthew    Knies     Matthew Knies               23 F            
-#>  8   8479772 Zack       MacEwen   Zack MacEwen                NA F            
-#>  9   8479318 Auston     Matthews  Auston Matthews             34 F            
-#> 10   8486067 Gavin      McKenna   Gavin McKenna               NA F            
-#> # ℹ 14 more rows
+#> ℹ Data updated: 2026-09-30 14:45:34 UTC
+#> # A tibble: 23 × 14
+#>    player_id first_name last_name full_name        sweater_number position_code
+#>        <int> <chr>      <chr>     <chr>                     <int> <chr>        
+#>  1   8476927 Teddy      Blueger   Teddy Blueger                73 F            
+#>  2   8484158 Easton     Cowan     Easton Cowan                 53 F            
+#>  3   8479520 Brandon    Duhaime   Brandon Duhaime              24 F            
+#>  4   8480870 Bo         Groulx    Bo Groulx                    29 F            
+#>  5   8485467 Luke       Haymes    Luke Haymes                  43 F            
+#>  6   8479772 Zack       MacEwen   Zack MacEwen                 19 F            
+#>  7   8480893 Kirill     Marchenko Kirill Marchenko             NA F            
+#>  8   8479318 Auston     Matthews  Auston Matthews              34 F            
+#>  9   8486067 Gavin      McKenna   Gavin McKenna                92 F            
+#> 10   8477939 William    Nylander  William Nylander             88 F            
+#> # ℹ 13 more rows
 #> # ℹ 8 more variables: shoots_catches <chr>, height_inches <int>,
 #> #   weight_pounds <int>, birth_date <chr>, birth_city <chr>,
 #> #   birth_country <chr>, headshot_url <chr>, team_abbr <chr>
   try(nhl_teams_roster(team_abbr = "TOR", season = 2024))
 #> ── NHL Roster ───────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:37:55 UTC
+#> ℹ Data updated: 2026-09-30 14:45:34 UTC
 #> # A tibble: 42 × 14
 #>    player_id first_name last_name full_name       sweater_number position_code
 #>        <int> <chr>      <chr>     <chr>                    <int> <chr>        

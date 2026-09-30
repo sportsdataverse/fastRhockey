@@ -171,21 +171,21 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_statistics_league())
 #> ── NHL League Statistics data from ESPN.com ─────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:35:38 UTC
-#> # A tibble: 390 × 8
+#> ℹ Data updated: 2026-09-30 14:42:51 UTC
+#> # A tibble: 394 × 8
 #>    category_name category_abbreviation display_value value athlete_id
 #>    <chr>         <chr>                 <chr>         <dbl> <chr>     
 #>  1 goals         G                     4                 4 5216858   
-#>  2 goals         G                     3                 3 4319858   
-#>  3 goals         G                     3                 3 5136616   
-#>  4 goals         G                     3                 3 5361709   
-#>  5 goals         G                     3                 3 2562602   
-#>  6 goals         G                     3                 3 4894702   
-#>  7 goals         G                     3                 3 4565225   
-#>  8 goals         G                     3                 3 5188613   
-#>  9 goals         G                     2                 2 5291934   
-#> 10 goals         G                     2                 2 3041970   
-#> # ℹ 380 more rows
+#>  2 goals         G                     3                 3 5291934   
+#>  3 goals         G                     3                 3 4319858   
+#>  4 goals         G                     3                 3 5136616   
+#>  5 goals         G                     3                 3 5361709   
+#>  6 goals         G                     3                 3 2562602   
+#>  7 goals         G                     3                 3 4272192   
+#>  8 goals         G                     3                 3 4894702   
+#>  9 goals         G                     3                 3 4565225   
+#> 10 goals         G                     3                 3 5188613   
+#> # ℹ 384 more rows
 #> # ℹ 3 more variables: athlete_display_name <chr>, team_id <chr>,
 #> #   team_abbreviation <chr>
 # }

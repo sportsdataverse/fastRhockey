@@ -103,6 +103,7 @@
 <li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/fastRhockey-data">Data Repository</a></li>
   </ul>
 </li>
+<li class="nav-item"><a class="external-link nav-link" href="https://sportsdataverse.org/status">Data status</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -168,6 +169,54 @@
 <p><img src="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png" width="70%" alt="fastRhockey holographic logo banner"></p>
 </center>
 <hr>
+</div>
+<div class="section level2">
+<h2 id="data-status">Data status<a class="anchor" aria-label="anchor" href="#data-status"></a>
+</h2>
+<p>The <code>load_nhl_*()</code> and <code>load_pwhl_*()</code> functions read release assets on <a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link">sportsdataverse-data</a>. The badges below are rebuilt nightly from each producer’s latest workflow run and newest release files; idle means the sport is out of season. Full detail: <a href="https://sportsdataverse.org/status" class="external-link">sportsdataverse.org/status</a>.</p>
+<table class="table">
+<colgroup>
+<col width="6%">
+<col width="17%">
+<col width="17%">
+<col width="17%">
+<col width="41%">
+</colgroup>
+<thead><tr>
+<th align="left">Dataset</th>
+<th align="left">Data updated</th>
+<th align="left">Through</th>
+<th align="left">Pipeline</th>
+<th align="left">Update workflows</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left"><a href="https://github.com/sportsdataverse/fastRhockey-nhl-data" class="external-link">NHL</a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2FfastRhockey-nhl-data%2Fupdated.json" alt="fastRhockey-nhl-data data updated"></a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2FfastRhockey-nhl-data%2Fthrough.json" alt="fastRhockey-nhl-data through season"></a></td>
+<td align="left"><a href="https://sportsdataverse.org/status#fastRhockey-nhl-data" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2FfastRhockey-nhl-data%2Fstatus.json" alt="fastRhockey-nhl-data pipeline state"></a></td>
+<td align="left">
+<a href="https://github.com/sportsdataverse/fastRhockey-nhl-data/actions/workflows/daily_nhl_python.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2FfastRhockey-nhl-data%2Fwf-daily_nhl_python.json" alt="fastRhockey-nhl-data daily_nhl_python"></a> <a href="https://github.com/sportsdataverse/fastRhockey-nhl-data/actions/workflows/nhl_model_pipeline.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2FfastRhockey-nhl-data%2Fwf-nhl_model_pipeline.json" alt="fastRhockey-nhl-data nhl_model_pipeline"></a>
+</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/sportsdataverse/fastRhockey-pwhl-data" class="external-link">PWHL</a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2FfastRhockey-pwhl-data%2Fupdated.json" alt="fastRhockey-pwhl-data data updated"></a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2FfastRhockey-pwhl-data%2Fthrough.json" alt="fastRhockey-pwhl-data through season"></a></td>
+<td align="left"><a href="https://sportsdataverse.org/status#fastRhockey-pwhl-data" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2FfastRhockey-pwhl-data%2Fstatus.json" alt="fastRhockey-pwhl-data pipeline state"></a></td>
+<td align="left">
+<a href="https://github.com/sportsdataverse/fastRhockey-pwhl-data/actions/workflows/daily_pwhl_python.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2FfastRhockey-pwhl-data%2Fwf-daily_pwhl_python.json" alt="fastRhockey-pwhl-data daily_pwhl_python"></a> <a href="https://github.com/sportsdataverse/fastRhockey-pwhl-data/actions/workflows/pwhl_xg_cron.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2FfastRhockey-pwhl-data%2Fwf-pwhl_xg_cron.json" alt="fastRhockey-pwhl-data pwhl_xg_cron"></a>
+</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/sportsdataverse/sdv-reference-data" class="external-link">Conference, division and ballpark reference</a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fsdv-reference-data%2Fupdated.json" alt="sdv-reference-data data updated"></a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fsdv-reference-data%2Fthrough.json" alt="sdv-reference-data through season"></a></td>
+<td align="left"><a href="https://sportsdataverse.org/status#sdv-reference-data" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fsdv-reference-data%2Fstatus.json" alt="sdv-reference-data pipeline state"></a></td>
+<td align="left">—</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>

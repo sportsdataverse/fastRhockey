@@ -66,33 +66,29 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_goalie_stats_leaders())
 #> ── NHL Goalie Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:37:15 UTC
-#> # A tibble: 20 × 17
-#>         id sweater_number headshot         team_abbrev team_logo position  value
-#>      <int>          <int> <chr>            <chr>       <chr>     <chr>     <dbl>
-#>  1 8476883             88 https://assets.… TBL         https://… G        39    
-#>  2 8478872             70 https://assets.… UTA         https://… G        38    
-#>  3 8479979             29 https://assets.… DAL         https://… G        35    
-#>  4 8480313             48 https://assets.… WSH         https://… G        31    
-#>  5 8475809             41 https://assets.… COL         https://… G        31    
-#>  6 8478009             30 https://assets.… NYI         https://… G         7    
-#>  7 8480981             30 https://assets.… STL         https://… G         6    
-#>  8 8482661             30 https://assets.… MIN         https://… G         4    
-#>  9 8475809             41 https://assets.… COL         https://… G         4    
-#> 10 8479406             32 https://assets.… MIN         https://… G         4    
-#> 11 8475809             41 https://assets.… COL         https://… G         0.921
-#> 12 8482661             30 https://assets.… MIN         https://… G         0.916
-#> 13 8476883             88 https://assets.… TBL         https://… G         0.912
-#> 14 8480313             48 https://assets.… WSH         https://… G         0.912
-#> 15 8478048             31 https://assets.… NYR         https://… G         0.912
-#> 16 8475809             41 https://assets.… COL         https://… G         2.02 
-#> 17 8476883             88 https://assets.… TBL         https://… G         2.31 
-#> 18 8478435             80 https://assets.… PHI         https://… G         2.42 
-#> 19 8479193              1 https://assets.… DAL         https://… G         2.43 
-#> 20 8480313             48 https://assets.… WSH         https://… G         2.44 
-#> # ℹ 10 more variables: first_name_default <chr>, first_name_cs <chr>,
-#> #   first_name_sk <chr>, last_name_default <chr>, last_name_cs <chr>,
-#> #   last_name_fi <chr>, last_name_sk <chr>, team_name_default <chr>,
-#> #   category <chr>, first_name_fi <chr>
+#> ℹ Data updated: 2026-09-30 14:44:48 UTC
+#> # A tibble: 17 × 15
+#>         id sweater_number headshot          team_abbrev team_logo position value
+#>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>
+#>  1 8474593             25 https://assets.n… FLA         https://… G        1    
+#>  2 8482487             75 https://assets.n… MTL         https://… G        1    
+#>  3 8480280              1 https://assets.n… BOS         https://… G        1    
+#>  4 8480947             32 https://assets.n… VAN         https://… G        1    
+#>  5 8479394             79 https://assets.n… VGK         https://… G        1    
+#>  6 8474593             25 https://assets.n… FLA         https://… G        1    
+#>  7 8480280              1 https://assets.n… BOS         https://… G        1    
+#>  8 8474593             25 https://assets.n… FLA         https://… G        1    
+#>  9 8480280              1 https://assets.n… BOS         https://… G        1    
+#> 10 8483548             32 https://assets.n… CAR         https://… G        0.95 
+#> 11 8482487             75 https://assets.n… MTL         https://… G        0.929
+#> 12 8479394             79 https://assets.n… VGK         https://… G        0.923
+#> 13 8474593             25 https://assets.n… FLA         https://… G        0    
+#> 14 8480280              1 https://assets.n… BOS         https://… G        0    
+#> 15 8483548             32 https://assets.n… CAR         https://… G        0.924
+#> 16 8479394             79 https://assets.n… VGK         https://… G        2.00 
+#> 17 8482487             75 https://assets.n… MTL         https://… G        2.01 
+#> # ℹ 8 more variables: first_name_default <chr>, last_name_default <chr>,
+#> #   last_name_cs <chr>, last_name_fi <chr>, last_name_sk <chr>,
+#> #   last_name_sv <chr>, team_name_default <chr>, category <chr>
 # }
 ```

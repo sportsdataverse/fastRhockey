@@ -74,24 +74,24 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_conferences_info(conference_name = "Eastern"))
 #> ── NHL Conference Information from NHL.com ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:36:55 UTC
+#> ℹ Data updated: 2026-09-30 14:44:24 UTC
 #> # A tibble: 16 × 36
 #>    team_abbr team_name             team_common_name team_logo    conference_name
 #>    <chr>     <chr>                 <chr>            <chr>        <chr>          
-#>  1 CAR       Carolina Hurricanes   Hurricanes       https://ass… Eastern        
-#>  2 BUF       Buffalo Sabres        Sabres           https://ass… Eastern        
-#>  3 TBL       Tampa Bay Lightning   Lightning        https://ass… Eastern        
-#>  4 MTL       Montréal Canadiens    Canadiens        https://ass… Eastern        
-#>  5 BOS       Boston Bruins         Bruins           https://ass… Eastern        
-#>  6 OTT       Ottawa Senators       Senators         https://ass… Eastern        
-#>  7 PIT       Pittsburgh Penguins   Penguins         https://ass… Eastern        
-#>  8 PHI       Philadelphia Flyers   Flyers           https://ass… Eastern        
-#>  9 WSH       Washington Capitals   Capitals         https://ass… Eastern        
-#> 10 DET       Detroit Red Wings     Red Wings        https://ass… Eastern        
-#> 11 CBJ       Columbus Blue Jackets Blue Jackets     https://ass… Eastern        
-#> 12 NYI       New York Islanders    Islanders        https://ass… Eastern        
-#> 13 NJD       New Jersey Devils     Devils           https://ass… Eastern        
-#> 14 FLA       Florida Panthers      Panthers         https://ass… Eastern        
+#>  1 BOS       Boston Bruins         Bruins           https://ass… Eastern        
+#>  2 MTL       Montréal Canadiens    Canadiens        https://ass… Eastern        
+#>  3 FLA       Florida Panthers      Panthers         https://ass… Eastern        
+#>  4 CAR       Carolina Hurricanes   Hurricanes       https://ass… Eastern        
+#>  5 BUF       Buffalo Sabres        Sabres           https://ass… Eastern        
+#>  6 CBJ       Columbus Blue Jackets Blue Jackets     https://ass… Eastern        
+#>  7 DET       Detroit Red Wings     Red Wings        https://ass… Eastern        
+#>  8 NJD       New Jersey Devils     Devils           https://ass… Eastern        
+#>  9 NYI       New York Islanders    Islanders        https://ass… Eastern        
+#> 10 OTT       Ottawa Senators       Senators         https://ass… Eastern        
+#> 11 PHI       Philadelphia Flyers   Flyers           https://ass… Eastern        
+#> 12 PIT       Pittsburgh Penguins   Penguins         https://ass… Eastern        
+#> 13 TBL       Tampa Bay Lightning   Lightning        https://ass… Eastern        
+#> 14 WSH       Washington Capitals   Capitals         https://ass… Eastern        
 #> 15 TOR       Toronto Maple Leafs   Maple Leafs      https://ass… Eastern        
 #> 16 NYR       New York Rangers      Rangers          https://ass… Eastern        
 #> # ℹ 31 more variables: division_abbrev <chr>, division_name <chr>,

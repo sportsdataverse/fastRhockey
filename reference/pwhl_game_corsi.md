@@ -54,7 +54,7 @@ Saiem Gilani
 # \donttest{
   try(pwhl_game_corsi(game_id = 42))
 #> ── PWHL Game Corsi from HockeyTech ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:38:10 UTC
+#> ℹ Data updated: 2026-09-30 14:45:50 UTC
 #> # A tibble: 39 × 10
 #>    player_id corsi_for corsi_against corsi_for_pct fenwick_for fenwick_against
 #>    <chr>         <int>         <int>         <dbl>       <int>           <int>

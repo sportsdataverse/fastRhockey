@@ -97,23 +97,23 @@ A data frame (`fastRhockey_data`) with the following columns:
     sort_by = "total"
   ))
 #> ── NHL Edge Team Skating Distance Top 10 ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:37:09 UTC
-#> # A tibble: 10 × 35
+#> ℹ Data updated: 2026-09-30 14:44:41 UTC
+#> # A tibble: 10 × 36
 #>    team_abbrev team_slug           team_common_name_def…¹ team_place_name_with…²
 #>    <chr>       <chr>               <chr>                  <chr>                 
-#>  1 COL         colorado-avalanche… Avalanche              Colorado              
-#>  2 SEA         seattle-kraken-55   Kraken                 Seattle               
-#>  3 NJD         new-jersey-devils-1 Devils                 New Jersey            
-#>  4 PHI         philadelphia-flyer… Flyers                 Philadelphia          
-#>  5 FLA         florida-panthers-13 Panthers               Florida               
-#>  6 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
-#>  7 DET         detroit-red-wings-… Red Wings              Detroit               
-#>  8 CGY         calgary-flames-20   Flames                 Calgary               
-#>  9 WPG         winnipeg-jets-52    Jets                   Winnipeg              
-#> 10 CAR         carolina-hurricane… Hurricanes             Carolina              
+#>  1 FLA         florida-panthers-13 Panthers               Florida               
+#>  2 EDM         edmonton-oilers-22  Oilers                 Edmonton              
+#>  3 CAR         carolina-hurricane… Hurricanes             Carolina              
+#>  4 BOS         boston-bruins-6     Bruins                 Boston                
+#>  5 NYR         new-york-rangers-3  Rangers                New York              
+#>  6 VAN         vancouver-canucks-… Canucks                Vancouver             
+#>  7 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
+#>  8 TOR         toronto-maple-leaf… Maple Leafs            Toronto               
+#>  9 MTL         montreal-canadiens… Canadiens              Montréal              
+#> 10 CHI         chicago-blackhawks… Blackhawks             Chicago               
 #> # ℹ abbreviated names: ¹​team_common_name_default,
 #> #   ²​team_place_name_with_preposition_default
-#> # ℹ 31 more variables: team_team_logo_light <chr>, team_team_logo_dark <chr>,
+#> # ℹ 32 more variables: team_team_logo_light <chr>, team_team_logo_dark <chr>,
 #> #   distance_total_imperial <dbl>, distance_total_metric <dbl>,
 #> #   distance_per60_imperial <dbl>, distance_per60_metric <dbl>,
 #> #   distance_max_per_game_imperial <dbl>, distance_max_per_game_metric <dbl>,

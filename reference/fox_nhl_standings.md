@@ -24,22 +24,23 @@ standings columns, `entity_id`).
 ``` r
  try(fox_nhl_standings("1")) 
 #> ── Fox Sports NHL standings ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:35:46 UTC
-#> # A tibble: 32 × 19
-#>    team_id section   eastern_conference v2       w_l_otl pts   gp    row   sow  
-#>    <chr>   <chr>     <chr>              <chr>    <chr>   <chr> <chr> <chr> <chr>
-#>  1 1       PRESEASON 1                  Canadie… 3-0-0   6     3     3     0    
-#>  2 1       PRESEASON 2                  Red Win… 2-0-1   5     3     2     0    
-#>  3 1       PRESEASON 3                  Panthers 2-0-1   5     3     2     0    
-#>  4 1       PRESEASON 4                  Devils   2-0-1   5     3     2     0    
-#>  5 1       PRESEASON 5                  Capitals 2-0-1   5     3     2     0    
-#>  6 1       PRESEASON 6                  Maple L… 2-1-1   5     4     2     0    
-#>  7 1       PRESEASON 7                  Bruins   2-1-1   5     4     1     1    
-#>  8 1       PRESEASON 8                  Blue Ja… 2-1-0   4     3     1     1    
-#>  9 1       PRESEASON 9                  Hurrica… 2-1-0   4     3     1     1    
-#> 10 1       PRESEASON 10                 Rangers  2-2-0   4     4     1     1    
-#> # ℹ 22 more rows
-#> # ℹ 10 more variables: sol <chr>, gf <chr>, ga <chr>, gd <chr>, home <chr>,
+#> ℹ Data updated: 2026-09-30 14:43:04 UTC
+#> # A tibble: 128 × 24
+#>    team_id section    eastern_conference v2      w_l_otl pts   gp    row   sow  
+#>    <chr>   <chr>      <chr>              <chr>   <chr>   <chr> <chr> <chr> <chr>
+#>  1 1       CONFERENCE NA                 Sabres  0-0-0   0     0     0     0    
+#>  2 1       CONFERENCE NA                 Senato… 0-0-0   0     0     0     0    
+#>  3 1       CONFERENCE NA                 Devils  0-0-0   0     0     0     0    
+#>  4 1       CONFERENCE NA                 Island… 0-0-0   0     0     0     0    
+#>  5 1       CONFERENCE NA                 Flyers  0-0-0   0     0     0     0    
+#>  6 1       CONFERENCE NA                 Pengui… 0-0-0   0     0     0     0    
+#>  7 1       CONFERENCE NA                 Capita… 0-0-0   0     0     0     0    
+#>  8 1       CONFERENCE NA                 Red Wi… 0-0-0   0     0     0     0    
+#>  9 1       CONFERENCE NA                 Lightn… 0-0-0   0     0     0     0    
+#> 10 1       CONFERENCE NA                 Blue J… 0-0-0   0     0     0     0    
+#> # ℹ 118 more rows
+#> # ℹ 15 more variables: sol <chr>, gf <chr>, ga <chr>, gd <chr>, home <chr>,
 #> #   away <chr>, l10 <chr>, strk <chr>, entity_id <chr>,
-#> #   western_conference <chr>
+#> #   western_conference <chr>, east_atlantic <chr>, east_metropolitan <chr>,
+#> #   west_central <chr>, west_pacific <chr>, wild_card <chr>
 ```

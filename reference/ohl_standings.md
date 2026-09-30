@@ -44,28 +44,28 @@ Other OHL Functions:
 ``` r
  try(ohl_standings()) 
 #> ── OHL Standings from HockeyTech ────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:38:06 UTC
+#> ℹ Data updated: 2026-09-30 14:45:45 UTC
 #> # A tibble: 20 × 21
 #>    team_code wins  losses ot_losses ot_wins shootout_wins shootout_losses
 #>    <chr>     <chr>  <dbl> <chr>     <chr>   <chr>         <chr>          
-#>  1 BFD       4          0 0         0       0             0              
-#>  2 OSH       3          1 0         0       0             0              
-#>  3 KGN       2          2 0         1       0             0              
-#>  4 OTT       1          0 1         0       0             0              
+#>  1 BFD       5          0 0         0       0             0              
+#>  2 OSH       3          2 0         0       0             0              
+#>  3 KGN       2          3 0         1       0             0              
+#>  4 OTT       1          1 1         0       0             0              
 #>  5 PBO       1          4 0         0       0             0              
-#>  6 SBY       3          0 0         0       0             0              
+#>  6 SBY       4          0 0         0       0             0              
 #>  7 NIAG      2          2 0         0       0             0              
 #>  8 NB        2          2 0         0       0             0              
-#>  9 BRAM      0          4 0         0       0             0              
+#>  9 BRAM      0          5 0         0       0             0              
 #> 10 BAR       0          4 0         0       0             0              
-#> 11 SOO       3          1 0         1       0             0              
-#> 12 FLNT      2          1 0         0       0             0              
-#> 13 SAR       2          1 0         0       0             0              
+#> 11 SAR       3          1 0         0       0             0              
+#> 12 SOO       3          1 0         1       0             0              
+#> 13 FLNT      2          1 0         0       0             0              
 #> 14 WSR       1          2 1         0       0             0              
 #> 15 SAG       1          2 1         0       0             0              
-#> 16 LDN       3          0 0         1       0             0              
-#> 17 ER        2          0 1         0       0             0              
-#> 18 KIT       2          2 0         1       0             0              
+#> 16 KIT       3          2 0         1       0             0              
+#> 17 LDN       3          0 0         1       0             0              
+#> 18 ER        2          0 1         0       0             0              
 #> 19 GUE       2          2 0         0       0             0              
 #> 20 OS        1          3 0         0       0             0              
 #> # ℹ 14 more variables: regulation_wins <dbl>, row <chr>, points <dbl>,

@@ -76,20 +76,11 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_skater_skating_distance_detail(player_id = 8478402))
 #> ── NHL Edge Skater Skating Distance Detail ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:37:04 UTC
-#> # A tibble: 10 × 29
-#>    game_center_link game_date player_on_home_team toi_all toi_even toi_pp toi_pk
-#>    <chr>            <chr>     <lgl>                 <int>    <int>  <int>  <int>
-#>  1 /gamecenter/van… 2026-04-… TRUE                   1096      935    116     45
-#>  2 /gamecenter/col… 2026-04-… TRUE                   1675     1307    269     99
-#>  3 /gamecenter/edm… 2026-04-… FALSE                  1610     1493    117     NA
-#>  4 /gamecenter/edm… 2026-04-… FALSE                  1270     1028    205     37
-#>  5 /gamecenter/edm… 2026-04-… FALSE                  1325     1115    178     32
-#>  6 /gamecenter/vgk… 2026-04-… TRUE                   1405     1067    338     NA
-#>  7 /gamecenter/chi… 2026-04-… TRUE                   1305     1002    303     NA
-#>  8 /gamecenter/sea… 2026-03-… TRUE                   1186     1064    106     16
-#>  9 /gamecenter/ana… 2026-03-… TRUE                   1349     1032    313      4
-#> 10 /gamecenter/edm… 2026-03-… FALSE                  1332     1160    160     12
+#> ℹ Data updated: 2026-09-30 14:44:36 UTC
+#> # A tibble: 1 × 29
+#>   game_center_link  game_date player_on_home_team toi_all toi_even toi_pp toi_pk
+#>   <chr>             <chr>     <lgl>                 <int>    <int>  <int>  <int>
+#> 1 /gamecenter/van-… 2026-09-… TRUE                   1371     1012    320     39
 #> # ℹ 22 more variables: distance_skated_all_imperial <dbl>,
 #> #   distance_skated_all_metric <dbl>, distance_skated_even_imperial <dbl>,
 #> #   distance_skated_even_metric <dbl>, distance_skated_pp_imperial <dbl>,

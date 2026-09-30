@@ -73,8 +73,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_player_career_stats(player_id = 8478402))
 #> ── NHL Player Career Stats ──────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:37:17 UTC
-#> # A tibble: 36 × 41
+#> ℹ Data updated: 2026-09-30 14:44:50 UTC
+#> # A tibble: 37 × 41
 #>    player_id first_name last_name position assists game_type_id games_played
 #>        <int> <chr>      <chr>     <chr>      <int>        <int>        <int>
 #>  1   8478402 Connor     McDavid   C              7            2            7
@@ -87,7 +87,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8   8478402 Connor     McDavid   C             71            2           56
 #>  9   8478402 Connor     McDavid   C             15            3           14
 #> 10   8478402 Connor     McDavid   C             76            2           47
-#> # ℹ 26 more rows
+#> # ℹ 27 more rows
 #> # ℹ 34 more variables: goals <int>, league_abbrev <chr>, pim <int>,
 #> #   points <int>, season <int>, sequence <int>, game_winning_goals <int>,
 #> #   plus_minus <int>, power_play_goals <int>, shorthanded_goals <int>,

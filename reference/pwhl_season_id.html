@@ -68,6 +68,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--data" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-database"></span>  Data</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--data"><li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/fastRhockey-data">Data Repository</a></li>
   </ul></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://sportsdataverse.org/status">Data status</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://x.com/benhowell71" aria-label="X (Twitter)"><span class="fa fab fa-x-twitter fa-lg"></span></a></li>
@@ -120,27 +121,29 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">pwhl_season_id</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    season_id            season_name       season_short career playoff</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         10     2026-27 Pre-Season 2026-27 Pre-Season      0       0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2          9          2026 Playoffs      2026 Playoffs      1       1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3          8 2025-26 Regular Season        2025-26 Reg      1       0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4          7      2025-26 Preseason  2025-26 Preseason      0       0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5          6          2025 Playoffs      2025 Playoffs      1       1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6          5 2024-25 Regular Season        2024-25 Reg      1       0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7          4      2024-25 Preseason  2024-25 Preseason      0       0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8          3          2024 Playoffs      2024 Playoffs      1       1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9          1    2024 Regular Season           2024 Reg      1       0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10         2         2024 Preseason     2024 Preseason      0       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         11 2026-27 Regular Season        2026-27 Reg      1       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2         10     2026-27 Pre-Season 2026-27 Pre-Season      0       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3          9          2026 Playoffs      2026 Playoffs      1       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4          8 2025-26 Regular Season        2025-26 Reg      1       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5          7      2025-26 Preseason  2025-26 Preseason      0       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6          6          2025 Playoffs      2025 Playoffs      1       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7          5 2024-25 Regular Season        2024-25 Reg      1       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8          4      2024-25 Preseason  2024-25 Preseason      0       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9          3          2024 Playoffs      2024 Playoffs      1       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10         1    2024 Regular Season           2024 Reg      1       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11         2         2024 Preseason     2024 Preseason      0       0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    start_date   end_date season_yr game_type_label</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2026-10-01 2026-11-30      2027       preseason</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2026-04-28 2026-05-28      2026        playoffs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2025-11-21 2026-04-27      2026         regular</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2025-06-01 2025-11-19      2026       preseason</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2025-05-06 2025-06-03      2025        playoffs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2024-11-25 2025-05-05      2025         regular</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2024-11-01 2024-11-29      2025       preseason</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2024-05-06 2024-06-10      2024        playoffs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2024-01-01 2024-05-27      2024         regular</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2023-11-01 2023-12-31      2024       preseason</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2026-12-04 2027-04-19      2027         regular</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2026-10-01 2026-11-30      2027       preseason</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2026-04-28 2026-05-28      2026        playoffs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2025-11-21 2026-04-27      2026         regular</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2025-06-01 2025-11-19      2026       preseason</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2025-05-06 2025-06-03      2025        playoffs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2024-11-25 2025-05-05      2025         regular</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2024-11-01 2024-11-29      2025       preseason</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2024-05-06 2024-06-10      2024        playoffs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2024-01-01 2024-05-27      2024         regular</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2023-11-01 2023-12-31      2024       preseason</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -50,26 +50,26 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_team_shot_location_detail(team_id = 10))
 #> ── NHL Edge Team Shot Location Detail ───────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:37:07 UTC
+#> ℹ Data updated: 2026-09-30 14:44:39 UTC
 #> # A tibble: 17 × 7
 #>    area           sog sog_rank goals goals_rank shooting_pctg shooting_pctg_rank
 #>    <chr>        <int>    <int> <int>      <int>         <dbl>              <int>
-#>  1 Behind the …    10       28     0         20       NA                      NA
-#>  2 Beyond Red …    82        3     4         19        0.0488                 25
-#>  3 Center Point   146       30     5         29        0.0342                 26
-#>  4 Crease          76       19    18         20        0.237                  20
-#>  5 High Slot      224       12    39          8        0.174                   5
-#>  6 L Circle       228       12    28          5        0.123                   4
-#>  7 L Corner         1       30     0          6       NA                      NA
-#>  8 L Net Side      56       13     2         29        0.0357                 31
-#>  9 L Point        149       12     7          4        0.047                   4
-#> 10 Low Slot       559       19   112         11        0.200                   8
-#> 11 Offensive N…    64        7     3          6        0.0469                 10
-#> 12 Outside L      131       14     8          4        0.0611                  7
-#> 13 Outside R       88       29     4         19        0.0455                 16
-#> 14 R Circle       170       32    18         27        0.106                  15
-#> 15 R Corner         2       20     0          3       NA                      NA
-#> 16 R Net Side      50       16     4         16        0.08                   21
-#> 17 R Point        123       27     0         31       NA                      NA
+#>  1 Behind the …     0        4     0          1        NA                     NA
+#>  2 Beyond Red …     1        3     0          1        NA                     NA
+#>  3 Center Point     2        3     0          3        NA                     NA
+#>  4 Crease           0        7     0          3        NA                     NA
+#>  5 High Slot        1        7     0          4        NA                     NA
+#>  6 L Circle         6        1     0          3        NA                     NA
+#>  7 L Corner         0        2     0          1        NA                     NA
+#>  8 L Net Side       1        1     0          1        NA                     NA
+#>  9 L Point          0        9     0          2        NA                     NA
+#> 10 Low Slot         9        2     1          5         0.111                  6
+#> 11 Offensive N…     0        6     0          1        NA                     NA
+#> 12 Outside L        3        2     0          1        NA                     NA
+#> 13 Outside R        1        3     0          1        NA                     NA
+#> 14 R Circle         3        2     1          1         0.333                  2
+#> 15 R Corner         0        1     0          1        NA                     NA
+#> 16 R Net Side       1        3     0          1        NA                     NA
+#> 17 R Point          0        9     0          2        NA                     NA
 # }
 ```

@@ -60,22 +60,22 @@ A data frame (`fastRhockey_data`) with the following columns:
     sort_by = "offensive"
   ))
 #> ── NHL Edge Team Zone Time Top 10 ───────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:37:10 UTC
-#> # A tibble: 10 × 11
+#> ℹ Data updated: 2026-09-30 14:44:42 UTC
+#> # A tibble: 10 × 10
 #>    offensive_zone_time neutral_zone_time defensive_zone_time team_abbrev
 #>                  <dbl>             <dbl>               <dbl> <chr>      
-#>  1               0.455             0.184               0.361 CAR        
-#>  2               0.434             0.175               0.390 OTT        
-#>  3               0.428             0.182               0.390 COL        
-#>  4               0.423             0.184               0.393 VGK        
-#>  5               0.422             0.178               0.400 FLA        
-#>  6               0.420             0.180               0.399 NSH        
-#>  7               0.418             0.176               0.405 EDM        
-#>  8               0.416             0.184               0.400 ANA        
-#>  9               0.416             0.174               0.410 NYR        
-#> 10               0.414             0.177               0.409 PIT        
-#> # ℹ 7 more variables: team_slug <chr>, team_common_name_default <chr>,
-#> #   team_common_name_fr <chr>, team_place_name_with_preposition_default <chr>,
+#>  1               0.472             0.182               0.346 EDM        
+#>  2               0.414             0.177               0.409 TOR        
+#>  3               0.414             0.182               0.404 CHI        
+#>  4               0.413             0.180               0.407 FLA        
+#>  5               0.409             0.177               0.414 MTL        
+#>  6               0.407             0.197               0.396 NYR        
+#>  7               0.407             0.180               0.413 CAR        
+#>  8               0.404             0.182               0.414 VGK        
+#>  9               0.396             0.197               0.407 BOS        
+#> 10               0.346             0.182               0.472 VAN        
+#> # ℹ 6 more variables: team_slug <chr>, team_common_name_default <chr>,
+#> #   team_place_name_with_preposition_default <chr>,
 #> #   team_place_name_with_preposition_fr <chr>, team_team_logo_light <chr>,
 #> #   team_team_logo_dark <chr>
 # }
