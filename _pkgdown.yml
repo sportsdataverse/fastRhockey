@@ -65,7 +65,7 @@ home:
 
 navbar:
   structure:
-    left: [home, reference, articles, news, network, data]
+    left: [home, reference, articles, news, network, data, status]
     right: [search, x, github, lightswitch]
   components:
     home:
@@ -164,6 +164,9 @@ navbar:
       menu:
         - text: "Data Repository"
           href: "https://github.com/sportsdataverse/fastRhockey-data"
+    status:
+      text: "Data status"
+      href: https://sportsdataverse.org/status
     x:
       icon: "fab fa-x-twitter fa-lg"
       href: https://x.com/benhowell71
