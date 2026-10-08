@@ -99,6 +99,11 @@ test_that("without home_team_id the right and vertical columns are NA", {
   df <- fastRhockey:::hockeytech_add_coord_transforms(df)
   expect_true(all(is.na(df$x_coord_right)) && all(is.na(df$y_coord_vertical)))
   expect_true(any(!is.na(df$x_coord_fixed)))
+  # An empty home_team_id (no game summary) is unknown too, never "everyone is the visitor".
+  df2 <- fastRhockey:::.parse_hockeytech_pbp(.load_fx("pwhl_pbp_42"), game_id = 42)
+  df2$home_team_id <- ""
+  df2 <- fastRhockey:::hockeytech_add_coord_transforms(df2)
+  expect_true(all(is.na(df2$x_coord_right)))
 })
 
 test_that("hockeytech_add_clock_columns: period 2 offset by 1200", {

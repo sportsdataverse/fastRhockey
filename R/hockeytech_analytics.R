@@ -478,7 +478,7 @@ hockeytech_per60 <- function(value, toi_seconds) {
 #'
 #' The flips are 180-degree rotations, so every event stays on the rink.
 #' Rows with null x_coord or y_coord produce NA for all ten columns. Rows whose
-#' side is unknown (no home_team_id column, or a null team_id / home_team_id)
+#' side is unknown (no home_team_id column, or an NA or empty team_id / home_team_id)
 #' produce NA for the right and vertical columns.
 #'
 #' x_coord and y_coord are MUTATED in place to the transformed values
@@ -523,9 +523,11 @@ hockeytech_add_coord_transforms <- function(pbp) {
   pbp$x_coord_fixed <- -x_t
   pbp$y_coord_fixed <- -y_t
 
+  # An empty id (no game summary, as on MJHL) is as unknown as an NA one.
   is_home <- if (all(c("team_id", "home_team_id") %in% names(pbp))) {
-    ifelse(is.na(pbp$team_id) | is.na(pbp$home_team_id), NA,
-           as.character(pbp$team_id) == as.character(pbp$home_team_id))
+    tid <- as.character(pbp$team_id)
+    hid <- as.character(pbp$home_team_id)
+    ifelse(is.na(tid) | is.na(hid) | !nzchar(tid) | !nzchar(hid), NA, tid == hid)
   } else {
     rep(NA, nrow(pbp))
   }
