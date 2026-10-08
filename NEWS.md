@@ -18,6 +18,20 @@
 
 ### Bug fixes
 
+* The derived play-by-play coordinates of `pwhl_pbp()` and the AHL / OHL / WHL /
+  QMJHL `*_pbp()` functions put home-team events off the rink: the home flip
+  applied a 0-200 x 0-85 mirror to coordinates already in centre-origin feet, so
+  home `x_coord_right` ran 191 to 290 ft (PWHL game 42). The feed puts the home
+  team's attack toward x = 0 in every period (320 PWHL games, sdv-internal-refs
+  `hockeytech/CANVAS.md`), and the columns are now rotations of the feet frame:
+  `x_coord_fixed` / `y_coord_fixed` = (-x, -y), home team shooting right (the
+  NHL `x_fixed` convention); `x_coord_right` / `y_coord_right` = home (-x, -y),
+  visitor (x, y); `x_coord_vertical` / `y_coord_vertical` = (-y_right, x_right).
+  The right and vertical columns are `NA` when an event's side is unknown (no
+  team, as on faceoffs, or no home team id) instead of being treated as the
+  visitor's. `x_coord`, `y_coord`, `shot_distance` and `shot_angle` are
+  unchanged.
+
 * `ahl_schedule()`, `ohl_schedule()`, `whl_schedule()` and `qmjhl_schedule()`
   returned other seasons' games. They read HockeyTech's `modulekit/scorebar`,
   which ignores the `season_id` it is sent, returns games oldest first and

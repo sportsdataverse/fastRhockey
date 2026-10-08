@@ -60,6 +60,56 @@ test_that("coord + clock transforms add parity columns", {
   expect_true(all(valid$sec_from_start >= 0))
 })
 
+test_that("derived coordinates are rotations that keep every event on the rink (real game 42)", {
+  testthat::skip_on_cran()
+  # The feed puts the home team's attack toward x = 0 (sdv-internal-refs CANVAS.md).
+  df <- fastRhockey:::.parse_hockeytech_pbp(.load_fx("pwhl_pbp_42"), game_id = 42)
+  home <- .load_fx("pwhl_game_summary_42")$GC$Gamesummary$meta$home_team
+  df$home_team_id <- home
+  df <- fastRhockey:::hockeytech_add_coord_transforms(df)
+  shots <- df[df$event %in% c("shot", "goal") & !is.na(df$x_coord), ]
+  is_home <- as.character(shots$team_id) == as.character(home)
+  expect_gt(sum(is_home), 0)
+  expect_gt(sum(!is_home), 0)
+  for (col in c("x_coord_fixed", "x_coord_right", "y_coord_vertical")) {
+    expect_true(all(abs(shots[[col]]) <= 100), info = col)
+  }
+  for (col in c("y_coord_fixed", "y_coord_right", "x_coord_vertical")) {
+    expect_true(all(abs(shots[[col]]) <= 42.5), info = col)
+  }
+  # Every team attacks +x in the right frame; only the home team does in the fixed frame.
+  expect_gt(stats::median(shots$x_coord_right[is_home]), 0)
+  expect_gt(stats::median(shots$x_coord_right[!is_home]), 0)
+  expect_gt(stats::median(shots$x_coord_fixed[is_home]), 0)
+  expect_lt(stats::median(shots$x_coord_fixed[!is_home]), 0)
+  expect_equal(shots$x_coord_vertical, -shots$y_coord_right)
+  expect_equal(shots$y_coord_vertical, shots$x_coord_right)
+  # Centre ice is (300,150) on the canvas, so (0,0) in every frame.
+  ctr <- df[!is.na(df$x_coord_original) & df$x_coord_original == 300 & df$y_coord_original == 150, ]
+  expect_gt(nrow(ctr), 0)
+  expect_true(all(ctr$x_coord_fixed == 0 & ctr$y_coord_fixed == 0))
+  # Faceoffs carry no team, so their side (and the right/vertical frames) is unknown.
+  fo <- df[df$event == "faceoff" & !is.na(df$x_coord), ]
+  expect_true(all(is.na(fo$x_coord_right)) && all(!is.na(fo$x_coord_fixed)))
+})
+
+test_that("without home_team_id the right and vertical columns are NA", {
+  testthat::skip_on_cran()
+  df <- fastRhockey:::.parse_hockeytech_pbp(.load_fx("pwhl_pbp_42"), game_id = 42)
+  df <- fastRhockey:::hockeytech_add_coord_transforms(df)
+  expect_true(all(is.na(df$x_coord_right)) && all(is.na(df$y_coord_vertical)))
+  expect_true(any(!is.na(df$x_coord_fixed)))
+  # An empty home_team_id (no game summary) is unknown too, never "everyone is the visitor".
+  df2 <- fastRhockey:::.parse_hockeytech_pbp(.load_fx("pwhl_pbp_42"), game_id = 42)
+  df2$home_team_id <- ""
+  df2 <- fastRhockey:::hockeytech_add_coord_transforms(df2)
+  expect_true(all(is.na(df2$x_coord_right)))
+  # Still numeric columns, as in sdv-py and sportsdataverse-js.
+  for (col in c("x_coord_right", "y_coord_right", "x_coord_vertical", "y_coord_vertical")) {
+    expect_type(df2[[col]], "double")
+  }
+})
+
 test_that("hockeytech_add_clock_columns: period 2 offset by 1200", {
   testthat::skip_on_cran()
   df <- fastRhockey:::.parse_hockeytech_pbp(.load_fx("pwhl_pbp_42"), game_id = 42)
