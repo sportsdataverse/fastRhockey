@@ -452,14 +452,20 @@
       venue = "venue_name", season_id = "SeasonID", game_type = "game_type"
     )
   }
-  if (length(games) == 0L) return(data.frame())
+  if (length(games) == 0L) {
+    return(as.data.frame(lapply(keys, function(k) character()), stringsAsFactors = FALSE))
+  }
 
   rows <- lapply(games, function(g) {
-    lapply(keys, function(k) as.character(g[[k]] %||% NA_character_))
+    lapply(keys, function(k) {
+      v <- g[[k]]
+      # A list or empty value would collapse the whole game to zero rows in bind_rows().
+      if (length(v) == 1L && !is.list(v)) as.character(v) else NA_character_
+    })
   })
   out <- dplyr::bind_rows(rows)
   if (!is.null(season_id)) {
-    out <- out[which(out$season_id == as.character(season_id)), , drop = FALSE]
+    out <- out[which(out$season_id == as.character(as.integer(season_id))), , drop = FALSE]
   }
   out
 }

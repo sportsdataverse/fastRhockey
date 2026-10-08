@@ -45,9 +45,11 @@
 .hockeytech_season_id <- function(league, season = NULL, game_type = "regular", season_id = NULL) {
   if (!is.null(season_id)) return(as.integer(season_id))
   if (is.null(season)) stop("Provide season (end-year) or season_id", call. = FALSE)
+  # Only PWHL has a fallback table; for any other league a failed seasons fetch raises,
+  # rather than reading as "no such season".
   seasons <- tryCatch(
     .parse_hockeytech_seasons(.hockeytech_api(.hockeytech_url(league, "modulekit", "seasons", list()))),
-    error = function(e) data.frame()
+    error = function(e) if (league == "pwhl") data.frame() else stop(e)
   )
   if (is.data.frame(seasons) && nrow(seasons) > 0) {
     hit <- seasons[which(seasons$season_yr == season & seasons$game_type_label == game_type), , drop = FALSE]

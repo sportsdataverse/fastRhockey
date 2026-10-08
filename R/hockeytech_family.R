@@ -82,10 +82,8 @@
     season <- .hockeytech_most_recent_season(league)
   }
   sid <- .hockeytech_season_id(league, season = season, season_id = season_id)
-  payload <- tryCatch(
-    .hockeytech_api(.hockeytech_url(league, "modulekit", "schedule", list(season_id = sid))),
-    error = function(e) list()
-  )
+  # A failed fetch raises (the exported wrapper reports it); it is never an empty season.
+  payload <- .hockeytech_api(.hockeytech_url(league, "modulekit", "schedule", list(season_id = sid)))
   .parse_hockeytech_schedule(payload, season_id = sid)
 }
 

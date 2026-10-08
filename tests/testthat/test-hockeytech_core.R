@@ -187,6 +187,37 @@ test_that("a one-year preseason that starts in that year belongs to the next sea
   expect_equal(one("2026-27 Pre-Season", "2026-11-01"), 2027L) # spans two years: unshifted
 })
 
+test_that("season parsing matches sdv-py on five leagues' real seasons captures", {
+  testthat::skip_on_cran()
+  # seasons_parity_sdvpy.csv = sdv-py parse_seasons() on these same fixtures (README).
+  gold <- utils::read.csv(testthat::test_path("fixtures", "hockeytech", "seasons_parity_sdvpy.csv"),
+                          stringsAsFactors = FALSE, encoding = "UTF-8")
+  for (lg in unique(gold$league)) {
+    r <- fastRhockey:::.parse_hockeytech_seasons(.load_fx(paste0(lg, "_seasons")))
+    g <- gold[gold$league == lg, ]
+    expect_equal(as.integer(r$season_id), g$season_id, info = lg)
+    expect_equal(r$season_yr, g$season_yr, info = lg)
+    expect_equal(r$game_type_label, g$game_type_label, info = lg)
+  }
+})
+
+test_that("a failed fetch raises instead of reading as an empty season", {
+  testthat::skip_on_cran()
+  testthat::local_mocked_bindings(
+    .hockeytech_api = function(url) stop("HTTP 503"),
+    .package = "fastRhockey"
+  )
+  expect_error(fastRhockey:::.hockeytech_schedule("ahl", season_id = 90L), "503")
+  expect_error(fastRhockey:::.hockeytech_season_id("ahl", season = 2026L), "503")
+})
+
+test_that("an empty schedule keeps the 12 columns", {
+  testthat::skip_on_cran()
+  df <- fastRhockey:::.parse_hockeytech_schedule(list(SiteKit = list(Schedule = list())))
+  expect_equal(names(df), .schedule_cols)
+  expect_equal(nrow(df), 0L)
+})
+
 test_that("season resolver skips one-off events (real AHL seasons capture)", {
   testthat::skip_on_cran()
   # The AHL lists "2026 All-Star Challenge" (91) ahead of "2025-26 Regular Season" (90).
