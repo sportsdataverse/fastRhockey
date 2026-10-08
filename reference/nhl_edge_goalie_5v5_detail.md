@@ -62,7 +62,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_edge_goalie_5v5_detail(player_id = 8475883))
-#> 2026-10-08 11:31:44.634358: No NHL Edge goalie 5v5 detail returned for player_id=8475883
+#> 2026-10-08 12:58:58.092393: No NHL Edge goalie 5v5 detail returned for player_id=8475883
 #> NULL
 # }
 ```

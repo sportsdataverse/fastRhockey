@@ -31,6 +31,15 @@ CRAN release: 2026-08-25
 
 #### Bug fixes
 
+- `shot_distance` / `shot_angle` (and `scoring_chance`) of an empty-net
+  goal from a team’s own half were measured to the nearer net: 59 ft for
+  a median 126-ft goal (27 such goals in 320 PWHL games). Empty-net
+  goals are now measured to the net their team attacks. Every other
+  event keeps the nearer net: per-event validation showed own-half
+  events with a goalie in net are near-net events whose coordinates the
+  feed mirrored (sdv-internal-refs `hockeytech/CANVAS.md`,
+  [\#52](https://github.com/sportsdataverse/fastRhockey/issues/52)).
+
 - The derived play-by-play coordinates of
   [`pwhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_pbp.md)
   and the AHL / OHL / WHL / QMJHL `*_pbp()` functions put home-team

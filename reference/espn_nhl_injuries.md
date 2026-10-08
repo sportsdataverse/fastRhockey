@@ -176,7 +176,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_injuries())
 #> ── NHL Injuries data from ESPN.com ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-08 11:29:16 UTC
+#> ℹ Data updated: 2026-10-08 12:56:36 UTC
 #> # A tibble: 238 × 16
 #>    team_id team_display_name player_id player_display_name player_short_name
 #>    <chr>   <chr>             <chr>     <chr>               <chr>            
