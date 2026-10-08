@@ -531,8 +531,11 @@ hockeytech_add_coord_transforms <- function(pbp) {
   } else {
     rep(NA, nrow(pbp))
   }
-  pbp$x_coord_right <- ifelse(is_home, -x_t, x_t)
-  pbp$y_coord_right <- ifelse(is_home, -y_t, y_t)
+  # A +/-1 multiplier keeps these double even when no row's side is known (an
+  # all-NA ifelse() would return a logical column).
+  side <- ifelse(is_home, -1, 1)
+  pbp$x_coord_right <- side * x_t
+  pbp$y_coord_right <- side * y_t
 
   pbp$x_coord_vertical <- -pbp$y_coord_right
   pbp$y_coord_vertical <- pbp$x_coord_right

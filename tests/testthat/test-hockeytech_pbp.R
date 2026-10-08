@@ -104,6 +104,10 @@ test_that("without home_team_id the right and vertical columns are NA", {
   df2$home_team_id <- ""
   df2 <- fastRhockey:::hockeytech_add_coord_transforms(df2)
   expect_true(all(is.na(df2$x_coord_right)))
+  # Still numeric columns, as in sdv-py and sportsdataverse-js.
+  for (col in c("x_coord_right", "y_coord_right", "x_coord_vertical", "y_coord_vertical")) {
+    expect_type(df2[[col]], "double")
+  }
 })
 
 test_that("hockeytech_add_clock_columns: period 2 offset by 1200", {
