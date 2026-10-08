@@ -18,6 +18,29 @@
 
 ### Bug fixes
 
+* `ahl_schedule()`, `ohl_schedule()`, `whl_schedule()` and `qmjhl_schedule()`
+  returned other seasons' games. They read HockeyTech's `modulekit/scorebar`,
+  which ignores the `season_id` it is sent, returns games oldest first and
+  stops at 10,000 rows, so `ahl_schedule(season = 2026)` returned AHL games
+  from 1995 to 2012 and none from 2025-26. They now read `modulekit/schedule`,
+  which the feed scopes to one season (live 2026-10-08: AHL 2025-26 = 1,152
+  games, OHL 682, WHL 782, QMJHL 578), and drop any row from another season.
+  With neither `season` nor `season_id` they return the newest regular season.
+  `game_status` now carries the schedule view's strings (`Final OT` where the
+  scorebar said `Final 1st OT`), and every column is character.
+
+* The AHL, OHL, WHL and QMJHL functions that take `season =` (schedule,
+  standings, teams, rosters, leaders, ...) could resolve it to the wrong
+  HockeyTech season. `ahl_schedule(season = 2026)` resolved to the
+  "2026 All-Star Challenge", which the feed lists ahead of the 2025-26 regular
+  season, and the WHL's "2025 - 26" season names read as 2025, so
+  `whl_schedule(season = 2026)` returned 2026-27. Season names now read as
+  their end year the way sdv-py reads them (spaced and slashed spans, `YY-ZZ`,
+  compact `YYZZ`, a one-year preseason that opens the next season), one-off
+  events are skipped for regular-season and playoff lookups, and the newest
+  season counts only real regular seasons. On the 20 leagues' real seasons
+  captures, R and sdv-py now agree on all 485 seasons' end year and type.
+
 * `nhl_teams(season =)` stopped with "missing value where TRUE/FALSE needed"
   (reported as "Error fetching teams") instead of returning `NULL` with "No
   team data found" when the NHL API has no standings for the date it asks

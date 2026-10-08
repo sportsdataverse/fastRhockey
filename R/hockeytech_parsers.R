@@ -21,32 +21,46 @@
 
 #' Derive the end-year (integer) from a season name string.
 #'
-#' Handles both "YYYY-YY" (e.g., "2024-25 Regular Season" -> 2025) and
-#' standalone "YYYY" (e.g., "2024 Regular Season" -> 2024).
+#' Mirrors sdv-py `_derive_season_year`; the first rule that matches wins.
+#' 1. `YYYY-YYYY` / `YYYY-YY` (`-` or `/`, spaces allowed): "2025-2026",
+#'    "2025/26", "2026 - 27" (the WHL's form) -> 2026, 2026, 2027. A two-digit
+#'    tail takes the start's century, +100 when that falls below the start
+#'    ("1999-00" -> 2000).
+#' 2. `YY-ZZ` with ZZ = YY + 1: "26-27 Regular Season" -> 2027.
+#' 3. The first standalone 4-digit token: a year in 1950..(this year + 2) is
+#'    itself; else a compact span `YYZZ` with ZZ = YY + 1 is its end year
+#'    ("CCHL 2425 Special Events" -> 2025).
+#' A two-digit end year is 20ZZ, or 19ZZ when 20ZZ is past this year + 2. A
+#' result outside 1950..(this year + 2), or no match ("19 Tie Break"), is NA.
 #'
 #' @param name A season name character string.
 #' @return An integer year, or NA_integer_ if no year pattern is matched.
 #' @noRd
 #' @keywords internal
 .derive_season_year <- function(name) {
-  if (is.na(name) || !nzchar(name)) return(NA_integer_)
-  # Try "YYYY-YY" format first (e.g., "2024-25 Regular Season")
-  m <- regexpr("(\\d{4})-(\\d{2})", name, perl = TRUE)
-  if (m > 0L) {
-    full   <- regmatches(name, m)
-    pieces <- strsplit(full, "-")[[1]]
-    start  <- as.integer(pieces[1])
-    end2   <- as.integer(pieces[2])
-    end    <- (start %/% 100L) * 100L + end2
-    if (end < start) end <- end + 100L
-    return(end)
+  if (length(name) != 1L || is.na(name) || !nzchar(name)) return(NA_integer_)
+  latest <- as.integer(format(Sys.Date(), "%Y")) + 2L
+  two_digit_end <- function(zz) if (2000L + zz <= latest) 2000L + zz else 1900L + zz
+  grab <- function(re) regmatches(name, regexec(re, name, perl = TRUE))[[1]]
+  m     <- grab("(\\d{4})\\s*[-/]\\s*(\\d{4}|\\d{2})(?!\\d)")
+  short <- grab("(?<!\\d)(\\d{2})\\s*[-/]\\s*(\\d{2})(?!\\d)")
+  token <- grab("(?<!\\d)(\\d{4})(?!\\d)")
+  yr <- NA_integer_
+  if (length(m)) {
+    start <- as.integer(m[2])
+    yr <- if (nchar(m[3]) == 4L) as.integer(m[3]) else (start %/% 100L) * 100L + as.integer(m[3])
+    if (yr < start) yr <- yr + 100L
+  } else if (length(short) && (as.integer(short[2]) + 1L) %% 100L == as.integer(short[3])) {
+    yr <- two_digit_end(as.integer(short[3]))
+  } else if (length(token)) {
+    t <- as.integer(token[2])
+    if (t >= 1950L && t <= latest) {
+      yr <- t
+    } else if ((t %/% 100L + 1L) %% 100L == t %% 100L) {
+      yr <- two_digit_end(t %% 100L)
+    }
   }
-  # Try standalone "YYYY" format
-  m2 <- regexpr("(\\d{4})", name, perl = TRUE)
-  if (m2 > 0L) {
-    return(as.integer(regmatches(name, m2)))
-  }
-  NA_integer_
+  if (!is.na(yr) && yr >= 1950L && yr <= latest) yr else NA_integer_
 }
 
 
@@ -55,14 +69,18 @@
 #' Named with the .ht_ prefix to avoid collision with the NHL .game_type_label
 #' internal helper in nhl_game_feed.R (which converts numeric game-type codes).
 #'
+#' Mirrors sdv-py `_game_type_label`: "2025-26 Preseason Exhibition" stays a
+#' preseason; "2026-27 Exhibition Season" is an exhibition, not a regular season.
+#'
 #' @param name A season name character string.
-#' @return One of "preseason", "playoffs", or "regular".
+#' @return One of "preseason", "playoffs", "exhibition", or "regular".
 #' @noRd
 #' @keywords internal
 .ht_game_type_label <- function(name) {
   n <- tolower(name %||% "")
   if (grepl("pre[- ]?season", n, perl = TRUE)) return("preseason")
   if (grepl("playoff|post",   n, perl = TRUE)) return("playoffs")
+  if (grepl("exhibition",     n, perl = TRUE)) return("exhibition")
   "regular"
 }
 
@@ -85,8 +103,19 @@
 
   rows <- vector("list", length(raw))
   for (i in seq_along(raw)) {
-    s    <- raw[[i]]
-    name <- s$season_name %||% NA_character_
+    s     <- raw[[i]]
+    name  <- s$season_name %||% NA_character_
+    yr    <- .derive_season_year(name)
+    label <- .ht_game_type_label(name)
+    # A one-year preseason or exhibition name gives the camp's calendar year: "2026
+    # Pre-season" starts 2026-08-11 and opens 2026-27, so it is 2027. Shifted only when
+    # the name spans no two years and the row starts in the year the name gives; PWHL's
+    # "2024 Preseason" started 2023-11-01 and stays 2024. Mirrors sdv-py parse_seasons.
+    if (label %in% c("preseason", "exhibition") && !is.na(yr) &&
+        !grepl("\\d{2}\\s*[-/]\\s*\\d{2}", name) &&
+        identical(substr(as.character(s$start_date %||% ""), 1L, 4L), as.character(yr))) {
+      yr <- yr + 1L
+    }
     rows[[i]] <- data.frame(
       season_id       = if (!is.null(s$season_id)) as.numeric(s$season_id) else NA_real_,
       season_name     = as.character(name),
@@ -95,8 +124,8 @@
       playoff         = as.character(s$playoff %||% "0"),
       start_date      = as.character(s$start_date %||% NA_character_),
       end_date        = as.character(s$end_date   %||% NA_character_),
-      season_yr       = .derive_season_year(name),
-      game_type_label = .ht_game_type_label(name),
+      season_yr       = yr,
+      game_type_label = label,
       stringsAsFactors = FALSE
     )
   }
@@ -390,40 +419,49 @@
 # leaders, game_summary. Mirror Python _parsers.py behaviour exactly.
 # ===========================================================================
 
-#' Parse a HockeyTech modulekit/scorebar JSON payload into a data.frame.
+#' Parse a HockeyTech modulekit/schedule or modulekit/scorebar JSON payload
+#' into a data.frame.
 #'
 #' Mirrors Python sportsdataverse/hockeytech/_parsers.py::parse_schedule().
-#' Reads payload$SiteKit$Scorebar and applies the canonical _SCOREBAR_RENAME
-#' mapping plus game_type pass-through.
-#' An empty or NULL payload returns an empty data.frame().
+#' Reads payload$SiteKit$Schedule (the season-scoped view
+#' .hockeytech_schedule() calls) or, failing that, payload$SiteKit$Scorebar,
+#' onto the same columns, all character. `season_id` keeps only that season's
+#' games: scorebar ignores the season_id it is sent and returns every season
+#' in its date window. An empty or NULL payload returns an empty data.frame().
 #'
 #' @param payload Parsed JSON list from .hockeytech_api().
+#' @param season_id Optional season id; rows from any other season are dropped.
 #' @return A data.frame, one row per game.
 #' @noRd
 #' @keywords internal
-.parse_hockeytech_schedule <- function(payload) {
-  games <- ((payload %||% list())$SiteKit %||% list())$Scorebar %||% list()
-  if (length(games) == 0L) return(data.frame())
-
-  rows <- vector("list", length(games))
-  for (i in seq_along(games)) {
-    g <- games[[i]]
-    rows[[i]] <- list(
-      game_id      = g[["ID"]],
-      game_date    = as.character(g[["GameDateISO8601"]] %||% NA_character_),
-      game_status  = as.character(g[["GameStatusStringLong"]] %||% NA_character_),
-      home_team    = as.character(g[["HomeLongName"]]     %||% NA_character_),
-      home_team_id = g[["HomeID"]],
-      home_score   = g[["HomeGoals"]],
-      away_team    = as.character(g[["VisitorLongName"]]  %||% NA_character_),
-      away_team_id = g[["VisitorID"]],
-      away_score   = g[["VisitorGoals"]],
-      venue        = as.character(g[["venue_name"]]       %||% NA_character_),
-      season_id    = g[["SeasonID"]],
-      game_type    = g[["game_type"]]
+.parse_hockeytech_schedule <- function(payload, season_id = NULL) {
+  sitekit <- (payload %||% list())$SiteKit %||% list()
+  games <- sitekit$Schedule %||% list()
+  keys <- c(
+    game_id = "game_id", game_date = "GameDateISO8601", game_status = "game_status",
+    home_team = "home_team_name", home_team_id = "home_team", home_score = "home_goal_count",
+    away_team = "visiting_team_name", away_team_id = "visiting_team", away_score = "visiting_goal_count",
+    venue = "venue_name", season_id = "season_id", game_type = "game_type"
+  )
+  if (length(games) == 0L) {
+    games <- sitekit$Scorebar %||% list()
+    keys <- c(
+      game_id = "ID", game_date = "GameDateISO8601", game_status = "GameStatusStringLong",
+      home_team = "HomeLongName", home_team_id = "HomeID", home_score = "HomeGoals",
+      away_team = "VisitorLongName", away_team_id = "VisitorID", away_score = "VisitorGoals",
+      venue = "venue_name", season_id = "SeasonID", game_type = "game_type"
     )
   }
-  dplyr::bind_rows(rows)
+  if (length(games) == 0L) return(data.frame())
+
+  rows <- lapply(games, function(g) {
+    lapply(keys, function(k) as.character(g[[k]] %||% NA_character_))
+  })
+  out <- dplyr::bind_rows(rows)
+  if (!is.null(season_id)) {
+    out <- out[which(out$season_id == as.character(season_id)), , drop = FALSE]
+  }
+  out
 }
 
 

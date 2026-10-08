@@ -2,13 +2,50 @@
   jsonlite::read_json(testthat::test_path("fixtures", "hockeytech", paste0(stem, ".json")))
 }
 
-test_that("schedule parser", {
+.schedule_cols <- c(
+  "game_id", "game_date", "game_status", "home_team", "home_team_id", "home_score",
+  "away_team", "away_team_id", "away_score", "venue", "season_id", "game_type"
+)
+
+test_that("schedule parser reads the season-scoped modulekit/schedule view", {
   testthat::skip_on_cran()
-  df <- fastRhockey:::.parse_hockeytech_schedule(.load_fx("pwhl_schedule_2025"))
-  expect_true(all(c("game_id", "game_date", "home_team", "home_team_id",
-                    "away_team", "away_team_id", "home_score", "away_score") %in% names(df)))
-  expect_true(nrow(df) > 0)
+  # Real capture: PWHL 2025-26 regular season (season_id 8), all 120 games.
+  df <- fastRhockey:::.parse_hockeytech_schedule(.load_fx("pwhl_schedule_8"))
   expect_s3_class(df, "data.frame")
+  expect_equal(names(df), .schedule_cols)
+  expect_equal(nrow(df), 120L)
+  expect_equal(length(unique(df$game_id)), 120L)
+  expect_equal(unique(df$season_id), "8")
+  expect_setequal(unique(df$game_status), c("Final", "Final OT", "Final SO"))
+})
+
+test_that("schedule parser maps scorebar rows and drops other seasons", {
+  testthat::skip_on_cran()
+  # Real scorebar reply sent season_id 5: 200 rows across 6 seasons, 90 in season 5.
+  raw <- .load_fx("pwhl_schedule_2025")
+  expect_equal(names(fastRhockey:::.parse_hockeytech_schedule(raw)), .schedule_cols)
+  expect_equal(nrow(fastRhockey:::.parse_hockeytech_schedule(raw)), 200L)
+  df <- fastRhockey:::.parse_hockeytech_schedule(raw, season_id = 5L)
+  expect_equal(nrow(df), 90L)
+  expect_equal(unique(df$season_id), "5")
+})
+
+test_that(".hockeytech_schedule asks the season-scoped view", {
+  testthat::skip_on_cran()
+  seen <- character()
+  testthat::local_mocked_bindings(
+    .hockeytech_api = function(url) {
+      seen <<- c(seen, url)
+      .load_fx("pwhl_schedule_8")
+    },
+    .package = "fastRhockey"
+  )
+  df <- fastRhockey:::.hockeytech_schedule("ahl", season_id = 8L)
+  expect_length(seen, 1L)
+  expect_match(seen, "view=schedule", fixed = TRUE)
+  expect_match(seen, "season_id=8", fixed = TRUE)
+  expect_false(grepl("scorebar", seen, fixed = TRUE))
+  expect_equal(nrow(df), 120L)
 })
 
 test_that("schedule parser returns empty df for empty payload", {
@@ -120,6 +157,56 @@ test_that(".hockeytech_most_recent_season returns the max season_yr from parsed 
   # acceptable. What matters is the type contract and the lower bound.
   expect_true(is.integer(result) || is.numeric(result))
   expect_true(result >= 2024L)
+})
+
+test_that("season names read as their end year (real HockeyTech name forms)", {
+  testthat::skip_on_cran()
+  yr <- function(x) fastRhockey:::.derive_season_year(x)
+  expect_equal(yr("2025 - 26 Regular Season"), 2026L)   # WHL
+  expect_equal(yr("2025/26 Regular Season"), 2026L)     # KIJHL
+  expect_equal(yr("2025-26 | Regular Season"), 2026L)   # QMJHL
+  expect_equal(yr("2025-2026 Regular Season"), 2026L)
+  expect_equal(yr("1999-00 Regular Season"), 2000L)
+  expect_equal(yr("26-27 Regular Season"), 2027L)
+  expect_equal(yr("CCHL 2425 Special Events"), 2025L)
+  expect_equal(yr("2024 Regular Season"), 2024L)
+  expect_true(is.na(yr("19 Tie Break")))
+  expect_equal(fastRhockey:::.ht_game_type_label("2026-27 Exhibition Season"), "exhibition")
+  expect_equal(fastRhockey:::.ht_game_type_label("2025-26 Preseason Exhibition"), "preseason")
+})
+
+test_that("a one-year preseason that starts in that year belongs to the next season", {
+  testthat::skip_on_cran()
+  one <- function(name, start) {
+    fastRhockey:::.parse_hockeytech_seasons(list(SiteKit = list(Seasons = list(
+      list(season_id = "1", season_name = name, start_date = start)
+    ))))$season_yr
+  }
+  expect_equal(one("2026 Pre-season", "2026-08-11"), 2027L)   # OHL camp opens 2026-27
+  expect_equal(one("2024 Preseason", "2023-11-01"), 2024L)    # PWHL: opened 2023-24
+  expect_equal(one("2026-27 Pre-Season", "2026-11-01"), 2027L) # spans two years: unshifted
+})
+
+test_that("season resolver skips one-off events (real AHL seasons capture)", {
+  testthat::skip_on_cran()
+  # The AHL lists "2026 All-Star Challenge" (91) ahead of "2025-26 Regular Season" (90).
+  testthat::local_mocked_bindings(
+    .hockeytech_api = function(url) .load_fx("ahl_seasons"),
+    .package = "fastRhockey"
+  )
+  expect_equal(fastRhockey:::.hockeytech_season_id("ahl", season = 2026L), 90L)
+  expect_equal(fastRhockey:::.hockeytech_season_id("ahl", season = 2026L, game_type = "playoffs"), 92L)
+  expect_equal(fastRhockey:::.hockeytech_most_recent_season("ahl"), 2027L)
+})
+
+test_that("newest season ignores a preseason listed before its regular season", {
+  testthat::skip_on_cran()
+  # pwhl_seasons ends at "2026-27 Pre-Season" (id 10), with no 2026-27 regular season yet.
+  testthat::local_mocked_bindings(
+    .hockeytech_api = function(url) .load_fx("pwhl_seasons"),
+    .package = "fastRhockey"
+  )
+  expect_equal(fastRhockey:::.hockeytech_most_recent_season("pwhl"), 2026L)
 })
 
 test_that(".hockeytech_season_id_df parses seasons frame correctly", {
