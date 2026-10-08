@@ -460,31 +460,33 @@ hockeytech_per60 <- function(value, toi_seconds) {
 #'
 #' Raw coordinates (x_coord, y_coord) come from the HockeyTech feed on a
 #' 600x300 canvas with a top-left origin, so centre ice is (300, 150). Every
-#' probed league uses this one canvas. This function adds ten derived columns:
+#' probed league uses this one canvas, and the feed puts the home team's attack
+#' toward x = 0 and the visitor's toward x = 600 in every period
+#' (sdv-internal-refs hockeytech/CANVAS.md). This function adds ten derived
+#' columns, all on the centre-origin feet frame (x_t, y_t):
 #'
 #'   x_coord_original / y_coord_original = raw x_coord, y_coord
 #'   x_coord_neutral  = ox - 300
 #'   y_coord_neutral  = oy - 150
-#'   x_t = (ox / 3) - 100                            (intermediate)
-#'   y_t = 42.5 - (oy * 85 / 300)                    (intermediate, simplified)
-#'   x_coord_fixed    = x_t / 3
-#'   y_coord_fixed    = 42.5 - ((y_t * 85 / 300) - 42.5)
-#'   x_coord_right    = if (team_id == home_team_id) 100 + (100 - x_t) else x_t
-#'   y_coord_right    = if (team_id == home_team_id) 42.5 - (y_t - 42.5) else y_t
-#'   x_coord_vertical = 42.5 - (y_coord_right - 42.5)
-#'   y_coord_vertical = x_coord_right
+#'   x_t = (ox / 3) - 100                            (-100..100 ft)
+#'   y_t = 42.5 - (oy * 85 / 300)                    (-42.5..42.5 ft)
+#'   x_coord_fixed, y_coord_fixed       = (-x_t, -y_t): home team shoots right
+#'   x_coord_right, y_coord_right       = home (-x_t, -y_t), visitor (x_t, y_t):
+#'                                        every team shoots right
+#'   x_coord_vertical, y_coord_vertical = (-y_coord_right, x_coord_right):
+#'                                        every team shoots up
 #'
-#' Rows with null x_coord or y_coord produce NA for all ten columns.
-#' Rows with null team_id or home_team_id produce NA for the team-dependent
-#' transforms (x/y_coord_right, x/y_coord_vertical).
+#' The flips are 180-degree rotations, so every event stays on the rink.
+#' Rows with null x_coord or y_coord produce NA for all ten columns. Rows whose
+#' side is unknown (no home_team_id column, or a null team_id / home_team_id)
+#' produce NA for the right and vertical columns.
 #'
 #' x_coord and y_coord are MUTATED in place to the transformed values
 #' (x_t, y_t) to match the R/pwhl_pbp.R behaviour exactly; the raw values
 #' are preserved in x_coord_original / y_coord_original.
 #'
-#' @param pbp data.frame with at least x_coord, y_coord columns. If
-#'   home_team_id is present, the team-dependent right/vertical transforms
-#'   use it; otherwise those columns are NA.
+#' @param pbp data.frame with at least x_coord, y_coord columns. The right and
+#'   vertical columns need team_id and home_team_id; without them they are NA.
 #' @return pbp with ten coordinate columns appended (or replaced). x_coord
 #'   and y_coord are overwritten with the transformed feet-scale values.
 #' @noRd
@@ -516,21 +518,21 @@ hockeytech_add_coord_transforms <- function(pbp) {
   pbp$x_coord <- x_t
   pbp$y_coord <- y_t
 
-  pbp$x_coord_fixed <- x_t / 3
-  pbp$y_coord_fixed <- 42.5 - (((y_t * 85) / 300) - 42.5)
+  # The feed's home team attacks x = 0, so turning the frame 180 degrees puts it
+  # on the right; the old flips mixed a 0-200 x 0-85 mirror into these feet.
+  pbp$x_coord_fixed <- -x_t
+  pbp$y_coord_fixed <- -y_t
 
-  # Team-dependent right/vertical transforms
-  if ("home_team_id" %in% names(pbp)) {
-    is_home <- !is.na(pbp$team_id) & !is.na(pbp$home_team_id) &
-               as.character(pbp$team_id) == as.character(pbp$home_team_id)
-    pbp$x_coord_right <- ifelse(is_home, 100 + (100 - x_t), x_t)
-    pbp$y_coord_right <- ifelse(is_home, 42.5 - (y_t - 42.5), y_t)
+  is_home <- if (all(c("team_id", "home_team_id") %in% names(pbp))) {
+    ifelse(is.na(pbp$team_id) | is.na(pbp$home_team_id), NA,
+           as.character(pbp$team_id) == as.character(pbp$home_team_id))
   } else {
-    pbp$x_coord_right <- x_t
-    pbp$y_coord_right <- y_t
+    rep(NA, nrow(pbp))
   }
+  pbp$x_coord_right <- ifelse(is_home, -x_t, x_t)
+  pbp$y_coord_right <- ifelse(is_home, -y_t, y_t)
 
-  pbp$x_coord_vertical <- 42.5 - (pbp$y_coord_right - 42.5)
+  pbp$x_coord_vertical <- -pbp$y_coord_right
   pbp$y_coord_vertical <- pbp$x_coord_right
 
   pbp

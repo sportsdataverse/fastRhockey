@@ -97,12 +97,12 @@ A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
    y_coord_original \tab integer \tab Original raw y-coordinate from the feed. \cr
    x_coord_neutral \tab numeric \tab Neutral-zone-centered x-coordinate. \cr
    y_coord_neutral \tab numeric \tab Neutral-zone-centered y-coordinate. \cr
-   x_coord_fixed \tab numeric \tab Fixed-projection x-coordinate. \cr
-   y_coord_fixed \tab numeric \tab Fixed-projection y-coordinate. \cr
-   x_coord_right \tab numeric \tab Right-oriented x-coordinate. \cr
-   y_coord_right \tab numeric \tab Right-oriented y-coordinate. \cr
-   x_coord_vertical \tab numeric \tab Vertical-projection x-coordinate. \cr
-   y_coord_vertical \tab numeric \tab Vertical-projection y-coordinate. \cr
+   x_coord_fixed \tab numeric \tab x in feet, home team shooting right (-x_coord, rotated 180). \cr
+   y_coord_fixed \tab numeric \tab y in feet, home team shooting right (-y_coord). \cr
+   x_coord_right \tab numeric \tab x in feet, every team shooting right (NA when side unknown). \cr
+   y_coord_right \tab numeric \tab y in feet, every team shooting right (NA when side unknown). \cr
+   x_coord_vertical \tab numeric \tab x in feet, every team shooting up (-y_coord_right). \cr
+   y_coord_vertical \tab numeric \tab y in feet, every team shooting up (x_coord_right). \cr
    minute_start \tab numeric \tab Minute mark of the period when the event started. \cr
    second_start \tab numeric \tab Second mark of the period when the event started. \cr
    clock \tab character \tab Game clock time remaining (MM:SS). \cr

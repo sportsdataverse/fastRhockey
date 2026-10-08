@@ -91,12 +91,12 @@
 #'    |y_coord_original           |integer   |Original raw y-coordinate from the feed.                          |
 #'    |x_coord_neutral            |numeric   |Neutral-zone-centered x-coordinate.                               |
 #'    |y_coord_neutral            |numeric   |Neutral-zone-centered y-coordinate.                               |
-#'    |x_coord_fixed              |numeric   |Fixed-projection x-coordinate.                                    |
-#'    |y_coord_fixed              |numeric   |Fixed-projection y-coordinate.                                    |
-#'    |x_coord_right              |numeric   |Right-oriented x-coordinate.                                      |
-#'    |y_coord_right              |numeric   |Right-oriented y-coordinate.                                      |
-#'    |x_coord_vertical           |numeric   |Vertical-projection x-coordinate.                                 |
-#'    |y_coord_vertical           |numeric   |Vertical-projection y-coordinate.                                 |
+#'    |x_coord_fixed              |numeric   |x in feet, home team shooting right (-x_coord, rotated 180).       |
+#'    |y_coord_fixed              |numeric   |y in feet, home team shooting right (-y_coord).                    |
+#'    |x_coord_right              |numeric   |x in feet, every team shooting right (NA when side unknown).       |
+#'    |y_coord_right              |numeric   |y in feet, every team shooting right (NA when side unknown).       |
+#'    |x_coord_vertical           |numeric   |x in feet, every team shooting up (-y_coord_right).                |
+#'    |y_coord_vertical           |numeric   |y in feet, every team shooting up (x_coord_right).                 |
 #'    |minute_start               |numeric   |Minute mark of the period when the event started.                 |
 #'    |second_start               |numeric   |Second mark of the period when the event started.                 |
 #'    |clock                      |character |Game clock time remaining (MM:SS).                                |
