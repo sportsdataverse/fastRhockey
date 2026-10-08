@@ -220,7 +220,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_player_box(game_id = "401688263"))
 #> ── NHL Player Box Score data from ESPN.com ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-08 08:17:49 UTC
+#> ℹ Data updated: 2026-10-08 10:23:56 UTC
 #> # A tibble: 38 × 53
 #>    athlete_id athlete_display_name athlete_short_name athlete_last_name
 #>    <chr>      <chr>                <chr>              <chr>            

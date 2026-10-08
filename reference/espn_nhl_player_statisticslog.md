@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_player_statisticslog(athlete_id = "4024820"))
 #> ── NHL Player Statisticslog data from ESPN core-v2 ──────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-08 08:17:57 UTC
+#> ℹ Data updated: 2026-10-08 10:24:10 UTC
 #> # A tibble: 10 × 6
 #>    athlete_id season season_ref          total_stats_ref team_stats_ref team_ref
 #>    <chr>       <int> <chr>               <chr>           <chr>          <chr>   

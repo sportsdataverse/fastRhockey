@@ -44,7 +44,7 @@ Other AHL Functions:
 ``` r
  try(ahl_teams()) 
 #> ── AHL Teams from HockeyTech ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-08 08:17:29 UTC
+#> ℹ Data updated: 2026-10-08 10:23:25 UTC
 #> # A tibble: 32 × 7
 #>    team_name       team_id team_code team_nickname team_label division team_logo
 #>    <chr>           <chr>   <chr>     <chr>         <chr>      <chr>    <chr>    

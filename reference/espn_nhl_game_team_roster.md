@@ -191,7 +191,7 @@ Saiem Gilani
     espn_nhl_game_team_roster(event_id = eid, team_id = tms$team_id[1])
   })
 #> ── NHL Game Team Roster data from ESPN core-v2 ──────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-08 08:17:43 UTC
+#> ℹ Data updated: 2026-10-08 10:23:47 UTC
 #> # A tibble: 23 × 13
 #>    event_id cid   team_id player_id jersey display_name scratched scratch_reason
 #>    <chr>    <chr> <chr>   <chr>     <chr>  <chr>        <lgl>     <chr>         
