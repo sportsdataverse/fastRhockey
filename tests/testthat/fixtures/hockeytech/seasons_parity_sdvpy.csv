@@ -1,0 +1,111 @@
+league,season_id,season_name,season_yr,game_type_label
+pwhl,10,2026-27 Pre-Season,2027,preseason
+pwhl,9,2026 Playoffs,2026,playoffs
+pwhl,8,2025-26 Regular Season,2026,regular
+pwhl,7,2025-26 Preseason,2026,preseason
+pwhl,6,2025 Playoffs,2025,playoffs
+pwhl,5,2024-25 Regular Season,2025,regular
+pwhl,4,2024-25 Preseason,2025,preseason
+pwhl,3,2024 Playoffs,2024,playoffs
+pwhl,1,2024 Regular Season,2024,regular
+pwhl,2,2024 Preseason,2024,preseason
+ahl,94,2026-27 Regular Season,2027,regular
+ahl,92,2026 Calder Cup Playoffs,2026,playoffs
+ahl,91,2026 All-Star Challenge,2026,regular
+ahl,90,2025-26 Regular Season,2026,regular
+ahl,88,2025 Calder Cup Playoffs,2025,playoffs
+ahl,87,2025 All-Star Challenge,2025,regular
+ahl,86,2024-25 Regular Season,2025,regular
+ahl,84,2024 Calder Cup Playoffs,2024,playoffs
+ahl,83,2024 All-Star Challenge,2024,regular
+ahl,81,2023-24 Regular Season,2024,regular
+ahl,80,2023 Calder Cup Playoffs,2023,playoffs
+ahl,79,2023 All-Star Challenge,2023,regular
+ahl,77,2022-23 Regular Season,2023,regular
+ahl,76,2022 Calder Cup Playoffs,2022,playoffs
+ahl,73,2021-22 Regular Season,2022,regular
+ahl,72,2021 Pacific Division Playoffs,2021,playoffs
+ahl,68,2020-21 Regular Season,2021,regular
+ahl,67,2020 All-Star Challenge,2020,regular
+ahl,65,2019-20 Regular Season,2020,regular
+ahl,64,2019 Calder Cup Playoffs,2019,playoffs
+ahl,63,2019 All-Star Challenge,2019,regular
+ahl,61,2018-19 Regular Season,2019,regular
+ahl,60,2018 Calder Cup Playoffs,2018,playoffs
+ahl,58,2017-18 Exhibition,2018,exhibition
+ahl,59,2018 All-Star Challenge,2018,regular
+ohl,88,2026-27 Regular Season,2027,regular
+ohl,87,2026 Pre-season,2027,preseason
+ohl,85,2026 Playoffs,2026,playoffs
+ohl,84,2025-26 OHL Top Prospects,2026,regular
+ohl,83,2025-26 Regular Season,2026,regular
+ohl,82,2025 Pre-Season,2026,preseason
+ohl,81,2025 Playoffs,2025,playoffs
+ohl,79,2024-25 Regular Season,2025,regular
+ohl,78,2024 Pre-season,2025,preseason
+ohl,77,2024 Playoffs,2024,playoffs
+ohl,76,2023-24 Regular Season,2024,regular
+ohl,75,2023 Pre-season,2024,preseason
+ohl,74,2023 Playoffs,2023,playoffs
+ohl,73,2022-23 Regular Season,2023,regular
+ohl,72,2022 Pre-season,2023,preseason
+ohl,71,2022 Playoffs,2022,playoffs
+ohl,70,2021-22 Regular Season,2022,regular
+ohl,69,2021 Pre-season,2022,preseason
+ohl,68,2019-20 Regular Season,2020,regular
+ohl,67,2019 Pre-season,2020,preseason
+ohl,66,2019 Playoffs,2019,playoffs
+ohl,63,2018-19 Regular Season,2019,regular
+ohl,62,2018 Pre-season,2019,preseason
+ohl,61,2018 Playoffs,2018,playoffs
+ohl,60,2017-18 Regular Season,2018,regular
+whl,295,2026 - 27 Regular Season,2027,regular
+whl,294,2026 - 27 Pre-Season,2027,preseason
+whl,293,2026 WHL Playoffs,2026,playoffs
+whl,292,WHL Prospects Game 2026,2026,regular
+whl,289,2025 - 26 Regular Season,2026,regular
+whl,290,2025 - 26 Pre-Season,2026,preseason
+whl,288,2025 WHL Playoffs,2025,playoffs
+whl,285,2024 - 25 Regular Season,2025,regular
+whl,286,2024 - 25 Pre-Season,2025,preseason
+whl,284,2024 WHL Playoffs,2024,playoffs
+whl,281,2023 - 24 Regular Season,2024,regular
+whl,282,2023 - 24 Pre-Season,2024,preseason
+whl,280,2023 WHL Playoffs,2023,playoffs
+whl,279,2022 - 23 Regular Season,2023,regular
+whl,278,2022 - 23 Pre-Season,2023,preseason
+whl,277,2022 WHL Playoffs,2022,playoffs
+whl,275,2021 - 22 Regular Season,2022,regular
+whl,274,2021 Pre Season,2022,preseason
+whl,273,2020 - 21 Regular Season,2021,regular
+whl,270,2019 - 20 Regular Season,2020,regular
+whl,269,2019 Pre Season,2020,preseason
+whl,267,2019 WHL Playoffs,2019,playoffs
+whl,268,19 Tie Break,,regular
+whl,266,2018 - 19 Regular Season,2019,regular
+whl,265,2018 Pre Season,2019,preseason
+qmjhl,214,2026-27 | Regular Season,2027,regular
+qmjhl,213,Pre-Season 2026,2027,preseason
+qmjhl,212,2026 | Playoffs,2026,playoffs
+qmjhl,211,2025-26 | Regular Season,2026,regular
+qmjhl,210,Pre-Season 2025,2026,preseason
+qmjhl,209,2025 | Playoffs,2025,playoffs
+qmjhl,208,2024-25 | Regular Season,2025,regular
+qmjhl,207,Pre-Season 2024,2025,preseason
+qmjhl,206,2024 | Playoffs,2024,playoffs
+qmjhl,205,2023-24 | Regular Season,2024,regular
+qmjhl,204,Pre-Season 2023,2024,preseason
+qmjhl,203,2023 | Playoffs,2023,playoffs
+qmjhl,202,2022-23 | Regular Season,2023,regular
+qmjhl,201,Pre-Season 2022,2023,preseason
+qmjhl,200,2022 | Playoffs,2022,playoffs
+qmjhl,199,2021-22 | Regular Season,2022,regular
+qmjhl,198,Pre-Season 2021,2022,preseason
+qmjhl,197,2021 | Playoffs,2021,playoffs
+qmjhl,196,2020-21 | Regular Season,2021,regular
+qmjhl,195,Pre-Season 2020,2021,preseason
+qmjhl,194,2020 | Playoffs,2020,playoffs
+qmjhl,193,2019-20 | Regular Season,2020,regular
+qmjhl,192,Pre-Season 2019,2020,preseason
+qmjhl,191,2019 | Playoffs,2019,playoffs
+qmjhl,190,2018-19 | Regular Season,2019,regular

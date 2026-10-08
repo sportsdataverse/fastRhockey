@@ -7,7 +7,8 @@
 ohl_schedule(season = NULL, season_id = NULL)
 }
 \arguments{
-\item{season}{End-year season (e.g. 2025); optional.}
+\item{season}{End-year season (e.g. 2025); optional. Defaults to the newest
+regular season when neither \code{season} nor \code{season_id} is given.}
 
 \item{season_id}{Explicit HockeyTech season id; optional.}
 }
@@ -15,7 +16,9 @@ ohl_schedule(season = NULL, season_id = NULL)
 A \code{fastRhockey_data} data frame, one row per game.
 }
 \description{
-OHL schedule from the HockeyTech feed (one row per game).
+OHL schedule from the HockeyTech feed: one row per game of one
+season (modulekit/schedule). A season's playoffs and preseason are
+separate HockeyTech season ids; pass \code{season_id} for them.
 }
 \examples{
 \donttest{ try(ohl_schedule()) }

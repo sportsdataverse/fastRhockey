@@ -1,0 +1,248 @@
+{
+ "SiteKit": {
+  "Parameters": {
+   "feed": "modulekit",
+   "key": "REDACTED",
+   "client_code": "lhjmq",
+   "site_id": "0",
+   "lang": "en",
+   "view": "seasons",
+   "lang_id": 1,
+   "league_id": "1",
+   "season_id": "214"
+  },
+  "Seasons": [
+   {
+    "season_id": "214",
+    "season_name": "2026-27 | Regular Season",
+    "shortname": "2026-27",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2026-09-15",
+    "end_date": "2027-03-22"
+   },
+   {
+    "season_id": "213",
+    "season_name": "Pre-Season 2026",
+    "shortname": "Pre-Sea 2026",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2026-05-22",
+    "end_date": "2026-09-14"
+   },
+   {
+    "season_id": "212",
+    "season_name": "2026 | Playoffs",
+    "shortname": "2026 Plfs",
+    "career": "1",
+    "playoff": "1",
+    "start_date": "2026-03-24",
+    "end_date": "2026-05-21"
+   },
+   {
+    "season_id": "211",
+    "season_name": "2025-26 | Regular Season",
+    "shortname": "2025-26",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2025-09-16",
+    "end_date": "2026-03-23"
+   },
+   {
+    "season_id": "210",
+    "season_name": "Pre-Season 2025",
+    "shortname": "Pre-Sea 2025",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2025-05-23",
+    "end_date": "2025-09-15"
+   },
+   {
+    "season_id": "209",
+    "season_name": "2025 | Playoffs",
+    "shortname": "2025 Plfs",
+    "career": "1",
+    "playoff": "1",
+    "start_date": "2025-03-25",
+    "end_date": "2025-05-22"
+   },
+   {
+    "season_id": "208",
+    "season_name": "2024-25 | Regular Season",
+    "shortname": "2024-25",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2024-09-17",
+    "end_date": "2025-03-24"
+   },
+   {
+    "season_id": "207",
+    "season_name": "Pre-Season 2024",
+    "shortname": "Pre-Sea 2024",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2024-05-24",
+    "end_date": "2024-09-16"
+   },
+   {
+    "season_id": "206",
+    "season_name": "2024 | Playoffs",
+    "shortname": "2024 Plfs",
+    "career": "1",
+    "playoff": "1",
+    "start_date": "2024-03-26",
+    "end_date": "2024-05-23"
+   },
+   {
+    "season_id": "205",
+    "season_name": "2023-24 | Regular Season",
+    "shortname": "2023-24",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2023-09-19",
+    "end_date": "2024-03-26"
+   },
+   {
+    "season_id": "204",
+    "season_name": "Pre-Season 2023",
+    "shortname": "Pre-Sea 2023",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2023-05-26",
+    "end_date": "2023-09-18"
+   },
+   {
+    "season_id": "203",
+    "season_name": "2023 | Playoffs",
+    "shortname": "2023 Plfs",
+    "career": "1",
+    "playoff": "1",
+    "start_date": "2023-03-28",
+    "end_date": "2023-05-25"
+   },
+   {
+    "season_id": "202",
+    "season_name": "2022-23 | Regular Season",
+    "shortname": "2022-23",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2022-09-20",
+    "end_date": "2023-03-27"
+   },
+   {
+    "season_id": "201",
+    "season_name": "Pre-Season 2022",
+    "shortname": "Pre-Sea 2022",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2022-07-01",
+    "end_date": "2022-09-19"
+   },
+   {
+    "season_id": "200",
+    "season_name": "2022 | Playoffs",
+    "shortname": "2022 Plfs",
+    "career": "1",
+    "playoff": "1",
+    "start_date": "2022-05-04",
+    "end_date": "2022-06-30"
+   },
+   {
+    "season_id": "199",
+    "season_name": "2021-22 | Regular Season",
+    "shortname": "2021-22",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2021-09-28",
+    "end_date": "2022-05-03"
+   },
+   {
+    "season_id": "198",
+    "season_name": "Pre-Season 2021",
+    "shortname": "Pre-Sea 2021",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2021-05-17",
+    "end_date": "2021-09-28"
+   },
+   {
+    "season_id": "197",
+    "season_name": "2021 | Playoffs",
+    "shortname": "2021 Plfs",
+    "career": "1",
+    "playoff": "1",
+    "start_date": "2021-04-06",
+    "end_date": "2021-06-24"
+   },
+   {
+    "season_id": "196",
+    "season_name": "2020-21 | Regular Season",
+    "shortname": "2020-21",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2020-09-29",
+    "end_date": "2021-05-03"
+   },
+   {
+    "season_id": "195",
+    "season_name": "Pre-Season 2020",
+    "shortname": "Pre-Sea 2020",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2020-03-26",
+    "end_date": "2020-09-28"
+   },
+   {
+    "season_id": "194",
+    "season_name": "2020 | Playoffs",
+    "shortname": "2020 Plfs",
+    "career": "1",
+    "playoff": "1",
+    "start_date": "2020-03-24",
+    "end_date": "2020-03-25"
+   },
+   {
+    "season_id": "193",
+    "season_name": "2019-20 | Regular Season",
+    "shortname": "2019-20",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2019-09-17",
+    "end_date": "2020-03-24"
+   },
+   {
+    "season_id": "192",
+    "season_name": "Pre-Season 2019",
+    "shortname": "Pre-Sea 2019",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2019-05-16",
+    "end_date": "2019-09-16"
+   },
+   {
+    "season_id": "191",
+    "season_name": "2019 | Playoffs",
+    "shortname": "2019 Plfs",
+    "career": "1",
+    "playoff": "1",
+    "start_date": "2019-03-19",
+    "end_date": "2019-05-15"
+   },
+   {
+    "season_id": "190",
+    "season_name": "2018-19 | Regular Season",
+    "shortname": "2018-19",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2018-09-18",
+    "end_date": "2019-03-18"
+   }
+  ],
+  "Copyright": {
+   "required_copyright": "Official statistics provided by LHJMQ",
+   "required_link": "http://leaguestat.com",
+   "powered_by": "Powered by HockeyTech.com",
+   "powered_by_url": "http://hockeytech.com"
+  }
+ }
+}

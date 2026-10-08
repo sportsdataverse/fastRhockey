@@ -38,8 +38,10 @@
 #' Most-recent season as an end-year integer.
 #'
 #' Mirrors Python build_family()::_most_recent_season(). Returns the maximum
-#' season_yr in the seasons frame, or 2026L as a fallback when no data is
-#' available.
+#' season_yr of a regular season that is not a one-off event, so a preseason
+#' listed before its regular season ("2026-27 Pre-Season") is not a default;
+#' any row counts when the feed has no such season. 2026L as a fallback when
+#' no data is available.
 #'
 #' @param league HockeyTech league key.
 #' @return Integer end-year (e.g. 2025L), or 2026L on failure.
@@ -48,7 +50,10 @@
 .hockeytech_most_recent_season <- function(league) {
   df <- tryCatch(.hockeytech_season_id_df(league), error = function(e) data.frame())
   if (is.data.frame(df) && nrow(df) > 0 && "season_yr" %in% names(df)) {
-    v <- max(df$season_yr, na.rm = TRUE)
+    regular <- df$game_type_label == "regular" & !.ht_is_special_event(df$season_name)
+    yrs <- df$season_yr[which(regular)]
+    if (!any(is.finite(yrs))) yrs <- df$season_yr
+    v <- suppressWarnings(max(yrs, na.rm = TRUE))
     if (is.finite(v)) return(as.integer(v))
   }
   2026L
@@ -61,34 +66,25 @@
 
 #' Schedule for a league -- one row per game.
 #'
-#' Mirrors Python build_family()::_schedule(). Uses the modulekit/scorebar
-#' endpoint with numberofdaysback/ahead = 10000 (full-season dump). If season
-#' or season_id is provided the endpoint is filtered server-side.
+#' Mirrors Python build_family()::_schedule(). Uses modulekit/schedule, which
+#' the feed scopes to `season_id` (modulekit/scorebar ignores it and returns
+#' every season, oldest first, cut at its row limit). With neither season nor
+#' season_id, the newest regular season.
 #'
 #' @param league    HockeyTech league key.
 #' @param season    Optional end-year integer (e.g. 2025L).
 #' @param season_id Optional explicit numeric season_id (short-circuits lookup).
-#' @return A data.frame, one row per game.
+#' @return A data.frame, one row per game of that season.
 #' @noRd
 #' @keywords internal
 .hockeytech_schedule <- function(league, season = NULL, season_id = NULL) {
-  cfg <- .hockeytech_leagues()[[league]]
-  params <- list(
-    numberofdaysback  = 10000,
-    numberofdaysahead = 10000,
-    limit             = 10000,
-    league_id         = cfg$league_id
-  )
-  if (!is.null(season) || !is.null(season_id)) {
-    params[["season_id"]] <- .hockeytech_season_id(
-      league, season = season, season_id = season_id
-    )
+  if (is.null(season) && is.null(season_id)) {
+    season <- .hockeytech_most_recent_season(league)
   }
-  payload <- tryCatch(
-    .hockeytech_api(.hockeytech_url(league, "modulekit", "scorebar", params)),
-    error = function(e) list()
-  )
-  .parse_hockeytech_schedule(payload)
+  sid <- .hockeytech_season_id(league, season = season, season_id = season_id)
+  # A failed fetch raises (the exported wrapper reports it); it is never an empty season.
+  payload <- .hockeytech_api(.hockeytech_url(league, "modulekit", "schedule", list(season_id = sid)))
+  .parse_hockeytech_schedule(payload, season_id = sid)
 }
 
 

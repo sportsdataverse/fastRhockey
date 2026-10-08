@@ -62,8 +62,11 @@ most_recent_ohl_season <- function() {
 # ---------------------------------------------------------------------------
 
 #' @title **OHL Schedule**
-#' @description OHL schedule from the HockeyTech feed (one row per game).
-#' @param season End-year season (e.g. 2025); optional.
+#' @description OHL schedule from the HockeyTech feed: one row per game of one
+#'   season (modulekit/schedule). A season's playoffs and preseason are
+#'   separate HockeyTech season ids; pass `season_id` for them.
+#' @param season End-year season (e.g. 2025); optional. Defaults to the newest
+#'   regular season when neither `season` nor `season_id` is given.
 #' @param season_id Explicit HockeyTech season id; optional.
 #' @return A `fastRhockey_data` data frame, one row per game.
 #' @import dplyr

@@ -1,0 +1,248 @@
+{
+ "SiteKit": {
+  "Parameters": {
+   "feed": "modulekit",
+   "key": "REDACTED",
+   "client_code": "whl",
+   "site_id": "0",
+   "lang": "en",
+   "view": "seasons",
+   "lang_id": 1,
+   "league_id": "26",
+   "season_id": "295"
+  },
+  "Seasons": [
+   {
+    "season_id": "295",
+    "season_name": "2026 - 27 Regular Season",
+    "shortname": "26 - 27 Reg",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2026-09-18",
+    "end_date": "2027-03-28"
+   },
+   {
+    "season_id": "294",
+    "season_name": "2026 - 27 Pre-Season",
+    "shortname": "26 - 27 Pre",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2026-08-30",
+    "end_date": "2026-09-13"
+   },
+   {
+    "season_id": "293",
+    "season_name": "2026 WHL Playoffs",
+    "shortname": "'26 Playoffs",
+    "career": "1",
+    "playoff": "1",
+    "start_date": "2026-03-27",
+    "end_date": "2026-05-18"
+   },
+   {
+    "season_id": "292",
+    "season_name": "WHL Prospects Game 2026",
+    "shortname": "WHL Prospect 26",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2026-02-17",
+    "end_date": "2026-02-19"
+   },
+   {
+    "season_id": "289",
+    "season_name": "2025 - 26 Regular Season",
+    "shortname": "25 - 26 Reg",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2025-09-18",
+    "end_date": "2026-03-25"
+   },
+   {
+    "season_id": "290",
+    "season_name": "2025 - 26 Pre-Season",
+    "shortname": "25 - 26 Pre",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2025-08-31",
+    "end_date": "2025-09-16"
+   },
+   {
+    "season_id": "288",
+    "season_name": "2025 WHL Playoffs",
+    "shortname": "'25 Playoffs",
+    "career": "1",
+    "playoff": "1",
+    "start_date": "2025-03-28",
+    "end_date": "2025-05-19"
+   },
+   {
+    "season_id": "285",
+    "season_name": "2024 - 25 Regular Season",
+    "shortname": "24 - 25 Reg",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2024-09-20",
+    "end_date": "2025-03-26"
+   },
+   {
+    "season_id": "286",
+    "season_name": "2024 - 25 Pre-Season",
+    "shortname": "24 - 25 Pre",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2024-09-03",
+    "end_date": "2024-09-18"
+   },
+   {
+    "season_id": "284",
+    "season_name": "2024 WHL Playoffs",
+    "shortname": "'24 Playoffs",
+    "career": "1",
+    "playoff": "1",
+    "start_date": "2024-03-28",
+    "end_date": "2024-05-20"
+   },
+   {
+    "season_id": "281",
+    "season_name": "2023 - 24 Regular Season",
+    "shortname": "23 - 24 Reg",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2023-09-22",
+    "end_date": "2024-03-26"
+   },
+   {
+    "season_id": "282",
+    "season_name": "2023 - 24 Pre-Season",
+    "shortname": "23 - 24 Pre",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2023-09-04",
+    "end_date": "2023-09-18"
+   },
+   {
+    "season_id": "280",
+    "season_name": "2023 WHL Playoffs",
+    "shortname": "'23 Playoffs",
+    "career": "1",
+    "playoff": "1",
+    "start_date": "2023-03-31",
+    "end_date": "2023-05-22"
+   },
+   {
+    "season_id": "279",
+    "season_name": "2022 - 23 Regular Season",
+    "shortname": "22 - 23 Reg",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2022-09-23",
+    "end_date": "2023-03-27"
+   },
+   {
+    "season_id": "278",
+    "season_name": "2022 - 23 Pre-Season",
+    "shortname": "22 - 23 Pre",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2022-09-06",
+    "end_date": "2022-09-19"
+   },
+   {
+    "season_id": "277",
+    "season_name": "2022 WHL Playoffs",
+    "shortname": "'22 Playoffs",
+    "career": "1",
+    "playoff": "1",
+    "start_date": "2022-04-21",
+    "end_date": "2022-06-14"
+   },
+   {
+    "season_id": "275",
+    "season_name": "2021 - 22 Regular Season",
+    "shortname": "21 - 22 Reg",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2021-10-01",
+    "end_date": "2022-04-15"
+   },
+   {
+    "season_id": "274",
+    "season_name": "2021 Pre Season",
+    "shortname": "2021 Pre",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2021-09-10",
+    "end_date": "2021-09-25"
+   },
+   {
+    "season_id": "273",
+    "season_name": "2020 - 21 Regular Season",
+    "shortname": "20 - 21 Reg",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2021-02-26",
+    "end_date": "2021-05-31"
+   },
+   {
+    "season_id": "270",
+    "season_name": "2019 - 20 Regular Season",
+    "shortname": "19 - 20 Reg",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2019-09-20",
+    "end_date": "2020-03-22"
+   },
+   {
+    "season_id": "269",
+    "season_name": "2019 Pre Season",
+    "shortname": "2019 Pre",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2019-08-27",
+    "end_date": "2019-09-15"
+   },
+   {
+    "season_id": "267",
+    "season_name": "2019 WHL Playoffs",
+    "shortname": "19 Playoffs",
+    "career": "1",
+    "playoff": "1",
+    "start_date": "2019-03-22",
+    "end_date": "2019-05-13"
+   },
+   {
+    "season_id": "268",
+    "season_name": "19 Tie Break",
+    "shortname": "19 TB",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2019-03-19",
+    "end_date": "2019-03-20"
+   },
+   {
+    "season_id": "266",
+    "season_name": "2018 - 19 Regular Season",
+    "shortname": "18 - 19 Reg",
+    "career": "1",
+    "playoff": "0",
+    "start_date": "2018-09-21",
+    "end_date": "2019-03-19"
+   },
+   {
+    "season_id": "265",
+    "season_name": "2018 Pre Season",
+    "shortname": "2018 Pre",
+    "career": "0",
+    "playoff": "0",
+    "start_date": "2018-08-30",
+    "end_date": "2018-09-16"
+   }
+  ],
+  "Copyright": {
+   "required_copyright": "Official statistics provided by Western Hockey League",
+   "required_link": "http://leaguestat.com",
+   "powered_by": "Powered by HockeyTech.com",
+   "powered_by_url": "http://hockeytech.com"
+  }
+ }
+}
