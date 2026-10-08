@@ -14,8 +14,16 @@
 #' Add shot_distance and shot_angle columns to a PBP data frame.
 #'
 #' For rows whose `event` is one of shot/blocked_shot/goal:
-#'   shot_distance = sqrt((goal_x - abs(x_coord))^2 + y_coord^2)
-#'   shot_angle    = abs(atan2(y_coord, goal_x - abs(x_coord))) * 180 / pi
+#'   shot_distance = sqrt(dx^2 + y_coord^2)
+#'   shot_angle    = abs(atan2(abs(y_coord), dx)) * 180 / pi
+#' with dx = goal_x - abs(x_coord), the distance to the nearer net. An own-half
+#' event with a goalie in net is a near-net event whose coordinates the feed
+#' mirrored, so the nearer net is right for it (sdv-internal-refs
+#' hockeytech/CANVAS.md, validated on 320 PWHL games). An empty-net goal
+#' (`empty_net` "1") is measured to the net its team attacks instead: the feed
+#' puts the home team's attack at x = -goal_x and the visitor's at +goal_x, so
+#' dx = abs(attack_x - x_coord) (an own-half empty-net goal is a genuine long
+#' shot). Rows without team_id / home_team_id keep the nearer net.
 #' Non-shot rows receive NA for both columns.
 #' x_coord/y_coord are coerced to numeric (suppressWarnings); all-NA coords
 #' produce NA distance/angle rather than an error.
@@ -37,6 +45,14 @@ hockeytech_shot_distance_angle <- function(pbp, goal_x = 89) {
   is_shot <- pbp$event %in% .SHOT_EVENTS_HT
 
   dx   <- goal_x - abs(x)
+  if (all(c("empty_net", "team_id", "home_team_id") %in% names(pbp))) {
+    tid <- as.character(pbp$team_id)
+    hid <- as.character(pbp$home_team_id)
+    empty_net <- !is.na(pbp$empty_net) & as.character(pbp$empty_net) == "1" &
+      !is.na(tid) & !is.na(hid) & nzchar(tid) & nzchar(hid)
+    attack_x <- ifelse(tid == hid, -goal_x, goal_x)
+    dx <- ifelse(empty_net, abs(attack_x - x), dx)
+  }
   dist <- sqrt(dx^2 + y^2)
   ang  <- abs(atan2(abs(y), dx)) * (180 / pi)
 

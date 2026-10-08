@@ -137,3 +137,24 @@ test_that("player on-ice corsi attribution", {
   expect_equal(p20$corsi_for, 1)
   expect_equal(p20$corsi_against, 2)
 })
+
+test_that("empty-net goals measure to the attacking net; everything else to the nearer net", {
+  testthat::skip_on_cran()
+  # sdv-internal-refs hockeytech/CANVAS.md: own-half events with a goalie in net are
+  # mirrored coordinates (nearer net is right); own-half empty-net goals are real long shots.
+  # Feet frame: the home team attacks x = -89. Canvas 560 -> x = 86.67 ft, the home team's
+  # own end.
+  geo <- function(x_ft, team, empty_net) {
+    df <- data.frame(event = "goal", x_coord = x_ft, y_coord = 0, team_id = team,
+                     home_team_id = "1", empty_net = empty_net, stringsAsFactors = FALSE)
+    fastRhockey:::hockeytech_shot_distance_angle(df)$shot_distance
+  }
+  x_home_own <- 560 / 3 - 100
+  expect_equal(geo(x_home_own, "1", "1"), 89 + x_home_own)   # 175.67 ft to the net it attacks
+  expect_equal(geo(x_home_own, "1", "0"), 89 - x_home_own)   # goalie in net: mirrored, 2.33 ft
+  expect_equal(geo(-x_home_own, "3", "1"), 89 + x_home_own)  # visitor attacks +89
+  expect_equal(geo(-80, "1", "1"), 9)                        # attacking-half EN goal: unchanged
+  unknown <- data.frame(event = "goal", x_coord = x_home_own, y_coord = 0, team_id = NA,
+                        home_team_id = "1", empty_net = "1")
+  expect_equal(fastRhockey:::hockeytech_shot_distance_angle(unknown)$shot_distance, 89 - x_home_own)
+})
