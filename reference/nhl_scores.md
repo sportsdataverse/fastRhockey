@@ -25,16 +25,14 @@ Returns a data frame with game scores.
 # \donttest{
   try(nhl_scores())
 #> ── NHL Scores ───────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:45:24 UTC
-#> # A tibble: 5 × 41
+#> ℹ Data updated: 2026-10-08 08:20:27 UTC
+#> # A tibble: 3 × 40
 #>           id   season game_type game_date  start_time_utc     eastern_utc_offset
 #>        <int>    <int>     <int> <chr>      <chr>              <chr>             
-#> 1 2026020001 20262027         2 2026-09-29 2026-09-29T21:00:… -04:00            
-#> 2 2026020002 20262027         2 2026-09-29 2026-09-29T23:00:… -04:00            
-#> 3 2026020003 20262027         2 2026-09-29 2026-09-30T00:00:… -04:00            
-#> 4 2026020004 20262027         2 2026-09-29 2026-09-30T02:00:… -04:00            
-#> 5 2026020005 20262027         2 2026-09-29 2026-09-30T02:30:… -04:00            
-#> # ℹ 35 more variables: venue_utc_offset <chr>, tv_broadcasts <list>,
+#> 1 2026020053 20262027         2 2026-10-07 2026-10-07T23:30:… -04:00            
+#> 2 2026020054 20262027         2 2026-10-07 2026-10-07T23:30:… -04:00            
+#> 3 2026020055 20262027         2 2026-10-07 2026-10-08T02:00:… -04:00            
+#> # ℹ 34 more variables: venue_utc_offset <chr>, tv_broadcasts <list>,
 #> #   game_state <chr>, game_schedule_state <chr>, game_center_link <chr>,
 #> #   three_min_recap <chr>, three_min_recap_fr <chr>, condensed_game <chr>,
 #> #   neutral_site <lgl>, venue_timezone <chr>, period <int>, goals <list>,

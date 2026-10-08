@@ -66,20 +66,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_standings())
 #> ── NHL Standings ────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:45:26 UTC
+#> ℹ Data updated: 2026-10-08 08:20:29 UTC
 #> # A tibble: 32 × 36
 #>    team_abbr team_name            team_common_name team_logo     conference_name
 #>    <chr>     <chr>                <chr>            <chr>         <chr>          
-#>  1 VGK       Vegas Golden Knights Golden Knights   https://asse… Western        
-#>  2 BOS       Boston Bruins        Bruins           https://asse… Eastern        
-#>  3 MTL       Montréal Canadiens   Canadiens        https://asse… Eastern        
-#>  4 VAN       Vancouver Canucks    Canucks          https://asse… Western        
-#>  5 FLA       Florida Panthers     Panthers         https://asse… Eastern        
-#>  6 EDM       Edmonton Oilers      Oilers           https://asse… Western        
-#>  7 CAR       Carolina Hurricanes  Hurricanes       https://asse… Eastern        
-#>  8 ANA       Anaheim Ducks        Ducks            https://asse… Western        
-#>  9 BUF       Buffalo Sabres       Sabres           https://asse… Eastern        
-#> 10 CGY       Calgary Flames       Flames           https://asse… Western        
+#>  1 NYR       New York Rangers     Rangers          https://asse… Eastern        
+#>  2 EDM       Edmonton Oilers      Oilers           https://asse… Western        
+#>  3 WPG       Winnipeg Jets        Jets             https://asse… Western        
+#>  4 UTA       Utah Mammoth         Mammoth          https://asse… Western        
+#>  5 VGK       Vegas Golden Knights Golden Knights   https://asse… Western        
+#>  6 FLA       Florida Panthers     Panthers         https://asse… Eastern        
+#>  7 MIN       Minnesota Wild       Wild             https://asse… Western        
+#>  8 CAR       Carolina Hurricanes  Hurricanes       https://asse… Eastern        
+#>  9 COL       Colorado Avalanche   Avalanche        https://asse… Western        
+#> 10 WSH       Washington Capitals  Capitals         https://asse… Eastern        
 #> # ℹ 22 more rows
 #> # ℹ 31 more variables: division_abbrev <chr>, division_name <chr>,
 #> #   place_name <chr>, conference_sequence <int>, division_sequence <int>,
@@ -89,7 +89,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #> #   goals_against <int>, goal_differential <int>, home_wins <int>, …
   try(nhl_standings(date = "2024-03-01"))
 #> ── NHL Standings ────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:45:26 UTC
+#> ℹ Data updated: 2026-10-08 08:20:29 UTC
 #> # A tibble: 32 × 36
 #>    team_abbr team_name            team_common_name team_logo     conference_name
 #>    <chr>     <chr>                <chr>            <chr>         <chr>          

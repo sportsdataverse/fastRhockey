@@ -39,6 +39,6 @@ Other QMJHL Functions:
 
 ``` r
  try(qmjhl_game_corsi(game_id = 27225)) 
-#> ✖ 2026-09-30 14:46:00.739737: QMJHL game Corsi for game_id 27225 unavailable! Error in `$<-.data.frame`(`*tmp*`, "corsi_for_per60", value = NA_real_): replacement has 1 row, data has 0
+#> ✖ 2026-10-08 08:21:00.702969: QMJHL game Corsi for game_id 27225 unavailable! Error in `$<-.data.frame`(`*tmp*`, "corsi_for_per60", value = NA_real_): replacement has 1 row, data has 0
 #> data frame with 0 columns and 0 rows
 ```

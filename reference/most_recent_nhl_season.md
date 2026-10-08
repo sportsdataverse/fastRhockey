@@ -18,5 +18,5 @@ Value for most recent NHL season
 
 ``` r
 most_recent_nhl_season()
-#> [1] 2026
+#> [1] 2027
 ```

@@ -36,20 +36,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_player_spotlight())
 #> ── NHL Player Spotlight ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:44:51 UTC
+#> ℹ Data updated: 2026-10-08 08:19:57 UTC
 #> # A tibble: 10 × 13
 #>    player_id player_slug  position sweater_number team_id headshot team_tri_code
 #>        <int> <chr>        <chr>             <int>   <int> <chr>    <chr>        
-#>  1   8480803 evan-boucha… D                     2      22 https:/… EDM          
+#>  1   8481540 cole-caufie… R                    13       8 https:/… MTL          
 #>  2   8484801 macklin-cel… C                    71      28 https:/… SJS          
 #>  3   8471675 sidney-cros… C                    87       5 https:/… PIT          
-#>  4   8481559 jack-hughes… C                    86       1 https:/… NJD          
-#>  5   8477492 nathan-mack… C                    29      21 https:/… COL          
-#>  6   8478402 connor-mcda… C                    97      22 https:/… EDM          
-#>  7   8471214 alex-ovechk… L                     8      15 https:/… WSH          
-#>  8   8477956 david-pastr… R                    88       6 https:/… BOS          
-#>  9   8485366 matthew-sch… D                    48       2 https:/… NYI          
-#> 10   8476883 andrei-vasi… G                    88      14 https:/… TBL          
+#>  4   8478403 jack-eichel… C                     9      54 https:/… VGK          
+#>  5   8480800 quinn-hughe… D                    43      30 https:/… MIN          
+#>  6   8477492 nathan-mack… C                    29      21 https:/… COL          
+#>  7   8478402 connor-mcda… C                    97      22 https:/… EDM          
+#>  8   8486067 gavin-mcken… L                    92      10 https:/… TOR          
+#>  9   8471214 alex-ovechk… L                     8      15 https:/… WSH          
+#> 10   8485366 matthew-sch… D                    48       2 https:/… NYI          
 #> # ℹ 6 more variables: team_logo <chr>, sort_id <int>, name_default <chr>,
 #> #   name_cs <chr>, name_fi <chr>, name_sk <chr>
 # }

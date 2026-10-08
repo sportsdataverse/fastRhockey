@@ -135,7 +135,7 @@ unavailable:
 # \donttest{
   try(pwhl_leaders(position = "skaters", season = 2025))
 #> ── PWHL Leaders - skaters ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:45:52 UTC
+#> ℹ Data updated: 2026-10-08 08:20:52 UTC
 #> # A tibble: 107 × 88
 #>    player_id shortname    first_name last_name name  phonetic_name active height
 #>    <chr>     <chr>        <chr>      <chr>     <chr> <chr>         <chr>  <chr> 
@@ -144,7 +144,7 @@ unavailable:
 #>  3 63        D. Watts     Daryl      Watts     Dary… "DAIR-uhl WA… 1      "5'6\…
 #>  4 31        M. Poulin    Marie-Phi… Poulin    Mari… ""            1      "5'7" 
 #>  5 20        K. Coyne Sc… Kendall    Coyne Sc… Kend… "KEHN-duhl K… 1      "5'2" 
-#>  6 89        H. Miller    Hannah     Miller    Hann… "HAN-uh MIH-… 1      "5'9\…
+#>  6 89        H. Miller    Hannah     Miller    Hann… "HAN-uh MIH-… 1      "5'9" 
 #>  7 36        J. Eldridge  Jessie     Eldridge  Jess… "jeh-see EHL… 1      "5'9\…
 #>  8 161       T. Vanišová  Tereza     Vanišová  Tere… " TAH-ree-zu… 1      "5'7" 
 #>  9 32        L. Stacey    Laura      Stacey    Laur… "STAY-see"    1      "5'10…
@@ -158,7 +158,7 @@ unavailable:
 #> #   birthdate_year <chr>, hometown <chr>, homeprov <chr>, homecntry <chr>, …
   try(pwhl_leaders(position = "goalies", season = 2025))
 #> ── PWHL Leaders - goalies ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:45:52 UTC
+#> ℹ Data updated: 2026-10-08 08:20:53 UTC
 #> # A tibble: 16 × 84
 #>    player_id shortname    rookie first_name last_name name  phonetic_name active
 #>    <chr>     <chr>        <chr>  <chr>      <chr>     <chr> <chr>         <chr> 

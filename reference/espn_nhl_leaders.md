@@ -229,20 +229,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_leaders(category = "offensive", limit = 25))
 #> ── NHL Leaders data from ESPN.com ───────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:42:02 UTC
+#> ℹ Data updated: 2026-10-08 08:17:47 UTC
 #> # A tibble: 25 × 51
 #>    season season_type requested_season_year  page pagination_count
 #>     <int>       <int>                 <int> <int>            <int>
-#>  1   2027           2                  2027     1              190
-#>  2   2027           2                  2027     1              190
-#>  3   2027           2                  2027     1              190
-#>  4   2027           2                  2027     1              190
-#>  5   2027           2                  2027     1              190
-#>  6   2027           2                  2027     1              190
-#>  7   2027           2                  2027     1              190
-#>  8   2027           2                  2027     1              190
-#>  9   2027           2                  2027     1              190
-#> 10   2027           2                  2027     1              190
+#>  1   2027           2                  2027     1              686
+#>  2   2027           2                  2027     1              686
+#>  3   2027           2                  2027     1              686
+#>  4   2027           2                  2027     1              686
+#>  5   2027           2                  2027     1              686
+#>  6   2027           2                  2027     1              686
+#>  7   2027           2                  2027     1              686
+#>  8   2027           2                  2027     1              686
+#>  9   2027           2                  2027     1              686
+#> 10   2027           2                  2027     1              686
 #> # ℹ 15 more rows
 #> # ℹ 46 more variables: pagination_limit <int>, pagination_pages <int>,
 #> #   league_id <chr>, league_name <chr>, league_abbreviation <chr>,

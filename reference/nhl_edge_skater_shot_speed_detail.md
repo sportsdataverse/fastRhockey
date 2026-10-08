@@ -67,11 +67,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_skater_shot_speed_detail(player_id = 8478402))
 #> ── NHL Edge Skater Shot Speed Detail ────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:44:35 UTC
-#> # A tibble: 1 × 24
-#>   game_center_link        game_date game_type player_on_home_team time_in_period
-#>   <chr>                   <chr>         <int> <lgl>               <chr>         
-#> 1 /gamecenter/van-vs-edm… 2026-09-…         2 FALSE               00:17         
+#> ℹ Data updated: 2026-10-08 08:19:43 UTC
+#> # A tibble: 10 × 24
+#>    game_center_link       game_date game_type player_on_home_team time_in_period
+#>    <chr>                  <chr>         <int> <lgl>               <chr>         
+#>  1 /gamecenter/edm-vs-an… 2026-10-…         2 FALSE               19:08         
+#>  2 /gamecenter/edm-vs-va… 2026-10-…         2 FALSE               15:23         
+#>  3 /gamecenter/sea-vs-ed… 2026-10-…         2 FALSE               03:22         
+#>  4 /gamecenter/edm-vs-an… 2026-10-…         2 FALSE               15:18         
+#>  5 /gamecenter/sea-vs-ed… 2026-10-…         2 FALSE               12:10         
+#>  6 /gamecenter/sea-vs-ed… 2026-10-…         2 FALSE               07:04         
+#>  7 /gamecenter/edm-vs-va… 2026-10-…         2 FALSE               02:52         
+#>  8 /gamecenter/sea-vs-ed… 2026-10-…         2 FALSE               18:55         
+#>  9 /gamecenter/sea-vs-ed… 2026-10-…         2 FALSE               08:38         
+#> 10 /gamecenter/edm-vs-va… 2026-10-…         2 FALSE               03:40         
 #> # ℹ 19 more variables: shot_speed_imperial <dbl>, shot_speed_metric <dbl>,
 #> #   period_descriptor_number <int>, period_descriptor_period_type <chr>,
 #> #   period_descriptor_max_regulation_periods <int>, home_team_abbrev <chr>,

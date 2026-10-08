@@ -69,26 +69,26 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_team_shot_speed_detail(team_id = 10))
 #> ── NHL Edge Team Shot Speed Detail ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:44:40 UTC
-#> # A tibble: 10 × 33
+#> ℹ Data updated: 2026-10-08 08:19:47 UTC
+#> # A tibble: 10 × 25
 #>    game_center_link    game_date game_type is_home_team time_in_period player_id
 #>    <chr>               <chr>         <int> <lgl>        <chr>              <int>
-#>  1 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         19:19            8478178
-#>  2 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         12:39            8477939
-#>  3 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         00:17            8480893
-#>  4 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         06:12            8479318
-#>  5 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         03:57            8475171
-#>  6 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         00:13            8478458
-#>  7 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         13:17            8486067
-#>  8 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         05:34            8484158
-#>  9 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         03:23            8475690
-#> 10 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         02:45            8476927
-#> # ℹ 27 more variables: player_slug <chr>, player_first_name_default <chr>,
-#> #   player_first_name_cs <chr>, player_first_name_de <chr>,
-#> #   player_first_name_es <chr>, player_first_name_fi <chr>,
-#> #   player_first_name_sk <chr>, player_first_name_sv <chr>,
-#> #   player_last_name_default <chr>, player_last_name_cs <chr>,
-#> #   player_last_name_fi <chr>, player_last_name_sk <chr>,
-#> #   shot_speed_imperial <dbl>, shot_speed_metric <dbl>, …
+#>  1 /gamecenter/ott-vs… 2026-10-…         2 TRUE         03:32            8478178
+#>  2 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         19:19            8478178
+#>  3 /gamecenter/nyi-vs… 2026-09-…         2 TRUE         19:28            8478178
+#>  4 /gamecenter/nsh-vs… 2026-10-…         2 TRUE         03:04            8479520
+#>  5 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         12:39            8477939
+#>  6 /gamecenter/nyi-vs… 2026-09-…         2 TRUE         12:58            8475171
+#>  7 /gamecenter/nyi-vs… 2026-09-…         2 TRUE         19:20            8477939
+#>  8 /gamecenter/nsh-vs… 2026-10-…         2 TRUE         16:43            8484158
+#>  9 /gamecenter/nyi-vs… 2026-09-…         2 TRUE         09:33            8480870
+#> 10 /gamecenter/ott-vs… 2026-10-…         2 TRUE         06:58            8479318
+#> # ℹ 19 more variables: player_slug <chr>, player_first_name_default <chr>,
+#> #   player_last_name_default <chr>, shot_speed_imperial <dbl>,
+#> #   shot_speed_metric <dbl>, period_descriptor_number <int>,
+#> #   period_descriptor_period_type <chr>,
+#> #   period_descriptor_max_regulation_periods <int>,
+#> #   home_team_common_name_default <chr>,
+#> #   home_team_place_name_with_preposition_default <chr>, …
 # }
 ```

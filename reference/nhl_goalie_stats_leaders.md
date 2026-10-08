@@ -66,29 +66,34 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_goalie_stats_leaders())
 #> ── NHL Goalie Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:44:48 UTC
-#> # A tibble: 17 × 15
+#> ℹ Data updated: 2026-10-08 08:19:54 UTC
+#> # A tibble: 20 × 19
 #>         id sweater_number headshot          team_abbrev team_logo position value
 #>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>
-#>  1 8474593             25 https://assets.n… FLA         https://… G        1    
-#>  2 8482487             75 https://assets.n… MTL         https://… G        1    
-#>  3 8480280              1 https://assets.n… BOS         https://… G        1    
-#>  4 8480947             32 https://assets.n… VAN         https://… G        1    
-#>  5 8479394             79 https://assets.n… VGK         https://… G        1    
-#>  6 8474593             25 https://assets.n… FLA         https://… G        1    
-#>  7 8480280              1 https://assets.n… BOS         https://… G        1    
-#>  8 8474593             25 https://assets.n… FLA         https://… G        1    
-#>  9 8480280              1 https://assets.n… BOS         https://… G        1    
-#> 10 8483548             32 https://assets.n… CAR         https://… G        0.95 
-#> 11 8482487             75 https://assets.n… MTL         https://… G        0.929
-#> 12 8479394             79 https://assets.n… VGK         https://… G        0.923
-#> 13 8474593             25 https://assets.n… FLA         https://… G        0    
-#> 14 8480280              1 https://assets.n… BOS         https://… G        0    
-#> 15 8483548             32 https://assets.n… CAR         https://… G        0.924
-#> 16 8479394             79 https://assets.n… VGK         https://… G        2.00 
-#> 17 8482487             75 https://assets.n… MTL         https://… G        2.01 
-#> # ℹ 8 more variables: first_name_default <chr>, last_name_default <chr>,
+#>  1 8478048             31 https://assets.n… NYR         https://… G        3    
+#>  2 8482221             27 https://assets.n… EDM         https://… G        3    
+#>  3 8474593             25 https://assets.n… FLA         https://… G        2    
+#>  4 8482661             30 https://assets.n… MIN         https://… G        2    
+#>  5 8479973             74 https://assets.n… WPG         https://… G        2    
+#>  6 8482193             33 https://assets.n… NYR         https://… G        1    
+#>  7 8478009             30 https://assets.n… NYI         https://… G        1    
+#>  8 8479979             29 https://assets.n… DAL         https://… G        1    
+#>  9 8480981             30 https://assets.n… STL         https://… G        1    
+#> 10 8474593             25 https://assets.n… FLA         https://… G        1    
+#> 11 8482193             33 https://assets.n… NYR         https://… G        1    
+#> 12 8478024             33 https://assets.n… ANA         https://… G        1    
+#> 13 8478009             30 https://assets.n… NYI         https://… G        0.968
+#> 14 8480981             30 https://assets.n… STL         https://… G        0.954
+#> 15 8476999             35 https://assets.n… OTT         https://… G        0.949
+#> 16 8482193             33 https://assets.n… NYR         https://… G        0    
+#> 17 8478024             33 https://assets.n… ANA         https://… G        0    
+#> 18 8482657             33 https://assets.n… UTA         https://… G        1    
+#> 19 8479979             29 https://assets.n… DAL         https://… G        1.01 
+#> 20 8480981             30 https://assets.n… STL         https://… G        1.01 
+#> # ℹ 12 more variables: first_name_default <chr>, last_name_default <chr>,
 #> #   last_name_cs <chr>, last_name_fi <chr>, last_name_sk <chr>,
-#> #   last_name_sv <chr>, team_name_default <chr>, category <chr>
+#> #   team_name_default <chr>, last_name_sv <chr>, category <chr>,
+#> #   first_name_cs <chr>, first_name_fi <chr>, first_name_sk <chr>,
+#> #   team_name_fr <chr>
 # }
 ```

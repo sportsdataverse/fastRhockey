@@ -24,10 +24,10 @@ Returns a list with game odds data.
 # \donttest{
 try(nhl_partner_game_odds())
 #> $currentOddsDate
-#> [1] "2026-09-29"
+#> [1] "2026-10-07"
 #> 
 #> $lastUpdatedUTC
-#> [1] "2026-09-30T04:30:38Z"
+#> [1] "2026-10-08T04:00:38Z"
 #> 
 #> $bettingPartner
 #> $bettingPartner$partnerId
@@ -57,47 +57,33 @@ try(nhl_partner_game_odds())
 #> 
 #> $games
 #>       gameId gameType         startTimeUTC homeTeam.id homeTeam.abbrev
-#> 1 2026020001        2 2026-09-29T21:00:00Z          12             CAR
-#> 2 2026020002        2 2026-09-29T23:00:00Z          10             TOR
-#> 3 2026020003        2 2026-09-30T00:00:00Z           6             BOS
-#> 4 2026020004        2 2026-09-30T02:00:00Z          22             EDM
-#> 5 2026020005        2 2026-09-30T02:30:00Z          54             VGK
-#>                                         homeTeam.logo
-#> 1 https://assets.nhle.com/logos/nhl/svg/CAR_light.svg
-#> 2 https://assets.nhle.com/logos/nhl/svg/TOR_light.svg
-#> 3 https://assets.nhle.com/logos/nhl/svg/BOS_light.svg
-#> 4 https://assets.nhle.com/logos/nhl/svg/EDM_light.svg
-#> 5 https://assets.nhle.com/logos/nhl/svg/VGK_light.svg
-#>                                                                                                                                                      homeTeam.odds
-#> 1       OVER_UNDER, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -125, 100, 360, -140, 200, -162, O1.5, Draw, -1.5, , , 
-#> 2       MONEY_LINE_2_WAY, PUCK_LINE, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 325, -140, 245, -270, 1200, 750, , +1.5, Draw, O4.5, , 
-#> 3       MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 450, 950, 325, -125, -260, -135, , -1.5, O1.5, , Draw, 
-#> 4      MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, PUCK_LINE, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY_TNB, 1200, 230, -270, 190, -154, 700, , , +1.5, Draw, O10.5, 
-#> 5 MONEY_LINE_2_WAY, PUCK_LINE, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -20000, -160, -1100, 160, 950, -50000, , -2.5, , O7.5, Draw, 
+#> 1 2026020053        2 2026-10-07T23:30:00Z          15             WSH
+#> 2 2026020054        2 2026-10-07T23:30:00Z          52             WPG
+#> 3 2026020055        2 2026-10-08T02:00:00Z          24             ANA
+#>                                                   homeTeam.logo
+#> 1 https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg
+#> 2           https://assets.nhle.com/logos/nhl/svg/WPG_light.svg
+#> 3           https://assets.nhle.com/logos/nhl/svg/ANA_light.svg
+#>                                                                                                                                                     homeTeam.odds
+#> 1 MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_2_WAY_TNB, -1400, 100, 1000, -4000, 124, -2e+05, , -2.5, Draw, , O9.5, 
+#> 2     MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY_TNB, -155, 180, -298, -175, 180, -925, , Draw, , O4.5, -1.5, 
+#> 3   MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_2_WAY_TNB, 4000, 19000, -180, 154, 1800, 4000, Draw, , +3.5, O8.5, , 
 #>   homeTeam.name.default awayTeam.id awayTeam.abbrev
-#> 1            Hurricanes          13             FLA
-#> 2           Maple Leafs           8             MTL
-#> 3                Bruins           3             NYR
-#> 4                Oilers          23             VAN
-#> 5        Golden Knights          16             CHI
+#> 1              Capitals           5             PIT
+#> 2                  Jets          21             COL
+#> 3                 Ducks          22             EDM
 #>                                         awayTeam.logo
-#> 1 https://assets.nhle.com/logos/nhl/svg/FLA_light.svg
-#> 2 https://assets.nhle.com/logos/nhl/svg/MTL_light.svg
-#> 3 https://assets.nhle.com/logos/nhl/svg/NYR_light.svg
-#> 4 https://assets.nhle.com/logos/nhl/svg/VAN_light.svg
-#> 5 https://assets.nhle.com/logos/nhl/svg/CHI_light.svg
-#>                                                                                                                                                  awayTeam.odds
-#> 1    OVER_UNDER, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -105, 100, -540, 110, 320, 126, U1.5, Draw, +1.5, , , 
-#> 2  MONEY_LINE_2_WAY, PUCK_LINE, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -475, 110, 245, 200, -225, -1450, , -1.5, Draw, U4.5, , 
-#> 3 MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 550, -1950, -475, -105, -260, 105, , +1.5, U1.5, , Draw, 
-#> 4 MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, PUCK_LINE, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY_TNB, -175, -315, 200, 190, 120, -1300, , , -1.5, Draw, U10.5, 
-#> 5  MONEY_LINE_2_WAY, PUCK_LINE, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 3000, 124, 4500, -210, 950, 3000, , +2.5, , U7.5, Draw, 
+#> 1 https://assets.nhle.com/logos/nhl/svg/PIT_light.svg
+#> 2 https://assets.nhle.com/logos/nhl/svg/COL_light.svg
+#> 3 https://assets.nhle.com/logos/nhl/svg/EDM_light.svg
+#>                                                                                                                                                       awayTeam.odds
+#> 1     MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_2_WAY_TNB, 7500, -130, 1000, 1500, -160, 5000, , +2.5, Draw, , U9.5, 
+#> 2          MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY_TNB, 900, 180, 220, 135, -238, 525, , Draw, , U4.5, +1.5, 
+#> 3 MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_2_WAY_TNB, 4000, -10000, 140, -200, -6500, -1e+05, Draw, , -3.5, U8.5, , 
 #>   awayTeam.name.default
-#> 1              Panthers
-#> 2             Canadiens
-#> 3               Rangers
-#> 4               Canucks
-#> 5            Blackhawks
+#> 1              Penguins
+#> 2             Avalanche
+#> 3                Oilers
 #> 
 # }
 ```

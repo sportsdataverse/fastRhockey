@@ -140,27 +140,27 @@ season), an 8-character API season (e.g., <code>"20242025"</code>), or <code>NUL
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_edge_team_shot_speed_detail</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Edge Team Shot Speed Detail ──────────────────────── <span style="font-style: italic;">fastRhockey 1.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-30 14:44:40 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 33</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-08 08:19:47 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 25</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    game_center_link    game_date game_type is_home_team time_in_period player_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> /gamecenter/mtl-vs… 2026-09-…         2 TRUE         19:19            8<span style="text-decoration: underline;">478</span>178</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> /gamecenter/mtl-vs… 2026-09-…         2 TRUE         12:39            8<span style="text-decoration: underline;">477</span>939</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> /gamecenter/mtl-vs… 2026-09-…         2 TRUE         00:17            8<span style="text-decoration: underline;">480</span>893</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> /gamecenter/mtl-vs… 2026-09-…         2 TRUE         06:12            8<span style="text-decoration: underline;">479</span>318</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> /gamecenter/mtl-vs… 2026-09-…         2 TRUE         03:57            8<span style="text-decoration: underline;">475</span>171</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> /gamecenter/mtl-vs… 2026-09-…         2 TRUE         00:13            8<span style="text-decoration: underline;">478</span>458</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> /gamecenter/mtl-vs… 2026-09-…         2 TRUE         13:17            8<span style="text-decoration: underline;">486</span>067</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> /gamecenter/mtl-vs… 2026-09-…         2 TRUE         05:34            8<span style="text-decoration: underline;">484</span>158</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> /gamecenter/mtl-vs… 2026-09-…         2 TRUE         03:23            8<span style="text-decoration: underline;">475</span>690</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> /gamecenter/mtl-vs… 2026-09-…         2 TRUE         02:45            8<span style="text-decoration: underline;">476</span>927</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 27 more variables: player_slug &lt;chr&gt;, player_first_name_default &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_first_name_cs &lt;chr&gt;, player_first_name_de &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_first_name_es &lt;chr&gt;, player_first_name_fi &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_first_name_sk &lt;chr&gt;, player_first_name_sv &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_last_name_default &lt;chr&gt;, player_last_name_cs &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_last_name_fi &lt;chr&gt;, player_last_name_sk &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   shot_speed_imperial &lt;dbl&gt;, shot_speed_metric &lt;dbl&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> /gamecenter/ott-vs… 2026-10-…         2 TRUE         03:32            8<span style="text-decoration: underline;">478</span>178</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> /gamecenter/mtl-vs… 2026-09-…         2 TRUE         19:19            8<span style="text-decoration: underline;">478</span>178</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> /gamecenter/nyi-vs… 2026-09-…         2 TRUE         19:28            8<span style="text-decoration: underline;">478</span>178</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> /gamecenter/nsh-vs… 2026-10-…         2 TRUE         03:04            8<span style="text-decoration: underline;">479</span>520</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> /gamecenter/mtl-vs… 2026-09-…         2 TRUE         12:39            8<span style="text-decoration: underline;">477</span>939</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> /gamecenter/nyi-vs… 2026-09-…         2 TRUE         12:58            8<span style="text-decoration: underline;">475</span>171</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> /gamecenter/nyi-vs… 2026-09-…         2 TRUE         19:20            8<span style="text-decoration: underline;">477</span>939</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> /gamecenter/nsh-vs… 2026-10-…         2 TRUE         16:43            8<span style="text-decoration: underline;">484</span>158</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> /gamecenter/nyi-vs… 2026-09-…         2 TRUE         09:33            8<span style="text-decoration: underline;">480</span>870</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> /gamecenter/ott-vs… 2026-10-…         2 TRUE         06:58            8<span style="text-decoration: underline;">479</span>318</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 19 more variables: player_slug &lt;chr&gt;, player_first_name_default &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_last_name_default &lt;chr&gt;, shot_speed_imperial &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   shot_speed_metric &lt;dbl&gt;, period_descriptor_number &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   period_descriptor_period_type &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   period_descriptor_max_regulation_periods &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_common_name_default &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_place_name_with_preposition_default &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

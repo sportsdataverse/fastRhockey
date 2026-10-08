@@ -69,12 +69,15 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_team_skating_distance_detail(team_id = 10))
 #> ── NHL Edge Team Skating Distance Detail ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:44:40 UTC
-#> # A tibble: 1 × 25
+#> ℹ Data updated: 2026-10-08 08:19:48 UTC
+#> # A tibble: 4 × 26
 #>   game_center_link         game_date is_home_team toi_all toi_even toi_pp toi_pk
 #>   <chr>                    <chr>     <lgl>          <int>    <int>  <int>  <int>
-#> 1 /gamecenter/mtl-vs-tor/… 2026-09-… TRUE           17715    14955   1800    960
-#> # ℹ 18 more variables: distance_skated_all_imperial <dbl>,
+#> 1 /gamecenter/nsh-vs-tor/… 2026-10-… TRUE           18756    16713   1635    408
+#> 2 /gamecenter/ott-vs-tor/… 2026-10-… TRUE           17470    13620   1930   1920
+#> 3 /gamecenter/nyi-vs-tor/… 2026-09-… TRUE           17618    13328   2370   1920
+#> 4 /gamecenter/mtl-vs-tor/… 2026-09-… TRUE           17715    14955   1800    960
+#> # ℹ 19 more variables: distance_skated_all_imperial <dbl>,
 #> #   distance_skated_all_metric <dbl>, distance_skated_even_imperial <dbl>,
 #> #   distance_skated_even_metric <dbl>, distance_skated_pp_imperial <dbl>,
 #> #   distance_skated_pp_metric <dbl>, distance_skated_pk_imperial <dbl>,

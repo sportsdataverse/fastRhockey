@@ -168,20 +168,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_transactions())
 #> ── NHL Transactions data from ESPN.com ──────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:42:58 UTC
+#> ℹ Data updated: 2026-10-08 08:18:20 UTC
 #> # A tibble: 25 × 8
 #>    date            description team_id team_location team_name team_abbreviation
 #>    <chr>           <chr>       <chr>   <chr>         <chr>     <chr>            
-#>  1 2026-09-29T07:… Placed C J… 37      Vegas         Golden K… VGK              
-#>  2 2026-09-29T07:… Placed D C… 21      Toronto       Maple Le… TOR              
-#>  3 2026-09-27T07:… Placed LW … 129764  Utah          Mammoth   UTA              
-#>  4 2026-09-27T07:… Placed C J… 124292  Seattle       Kraken    SEA              
-#>  5 2026-09-27T07:… Assigned G… 29      Columbus      Blue Jac… CBJ              
-#>  6 2026-09-27T07:… Placed RD … 27      Nashville     Predators NSH              
-#>  7 2026-09-27T07:… Placed RW/… 26      Florida       Panthers  FLA              
-#>  8 2026-09-27T07:… Placed G L… 25      Anaheim       Ducks     ANA              
-#>  9 2026-09-27T07:… Placed G C… 23      Washington    Capitals  WSH              
-#> 10 2026-09-27T07:… Placed G N… 22      Vancouver     Canucks   VAN              
+#>  1 2026-10-07T07:… Called up … 30      Minnesota     Wild      MIN              
+#>  2 2026-10-07T07:… Placed RW … 16      Pittsburgh    Penguins  PIT              
+#>  3 2026-10-07T07:… Assigned L… 15      Philadelphia  Flyers    PHI              
+#>  4 2026-10-07T07:… Signed D V… 12      New York      Islanders NYI              
+#>  5 2026-10-07T07:… Placed RW … 7       Carolina      Hurrican… CAR              
+#>  6 2026-10-07T07:… Acquired C… 6       Edmonton      Oilers    EDM              
+#>  7 2026-10-07T07:… Recalled C… 4       Chicago       Blackhaw… CHI              
+#>  8 2026-10-07T07:… Recalled C… 3       Calgary       Flames    CGY              
+#>  9 2026-10-06T07:… Placed LW … 29      Columbus      Blue Jac… CBJ              
+#> 10 2026-10-06T07:… Recalled G… 27      Nashville     Predators NSH              
 #> # ℹ 15 more rows
 #> # ℹ 2 more variables: team_display_name <chr>, team_color <chr>
 # }

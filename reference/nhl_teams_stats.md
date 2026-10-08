@@ -82,7 +82,27 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_teams_stats(team_abbr = "TBL"))
-#> 2026-09-30 14:45:34.970262: No stats found for TBL
-#> NULL
+#> ── NHL Teams Stats Information from NHL.com ─────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-10-08 08:20:36 UTC
+#> # A tibble: 21 × 41
+#>    player_id headshot position_code games_played goals assists points plus_minus
+#>        <int> <chr>    <chr>                <int> <int>   <int>  <int>      <int>
+#>  1   8474151 https:/… D                        3     0       0      0          1
+#>  2   8474590 https:/… D                        3     0       2      2          0
+#>  3   8475167 https:/… D                        3     0       0      0          1
+#>  4   8476453 https:/… R                        3     1       3      4          2
+#>  5   8476878 https:/… C                        3     0       1      1          0
+#>  6   8477404 https:/… C                        3     1       2      3          2
+#>  7   8478010 https:/… C                        3     1       1      2          2
+#>  8   8478416 https:/… D                        3     0       0      0          3
+#>  9   8478424 https:/… C                        1     0       0      0         -1
+#> 10   8478519 https:/… C                        3     0       0      0          1
+#> # ℹ 11 more rows
+#> # ℹ 33 more variables: penalty_minutes <int>, power_play_goals <int>,
+#> #   shorthanded_goals <int>, game_winning_goals <int>, overtime_goals <int>,
+#> #   shots <int>, shooting_pctg <dbl>, avg_time_on_ice_per_game <dbl>,
+#> #   avg_shifts_per_game <dbl>, faceoff_win_pctg <dbl>,
+#> #   first_name_default <chr>, last_name_default <chr>, last_name_cs <chr>,
+#> #   last_name_fi <chr>, last_name_sk <chr>, first_name_cs <chr>, …
 # }
 ```

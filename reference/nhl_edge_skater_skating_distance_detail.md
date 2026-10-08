@@ -76,11 +76,14 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_skater_skating_distance_detail(player_id = 8478402))
 #> ── NHL Edge Skater Skating Distance Detail ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:44:36 UTC
-#> # A tibble: 1 × 29
+#> ℹ Data updated: 2026-10-08 08:19:44 UTC
+#> # A tibble: 4 × 29
 #>   game_center_link  game_date player_on_home_team toi_all toi_even toi_pp toi_pk
 #>   <chr>             <chr>     <lgl>                 <int>    <int>  <int>  <int>
-#> 1 /gamecenter/van-… 2026-09-… TRUE                   1371     1012    320     39
+#> 1 /gamecenter/edm-… 2026-10-… FALSE                  1471      978    257    236
+#> 2 /gamecenter/sea-… 2026-10-… TRUE                   1577     1256    270     51
+#> 3 /gamecenter/edm-… 2026-10-… FALSE                  1323      913    279    131
+#> 4 /gamecenter/van-… 2026-09-… TRUE                   1371     1012    320     39
 #> # ℹ 22 more variables: distance_skated_all_imperial <dbl>,
 #> #   distance_skated_all_metric <dbl>, distance_skated_even_imperial <dbl>,
 #> #   distance_skated_even_metric <dbl>, distance_skated_pp_imperial <dbl>,

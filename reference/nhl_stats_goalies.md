@@ -63,25 +63,7 @@ Returns a data frame with goalie statistics.
 ``` r
 # \donttest{
   try(nhl_stats_goalies())
-#> ── NHL Stats Goalies ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:45:29 UTC
-#> # A tibble: 10 × 23
-#>    assists games_played games_started goalie_full_name goals goals_against
-#>      <int>        <int>         <int> <chr>            <int>         <int>
-#>  1       0            1             1 Jacob Markstrom      0             0
-#>  2       0            1             1 Carter Hart          0             2
-#>  3       0            1             1 Jeremy Swayman       0             0
-#>  4       0            1             1 Jakub Dobes          0             2
-#>  5       0            1             1 Kevin Lankinen       0             5
-#>  6       0            1             1 Sergei Bobrovsky     0             3
-#>  7       0            1             1 Brandon Bussi        0             1
-#>  8       0            1             1 Igor Shesterkin      0             2
-#>  9       0            1             1 Spencer Knight       0             4
-#> 10       0            1             1 Tristan Jarry        0             6
-#> # ℹ 17 more variables: goals_against_average <dbl>, last_name <chr>,
-#> #   losses <int>, ot_losses <int>, penalty_minutes <int>, player_id <int>,
-#> #   points <int>, save_pct <dbl>, saves <int>, season_id <int>,
-#> #   shoots_catches <chr>, shots_against <int>, shutouts <int>,
-#> #   team_abbrevs <chr>, ties <lgl>, time_on_ice <int>, wins <int>
+#> 2026-10-08 08:20:32.128264: No goalie stats data
+#> NULL
 # }
 ```

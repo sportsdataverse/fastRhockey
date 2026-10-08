@@ -58,7 +58,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_stats_goalie_leaders(attribute = "savePctg"))
 #> ── NHL Stats Goalie Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:45:29 UTC
+#> ℹ Data updated: 2026-10-08 08:20:31 UTC
 #> # A tibble: 10 × 15
 #>    save_pctg player_id player_current_team_id player_first_name player_full_name
 #>        <dbl>     <int>                  <int> <chr>             <chr>           
@@ -66,9 +66,9 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  2         1   8484293                     NA Yaniv             Yaniv Perets    
 #>  3         1   8483575                     18 Matt              Matt Murray     
 #>  4         1   8483158                     NA Matthew           Matthew Berlin  
-#>  5         1   8481033                     13 Akira             Akira Schmid    
-#>  6         1   8480313                     15 Logan             Logan Thompson  
-#>  7         1   8480280                      6 Jeremy            Jeremy Swayman  
+#>  5         1   8482193                      3 Dylan             Dylan Garand    
+#>  6         1   8481033                     13 Akira             Akira Schmid    
+#>  7         1   8480313                     15 Logan             Logan Thompson  
 #>  8         1   8480022                      6 Michael           Michael DiPietro
 #>  9         1   8479979                     25 Jake              Jake Oettinger  
 #> 10         1   8479288                     NA Kasimir           Kasimir Kaskisuo

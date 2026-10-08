@@ -171,7 +171,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_player_awards(athlete_id = "3114"))
 #> ── NHL Player Awards data from ESPN core-v2 ─────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:42:04 UTC
+#> ℹ Data updated: 2026-10-08 08:17:48 UTC
 #> # A tibble: 16 × 5
 #>    ref                                      award_id athlete_id count page_count
 #>    <chr>                                    <chr>    <chr>      <int>      <int>

@@ -180,7 +180,7 @@ Saiem Gilani
     espn_nhl_venue(venue_id = vns$venue_id[1])
   })
 #> ── NHL Venue data from ESPN core-v2 ─────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:42:59 UTC
+#> ℹ Data updated: 2026-10-08 08:18:21 UTC
 #> # A tibble: 1 × 11
 #>   venue_id id    guid  full_name     city   state country grass indoor capacity
 #>   <chr>    <chr> <chr> <chr>         <chr>  <chr> <chr>   <lgl> <lgl>     <int>

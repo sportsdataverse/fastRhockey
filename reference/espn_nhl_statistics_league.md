@@ -171,7 +171,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_statistics_league())
 #> ── NHL League Statistics data from ESPN.com ─────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:42:51 UTC
+#> ℹ Data updated: 2026-10-08 08:18:16 UTC
 #> # A tibble: 394 × 8
 #>    category_name category_abbreviation display_value value athlete_id
 #>    <chr>         <chr>                 <chr>         <dbl> <chr>     

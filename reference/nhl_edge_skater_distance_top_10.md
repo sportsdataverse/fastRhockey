@@ -137,20 +137,20 @@ Returns `NULL` on failure / empty response.
       sort_by = "total"
   ))
 #> ── NHL Edge Skater Distance Top 10 ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:44:33 UTC
+#> ℹ Data updated: 2026-10-08 08:19:41 UTC
 #> # A tibble: 10 × 47
 #>    player_slug             player_headshot player_position player_sweater_number
 #>    <chr>                   <chr>           <chr>                           <int>
 #>  1 connor-mcdavid-8478402  https://assets… C                                  97
-#>  2 auston-matthews-8479318 https://assets… C                                  34
-#>  3 sebastian-aho-8478427   https://assets… C                                  20
-#>  4 sam-bennett-8477935     https://assets… C                                   9
-#>  5 sam-reinhart-8477933    https://assets… C                                  13
-#>  6 patrick-kane-8474141    https://assets… R                                  88
-#>  7 aleksander-barkov-8477… https://assets… C                                  16
-#>  8 leon-draisaitl-8477934  https://assets… C                                  29
-#>  9 logan-stankoven-8482702 https://assets… C                                  22
-#> 10 jackson-blake-8482809   https://assets… R                                  53
+#>  2 mika-zibanejad-8476459  https://assets… C                                  93
+#>  3 alexis-lafrenière-8482… https://assets… L                                  13
+#>  4 sam-reinhart-8477933    https://assets… C                                  13
+#>  5 auston-matthews-8479318 https://assets… C                                  34
+#>  6 kyle-connor-8478398     https://assets… L                                  81
+#>  7 sam-bennett-8477935     https://assets… C                                   9
+#>  8 mark-scheifele-8476460  https://assets… C                                  55
+#>  9 jack-eichel-8478403     https://assets… C                                   9
+#> 10 patrick-kane-8474141    https://assets… R                                  88
 #> # ℹ 43 more variables: player_first_name_default <chr>,
 #> #   player_last_name_default <chr>, player_team_abbrev <chr>,
 #> #   player_team_slug <chr>, player_team_common_name_default <chr>,

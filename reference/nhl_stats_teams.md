@@ -65,27 +65,7 @@ Returns a data frame with team statistics.
 ``` r
 # \donttest{
   try(nhl_stats_teams())
-#> ── NHL Stats Teams ──────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:45:32 UTC
-#> # A tibble: 10 × 25
-#>    faceoff_win_pct games_played goals_against goals_against_per_game goals_for
-#>              <dbl>        <int>         <int>                  <dbl>     <int>
-#>  1           0.569            1             2                      2         5
-#>  2           0.4              1             5                      5         6
-#>  3           0.414            1             0                      0         1
-#>  4           0.604            1             2                      2         3
-#>  5           0.5              1             0                      0         3
-#>  6           0.586            1             1                      1         0
-#>  7           0.6              1             6                      6         5
-#>  8           0.396            1             3                      3         2
-#>  9           0.431            1             5                      5         2
-#> 10           0.5              1             3                      3         0
-#> # ℹ 20 more variables: goals_for_per_game <dbl>, losses <int>, ot_losses <int>,
-#> #   penalty_kill_net_pct <dbl>, penalty_kill_pct <dbl>, point_pct <dbl>,
-#> #   points <int>, power_play_net_pct <dbl>, power_play_pct <dbl>,
-#> #   regulation_and_ot_wins <int>, season_id <int>,
-#> #   shots_against_per_game <dbl>, shots_for_per_game <dbl>,
-#> #   team_full_name <chr>, team_id <int>, team_shutouts <int>, ties <lgl>,
-#> #   wins <int>, wins_in_regulation <int>, wins_in_shootout <int>
+#> 2026-10-08 08:20:34.586636: No team stats data
+#> NULL
 # }
 ```

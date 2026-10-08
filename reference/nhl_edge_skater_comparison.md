@@ -47,7 +47,7 @@ Returns `NULL` on failure / empty response.
 # \donttest{
   try(nhl_edge_skater_comparison(player_id = 8478402))
 #> ── NHL Edge Skater Comparison ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:44:32 UTC
+#> ℹ Data updated: 2026-10-08 08:19:40 UTC
 #> # A tibble: 6 × 2
 #>         id game_types
 #>      <int> <list>    

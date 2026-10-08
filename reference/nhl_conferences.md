@@ -34,11 +34,11 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_conferences())
 #> ── NHL Conferences from NHL.com ─────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:44:24 UTC
+#> ℹ Data updated: 2026-10-08 08:19:34 UTC
 #> # A tibble: 2 × 1
 #>   conference_name
 #>   <chr>          
-#> 1 Western        
-#> 2 Eastern        
+#> 1 Eastern        
+#> 2 Western        
 # }
 ```

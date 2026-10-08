@@ -66,27 +66,7 @@ Returns a data frame with skater statistics.
 ``` r
 # \donttest{
   try(nhl_stats_skaters())
-#> ── NHL Stats Skaters ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:45:31 UTC
-#> # A tibble: 50 × 26
-#>    assists ev_goals ev_points faceoff_win_pct game_winning_goals games_played
-#>      <int>    <int>     <int>           <dbl>              <int>        <int>
-#>  1       2        3         4          NA                      0            1
-#>  2       2        1         2           0.462                  1            1
-#>  3       2        0         2           0.75                   0            1
-#>  4       0        1         1           0                      0            1
-#>  5       0        1         1           0.375                  1            1
-#>  6       1        1         2          NA                      0            1
-#>  7       0        2         2           0                      0            1
-#>  8       1        1         2           0.286                  0            1
-#>  9       2        0         2          NA                      0            1
-#> 10       2        0         1          NA                      0            1
-#> # ℹ 40 more rows
-#> # ℹ 20 more variables: goals <int>, last_name <chr>, ot_goals <int>,
-#> #   penalty_minutes <int>, player_id <int>, plus_minus <int>, points <int>,
-#> #   points_per_game <dbl>, position_code <chr>, pp_goals <int>,
-#> #   pp_points <int>, season_id <int>, sh_goals <int>, sh_points <int>,
-#> #   shooting_pct <dbl>, shoots_catches <chr>, shots <int>,
-#> #   skater_full_name <chr>, team_abbrevs <chr>, time_on_ice_per_game <dbl>
+#> 2026-10-08 08:20:33.910185: No skater stats data
+#> NULL
 # }
 ```

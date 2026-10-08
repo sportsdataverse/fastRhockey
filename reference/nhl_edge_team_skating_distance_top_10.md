@@ -97,20 +97,20 @@ A data frame (`fastRhockey_data`) with the following columns:
     sort_by = "total"
   ))
 #> ── NHL Edge Team Skating Distance Top 10 ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:44:41 UTC
+#> ℹ Data updated: 2026-10-08 08:19:48 UTC
 #> # A tibble: 10 × 36
 #>    team_abbrev team_slug           team_common_name_def…¹ team_place_name_with…²
 #>    <chr>       <chr>               <chr>                  <chr>                 
-#>  1 FLA         florida-panthers-13 Panthers               Florida               
-#>  2 EDM         edmonton-oilers-22  Oilers                 Edmonton              
-#>  3 CAR         carolina-hurricane… Hurricanes             Carolina              
+#>  1 NYR         new-york-rangers-3  Rangers                New York              
+#>  2 FLA         florida-panthers-13 Panthers               Florida               
+#>  3 PIT         pittsburgh-penguin… Penguins               Pittsburgh            
 #>  4 BOS         boston-bruins-6     Bruins                 Boston                
-#>  5 NYR         new-york-rangers-3  Rangers                New York              
-#>  6 VAN         vancouver-canucks-… Canucks                Vancouver             
-#>  7 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
-#>  8 TOR         toronto-maple-leaf… Maple Leafs            Toronto               
-#>  9 MTL         montreal-canadiens… Canadiens              Montréal              
-#> 10 CHI         chicago-blackhawks… Blackhawks             Chicago               
+#>  5 SEA         seattle-kraken-55   Kraken                 Seattle               
+#>  6 WPG         winnipeg-jets-52    Jets                   Winnipeg              
+#>  7 PHI         philadelphia-flyer… Flyers                 Philadelphia          
+#>  8 EDM         edmonton-oilers-22  Oilers                 Edmonton              
+#>  9 CAR         carolina-hurricane… Hurricanes             Carolina              
+#> 10 TOR         toronto-maple-leaf… Maple Leafs            Toronto               
 #> # ℹ abbreviated names: ¹​team_common_name_default,
 #> #   ²​team_place_name_with_preposition_default
 #> # ℹ 32 more variables: team_team_logo_light <chr>, team_team_logo_dark <chr>,

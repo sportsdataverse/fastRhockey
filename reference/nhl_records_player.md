@@ -108,8 +108,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_player())
 #> ── NHL Records Player ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:45:12 UTC
-#> # A tibble: 23,572 × 71
+#> ℹ Data updated: 2026-10-08 08:20:18 UTC
+#> # A tibble: 23,575 × 71
 #>         id accrued_seasons add_names         age_sign_waiver age_signel_fa alert
 #>      <int>           <int> <chr>                       <int>         <int> <chr>
 #>  1 8444850              NA "Henry"                        NA            NA N    
@@ -122,7 +122,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8 8444857              NA "Sid"                          NA            NA N    
 #>  9 8444858              NA "Acky"                         NA            NA N    
 #> 10 8444859              NA "Douglas"                      NA            NA N    
-#> # ℹ 23,562 more rows
+#> # ℹ 23,565 more rows
 #> # ℹ 65 more variables: birth_city <chr>, birth_country <chr>, birth_date <chr>,
 #> #   birth_state_province <chr>, career_team_id <int>,
 #> #   central_registry_position <chr>, club_elec_arb <chr>,

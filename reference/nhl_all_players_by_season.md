@@ -55,20 +55,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_all_players_by_season(season = 2024))
 #> ── NHL All Players by Season ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:44:22 UTC
+#> ℹ Data updated: 2026-10-08 08:19:32 UTC
 #> # A tibble: 853 × 15
-#>    player_id first_name last_name full_name        sweater_number position_code
-#>        <int> <chr>      <chr>     <chr>                     <int> <chr>        
-#>  1   8477964 Ivan       Barbashev Ivan Barbashev               49 F            
-#>  2   8481604 Pavel      Dorofeyev Pavel Dorofeyev              16 F            
-#>  3   8478403 Jack       Eichel    Jack Eichel                   9 F            
-#>  4   8476881 Tomas      Hertl     Tomas Hertl                  48 F            
-#>  5   8482125 Alexander  Holtz     Alexander Holtz              26 F            
-#>  6   8479353 Brett      Howden    Brett Howden                 21 F            
-#>  7   8476448 William    Karlsson  William Karlsson             71 F            
-#>  8   8478434 Keegan     Kolesar   Keegan Kolesar               55 F            
-#>  9   8479550 Tanner     Laczynski Tanner Laczynski             28 F            
-#> 10   8481534 Raphael    Lavoie    Raphael Lavoie               36 F            
+#>    player_id first_name last_name  full_name        sweater_number position_code
+#>        <int> <chr>      <chr>      <chr>                     <int> <chr>        
+#>  1   8477979 Nicolas    Aube-Kubel Nicolas Aube-Ku…             96 F            
+#>  2   8482132 Brett      Berard     Brett Berard                 65 F            
+#>  3   8477380 Jonny      Brodzinski Jonny Brodzinski             22 F            
+#>  4   8475842 Sam        Carrick    Sam Carrick                  39 F            
+#>  5   8482157 Will       Cuylle     Will Cuylle                  50 F            
+#>  6   8481726 Adam       Edstrom    Adam Edstrom                 84 F            
+#>  7   8481560 Arthur     Kaliyev    Arthur Kaliyev               34 F            
+#>  8   8482109 Alexis     Lafrenière Alexis Lafreniè…             13 F            
+#>  9   8476468 J.T.       Miller     J.T. Miller                   8 F            
+#> 10   8482747 Brennan    Othmann    Brennan Othmann              78 F            
 #> # ℹ 843 more rows
 #> # ℹ 9 more variables: shoots_catches <chr>, height_inches <int>,
 #> #   weight_pounds <int>, birth_date <chr>, birth_city <chr>,

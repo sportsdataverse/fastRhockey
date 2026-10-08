@@ -32,7 +32,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_club_stats_season(team_abbr = "TOR"))
 #> ── NHL Club Stats Season ────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:44:24 UTC
+#> ℹ Data updated: 2026-10-08 08:19:33 UTC
 #> # A tibble: 99 × 3
 #>      season game_types team_abbr
 #>       <int> <list>     <chr>    
