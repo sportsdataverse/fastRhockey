@@ -458,8 +458,9 @@ hockeytech_per60 <- function(value, toi_seconds) {
 #' Ported from Python sportsdataverse/hockeytech/_analytics.py::add_coord_transforms(),
 #' which itself was ported from fastRhockey R/pwhl_pbp.R lines ~484-496.
 #'
-#' Raw coordinates (x_coord, y_coord) come from the HockeyTech feed on an
-#' approximately 850x400 canvas. This function adds ten derived columns:
+#' Raw coordinates (x_coord, y_coord) come from the HockeyTech feed on a
+#' 600x300 canvas with a top-left origin, so centre ice is (300, 150). Every
+#' probed league uses this one canvas. This function adds ten derived columns:
 #'
 #'   x_coord_original / y_coord_original = raw x_coord, y_coord
 #'   x_coord_neutral  = ox - 300
