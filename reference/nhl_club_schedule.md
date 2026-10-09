@@ -125,7 +125,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_club_schedule(team_abbr = "TOR"))
 #> ── NHL Club Schedule ────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-09 03:20:45 UTC
+#> ℹ Data updated: 2026-10-09 05:36:44 UTC
 #> # A tibble: 88 × 75
 #>            id   season game_type game_date  neutral_site start_time_utc      
 #>         <int>    <int>     <int> <chr>      <lgl>        <chr>               

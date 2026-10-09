@@ -285,7 +285,7 @@ To cite the
 [**`fastRhockey`**](https://fastRhockey.sportsdataverse.org/) R package
 in publications, use:
 
-BibTex Citation
+BibTeX Citation
 
 ``` bibtex
 @misc{howell_gilani_fastRhockey,

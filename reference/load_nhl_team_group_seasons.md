@@ -64,7 +64,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(load_nhl_team_group_seasons(seasons = 2014))
 #> ── NHL team group seasons from the SportsDataverse data repo ───────────────────
-#> ℹ Data updated: 2026-10-09 03:20:23 UTC
+#> ℹ Data updated: 2026-10-09 05:36:13 UTC
 #> # A tibble: 30 × 11
 #>    league season team_id team_id_source team_name   subdivision_id conference_id
 #>    <chr>   <int> <chr>   <chr>          <chr>       <chr>          <chr>        

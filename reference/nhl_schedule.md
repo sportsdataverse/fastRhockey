@@ -83,7 +83,7 @@ per pre-compiled dataset.
 # \donttest{
   try(nhl_schedule(day = "2024-01-15"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-09 03:21:36 UTC
+#> ℹ Data updated: 2026-10-09 05:37:41 UTC
 #> # A tibble: 53 × 13
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
@@ -103,7 +103,7 @@ per pre-compiled dataset.
 #> #   venue <chr>
   try(nhl_schedule(season = 2025, team_abbr = "TOR"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-09 03:21:40 UTC
+#> ℹ Data updated: 2026-10-09 05:37:42 UTC
 #> # A tibble: 95 × 16
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
@@ -124,7 +124,7 @@ per pre-compiled dataset.
 #> #   series_game_number <int>
   try(nhl_schedule(season = 2024, team_abbr = "TOR", game_type = "playoffs"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-09 03:21:42 UTC
+#> ℹ Data updated: 2026-10-09 05:37:42 UTC
 #> # A tibble: 7 × 16
 #>      game_id season_full game_type game_date  game_time           home_team_abbr
 #>        <int> <chr>       <chr>     <chr>      <chr>               <chr>         
@@ -141,7 +141,7 @@ per pre-compiled dataset.
 #> #   series_game_number <int>
   try(nhl_schedule(day = "2024-01-15", include_data_flags = TRUE))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-09 03:21:43 UTC
+#> ℹ Data updated: 2026-10-09 05:37:43 UTC
 #> # A tibble: 53 × 29
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         

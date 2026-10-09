@@ -270,9 +270,9 @@ tested seasons:</p><table class="table table"><tr><td>col_name</td><td>types</td
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="co"># NOTE: Returns empty tibble for NHL (ESPN does not publish corrections for hockey)</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_nhl_season_type_corrections</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span>, season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-10-09 03:18:59.863133: Invalid arguments or no ESPN nhl season type corrections for 2026 type 2 available!</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-10-09 05:34:40.100021: Invalid arguments or no ESPN nhl season type corrections for 2026 type 2 available!</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "nhl", season = 2026, season_type = 2</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: values must be length 1,  but FUN(X[[2]]) result is length 4</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: values must be length 1,  but FUN(X[[2]]) result is length 17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
