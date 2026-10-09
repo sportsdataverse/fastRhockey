@@ -168,20 +168,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_transactions())
 #> ── NHL Transactions data from ESPN.com ──────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-08 12:57:35 UTC
+#> ℹ Data updated: 2026-10-09 03:19:32 UTC
 #> # A tibble: 25 × 8
 #>    date            description team_id team_location team_name team_abbreviation
 #>    <chr>           <chr>       <chr>   <chr>         <chr>     <chr>            
-#>  1 2026-10-07T07:… Called up … 30      Minnesota     Wild      MIN              
-#>  2 2026-10-07T07:… Placed RW … 16      Pittsburgh    Penguins  PIT              
-#>  3 2026-10-07T07:… Assigned L… 15      Philadelphia  Flyers    PHI              
-#>  4 2026-10-07T07:… Signed D V… 12      New York      Islanders NYI              
-#>  5 2026-10-07T07:… Placed RW … 7       Carolina      Hurrican… CAR              
-#>  6 2026-10-07T07:… Acquired C… 6       Edmonton      Oilers    EDM              
-#>  7 2026-10-07T07:… Recalled C… 4       Chicago       Blackhaw… CHI              
-#>  8 2026-10-07T07:… Recalled C… 3       Calgary       Flames    CGY              
-#>  9 2026-10-06T07:… Placed LW … 29      Columbus      Blue Jac… CBJ              
-#> 10 2026-10-06T07:… Recalled G… 27      Nashville     Predators NSH              
+#>  1 2026-10-08T07:… Placed D R… 124292  Seattle       Kraken    SEA              
+#>  2 2026-10-08T07:… Loaned D A… 26      Florida       Panthers  FLA              
+#>  3 2026-10-08T07:… Placed F B… 18      San Jose      Sharks    SJ               
+#>  4 2026-10-08T07:… Assigned G… 14      Ottawa        Senators  OTT              
+#>  5 2026-10-08T07:… Placed F S… 11      New Jersey    Devils    NJ               
+#>  6 2026-10-08T07:… Placed F C… 5       Detroit       Red Wings DET              
+#>  7 2026-10-07T07:… Called up … 30      Minnesota     Wild      MIN              
+#>  8 2026-10-07T07:… Placed RW … 16      Pittsburgh    Penguins  PIT              
+#>  9 2026-10-07T07:… Assigned L… 15      Philadelphia  Flyers    PHI              
+#> 10 2026-10-07T07:… Signed D V… 12      New York      Islanders NYI              
 #> # ℹ 15 more rows
 #> # ℹ 2 more variables: team_display_name <chr>, team_color <chr>
 # }

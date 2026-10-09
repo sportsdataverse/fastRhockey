@@ -146,8 +146,27 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_pwhl_pbp(2024))
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/pwhl_pbp/play_by_play_2024.rds>
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> # A tibble: 0 × 0
+#> ── PWHL play-by-play data ───────────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-10-08 13:12:00 UTC
+#> # A tibble: 14,246 × 104
+#>    game_id event team_id period_of_game time_of_period x_coord y_coord player_id
+#>      <int> <chr> <chr>   <chr>          <chr>            <dbl>   <dbl>     <int>
+#>  1       2 goal… 6       1              0:00              NA     NA           NA
+#>  2       2 goal… 4       1              0:00              NA     NA           NA
+#>  3       2 face… NA      1              0:00               0      0           76
+#>  4       2 shot  4       1              1:29              49.3   24.6         44
+#>  5       2 shot  4       1              3:30              83     -9.07        36
+#>  6       2 shot  4       1              3:36              29    -21.2         46
+#>  7       2 face… NA      1              4:30              52.3   28.6         73
+#>  8       2 shot  4       1              4:57              80.3    4.53        86
+#>  9       2 face… NA      1              5:18              52.3   28.6         73
+#> 10       2 shot  4       1              6:42              58     12.8         38
+#> # ℹ 14,236 more rows
+#> # ℹ 96 more variables: player_name_first <chr>, player_name_last <chr>,
+#> #   player_position <chr>, goal <lgl>, goalie_id <int>, goalie_first <chr>,
+#> #   goalie_last <chr>, home_win <chr>, player_team_id <chr>, event_type <chr>,
+#> #   shot_quality <chr>, empty_net <chr>, game_winner <chr>, penalty_shot <chr>,
+#> #   insurance <chr>, short_handed <chr>, power_play <chr>, player_two_id <int>,
+#> #   player_two_name_first <chr>, player_two_name_last <chr>, …
 # }
 ```

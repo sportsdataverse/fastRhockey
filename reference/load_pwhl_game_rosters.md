@@ -68,7 +68,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_pwhl_game_rosters(2024))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── PWHL per-game rosters ────────────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-10-08 13:13:15 UTC
 #> # A tibble: 3,545 × 14
 #>    game_id team_id team     team_abbr team_side player_type player_id first_name
 #>      <int>   <int> <chr>    <chr>     <chr>     <chr>           <int> <chr>     

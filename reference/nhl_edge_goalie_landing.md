@@ -42,7 +42,7 @@ Returns `NULL` on failure / empty response.
 # \donttest{
   try(nhl_edge_goalie_landing())
 #> ── NHL Edge Goalie Landing ──────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-08 12:58:59 UTC
+#> ℹ Data updated: 2026-10-09 03:20:52 UTC
 #> # A tibble: 6 × 2
 #>         id game_types
 #>      <int> <list>    

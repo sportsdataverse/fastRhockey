@@ -176,8 +176,8 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_injuries())
 #> ── NHL Injuries data from ESPN.com ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-08 12:56:36 UTC
-#> # A tibble: 238 × 16
+#> ℹ Data updated: 2026-10-09 03:18:30 UTC
+#> # A tibble: 236 × 16
 #>    team_id team_display_name player_id player_display_name player_short_name
 #>    <chr>   <chr>             <chr>     <chr>               <chr>            
 #>  1 25      Anaheim Ducks     NA        Drew Helleson       D. Helleson      
@@ -188,9 +188,9 @@ Saiem Gilani
 #>  6 25      Anaheim Ducks     NA        Ian Moore           I. Moore         
 #>  7 1       Boston Bruins     NA        Charlie McAvoy      C. McAvoy        
 #>  8 1       Boston Bruins     NA        Charlie McAvoy      C. McAvoy        
-#>  9 2       Buffalo Sabres    NA        Josh Doan           J. Doan          
-#> 10 2       Buffalo Sabres    NA        Josh Doan           J. Doan          
-#> # ℹ 228 more rows
+#>  9 2       Buffalo Sabres    NA        Jason Zucker        J. Zucker        
+#> 10 2       Buffalo Sabres    NA        Jason Zucker        J. Zucker        
+#> # ℹ 226 more rows
 #> # ℹ 11 more variables: player_position <chr>, injury_id <chr>,
 #> #   injury_status <chr>, injury_date <chr>, injury_short_comment <chr>,
 #> #   injury_long_comment <chr>, injury_type <chr>, injury_abbreviation <chr>,

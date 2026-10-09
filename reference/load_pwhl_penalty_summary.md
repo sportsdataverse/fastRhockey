@@ -72,7 +72,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_pwhl_penalty_summary(2024))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── PWHL penalty summary ─────────────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-10-08 13:13:38 UTC
 #> # A tibble: 518 × 20
 #>    game_id period_id period time  team_id team         team_abbr game_penalty_id
 #>      <int>     <int> <chr>  <chr>   <int> <chr>        <chr>               <int>

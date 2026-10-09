@@ -79,7 +79,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_pwhl_scoring_summary(2024))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── PWHL scoring summary ─────────────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-10-08 13:13:27 UTC
 #> # A tibble: 385 × 27
 #>    game_id period_id period time  team_id team           team_abbr game_goal_id
 #>      <int>     <int> <chr>  <chr>   <int> <chr>          <chr>            <int>

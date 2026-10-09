@@ -181,19 +181,19 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_athletes_index(active = TRUE, limit = 10, page = 1))
 #> ── NHL Athletes Index data from ESPN core-v2 ────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-08 12:56:20 UTC
+#> ℹ Data updated: 2026-10-09 03:18:11 UTC
 #> # A tibble: 10 × 6
 #>    ref                                  athlete_id active  page count page_count
 #>    <chr>                                <chr>      <lgl>  <int> <int>      <int>
-#>  1 http://sports.core.api.espn.com/v2/… 2273       TRUE       1  1041        105
-#>  2 http://sports.core.api.espn.com/v2/… 2300       TRUE       1  1041        105
-#>  3 http://sports.core.api.espn.com/v2/… 2389       TRUE       1  1041        105
-#>  4 http://sports.core.api.espn.com/v2/… 2666       TRUE       1  1041        105
-#>  5 http://sports.core.api.espn.com/v2/… 2931       TRUE       1  1041        105
-#>  6 http://sports.core.api.espn.com/v2/… 3101       TRUE       1  1041        105
-#>  7 http://sports.core.api.espn.com/v2/… 3114       TRUE       1  1041        105
-#>  8 http://sports.core.api.espn.com/v2/… 3124       TRUE       1  1041        105
-#>  9 http://sports.core.api.espn.com/v2/… 3508       TRUE       1  1041        105
-#> 10 http://sports.core.api.espn.com/v2/… 3535       TRUE       1  1041        105
+#>  1 http://sports.core.api.espn.com/v2/… 2273       TRUE       1  1036        104
+#>  2 http://sports.core.api.espn.com/v2/… 2300       TRUE       1  1036        104
+#>  3 http://sports.core.api.espn.com/v2/… 2389       TRUE       1  1036        104
+#>  4 http://sports.core.api.espn.com/v2/… 2666       TRUE       1  1036        104
+#>  5 http://sports.core.api.espn.com/v2/… 2931       TRUE       1  1036        104
+#>  6 http://sports.core.api.espn.com/v2/… 3101       TRUE       1  1036        104
+#>  7 http://sports.core.api.espn.com/v2/… 3114       TRUE       1  1036        104
+#>  8 http://sports.core.api.espn.com/v2/… 3124       TRUE       1  1036        104
+#>  9 http://sports.core.api.espn.com/v2/… 3508       TRUE       1  1036        104
+#> 10 http://sports.core.api.espn.com/v2/… 3535       TRUE       1  1036        104
 # }
 ```

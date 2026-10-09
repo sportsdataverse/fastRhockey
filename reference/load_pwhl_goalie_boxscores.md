@@ -43,7 +43,8 @@ Other PWHL Loader Functions:
 ``` r
 # \donttest{
   try(load_pwhl_goalie_boxscores(2024))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── PWHL goalie boxscores ────────────────────────────────── fastRhockey 1.0.0 ──
+#> ℹ Data updated: 2026-10-08 13:12:41 UTC
 #> # A tibble: 340 × 21
 #>    player_id first_name last_name  position team_id game_id league toi  
 #>    <chr>     <chr>      <chr>      <chr>      <int>   <int> <chr>  <chr>

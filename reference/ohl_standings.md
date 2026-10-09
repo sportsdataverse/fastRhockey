@@ -44,19 +44,19 @@ Other OHL Functions:
 ``` r
  try(ohl_standings()) 
 #> ── OHL Standings from HockeyTech ────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-08 13:00:03 UTC
+#> ℹ Data updated: 2026-10-09 03:22:01 UTC
 #> # A tibble: 20 × 21
 #>    team_code wins  losses ot_losses ot_wins shootout_wins shootout_losses
 #>    <chr>     <chr>  <dbl> <chr>     <chr>   <chr>         <chr>          
 #>  1 BFD       7          1 0         0       1             0              
-#>  2 OTT       3          1 1         0       0             0              
-#>  3 OSH       3          4 0         0       0             0              
-#>  4 KGN       3          4 0         1       0             0              
+#>  2 KGN       4          4 0         1       0             0              
+#>  3 OTT       3          1 2         0       0             0              
+#>  4 OSH       3          4 0         0       0             0              
 #>  5 PBO       2          5 0         0       0             0              
-#>  6 SBY       5          0 0         0       0             0              
-#>  7 NIAG      3          3 0         1       0             0              
-#>  8 NB        2          5 0         0       0             0              
-#>  9 BAR       1          4 1         0       0             0              
+#>  6 SBY       5          0 1         0       0             0              
+#>  7 NIAG      4          3 0         2       0             0              
+#>  8 NB        3          5 0         1       0             0              
+#>  9 BAR       1          5 1         0       0             0              
 #> 10 BRAM      0          5 1         0       0             1              
 #> 11 SOO       5          1 0         2       0             0              
 #> 12 SAR       4          2 1         0       0             0              

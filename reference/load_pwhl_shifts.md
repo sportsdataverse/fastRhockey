@@ -55,7 +55,7 @@ Other PWHL Loader Functions:
 # \donttest{
   try(load_pwhl_shifts(2024))
 #> ── PWHL per-game player shifts (on-ice stints) ──────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-07-22 19:29:24 UTC
+#> ℹ Data updated: 2026-10-08 13:12:15 UTC
 #> # A tibble: 66,752 × 14
 #>    game_id player_id first_name last_name jersey_number  home period start_time
 #>      <int>     <int> <chr>      <chr>     <chr>         <int>  <int> <chr>     

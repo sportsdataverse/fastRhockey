@@ -44,7 +44,7 @@ Other OHL Functions:
 ``` r
  try(ohl_leaders()) 
 #> ── OHL Leaders from HockeyTech ──────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-08 13:00:00 UTC
+#> ℹ Data updated: 2026-10-09 03:21:58 UTC
 #> # A tibble: 10 × 15
 #>     rank player_id jersey_number name      team_id team_name team_code team_logo
 #>    <int> <chr>     <chr>         <chr>     <chr>   <chr>     <chr>     <chr>    
@@ -57,7 +57,7 @@ Other OHL Functions:
 #>  7     2 9142      66            Braidy W… 34      Saginaw … SAG       https://…
 #>  8     3 9118      71            Dima Zhi… 34      Saginaw … SAG       https://…
 #>  9     4 9575      89            Ryan Kac… 16      Soo Grey… SOO       https://…
-#> 10     5 9539      18            Evgeny D… 19      North Ba… NB        https://…
+#> 10     5 9412      86            Alex Mis… 2       Kingston… KGN       https://…
 #> # ℹ 7 more variables: team_logo_small <chr>, stat_formatted <chr>,
 #> #   type_formatted <chr>, photo <chr>, photo_small <chr>, position <chr>,
 #> #   division <chr>

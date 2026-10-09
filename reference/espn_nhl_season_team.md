@@ -203,7 +203,7 @@ Saiem Gilani
     espn_nhl_season_team(season = 2026, team_id = tms$team_id[1])
   })
 #> ── NHL Season Team data from ESPN core-v2 ───────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-08 12:57:02 UTC
+#> ℹ Data updated: 2026-10-09 03:18:58 UTC
 #> # A tibble: 1 × 29
 #>   season team_id id    guid     uid   slug  location name  nickname abbreviation
 #>    <int> <chr>   <chr> <chr>    <chr> <chr> <chr>    <chr> <chr>    <chr>       

@@ -48,6 +48,6 @@ Other AHL Functions:
 ``` r
  try(ahl_team_roster(team_id = 341)) 
 #> ── AHL Team Roster from HockeyTech ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-08 12:56:13 UTC
+#> ℹ Data updated: 2026-10-09 03:18:04 UTC
 #> # A tibble: 0 × 0
 ```
