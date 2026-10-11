@@ -85,7 +85,7 @@ NULL
 # progressr support, optionally writes into a DB, and tags the result with
 # the `fastRhockey_data` S3 class.
 .nhl_release_loader <- function(seasons, release_tag, file_prefix,
-                                min_season = 2011,
+                                min_season = 2010,
                                 dbConnection = NULL, tablename = NULL) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
@@ -130,7 +130,7 @@ NULL
 #'   the [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases either into memory or writes it into a database.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_nhl_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -240,7 +240,7 @@ load_nhl_pbp <- function(seasons = most_recent_nhl_season(), ...,
                          dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_pbp_full", file_prefix = "play_by_play",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -253,7 +253,8 @@ NULL
 #' resulting in smaller file sizes.
 #' @rdname load_nhl_pbp_lite
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2024 (the first season published as
+#'   `play_by_play_lite_<year>.rds`).
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
@@ -298,7 +299,7 @@ load_nhl_pbp_lite <- function(seasons = most_recent_nhl_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_pbp_lite", file_prefix = "play_by_play_lite",
-    min_season = 2011,
+    min_season = 2024,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -483,7 +484,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases either into memory or writes it into a database.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the team box data table within the database
@@ -516,7 +517,7 @@ load_nhl_team_box <- function(seasons = most_recent_nhl_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_team_boxscores", file_prefix = "team_box",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -533,7 +534,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases either into memory or writes it into a database.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the player box data table within the database
@@ -585,7 +586,7 @@ load_nhl_player_box <- function(seasons = most_recent_nhl_season(), ...,
                                 dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_player_boxscores", file_prefix = "player_box",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -602,7 +603,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
@@ -640,7 +641,7 @@ load_nhl_skater_box <- function(seasons = most_recent_nhl_season(), ...,
                                 dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_skater_boxscores", file_prefix = "skater_box",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -657,7 +658,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
@@ -695,7 +696,7 @@ load_nhl_goalie_box <- function(seasons = most_recent_nhl_season(), ...,
                                 dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_goalie_boxscores", file_prefix = "goalie_box",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -712,7 +713,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases. The schedule includes data-availability flags for each game.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the schedule data table within the database
@@ -748,7 +749,7 @@ load_nhl_schedule <- function(seasons = most_recent_nhl_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_schedules", file_prefix = "nhl_schedule",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -766,7 +767,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the team rosters data table within the database
@@ -792,7 +793,7 @@ load_nhl_rosters <- function(seasons = most_recent_nhl_season(), ...,
                              dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_rosters", file_prefix = "rosters",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -809,23 +810,27 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
 #' @return A data frame (`fastRhockey_data`) with one row per player per game
 #'   and the following columns:
 #'
-#'    |col_name       |types     |description                  |
-#'    |:--------------|:---------|:----------------------------|
-#'    |player_id      |integer   |Unique player identifier.    |
-#'    |full_name      |character |Player full name.            |
-#'    |first_name     |character |Player first name.           |
-#'    |last_name      |character |Player last name.            |
-#'    |team_abbr      |character |Team abbreviation/code.      |
-#'    |team_id        |integer   |Unique team identifier.      |
-#'    |position_code  |character |Player position code.        |
-#'    |sweater_number |integer   |Jersey number.               |
+#'    |col_name       |type      |description                                                                 |
+#'    |:--------------|:---------|:---------------------------------------------------------------------------|
+#'    |player_id      |integer   |Unique player identifier.                                                   |
+#'    |full_name      |character |Player full name.                                                           |
+#'    |first_name     |character |Player first name.                                                          |
+#'    |last_name      |character |Player last name.                                                           |
+#'    |team_abbr      |character |Team abbreviation/code.                                                     |
+#'    |team_id        |integer   |Unique team identifier.                                                     |
+#'    |position_code  |character |Player position code: C (center), L (left wing), R (right wing), D (defense), G (goalie). |
+#'    |sweater_number |integer   |Jersey number.                                                              |
+#'    |game_id        |integer   |NHL game identifier (e.g. 2009020001).                                      |
+#'    |season         |integer   |Season id spanning both years (e.g. 20092010 for 2009-10).                  |
+#'    |game_date      |character |Game date, YYYY-MM-DD.                                                      |
+#'    |shoots_catches |character |Handedness: L (left) or R (right).                                          |
 #' @export
 #' @examples
 #' \donttest{
@@ -835,7 +840,7 @@ load_nhl_game_rosters <- function(seasons = most_recent_nhl_season(), ...,
                                   dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_game_rosters", file_prefix = "game_rosters",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -852,7 +857,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
@@ -880,7 +885,7 @@ load_nhl_game_info <- function(seasons = most_recent_nhl_season(), ...,
                                dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_game_info", file_prefix = "game_info",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -897,7 +902,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
@@ -940,7 +945,7 @@ load_nhl_scoring <- function(seasons = most_recent_nhl_season(), ...,
                              dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_scoring", file_prefix = "scoring",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -957,7 +962,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
@@ -984,7 +989,7 @@ load_nhl_penalties <- function(seasons = most_recent_nhl_season(), ...,
                                dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_penalties", file_prefix = "penalties",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -1001,7 +1006,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
@@ -1036,7 +1041,7 @@ load_nhl_three_stars <- function(seasons = most_recent_nhl_season(), ...,
                                  dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_three_stars", file_prefix = "three_stars",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -1053,7 +1058,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
@@ -1075,7 +1080,7 @@ load_nhl_scratches <- function(seasons = most_recent_nhl_season(), ...,
                                dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_scratches", file_prefix = "scratches",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -1092,7 +1097,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
@@ -1120,7 +1125,7 @@ load_nhl_linescore <- function(seasons = most_recent_nhl_season(), ...,
                                dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_linescore", file_prefix = "linescore",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -1137,7 +1142,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
@@ -1169,7 +1174,7 @@ load_nhl_shifts <- function(seasons = most_recent_nhl_season(), ...,
                             dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_shifts", file_prefix = "shifts",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -1186,7 +1191,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases. One row per official per game.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
@@ -1209,7 +1214,7 @@ load_nhl_officials <- function(seasons = most_recent_nhl_season(), ...,
                                dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_officials", file_prefix = "officials",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -1226,7 +1231,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
@@ -1251,7 +1256,7 @@ load_nhl_shots_by_period <- function(seasons = most_recent_nhl_season(), ...,
                                      dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_shots_by_period", file_prefix = "shots_by_period",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }
@@ -1268,7 +1273,7 @@ NULL
 #'   [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data)
 #'   releases. Only games that ended in a shootout contribute rows.
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2011.
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
@@ -1298,7 +1303,7 @@ load_nhl_shootout <- function(seasons = most_recent_nhl_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_shootout", file_prefix = "shootout_summary",
-    min_season = 2011,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }

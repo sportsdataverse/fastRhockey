@@ -13,7 +13,7 @@ load_nhl_rosters(
 }
 \arguments{
 \item{seasons}{A vector of 4-digit years (the \emph{end year} of the NHL
-season; e.g., 2026 for the 2025-26 season). Min: 2011.}
+season; e.g., 2026 for the 2025-26 season). Min: 2010.}
 
 \item{...}{Additional arguments passed to an underlying function.}
 
