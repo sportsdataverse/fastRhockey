@@ -1,12 +1,11 @@
 # Offline: every NHL release loader accepts the first season its release
 # publishes and rejects the season before it, without touching the network.
 # The floors are the first `<file_prefix>_<year>.rds` asset on each
-# sportsdataverse-data release tag (2009-10, i.e. 2010, for all but pbp_lite,
-# whose `play_by_play_lite_<year>.rds` files start in 2024).
+# sportsdataverse-data release tag: 2010 (the 2009-10 season) for every one.
 
 nhl_release_floors <- list(
   load_nhl_pbp             = list("nhl_pbp_full",         "play_by_play",      2010),
-  load_nhl_pbp_lite        = list("nhl_pbp_lite",         "play_by_play_lite", 2024),
+  load_nhl_pbp_lite        = list("nhl_pbp_lite",         "play_by_play_lite", 2010),
   load_nhl_team_box        = list("nhl_team_boxscores",   "team_box",          2010),
   load_nhl_player_box      = list("nhl_player_boxscores", "player_box",        2010),
   load_nhl_skater_box      = list("nhl_skater_boxscores", "skater_box",        2010),

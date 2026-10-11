@@ -253,8 +253,7 @@ NULL
 #' resulting in smaller file sizes.
 #' @rdname load_nhl_pbp_lite
 #' @param seasons A vector of 4-digit years (the *end year* of the NHL
-#'   season; e.g., 2026 for the 2025-26 season). Min: 2024 (the first season published as
-#'   `play_by_play_lite_<year>.rds`).
+#'   season; e.g., 2026 for the 2025-26 season). Min: 2010.
 #' @param ... Additional arguments passed to an underlying function.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
@@ -299,7 +298,7 @@ load_nhl_pbp_lite <- function(seasons = most_recent_nhl_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
   .nhl_release_loader(seasons,
     release_tag = "nhl_pbp_lite", file_prefix = "play_by_play_lite",
-    min_season = 2024,
+    min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
   )
 }

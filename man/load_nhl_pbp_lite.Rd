@@ -13,8 +13,7 @@ load_nhl_pbp_lite(
 }
 \arguments{
 \item{seasons}{A vector of 4-digit years (the \emph{end year} of the NHL
-season; e.g., 2026 for the 2025-26 season). Min: 2024 (the first season published as
-\verb{play_by_play_lite_<year>.rds}).}
+season; e.g., 2026 for the 2025-26 season). Min: 2010.}
 
 \item{...}{Additional arguments passed to an underlying function.}
 
