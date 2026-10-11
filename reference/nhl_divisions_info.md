@@ -75,17 +75,17 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_divisions_info(division_name = "Atlantic"))
 #> ── NHL Division Information from NHL.com ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-09 05:36:46 UTC
+#> ℹ Data updated: 2026-10-11 16:02:57 UTC
 #> # A tibble: 8 × 36
 #>   team_abbr team_name team_common_name team_logo conference_name division_abbrev
 #>   <chr>     <chr>     <chr>            <chr>     <chr>           <chr>          
-#> 1 OTT       Ottawa S… Senators         https://… Eastern         A              
-#> 2 TBL       Tampa Ba… Lightning        https://… Eastern         A              
-#> 3 FLA       Florida … Panthers         https://… Eastern         A              
-#> 4 BOS       Boston B… Bruins           https://… Eastern         A              
-#> 5 TOR       Toronto … Maple Leafs      https://… Eastern         A              
-#> 6 BUF       Buffalo … Sabres           https://… Eastern         A              
-#> 7 MTL       Montréal… Canadiens        https://… Eastern         A              
+#> 1 TBL       Tampa Ba… Lightning        https://… Eastern         A              
+#> 2 OTT       Ottawa S… Senators         https://… Eastern         A              
+#> 3 BOS       Boston B… Bruins           https://… Eastern         A              
+#> 4 TOR       Toronto … Maple Leafs      https://… Eastern         A              
+#> 5 FLA       Florida … Panthers         https://… Eastern         A              
+#> 6 MTL       Montréal… Canadiens        https://… Eastern         A              
+#> 7 BUF       Buffalo … Sabres           https://… Eastern         A              
 #> 8 DET       Detroit … Red Wings        https://… Eastern         A              
 #> # ℹ 30 more variables: division_name <chr>, place_name <chr>,
 #> #   conference_sequence <int>, division_sequence <int>, league_sequence <int>,

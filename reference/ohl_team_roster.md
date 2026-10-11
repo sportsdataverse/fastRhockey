@@ -48,21 +48,21 @@ Other OHL Functions:
 ``` r
  try(ohl_team_roster(team_id = 1)) 
 #> ── OHL Team Roster from HockeyTech ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-09 05:38:04 UTC
-#> # A tibble: 27 × 45
+#> ℹ Data updated: 2026-10-11 16:04:22 UTC
+#> # A tibble: 25 × 45
 #>    id    person_id active first_name last_name phonetic_name display_name shoots
 #>    <chr> <chr>     <chr>  <chr>      <chr>     <chr>         <chr>        <chr> 
 #>  1 9509  9270      1      George     Komadoski "COMM-uh-DAH… ""           R     
-#>  2 9781  9573      1      Jean-Samu… Daigneau… ""            ""           L     
-#>  3 9777  9569      1      Nathan     Hauad     ""            ""           R     
-#>  4 9475  9221      1      Jeremy     Freeman   "FREE-man"    ""           R     
-#>  5 9397  9139      1      Sam        Roberts   ""            ""           R     
-#>  6 9773  9565      1      Jason      Musa      ""            ""           L     
-#>  7 9766  9558      1      Jack       Torr      "TOR"         ""           R     
-#>  8 9778  9570      1      Abe        Barnett   ""            ""           L     
-#>  9 9552  9313      1      Kaden      McGregor  "MUH-GREG-ER" ""           R     
-#> 10 9765  9557      1      Xavier     Lieb      "LEEB"        ""           R     
-#> # ℹ 17 more rows
+#>  2 9777  9569      1      Nathan     Hauad     ""            ""           R     
+#>  3 9475  9221      1      Jeremy     Freeman   "FREE-man"    ""           R     
+#>  4 9397  9139      1      Sam        Roberts   ""            ""           R     
+#>  5 9773  9565      1      Jason      Musa      ""            ""           L     
+#>  6 9766  9558      1      Jack       Torr      "TOR"         ""           R     
+#>  7 9778  9570      1      Abe        Barnett   ""            ""           L     
+#>  8 9552  9313      1      Kaden      McGregor  "MUH-GREG-ER" ""           R     
+#>  9 9765  9557      1      Xavier     Lieb      "LEEB"        ""           R     
+#> 10 9141  8830      1      Camden     McCuaig   ""            ""           L     
+#> # ℹ 15 more rows
 #> # ℹ 37 more variables: hometown <chr>, homeprov <chr>, homecntry <chr>,
 #> #   homeplace <chr>, birthtown <chr>, birthprov <chr>, birthcntry <chr>,
 #> #   birthplace <chr>, height <chr>, weight <chr>, height_hyphenated <chr>,

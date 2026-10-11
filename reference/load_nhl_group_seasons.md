@@ -50,8 +50,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(load_nhl_group_seasons())
 #> ── NHL group seasons from the SportsDataverse data repo ─── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-09 05:35:23 UTC
-#> # A tibble: 478 × 9
+#> ℹ Data updated: 2026-10-11 16:01:43 UTC
+#> # A tibble: 485 × 9
 #>    league group_id    season level name  short_name abbreviation parent_group_id
 #>    <chr>  <chr>        <int> <chr> <chr> <chr>      <chr>        <chr>          
 #>  1 nhl    nhl:adams-…   1975 divi… Adam… Adams      ADM          nhl:eastern    
@@ -64,7 +64,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8 nhl    nhl:adams-…   1982 divi… Adam… Adams      ADM          nhl:eastern    
 #>  9 nhl    nhl:adams-…   1983 divi… Adam… Adams      ADM          nhl:eastern    
 #> 10 nhl    nhl:adams-…   1984 divi… Adam… Adams      ADM          nhl:eastern    
-#> # ℹ 468 more rows
+#> # ℹ 475 more rows
 #> # ℹ 1 more variable: n_teams <int>
 # }
 ```

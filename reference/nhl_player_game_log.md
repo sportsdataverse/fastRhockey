@@ -60,14 +60,15 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_player_game_log(player_id = 8478402))
 #> ── NHL Player Game Log ──────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-09 05:37:14 UTC
-#> # A tibble: 4 × 22
+#> ℹ Data updated: 2026-10-11 16:03:28 UTC
+#> # A tibble: 5 × 22
 #>     game_id team_abbrev home_road_flag game_date goals assists points plus_minus
 #>       <int> <chr>       <chr>          <chr>     <int>   <int>  <int>      <int>
-#> 1    2.03e9 EDM         R              2026-10-…     1       2      3          4
-#> 2    2.03e9 EDM         H              2026-10-…     1       1      2          2
-#> 3    2.03e9 EDM         R              2026-10-…     1       4      5          4
-#> 4    2.03e9 EDM         H              2026-09-…     0       2      2          1
+#> 1    2.03e9 EDM         R              2026-10-…     0       1      1          1
+#> 2    2.03e9 EDM         R              2026-10-…     1       2      3          4
+#> 3    2.03e9 EDM         H              2026-10-…     1       1      2          2
+#> 4    2.03e9 EDM         R              2026-10-…     1       4      5          4
+#> 5    2.03e9 EDM         H              2026-09-…     0       2      2          1
 #> # ℹ 14 more variables: power_play_goals <int>, power_play_points <int>,
 #> #   game_winning_goals <int>, ot_goals <int>, shots <int>, shifts <int>,
 #> #   shorthanded_goals <int>, shorthanded_points <int>, pim <int>, toi <chr>,

@@ -105,20 +105,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_player_byteam(team_id = 10))
 #> ── NHL Records Player by Team ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-09 05:37:38 UTC
+#> ℹ Data updated: 2026-10-11 16:03:50 UTC
 #> # A tibble: 81 × 71
 #>         id accrued_seasons add_names age_sign_waiver age_signel_fa alert
 #>      <int>           <int> <chr>               <int>         <int> <chr>
-#>  1 8477425              10 NA                     20            21 Y    
-#>  2 8477503              11 NA                     18            18 N    
-#>  3 8477541               3 NA                     21            21 N    
-#>  4 8478007               7 NA                     24            25 Y    
-#>  5 8478057               4 NA                     23            23 Y    
-#>  6 8479026               5 Phil                   18            18 N    
-#>  7 8479528              NA NA                     NA            NA N    
-#>  8 8479543               4 NA                     20            20 N    
-#>  9 8479599              NA NA                     NA            NA N    
-#> 10 8479968               2 Vinny                  22            22 N    
+#>  1 8477503              11 NA                     18            18 N    
+#>  2 8477541               3 NA                     21            21 N    
+#>  3 8478007               7 NA                     24            25 Y    
+#>  4 8478057               4 NA                     23            23 Y    
+#>  5 8479026               5 Phil                   18            18 N    
+#>  6 8479528              NA NA                     NA            NA N    
+#>  7 8479543               4 NA                     20            20 N    
+#>  8 8479599              NA NA                     NA            NA N    
+#>  9 8479968               2 Vinny                  22            22 N    
+#> 10 8480284              NA NA                     NA            NA N    
 #> # ℹ 71 more rows
 #> # ℹ 65 more variables: birth_city <chr>, birth_country <chr>, birth_date <chr>,
 #> #   birth_state_province <chr>, career_team_id <lgl>,

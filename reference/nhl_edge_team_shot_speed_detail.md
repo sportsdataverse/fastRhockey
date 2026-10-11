@@ -69,7 +69,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_team_shot_speed_detail(team_id = 10))
 #> ── NHL Edge Team Shot Speed Detail ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-09 05:37:03 UTC
+#> ℹ Data updated: 2026-10-11 16:03:15 UTC
 #> # A tibble: 10 × 25
 #>    game_center_link    game_date game_type is_home_team time_in_period player_id
 #>    <chr>               <chr>         <int> <lgl>        <chr>              <int>
@@ -78,11 +78,11 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  3 /gamecenter/nyi-vs… 2026-09-…         2 TRUE         19:28            8478178
 #>  4 /gamecenter/nsh-vs… 2026-10-…         2 TRUE         03:04            8479520
 #>  5 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         12:39            8477939
-#>  6 /gamecenter/nyi-vs… 2026-09-…         2 TRUE         12:58            8475171
-#>  7 /gamecenter/nyi-vs… 2026-09-…         2 TRUE         19:20            8477939
-#>  8 /gamecenter/nsh-vs… 2026-10-…         2 TRUE         16:43            8484158
-#>  9 /gamecenter/nyi-vs… 2026-09-…         2 TRUE         09:33            8480870
-#> 10 /gamecenter/ott-vs… 2026-10-…         2 TRUE         06:58            8479318
+#>  6 /gamecenter/tor-vs… 2026-10-…         2 FALSE        11:57            8479318
+#>  7 /gamecenter/tor-vs… 2026-10-…         2 FALSE        13:22            8478178
+#>  8 /gamecenter/nyi-vs… 2026-09-…         2 TRUE         12:58            8475171
+#>  9 /gamecenter/nyi-vs… 2026-09-…         2 TRUE         19:20            8477939
+#> 10 /gamecenter/nsh-vs… 2026-10-…         2 TRUE         16:43            8484158
 #> # ℹ 19 more variables: player_slug <chr>, player_first_name_default <chr>,
 #> #   player_last_name_default <chr>, shot_speed_imperial <dbl>,
 #> #   shot_speed_metric <dbl>, period_descriptor_number <int>,

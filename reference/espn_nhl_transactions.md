@@ -168,20 +168,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_transactions())
 #> ── NHL Transactions data from ESPN.com ──────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-09 05:35:13 UTC
+#> ℹ Data updated: 2026-10-11 16:01:33 UTC
 #> # A tibble: 25 × 8
 #>    date            description team_id team_location team_name team_abbreviation
 #>    <chr>           <chr>       <chr>   <chr>         <chr>     <chr>            
-#>  1 2026-10-08T07:… Placed D R… 124292  Seattle       Kraken    SEA              
-#>  2 2026-10-08T07:… Loaned D A… 26      Florida       Panthers  FLA              
-#>  3 2026-10-08T07:… Placed F B… 18      San Jose      Sharks    SJ               
-#>  4 2026-10-08T07:… Assigned G… 14      Ottawa        Senators  OTT              
-#>  5 2026-10-08T07:… Placed F S… 11      New Jersey    Devils    NJ               
-#>  6 2026-10-08T07:… Placed F C… 5       Detroit       Red Wings DET              
-#>  7 2026-10-07T07:… Called up … 30      Minnesota     Wild      MIN              
-#>  8 2026-10-07T07:… Placed RW … 16      Pittsburgh    Penguins  PIT              
-#>  9 2026-10-07T07:… Assigned L… 15      Philadelphia  Flyers    PHI              
-#> 10 2026-10-07T07:… Signed D V… 12      New York      Islanders NYI              
+#>  1 2026-10-10T07:… Activated … 18      San Jose      Sharks    SJ               
+#>  2 2026-10-10T07:… Placed G T… 17      Colorado      Avalanche COL              
+#>  3 2026-10-10T07:… Activated … 15      Philadelphia  Flyers    PHI              
+#>  4 2026-10-10T07:… Placed LW … 14      Ottawa        Senators  OTT              
+#>  5 2026-10-10T07:… Assigned C… 13      New York      Rangers   NYR              
+#>  6 2026-10-10T07:… Activated … 11      New Jersey    Devils    NJ               
+#>  7 2026-10-10T07:… Placed C A… 8       Los Angeles   Kings     LA               
+#>  8 2026-10-10T07:… Placed G S… 4       Chicago       Blackhaw… CHI              
+#>  9 2026-10-09T07:… Placed D W… 129764  Utah          Mammoth   UTA              
+#> 10 2026-10-09T07:… Recalled F… 30      Minnesota     Wild      MIN              
 #> # ℹ 15 more rows
 #> # ℹ 2 more variables: team_display_name <chr>, team_color <chr>
 # }

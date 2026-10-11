@@ -63,7 +63,7 @@ Returns a data frame with goalie statistics.
 ``` r
 # \donttest{
   try(nhl_stats_goalies())
-#> 2026-10-09 05:37:51.190758: No goalie stats data
+#> 2026-10-11 16:04:09.129796: No goalie stats data
 #> NULL
 # }
 ```

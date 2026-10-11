@@ -21,7 +21,7 @@ load_nhl_linescore(
 - seasons:
 
   A vector of 4-digit years (the *end year* of the NHL season; e.g.,
-  2026 for the 2025-26 season). Min: 2011.
+  2026 for the 2025-26 season). Min: 2010.
 
 - ...:
 

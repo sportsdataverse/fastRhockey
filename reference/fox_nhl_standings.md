@@ -24,20 +24,20 @@ standings columns, `entity_id`).
 ``` r
  try(fox_nhl_standings("1")) 
 #> ── Fox Sports NHL standings ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-09 05:35:17 UTC
+#> ℹ Data updated: 2026-10-11 16:01:37 UTC
 #> # A tibble: 128 × 24
 #>    team_id section    eastern_conference v2      w_l_otl pts   gp    row   sow  
 #>    <chr>   <chr>      <chr>              <chr>   <chr>   <chr> <chr> <chr> <chr>
-#>  1 1       CONFERENCE 1                  Rangers 4-1-0   8     5     4     0    
-#>  2 1       CONFERENCE 2                  Panthe… 2-0-2   6     4     2     0    
-#>  3 1       CONFERENCE 3                  Hurric… 2-1-1   5     4     2     0    
-#>  4 1       CONFERENCE 4                  Capita… 2-1-0   4     3     2     0    
-#>  5 1       CONFERENCE 5                  Senato… 2-1-0   4     3     2     0    
-#>  6 1       CONFERENCE 6                  Lightn… 2-1-0   4     3     2     0    
-#>  7 1       CONFERENCE 7                  Sabres  2-1-0   4     3     2     0    
-#>  8 1       CONFERENCE 8                  Pengui… 2-2-0   4     4     2     0    
-#>  9 1       CONFERENCE 9                  Maple … 2-2-0   4     4     2     0    
-#> 10 1       CONFERENCE 10                 Bruins  2-2-0   4     4     2     0    
+#>  1 1       CONFERENCE 1                  Hurric… 4-1-1   9     6     4     0    
+#>  2 1       CONFERENCE 2                  Lightn… 4-1-0   8     5     4     0    
+#>  3 1       CONFERENCE 3                  Senato… 4-1-0   8     5     3     1    
+#>  4 1       CONFERENCE 4                  Rangers 4-2-0   8     6     4     0    
+#>  5 1       CONFERENCE 5                  Bruins  4-2-0   8     6     4     0    
+#>  6 1       CONFERENCE 6                  Maple … 3-2-1   7     6     3     0    
+#>  7 1       CONFERENCE 7                  Pengui… 3-2-1   7     6     2     1    
+#>  8 1       CONFERENCE 8                  Capita… 3-1-0   6     4     3     0    
+#>  9 1       CONFERENCE 9                  Panthe… 2-1-2   6     5     2     0    
+#> 10 1       CONFERENCE 10                 Canadi… 2-2-1   5     5     1     1    
 #> # ℹ 118 more rows
 #> # ℹ 15 more variables: sol <chr>, gf <chr>, ga <chr>, gd <chr>, home <chr>,
 #> #   away <chr>, l10 <chr>, strk <chr>, entity_id <chr>,

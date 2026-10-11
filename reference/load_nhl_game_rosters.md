@@ -21,7 +21,7 @@ load_nhl_game_rosters(
 - seasons:
 
   A vector of 4-digit years (the *end year* of the NHL season; e.g.,
-  2026 for the 2025-26 season). Min: 2011.
+  2026 for the 2025-26 season). Min: 2010.
 
 - ...:
 
@@ -41,17 +41,21 @@ load_nhl_game_rosters(
 A data frame (`fastRhockey_data`) with one row per player per game and
 the following columns:
 
-|                |           |                           |
-|----------------|-----------|---------------------------|
-| col_name       | types     | description               |
-| player_id      | integer   | Unique player identifier. |
-| full_name      | character | Player full name.         |
-| first_name     | character | Player first name.        |
-| last_name      | character | Player last name.         |
-| team_abbr      | character | Team abbreviation/code.   |
-| team_id        | integer   | Unique team identifier.   |
-| position_code  | character | Player position code.     |
-| sweater_number | integer   | Jersey number.            |
+|  |  |  |
+|----|----|----|
+| col_name | type | description |
+| player_id | integer | Unique player identifier. |
+| full_name | character | Player full name. |
+| first_name | character | Player first name. |
+| last_name | character | Player last name. |
+| team_abbr | character | Team abbreviation/code. |
+| team_id | integer | Unique team identifier. |
+| position_code | character | Player position code: C (center), L (left wing), R (right wing), D (defense), G (goalie). |
+| sweater_number | integer | Jersey number. |
+| game_id | integer | NHL game identifier (e.g. 2009020001). |
+| season | integer | Season id spanning both years (e.g. 20092010 for 2009-10). |
+| game_date | character | Game date, YYYY-MM-DD. |
+| shoots_catches | character | Handedness: L (left) or R (right). |
 
 ## Examples
 
