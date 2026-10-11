@@ -18,6 +18,16 @@
 
 ### Bug fixes
 
+* The NHL release loaders rejected the 2009-10 season: every `load_nhl_*()`
+  release loader (and `.nhl_release_loader()`'s default) required
+  `seasons >= 2011`, but each sportsdataverse-data release publishes from 2010.
+  They now accept 2010, matching sportsdataverse-py (#765). Two of those
+  2009-10 files are thinner at the source: `load_nhl_pbp()` comes from a
+  lighter feed (53 columns, not 92), and `load_nhl_three_stars()` covers 324
+  of 1,318 games. `load_nhl_pbp_lite()`'s `play_by_play_lite_<year>` files
+  started at 2024 until the release was backfilled for 2010-2023 (2026-10-11), so
+  earlier lite seasons used to download nothing. `load_nhl_game_rosters()`
+  documents all twelve of its columns.
 * `shot_distance` / `shot_angle` (and `scoring_chance`) of an empty-net goal from a
   team's own half were measured to the nearer net: 59 ft for a median 126-ft goal
   (27 such goals in 320 PWHL games). Empty-net goals are now measured to the net

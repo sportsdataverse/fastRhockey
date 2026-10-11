@@ -13,7 +13,7 @@ load_nhl_game_rosters(
 }
 \arguments{
 \item{seasons}{A vector of 4-digit years (the \emph{end year} of the NHL
-season; e.g., 2026 for the 2025-26 season). Min: 2011.}
+season; e.g., 2026 for the 2025-26 season). Min: 2010.}
 
 \item{...}{Additional arguments passed to an underlying function.}
 
@@ -24,15 +24,19 @@ season; e.g., 2026 for the 2025-26 season). Min: 2011.}
 \value{
 A data frame (\code{fastRhockey_data}) with one row per player per game
 and the following columns:\tabular{lll}{
-   col_name \tab types \tab description \cr
+   col_name \tab type \tab description \cr
    player_id \tab integer \tab Unique player identifier. \cr
    full_name \tab character \tab Player full name. \cr
    first_name \tab character \tab Player first name. \cr
    last_name \tab character \tab Player last name. \cr
    team_abbr \tab character \tab Team abbreviation/code. \cr
    team_id \tab integer \tab Unique team identifier. \cr
-   position_code \tab character \tab Player position code. \cr
+   position_code \tab character \tab Player position code: C (center), L (left wing), R (right wing), D (defense), G (goalie). \cr
    sweater_number \tab integer \tab Jersey number. \cr
+   game_id \tab integer \tab NHL game identifier (e.g. 2009020001). \cr
+   season \tab integer \tab Season id spanning both years (e.g. 20092010 for 2009-10). \cr
+   game_date \tab character \tab Game date, YYYY-MM-DD. \cr
+   shoots_catches \tab character \tab Handedness: L (left) or R (right). \cr
 }
 }
 \description{
