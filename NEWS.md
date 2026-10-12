@@ -2,6 +2,17 @@
 
 ### New features
 
+* European hockey leagues, at parity with sportsdataverse-py: DEL, ICE Hockey
+  League, EIHL and Metal Ligaen (eSports), KHL, VHL, SHL, HockeyAllsvenskan,
+  Liiga, SIHF, National League, Extraliga and Ligue Magnus, plus ESPN men's
+  and women's college hockey. Seasons are END years (2027 = 2026-27). Every
+  request waits at least one second after the last one to the same host, and
+  failures raise classed conditions: `fastRhockey_no_data` (the provider has
+  nothing for the request), `fastRhockey_asset_fetch` (the answer is unknown:
+  a 403/5xx, a block, a body for another game) and `fastRhockey_bad_request`,
+  all inheriting `fastRhockey_error`. (In progress: families land in this
+  wave.)
+
 * `load_pwhl_shifts()` and `load_pwhl_xg_pbp()` — loaders for the two
   published PWHL release datasets that had no R access (per-player shift
   charts and xG-enriched play-by-play), completing coverage of every
