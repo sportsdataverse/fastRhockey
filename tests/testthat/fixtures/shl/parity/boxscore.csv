@@ -1,0 +1,11 @@
+team_side,position_group,player_id,team_id,period,full_name,first_name,last_name,nr,pos,line,g,a,ppg,sw,pim,sog,ppsog,plus_minus,toi,hits,fow,fol,fo_perc,ga,soga,spga,svs,svs_perc
+home,skater,1332,FHC,0,Henrik Tömmernes,Henrik,Tömmernes,7,LD,1,0.0,0.0,0.0,2.0,0.0,2.0,0.0,0.0,22:21,0.0,0.0,0.0,0.0,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>
+home,skater,2004,FHC,0,<<NA>>,<<NA>>,<<NA>>,12,RW,1,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,23:47,3.0,1.0,1.0,50.0,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>
+home,skater,5639,FHC,0,<<NA>>,<<NA>>,<<NA>>,21,LW,1,0.0,0.0,0.0,1.0,0.0,4.0,0.0,1.0,20:30,0.0,0.0,0.0,0.0,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>
+away,skater,2609,LHC,0,<<NA>>,<<NA>>,<<NA>>,21,LW,1,0.0,0.0,0.0,1.0,0.0,2.0,0.0,0.0,18:21,0.0,0.0,0.0,0.0,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>
+away,skater,2404,LHC,0,Robin Kovacs,Robin,Kovacs,23,RW,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,17:19,0.0,0.0,0.0,0.0,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>
+away,skater,6454,LHC,0,<<NA>>,<<NA>>,<<NA>>,26,RD,1,0.0,0.0,0.0,0.0,0.0,5.0,0.0,-1.0,18:16,0.0,0.0,0.0,0.0,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>
+home,goalie,2427,FHC,0,Lars Johansson,Lars,Johansson,1,GK,1,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,1.0,29.0,14.0,28.0,0.9655172413793104
+home,goalie,6154,FHC,0,Tobias Normann,Tobias,Normann,30,GK,2,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,0.0,0.0,0.0,0.0,0.0
+away,goalie,3858,LHC,0,Jesper Myrenberg,Jesper,Myrenberg,31,GK,1,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,2.0,31.0,9.0,29.0,0.9354838709677419
+away,goalie,5596,LHC,0,Waltteri Ignatjew,Waltteri,Ignatjew,36,GK,2,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,0.0,0.0,0.0,0.0,0.0

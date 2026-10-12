@@ -1,0 +1,4 @@
+season,season_code,season_name,game_type,game_type_name,series_code,ssgt_uuid,state,season_uuid,series_uuid,game_type_uuid
+2025,2024,2024/2025,playoff,Slutspel,SHL,fg2i6uu9dt,closed,qeb-73bZkIm9A,qQ9-bb0bzEWUk,qQ9-7debq38kX
+2026,2025,2025/2026,regular,Grundserie,SHL,iuzqg7dqk9,closed,xs4m9qupsi,qQ9-bb0bzEWUk,qQ9-af37Ti40B
+2026,2025,2025/2026,qualdown,Kvalspel nedflyttning,SHL,jjruyvpqht,closed,xs4m9qupsi,qQ9-bb0bzEWUk,qRf-347BaDIOc

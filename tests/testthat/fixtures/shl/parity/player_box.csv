@@ -1,0 +1,11 @@
+team_side,position_group,player_id,team_id,period,full_name,first_name,last_name,nr,pos,line,g,a,ppg,sw,pim,sog,ppsog,plus_minus,toi,hits,fow,fol,fo_perc,ga,soga,spga,svs,svs_perc,tp,shg,nep,pop,fo_tot,num_pen,ms,bk_s
+home,skater,4724,<<NA>>,0,<<NA>>,<<NA>>,<<NA>>,2,RD,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,13:16,0.0,0.0,0.0,0.0,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+home,skater,3910,<<NA>>,0,<<NA>>,<<NA>>,<<NA>>,6,LD,4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,03:17,0.0,0.0,0.0,0.0,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+home,skater,1332,<<NA>>,0,Henrik Tömmernes,Henrik,Tömmernes,7,LD,1,0.0,0.0,0.0,2.0,0.0,2.0,0.0,0.0,22:21,0.0,0.0,0.0,0.0,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,0.0,0.0,0.0,0.0,0.0,0.0,6.0,2.0
+away,skater,4097,<<NA>>,0,<<NA>>,<<NA>>,<<NA>>,4,LW,4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,01:51,0.0,0.0,0.0,0.0,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+away,skater,4982,<<NA>>,0,<<NA>>,<<NA>>,<<NA>>,8,RD,4,0.0,0.0,0.0,0.0,2.0,1.0,0.0,0.0,08:04,0.0,0.0,0.0,0.0,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0
+away,skater,4287,<<NA>>,0,<<NA>>,<<NA>>,<<NA>>,9,RD,3,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0.0,15:48,1.0,0.0,0.0,0.0,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,0.0,0.0,0.0,0.0,0.0,1.0,4.0,2.0
+home,goalie,2427,<<NA>>,0,Lars Johansson,Lars,Johansson,1,GK,1,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,1.0,29.0,14.0,28.0,0.9655172413793104,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>
+home,goalie,6154,<<NA>>,0,Tobias Normann,Tobias,Normann,30,GK,2,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,0.0,0.0,0.0,0.0,0.0,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>
+away,goalie,3858,<<NA>>,0,Jesper Myrenberg,Jesper,Myrenberg,31,GK,1,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,2.0,31.0,9.0,29.0,0.9354838709677419,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>
+away,goalie,5596,<<NA>>,0,Waltteri Ignatjew,Waltteri,Ignatjew,36,GK,2,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,0.0,0.0,0.0,0.0,0.0,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>,<<NA>>
