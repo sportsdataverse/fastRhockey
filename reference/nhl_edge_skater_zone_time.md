@@ -53,14 +53,14 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_skater_zone_time(player_id = 8478402))
 #> ── NHL Edge Skater Zone Time ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-11 16:03:12 UTC
+#> ℹ Data updated: 2026-10-12 12:08:16 UTC
 #> # A tibble: 4 × 10
 #>   strength_code offensive_zone_pctg offensive_zone_percentile
 #>   <chr>                       <dbl>                     <dbl>
-#> 1 all                         0.503                     0.977
+#> 1 all                         0.503                     0.979
 #> 2 es                          0.487                     0.982
-#> 3 pp                          0.665                     0.942
-#> 4 pk                          0.263                     0.239
+#> 3 pp                          0.665                     0.945
+#> 4 pk                          0.263                     0.234
 #> # ℹ 7 more variables: offensive_zone_league_avg <dbl>, neutral_zone_pctg <dbl>,
 #> #   neutral_zone_percentile <dbl>, neutral_zone_league_avg <dbl>,
 #> #   defensive_zone_pctg <dbl>, defensive_zone_percentile <dbl>,

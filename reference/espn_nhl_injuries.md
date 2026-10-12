@@ -176,8 +176,8 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_injuries())
 #> ── NHL Injuries data from ESPN.com ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-11 16:00:24 UTC
-#> # A tibble: 246 × 16
+#> ℹ Data updated: 2026-10-12 12:05:42 UTC
+#> # A tibble: 244 × 16
 #>    team_id team_display_name player_id player_display_name player_short_name
 #>    <chr>   <chr>             <chr>     <chr>               <chr>            
 #>  1 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
@@ -190,7 +190,7 @@ Saiem Gilani
 #>  8 25      Anaheim Ducks     NA        Troy Terry          T. Terry         
 #>  9 25      Anaheim Ducks     NA        Ian Moore           I. Moore         
 #> 10 25      Anaheim Ducks     NA        Ian Moore           I. Moore         
-#> # ℹ 236 more rows
+#> # ℹ 234 more rows
 #> # ℹ 11 more variables: player_position <chr>, injury_id <chr>,
 #> #   injury_status <chr>, injury_date <chr>, injury_short_comment <chr>,
 #> #   injury_long_comment <chr>, injury_type <chr>, injury_abbreviation <chr>,

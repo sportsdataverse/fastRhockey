@@ -50,7 +50,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(load_nhl_group_seasons())
 #> ── NHL group seasons from the SportsDataverse data repo ─── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-11 16:01:43 UTC
+#> ℹ Data updated: 2026-10-12 12:06:55 UTC
 #> # A tibble: 485 × 9
 #>    league group_id    season level name  short_name abbreviation parent_group_id
 #>    <chr>  <chr>        <int> <chr> <chr> <chr>      <chr>        <chr>          

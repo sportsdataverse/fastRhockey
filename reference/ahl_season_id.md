@@ -37,7 +37,7 @@ Other AHL Functions:
 ``` r
  try(ahl_season_id()) 
 #> ── AHL Season IDs from HockeyTech ───────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-11 15:59:54 UTC
+#> ℹ Data updated: 2026-10-12 12:05:15 UTC
 #> # A tibble: 76 × 9
 #>    season_id season_name         season_short career playoff start_date end_date
 #>        <dbl> <chr>               <chr>        <chr>  <chr>   <chr>      <chr>   

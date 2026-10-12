@@ -169,7 +169,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_venues())
 #> ── NHL Venues data from ESPN core-v2 ────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-11 16:01:34 UTC
+#> ℹ Data updated: 2026-10-12 12:06:46 UTC
 #> # A tibble: 185 × 4
 #>    ref                                                 venue_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>

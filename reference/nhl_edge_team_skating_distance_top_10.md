@@ -97,23 +97,23 @@ A data frame (`fastRhockey_data`) with the following columns:
     sort_by = "total"
   ))
 #> ── NHL Edge Team Skating Distance Top 10 ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-11 16:03:16 UTC
-#> # A tibble: 10 × 36
+#> ℹ Data updated: 2026-10-12 12:08:20 UTC
+#> # A tibble: 10 × 35
 #>    team_abbrev team_slug           team_common_name_def…¹ team_place_name_with…²
 #>    <chr>       <chr>               <chr>                  <chr>                 
-#>  1 PIT         pittsburgh-penguin… Penguins               Pittsburgh            
-#>  2 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
-#>  3 PHI         philadelphia-flyer… Flyers                 Philadelphia          
-#>  4 CHI         chicago-blackhawks… Blackhawks             Chicago               
-#>  5 CAR         carolina-hurricane… Hurricanes             Carolina              
-#>  6 UTA         utah-mammoth-68     Mammoth                Utah                  
-#>  7 BOS         boston-bruins-6     Bruins                 Boston                
-#>  8 TOR         toronto-maple-leaf… Maple Leafs            Toronto               
-#>  9 VAN         vancouver-canucks-… Canucks                Vancouver             
-#> 10 NYR         new-york-rangers-3  Rangers                New York              
+#>  1 PHI         philadelphia-flyer… Flyers                 Philadelphia          
+#>  2 CAR         carolina-hurricane… Hurricanes             Carolina              
+#>  3 VAN         vancouver-canucks-… Canucks                Vancouver             
+#>  4 NYR         new-york-rangers-3  Rangers                New York              
+#>  5 PIT         pittsburgh-penguin… Penguins               Pittsburgh            
+#>  6 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
+#>  7 SEA         seattle-kraken-55   Kraken                 Seattle               
+#>  8 CHI         chicago-blackhawks… Blackhawks             Chicago               
+#>  9 UTA         utah-mammoth-68     Mammoth                Utah                  
+#> 10 BOS         boston-bruins-6     Bruins                 Boston                
 #> # ℹ abbreviated names: ¹​team_common_name_default,
 #> #   ²​team_place_name_with_preposition_default
-#> # ℹ 32 more variables: team_team_logo_light <chr>, team_team_logo_dark <chr>,
+#> # ℹ 31 more variables: team_team_logo_light <chr>, team_team_logo_dark <chr>,
 #> #   distance_total_imperial <dbl>, distance_total_metric <dbl>,
 #> #   distance_per60_imperial <dbl>, distance_per60_metric <dbl>,
 #> #   distance_max_per_game_imperial <dbl>, distance_max_per_game_metric <dbl>,

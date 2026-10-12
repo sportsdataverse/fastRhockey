@@ -168,7 +168,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_seasons(limit = 10))
 #> ── NHL Seasons List data from ESPN core-v2 ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-11 16:00:59 UTC
+#> ℹ Data updated: 2026-10-12 12:06:14 UTC
 #> # A tibble: 10 × 4
 #>    ref                                                   season count page_count
 #>    <chr>                                                  <int> <int>      <int>

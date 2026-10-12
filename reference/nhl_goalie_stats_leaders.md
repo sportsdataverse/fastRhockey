@@ -66,7 +66,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_goalie_stats_leaders())
 #> ── NHL Goalie Stats Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-11 16:03:25 UTC
+#> ℹ Data updated: 2026-10-12 12:08:27 UTC
 #> # A tibble: 20 × 15
 #>         id sweater_number headshot          team_abbrev team_logo position value
 #>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>
@@ -76,18 +76,18 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  4 8478048             31 https://assets.n… NYR         https://… G        3    
 #>  5 8478872             70 https://assets.n… UTA         https://… G        3    
 #>  6 8479979             29 https://assets.n… DAL         https://… G        2    
-#>  7 8482193             33 https://assets.n… NYR         https://… G        1    
-#>  8 8484170             32 https://assets.n… MTL         https://… G        1    
-#>  9 8480193             80 https://assets.n… DET         https://… G        1    
+#>  7 8484170             32 https://assets.n… MTL         https://… G        1    
+#>  8 8480193             80 https://assets.n… DET         https://… G        1    
+#>  9 8482193             33 https://assets.n… NYR         https://… G        1    
 #> 10 8480981             30 https://assets.n… STL         https://… G        1    
 #> 11 8480193             80 https://assets.n… DET         https://… G        0.974
-#> 12 8482193             33 https://assets.n… NYR         https://… G        0.971
-#> 13 8479979             29 https://assets.n… DAL         https://… G        0.963
+#> 12 8479979             29 https://assets.n… DAL         https://… G        0.963
+#> 13 8482193             33 https://assets.n… NYR         https://… G        0.946
 #> 14 8483710             35 https://assets.n… TBL         https://… G        0.944
 #> 15 8476999             35 https://assets.n… OTT         https://… G        0.942
 #> 16 8480193             80 https://assets.n… DET         https://… G        0.660
-#> 17 8482193             33 https://assets.n… NYR         https://… G        0.668
-#> 18 8479979             29 https://assets.n… DAL         https://… G        0.743
+#> 17 8479979             29 https://assets.n… DAL         https://… G        0.743
+#> 18 8482193             33 https://assets.n… NYR         https://… G        1.20 
 #> 19 8476999             35 https://assets.n… OTT         https://… G        1.34 
 #> 20 8484170             32 https://assets.n… MTL         https://… G        1.46 
 #> # ℹ 8 more variables: first_name_default <chr>, last_name_default <chr>,

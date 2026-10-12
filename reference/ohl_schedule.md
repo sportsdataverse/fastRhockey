@@ -47,7 +47,7 @@ Other OHL Functions:
 ``` r
  try(ohl_schedule()) 
 #> ── OHL Schedule from HockeyTech ─────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-11 16:04:20 UTC
+#> ℹ Data updated: 2026-10-12 12:09:16 UTC
 #> # A tibble: 684 × 12
 #>    game_id game_date     game_status home_team home_team_id home_score away_team
 #>    <chr>   <chr>         <chr>       <chr>     <chr>        <chr>      <chr>    

@@ -48,7 +48,7 @@ Other OHL Functions:
 ``` r
  try(ohl_team_roster(team_id = 1)) 
 #> ── OHL Team Roster from HockeyTech ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-11 16:04:22 UTC
+#> ℹ Data updated: 2026-10-12 12:09:18 UTC
 #> # A tibble: 25 × 45
 #>    id    person_id active first_name last_name phonetic_name display_name shoots
 #>    <chr> <chr>     <chr>  <chr>      <chr>     <chr>         <chr>        <chr> 

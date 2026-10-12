@@ -27,7 +27,7 @@ try(nhl_partner_game_odds())
 #> [1] "2026-10-11"
 #> 
 #> $lastUpdatedUTC
-#> [1] "2026-10-11T16:00:38Z"
+#> [1] "2026-10-12T01:00:38Z"
 #> 
 #> $bettingPartner
 #> $bettingPartner$partnerId
@@ -64,10 +64,10 @@ try(nhl_partner_game_odds())
 #> 1 https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg
 #> 2           https://assets.nhle.com/logos/nhl/svg/NYR_light.svg
 #> 3           https://assets.nhle.com/logos/nhl/svg/PHI_light.svg
-#>                                                                                                                   homeTeam.odds
-#> 1  MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY, PUCK_LINE, 340, -125, 100, -218, 120, Draw, , O6.5, , -1.5
-#> 2 OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, 110, -265, 370, -155, -105, O6.5, , Draw, , -1.5
-#> 3  PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, OVER_UNDER, -148, 225, 330, 180, -122, +1.5, , Draw, , O5.5
+#>                                                                                                                                                     homeTeam.odds
+#> 1      MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY, PUCK_LINE, MONEY_LINE_2_WAY_TNB, -205, 360, 300, -145, 750, -154, Draw, , O7.5, , -1.5, 
+#> 2 OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY_TNB, 470, -4000, 1000, -1200, 650, -80000, O8.5, , Draw, , -4.5, 
+#> 3     PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_2_WAY_TNB, 145, 5000, 950, 4000, -360, 3000, +2.5, , Draw, , O4.5, 
 #>   homeTeam.name.default awayTeam.id awayTeam.abbrev
 #> 1              Capitals          55             SEA
 #> 2               Rangers          23             VAN
@@ -76,10 +76,10 @@ try(nhl_partner_game_odds())
 #> 1 https://assets.nhle.com/logos/nhl/svg/SEA_light.svg
 #> 2 https://assets.nhle.com/logos/nhl/svg/VAN_light.svg
 #> 3 https://assets.nhle.com/logos/nhl/svg/CAR_light.svg
-#>                                                                                                                  awayTeam.odds
-#> 1 MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY, PUCK_LINE, 340, 235, -120, 180, -142, Draw, , U6.5, , +1.5
-#> 2 OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, -130, 215, 370, 285, -115, U6.5, , Draw, , +1.5
-#> 3 PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, OVER_UNDER, 124, -115, 330, -218, 102, -1.5, , Draw, , U5.5
+#>                                                                                                                                                      awayTeam.odds
+#> 1      MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY, PUCK_LINE, MONEY_LINE_2_WAY_TNB, -205, 475, -425, 114, -1450, 120, Draw, , U7.5, , +1.5, 
+#> 2   OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY_TNB, -750, 1500, 1000, 5000, -1150, 3500, U8.5, , Draw, , +4.5, 
+#> 3 PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_2_WAY_TNB, -188, -1200, 950, -1e+05, 260, -50000, -2.5, , Draw, , U4.5, 
 #>   awayTeam.name.default
 #> 1                Kraken
 #> 2               Canucks

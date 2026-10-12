@@ -74,14 +74,14 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_conferences_info(conference_name = "Eastern"))
 #> ── NHL Conference Information from NHL.com ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-11 16:02:57 UTC
+#> ℹ Data updated: 2026-10-12 12:08:04 UTC
 #> # A tibble: 16 × 36
 #>    team_abbr team_name             team_common_name team_logo    conference_name
 #>    <chr>     <chr>                 <chr>            <chr>        <chr>          
 #>  1 CAR       Carolina Hurricanes   Hurricanes       https://ass… Eastern        
-#>  2 TBL       Tampa Bay Lightning   Lightning        https://ass… Eastern        
-#>  3 OTT       Ottawa Senators       Senators         https://ass… Eastern        
-#>  4 NYR       New York Rangers      Rangers          https://ass… Eastern        
+#>  2 NYR       New York Rangers      Rangers          https://ass… Eastern        
+#>  3 TBL       Tampa Bay Lightning   Lightning        https://ass… Eastern        
+#>  4 OTT       Ottawa Senators       Senators         https://ass… Eastern        
 #>  5 BOS       Boston Bruins         Bruins           https://ass… Eastern        
 #>  6 TOR       Toronto Maple Leafs   Maple Leafs      https://ass… Eastern        
 #>  7 PIT       Pittsburgh Penguins   Penguins         https://ass… Eastern        

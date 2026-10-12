@@ -44,24 +44,24 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_standings()) 
 #> ── QMJHL Standings from HockeyTech ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-11 16:04:45 UTC
+#> ℹ Data updated: 2026-10-12 12:09:38 UTC
 #> # A tibble: 18 × 20
 #>    team_code wins  losses ot_losses ot_wins shootout_wins shootout_losses row  
 #>    <chr>     <chr>  <dbl> <chr>     <chr>   <chr>         <chr>           <chr>
-#>  1 Rim       6          2 1         0       0             0               6    
-#>  2 NFL       6          2 1         2       0             0               6    
-#>  3 Que       6          1 0         1       0             0               6    
+#>  1 Que       7          1 0         1       0             0               7    
+#>  2 Rim       6          2 1         0       0             0               6    
+#>  3 NFL       6          2 1         2       0             0               6    
 #>  4 SNB       5          1 1         1       1             1               4    
 #>  5 Cha       5          3 2         0       1             0               4    
 #>  6 Hal       4          1 3         1       2             0               2    
 #>  7 Mon       5          3 0         3       1             0               4    
 #>  8 Cap       2          3 0         1       0             3               2    
-#>  9 Chi       3          4 0         0       0             0               3    
+#>  9 Chi       3          5 0         0       0             0               3    
 #> 10 BaC       0          7 0         0       0             1               0    
-#> 11 Vic       6          2 0         1       0             0               6    
-#> 12 Gat       5          1 2         1       1             0               4    
-#> 13 She       5          1 1         0       0             0               5    
-#> 14 VdO       5          1 1         1       0             0               5    
+#> 11 VdO       6          1 1         1       0             0               6    
+#> 12 Vic       6          2 0         1       0             0               6    
+#> 13 Gat       5          2 2         1       1             0               4    
+#> 14 She       5          1 1         0       0             0               5    
 #> 15 Rou       4          3 2         1       0             0               4    
 #> 16 Dru       2          5 0         0       0             1               2    
 #> 17 BLB       2          7 0         2       0             0               2    
