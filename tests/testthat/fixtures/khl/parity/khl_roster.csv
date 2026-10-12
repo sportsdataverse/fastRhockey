@@ -1,0 +1,13 @@
+group,player_id,photo,country,lastname,firstname,jn,age,favorite,link
+goalkeepers,19184,//img.khl.ru/players/19184/320.jpg,Россия,Загидулин,Артём,50,31,false,/players/19184/
+goalkeepers,45157,//img.khl.ru/players/45157/320.jpg,Россия,Кайрис,Антон,23,19,false,/players/45157/
+goalkeepers,20870,//img.khl.ru/players/20870/320.jpg,Россия,Федотов,Иван,28,29,false,/players/20870/
+defenders,15299,//img.khl.ru/players/15299/320.jpg,Россия,Вишневский,Дмитрий,55,36,false,/players/15299/
+defenders,43948,//img.khl.ru/players/43948/320.jpg,Россия,Дронов,Николай,49,18,false,/players/43948/
+defenders,41928,//img.khl.ru/players/41928/320.jpg,США,Кин,Джозеф,4,27,false,/players/41928/
+forwards,24862,//img.khl.ru/players/24862/320.jpg,Россия,Беляев,Александр Вл.,98,27,false,/players/24862/
+forwards,40141,//img.khl.ru/players/40141/320.jpg,Россия,Варюшкин,Егор,2,21,false,/players/40141/
+forwards,17566,//img.khl.ru/players/17566/320.jpg,Россия,Гальченюк,Александр,88,32,false,/players/17566/
+injured,19062,//img.khl.ru/players/19062/320.jpg,Россия,Брынцев,Александр,74,31,false,/players/19062/
+injured,26303,//img.khl.ru/players/26303/320.jpg,Россия,Мансуров,Демид,65,26,false,/players/26303/
+injured,39327,//img.khl.ru/players/39327/320.jpg,Россия,Орлов,Даниил Р.,62,22,false,/players/39327/
