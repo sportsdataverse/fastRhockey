@@ -77,6 +77,8 @@ test_that(".euro_resp_json refuses empty and non-JSON bodies and passes 204 as l
   expect_equal(.euro_resp_json(json_resp('{"a": 1}')), list(a = 1L))
   expect_equal(.euro_resp_json(json_resp("", 204L)), list())
   expect_error(.euro_resp_json(json_resp("  ")), class = "fastRhockey_asset_fetch")
+  empty <- httr2::response(status_code = 200L, url = "https://get.test/a.json")  # no body at all
+  expect_error(.euro_resp_json(empty), class = "fastRhockey_asset_fetch")
   expect_error(.euro_resp_json(json_resp("<html>blocked</html>")), class = "fastRhockey_asset_fetch")
 })
 

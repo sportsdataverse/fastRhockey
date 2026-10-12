@@ -112,7 +112,8 @@
   status <- httr2::resp_status(resp)
   if (status %in% c(204L, 205L)) return(list())
   where <- .euro_where(resp$url)
-  text <- .resp_text(resp)
+  # resp_body_string() raises its own error on a truly empty body
+  text <- if (httr2::resp_has_body(resp)) .resp_text(resp) else ""
   if (!nzchar(trimws(text))) .abort_asset_fetch("{where} answered HTTP {status} with an empty body.")
   tryCatch(
     jsonlite::fromJSON(text, ...),
