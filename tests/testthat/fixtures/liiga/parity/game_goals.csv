@@ -1,0 +1,6 @@
+season,game_id,side,team_id,team_slug,log_time,winning_goal,game_time,period,event_id,home_team_score,away_team_score,goals_so_far_in_season,video_clip_url,video_clip_playlist_url,video_thumbnail_url,scorer_player_id,scorer_first_name,scorer_last_name,assist1_player_id,assist1_first_name,assist1_last_name,assist1_season_assists,assist2_player_id,assist2_first_name,assist2_last_name,assist2_season_assists,goal_types,plus_jerseys,minus_jerseys
+2026,1,home,55786244,hpk,2025-09-09T15:48:40Z,false,519,1,72,1,0,1,\N,\N,\N,33254027,Vili,Alitalo,23029644,Teemu,Rautiainen,1,33296946,Sami,Päivärinta,1,"",7 8 12 19 63,4 7 10 86 91
+2026,1,home,55786244,hpk,2025-09-09T17:34:56Z,false,2939,3,386,2,1,1,\N,\N,\N,30417647,Olli,Korhonen,31585390,Miska,Kukkonen,1,22709389,Petteri,Nikkilä,1,"",15 43 50 74 93,4 7 21 82 84
+2026,1,away,651304385,tps,2025-09-09T15:59:44Z,false,832,1,112,1,1,1,\N,\N,\N,31569277,Joel,Määttä,32219869,Ruben,Rafkin,1,31886905,Sisu,Yliniemi,1,YV,\N,\N
+2026,1,away,651304385,tps,2025-09-09T17:49:04Z,false,3198,3,421,2,2,1,\N,\N,\N,27023853,Aleksi,Saarela,60757491,Oliver,Lauridsen,1,30969140,Leevi,Teissala,1,"",7 19 66 87 98,3 6 19 44 93
+2026,1,away,651304385,tps,2025-09-09T18:12:08Z,true,3900,5,516,2,2,0,\N,\N,\N,31569277,Joel,Määttä,\N,\N,\N,\N,\N,\N,\N,\N,VL,\N,\N

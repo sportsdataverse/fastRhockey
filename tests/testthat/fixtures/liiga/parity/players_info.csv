@@ -1,0 +1,4 @@
+player_id,team_id,team_slug,team_name,country_of_birth,place_of_birth,date_of_birth,nationality,first_name,last_name,role,role_code,handedness,height,weight,rookie,jersey,injured,suspended,removed,captain,alternate_captain,picture_url
+21415137,219244634,jyp,JYP,FIN,Vantaa,1990-11-22,FIN,Teemu,Eronen,LEFT_DEFENSEMAN,VP,LEFT,180,85,false,42,false,false,false,false,false,https://liiga-backend-prod.s3.eu-north-1.amazonaws.com/2026/219244634%3Ajyp/21415137.png
+21468906,362185137,tappara,Tappara,FIN,Lempäälä,1994-02-28,FIN,Henrik,Haapala,LEFT_WING,VL,LEFT,175,77,false,25,false,false,false,false,false,https://liiga-backend-prod.s3.eu-north-1.amazonaws.com/2026/362185137%3Atappara/21468906.png
+21494006,495643563,kärpät,Kärpät,FIN,Kirkkonummi,1992-03-31,FIN,Jani,Hakanpää,RIGHT_DEFENSEMAN,OP,RIGHT,195,94,false,58,false,false,false,false,false,https://liiga-backend-prod.s3.eu-north-1.amazonaws.com/2026/495643563%3Ak%C3%A4rp%C3%A4t/21494006.png
