@@ -1,0 +1,2 @@
+game_id,competition,phase,round,game_datetime,status,home_team_id,home_team,home_team_abbreviation,away_team_id,away_team,away_team_abbreviation,home_score,away_score,home_team_participant_id,away_team_participant_id,has_shootout,n_periods,period_minutes,attendance,venue
+865,Synerglace Ligue Magnus,Saison régulière,10,2020-09-26 16:30:00+0200,final,553,Ducs d'Angers,ANG,529,Boxers de Bordeaux,BOR,3,2,56,52,true,3,20,1847,Angers IceParc

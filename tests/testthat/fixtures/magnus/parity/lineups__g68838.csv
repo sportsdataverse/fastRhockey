@@ -1,0 +1,4 @@
+game_id,team_id,home_away,player_id,player_participant_id,player_name,jersey_number,registered_jersey_number,licence_number,position_code,position,captaincy,is_mvp,photo_url
+68838,366,away,136880,465641,ZIMMERMANN Max,33,30,299426,GB,goalie,,false,https://hockeynet.fr//elicence-core/images/default/default_profil_homme.png
+68838,366,away,43003,465642,RICHARD Gaëtan,38,38,167930,GB,goalie,,false,https://hockeynet.fr/storage/photos_personnes/miniature/43003_954874_photo_id.png
+68838,366,away,136025,465643,MATUS Radim,53,53,298571,A,forward,A,false,https://hockeynet.fr/storage/photos_personnes/miniature/136025_604130_photo_id.png

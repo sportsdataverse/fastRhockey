@@ -1,0 +1,4 @@
+game_id,team_id,home_away,player_id,player_participant_id,player_name,jersey_number,registered_jersey_number,licence_number,position_code,position,captaincy,is_mvp,photo_url
+865,529,away,66033,6395,POUDRIER Loik,27,72,226754,A,forward,,false,https://hockeynet.fr/storage/photos_personnes/miniature/66033_594005_photo_id.png
+865,529,away,17379,6396,FOUQUEREL Clément,20,20,091363,GB,goalie,,false,https://hockeynet.fr/storage/photos_personnes/miniature/17379_391317_photo_id.png
+865,529,away,43003,6397,RICHARD Gaëtan,38,38,167930,GB,goalie,,false,https://hockeynet.fr/storage/photos_personnes/miniature/43003_954874_photo_id.png

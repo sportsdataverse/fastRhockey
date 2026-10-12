@@ -1,0 +1,4 @@
+game_id,attempt_id,shootout_round,team_id,team_abbreviation,shooter_player_id,shooter_name,goalie_player_id,goalie_name,scored
+77779,33605,1,553,ANG,39651,MAIA Bastien,142988,RICHARD Samuel,false
+77779,33606,1,3409,BRI,143117,NEILSON Logan,138814,DUBEAU Alex,true
+77779,33607,2,553,ANG,99599,HALLEY Philippe,142988,RICHARD Samuel,false

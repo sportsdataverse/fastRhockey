@@ -1,0 +1,2 @@
+game_id,competition,phase,round,game_datetime,status,home_team_id,home_team,home_team_abbreviation,away_team_id,away_team,away_team_abbreviation,home_score,away_score,home_team_participant_id,away_team_participant_id,has_shootout,n_periods,period_minutes,attendance,venue
+68838,Synerglace Ligue Magnus,Saison régulière,1,2025-09-12 20:00:00+0200,final,253,Dragons de Rouen,ROU,366,Rapaces de Gap,GAP,4,1,7911,7908,false,3,20,3029,Rouen - Île Lacroix
