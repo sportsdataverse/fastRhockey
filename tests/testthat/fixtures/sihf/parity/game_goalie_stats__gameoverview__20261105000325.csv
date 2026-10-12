@@ -1,0 +1,5 @@
+game_id,team_side,team_id,team_name,player_number,player,goals_against,saves,shots_against,saves_percentage,seconds_played,goals_against_average,penalty_in_minutes,row_type,player_id
+20261105000325,home,101151,HC Davos,29,Aeschlimann Sandro,3,19,22,86.36,60:00,3.0,0,data,150983
+20261105000325,home,101151,HC Davos,51,Hollenstein Luca,0,0,0,<NA>,00:00,<NA>,0,data,309536
+20261105000325,away,102127,SCL Tigers,39,Boltshauser Luca,2,18,20,90.0,36:24,3.3,0,data,151668
+20261105000325,away,102127,SCL Tigers,91,Meyer Robin,2,14,16,87.5,21:33,5.57,0,data,314763

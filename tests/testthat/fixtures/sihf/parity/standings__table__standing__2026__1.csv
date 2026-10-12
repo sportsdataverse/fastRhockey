@@ -1,0 +1,15 @@
+season,phase_id,rank,team_id,team_name,team_acronym,games_played,points,points_quotient,games_won_in_time,games_won_extra_time,games_won_penalty,games_lost_penalty,games_lost_extra_time,games_lost_in_time,goals_for,goals_against,goals_difference,streak,row_type
+2026,<NA>,1,101151,HC Davos,HCD,52,117,2.25,34,2,3,4,1,8,191,120,71,W+W+W+W+W+W+L+W+W+W+,data
+2026,<NA>,2,103138,Fribourg-Gottéron,FRI,52,100,1.923,24,5,8,2,0,13,172,126,46,W-W-W+W-L+W+W+W+L+W+,data
+2026,<NA>,3,103140,Genève-Servette HC,GSHC,52,91,1.75,26,4,1,2,1,18,162,147,15,W+L-L+L+L+W-W+W+W+W+,data
+2026,<NA>,4,101139,ZSC Lions,ZSC,52,91,1.75,25,2,2,4,4,15,147,115,32,L-W+W+L+W+W-L+W+L+W+,data
+2026,<NA>,5,101150,HC Lugano,HCL,52,89,1.712,26,0,2,3,4,17,150,120,30,L+W+L+W+L-W+L+L+L-W+,data
+2026,<NA>,6,103141,Lausanne HC,LHC,52,85,1.635,22,5,2,2,3,18,155,137,18,L-W-L+W+L-L-W+L+W+L-,data
+2026,<NA>,7,101060,SC Rapperswil-Jona Lakers,SCRJ,52,81,1.558,21,4,2,4,2,19,150,154,-4,L+L+L+W+W+L+W+W+W-W+,data
+2026,<NA>,8,101144,EV Zug,EVZ,52,75,1.442,20,1,2,5,4,20,126,145,-19,W+L+L+W+L+W+W+L-L-L+,data
+2026,<NA>,9,102126,SC Bern,SCB,52,68,1.308,15,4,5,1,4,23,118,128,-10,W+W-L+W+L-L-L+W-L+L+,data
+2026,<NA>,10,102128,EHC Biel-Bienne,EHCB,52,67,1.288,14,3,7,2,3,23,143,165,-22,W+W+L+L-W-L+W+L+W+L+,data
+2026,<NA>,11,102127,SCL Tigers,SCL,52,64,1.231,16,3,1,5,3,24,140,147,-7,L-L+L-W+L+L+L+L+L+L+,data
+2026,<NA>,12,101149,EHC Kloten,EHCK,52,63,1.212,15,5,0,4,4,24,117,143,-26,L+L+L-W-W-W+W+L+W-L+,data
+2026,<NA>,13,101152,HC Ambri-Piotta,HCAP,52,59,1.135,14,3,3,1,4,27,129,178,-49,W-L-W+L+W-L+L+W-W+L+,data
+2026,<NA>,14,103144,HC Ajoie,HCA,52,42,0.808,9,1,3,2,5,32,105,180,-75,W-W+L+L+L+L+L+L-L+W-,data

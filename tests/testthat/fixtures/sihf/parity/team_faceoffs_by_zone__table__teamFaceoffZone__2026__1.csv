@@ -1,0 +1,4 @@
+season,phase_id,rank,team_id,team_name,team_acronym,games_played,faceoffs_offensive,faceoffs_offensive_percent,faceoffs_won_offensive,faceoffs_lost_offensive,faceoffs_neutral,faceoffs_neutral_percent,faceoffs_won_neutral,faceoffs_lost_neutral,faceoffs_defensive,faceoffs_defensive_percent,faceoffs_won_defensive,faceoffs_lost_defensive,row_type
+2026,<NA>,14,101149,EHC Kloten,EHCK,52,913,50.16,458,455,780,51.67,403,377,981,60.14,590,391,data
+2026,<NA>,13,101150,HC Lugano,HCL,60,1010,46.14,466,544,926,49.03,454,472,1213,50.45,612,601,data
+2026,<NA>,12,102126,SC Bern,SCB,60,1044,41.48,433,611,861,46.57,401,460,1221,52.5,641,580,data

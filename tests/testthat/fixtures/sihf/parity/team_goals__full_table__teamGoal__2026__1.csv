@@ -1,0 +1,16 @@
+season,phase_id,rank,team_id,team_name,team_acronym,games_played,goals_for,goals_for_quotient,goals_against,goals_against_quotient,even_goals_for,even_goals_for_quotient,even_goals_against,even_goals_against_quotient,pp_goals_for,pp_goals_for_quotient,pp_goals_against,pp_goals_against_quotient,sh_goals,sh_goals_quotient,pk_goals_against,pk_goals_against_quotient,row_type
+2026,<NA>,14,103144,HC Ajoie,HCA,56,113,2.02,197,3.52,82,1.46,152,2.71,28,0.5,9,0.16,0,0.0,34,0.61,data
+2026,<NA>,13,101149,EHC Kloten,EHCK,52,117,2.25,143,2.75,83,1.6,108,2.08,32,0.62,5,0.1,2,0.04,26,0.5,data
+2026,<NA>,12,102126,SC Bern,SCB,60,134,2.23,148,2.47,102,1.7,113,1.88,25,0.42,3,0.05,2,0.03,31,0.52,data
+2026,<NA>,11,102127,SCL Tigers,SCL,52,140,2.69,147,2.83,100,1.92,105,2.02,35,0.67,3,0.06,4,0.08,34,0.65,data
+2026,<NA>,10,101152,HC Ambri-Piotta,HCAP,56,146,2.61,186,3.32,116,2.07,155,2.77,23,0.41,5,0.09,4,0.07,25,0.45,data
+2026,<NA>,9,102128,EHC Biel-Bienne,EHCB,56,151,2.7,179,3.2,110,1.96,130,2.32,32,0.57,3,0.05,2,0.04,44,0.79,data
+2026,<NA>,8,101150,HC Lugano,HCL,60,160,2.67,148,2.47,120,2.0,111,1.85,32,0.53,6,0.1,6,0.1,28,0.47,data
+2026,<NA>,7,101144,EV Zug,EVZ,66,162,2.45,191,2.89,126,1.91,140,2.12,34,0.52,4,0.06,0,0.0,42,0.64,data
+2026,<NA>,<NA>,<NA>,Durchschnitt,<NA>,65,178,2.74,178,2.74,132,2.03,132,2.03,38,0.58,5,0.08,5,0.08,38,0.58,average
+2026,<NA>,6,101139,ZSC Lions,ZSC,70,191,2.73,151,2.16,150,2.14,119,1.7,35,0.5,0,0.0,4,0.06,28,0.4,data
+2026,<NA>,5,103141,Lausanne HC,LHC,66,193,2.92,175,2.65,135,2.05,116,1.76,49,0.74,3,0.05,7,0.11,54,0.82,data
+2026,<NA>,4,101060,SC Rapperswil-Jona Lakers,SCRJ,74,200,2.7,210,2.84,148,2.0,159,2.15,41,0.55,10,0.14,9,0.12,37,0.5,data
+2026,<NA>,3,103140,Genève-Servette HC,GSHC,76,228,3.0,221,2.91,163,2.14,154,2.03,52,0.68,8,0.11,12,0.16,57,0.75,data
+2026,<NA>,2,103138,Fribourg-Gottéron,FRI,90,282,3.13,216,2.4,210,2.33,162,1.8,55,0.61,12,0.13,9,0.1,40,0.44,data
+2026,<NA>,1,101151,HC Davos,HCD,86,287,3.34,192,2.23,210,2.44,131,1.52,63,0.73,1,0.01,11,0.13,56,0.65,data

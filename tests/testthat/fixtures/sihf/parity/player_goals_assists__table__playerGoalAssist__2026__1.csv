@@ -1,0 +1,4 @@
+season,phase_id,rank,player,team_id,team_name,team_acronym,position,games_played,goals,assists,assists1,assists2,game_winning_goals,eq_goals,eq_assists,pp_goals,pp_assists,pk_goals,pk_assists,overtime_goals,hattricks,row_type
+2026,<NA>,427,Paschoud Claude-C.,102127,SCL Tigers,SCL,Verteidiger,36,0,0,0,0,0,0,0,0,0,0,0,0,0,data
+2026,<NA>,426,Pouilly Bastien,103144,HC Ajoie,HCA,Verteidiger,30,0,0,0,0,0,0,0,0,0,0,0,0,0,data
+2026,<NA>,425,Rod Julien,103138,Fribourg-Gottéron,FRI,Stürmer,29,0,0,0,0,0,0,0,0,0,0,0,0,0,data

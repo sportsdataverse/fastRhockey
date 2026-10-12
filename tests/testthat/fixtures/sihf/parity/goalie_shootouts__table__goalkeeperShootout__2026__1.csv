@@ -1,0 +1,4 @@
+season,phase_id,rank,player,team_id,team_name,team_acronym,games_played,pen_shots_against,pen_shot_goals_against,pen_shot_saves,pen_shot_saves_percent,row_type
+2026,<NA>,16,Waeber Ludovic,101149,EHC Kloten,EHCK,25,0,0,0,<NA>,data
+2026,<NA>,15,Pasche Kevin,103141,Lausanne HC,LHC,42,0,0,0,<NA>,data
+2026,<NA>,14,Senn Gilles,101152,HC Ambri-Piotta,HCAP,26,4,2,2,50.0,data

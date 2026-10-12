@@ -1,0 +1,5 @@
+game_id,team_side,team_id,team_name,player_number,player,goals_against,saves,shots_against,saves_percentage,seconds_played,goals_against_average,penalty_in_minutes,row_type,player_id
+20261105000009,home,102126,SC Bern,36,Reideborn Adam,1,30,31,96.77,65:00,0.92,0,data,343175
+20261105000009,home,102126,SC Bern,33,Zurkirchen Sandro,0,0,0,<NA>,00:00,<NA>,0,data,145307
+20261105000009,away,103140,Genève-Servette HC,38,Charlin Stéphane,1,29,30,96.67,65:00,0.92,0,data,310640
+20261105000009,away,103140,Genève-Servette HC,29,Mayer Robert,0,0,0,<NA>,00:00,<NA>,0,data,133922
