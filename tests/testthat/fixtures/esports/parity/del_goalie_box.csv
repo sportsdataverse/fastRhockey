@@ -1,0 +1,4 @@
+player_id,name,surname,team_id,team_name,team_shortcut,jersey,matches,won_matches,lost_matches,saves,goals_against,saves_percent,average,zeros,time_on_ice,seconds_per_game,minutes_in_play
+4154,Antoine,Bibeau,12,EHC Red Bull München,RBM,30,1,1,0,27,3,90.0,3.0,0,3600,3600.0,100.0
+1594,Joacim,Eriksson,15,Schwenninger Wild Wings,SWW,60,1,0,1,24,4,85.71,4.12,0,3496,3496.0,100.0
+3424,Simon,Wolf,15,Schwenninger Wild Wings,SWW,35,0,0,0,0,0,0.0,0.0,0,0,0.0,0.0

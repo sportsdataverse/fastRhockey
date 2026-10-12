@@ -1,0 +1,4 @@
+match_id,date,home_id,home_name,home_shortcut,visitor_id,visitor_name,visitor_shortcut,status,shot_id,player_id,jersey,first_name,last_name,team_id,match_shot_resutl_id,time,coordinate_x,coordinate_y,real_date,xg,xg_type,shot_result_id,is_goal,team_side
+4440,2026-10-11,96,Glasgow Clan,GLA,97,Guildford Flames,GUI,AFTER_MATCH,786207,5064,19,Elliot,Lewis,97,1,42,-44.0,-41.0,2026-10-11 17:04:27,0.01262414,LD,1,false,visitor
+4440,2026-10-11,96,Glasgow Clan,GLA,97,Guildford Flames,GUI,AFTER_MATCH,786219,5155,77,Juho,Rautanen,96,3,218,32.0,49.0,2026-10-11 17:10:24,0.01097281,LD,3,false,home
+4440,2026-10-11,96,Glasgow Clan,GLA,97,Guildford Flames,GUI,AFTER_MATCH,786233,4892,49,Steven,Seigo,96,2,328,39.0,-19.0,2026-10-11 17:13:11,0.0144467,LD,2,false,home

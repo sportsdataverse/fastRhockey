@@ -1,0 +1,4 @@
+group_id,group_name,complete,team_id,part_team_id,name,team_original,shortcut,position,points,games,wins,wins_ot,wins_reg,ties,losts_ot,losts,score1,score2,goals_away,points_away,last10,only_ot_wins,only_so_wins,only_ot_losts,only_so_losts,qualified,live,live_game_score,position_change,ppg
+<NA>,"",true,7,566,HCB Südtirol Alperia,HCB Südtirol Alperia,HCB,1,21,9,5,2,0,0,2,0,35,23,18,10,"",1,1,2,0,false,false,<NA>,0,2.333
+<NA>,"",true,13,570,Steinbach Black Wings Linz,Steinbach Black Wings Linz,BWL,2,21,10,6,1,0,0,1,2,39,28,16,7,"",0,1,1,0,false,false,<NA>,0,2.1
+<NA>,"",true,2,560,EC-KAC,EC-KAC,KAC,3,20,10,6,1,0,0,0,3,42,30,20,8,"",0,1,0,0,false,false,<NA>,0,2.0

@@ -1,0 +1,4 @@
+match_id,date,home_id,home_name,home_shortcut,visitor_id,visitor_name,visitor_shortcut,shot_id,player_id,jersey,first_name,last_name,team_id,match_shot_resutl_id,coordinate_x,coordinate_y,real_date,polygon,time,shot_result_id,is_goal,team_side,xg,xg_type
+4444,2026-10-11,15,SWW,SWW,12,RBM,RBM,1653825,550,21,Dominik,Kahun,12,1,-58.09,-40.35,2026-10-11 14:30:45,away_center_polygon,17,1,false,visitor,<NA>,<NA>
+4444,2026-10-11,15,SWW,SWW,12,RBM,RBM,1653830,4335,6,Alexander,Peters,15,2,35.47,85.66,2026-10-11 14:31:42,home_defense_polygon,53,2,false,home,<NA>,<NA>
+4444,2026-10-11,15,SWW,SWW,12,RBM,RBM,1653833,551,93,Maximilian,Kastner,12,3,-42.18,-60.18,2026-10-11 14:32:09,away_defense_polygon,80,3,false,visitor,<NA>,<NA>
