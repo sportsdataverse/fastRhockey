@@ -206,11 +206,12 @@ test_that("the generic row rules: nested objects flatten, ids stay whole numbers
 
 test_that("list cells are Python-style JSON strings (parity with sdv-py's json.dumps)", {
   skip_on_cran()
-  expect_identical(.nl_json_dumps(list("a", "bü", list())), '["a", "bü", []]')
+  uuml <- intToUtf8(252)
+  expect_identical(.nl_json_dumps(list("a", paste0("b", uuml), list())), paste0('["a", "b', uuml, '", []]'))
   expect_identical(.nl_json_dumps(nl_text_json('{"k": ["x"], "e": {}}')), '{"k": ["x"], "e": {}}')
   expect_identical(.nl_json_dumps(list()), "[]")
   games <- .nl_parse_games(nl_json("games.json"))
-  expect_match(games$referees[[1]], "^\\[\"#13 Stefan Hürlimann\", ")
+  expect_match(games$referees[[1]], paste0("^\\[\"#13 Stefan H", intToUtf8(252), "rlimann\", "))
   expect_identical(games$tv_partner[[1]], "[]")
   streak <- .nl_parse_standings(nl_json("full/teams_2026_4940.json"))$streak
   expect_match(streak[[1]], "^\\[\"[WL]\", \"")
