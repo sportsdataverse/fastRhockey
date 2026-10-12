@@ -1,0 +1,4 @@
+statnet_game_number,home_statnet_id,away_statnet_id,period,period_label,event_type,time,team_statnet_id,team_code,player_statnet_id,player_name,is_penalty_shot,assist1_name,assist1_jersey_today,assist1_season_assists,minutes
+23401,AIK,MODO,1,1st,Shot,44,AIK,AIK,920,J E,false,\N,\N,\N,\N
+23401,AIK,MODO,9,1st,Goal,600,MODO,MoDo,\N,\N,\N,X,5,3,\N
+23401,AIK,MODO,2,\N,Penalty,5,AIK,\N,\N,\N,\N,\N,\N,\N,2.0

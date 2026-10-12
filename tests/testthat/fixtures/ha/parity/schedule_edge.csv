@@ -1,0 +1,3 @@
+season,game_cms_id,game_document_id,cms_season,statnet_game_number,slug,round,attendance,home_score,away_score,scheduled_date_time,venue,home_team_cms_id,home_team_code,home_team_logo_url,home_team_arena_latitude,home_team_arena_longitude,away_team_cms_id,away_team_code,tags,empty_list
+2027,7,abc,season_2026,23402,s1,3,13950,2,\N,2026-09-19T17:00:00.000Z,"Arena ""Q"" Ö",81,AIK,u1,59.3,18.07,\N,MoDo,"[1, 2.5, ""aö\n"", true, null, {""k"": [1.0, 3000000000]}]",\N
+2026,8,def,season_2025,23403,s2,\N,0,3,1,\N,\N,82,MIK,\N,\N,\N,\N,\N,\N,\N

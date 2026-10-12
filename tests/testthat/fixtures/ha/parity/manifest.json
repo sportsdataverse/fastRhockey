@@ -1,0 +1,146 @@
+[
+ {
+  "short": "schedule",
+  "tag": "base",
+  "fixture": "pages__matcher.json",
+  "request": null,
+  "rows": 3
+ },
+ {
+  "short": "game",
+  "tag": "base",
+  "fixture": "api__game.json",
+  "request": null,
+  "rows": 1
+ },
+ {
+  "short": "pbp",
+  "tag": "base",
+  "fixture": "api__play-by-play.json",
+  "request": {
+   "statNetGameNumber": "23401",
+   "homeStatNetId": "AIK",
+   "awayStatNetId": "MODO",
+   "scheduledDateTime": "2026-09-18T17:00:00.000Z"
+  },
+  "rows": 11
+ },
+ {
+  "short": "games",
+  "tag": "base",
+  "fixture": "full/all-time-games-stats__2026__played.json",
+  "request": {
+   "season": 2027,
+   "game_status": "played"
+  },
+  "rows": 68
+ },
+ {
+  "short": "standings",
+  "tag": "base",
+  "fixture": "api__league-standings-all-time.json",
+  "request": {
+   "season": 2026
+  },
+  "rows": 14
+ },
+ {
+  "short": "skater_stats",
+  "tag": "base",
+  "fixture": "api__all-time-skaters-stats.json",
+  "request": {
+   "season": 2026
+  },
+  "rows": 3
+ },
+ {
+  "short": "goalie_stats",
+  "tag": "base",
+  "fixture": "api__all-time-goalkeepers-stats.json",
+  "request": {
+   "season": 2026
+  },
+  "rows": 3
+ },
+ {
+  "short": "team_stats",
+  "tag": "base",
+  "fixture": "api__all-time-teams-stats.json",
+  "request": {
+   "season": 2026
+  },
+  "rows": 3
+ },
+ {
+  "short": "teams",
+  "tag": "base",
+  "fixture": "api__all-time-goalkeepers-stats.json",
+  "request": {
+   "season": 2026
+  },
+  "rows": 14
+ },
+ {
+  "short": "leaders",
+  "tag": "base",
+  "fixture": "api__player-leaderboard.json",
+  "request": {
+   "metric": "TP"
+  },
+  "rows": 3
+ },
+ {
+  "short": "players",
+  "tag": "base",
+  "fixture": "api__all-players.json",
+  "request": {
+   "teamShortName": "AIK"
+  },
+  "rows": 3
+ },
+ {
+  "short": "games",
+  "tag": "capture",
+  "fixture": "api__all-time-games-stats.json",
+  "request": {
+   "season": 2026
+  },
+  "rows": 3
+ },
+ {
+  "short": "games",
+  "tag": "unplayed",
+  "fixture": "api__all-time-games-stats@2026-unplayed.json",
+  "request": {
+   "season": 2027
+  },
+  "rows": 3
+ },
+ {
+  "short": "standings",
+  "tag": "s2005",
+  "fixture": "api__league-standings-all-time@2005.json",
+  "request": {
+   "season": 2006
+  },
+  "rows": 15
+ },
+ {
+  "short": "skater_stats",
+  "tag": "s2005",
+  "fixture": "api__all-time-skaters-stats@2005.json",
+  "request": {
+   "season": 2006
+  },
+  "rows": 3
+ },
+ {
+  "short": "team_stats",
+  "tag": "s2005",
+  "fixture": "api__all-time-teams-stats@2005.json",
+  "request": {
+   "season": 2006
+  },
+  "rows": 3
+ }
+]
