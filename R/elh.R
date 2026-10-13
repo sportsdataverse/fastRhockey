@@ -908,7 +908,8 @@
 #'   try(elh_pbp(season = 2027, match_id = 2928321))
 #' }
 elh_pbp <- function(season, match_id, return_parsed = TRUE) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   url <- sprintf("%s/match/%d/full/%s.json", .ELH_S3, .season_start_year(season), .elh_match_id(match_id))
   raw <- .elh_get(url)
   if (return_parsed) .elh_parse_pbp(raw) else raw
@@ -955,7 +956,8 @@ elh_pbp <- function(season, match_id, return_parsed = TRUE) {
 #'   try(elh_pbp_goals(season = 2027, match_id = 2928321))
 #' }
 elh_pbp_goals <- function(season, match_id, return_parsed = TRUE) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   url <- sprintf("%s/match/%d/full/%s.json", .ELH_S3, .season_start_year(season), .elh_match_id(match_id))
   raw <- .elh_get(url)
   if (return_parsed) .elh_parse_pbp_goals(raw) else raw
@@ -1019,7 +1021,8 @@ elh_pbp_goals <- function(season, match_id, return_parsed = TRUE) {
 #'   try(elh_pbp_latest(season = 2027, match_id = 2928321))
 #' }
 elh_pbp_latest <- function(season, match_id, return_parsed = TRUE) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   url <- sprintf("%s/match/%d/short/%s.json", .ELH_S3, .season_start_year(season), .elh_match_id(match_id))
   raw <- .elh_get(url)
   if (return_parsed) .elh_parse_pbp(raw) else raw
@@ -1051,7 +1054,8 @@ elh_pbp_latest <- function(season, match_id, return_parsed = TRUE) {
 #'   try(elh_pbp_mobile(season = 2027, match_id = 2928321))
 #' }
 elh_pbp_mobile <- function(season, match_id, return_parsed = TRUE) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   url <- sprintf("%s/match/%d/mobile/%s.json", .ELH_S3, .season_start_year(season), .elh_match_id(match_id))
   raw <- .elh_get(url)
   if (return_parsed) .elh_parse_pbp_mobile(raw) else raw
@@ -1121,7 +1125,8 @@ elh_pbp_mobile <- function(season, match_id, return_parsed = TRUE) {
 #'   try(elh_shots(match_id = 2928321))
 #' }
 elh_shots <- function(match_id, return_parsed = TRUE) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   url <- sprintf("%s/visualization/shots/%s.json", .ELH_S3, .elh_match_id(match_id))
   raw <- .elh_get(url)
   if (return_parsed) .elh_parse_shots(raw) else raw
@@ -1160,7 +1165,8 @@ elh_shots <- function(match_id, return_parsed = TRUE) {
 #'   try(elh_events(match_id = 2928321))
 #' }
 elh_events <- function(match_id, return_parsed = TRUE) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   url <- sprintf("%s/visualization/events/%s.json", .ELH_S3, .elh_match_id(match_id))
   raw <- .elh_get(url)
   if (return_parsed) .elh_parse_events(raw) else raw
@@ -1217,7 +1223,8 @@ elh_events <- function(match_id, return_parsed = TRUE) {
 #'   try(elh_scoreboard(date = format(Sys.Date() - 1)))
 #' }
 elh_scoreboard <- function(date, return_parsed = TRUE) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   url <- sprintf("%s/scoreboard/%s.json", .ELH_SCOREBOARD, .elh_date(date))
   raw <- .elh_get(url)
   if (return_parsed) .elh_parse_scoreboard(raw) else raw
@@ -1265,7 +1272,8 @@ elh_list_objects <- function(prefix = NULL, delimiter = NULL, marker = NULL,
                              max_keys = NULL, list_type = NULL,
                              continuation_token = NULL, start_after = NULL,
                              return_parsed = TRUE) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   query <- list(
     "prefix" = prefix, "delimiter" = delimiter, "marker" = marker,
     "max-keys" = max_keys, "list-type" = list_type,
@@ -1310,7 +1318,8 @@ elh_list_objects <- function(prefix = NULL, delimiter = NULL, marker = NULL,
 #'   try(elh_game_ids(season = 2027))
 #' }
 elh_game_ids <- function(season) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   start <- .season_start_year(season)
   prefix <- sprintf("match/%d/full/", start)
   url <- paste0(.ELH_S3, "/")

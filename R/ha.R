@@ -1413,7 +1413,8 @@
 #'   try(ha_schedule())
 #' }
 ha_schedule <- function(return_parsed = TRUE) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   raw <- .ha_get(paste0(.HA_HOST, "/pages/matcher"), list())
   if (return_parsed) .ha_parse_schedule(raw, names(.HA_SCHEMAS$schedule)) else raw
 }
@@ -1515,7 +1516,8 @@ ha_schedule <- function(return_parsed = TRUE) {
 #'   try(ha_game(slug = "20260918-aik-modo"))
 #' }
 ha_game <- function(slug, return_parsed = TRUE) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   raw <- .ha_get(paste0(.HA_HOST, "/api/game"), list(
     slug = slug
   ))
@@ -1593,7 +1595,8 @@ ha_pbp <- function(
   played_date_time = NULL,
   return_parsed = TRUE
 ) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   raw <- .ha_get(paste0(.HA_HOST, "/api/play-by-play"), list(
     statNetGameNumber = statnet_game_number,
     homeStatNetId = home_statnet_id,
@@ -1681,7 +1684,8 @@ ha_games <- function(
   decided_in = "all",
   return_parsed = TRUE
 ) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   .ha_check_choice(phase, "phase", c("HA", "HAPlayoff", "HAkval"))
   .ha_check_choice(team_side, "team_side", c("all", "home", "away"))
   .ha_check_choice(all_results, "all_results", c("all", "W", "T", "L"))
@@ -1752,7 +1756,8 @@ ha_games <- function(
 #'   try(ha_standings(season = 2026))
 #' }
 ha_standings <- function(season = NULL, phase = "HA", location = "all", return_parsed = TRUE) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   .ha_check_choice(phase, "phase", c("HA", "HAPlayoff", "HAkval"))
   .ha_check_choice(location, "location", c("all", "home", "away"))
   raw <- .ha_get(paste0(.HA_HOST, "/api/league-standings-all-time"), list(
@@ -1841,7 +1846,8 @@ ha_skater_stats <- function(
   decided_in = "all",
   return_parsed = TRUE
 ) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   .ha_check_choice(phase, "phase", c("HA", "HAPlayoff", "HAkval"))
   .ha_check_choice(category, "category", c("summary", "points", "goals", "time_on_ice", "power_play", "penalty_kill", "equal_strength", "penalties", "plus_minus", "faceoffs", "offensive", "defensive", "shootouts", "corsi_fenwick_pdo"))
   .ha_check_choice(position, "position", c("all", "forward", "back", "goalkeeper"))
@@ -1932,7 +1938,8 @@ ha_goalie_stats <- function(
   decided_in = "all",
   return_parsed = TRUE
 ) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   .ha_check_choice(phase, "phase", c("HA", "HAPlayoff", "HAkval"))
   .ha_check_choice(category, "category", c("summary", "results", "game_strength", "defensive", "shootouts"))
   .ha_check_choice(team_side, "team_side", c("all", "home", "away"))
@@ -2027,7 +2034,8 @@ ha_team_stats <- function(
   decided_in = "all",
   return_parsed = TRUE
 ) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   .ha_check_choice(phase, "phase", c("HA", "HAPlayoff", "HAkval"))
   .ha_check_choice(category, "category", c("results", "goals", "power_play", "penalty_kill", "penalties", "offensive", "defensive", "faceoffs", "shootouts", "corsi_fenwick_pdo", "stoppage_reasons", "attendance"))
   .ha_check_choice(team_side, "team_side", c("all", "home", "away"))
@@ -2089,7 +2097,8 @@ ha_team_stats <- function(
 #'   try(ha_teams(season = 2026))
 #' }
 ha_teams <- function(season = NULL, phase = "HA", return_parsed = TRUE) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   .ha_check_choice(phase, "phase", c("HA", "HAPlayoff", "HAkval"))
   raw <- .ha_get(paste0(.HA_HOST, "/api/all-time-goalkeepers-stats"), list(
     season = season,
@@ -2154,7 +2163,8 @@ ha_leaders <- function(
   is_goalkeeper = NULL,
   return_parsed = TRUE
 ) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   .ha_check_choice(phase, "phase", c("HA", "HAPlayoff", "HAkval"))
   raw <- .ha_get(paste0(.HA_HOST, "/api/player-leaderboard"), list(
     metric = metric,
@@ -2222,7 +2232,8 @@ ha_leaders <- function(
 #'   try(ha_players(team = "AIK"))
 #' }
 ha_players <- function(team, order_by = "familyName", search_query = NULL, return_parsed = TRUE) {
-  withr::local_options(scipen = 999, stringsAsFactors = FALSE)
+  old <- options(scipen = 999, stringsAsFactors = FALSE)
+  on.exit(options(old), add = TRUE)
   .ha_check_choice(order_by, "order_by", c("familyName", "firstName"))
   raw <- .ha_get(paste0(.HA_HOST, "/api/all-players"), list(
     teamShortName = team,
