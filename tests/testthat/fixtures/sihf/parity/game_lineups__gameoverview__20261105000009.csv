@@ -1,0 +1,58 @@
+game_id,team_side,team_id,unit,slot,player_id,player_name,player_jersey,is_captain,is_first_goalkeeper,absence_code,absence_reason
+20261105000009,home,102126,goalkeeper,1,343175,Reideborn Adam,36,false,true,<NA>,<NA>
+20261105000009,home,102126,goalkeeper,2,145307,Zurkirchen Sandro,33,false,false,<NA>,<NA>
+20261105000009,home,102126,defense_left,1,346041,Lindholm Anton,37,false,false,<NA>,<NA>
+20261105000009,home,102126,defense_left,2,315299,Füllemann Louis,14,false,false,<NA>,<NA>
+20261105000009,home,102126,defense_left,3,318534,Rhyn Nils,51,false,false,<NA>,<NA>
+20261105000009,home,102126,defense_left,4,347558,Häman Aktell Hardy,4,false,false,<NA>,<NA>
+20261105000009,home,102126,defense_right,1,335823,Iakovenko Aleksandr,75,false,false,<NA>,<NA>
+20261105000009,home,102126,defense_right,2,135137,Untersander Ramon,65,true,false,<NA>,<NA>
+20261105000009,home,102126,defense_right,3,149851,Vermin Joël,86,false,false,<NA>,<NA>
+20261105000009,home,102126,defense_right,4,300687,Kindschi Simon,41,false,false,<NA>,<NA>
+20261105000009,home,102126,forward_left,1,144727,Scherwey Tristan,10,false,false,<NA>,<NA>
+20261105000009,home,102126,forward_left,2,156070,Marchon Marc,8,false,false,<NA>,<NA>
+20261105000009,home,102126,forward_left,3,312050,Alge Mats,64,false,false,<NA>,<NA>
+20261105000009,home,102126,forward_left,4,133606,Moser Simon,21,false,false,<NA>,<NA>
+20261105000009,home,102126,forward_center,1,319663,Baumgartner Benjamin,98,false,false,<NA>,<NA>
+20261105000009,home,102126,forward_center,2,340148,Aaltonen Miro,15,false,false,<NA>,<NA>
+20261105000009,home,102126,forward_center,3,148383,Müller Marco,83,false,false,<NA>,<NA>
+20261105000009,home,102126,forward_center,4,316233,Graf Alain,43,false,false,<NA>,<NA>
+20261105000009,home,102126,forward_right,1,302818,Lehmann Marco,23,false,false,<NA>,<NA>
+20261105000009,home,102126,forward_right,2,346042,Merelä Waltteri,19,false,false,<NA>,<NA>
+20261105000009,home,102126,forward_right,3,320106,Schild Thierry,88,false,false,<NA>,<NA>
+20261105000009,home,102126,forward_right,4,313136,Ritzmann Fabian,91,false,false,<NA>,<NA>
+20261105000009,home,102126,<NA>,<NA>,346040,Ejdsell Victor,9,<NA>,<NA>,IN,Verletzt
+20261105000009,home,102126,<NA>,<NA>,152750,Kreis Samuel,44,<NA>,<NA>,IN,Verletzt
+20261105000009,home,102126,<NA>,<NA>,144415,Loeffel Romain,58,<NA>,<NA>,IN,Verletzt
+20261105000009,home,102126,<NA>,<NA>,312671,Fuss Noah,13,<NA>,<NA>,FT,Farmteam/Swiss League
+20261105000009,home,102126,<NA>,<NA>,313602,Henauer Andri,34,<NA>,<NA>,FT,Farmteam/Swiss League
+20261105000009,home,102126,<NA>,<NA>,315310,Weber Gregory,40,<NA>,<NA>,FT,Farmteam/Swiss League
+20261105000009,home,102126,<NA>,<NA>,319747,Moser Levin,82,<NA>,<NA>,FT,Farmteam/Swiss League
+20261105000009,home,102126,<NA>,<NA>,318579,Zürcher Kevin,87,<NA>,<NA>,FT,Farmteam/Swiss League
+20261105000009,home,102126,<NA>,<NA>,308185,Von Burg Christof,50,<NA>,<NA>,SU,Überzählig
+20261105000009,away,103140,goalkeeper,1,310640,Charlin Stéphane,38,false,true,<NA>,<NA>
+20261105000009,away,103140,goalkeeper,2,133922,Mayer Robert,29,false,false,<NA>,<NA>
+20261105000009,away,103140,defense_left,1,340128,Saarijärvi Vili,46,false,false,<NA>,<NA>
+20261105000009,away,103140,defense_left,2,313546,Chanton Giancarlo,14,false,false,<NA>,<NA>
+20261105000009,away,103140,defense_left,3,307581,Berni Tim,21,false,false,<NA>,<NA>
+20261105000009,away,103140,defense_left,4,336420,Ignatavicius Simas,80,false,false,<NA>,<NA>
+20261105000009,away,103140,defense_right,1,302468,Le Coultre Simon,90,false,false,<NA>,<NA>
+20261105000009,away,103140,defense_right,2,348803,Rutta Jan,44,false,false,<NA>,<NA>
+20261105000009,away,103140,defense_right,3,158090,Karrer Roger,25,false,false,<NA>,<NA>
+20261105000009,away,103140,defense_right,4,151851,Sutter Dave,77,false,false,<NA>,<NA>
+20261105000009,away,103140,forward_left,1,340155,Granlund Markus,60,false,false,<NA>,<NA>
+20261105000009,away,103140,forward_left,2,348821,Vesey Jimmy,16,false,false,<NA>,<NA>
+20261105000009,away,103140,forward_left,3,158487,Rod Noah,96,true,false,<NA>,<NA>
+20261105000009,away,103140,forward_left,4,309283,Verboon Matthew,23,false,false,<NA>,<NA>
+20261105000009,away,103140,forward_center,1,343288,Manninen Sakari,65,false,false,<NA>,<NA>
+20261105000009,away,103140,forward_center,2,333800,Jooris Josh,19,false,false,<NA>,<NA>
+20261105000009,away,103140,forward_center,3,316952,Pouliot Marc-Antoine,78,false,false,<NA>,<NA>
+20261105000009,away,103140,forward_center,4,153939,Hischier Luca,13,false,false,<NA>,<NA>
+20261105000009,away,103140,forward_right,1,347707,Puljujärvi Jesse,9,false,false,<NA>,<NA>
+20261105000009,away,103140,forward_right,2,153086,Praplan Vincent,11,false,false,<NA>,<NA>
+20261105000009,away,103140,forward_right,3,151198,Bozon Tim,94,false,false,<NA>,<NA>
+20261105000009,away,103140,forward_right,4,305305,Miranda Marco,85,false,false,<NA>,<NA>
+20261105000009,away,103140,<NA>,<NA>,319885,Schneller Eric,27,<NA>,<NA>,FT,Farmteam/Swiss League
+20261105000009,away,103140,<NA>,<NA>,347705,Beck Taylor,41,<NA>,<NA>,SU,Überzählig
+20261105000009,away,103140,<NA>,<NA>,347706,Akeson Jason,91,<NA>,<NA>,SU,Überzählig
+20261105000009,away,103140,<NA>,<NA>,148281,Richard Tanner,71,<NA>,<NA>,IN,Verletzt

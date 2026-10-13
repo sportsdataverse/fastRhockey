@@ -1,0 +1,16 @@
+season,phase_id,rank,team_id,team_name,team_acronym,games_played,goals_for_fw_df,goals_for_fw,goals_for_fw_percent,goals_for_df,goals_for_df_percent,goals_for_im,goals_for_im_percent,sow_goals_for,sow_goals_against,row_type
+2026,<NA>,14,103144,HC Ajoie,HCA,56,110,90,81.82,20,18.18,65,59.09,3,2,data
+2026,<NA>,13,101149,EHC Kloten,EHCK,52,117,93,79.49,24,20.51,49,41.88,0,4,data
+2026,<NA>,12,102126,SC Bern,SCB,60,129,101,78.29,28,21.71,65,50.39,5,1,data
+2026,<NA>,11,102127,SCL Tigers,SCL,52,139,114,82.01,25,17.99,73,52.52,1,5,data
+2026,<NA>,10,101152,HC Ambri-Piotta,HCAP,56,143,122,85.31,21,14.69,66,46.15,3,1,data
+2026,<NA>,9,102128,EHC Biel-Bienne,EHCB,56,144,126,87.5,18,12.5,60,41.67,7,2,data
+2026,<NA>,8,101150,HC Lugano,HCL,60,158,132,83.54,26,16.46,64,40.51,2,3,data
+2026,<NA>,7,101144,EV Zug,EVZ,66,160,133,83.12,27,16.88,81,50.62,2,5,data
+2026,<NA>,<NA>,<NA>,Durchschnitt,<NA>,65,175,145,82.86,30,17.14,83,47.43,2,2,average
+2026,<NA>,6,103141,Lausanne HC,LHC,66,191,151,79.06,40,20.94,105,54.97,2,2,data
+2026,<NA>,5,101060,SC Rapperswil-Jona Lakers,SCRJ,74,198,161,81.31,37,18.69,88,44.44,2,4,data
+2026,<NA>,4,101139,ZSC Lions,ZSC,70,189,164,86.77,25,13.23,71,37.57,2,4,data
+2026,<NA>,3,103140,Genève-Servette HC,GSHC,76,227,182,80.18,45,19.82,116,51.1,1,2,data
+2026,<NA>,2,103138,Fribourg-Gottéron,FRI,90,274,223,81.39,51,18.61,108,39.42,8,2,data
+2026,<NA>,1,101151,HC Davos,HCD,86,284,244,85.92,40,14.08,160,56.34,3,4,data

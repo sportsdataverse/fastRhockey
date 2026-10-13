@@ -1,0 +1,43 @@
+game_id,team_side,team_id,team_name,player_number,player,player_position,goals,assists,assists1,assists2,points,pim_total,plus_minus,shots_on_goal,sog_missed,sog_post,blockings,faceoffs_won,faceoffs_lost,faceoffs_percent,time_on_ice,time_on_ice_pp,time_on_ice_pk,row_type,player_id
+20261105000009,home,102126,SC Bern,4,Häman Aktell Hardy,Verteidiger,0,0,0,0,0,0,0,2,0,0,0,0,0,<NA>,15:41,03:03,01:24,data,347558
+20261105000009,home,102126,SC Bern,8,Marchon Marc,Stürmer,0,1,0,1,1,0,1,1,2,0,1,0,0,<NA>,17:26,01:41,00:37,data,156070
+20261105000009,home,102126,SC Bern,10,Scherwey Tristan,Stürmer,0,0,0,0,0,0,0,1,1,0,0,0,0,<NA>,14:53,03:03,00:00,data,144727
+20261105000009,home,102126,SC Bern,14,Füllemann Louis,Verteidiger,0,0,0,0,0,2,-1,1,0,0,2,0,0,<NA>,16:15,00:00,00:00,data,315299
+20261105000009,home,102126,SC Bern,15,Aaltonen Miro,Stürmer,0,1,1,0,1,0,1,4,1,0,1,4,7,36.36,20:33,03:17,00:36,data,340148
+20261105000009,home,102126,SC Bern,19,Merelä Waltteri,Stürmer,1,0,0,0,1,0,1,2,1,0,2,9,3,75.0,20:23,03:24,00:36,data,346042
+20261105000009,home,102126,SC Bern,21,Moser Simon,Stürmer,0,0,0,0,0,0,-1,1,1,0,1,0,0,<NA>,14:23,00:00,00:47,data,133606
+20261105000009,home,102126,SC Bern,23,Lehmann Marco,Stürmer,0,0,0,0,0,0,0,3,0,0,0,0,0,<NA>,15:43,02:26,00:00,data,302818
+20261105000009,home,102126,SC Bern,37,Lindholm Anton,Verteidiger,0,0,0,0,0,0,1,1,1,0,3,0,0,<NA>,22:33,02:03,00:36,data,346041
+20261105000009,home,102126,SC Bern,41,Kindschi Simon,Verteidiger,0,0,0,0,0,0,0,1,1,0,0,0,0,<NA>,12:22,00:00,01:24,data,300687
+20261105000009,home,102126,SC Bern,43,Graf Alain,Stürmer,0,0,0,0,0,0,-1,0,0,0,0,7,6,53.85,13:17,00:00,00:00,data,316233
+20261105000009,home,102126,SC Bern,51,Rhyn Nils,Verteidiger,0,0,0,0,0,0,0,3,0,0,0,0,0,<NA>,10:50,00:00,00:00,data,318534
+20261105000009,home,102126,SC Bern,64,Alge Mats,Stürmer,0,0,0,0,0,0,0,1,0,0,0,0,0,<NA>,13:25,00:00,00:37,data,312050
+20261105000009,home,102126,SC Bern,65,Untersander Ramon,Verteidiger,0,0,0,0,0,0,-1,2,0,0,1,0,0,<NA>,16:51,00:12,00:36,data,135137
+20261105000009,home,102126,SC Bern,75,Iakovenko Aleksandr,Verteidiger,0,0,0,0,0,0,1,1,0,0,1,0,0,<NA>,14:51,03:06,00:00,data,335823
+20261105000009,home,102126,SC Bern,83,Müller Marco,Stürmer,0,0,0,0,0,0,0,2,1,0,1,5,10,33.33,16:16,02:34,00:00,data,148383
+20261105000009,home,102126,SC Bern,86,Vermin Joël,Verteidiger,0,0,0,0,0,0,0,0,1,0,1,0,0,<NA>,14:06,00:00,00:00,data,149851
+20261105000009,home,102126,SC Bern,88,Schild Thierry,Stürmer,0,0,0,0,0,0,0,0,0,0,1,0,0,<NA>,12:24,00:00,00:00,data,320106
+20261105000009,home,102126,SC Bern,91,Ritzmann Fabian,Stürmer,0,0,0,0,0,0,-1,0,0,0,0,2,3,40.0,14:53,00:00,00:47,data,313136
+20261105000009,home,102126,SC Bern,98,Baumgartner Benjamin,Stürmer,0,0,0,0,0,0,0,4,0,0,0,3,11,21.43,17:36,02:43,00:00,data,319663
+20261105000009,home,102126,SC Bern,<NA>,Total,<NA>,1,2,1,1,3,2,0,30,10,0,15,30,40,42.86,<NA>,<NA>,<NA>,total,<NA>
+20261105000009,away,103140,Genève-Servette HC,9,Puljujärvi Jesse,Stürmer,0,1,1,0,1,2,0,4,1,0,1,0,0,<NA>,20:50,02:00,00:12,data,347707
+20261105000009,away,103140,Genève-Servette HC,11,Praplan Vincent,Stürmer,0,0,0,0,0,0,0,1,0,0,1,0,0,<NA>,14:04,00:00,00:23,data,153086
+20261105000009,away,103140,Genève-Servette HC,13,Hischier Luca,Stürmer,0,0,0,0,0,0,0,0,0,0,0,1,0,100.0,09:12,00:00,00:00,data,153939
+20261105000009,away,103140,Genève-Servette HC,14,Chanton Giancarlo,Verteidiger,0,0,0,0,0,0,0,2,0,0,1,0,0,<NA>,15:42,00:00,03:13,data,313546
+20261105000009,away,103140,Genève-Servette HC,16,Vesey Jimmy,Stürmer,0,0,0,0,0,0,0,5,1,0,0,0,0,<NA>,19:59,02:00,02:15,data,348821
+20261105000009,away,103140,Genève-Servette HC,19,Jooris Josh,Stürmer,0,0,0,0,0,0,0,0,1,0,3,11,4,73.33,19:33,00:00,03:06,data,333800
+20261105000009,away,103140,Genève-Servette HC,21,Berni Tim,Verteidiger,0,0,0,0,0,0,1,1,1,0,2,0,0,<NA>,20:00,00:00,01:44,data,307581
+20261105000009,away,103140,Genève-Servette HC,23,Verboon Matthew,Stürmer,0,0,0,0,0,0,0,2,0,0,0,11,3,78.57,09:44,00:00,00:43,data,309283
+20261105000009,away,103140,Genève-Servette HC,25,Karrer Roger,Verteidiger,0,0,0,0,0,0,0,0,1,0,2,0,0,<NA>,16:38,00:00,01:40,data,158090
+20261105000009,away,103140,Genève-Servette HC,44,Rutta Jan,Verteidiger,0,0,0,0,0,0,-1,2,0,0,2,0,0,<NA>,19:56,00:00,04:02,data,348803
+20261105000009,away,103140,Genève-Servette HC,46,Saarijärvi Vili,Verteidiger,0,0,0,0,0,0,1,2,2,0,3,0,0,<NA>,21:49,02:00,00:11,data,340128
+20261105000009,away,103140,Genève-Servette HC,60,Granlund Markus,Stürmer,1,0,0,0,1,0,0,4,1,0,0,0,0,<NA>,18:55,02:00,00:00,data,340155
+20261105000009,away,103140,Genève-Servette HC,65,Manninen Sakari,Stürmer,0,1,0,1,1,0,0,1,0,0,1,8,13,38.1,21:12,02:00,02:04,data,343288
+20261105000009,away,103140,Genève-Servette HC,77,Sutter Dave,Verteidiger,0,0,0,0,0,0,0,0,0,0,0,0,0,<NA>,13:39,00:00,00:56,data,151851
+20261105000009,away,103140,Genève-Servette HC,78,Pouliot Marc-Antoine,Stürmer,0,0,0,0,0,2,0,3,0,0,0,8,10,44.44,14:02,00:00,00:00,data,316952
+20261105000009,away,103140,Genève-Servette HC,80,Ignatavicius Simas,Verteidiger,0,0,0,0,0,0,0,0,0,0,0,0,0,<NA>,00:00,00:00,00:00,data,336420
+20261105000009,away,103140,Genève-Servette HC,85,Miranda Marco,Stürmer,0,0,0,0,0,0,0,0,0,0,0,0,0,<NA>,09:40,00:00,00:00,data,305305
+20261105000009,away,103140,Genève-Servette HC,90,Le Coultre Simon,Verteidiger,0,0,0,0,0,0,-1,3,0,0,3,0,0,<NA>,17:08,00:00,00:00,data,302468
+20261105000009,away,103140,Genève-Servette HC,94,Bozon Tim,Stürmer,0,0,0,0,0,0,0,1,0,0,0,1,0,100.0,16:12,00:00,00:00,data,151198
+20261105000009,away,103140,Genève-Servette HC,96,Rod Noah,Stürmer,0,0,0,0,0,0,0,0,0,0,3,0,0,<NA>,12:49,00:00,01:12,data,158487
+20261105000009,away,103140,Genève-Servette HC,<NA>,Total,<NA>,1,2,1,1,3,4,0,31,8,0,22,40,30,57.14,<NA>,<NA>,<NA>,total,<NA>

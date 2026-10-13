@@ -1,0 +1,4 @@
+season,phase_id,rank,team_id,team_name,team_acronym,games_played,pk_situations,pk_situations_quotient,pk_goals_against,pk_goals_against_quotient,pk_percent,penalty_kill_time,penalty_kill_time_quotient,sh_goals,sh_goals_quotient,row_type
+2026,<NA>,14,103141,Lausanne HC,LHC,66,201,3.05,54,0.82,73.13,331:48,05:01,7,0.11,data
+2026,<NA>,13,102128,EHC Biel-Bienne,EHCB,56,164,2.93,44,0.79,73.17,251:04,04:29,2,0.04,data
+2026,<NA>,12,102127,SCL Tigers,SCL,52,132,2.54,34,0.65,74.24,210:43,04:03,4,0.08,data

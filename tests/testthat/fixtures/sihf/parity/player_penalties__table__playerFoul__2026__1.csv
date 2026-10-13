@@ -1,0 +1,4 @@
+season,phase_id,rank,player,team_id,team_name,team_acronym,position,games_played,pim_total,pim2,pim5,pim10,game_misconducts,match_penalties,row_type
+2026,<NA>,427,Zürcher Kevin,102126,SC Bern,SCB,Stürmer,3,0,0,0,0,0,0,data
+2026,<NA>,426,Wülser Nic,103138,Fribourg-Gottéron,FRI,Verteidiger,4,0,0,0,0,0,0,data
+2026,<NA>,425,Wenger Nicolas Lars,103141,Lausanne HC,LHC,Stürmer,4,0,0,0,0,0,0,data

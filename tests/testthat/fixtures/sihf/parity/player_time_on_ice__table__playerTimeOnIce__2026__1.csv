@@ -1,0 +1,4 @@
+season,phase_id,rank,player,team_id,team_name,team_acronym,position,games_played,time_on_ice_eq,time_on_ice_eq_per_game,time_on_ice_pp,time_on_ice_pp_per_game,time_on_ice_pk,time_on_ice_pk_per_game,time_on_ice,time_on_ice_per_game,shifts,time_on_ice_per_shift,shifts_per_game,row_type
+2026,<NA>,427,Nater Jens,101144,EV Zug,EVZ,Verteidiger,2,00:00,00:00,00:00,00:00,00:00,00:00,00:00,00:00,0,<NA>,0.0,data
+2026,<NA>,426,Hedlund William,101152,HC Ambri-Piotta,HCAP,Stürmer,1,00:00,00:00,00:00,00:00,00:00,00:00,00:00,00:00,0,<NA>,0.0,data
+2026,<NA>,425,Andri Flavio,101144,EV Zug,EVZ,Verteidiger,1,00:00,00:00,00:00,00:00,00:00,00:00,00:00,00:00,0,<NA>,0.0,data

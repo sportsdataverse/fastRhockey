@@ -1,0 +1,4 @@
+season,phase_id,rank,team_id,team_name,team_acronym,games_played,faceoffs,faceoffs_per_game,faceoffs_percent,faceoffs_won,faceoffs_lost,faceoffs_won_per_game,faceoffs_lost_per_game,faceoffs_offensive_percent,faceoffs_neutral_percent,faceoffs_defensive_percent,row_type
+2026,<NA>,14,102126,SC Bern,SCB,60,3126,52.1,47.18,1475,1651,24.58,27.52,41.48,46.57,52.5,data
+2026,<NA>,13,103141,Lausanne HC,LHC,66,3651,55.32,47.8,1745,1906,26.44,28.88,44.16,46.29,52.48,data
+2026,<NA>,12,101152,HC Ambri-Piotta,HCAP,56,3144,56.14,48.19,1515,1629,27.05,29.09,43.08,48.95,53.07,data
