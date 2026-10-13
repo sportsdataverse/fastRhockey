@@ -734,3 +734,8 @@ test_that("live: the season table and a primed khl.ru schedule", {
   expect_gt(nrow(sched), 100)
   expect_true(all(sched$tournament_id == 1369L))
 })
+
+test_that(".khl_stage_for rejects non-whole seasons", {
+  expect_error(.khl_stage_for(2026.9), class = "fastRhockey_bad_request")
+  expect_error(.khl_stage_for("2026x"), class = "fastRhockey_bad_request")
+})

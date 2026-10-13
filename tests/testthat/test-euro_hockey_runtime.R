@@ -198,3 +198,10 @@ test_that(".season_start_year maps an END year to the START year", {
   expect_error(.season_start_year(27), class = "fastRhockey_bad_request")
   expect_error(.season_start_year("2026-27"), class = "fastRhockey_bad_request")
 })
+
+test_that(".season_start_year rejects non-whole and non-numeric seasons rather than truncating", {
+  expect_identical(.season_start_year(2026), 2025L)
+  expect_identical(.season_start_year("2026"), 2025L)
+  expect_error(.season_start_year(2026.5), class = "fastRhockey_bad_request")
+  expect_error(.season_start_year("2026abc"), class = "fastRhockey_bad_request")
+})

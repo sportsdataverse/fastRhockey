@@ -172,7 +172,8 @@
 #' @keywords internal
 #' @noRd
 .season_start_year <- function(season) {
-  end <- suppressWarnings(as.integer(season))
+  num <- if (length(season) == 1) suppressWarnings(as.numeric(season)) else NA_real_
+  end <- if (!is.na(num) && num == floor(num) && abs(num) < 1e6) as.integer(num) else NA_integer_
   if (length(end) != 1 || is.na(end) || end < 1000 || end > 9999) {
     .abort_bad_request("{.arg season} must be a four-digit END year (2027 = 2026/27), not {.val {season}}.")
   }

@@ -876,7 +876,9 @@
     integer = as.integer(x),
     logical = as.logical(x),
     character = switch(from,
-      double = vapply(x, function(z) if (is.na(z)) NA_character_ else .es_fmt_double(z), ""),
+      double = vapply(x, function(z) {
+        if (is.na(z)) NA_character_ else if (z == floor(z) && abs(z) < 1e15) sprintf("%.0f", z) else .es_fmt_double(z)
+      }, ""),
       logical = ifelse(is.na(x), NA_character_, tolower(as.character(x))),
       as.character(x)
     )

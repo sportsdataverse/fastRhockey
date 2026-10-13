@@ -1047,7 +1047,8 @@
     valid <- .KHL_STAGES
     .abort_bad_request("{.arg stage} must be one of {.val {valid}}, not {.val {stage}}.")
   }
-  year <- if (length(season) == 1) suppressWarnings(as.integer(season)) else NA_integer_
+  num <- if (length(season) == 1) suppressWarnings(as.numeric(season)) else NA_real_
+  year <- if (!is.na(num) && num == floor(num) && abs(num) < 1e6) as.integer(num) else NA_integer_
   if (is.na(year)) {
     .abort_bad_request("{.arg season} must be the season's END year as an integer (2026 = 2025/26), not {.val {season}}.")
   }
