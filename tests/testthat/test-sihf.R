@@ -584,3 +584,10 @@ test_that("sihf live: a detail table and the phase list", {
   expect_identical(names(ph), documented$phases)
   expect_gt(nrow(ph), 1L)
 })
+
+test_that("sihf integer columns widen to double past the 32-bit limit instead of aborting", {
+  expect_identical(.sihf_as_integer(c(1, 2, NA), "x"), c(1L, 2L, NA))
+  big <- .sihf_as_integer(c(1, 3e9), "x")
+  expect_type(big, "double")
+  expect_identical(big, c(1, 3e9))
+})

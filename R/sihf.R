@@ -185,9 +185,8 @@
 # ---- columns ----------------------------------------------------------------
 
 .sihf_as_integer <- function(x, col) {
-  if (any(abs(x) > .Machine$integer.max, na.rm = TRUE)) {
-    .abort_asset_fetch("SIHF column {.field {col}} holds a value beyond R's 32-bit integer.")
-  }
+  # Widen to double past R's 32-bit integer (as khl/shl/liiga do) instead of aborting.
+  if (any(abs(x) > .Machine$integer.max, na.rm = TRUE)) return(as.double(x))
   as.integer(x)
 }
 
