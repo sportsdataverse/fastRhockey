@@ -1,0 +1,17 @@
+game_id,team_side,team_id,unit,player_id,position,line,first_name,last_name,number,is_topscorer,is_captain,first_goalkeeper
+20261105000325,home,101151,goalkeeper,150983,goalkeeper,1,Sandro,Aeschlimann,29,false,false,true
+20261105000325,home,101151,goalkeeper,309536,goalkeeper,2,Luca,Hollenstein,51,false,false,false
+20261105000325,home,101151,1,153736,defender,1,Lukas,Frick,38,false,false,false
+20261105000325,home,101151,1,340162,defender,1,Klas,Dahlbeck,6,false,false,false
+20261105000325,home,101151,1,301617,forwarder,1,Tino,Kessler,72,false,false,false
+20261105000325,home,101151,2,152416,defender,2,Sven,Jung,90,false,false,false
+20261105000325,home,101151,2,322236,defender,2,Calle,Andersson,55,false,false,false
+20261105000325,home,101151,2,309618,forwarder,2,Valentin,Nussbaumer,66,false,false,false
+20261105000325,away,102127,goalkeeper,151668,goalkeeper,1,Luca,Boltshauser,39,false,false,true
+20261105000325,away,102127,goalkeeper,314763,goalkeeper,2,Robin,Meyer,91,false,false,false
+20261105000325,away,102127,1,312964,defender,1,Noah,Meier,24,false,false,false
+20261105000325,away,102127,1,342927,defender,1,Juuso,Riikola,50,false,false,false
+20261105000325,away,102127,1,156475,forwarder,1,Julian,Schmutz,71,false,false,false
+20261105000325,away,102127,2,148831,defender,2,Phil,Baltisberger,42,false,false,false
+20261105000325,away,102127,2,318262,defender,2,Tim,Mathys,15,false,false,false
+20261105000325,away,102127,2,334473,forwarder,2,Jiri,Felcman,66,false,false,false

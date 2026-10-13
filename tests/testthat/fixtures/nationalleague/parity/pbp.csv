@@ -1,0 +1,9 @@
+game_id,event_index,team_side,game_seconds,team_id,home_team,time,video_time,video_vimeo_id,action,foul_type,foul_minutes,player_first_name,player_last_name,player_number,player_total,period,overtime,goal_situation,home_team_result,away_team_result,assist1_first_name,assist1_last_name,assist1_number,assist1_total,assist2_first_name,assist2_last_name,assist2_number,assist2_total,situation,revoked_goal_type,revoked_goal_sub_type,review_successful,review_goal_counts
+20261105000325,1,home,502,101151,true,822,588,1167899156,goal,0,0,Klas,Dahlbeck,6,4,1,0,normal,1,0,Lukas,Frick,38,30,Valentin,Nussbaumer,66,17,EQ,1,0,NA,false
+20261105000325,2,away,825,102127,false,1345,0,NA,foul,124,2,Claude-C.,Paschoud,51,0,1,0,normal,1,0,NA,NA,NA,0,NA,NA,NA,0,NA,1,0,NA,false
+20261105000325,3,away,1347,102127,false,2227,2993,1167899136,goal,0,0,Dario,Rohrbach,63,12,2,0,normal,1,1,NA,NA,NA,0,NA,NA,NA,0,EQ,1,0,NA,false
+20261105000325,4,home,1374,101151,true,2254,3092,1167899135,goal,0,0,Rasmus,Asplund,74,11,2,0,normal,2,1,Davyd,Barandun,57,12,Michael,Fora,20,19,EQ,1,0,NA,false
+20261105000325,5,away,1453,102127,false,2413,3248,1167899155,goal,0,0,Andre,Petersson,20,23,2,0,normal,2,2,Saku,Mäenalanen,8,20,Tim,Mathys,15,4,EQ,1,0,NA,false
+20261105000325,6,home,2648,101151,true,4408,6276,1167899154,goal,0,0,Calle,Andersson,55,2,3,0,normal,3,3,Matej,Stransky,44,23,Valentin,Nussbaumer,66,18,EQ,1,0,NA,false
+20261105000325,7,away,2726,102127,false,4526,0,NA,foul,122,2,Andre,Petersson,20,0,3,0,normal,3,3,NA,NA,NA,0,NA,NA,NA,0,NA,1,0,NA,false
+20261105000325,8,home,2783,101151,true,4623,6529,1167899137,goal,0,0,Matej,Stransky,44,24,3,0,normal,4,3,Brendan,Lemieux,22,8,Tino,Kessler,72,16,"PP1,GWG",1,0,NA,false

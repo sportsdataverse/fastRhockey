@@ -1,0 +1,7 @@
+game_id,team_side,team_id,player_id,number,first_name,last_name,short_name,name,position,fow,fol,sog,shm,shp,shb,bks,toi,toi_eq,toi_pp,toi_pk,pim,g,a1,a2,pl,mi,mip,ga,svs,sa,gaa,save_percentage,faceoffs,faceoffs_percentage,a,pts,pl_mi
+20261105000325,home,101151,150983,29,Sandro,Aeschlimann,S. Aeschlimann,Sandro Aeschlimann,goalkeeper,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6000,3,19,22,0.0,86.36,0,-1.0,0,0,0
+20261105000325,home,101151,309536,51,Luca,Hollenstein,L. Hollenstein,Luca Hollenstein,goalkeeper,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,0.0,0,-1.0,0,0,0
+20261105000325,home,101151,153736,38,Lukas,Frick,L. Frick,Lukas Frick,defender,0,0,3,0,0,0,0,1215,0,80,48,0,0,1,0,2,0,0,0,0,0,0.0,0.0,0,-1.0,1,1,2
+20261105000325,away,102127,151668,39,Luca,Boltshauser,L. Boltshauser,Luca Boltshauser,goalkeeper,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3664,2,18,20,0.0,90.0,0,-1.0,0,0,0
+20261105000325,away,102127,314763,91,Robin,Meyer,R. Meyer,Robin Meyer,goalkeeper,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2188,2,14,16,0.0,87.5,0,-1.0,0,0,0
+20261105000325,away,102127,312964,24,Noah,Meier,N. Meier,Noah Meier,defender,0,0,3,1,0,0,0,1138,0,28,21,0,0,0,0,-2,0,0,0,0,0,0.0,0.0,0,-1.0,0,0,-2
