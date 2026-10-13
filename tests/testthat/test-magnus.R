@@ -735,3 +735,9 @@ test_that("live: the game sheet routes answer with the documented columns", {
   expect_schema(pbp, "pbp")
   expect_equal(nrow(pbp), 159)
 })
+
+test_that("parity CSVs hold no empty-string cell, so reading with na.strings = '' loses nothing", {
+  for (f in list.files(fx("parity"), "[.]csv$", full.names = TRUE)) {
+    expect_false(any(grepl('(^|,)""(,|$)', readLines(f, encoding = "UTF-8", warn = FALSE))), info = f)
+  }
+})

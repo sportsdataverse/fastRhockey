@@ -531,3 +531,9 @@ test_that("live: the routes answer with the documented columns", {
   board <- tryCatch(elh_scoreboard(format(Sys.Date() - 1)), fastRhockey_no_data = function(e) NULL)
   if (!is.null(board)) expect_schema(board, "scoreboard")
 })
+
+test_that("parity CSVs hold no empty-string cell, so reading with na.strings = '' loses nothing", {
+  for (f in list.files(fx("parity"), "[.]csv$", full.names = TRUE)) {
+    expect_false(any(grepl('(^|,)""(,|$)', readLines(f, encoding = "UTF-8", warn = FALSE))), info = f)
+  }
+})

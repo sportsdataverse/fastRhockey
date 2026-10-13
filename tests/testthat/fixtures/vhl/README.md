@@ -32,3 +32,7 @@ out of the live page (4.3 MB) on 2026-10-12 and wrapped in a minimal document: a
 **Refs capture records** (`captures/*.json`): copied verbatim from `sdv-internal-refs/vhl/captures/` (refs commit
 `eb57f5d`). These are the parsed records `vhl_runtime._get` returns (`return_parsed=False`), truncated to 3 rows
 per array; birth dates masked to `DD.MM.YYYY`. See that directory's README for each page.
+
+## Parity null convention
+
+`parity/*.csv` are read with `na.strings = ""`. `goals.csv` and `pbp.csv` hold real empty-string cells (written `""` by polars) that this read turns into NA; the other vhl CSVs hold none. Regenerating with an explicit null sentinel would remove the ambiguity (see the khl and liiga parity READMEs).
