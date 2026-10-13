@@ -1,0 +1,7 @@
+team_side,game_source_id,game_id,place,score,team_id,team_name,team_code,game_uuid,period,g,pim,fow
+home,20250913-FHC-LHC,22003,home,0,FHC,Frölunda HC,FHC,bdhvuc5tex,0,2.0,4.0,29.0
+home,20250913-FHC-LHC,22003,home,0,FHC,Frölunda HC,FHC,bdhvuc5tex,1,1.0,2.0,8.0
+home,20250913-FHC-LHC,22003,home,0,FHC,Frölunda HC,FHC,bdhvuc5tex,2,0.0,0.0,10.0
+away,20250913-FHC-LHC,22003,away,0,LHC,Linköpings HC,LHC,bdhvuc5tex,0,1.0,6.0,25.0
+away,20250913-FHC-LHC,22003,away,0,LHC,Linköpings HC,LHC,bdhvuc5tex,1,0.0,2.0,6.0
+away,20250913-FHC-LHC,22003,away,0,LHC,Linköpings HC,LHC,bdhvuc5tex,2,1.0,2.0,9.0
