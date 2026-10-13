@@ -248,6 +248,17 @@ test_that("elh_scoreboard: sdv-py columns, both id spaces, parity; other leagues
   expect_true(all(sparta$hokejcz_home_team_id[sparta$onlajny_home_team_id %in% 156L] == 8L))
 })
 
+test_that("parsed wrappers return fastRhockey_data; the raw list stays plain", {
+  skip_on_cran()
+  mock_json(fx_json(FULL))
+  expect_s3_class(elh_pbp(2027, 2928321), "fastRhockey_data")
+  expect_false(inherits(elh_pbp(2027, 2928321, return_parsed = FALSE), "fastRhockey_data"))
+  mock_json(fx_json(BOARD))
+  expect_s3_class(elh_scoreboard("2026-10-11"), "fastRhockey_data")
+  mock_text(fx_text("2026/list.xml"))
+  expect_s3_class(elh_list_objects(), "fastRhockey_data")
+})
+
 test_that("elh_list_objects: sdv-py columns and parity; raw XML on return_parsed = FALSE", {
   skip_on_cran()
   xml <- fx_text("2026/list.xml")
@@ -426,6 +437,7 @@ test_that("elh_game_ids pages with marker, drops non-match keys, dedups and sort
   )
   seen <- mock_text(pages)
   got <- elh_game_ids(2027)
+  expect_s3_class(got, "fastRhockey_data")
   expect_identical(got$hokejcz_game_id, c(100L, 200L, 300L, 400L))
   expect_identical(names(got), c("hokejcz_game_id", "season", "key", "last_modified", "size"))
   expect_type(got$season, "integer")

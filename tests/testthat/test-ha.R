@@ -861,6 +861,7 @@ test_that("every wrapper returns its documented tibble", {
     short <- sub("^ha_", "", case[[1]])
     tbl <- case[[2]]()
     expect_schema(tbl, short)
+    expect_s3_class(tbl, "fastRhockey_data")
     expect_gt(nrow(tbl), 0L)
   }
 })

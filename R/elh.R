@@ -912,7 +912,7 @@ elh_pbp <- function(season, match_id, return_parsed = TRUE) {
   on.exit(options(old), add = TRUE)
   url <- sprintf("%s/match/%d/full/%s.json", .ELH_S3, .season_start_year(season), .elh_match_id(match_id))
   raw <- .elh_get(url)
-  if (return_parsed) .elh_parse_pbp(raw) else raw
+  if (return_parsed) make_fastRhockey_data(.elh_parse_pbp(raw), "ELH Pbp Information from hokej.cz", Sys.time()) else raw
 }
 
 #' @title **Czech Extraliga (ELH) players on the ice at each goal**
@@ -960,7 +960,7 @@ elh_pbp_goals <- function(season, match_id, return_parsed = TRUE) {
   on.exit(options(old), add = TRUE)
   url <- sprintf("%s/match/%d/full/%s.json", .ELH_S3, .season_start_year(season), .elh_match_id(match_id))
   raw <- .elh_get(url)
-  if (return_parsed) .elh_parse_pbp_goals(raw) else raw
+  if (return_parsed) make_fastRhockey_data(.elh_parse_pbp_goals(raw), "ELH Pbp Goals Information from hokej.cz", Sys.time()) else raw
 }
 
 #' @title **Czech Extraliga (ELH) latest play-by-play entries**
@@ -1025,7 +1025,7 @@ elh_pbp_latest <- function(season, match_id, return_parsed = TRUE) {
   on.exit(options(old), add = TRUE)
   url <- sprintf("%s/match/%d/short/%s.json", .ELH_S3, .season_start_year(season), .elh_match_id(match_id))
   raw <- .elh_get(url)
-  if (return_parsed) .elh_parse_pbp(raw) else raw
+  if (return_parsed) make_fastRhockey_data(.elh_parse_pbp(raw), "ELH Pbp Latest Information from hokej.cz", Sys.time()) else raw
 }
 
 #' @title **Czech Extraliga (ELH) mobile play-by-play**
@@ -1058,7 +1058,7 @@ elh_pbp_mobile <- function(season, match_id, return_parsed = TRUE) {
   on.exit(options(old), add = TRUE)
   url <- sprintf("%s/match/%d/mobile/%s.json", .ELH_S3, .season_start_year(season), .elh_match_id(match_id))
   raw <- .elh_get(url)
-  if (return_parsed) .elh_parse_pbp_mobile(raw) else raw
+  if (return_parsed) make_fastRhockey_data(.elh_parse_pbp_mobile(raw), "ELH Pbp Mobile Information from hokej.cz", Sys.time()) else raw
 }
 
 #' @title **Czech Extraliga (ELH) shot attempts**
@@ -1129,7 +1129,7 @@ elh_shots <- function(match_id, return_parsed = TRUE) {
   on.exit(options(old), add = TRUE)
   url <- sprintf("%s/visualization/shots/%s.json", .ELH_S3, .elh_match_id(match_id))
   raw <- .elh_get(url)
-  if (return_parsed) .elh_parse_shots(raw) else raw
+  if (return_parsed) make_fastRhockey_data(.elh_parse_shots(raw), "ELH Shots Information from hokej.cz", Sys.time()) else raw
 }
 
 #' @title **Czech Extraliga (ELH) per-minute shot totals**
@@ -1169,7 +1169,7 @@ elh_events <- function(match_id, return_parsed = TRUE) {
   on.exit(options(old), add = TRUE)
   url <- sprintf("%s/visualization/events/%s.json", .ELH_S3, .elh_match_id(match_id))
   raw <- .elh_get(url)
-  if (return_parsed) .elh_parse_events(raw) else raw
+  if (return_parsed) make_fastRhockey_data(.elh_parse_events(raw), "ELH Events Information from hokej.cz", Sys.time()) else raw
 }
 
 #' @title **Czech Extraliga (ELH) scoreboard**
@@ -1227,7 +1227,7 @@ elh_scoreboard <- function(date, return_parsed = TRUE) {
   on.exit(options(old), add = TRUE)
   url <- sprintf("%s/scoreboard/%s.json", .ELH_SCOREBOARD, .elh_date(date))
   raw <- .elh_get(url)
-  if (return_parsed) .elh_parse_scoreboard(raw) else raw
+  if (return_parsed) make_fastRhockey_data(.elh_parse_scoreboard(raw), "ELH Scoreboard Information from hokej.cz", Sys.time()) else raw
 }
 
 #' @title **Czech Extraliga (ELH) S3 bucket listing**
@@ -1280,7 +1280,7 @@ elh_list_objects <- function(prefix = NULL, delimiter = NULL, marker = NULL,
     "continuation-token" = continuation_token, "start-after" = start_after
   )
   text <- .elh_get(paste0(.ELH_S3, "/"), query)
-  if (return_parsed) .elh_parse_game_ids(text) else text
+  if (return_parsed) make_fastRhockey_data(.elh_parse_game_ids(text), "ELH List Objects Information from hokej.cz", Sys.time()) else text
 }
 
 #' @title **Czech Extraliga (ELH) game ids of a season**
@@ -1354,5 +1354,5 @@ elh_game_ids <- function(season) {
   df <- df[!duplicated(df$hokejcz_game_id), , drop = FALSE]
   df$season <- as.integer(season)
   df <- df[order(df$hokejcz_game_id), c("hokejcz_game_id", "season", "key", "last_modified", "size")]
-  tibble::as_tibble(df)
+  make_fastRhockey_data(df, "ELH Game Ids Information from hokej.cz", Sys.time())
 }

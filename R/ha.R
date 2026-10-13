@@ -1416,7 +1416,7 @@ ha_schedule <- function(return_parsed = TRUE) {
   old <- options(scipen = 999, stringsAsFactors = FALSE)
   on.exit(options(old), add = TRUE)
   raw <- .ha_get(paste0(.HA_HOST, "/pages/matcher"), list())
-  if (return_parsed) .ha_parse_schedule(raw, names(.HA_SCHEMAS$schedule)) else raw
+  if (return_parsed) make_fastRhockey_data(.ha_parse_schedule(raw, names(.HA_SCHEMAS$schedule)), "HA Schedule Information from hockeyallsvenskan.se", Sys.time()) else raw
 }
 
 #' @title **HockeyAllsvenskan Game record**
@@ -1521,7 +1521,7 @@ ha_game <- function(slug, return_parsed = TRUE) {
   raw <- .ha_get(paste0(.HA_HOST, "/api/game"), list(
     slug = slug
   ))
-  if (return_parsed) .ha_parse_schedule(raw, names(.HA_SCHEMAS$game)) else raw
+  if (return_parsed) make_fastRhockey_data(.ha_parse_schedule(raw, names(.HA_SCHEMAS$game)), "HA Game Information from hockeyallsvenskan.se", Sys.time()) else raw
 }
 
 #' @title **HockeyAllsvenskan Play-by-play**
@@ -1604,7 +1604,7 @@ ha_pbp <- function(
     scheduledDateTime = scheduled_date_time,
     playedDateTime = played_date_time
   ))
-  if (return_parsed) .ha_parse_pbp(raw, names(.HA_SCHEMAS$pbp)) else raw
+  if (return_parsed) make_fastRhockey_data(.ha_parse_pbp(raw, names(.HA_SCHEMAS$pbp)), "HA Pbp Information from hockeyallsvenskan.se", Sys.time()) else raw
 }
 
 #' @title **HockeyAllsvenskan Games of a season**
@@ -1701,7 +1701,7 @@ ha_games <- function(
     game_status = game_status,
     decided_in = decided_in
   ))
-  if (return_parsed) .ha_parse_games(raw, names(.HA_SCHEMAS$games)) else raw
+  if (return_parsed) make_fastRhockey_data(.ha_parse_games(raw, names(.HA_SCHEMAS$games)), "HA Games Information from hockeyallsvenskan.se", Sys.time()) else raw
 }
 
 #' @title **HockeyAllsvenskan Standings**
@@ -1765,7 +1765,7 @@ ha_standings <- function(season = NULL, phase = "HA", location = "all", return_p
     phase = phase,
     location = location
   ))
-  if (return_parsed) .ha_parse_standings(raw, names(.HA_SCHEMAS$standings)) else raw
+  if (return_parsed) make_fastRhockey_data(.ha_parse_standings(raw, names(.HA_SCHEMAS$standings)), "HA Standings Information from hockeyallsvenskan.se", Sys.time()) else raw
 }
 
 #' @title **HockeyAllsvenskan Skater stats**
@@ -1869,7 +1869,7 @@ ha_skater_stats <- function(
     game_status = game_status,
     decided_in = decided_in
   ))
-  if (return_parsed) .ha_parse_generic(raw, names(.HA_SCHEMAS$skater_stats)) else raw
+  if (return_parsed) make_fastRhockey_data(.ha_parse_generic(raw, names(.HA_SCHEMAS$skater_stats)), "HA Skater Stats Information from hockeyallsvenskan.se", Sys.time()) else raw
 }
 
 #' @title **HockeyAllsvenskan Goalkeeper stats**
@@ -1957,7 +1957,7 @@ ha_goalie_stats <- function(
     game_status = game_status,
     decided_in = decided_in
   ))
-  if (return_parsed) .ha_parse_generic(raw, names(.HA_SCHEMAS$goalie_stats)) else raw
+  if (return_parsed) make_fastRhockey_data(.ha_parse_generic(raw, names(.HA_SCHEMAS$goalie_stats)), "HA Goalie Stats Information from hockeyallsvenskan.se", Sys.time()) else raw
 }
 
 #' @title **HockeyAllsvenskan Team stats**
@@ -2053,7 +2053,7 @@ ha_team_stats <- function(
     game_status = game_status,
     decided_in = decided_in
   ))
-  if (return_parsed) .ha_parse_team_stats(raw, names(.HA_SCHEMAS$team_stats)) else raw
+  if (return_parsed) make_fastRhockey_data(.ha_parse_team_stats(raw, names(.HA_SCHEMAS$team_stats)), "HA Team Stats Information from hockeyallsvenskan.se", Sys.time()) else raw
 }
 
 #' @title **HockeyAllsvenskan Team key crosswalk**
@@ -2104,7 +2104,7 @@ ha_teams <- function(season = NULL, phase = "HA", return_parsed = TRUE) {
     season = season,
     phase = phase
   ))
-  if (return_parsed) .ha_parse_teams(raw, names(.HA_SCHEMAS$teams)) else raw
+  if (return_parsed) make_fastRhockey_data(.ha_parse_teams(raw, names(.HA_SCHEMAS$teams)), "HA Teams Information from hockeyallsvenskan.se", Sys.time()) else raw
 }
 
 #' @title **HockeyAllsvenskan Player leaderboard**
@@ -2172,7 +2172,7 @@ ha_leaders <- function(
     team = team,
     isGoalkeeper = is_goalkeeper
   ))
-  if (return_parsed) .ha_parse_leaders(raw, names(.HA_SCHEMAS$leaders)) else raw
+  if (return_parsed) make_fastRhockey_data(.ha_parse_leaders(raw, names(.HA_SCHEMAS$leaders)), "HA Leaders Information from hockeyallsvenskan.se", Sys.time()) else raw
 }
 
 #' @title **HockeyAllsvenskan Player directory**
@@ -2240,6 +2240,6 @@ ha_players <- function(team, order_by = "familyName", search_query = NULL, retur
     orderBy = order_by,
     searchQuery = search_query
   ))
-  if (return_parsed) .ha_parse_players(raw, names(.HA_SCHEMAS$players)) else raw
+  if (return_parsed) make_fastRhockey_data(.ha_parse_players(raw, names(.HA_SCHEMAS$players)), "HA Players Information from hockeyallsvenskan.se", Sys.time()) else raw
 }
 
