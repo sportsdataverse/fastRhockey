@@ -1,0 +1,4 @@
+game_id,attempt_id,shootout_round,team_id,team_abbreviation,shooter_player_id,shooter_name,goalie_player_id,goalie_name,scored
+865,631,1,553,ANG,112472,SYLVESTRE Sebastien,17379,FOUQUEREL Clément,false
+865,632,1,529,BOR,79101,SKINNARS Johan,7602,HARDY Florian,false
+865,633,2,553,ANG,75278,BOUCHARD Danick,17379,FOUQUEREL Clément,true

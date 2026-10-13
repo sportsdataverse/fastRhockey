@@ -1,0 +1,5 @@
+game_id,event_id,event_type,event_type_raw,period,period_seconds,game_seconds,team_id,team_abbreviation,player_id,player_name,assist1_player_id,assist1_player_name,assist2_player_id,assist2_player_name,goalie_player_id,goalie_player_name,faceoff_home_player_id,faceoff_away_player_id,strength_code,penalty_code,penalty,penalty_minutes,penalty_start_seconds,penalty_end_seconds,goalie_in_player_id,goalie_out_player_id,on_ice_plus_player_ids,on_ice_minus_player_ids
+77779,ENGA237933,faceoff,ENGA,1,60,60,3409,BRI,38081,BONNARDEL Lucas,,,,,,,142859,38081,,,,,,,,,,
+77779,SANCTION129447,penalty,SANCTION,1,279,279,3409,BRI,141305,SATO Kohei,,,,,,,,,,CIN,Cinglage (coup de crosse),2,279,399,,,,
+77779,BUT99238,goal,BUT,1,641,641,553,ANG,59613,HERVE Jordan,18581,GABORIT Robin,142816,ATKINSON Joshua,142988,RICHARD Samuel,,,EG,,,,,,,,"[null, null, null]","[null, null, null]"
+77779,TIR229839,shot,TIR,1,1200,1200,553,ANG,120434,PRAPAVESSIS Matthew,,,,,142988,RICHARD Samuel,,,,,,,,,,,,

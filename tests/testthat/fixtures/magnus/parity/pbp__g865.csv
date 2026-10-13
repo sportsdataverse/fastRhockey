@@ -1,0 +1,5 @@
+game_id,event_id,event_type,event_type_raw,period,period_seconds,game_seconds,team_id,team_abbreviation,player_id,player_name,assist1_player_id,assist1_player_name,assist2_player_id,assist2_player_name,goalie_player_id,goalie_player_name,faceoff_home_player_id,faceoff_away_player_id,strength_code,penalty_code,penalty,penalty_minutes,penalty_start_seconds,penalty_end_seconds,goalie_in_player_id,goalie_out_player_id,on_ice_plus_player_ids,on_ice_minus_player_ids
+865,SANCTION1256,penalty,SANCTION,1,138,138,553,ANG,,,,,,,,,,,,TRE,Trébucher (faire trébucher),2,138,258,,,,
+865,TIR1370,shot,TIR,1,300,300,553,ANG,111657,SMITH Jerret,,,,,17379,FOUQUEREL Clément,,,,,,,,,,,,
+865,BUT705,goal,BUT,1,642,642,529,BOR,99981,JOHNSTON Andrew,99620,BELISLE Louis Mathieu,79101,SKINNARS Johan,7602,HARDY Florian,,,SUP1,,,,,,,,"[null, 17379, null]","[null, null, null]"
+865,TEMPS_MORT61,timeout,TEMPS_MORT,3,384,2784,529,BOR,,,,,,,,,,,,,,,,,,,,

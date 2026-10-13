@@ -1,0 +1,7 @@
+game_id,season,competition_id,phase_id,phase,round,game_datetime,status,decision,home_team_id,home_team,home_team_abbreviation,away_team_id,away_team,away_team_abbreviation,home_score,away_score,home_team_participant_id,away_team_participant_id,venue_id,venue,game_label
+78007,2027,240,714,Saison régulière,44,2027-03-02 20:00:00+0100,scheduled,,3409,DIABLES ROUGES BRIANÇON,BRI,553,Ducs d'Angers,ANG,,,9131,9130,20,Briançon - René Froger,BRIANÇON / ANGERS
+78003,2027,240,714,Saison régulière,44,2027-03-02 20:15:00+0100,scheduled,,103,Gothiques d'Amiens,AMI,327,Brûleurs de Loups de Grenoble,GRE,,,9120,9125,2,Amiens - Le Coliseum,AMIENS / GRENOBLE
+78004,2027,240,714,Saison régulière,44,2027-03-02 20:15:00+0100,scheduled,,1671,BOXERS DE BORDEAUX,BOR,611,Pionniers de Chamonix,CHA,,,9121,9123,1,Bordeaux - Mériadeck,BORDEAUX / CHAMONIX
+78005,2027,240,714,Saison régulière,44,2027-03-02 20:15:00+0100,scheduled,,3095,Spartiates de Marseille,MAR,366,Rapaces de Gap,GAP,,,9129,9124,27,Palais Omnisports Marseille Grand-Est (POMGE),MARSEILLE / GAP
+78002,2027,240,714,Saison régulière,44,2027-03-02 20:30:00+0100,scheduled,,345,Jokers de Cergy-Pontoise,CER,253,Dragons de Rouen,ROU,,,9122,9127,13,Cergy - Aren'Ice,CERGY-PONTOISE / ROUEN
+78006,2027,240,714,Saison régulière,44,2027-03-02 20:30:00+0100,scheduled,,75,Anglet Hormadi,HOR,472,Aigles de Nice,NIC,,,9128,9126,4,Anglet - La Barre,ANGLET / NICE

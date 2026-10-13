@@ -1,0 +1,4 @@
+game_id,season,competition_id,phase_id,phase,round,game_datetime,status,decision,home_team_id,home_team,home_team_abbreviation,away_team_id,away_team,away_team_abbreviation,home_score,away_score,home_team_participant_id,away_team_participant_id,venue_id,venue,game_label
+77745,2027,240,714,Saison régulière,1,2026-09-15 20:00:00+0200,final,regulation,366,Rapaces de Gap,GAP,611,Pionniers de Chamonix,CHA,2,1,9124,9123,5,Gap - Alp'Arena,GAP / CHAMONIX
+77746,2027,240,714,Saison régulière,1,2026-09-15 20:00:00+0200,final,regulation,3409,DIABLES ROUGES BRIANÇON,BRI,253,Dragons de Rouen,ROU,3,1,9131,9127,20,Briançon - René Froger,BRIANÇON / ROUEN
+77744,2027,240,714,Saison régulière,1,2026-09-15 20:15:00+0200,final,overtime,103,Gothiques d'Amiens,AMI,472,Aigles de Nice,NIC,3,4,9120,9126,2,Amiens - Le Coliseum,AMIENS / NICE
