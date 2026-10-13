@@ -1,4 +1,4 @@
-# **fastRhockey 1.0.0 (continued development)**
+# **fastRhockey 1.0.0.9000 (continued development)**
 
 ### New features
 
