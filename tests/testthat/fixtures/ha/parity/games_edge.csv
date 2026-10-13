@@ -1,0 +1,3 @@
+season,date,home_team_code,away_team_code,home_score,away_score,decided_in,is_played,arena,attendance,home_shots_total,home_shots_goal,home_shots_efficiency,home_powerplay_goals,home_powerplay_num_pp,home_powerplay_efficiency,home_expulsions_in_minutes,away_shots_total,away_shots_goal,away_shots_efficiency,away_powerplay_goals,away_powerplay_num_pp,away_powerplay_efficiency,away_expulsions_in_minutes,period_scores,most_points
+2026,2026-01-02,AIK,MoDo,3,2,OT,true,A,1234,30,3,10.5,1,4,0.0,8,25,2,\N,0,2,0.0,4,"[{""Home"": 1, ""Away"": 0}, {""Home"": 2.5, ""Away"": 1e-05}]","[{""player"": ""Östl"", ""team"": ""AIK"", ""points"": 3}]"
+2026,2026-01-05,MIK,IFB,0,0,,false,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N

@@ -1,0 +1,15 @@
+season,rank,team_code_mixed,team_code,games_played,regulation_wins,regulation_losses,ties,overtime_and_shootout_wins,overtime_and_shootout_losses,shootouts_wins,shootouts_losses,goals,goals_against,goal_difference,total_points,power_play_perc,penalty_kill_perc
+2026,1,IFB,IFB,52,34,8,0,7,3,0,0,192,97,95,119,\N,\N
+2026,2,KHC,KHC,52,34,10,0,3,5,0,0,189,110,79,113,\N,\N
+2026,3,BIK,BIK,52,26,15,0,8,3,0,0,145,115,30,97,\N,\N
+2026,4,MODO,MoDo,52,24,16,0,7,5,0,0,141,134,7,91,\N,\N
+2026,5,AIK,AIK,52,22,18,0,7,5,0,0,150,152,-2,85,\N,\N
+2026,6,NVIF,NVIF,52,19,21,0,6,6,0,0,139,159,-20,75,\N,\N
+2026,7,SSK,SSK,52,20,21,0,2,9,0,0,130,130,0,73,\N,\N
+2026,8,IKO,IKO,52,21,24,0,2,5,0,0,143,139,4,72,\N,\N
+2026,9,AIS,AIS,52,18,23,0,7,4,0,0,127,152,-25,72,\N,\N
+2026,10,MORA,MORA,52,14,20,0,10,8,0,0,134,147,-13,70,\N,\N
+2026,11,ÖIK,ÖIK,52,16,25,0,5,6,0,0,123,153,-30,64,\N,\N
+2026,12,VHC,VHC,52,14,26,0,7,5,0,0,111,148,-37,61,\N,\N
+2026,13,VIK,VIK,52,13,28,0,4,7,0,0,125,155,-30,54,\N,\N
+2026,14,TRO,TRO,52,9,29,0,5,9,0,0,123,181,-58,46,\N,\N

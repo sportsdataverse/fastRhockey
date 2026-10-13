@@ -1,0 +1,359 @@
+{
+ "schedule_edge": {
+  "parser": "parse_ha_schedule",
+  "payload": {
+   "games": [
+    {
+     "id": "7",
+     "documentId": "abc",
+     "season": "season_2026",
+     "statNetGameNumber": "23402",
+     "slug": "s1",
+     "round": "3",
+     "attendance": "13 950",
+     "homeScore": "2",
+     "awayScore": "x",
+     "scheduledDateTime": "2026-09-19T17:00:00.000Z",
+     "venue": "Arena \"Q\" Ö",
+     "homeTeam": {
+      "id": 81,
+      "shortName": "AIK",
+      "logo": {
+       "url": "u1",
+       "w": 1
+      },
+      "arena": {
+       "latitude": "59.3",
+       "longitude": 18.07
+      }
+     },
+     "awayTeam": {
+      "id": null,
+      "shortName": "MoDo",
+      "logo": null,
+      "headshots": null
+     },
+     "tags": [
+      1,
+      2.5,
+      "aö\n",
+      true,
+      null,
+      {
+       "k": [
+        1.0,
+        3000000000
+       ]
+      }
+     ],
+     "emptyList": [],
+     "emptyObj": {}
+    },
+    {
+     "id": 8,
+     "documentId": "def",
+     "season": "season_2025",
+     "statNetGameNumber": 23403,
+     "slug": "s2",
+     "attendance": 0,
+     "homeScore": 3,
+     "awayScore": 1,
+     "homeTeam": {
+      "id": 82,
+      "shortName": "MIK"
+     }
+    }
+   ]
+  }
+ },
+ "games_edge": {
+  "parser": "parse_ha_games",
+  "payload": {
+   "_request": {
+    "season": 2026
+   },
+   "results": [
+    {
+     "Date": "2026-01-02",
+     "HomeTeam": "AIK",
+     "AwayTeam": "MoDo",
+     "GameResult": {
+      "Home": "3",
+      "Away": 2
+     },
+     "decided_in": "OT",
+     "Arena": "A",
+     "Attendance": "1 234",
+     "GameStatistics": {
+      "home_team": {
+       "shots": {
+        "total": "30",
+        "goal": 3,
+        "efficiency": "10.5"
+       },
+       "powerplay": {
+        "goals": 1,
+        "num_pp": "4",
+        "efficiency": 0
+       },
+       "expulsions": {
+        "in_minutes": "8"
+       }
+      },
+      "away_team": {
+       "shots": {
+        "total": 25,
+        "goal": 2,
+        "efficiency": null
+       },
+       "powerplay": {
+        "goals": 0,
+        "num_pp": 2,
+        "efficiency": "0.0"
+       },
+       "expulsions": {
+        "in_minutes": 4
+       }
+      }
+     },
+     "PeriodScores": [
+      {
+       "Home": 1,
+       "Away": 0
+      },
+      {
+       "Home": 2.5,
+       "Away": 1e-05
+      }
+     ],
+     "MostPoints": [
+      {
+       "player": "Östl",
+       "team": "AIK",
+       "points": 3
+      }
+     ]
+    },
+    {
+     "Date": "2026-01-05",
+     "HomeTeam": "MIK",
+     "AwayTeam": "IFB",
+     "GameResult": {
+      "Home": 0,
+      "Away": 0
+     },
+     "decided_in": "",
+     "Attendance": null
+    }
+   ]
+  }
+ },
+ "standings_edge": {
+  "parser": "parse_ha_standings",
+  "payload": {
+   "_request": {
+    "season": 2006
+   },
+   "standings": [
+    {
+     "teamCode": "MODO",
+     "statNetClubLabel": "MoDo",
+     "rank": "1",
+     "wins": "24",
+     "losses": "3",
+     "overtimeWins": "2",
+     "overtimeLosses": "1",
+     "powerPlayPerc": "",
+     "penaltyKillPerc": "81.2",
+     "goals": "150",
+     "games_played": " 52 "
+    },
+    {
+     "teamCode": "MORA",
+     "statNetClubLabel": "MORA",
+     "rank": 2,
+     "wins": 20,
+     "losses": 9,
+     "powerPlayPerc": 12.5
+    }
+   ]
+  }
+ },
+ "leaders_edge": {
+  "parser": "parse_ha_leaders",
+  "payload": {
+   "players": [
+    {
+     "rank": 1,
+     "player": "A B",
+     "playerStatNetId": "4204",
+     "teamID": "LIF",
+     "teamCode": "LIF",
+     "jersey_number": "9",
+     "metric": "TP",
+     "metric_value": 58,
+     "headshots": null
+    },
+    {
+     "rank": 2,
+     "player": "C D",
+     "playerStatNetId": 4205,
+     "teamID": "MIK",
+     "teamCode": "MORA",
+     "metric": "TP",
+     "metric_value": "18:10",
+     "extra": true
+    }
+   ]
+  }
+ },
+ "pbp_edge": {
+  "parser": "parse_ha_pbp",
+  "payload": {
+   "_request": {
+    "statnet_game_number": "23401",
+    "home_statnet_id": "AIK",
+    "away_statnet_id": "MODO"
+   },
+   "game_events": [
+    {
+     "Period": "1",
+     "period_label": "1st",
+     "Events": [
+      {
+       "type": "Shot",
+       "time": "44",
+       "team": {
+        "statNetId": "AIK",
+        "code": "AIK"
+       },
+       "player": {
+        "statNetId": 920,
+        "name": "J E"
+       },
+       "is_penalty_shot": "false"
+      },
+      {
+       "type": "Goal",
+       "time": "600",
+       "team": {
+        "statNetId": "MODO",
+        "code": "MoDo"
+       },
+       "Assist1": {
+        "name": "X",
+        "jersey_today": "5",
+        "season_assists": "3"
+       },
+       "Assist2": null,
+       "period": "9"
+      }
+     ]
+    },
+    {
+     "Period": "2",
+     "Events": [
+      {
+       "type": "Penalty",
+       "time": 5,
+       "team": {
+        "statNetId": "AIK"
+       },
+       "minutes": 2.0
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "players_edge": {
+  "parser": "parse_ha_players",
+  "payload": {
+   "players": [
+    {
+     "id": "2690",
+     "documentId": "d1",
+     "slug": "p-1",
+     "height": "185",
+     "weight": "82.5",
+     "team": {
+      "id": 81,
+      "shortName": "AIK"
+     },
+     "headshots": {
+      "a": "b"
+     },
+     "birthDate": "2000-01-01",
+     "isRookie": "true",
+     "jersey_number": null
+    }
+   ]
+  }
+ },
+ "teams_edge": {
+  "parser": "parse_ha_teams",
+  "payload": {
+   "_request": {
+    "season": 2026
+   },
+   "teams": [
+    {
+     "statNetId": "MIK",
+     "teamCode": "MORA",
+     "name": "Mora IK",
+     "logo": {
+      "url": "u"
+     }
+    },
+    {
+     "statNetId": "OSIK",
+     "teamCode": "ÖIK",
+     "name": "Östersund"
+    }
+   ]
+  }
+ },
+ "team_stats_edge": {
+  "parser": "parse_ha_team_stats",
+  "payload": {
+   "_request": {
+    "season": 2026
+   },
+   "data": [
+    {
+     "team_code": "IFB",
+     "W": 41,
+     "L": "11",
+     "OTW": 3,
+     "GP": "52",
+     "efficiency": "8.82",
+     "points": 3.0
+    }
+   ]
+  }
+ },
+ "generic_edge": {
+  "parser": "parse_ha",
+  "payload": {
+   "_request": {
+    "season": 2026
+   },
+   "results": [
+    {
+     "player": "S P",
+     "team": "AIK",
+     "GP": 51,
+     "TP": "40",
+     "SVS_PERC": "91.5",
+     "GAA": 2,
+     "TOI_GP": "18:10"
+    },
+    {
+     "player": "T Q",
+     "team": "MODO",
+     "GP": "x"
+    }
+   ]
+  }
+ }
+}
