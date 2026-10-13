@@ -1,0 +1,11 @@
+season,game_id,side,period,team_id,team_slug,goals,shots,power_play_instances,power_play_goals,short_handed_instances,short_handed_goals_against,penalty_minutes,face_off_wins,two_minute_penalties,five_minute_penalties,ten_minute_penalties,twenty_minute_penalties,total_distance_travelled,puck_control_duration,opponent_puck_control_duration,contested_control_duration
+2026,1,home,1,55786244,hpk,1,9,"[""B""]",0,"[""D"", ""F"", ""G""]",1,8,12,4,0,0,0,19739.6,284.96,397.04,485.6
+2026,1,home,2,55786244,hpk,0,12,[],0,"[""J""]",0,2,6,1,0,0,0,22086.2,535.16,759.78,1035.06
+2026,1,home,3,55786244,hpk,1,9,"[""L"", ""N""]",0,"[""P""]",0,2,7,1,0,0,0,21315.2,932.24,1057.4,1537.54
+2026,1,home,4,55786244,hpk,0,8,"[""S""]",0,[],0,0,3,0,0,0,0,3547.69,\N,\N,\N
+2026,1,home,5,55786244,hpk,0,\N,"[""S""]",0,[],0,0,\N,0,0,0,0,\N,\N,\N,\N
+2026,1,away,1,651304385,tps,1,24,"[""D"", ""F"", ""G""]",1,"[""B""]",0,4,11,2,0,0,0,21235.5,397.04,284.96,485.6
+2026,1,away,2,651304385,tps,0,12,"[""J""]",0,[],0,0,13,0,0,0,0,23024.6,759.78,535.16,1035.06
+2026,1,away,3,651304385,tps,1,15,"[""P""]",0,"[""L"", ""N""]",0,4,7,2,0,0,0,21245.2,1057.4,932.24,1537.54
+2026,1,away,4,651304385,tps,0,1,[],0,"[""S""]",0,2,1,1,0,0,0,3354.61,\N,\N,\N
+2026,1,away,5,651304385,tps,0,\N,[],0,"[""S""]",0,0,\N,0,0,0,0,\N,\N,\N,\N

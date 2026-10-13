@@ -1,0 +1,7 @@
+season,game_id,side,team_id,team_slug,player_id,sufferer_player_id,event_id,log_time,game_time,period,penalty_begintime,penalty_endtime,penalty_fault_name,penalty_fault_type,penalty_info,penalty_minutes
+2026,1,home,55786244,hpk,60954495,60954495,100,2025-09-09T15:58:16Z,758,1,758,832,Kiinnipitäminen,KII,"",2
+2026,1,home,55786244,hpk,30851669,30851669,125,2025-09-09T16:00:56Z,909,1,909,1029,Huitominen,HUI,"",2
+2026,1,home,55786244,hpk,40115108,40115108,130,2025-09-09T16:02:16Z,933,1,933,1053,Väkivaltaisuus,VKV,"",2
+2026,1,away,651304385,tps,25541395,25541395,13,2025-09-09T15:35:44Z,64,1,64,184,Estäminen,EST,"",2
+2026,1,away,651304385,tps,30969140,30969140,163,2025-09-09T16:10:32Z,1162,1,1162,1282,Väkivaltaisuus,VKV,K,2
+2026,1,away,651304385,tps,40048503,40048503,340,2025-09-09T17:24:48Z,2558,3,2558,2678,Kiinnipitäminen,KII,"",2

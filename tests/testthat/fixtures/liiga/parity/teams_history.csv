@@ -1,0 +1,4 @@
+id,season,league_id,serie_id,team_id,away_games,away_losses,away_ties,away_wins,away_wins_in_extra_time,games,goals_against,goals_scored,home_games,home_losses,home_ties,home_wins,home_wins_in_extra_time,losses,playoff_rank,points,regular_season_rank,ties,wins,wins_in_extra_time
+841,2027,1,1188,951626834,7,2,1,4,1,12,24,36,5,1,0,4,0,3,0,26,1,1,8,1
+843,2027,1,1188,292293444,6,3,0,3,0,14,29,36,8,2,3,3,3,5,0,24,2,3,6,3
+854,2027,1,1188,679171680,5,1,2,2,1,12,27,30,7,2,1,4,0,3,0,22,3,3,6,1

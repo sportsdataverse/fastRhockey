@@ -1,0 +1,10 @@
+player_id,season,tournament,game_str,game_id,date,assists,blocked_or_saved_shots,faceoffs_total,faceoffs_won,faceoffs_percentage,goals,minus,total_points,home_team_name,away_team_name,penalty_minutes,penaltykill_assists,penaltykill_goals,penaltykill_points,plus,plus_minus,powerplay_assists,powerplay_goals,powerplay_seconds,time_on_ice,saves,save_percentage,block_or_saved_shots_percentage,shots,shots_into_goal,shut_out,shots_saved,shots_saved_by_skater,shot_percentage,shot_into_goal_percentage,goals_against,goalkeeper,winning_goals,won,tied,lost
+21870028,2026,practice,LUK - HPK,1553,2025-08-15T12:00:00Z,0,0,10,6,60.0,0,0,0,Lukko,HPK,0,0,0,0,0,0,0,0,0,1011,0,100.0,\N,1,1,0,1,0,0.0,0.0,0,false,0,1,0,0
+21870028,2026,practice,TPS - HPK,1556,2025-08-16T14:00:00Z,0,0,11,5,45.45,0,1,0,TPS,HPK,2,0,0,0,0,-1,0,0,0,981,0,\N,\N,2,1,0,0,1,0.0,0.0,0,false,0,0,0,1
+21870028,2026,practice,IFK - HPK,1731,2025-08-21T15:00:00Z,1,0,\N,\N,\N,0,0,1,HIFK,HPK,0,0,0,0,0,0,0,0,0,0,0,\N,\N,0,0,0,0,0,\N,\N,0,false,0,0,0,1
+21870028,2026,regular,HPK - TPS,1,2025-09-09T15:30:00Z,0,0,6,1,16.67,0,0,0,HPK,TPS,0,0,0,0,0,0,0,0,0,1001,0,100.0,\N,2,2,0,1,1,0.0,0.0,0,false,0,0,1,0
+21870028,2026,regular,ÄSS - HPK,13,2025-09-12T15:30:00Z,1,1,2,0,0.0,0,0,1,Ässät,HPK,0,0,0,0,0,0,1,0,0,896,0,\N,100.0,0,0,0,0,0,\N,\N,0,false,0,0,0,1
+21870028,2026,regular,HPK - SPO,15,2025-09-13T14:00:00Z,0,0,5,3,60.0,1,0,1,HPK,Sport,0,0,0,0,1,1,0,0,0,1020,0,\N,\N,3,1,0,0,0,33.33,100.0,0,false,0,1,0,0
+21870028,2026,playoffs,LUK - HPK,55078,2026-03-20T16:30:00Z,0,0,14,7,50.0,0,0,0,Lukko,HPK,0,0,0,0,0,0,0,0,0,727,0,100.0,\N,2,2,0,2,0,0.0,0.0,0,false,0,0,0,1
+21870028,2026,playoffs,HPK - LUK,55085,2026-03-21T15:00:00Z,0,0,11,1,9.09,0,0,0,HPK,Lukko,0,0,0,0,0,0,0,0,0,751,0,\N,\N,0,0,0,0,0,\N,\N,0,false,0,1,0,0
+21870028,2026,playoffs,LUK - HPK,55086,2026-03-23T16:30:00Z,1,1,7,4,57.14,0,0,1,Lukko,HPK,0,0,0,0,1,1,0,0,0,700,0,100.0,100.0,2,1,0,1,0,0.0,0.0,0,false,0,1,0,0

@@ -1,0 +1,4 @@
+season,game_id,type,shooting_team_id,left_team_id,right_team_id,game_time,period,shot_x,shot_y,blocker_id,shooter_id,event_type,own_team_players_on_ice,other_team_players_on_ice
+2026,1,EvenStrengthShot,651304385,651304385,55786244,13,1,684,491,40107053,60953551,GOALIE_BLOCKED,6,6
+2026,1,EvenStrengthShot,651304385,651304385,55786244,18,1,771,29,40107053,29948541,GOALIE_BLOCKED,6,6
+2026,1,EvenStrengthShot,651304385,651304385,55786244,62,1,762,111,40107053,27023853,MISSED,6,6

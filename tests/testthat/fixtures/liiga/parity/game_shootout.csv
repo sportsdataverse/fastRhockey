@@ -1,0 +1,4 @@
+season,game_id,shooting_player_id,blocking_player_id,shot_number,shooting_team_id,shooting_team_slug,blocking_team_id,blocking_team_slug,goal_scored,winning_goal
+2026,1,34320235,30117507,1,55786244,hpk,651304385,tps,true,false
+2026,1,60900264,40107053,2,651304385,tps,55786244,hpk,true,false
+2026,1,30851669,30117507,3,55786244,hpk,651304385,tps,false,false
