@@ -66,10 +66,13 @@
 #' @param max_tries Maximum attempts.
 #' @param min_interval Spacing between requests to one host, in seconds.
 #' @param backoff Base of the retry delay in seconds (1: 1, 2, 4; 2: 2, 4, 8).
+#' @param retry_statuses Statuses to retry; a family whose provider answers 500 for a
+#'   bad request (Liiga) narrows it.
 #' @return An httr2 response.
 #' @keywords internal
 #' @noRd
-.polite_perform <- function(req, max_tries = 3, min_interval = .EURO_MIN_INTERVAL, backoff = 1) {
+.polite_perform <- function(req, max_tries = 3, min_interval = .EURO_MIN_INTERVAL, backoff = 1,
+                            retry_statuses = .EURO_RETRY_STATUSES) {
   req <- req |>
     httr2::req_retry(max_tries = 1) |>
     httr2::req_error(is_error = function(resp) FALSE)
@@ -78,7 +81,7 @@
     .polite_wait(req$url, interval)
     resp <- tryCatch(httr2::req_perform(req), httr2_failure = function(e) e)
     failed <- inherits(resp, "httr2_failure")
-    if (!failed && !httr2::resp_status(resp) %in% .EURO_RETRY_STATUSES) return(resp)
+    if (!failed && !httr2::resp_status(resp) %in% retry_statuses) return(resp)
     interval <- max(min_interval, backoff * 2^(i - 1))
     if (!failed) {
       ra <- suppressWarnings(httr2::resp_retry_after(resp))
@@ -149,13 +152,14 @@
 #' @param query Named list of query parameters; `NULL` entries are dropped.
 #' @param headers Named list of request headers.
 #' @param ... Passed to [jsonlite::fromJSON()].
+#' @param retry_statuses Statuses `.polite_perform()` retries.
 #' @return The parsed JSON body.
 #' @keywords internal
 #' @noRd
-.euro_get <- function(url, query = list(), headers = NULL, ...) {
+.euro_get <- function(url, query = list(), headers = NULL, ..., retry_statuses = .EURO_RETRY_STATUSES) {
   query <- Filter(Negate(is.null), query)
   .build_request(url, query, headers) |>
-    .polite_perform() |>
+    .polite_perform(retry_statuses = retry_statuses) |>
     .euro_resp_json(...)
 }
 

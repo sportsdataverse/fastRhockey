@@ -81,6 +81,13 @@ test_that(".polite_perform retries 429/500/502/503/504 with a 1, 2 s backoff", {
   }
 })
 
+test_that(".polite_perform retry_statuses narrows what is retried", {
+  skip_on_cran()
+  st <- retry_mock(500L)
+  expect_equal(httr2::resp_status(.polite_perform(httr2::request("https://r.test/a.json"), retry_statuses = c(429L, 503L))), 500L)
+  expect_equal(st$calls, 1L)
+})
+
 test_that(".polite_perform does not retry other 4xx statuses or successes", {
   skip_on_cran()
   for (status in c(200L, 204L, 400L, 403L, 404L, 422L)) {

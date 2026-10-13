@@ -177,7 +177,8 @@
     .abort_bad_request("{.arg tournament} must be one of {.val {valid}}; got {.val {tournament}}.")
   }
   url <- paste0(.LIIGA_HOST, path)
-  body <- .euro_get(url, query, simplifyVector = FALSE)
+  # a 500 is the provider's answer to a bad request, so only 429 / 503 are retried
+  body <- .euro_get(url, query, simplifyVector = FALSE, retry_statuses = c(429L, 503L))
   .liiga_error(url, body)
   if (.liiga_is_empty(body)) {
     where <- .euro_where(url)
