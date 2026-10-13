@@ -469,7 +469,7 @@ test_that("HTTP statuses map to the classed conditions (real .euro_get / .elh_ge
   skip_on_cran()
   fake <- function(status, body = "", type = "application/json") {
     force(status)
-    function(req, max_tries = 3, min_interval = 1) {
+    function(req, max_tries = 3, min_interval = 1, ...) {
       httr2::response(status_code = status, url = req$url, headers = list(`Content-Type` = type),
                       body = charToRaw(body))
     }
