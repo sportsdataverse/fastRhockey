@@ -703,10 +703,11 @@
   }), recursive = FALSE))
   if (!is.null(df) && !is.null(tracking) && "player_id" %in% names(tracking)) {
     tracking <- tracking[!duplicated(tracking$player_id), , drop = FALSE]
-    if (!identical(class(df$player_id), class(tracking$player_id))) {
+    # integer vs double (or an all-NA logical) is the same id; only a character/numeric mix is a real mismatch
+    if (is.character(df$player_id) != is.character(tracking$player_id)) {
       .abort_bad_request("player_id dtypes differ between the box score and the tracking rows.")
     }
-    idx <- match(df$player_id, tracking$player_id)
+    idx <- match(as.double(df$player_id), as.double(tracking$player_id))
     idx[is.na(df$player_id)] <- NA_integer_
     for (col in setdiff(names(tracking), "player_id")) {
       name <- if (col %in% names(df)) paste0(col, "_game") else col

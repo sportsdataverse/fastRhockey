@@ -432,3 +432,13 @@ test_that("live: tournament, schedule and a box score answer", {
   expect_true(all(sched$season == 2026L))
   expect_error(liiga_game_stats(2026, 99999999), class = "fastRhockey_no_data")
 })
+
+test_that("game stats join tracking rows whose player_id is double against integer box-score ids", {
+  body <- liiga_body("full/games__stats__2026__1.json")
+  base <- liiga_run(quote(liiga_game_stats(2026, 1)), body)
+  for (key in c("homeTeamGamePlayerStats", "awayTeamGamePlayerStats")) {
+    body[[key]] <- lapply(body[[key]], function(r) { r$playerId <- as.double(r$playerId); r })
+  }
+  got <- liiga_run(quote(liiga_game_stats(2026, 1)), body)
+  expect_equal(as.data.frame(got), as.data.frame(base), ignore_attr = TRUE)
+})
