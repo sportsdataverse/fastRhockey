@@ -1,0 +1,6 @@
+game_id,season,stage,game_number,team_side,team_page_id,goal_number,period,time,score,strength,scorer_id,scorer,scorer_jersey,scorer_season_total,assist1_id,assist1,assist1_jersey,assist1_season_total,assist2_id,assist2,assist2_jersey,assist2_season_total,home_on_ice,away_on_ice
+899223,2026,regular,984,away,505612,1,1,03:21,0:1,eq,41489,Fursa Alexei,98,13,20225,Boltanov Artur,9,14,42291,Kovgorenya Arseny,99,4,1 9 17 44 56 85,23 9 14 87 98 99
+899223,2026,regular,984,away,505612,2,1,19:42,0:2,eq,34526,Mirzabalayev Alexander,31,25,39442,Zhugin Valentin,74,4,,,,,1 9 17 44 56 85,23 7 21 31 36 74
+899223,2026,regular,984,home,390,3,3,43:41,1:2,ppg,40340,Gimbatov Ruslan,93,6,39828,Khvorov Nikolai,44,16,,,,,49 17 22 44 85 93,23 36 43 63 94
+899223,2026,regular,984,home,390,4,3,57:33,2:2,eq,35396,Sychyov Vladimir,17,12,40340,Gimbatov Ruslan,93,6,,,,,49 3 9 17 24 93,23 9 36 63 94 98
+899223,2026,regular,984,away,505612,5,РБ,65:00,2:3,,34526,Mirzabalayev Alexander,31,,,,,,,,,,49,""

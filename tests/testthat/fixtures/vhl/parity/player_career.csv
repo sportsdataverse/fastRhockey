@@ -1,0 +1,3 @@
+player_id,season,stage,tn,team_season_id,team,jersey,games_played,goals,assists,points,plus_minus,penalty_minutes,even_strength_goals,power_play_goals,shorthanded_goals,overtime_goals,game_winning_goals,shootout_deciding_goals,shots_on_goal,shot_pct,shots_per_game,faceoffs,faceoffs_won,faceoff_pct,toi_per_game,shifts_per_game,hits,blocked_shots,wins,losses,shootouts_played,shots_against,goals_against,saves,save_pct,gaa,shutouts,toi
+34418,2027,regular,1430,15524,Olimpiya,79,11,4,2,6,1,2,4,0,0,0,1,0,17,23.5,1.5,0,0,,13:17,19.2,9,12,,,,,,,,,,
+34418,2026,playoff,1375,15429,Molot,72,0,0,0,0,0,0,0,0,0,0,0,0,0,,,0,0,,,,0,0,,,,,,,,,,

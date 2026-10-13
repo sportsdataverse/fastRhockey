@@ -1,0 +1,35 @@
+game_id,season,stage,game_number,team_side,team_page_id,team,position_group,jersey,player_id,player,captaincy,games_played,goals,assists,points,plus_minus,penalty_minutes,even_strength_goals,power_play_goals,shorthanded_goals,overtime_goals,game_winning_goals,shootout_deciding_goals,shots_on_goal,shot_pct,faceoffs,faceoffs_won,faceoff_pct,toi_per_game,shifts_per_game,hits,blocked_shots
+899223,2026,regular,984,home,390,Toros,defense,85,34892,Budnitsky Vitaly,A,1,0,0,0,-2,0,0,0,0,0,0,0,3,0.0,0,0,,20:55,24.0,0,0
+899223,2026,regular,984,home,390,Toros,defense,46,40523,Yelsukov Fyodor,,1,0,0,0,0,0,0,0,0,0,0,0,4,0.0,0,0,,21:59,19.0,0,0
+899223,2026,regular,984,home,390,Toros,defense,52,39111,Kolganov Artyom,,1,0,0,0,0,0,0,0,0,0,0,0,1,0.0,0,0,,14:50,21.0,0,0
+899223,2026,regular,984,home,390,Toros,defense,45,38355,Kurbanov Zaur,,1,0,0,0,0,0,0,0,0,0,0,0,1,0.0,0,0,,17:09,15.0,0,1
+899223,2026,regular,984,home,390,Toros,defense,9,39797,Orlov Grigory E.,,1,0,0,0,-1,0,0,0,0,0,0,0,1,0.0,0,0,,17:00,22.0,0,2
+899223,2026,regular,984,home,390,Toros,defense,4,27596,Chebotaryov Vadim,C,1,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,,17:13,23.0,1,0
+899223,2026,regular,984,home,390,Toros,defense,3,41773,Shatilo Ivan,,1,0,0,0,1,0,0,0,0,0,0,0,0,,0,0,,16:30,19.0,0,0
+899223,2026,regular,984,home,390,Toros,forward,24,39787,Andreichenko Viktor,,1,0,0,0,1,0,0,0,0,0,0,0,4,0.0,0,0,,20:27,24.0,0,1
+899223,2026,regular,984,home,390,Toros,forward,25,35351,Valeyev Timur,,1,0,0,0,0,0,0,0,0,0,0,0,0,,15,8,53.3,20:07,24.0,0,0
+899223,2026,regular,984,home,390,Toros,forward,80,40675,Galiyev Erik,,1,0,0,0,0,0,0,0,0,0,0,0,2,0.0,0,0,,14:29,17.0,0,0
+899223,2026,regular,984,home,390,Toros,forward,93,40340,Gimbatov Ruslan,,1,1,1,2,1,0,0,1,0,0,0,0,2,50.0,0,0,,14:47,18.0,0,0
+899223,2026,regular,984,home,390,Toros,forward,72,40850,Zavizhsky Mikhail,,1,0,0,0,0,0,0,0,0,0,0,0,0,,11,7,63.6,12:51,17.0,0,0
+899223,2026,regular,984,home,390,Toros,forward,10,41399,Kolesnikov Sergei F.,,1,0,0,0,0,0,0,0,0,0,0,0,1,0.0,0,0,,13:28,17.0,0,0
+899223,2026,regular,984,home,390,Toros,forward,38,35609,Skoropad Nikita,,1,0,0,0,0,0,0,0,0,0,0,0,2,0.0,0,0,,13:50,18.0,0,0
+899223,2026,regular,984,home,390,Toros,forward,22,25292,Sorokin Evgeny,A,1,0,0,0,0,2,0,0,0,0,0,0,4,0.0,11,7,63.6,20:39,21.0,0,1
+899223,2026,regular,984,home,390,Toros,forward,56,39993,Suvorov Alexander V.,,1,0,0,0,-2,0,0,0,0,0,0,0,3,0.0,2,1,50.0,14:26,19.0,0,0
+899223,2026,regular,984,home,390,Toros,forward,17,35396,Sychyov Vladimir,,1,1,0,1,-1,0,1,0,0,0,0,0,2,50.0,9,3,33.3,19:31,22.0,0,1
+899223,2026,regular,984,home,390,Toros,forward,44,39828,Khvorov Nikolai,,1,0,1,1,-2,0,0,0,0,0,0,0,2,0.0,0,0,,20:23,24.0,0,1
+899223,2026,regular,984,away,505612,Magnitka,defense,87,40234,Ananyin Yegor,,1,0,0,0,1,0,0,0,0,0,0,0,0,,0,0,,15:05,25.0,0,0
+899223,2026,regular,984,away,505612,Magnitka,defense,63,25041,Vaulin Makar,,1,0,0,0,-1,0,0,0,0,0,0,0,0,,0,0,,20:46,30.0,1,3
+899223,2026,regular,984,away,505612,Magnitka,defense,37,35328,Gololobov Danil,,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,,,,0,0
+899223,2026,regular,984,away,505612,Magnitka,defense,21,39106,Yegorov Alexei Y.,,1,0,0,0,1,0,0,0,0,0,0,0,1,0.0,0,0,,26:27,33.0,0,2
+899223,2026,regular,984,away,505612,Magnitka,defense,14,40223,Medvedev Savely,,1,0,0,0,1,0,0,0,0,0,0,0,0,,0,0,,15:49,23.0,1,2
+899223,2026,regular,984,away,505612,Magnitka,defense,94,34697,Romanov Roman O.,,1,0,0,0,-1,0,0,0,0,0,0,0,0,,0,0,,20:05,29.0,0,0
+899223,2026,regular,984,away,505612,Magnitka,defense,7,17312,Timashov Nikolai,A,1,0,0,0,1,0,0,0,0,0,0,0,3,0.0,0,0,,25:40,33.0,1,0
+899223,2026,regular,984,away,505612,Magnitka,forward,9,20225,Boltanov Artur,C,1,0,1,1,0,0,0,0,0,0,0,0,2,0.0,0,0,,23:50,35.0,0,1
+899223,2026,regular,984,away,505612,Magnitka,forward,68,42280,Golnik Roman,,1,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,,14:07,23.0,0,2
+899223,2026,regular,984,away,505612,Magnitka,forward,74,39442,Zhugin Valentin,,1,0,1,1,1,0,0,0,0,0,0,0,0,,0,0,,24:27,34.0,0,0
+899223,2026,regular,984,away,505612,Magnitka,forward,99,42291,Kovgorenya Arseny,,1,0,1,1,1,0,0,0,0,0,0,0,1,0.0,0,0,,18:05,23.0,0,0
+899223,2026,regular,984,away,505612,Magnitka,forward,36,16352,Mastryukov Alexei,A,1,0,0,0,0,0,0,0,0,0,0,0,2,0.0,16,7,43.8,20:20,32.0,0,1
+899223,2026,regular,984,away,505612,Magnitka,forward,31,34526,Mirzabalayev Alexander,,1,1,0,1,1,0,1,0,0,0,0,1,3,33.3,2,0,0.0,21:21,32.0,0,0
+899223,2026,regular,984,away,505612,Magnitka,forward,38,23837,Mikhnin Denis,,1,0,0,0,0,2,0,0,0,0,0,0,1,0.0,0,0,,16:11,25.0,0,0
+899223,2026,regular,984,away,505612,Magnitka,forward,43,35329,Penzin Yegor,,1,0,0,0,0,0,0,0,0,0,0,0,1,0.0,18,11,61.1,26:20,36.0,1,1
+899223,2026,regular,984,away,505612,Magnitka,forward,98,41489,Fursa Alexei,,1,1,0,1,0,2,1,0,0,0,0,0,1,100.0,12,4,33.3,20:21,31.0,1,0

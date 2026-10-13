@@ -1,0 +1,7 @@
+season,stage,tn,position_group,player_id,player,jersey,team,games_played,goals,assists,points,plus_minus,plus,minus,penalty_minutes,even_strength_goals,power_play_goals,shorthanded_goals,overtime_goals,game_winning_goals,shootout_deciding_goals,shots_on_goal,shot_pct,shots_per_game,faceoffs,faceoffs_won,faceoff_pct,toi_per_game,shifts_per_game,hits,blocked_shots
+2026,regular,1374,defense,22129,Mineyev Maxim,51,Metallurg,49,4,45,49,15,49,34,14,0,4,0,0,2,0,95,4.2,1.9,0,0,,20:36,26.3,31,58
+2026,regular,1374,defense,15836,Berdyukov Georgy,38,Omskie Krylya,55,7,26,33,12,44,32,6,5,2,0,1,2,0,109,6.4,2.0,0,0,,20:44,25.5,45,70
+2026,regular,1374,defense,24805,Trishin Akim,17,Ryazan-VDV,55,6,22,28,14,49,35,8,5,1,0,0,2,0,102,5.9,1.9,1,0,0.0,20:05,28.3,54,47
+2026,regular,1374,forward,24806,Shalagin Mikhail,88,Metallurg,59,32,39,71,9,45,36,32,19,13,0,0,7,0,194,16.5,3.3,25,11,44.0,15:58,20.3,17,9
+2026,regular,1374,forward,34364,Shakirov Rasim,71,Neftyanik,61,19,40,59,22,46,24,12,13,6,0,1,4,1,158,12.0,2.6,1,1,100.0,15:28,21.1,57,12
+2026,regular,1374,forward,34580,Terekhov Semyon,59,Neftyanik,44,31,15,46,27,43,16,16,21,9,1,0,2,0,169,18.3,3.8,18,8,44.4,17:40,24.8,33,14
