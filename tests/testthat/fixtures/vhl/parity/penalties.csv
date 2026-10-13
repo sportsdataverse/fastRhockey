@@ -1,0 +1,4 @@
+game_id,season,stage,game_number,team_side,team_page_id,team,time,player_id,player,player_jersey,minutes,infraction
+899223,2026,regular,984,home,390,Toros,45:16,25292,Sorokin Evgeny,22,2,
+899223,2026,regular,984,away,505612,Magnitka,39:17,23837,Mikhnin Denis,38,2,high-sticking
+899223,2026,regular,984,away,505612,Magnitka,42:08,41489,Fursa Alexei,98,2,hooking

@@ -1,0 +1,4 @@
+player_id,season,stage,tn,team_season_id,team,jersey,games_played,goals,assists,points,plus_minus,penalty_minutes,even_strength_goals,power_play_goals,shorthanded_goals,overtime_goals,game_winning_goals,shootout_deciding_goals,shots_on_goal,shot_pct,shots_per_game,faceoffs,faceoffs_won,faceoff_pct,toi_per_game,shifts_per_game,hits,blocked_shots,wins,losses,shootouts_played,shots_against,goals_against,saves,save_pct,gaa,shutouts,toi
+40370,2027,regular,1430,15534,Kristall,30,2,0,0,,,2,,,,,,,,,,,,,,,,,0,0,1,61,8,53,86.9,3.99,0,120:23
+40370,2026,regular,1374,15015,Kristall,30,26,0,1,,,2,,,,,,,,,,,,,,,,,12,8,3,677,60,617,91.1,2.61,3,1379:18
+40370,2025,playoff,1307,14856,Ryazan-VDV,1,1,0,0,,,0,,,,,,,,,,,,,,,,,0,0,0,10,0,10,100.0,0.0,0,20:00

@@ -1,0 +1,5 @@
+game_id,season,stage,game_number,team_side,team_page_id,team,jersey,player_id,player,captaincy,games_played,wins,losses,shootouts_played,shots_against,goals_against,saves,save_pct,gaa,assists,shutouts,penalty_minutes,toi
+899223,2026,regular,984,home,390,Toros,49,26207,Braginsky Dmitry,,1,0,0,1,10,0,10,100.0,0.0,0,0,0,44:26
+899223,2026,regular,984,home,390,Toros,1,41850,Yelin Ilya,,1,0,0,0,5,2,3,60.0,6.0,0,0,0,20:00
+899223,2026,regular,984,away,505612,Magnitka,23,39266,Amirbekov Dzhelal-Ad-Din,,1,0,0,1,32,2,30,93.8,1.85,0,0,0,65:00
+899223,2026,regular,984,away,505612,Magnitka,35,32042,Moiseyev Gleb,,0,0,0,0,0,0,0,,,0,0,0,
