@@ -1016,7 +1016,7 @@
     # HTTP/1.1 (CURL_HTTP_VERSION_1_1): over HTTP/2 this host's responses stalled for ~60 s.
     req <- .build_request(url) |> httr2::req_options(http_version = 2L)
     if (length(query)) req <- httr2::req_url_query(req, !!!query, .multi = "explode")
-    req |> .polite_perform() |> .khl_json()
+    req |> .polite_perform() |> .euro_resp_json(simplifyVector = FALSE)
   }
   if (is.null(.resolve_proxy(NULL))) return(run())
   where <- .euro_where(url)
@@ -1152,17 +1152,6 @@
     if (!httr2::resp_status(resp) %in% c(500L, 502L, 504L) || i == attempts) return(resp)
     .khl_sleep(2 * 2^(i - 1))
   }
-}
-
-# .euro_resp_json() for a response that may have NO body at all: httr2 cannot read an empty
-# body (it raises an unclassed error), and an empty 2xx is a failed fetch, not "nothing".
-.khl_json <- function(resp) {
-  status <- httr2::resp_status(resp)
-  if (status >= 200 && status < 300 && !status %in% c(204L, 205L) && !httr2::resp_has_body(resp)) {
-    where <- .euro_where(resp$url)
-    .abort_asset_fetch("{where} answered HTTP {status} with an empty body.")
-  }
-  .euro_resp_json(resp, simplifyVector = FALSE)
 }
 
 # GET site/ (following the cookie-setting 307) and scrape the Bitrix sessid.
@@ -1301,7 +1290,7 @@
       .khl_prime(session, timeout)
       next
     }
-    raw <- .khl_json(resp)
+    raw <- .euro_resp_json(resp, simplifyVector = FALSE)
     stale <- .khl_is_obj(raw) && grepl("invalid_csrf", paste(unlist(raw[["errors"]]), collapse = " "), fixed = TRUE)
     if (!stale) break
     .khl_state$sessions[[site]] <- NULL  # the sessid expired: drop it, prime a fresh jar, retry once

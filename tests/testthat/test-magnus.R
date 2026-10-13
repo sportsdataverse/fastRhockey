@@ -702,11 +702,8 @@ test_that("transport errors map to the package vocabulary (ajax and game page)",
   expect_error(magnus_game(77779), class = "fastRhockey_asset_fetch", regexp = "empty body")
 })
 
-test_that("an empty 200 ajax body is asset_fetch [needs the shared .euro_resp_json empty-body fix]", {
+test_that("an empty 200 ajax body is asset_fetch", {
   skip_on_cran()
-  probe <- httr2::response(status_code = 200L, url = "https://liguemagnus.com/x", body = raw())
-  fixed <- isTRUE(tryCatch(.euro_resp_json(probe), error = function(e) inherits(e, "fastRhockey_asset_fetch")))
-  skip_if_not(fixed, "the shared .euro_resp_json still errors unclassed on a truly empty 200 body")
   count_waits()
   httr2::local_mocked_responses(function(req) json_resp("", 200L, req$url))
   expect_error(magnus_phases(2027), class = "fastRhockey_asset_fetch", regexp = "empty body")

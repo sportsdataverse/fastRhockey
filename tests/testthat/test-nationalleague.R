@@ -5,9 +5,6 @@
 # source). The getter is mocked, so no test touches the network, except the live one behind
 # skip_euro_test(). Parity files (parity/*.csv) and columns.csv were written from sdv-py's
 # parse_nationalleague_* frames on these same fixtures.
-#
-# Tests marked [needs-euro-resp-json-fix] depend on the shared-runtime fix for a truly empty
-# 200 body in .euro_resp_json() (the coordinator lands it at integration).
 
 nl_fx <- function(...) testthat::test_path("fixtures", "nationalleague", ...)
 nl_json <- function(name) jsonlite::fromJSON(nl_fx(name), simplifyVector = FALSE)
@@ -497,7 +494,7 @@ test_that("a whitespace-only 200 body is a failed fetch", {
   expect_error(.nl_get(paste0(NL_HOST, "/games"), list(season = 2026)), class = "fastRhockey_asset_fetch")
 })
 
-test_that("[needs-euro-resp-json-fix] a truly empty 200 body is a failed fetch", {
+test_that("a truly empty 200 body is a failed fetch", {
   skip_on_cran()
   nl_mock_http(200L, raw(0))
   expect_error(.nl_get(paste0(NL_HOST, "/games"), list(season = 2026)), class = "fastRhockey_asset_fetch")

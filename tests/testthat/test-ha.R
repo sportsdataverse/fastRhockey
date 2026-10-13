@@ -2,10 +2,6 @@
 # parity CSVs written by sdv-py's parsers on the SAME fixtures (fixtures/ha/parity/,
 # `\N` = null), the transport mocked. Live tests (one request per route) sit
 # behind skip_euro_test().
-#
-# Tests marked [needs shared .euro_resp_json fix] expect the shared runtime to raise
-# fastRhockey_asset_fetch for a truly empty 200 body; until euro_hockey_runtime.R
-# guards `resp_body_string()` (it errors "Can't retrieve empty body" first) they fail.
 
 fx <- function(...) testthat::test_path("fixtures", "ha", ...)
 fx_text <- function(...) paste(readLines(fx(...), warn = FALSE, encoding = "UTF-8"), collapse = "\n")
@@ -593,7 +589,7 @@ test_that("a non-JSON 2xx body is refused at once", {
   expect_length(st$reqs, 1L)
 })
 
-test_that("[needs shared .euro_resp_json fix] an empty 200 is an asset-fetch error", {
+test_that("an empty 200 is an asset-fetch error", {
   skip_on_cran()
   mock_transport(fake_resp(""))
   expect_error(

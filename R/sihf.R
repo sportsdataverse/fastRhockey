@@ -939,17 +939,7 @@
 .sihf_get <- function(path, params) {
   url <- paste0(.SIHF_BASE, "/", path)
   built <- .sihf_build_query(params)
-  raw <- tryCatch(
-    .euro_get(url, built$query, simplifyVector = FALSE),
-    error = function(e) {
-      if (inherits(e, "fastRhockey_error")) stop(e)
-      # an unreadable answer (e.g. an empty 200 body, which httr2 refuses to read) is an unknown
-      # answer, not "no data": the package's asset_fetch vocabulary
-      where <- .euro_where(url)
-      msg <- conditionMessage(e)
-      .abort_asset_fetch("{where}: the answer could not be read: {msg}", parent = e)
-    }
-  )
+  raw <- .euro_get(url, built$query, simplifyVector = FALSE)
   .sihf_check_body(url, raw, built$query)
   .sihf_check_table(url, raw, built$filters)
   .sihf_check_complete(url, raw)
