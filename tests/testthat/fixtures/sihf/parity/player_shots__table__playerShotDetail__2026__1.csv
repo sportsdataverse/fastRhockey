@@ -1,0 +1,4 @@
+season,phase_id,rank,player,team_id,team_name,team_acronym,position,games_played,sog_sog,sog_sog_percent,sog_sog_quotient,sog_sog_slot,sog_sog_slot_per_game,sog_missed,sog_missed_per_game,sog_post,sog_post_per_game,blockings,blockings_per_game,row_type
+2026,<NA>,427,Nater Jens,101144,EV Zug,EVZ,Verteidiger,2,0,<NA>,0.0,0,0.0,0,0.0,0,0.0,0,0.0,data
+2026,<NA>,426,Christen Livio,102128,EHC Biel-Bienne,EHCB,Stürmer,1,0,<NA>,0.0,0,0.0,0,0.0,0,0.0,0,0.0,data
+2026,<NA>,425,Besanidis Anton,101150,HC Lugano,HCL,Stürmer,1,0,<NA>,0.0,0,0.0,0,0.0,0,0.0,0,0.0,data

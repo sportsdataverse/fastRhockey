@@ -1,0 +1,19 @@
+table,rank,club_id,name,gp,w,otw,sow,sol,otl,otl_en,l,pts,goals_for,goals_against,is_out_playoff,link
+league,1,37,Металлург Мг,68,37,8,4,3,4,0,12,105,252,184,false,/clubs/metallurg_mg/
+league,2,34,Авангард,68,36,6,5,1,4,0,16,99,228,159,false,/clubs/avangard/
+league,3,1,Локомотив,68,34,6,6,2,4,0,16,98,185,135,false,/clubs/lokomotiv/
+west,1,1,Локомотив,68,34,6,6,2,4,0,16,98,185,135,false,/clubs/lokomotiv/
+west,2,207,Динамо Мн,68,33,2,4,5,5,0,19,88,247,173,false,/clubs/dinamo_mn/
+west,3,56,Северсталь,68,29,9,2,4,2,0,22,86,197,185,false,/clubs/severstal/
+east,1,37,Металлург Мг,68,37,8,4,3,4,0,12,105,252,184,false,/clubs/metallurg_mg/
+east,2,34,Авангард,68,36,6,5,1,4,0,16,99,228,159,false,/clubs/avangard/
+east,3,53,Ак Барс,68,38,2,3,6,2,0,17,94,212,169,false,/clubs/ak_bars/
+bobrov,1,24,СКА,68,28,7,2,4,3,0,24,81,197,170,false,/clubs/ska/
+bobrov,2,26,Торпедо,68,27,6,4,2,5,0,24,81,191,191,false,/clubs/torpedo/
+bobrov,3,7,Спартак,68,29,3,3,5,4,0,24,79,204,201,false,/clubs/spartak/
+tarasov,1,1,Локомотив,68,34,6,6,2,4,0,16,98,185,135,false,/clubs/lokomotiv/
+tarasov,2,207,Динамо Мн,68,33,2,4,5,5,0,19,88,247,173,false,/clubs/dinamo_mn/
+tarasov,3,56,Северсталь,68,29,9,2,4,2,0,22,86,197,185,false,/clubs/severstal/
+kharlamov,1,37,Металлург Мг,68,37,8,4,3,4,0,12,105,252,184,false,/clubs/metallurg_mg/
+kharlamov,2,53,Ак Барс,68,38,2,3,6,2,0,17,94,212,169,false,/clubs/ak_bars/
+kharlamov,3,190,Автомобилист,68,32,4,4,0,4,0,24,84,206,164,false,/clubs/avtomobilist/

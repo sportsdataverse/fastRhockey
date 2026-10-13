@@ -1,0 +1,4 @@
+player_id,athlete_uuid,first_name,last_name,jersey_number,position,shoots,full_name,date_of_birth,nationality,gender,weight,height,ep_url
+214,evrn569cti,Nicklas,Bäckström,19,F,L,Nicklas Bäckström,1987-11-23,SE,male,92,184,""
+524,qQ9-3b0amwpx9,Linus,Omark,<<NA>>,<<NA>>,L,Linus Omark,1987-02-05,SE,male,82,180,""
+664,qQ9-e9d5REkBM,Per,Åslund,22,F,L,Per Åslund,1986-08-21,SE,male,83,187,""

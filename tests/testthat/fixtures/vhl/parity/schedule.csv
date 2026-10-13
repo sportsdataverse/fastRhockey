@@ -1,0 +1,4 @@
+season,stage,tn,game_id,game_number,game_date,date,weekday,home_team,home_club_id,away_team,away_club_id,city,score,home_score,away_score,decision,winner,status,online_url
+2026,regular,1374,899225,986,2026-03-18,18 March,Wednesday,Kristall S,294,Zvezda,518,Saratov,5:2,5,2,,home,,https://online.vhlru.ru/online/899225.html
+2026,regular,1374,899222,983,2026-03-18,18 March,Wednesday,Molot,32,Chelmet,382,Perm,4:1,4,1,,home,,https://online.vhlru.ru/online/899222.html
+2026,regular,1374,899223,984,2026-03-18,18 March,Wednesday,Toros,192,Magnitka,892,Neftekamsk,2:3,2,3,SO,away,,https://online.vhlru.ru/online/899223.html

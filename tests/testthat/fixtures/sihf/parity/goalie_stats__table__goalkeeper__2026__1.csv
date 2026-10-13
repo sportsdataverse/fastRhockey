@@ -1,0 +1,9 @@
+season,phase_id,rank,player,team_id,team_name,team_acronym,games_played,first_keeper,goals_against,goals_against_average,shots_against,saves,saves_percentage,seconds_played,penalty_in_minutes,goals,assists,row_type
+2026,<NA>,1,Hrubec Simon,101139,ZSC Lions,ZSC,60,60,114,1.89,1630,1516,93.01,3615:02,0,0,0,data
+2026,<NA>,2,Reideborn Adam,102126,SC Bern,SCB,39,39,78,2.03,991,913,92.13,2307:31,0,0,1,data
+2026,<NA>,3,Berra Reto,103138,Fribourg-Gottéron,FRI,75,74,155,2.06,1973,1818,92.14,4522:09,6,0,5,data
+2026,<NA>,4,Aeschlimann Sandro,101151,HC Davos,HCD,67,65,141,2.1,1919,1778,92.65,4027:05,0,0,5,data
+2026,<NA>,5,Meyer Robin,102127,SCL Tigers,SCL,22,21,49,2.29,608,559,91.94,1281:41,0,0,0,data
+2026,<NA>,6,Schlegel Niklas,101150,HC Lugano,HCL,42,42,99,2.34,1132,1033,91.25,2533:19,0,0,0,data
+2026,<NA>,<NA>,Durchschnitt,<NA>,Durchschnitt,<NA>,44,43,105,2.43,1224,1119,91.42,2596:03,2,0,1,average
+2026,<NA>,7,Charlin Stéphane,103140,Genève-Servette HC,GSHC,66,64,155,2.47,1717,1562,90.97,3768:10,8,0,1,data

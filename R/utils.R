@@ -245,6 +245,24 @@ rule_footer <- function(x) {
 #' @keywords internal
 .retry_request <- function(url, params = list(), headers = NULL,
                            timeout = 60, proxy = NULL, max_tries = 3) {
+  .build_request(url, params, headers, timeout, proxy) |>
+    httr2::req_retry(max_tries = max_tries) |>
+    httr2::req_error(is_error = function(resp) FALSE) |>
+    httr2::req_perform()
+}
+
+#' Build (not perform) the package's standard httr2 GET request.
+#'
+#' The query, headers, proxy and timeout half of [.retry_request()], for
+#' callers that perform the request their own way (the European hockey
+#' families add a POST body, a cookie jar or `req_options(resolve = ...)` and
+#' perform through `.polite_perform()`).
+#'
+#' @inheritParams .retry_request
+#' @return An httr2 request.
+#' @keywords internal
+.build_request <- function(url, params = list(), headers = NULL,
+                           timeout = 60, proxy = NULL) {
   req <- httr2::request(url)
   if (length(params) > 0) {
     req <- httr2::req_url_query(req, !!!params)
@@ -260,11 +278,7 @@ rule_footer <- function(x) {
       httr2::req_proxy(req, url = proxy)
     }
   }
-  req |>
-    httr2::req_timeout(timeout) |>
-    httr2::req_retry(max_tries = max_tries) |>
-    httr2::req_error(is_error = function(resp) FALSE) |>
-    httr2::req_perform()
+  httr2::req_timeout(req, timeout)
 }
 
 #' Response body as UTF-8 text (replaces the legacy httr content text reader).
@@ -347,6 +361,67 @@ rule_footer <- function(x) {
 check_status <- function(res) {
   x <- httr2::resp_status(res)
   if (x != 200) stop("The API returned an error", call. = FALSE)
+}
+
+# ---------------------------------------------------------------------------
+# Classed conditions (the sportsdataverse-py error vocabulary)
+# ---------------------------------------------------------------------------
+# Every class also carries "fastRhockey_error", so a caller can catch the whole
+# family or one kind:
+#   tryCatch(x, fastRhockey_no_data = function(e) NULL)
+#
+# * fastRhockey_no_data       = sdv-py NoDataError: the host answered "nothing
+#   here" (HTTP 404, a 200 with no rows, a season the provider does not hold).
+# * fastRhockey_asset_fetch   = sdv-py AssetFetchError: the answer is unknown
+#   (a 403/429/5xx after retries, a connection failure, an empty or non-JSON
+#   body, an error envelope, a body for another season or game).
+# * fastRhockey_bad_request   = sdv-py ValueError: the request itself is wrong
+#   (HTTP 400/422, an unknown route or argument value); retrying cannot help.
+# `message` is a cli format string, interpolated in the caller's frame.
+
+#' @keywords internal
+#' @noRd
+.abort_no_data <- function(message, ..., call = rlang::caller_env(), .envir = parent.frame()) {
+  cli::cli_abort(message, ..., class = c("fastRhockey_no_data", "fastRhockey_error"),
+                 call = call, .envir = .envir)
+}
+
+#' @keywords internal
+#' @noRd
+.abort_asset_fetch <- function(message, ..., call = rlang::caller_env(), .envir = parent.frame()) {
+  cli::cli_abort(message, ..., class = c("fastRhockey_asset_fetch", "fastRhockey_error"),
+                 call = call, .envir = .envir)
+}
+
+#' @keywords internal
+#' @noRd
+.abort_bad_request <- function(message, ..., call = rlang::caller_env(), .envir = parent.frame()) {
+  cli::cli_abort(message, ..., class = c("fastRhockey_bad_request", "fastRhockey_error"),
+                 call = call, .envir = .envir)
+}
+
+#' Zero-row tibble with the documented columns and types.
+#'
+#' What a parser returns for an empty payload, so callers can chain without a
+#' null check (sdv-py's `_PARSER_COLUMNS` contract).
+#'
+#' @param cols Named character vector, column name -> type: one of
+#'   `"character"`, `"integer"`, `"double"`, `"numeric"`, `"logical"`,
+#'   `"Date"`, `"POSIXct"` (UTC).
+#' @return A zero-row tibble.
+#' @keywords internal
+#' @noRd
+.empty_tibble <- function(cols) {
+  proto <- list(
+    character = character(), integer = integer(), double = double(),
+    numeric = double(), logical = logical(), Date = as.Date(character()),
+    POSIXct = as.POSIXct(character(), tz = "UTC")
+  )
+  bad <- setdiff(unname(cols), names(proto))
+  if (length(bad)) .abort_bad_request("Unknown column type{?s}: {.val {bad}}.")
+  out <- proto[unname(cols)]
+  names(out) <- names(cols)
+  tibble::as_tibble(out)
 }
 
 #' @importFrom magrittr %>%

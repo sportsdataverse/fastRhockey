@@ -1,0 +1,4 @@
+team_id,team,team_abbreviation,team_short_name,team_label,gender,logo_url,club_id,club,club_code,competition_ids
+75,Anglet Hormadi,HOR,ANGLET,72001S - ANGLET HORMADI Ligue MAGNUS,M,https://hockeynet.fr/storage/logos_equipes/385/sEJ00DulIXaHCoHju1Ocm69qYtKy1SSvfAEex7Ef.png,385,ANGLET HORMADI ELITE,72001S,"[1, 19, 21]"
+103,Gothiques d'Amiens,AMI,AMIENS,22001S - AMIENS HOCKEY ELITE,M,https://hockeynet.fr/storage/logos_structures/sU3oyYLGok4OV2px1Iz8beKLPXzV2MWm5SN79fhw.png,389,AMIENS HOCKEY ELITE,22001S,"[1, 26, 19]"
+253,Dragons de Rouen,ROU,ROUEN,23001S - 23001S ROUEN HOCKEY ELITE 76,M,https://hockeynet.fr/storage/logos_equipes/166/t70uoBQeQNNaS1c96TfP8cehaisjLYc4CylipPrJ.png,388,SASP ROUEN HOCKEY ELITE 76,23001S,"[1, 19, 26]"

@@ -1,0 +1,5 @@
+season,phase_id,rank,team_id,team_name,team_acronym,games_played,points,points_quotient,games_won_in_time,games_won_extra_time,games_won_penalty,games_lost_penalty,games_lost_extra_time,games_lost_in_time,goals_for,goals_against,goals_difference,streak,row_type
+2025,<NA>,1,103141,Lausanne HC,LHC,52,97,1.865,25,6,3,3,1,14,153,128,25,W-W+L+W+W+L-W+L+L+L+,data
+2025,<NA>,2,101139,ZSC Lions,ZSC,52,93,1.788,22,7,4,2,3,14,156,121,35,L-L+W+L-W-L+W-L+L+W+,data
+2025,<NA>,3,102126,SC Bern,SCB,52,91,1.75,24,3,0,4,9,12,165,139,26,W-W+L+W+W+L-W+W+L+W+,data
+2025,<NA>,4,101144,EV Zug,EVZ,52,88,1.692,25,4,1,0,3,19,173,136,37,L+W+L+W-W+L+W+L+L+W+,data

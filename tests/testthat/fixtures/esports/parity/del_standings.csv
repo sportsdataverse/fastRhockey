@@ -1,0 +1,4 @@
+league_part_id,league_part_name,state,datetime,team_id,part_team_id,name,shortcut,position,points,games,wins,wins_ot,ties,losses_ot,losses,score1,score2,only_so_wins,only_so_losts,only_ot_wins,only_ot_losts,bonus,ppg
+44,DEL 2026/27,playing,2026-10-11 21:21:06,3,495,Eisbären Berlin,EBB,1,20,8,6,1,0,0,1,31,12,1,0,0,0,0,2.5
+44,DEL 2026/27,playing,2026-10-11 21:21:06,2,497,Adler Mannheim,MAN,2,17,9,5,0,0,2,2,30,24,0,1,0,1,0,1.889
+44,DEL 2026/27,playing,2026-10-11 21:21:06,14,501,Nürnberg Ice Tigers,NIT,3,16,9,5,0,0,1,3,29,23,0,1,0,0,0,1.778

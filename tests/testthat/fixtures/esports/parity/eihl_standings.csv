@@ -1,0 +1,4 @@
+group_id,group_name,complete,team_id,part_team_id,name,team_original,shortcut,position,points,games,wins,wins_ot,wins_reg,ties,losts_ot,losts,score1,score2,goals_away,last10,only_ot_wins,only_so_wins,only_ot_losts,only_so_losts,qualified,ppg
+<NA>,"",false,92,545,Cardiff Devils,Cardiff Devils,CAR,1,8,4,4,0,0,0,0,0,12,3,0,"",0,0,0,0,false,2.0
+<NA>,"",false,93,547,Coventry Blaze,Coventry Blaze,COV,2,8,5,4,0,0,0,0,1,18,8,7,"",0,0,0,0,false,1.6
+<NA>,"",false,97,555,Guildford Flames,Guildford Flames,GUI,3,6,4,3,0,0,0,0,1,19,19,8,"",0,0,0,0,false,1.5

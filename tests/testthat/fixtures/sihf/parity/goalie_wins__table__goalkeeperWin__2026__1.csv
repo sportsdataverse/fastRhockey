@@ -1,0 +1,4 @@
+season,phase_id,rank,player,team_id,team_name,team_acronym,games_played,first_keeper,wins,wins_intime,wins_overtime,wins_penalty,losses,losses_intime,losses_overtime,losses_penalty,shutout,row_type
+2026,<NA>,16,Senn Gilles,101152,HC Ambri-Piotta,HCAP,26,26,7,6,1,0,19,15,3,1,0,data
+2026,<NA>,15,Ciaccio Damiano,103144,HC Ajoie,HCA,29,28,8,5,1,2,19,17,2,0,0,data
+2026,<NA>,14,Boltshauser Luca,102127,SCL Tigers,SCL,29,29,9,8,1,0,18,13,2,3,3,data

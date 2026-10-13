@@ -1,0 +1,261 @@
+[
+ {
+  "path": "/api/all-time-games-stats",
+  "params": {
+   "season": 2026,
+   "phase": "HA",
+   "game_status": "played"
+  },
+  "body": {
+   "league": "HA",
+   "phase": "HA",
+   "team_side": "all",
+   "team": "all",
+   "against_team": "all",
+   "all_results": "all",
+   "game_status": "played",
+   "decided_in": "all",
+   "categories": "all",
+   "page": 1,
+   "page_size": 1000,
+   "season": "2025"
+  },
+  "stamp": {
+   "season": 2026
+  }
+ },
+ {
+  "path": "/api/all-time-games-stats",
+  "params": {
+   "season": null,
+   "phase": "HAPlayoff",
+   "team": "AIK",
+   "decided_in": "ot"
+  },
+  "body": {
+   "league": "HA",
+   "phase": "HAPlayoff",
+   "team_side": "all",
+   "team": "AIK",
+   "against_team": "all",
+   "all_results": "all",
+   "game_status": "all",
+   "decided_in": "ot",
+   "categories": "all",
+   "page": 1,
+   "page_size": 1000,
+   "season": "2026"
+  },
+  "stamp": {
+   "season": 2027
+  }
+ },
+ {
+  "path": "/api/league-standings-all-time",
+  "params": {
+   "season": 2006,
+   "phase": "HAkval",
+   "location": "home"
+  },
+  "body": {
+   "league": "HA",
+   "phase": "HAkval",
+   "location": "home",
+   "season": "2005"
+  },
+  "stamp": {
+   "season": 2006
+  }
+ },
+ {
+  "path": "/api/all-time-skaters-stats",
+  "params": {
+   "season": 2026,
+   "categories": "goals",
+   "position": "back",
+   "ages": "rookie",
+   "team_side": "away",
+   "against_team": "MIK",
+   "all_results": "W"
+  },
+  "body": {
+   "league": "HA",
+   "phase": "HA",
+   "team_side": "away",
+   "team": "all",
+   "against_team": "MIK",
+   "all_results": "W",
+   "game_status": "all",
+   "decided_in": "all",
+   "categories": "goals",
+   "position": "back",
+   "ages": "rookie",
+   "page": 1,
+   "page_size": 1000,
+   "season": "2025"
+  },
+  "stamp": {
+   "season": 2026
+  }
+ },
+ {
+  "path": "/api/all-time-goalkeepers-stats",
+  "params": {
+   "season": null
+  },
+  "body": {
+   "league": "HA",
+   "phase": "HA",
+   "team_side": "all",
+   "team": "all",
+   "against_team": "all",
+   "all_results": "all",
+   "game_status": "all",
+   "decided_in": "all",
+   "categories": "summary",
+   "page": 1,
+   "page_size": 1000,
+   "season": "2026"
+  },
+  "stamp": {
+   "season": 2027
+  }
+ },
+ {
+  "path": "/api/all-time-teams-stats",
+  "params": {
+   "season": 2030,
+   "categories": "attendance"
+  },
+  "body": {
+   "league": "HA",
+   "phase": "HA",
+   "team_side": "all",
+   "team": "all",
+   "against_team": "all",
+   "all_results": "all",
+   "game_status": "all",
+   "decided_in": "all",
+   "categories": "attendance",
+   "season": "2029"
+  },
+  "stamp": {
+   "season": 2030
+  }
+ },
+ {
+  "path": "/api/player-leaderboard",
+  "params": {
+   "metric": "TOI/GP",
+   "phase": "HA",
+   "team": null,
+   "isGoalkeeper": null
+  },
+  "body": {
+   "league": "HA",
+   "team": null,
+   "phase": "HA",
+   "metric": "TOI/GP",
+   "isGoalkeeper": false,
+   "page": 1,
+   "pageSize": 100
+  },
+  "stamp": {}
+ },
+ {
+  "path": "/api/player-leaderboard",
+  "params": {
+   "metric": "G",
+   "team": "AIK",
+   "isGoalkeeper": true
+  },
+  "body": {
+   "league": "HA",
+   "team": "AIK",
+   "phase": "HA",
+   "metric": "G",
+   "isGoalkeeper": true,
+   "page": 1,
+   "pageSize": 100
+  },
+  "stamp": {}
+ },
+ {
+  "path": "/api/all-players",
+  "params": {
+   "teamShortName": "ÖIK",
+   "orderBy": "firstName",
+   "searchQuery": null
+  },
+  "body": {
+   "scope": "league",
+   "orderBy": "firstName",
+   "teamShortName": "ÖIK",
+   "leagueShortName": "HA",
+   "searchQuery": "",
+   "page": 1,
+   "pageSize": 100
+  },
+  "stamp": {}
+ },
+ {
+  "path": "/api/all-players",
+  "params": {
+   "teamShortName": "AIK",
+   "searchQuery": "Jo"
+  },
+  "body": {
+   "scope": "league",
+   "orderBy": "familyName",
+   "teamShortName": "AIK",
+   "leagueShortName": "HA",
+   "searchQuery": "Jo",
+   "page": 1,
+   "pageSize": 100
+  },
+  "stamp": {}
+ },
+ {
+  "path": "/api/play-by-play",
+  "params": {
+   "statNetGameNumber": 23401,
+   "homeStatNetId": "AIK",
+   "awayStatNetId": "MODO",
+   "scheduledDateTime": "2026-09-18T17:00:00.000Z",
+   "playedDateTime": null
+  },
+  "body": {
+   "statNetGameNumber": "23401",
+   "homeStatNetId": "AIK",
+   "awayStatNetId": "MODO",
+   "scheduledDateTime": "2026-09-18T17:00:00.000Z"
+  },
+  "stamp": {
+   "statnet_game_number": "23401",
+   "home_statnet_id": "AIK",
+   "away_statnet_id": "MODO"
+  }
+ },
+ {
+  "path": "/api/play-by-play",
+  "params": {
+   "statNetGameNumber": "23402",
+   "homeStatNetId": "MIK",
+   "awayStatNetId": "IFB",
+   "scheduledDateTime": "2026-09-19T17:00:00.000Z",
+   "playedDateTime": "2026-09-19T17:01:10.000Z"
+  },
+  "body": {
+   "statNetGameNumber": "23402",
+   "homeStatNetId": "MIK",
+   "awayStatNetId": "IFB",
+   "scheduledDateTime": "2026-09-19T17:00:00.000Z",
+   "playedDateTime": "2026-09-19T17:01:10.000Z"
+  },
+  "stamp": {
+   "statnet_game_number": "23402",
+   "home_statnet_id": "MIK",
+   "away_statnet_id": "IFB"
+  }
+ }
+]

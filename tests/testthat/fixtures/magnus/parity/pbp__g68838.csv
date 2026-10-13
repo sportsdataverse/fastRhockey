@@ -1,0 +1,6 @@
+game_id,event_id,event_type,event_type_raw,period,period_seconds,game_seconds,team_id,team_abbreviation,player_id,player_name,assist1_player_id,assist1_player_name,assist2_player_id,assist2_player_name,goalie_player_id,goalie_player_name,faceoff_home_player_id,faceoff_away_player_id,strength_code,penalty_code,penalty,penalty_minutes,penalty_start_seconds,penalty_end_seconds,goalie_in_player_id,goalie_out_player_id,on_ice_plus_player_ids,on_ice_minus_player_ids
+68838,TIR176759,shot,TIR,1,32,32,253,ROU,136990,REGUSH Michael,,,,,136880,ZIMMERMANN Max,,,,,,,,,,,,
+68838,SANCTION100383,penalty,SANCTION,1,44,44,366,GAP,18727,TEN BRAAK Bryan,,,,,,,,,,JEU,Retard de jeu,2,44,164,,,,
+68838,BUT73409,goal,BUT,1,656,656,253,ROU,115010,YEO Dylan,131539,PHELAN James,12468,LAMPERIER Loïc,136880,ZIMMERMANN Max,,,EG,,,,,,,,"[null, null, null]","[136880, null, null]"
+68838,ENGA183658,faceoff,ENGA,2,0,1200,366,GAP,136877,POULIN Anthony,,,,,,,136990,136877,,,,,,,,,,
+68838,REMPLACANT9624,goalie_change,REMPLACANT,3,444,2844,366,GAP,,,,,,,,,,,,,,,,,,136880,,

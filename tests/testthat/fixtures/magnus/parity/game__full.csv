@@ -1,0 +1,2 @@
+game_id,competition,phase,round,game_datetime,status,home_team_id,home_team,home_team_abbreviation,away_team_id,away_team,away_team_abbreviation,home_score,away_score,home_team_participant_id,away_team_participant_id,has_shootout,n_periods,period_minutes,attendance,venue
+77779,Synerglace Ligue Magnus,Saison régulière,6,2026-09-29 20:30:00+0200,final,553,Ducs d'Angers,ANG,3409,DIABLES ROUGES BRIANÇON,BRI,3,4,9130,9131,true,3,20,3586,Angers IceParc

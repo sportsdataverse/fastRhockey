@@ -1,0 +1,13 @@
+filter,filter_name,value,name,def,active
+season,Сезон,all,Все сезоны,<NA>,<NA>
+season,Сезон,s19,2026-2027,1436,<NA>
+season,Сезон,s18,2025-2026,1370,1
+tournament,Турниры,s18,Все турниры,<NA>,<NA>
+tournament,Турниры,1369,Регулярный чемпионат,<NA>,1
+tournament,Турниры,1370,Плей-офф,<NA>,<NA>
+amplua_full,Амплуа,all,Все амплуа,<NA>,1
+amplua_full,Амплуа,goalies,Вратари,<NA>,<NA>
+amplua_full,Амплуа,defenses,Защитники,<NA>,<NA>
+clubs_full,Клубы,all,Все клубы,<NA>,1
+clubs_full,Клубы,avangard,Авангард,<NA>,<NA>
+clubs_full,Клубы,avtomobilist,Автомобилист,<NA>,<NA>

@@ -1,0 +1,12 @@
+statnet_game_number,home_statnet_id,away_statnet_id,period,period_label,event_type,time,is_entering,team_name,team_code,team_statnet_id,player_statnet_id,player_first_name,player_family_name,player_jersey_number,event_description,running_score,scorer_season_goals,is_penalty_shot,assist1_name,assist1_jersey_today,assist1_season_assists,assist2_name,assist2_jersey_today,assist2_season_assists
+23401,AIK,MODO,1,Period 1,GoalkeeperEvent,0,true,AIK,AIK,AIK,920,Jhonas,Enroth,88,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N
+23401,AIK,MODO,1,Period 1,Shot,44,\N,MoDo Hockey,MoDo,MODO,7028,Bryan,Yoon,71,save,\N,\N,\N,\N,\N,\N,\N,\N,\N
+23401,AIK,MODO,1,Period 1,Penalty,819,\N,MoDo Hockey,MoDo,MODO,3819,Marcus,Karlberg,7,"2 min, Tripping",\N,\N,\N,\N,\N,\N,\N,\N,\N
+23401,AIK,MODO,2,Period 2,Shot,36,\N,MoDo Hockey,MoDo,MODO,7100,Jackson,Jutting,10,covered by player,\N,\N,\N,\N,\N,\N,\N,\N,\N
+23401,AIK,MODO,2,Period 2,Goal,345,\N,MoDo Hockey,MoDo,MODO,4043,Carl,Mattsson,25,EQ,0-1,1,false,Victor Berglund,51,1,Elias Rosén,28,1
+23401,AIK,MODO,2,Period 2,Penalty,641,\N,MoDo Hockey,MoDo,MODO,6162,Elias,Rosén,28,"2 min, Tripping",\N,\N,\N,\N,\N,\N,\N,\N,\N
+23401,AIK,MODO,3,Period 3,Shot,62,\N,AIK,AIK,AIK,6268,Tim,Theocharidis,98,frame hit,\N,\N,\N,\N,\N,\N,\N,\N,\N
+23401,AIK,MODO,3,Period 3,Goal,148,\N,AIK,AIK,AIK,2288,Christopher,Bengtsson,25,EQ,1-2,1,false,Anders Grönlund,15,1,Sid Boije,45,1
+23401,AIK,MODO,3,Period 3,Penalty,483,\N,MoDo Hockey,MoDo,MODO,\N,\N,\N,\N,"Team Penalty 2 min, Too many players on the ice",\N,\N,\N,\N,\N,\N,\N,\N,\N
+23401,AIK,MODO,3,Period 3,Timeout,1070,\N,AIK,AIK,AIK,\N,\N,\N,\N,Requested timeout,\N,\N,\N,\N,\N,\N,\N,\N,\N
+23401,AIK,MODO,3,Period 3,GoalkeeperEvent,1093,false,AIK,AIK,AIK,920,Jhonas,Enroth,88,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N

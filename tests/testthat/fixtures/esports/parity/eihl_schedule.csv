@@ -1,0 +1,4 @@
+match_id,start_date,league_id,league,season,round,group,home_id,home_name,home_shortcut,guest_id,guest_name,guest_shortcut,status,overtime_count,extra_time,shooting,contumacy,final_score_home,final_score_guest,first_period_score_home,first_period_score_guest,second_period_score_home,second_period_score_guest,third_period_score_home,third_period_score_guest,actual_time_name,actual_time_alias,last_event_time,arena
+4401,2027-03-24 19:30:00,3,EIHL,2027,249,"",98,Manchester Storm,MAN,95,Fife Flyers,FIF,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,before game,0,0,AO Arena
+4409,2026-09-20 16:00:00,3,EIHL,2027,1,"",96,Glasgow Clan,GLA,100,Sheffield Steelers,SHE,AFTER_MATCH,<NA>,false,false,false,1,6,0,3,0,2,1,1,end,K,3600,Braehead Arena
+4411,2026-09-20 17:00:00,3,EIHL,2027,2,"",94,Dundee Stars,DUN,93,Coventry Blaze,COV,AFTER_MATCH,<NA>,false,false,false,3,4,0,1,1,1,2,2,end,K,3600,Dundee Ice Arena

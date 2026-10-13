@@ -1,0 +1,4 @@
+game_id,team_id,home_away,player_id,player_participant_id,player_name,jersey_number,registered_jersey_number,licence_number,position_code,position,captaincy,is_mvp,photo_url
+77779,553,home,66741,618664,VILLARD Fiorenzo,61,3,227505,D,defence,,false,https://hockeynet.fr/storage/photos_personnes/miniature/66741_733149_photo_id.png
+77779,553,home,120434,618665,PRAPAVESSIS Matthew,7,7,282982,D,defence,,false,https://hockeynet.fr/storage/photos_personnes/miniature/120434_897499_photo_id.png
+77779,553,home,137034,618666,CENTAZZO Orrin,91,91,299580,A,forward,,false,https://hockeynet.fr/storage/photos_personnes/miniature/137034_259457_photo_id.png

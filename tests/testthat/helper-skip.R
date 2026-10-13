@@ -34,3 +34,14 @@ skip_espn_test <- function() {
     }
     invisible(TRUE)
 }
+
+# European hockey families (del/icehl/eihl/metal, khl, vhl, shl, ha, liiga, sihf,
+# nl, elh, magnus, espn mch/wch): live tests are OFF by default (the providers are
+# throttled to one request per second per host); fixture tests always run.
+skip_euro_test <- function() {
+    val <- Sys.getenv("RUN_EURO_TESTS", unset = "false")
+    if (!identical(tolower(val), "true")) {
+        skip("European hockey live tests skipped (set RUN_EURO_TESTS=true to enable)")
+    }
+    invisible(TRUE)
+}

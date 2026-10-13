@@ -1,0 +1,4 @@
+rank,team_id,team,team_abbreviation,team_participant_id,games_played,wins,ot_wins,ot_losses,losses,ties,points,goals_for,goals_against,penalty_minutes,last_results,standings_id
+1,3095,MARSEILLE,MAR,9129,9,6,2,0,1,0,22,34,20,69,WWW,929
+2,327,GRENOBLE,GRE,9125,9,7,0,1,1,0,22,35,20,56,WWW,929
+3,253,ROUEN,ROU,9127,9,6,1,0,2,0,20,29,15,52,WWW,929

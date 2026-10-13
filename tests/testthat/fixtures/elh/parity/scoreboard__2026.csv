@@ -1,0 +1,4 @@
+league_id,league_name,hokejcz_game_id,onlajny_game_id,game_date,start_time,status_code,status_name,match_status,home_score,away_score,score_periods,hokejcz_home_team_id,onlajny_home_team_id,home_team_name,home_team_short_name,home_team_code,hokejcz_away_team_id,onlajny_away_team_id,away_team_name,away_team_short_name,away_team_code,stream_url
+101,Tipsport extraliga,2928321,532979,2026-10-11,15:00,K,konec zápasu,po zápase,3,0,"2:0,0:0,1:0",8,156,HC Sparta Praha,Sparta,SPA,7,168,HC VÍTKOVICE RIDERA,Vítkovice,VIT,md
+101,Tipsport extraliga,2928319,532978,2026-10-11,16:00,K,konec zápasu,po zápase,2,1,"1:0,1:1,0:0",89,158,BK Mladá Boleslav,Mladá Boleslav,MBL,823,159,HC Litvínov,Litvínov,LIT,md
+101,Tipsport extraliga,2928320,532982,2026-10-11,17:00,K,konec zápasu,po zápase,4,3,"2:2,1:0,1:1",1721,164,BANES Motor České Budějovice,Č. Budějovice,CEB,18,157,Bílí Tygři Liberec,Liberec,LIB,md

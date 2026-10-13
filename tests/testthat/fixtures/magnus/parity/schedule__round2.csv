@@ -1,0 +1,7 @@
+game_id,season,competition_id,phase_id,phase,round,game_datetime,status,decision,home_team_id,home_team,home_team_abbreviation,away_team_id,away_team,away_team_abbreviation,home_score,away_score,home_team_participant_id,away_team_participant_id,venue_id,venue,game_label
+77753,2027,240,714,Saison régulière,2,2026-09-18 20:00:00+0200,final,regulation,472,Aigles de Nice,NIC,75,Anglet Hormadi,HOR,3,2,9126,9128,6,Nice - Jean Bouin,NICE / ANGLET
+77752,2027,240,714,Saison régulière,2,2026-09-18 20:05:00+0200,final,regulation,611,Pionniers de Chamonix,CHA,103,Gothiques d'Amiens,AMI,6,5,9123,9120,9,Chamonix - Richard Bozon,CHAMONIX / AMIENS
+77751,2027,240,714,Saison régulière,2,2026-09-18 20:15:00+0200,final,regulation,1671,BOXERS DE BORDEAUX,BOR,345,Jokers de Cergy-Pontoise,CER,3,1,9121,9122,1,Bordeaux - Mériadeck,BORDEAUX / CERGY-PONTOISE
+77755,2027,240,714,Saison régulière,2,2026-09-18 20:15:00+0200,final,regulation,3095,Spartiates de Marseille,MAR,3409,DIABLES ROUGES BRIANÇON,BRI,0,4,9129,9131,27,Palais Omnisports Marseille Grand-Est (POMGE),MARSEILLE / BRIANÇON
+77750,2027,240,714,Saison régulière,2,2026-09-18 20:30:00+0200,final,regulation,253,Dragons de Rouen,ROU,327,Brûleurs de Loups de Grenoble,GRE,5,1,9127,9125,7,Rouen - Île Lacroix,ROUEN / GRENOBLE
+77754,2027,240,714,Saison régulière,2,2026-09-18 20:30:00+0200,final,regulation,553,Ducs d'Angers,ANG,366,Rapaces de Gap,GAP,5,2,9130,9124,3,Angers IceParc,ANGERS / GAP

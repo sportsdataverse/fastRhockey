@@ -1,0 +1,4 @@
+match_id,date,home_id,home_name,home_shortcut,visitor_id,visitor_name,visitor_shortcut,status,shot_id,player_id,jersey,first_name,last_name,team_id,match_shot_resutl_id,time,coordinate_x,coordinate_y,real_date,xg,xg_type,shot_result_id,is_goal,team_side
+8161,2026-09-18,4,FTC-Telekom,FTC,10,Olimpija Ljubljana,OLL,AFTER_MATCH,37854,3278,74,Nathanael,Halbert,10,1,20,-71.0,14.0,2026-09-18 18:31:04,0.076832840841199,MD,1,false,visitor
+8161,2026-09-18,4,FTC-Telekom,FTC,10,Olimpija Ljubljana,OLL,AFTER_MATCH,37855,2938,60,Clayton,Kirichenko,10,3,145,-43.0,50.0,2026-09-18 18:34:10,0.013774841338789,LD,3,false,visitor
+8161,2026-09-18,4,FTC-Telekom,FTC,10,Olimpija Ljubljana,OLL,AFTER_MATCH,37861,2938,60,Clayton,Kirichenko,10,4,426,-56.0,24.0,2026-09-18 18:39:46,0.04537800198895,MD,4,true,visitor

@@ -1,0 +1,4 @@
+hokejcz_game_id,game_date,hokejcz_home_team_id,home_team_name,home_team_code,hokejcz_away_team_id,away_team_name,away_team_code,shot_id,hokejcz_player_id,jersey,first_name,last_name,hokejcz_team_id,team_side,match_shot_resutl_id,shot_result_id,is_goal,time,period,coordinate_x,coordinate_y,real_date
+2928321,2026-10-11,8,HC Sparta Praha,SPA,7,HC VÍTKOVICE RIDERA,VIT,711884,10093378,29,Vojtěch,Hradec,8,home,2,2,false,111,1,69.0,-30.0,2026-10-11 15:07:02
+2928321,2026-10-11,8,HC Sparta Praha,SPA,7,HC VÍTKOVICE RIDERA,VIT,711894,10110309,19,Anthony,Nellis,7,away,3,3,false,233,1,-67.0,-26.0,2026-10-11 15:10:25
+2928321,2026-10-11,8,HC Sparta Praha,SPA,7,HC VÍTKOVICE RIDERA,VIT,712105,10093378,29,Vojtěch,Hradec,8,home,4,4,true,3257,3,78.0,-22.0,2026-10-11 17:11:12

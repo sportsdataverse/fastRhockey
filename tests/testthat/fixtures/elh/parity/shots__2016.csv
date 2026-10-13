@@ -1,0 +1,4 @@
+hokejcz_game_id,game_date,hokejcz_home_team_id,home_team_name,home_team_code,hokejcz_away_team_id,away_team_name,away_team_code,shot_id,hokejcz_player_id,jersey,first_name,last_name,hokejcz_team_id,team_side,match_shot_resutl_id,shot_result_id,is_goal,time,period,coordinate_x,coordinate_y,real_date
+2508598,2016-09-20,18,Bílí Tygři Liberec,LIB,917,HC Škoda Plzeň,PLZ,1642404,14259,18,Dominik,Kubalík,917,away,4,4,true,0,1,-62.0,-24.0,2016-09-20 18:02:57
+2508598,2016-09-20,18,Bílí Tygři Liberec,LIB,917,HC Škoda Plzeň,PLZ,1642405,179,7,Petr,Kadlec,917,away,2,2,false,0,1,-35.0,63.0,2016-09-20 18:05:18
+2508598,2016-09-20,18,Bílí Tygři Liberec,LIB,917,HC Škoda Plzeň,PLZ,1642406,12877,61,Milan,Bartovič,18,home,3,3,false,0,1,46.0,-66.0,2016-09-20 18:07:19

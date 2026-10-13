@@ -1,0 +1,2 @@
+game_uuid,home_team_game_source_id,home_team_game_id,home_team_place,home_team_score,home_team_team_id,home_team_team_name,home_team_team_code,home_team_game_uuid,away_team_game_source_id,away_team_game_id,away_team_place,away_team_score,away_team_team_id,away_team_team_name,away_team_team_code,away_team_game_uuid,home_goals,away_goals,state,time_period,time_period_time
+bdhvuc5tex,20250913-FHC-LHC,22003,home,0,FHC,Frölunda HC,FHC,bdhvuc5tex,20250913-FHC-LHC,22003,away,0,LHC,Linköpings HC,LHC,bdhvuc5tex,2,1,GameEnded,3,20:00

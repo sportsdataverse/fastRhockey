@@ -1,0 +1,4 @@
+season,phase_id,rank,team_id,team_name,team_acronym,games_played,pp_opportunities,pp_opportunities_quotient,pp_goals_for,pp_goals_for_quotient,pp_percent,power_play_time,power_play_time_quotient,pp_goals_against,pp_goals_against_quotient,row_type
+2026,<NA>,14,101060,SC Rapperswil-Jona Lakers,SCRJ,74,258,3.49,41,0.55,15.89,407:35,05:30,10,0.14,data
+2026,<NA>,13,102126,SC Bern,SCB,60,156,2.6,25,0.42,16.03,265:59,04:25,3,0.05,data
+2026,<NA>,12,101152,HC Ambri-Piotta,HCAP,56,142,2.54,23,0.41,16.2,245:01,04:22,5,0.09,data

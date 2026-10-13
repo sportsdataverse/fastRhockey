@@ -1,0 +1,4 @@
+player_id,name,surname,jersey,birthdate,team_id,team_name,team_shortcut,matches,goals,assists,points,shots,positives,negatives,positives_negatives
+4929,Karl,Boudrias,71,2000-04-01,97,Guildford Flames,GUI,4,3,4,7,19,10,6,4
+4757,Mitchell,Balmas,92,1998-03-19,100,Sheffield Steelers,SHE,5,3,4,7,22,6,3,3
+4734,Victor,Bjorkung,10,1993-04-07,95,Fife Flyers,FIF,5,2,5,7,22,4,4,0

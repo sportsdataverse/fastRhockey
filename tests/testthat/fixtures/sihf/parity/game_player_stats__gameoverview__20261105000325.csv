@@ -1,0 +1,43 @@
+game_id,team_side,team_id,team_name,player_number,player,player_position,goals,assists,assists1,assists2,points,pim_total,plus_minus,shots_on_goal,sog_missed,sog_post,blockings,faceoffs_won,faceoffs_lost,faceoffs_percent,time_on_ice,time_on_ice_pp,time_on_ice_pk,row_type,player_id
+20261105000325,home,101151,HC Davos,6,Dahlbeck Klas,Verteidiger,1,0,0,0,1,0,1,3,1,0,0,0,0,<NA>,22:24,00:18,01:53,data,340162
+20261105000325,home,101151,HC Davos,8,Gredig Rico,Stürmer,0,0,0,0,0,0,0,0,2,0,0,0,0,<NA>,11:23,00:00,00:00,data,316294
+20261105000325,home,101151,HC Davos,15,Ryfors Simon,Stürmer,0,0,0,0,0,4,0,3,0,0,0,13,8,61.9,14:52,01:55,00:42,data,345037
+20261105000325,home,101151,HC Davos,18,Zadina Filip,Stürmer,0,0,0,0,0,2,1,3,1,1,2,0,0,<NA>,16:07,01:28,00:28,data,346405
+20261105000325,home,101151,HC Davos,20,Fora Michael,Verteidiger,0,1,0,1,1,0,0,2,0,0,0,0,0,<NA>,20:05,00:10,02:41,data,153207
+20261105000325,home,101151,HC Davos,21,Parrée Julian,Stürmer,0,0,0,0,0,0,0,1,1,0,0,0,0,<NA>,12:24,00:18,00:00,data,316457
+20261105000325,home,101151,HC Davos,22,Lemieux Brendan,Stürmer,0,1,1,0,1,0,0,3,0,0,1,0,0,<NA>,15:42,03:19,00:00,data,347294
+20261105000325,home,101151,HC Davos,25,Waidacher Beni,Stürmer,0,0,0,0,0,0,0,1,0,0,0,0,1,0.0,01:46,00:00,00:00,data,321715
+20261105000325,home,101151,HC Davos,36,Knak Simon,Stürmer,0,0,0,0,0,0,1,1,0,0,0,0,0,<NA>,12:28,00:18,00:22,data,312365
+20261105000325,home,101151,HC Davos,38,Frick Lukas,Verteidiger,0,1,1,0,1,0,2,3,0,0,0,0,0,<NA>,20:15,01:20,00:48,data,153736
+20261105000325,home,101151,HC Davos,44,Stransky Matej,Stürmer,1,1,1,0,2,0,1,3,2,0,1,0,0,<NA>,16:02,03:19,00:47,data,337830
+20261105000325,home,101151,HC Davos,55,Andersson Calle,Verteidiger,1,0,0,0,1,0,0,2,1,0,2,0,0,<NA>,18:50,03:28,00:00,data,322236
+20261105000325,home,101151,HC Davos,57,Barandun Davyd,Verteidiger,0,1,1,0,1,0,1,0,0,0,0,0,0,<NA>,13:33,00:06,00:45,data,312287
+20261105000325,home,101151,HC Davos,66,Nussbaumer Valentin,Stürmer,0,2,0,2,2,0,0,3,1,0,1,7,6,53.85,16:03,03:11,00:00,data,309618
+20261105000325,home,101151,HC Davos,72,Kessler Tino,Stürmer,0,1,0,1,1,0,-1,1,1,0,0,0,0,<NA>,19:16,02:44,00:42,data,301617
+20261105000325,home,101151,HC Davos,74,Asplund Rasmus,Stürmer,1,0,0,0,1,0,1,3,0,0,1,7,9,43.75,17:33,01:20,01:30,data,347698
+20261105000325,home,101151,HC Davos,77,Gross Nico,Verteidiger,0,0,0,0,0,0,-1,1,0,0,0,0,0,<NA>,12:58,00:00,00:45,data,308175
+20261105000325,home,101151,HC Davos,90,Jung Sven,Verteidiger,0,0,0,0,0,0,-1,2,0,0,2,0,0,<NA>,07:20,00:00,00:00,data,152416
+20261105000325,home,101151,HC Davos,93,Frehner Yannick,Stürmer,0,0,0,0,0,0,0,0,0,0,2,0,0,<NA>,14:26,01:14,01:49,data,305976
+20261105000325,home,101151,HC Davos,96,Egli Chris,Stürmer,0,0,0,0,0,0,0,1,0,0,0,4,5,44.44,13:03,00:18,00:34,data,154648
+20261105000325,home,101151,HC Davos,<NA>,Total,<NA>,4,8,4,4,12,6,5,36,10,1,12,31,29,51.67,<NA>,<NA>,<NA>,total,<NA>
+20261105000325,away,102127,SCL Tigers,6,Lehmann Nik,Verteidiger,0,0,0,0,0,0,1,0,0,0,0,0,0,<NA>,07:25,00:00,00:00,data,323466
+20261105000325,away,102127,SCL Tigers,8,Mäenalanen Saku,Stürmer,0,1,1,0,1,0,1,1,2,0,0,0,0,<NA>,15:30,00:59,02:04,data,344093
+20261105000325,away,102127,SCL Tigers,11,Björninen Hannes,Stürmer,0,0,0,0,0,0,0,0,0,0,0,10,12,45.45,17:12,01:18,00:30,data,347687
+20261105000325,away,102127,SCL Tigers,13,Lapinskis Oskars,Stürmer,0,0,0,0,0,0,-1,0,0,0,2,0,0,<NA>,10:52,00:00,00:00,data,327960
+20261105000325,away,102127,SCL Tigers,15,Mathys Tim,Verteidiger,0,1,0,1,1,0,0,0,0,0,0,0,0,<NA>,13:04,00:00,01:43,data,318262
+20261105000325,away,102127,SCL Tigers,20,Petersson Andre,Stürmer,1,1,1,0,2,2,0,5,0,0,0,0,0,<NA>,16:26,02:48,00:00,data,348352
+20261105000325,away,102127,SCL Tigers,22,Salzgeber Joel,Stürmer,0,0,0,0,0,0,-1,1,0,0,1,3,7,30.0,12:45,00:00,02:36,data,313354
+20261105000325,away,102127,SCL Tigers,24,Meier Noah,Verteidiger,0,0,0,0,0,0,-2,3,1,0,0,0,0,<NA>,18:58,00:28,00:21,data,312964
+20261105000325,away,102127,SCL Tigers,28,Allenspach Dario,Stürmer,0,0,0,0,0,0,0,0,1,0,0,0,0,<NA>,13:50,00:44,00:00,data,313213
+20261105000325,away,102127,SCL Tigers,40,Schmutz Flavio,Stürmer,0,0,0,0,0,0,-1,2,0,0,0,14,8,63.64,19:00,02:48,01:51,data,156727
+20261105000325,away,102127,SCL Tigers,42,Baltisberger Phil,Verteidiger,0,0,0,0,0,0,1,1,0,0,3,0,0,<NA>,20:51,00:00,02:41,data,148831
+20261105000325,away,102127,SCL Tigers,50,Riikola Juuso,Verteidiger,0,1,0,1,1,0,-2,0,1,1,0,0,0,<NA>,22:57,02:58,02:16,data,342927
+20261105000325,away,102127,SCL Tigers,51,Paschoud Claude-C.,Verteidiger,0,0,0,0,0,2,0,0,1,0,0,0,0,<NA>,15:46,00:00,01:02,data,152741
+20261105000325,away,102127,SCL Tigers,63,Rohrbach Dario,Stürmer,1,0,0,0,1,0,0,3,0,0,0,0,0,<NA>,14:33,00:39,00:00,data,303693
+20261105000325,away,102127,SCL Tigers,66,Felcman Jiri,Stürmer,1,0,0,0,1,0,1,2,0,0,1,2,4,33.33,15:17,02:27,00:00,data,334473
+20261105000325,away,102127,SCL Tigers,71,Schmutz Julian,Stürmer,0,0,0,0,0,0,0,2,0,0,0,0,0,<NA>,13:17,00:00,00:00,data,156475
+20261105000325,away,102127,SCL Tigers,72,Erni Samuel,Verteidiger,0,0,0,0,0,0,0,2,3,0,0,0,0,<NA>,16:17,00:00,01:50,data,142801
+20261105000325,away,102127,SCL Tigers,82,Pesonen Harri,Stürmer,0,0,0,0,0,2,-1,0,0,0,0,0,0,<NA>,17:43,02:43,00:00,data,322867
+20261105000325,away,102127,SCL Tigers,88,Bachofner Jérôme,Stürmer,0,0,0,0,0,0,0,0,0,0,0,0,0,<NA>,04:52,00:00,02:36,data,155120
+20261105000325,away,102127,SCL Tigers,94,Petrini Patrick,Stürmer,0,0,0,0,0,0,-1,0,0,0,2,0,0,<NA>,10:13,00:00,00:17,data,303815
+20261105000325,away,102127,SCL Tigers,<NA>,Total,<NA>,3,4,2,2,7,6,-5,22,9,1,9,29,31,48.33,<NA>,<NA>,<NA>,total,<NA>

@@ -516,6 +516,57 @@ reference:
     desc: Read-only Fox Sports (Bifrost) NHL wrappers (play-by-play, boxscore, odds, roster, stats, game log, standings, leaders)
     contents:
       - starts_with("fox_nhl_")
+  - title: "ESPN College Hockey"
+  - subtitle: ESPN Men's College Hockey
+    contents:
+      - starts_with("espn_mch_")
+  - subtitle: ESPN Women's College Hockey
+    contents:
+      - starts_with("espn_wch_")
+  - title: "European Hockey"
+    desc: >
+      Wrappers over the European leagues' public APIs, at parity with
+      sportsdataverse-py. Seasons are END years (2027 = 2026-27). Every request
+      waits at least one second after the last one to the same host.
+  - subtitle: "DEL (Germany)"
+    contents:
+      - starts_with("del_")
+  - subtitle: "ICE Hockey League (Austria)"
+    contents:
+      - starts_with("icehl_")
+  - subtitle: "EIHL (United Kingdom)"
+    contents:
+      - starts_with("eihl_")
+  - subtitle: "Metal Ligaen (Denmark)"
+    contents:
+      - starts_with("metal_")
+  - subtitle: "KHL"
+    contents:
+      - starts_with("khl_")
+  - subtitle: "VHL (Russia)"
+    contents:
+      - starts_with("vhl_")
+  - subtitle: "SHL (Sweden)"
+    contents:
+      - starts_with("shl_")
+  - subtitle: "HockeyAllsvenskan (Sweden)"
+    contents:
+      - starts_with("ha_")
+  - subtitle: "Liiga (Finland)"
+    contents:
+      - starts_with("liiga_")
+  - subtitle: "Swiss Ice Hockey Federation (SIHF)"
+    contents:
+      - starts_with("sihf_")
+  - subtitle: "National League (Switzerland)"
+    contents:
+      - starts_with("nl_")
+  - subtitle: "Extraliga (Czechia)"
+    contents:
+      - starts_with("elh_")
+  - subtitle: "Ligue Magnus (France)"
+    contents:
+      - starts_with("magnus_")
   - title: "fastRhockey Data"
   - subtitle: Family Overview
     desc: NHL loader family overview (release-tag catalog)

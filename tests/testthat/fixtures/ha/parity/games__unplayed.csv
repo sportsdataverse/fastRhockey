@@ -1,0 +1,4 @@
+season,date,home_team_code,away_team_code,home_score,away_score,decided_in,is_played,arena,attendance,home_shots_total,home_shots_goal,home_shots_efficiency,home_powerplay_goals,home_powerplay_num_pp,home_powerplay_efficiency,home_expulsions_in_minutes,away_shots_total,away_shots_goal,away_shots_efficiency,away_powerplay_goals,away_powerplay_num_pp,away_powerplay_efficiency,away_expulsions_in_minutes,period_scores,most_points
+2027,2027-03-05,BIK,SSK,0,0,,false,Nobelhallen,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N
+2027,2027-03-05,AIK,MoDo,0,0,,false,Hovet,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N
+2027,2027-03-05,KHC,IKO,0,0,,false,Hatstore Arena,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N,\N

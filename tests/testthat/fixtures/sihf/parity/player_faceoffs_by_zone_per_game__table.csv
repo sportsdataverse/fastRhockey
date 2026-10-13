@@ -1,0 +1,4 @@
+season,phase_id,rank,player,team_id,team_name,team_acronym,position,games_played,faceoffs_offensive_per_game,faceoffs_won_offensive_per_game,faceoffs_lost_offensive_per_game,faceoffs_neutral_per_game,faceoffs_won_neutral_per_game,faceoffs_lost_neutral_per_game,faceoffs_defensive_per_game,faceoffs_won_defensive_per_game,faceoffs_lost_defensive_per_game,row_type
+2026,<NA>,427,Zadina Filip,101151,HC Davos,HCD,Stürmer,72,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,data
+2026,<NA>,426,Rathgeb Yannick,103138,Fribourg-Gottéron,FRI,Verteidiger,89,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,data
+2026,<NA>,425,Puljujärvi Jesse,103140,Genève-Servette HC,GSHC,Stürmer,76,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,data

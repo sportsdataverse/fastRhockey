@@ -1,0 +1,4 @@
+season,phase_id,rank,team_id,team_name,team_acronym,games_played,goals_for_fw_df,goals_for_fw,goals_for_fw_percent,goals_for_df,goals_for_df_percent,goals_for_im,goals_for_im_percent,sow_goals_for,sow_goals_against,row_type
+2026,<NA>,14,103144,HC Ajoie,HCA,56,110,90,81.82,20,18.18,65,59.09,3,2,data
+2026,<NA>,13,101149,EHC Kloten,EHCK,52,117,93,79.49,24,20.51,49,41.88,0,4,data
+2026,<NA>,12,102126,SC Bern,SCB,60,129,101,78.29,28,21.71,65,50.39,5,1,data

@@ -1,0 +1,3 @@
+rank,player_name,player_statnet_id,team_statnet_id,team_code,jersey_number,metric,metric_value,extra
+1,A B,4204,LIF,LIF,9,TP,58,\N
+2,C D,4205,MIK,MORA,\N,TP,18:10,true

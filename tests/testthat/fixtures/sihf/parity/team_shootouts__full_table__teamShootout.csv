@@ -1,0 +1,16 @@
+season,phase_id,rank,team_id,team_name,team_acronym,games_played,games_won_penalty,games_lost_penalty,pen_shots,pen_shot_goals,pen_shots_missed,pen_shots_percent,pen_shots_against,pen_shot_goals_against,pen_shot_saves,pen_shot_saves_percent,row_type
+2026,<NA>,14,101149,EHC Kloten,EHCK,52,0,4,18,1,17,5.56,17,7,10,58.82,data
+2026,<NA>,13,103140,Genève-Servette HC,GSHC,76,1,2,12,2,10,16.67,13,5,8,61.54,data
+2026,<NA>,12,101144,EV Zug,EVZ,66,2,5,41,7,34,17.07,42,11,31,73.81,data
+2026,<NA>,11,101139,ZSC Lions,ZSC,70,2,4,31,6,25,19.35,29,7,22,75.86,data
+2026,<NA>,10,102127,SCL Tigers,SCL,52,1,5,31,7,24,22.58,33,12,21,63.64,data
+2026,<NA>,9,103138,Fribourg-Gottéron,FRI,90,8,2,54,13,41,24.07,52,5,47,90.38,data
+2026,<NA>,<NA>,<NA>,Durchschnitt,<NA>,65,2,2,30,9,20,30.0,30,9,20,66.67,average
+2026,<NA>,8,103141,Lausanne HC,LHC,66,2,2,19,6,13,31.58,18,7,11,61.11,data
+2026,<NA>,7,101150,HC Lugano,HCL,60,2,3,25,8,17,32.0,25,10,15,60.0,data
+2026,<NA>,6,101151,HC Davos,HCD,86,3,4,40,14,26,35.0,40,13,27,67.5,data
+2026,<NA>,5,101152,HC Ambri-Piotta,HCAP,56,3,1,20,7,13,35.0,19,4,15,78.95,data
+2026,<NA>,4,101060,SC Rapperswil-Jona Lakers,SCRJ,74,2,4,30,11,19,36.67,31,14,17,54.84,data
+2026,<NA>,3,103144,HC Ajoie,HCA,56,3,2,26,11,15,42.31,27,9,18,66.67,data
+2026,<NA>,2,102126,SC Bern,SCB,60,5,1,29,13,16,44.83,26,6,20,76.92,data
+2026,<NA>,1,102128,EHC Biel-Bienne,EHCB,56,7,2,44,21,23,47.73,48,17,31,64.58,data
