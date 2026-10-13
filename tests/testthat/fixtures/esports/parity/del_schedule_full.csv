@@ -1,0 +1,365 @@
+match_id,start_date,real_end_date,league_id,league,season,round,home_id,home_name,home_shortcut,guest_id,guest_name,guest_shortcut,status,overtime_count,extra_time,shooting,contumacy,final_score_home,final_score_guest,first_period_score_home,first_period_score_guest,second_period_score_home,second_period_score_guest,third_period_score_home,third_period_score_guest,actual_time_name,actual_time_alias,last_event_time,overtime_score_home,overtime_score_guest,shootout_score_home,shootout_score_guest
+4389,2026-09-17 19:30:00,2026-09-17 21:50:00,1,DEL,2027,1,3,Eisbären Berlin,EBB,6,Straubing Tigers,STR,AFTER_MATCH,<NA>,false,false,false,4,2,1,0,2,0,1,2,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4390,2026-09-18 19:30:00,2026-09-18 21:51:00,1,DEL,2027,1,11,Kölner Haie,KEC,8,Grizzlys Wolfsburg,WOB,AFTER_MATCH,<NA>,false,false,false,4,8,2,2,1,1,1,5,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4391,2026-09-18 19:30:00,2026-09-18 21:50:00,1,DEL,2027,1,14,Nürnberg Ice Tigers,NIT,13,Augsburger Panther,AEV,AFTER_MATCH,<NA>,false,false,false,4,1,0,0,1,1,3,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4392,2026-09-18 19:30:00,2026-09-18 21:50:00,1,DEL,2027,1,5,Krefeld Pinguine,KEV,9,Pinguins Bremerhaven,BHV,AFTER_MATCH,<NA>,false,false,false,1,3,0,0,1,3,0,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4393,2026-09-18 19:30:00,2026-09-18 22:08:00,1,DEL,2027,1,7,Iserlohn Roosters,IEC,1,ERC Ingolstadt,ING,AFTER_MATCH,<NA>,false,false,false,3,4,0,1,0,3,3,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4394,2026-09-18 19:30:00,2026-09-18 22:14:00,1,DEL,2027,1,12,EHC Red Bull München,RBM,2,Adler Mannheim,MAN,AFTER_MATCH,1,true,true,false,4,3,1,0,2,1,0,2,Ende n. Penaltyschießen,KN,3900,0,0,1,0
+4395,2026-09-18 19:30:00,2026-09-18 21:45:00,1,DEL,2027,1,15,Schwenninger Wild Wings,SWW,44,Löwen Frankfurt,FRA,AFTER_MATCH,<NA>,false,false,false,0,5,0,1,0,3,0,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4396,2026-09-20 14:00:00,2026-09-20 16:26:00,1,DEL,2027,2,2,Adler Mannheim,MAN,3,Eisbären Berlin,EBB,AFTER_MATCH,<NA>,false,false,false,4,3,2,2,1,0,1,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4397,2026-09-20 16:30:00,2026-09-20 18:48:00,1,DEL,2027,2,13,Augsburger Panther,AEV,15,Schwenninger Wild Wings,SWW,AFTER_MATCH,<NA>,false,false,false,7,3,3,0,3,2,1,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4398,2026-09-20 14:00:00,2026-09-20 16:25:00,1,DEL,2027,2,9,Pinguins Bremerhaven,BHV,7,Iserlohn Roosters,IEC,AFTER_MATCH,<NA>,false,false,false,2,1,0,0,2,1,0,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4399,2026-09-20 14:00:00,2026-09-20 16:37:00,1,DEL,2027,2,1,ERC Ingolstadt,ING,14,Nürnberg Ice Tigers,NIT,AFTER_MATCH,<NA>,false,false,false,2,6,0,2,1,1,1,3,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4400,2026-09-20 16:30:00,2026-09-20 18:54:00,1,DEL,2027,2,6,Straubing Tigers,STR,5,Krefeld Pinguine,KEV,AFTER_MATCH,<NA>,false,false,false,3,6,1,2,2,3,0,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4401,2026-09-20 16:30:00,2026-09-20 19:04:00,1,DEL,2027,2,8,Grizzlys Wolfsburg,WOB,12,EHC Red Bull München,RBM,AFTER_MATCH,1,true,false,false,4,3,1,1,2,2,0,0,Ende n. Verlängerung,KP,3834,1,0,<NA>,<NA>
+4402,2026-09-20 19:00:00,2026-09-20 21:15:00,1,DEL,2027,2,11,Kölner Haie,KEC,44,Löwen Frankfurt,FRA,AFTER_MATCH,1,true,false,false,4,3,2,0,1,1,0,2,Ende n. Verlängerung,KP,3766,1,0,<NA>,<NA>
+4403,2026-09-22 19:30:00,2026-09-22 21:58:00,1,DEL,2027,31,14,Nürnberg Ice Tigers,NIT,2,Adler Mannheim,MAN,AFTER_MATCH,<NA>,false,false,false,5,3,1,2,2,0,2,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4404,2026-09-24 19:30:00,2026-09-24 22:00:00,1,DEL,2027,3,7,Iserlohn Roosters,IEC,13,Augsburger Panther,AEV,AFTER_MATCH,1,true,true,false,2,3,0,0,1,0,1,2,Ende n. Penaltyschießen,KN,3900,0,0,0,1
+4405,2026-09-25 19:30:00,2026-09-25 22:10:00,1,DEL,2027,3,11,Kölner Haie,KEC,3,Eisbären Berlin,EBB,AFTER_MATCH,1,true,true,false,5,6,2,2,1,2,2,1,Ende n. Penaltyschießen,KN,3900,0,0,0,1
+4406,2026-09-25 19:30:00,2026-09-25 21:56:00,1,DEL,2027,3,44,Löwen Frankfurt,FRA,14,Nürnberg Ice Tigers,NIT,AFTER_MATCH,<NA>,false,false,false,1,2,0,2,1,0,0,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4407,2026-09-25 19:30:00,2026-09-25 21:47:00,1,DEL,2027,3,2,Adler Mannheim,MAN,5,Krefeld Pinguine,KEV,AFTER_MATCH,<NA>,false,false,false,4,1,0,0,2,1,2,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4408,2026-09-25 19:30:00,2026-09-25 21:48:00,1,DEL,2027,3,9,Pinguins Bremerhaven,BHV,12,EHC Red Bull München,RBM,AFTER_MATCH,<NA>,false,false,false,1,4,0,0,0,3,1,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4409,2026-09-25 19:30:00,2026-09-25 21:59:00,1,DEL,2027,3,6,Straubing Tigers,STR,1,ERC Ingolstadt,ING,AFTER_MATCH,<NA>,false,false,false,4,1,0,1,0,0,4,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4410,2026-09-25 19:30:00,2026-09-25 21:58:00,1,DEL,2027,3,8,Grizzlys Wolfsburg,WOB,15,Schwenninger Wild Wings,SWW,AFTER_MATCH,1,true,false,false,3,4,0,1,2,1,1,1,Ende n. Verlängerung,KP,3852,0,1,<NA>,<NA>
+4411,2026-09-27 14:00:00,2026-09-27 16:09:00,1,DEL,2027,4,3,Eisbären Berlin,EBB,7,Iserlohn Roosters,IEC,AFTER_MATCH,<NA>,false,false,false,4,0,1,0,3,0,0,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4412,2026-09-27 16:30:00,2026-09-27 18:56:00,1,DEL,2027,4,14,Nürnberg Ice Tigers,NIT,6,Straubing Tigers,STR,AFTER_MATCH,1,true,true,false,2,3,0,1,0,1,2,0,Ende n. Penaltyschießen,KN,3900,0,0,0,1
+4413,2026-09-27 16:30:00,2026-09-27 18:49:00,1,DEL,2027,4,5,Krefeld Pinguine,KEV,15,Schwenninger Wild Wings,SWW,AFTER_MATCH,<NA>,false,false,false,5,2,2,1,1,0,2,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4414,2026-09-27 16:30:00,2026-09-27 19:00:00,1,DEL,2027,4,13,Augsburger Panther,AEV,11,Kölner Haie,KEC,AFTER_MATCH,<NA>,false,false,false,4,6,0,2,3,1,1,3,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4415,2026-09-27 14:00:00,2026-09-27 16:28:00,1,DEL,2027,4,12,EHC Red Bull München,RBM,44,Löwen Frankfurt,FRA,AFTER_MATCH,<NA>,false,false,false,1,4,0,0,1,2,0,2,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4416,2026-09-27 14:00:00,2026-09-27 16:20:00,1,DEL,2027,4,8,Grizzlys Wolfsburg,WOB,9,Pinguins Bremerhaven,BHV,AFTER_MATCH,<NA>,false,false,false,3,2,2,0,1,0,0,2,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4417,2026-09-27 19:00:00,2026-09-27 21:36:00,1,DEL,2027,4,1,ERC Ingolstadt,ING,2,Adler Mannheim,MAN,AFTER_MATCH,1,true,false,false,3,2,0,0,1,0,1,2,Ende n. Verlängerung,KP,3811,1,0,<NA>,<NA>
+4418,2026-10-01 19:30:00,2026-10-01 21:45:00,1,DEL,2027,5,2,Adler Mannheim,MAN,7,Iserlohn Roosters,IEC,AFTER_MATCH,<NA>,false,false,false,6,1,3,0,2,1,1,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4419,2026-10-02 19:30:00,2026-10-02 21:48:00,1,DEL,2027,5,11,Kölner Haie,KEC,12,EHC Red Bull München,RBM,AFTER_MATCH,<NA>,false,false,false,2,4,1,2,0,2,1,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4420,2026-10-02 19:30:00,2026-10-02 21:46:00,1,DEL,2027,5,14,Nürnberg Ice Tigers,NIT,15,Schwenninger Wild Wings,SWW,AFTER_MATCH,<NA>,false,false,false,5,0,2,0,1,0,2,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4421,2026-10-02 19:30:00,2026-10-02 23:59:00,1,DEL,2027,5,5,Krefeld Pinguine,KEV,1,ERC Ingolstadt,ING,AFTER_MATCH,<NA>,false,false,false,3,1,0,0,1,0,2,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4422,2026-10-02 19:30:00,2026-10-02 21:38:00,1,DEL,2027,5,44,Löwen Frankfurt,FRA,3,Eisbären Berlin,EBB,AFTER_MATCH,<NA>,false,false,false,0,2,0,0,0,2,0,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4423,2026-10-02 19:30:00,2026-10-02 22:03:00,1,DEL,2027,5,13,Augsburger Panther,AEV,8,Grizzlys Wolfsburg,WOB,AFTER_MATCH,<NA>,false,false,false,5,2,3,1,2,0,0,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4424,2026-10-02 19:30:00,2026-10-02 21:48:00,1,DEL,2027,5,6,Straubing Tigers,STR,9,Pinguins Bremerhaven,BHV,AFTER_MATCH,<NA>,false,false,false,4,3,2,2,0,0,2,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4425,2026-10-04 14:00:00,2026-10-04 16:25:00,1,DEL,2027,6,3,Eisbären Berlin,EBB,14,Nürnberg Ice Tigers,NIT,AFTER_MATCH,<NA>,false,false,false,4,1,0,1,2,0,2,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4426,2026-10-04 14:00:00,2026-10-04 16:12:00,1,DEL,2027,6,9,Pinguins Bremerhaven,BHV,44,Löwen Frankfurt,FRA,AFTER_MATCH,<NA>,false,false,false,2,1,1,0,1,1,0,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4427,2026-10-04 16:30:00,2026-10-04 17:55:00,1,DEL,2027,6,1,ERC Ingolstadt,ING,11,Kölner Haie,KEC,AFTER_MATCH,<NA>,false,false,false,3,6,1,3,1,2,1,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4428,2026-10-04 16:30:00,2026-10-04 18:49:00,1,DEL,2027,6,7,Iserlohn Roosters,IEC,5,Krefeld Pinguine,KEV,AFTER_MATCH,<NA>,false,false,false,3,2,1,1,1,0,1,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4429,2026-10-04 14:00:00,2026-10-04 16:21:00,1,DEL,2027,6,15,Schwenninger Wild Wings,SWW,6,Straubing Tigers,STR,AFTER_MATCH,<NA>,false,false,false,2,4,0,3,0,0,2,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4430,2026-10-04 16:30:00,2026-10-04 18:48:00,1,DEL,2027,6,8,Grizzlys Wolfsburg,WOB,2,Adler Mannheim,MAN,AFTER_MATCH,<NA>,false,false,false,4,1,1,0,1,0,2,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4431,2026-10-04 19:00:00,2026-10-04 21:29:00,1,DEL,2027,6,12,EHC Red Bull München,RBM,13,Augsburger Panther,AEV,AFTER_MATCH,<NA>,false,false,false,4,2,0,0,2,1,2,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4432,2026-10-08 19:30:00,2026-10-08 21:42:00,1,DEL,2027,7,44,Löwen Frankfurt,FRA,5,Krefeld Pinguine,KEV,AFTER_MATCH,<NA>,false,false,false,2,5,0,0,1,2,1,3,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4433,2026-10-09 19:30:00,2026-10-09 21:41:00,1,DEL,2027,7,11,Kölner Haie,KEC,15,Schwenninger Wild Wings,SWW,AFTER_MATCH,<NA>,false,false,false,1,4,0,1,1,0,0,3,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4434,2026-10-09 19:30:00,2026-10-09 21:41:00,1,DEL,2027,7,3,Eisbären Berlin,EBB,8,Grizzlys Wolfsburg,WOB,AFTER_MATCH,<NA>,false,false,false,5,0,0,0,2,0,3,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4435,2026-10-09 19:30:00,2026-10-09 21:59:00,1,DEL,2027,7,14,Nürnberg Ice Tigers,NIT,2,Adler Mannheim,MAN,AFTER_MATCH,<NA>,false,false,false,2,5,0,0,0,3,2,2,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4436,2026-10-09 19:30:00,2026-10-09 21:44:00,1,DEL,2027,7,13,Augsburger Panther,AEV,9,Pinguins Bremerhaven,BHV,AFTER_MATCH,<NA>,false,false,false,3,0,0,0,0,0,3,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4437,2026-10-09 19:30:00,2026-10-09 21:47:00,1,DEL,2027,7,12,EHC Red Bull München,RBM,1,ERC Ingolstadt,ING,AFTER_MATCH,<NA>,false,false,false,1,5,0,2,0,2,1,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4438,2026-10-09 19:30:00,2026-10-09 21:45:00,1,DEL,2027,7,6,Straubing Tigers,STR,7,Iserlohn Roosters,IEC,AFTER_MATCH,<NA>,false,false,false,11,4,5,1,3,1,3,2,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4439,2026-10-11 16:30:00,2026-10-11 18:46:00,1,DEL,2027,8,11,Kölner Haie,KEC,14,Nürnberg Ice Tigers,NIT,AFTER_MATCH,<NA>,false,false,false,4,2,2,0,1,0,1,2,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4440,2026-10-11 14:00:00,2026-10-11 16:16:00,1,DEL,2027,8,5,Krefeld Pinguine,KEV,13,Augsburger Panther,AEV,AFTER_MATCH,<NA>,false,false,false,1,2,0,1,0,0,1,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4441,2026-10-11 16:30:00,2026-10-11 18:49:00,1,DEL,2027,8,9,Pinguins Bremerhaven,BHV,3,Eisbären Berlin,EBB,AFTER_MATCH,<NA>,false,false,false,0,3,0,0,0,2,0,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4442,2026-10-11 14:00:00,2026-10-11 15:39:00,1,DEL,2027,8,1,ERC Ingolstadt,ING,44,Löwen Frankfurt,FRA,AFTER_MATCH,1,true,true,false,2,3,0,0,1,1,1,1,Ende n. Penaltyschießen,KN,3900,0,0,0,1
+4443,2026-10-11 16:30:00,2026-10-11 18:52:00,1,DEL,2027,8,7,Iserlohn Roosters,IEC,8,Grizzlys Wolfsburg,WOB,AFTER_MATCH,1,true,false,false,3,2,0,0,0,2,2,0,Ende n. Verlängerung,KP,3749,1,0,<NA>,<NA>
+4444,2026-10-11 16:30:00,2026-10-11 18:48:00,1,DEL,2027,8,15,Schwenninger Wild Wings,SWW,12,EHC Red Bull München,RBM,AFTER_MATCH,<NA>,false,false,false,3,4,1,0,0,3,2,1,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4445,2026-10-11 19:00:00,2026-10-11 21:19:00,1,DEL,2027,8,2,Adler Mannheim,MAN,6,Straubing Tigers,STR,AFTER_MATCH,<NA>,false,false,false,2,1,1,1,0,0,1,0,Ende,K,3600,<NA>,<NA>,<NA>,<NA>
+4446,2026-10-15 19:30:00,0000-00-00 00:00:00,1,DEL,2027,9,8,Grizzlys Wolfsburg,WOB,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4447,2026-10-16 19:30:00,0000-00-00 00:00:00,1,DEL,2027,9,7,Iserlohn Roosters,IEC,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4448,2026-10-16 19:30:00,0000-00-00 00:00:00,1,DEL,2027,9,3,Eisbären Berlin,EBB,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4449,2026-10-16 19:30:00,0000-00-00 00:00:00,1,DEL,2027,9,44,Löwen Frankfurt,FRA,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4450,2026-10-16 19:30:00,0000-00-00 00:00:00,1,DEL,2027,9,13,Augsburger Panther,AEV,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4451,2026-10-16 19:30:00,0000-00-00 00:00:00,1,DEL,2027,9,9,Pinguins Bremerhaven,BHV,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4452,2026-10-16 19:30:00,0000-00-00 00:00:00,1,DEL,2027,9,15,Schwenninger Wild Wings,SWW,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4453,2026-10-18 16:30:00,0000-00-00 00:00:00,1,DEL,2027,10,11,Kölner Haie,KEC,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4454,2026-10-18 14:00:00,0000-00-00 00:00:00,1,DEL,2027,10,5,Krefeld Pinguine,KEV,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4455,2026-10-18 14:00:00,0000-00-00 00:00:00,1,DEL,2027,10,44,Löwen Frankfurt,FRA,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4456,2026-10-18 16:30:00,0000-00-00 00:00:00,1,DEL,2027,10,2,Adler Mannheim,MAN,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4457,2026-10-18 14:00:00,0000-00-00 00:00:00,1,DEL,2027,10,6,Straubing Tigers,STR,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4458,2026-10-18 16:30:00,0000-00-00 00:00:00,1,DEL,2027,10,1,ERC Ingolstadt,ING,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4459,2026-10-18 19:00:00,0000-00-00 00:00:00,1,DEL,2027,10,14,Nürnberg Ice Tigers,NIT,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4460,2026-10-20 19:30:00,0000-00-00 00:00:00,1,DEL,2027,46,1,ERC Ingolstadt,ING,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4461,2026-10-23 19:30:00,0000-00-00 00:00:00,1,DEL,2027,11,15,Schwenninger Wild Wings,SWW,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4462,2026-10-23 19:30:00,0000-00-00 00:00:00,1,DEL,2027,11,3,Eisbären Berlin,EBB,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4463,2026-10-23 19:30:00,0000-00-00 00:00:00,1,DEL,2027,11,14,Nürnberg Ice Tigers,NIT,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4464,2026-10-23 19:30:00,0000-00-00 00:00:00,1,DEL,2027,11,2,Adler Mannheim,MAN,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4465,2026-10-23 19:30:00,0000-00-00 00:00:00,1,DEL,2027,11,12,EHC Red Bull München,RBM,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4466,2026-10-23 19:30:00,0000-00-00 00:00:00,1,DEL,2027,11,6,Straubing Tigers,STR,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4467,2026-10-23 19:30:00,0000-00-00 00:00:00,1,DEL,2027,11,8,Grizzlys Wolfsburg,WOB,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4468,2026-10-25 16:30:00,0000-00-00 00:00:00,1,DEL,2027,12,5,Krefeld Pinguine,KEV,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4469,2026-10-25 14:00:00,0000-00-00 00:00:00,1,DEL,2027,12,44,Löwen Frankfurt,FRA,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4470,2026-10-25 16:30:00,0000-00-00 00:00:00,1,DEL,2027,12,13,Augsburger Panther,AEV,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4471,2026-10-25 16:30:00,0000-00-00 00:00:00,1,DEL,2027,12,7,Iserlohn Roosters,IEC,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4472,2026-10-25 14:00:00,0000-00-00 00:00:00,1,DEL,2027,12,15,Schwenninger Wild Wings,SWW,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4473,2026-10-25 19:00:00,0000-00-00 00:00:00,1,DEL,2027,12,9,Pinguins Bremerhaven,BHV,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4474,2026-10-27 19:30:00,0000-00-00 00:00:00,1,DEL,2027,12,11,Kölner Haie,KEC,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4475,2026-10-28 19:30:00,0000-00-00 00:00:00,1,DEL,2027,41,5,Krefeld Pinguine,KEV,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4476,2026-10-29 19:30:00,0000-00-00 00:00:00,1,DEL,2027,13,13,Augsburger Panther,AEV,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4477,2026-10-30 19:30:00,0000-00-00 00:00:00,1,DEL,2027,13,14,Nürnberg Ice Tigers,NIT,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4478,2026-10-30 19:30:00,0000-00-00 00:00:00,1,DEL,2027,13,5,Krefeld Pinguine,KEV,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4479,2026-10-30 19:30:00,0000-00-00 00:00:00,1,DEL,2027,13,2,Adler Mannheim,MAN,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4480,2026-10-30 19:30:00,0000-00-00 00:00:00,1,DEL,2027,13,1,ERC Ingolstadt,ING,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4481,2026-10-30 19:30:00,0000-00-00 00:00:00,1,DEL,2027,13,7,Iserlohn Roosters,IEC,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4482,2026-10-30 19:30:00,0000-00-00 00:00:00,1,DEL,2027,13,6,Straubing Tigers,STR,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4483,2026-11-01 19:00:00,0000-00-00 00:00:00,1,DEL,2027,14,11,Kölner Haie,KEC,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4484,2026-11-01 14:00:00,0000-00-00 00:00:00,1,DEL,2027,14,3,Eisbären Berlin,EBB,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4485,2026-11-01 16:30:00,0000-00-00 00:00:00,1,DEL,2027,14,44,Löwen Frankfurt,FRA,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4486,2026-11-01 16:30:00,0000-00-00 00:00:00,1,DEL,2027,14,15,Schwenninger Wild Wings,SWW,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4487,2026-11-01 14:00:00,0000-00-00 00:00:00,1,DEL,2027,14,8,Grizzlys Wolfsburg,WOB,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4488,2026-11-01 16:30:00,0000-00-00 00:00:00,1,DEL,2027,14,12,EHC Red Bull München,RBM,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4489,2026-11-01 14:00:00,0000-00-00 00:00:00,1,DEL,2027,14,9,Pinguins Bremerhaven,BHV,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4490,2026-11-12 19:30:00,0000-00-00 00:00:00,1,DEL,2027,15,7,Iserlohn Roosters,IEC,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4491,2026-11-13 19:30:00,0000-00-00 00:00:00,1,DEL,2027,15,8,Grizzlys Wolfsburg,WOB,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4492,2026-11-13 19:30:00,0000-00-00 00:00:00,1,DEL,2027,15,5,Krefeld Pinguine,KEV,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4493,2026-11-13 19:30:00,0000-00-00 00:00:00,1,DEL,2027,15,44,Löwen Frankfurt,FRA,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4494,2026-11-13 19:30:00,0000-00-00 00:00:00,1,DEL,2027,15,13,Augsburger Panther,AEV,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4495,2026-11-13 19:30:00,0000-00-00 00:00:00,1,DEL,2027,15,1,ERC Ingolstadt,ING,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4496,2026-11-13 19:30:00,0000-00-00 00:00:00,1,DEL,2027,15,15,Schwenninger Wild Wings,SWW,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4497,2026-11-15 16:30:00,0000-00-00 00:00:00,1,DEL,2027,16,11,Kölner Haie,KEC,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4498,2026-11-15 16:30:00,0000-00-00 00:00:00,1,DEL,2027,16,14,Nürnberg Ice Tigers,NIT,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4499,2026-11-15 16:30:00,0000-00-00 00:00:00,1,DEL,2027,16,2,Adler Mannheim,MAN,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4500,2026-11-15 14:00:00,0000-00-00 00:00:00,1,DEL,2027,16,9,Pinguins Bremerhaven,BHV,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4501,2026-11-15 14:00:00,0000-00-00 00:00:00,1,DEL,2027,16,12,EHC Red Bull München,RBM,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4502,2026-11-15 16:30:00,0000-00-00 00:00:00,1,DEL,2027,16,6,Straubing Tigers,STR,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4503,2026-11-15 19:00:00,0000-00-00 00:00:00,1,DEL,2027,16,3,Eisbären Berlin,EBB,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4504,2026-11-19 19:30:00,0000-00-00 00:00:00,1,DEL,2027,17,5,Krefeld Pinguine,KEV,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4505,2026-11-20 19:30:00,0000-00-00 00:00:00,1,DEL,2027,17,3,Eisbären Berlin,EBB,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4506,2026-11-20 19:30:00,0000-00-00 00:00:00,1,DEL,2027,17,44,Löwen Frankfurt,FRA,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4507,2026-11-20 19:30:00,0000-00-00 00:00:00,1,DEL,2027,17,13,Augsburger Panther,AEV,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4508,2026-11-20 19:30:00,0000-00-00 00:00:00,1,DEL,2027,17,9,Pinguins Bremerhaven,BHV,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4509,2026-11-20 19:30:00,0000-00-00 00:00:00,1,DEL,2027,17,12,EHC Red Bull München,RBM,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4510,2026-11-20 19:30:00,0000-00-00 00:00:00,1,DEL,2027,17,8,Grizzlys Wolfsburg,WOB,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4511,2026-11-22 14:00:00,0000-00-00 00:00:00,1,DEL,2027,18,14,Nürnberg Ice Tigers,NIT,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4512,2026-11-22 16:30:00,0000-00-00 00:00:00,1,DEL,2027,18,2,Adler Mannheim,MAN,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4513,2026-11-22 14:00:00,0000-00-00 00:00:00,1,DEL,2027,18,1,ERC Ingolstadt,ING,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4514,2026-11-22 16:30:00,0000-00-00 00:00:00,1,DEL,2027,18,7,Iserlohn Roosters,IEC,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4515,2026-11-22 14:00:00,0000-00-00 00:00:00,1,DEL,2027,18,6,Straubing Tigers,STR,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4516,2026-11-22 16:30:00,0000-00-00 00:00:00,1,DEL,2027,18,15,Schwenninger Wild Wings,SWW,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4517,2026-11-22 19:00:00,0000-00-00 00:00:00,1,DEL,2027,18,5,Krefeld Pinguine,KEV,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4518,2026-11-24 19:30:00,0000-00-00 00:00:00,1,DEL,2027,19,3,Eisbären Berlin,EBB,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4519,2026-11-24 19:30:00,0000-00-00 00:00:00,1,DEL,2027,19,13,Augsburger Panther,AEV,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4520,2026-11-24 19:30:00,0000-00-00 00:00:00,1,DEL,2027,19,1,ERC Ingolstadt,ING,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4521,2026-11-24 19:30:00,0000-00-00 00:00:00,1,DEL,2027,19,6,Straubing Tigers,STR,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4522,2026-11-24 19:30:00,0000-00-00 00:00:00,1,DEL,2027,19,11,Kölner Haie,KEC,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4523,2026-11-25 19:30:00,0000-00-00 00:00:00,1,DEL,2027,19,12,EHC Red Bull München,RBM,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4524,2026-11-25 19:30:00,0000-00-00 00:00:00,1,DEL,2027,19,15,Schwenninger Wild Wings,SWW,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4525,2026-11-26 19:30:00,0000-00-00 00:00:00,1,DEL,2027,20,44,Löwen Frankfurt,FRA,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4526,2026-11-27 19:30:00,0000-00-00 00:00:00,1,DEL,2027,20,11,Kölner Haie,KEC,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4527,2026-11-27 19:30:00,0000-00-00 00:00:00,1,DEL,2027,20,13,Augsburger Panther,AEV,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4528,2026-11-27 19:30:00,0000-00-00 00:00:00,1,DEL,2027,20,9,Pinguins Bremerhaven,BHV,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4529,2026-11-27 19:30:00,0000-00-00 00:00:00,1,DEL,2027,20,1,ERC Ingolstadt,ING,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4530,2026-11-27 19:30:00,0000-00-00 00:00:00,1,DEL,2027,20,7,Iserlohn Roosters,IEC,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4531,2026-11-27 19:30:00,0000-00-00 00:00:00,1,DEL,2027,20,8,Grizzlys Wolfsburg,WOB,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4532,2026-11-29 14:00:00,0000-00-00 00:00:00,1,DEL,2027,21,11,Kölner Haie,KEC,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4533,2026-11-29 14:00:00,0000-00-00 00:00:00,1,DEL,2027,21,3,Eisbären Berlin,EBB,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4534,2026-11-29 16:30:00,0000-00-00 00:00:00,1,DEL,2027,21,14,Nürnberg Ice Tigers,NIT,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4535,2026-11-29 14:00:00,0000-00-00 00:00:00,1,DEL,2027,21,2,Adler Mannheim,MAN,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4536,2026-11-29 16:30:00,0000-00-00 00:00:00,1,DEL,2027,21,12,EHC Red Bull München,RBM,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4537,2026-11-29 19:00:00,0000-00-00 00:00:00,1,DEL,2027,21,15,Schwenninger Wild Wings,SWW,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4538,2026-11-29 16:30:00,0000-00-00 00:00:00,1,DEL,2027,21,5,Krefeld Pinguine,KEV,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4539,2026-12-03 19:30:00,0000-00-00 00:00:00,1,DEL,2027,22,6,Straubing Tigers,STR,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4540,2026-12-04 19:30:00,0000-00-00 00:00:00,1,DEL,2027,22,14,Nürnberg Ice Tigers,NIT,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4541,2026-12-04 19:30:00,0000-00-00 00:00:00,1,DEL,2027,22,44,Löwen Frankfurt,FRA,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4542,2026-12-04 19:30:00,0000-00-00 00:00:00,1,DEL,2027,22,2,Adler Mannheim,MAN,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4543,2026-12-04 19:30:00,0000-00-00 00:00:00,1,DEL,2027,22,9,Pinguins Bremerhaven,BHV,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4544,2026-12-04 19:30:00,0000-00-00 00:00:00,1,DEL,2027,22,1,ERC Ingolstadt,ING,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4545,2026-12-04 19:30:00,0000-00-00 00:00:00,1,DEL,2027,22,12,EHC Red Bull München,RBM,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4546,2026-12-06 16:30:00,0000-00-00 00:00:00,1,DEL,2027,23,3,Eisbären Berlin,EBB,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4547,2026-12-06 16:30:00,0000-00-00 00:00:00,1,DEL,2027,23,5,Krefeld Pinguine,KEV,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4548,2026-12-06 14:00:00,0000-00-00 00:00:00,1,DEL,2027,23,13,Augsburger Panther,AEV,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4549,2026-12-06 19:00:00,0000-00-00 00:00:00,1,DEL,2027,23,7,Iserlohn Roosters,IEC,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4550,2026-12-06 14:00:00,0000-00-00 00:00:00,1,DEL,2027,23,15,Schwenninger Wild Wings,SWW,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4551,2026-12-06 14:00:00,0000-00-00 00:00:00,1,DEL,2027,23,8,Grizzlys Wolfsburg,WOB,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4552,2026-12-06 16:30:00,0000-00-00 00:00:00,1,DEL,2027,23,12,EHC Red Bull München,RBM,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4553,2026-12-08 19:30:00,0000-00-00 00:00:00,1,DEL,2027,24,11,Kölner Haie,KEC,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4554,2026-12-08 19:30:00,0000-00-00 00:00:00,1,DEL,2027,24,9,Pinguins Bremerhaven,BHV,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4555,2026-12-08 19:30:00,0000-00-00 00:00:00,1,DEL,2027,24,1,ERC Ingolstadt,ING,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4556,2026-12-08 19:30:00,0000-00-00 00:00:00,1,DEL,2027,24,6,Straubing Tigers,STR,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4557,2026-12-09 19:30:00,0000-00-00 00:00:00,1,DEL,2027,24,44,Löwen Frankfurt,FRA,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4558,2026-12-09 19:30:00,0000-00-00 00:00:00,1,DEL,2027,24,3,Eisbären Berlin,EBB,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4559,2026-12-09 19:30:00,0000-00-00 00:00:00,1,DEL,2027,24,2,Adler Mannheim,MAN,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4560,2026-12-10 19:30:00,0000-00-00 00:00:00,1,DEL,2027,25,14,Nürnberg Ice Tigers,NIT,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4561,2026-12-11 19:30:00,0000-00-00 00:00:00,1,DEL,2027,25,11,Kölner Haie,KEC,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4562,2026-12-11 19:30:00,0000-00-00 00:00:00,1,DEL,2027,25,5,Krefeld Pinguine,KEV,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4563,2026-12-11 19:30:00,0000-00-00 00:00:00,1,DEL,2027,25,7,Iserlohn Roosters,IEC,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4564,2026-12-11 19:30:00,0000-00-00 00:00:00,1,DEL,2027,25,12,EHC Red Bull München,RBM,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4565,2026-12-11 19:30:00,0000-00-00 00:00:00,1,DEL,2027,25,15,Schwenninger Wild Wings,SWW,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4566,2026-12-11 19:30:00,0000-00-00 00:00:00,1,DEL,2027,25,8,Grizzlys Wolfsburg,WOB,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4567,2026-12-13 14:00:00,0000-00-00 00:00:00,1,DEL,2027,26,3,Eisbären Berlin,EBB,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4568,2026-12-13 16:30:00,0000-00-00 00:00:00,1,DEL,2027,26,44,Löwen Frankfurt,FRA,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4569,2026-12-13 16:30:00,0000-00-00 00:00:00,1,DEL,2027,26,2,Adler Mannheim,MAN,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4570,2026-12-13 14:00:00,0000-00-00 00:00:00,1,DEL,2027,26,9,Pinguins Bremerhaven,BHV,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4571,2026-12-13 14:00:00,0000-00-00 00:00:00,1,DEL,2027,26,1,ERC Ingolstadt,ING,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4572,2026-12-13 16:30:00,0000-00-00 00:00:00,1,DEL,2027,26,6,Straubing Tigers,STR,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4573,2026-12-13 19:00:00,0000-00-00 00:00:00,1,DEL,2027,26,13,Augsburger Panther,AEV,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4574,2026-12-17 19:30:00,0000-00-00 00:00:00,1,DEL,2027,27,1,ERC Ingolstadt,ING,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4575,2026-12-18 19:30:00,0000-00-00 00:00:00,1,DEL,2027,27,13,Augsburger Panther,AEV,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4576,2026-12-18 19:30:00,0000-00-00 00:00:00,1,DEL,2027,27,3,Eisbären Berlin,EBB,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4577,2026-12-18 19:30:00,0000-00-00 00:00:00,1,DEL,2027,27,2,Adler Mannheim,MAN,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4578,2026-12-18 19:30:00,0000-00-00 00:00:00,1,DEL,2027,27,7,Iserlohn Roosters,IEC,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4579,2026-12-18 19:30:00,0000-00-00 00:00:00,1,DEL,2027,27,6,Straubing Tigers,STR,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4580,2026-12-18 19:30:00,0000-00-00 00:00:00,1,DEL,2027,27,8,Grizzlys Wolfsburg,WOB,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4581,2026-12-20 14:00:00,0000-00-00 00:00:00,1,DEL,2027,28,11,Kölner Haie,KEC,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4582,2026-12-20 14:00:00,0000-00-00 00:00:00,1,DEL,2027,28,3,Eisbären Berlin,EBB,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4583,2026-12-20 16:30:00,0000-00-00 00:00:00,1,DEL,2027,28,14,Nürnberg Ice Tigers,NIT,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4584,2026-12-20 14:00:00,0000-00-00 00:00:00,1,DEL,2027,28,13,Augsburger Panther,AEV,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4585,2026-12-20 16:30:00,0000-00-00 00:00:00,1,DEL,2027,28,12,EHC Red Bull München,RBM,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4586,2026-12-20 16:30:00,0000-00-00 00:00:00,1,DEL,2027,28,15,Schwenninger Wild Wings,SWW,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4587,2026-12-20 19:00:00,0000-00-00 00:00:00,1,DEL,2027,28,44,Löwen Frankfurt,FRA,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4588,2026-12-23 19:30:00,0000-00-00 00:00:00,1,DEL,2027,29,11,Kölner Haie,KEC,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4589,2026-12-23 19:30:00,0000-00-00 00:00:00,1,DEL,2027,29,14,Nürnberg Ice Tigers,NIT,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4590,2026-12-23 19:30:00,0000-00-00 00:00:00,1,DEL,2027,29,5,Krefeld Pinguine,KEV,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4591,2026-12-23 19:30:00,0000-00-00 00:00:00,1,DEL,2027,29,2,Adler Mannheim,MAN,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4592,2026-12-23 19:30:00,0000-00-00 00:00:00,1,DEL,2027,29,9,Pinguins Bremerhaven,BHV,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4593,2026-12-23 19:30:00,0000-00-00 00:00:00,1,DEL,2027,29,7,Iserlohn Roosters,IEC,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4594,2026-12-23 19:30:00,0000-00-00 00:00:00,1,DEL,2027,29,12,EHC Red Bull München,RBM,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4595,2026-12-27 19:00:00,0000-00-00 00:00:00,1,DEL,2027,30,44,Löwen Frankfurt,FRA,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4596,2026-12-27 14:00:00,0000-00-00 00:00:00,1,DEL,2027,30,13,Augsburger Panther,AEV,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4597,2026-12-27 16:30:00,0000-00-00 00:00:00,1,DEL,2027,30,9,Pinguins Bremerhaven,BHV,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4598,2026-12-27 16:30:00,0000-00-00 00:00:00,1,DEL,2027,30,1,ERC Ingolstadt,ING,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4599,2026-12-27 16:30:00,0000-00-00 00:00:00,1,DEL,2027,30,6,Straubing Tigers,STR,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4600,2026-12-27 14:00:00,0000-00-00 00:00:00,1,DEL,2027,30,8,Grizzlys Wolfsburg,WOB,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4601,2026-12-29 19:30:00,0000-00-00 00:00:00,1,DEL,2027,31,11,Kölner Haie,KEC,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4602,2026-12-29 19:30:00,0000-00-00 00:00:00,1,DEL,2027,31,3,Eisbären Berlin,EBB,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4603,2026-12-29 19:30:00,0000-00-00 00:00:00,1,DEL,2027,31,5,Krefeld Pinguine,KEV,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4604,2026-12-29 19:30:00,0000-00-00 00:00:00,1,DEL,2027,31,6,Straubing Tigers,STR,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4605,2026-12-29 19:30:00,0000-00-00 00:00:00,1,DEL,2027,31,15,Schwenninger Wild Wings,SWW,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4606,2026-12-30 19:30:00,0000-00-00 00:00:00,1,DEL,2027,31,1,ERC Ingolstadt,ING,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4607,2027-01-02 20:00:00,0000-00-00 00:00:00,1,DEL,2027,32,3,Eisbären Berlin,EBB,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4608,2027-01-02 18:00:00,0000-00-00 00:00:00,1,DEL,2027,32,7,Iserlohn Roosters,IEC,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4609,2027-01-02 20:00:00,0000-00-00 00:00:00,1,DEL,2027,32,13,Augsburger Panther,AEV,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4610,2027-01-03 16:30:00,0000-00-00 00:00:00,1,DEL,2027,32,44,Löwen Frankfurt,FRA,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4611,2027-01-03 16:30:00,0000-00-00 00:00:00,1,DEL,2027,32,2,Adler Mannheim,MAN,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4612,2027-01-03 14:00:00,0000-00-00 00:00:00,1,DEL,2027,32,12,EHC Red Bull München,RBM,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4613,2027-01-03 19:00:00,0000-00-00 00:00:00,1,DEL,2027,32,8,Grizzlys Wolfsburg,WOB,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4614,2027-01-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,33,11,Kölner Haie,KEC,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4615,2027-01-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,33,5,Krefeld Pinguine,KEV,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4616,2027-01-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,33,44,Löwen Frankfurt,FRA,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4617,2027-01-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,33,13,Augsburger Panther,AEV,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4618,2027-01-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,33,9,Pinguins Bremerhaven,BHV,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4619,2027-01-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,33,15,Schwenninger Wild Wings,SWW,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4620,2027-01-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,33,8,Grizzlys Wolfsburg,WOB,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4621,2027-01-07 19:30:00,0000-00-00 00:00:00,1,DEL,2027,34,12,EHC Red Bull München,RBM,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4622,2027-01-08 19:30:00,0000-00-00 00:00:00,1,DEL,2027,34,3,Eisbären Berlin,EBB,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4623,2027-01-08 19:30:00,0000-00-00 00:00:00,1,DEL,2027,34,14,Nürnberg Ice Tigers,NIT,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4624,2027-01-08 19:30:00,0000-00-00 00:00:00,1,DEL,2027,34,5,Krefeld Pinguine,KEV,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4625,2027-01-08 19:30:00,0000-00-00 00:00:00,1,DEL,2027,34,9,Pinguins Bremerhaven,BHV,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4626,2027-01-08 19:30:00,0000-00-00 00:00:00,1,DEL,2027,34,1,ERC Ingolstadt,ING,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4627,2027-01-08 19:30:00,0000-00-00 00:00:00,1,DEL,2027,34,6,Straubing Tigers,STR,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4628,2027-01-10 16:30:00,0000-00-00 00:00:00,1,DEL,2027,35,3,Eisbären Berlin,EBB,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4629,2027-01-10 14:00:00,0000-00-00 00:00:00,1,DEL,2027,35,44,Löwen Frankfurt,FRA,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4630,2027-01-10 14:00:00,0000-00-00 00:00:00,1,DEL,2027,35,2,Adler Mannheim,MAN,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4631,2027-01-10 16:30:00,0000-00-00 00:00:00,1,DEL,2027,35,13,Augsburger Panther,AEV,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4632,2027-01-10 16:30:00,0000-00-00 00:00:00,1,DEL,2027,35,7,Iserlohn Roosters,IEC,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4633,2027-01-10 16:30:00,0000-00-00 00:00:00,1,DEL,2027,35,8,Grizzlys Wolfsburg,WOB,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4634,2027-01-10 19:00:00,0000-00-00 00:00:00,1,DEL,2027,35,15,Schwenninger Wild Wings,SWW,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4635,2027-01-14 19:30:00,0000-00-00 00:00:00,1,DEL,2027,36,3,Eisbären Berlin,EBB,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4636,2027-01-15 19:30:00,0000-00-00 00:00:00,1,DEL,2027,36,8,Grizzlys Wolfsburg,WOB,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4637,2027-01-15 19:30:00,0000-00-00 00:00:00,1,DEL,2027,36,2,Adler Mannheim,MAN,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4638,2027-01-15 19:30:00,0000-00-00 00:00:00,1,DEL,2027,36,9,Pinguins Bremerhaven,BHV,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4639,2027-01-15 19:30:00,0000-00-00 00:00:00,1,DEL,2027,36,1,ERC Ingolstadt,ING,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4640,2027-01-15 19:30:00,0000-00-00 00:00:00,1,DEL,2027,36,7,Iserlohn Roosters,IEC,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4641,2027-01-15 19:30:00,0000-00-00 00:00:00,1,DEL,2027,36,6,Straubing Tigers,STR,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4642,2027-01-17 14:00:00,0000-00-00 00:00:00,1,DEL,2027,37,11,Kölner Haie,KEC,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4643,2027-01-17 14:00:00,0000-00-00 00:00:00,1,DEL,2027,37,3,Eisbären Berlin,EBB,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4644,2027-01-17 14:00:00,0000-00-00 00:00:00,1,DEL,2027,37,14,Nürnberg Ice Tigers,NIT,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4645,2027-01-17 16:30:00,0000-00-00 00:00:00,1,DEL,2027,37,44,Löwen Frankfurt,FRA,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4646,2027-01-17 16:30:00,0000-00-00 00:00:00,1,DEL,2027,37,13,Augsburger Panther,AEV,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4647,2027-01-17 16:30:00,0000-00-00 00:00:00,1,DEL,2027,37,1,ERC Ingolstadt,ING,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4648,2027-01-17 19:00:00,0000-00-00 00:00:00,1,DEL,2027,37,15,Schwenninger Wild Wings,SWW,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4649,2027-01-21 19:30:00,0000-00-00 00:00:00,1,DEL,2027,38,14,Nürnberg Ice Tigers,NIT,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4650,2027-01-22 19:30:00,0000-00-00 00:00:00,1,DEL,2027,38,3,Eisbären Berlin,EBB,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4651,2027-01-22 19:30:00,0000-00-00 00:00:00,1,DEL,2027,38,13,Augsburger Panther,AEV,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4652,2027-01-22 19:30:00,0000-00-00 00:00:00,1,DEL,2027,38,7,Iserlohn Roosters,IEC,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4653,2027-01-22 19:30:00,0000-00-00 00:00:00,1,DEL,2027,38,12,EHC Red Bull München,RBM,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4654,2027-01-22 19:30:00,0000-00-00 00:00:00,1,DEL,2027,38,15,Schwenninger Wild Wings,SWW,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4655,2027-01-22 19:30:00,0000-00-00 00:00:00,1,DEL,2027,38,8,Grizzlys Wolfsburg,WOB,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4656,2027-01-24 16:30:00,0000-00-00 00:00:00,1,DEL,2027,39,5,Krefeld Pinguine,KEV,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4657,2027-01-24 14:00:00,0000-00-00 00:00:00,1,DEL,2027,39,44,Löwen Frankfurt,FRA,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4658,2027-01-24 19:00:00,0000-00-00 00:00:00,1,DEL,2027,39,2,Adler Mannheim,MAN,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4659,2027-01-24 14:00:00,0000-00-00 00:00:00,1,DEL,2027,39,9,Pinguins Bremerhaven,BHV,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4660,2027-01-24 14:00:00,0000-00-00 00:00:00,1,DEL,2027,39,7,Iserlohn Roosters,IEC,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4661,2027-01-24 16:30:00,0000-00-00 00:00:00,1,DEL,2027,39,6,Straubing Tigers,STR,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4662,2027-01-24 19:00:00,0000-00-00 00:00:00,1,DEL,2027,39,1,ERC Ingolstadt,ING,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4663,2027-01-26 19:30:00,0000-00-00 00:00:00,1,DEL,2027,30,15,Schwenninger Wild Wings,SWW,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4664,2027-01-28 19:30:00,0000-00-00 00:00:00,1,DEL,2027,40,9,Pinguins Bremerhaven,BHV,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4665,2027-01-29 19:30:00,0000-00-00 00:00:00,1,DEL,2027,40,14,Nürnberg Ice Tigers,NIT,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4666,2027-01-29 19:30:00,0000-00-00 00:00:00,1,DEL,2027,40,2,Adler Mannheim,MAN,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4667,2027-01-29 19:30:00,0000-00-00 00:00:00,1,DEL,2027,40,1,ERC Ingolstadt,ING,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4668,2027-01-29 19:30:00,0000-00-00 00:00:00,1,DEL,2027,40,12,EHC Red Bull München,RBM,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4669,2027-01-29 19:30:00,0000-00-00 00:00:00,1,DEL,2027,40,15,Schwenninger Wild Wings,SWW,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4670,2027-01-29 19:30:00,0000-00-00 00:00:00,1,DEL,2027,40,8,Grizzlys Wolfsburg,WOB,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4671,2027-01-31 14:00:00,0000-00-00 00:00:00,1,DEL,2027,41,14,Nürnberg Ice Tigers,NIT,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4672,2027-01-31 14:00:00,0000-00-00 00:00:00,1,DEL,2027,41,7,Iserlohn Roosters,IEC,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4673,2027-01-31 14:00:00,0000-00-00 00:00:00,1,DEL,2027,41,12,EHC Red Bull München,RBM,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4674,2027-01-31 16:30:00,0000-00-00 00:00:00,1,DEL,2027,41,6,Straubing Tigers,STR,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4675,2027-01-31 19:00:00,0000-00-00 00:00:00,1,DEL,2027,41,13,Augsburger Panther,AEV,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4676,2027-02-01 19:30:00,0000-00-00 00:00:00,1,DEL,2027,41,11,Kölner Haie,KEC,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4677,2027-02-02 19:30:00,0000-00-00 00:00:00,1,DEL,2027,42,44,Löwen Frankfurt,FRA,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4678,2027-02-02 19:30:00,0000-00-00 00:00:00,1,DEL,2027,42,2,Adler Mannheim,MAN,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4679,2027-02-02 19:30:00,0000-00-00 00:00:00,1,DEL,2027,42,9,Pinguins Bremerhaven,BHV,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4680,2027-02-02 19:30:00,0000-00-00 00:00:00,1,DEL,2027,42,7,Iserlohn Roosters,IEC,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4681,2027-02-02 19:30:00,0000-00-00 00:00:00,1,DEL,2027,42,5,Krefeld Pinguine,KEV,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4682,2027-02-03 19:30:00,0000-00-00 00:00:00,1,DEL,2027,42,3,Eisbären Berlin,EBB,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4683,2027-02-03 19:30:00,0000-00-00 00:00:00,1,DEL,2027,42,6,Straubing Tigers,STR,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4684,2027-02-04 19:30:00,0000-00-00 00:00:00,1,DEL,2027,43,12,EHC Red Bull München,RBM,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4685,2027-02-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,43,5,Krefeld Pinguine,KEV,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4686,2027-02-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,43,44,Löwen Frankfurt,FRA,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4687,2027-02-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,43,9,Pinguins Bremerhaven,BHV,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4688,2027-02-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,43,1,ERC Ingolstadt,ING,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4689,2027-02-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,43,15,Schwenninger Wild Wings,SWW,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4690,2027-02-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,43,8,Grizzlys Wolfsburg,WOB,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4691,2027-02-07 16:30:00,0000-00-00 00:00:00,1,DEL,2027,44,14,Nürnberg Ice Tigers,NIT,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4692,2027-02-07 14:00:00,0000-00-00 00:00:00,1,DEL,2027,44,5,Krefeld Pinguine,KEV,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4693,2027-02-07 16:30:00,0000-00-00 00:00:00,1,DEL,2027,44,13,Augsburger Panther,AEV,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4694,2027-02-07 14:00:00,0000-00-00 00:00:00,1,DEL,2027,44,9,Pinguins Bremerhaven,BHV,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4695,2027-02-07 16:30:00,0000-00-00 00:00:00,1,DEL,2027,44,7,Iserlohn Roosters,IEC,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4696,2027-02-07 14:00:00,0000-00-00 00:00:00,1,DEL,2027,44,8,Grizzlys Wolfsburg,WOB,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4697,2027-02-07 19:00:00,0000-00-00 00:00:00,1,DEL,2027,44,6,Straubing Tigers,STR,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4698,2027-02-17 19:30:00,0000-00-00 00:00:00,1,DEL,2027,45,14,Nürnberg Ice Tigers,NIT,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4699,2027-02-17 19:30:00,0000-00-00 00:00:00,1,DEL,2027,45,44,Löwen Frankfurt,FRA,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4700,2027-02-17 19:30:00,0000-00-00 00:00:00,1,DEL,2027,45,2,Adler Mannheim,MAN,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4701,2027-02-17 19:30:00,0000-00-00 00:00:00,1,DEL,2027,45,1,ERC Ingolstadt,ING,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4702,2027-02-17 19:30:00,0000-00-00 00:00:00,1,DEL,2027,45,7,Iserlohn Roosters,IEC,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4703,2027-02-17 19:30:00,0000-00-00 00:00:00,1,DEL,2027,45,12,EHC Red Bull München,RBM,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4704,2027-02-17 19:30:00,0000-00-00 00:00:00,1,DEL,2027,45,6,Straubing Tigers,STR,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4705,2027-02-19 19:30:00,0000-00-00 00:00:00,1,DEL,2027,46,11,Kölner Haie,KEC,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4706,2027-02-19 19:30:00,0000-00-00 00:00:00,1,DEL,2027,46,3,Eisbären Berlin,EBB,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4707,2027-02-19 19:30:00,0000-00-00 00:00:00,1,DEL,2027,46,5,Krefeld Pinguine,KEV,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4708,2027-02-19 19:30:00,0000-00-00 00:00:00,1,DEL,2027,46,44,Löwen Frankfurt,FRA,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4709,2027-02-19 19:30:00,0000-00-00 00:00:00,1,DEL,2027,46,13,Augsburger Panther,AEV,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4710,2027-02-19 19:30:00,0000-00-00 00:00:00,1,DEL,2027,46,15,Schwenninger Wild Wings,SWW,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4711,2027-02-21 14:00:00,0000-00-00 00:00:00,1,DEL,2027,47,11,Kölner Haie,KEC,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4712,2027-02-21 16:30:00,0000-00-00 00:00:00,1,DEL,2027,47,14,Nürnberg Ice Tigers,NIT,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4713,2027-02-21 14:00:00,0000-00-00 00:00:00,1,DEL,2027,47,9,Pinguins Bremerhaven,BHV,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4714,2027-02-21 14:00:00,0000-00-00 00:00:00,1,DEL,2027,47,7,Iserlohn Roosters,IEC,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4715,2027-02-21 16:30:00,0000-00-00 00:00:00,1,DEL,2027,47,8,Grizzlys Wolfsburg,WOB,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4716,2027-02-21 19:00:00,0000-00-00 00:00:00,1,DEL,2027,47,2,Adler Mannheim,MAN,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4717,2027-02-24 19:30:00,0000-00-00 00:00:00,1,DEL,2027,47,12,EHC Red Bull München,RBM,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4718,2027-02-25 19:30:00,0000-00-00 00:00:00,1,DEL,2027,48,15,Schwenninger Wild Wings,SWW,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4719,2027-02-26 19:30:00,0000-00-00 00:00:00,1,DEL,2027,48,14,Nürnberg Ice Tigers,NIT,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4720,2027-02-26 19:30:00,0000-00-00 00:00:00,1,DEL,2027,48,2,Adler Mannheim,MAN,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4721,2027-02-26 19:30:00,0000-00-00 00:00:00,1,DEL,2027,48,13,Augsburger Panther,AEV,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4722,2027-02-26 19:30:00,0000-00-00 00:00:00,1,DEL,2027,48,9,Pinguins Bremerhaven,BHV,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4723,2027-02-26 19:30:00,0000-00-00 00:00:00,1,DEL,2027,48,12,EHC Red Bull München,RBM,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4724,2027-02-26 19:30:00,0000-00-00 00:00:00,1,DEL,2027,48,6,Straubing Tigers,STR,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4725,2027-02-28 19:00:00,0000-00-00 00:00:00,1,DEL,2027,49,5,Krefeld Pinguine,KEV,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4726,2027-02-28 16:30:00,0000-00-00 00:00:00,1,DEL,2027,49,44,Löwen Frankfurt,FRA,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4727,2027-02-28 14:00:00,0000-00-00 00:00:00,1,DEL,2027,49,1,ERC Ingolstadt,ING,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4728,2027-02-28 16:30:00,0000-00-00 00:00:00,1,DEL,2027,49,7,Iserlohn Roosters,IEC,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4729,2027-02-28 16:30:00,0000-00-00 00:00:00,1,DEL,2027,49,6,Straubing Tigers,STR,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4730,2027-02-28 14:00:00,0000-00-00 00:00:00,1,DEL,2027,49,8,Grizzlys Wolfsburg,WOB,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4731,2026-10-20 19:30:00,0000-00-00 00:00:00,1,DEL,2027,49,11,Kölner Haie,KEC,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4732,2027-03-02 19:30:00,0000-00-00 00:00:00,1,DEL,2027,50,3,Eisbären Berlin,EBB,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4733,2027-03-02 19:30:00,0000-00-00 00:00:00,1,DEL,2027,50,14,Nürnberg Ice Tigers,NIT,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4734,2027-03-02 19:30:00,0000-00-00 00:00:00,1,DEL,2027,50,12,EHC Red Bull München,RBM,11,Kölner Haie,KEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4735,2027-03-02 19:30:00,0000-00-00 00:00:00,1,DEL,2027,50,8,Grizzlys Wolfsburg,WOB,2,Adler Mannheim,MAN,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4736,2027-03-03 19:30:00,0000-00-00 00:00:00,1,DEL,2027,50,5,Krefeld Pinguine,KEV,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4737,2027-03-03 19:30:00,0000-00-00 00:00:00,1,DEL,2027,50,13,Augsburger Panther,AEV,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4738,2027-03-03 19:30:00,0000-00-00 00:00:00,1,DEL,2027,50,15,Schwenninger Wild Wings,SWW,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4739,2027-03-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,51,11,Kölner Haie,KEC,1,ERC Ingolstadt,ING,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4740,2027-03-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,51,5,Krefeld Pinguine,KEV,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4741,2027-03-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,51,44,Löwen Frankfurt,FRA,14,Nürnberg Ice Tigers,NIT,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4742,2027-03-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,51,2,Adler Mannheim,MAN,12,EHC Red Bull München,RBM,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4743,2027-03-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,51,9,Pinguins Bremerhaven,BHV,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4744,2027-03-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,51,7,Iserlohn Roosters,IEC,8,Grizzlys Wolfsburg,WOB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4745,2027-03-05 19:30:00,0000-00-00 00:00:00,1,DEL,2027,51,15,Schwenninger Wild Wings,SWW,6,Straubing Tigers,STR,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4746,2027-03-07 14:00:00,0000-00-00 00:00:00,1,DEL,2027,52,11,Kölner Haie,KEC,44,Löwen Frankfurt,FRA,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4747,2027-03-07 14:00:00,0000-00-00 00:00:00,1,DEL,2027,52,14,Nürnberg Ice Tigers,NIT,7,Iserlohn Roosters,IEC,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4748,2027-03-07 14:00:00,0000-00-00 00:00:00,1,DEL,2027,52,2,Adler Mannheim,MAN,15,Schwenninger Wild Wings,SWW,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4749,2027-03-07 14:00:00,0000-00-00 00:00:00,1,DEL,2027,52,1,ERC Ingolstadt,ING,9,Pinguins Bremerhaven,BHV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4750,2027-03-07 14:00:00,0000-00-00 00:00:00,1,DEL,2027,52,12,EHC Red Bull München,RBM,3,Eisbären Berlin,EBB,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4751,2027-03-07 14:00:00,0000-00-00 00:00:00,1,DEL,2027,52,8,Grizzlys Wolfsburg,WOB,5,Krefeld Pinguine,KEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>
+4752,2027-03-07 14:00:00,0000-00-00 00:00:00,1,DEL,2027,52,6,Straubing Tigers,STR,13,Augsburger Panther,AEV,BEFORE_MATCH,<NA>,false,false,false,0,0,0,0,0,0,0,0,vor dem Spiel,0,0,<NA>,<NA>,<NA>,<NA>

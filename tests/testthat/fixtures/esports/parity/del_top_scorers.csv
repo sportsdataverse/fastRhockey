@@ -1,0 +1,4 @@
+player_id,name,surname,team_id,team_name,team_shortcut,goals,assists,points,shots,games,penalty_minutes,time_on_ice
+3410,Liam,Kirk,3,Eisbären Berlin,EBB,5,11,16,39,8,0,0
+2209,Ty,Ronning,3,Eisbären Berlin,EBB,7,7,14,35,8,2,0
+3950,Mathew,Santos,5,Krefeld Pinguine,KEV,7,6,13,50,7,27,0

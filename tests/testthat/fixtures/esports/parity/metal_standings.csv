@@ -1,0 +1,4 @@
+group_id,group_name,complete,team_id,part_team_id,name,team_original,shortcut,position,points,games,wins,wins_ot,wins_reg,ties,losts_ot,losts,score1,score2,goals_away,points_away,last10,only_ot_wins,only_so_wins,only_ot_losts,only_so_losts,qualified,live,live_game_score,position_change,ppg
+<NA>,"",true,6,42,Herning Blue Fox,Herning Blue Fox,HER,1,26,10,7,2,0,0,1,0,46,15,15,11,"",2,0,1,0,false,false,<NA>,0,2.6
+<NA>,"",true,3,40,Frederikshavn White Hawks,Frederikshavn White Hawks,FRE,2,23,11,7,1,0,0,0,3,37,36,16,11,"",0,1,0,0,false,false,<NA>,0,2.091
+<NA>,"",true,5,39,Esbjerg Energy,Esbjerg Energy,ESB,3,23,12,7,0,0,0,2,3,42,36,20,10,"",0,0,1,1,false,false,<NA>,0,1.917

@@ -1,0 +1,48 @@
+league,route,kind,file,args,url,rows
+del,schedule,base,del/league-matches__season__league_id.json,"{""league_id"": 1, ""season"": 2027}",https://s3.eu-west-1.amazonaws.com/de.hokejovyzapis.cz/league-matches/2026/1.json,3
+del,schedule,full,del/full/league-matches__season__league_id.json,"{""league_id"": 1, ""season"": 2027}",https://s3.eu-west-1.amazonaws.com/de.hokejovyzapis.cz/league-matches/2026/1.json,364
+del,team_player_stats,base,del/league-team-stats__season__league_id__team_id.json,"{""league_id"": 1, ""season"": 2027, ""team_id"": 12}",https://s3.eu-west-1.amazonaws.com/de.hokejovyzapis.cz/league-team-stats/2026/1/12.json,3
+del,top_scorers,base,del/league-top-scorers__season__league_id.json,"{""league_id"": 1, ""season"": 2027}",https://s3.eu-west-1.amazonaws.com/de.hokejovyzapis.cz/league-top-scorers/2026/1.json,3
+del,faceoffs,base,del/matches__match_id__faceoffs.json,"{""match_id"": 4444}",https://s3.eu-west-1.amazonaws.com/de.hokejovyzapis.cz/matches/4444/faceoffs.json,3
+del,game_info,base,del/matches__match_id__game-header.json,"{""match_id"": 4444}",https://s3.eu-west-1.amazonaws.com/de.hokejovyzapis.cz/matches/4444/game-header.json,1
+del,pbp,base,del/matches__match_id__period-events.json,"{""match_id"": 4444}",https://s3.eu-west-1.amazonaws.com/de.hokejovyzapis.cz/matches/4444/period-events.json,9
+del,pbp,full,del/full/matches__match_id__period-events.json,"{""match_id"": 4444}",https://s3.eu-west-1.amazonaws.com/de.hokejovyzapis.cz/matches/4444/period-events.json,27
+del,roster,base,del/matches__match_id__roster.json,"{""match_id"": 4444}",https://s3.eu-west-1.amazonaws.com/de.hokejovyzapis.cz/matches/4444/roster.json,42
+del,shifts,base,del/matches__match_id__shiftsSC.json,"{""match_id"": 4444}",https://s3.eu-west-1.amazonaws.com/de.hokejovyzapis.cz/matches/4444/shiftsSC.json,3
+del,player_box,base,del/matches__match_id__team-stats__team_id.json,"{""match_id"": 4444, ""team_id"": 12}",https://s3.eu-west-1.amazonaws.com/de.hokejovyzapis.cz/matches/4444/team-stats/12.json,3
+del,goalie_box,base,del/matches__match_id__top-goalies.json,"{""match_id"": 4444}",https://s3.eu-west-1.amazonaws.com/de.hokejovyzapis.cz/matches/4444/top-goalies.json,3
+del,standings,base,del/tables__season__league_id.json,"{""league_id"": 1, ""season"": 2027}",https://s3.eu-west-1.amazonaws.com/de.hokejovyzapis.cz/tables/2026/1.json,3
+del,shots,base,del/visualization__shots__match_id.json,"{""match_id"": 4444}",https://s3.eu-west-1.amazonaws.com/de.hokejovyzapis.cz/visualization/shots/4444.json,3
+del,shots,full,del/full/visualization__shots__match_id.json,"{""match_id"": 4444}",https://s3.eu-west-1.amazonaws.com/de.hokejovyzapis.cz/visualization/shots/4444.json,99
+icehl,schedule,base,icehl/league-matches__season__league_id.json,"{""league_id"": 1, ""season"": 2027}",https://s3.eu-west-1.amazonaws.com/icehl.hokejovyzapis.cz/league-matches/2026/1.json,3
+icehl,league_part_player_stats,base,icehl/league-part-players-stats__league_part_id.json,"{""league_part_id"": 56}",https://s3.eu-west-1.amazonaws.com/icehl.hokejovyzapis.cz/league-part-players-stats/56.json,3
+icehl,team_player_stats,base,icehl/league-team-stats__season__league_id__team_id.json,"{""league_id"": 1, ""season"": 2027, ""team_id"": 4}",https://s3.eu-west-1.amazonaws.com/icehl.hokejovyzapis.cz/league-team-stats/2026/1/4.json,3
+icehl,top_scorers,base,icehl/league-top-scorers__season__league_id.json,"{""league_id"": 1, ""season"": 2027}",https://s3.eu-west-1.amazonaws.com/icehl.hokejovyzapis.cz/league-top-scorers/2026/1.json,3
+icehl,faceoffs,base,icehl/matches__match_id__faceoffs.json,"{""match_id"": 8161}",https://s3.eu-west-1.amazonaws.com/icehl.hokejovyzapis.cz/matches/8161/faceoffs.json,3
+icehl,game_info,base,icehl/matches__match_id__game-header.json,"{""match_id"": 8161}",https://s3.eu-west-1.amazonaws.com/icehl.hokejovyzapis.cz/matches/8161/game-header.json,1
+icehl,pbp,base,icehl/matches__match_id__period-events.json,"{""match_id"": 8161}",https://s3.eu-west-1.amazonaws.com/icehl.hokejovyzapis.cz/matches/8161/period-events.json,9
+icehl,player_box,base,icehl/matches__match_id__team-stats__team_id.json,"{""match_id"": 8161, ""team_id"": 4}",https://s3.eu-west-1.amazonaws.com/icehl.hokejovyzapis.cz/matches/8161/team-stats/4.json,3
+icehl,goalie_box,base,icehl/matches__match_id__top-goalies.json,"{""match_id"": 8161}",https://s3.eu-west-1.amazonaws.com/icehl.hokejovyzapis.cz/matches/8161/top-goalies.json,3
+icehl,standings,base,icehl/tables__season__league_id.json,"{""league_id"": 1, ""season"": 2027}",https://s3.eu-west-1.amazonaws.com/icehl.hokejovyzapis.cz/tables/2026/1.json,3
+icehl,shots,base,icehl/visualization__shots__match_id.json,"{""match_id"": 8161}",https://s3.eu-west-1.amazonaws.com/icehl.hokejovyzapis.cz/visualization/shots/8161.json,3
+icehl,shots,full,icehl/full/visualization__shots__match_id.json,"{""match_id"": 8161}",https://s3.eu-west-1.amazonaws.com/icehl.hokejovyzapis.cz/visualization/shots/8161.json,78
+icehl,game_center,base,icehl/widget__esports__match__match_id.json,"{""match_id"": 8161}",https://s3.eu-west-1.amazonaws.com/icehl.hokejovyzapis.cz/widget/esports/match/8161.json,1
+eihl,schedule,base,eihl/league-matches__season__league_id.json,"{""league_id"": 3, ""season"": 2027}",https://s3.eu-west-1.amazonaws.com/eihl.hokejovyzapis.cz/league-matches/2026/3.json,3
+eihl,team_player_stats,base,eihl/league-team-stats__season__league_id__team_id.json,"{""league_id"": 3, ""season"": 2027, ""team_id"": 96}",https://s3.eu-west-1.amazonaws.com/eihl.hokejovyzapis.cz/league-team-stats/2026/3/96.json,3
+eihl,top_scorers,base,eihl/league-top-scorers__season__league_id.json,"{""league_id"": 3, ""season"": 2027}",https://s3.eu-west-1.amazonaws.com/eihl.hokejovyzapis.cz/league-top-scorers/2026/3.json,3
+eihl,game_info,base,eihl/matches__match_id__game-info.json,"{""match_id"": 4440}",https://s3.eu-west-1.amazonaws.com/eihl.hokejovyzapis.cz/matches/4440/game-info.json,1
+eihl,pbp,base,eihl/matches__match_id__period-events.json,"{""match_id"": 4440}",https://s3.eu-west-1.amazonaws.com/eihl.hokejovyzapis.cz/matches/4440/period-events.json,8
+eihl,player_box,base,eihl/matches__match_id__team-stats__team_id.json,"{""match_id"": 4440, ""team_id"": 96}",https://s3.eu-west-1.amazonaws.com/eihl.hokejovyzapis.cz/matches/4440/team-stats/96.json,3
+eihl,goalie_box,base,eihl/matches__match_id__top-goalies.json,"{""match_id"": 4440}",https://s3.eu-west-1.amazonaws.com/eihl.hokejovyzapis.cz/matches/4440/top-goalies.json,3
+eihl,standings,base,eihl/table__season__league_id.json,"{""league_id"": 3, ""season"": 2027}",https://s3.eu-west-1.amazonaws.com/eihl.hokejovyzapis.cz/table/2026/3.json,3
+eihl,shots,base,eihl/visualization__shots__match_id.json,"{""match_id"": 4440}",https://s3.eu-west-1.amazonaws.com/eihl.hokejovyzapis.cz/visualization/shots/4440.json,3
+eihl,shots,full,eihl/full/visualization__shots__match_id.json,"{""match_id"": 4440}",https://s3.eu-west-1.amazonaws.com/eihl.hokejovyzapis.cz/visualization/shots/4440.json,114
+metal,schedule,base,metal/league-matches__season__league_id.json,"{""league_id"": 1, ""season"": 2027}",https://s3.eu-west-1.amazonaws.com/den.hokejovyzapis.cz/league-matches/2026/1.json,3
+metal,top_scorers,base,metal/league-top-scorers__season__league_id.json,"{""league_id"": 1, ""season"": 2027}",https://s3.eu-west-1.amazonaws.com/den.hokejovyzapis.cz/league-top-scorers/2026/1.json,3
+metal,game_info,base,metal/matches__match_id__game-header.json,"{""match_id"": 575}",https://s3.eu-west-1.amazonaws.com/den.hokejovyzapis.cz/matches/575/game-header.json,1
+metal,pbp,base,metal/matches__match_id__period-events.json,"{""match_id"": 575}",https://s3.eu-west-1.amazonaws.com/den.hokejovyzapis.cz/matches/575/period-events.json,9
+metal,pbp,full,metal/full/matches__match_id__period-events.json,"{""match_id"": 575}",https://s3.eu-west-1.amazonaws.com/den.hokejovyzapis.cz/matches/575/period-events.json,23
+metal,player_box,base,metal/matches__match_id__team-stats__team_id.json,"{""match_id"": 575, ""team_id"": 8}",https://s3.eu-west-1.amazonaws.com/den.hokejovyzapis.cz/matches/575/team-stats/8.json,3
+metal,goalie_box,base,metal/matches__match_id__top-goalies.json,"{""match_id"": 575}",https://s3.eu-west-1.amazonaws.com/den.hokejovyzapis.cz/matches/575/top-goalies.json,3
+metal,standings,base,metal/table__season__league_id.json,"{""league_id"": 1, ""season"": 2027}",https://s3.eu-west-1.amazonaws.com/den.hokejovyzapis.cz/table/2026/1.json,3
+metal,game_center,base,metal/widget__esports__match__match_id.json,"{""match_id"": 575}",https://s3.eu-west-1.amazonaws.com/den.hokejovyzapis.cz/widget/esports/match/575.json,1
