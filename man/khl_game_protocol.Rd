@@ -50,7 +50,7 @@ asked, or a failed fetch) and \code{fastRhockey_bad_request} (an invalid argumen
    team_side \tab character \tab A = home, B = visitor \cr
    score_a \tab integer \tab Home goals after the goal \cr
    score_b \tab integer \tab Visitor goals after the goal \cr
-   strength \tab character \tab Strength code as the site prints it (Russian: РАВ even, БОЛ power play, МЕН short-handed) \cr
+   strength \tab character \tab Strength code as the site prints it (Russian: RAV even, BOL power play, MEN short-handed) \cr
    strength_text \tab character \tab Strength label as the site prints it \cr
    scorer_player_id \tab integer \tab Scorer's khl.ru player id \cr
    scorer_name \tab character \tab Scorer's name with the season count in brackets \cr

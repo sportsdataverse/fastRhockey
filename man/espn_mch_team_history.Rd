@@ -18,6 +18,19 @@ is available. The \verb{/history} endpoint currently returns an empty response
 for MCH; an empty tibble is returned with a cli warning. Columns when
 populated include \code{team_id}, \code{season}, \code{wins}, \code{losses}, \code{ties},
 \code{ot_losses}, \code{points}, \code{summary}, and \code{description}.
+
+Columns when populated:\tabular{lll}{
+   col_name \tab type \tab description \cr
+   team_id \tab character \tab ESPN team identifier (echoed from the argument). \cr
+   season \tab integer \tab Season year. \cr
+   wins \tab integer \tab Wins. \cr
+   losses \tab integer \tab Losses. \cr
+   ties \tab integer \tab Ties. \cr
+   ot_losses \tab integer \tab Overtime losses. \cr
+   points \tab integer \tab Points. \cr
+   summary \tab character \tab Record summary string. \cr
+   description \tab character \tab Season description. \cr
+}
 }
 \description{
 \strong{Get ESPN MCH Team History}

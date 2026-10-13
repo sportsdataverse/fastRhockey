@@ -52,7 +52,7 @@ asked, or a failed fetch) and \code{fastRhockey_bad_request} (an invalid argumen
    home_score \tab integer \tab Home goals (final, shootout winner counted) \cr
    away_score \tab integer \tab Visitor goals (final, shootout winner counted) \cr
    round \tab integer \tab Playoff round number \cr
-   roundname \tab character \tab Round label in Russian ('Неделя 29' = Week 29) \cr
+   roundname \tab character \tab Round label in Russian ('Nedelya 29' = Week 29) \cr
    roundname_en \tab character \tab Round label in English \cr
    date \tab character \tab Game date YYYY-MM-DD (Moscow time) \cr
    dayofweek \tab integer \tab Day of week, 1 = Sunday (6 = Friday 2026-03-20) \cr
@@ -88,11 +88,11 @@ asked, or a failed fetch) and \code{fastRhockey_bad_request} (an invalid argumen
    date_type \tab character \tab Front-end date bucket of the game relative to today ('last' = already played; other values unverified) \cr
    type \tab character \tab Game state/type code (sogame = finished in a shootout) \cr
    winner \tab character \tab Winning side: A = home, B = visitor \cr
-   visible_date \tab character \tab Short display date in Russian ('20 мар' = 20 March) \cr
-   visible_date_full \tab character \tab Display date in Russian without the year ('20 марта') \cr
-   visible_date_full2 \tab character \tab Display date in Russian with the year ('20 марта 2026') \cr
-   visible_date_day \tab character \tab Abbreviated weekday in Russian ('пт' = Friday) \cr
-   statusvalue \tab character \tab Game status in Russian (матч завершен = match finished) \cr
+   visible_date \tab character \tab Short display date in Russian ('20 mar' = 20 March) \cr
+   visible_date_full \tab character \tab Display date in Russian without the year ('20 marta') \cr
+   visible_date_full2 \tab character \tab Display date in Russian with the year ('20 marta 2026') \cr
+   visible_date_day \tab character \tab Abbreviated weekday in Russian ('pt' = Friday) \cr
+   statusvalue \tab character \tab Game status in Russian (match zavershen = match finished) \cr
    pernum \tab integer \tab Number of regulation periods played \cr
    numlines \tab integer \tab Number of lines on the line-up card \cr
    gk_a_jn \tab integer \tab Home starting goalie's JERSEY number (gameItem.gkA), not an id \cr

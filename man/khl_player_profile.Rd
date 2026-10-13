@@ -45,10 +45,10 @@ asked, or a failed fetch) and \code{fastRhockey_bad_request} (an invalid argumen
    club_name \tab character \tab Name in Russian (Cyrillic); the *_en / *en sibling holds the English transliteration \cr
    club_logo \tab character \tab Current club logo URL on khl.ru (protocol-relative) \cr
    club_code \tab character \tab Club slug (/clubs/\if{html}{\out{<slug>}}/) \cr
-   height \tab character \tab Height with its Russian unit ('183 см' = 183 cm) \cr
-   weight \tab character \tab Weight with its Russian unit ('85 кг' = 85 kg) \cr
+   height \tab character \tab Height with its Russian unit ('183 sm' = 183 cm) \cr
+   weight \tab character \tab Weight with its Russian unit ('85 kg' = 85 kg) \cr
    birthdate \tab character \tab Birth date (Russian display format) \cr
-   age \tab character \tab Age with its Russian unit ('27 лет' = 27 years) \cr
+   age \tab character \tab Age with its Russian unit ('27 let' = 27 years) \cr
    contract_name \tab character \tab Contract label in Russian \cr
    contract_date \tab character \tab Contract end date \cr
    country_name \tab character \tab Name in Russian (Cyrillic); the *_en / *en sibling holds the English transliteration \cr

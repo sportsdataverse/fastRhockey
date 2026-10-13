@@ -14,6 +14,10 @@ shl_ssgt_uuid(season, game_type = "regular")
 }
 \value{
 A character string, the ssgt uuid (\code{"iuzqg7dqk9"} for the 2025/26 regular season).
+A length-one vector, not a data frame:\tabular{lll}{
+   col_name \tab type \tab description \cr
+   (value) \tab character \tab The ssgt uuid. \cr
+}
 }
 \description{
 The SHL keys a season by an "ssgt" uuid (season + series + game type). This maps a season

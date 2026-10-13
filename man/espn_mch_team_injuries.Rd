@@ -19,6 +19,18 @@ for MCH; an empty tibble is returned with a cli warning. Columns when
 populated include \code{team_id}, \code{athlete_id}, \code{athlete_display_name},
 \code{athlete_position}, \code{injury_type}, \code{injury_status}, \code{injury_date}, and
 \code{injury_description}.
+
+Columns when populated:\tabular{lll}{
+   col_name \tab type \tab description \cr
+   team_id \tab character \tab ESPN team identifier (echoed from the argument). \cr
+   athlete_id \tab character \tab ESPN athlete identifier. \cr
+   athlete_display_name \tab character \tab Athlete display name. \cr
+   athlete_position \tab character \tab Athlete position. \cr
+   injury_type \tab character \tab Injury type. \cr
+   injury_status \tab character \tab Injury status. \cr
+   injury_date \tab character \tab Injury date. \cr
+   injury_description \tab character \tab Long comment or description. \cr
+}
 }
 \description{
 \strong{Get ESPN MCH Team Injuries}

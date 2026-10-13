@@ -13,6 +13,10 @@ vhl_tn(season, stage = "regular")
 }
 \value{
 An integer: the tn (\code{1374} for the 2025/26 regular season, \code{1375} for its playoffs).
+A length-one vector, not a data frame:\tabular{lll}{
+   col_name \tab type \tab description \cr
+   (value) \tab integer \tab The tournament number (tn). \cr
+}
 }
 \description{
 The VHL tournament id (\code{tn}) of a season (END year) and stage. Read from the

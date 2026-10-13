@@ -19,6 +19,18 @@ returns an empty response for MCH; an empty tibble is returned with a cli
 warning. Columns when populated include \code{team_id}, \code{category_name},
 \code{category_abbr}, \code{rank}, \code{value}, \code{display_value}, \code{athlete_id}, and
 \code{athlete_full_name}.
+
+Columns when populated:\tabular{lll}{
+   col_name \tab type \tab description \cr
+   team_id \tab character \tab ESPN team identifier (echoed from the argument). \cr
+   category_name \tab character \tab Leader category name. \cr
+   category_abbr \tab character \tab Leader category abbreviation. \cr
+   rank \tab integer \tab Rank within the category. \cr
+   value \tab numeric \tab Leader stat value. \cr
+   display_value \tab character \tab Formatted stat value. \cr
+   athlete_id \tab character \tab ESPN athlete identifier. \cr
+   athlete_full_name \tab character \tab Athlete full name. \cr
+}
 }
 \description{
 \strong{Get ESPN MCH Team Leaders}

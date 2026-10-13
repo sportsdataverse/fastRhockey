@@ -101,7 +101,8 @@ season that is not a year, or an argument outside its choices.
 
 \examples{
 \donttest{
-  shl_player_h2h(ssgt_uuid = "iuzqg7dqk9", home_team_uuid = "087a-087aTQv9u", away_team_uuid = "41c4-41c4BiYZU", game_uuid = "bdhvuc5tex")
+  shl_player_h2h(ssgt_uuid = "iuzqg7dqk9", home_team_uuid = "087a-087aTQv9u",
+    away_team_uuid = "41c4-41c4BiYZU", game_uuid = "bdhvuc5tex")
 }
 }
 \seealso{

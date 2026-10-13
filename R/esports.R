@@ -3565,7 +3565,7 @@ eihl_shots <- function(match_id, return_parsed = TRUE) {
 #' @section Errors:
 #' Signalled as classed conditions: `fastRhockey_no_data` when the bucket has no such key (S3 404 NoSuchKey: unknown season, competition, match or team) or the file holds no rows (an unplayed game, an empty shot shell); `fastRhockey_asset_fetch` for any other non-2xx answer (403 AccessDenied), a connection failure after retries, an empty or unreadable 200 body, an error envelope, a body of the wrong shape, or a body for another season or game; `fastRhockey_bad_request` for an HTTP 400/422 or an invalid argument. All three also inherit `fastRhockey_error`. Wrappers raise; they never warn and return an empty frame.
 #'
-#' @seealso [Metal Ligaen](https://www.metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
+#' @seealso [Metal Ligaen](https://metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
 #' @keywords Metal Ligaen eSports
 #' @family Metal Ligaen eSports functions
 #' @export
@@ -3605,7 +3605,7 @@ metal_schedule <- function(season, league_id = 1L, return_parsed = TRUE) {
 #' @section Errors:
 #' Signalled as classed conditions: `fastRhockey_no_data` when the bucket has no such key (S3 404 NoSuchKey: unknown season, competition, match or team) or the file holds no rows (an unplayed game, an empty shot shell); `fastRhockey_asset_fetch` for any other non-2xx answer (403 AccessDenied), a connection failure after retries, an empty or unreadable 200 body, an error envelope, a body of the wrong shape, or a body for another season or game; `fastRhockey_bad_request` for an HTTP 400/422 or an invalid argument. All three also inherit `fastRhockey_error`. Wrappers raise; they never warn and return an empty frame.
 #'
-#' @seealso [Metal Ligaen](https://www.metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
+#' @seealso [Metal Ligaen](https://metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
 #' @keywords Metal Ligaen eSports
 #' @family Metal Ligaen eSports functions
 #' @export
@@ -3671,7 +3671,7 @@ metal_top_scorers <- function(season, league_id = 1L, return_parsed = TRUE) {
 #' @section Errors:
 #' Signalled as classed conditions: `fastRhockey_no_data` when the bucket has no such key (S3 404 NoSuchKey: unknown season, competition, match or team) or the file holds no rows (an unplayed game, an empty shot shell); `fastRhockey_asset_fetch` for any other non-2xx answer (403 AccessDenied), a connection failure after retries, an empty or unreadable 200 body, an error envelope, a body of the wrong shape, or a body for another season or game; `fastRhockey_bad_request` for an HTTP 400/422 or an invalid argument. All three also inherit `fastRhockey_error`. Wrappers raise; they never warn and return an empty frame.
 #'
-#' @seealso [Metal Ligaen](https://www.metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
+#' @seealso [Metal Ligaen](https://metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
 #' @keywords Metal Ligaen eSports
 #' @family Metal Ligaen eSports functions
 #' @export
@@ -3752,7 +3752,7 @@ metal_game_info <- function(match_id, return_parsed = TRUE) {
 #' @section Errors:
 #' Signalled as classed conditions: `fastRhockey_no_data` when the bucket has no such key (S3 404 NoSuchKey: unknown season, competition, match or team) or the file holds no rows (an unplayed game, an empty shot shell); `fastRhockey_asset_fetch` for any other non-2xx answer (403 AccessDenied), a connection failure after retries, an empty or unreadable 200 body, an error envelope, a body of the wrong shape, or a body for another season or game; `fastRhockey_bad_request` for an HTTP 400/422 or an invalid argument. All three also inherit `fastRhockey_error`. Wrappers raise; they never warn and return an empty frame.
 #'
-#' @seealso [Metal Ligaen](https://www.metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
+#' @seealso [Metal Ligaen](https://metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
 #' @keywords Metal Ligaen eSports
 #' @family Metal Ligaen eSports functions
 #' @export
@@ -3833,7 +3833,7 @@ metal_pbp <- function(match_id, return_parsed = TRUE) {
 #' @section Errors:
 #' Signalled as classed conditions: `fastRhockey_no_data` when the bucket has no such key (S3 404 NoSuchKey: unknown season, competition, match or team) or the file holds no rows (an unplayed game, an empty shot shell); `fastRhockey_asset_fetch` for any other non-2xx answer (403 AccessDenied), a connection failure after retries, an empty or unreadable 200 body, an error envelope, a body of the wrong shape, or a body for another season or game; `fastRhockey_bad_request` for an HTTP 400/422 or an invalid argument. All three also inherit `fastRhockey_error`. Wrappers raise; they never warn and return an empty frame.
 #'
-#' @seealso [Metal Ligaen](https://www.metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
+#' @seealso [Metal Ligaen](https://metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
 #' @keywords Metal Ligaen eSports
 #' @family Metal Ligaen eSports functions
 #' @export
@@ -3921,7 +3921,7 @@ metal_player_box <- function(match_id, team_id, return_parsed = TRUE) {
 #' @section Errors:
 #' Signalled as classed conditions: `fastRhockey_no_data` when the bucket has no such key (S3 404 NoSuchKey: unknown season, competition, match or team) or the file holds no rows (an unplayed game, an empty shot shell); `fastRhockey_asset_fetch` for any other non-2xx answer (403 AccessDenied), a connection failure after retries, an empty or unreadable 200 body, an error envelope, a body of the wrong shape, or a body for another season or game; `fastRhockey_bad_request` for an HTTP 400/422 or an invalid argument. All three also inherit `fastRhockey_error`. Wrappers raise; they never warn and return an empty frame.
 #'
-#' @seealso [Metal Ligaen](https://www.metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
+#' @seealso [Metal Ligaen](https://metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
 #' @keywords Metal Ligaen eSports
 #' @family Metal Ligaen eSports functions
 #' @export
@@ -3981,7 +3981,7 @@ metal_goalie_box <- function(match_id, return_parsed = TRUE) {
 #' @section Errors:
 #' Signalled as classed conditions: `fastRhockey_no_data` when the bucket has no such key (S3 404 NoSuchKey: unknown season, competition, match or team) or the file holds no rows (an unplayed game, an empty shot shell); `fastRhockey_asset_fetch` for any other non-2xx answer (403 AccessDenied), a connection failure after retries, an empty or unreadable 200 body, an error envelope, a body of the wrong shape, or a body for another season or game; `fastRhockey_bad_request` for an HTTP 400/422 or an invalid argument. All three also inherit `fastRhockey_error`. Wrappers raise; they never warn and return an empty frame.
 #'
-#' @seealso [Metal Ligaen](https://www.metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
+#' @seealso [Metal Ligaen](https://metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
 #' @keywords Metal Ligaen eSports
 #' @family Metal Ligaen eSports functions
 #' @export
@@ -4134,7 +4134,7 @@ metal_standings <- function(season, league_id = 1L, return_parsed = TRUE) {
 #' @section Errors:
 #' Signalled as classed conditions: `fastRhockey_no_data` when the bucket has no such key (S3 404 NoSuchKey: unknown season, competition, match or team) or the file holds no rows (an unplayed game, an empty shot shell); `fastRhockey_asset_fetch` for any other non-2xx answer (403 AccessDenied), a connection failure after retries, an empty or unreadable 200 body, an error envelope, a body of the wrong shape, or a body for another season or game; `fastRhockey_bad_request` for an HTTP 400/422 or an invalid argument. All three also inherit `fastRhockey_error`. Wrappers raise; they never warn and return an empty frame.
 #'
-#' @seealso [Metal Ligaen](https://www.metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
+#' @seealso [Metal Ligaen](https://metalligaen.dk/) (the league site whose widgets read this public eSports bucket)
 #' @keywords Metal Ligaen eSports
 #' @family Metal Ligaen eSports functions
 #' @export

@@ -1462,7 +1462,8 @@ shl_athlete_details <- function(athlete_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_athlete_game_log(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl", season = 2026)
+#'   shl_athlete_game_log(athlete_uuid = "qQ9-349c7WDv6",
+#'     master_site_instance_id = "shl1_shl", season = 2026)
 #' }
 #' @export
 #' @family SHL Functions
@@ -2375,7 +2376,8 @@ shl_player_box <- function(game_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_player_h2h(ssgt_uuid = "iuzqg7dqk9", home_team_uuid = "087a-087aTQv9u", away_team_uuid = "41c4-41c4BiYZU", game_uuid = "bdhvuc5tex")
+#'   shl_player_h2h(ssgt_uuid = "iuzqg7dqk9", home_team_uuid = "087a-087aTQv9u",
+#'     away_team_uuid = "41c4-41c4BiYZU", game_uuid = "bdhvuc5tex")
 #' }
 #' @export
 #' @family SHL Functions
@@ -2435,7 +2437,8 @@ shl_player_h2h <- function(ssgt_uuid, home_team_uuid, away_team_uuid, game_uuid 
 #'
 #' @examples
 #' \donttest{
-#'   shl_post_game_team_stats(game_uuid = "bdhvuc5tex", ssgt_uuid = "iuzqg7dqk9", home_team_uuid = "087a-087aTQv9u", away_team_uuid = "41c4-41c4BiYZU")
+#'   shl_post_game_team_stats(game_uuid = "bdhvuc5tex", ssgt_uuid = "iuzqg7dqk9",
+#'     home_team_uuid = "087a-087aTQv9u", away_team_uuid = "41c4-41c4BiYZU")
 #' }
 #' @export
 #' @family SHL Functions
@@ -3418,6 +3421,11 @@ shl_team_upcoming_games <- function(team_uuid, game_place = NULL, return_parsed 
 #' @param game_type Game type: `"regular"` (Grundserie), `"playoff"` (Slutspel), `"qualdown"`
 #'   (relegation qualification) or `"playin"` (2023/24 on).
 #' @return A character string, the ssgt uuid (`"iuzqg7dqk9"` for the 2025/26 regular season).
+#'   A length-one vector, not a data frame:
+#'
+#'    |col_name |type |description |
+#'    |:--------|:----|:-----------|
+#'    |(value)  |character|The ssgt uuid. |
 #' @section Errors:
 #' `fastRhockey_no_data`: layout-info lists no ssgt for that season and game type.
 #' `fastRhockey_bad_request`: `season` is not a year. `fastRhockey_asset_fetch`: layout-info

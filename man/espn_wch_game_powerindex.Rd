@@ -18,6 +18,14 @@ A \code{fastRhockey_data} tibble with ESPN Power Index data. \strong{Note:}
 This endpoint is sparse for WCH — most games return an empty tibble with a
 warning. When populated, columns contain power-index values alongside
 \code{event_id} and \code{cid}.
+
+Columns when populated:\tabular{lll}{
+   col_name \tab type \tab description \cr
+   event_id \tab character \tab ESPN event identifier (echoed from the argument). \cr
+   cid \tab character \tab Competition identifier (echoed from the argument). \cr
+   pi_ref \tab character \tab \verb{$ref} URL of the power-index item (list responses). \cr
+   \if{html}{\out{<field>}} \tab character \tab One column per scalar field of the ESPN power-index object (object responses), cleaned by \code{janitor::clean_names()}; \code{powerindex_ref} when it has no scalars. \cr
+}
 }
 \description{
 \strong{Get ESPN WCH Game Power Index (core-v2)}

@@ -28,6 +28,11 @@ and others.
 \item \verb{$header$season} — season year and type.
 \item \verb{$header$competitions[[1]]$competitors} — home/away team + score.
 }
+
+Shape:\tabular{lll}{
+   col_name \tab type \tab description \cr
+   (list) \tab list \tab Named list, not a data frame. Top-level keys are listed above. \cr
+}
 }
 \description{
 \strong{Get ESPN MCH Raw Game Summary}

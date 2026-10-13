@@ -54,7 +54,7 @@ asked, or a failed fetch) and \code{fastRhockey_bad_request} (an invalid argumen
    team_a_ppg \tab integer \tab Power-play goals \cr
    team_a_shg \tab integer \tab Short-handed goals \cr
    team_a_ppc \tab integer \tab Count; equals the team's own penalties in the sample (5 for 10 PIM), so probably penalties taken. UNVERIFIED \cr
-   team_a_vbr \tab integer \tab Faceoffs won ('vbr' from Russian вбрасывания; = game/text fow) \cr
+   team_a_vbr \tab integer \tab Faceoffs won ('vbr' from Russian vbrasyvaniya; = game/text fow) \cr
    team_a_pim \tab integer \tab Penalty minutes \cr
    team_a_total_puck_control_time \tab numeric \tab Team puck-control time, decimal MINUTES (21.81 = 21:48) \cr
    team_a_total_distance_travelled \tab numeric \tab Distance skated by the team, km (= game/text dtA) \cr
@@ -73,7 +73,7 @@ asked, or a failed fetch) and \code{fastRhockey_bad_request} (an invalid argumen
    team_b_ppg \tab integer \tab Power-play goals \cr
    team_b_shg \tab integer \tab Short-handed goals \cr
    team_b_ppc \tab integer \tab Count; equals the team's own penalties in the sample (3 for 6 PIM), so probably penalties taken. UNVERIFIED \cr
-   team_b_vbr \tab integer \tab Faceoffs won ('vbr' from Russian вбрасывания; = game/text fow) \cr
+   team_b_vbr \tab integer \tab Faceoffs won ('vbr' from Russian vbrasyvaniya; = game/text fow) \cr
    team_b_pim \tab integer \tab Penalty minutes \cr
    team_b_total_puck_control_time \tab numeric \tab Team puck-control time, decimal MINUTES (21.81 = 21:48) \cr
    team_b_total_distance_travelled \tab numeric \tab Distance skated by the team, km (= game/text dtA) \cr
@@ -92,7 +92,7 @@ asked, or a failed fetch) and \code{fastRhockey_bad_request} (an invalid argumen
    yandex_id \tab character \tab Yandex video id of the broadcast (m-prefixed) \cr
    match_id \tab integer \tab khl.ru game id as a string (= khl_id) \cr
    balancer_type \tab character \tab Video delivery type (record = archived broadcast) \cr
-   event_or_quote_type_name \tab character \tab Video category label in Russian (Архив = archive) \cr
+   event_or_quote_type_name \tab character \tab Video category label in Russian (Arkhiv = archive) \cr
    outer_stage_id \tab integer \tab khl.ru tournament id of the event's stage (= stage.khl_id) \cr
    stage_name \tab character \tab Stage label (Regular 2025/2026) \cr
    parent_id \tab integer \tab Undocumented provider field \code{parent_id}; carried as sent. \cr
@@ -135,7 +135,7 @@ asked, or a failed fetch) and \code{fastRhockey_bad_request} (an invalid argumen
    condensed_game_yandex_id \tab character \tab Condensed-game video: Yandex video id of the broadcast (m-prefixed) \cr
    condensed_game_match_id \tab integer \tab khl.ru game id as a string (= khl_id) \cr
    condensed_game_balancer_type \tab character \tab Condensed-game video: video delivery type (record = archived broadcast, file = clip) \cr
-   condensed_game_event_or_quote_type_name \tab character \tab Condensed-game video: video category label (Архив = archive, Хайлайты = highlights) \cr
+   condensed_game_event_or_quote_type_name \tab character \tab Condensed-game video: video category label (Arkhiv = archive, Khaylayty = highlights) \cr
    condensed_game_outer_stage_id \tab integer \tab khl.ru tournament id of the event's stage (= stage.khl_id) \cr
    condensed_game_stage_name \tab character \tab Condensed-game video: stage label (Regular 2025/2026) \cr
    highlight_id \tab integer \tab Webcaster id of the \code{highlight} object (webcaster key space); no khl.ru counterpart in the body \cr
@@ -156,7 +156,7 @@ asked, or a failed fetch) and \code{fastRhockey_bad_request} (an invalid argumen
    highlight_yandex_id \tab character \tab Highlights video: Yandex video id of the broadcast (m-prefixed) \cr
    highlight_match_id \tab integer \tab khl.ru game id as a string (= khl_id) \cr
    highlight_balancer_type \tab character \tab Highlights video: video delivery type (record = archived broadcast, file = clip) \cr
-   highlight_event_or_quote_type_name \tab character \tab Highlights video: video category label (Архив = archive, Хайлайты = highlights) \cr
+   highlight_event_or_quote_type_name \tab character \tab Highlights video: video category label (Arkhiv = archive, Khaylayty = highlights) \cr
    highlight_outer_stage_id \tab integer \tab khl.ru tournament id of the event's stage (= stage.khl_id) \cr
    highlight_stage_name \tab character \tab Highlights video: stage label (Regular 2025/2026) \cr
    outer_url \tab character \tab khl.ru page of the game (the game_id and tournament_id are in its path) \cr

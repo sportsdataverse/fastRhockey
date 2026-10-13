@@ -17,6 +17,15 @@ A \code{fastRhockey_data} tibble with one row per transaction when data
 is available. The \verb{/transactions} endpoint currently returns an empty
 response for WCH; an empty tibble is returned with a cli warning. Columns
 when populated include \code{team_id}, \code{id}, \code{date}, \code{description}, and \code{type}.
+
+Columns when populated:\tabular{lll}{
+   col_name \tab type \tab description \cr
+   team_id \tab character \tab ESPN team identifier (echoed from the argument). \cr
+   id \tab character \tab Transaction identifier. \cr
+   date \tab character \tab Transaction date. \cr
+   description \tab character \tab Transaction description. \cr
+   type \tab character \tab Transaction type. \cr
+}
 }
 \description{
 \strong{Get ESPN WCH Team Transactions}

@@ -379,6 +379,12 @@ NULL
 #'   - `$header$season` — season year and type.
 #'   - `$header$competitions[[1]]$competitors` — home/away team + score.
 #'
+#'   Shape:
+#'
+#'    |col_name|type|description                                                   |
+#'    |:-------|:---|:-------------------------------------------------------------|
+#'    |(list)  |list|Named list, not a data frame. Top-level keys are listed above.|
+#'
 #' @importFrom jsonlite fromJSON
 #' @export
 #' @family ESPN MCH Functions
@@ -867,6 +873,16 @@ NULL
 #'   with a cli warning. Columns when populated include `team_id`,
 #'   `description`, `type`, `summary`, and one numeric column per stat.
 #'
+#'   Columns when populated:
+#'
+#'    |col_name   |type     |description                                                                                     |
+#'    |:----------|:--------|:-----------------------------------------------------------------------------------------------|
+#'    |team_id    |character|ESPN team identifier (echoed from the argument).                                                |
+#'    |description|character|Record description.                                                                             |
+#'    |type       |character|Record type (overall, home, away).                                                              |
+#'    |summary    |character|Record summary string, e.g. `'10-5-1'`.                                                         |
+#'    |<stat>     |numeric  |One column per ESPN stat on the record, named by `janitor::make_clean_names()` of the stat name.|
+#'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names make_clean_names
 #' @export
@@ -938,6 +954,19 @@ NULL
 #'   `athlete_position`, `injury_type`, `injury_status`, `injury_date`, and
 #'   `injury_description`.
 #'
+#'   Columns when populated:
+#'
+#'    |col_name            |type     |description                                     |
+#'    |:-------------------|:--------|:-----------------------------------------------|
+#'    |team_id             |character|ESPN team identifier (echoed from the argument).|
+#'    |athlete_id          |character|ESPN athlete identifier.                        |
+#'    |athlete_display_name|character|Athlete display name.                           |
+#'    |athlete_position    |character|Athlete position.                               |
+#'    |injury_type         |character|Injury type.                                    |
+#'    |injury_status       |character|Injury status.                                  |
+#'    |injury_date         |character|Injury date.                                    |
+#'    |injury_description  |character|Long comment or description.                    |
+#'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
@@ -963,6 +992,16 @@ NULL
 #'   is available. The `/transactions` endpoint currently returns an empty
 #'   response for MCH; an empty tibble is returned with a cli warning. Columns
 #'   when populated include `team_id`, `id`, `date`, `description`, and `type`.
+#'
+#'   Columns when populated:
+#'
+#'    |col_name   |type     |description                                     |
+#'    |:----------|:--------|:-----------------------------------------------|
+#'    |team_id    |character|ESPN team identifier (echoed from the argument).|
+#'    |id         |character|Transaction identifier.                         |
+#'    |date       |character|Transaction date.                               |
+#'    |description|character|Transaction description.                        |
+#'    |type       |character|Transaction type.                               |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -990,6 +1029,20 @@ NULL
 #'   for MCH; an empty tibble is returned with a cli warning. Columns when
 #'   populated include `team_id`, `season`, `wins`, `losses`, `ties`,
 #'   `ot_losses`, `points`, `summary`, and `description`.
+#'
+#'   Columns when populated:
+#'
+#'    |col_name   |type     |description                                     |
+#'    |:----------|:--------|:-----------------------------------------------|
+#'    |team_id    |character|ESPN team identifier (echoed from the argument).|
+#'    |season     |integer  |Season year.                                    |
+#'    |wins       |integer  |Wins.                                           |
+#'    |losses     |integer  |Losses.                                         |
+#'    |ties       |integer  |Ties.                                           |
+#'    |ot_losses  |integer  |Overtime losses.                                |
+#'    |points     |integer  |Points.                                         |
+#'    |summary    |character|Record summary string.                          |
+#'    |description|character|Season description.                             |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -1019,6 +1072,20 @@ NULL
 #'   populated include `team_id`, `id`, `headline`, `description`, `type`,
 #'   `published`, `last_modified`, `premium`, and `url`.
 #'
+#'   Columns when populated:
+#'
+#'    |col_name     |type     |description                                     |
+#'    |:------------|:--------|:-----------------------------------------------|
+#'    |team_id      |character|ESPN team identifier (echoed from the argument).|
+#'    |id           |character|Article identifier.                             |
+#'    |headline     |character|Article headline.                               |
+#'    |description  |character|Article description.                            |
+#'    |type         |character|Article type.                                   |
+#'    |published    |character|Publication timestamp.                          |
+#'    |last_modified|character|Last-modified timestamp.                        |
+#'    |premium      |logical  |Whether the article is premium content.         |
+#'    |url          |character|Web URL of the article.                         |
+#'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
@@ -1046,6 +1113,19 @@ NULL
 #'   warning. Columns when populated include `team_id`, `category_name`,
 #'   `category_abbr`, `rank`, `value`, `display_value`, `athlete_id`, and
 #'   `athlete_full_name`.
+#'
+#'   Columns when populated:
+#'
+#'    |col_name         |type     |description                                     |
+#'    |:----------------|:--------|:-----------------------------------------------|
+#'    |team_id          |character|ESPN team identifier (echoed from the argument).|
+#'    |category_name    |character|Leader category name.                           |
+#'    |category_abbr    |character|Leader category abbreviation.                   |
+#'    |rank             |integer  |Rank within the category.                       |
+#'    |value            |numeric  |Leader stat value.                              |
+#'    |display_value    |character|Formatted stat value.                           |
+#'    |athlete_id       |character|ESPN athlete identifier.                        |
+#'    |athlete_full_name|character|Athlete full name.                              |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -2886,6 +2966,7 @@ NULL
 #'   `athletes/{{id}}/seasons` returns HTTP 404 for all queried NHL players
 #'   (DONE_WITH_CONCERNS: endpoint is not served for the NHL).
 #'   For season-level data use `espn_mch_player_statisticslog()`.
+#'   There is no column schema: the call always yields a zero-row, zero-column `data.frame()`.
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -2942,6 +3023,7 @@ NULL
 #'   `athletes/{{id}}/injuries` returns HTTP 404 for all queried NHL players
 #'   (DONE_WITH_CONCERNS: endpoint not served for NHL).
 #'   Use `espn_mch_injuries()` (site-v2) for league-level injury data.
+#'   There is no column schema: the call always yields a zero-row, zero-column `data.frame()`.
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -2965,6 +3047,7 @@ NULL
 #' @return An empty `data.frame()`. As of 2026-06-08, ESPN core-v2
 #'   `athletes/{{id}}/notes` returns HTTP 404 for all queried NHL players
 #'   (DONE_WITH_CONCERNS: endpoint not served for NHL).
+#'   There is no column schema: the call always yields a zero-row, zero-column `data.frame()`.
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -2989,6 +3072,7 @@ NULL
 #' @return An empty `data.frame()`. As of 2026-06-08, ESPN core-v2
 #'   `athletes/{id}/vsathlete/{opp_id}` returns HTTP 404 for all queried NHL
 #'   player pairs (DONE_WITH_CONCERNS: endpoint not served for NHL).
+#'   There is no column schema: the call always yields a zero-row, zero-column `data.frame()`.
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -3886,6 +3970,14 @@ NULL
 #'   warning. When populated, scalar fields from the predictor object are returned
 #'   as character columns alongside `event_id` and `cid`.
 #'
+#'   Columns when populated:
+#'
+#'    |col_name|type     |description                                                                                                                                                    |
+#'    |:-------|:--------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+#'    |event_id|character|ESPN event identifier (echoed from the argument).                                                                                                              |
+#'    |cid     |character|Competition identifier (echoed from the argument).                                                                                                             |
+#'    |<field> |character|One column per scalar field of the ESPN predictor object, cleaned by `janitor::clean_names()`; `predictor_ref` (the `$ref` URL) when the object has no scalars.|
+#'
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN MCH Functions
@@ -3914,6 +4006,15 @@ NULL
 #'   This endpoint is sparse for MCH — most games return an empty tibble with a
 #'   warning. When populated, columns contain power-index values alongside
 #'   `event_id` and `cid`.
+#'
+#'   Columns when populated:
+#'
+#'    |col_name|type     |description                                                                                                                                                 |
+#'    |:-------|:--------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+#'    |event_id|character|ESPN event identifier (echoed from the argument).                                                                                                           |
+#'    |cid     |character|Competition identifier (echoed from the argument).                                                                                                          |
+#'    |pi_ref  |character|`$ref` URL of the power-index item (list responses).                                                                                                        |
+#'    |<field> |character|One column per scalar field of the ESPN power-index object (object responses), cleaned by `janitor::clean_names()`; `powerindex_ref` when it has no scalars.|
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -5142,6 +5243,12 @@ NULL
 #'   - `$header$season` — season year and type.
 #'   - `$header$competitions[[1]]$competitors` — home/away team + score.
 #'
+#'   Shape:
+#'
+#'    |col_name|type|description                                                   |
+#'    |:-------|:---|:-------------------------------------------------------------|
+#'    |(list)  |list|Named list, not a data frame. Top-level keys are listed above.|
+#'
 #' @importFrom jsonlite fromJSON
 #' @export
 #' @family ESPN WCH Functions
@@ -5630,6 +5737,16 @@ NULL
 #'   with a cli warning. Columns when populated include `team_id`,
 #'   `description`, `type`, `summary`, and one numeric column per stat.
 #'
+#'   Columns when populated:
+#'
+#'    |col_name   |type     |description                                                                                     |
+#'    |:----------|:--------|:-----------------------------------------------------------------------------------------------|
+#'    |team_id    |character|ESPN team identifier (echoed from the argument).                                                |
+#'    |description|character|Record description.                                                                             |
+#'    |type       |character|Record type (overall, home, away).                                                              |
+#'    |summary    |character|Record summary string, e.g. `'10-5-1'`.                                                         |
+#'    |<stat>     |numeric  |One column per ESPN stat on the record, named by `janitor::make_clean_names()` of the stat name.|
+#'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names make_clean_names
 #' @export
@@ -5701,6 +5818,19 @@ NULL
 #'   `athlete_position`, `injury_type`, `injury_status`, `injury_date`, and
 #'   `injury_description`.
 #'
+#'   Columns when populated:
+#'
+#'    |col_name            |type     |description                                     |
+#'    |:-------------------|:--------|:-----------------------------------------------|
+#'    |team_id             |character|ESPN team identifier (echoed from the argument).|
+#'    |athlete_id          |character|ESPN athlete identifier.                        |
+#'    |athlete_display_name|character|Athlete display name.                           |
+#'    |athlete_position    |character|Athlete position.                               |
+#'    |injury_type         |character|Injury type.                                    |
+#'    |injury_status       |character|Injury status.                                  |
+#'    |injury_date         |character|Injury date.                                    |
+#'    |injury_description  |character|Long comment or description.                    |
+#'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
@@ -5726,6 +5856,16 @@ NULL
 #'   is available. The `/transactions` endpoint currently returns an empty
 #'   response for WCH; an empty tibble is returned with a cli warning. Columns
 #'   when populated include `team_id`, `id`, `date`, `description`, and `type`.
+#'
+#'   Columns when populated:
+#'
+#'    |col_name   |type     |description                                     |
+#'    |:----------|:--------|:-----------------------------------------------|
+#'    |team_id    |character|ESPN team identifier (echoed from the argument).|
+#'    |id         |character|Transaction identifier.                         |
+#'    |date       |character|Transaction date.                               |
+#'    |description|character|Transaction description.                        |
+#'    |type       |character|Transaction type.                               |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -5753,6 +5893,20 @@ NULL
 #'   for WCH; an empty tibble is returned with a cli warning. Columns when
 #'   populated include `team_id`, `season`, `wins`, `losses`, `ties`,
 #'   `ot_losses`, `points`, `summary`, and `description`.
+#'
+#'   Columns when populated:
+#'
+#'    |col_name   |type     |description                                     |
+#'    |:----------|:--------|:-----------------------------------------------|
+#'    |team_id    |character|ESPN team identifier (echoed from the argument).|
+#'    |season     |integer  |Season year.                                    |
+#'    |wins       |integer  |Wins.                                           |
+#'    |losses     |integer  |Losses.                                         |
+#'    |ties       |integer  |Ties.                                           |
+#'    |ot_losses  |integer  |Overtime losses.                                |
+#'    |points     |integer  |Points.                                         |
+#'    |summary    |character|Record summary string.                          |
+#'    |description|character|Season description.                             |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -5782,6 +5936,20 @@ NULL
 #'   populated include `team_id`, `id`, `headline`, `description`, `type`,
 #'   `published`, `last_modified`, `premium`, and `url`.
 #'
+#'   Columns when populated:
+#'
+#'    |col_name     |type     |description                                     |
+#'    |:------------|:--------|:-----------------------------------------------|
+#'    |team_id      |character|ESPN team identifier (echoed from the argument).|
+#'    |id           |character|Article identifier.                             |
+#'    |headline     |character|Article headline.                               |
+#'    |description  |character|Article description.                            |
+#'    |type         |character|Article type.                                   |
+#'    |published    |character|Publication timestamp.                          |
+#'    |last_modified|character|Last-modified timestamp.                        |
+#'    |premium      |logical  |Whether the article is premium content.         |
+#'    |url          |character|Web URL of the article.                         |
+#'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
@@ -5809,6 +5977,19 @@ NULL
 #'   warning. Columns when populated include `team_id`, `category_name`,
 #'   `category_abbr`, `rank`, `value`, `display_value`, `athlete_id`, and
 #'   `athlete_full_name`.
+#'
+#'   Columns when populated:
+#'
+#'    |col_name         |type     |description                                     |
+#'    |:----------------|:--------|:-----------------------------------------------|
+#'    |team_id          |character|ESPN team identifier (echoed from the argument).|
+#'    |category_name    |character|Leader category name.                           |
+#'    |category_abbr    |character|Leader category abbreviation.                   |
+#'    |rank             |integer  |Rank within the category.                       |
+#'    |value            |numeric  |Leader stat value.                              |
+#'    |display_value    |character|Formatted stat value.                           |
+#'    |athlete_id       |character|ESPN athlete identifier.                        |
+#'    |athlete_full_name|character|Athlete full name.                              |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -7649,6 +7830,7 @@ NULL
 #'   `athletes/{{id}}/seasons` returns HTTP 404 for all queried NHL players
 #'   (DONE_WITH_CONCERNS: endpoint is not served for the NHL).
 #'   For season-level data use `espn_wch_player_statisticslog()`.
+#'   There is no column schema: the call always yields a zero-row, zero-column `data.frame()`.
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -7705,6 +7887,7 @@ NULL
 #'   `athletes/{{id}}/injuries` returns HTTP 404 for all queried NHL players
 #'   (DONE_WITH_CONCERNS: endpoint not served for NHL).
 #'   Use `espn_wch_injuries()` (site-v2) for league-level injury data.
+#'   There is no column schema: the call always yields a zero-row, zero-column `data.frame()`.
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -7728,6 +7911,7 @@ NULL
 #' @return An empty `data.frame()`. As of 2026-06-08, ESPN core-v2
 #'   `athletes/{{id}}/notes` returns HTTP 404 for all queried NHL players
 #'   (DONE_WITH_CONCERNS: endpoint not served for NHL).
+#'   There is no column schema: the call always yields a zero-row, zero-column `data.frame()`.
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -7752,6 +7936,7 @@ NULL
 #' @return An empty `data.frame()`. As of 2026-06-08, ESPN core-v2
 #'   `athletes/{id}/vsathlete/{opp_id}` returns HTTP 404 for all queried NHL
 #'   player pairs (DONE_WITH_CONCERNS: endpoint not served for NHL).
+#'   There is no column schema: the call always yields a zero-row, zero-column `data.frame()`.
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -8649,6 +8834,14 @@ NULL
 #'   warning. When populated, scalar fields from the predictor object are returned
 #'   as character columns alongside `event_id` and `cid`.
 #'
+#'   Columns when populated:
+#'
+#'    |col_name|type     |description                                                                                                                                                    |
+#'    |:-------|:--------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+#'    |event_id|character|ESPN event identifier (echoed from the argument).                                                                                                              |
+#'    |cid     |character|Competition identifier (echoed from the argument).                                                                                                             |
+#'    |<field> |character|One column per scalar field of the ESPN predictor object, cleaned by `janitor::clean_names()`; `predictor_ref` (the `$ref` URL) when the object has no scalars.|
+#'
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WCH Functions
@@ -8677,6 +8870,15 @@ NULL
 #'   This endpoint is sparse for WCH — most games return an empty tibble with a
 #'   warning. When populated, columns contain power-index values alongside
 #'   `event_id` and `cid`.
+#'
+#'   Columns when populated:
+#'
+#'    |col_name|type     |description                                                                                                                                                 |
+#'    |:-------|:--------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+#'    |event_id|character|ESPN event identifier (echoed from the argument).                                                                                                           |
+#'    |cid     |character|Competition identifier (echoed from the argument).                                                                                                          |
+#'    |pi_ref  |character|`$ref` URL of the power-index item (list responses).                                                                                                        |
+#'    |<field> |character|One column per scalar field of the ESPN power-index object (object responses), cleaned by `janitor::clean_names()`; `powerindex_ref` when it has no scalars.|
 #'
 #' @importFrom janitor clean_names
 #' @export

@@ -1584,7 +1584,7 @@ khl_stat_filters <- function(season = NULL, stage = "regular", headers = NULL, t
 #'    |home_score          |integer   |Home goals (final, shootout winner counted) |
 #'    |away_score          |integer   |Visitor goals (final, shootout winner counted) |
 #'    |round               |integer   |Playoff round number |
-#'    |roundname           |character |Round label in Russian ('Неделя 29' = Week 29) |
+#'    |roundname           |character |Round label in Russian ('Nedelya 29' = Week 29) |
 #'    |roundname_en        |character |Round label in English |
 #'    |date                |character |Game date YYYY-MM-DD (Moscow time) |
 #'    |dayofweek           |integer   |Day of week, 1 = Sunday (6 = Friday 2026-03-20) |
@@ -1616,10 +1616,10 @@ khl_stat_filters <- function(season = NULL, stage = "regular", headers = NULL, t
 #'    |date_type           |character |Front-end date bucket of the game relative to today ('last' = already played; other values unverified) |
 #'    |type                |character |Game state/type code (sogame = finished in a shootout) |
 #'    |winner              |character |Winning side: A = home, B = visitor |
-#'    |visible_date        |character |Short display date in Russian ('20 мар' = 20 March) |
-#'    |visible_date_full   |character |Display date in Russian without the year ('20 марта') |
-#'    |visible_date_full2  |character |Display date in Russian with the year ('20 марта 2026') |
-#'    |visible_date_day    |character |Abbreviated weekday in Russian ('пт' = Friday) |
+#'    |visible_date        |character |Short display date in Russian ('20 mar' = 20 March) |
+#'    |visible_date_full   |character |Display date in Russian without the year ('20 marta') |
+#'    |visible_date_full2  |character |Display date in Russian with the year ('20 marta 2026') |
+#'    |visible_date_day    |character |Abbreviated weekday in Russian ('pt' = Friday) |
 #'    |win                 |integer   |True when this club won |
 #' @examples
 #' \donttest{
@@ -1697,7 +1697,7 @@ khl_game_header <- function(game_id, season = NULL, stage = "regular", headers =
 #'    |team_side          |character |A = home, B = visitor |
 #'    |score_a            |integer   |Home goals after the goal |
 #'    |score_b            |integer   |Visitor goals after the goal |
-#'    |strength           |character |Strength code as the site prints it (Russian: РАВ even, БОЛ power play, МЕН short-handed) |
+#'    |strength           |character |Strength code as the site prints it (Russian: RAV even, BOL power play, MEN short-handed) |
 #'    |strength_text      |character |Strength label as the site prints it |
 #'    |scorer_player_id   |integer   |Scorer's khl.ru player id |
 #'    |scorer_name        |character |Scorer's name with the season count in brackets |
@@ -1786,7 +1786,7 @@ khl_game_protocol <- function(game_id, season = NULL, stage = "regular", headers
 #'    |home_score               |integer   |Home goals (final, shootout winner counted) |
 #'    |away_score               |integer   |Visitor goals (final, shootout winner counted) |
 #'    |round                    |integer   |Playoff round number |
-#'    |roundname                |character |Round label in Russian ('Неделя 29' = Week 29) |
+#'    |roundname                |character |Round label in Russian ('Nedelya 29' = Week 29) |
 #'    |roundname_en             |character |Round label in English |
 #'    |date                     |character |Game date YYYY-MM-DD (Moscow time) |
 #'    |dayofweek                |integer   |Day of week, 1 = Sunday (6 = Friday 2026-03-20) |
@@ -1822,11 +1822,11 @@ khl_game_protocol <- function(game_id, season = NULL, stage = "regular", headers
 #'    |date_type                |character |Front-end date bucket of the game relative to today ('last' = already played; other values unverified) |
 #'    |type                     |character |Game state/type code (sogame = finished in a shootout) |
 #'    |winner                   |character |Winning side: A = home, B = visitor |
-#'    |visible_date             |character |Short display date in Russian ('20 мар' = 20 March) |
-#'    |visible_date_full        |character |Display date in Russian without the year ('20 марта') |
-#'    |visible_date_full2       |character |Display date in Russian with the year ('20 марта 2026') |
-#'    |visible_date_day         |character |Abbreviated weekday in Russian ('пт' = Friday) |
-#'    |statusvalue              |character |Game status in Russian (матч завершен = match finished) |
+#'    |visible_date             |character |Short display date in Russian ('20 mar' = 20 March) |
+#'    |visible_date_full        |character |Display date in Russian without the year ('20 marta') |
+#'    |visible_date_full2       |character |Display date in Russian with the year ('20 marta 2026') |
+#'    |visible_date_day         |character |Abbreviated weekday in Russian ('pt' = Friday) |
+#'    |statusvalue              |character |Game status in Russian (match zavershen = match finished) |
 #'    |pernum                   |integer   |Number of regulation periods played |
 #'    |numlines                 |integer   |Number of lines on the line-up card |
 #'    |gk_a_jn                  |integer   |Home starting goalie's JERSEY number (gameItem.gkA), not an id |
@@ -1931,7 +1931,7 @@ khl_game_info <- function(game_id, season = NULL, stage = "regular", headers = N
 #'    |fow_pct       |numeric   |Stat code the bar is computed from |
 #'    |bls           |integer   |Shots blocked in the period block |
 #'    |hits          |integer   |Hits (body checks) |
-#'    |fa            |integer   |Takeaways (the site labels this column 'Отборы', takeaways) |
+#'    |fa            |integer   |Takeaways (the site labels this column 'Otbory', takeaways) |
 #'    |p_intc        |integer   |Pass interceptions |
 #'    |sft           |character |Time on ice 'mm:ss(shifts)' |
 #'    |sfte          |character |Even-strength time on ice 'mm:ss(shifts)' |
@@ -2196,10 +2196,10 @@ khl_shots <- function(game_id, season = NULL, stage = "regular", headers = NULL,
 #'    |club_name          |character |Name in Russian (Cyrillic); the *_en / *en sibling holds the English transliteration |
 #'    |club_logo          |character |Current club logo URL on khl.ru (protocol-relative) |
 #'    |club_code          |character |Club slug (/clubs/<slug>/) |
-#'    |height             |character |Height with its Russian unit ('183 см' = 183 cm) |
-#'    |weight             |character |Weight with its Russian unit ('85 кг' = 85 kg) |
+#'    |height             |character |Height with its Russian unit ('183 sm' = 183 cm) |
+#'    |weight             |character |Weight with its Russian unit ('85 kg' = 85 kg) |
 #'    |birthdate          |character |Birth date (Russian display format) |
-#'    |age                |character |Age with its Russian unit ('27 лет' = 27 years) |
+#'    |age                |character |Age with its Russian unit ('27 let' = 27 years) |
 #'    |contract_name      |character |Contract label in Russian |
 #'    |contract_date      |character |Contract end date |
 #'    |country_name       |character |Name in Russian (Cyrillic); the *_en / *en sibling holds the English transliteration |
@@ -2702,7 +2702,7 @@ khl_webcaster_stages <- function(locale = "en", return_parsed = TRUE) {
 #'    |team_a_ppg                                 |integer   |Power-play goals |
 #'    |team_a_shg                                 |integer   |Short-handed goals |
 #'    |team_a_ppc                                 |integer   |Count; equals the team's own penalties in the sample (5 for 10 PIM), so probably penalties taken. UNVERIFIED |
-#'    |team_a_vbr                                 |integer   |Faceoffs won ('vbr' from Russian вбрасывания; = game/text fow) |
+#'    |team_a_vbr                                 |integer   |Faceoffs won ('vbr' from Russian vbrasyvaniya; = game/text fow) |
 #'    |team_a_pim                                 |integer   |Penalty minutes |
 #'    |team_a_total_puck_control_time             |numeric   |Team puck-control time, decimal MINUTES (21.81 = 21:48) |
 #'    |team_a_total_distance_travelled            |numeric   |Distance skated by the team, km (= game/text dtA) |
@@ -2721,7 +2721,7 @@ khl_webcaster_stages <- function(locale = "en", return_parsed = TRUE) {
 #'    |team_b_ppg                                 |integer   |Power-play goals |
 #'    |team_b_shg                                 |integer   |Short-handed goals |
 #'    |team_b_ppc                                 |integer   |Count; equals the team's own penalties in the sample (3 for 6 PIM), so probably penalties taken. UNVERIFIED |
-#'    |team_b_vbr                                 |integer   |Faceoffs won ('vbr' from Russian вбрасывания; = game/text fow) |
+#'    |team_b_vbr                                 |integer   |Faceoffs won ('vbr' from Russian vbrasyvaniya; = game/text fow) |
 #'    |team_b_pim                                 |integer   |Penalty minutes |
 #'    |team_b_total_puck_control_time             |numeric   |Team puck-control time, decimal MINUTES (21.81 = 21:48) |
 #'    |team_b_total_distance_travelled            |numeric   |Distance skated by the team, km (= game/text dtA) |
@@ -2740,7 +2740,7 @@ khl_webcaster_stages <- function(locale = "en", return_parsed = TRUE) {
 #'    |yandex_id                                  |character |Yandex video id of the broadcast (m-prefixed) |
 #'    |match_id                                   |integer   |khl.ru game id as a string (= khl_id) |
 #'    |balancer_type                              |character |Video delivery type (record = archived broadcast) |
-#'    |event_or_quote_type_name                   |character |Video category label in Russian (Архив = archive) |
+#'    |event_or_quote_type_name                   |character |Video category label in Russian (Arkhiv = archive) |
 #'    |outer_stage_id                             |integer   |khl.ru tournament id of the event's stage (= stage.khl_id) |
 #'    |stage_name                                 |character |Stage label (Regular 2025/2026) |
 #'    |parent_id                                  |integer   |Undocumented provider field `parent_id`; carried as sent. |
@@ -2783,7 +2783,7 @@ khl_webcaster_stages <- function(locale = "en", return_parsed = TRUE) {
 #'    |condensed_game_yandex_id                   |character |Condensed-game video: Yandex video id of the broadcast (m-prefixed) |
 #'    |condensed_game_match_id                    |integer   |khl.ru game id as a string (= khl_id) |
 #'    |condensed_game_balancer_type               |character |Condensed-game video: video delivery type (record = archived broadcast, file = clip) |
-#'    |condensed_game_event_or_quote_type_name    |character |Condensed-game video: video category label (Архив = archive, Хайлайты = highlights) |
+#'    |condensed_game_event_or_quote_type_name    |character |Condensed-game video: video category label (Arkhiv = archive, Khaylayty = highlights) |
 #'    |condensed_game_outer_stage_id              |integer   |khl.ru tournament id of the event's stage (= stage.khl_id) |
 #'    |condensed_game_stage_name                  |character |Condensed-game video: stage label (Regular 2025/2026) |
 #'    |highlight_id                               |integer   |Webcaster id of the `highlight` object (webcaster key space); no khl.ru counterpart in the body |
@@ -2804,7 +2804,7 @@ khl_webcaster_stages <- function(locale = "en", return_parsed = TRUE) {
 #'    |highlight_yandex_id                        |character |Highlights video: Yandex video id of the broadcast (m-prefixed) |
 #'    |highlight_match_id                         |integer   |khl.ru game id as a string (= khl_id) |
 #'    |highlight_balancer_type                    |character |Highlights video: video delivery type (record = archived broadcast, file = clip) |
-#'    |highlight_event_or_quote_type_name         |character |Highlights video: video category label (Архив = archive, Хайлайты = highlights) |
+#'    |highlight_event_or_quote_type_name         |character |Highlights video: video category label (Arkhiv = archive, Khaylayty = highlights) |
 #'    |highlight_outer_stage_id                   |integer   |khl.ru tournament id of the event's stage (= stage.khl_id) |
 #'    |highlight_stage_name                       |character |Highlights video: stage label (Regular 2025/2026) |
 #'    |outer_url                                  |character |khl.ru page of the game (the game_id and tournament_id are in its path) |
@@ -2941,7 +2941,7 @@ khl_webcaster_event <- function(event_id, locale = "en", return_parsed = TRUE) {
 #'    |yandex_id                |character |Yandex video id of the broadcast (m-prefixed) |
 #'    |match_id                 |integer   |khl.ru game id as a string (= khl_id) |
 #'    |balancer_type            |character |Video delivery type (record = archived broadcast) |
-#'    |event_or_quote_type_name |character |Video category label in Russian (Архив = archive) |
+#'    |event_or_quote_type_name |character |Video category label in Russian (Arkhiv = archive) |
 #'    |outer_stage_id           |integer   |khl.ru tournament id of the event's stage (= stage.khl_id) |
 #'    |stage_name               |character |Stage label (Regular 2025/2026) |
 #'    |previews                 |character |Undocumented provider field `previews`; carried as sent. |

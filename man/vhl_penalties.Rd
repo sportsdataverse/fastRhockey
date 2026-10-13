@@ -21,7 +21,7 @@ A \code{fastRhockey_data} tibble with one row per penalty:\tabular{lll}{
    \code{game_id} \tab integer \tab Game id (the calendar's game_id; the report's and the broadcast's idgame). The report and broadcast pages do not print it: it comes from the request. \cr
    \code{season} \tab integer \tab Season END year (2026 = 2025/26). \cr
    \code{stage} \tab character \tab Season stage: regular or playoff. \cr
-   \code{game_number} \tab integer \tab Official game number (from '№984'); checked against the request. \cr
+   \code{game_number} \tab integer \tab Official game number (from 'No.984'); checked against the request. \cr
    \code{team_side} \tab character \tab Side of the game the row belongs to: home or away. \cr
    \code{team_page_id} \tab integer \tab Team page id (vhlru.ru \verb{/en/teams/\{team_page_id\}/}), stable across seasons; for report rows the page id of the row's side. \cr
    \code{team} \tab character \tab Team short name (Latin; the report tables' form). \cr

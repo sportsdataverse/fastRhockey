@@ -21,14 +21,14 @@ A \code{fastRhockey_data} tibble with one row per event:\tabular{lll}{
    \code{game_id} \tab integer \tab Game id (the calendar's game_id; the report's and the broadcast's idgame). The report and broadcast pages do not print it: it comes from the request. \cr
    \code{season} \tab integer \tab Season END year (2026 = 2025/26). \cr
    \code{stage} \tab character \tab Season stage: regular or playoff. \cr
-   \code{game_number} \tab integer \tab Official game number ('Игра номер 984'); checked against the request. \cr
+   \code{game_number} \tab integer \tab Official game number ('Igra nomer 984'); checked against the request. \cr
    \code{event_index} \tab integer \tab Order of the event on the page, 0 = the first listed (the broadcast lists the latest event first). \cr
    \code{kind} \tab character \tab Event kind from the CSS modifier: game_state (ga), comment (co), goal (go), penalty (pn), goalie_change (gc), video_review (vr), shootout_attempt (bu). \cr
    \code{kind_code} \tab character \tab Raw CSS modifier of .game-event-item--\code{code}. \cr
-   \code{time} \tab character \tab Time label verbatim: 'mm:ss' elapsed game time, 'NN мин' (minute of a comment), or 'HH:MM' wall clock on game_state events; null when absent. See clock. \cr
-   \code{clock} \tab character \tab What time means: game (elapsed mm:ss), minute ('58 мин'), wall (local wall clock, game_state rows); null when there is no time. \cr
+   \code{time} \tab character \tab Time label verbatim: 'mm:ss' elapsed game time, 'NN min' (minute of a comment), or 'HH:MM' wall clock on game_state events; null when absent. See clock. \cr
+   \code{clock} \tab character \tab What time means: game (elapsed mm:ss), minute ('58 min'), wall (local wall clock, game_state rows); null when there is no time. \cr
    \code{score} \tab character \tab Score 'home-away' (dash, not colon) after a goal; on a shootout attempt, the shootout score printed beside it (before or after that attempt: unverified). \cr
-   \code{strength_code} \tab character \tab Goal strength code in Cyrillic: РАВ (even), БОЛ (power play), МЕН (shorthanded, unobserved), БУЛ (penalty shot / shootout); empty string seen as null. \cr
+   \code{strength_code} \tab character \tab Goal strength code in Cyrillic: RAV (even), BOL (power play), MEN (shorthanded, unobserved), BUL (penalty shot / shootout); empty string seen as null. \cr
    \code{strength} \tab character \tab strength_code in English: even, power_play, shorthanded, penalty_shot_or_shootout. \cr
    \code{text} \tab character \tab Event text verbatim in RUSSIAN (team, players, infraction, period stats); not translated. \cr
    \code{player_ids} \tab list of integer \tab Player ids linked in the event text (\verb{//vhlru.ru/players/\{id\}/}), scorer first; empty for most kinds. \cr

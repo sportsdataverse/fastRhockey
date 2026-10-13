@@ -79,7 +79,8 @@ season that is not a year, or an argument outside its choices.
 
 \examples{
 \donttest{
-  shl_athlete_game_log(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl", season = 2026)
+  shl_athlete_game_log(athlete_uuid = "qQ9-349c7WDv6",
+    master_site_instance_id = "shl1_shl", season = 2026)
 }
 }
 \seealso{

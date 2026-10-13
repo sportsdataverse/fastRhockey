@@ -99,7 +99,7 @@ asked, or a failed fetch) and \code{fastRhockey_bad_request} (an invalid argumen
    yandex_id \tab character \tab Yandex video id of the broadcast (m-prefixed) \cr
    match_id \tab integer \tab khl.ru game id as a string (= khl_id) \cr
    balancer_type \tab character \tab Video delivery type (record = archived broadcast) \cr
-   event_or_quote_type_name \tab character \tab Video category label in Russian (Архив = archive) \cr
+   event_or_quote_type_name \tab character \tab Video category label in Russian (Arkhiv = archive) \cr
    outer_stage_id \tab integer \tab khl.ru tournament id of the event's stage (= stage.khl_id) \cr
    stage_name \tab character \tab Stage label (Regular 2025/2026) \cr
    previews \tab character \tab Undocumented provider field \code{previews}; carried as sent. \cr

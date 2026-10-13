@@ -1695,6 +1695,11 @@
 #' @param season Season END year (2026 = 2025/26). The calendar covers 2010/11 on.
 #' @param stage `"regular"` (default) or `"playoff"`.
 #' @return An integer: the tn (`1374` for the 2025/26 regular season, `1375` for its playoffs).
+#'   A length-one vector, not a data frame:
+#'
+#'    |col_name |type |description |
+#'    |:--------|:----|:-----------|
+#'    |(value)  |integer  |The tournament number (tn). |
 #' @examples
 #' \donttest{
 #'   try(vhl_tn(2026))
@@ -1740,7 +1745,7 @@ vhl_tn <- function(season, stage = "regular") {
 #' | `stage` | character | Season stage: regular or playoff. |
 #' | `tn` | integer | Tournament id of the season stage (2025/26 regular season = 1374, playoffs = 1375); vhl_tn maps season + stage to it. |
 #' | `game_id` | integer | Game id (the calendar's game_id; the report's and the broadcast's idgame). The report and broadcast pages do not print it: it comes from the request. |
-#' | `game_number` | integer | Official game number within the tournament (from '№986'). |
+#' | `game_number` | integer | Official game number within the tournament (from 'No.986'). |
 #' | `game_date` | character | Game date, ISO 'YYYY-MM-DD': the calendar day heading plus the season (August-December = START year). |
 #' | `date` | character | Day header in English, day and month only ('18 March'); the page prints no year and no start time. |
 #' | `weekday` | character | Weekday of the day header (English). |
@@ -1803,11 +1808,11 @@ vhl_schedule <- function(season, stage = "regular", return_parsed = TRUE) {
 #' | `game_id` | integer | Game id (the calendar's game_id; the report's and the broadcast's idgame). The report and broadcast pages do not print it: it comes from the request. |
 #' | `season` | integer | Season END year (2026 = 2025/26). |
 #' | `stage` | character | Season stage: regular or playoff. |
-#' | `game_number` | integer | Official game number (from '№984'); checked against the request. |
+#' | `game_number` | integer | Official game number (from 'No.984'); checked against the request. |
 #' | `tn` | integer | Tournament id of the season stage (2025/26 regular season = 1374, playoffs = 1375); vhl_tn maps season + stage to it. |
 #' | `date` | character | Game date, ISO 'YYYY-MM-DD', parsed from date_text. |
 #' | `local_time` | character | Start time 'HH:MM' from date_text; local time zone unverified (likely Moscow). |
-#' | `date_text` | character | Date line verbatim; RUSSIAN month and weekday even on /en/ ('18 Март 2026, Среда, 17:00'). The `time datetime` attribute is a constant placeholder (2020-01-23 18:00) and is ignored. |
+#' | `date_text` | character | Date line verbatim; RUSSIAN month and weekday even on /en/ ('18 Mart 2026, Sreda, 17:00'). The `time datetime` attribute is a constant placeholder (2020-01-23 18:00) and is ignored. |
 #' | `attendance` | integer | Attendance (from '910 sp'). |
 #' | `score` | character | Final score 'home:away' (the shootout counts as one goal). |
 #' | `home_score` | integer | Home final goals. |
@@ -1880,11 +1885,11 @@ vhl_game_info <- function(season, game_id, stage = "regular", return_parsed = TR
 #' | `game_id` | integer | Game id (the calendar's game_id; the report's and the broadcast's idgame). The report and broadcast pages do not print it: it comes from the request. |
 #' | `season` | integer | Season END year (2026 = 2025/26). |
 #' | `stage` | character | Season stage: regular or playoff. |
-#' | `game_number` | integer | Official game number (from '№984'); checked against the request. |
+#' | `game_number` | integer | Official game number (from 'No.984'); checked against the request. |
 #' | `team_side` | character | Side of the game the row belongs to: home or away. |
 #' | `team_page_id` | integer | Team page id (vhlru.ru `/en/teams/{team_page_id}/`), stable across seasons; for report rows the page id of the row's side. |
 #' | `goal_number` | integer | Goal number in the game (G). |
-#' | `period` | character | Period (Per) as printed: '1', '2', '3', overtime unverified, 'РБ' (Cyrillic even on /en/: shootout, решающий бросок). |
+#' | `period` | character | Period (Per) as printed: '1', '2', '3', overtime unverified, 'RB' (Cyrillic even on /en/: shootout, reshayushchiy brosok). |
 #' | `time` | character | Elapsed game time 'mm:ss' from the opening faceoff (Time); the shootout row says '65:00'. |
 #' | `score` | character | Score after the goal 'home:away' (Score). |
 #' | `strength` | character | Goal strength code (PMG): eq (even), ppg (power play), shg (shorthanded); null on the shootout row. |
@@ -1948,7 +1953,7 @@ vhl_goals <- function(season, game_id, stage = "regular", return_parsed = TRUE) 
 #' | `game_id` | integer | Game id (the calendar's game_id; the report's and the broadcast's idgame). The report and broadcast pages do not print it: it comes from the request. |
 #' | `season` | integer | Season END year (2026 = 2025/26). |
 #' | `stage` | character | Season stage: regular or playoff. |
-#' | `game_number` | integer | Official game number (from '№984'); checked against the request. |
+#' | `game_number` | integer | Official game number (from 'No.984'); checked against the request. |
 #' | `team_side` | character | Side of the game the row belongs to: home or away. |
 #' | `team_page_id` | integer | Team page id (vhlru.ru `/en/teams/{team_page_id}/`), stable across seasons; for report rows the page id of the row's side. |
 #' | `team` | character | Team short name (Latin; the report tables' form). |
@@ -2004,7 +2009,7 @@ vhl_penalties <- function(season, game_id, stage = "regular", return_parsed = TR
 #' | `game_id` | integer | Game id (the calendar's game_id; the report's and the broadcast's idgame). The report and broadcast pages do not print it: it comes from the request. |
 #' | `season` | integer | Season END year (2026 = 2025/26). |
 #' | `stage` | character | Season stage: regular or playoff. |
-#' | `game_number` | integer | Official game number (from '№984'); checked against the request. |
+#' | `game_number` | integer | Official game number (from 'No.984'); checked against the request. |
 #' | `team_side` | character | Side of the game the row belongs to: home or away. |
 #' | `team_page_id` | integer | Team page id (vhlru.ru `/en/teams/{team_page_id}/`), stable across seasons; for report rows the page id of the row's side. |
 #' | `team` | character | Team short name (Latin; the report tables' form). |
@@ -2080,7 +2085,7 @@ vhl_player_box <- function(season, game_id, stage = "regular", return_parsed = T
 #' | `game_id` | integer | Game id (the calendar's game_id; the report's and the broadcast's idgame). The report and broadcast pages do not print it: it comes from the request. |
 #' | `season` | integer | Season END year (2026 = 2025/26). |
 #' | `stage` | character | Season stage: regular or playoff. |
-#' | `game_number` | integer | Official game number (from '№984'); checked against the request. |
+#' | `game_number` | integer | Official game number (from 'No.984'); checked against the request. |
 #' | `team_side` | character | Side of the game the row belongs to: home or away. |
 #' | `team_page_id` | integer | Team page id (vhlru.ru `/en/teams/{team_page_id}/`), stable across seasons; for report rows the page id of the row's side. |
 #' | `team` | character | Team short name (Latin; the report tables' form). |
@@ -2149,14 +2154,14 @@ vhl_goalie_box <- function(season, game_id, stage = "regular", return_parsed = T
 #' | `game_id` | integer | Game id (the calendar's game_id; the report's and the broadcast's idgame). The report and broadcast pages do not print it: it comes from the request. |
 #' | `season` | integer | Season END year (2026 = 2025/26). |
 #' | `stage` | character | Season stage: regular or playoff. |
-#' | `game_number` | integer | Official game number ('Игра номер 984'); checked against the request. |
+#' | `game_number` | integer | Official game number ('Igra nomer 984'); checked against the request. |
 #' | `event_index` | integer | Order of the event on the page, 0 = the first listed (the broadcast lists the latest event first). |
 #' | `kind` | character | Event kind from the CSS modifier: game_state (ga), comment (co), goal (go), penalty (pn), goalie_change (gc), video_review (vr), shootout_attempt (bu). |
 #' | `kind_code` | character | Raw CSS modifier of .game-event-item--`code`. |
-#' | `time` | character | Time label verbatim: 'mm:ss' elapsed game time, 'NN мин' (minute of a comment), or 'HH:MM' wall clock on game_state events; null when absent. See clock. |
-#' | `clock` | character | What time means: game (elapsed mm:ss), minute ('58 мин'), wall (local wall clock, game_state rows); null when there is no time. |
+#' | `time` | character | Time label verbatim: 'mm:ss' elapsed game time, 'NN min' (minute of a comment), or 'HH:MM' wall clock on game_state events; null when absent. See clock. |
+#' | `clock` | character | What time means: game (elapsed mm:ss), minute ('58 min'), wall (local wall clock, game_state rows); null when there is no time. |
 #' | `score` | character | Score 'home-away' (dash, not colon) after a goal; on a shootout attempt, the shootout score printed beside it (before or after that attempt: unverified). |
-#' | `strength_code` | character | Goal strength code in Cyrillic: РАВ (even), БОЛ (power play), МЕН (shorthanded, unobserved), БУЛ (penalty shot / shootout); empty string seen as null. |
+#' | `strength_code` | character | Goal strength code in Cyrillic: RAV (even), BOL (power play), MEN (shorthanded, unobserved), BUL (penalty shot / shootout); empty string seen as null. |
 #' | `strength` | character | strength_code in English: even, power_play, shorthanded, penalty_shot_or_shootout. |
 #' | `text` | character | Event text verbatim in RUSSIAN (team, players, infraction, period stats); not translated. |
 #' | `player_ids` | list of integer | Player ids linked in the event text (`//vhlru.ru/players/{id}/`), scorer first; empty for most kinds. |

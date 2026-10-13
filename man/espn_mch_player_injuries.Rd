@@ -16,6 +16,7 @@ An empty \code{data.frame()}. As of 2026-06-08, ESPN core-v2
 \code{athletes/{{id}}/injuries} returns HTTP 404 for all queried NHL players
 (DONE_WITH_CONCERNS: endpoint not served for NHL).
 Use \code{espn_mch_injuries()} (site-v2) for league-level injury data.
+There is no column schema: the call always yields a zero-row, zero-column \code{data.frame()}.
 }
 \description{
 \strong{Get ESPN MCH Player Injuries (core-v2)}

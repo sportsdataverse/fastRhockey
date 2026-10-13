@@ -61,7 +61,8 @@ season that is not a year, or an argument outside its choices.
 
 \examples{
 \donttest{
-  shl_post_game_team_stats(game_uuid = "bdhvuc5tex", ssgt_uuid = "iuzqg7dqk9", home_team_uuid = "087a-087aTQv9u", away_team_uuid = "41c4-41c4BiYZU")
+  shl_post_game_team_stats(game_uuid = "bdhvuc5tex", ssgt_uuid = "iuzqg7dqk9",
+    home_team_uuid = "087a-087aTQv9u", away_team_uuid = "41c4-41c4BiYZU")
 }
 }
 \seealso{

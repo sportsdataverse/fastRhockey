@@ -21,11 +21,11 @@ A \code{fastRhockey_data} tibble with one row per game (one row):\tabular{lll}{
    \code{game_id} \tab integer \tab Game id (the calendar's game_id; the report's and the broadcast's idgame). The report and broadcast pages do not print it: it comes from the request. \cr
    \code{season} \tab integer \tab Season END year (2026 = 2025/26). \cr
    \code{stage} \tab character \tab Season stage: regular or playoff. \cr
-   \code{game_number} \tab integer \tab Official game number (from '№984'); checked against the request. \cr
+   \code{game_number} \tab integer \tab Official game number (from 'No.984'); checked against the request. \cr
    \code{tn} \tab integer \tab Tournament id of the season stage (2025/26 regular season = 1374, playoffs = 1375); vhl_tn maps season + stage to it. \cr
    \code{date} \tab character \tab Game date, ISO 'YYYY-MM-DD', parsed from date_text. \cr
    \code{local_time} \tab character \tab Start time 'HH:MM' from date_text; local time zone unverified (likely Moscow). \cr
-   \code{date_text} \tab character \tab Date line verbatim; RUSSIAN month and weekday even on /en/ ('18 Март 2026, Среда, 17:00'). The \verb{time datetime} attribute is a constant placeholder (2020-01-23 18:00) and is ignored. \cr
+   \code{date_text} \tab character \tab Date line verbatim; RUSSIAN month and weekday even on /en/ ('18 Mart 2026, Sreda, 17:00'). The \verb{time datetime} attribute is a constant placeholder (2020-01-23 18:00) and is ignored. \cr
    \code{attendance} \tab integer \tab Attendance (from '910 sp'). \cr
    \code{score} \tab character \tab Final score 'home:away' (the shootout counts as one goal). \cr
    \code{home_score} \tab integer \tab Home final goals. \cr

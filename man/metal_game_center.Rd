@@ -159,7 +159,7 @@ Signalled as classed conditions: \code{fastRhockey_no_data} when the bucket has 
 }
 }
 \seealso{
-\href{https://www.metalligaen.dk/}{Metal Ligaen} (the league site whose widgets read this public eSports bucket)
+\href{https://metalligaen.dk/}{Metal Ligaen} (the league site whose widgets read this public eSports bucket)
 
 Other Metal Ligaen eSports functions:
 \code{\link[=metal_game_info]{metal_game_info()}},

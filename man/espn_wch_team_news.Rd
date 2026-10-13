@@ -20,6 +20,19 @@ is available. The \verb{/news} endpoint currently returns an empty response
 for WCH; an empty tibble is returned with a cli warning. Columns when
 populated include \code{team_id}, \code{id}, \code{headline}, \code{description}, \code{type},
 \code{published}, \code{last_modified}, \code{premium}, and \code{url}.
+
+Columns when populated:\tabular{lll}{
+   col_name \tab type \tab description \cr
+   team_id \tab character \tab ESPN team identifier (echoed from the argument). \cr
+   id \tab character \tab Article identifier. \cr
+   headline \tab character \tab Article headline. \cr
+   description \tab character \tab Article description. \cr
+   type \tab character \tab Article type. \cr
+   published \tab character \tab Publication timestamp. \cr
+   last_modified \tab character \tab Last-modified timestamp. \cr
+   premium \tab logical \tab Whether the article is premium content. \cr
+   url \tab character \tab Web URL of the article. \cr
+}
 }
 \description{
 \strong{Get ESPN WCH Team News}

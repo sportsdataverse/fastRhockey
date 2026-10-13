@@ -60,7 +60,7 @@ asked, or a failed fetch) and \code{fastRhockey_bad_request} (an invalid argumen
    fow_pct \tab numeric \tab Stat code the bar is computed from \cr
    bls \tab integer \tab Shots blocked in the period block \cr
    hits \tab integer \tab Hits (body checks) \cr
-   fa \tab integer \tab Takeaways (the site labels this column 'Отборы', takeaways) \cr
+   fa \tab integer \tab Takeaways (the site labels this column 'Otbory', takeaways) \cr
    p_intc \tab integer \tab Pass interceptions \cr
    sft \tab character \tab Time on ice 'mm:ss(shifts)' \cr
    sfte \tab character \tab Even-strength time on ice 'mm:ss(shifts)' \cr

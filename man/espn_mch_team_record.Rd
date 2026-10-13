@@ -18,6 +18,15 @@ A \code{fastRhockey_data} tibble with one row per record type
 currently returns an empty response for MCH; an empty tibble is returned
 with a cli warning. Columns when populated include \code{team_id},
 \code{description}, \code{type}, \code{summary}, and one numeric column per stat.
+
+Columns when populated:\tabular{lll}{
+   col_name \tab type \tab description \cr
+   team_id \tab character \tab ESPN team identifier (echoed from the argument). \cr
+   description \tab character \tab Record description. \cr
+   type \tab character \tab Record type (overall, home, away). \cr
+   summary \tab character \tab Record summary string, e.g. \code{'10-5-1'}. \cr
+   \if{html}{\out{<stat>}} \tab numeric \tab One column per ESPN stat on the record, named by \code{janitor::make_clean_names()} of the stat name. \cr
+}
 }
 \description{
 \strong{Get ESPN MCH Team Record}

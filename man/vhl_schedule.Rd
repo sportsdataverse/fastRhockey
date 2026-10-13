@@ -20,7 +20,7 @@ A \code{fastRhockey_data} tibble with one row per game:\tabular{lll}{
    \code{stage} \tab character \tab Season stage: regular or playoff. \cr
    \code{tn} \tab integer \tab Tournament id of the season stage (2025/26 regular season = 1374, playoffs = 1375); vhl_tn maps season + stage to it. \cr
    \code{game_id} \tab integer \tab Game id (the calendar's game_id; the report's and the broadcast's idgame). The report and broadcast pages do not print it: it comes from the request. \cr
-   \code{game_number} \tab integer \tab Official game number within the tournament (from '№986'). \cr
+   \code{game_number} \tab integer \tab Official game number within the tournament (from 'No.986'). \cr
    \code{game_date} \tab character \tab Game date, ISO 'YYYY-MM-DD': the calendar day heading plus the season (August-December = START year). \cr
    \code{date} \tab character \tab Day header in English, day and month only ('18 March'); the page prints no year and no start time. \cr
    \code{weekday} \tab character \tab Weekday of the day header (English). \cr

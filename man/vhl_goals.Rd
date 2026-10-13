@@ -21,11 +21,11 @@ A \code{fastRhockey_data} tibble with one row per goal:\tabular{lll}{
    \code{game_id} \tab integer \tab Game id (the calendar's game_id; the report's and the broadcast's idgame). The report and broadcast pages do not print it: it comes from the request. \cr
    \code{season} \tab integer \tab Season END year (2026 = 2025/26). \cr
    \code{stage} \tab character \tab Season stage: regular or playoff. \cr
-   \code{game_number} \tab integer \tab Official game number (from '№984'); checked against the request. \cr
+   \code{game_number} \tab integer \tab Official game number (from 'No.984'); checked against the request. \cr
    \code{team_side} \tab character \tab Side of the game the row belongs to: home or away. \cr
    \code{team_page_id} \tab integer \tab Team page id (vhlru.ru \verb{/en/teams/\{team_page_id\}/}), stable across seasons; for report rows the page id of the row's side. \cr
    \code{goal_number} \tab integer \tab Goal number in the game (G). \cr
-   \code{period} \tab character \tab Period (Per) as printed: '1', '2', '3', overtime unverified, 'РБ' (Cyrillic even on /en/: shootout, решающий бросок). \cr
+   \code{period} \tab character \tab Period (Per) as printed: '1', '2', '3', overtime unverified, 'RB' (Cyrillic even on /en/: shootout, reshayushchiy brosok). \cr
    \code{time} \tab character \tab Elapsed game time 'mm:ss' from the opening faceoff (Time); the shootout row says '65:00'. \cr
    \code{score} \tab character \tab Score after the goal 'home:away' (Score). \cr
    \code{strength} \tab character \tab Goal strength code (PMG): eq (even), ppg (power play), shg (shorthanded); null on the shootout row. \cr
