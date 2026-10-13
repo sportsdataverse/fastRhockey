@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,10 +95,24 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.0.0" id="fastrhockey-100-continued-development"><strong>fastRhockey 1.0.0 (continued development)</strong><a class="anchor" aria-label="anchor" href="#fastrhockey-100-continued-development"></a></h2><p class="text-muted">CRAN release: 2026-08-25</p>
+<h2 class="pkg-version" data-toc-text="1.0.0.9000" id="fastrhockey-1009000-continued-development"><strong>fastRhockey 1.0.0.9000 (continued development)</strong><a class="anchor" aria-label="anchor" href="#fastrhockey-1009000-continued-development"></a></h2>
 <div class="section level4">
-<h4 id="new-features-1-0-0">New features<a class="anchor" aria-label="anchor" href="#new-features-1-0-0"></a></h4>
-<ul><li>
+<h4 id="new-features-1-0-0-9000">New features<a class="anchor" aria-label="anchor" href="#new-features-1-0-0-9000"></a></h4>
+<ul><li>European hockey and ESPN college hockey (447 wrappers), at parity with sportsdataverse-py. Seasons are END years (2027 = 2026-27). Every request waits at least one second after the last one to the same host, 429/500/502/ 503/504 answers are retried honouring <code>Retry-After</code> (capped at 120 s), and failures raise classed conditions: <code>fastRhockey_no_data</code> (the provider has nothing for the request), <code>fastRhockey_asset_fetch</code> (the answer is unknown: a 403/5xx, a block, an empty body, a body for another game) and <code>fastRhockey_bad_request</code>, all inheriting <code>fastRhockey_error</code>. Results are <code>fastRhockey_data</code>; <code>return_parsed = FALSE</code> returns the raw payload.
+<ul><li>eSports (DEL, ICE Hockey League, EIHL, Metal Ligaen): 41 wrappers, <code>del_*</code> (12), <code>icehl_*</code> (12), <code>eihl_*</code> (9), <code>metal_*</code> (8).</li>
+<li>KHL: 23 <code>khl_*</code> wrappers over khl.ru and the webcaster API.</li>
+<li>SHL: 29 <code>shl_*</code> wrappers, including <code><a href="../reference/shl_ssgt_uuid.html">shl_ssgt_uuid()</a></code> and <code><a href="../reference/shl_player_crosswalk.html">shl_player_crosswalk()</a></code>.</li>
+<li>Liiga: 23 <code>liiga_*</code> wrappers.</li>
+<li>SIHF (Swiss Ice Hockey Federation, data.sihf.ch): 33 <code>sihf_*</code> wrappers.</li>
+<li>Czech Extraliga: 9 <code>elh_*</code> wrappers.</li>
+<li>HockeyAllsvenskan: 11 <code>ha_*</code> wrappers.</li>
+<li>Swiss National League (nationalleague.ch): 17 <code>nl_*</code> wrappers. The site’s robots.txt disallows <code>/api</code>; building on it was approved by the owner on 2026-10-12 for polite, incremental use only (at least 1 s between requests, no bulk backfill or published mirror without asking again), and the ruling is repeated in each function’s documentation.</li>
+<li>Ligue Magnus: 11 <code>magnus_*</code> wrappers.</li>
+<li>VHL (Russia): 13 <code>vhl_*</code> wrappers plus <code><a href="../reference/vhl_tn.html">vhl_tn()</a></code>.</li>
+<li>ESPN men’s and women’s college hockey: 236 wrappers, 118 per league (<code>espn_mch_*</code> and <code>espn_wch_*</code>).</li>
+</ul></li>
+<li>Deliberate differences from sportsdataverse-py: R has no 64-bit integer, so ids past 2^31 (SIHF <code>game_id</code>, National League <code>game_id</code> and unix times, eSports epoch-millisecond timestamps, KHL webcaster <code>*_ts</code>, Czech Extraliga <code>sort_order</code>) are doubles, and <code>return_as_pandas</code> and <code>**kwargs</code> are dropped.</li>
+<li>
 <code><a href="../reference/load_pwhl_shifts.html">load_pwhl_shifts()</a></code> and <code><a href="../reference/load_pwhl_xg_pbp.html">load_pwhl_xg_pbp()</a></code> — loaders for the two published PWHL release datasets that had no R access (per-player shift charts and xG-enriched play-by-play), completing coverage of every hockey tag on the sportsdataverse-data releases.</li>
 <li>
 <code><a href="../reference/load_nhl_groups.html">load_nhl_groups()</a></code>, <code><a href="../reference/load_nhl_group_seasons.html">load_nhl_group_seasons()</a></code>, <code><a href="../reference/load_nhl_group_aliases.html">load_nhl_group_aliases()</a></code> and <code><a href="../reference/load_nhl_team_group_seasons.html">load_nhl_team_group_seasons()</a></code> — season-by-season conference and division reference tables from the <code>nhl_groups</code> sportsdataverse-data release: each group’s name and parent as of every season, every source’s ids and names for it, and each team’s conference and division by season (1918+, keyed by the season’s end year).</li>
@@ -106,7 +120,7 @@
 <code><a href="../reference/nhl_game_shifts.html">nhl_game_shifts()</a></code> gains a <code>detailed</code> argument: <code>detailed = TRUE</code> returns the per-player shift records (one row per player-shift with game-second on/off times) instead of the aggregated one-row-per-change frame (<a href="https://github.com/sportsdataverse/fastRhockey/issues/26" class="external-link">#26</a>).</li>
 </ul></div>
 <div class="section level4">
-<h4 id="bug-fixes-1-0-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-1-0-0"></a></h4>
+<h4 id="bug-fixes-1-0-0-9000">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-1-0-0-9000"></a></h4>
 <ul><li><p>The NHL release loaders rejected the 2009-10 season: every <code>load_nhl_*()</code> release loader (and <code>.nhl_release_loader()</code>’s default) required <code>seasons &gt;= 2011</code>, but each sportsdataverse-data release publishes from 2010. They now accept 2010, matching sportsdataverse-py (<a href="https://github.com/sportsdataverse/fastRhockey/issues/765" class="external-link">#765</a>). Two of those 2009-10 files are thinner at the source: <code><a href="../reference/load_nhl_pbp.html">load_nhl_pbp()</a></code> comes from a lighter feed (53 columns, not 92), and <code><a href="../reference/load_nhl_three_stars.html">load_nhl_three_stars()</a></code> covers 324 of 1,318 games. <code><a href="../reference/load_nhl_pbp_lite.html">load_nhl_pbp_lite()</a></code>’s <code>play_by_play_lite_&lt;year&gt;</code> files started at 2024 until the release was backfilled for 2010-2023 (2026-10-11), so earlier lite seasons used to download nothing. <code><a href="../reference/load_nhl_game_rosters.html">load_nhl_game_rosters()</a></code> documents all twelve of its columns.</p></li>
 <li><p><code>shot_distance</code> / <code>shot_angle</code> (and <code>scoring_chance</code>) of an empty-net goal from a team’s own half were measured to the nearer net: 59 ft for a median 126-ft goal (27 such goals in 320 PWHL games). Empty-net goals are now measured to the net their team attacks. Every other event keeps the nearer net: per-event validation showed own-half events with a goalie in net are near-net events whose coordinates the feed mirrored (sdv-internal-refs <code>hockeytech/CANVAS.md</code>, <a href="https://github.com/sportsdataverse/fastRhockey/issues/52" class="external-link">#52</a>).</p></li>
 <li><p>The derived play-by-play coordinates of <code><a href="../reference/pwhl_pbp.html">pwhl_pbp()</a></code> and the AHL / OHL / WHL / QMJHL <code>*_pbp()</code> functions put home-team events off the rink: the home flip applied a 0-200 x 0-85 mirror to coordinates already in centre-origin feet, so home <code>x_coord_right</code> ran 191 to 290 ft (PWHL game 42). The feed puts the home team’s attack toward x = 0 in every period (320 PWHL games, sdv-internal-refs <code>hockeytech/CANVAS.md</code>), and the columns are now rotations of the feet frame: <code>x_coord_fixed</code> / <code>y_coord_fixed</code> = (-x, -y), home team shooting right (the NHL <code>x_fixed</code> convention); <code>x_coord_right</code> / <code>y_coord_right</code> = home (-x, -y), visitor (x, y); <code>x_coord_vertical</code> / <code>y_coord_vertical</code> = (-y_right, x_right). The right and vertical columns are <code>NA</code> when an event’s side is unknown (no team, as on faceoffs, or no home team id) instead of being treated as the visitor’s. <code>x_coord</code>, <code>y_coord</code>, <code>shot_distance</code> and <code>shot_angle</code> are unchanged.</p></li>
@@ -118,7 +132,7 @@
 <li><p><code><a href="../reference/pwhl_stats.html">pwhl_stats()</a></code> skater results are resilient to the shootout stat block dropping out of the feed (absent after the inaugural season).</p></li>
 </ul></div>
 <div class="section level4">
-<h4 id="housekeeping-1-0-0">Housekeeping<a class="anchor" aria-label="anchor" href="#housekeeping-1-0-0"></a></h4>
+<h4 id="housekeeping-1-0-0-9000">Housekeeping<a class="anchor" aria-label="anchor" href="#housekeeping-1-0-0-9000"></a></h4>
 <ul><li><p>Documentation migrated to roxygen2 8.1.0; the full test suite now skips on CRAN (everything runs in CI on every push); <code>cph</code> role added to <code>Authors@R</code>; LICENSE year refreshed; R-hub workflow moved to the rolling <code>r-hub/actions@v1</code> tag (node24 runtime).</p></li>
 <li><p>Added read-only <strong>Fox Sports “Bifrost”</strong> NHL wrappers (<code>fox_nhl_*</code>) over <code>api.foxsports.com/bifrost/v1/nhl/*</code>, complementing the <code>espn_nhl_*</code> family: <code><a href="../reference/fox_nhl_pbp.html">fox_nhl_pbp()</a></code> (period-based play-by-play), <code><a href="../reference/fox_nhl_boxscore.html">fox_nhl_boxscore()</a></code>, <code><a href="../reference/fox_nhl_odds.html">fox_nhl_odds()</a></code>, <code><a href="../reference/fox_nhl_team_roster.html">fox_nhl_team_roster()</a></code>, <code><a href="../reference/fox_nhl_team_stats.html">fox_nhl_team_stats()</a></code>, <code><a href="../reference/fox_nhl_team_gamelog.html">fox_nhl_team_gamelog()</a></code>, <code><a href="../reference/fox_nhl_standings.html">fox_nhl_standings()</a></code>, <code><a href="../reference/fox_nhl_league_leaders.html">fox_nhl_league_leaders()</a></code>. Flatten Fox’s layout JSON into tidy <code>fastRhockey_data</code> tibbles. Parallels the cfbfastR / hoopR / sportsdataverse-py <code>fox_*</code> families; reverse-engineering notes + an OpenAPI 3.1 spec live in the <code>sdv-internal-refs</code> repo.</p></li>
 <li><p>Added live HockeyTech wrappers for <strong>AHL</strong>, <strong>OHL</strong>, <strong>WHL</strong>, and <strong>QMJHL</strong> (<code>&lt;lg&gt;_schedule()</code>, <code>&lt;lg&gt;_pbp()</code>, <code>&lt;lg&gt;_standings()</code>, <code>&lt;lg&gt;_teams()</code>, <code>&lt;lg&gt;_team_roster()</code>, <code>&lt;lg&gt;_player_stats()</code>, <code>&lt;lg&gt;_leaders()</code>, <code>&lt;lg&gt;_game_summary()</code>, <code>&lt;lg&gt;_season_id()</code>, <code>most_recent_&lt;lg&gt;_season()</code>).</p></li>
@@ -126,27 +140,27 @@
 <li><p><code><a href="../reference/pwhl_pbp.html">pwhl_pbp()</a></code> now returns a superset: added <code>shot_distance</code>, <code>shot_angle</code>, <code>scoring_chance</code>, <code>on_ice_home</code>, <code>on_ice_away</code>, coordinate-transform + clock columns, and <code>blocked_shot</code>/<code>hit</code> events.</p></li>
 </ul></div>
 <div class="section level4">
-<h4 id="espn-nhl-endpoints-1-0-0"><strong>ESPN NHL endpoints</strong><a class="anchor" aria-label="anchor" href="#espn-nhl-endpoints-1-0-0"></a></h4>
+<h4 id="espn-nhl-endpoints-1-0-0-9000"><strong>ESPN NHL endpoints</strong><a class="anchor" aria-label="anchor" href="#espn-nhl-endpoints-1-0-0-9000"></a></h4>
 <ul><li>Added a comprehensive family of <strong>ESPN NHL endpoint wrappers</strong> (<code>espn_nhl_*</code>, 125 functions) covering the full ESPN hockey API surface across the site, web, and core hosts — game data (<code>espn_nhl_pbp</code>, <code>espn_nhl_team_box</code>, <code>espn_nhl_player_box</code>, <code>espn_nhl_game_all</code>, <code>espn_nhl_summary</code>, <code>espn_nhl_scoreboard</code>, <code>espn_nhl_schedule</code>, <code>espn_nhl_standings</code>), athletes, leaders, season structure, event detail, and reference catalog. Each returns a wide, self-describing <code>fastRhockey_data</code> tibble with a documented column table, built on a shared league-generic helper layer. Endpoints ESPN does not populate for the NHL degrade gracefully to an empty frame with a warning.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="data-loaders-1-0-0"><strong>Data loaders</strong><a class="anchor" aria-label="anchor" href="#data-loaders-1-0-0"></a></h4>
+<h4 id="data-loaders-1-0-0-9000"><strong>Data loaders</strong><a class="anchor" aria-label="anchor" href="#data-loaders-1-0-0-9000"></a></h4>
 <ul><li>Added 13 naming-parity aliases for sportsdataverse-py compatibility: <code><a href="../reference/load_nhl_pbp_full.html">load_nhl_pbp_full()</a></code> (parity alias of <code><a href="../reference/load_nhl_pbp.html">load_nhl_pbp()</a></code>, which already serves the full <code>nhl_pbp_full</code> release), <code><a href="../reference/load_nhl_team_boxscore.html">load_nhl_team_boxscore()</a></code>, <code><a href="../reference/load_nhl_team_boxscores.html">load_nhl_team_boxscores()</a></code>, <code><a href="../reference/load_nhl_player_boxscore.html">load_nhl_player_boxscore()</a></code>, <code><a href="../reference/load_nhl_player_boxscores.html">load_nhl_player_boxscores()</a></code>, <code><a href="../reference/load_nhl_skater_boxscores.html">load_nhl_skater_boxscores()</a></code>, <code><a href="../reference/load_nhl_goalie_boxscores.html">load_nhl_goalie_boxscores()</a></code>, <code><a href="../reference/load_nhl_schedules.html">load_nhl_schedules()</a></code> (NHL), and <code><a href="../reference/load_pwhl_team_boxscores.html">load_pwhl_team_boxscores()</a></code>, <code><a href="../reference/load_pwhl_player_boxscores.html">load_pwhl_player_boxscores()</a></code>, <code><a href="../reference/load_pwhl_skater_boxscores.html">load_pwhl_skater_boxscores()</a></code>, <code><a href="../reference/load_pwhl_goalie_boxscores.html">load_pwhl_goalie_boxscores()</a></code>, <code><a href="../reference/load_pwhl_schedules.html">load_pwhl_schedules()</a></code> (PWHL). Each alias forwards all arguments to its canonical counterpart.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="dependencies-1-0-0"><strong>Dependencies</strong><a class="anchor" aria-label="anchor" href="#dependencies-1-0-0"></a></h4>
+<h4 id="dependencies-1-0-0-9000"><strong>Dependencies</strong><a class="anchor" aria-label="anchor" href="#dependencies-1-0-0-9000"></a></h4>
 <ul><li>Migrated the entire package from <code>httr</code> to <code>httr2</code> behind a single internal <code><a href="../reference/dot-retry_request.html">.retry_request()</a></code> helper, and added session / environment / per-call <strong>proxy support</strong> via <code>options(fastRhockey.proxy = ...)</code> (documented in <code><a href="../reference/fastRhockey-package.html">?fastRhockey</a></code>). Function outputs are unchanged.</li>
 <li>Raised the minimum R version to <strong>4.1.0</strong> (the new <code>httr2</code> request helpers use the native <code>|&gt;</code> pipe).</li>
 </ul></div>
 <div class="section level4">
-<h4 id="deprecations--fixes-1-0-0"><strong>Deprecations &amp; fixes</strong><a class="anchor" aria-label="anchor" href="#deprecations--fixes-1-0-0"></a></h4>
+<h4 id="deprecations--fixes-1-0-0-9000"><strong>Deprecations &amp; fixes</strong><a class="anchor" aria-label="anchor" href="#deprecations--fixes-1-0-0-9000"></a></h4>
 <ul><li>
 <strong>Deprecated:</strong> nine NHL Edge “top-10” leaderboard wrappers whose upstream endpoints the NHL has removed (every request returns HTTP 404): <code><a href="../reference/nhl_edge_goalie_5v5_top_10.html">nhl_edge_goalie_5v5_top_10()</a></code>, <code><a href="../reference/nhl_edge_goalie_edge_save_pctg_top_10.html">nhl_edge_goalie_edge_save_pctg_top_10()</a></code>, <code><a href="../reference/nhl_edge_goalie_shot_location_top_10.html">nhl_edge_goalie_shot_location_top_10()</a></code>, <code><a href="../reference/nhl_edge_skater_shot_location_top_10.html">nhl_edge_skater_shot_location_top_10()</a></code>, <code><a href="../reference/nhl_edge_skater_shot_speed_top_10.html">nhl_edge_skater_shot_speed_top_10()</a></code>, <code><a href="../reference/nhl_edge_skater_speed_top_10.html">nhl_edge_skater_speed_top_10()</a></code>, <code><a href="../reference/nhl_edge_skater_zone_time_top_10.html">nhl_edge_skater_zone_time_top_10()</a></code>, <code><a href="../reference/nhl_edge_team_shot_location_top_10.html">nhl_edge_team_shot_location_top_10()</a></code>, and <code><a href="../reference/nhl_edge_team_skating_speed_top_10.html">nhl_edge_team_skating_speed_top_10()</a></code>. They now emit a <code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_warn()</a></code> and return <code>NULL</code>. The Edge “top-10” wrappers that remain live (skater distance, team skating-distance, team zone-time) are unaffected.</li>
 <li>
 <strong>Fix:</strong> <code><a href="../reference/pwhl_playoff_bracket.html">pwhl_playoff_bracket()</a></code> errored with <code>$ operator is invalid for atomic vectors</code> and returned <code>NULL</code>. The HockeyTech feed returns <code>team1</code>/<code>team2</code> as bare id strings (not nested objects) with wins in sibling <code>team1_wins</code>/<code>team2_wins</code> fields; the parser now reads these correctly.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="ci-nhl-loader--xg-tests-and-two-fixes-1-0-0"><strong>CI: NHL loader + xG tests, and two fixes</strong><a class="anchor" aria-label="anchor" href="#ci-nhl-loader--xg-tests-and-two-fixes-1-0-0"></a></h4>
+<h4 id="ci-nhl-loader--xg-tests-and-two-fixes-1-0-0-9000"><strong>CI: NHL loader + xG tests, and two fixes</strong><a class="anchor" aria-label="anchor" href="#ci-nhl-loader--xg-tests-and-two-fixes-1-0-0-9000"></a></h4>
 <ul><li>
 <strong>Fix:</strong> <code>nhl_schedule(include_data_flags = TRUE)</code> failed with <code>`x` and `y` must share the same src</code> and returned a schedule with no flag columns. <code>load_nhl_games()</code> returns a <code>data.table</code>, so the flag left-join was being routed through the dtplyr backend, and the data.table <code>[, &lt;character&gt;]</code> subset evaluated to the literal column names rather than selecting columns. The index is now coerced to a tibble before the join, so the 16 data-availability flag columns attach correctly.</li>
 <li>
@@ -155,11 +169,11 @@
 <strong>Test infrastructure:</strong> <code>test-load_nhl.R</code> and <code>test-calculate_xg.R</code> no longer <code>skip_on_ci()</code>, so the NHL loaders and the xG pipeline are exercised on CI (<code>xgboost</code> is installed explicitly in the workflow). Loader tests now request seasons that are actually published per table and assert on the keys each release carries.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="documentation-return-column-tables-for-all-working-functions-1-0-0"><strong>Documentation: <code>@return</code> column tables for all working functions</strong><a class="anchor" aria-label="anchor" href="#documentation-return-column-tables-for-all-working-functions-1-0-0"></a></h4>
+<h4 id="documentation-return-column-tables-for-all-working-functions-1-0-0-9000"><strong>Documentation: <code>@return</code> column tables for all working functions</strong><a class="anchor" aria-label="anchor" href="#documentation-return-column-tables-for-all-working-functions-1-0-0-9000"></a></h4>
 <ul><li>Every working exported function (165 across the NHL, NHL Edge, NHL Records, PWHL, and loader families) now documents its return value with a <code>col_name | types | description</code> table, matching the convention used in <code>hoopR</code>, <code>wehoop</code>, and <code>cfbfastR</code>. Functions that return a named list of data frames get one table per frame. Column names and types were captured from live API responses, so the tables reflect the actual returned schema.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="nhl_schedule-gains-a-game_type-parameter-1-0-0"><strong><code>nhl_schedule()</code> gains a <code>game_type</code> parameter</strong><a class="anchor" aria-label="anchor" href="#nhl_schedule-gains-a-game_type-parameter-1-0-0"></a></h4>
+<h4 id="nhl_schedule-gains-a-game_type-parameter-1-0-0-9000"><strong><code>nhl_schedule()</code> gains a <code>game_type</code> parameter</strong><a class="anchor" aria-label="anchor" href="#nhl_schedule-gains-a-game_type-parameter-1-0-0-9000"></a></h4>
 <ul><li>
 <code><a href="../reference/nhl_schedule.html">nhl_schedule()</a></code> gains a <code>game_type</code> parameter accepting <code>"both"</code> (default), <code>"regular"</code>, or <code>"playoffs"</code>. In season mode the function now returns regular-season and playoff games in a single tibble. Three new columns (<code>series_letter</code>, <code>playoff_round</code>, <code>series_game_number</code>) are appended to the output; they are <code>NA</code> on regular-season rows.</li>
 <li>
@@ -176,7 +190,7 @@
 <strong>Hardening:</strong> <code><a href="../reference/nhl_player_info.html">nhl_player_info()</a></code> used the same <code>ifelse(scalar, vec, NA)</code> idiom across all 18 of its nullable fields. The function returns a 1-row tibble per player so the bug was masked today, but the latent shape was identical to the <code><a href="../reference/nhl_schedule.html">nhl_schedule()</a></code> bug above. Replaced with <code>if</code>/<code>else</code> for consistency and to remove the foot-gun before it surfaces (e.g., if the function is ever refactored to handle multiple players).</li>
 </ul></div>
 <div class="section level4">
-<h4 id="pwhl_schedule-defaults-to-combined-regular-season--playoffs-1-0-0"><strong><code>pwhl_schedule()</code> defaults to combined regular season + playoffs</strong><a class="anchor" aria-label="anchor" href="#pwhl_schedule-defaults-to-combined-regular-season--playoffs-1-0-0"></a></h4>
+<h4 id="pwhl_schedule-defaults-to-combined-regular-season--playoffs-1-0-0-9000"><strong><code>pwhl_schedule()</code> defaults to combined regular season + playoffs</strong><a class="anchor" aria-label="anchor" href="#pwhl_schedule-defaults-to-combined-regular-season--playoffs-1-0-0-9000"></a></h4>
 <ul><li>
 <code><a href="../reference/pwhl_schedule.html">pwhl_schedule()</a></code> gains a <code>game_type</code> parameter accepting <code>"both"</code> (default), <code>"regular"</code>, <code>"playoffs"</code>, or <code>"preseason"</code>. A new <code>game_type</code> column is appended labeling each row.</li>
 <li>
@@ -187,14 +201,14 @@
 <strong>Fix:</strong> <code><a href="../reference/pwhl_schedule.html">pwhl_schedule()</a></code>’s <code>winner</code> column is now derived from <code>game_status</code> and an integer comparison of the goal counts. Previously the character goal counts were compared with <code>&gt;</code>, so a double-digit score sorted lexically (<code>"10" &lt; "9"</code>) and could name the wrong winner; games that have not been played now yield <code>winner = NA</code> (the prior code emitted a <code>"-"</code> placeholder). PWHL games cannot end in a regulation tie, so the former <code>"Tie"</code> branch is gone.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="pwhl_player_game_log-and-pwhl_streaks-default-to-combined-types-1-0-0"><strong><code>pwhl_player_game_log()</code> and <code>pwhl_streaks()</code> default to combined types</strong><a class="anchor" aria-label="anchor" href="#pwhl_player_game_log-and-pwhl_streaks-default-to-combined-types-1-0-0"></a></h4>
+<h4 id="pwhl_player_game_log-and-pwhl_streaks-default-to-combined-types-1-0-0-9000"><strong><code>pwhl_player_game_log()</code> and <code>pwhl_streaks()</code> default to combined types</strong><a class="anchor" aria-label="anchor" href="#pwhl_player_game_log-and-pwhl_streaks-default-to-combined-types-1-0-0-9000"></a></h4>
 <ul><li>
 <code><a href="../reference/pwhl_player_game_log.html">pwhl_player_game_log()</a></code> and <code><a href="../reference/pwhl_streaks.html">pwhl_streaks()</a></code> gain the same <code>game_type</code> parameter (<code>"both"</code> default, plus <code>"regular"</code>, <code>"playoffs"</code>, <code>"preseason"</code>) and a <code>game_type</code> column labeling each row. With <code>"both"</code>, a player’s regular-season and playoff data are returned together. A game type the player/season has no data in (e.g. playoffs for a non-qualifying team) is skipped rather than erroring, so the call still returns the data that does exist.</li>
 <li>
 <code><a href="../reference/pwhl_transactions.html">pwhl_transactions()</a></code> is intentionally unchanged: transactions are not scoped to a game type (the playoff season feed carries none), so a combined view would add no information.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="pwhl-parity-new-nhl-loaders--datasets-1-0-0"><strong>PWHL parity: 3 new NHL loaders + datasets</strong><a class="anchor" aria-label="anchor" href="#pwhl-parity-new-nhl-loaders--datasets-1-0-0"></a></h4>
+<h4 id="pwhl-parity-new-nhl-loaders--datasets-1-0-0-9000"><strong>PWHL parity: 3 new NHL loaders + datasets</strong><a class="anchor" aria-label="anchor" href="#pwhl-parity-new-nhl-loaders--datasets-1-0-0-9000"></a></h4>
 <p>Three new season-level NHL loaders that bring NHL coverage in line with PWHL. Each is backed by a new release tag on <a href="https://github.com/sportsdataverse/sportsdataverse-data" class="external-link"><code>sportsdataverse/sportsdataverse-data</code></a> and powered by new extractors in <code>fastRhockey-nhl-raw/R/scrape_nhl_raw.R</code> and <code>fastRhockey-nhl-data/R/nhl_data_creation.R</code>.</p>
 <table class="table"><colgroup><col width="36%"><col width="28%"><col width="34%"></colgroup><thead><tr><th>function</th>
 <th>release tag</th>
@@ -210,11 +224,11 @@
 <td>one per shootout attempt</td>
 </tr></tbody></table></div>
 <div class="section level4">
-<h4 id="nhl_schedule-data-availability-flags-1-0-0"><strong><code>nhl_schedule()</code> data-availability flags</strong><a class="anchor" aria-label="anchor" href="#nhl_schedule-data-availability-flags-1-0-0"></a></h4>
+<h4 id="nhl_schedule-data-availability-flags-1-0-0-9000"><strong><code>nhl_schedule()</code> data-availability flags</strong><a class="anchor" aria-label="anchor" href="#nhl_schedule-data-availability-flags-1-0-0-9000"></a></h4>
 <p><code><a href="../reference/nhl_schedule.html">nhl_schedule()</a></code> gained an <code>include_data_flags = FALSE</code> parameter. When <code>TRUE</code>, the live schedule is left-joined against the cached <code>nhl_games_in_data_repo</code> index from the data repo and gains 16 logical columns (<code>PBP</code>, <code>team_box</code>, <code>player_box</code>, <code>skater_box</code>, <code>goalie_box</code>, <code>game_info</code>, <code>game_rosters</code>, <code>scoring</code>, <code>penalties</code>, <code>scratches</code>, <code>linescore</code>, <code>three_stars</code>, <code>shifts</code>, <code>officials</code>, <code>shots_by_period</code>, <code>shootout</code>) telling you which pre-compiled datasets cover each game. The schedule files in <code>fastRhockey-nhl-raw/nhl/schedules/</code> and the master schedule on the data repo carry these same flags.</p>
 </div>
 <div class="section level4">
-<h4 id="richer-per-game-json-in-fastrhockey-nhl-raw-1-0-0"><strong>Richer per-game JSON in <code>fastRhockey-nhl-raw</code></strong><a class="anchor" aria-label="anchor" href="#richer-per-game-json-in-fastrhockey-nhl-raw-1-0-0"></a></h4>
+<h4 id="richer-per-game-json-in-fastrhockey-nhl-raw-1-0-0-9000"><strong>Richer per-game JSON in <code>fastRhockey-nhl-raw</code></strong><a class="anchor" aria-label="anchor" href="#richer-per-game-json-in-fastrhockey-nhl-raw-1-0-0-9000"></a></h4>
 <p><code>scrape_nhl_raw.R</code> now writes four additional top-level keys into both <code>nhl/json/raw/{game_id}.json</code> and <code>nhl/json/final/{game_id}.json</code>:</p>
 <ul><li>
 <code>officials</code> — list of <code>{role, name}</code> (referees first, linesmen second)</li>
@@ -228,11 +242,11 @@
 <code>on_ice</code> / <code>on_ice_plus</code> / <code>penalty_box</code> (final-state reconstruction, derived from the processed PBP) — populated only in the <code>final/</code> variant since they need fastRhockey-enriched on-ice columns</li>
 </ul></div>
 <div class="section level4">
-<h4 id="refactor-nhl-loaders-consolidated-into-rnhl_loadersr-1-0-0"><strong>Refactor: NHL loaders consolidated into <code>R/nhl_loaders.R</code></strong><a class="anchor" aria-label="anchor" href="#refactor-nhl-loaders-consolidated-into-rnhl_loadersr-1-0-0"></a></h4>
+<h4 id="refactor-nhl-loaders-consolidated-into-rnhl_loadersr-1-0-0-9000"><strong>Refactor: NHL loaders consolidated into <code>R/nhl_loaders.R</code></strong><a class="anchor" aria-label="anchor" href="#refactor-nhl-loaders-consolidated-into-rnhl_loadersr-1-0-0-9000"></a></h4>
 <p>All NHL season-level loaders and the shared <code>.nhl_release_loader()</code> helper now live in <code>R/nhl_loaders.R</code>, mirroring the PWHL convention (<code>R/pwhl_loaders.R</code>). The empty <code>R/nhl_pbp.R</code> file was removed since it never contained an actual <code>nhl_pbp()</code> scraper — only loaders. Public signatures and return types are unchanged.</p>
 </div>
 <div class="section level4">
-<h4 id="new-nhl-edge-analytics-functions-1-0-0"><strong>New NHL Edge Analytics (33 functions)</strong><a class="anchor" aria-label="anchor" href="#new-nhl-edge-analytics-functions-1-0-0"></a></h4>
+<h4 id="new-nhl-edge-analytics-functions-1-0-0-9000"><strong>New NHL Edge Analytics (33 functions)</strong><a class="anchor" aria-label="anchor" href="#new-nhl-edge-analytics-functions-1-0-0-9000"></a></h4>
 <p>Wraps the NHL Edge advanced-metrics endpoints under <code>https://api-web.nhle.com/v1/edge/...</code>. Every wrapper accepts an optional <code>season</code> argument (4-digit end year, e.g., <code>2025</code>) — when omitted, the <code>/now</code> form is used to fetch the current season. All wrappers share an internal <code>.nhl_edge_api()</code> helper in <code>R/helpers_nhl_edge.R</code>.</p>
 <table class="table"><colgroup><col width="45%"><col width="55%"></colgroup><thead><tr><th>family</th>
 <th>functions</th>
@@ -250,7 +264,7 @@
 </td>
 </tr></tbody></table></div>
 <div class="section level4">
-<h4 id="new-nhl-records-api-integration-functions-1-0-0"><strong>New NHL Records API integration (25 functions)</strong><a class="anchor" aria-label="anchor" href="#new-nhl-records-api-integration-functions-1-0-0"></a></h4>
+<h4 id="new-nhl-records-api-integration-functions-1-0-0-9000"><strong>New NHL Records API integration (25 functions)</strong><a class="anchor" aria-label="anchor" href="#new-nhl-records-api-integration-functions-1-0-0-9000"></a></h4>
 <p>First-time integration with <code>https://records.nhl.com/site/api/</code>. All wrappers share an internal <code>.nhl_records_api()</code> helper in <code>R/helpers_nhl_records.R</code> that supports <code>cayenneExp</code> filters, <code>limit</code>/<code>start</code> pagination, and the records-API response shape (<code>{data, total}</code>).</p>
 <ul><li>Franchise: <code><a href="../reference/nhl_records_franchise.html">nhl_records_franchise()</a></code>, <code><a href="../reference/nhl_records_franchise_detail.html">nhl_records_franchise_detail()</a></code>, <code><a href="../reference/nhl_records_franchise_totals.html">nhl_records_franchise_totals()</a></code>, <code><a href="../reference/nhl_records_franchise_team_totals.html">nhl_records_franchise_team_totals()</a></code>, <code><a href="../reference/nhl_records_franchise_season_results.html">nhl_records_franchise_season_results()</a></code>, <code><a href="../reference/nhl_records_franchise_playoff_appearances.html">nhl_records_franchise_playoff_appearances()</a></code>
 </li>
@@ -266,7 +280,7 @@
 </li>
 </ul></div>
 <div class="section level4">
-<h4 id="new-nhl-stats-rest-wrappers-functions-1-0-0"><strong>New NHL Stats REST wrappers (13 functions)</strong><a class="anchor" aria-label="anchor" href="#new-nhl-stats-rest-wrappers-functions-1-0-0"></a></h4>
+<h4 id="new-nhl-stats-rest-wrappers-functions-1-0-0-9000"><strong>New NHL Stats REST wrappers (13 functions)</strong><a class="anchor" aria-label="anchor" href="#new-nhl-stats-rest-wrappers-functions-1-0-0-9000"></a></h4>
 <p>Promotes endpoints that were previously only reachable via <code><a href="../reference/nhl_stats_misc.html">nhl_stats_misc()</a></code>’s generic dispatcher into discoverable, dedicated wrappers. Documentation for <code><a href="../reference/nhl_stats_misc.html">nhl_stats_misc()</a></code> was also updated to enumerate every valid <code>endpoint</code> value.</p>
 <ul><li>
 <code><a href="../reference/nhl_stats_franchise.html">nhl_stats_franchise()</a></code>, <code><a href="../reference/nhl_stats_players.html">nhl_stats_players()</a></code>, <code><a href="../reference/nhl_stats_glossary.html">nhl_stats_glossary()</a></code>, <code><a href="../reference/nhl_stats_country.html">nhl_stats_country()</a></code>, <code><a href="../reference/nhl_stats_config.html">nhl_stats_config()</a></code>, <code><a href="../reference/nhl_stats_ping.html">nhl_stats_ping()</a></code>
@@ -279,7 +293,7 @@
 </li>
 </ul></div>
 <div class="section level4">
-<h4 id="new-nhl-api-web-miscellaneous-endpoints-functions--in-place-updates-1-0-0"><strong>New NHL api-web miscellaneous endpoints (6 functions + 3 in-place updates)</strong><a class="anchor" aria-label="anchor" href="#new-nhl-api-web-miscellaneous-endpoints-functions--in-place-updates-1-0-0"></a></h4>
+<h4 id="new-nhl-api-web-miscellaneous-endpoints-functions--in-place-updates-1-0-0-9000"><strong>New NHL api-web miscellaneous endpoints (6 functions + 3 in-place updates)</strong><a class="anchor" aria-label="anchor" href="#new-nhl-api-web-miscellaneous-endpoints-functions--in-place-updates-1-0-0-9000"></a></h4>
 <ul><li>
 <code>nhl_wsc_pbp(game_id)</code> – narrative-format play-by-play from <code>wsc/play-by-play/{gameId}</code> (distinct from <code><a href="../reference/nhl_game_pbp.html">nhl_game_pbp()</a></code> which uses <code>gamecenter/{id}/play-by-play</code>).</li>
 <li>
@@ -300,7 +314,7 @@
 <code>nhl_draft_year(year, round = NULL)</code> – when <code>round</code> is <code>NULL</code> or <code>"all"</code>, the function now hits the <code>/draft/picks/{year}/all</code> shortcut in a single request instead of looping per round.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="new-helper-aggregators-inspired-by-nhl-api-py-functions-1-0-0"><strong>New helper aggregators inspired by <code>nhl-api-py</code> (6 functions)</strong><a class="anchor" aria-label="anchor" href="#new-helper-aggregators-inspired-by-nhl-api-py-functions-1-0-0"></a></h4>
+<h4 id="new-helper-aggregators-inspired-by-nhl-api-py-functions-1-0-0-9000"><strong>New helper aggregators inspired by <code>nhl-api-py</code> (6 functions)</strong><a class="anchor" aria-label="anchor" href="#new-helper-aggregators-inspired-by-nhl-api-py-functions-1-0-0-9000"></a></h4>
 <p>Convenience wrappers that orchestrate multiple endpoint calls into one tidy data frame:</p>
 <ul><li>
 <code>nhl_game_ids_by_season(season, game_types, team_abbr, sleep_rate)</code> – iterates every team’s season schedule and returns the deduplicated set of game IDs.</li>
@@ -316,7 +330,7 @@
 <code>nhl_goalie_summary_range(start_season, end_season)</code> – same for goalie summary.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="endpoint-mapping--openapi-specs-1-0-0"><strong>Endpoint mapping + OpenAPI specs</strong><a class="anchor" aria-label="anchor" href="#endpoint-mapping--openapi-specs-1-0-0"></a></h4>
+<h4 id="endpoint-mapping--openapi-specs-1-0-0-9000"><strong>Endpoint mapping + OpenAPI specs</strong><a class="anchor" aria-label="anchor" href="#endpoint-mapping--openapi-specs-1-0-0-9000"></a></h4>
 <ul><li>
 <code>data-raw/nhl_missing_endpoint_function_mapping.md</code> – table of every documented NHL API endpoint and its proposed/implemented fastRhockey wrapper, sourced from <a href="https://github.com/dfleis/nhl-api-docs" class="external-link">dfleis/nhl-api-docs</a>, <a href="https://github.com/RentoSaijo/nhlscraper" class="external-link">RentoSaijo/nhlscraper</a>, and <a href="https://github.com/coreyjs/nhl-api-py" class="external-link">coreyjs/nhl-api-py</a>.</li>
 <li>
@@ -329,7 +343,7 @@
 <code>data-raw/_gen_openapi.py</code> – regenerator script.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="bug-fixes--api-quirks-documented-1-0-0"><strong>Bug Fixes / API quirks documented</strong><a class="anchor" aria-label="anchor" href="#bug-fixes--api-quirks-documented-1-0-0"></a></h4>
+<h4 id="bug-fixes--api-quirks-documented-1-0-0-9000"><strong>Bug Fixes / API quirks documented</strong><a class="anchor" aria-label="anchor" href="#bug-fixes--api-quirks-documented-1-0-0-9000"></a></h4>
 <ul><li>
 <code><a href="../reference/nhl_stats_players.html">nhl_stats_players()</a></code> now detects <code>data: []</code> empty-list responses (the API returns this when no <code>cayenne_exp</code> filter is supplied) and returns <code>NULL</code> with a friendly hint instead of crashing <code>clean_names()</code>.</li>
 <li>
@@ -342,7 +356,7 @@
 <code><a href="../reference/nhl_stats_content_module.html">nhl_stats_content_module()</a></code> now guards against unnamed CMS responses that previously crashed <code>clean_names()</code>.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="new-nhl-loaders-1-0-0"><strong>New NHL Loaders</strong><a class="anchor" aria-label="anchor" href="#new-nhl-loaders-1-0-0"></a></h4>
+<h4 id="new-nhl-loaders-1-0-0-9000"><strong>New NHL Loaders</strong><a class="anchor" aria-label="anchor" href="#new-nhl-loaders-1-0-0-9000"></a></h4>
 <p>Ten new season-level loaders that pull pre-compiled NHL datasets from new release tags on <a href="https://github.com/sportsdataverse/sportsdataverse-data" class="external-link"><code>sportsdataverse/sportsdataverse-data</code></a>. All accept a <code>seasons</code> vector (Min: <code>2011</code>) and return a <code>fastRhockey_data</code> data frame, mirroring the existing <code>load_nhl_*()</code> API:</p>
 <table class="table"><colgroup><col width="35%"><col width="30%"><col width="33%"></colgroup><thead><tr><th>function</th>
 <th>release tag</th>
@@ -380,7 +394,7 @@
 </tr></tbody></table><p>The six pre-existing loaders (<code><a href="../reference/load_nhl_pbp.html">load_nhl_pbp()</a></code>, <code><a href="../reference/load_nhl_pbp_lite.html">load_nhl_pbp_lite()</a></code>, <code><a href="../reference/load_nhl_player_box.html">load_nhl_player_box()</a></code>, <code><a href="../reference/load_nhl_team_box.html">load_nhl_team_box()</a></code>, <code><a href="../reference/load_nhl_schedule.html">load_nhl_schedule()</a></code>, <code><a href="../reference/load_nhl_rosters.html">load_nhl_rosters()</a></code>) were refactored to share a single internal worker (<code>.nhl_release_loader()</code>) without changing their public signatures or return types.</p>
 </div>
 <div class="section level4">
-<h4 id="new-pwhl-loaders-1-0-0"><strong>New PWHL Loaders</strong><a class="anchor" aria-label="anchor" href="#new-pwhl-loaders-1-0-0"></a></h4>
+<h4 id="new-pwhl-loaders-1-0-0-9000"><strong>New PWHL Loaders</strong><a class="anchor" aria-label="anchor" href="#new-pwhl-loaders-1-0-0-9000"></a></h4>
 <p>Eleven new season-level loaders that pull pre-compiled PWHL datasets from new release tags on <a href="https://github.com/sportsdataverse/sportsdataverse-data" class="external-link"><code>sportsdataverse/sportsdataverse-data</code></a>. All accept a <code>seasons</code> vector (Min: <code>2024</code>) and return a <code>fastRhockey_data</code> data frame, mirroring the existing <code>load_pwhl_*()</code> API:</p>
 <table class="table"><colgroup><col width="39%"><col width="34%"><col width="26%"></colgroup><thead><tr><th>function</th>
 <th>release tag</th>
@@ -487,7 +501,7 @@
 <li>xG model integration via <code><a href="../reference/helper_nhl_calculate_xg.html">helper_nhl_calculate_xg()</a></code>.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="bug-fixes-1-0-0-1"><strong>Bug Fixes</strong><a class="anchor" aria-label="anchor" href="#bug-fixes-1-0-0-1"></a></h4>
+<h4 id="bug-fixes-1-0-0"><strong>Bug Fixes</strong><a class="anchor" aria-label="anchor" href="#bug-fixes-1-0-0"></a></h4>
 <ul><li>Fixed <code><a href="../reference/nhl_draft_year.html">nhl_draft_year()</a></code> – NHL API removed the <code>/v1/draft/picks/{year}</code> endpoint. The function now iterates over rounds 1-7 using <code>/v1/draft/picks/{year}/{round}</code>.</li>
 <li>Fixed <code><a href="../reference/pwhl_stats.html">pwhl_stats()</a></code> – resolved “object ‘players’ not found” error when API calls failed. Fixed team ID resolution for skater stats.</li>
 <li>Fixed <code><a href="../reference/pwhl_schedule.html">pwhl_schedule()</a></code> – the <code>season</code> column was inadvertently dropped from the output. It is now included.</li>

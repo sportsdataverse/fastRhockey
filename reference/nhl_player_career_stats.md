@@ -72,8 +72,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_player_career_stats(player_id = 8478402))
-#> ── NHL Player Career Stats ──────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:29 UTC
+#> ── NHL Player Career Stats ─────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:33 UTC
 #> # A tibble: 37 × 41
 #>    player_id first_name last_name position assists game_type_id games_played
 #>        <int> <chr>      <chr>     <chr>      <int>        <int>        <int>

@@ -1,11 +1,47 @@
 # Changelog
 
-## **fastRhockey 1.0.0 (continued development)**
-
-CRAN release: 2026-08-25
+## **fastRhockey 1.0.0.9000 (continued development)**
 
 #### New features
 
+- European hockey and ESPN college hockey (447 wrappers), at parity with
+  sportsdataverse-py. Seasons are END years (2027 = 2026-27). Every
+  request waits at least one second after the last one to the same host,
+  429/500/502/ 503/504 answers are retried honouring `Retry-After`
+  (capped at 120 s), and failures raise classed conditions:
+  `fastRhockey_no_data` (the provider has nothing for the request),
+  `fastRhockey_asset_fetch` (the answer is unknown: a 403/5xx, a block,
+  an empty body, a body for another game) and `fastRhockey_bad_request`,
+  all inheriting `fastRhockey_error`. Results are `fastRhockey_data`;
+  `return_parsed = FALSE` returns the raw payload.
+  - eSports (DEL, ICE Hockey League, EIHL, Metal Ligaen): 41 wrappers,
+    `del_*` (12), `icehl_*` (12), `eihl_*` (9), `metal_*` (8).
+  - KHL: 23 `khl_*` wrappers over khl.ru and the webcaster API.
+  - SHL: 29 `shl_*` wrappers, including
+    [`shl_ssgt_uuid()`](https://fastRhockey.sportsdataverse.org/reference/shl_ssgt_uuid.md)
+    and
+    [`shl_player_crosswalk()`](https://fastRhockey.sportsdataverse.org/reference/shl_player_crosswalk.md).
+  - Liiga: 23 `liiga_*` wrappers.
+  - SIHF (Swiss Ice Hockey Federation, data.sihf.ch): 33 `sihf_*`
+    wrappers.
+  - Czech Extraliga: 9 `elh_*` wrappers.
+  - HockeyAllsvenskan: 11 `ha_*` wrappers.
+  - Swiss National League (nationalleague.ch): 17 `nl_*` wrappers. The
+    site’s robots.txt disallows `/api`; building on it was approved by
+    the owner on 2026-10-12 for polite, incremental use only (at least 1
+    s between requests, no bulk backfill or published mirror without
+    asking again), and the ruling is repeated in each function’s
+    documentation.
+  - Ligue Magnus: 11 `magnus_*` wrappers.
+  - VHL (Russia): 13 `vhl_*` wrappers plus
+    [`vhl_tn()`](https://fastRhockey.sportsdataverse.org/reference/vhl_tn.md).
+  - ESPN men’s and women’s college hockey: 236 wrappers, 118 per league
+    (`espn_mch_*` and `espn_wch_*`).
+- Deliberate differences from sportsdataverse-py: R has no 64-bit
+  integer, so ids past 2^31 (SIHF `game_id`, National League `game_id`
+  and unix times, eSports epoch-millisecond timestamps, KHL webcaster
+  `*_ts`, Czech Extraliga `sort_order`) are doubles, and
+  `return_as_pandas` and `**kwargs` are dropped.
 - [`load_pwhl_shifts()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shifts.md)
   and
   [`load_pwhl_xg_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_xg_pbp.md)

@@ -51,8 +51,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_edge_team_zone_time_details(team_id = 10))
-#> ── NHL Edge Team Zone Time Details ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:21 UTC
+#> ── NHL Edge Team Zone Time Details ─────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:26 UTC
 #> # A tibble: 4 × 10
 #>   strength_code offensive_zone_pctg offensive_zone_rank offensive_zone_league_…¹
 #>   <chr>                       <dbl>               <int>                    <dbl>

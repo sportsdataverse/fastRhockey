@@ -228,8 +228,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_leaders(category = "offensive", limit = 25))
-#> ── NHL Leaders data from ESPN.com ───────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:05:45 UTC
+#> ── NHL Leaders data from ESPN.com ──────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:52:53 UTC
 #> # A tibble: 25 × 51
 #>    season season_type requested_season_year  page pagination_count
 #>     <int>       <int>                 <int> <int>            <int>

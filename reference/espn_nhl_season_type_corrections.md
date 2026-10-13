@@ -183,9 +183,7 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns empty tibble for NHL (ESPN does not publish corrections for hockey)
   try(espn_nhl_season_type_corrections(season = 2026, season_type = 2))
-#> ✖ 2026-10-12 12:06:12.805935: Invalid arguments or no ESPN nhl season type corrections for 2026 type 2 available!
-#> ✖ Args: league = "nhl", season = 2026, season_type = 2
-#> ✖ Error: values must be length 1,  but FUN(X[[2]]) result is length 19
+#> ! ESPN NHL seasons/2026/types/2/corrections returned no items.
 #> data frame with 0 columns and 0 rows
 # }
 ```

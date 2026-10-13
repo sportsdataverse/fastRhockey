@@ -34,7 +34,7 @@ failure.
 ``` r
 # \donttest{
   try(nhl_records_player_stats(cayenne_exp = "playerId=8478402"))
-#> 2026-10-12 12:08:51.305833: Error fetching records resource 'player-stats': The API returned an error
+#> 2026-10-13 01:57:56.313583: Error fetching records resource 'player-stats': The API returned an error
 #> NULL
 # }
 ```

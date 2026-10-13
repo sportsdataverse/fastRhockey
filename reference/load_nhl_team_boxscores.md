@@ -44,7 +44,7 @@ Other NHL Loader Functions:
 ``` r
 # \donttest{
   try(load_nhl_team_boxscores(2022))
-#> ── NHL Team Boxscores from fastRhockey data repository ──── fastRhockey 1.0.0 ──
+#> ── NHL Team Boxscores from fastRhockey data repository ─────────────────────────
 #> ℹ Data updated: 2026-04-08 06:01:44 UTC
 #> # A tibble: 2,802 × 16
 #>    home_away team_id team_abbrev team_name      goals shots_on_goal   pim  hits

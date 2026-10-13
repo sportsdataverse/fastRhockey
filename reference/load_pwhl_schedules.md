@@ -44,7 +44,7 @@ Other PWHL Loader Functions:
 ``` r
 # \donttest{
   try(load_pwhl_schedules(2024))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ────────────────────────────────────────────────────── fastRhockey 1.0.0.9000 ──
 #> # A tibble: 85 × 29
 #>    game_id season game_date   game_status home_team home_team_id away_team
 #>    <chr>    <int> <chr>       <chr>       <chr>     <chr>        <chr>    

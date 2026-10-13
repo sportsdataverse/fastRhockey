@@ -210,8 +210,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_player_gamelog(athlete_id = "5149125"))
-#> ── NHL Player Gamelog data from ESPN.com ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:05:55 UTC
+#> ── NHL Player Gamelog data from ESPN.com ───────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:53:00 UTC
 #> # A tibble: 69 × 35
 #>    athlete_id event_id  season_type_display    category_display category_type
 #>    <chr>      <chr>     <chr>                  <chr>            <chr>        

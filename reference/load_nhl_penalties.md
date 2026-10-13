@@ -58,7 +58,7 @@ following columns:
 ``` r
 # \donttest{
   try(load_nhl_penalties(2026))
-#> ── NHL penalty summary ──────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── NHL penalty summary ─────────────────────────────── fastRhockey 1.0.0.9000 ──
 #> ℹ Data updated: 2026-07-22 23:49:22 UTC
 #> # A tibble: 10,445 × 45
 #>    timeInPeriod type  duration committedByPlayer.firstN…¹ committedByPlayer.fi…²

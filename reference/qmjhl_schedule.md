@@ -46,8 +46,8 @@ Other QMJHL Functions:
 
 ``` r
  try(qmjhl_schedule()) 
-#> ── QMJHL Schedule from HockeyTech ───────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:09:37 UTC
+#> ── QMJHL Schedule from HockeyTech ──────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:59:03 UTC
 #> # A tibble: 580 × 12
 #>    game_id game_date     game_status home_team home_team_id home_score away_team
 #>    <chr>   <chr>         <chr>       <chr>     <chr>        <chr>      <chr>    

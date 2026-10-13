@@ -70,7 +70,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_nhl_skater_box(2022))
-#> ── NHL skater boxscores ─────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── NHL skater boxscores ────────────────────────────── fastRhockey 1.0.0.9000 ──
 #> ℹ Data updated: 2026-09-09 07:37:00 UTC
 #> # A tibble: 50,415 × 24
 #>    home_away team_id team_abbrev player_id player_name  sweater_number position

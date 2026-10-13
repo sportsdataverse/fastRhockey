@@ -54,8 +54,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_records_officials())
-#> ── NHL Records Officials ────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:47 UTC
+#> ── NHL Records Officials ───────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:52 UTC
 #> # A tibble: 601 × 23
 #>       id active association_url birth_city     birth_date  coach_id country_code
 #>    <int> <lgl>  <chr>           <chr>          <chr>          <int> <chr>       

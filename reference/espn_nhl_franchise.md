@@ -183,8 +183,8 @@ Saiem Gilani
     fcs <- espn_nhl_franchises()
     espn_nhl_franchise(franchise_id = fcs$franchise_id[1])
   })
-#> ── NHL Franchise data from ESPN core-v2 ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:05:28 UTC
+#> ── NHL Franchise data from ESPN core-v2 ────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:52:40 UTC
 #> # A tibble: 1 × 15
 #>   franchise_id id    uid           slug     location name  nickname abbreviation
 #>   <chr>        <chr> <chr>         <chr>    <chr>    <chr> <chr>    <chr>       

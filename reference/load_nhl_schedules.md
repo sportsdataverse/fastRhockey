@@ -44,7 +44,7 @@ Other NHL Loader Functions:
 ``` r
 # \donttest{
   try(load_nhl_schedules(2022))
-#> ── NHL Schedule from fastRhockey data repository ────────── fastRhockey 1.0.0 ──
+#> ── NHL Schedule from fastRhockey data repository ───── fastRhockey 1.0.0.9000 ──
 #> ℹ Data updated: 2026-04-08 05:45:20 UTC
 #> # A tibble: 1,504 × 19
 #>       game_id season_full game_type game_date  game_time          home_team_abbr

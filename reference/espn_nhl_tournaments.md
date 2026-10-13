@@ -168,8 +168,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_tournaments())
-#> ── NHL Tournaments data from ESPN core-v2 ───────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:06:45 UTC
+#> ── NHL Tournaments data from ESPN core-v2 ──────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:53:39 UTC
 #> # A tibble: 1 × 4
 #>   ref                                             tournament_id count page_count
 #>   <chr>                                           <chr>         <int>      <int>

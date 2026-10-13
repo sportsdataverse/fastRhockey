@@ -167,21 +167,21 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_transactions())
-#> ── NHL Transactions data from ESPN.com ──────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:06:45 UTC
+#> ── NHL Transactions data from ESPN.com ─────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:53:39 UTC
 #> # A tibble: 25 × 8
 #>    date            description team_id team_location team_name team_abbreviation
 #>    <chr>           <chr>       <chr>   <chr>         <chr>     <chr>            
-#>  1 2026-10-11T07:… Placed LW … 37      Vegas         Golden K… VGK              
-#>  2 2026-10-11T07:… Placed RD … 21      Toronto       Maple Le… TOR              
-#>  3 2026-10-11T07:… Placed RW … 15      Philadelphia  Flyers    PHI              
-#>  4 2026-10-11T07:… Recalled D… 14      Ottawa        Senators  OTT              
-#>  5 2026-10-11T07:… Placed G I… 13      New York      Rangers   NYR              
-#>  6 2026-10-11T07:… Reinstated… 1       Boston        Bruins    BOS              
-#>  7 2026-10-10T07:… Activated … 18      San Jose      Sharks    SJ               
-#>  8 2026-10-10T07:… Placed G T… 17      Colorado      Avalanche COL              
-#>  9 2026-10-10T07:… Activated … 15      Philadelphia  Flyers    PHI              
-#> 10 2026-10-10T07:… Placed LW … 14      Ottawa        Senators  OTT              
+#>  1 2026-10-12T07:… Assigned F… 37      Vegas         Golden K… VGK              
+#>  2 2026-10-12T07:… Reinstated… 29      Columbus      Blue Jac… CBJ              
+#>  3 2026-10-12T07:… Placed D R… 23      Washington    Capitals  WSH              
+#>  4 2026-10-12T07:… Recalled D… 19      St. Louis     Blues     STL              
+#>  5 2026-10-12T07:… Placed D T… 16      Pittsburgh    Penguins  PIT              
+#>  6 2026-10-12T07:… Placed D H… 15      Philadelphia  Flyers    PHI              
+#>  7 2026-10-12T07:… Placed RW … 11      New Jersey    Devils    NJ               
+#>  8 2026-10-11T07:… Placed LW … 37      Vegas         Golden K… VGK              
+#>  9 2026-10-11T07:… Placed RD … 21      Toronto       Maple Le… TOR              
+#> 10 2026-10-11T07:… Placed RW … 15      Philadelphia  Flyers    PHI              
 #> # ℹ 15 more rows
 #> # ℹ 2 more variables: team_display_name <chr>, team_color <chr>
 # }

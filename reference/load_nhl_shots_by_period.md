@@ -57,7 +57,7 @@ game and the following columns:
 ``` r
 # \donttest{
   try(load_nhl_shots_by_period(2026))
-#> ── NHL shots by period ──────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── NHL shots by period ─────────────────────────────── fastRhockey 1.0.0.9000 ──
 #> ℹ Data updated: 2026-07-22 23:49:22 UTC
 #> # A tibble: 4,653 × 9
 #>    period period_type max_regulation_periods ot_periods  away  home    game_id

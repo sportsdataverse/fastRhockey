@@ -59,8 +59,8 @@ A data frame (`fastRhockey_data`) with the following columns:
     strength = "all",
     sort_by = "offensive"
   ))
-#> ── NHL Edge Team Zone Time Top 10 ───────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:22 UTC
+#> ── NHL Edge Team Zone Time Top 10 ──────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:26 UTC
 #> # A tibble: 10 × 11
 #>    offensive_zone_time neutral_zone_time defensive_zone_time team_abbrev
 #>                  <dbl>             <dbl>               <dbl> <chr>      

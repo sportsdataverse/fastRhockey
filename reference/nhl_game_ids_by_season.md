@@ -64,8 +64,8 @@ following columns (returns `NULL` on outer failure):
 ``` r
 # \donttest{
   try(nhl_game_ids_by_season(season = 2025, team_abbr = "TOR"))
-#> ── NHL Game IDs by Season ───────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:24 UTC
+#> ── NHL Game IDs by Season ──────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:28 UTC
 #> # A tibble: 82 × 6
 #>       game_id   season game_type game_date  home_team away_team
 #>         <int>    <int>     <int> <chr>      <chr>     <chr>    

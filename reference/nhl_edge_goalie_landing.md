@@ -41,8 +41,8 @@ Returns `NULL` on failure / empty response.
 ``` r
 # \donttest{
   try(nhl_edge_goalie_landing())
-#> ── NHL Edge Goalie Landing ──────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:10 UTC
+#> ── NHL Edge Goalie Landing ─────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:16 UTC
 #> # A tibble: 6 × 2
 #>         id game_types
 #>      <int> <list>    

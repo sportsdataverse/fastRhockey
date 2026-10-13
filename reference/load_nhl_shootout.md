@@ -62,7 +62,7 @@ columns:
 ``` r
 # \donttest{
   try(load_nhl_shootout(2026))
-#> ── NHL shootout summary ─────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── NHL shootout summary ────────────────────────────── fastRhockey 1.0.0.9000 ──
 #> ℹ Data updated: 2026-07-22 23:49:22 UTC
 #> # A tibble: 929 × 32
 #>     home  away    game_id  season game_date sequence playerId teamAbbrev.default

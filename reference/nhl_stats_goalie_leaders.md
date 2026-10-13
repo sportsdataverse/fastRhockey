@@ -57,8 +57,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_stats_goalie_leaders(attribute = "savePctg"))
-#> ── NHL Stats Goalie Leaders ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:09:05 UTC
+#> ── NHL Stats Goalie Leaders ────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:58:11 UTC
 #> # A tibble: 10 × 15
 #>    save_pctg player_id player_current_team_id player_first_name player_full_name
 #>        <dbl>     <int>                  <int> <chr>             <chr>           

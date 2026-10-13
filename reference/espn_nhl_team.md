@@ -181,12 +181,12 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_team(team_id = "4"))
-#> ── NHL Team data from ESPN.com ──────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:06:40 UTC
+#> ── NHL Team data from ESPN.com ─────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:53:34 UTC
 #> # A tibble: 1 × 17
 #>   team_id id    uid      slug  location name  nickname abbreviation display_name
 #>   <chr>   <chr> <chr>    <chr> <chr>    <chr> <chr>    <chr>        <chr>       
-#> 1 4       4     s:70~l:… chic… Chicago  Blac… Blackha… CHI          Chicago Bla…
+#> 1 4       4     s:70~l:… chic… Chicago  Blac… Chicago  CHI          Chicago Bla…
 #> # ℹ 8 more variables: short_display_name <chr>, color <chr>,
 #> #   alternate_color <chr>, is_active <lgl>, logo <chr>, logo_dark <chr>,
 #> #   stand_summary <chr>, franchise_ref <chr>

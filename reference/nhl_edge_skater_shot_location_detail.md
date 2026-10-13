@@ -49,8 +49,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_edge_skater_shot_location_detail(player_id = 8478402))
-#> ── NHL Edge Skater Shot Location Detail ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:13 UTC
+#> ── NHL Edge Skater Shot Location Detail ────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:20 UTC
 #> # A tibble: 17 × 7
 #>    area                  sog goals shooting_pctg sog_percentile goals_percentile
 #>    <chr>               <int> <int>         <dbl>          <dbl>            <dbl>

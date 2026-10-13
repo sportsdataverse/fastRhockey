@@ -62,7 +62,7 @@ the following columns:
 ``` r
 # \donttest{
   try(load_nhl_game_rosters(2026))
-#> ── NHL per-game rosters ─────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── NHL per-game rosters ────────────────────────────── fastRhockey 1.0.0.9000 ──
 #> ℹ Data updated: 2026-09-07 08:56:52 UTC
 #> # A tibble: 55,758 × 12
 #>    player_id full_name      first_name last_name team_abbr team_id position_code

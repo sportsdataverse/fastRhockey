@@ -73,8 +73,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_records_franchise_totals())
-#> ── NHL Records Franchise Totals ─────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:46 UTC
+#> ── NHL Records Franchise Totals ────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:50 UTC
 #> # A tibble: 80 × 37
 #>       id active_franchise  cups first_season_id franchise_id game_type_id
 #>    <int>            <int> <int>           <int>        <int>        <int>

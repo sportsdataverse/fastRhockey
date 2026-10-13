@@ -66,7 +66,7 @@ the following columns:
   try(load_pwhl_shootout(2024))
 #> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/pwhl_shootout/shootout_summary_2024.rds': HTTP status was '404 Not Found'
 #> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/pwhl_shootout/shootout_summary_2024.rds>
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ────────────────────────────────────────────────────── fastRhockey 1.0.0.9000 ──
 #> # A tibble: 0 × 0
 # }
 ```

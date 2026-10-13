@@ -146,7 +146,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_pwhl_pbp(2024))
-#> ── PWHL play-by-play data ───────────────────────────────── fastRhockey 1.0.0 ──
+#> ── PWHL play-by-play data ──────────────────────────── fastRhockey 1.0.0.9000 ──
 #> ℹ Data updated: 2026-10-08 13:12:00 UTC
 #> # A tibble: 14,246 × 104
 #>    game_id event team_id period_of_game time_of_period x_coord y_coord player_id

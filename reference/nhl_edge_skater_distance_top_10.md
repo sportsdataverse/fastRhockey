@@ -136,8 +136,8 @@ Returns `NULL` on failure / empty response.
       strength = "all",
       sort_by = "total"
   ))
-#> ── NHL Edge Skater Distance Top 10 ──────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:12 UTC
+#> ── NHL Edge Skater Distance Top 10 ─────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:19 UTC
 #> # A tibble: 10 × 47
 #>    player_slug             player_headshot player_position player_sweater_number
 #>    <chr>                   <chr>           <chr>                           <int>

@@ -23,8 +23,8 @@ standings columns, `entity_id`).
 
 ``` r
  try(fox_nhl_standings("1")) 
-#> ── Fox Sports NHL standings ─────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:06:49 UTC
+#> ── Fox Sports NHL standings ────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:54:08 UTC
 #> # A tibble: 128 × 24
 #>    team_id section    eastern_conference v2      w_l_otl pts   gp    row   sow  
 #>    <chr>   <chr>      <chr>              <chr>   <chr>   <chr> <chr> <chr> <chr>
@@ -36,7 +36,7 @@ standings columns, `entity_id`).
 #>  6 1       CONFERENCE 6                  Maple … 3-2-1   7     6     3     0    
 #>  7 1       CONFERENCE 7                  Pengui… 3-2-1   7     6     2     1    
 #>  8 1       CONFERENCE 8                  Capita… 3-2-0   6     5     3     0    
-#>  9 1       CONFERENCE 9                  Panthe… 2-1-2   6     5     2     0    
+#>  9 1       CONFERENCE 9                  Panthe… 2-2-2   6     6     2     0    
 #> 10 1       CONFERENCE 10                 Canadi… 2-2-1   5     5     1     1    
 #> # ℹ 118 more rows
 #> # ℹ 15 more variables: sol <chr>, gf <chr>, ga <chr>, gd <chr>, home <chr>,

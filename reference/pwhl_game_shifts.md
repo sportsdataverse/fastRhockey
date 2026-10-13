@@ -54,8 +54,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(pwhl_game_shifts(game_id = 42))
-#> ── PWHL Game Shifts data from HockeyTech ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:09:24 UTC
+#> ── PWHL Game Shifts data from HockeyTech ───────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:58:50 UTC
 #> # A tibble: 730 × 14
 #>    game_id player_id first_name last_name jersey_number  home period start_time
 #>      <dbl>     <int> <chr>      <chr>     <chr>         <int>  <int> <chr>     

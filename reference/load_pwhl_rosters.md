@@ -62,7 +62,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_pwhl_rosters(2024))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ────────────────────────────────────────────────────── fastRhockey 1.0.0.9000 ──
 #> # A tibble: 604 × 12
 #>    team_id team   team_abbr team_side player_type player_id first_name last_name
 #>      <int> <chr>  <chr>     <chr>     <chr>           <int> <chr>      <chr>    

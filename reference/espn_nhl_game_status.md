@@ -184,8 +184,8 @@ Saiem Gilani
     sb <- espn_nhl_scoreboard(dates = "20250110")
     espn_nhl_game_status(event_id = sb$game_id[1])
   })
-#> ── NHL Game Status data from ESPN core-v2 ───────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:05:37 UTC
+#> ── NHL Game Status data from ESPN core-v2 ──────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:52:47 UTC
 #> # A tibble: 1 × 13
 #>   event_id  cid       clock display_clock period type_id type_name    type_state
 #>   <chr>     <chr>     <dbl> <chr>          <int> <chr>   <chr>        <chr>     

@@ -39,8 +39,8 @@ Other AHL Functions:
 
 ``` r
  try(ahl_player_stats(player_id = 10781)) 
-#> ── AHL Player Stats from HockeyTech ─────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:05:13 UTC
+#> ── AHL Player Stats from HockeyTech ────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:51:23 UTC
 #> # A tibble: 2 × 50
 #>   season_id season_name            shortname playoff career sopt_track_faceoffs
 #>   <chr>     <chr>                  <chr>     <chr>   <chr>  <chr>              

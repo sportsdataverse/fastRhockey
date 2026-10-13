@@ -43,8 +43,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_edge_team_detail(team_id = 10))
-#> ── NHL Edge Team Detail ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:17 UTC
+#> ── NHL Edge Team Detail ────────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:23 UTC
 #> # A tibble: 6 × 2
 #>         id game_types
 #>      <int> <list>    

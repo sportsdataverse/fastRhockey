@@ -2107,6 +2107,2164 @@ odds, roster, stats, game log, standings, leaders)
 
   **Get Fox Sports NHL team stat leaders**
 
+## ESPN College Hockey
+
+### ESPN Men’s College Hockey
+
+- [`espn_mch_award()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_award.md)
+  :
+
+  **Get ESPN MCH Award (core-v2)**
+
+- [`espn_mch_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_awards.md)
+  :
+
+  **Get ESPN MCH Awards (core-v2)**
+
+- [`espn_mch_calendar()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_calendar.md)
+  :
+
+  **Get ESPN MCH Calendar**
+
+- [`espn_mch_coach()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_coach.md)
+  :
+
+  **Get ESPN MCH Coach (core-v2)**
+
+- [`espn_mch_coach_record()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_coach_record.md)
+  :
+
+  **Get ESPN MCH Coach Record (core-v2)**
+
+- [`espn_mch_coach_season()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_coach_season.md)
+  :
+
+  **Get ESPN MCH Coach Season (core-v2)**
+
+- [`espn_mch_conferences()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_conferences.md)
+  :
+
+  **Get ESPN MCH Conferences**
+
+- [`espn_mch_draft()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_draft.md)
+  :
+
+  **Get ESPN MCH Draft**
+
+- [`espn_mch_fpi()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_fpi.md)
+  :
+
+  **Get ESPN MCH Power Index (fitt-v3 FPI)**
+
+- [`espn_mch_franchise()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_franchise.md)
+  :
+
+  **Get ESPN MCH Franchise (core-v2)**
+
+- [`espn_mch_franchises()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_franchises.md)
+  :
+
+  **Get ESPN MCH Franchises (core-v2)**
+
+- [`espn_mch_game()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game.md)
+  :
+
+  **Get ESPN MCH Game Metadata (core-v2)**
+
+- [`espn_mch_game_broadcasts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_broadcasts.md)
+  :
+
+  **Get ESPN MCH Game Broadcasts (core-v2)**
+
+- [`espn_mch_game_competition()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_competition.md)
+  :
+
+  **Get ESPN MCH Game Competition Detail (core-v2)**
+
+- [`espn_mch_game_leaders()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_leaders.md)
+  :
+
+  **Get ESPN MCH Game Leaders (core-v2)**
+
+- [`espn_mch_game_odds()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_odds.md)
+  :
+
+  **Get ESPN MCH Game Odds (core-v2)**
+
+- [`espn_mch_game_official_detail()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_official_detail.md)
+  :
+
+  **Get ESPN MCH Game Official Detail (core-v2)**
+
+- [`espn_mch_game_officials()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_officials.md)
+  :
+
+  **Get ESPN MCH Game Officials (core-v2)**
+
+- [`espn_mch_game_play()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_play.md)
+  :
+
+  **Get ESPN MCH Game Play Detail (core-v2)**
+
+- [`espn_mch_game_play_personnel()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_play_personnel.md)
+  :
+
+  **Get ESPN MCH Game Play Personnel (core-v2)**
+
+- [`espn_mch_game_plays()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_plays.md)
+  :
+
+  **Get ESPN MCH Game Plays (core-v2 Play-by-Play)**
+
+- [`espn_mch_game_powerindex()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_powerindex.md)
+  :
+
+  **Get ESPN MCH Game Power Index (core-v2)**
+
+- [`espn_mch_game_predictor()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_predictor.md)
+  :
+
+  **Get ESPN MCH Game Predictor (core-v2)**
+
+- [`espn_mch_game_probabilities()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_probabilities.md)
+  :
+
+  **Get ESPN MCH Game Win Probabilities (core-v2)**
+
+- [`espn_mch_game_propbets()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_propbets.md)
+  :
+
+  **Get ESPN MCH Game Prop Bets (core-v2)**
+
+- [`espn_mch_game_scoringplays()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_scoringplays.md)
+  :
+
+  **Get ESPN MCH Game Scoring Plays (core-v2)**
+
+- [`espn_mch_game_situation()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_situation.md)
+  :
+
+  **Get ESPN MCH Game Situation (core-v2)**
+
+- [`espn_mch_game_status()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_status.md)
+  :
+
+  **Get ESPN MCH Game Status (core-v2)**
+
+- [`espn_mch_game_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_team.md)
+  :
+
+  **Get ESPN MCH Game Team (Competitor Detail, core-v2)**
+
+- [`espn_mch_game_team_leaders()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_team_leaders.md)
+  :
+
+  **Get ESPN MCH Game Team Leaders (core-v2)**
+
+- [`espn_mch_game_team_linescores()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_team_linescores.md)
+  :
+
+  **Get ESPN MCH Game Team Linescores (core-v2)**
+
+- [`espn_mch_game_team_record()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_team_record.md)
+  :
+
+  **Get ESPN MCH Game Team Record (core-v2)**
+
+- [`espn_mch_game_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_team_roster.md)
+  :
+
+  **Get ESPN MCH Game Team Roster (core-v2)**
+
+- [`espn_mch_game_team_statistics()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_team_statistics.md)
+  :
+
+  **Get ESPN MCH Game Team Statistics (core-v2)**
+
+- [`espn_mch_game_teams()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_teams.md)
+  :
+
+  **Get ESPN MCH Game Teams (Competitors Collection, core-v2)**
+
+- [`espn_mch_games()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_games.md)
+  :
+
+  **Get ESPN MCH Games (core-v2)**
+
+- [`espn_mch_injuries()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_injuries.md)
+  :
+
+  **Get ESPN MCH Injuries**
+
+- [`espn_mch_leaders()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_leaders.md)
+  :
+
+  **Get ESPN MCH League Leaders**
+
+- [`espn_mch_leaders_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_leaders_core.md)
+  :
+
+  **Get ESPN MCH League Leaders (core-v2)**
+
+- [`espn_mch_league_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_notes.md)
+  :
+
+  **Get ESPN MCH League Notes (core-v2)**
+
+- [`espn_mch_league_root()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_root.md)
+  :
+
+  **Get ESPN MCH League Root (core-v2)**
+
+- [`espn_mch_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_news.md)
+  :
+
+  **Get ESPN MCH News**
+
+- [`espn_mch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_awards.md)
+  :
+
+  **Get ESPN MCH Player Awards (core-v2)**
+
+- [`espn_mch_player_bio()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_bio.md)
+  :
+
+  **Get ESPN MCH Player Bio**
+
+- [`espn_mch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_career_stats.md)
+  :
+
+  **Get ESPN MCH Player Career Stats (core-v2)**
+
+- [`espn_mch_player_contracts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_contracts.md)
+  :
+
+  **Get ESPN MCH Player Contracts (core-v2)**
+
+- [`espn_mch_player_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_core.md)
+  :
+
+  **Get ESPN MCH Player Core (core-v2)**
+
+- [`espn_mch_player_eventlog()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_eventlog.md)
+  :
+
+  **Get ESPN MCH Player Event Log (core-v2)**
+
+- [`espn_mch_player_gamelog()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_gamelog.md)
+  :
+
+  **Get ESPN MCH Player Gamelog**
+
+- [`espn_mch_player_info()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_info.md)
+  :
+
+  **Get ESPN MCH Player Info**
+
+- [`espn_mch_player_injuries()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_injuries.md)
+  :
+
+  **Get ESPN MCH Player Injuries (core-v2)**
+
+- [`espn_mch_player_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_news.md)
+  :
+
+  **Get ESPN MCH Player News**
+
+- [`espn_mch_player_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_notes.md)
+  :
+
+  **Get ESPN MCH Player Notes (core-v2)**
+
+- [`espn_mch_player_overview()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_overview.md)
+  :
+
+  **Get ESPN MCH Player Overview**
+
+- [`espn_mch_player_records()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_records.md)
+  :
+
+  **Get ESPN MCH Player Records (core-v2)**
+
+- [`espn_mch_player_seasons()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_seasons.md)
+  :
+
+  **Get ESPN MCH Player Seasons (core-v2)**
+
+- [`espn_mch_player_splits()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_splits.md)
+  :
+
+  **Get ESPN MCH Player Splits**
+
+- [`espn_mch_player_statisticslog()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_statisticslog.md)
+  :
+
+  **Get ESPN MCH Player Statistics Log (core-v2)**
+
+- [`espn_mch_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_stats.md)
+  :
+
+  **Get ESPN MCH Player Stats (web-v3)**
+
+- [`espn_mch_player_vs_player()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_vs_player.md)
+  :
+
+  **Get ESPN MCH Player vs Player (core-v2)**
+
+- [`espn_mch_players_index()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_players_index.md)
+  :
+
+  **Get ESPN MCH Players Index**
+
+- [`espn_mch_position()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_position.md)
+  :
+
+  **Get ESPN MCH Position (core-v2)**
+
+- [`espn_mch_positions()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_positions.md)
+  :
+
+  **Get ESPN MCH Positions (core-v2)**
+
+- [`espn_mch_rankings()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_rankings.md)
+  :
+
+  **Get ESPN MCH Rankings (Site v2 polls)**
+
+- [`espn_mch_recruiting_players()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_recruiting_players.md)
+  :
+
+  **Get ESPN MCH Recruiting Players (core-v2)**
+
+- [`espn_mch_recruiting_rankings()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_recruiting_rankings.md)
+  :
+
+  **Get ESPN MCH Recruiting Rankings (core-v2)**
+
+- [`espn_mch_recruiting_years()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_recruiting_years.md)
+  :
+
+  **Get ESPN MCH Recruiting Years (core-v2)**
+
+- [`espn_mch_scoreboard()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_scoreboard.md)
+  :
+
+  **Get ESPN MCH Scoreboard**
+
+- [`espn_mch_season_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_awards.md)
+  :
+
+  **Get ESPN MCH Season Awards (core-v2)**
+
+- [`espn_mch_season_coaches()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_coaches.md)
+  :
+
+  **Get ESPN MCH Season Coaches (core-v2)**
+
+- [`espn_mch_season_draft()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_draft.md)
+  :
+
+  **Get ESPN MCH Season Draft (core-v2)**
+
+- [`espn_mch_season_draft_round_picks()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_draft_round_picks.md)
+  :
+
+  **Get ESPN MCH Season Draft Round Picks (core-v2)**
+
+- [`espn_mch_season_freeagents()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_freeagents.md)
+  :
+
+  **Get ESPN MCH Season Free Agents (core-v2)**
+
+- [`espn_mch_season_futures()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_futures.md)
+  :
+
+  **Get ESPN MCH Season Futures (core-v2)**
+
+- [`espn_mch_season_group()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_group.md)
+  :
+
+  **Get ESPN MCH Season Group (core-v2)**
+
+- [`espn_mch_season_group_children()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_group_children.md)
+  :
+
+  **Get ESPN MCH Season Group Children (core-v2)**
+
+- [`espn_mch_season_group_teams()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_group_teams.md)
+  :
+
+  **Get ESPN MCH Season Group Teams (core-v2)**
+
+- [`espn_mch_season_groups()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_groups.md)
+  :
+
+  **Get ESPN MCH Season Groups (core-v2)**
+
+- [`espn_mch_season_info()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_info.md)
+  :
+
+  **Get ESPN MCH Season Info (core-v2)**
+
+- [`espn_mch_season_players()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_players.md)
+  :
+
+  **Get ESPN MCH Season Players (core-v2)**
+
+- [`espn_mch_season_pointer()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_pointer.md)
+  :
+
+  **Get ESPN MCH Current Season Pointer (core-v2)**
+
+- [`espn_mch_season_powerindex()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_powerindex.md)
+  :
+
+  **Get ESPN MCH Season Power Index (core-v2)**
+
+- [`espn_mch_season_powerindex_leaders()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_powerindex_leaders.md)
+  :
+
+  **Get ESPN MCH Season Power Index Leaders (core-v2)**
+
+- [`espn_mch_season_recruits()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_recruits.md)
+  :
+
+  **Get ESPN MCH Season Recruits (core-v2)**
+
+- [`espn_mch_season_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_team.md)
+  :
+
+  **Get ESPN MCH Season Team (core-v2)**
+
+- [`espn_mch_season_teams()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_teams.md)
+  :
+
+  **Get ESPN MCH Season Teams (core-v2)**
+
+- [`espn_mch_season_type()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_type.md)
+  :
+
+  **Get ESPN MCH Season Type (core-v2)**
+
+- [`espn_mch_season_type_corrections()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_type_corrections.md)
+  :
+
+  **Get ESPN MCH Season Type Corrections (core-v2)**
+
+- [`espn_mch_season_type_leaders()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_type_leaders.md)
+  :
+
+  **Get ESPN MCH Season Type Leaders (core-v2)**
+
+- [`espn_mch_season_types()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_types.md)
+  :
+
+  **Get ESPN MCH Season Types (core-v2)**
+
+- [`espn_mch_season_week()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_week.md)
+  :
+
+  **Get ESPN MCH Season Week (core-v2)**
+
+- [`espn_mch_season_week_games()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_week_games.md)
+  :
+
+  **Get ESPN MCH Season Week Games (core-v2)**
+
+- [`espn_mch_season_week_powerindex()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_week_powerindex.md)
+  :
+
+  **Get ESPN MCH Weekly Power Index (core-v2)**
+
+- [`espn_mch_season_week_rankings()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_week_rankings.md)
+  :
+
+  **Get ESPN MCH Weekly Rankings (core-v2)**
+
+- [`espn_mch_season_weeks()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_weeks.md)
+  :
+
+  **Get ESPN MCH Season Weeks (core-v2)**
+
+- [`espn_mch_seasons()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_seasons.md)
+  :
+
+  **Get ESPN MCH Seasons List (core-v2)**
+
+- [`espn_mch_standings()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_standings.md)
+  :
+
+  **Get ESPN MCH Standings**
+
+- [`espn_mch_standings_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_standings_core.md)
+  :
+
+  **Get ESPN MCH Standings (core-v2)**
+
+- [`espn_mch_statistics_league()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_statistics_league.md)
+  :
+
+  **Get ESPN MCH League Statistics**
+
+- [`espn_mch_summary()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_summary.md)
+  :
+
+  **Get ESPN MCH Raw Game Summary**
+
+- [`espn_mch_talentpicks()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_talentpicks.md)
+  :
+
+  **Get ESPN MCH Talent Picks (core-v2)**
+
+- [`espn_mch_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team.md)
+  :
+
+  **Get ESPN MCH Team Detail**
+
+- [`espn_mch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_core.md)
+  :
+
+  **Get ESPN MCH Team Core (core-v2)**
+
+- [`espn_mch_team_depthcharts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_depthcharts.md)
+  :
+
+  **Get ESPN MCH Team Depth Charts**
+
+- [`espn_mch_team_history()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_history.md)
+  :
+
+  **Get ESPN MCH Team History**
+
+- [`espn_mch_team_injuries()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_injuries.md)
+  :
+
+  **Get ESPN MCH Team Injuries**
+
+- [`espn_mch_team_leaders()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_leaders.md)
+  :
+
+  **Get ESPN MCH Team Leaders**
+
+- [`espn_mch_team_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_news.md)
+  :
+
+  **Get ESPN MCH Team News**
+
+- [`espn_mch_team_record()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_record.md)
+  :
+
+  **Get ESPN MCH Team Record**
+
+- [`espn_mch_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_roster.md)
+  :
+
+  **Get ESPN MCH Team Roster**
+
+- [`espn_mch_team_schedule()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_schedule.md)
+  :
+
+  **Get ESPN MCH Team Schedule (site_v2) – alias for
+  `espn_mch_schedule()`**
+
+- [`espn_mch_team_transactions()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_transactions.md)
+  :
+
+  **Get ESPN MCH Team Transactions**
+
+- [`espn_mch_teams_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_teams_core.md)
+  :
+
+  **Get ESPN MCH Teams Core (core-v2 Collection)**
+
+- [`espn_mch_teams_site()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_teams_site.md)
+  :
+
+  **Get ESPN MCH Teams (site_v2) – alias for `espn_mch_teams()`**
+
+- [`espn_mch_tournaments()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_tournaments.md)
+  :
+
+  **Get ESPN MCH Tournaments (core-v2)**
+
+- [`espn_mch_transactions()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_transactions.md)
+  :
+
+  **Get ESPN MCH Transactions**
+
+- [`espn_mch_venue()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_venue.md)
+  :
+
+  **Get ESPN MCH Venue (core-v2)**
+
+- [`espn_mch_venues()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_venues.md)
+  :
+
+  **Get ESPN MCH Venues (core-v2)**
+
+### ESPN Women’s College Hockey
+
+- [`espn_wch_award()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_award.md)
+  :
+
+  **Get ESPN WCH Award (core-v2)**
+
+- [`espn_wch_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_awards.md)
+  :
+
+  **Get ESPN WCH Awards (core-v2)**
+
+- [`espn_wch_calendar()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_calendar.md)
+  :
+
+  **Get ESPN WCH Calendar**
+
+- [`espn_wch_coach()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_coach.md)
+  :
+
+  **Get ESPN WCH Coach (core-v2)**
+
+- [`espn_wch_coach_record()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_coach_record.md)
+  :
+
+  **Get ESPN WCH Coach Record (core-v2)**
+
+- [`espn_wch_coach_season()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_coach_season.md)
+  :
+
+  **Get ESPN WCH Coach Season (core-v2)**
+
+- [`espn_wch_conferences()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_conferences.md)
+  :
+
+  **Get ESPN WCH Conferences**
+
+- [`espn_wch_draft()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_draft.md)
+  :
+
+  **Get ESPN WCH Draft**
+
+- [`espn_wch_fpi()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_fpi.md)
+  :
+
+  **Get ESPN WCH Power Index (fitt-v3 FPI)**
+
+- [`espn_wch_franchise()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_franchise.md)
+  :
+
+  **Get ESPN WCH Franchise (core-v2)**
+
+- [`espn_wch_franchises()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_franchises.md)
+  :
+
+  **Get ESPN WCH Franchises (core-v2)**
+
+- [`espn_wch_game()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game.md)
+  :
+
+  **Get ESPN WCH Game Metadata (core-v2)**
+
+- [`espn_wch_game_broadcasts()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_broadcasts.md)
+  :
+
+  **Get ESPN WCH Game Broadcasts (core-v2)**
+
+- [`espn_wch_game_competition()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_competition.md)
+  :
+
+  **Get ESPN WCH Game Competition Detail (core-v2)**
+
+- [`espn_wch_game_leaders()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_leaders.md)
+  :
+
+  **Get ESPN WCH Game Leaders (core-v2)**
+
+- [`espn_wch_game_odds()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_odds.md)
+  :
+
+  **Get ESPN WCH Game Odds (core-v2)**
+
+- [`espn_wch_game_official_detail()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_official_detail.md)
+  :
+
+  **Get ESPN WCH Game Official Detail (core-v2)**
+
+- [`espn_wch_game_officials()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_officials.md)
+  :
+
+  **Get ESPN WCH Game Officials (core-v2)**
+
+- [`espn_wch_game_play()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_play.md)
+  :
+
+  **Get ESPN WCH Game Play Detail (core-v2)**
+
+- [`espn_wch_game_play_personnel()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_play_personnel.md)
+  :
+
+  **Get ESPN WCH Game Play Personnel (core-v2)**
+
+- [`espn_wch_game_plays()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_plays.md)
+  :
+
+  **Get ESPN WCH Game Plays (core-v2 Play-by-Play)**
+
+- [`espn_wch_game_powerindex()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_powerindex.md)
+  :
+
+  **Get ESPN WCH Game Power Index (core-v2)**
+
+- [`espn_wch_game_predictor()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_predictor.md)
+  :
+
+  **Get ESPN WCH Game Predictor (core-v2)**
+
+- [`espn_wch_game_probabilities()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_probabilities.md)
+  :
+
+  **Get ESPN WCH Game Win Probabilities (core-v2)**
+
+- [`espn_wch_game_propbets()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_propbets.md)
+  :
+
+  **Get ESPN WCH Game Prop Bets (core-v2)**
+
+- [`espn_wch_game_scoringplays()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_scoringplays.md)
+  :
+
+  **Get ESPN WCH Game Scoring Plays (core-v2)**
+
+- [`espn_wch_game_situation()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_situation.md)
+  :
+
+  **Get ESPN WCH Game Situation (core-v2)**
+
+- [`espn_wch_game_status()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_status.md)
+  :
+
+  **Get ESPN WCH Game Status (core-v2)**
+
+- [`espn_wch_game_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_team.md)
+  :
+
+  **Get ESPN WCH Game Team (Competitor Detail, core-v2)**
+
+- [`espn_wch_game_team_leaders()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_team_leaders.md)
+  :
+
+  **Get ESPN WCH Game Team Leaders (core-v2)**
+
+- [`espn_wch_game_team_linescores()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_team_linescores.md)
+  :
+
+  **Get ESPN WCH Game Team Linescores (core-v2)**
+
+- [`espn_wch_game_team_record()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_team_record.md)
+  :
+
+  **Get ESPN WCH Game Team Record (core-v2)**
+
+- [`espn_wch_game_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_team_roster.md)
+  :
+
+  **Get ESPN WCH Game Team Roster (core-v2)**
+
+- [`espn_wch_game_team_statistics()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_team_statistics.md)
+  :
+
+  **Get ESPN WCH Game Team Statistics (core-v2)**
+
+- [`espn_wch_game_teams()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_game_teams.md)
+  :
+
+  **Get ESPN WCH Game Teams (Competitors Collection, core-v2)**
+
+- [`espn_wch_games()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_games.md)
+  :
+
+  **Get ESPN WCH Games (core-v2)**
+
+- [`espn_wch_injuries()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_injuries.md)
+  :
+
+  **Get ESPN WCH Injuries**
+
+- [`espn_wch_leaders()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_leaders.md)
+  :
+
+  **Get ESPN WCH League Leaders**
+
+- [`espn_wch_leaders_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_leaders_core.md)
+  :
+
+  **Get ESPN WCH League Leaders (core-v2)**
+
+- [`espn_wch_league_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_league_notes.md)
+  :
+
+  **Get ESPN WCH League Notes (core-v2)**
+
+- [`espn_wch_league_root()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_league_root.md)
+  :
+
+  **Get ESPN WCH League Root (core-v2)**
+
+- [`espn_wch_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_news.md)
+  :
+
+  **Get ESPN WCH News**
+
+- [`espn_wch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_awards.md)
+  :
+
+  **Get ESPN WCH Player Awards (core-v2)**
+
+- [`espn_wch_player_bio()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_bio.md)
+  :
+
+  **Get ESPN WCH Player Bio**
+
+- [`espn_wch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_career_stats.md)
+  :
+
+  **Get ESPN WCH Player Career Stats (core-v2)**
+
+- [`espn_wch_player_contracts()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_contracts.md)
+  :
+
+  **Get ESPN WCH Player Contracts (core-v2)**
+
+- [`espn_wch_player_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_core.md)
+  :
+
+  **Get ESPN WCH Player Core (core-v2)**
+
+- [`espn_wch_player_eventlog()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_eventlog.md)
+  :
+
+  **Get ESPN WCH Player Event Log (core-v2)**
+
+- [`espn_wch_player_gamelog()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_gamelog.md)
+  :
+
+  **Get ESPN WCH Player Gamelog**
+
+- [`espn_wch_player_info()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_info.md)
+  :
+
+  **Get ESPN WCH Player Info**
+
+- [`espn_wch_player_injuries()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_injuries.md)
+  :
+
+  **Get ESPN WCH Player Injuries (core-v2)**
+
+- [`espn_wch_player_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_news.md)
+  :
+
+  **Get ESPN WCH Player News**
+
+- [`espn_wch_player_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_notes.md)
+  :
+
+  **Get ESPN WCH Player Notes (core-v2)**
+
+- [`espn_wch_player_overview()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_overview.md)
+  :
+
+  **Get ESPN WCH Player Overview**
+
+- [`espn_wch_player_records()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_records.md)
+  :
+
+  **Get ESPN WCH Player Records (core-v2)**
+
+- [`espn_wch_player_seasons()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_seasons.md)
+  :
+
+  **Get ESPN WCH Player Seasons (core-v2)**
+
+- [`espn_wch_player_splits()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_splits.md)
+  :
+
+  **Get ESPN WCH Player Splits**
+
+- [`espn_wch_player_statisticslog()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_statisticslog.md)
+  :
+
+  **Get ESPN WCH Player Statistics Log (core-v2)**
+
+- [`espn_wch_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_stats.md)
+  :
+
+  **Get ESPN WCH Player Stats (web-v3)**
+
+- [`espn_wch_player_vs_player()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_vs_player.md)
+  :
+
+  **Get ESPN WCH Player vs Player (core-v2)**
+
+- [`espn_wch_players_index()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_players_index.md)
+  :
+
+  **Get ESPN WCH Players Index**
+
+- [`espn_wch_position()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_position.md)
+  :
+
+  **Get ESPN WCH Position (core-v2)**
+
+- [`espn_wch_positions()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_positions.md)
+  :
+
+  **Get ESPN WCH Positions (core-v2)**
+
+- [`espn_wch_rankings()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_rankings.md)
+  :
+
+  **Get ESPN WCH Rankings (Site v2 polls)**
+
+- [`espn_wch_recruiting_players()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_recruiting_players.md)
+  :
+
+  **Get ESPN WCH Recruiting Players (core-v2)**
+
+- [`espn_wch_recruiting_rankings()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_recruiting_rankings.md)
+  :
+
+  **Get ESPN WCH Recruiting Rankings (core-v2)**
+
+- [`espn_wch_recruiting_years()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_recruiting_years.md)
+  :
+
+  **Get ESPN WCH Recruiting Years (core-v2)**
+
+- [`espn_wch_scoreboard()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_scoreboard.md)
+  :
+
+  **Get ESPN WCH Scoreboard**
+
+- [`espn_wch_season_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_awards.md)
+  :
+
+  **Get ESPN WCH Season Awards (core-v2)**
+
+- [`espn_wch_season_coaches()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_coaches.md)
+  :
+
+  **Get ESPN WCH Season Coaches (core-v2)**
+
+- [`espn_wch_season_draft()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_draft.md)
+  :
+
+  **Get ESPN WCH Season Draft (core-v2)**
+
+- [`espn_wch_season_draft_round_picks()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_draft_round_picks.md)
+  :
+
+  **Get ESPN WCH Season Draft Round Picks (core-v2)**
+
+- [`espn_wch_season_freeagents()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_freeagents.md)
+  :
+
+  **Get ESPN WCH Season Free Agents (core-v2)**
+
+- [`espn_wch_season_futures()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_futures.md)
+  :
+
+  **Get ESPN WCH Season Futures (core-v2)**
+
+- [`espn_wch_season_group()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_group.md)
+  :
+
+  **Get ESPN WCH Season Group (core-v2)**
+
+- [`espn_wch_season_group_children()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_group_children.md)
+  :
+
+  **Get ESPN WCH Season Group Children (core-v2)**
+
+- [`espn_wch_season_group_teams()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_group_teams.md)
+  :
+
+  **Get ESPN WCH Season Group Teams (core-v2)**
+
+- [`espn_wch_season_groups()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_groups.md)
+  :
+
+  **Get ESPN WCH Season Groups (core-v2)**
+
+- [`espn_wch_season_info()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_info.md)
+  :
+
+  **Get ESPN WCH Season Info (core-v2)**
+
+- [`espn_wch_season_players()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_players.md)
+  :
+
+  **Get ESPN WCH Season Players (core-v2)**
+
+- [`espn_wch_season_pointer()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_pointer.md)
+  :
+
+  **Get ESPN WCH Current Season Pointer (core-v2)**
+
+- [`espn_wch_season_powerindex()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_powerindex.md)
+  :
+
+  **Get ESPN WCH Season Power Index (core-v2)**
+
+- [`espn_wch_season_powerindex_leaders()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_powerindex_leaders.md)
+  :
+
+  **Get ESPN WCH Season Power Index Leaders (core-v2)**
+
+- [`espn_wch_season_recruits()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_recruits.md)
+  :
+
+  **Get ESPN WCH Season Recruits (core-v2)**
+
+- [`espn_wch_season_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_team.md)
+  :
+
+  **Get ESPN WCH Season Team (core-v2)**
+
+- [`espn_wch_season_teams()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_teams.md)
+  :
+
+  **Get ESPN WCH Season Teams (core-v2)**
+
+- [`espn_wch_season_type()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_type.md)
+  :
+
+  **Get ESPN WCH Season Type (core-v2)**
+
+- [`espn_wch_season_type_corrections()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_type_corrections.md)
+  :
+
+  **Get ESPN WCH Season Type Corrections (core-v2)**
+
+- [`espn_wch_season_type_leaders()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_type_leaders.md)
+  :
+
+  **Get ESPN WCH Season Type Leaders (core-v2)**
+
+- [`espn_wch_season_types()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_types.md)
+  :
+
+  **Get ESPN WCH Season Types (core-v2)**
+
+- [`espn_wch_season_week()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_week.md)
+  :
+
+  **Get ESPN WCH Season Week (core-v2)**
+
+- [`espn_wch_season_week_games()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_week_games.md)
+  :
+
+  **Get ESPN WCH Season Week Games (core-v2)**
+
+- [`espn_wch_season_week_powerindex()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_week_powerindex.md)
+  :
+
+  **Get ESPN WCH Weekly Power Index (core-v2)**
+
+- [`espn_wch_season_week_rankings()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_week_rankings.md)
+  :
+
+  **Get ESPN WCH Weekly Rankings (core-v2)**
+
+- [`espn_wch_season_weeks()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_weeks.md)
+  :
+
+  **Get ESPN WCH Season Weeks (core-v2)**
+
+- [`espn_wch_seasons()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_seasons.md)
+  :
+
+  **Get ESPN WCH Seasons List (core-v2)**
+
+- [`espn_wch_standings()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_standings.md)
+  :
+
+  **Get ESPN WCH Standings**
+
+- [`espn_wch_standings_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_standings_core.md)
+  :
+
+  **Get ESPN WCH Standings (core-v2)**
+
+- [`espn_wch_statistics_league()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_statistics_league.md)
+  :
+
+  **Get ESPN WCH League Statistics**
+
+- [`espn_wch_summary()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_summary.md)
+  :
+
+  **Get ESPN WCH Raw Game Summary**
+
+- [`espn_wch_talentpicks()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_talentpicks.md)
+  :
+
+  **Get ESPN WCH Talent Picks (core-v2)**
+
+- [`espn_wch_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team.md)
+  :
+
+  **Get ESPN WCH Team Detail**
+
+- [`espn_wch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_core.md)
+  :
+
+  **Get ESPN WCH Team Core (core-v2)**
+
+- [`espn_wch_team_depthcharts()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_depthcharts.md)
+  :
+
+  **Get ESPN WCH Team Depth Charts**
+
+- [`espn_wch_team_history()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_history.md)
+  :
+
+  **Get ESPN WCH Team History**
+
+- [`espn_wch_team_injuries()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_injuries.md)
+  :
+
+  **Get ESPN WCH Team Injuries**
+
+- [`espn_wch_team_leaders()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_leaders.md)
+  :
+
+  **Get ESPN WCH Team Leaders**
+
+- [`espn_wch_team_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_news.md)
+  :
+
+  **Get ESPN WCH Team News**
+
+- [`espn_wch_team_record()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_record.md)
+  :
+
+  **Get ESPN WCH Team Record**
+
+- [`espn_wch_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_roster.md)
+  :
+
+  **Get ESPN WCH Team Roster**
+
+- [`espn_wch_team_schedule()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_schedule.md)
+  :
+
+  **Get ESPN WCH Team Schedule (site_v2) – alias for
+  `espn_wch_schedule()`**
+
+- [`espn_wch_team_transactions()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_transactions.md)
+  :
+
+  **Get ESPN WCH Team Transactions**
+
+- [`espn_wch_teams_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_teams_core.md)
+  :
+
+  **Get ESPN WCH Teams Core (core-v2 Collection)**
+
+- [`espn_wch_teams_site()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_teams_site.md)
+  :
+
+  **Get ESPN WCH Teams (site_v2) – alias for `espn_wch_teams()`**
+
+- [`espn_wch_tournaments()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_tournaments.md)
+  :
+
+  **Get ESPN WCH Tournaments (core-v2)**
+
+- [`espn_wch_transactions()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_transactions.md)
+  :
+
+  **Get ESPN WCH Transactions**
+
+- [`espn_wch_venue()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_venue.md)
+  :
+
+  **Get ESPN WCH Venue (core-v2)**
+
+- [`espn_wch_venues()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_venues.md)
+  :
+
+  **Get ESPN WCH Venues (core-v2)**
+
+## European Hockey
+
+Wrappers over the European leagues’ public APIs, at parity with
+sportsdataverse-py. Seasons are END years (2027 = 2026-27). Every
+request waits at least one second after the last one to the same host.
+
+### DEL (Germany)
+
+- [`del_faceoffs()`](https://fastRhockey.sportsdataverse.org/reference/del_faceoffs.md)
+  :
+
+  **DEL Faceoffs**
+
+- [`del_game_info()`](https://fastRhockey.sportsdataverse.org/reference/del_game_info.md)
+  :
+
+  **DEL Game Info**
+
+- [`del_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/del_goalie_box.md)
+  :
+
+  **DEL Goalie Box**
+
+- [`del_pbp()`](https://fastRhockey.sportsdataverse.org/reference/del_pbp.md)
+  :
+
+  **DEL Pbp**
+
+- [`del_player_box()`](https://fastRhockey.sportsdataverse.org/reference/del_player_box.md)
+  :
+
+  **DEL Player Box**
+
+- [`del_roster()`](https://fastRhockey.sportsdataverse.org/reference/del_roster.md)
+  :
+
+  **DEL Roster**
+
+- [`del_schedule()`](https://fastRhockey.sportsdataverse.org/reference/del_schedule.md)
+  :
+
+  **DEL Schedule**
+
+- [`del_shifts()`](https://fastRhockey.sportsdataverse.org/reference/del_shifts.md)
+  :
+
+  **DEL Shifts**
+
+- [`del_shots()`](https://fastRhockey.sportsdataverse.org/reference/del_shots.md)
+  :
+
+  **DEL Shots**
+
+- [`del_standings()`](https://fastRhockey.sportsdataverse.org/reference/del_standings.md)
+  :
+
+  **DEL Standings**
+
+- [`del_team_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/del_team_player_stats.md)
+  :
+
+  **DEL Team Player Stats**
+
+- [`del_top_scorers()`](https://fastRhockey.sportsdataverse.org/reference/del_top_scorers.md)
+  :
+
+  **DEL Top Scorers**
+
+### ICE Hockey League (Austria)
+
+- [`icehl_faceoffs()`](https://fastRhockey.sportsdataverse.org/reference/icehl_faceoffs.md)
+  :
+
+  **ICE Hockey League Faceoffs**
+
+- [`icehl_game_center()`](https://fastRhockey.sportsdataverse.org/reference/icehl_game_center.md)
+  :
+
+  **ICE Hockey League Game Center**
+
+- [`icehl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/icehl_game_info.md)
+  :
+
+  **ICE Hockey League Game Info**
+
+- [`icehl_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/icehl_goalie_box.md)
+  :
+
+  **ICE Hockey League Goalie Box**
+
+- [`icehl_league_part_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/icehl_league_part_player_stats.md)
+  :
+
+  **ICE Hockey League League Part Player Stats**
+
+- [`icehl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/icehl_pbp.md)
+  :
+
+  **ICE Hockey League Pbp**
+
+- [`icehl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/icehl_player_box.md)
+  :
+
+  **ICE Hockey League Player Box**
+
+- [`icehl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/icehl_schedule.md)
+  :
+
+  **ICE Hockey League Schedule**
+
+- [`icehl_shots()`](https://fastRhockey.sportsdataverse.org/reference/icehl_shots.md)
+  :
+
+  **ICE Hockey League Shots**
+
+- [`icehl_standings()`](https://fastRhockey.sportsdataverse.org/reference/icehl_standings.md)
+  :
+
+  **ICE Hockey League Standings**
+
+- [`icehl_team_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/icehl_team_player_stats.md)
+  :
+
+  **ICE Hockey League Team Player Stats**
+
+- [`icehl_top_scorers()`](https://fastRhockey.sportsdataverse.org/reference/icehl_top_scorers.md)
+  :
+
+  **ICE Hockey League Top Scorers**
+
+### EIHL (United Kingdom)
+
+- [`eihl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/eihl_game_info.md)
+  :
+
+  **EIHL Game Info**
+
+- [`eihl_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/eihl_goalie_box.md)
+  :
+
+  **EIHL Goalie Box**
+
+- [`eihl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/eihl_pbp.md)
+  :
+
+  **EIHL Pbp**
+
+- [`eihl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/eihl_player_box.md)
+  :
+
+  **EIHL Player Box**
+
+- [`eihl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/eihl_schedule.md)
+  :
+
+  **EIHL Schedule**
+
+- [`eihl_shots()`](https://fastRhockey.sportsdataverse.org/reference/eihl_shots.md)
+  :
+
+  **EIHL Shots**
+
+- [`eihl_standings()`](https://fastRhockey.sportsdataverse.org/reference/eihl_standings.md)
+  :
+
+  **EIHL Standings**
+
+- [`eihl_team_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/eihl_team_player_stats.md)
+  :
+
+  **EIHL Team Player Stats**
+
+- [`eihl_top_scorers()`](https://fastRhockey.sportsdataverse.org/reference/eihl_top_scorers.md)
+  :
+
+  **EIHL Top Scorers**
+
+### Metal Ligaen (Denmark)
+
+- [`metal_game_center()`](https://fastRhockey.sportsdataverse.org/reference/metal_game_center.md)
+  :
+
+  **Metal Ligaen Game Center**
+
+- [`metal_game_info()`](https://fastRhockey.sportsdataverse.org/reference/metal_game_info.md)
+  :
+
+  **Metal Ligaen Game Info**
+
+- [`metal_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/metal_goalie_box.md)
+  :
+
+  **Metal Ligaen Goalie Box**
+
+- [`metal_pbp()`](https://fastRhockey.sportsdataverse.org/reference/metal_pbp.md)
+  :
+
+  **Metal Ligaen Pbp**
+
+- [`metal_player_box()`](https://fastRhockey.sportsdataverse.org/reference/metal_player_box.md)
+  :
+
+  **Metal Ligaen Player Box**
+
+- [`metal_schedule()`](https://fastRhockey.sportsdataverse.org/reference/metal_schedule.md)
+  :
+
+  **Metal Ligaen Schedule**
+
+- [`metal_standings()`](https://fastRhockey.sportsdataverse.org/reference/metal_standings.md)
+  :
+
+  **Metal Ligaen Standings**
+
+- [`metal_top_scorers()`](https://fastRhockey.sportsdataverse.org/reference/metal_top_scorers.md)
+  :
+
+  **Metal Ligaen Top Scorers**
+
+### KHL
+
+- [`khl_game_header()`](https://fastRhockey.sportsdataverse.org/reference/khl_game_header.md)
+  :
+
+  **KHL Game Header**
+
+- [`khl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/khl_game_info.md)
+  :
+
+  **KHL Game Info**
+
+- [`khl_game_protocol()`](https://fastRhockey.sportsdataverse.org/reference/khl_game_protocol.md)
+  :
+
+  **KHL Game Protocol**
+
+- [`khl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/khl_pbp.md)
+  :
+
+  **KHL Play-by-Play**
+
+- [`khl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/khl_player_box.md)
+  :
+
+  **KHL Player Box Score**
+
+- [`khl_player_career()`](https://fastRhockey.sportsdataverse.org/reference/khl_player_career.md)
+  :
+
+  **KHL Player Career**
+
+- [`khl_player_profile()`](https://fastRhockey.sportsdataverse.org/reference/khl_player_profile.md)
+  :
+
+  **KHL Player Profile**
+
+- [`khl_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/khl_player_stats.md)
+  :
+
+  **KHL Player Stats**
+
+- [`khl_playoff_bracket()`](https://fastRhockey.sportsdataverse.org/reference/khl_playoff_bracket.md)
+  :
+
+  **KHL Playoff Bracket**
+
+- [`khl_roster()`](https://fastRhockey.sportsdataverse.org/reference/khl_roster.md)
+  :
+
+  **KHL Roster**
+
+- [`khl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/khl_schedule.md)
+  :
+
+  **KHL Schedule**
+
+- [`khl_shots()`](https://fastRhockey.sportsdataverse.org/reference/khl_shots.md)
+  :
+
+  **KHL Shot Map**
+
+- [`khl_standings()`](https://fastRhockey.sportsdataverse.org/reference/khl_standings.md)
+  :
+
+  **KHL Standings**
+
+- [`khl_stat_filters()`](https://fastRhockey.sportsdataverse.org/reference/khl_stat_filters.md)
+  :
+
+  **KHL Stat Filters**
+
+- [`khl_webcaster_event()`](https://fastRhockey.sportsdataverse.org/reference/khl_webcaster_event.md)
+  :
+
+  **KHL Webcaster Event**
+
+- [`khl_webcaster_events()`](https://fastRhockey.sportsdataverse.org/reference/khl_webcaster_events.md)
+  :
+
+  **KHL Webcaster Events**
+
+- [`khl_webcaster_leaders()`](https://fastRhockey.sportsdataverse.org/reference/khl_webcaster_leaders.md)
+  :
+
+  **KHL Webcaster Leaders**
+
+- [`khl_webcaster_players()`](https://fastRhockey.sportsdataverse.org/reference/khl_webcaster_players.md)
+  :
+
+  **KHL Webcaster Players**
+
+- [`khl_webcaster_players_light()`](https://fastRhockey.sportsdataverse.org/reference/khl_webcaster_players_light.md)
+  :
+
+  **KHL Webcaster Players (Light)**
+
+- [`khl_webcaster_stages()`](https://fastRhockey.sportsdataverse.org/reference/khl_webcaster_stages.md)
+  :
+
+  **KHL Webcaster Stages**
+
+- [`khl_webcaster_tables()`](https://fastRhockey.sportsdataverse.org/reference/khl_webcaster_tables.md)
+  :
+
+  **KHL Webcaster Tables**
+
+- [`khl_webcaster_team()`](https://fastRhockey.sportsdataverse.org/reference/khl_webcaster_team.md)
+  :
+
+  **KHL Webcaster Team**
+
+- [`khl_webcaster_teams()`](https://fastRhockey.sportsdataverse.org/reference/khl_webcaster_teams.md)
+  :
+
+  **KHL Webcaster Teams**
+
+### VHL (Russia)
+
+- [`vhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/vhl_game_info.md)
+  : VHL Game Info
+- [`vhl_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/vhl_goalie_box.md)
+  : VHL Goalie Box Score
+- [`vhl_goalie_stats()`](https://fastRhockey.sportsdataverse.org/reference/vhl_goalie_stats.md)
+  : VHL Goalie Stats
+- [`vhl_goals()`](https://fastRhockey.sportsdataverse.org/reference/vhl_goals.md)
+  : VHL Goals
+- [`vhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/vhl_pbp.md)
+  : VHL Play-by-Play (text broadcast)
+- [`vhl_penalties()`](https://fastRhockey.sportsdataverse.org/reference/vhl_penalties.md)
+  : VHL Penalties
+- [`vhl_player()`](https://fastRhockey.sportsdataverse.org/reference/vhl_player.md)
+  : VHL Player Card
+- [`vhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/vhl_player_box.md)
+  : VHL Player Box Score
+- [`vhl_player_career()`](https://fastRhockey.sportsdataverse.org/reference/vhl_player_career.md)
+  : VHL Player Career
+- [`vhl_roster()`](https://fastRhockey.sportsdataverse.org/reference/vhl_roster.md)
+  : VHL Team Roster
+- [`vhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/vhl_schedule.md)
+  : VHL Schedule
+- [`vhl_skater_stats()`](https://fastRhockey.sportsdataverse.org/reference/vhl_skater_stats.md)
+  : VHL Skater Stats
+- [`vhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/vhl_standings.md)
+  : VHL Standings
+- [`vhl_tn()`](https://fastRhockey.sportsdataverse.org/reference/vhl_tn.md)
+  : VHL Tournament Id of a Season
+
+### SHL (Sweden)
+
+- [`shl_athlete_career()`](https://fastRhockey.sportsdataverse.org/reference/shl_athlete_career.md)
+  : Player career totals by season
+- [`shl_athlete_details()`](https://fastRhockey.sportsdataverse.org/reference/shl_athlete_details.md)
+  : Player bio plus playerExtIds (isa, ramses_legacy, ...)
+- [`shl_athlete_game_log()`](https://fastRhockey.sportsdataverse.org/reference/shl_athlete_game_log.md)
+  : Player game log of one season
+- [`shl_athlete_profile()`](https://fastRhockey.sportsdataverse.org/reference/shl_athlete_profile.md)
+  : Player profile: age, height, weight, position
+- [`shl_athlete_seasons()`](https://fastRhockey.sportsdataverse.org/reference/shl_athlete_seasons.md)
+  : Seasons a player has stats for
+- [`shl_boxscore()`](https://fastRhockey.sportsdataverse.org/reference/shl_boxscore.md)
+  : Skater and goalie box score per team (2023/24 on)
+- [`shl_game_header()`](https://fastRhockey.sportsdataverse.org/reference/shl_game_header.md)
+  : Game header: StatNet extId, arena, state, teams, scores
+- [`shl_game_overview()`](https://fastRhockey.sportsdataverse.org/reference/shl_game_overview.md)
+  : Score, state, clock, StatNet gameId and gameSourceId
+- [`shl_game_summary()`](https://fastRhockey.sportsdataverse.org/reference/shl_game_summary.md)
+  : Goals by period, head-to-head summary, best scorers
+- [`shl_last_game_day()`](https://fastRhockey.sportsdataverse.org/reference/shl_last_game_day.md)
+  : Games of the last played match day of an ssgt
+- [`shl_layout_info()`](https://fastRhockey.sportsdataverse.org/reference/shl_layout_info.md)
+  : Directory of every SHL ssgt (season + series + game type) with teams
+  and the stats modules
+- [`shl_next_game_day()`](https://fastRhockey.sportsdataverse.org/reference/shl_next_game_day.md)
+  : Games of the next match day of an ssgt
+- [`shl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/shl_pbp.md)
+  : Play-by-play events with shot coordinates (2023/24 on)
+- [`shl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/shl_player_box.md)
+  : Extended skater and goalie game stats per team (2023/24 on)
+- [`shl_player_crosswalk()`](https://fastRhockey.sportsdataverse.org/reference/shl_player_crosswalk.md)
+  : SHL player id crosswalk: isa id to athlete uuid
+- [`shl_player_h2h()`](https://fastRhockey.sportsdataverse.org/reference/shl_player_h2h.md)
+  : Player head-to-head for a matchup
+- [`shl_post_game_team_stats()`](https://fastRhockey.sportsdataverse.org/reference/shl_post_game_team_stats.md)
+  : Post-game team comparison
+- [`shl_roster()`](https://fastRhockey.sportsdataverse.org/reference/shl_roster.md)
+  : Current roster of a team, grouped by position
+- [`shl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/shl_schedule.md)
+  : Schedule and results of one season + series + game type
+- [`shl_season_filter()`](https://fastRhockey.sportsdataverse.org/reference/shl_season_filter.md)
+  : Series, seasons (1975/76 on) and game types with their uuids, plus
+  the default ssgt
+- [`shl_sites()`](https://fastRhockey.sportsdataverse.org/reference/shl_sites.md)
+  : Teams (sites) taking part in an ssgt
+- [`shl_ssgt_provider()`](https://fastRhockey.sportsdataverse.org/reference/shl_ssgt_provider.md)
+  : Stats provider of an ssgt, a bare string such as statnet
+- [`shl_ssgt_uuid()`](https://fastRhockey.sportsdataverse.org/reference/shl_ssgt_uuid.md)
+  : SHL ssgt uuid of a season and game type
+- [`shl_standings()`](https://fastRhockey.sportsdataverse.org/reference/shl_standings.md)
+  : Standings of an ssgt (gameday widget)
+- [`shl_stats_info()`](https://fastRhockey.sportsdataverse.org/reference/shl_stats_info.md)
+  : Stats table of one module for an ssgt (standings, players, goalies,
+  teams, games)
+- [`shl_team()`](https://fastRhockey.sportsdataverse.org/reference/shl_team.md)
+  : One team
+- [`shl_team_played_games()`](https://fastRhockey.sportsdataverse.org/reference/shl_team_played_games.md)
+  : A team's recent games
+- [`shl_team_stats()`](https://fastRhockey.sportsdataverse.org/reference/shl_team_stats.md)
+  : Team stats per period and total (2023/24 on)
+- [`shl_team_upcoming_games()`](https://fastRhockey.sportsdataverse.org/reference/shl_team_upcoming_games.md)
+  : A team's next games
+
+### HockeyAllsvenskan (Sweden)
+
+- [`ha_game()`](https://fastRhockey.sportsdataverse.org/reference/ha_game.md)
+  :
+
+  **HockeyAllsvenskan Game record**
+
+- [`ha_games()`](https://fastRhockey.sportsdataverse.org/reference/ha_games.md)
+  :
+
+  **HockeyAllsvenskan Games of a season**
+
+- [`ha_goalie_stats()`](https://fastRhockey.sportsdataverse.org/reference/ha_goalie_stats.md)
+  :
+
+  **HockeyAllsvenskan Goalkeeper stats**
+
+- [`ha_leaders()`](https://fastRhockey.sportsdataverse.org/reference/ha_leaders.md)
+  :
+
+  **HockeyAllsvenskan Player leaderboard**
+
+- [`ha_pbp()`](https://fastRhockey.sportsdataverse.org/reference/ha_pbp.md)
+  :
+
+  **HockeyAllsvenskan Play-by-play**
+
+- [`ha_players()`](https://fastRhockey.sportsdataverse.org/reference/ha_players.md)
+  :
+
+  **HockeyAllsvenskan Player directory**
+
+- [`ha_schedule()`](https://fastRhockey.sportsdataverse.org/reference/ha_schedule.md)
+  :
+
+  **HockeyAllsvenskan Schedule (season in progress)**
+
+- [`ha_skater_stats()`](https://fastRhockey.sportsdataverse.org/reference/ha_skater_stats.md)
+  :
+
+  **HockeyAllsvenskan Skater stats**
+
+- [`ha_standings()`](https://fastRhockey.sportsdataverse.org/reference/ha_standings.md)
+  :
+
+  **HockeyAllsvenskan Standings**
+
+- [`ha_team_stats()`](https://fastRhockey.sportsdataverse.org/reference/ha_team_stats.md)
+  :
+
+  **HockeyAllsvenskan Team stats**
+
+- [`ha_teams()`](https://fastRhockey.sportsdataverse.org/reference/ha_teams.md)
+  :
+
+  **HockeyAllsvenskan Team key crosswalk**
+
+### Liiga (Finland)
+
+- [`liiga_game()`](https://fastRhockey.sportsdataverse.org/reference/liiga_game.md)
+  :
+
+  **Liiga game header**
+
+- [`liiga_game_goals()`](https://fastRhockey.sportsdataverse.org/reference/liiga_game_goals.md)
+  :
+
+  **Liiga game goals**
+
+- [`liiga_game_lineups()`](https://fastRhockey.sportsdataverse.org/reference/liiga_game_lineups.md)
+  :
+
+  **Liiga game lineups**
+
+- [`liiga_game_penalties()`](https://fastRhockey.sportsdataverse.org/reference/liiga_game_penalties.md)
+  :
+
+  **Liiga game penalties**
+
+- [`liiga_game_players_stats()`](https://fastRhockey.sportsdataverse.org/reference/liiga_game_players_stats.md)
+  :
+
+  **Liiga game player stats**
+
+- [`liiga_game_shootout()`](https://fastRhockey.sportsdataverse.org/reference/liiga_game_shootout.md)
+  :
+
+  **Liiga game shootout**
+
+- [`liiga_game_stats()`](https://fastRhockey.sportsdataverse.org/reference/liiga_game_stats.md)
+  :
+
+  **Liiga game box score**
+
+- [`liiga_game_team_stats()`](https://fastRhockey.sportsdataverse.org/reference/liiga_game_team_stats.md)
+  :
+
+  **Liiga game team stats**
+
+- [`liiga_games()`](https://fastRhockey.sportsdataverse.org/reference/liiga_games.md)
+  :
+
+  **Liiga games**
+
+- [`liiga_gameweeks()`](https://fastRhockey.sportsdataverse.org/reference/liiga_gameweeks.md)
+  :
+
+  **Liiga game weeks**
+
+- [`liiga_goals()`](https://fastRhockey.sportsdataverse.org/reference/liiga_goals.md)
+  :
+
+  **Liiga goals**
+
+- [`liiga_player()`](https://fastRhockey.sportsdataverse.org/reference/liiga_player.md)
+  :
+
+  **Liiga player**
+
+- [`liiga_player_career()`](https://fastRhockey.sportsdataverse.org/reference/liiga_player_career.md)
+  :
+
+  **Liiga player career**
+
+- [`liiga_player_game_log()`](https://fastRhockey.sportsdataverse.org/reference/liiga_player_game_log.md)
+  :
+
+  **Liiga player game log**
+
+- [`liiga_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/liiga_player_stats.md)
+  :
+
+  **Liiga player stat tables**
+
+- [`liiga_players_info()`](https://fastRhockey.sportsdataverse.org/reference/liiga_players_info.md)
+  :
+
+  **Liiga roster**
+
+- [`liiga_schedule()`](https://fastRhockey.sportsdataverse.org/reference/liiga_schedule.md)
+  :
+
+  **Liiga schedule**
+
+- [`liiga_shotmap()`](https://fastRhockey.sportsdataverse.org/reference/liiga_shotmap.md)
+  :
+
+  **Liiga shotmap**
+
+- [`liiga_standings()`](https://fastRhockey.sportsdataverse.org/reference/liiga_standings.md)
+  :
+
+  **Liiga standings**
+
+- [`liiga_team_stats()`](https://fastRhockey.sportsdataverse.org/reference/liiga_team_stats.md)
+  :
+
+  **Liiga team stat tables**
+
+- [`liiga_teams()`](https://fastRhockey.sportsdataverse.org/reference/liiga_teams.md)
+  :
+
+  **Liiga teams**
+
+- [`liiga_teams_history()`](https://fastRhockey.sportsdataverse.org/reference/liiga_teams_history.md)
+  :
+
+  **Liiga team history**
+
+- [`liiga_tournament()`](https://fastRhockey.sportsdataverse.org/reference/liiga_tournament.md)
+  :
+
+  **Liiga tournament**
+
+### Swiss Ice Hockey Federation (SIHF)
+
+- [`sihf_game_goalie_stats()`](https://fastRhockey.sportsdataverse.org/reference/sihf_game_goalie_stats.md)
+  :
+
+  **SIHF Goaltender box score of one game, both sides**
+
+- [`sihf_game_info()`](https://fastRhockey.sportsdataverse.org/reference/sihf_game_info.md)
+  :
+
+  **SIHF Header of one game**
+
+- [`sihf_game_lineups()`](https://fastRhockey.sportsdataverse.org/reference/sihf_game_lineups.md)
+  :
+
+  **SIHF Lineups of one game by unit and slot, plus the absentees**
+
+- [`sihf_game_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/sihf_game_player_stats.md)
+  :
+
+  **SIHF Skater box score of one game, both sides, with ice time and
+  faceoffs**
+
+- [`sihf_game_team_stats()`](https://fastRhockey.sportsdataverse.org/reference/sihf_game_team_stats.md)
+  :
+
+  **SIHF Team stats of one game**
+
+- [`sihf_goalie_shootouts()`](https://fastRhockey.sportsdataverse.org/reference/sihf_goalie_shootouts.md)
+  :
+
+  **SIHF Goaltender shootouts**
+
+- [`sihf_goalie_shots()`](https://fastRhockey.sportsdataverse.org/reference/sihf_goalie_shots.md)
+  :
+
+  **SIHF Goaltender shots against**
+
+- [`sihf_goalie_stats()`](https://fastRhockey.sportsdataverse.org/reference/sihf_goalie_stats.md)
+  :
+
+  **SIHF Goaltender season totals**
+
+- [`sihf_goalie_wins()`](https://fastRhockey.sportsdataverse.org/reference/sihf_goalie_wins.md)
+  :
+
+  **SIHF Goaltender decisions**
+
+- [`sihf_pbp()`](https://fastRhockey.sportsdataverse.org/reference/sihf_pbp.md)
+  :
+
+  **SIHF Event timeline of one game**
+
+- [`sihf_phases()`](https://fastRhockey.sportsdataverse.org/reference/sihf_phases.md)
+  :
+
+  **SIHF Phases of a league season (regular season, play-in and playoff
+  rounds, playout)**
+
+- [`sihf_player_faceoffs()`](https://fastRhockey.sportsdataverse.org/reference/sihf_player_faceoffs.md)
+  :
+
+  **SIHF Skater faceoffs**
+
+- [`sihf_player_faceoffs_by_zone()`](https://fastRhockey.sportsdataverse.org/reference/sihf_player_faceoffs_by_zone.md)
+  :
+
+  **SIHF Skater faceoffs by zone (offensive, neutral, defensive)**
+
+- [`sihf_player_faceoffs_by_zone_per_game()`](https://fastRhockey.sportsdataverse.org/reference/sihf_player_faceoffs_by_zone_per_game.md)
+  :
+
+  **SIHF Skater faceoffs by zone (offensive, neutral, defensive) per
+  game**
+
+- [`sihf_player_goals_assists()`](https://fastRhockey.sportsdataverse.org/reference/sihf_player_goals_assists.md)
+  :
+
+  **SIHF Skater goals and assists by situation**
+
+- [`sihf_player_penalties()`](https://fastRhockey.sportsdataverse.org/reference/sihf_player_penalties.md)
+  :
+
+  **SIHF Skater penalties**
+
+- [`sihf_player_shootouts()`](https://fastRhockey.sportsdataverse.org/reference/sihf_player_shootouts.md)
+  :
+
+  **SIHF Skater shootouts**
+
+- [`sihf_player_shots()`](https://fastRhockey.sportsdataverse.org/reference/sihf_player_shots.md)
+  :
+
+  **SIHF Skater shots**
+
+- [`sihf_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/sihf_player_stats.md)
+  :
+
+  **SIHF Skater season totals**
+
+- [`sihf_player_time_on_ice()`](https://fastRhockey.sportsdataverse.org/reference/sihf_player_time_on_ice.md)
+  :
+
+  **SIHF Skater ice time by situation (even strength, power play,
+  penalty kill), totals and per game, plus shifts**
+
+- [`sihf_results()`](https://fastRhockey.sportsdataverse.org/reference/sihf_results.md)
+  :
+
+  **SIHF Games of a league season**
+
+- [`sihf_standings()`](https://fastRhockey.sportsdataverse.org/reference/sihf_standings.md)
+  :
+
+  **SIHF League table of a season (every game, or home / away games
+  only)**
+
+- [`sihf_team_attendance()`](https://fastRhockey.sportsdataverse.org/reference/sihf_team_attendance.md)
+  :
+
+  **SIHF Team home attendance per season**
+
+- [`sihf_team_faceoffs()`](https://fastRhockey.sportsdataverse.org/reference/sihf_team_faceoffs.md)
+  :
+
+  **SIHF Team faceoffs per season**
+
+- [`sihf_team_faceoffs_by_zone()`](https://fastRhockey.sportsdataverse.org/reference/sihf_team_faceoffs_by_zone.md)
+  :
+
+  **SIHF Team faceoffs by zone (offensive, neutral, defensive) per
+  season**
+
+- [`sihf_team_faceoffs_by_zone_per_game()`](https://fastRhockey.sportsdataverse.org/reference/sihf_team_faceoffs_by_zone_per_game.md)
+  :
+
+  **SIHF Team faceoffs by zone (offensive, neutral, defensive) per
+  game**
+
+- [`sihf_team_goals()`](https://fastRhockey.sportsdataverse.org/reference/sihf_team_goals.md)
+  :
+
+  **SIHF Team goals for and against per season**
+
+- [`sihf_team_goals_by_position()`](https://fastRhockey.sportsdataverse.org/reference/sihf_team_goals_by_position.md)
+  :
+
+  **SIHF Team goals by scorer**
+
+- [`sihf_team_penalties()`](https://fastRhockey.sportsdataverse.org/reference/sihf_team_penalties.md)
+  :
+
+  **SIHF Team penalties per season**
+
+- [`sihf_team_penalty_kill()`](https://fastRhockey.sportsdataverse.org/reference/sihf_team_penalty_kill.md)
+  :
+
+  **SIHF Team penalty kill per season**
+
+- [`sihf_team_power_play()`](https://fastRhockey.sportsdataverse.org/reference/sihf_team_power_play.md)
+  :
+
+  **SIHF Team power play per season**
+
+- [`sihf_team_shootouts()`](https://fastRhockey.sportsdataverse.org/reference/sihf_team_shootouts.md)
+  :
+
+  **SIHF Team shootouts per season**
+
+- [`sihf_team_shots()`](https://fastRhockey.sportsdataverse.org/reference/sihf_team_shots.md)
+  :
+
+  **SIHF Team shots per season**
+
+### National League (Switzerland)
+
+- [`nl_current_games()`](https://fastRhockey.sportsdataverse.org/reference/nl_current_games.md)
+  :
+
+  **National League current or next game day**
+
+- [`nl_game_overview()`](https://fastRhockey.sportsdataverse.org/reference/nl_game_overview.md)
+  :
+
+  **National League game header**
+
+- [`nl_lineups()`](https://fastRhockey.sportsdataverse.org/reference/nl_lineups.md)
+  :
+
+  **National League game lineups**
+
+- [`nl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/nl_pbp.md)
+  :
+
+  **National League play-by-play**
+
+- [`nl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/nl_player_box.md)
+  :
+
+  **National League player box score**
+
+- [`nl_player_season()`](https://fastRhockey.sportsdataverse.org/reference/nl_player_season.md)
+  :
+
+  **National League single player season stats**
+
+- [`nl_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/nl_player_stats.md)
+  :
+
+  **National League player season stats**
+
+- [`nl_playoffs()`](https://fastRhockey.sportsdataverse.org/reference/nl_playoffs.md)
+  :
+
+  **National League playoff series**
+
+- [`nl_playouts()`](https://fastRhockey.sportsdataverse.org/reference/nl_playouts.md)
+  :
+
+  **National League playout and qualification series**
+
+- [`nl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/nl_schedule.md)
+  :
+
+  **National League schedule and results**
+
+- [`nl_shots()`](https://fastRhockey.sportsdataverse.org/reference/nl_shots.md)
+  :
+
+  **National League shots with location and xG**
+
+- [`nl_standings()`](https://fastRhockey.sportsdataverse.org/reference/nl_standings.md)
+  :
+
+  **National League standings**
+
+- [`nl_team_info()`](https://fastRhockey.sportsdataverse.org/reference/nl_team_info.md)
+  :
+
+  **National League club record**
+
+- [`nl_team_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/nl_team_player_stats.md)
+  :
+
+  **National League team player season stats**
+
+- [`nl_team_schedule()`](https://fastRhockey.sportsdataverse.org/reference/nl_team_schedule.md)
+  :
+
+  **National League team schedule**
+
+- [`nl_team_stats()`](https://fastRhockey.sportsdataverse.org/reference/nl_team_stats.md)
+  :
+
+  **National League team game totals**
+
+- [`nl_top_scorers()`](https://fastRhockey.sportsdataverse.org/reference/nl_top_scorers.md)
+  :
+
+  **National League top scorers**
+
+### Extraliga (Czechia)
+
+- [`elh_events()`](https://fastRhockey.sportsdataverse.org/reference/elh_events.md)
+  :
+
+  **Czech Extraliga (ELH) per-minute shot totals**
+
+- [`elh_game_ids()`](https://fastRhockey.sportsdataverse.org/reference/elh_game_ids.md)
+  :
+
+  **Czech Extraliga (ELH) game ids of a season**
+
+- [`elh_list_objects()`](https://fastRhockey.sportsdataverse.org/reference/elh_list_objects.md)
+  :
+
+  **Czech Extraliga (ELH) S3 bucket listing**
+
+- [`elh_pbp()`](https://fastRhockey.sportsdataverse.org/reference/elh_pbp.md)
+  :
+
+  **Czech Extraliga (ELH) play-by-play commentary**
+
+- [`elh_pbp_goals()`](https://fastRhockey.sportsdataverse.org/reference/elh_pbp_goals.md)
+  :
+
+  **Czech Extraliga (ELH) players on the ice at each goal**
+
+- [`elh_pbp_latest()`](https://fastRhockey.sportsdataverse.org/reference/elh_pbp_latest.md)
+  :
+
+  **Czech Extraliga (ELH) latest play-by-play entries**
+
+- [`elh_pbp_mobile()`](https://fastRhockey.sportsdataverse.org/reference/elh_pbp_mobile.md)
+  :
+
+  **Czech Extraliga (ELH) mobile play-by-play**
+
+- [`elh_scoreboard()`](https://fastRhockey.sportsdataverse.org/reference/elh_scoreboard.md)
+  :
+
+  **Czech Extraliga (ELH) scoreboard**
+
+- [`elh_shots()`](https://fastRhockey.sportsdataverse.org/reference/elh_shots.md)
+  :
+
+  **Czech Extraliga (ELH) shot attempts**
+
+### Ligue Magnus (France)
+
+- [`magnus_competitions()`](https://fastRhockey.sportsdataverse.org/reference/magnus_competitions.md)
+  :
+
+  **Ligue Magnus competitions (one per season)**
+
+- [`magnus_game()`](https://fastRhockey.sportsdataverse.org/reference/magnus_game.md)
+  :
+
+  **Ligue Magnus game header**
+
+- [`magnus_lineups()`](https://fastRhockey.sportsdataverse.org/reference/magnus_lineups.md)
+  :
+
+  **Ligue Magnus game roster**
+
+- [`magnus_pbp()`](https://fastRhockey.sportsdataverse.org/reference/magnus_pbp.md)
+  :
+
+  **Ligue Magnus play-by-play**
+
+- [`magnus_phases()`](https://fastRhockey.sportsdataverse.org/reference/magnus_phases.md)
+  :
+
+  **Ligue Magnus phases of a season**
+
+- [`magnus_round_games()`](https://fastRhockey.sportsdataverse.org/reference/magnus_round_games.md)
+  :
+
+  **Ligue Magnus games of one round**
+
+- [`magnus_rounds()`](https://fastRhockey.sportsdataverse.org/reference/magnus_rounds.md)
+  :
+
+  **Ligue Magnus rounds of a phase**
+
+- [`magnus_schedule()`](https://fastRhockey.sportsdataverse.org/reference/magnus_schedule.md)
+  :
+
+  **Ligue Magnus schedule and results**
+
+- [`magnus_shootout()`](https://fastRhockey.sportsdataverse.org/reference/magnus_shootout.md)
+  :
+
+  **Ligue Magnus shootout attempts**
+
+- [`magnus_standings()`](https://fastRhockey.sportsdataverse.org/reference/magnus_standings.md)
+  :
+
+  **Ligue Magnus standings**
+
+- [`magnus_teams()`](https://fastRhockey.sportsdataverse.org/reference/magnus_teams.md)
+  :
+
+  **Ligue Magnus teams of a phase**
+
 ## fastRhockey Data
 
 ### Family Overview

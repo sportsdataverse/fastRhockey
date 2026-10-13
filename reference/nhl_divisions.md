@@ -35,14 +35,14 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
    try(nhl_divisions())
-#> ── NHL Divisions from NHL.com ───────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:05 UTC
+#> ── NHL Divisions from NHL.com ──────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:11 UTC
 #> # A tibble: 4 × 3
 #>   division_name division_abbrev conference_name
 #>   <chr>         <chr>           <chr>          
 #> 1 Metropolitan  M               Eastern        
-#> 2 Pacific       P               Western        
-#> 3 Atlantic      A               Eastern        
+#> 2 Atlantic      A               Eastern        
+#> 3 Pacific       P               Western        
 #> 4 Central       C               Western        
 # }
 ```

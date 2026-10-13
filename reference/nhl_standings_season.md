@@ -31,8 +31,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_standings_season())
-#> ── NHL Standings Season ─────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:09:03 UTC
+#> ── NHL Standings Season ────────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:58:08 UTC
 #> # A tibble: 109 × 10
 #>          id conferences_in_use divisions_in_use point_for_o_tloss_in_use
 #>       <int> <lgl>              <lgl>            <lgl>                   

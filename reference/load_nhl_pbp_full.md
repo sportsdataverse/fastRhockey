@@ -49,7 +49,7 @@ Other NHL Loader Functions:
 ``` r
 # \donttest{
   try(load_nhl_pbp_full(2024))
-#> ─────────────────────────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ────────────────────────────────────────────────────── fastRhockey 1.0.0.9000 ──
 #> # A tibble: 1,106,678 × 94
 #>    event_type   event secondary_type event_team_abbr event_team_type description
 #>    <chr>        <chr> <chr>          <chr>           <chr>           <chr>      

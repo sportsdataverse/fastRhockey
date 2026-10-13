@@ -58,7 +58,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_pwhl_officials(2024))
-#> ── PWHL on-ice officials ────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── PWHL on-ice officials ───────────────────────────── fastRhockey 1.0.0.9000 ──
 #> ℹ Data updated: 2026-10-08 13:14:00 UTC
 #> # A tibble: 340 × 6
 #>    game_id role        first_name last_name   jersey_number official_role

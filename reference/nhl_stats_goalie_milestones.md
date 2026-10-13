@@ -63,8 +63,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_stats_goalie_milestones())
-#> ── NHL Stats Goalie Milestones ──────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:09:05 UTC
+#> ── NHL Stats Goalie Milestones ─────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:58:11 UTC
 #> # A tibble: 39 × 17
 #>       id current_team_id first_name game_type_id games_played last_name 
 #>    <int>           <int> <chr>             <int>        <int> <chr>     

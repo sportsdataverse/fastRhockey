@@ -39,8 +39,8 @@ Other QMJHL Functions:
 
 ``` r
  try(qmjhl_player_toi(game_id = 27225)) 
-#> ── QMJHL Player TOI from HockeyTech ─────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:09:36 UTC
+#> ── QMJHL Player TOI from HockeyTech ────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:59:02 UTC
 #> # A tibble: 0 × 6
 #> # ℹ 6 variables: player_id <int>, first_name <chr>, last_name <chr>,
 #> #   toi_seconds <int>, num_shifts <int>, avg_shift_s <dbl>

@@ -191,8 +191,8 @@ Saiem Gilani
     sb <- espn_nhl_scoreboard(dates = "20250110")
     espn_nhl_game_odds(event_id = sb$game_id[1])
   })
-#> ── NHL Game Odds data from ESPN core-v2 ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:05:31 UTC
+#> ── NHL Game Odds data from ESPN core-v2 ────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:52:42 UTC
 #> # A tibble: 2 × 20
 #>   event_id  cid   provider_id provider_name provider_priority details over_under
 #>   <chr>     <chr> <chr>       <chr>                     <int> <chr>        <dbl>

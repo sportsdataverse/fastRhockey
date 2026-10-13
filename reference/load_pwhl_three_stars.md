@@ -72,7 +72,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_pwhl_three_stars(2024))
-#> ── PWHL three stars ─────────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── PWHL three stars ────────────────────────────────── fastRhockey 1.0.0.9000 ──
 #> ℹ Data updated: 2026-10-08 13:13:49 UTC
 #> # A tibble: 255 × 20
 #>    game_id  star team_id team           team_abbr player_id first_name last_name

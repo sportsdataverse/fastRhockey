@@ -23,8 +23,8 @@ A `fastRhockey_data` tibble (`team_id`, `category`, `stat`,
 
 ``` r
  try(fox_nhl_team_stats("1")) 
-#> ── Fox Sports NHL team_stats ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:06:50 UTC
+#> ── Fox Sports NHL team_stats ───────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:54:09 UTC
 #> # A tibble: 17 × 6
 #>    team_id category     stat                      stat_abbreviation player value
 #>    <chr>   <chr>        <chr>                     <chr>             <chr>  <chr>

@@ -54,8 +54,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_all_players_by_season(season = 2024))
-#> ── NHL All Players by Season ────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:02 UTC
+#> ── NHL All Players by Season ───────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:09 UTC
 #> # A tibble: 853 × 15
 #>    player_id first_name last_name  full_name        sweater_number position_code
 #>        <int> <chr>      <chr>      <chr>                     <int> <chr>        

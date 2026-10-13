@@ -47,8 +47,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_teams_roster(team_abbr = "TOR"))
-#> ── NHL Roster ───────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:09:11 UTC
+#> ── NHL Roster ──────────────────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:58:16 UTC
 #> # A tibble: 24 × 14
 #>    player_id first_name last_name full_name        sweater_number position_code
 #>        <int> <chr>      <chr>     <chr>                     <int> <chr>        
@@ -67,8 +67,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 #> #   weight_pounds <int>, birth_date <chr>, birth_city <chr>,
 #> #   birth_country <chr>, headshot_url <chr>, team_abbr <chr>
   try(nhl_teams_roster(team_abbr = "TOR", season = 2024))
-#> ── NHL Roster ───────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:09:11 UTC
+#> ── NHL Roster ──────────────────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:58:16 UTC
 #> # A tibble: 42 × 14
 #>    player_id first_name last_name full_name       sweater_number position_code
 #>        <int> <chr>      <chr>     <chr>                    <int> <chr>        

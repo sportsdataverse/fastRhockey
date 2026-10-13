@@ -66,8 +66,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_edge_team_skating_speed_detail(team_id = 10))
-#> ── NHL Edge Team Skating Speed Detail ───────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:20 UTC
+#> ── NHL Edge Team Skating Speed Detail ──────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:25 UTC
 #> # A tibble: 10 × 28
 #>    game_center_link    game_date game_type is_home_team time_in_period player_id
 #>    <chr>               <chr>         <int> <lgl>        <chr>              <int>

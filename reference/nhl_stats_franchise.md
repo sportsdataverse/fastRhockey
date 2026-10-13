@@ -46,8 +46,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_stats_franchise())
-#> ── NHL Stats Franchise ──────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:09:04 UTC
+#> ── NHL Stats Franchise ─────────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:58:10 UTC
 #> # A tibble: 40 × 4
 #>       id full_name             team_common_name team_place_name
 #>    <int> <chr>                 <chr>            <chr>          

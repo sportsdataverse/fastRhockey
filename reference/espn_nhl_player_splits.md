@@ -191,8 +191,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_player_splits(athlete_id = "5149125", season = 2025))
-#> ── NHL Player Splits data from ESPN.com ─────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:06:02 UTC
+#> ── NHL Player Splits data from ESPN.com ────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:53:06 UTC
 #> # A tibble: 62 × 21
 #>    athlete_id season split_category split_category_display split_display_name   
 #>    <chr>       <int> <chr>          <chr>                  <chr>                

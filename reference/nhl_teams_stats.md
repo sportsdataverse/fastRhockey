@@ -82,8 +82,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_teams_stats(team_abbr = "TBL"))
-#> ── NHL Teams Stats Information from NHL.com ─────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:09:11 UTC
+#> ── NHL Teams Stats Information from NHL.com ────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:58:17 UTC
 #> # A tibble: 23 × 41
 #>    player_id headshot position_code games_played goals assists points plus_minus
 #>        <int> <chr>    <chr>                <int> <int>   <int>  <int>      <int>

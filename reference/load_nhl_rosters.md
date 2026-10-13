@@ -59,7 +59,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_nhl_rosters(2022))
-#> ── NHL Rosters from fastRhockey data repository ─────────── fastRhockey 1.0.0 ──
+#> ── NHL Rosters from fastRhockey data repository ────── fastRhockey 1.0.0.9000 ──
 #> ℹ Data updated: 2026-04-08 06:02:31 UTC
 #> # A tibble: 1,295 × 9
 #>    player_id full_name      first_name last_name team_abbr team_id position_code

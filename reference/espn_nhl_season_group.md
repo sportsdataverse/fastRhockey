@@ -195,8 +195,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_season_group(season = 2026, season_type = 2, group_id = 7))
-#> ── NHL Season Group data from ESPN core-v2 ──────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:06:09 UTC
+#> ── NHL Season Group data from ESPN core-v2 ─────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:53:11 UTC
 #> # A tibble: 1 × 15
 #>   season season_type group_id id    uid   name  abbreviation slug  is_conference
 #>    <int>       <int>    <int> <chr> <chr> <chr> <chr>        <chr> <lgl>        

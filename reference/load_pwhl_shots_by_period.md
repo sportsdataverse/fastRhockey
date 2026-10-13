@@ -59,7 +59,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_pwhl_shots_by_period(2024))
-#> ── PWHL shots by period ─────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── PWHL shots by period ────────────────────────────── fastRhockey 1.0.0.9000 ──
 #> ℹ Data updated: 2026-10-08 13:14:11 UTC
 #> # A tibble: 284 × 7
 #>    game_id period_id period home_goals home_shots away_goals away_shots

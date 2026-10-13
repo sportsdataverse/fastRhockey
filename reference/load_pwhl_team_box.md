@@ -75,7 +75,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_pwhl_team_box(2024))
-#> ── PWHL team boxscores ──────────────────────────────────── fastRhockey 1.0.0 ──
+#> ── PWHL team boxscores ─────────────────────────────── fastRhockey 1.0.0.9000 ──
 #> ℹ Data updated: 2026-10-08 13:12:53 UTC
 #> # A tibble: 170 × 23
 #>    game_id team_id team           team_abbr team_side shots goals  hits pp_goals

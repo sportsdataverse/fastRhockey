@@ -82,8 +82,8 @@ per pre-compiled dataset.
 ``` r
 # \donttest{
   try(nhl_schedule(day = "2024-01-15"))
-#> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:53 UTC
+#> ── NHL Schedule ────────────────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:58 UTC
 #> # A tibble: 53 × 13
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
@@ -102,8 +102,8 @@ per pre-compiled dataset.
 #> #   away_team_name <chr>, home_score <int>, away_score <int>, game_state <chr>,
 #> #   venue <chr>
   try(nhl_schedule(season = 2025, team_abbr = "TOR"))
-#> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:55 UTC
+#> ── NHL Schedule ────────────────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:58:01 UTC
 #> # A tibble: 95 × 16
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
@@ -123,8 +123,8 @@ per pre-compiled dataset.
 #> #   venue <chr>, series_letter <chr>, playoff_round <int>,
 #> #   series_game_number <int>
   try(nhl_schedule(season = 2024, team_abbr = "TOR", game_type = "playoffs"))
-#> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:57 UTC
+#> ── NHL Schedule ────────────────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:58:03 UTC
 #> # A tibble: 7 × 16
 #>      game_id season_full game_type game_date  game_time           home_team_abbr
 #>        <int> <chr>       <chr>     <chr>      <chr>               <chr>         
@@ -140,8 +140,8 @@ per pre-compiled dataset.
 #> #   venue <chr>, series_letter <chr>, playoff_round <int>,
 #> #   series_game_number <int>
   try(nhl_schedule(day = "2024-01-15", include_data_flags = TRUE))
-#> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:58 UTC
+#> ── NHL Schedule ────────────────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:58:04 UTC
 #> # A tibble: 53 × 29
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         

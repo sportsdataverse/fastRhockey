@@ -176,8 +176,8 @@ Saiem Gilani
     pos <- espn_nhl_positions()
     espn_nhl_position(position_id = pos$position_id[1])
   })
-#> ── NHL Position data from ESPN core-v2 ──────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:06:04 UTC
+#> ── NHL Position data from ESPN core-v2 ─────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:53:08 UTC
 #> # A tibble: 1 × 8
 #>   position_id id    name   display_name abbreviation leaf  parent_ref           
 #>   <chr>       <chr> <chr>  <chr>        <chr>        <lgl> <chr>                

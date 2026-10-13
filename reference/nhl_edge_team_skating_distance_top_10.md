@@ -96,8 +96,8 @@ A data frame (`fastRhockey_data`) with the following columns:
     strength = "all",
     sort_by = "total"
   ))
-#> ── NHL Edge Team Skating Distance Top 10 ────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:20 UTC
+#> ── NHL Edge Team Skating Distance Top 10 ───────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:25 UTC
 #> # A tibble: 10 × 35
 #>    team_abbrev team_slug           team_common_name_def…¹ team_place_name_with…²
 #>    <chr>       <chr>               <chr>                  <chr>                 

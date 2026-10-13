@@ -68,8 +68,8 @@ the columns are:
 ``` r
 # \donttest{
   try(nhl_stats_misc(endpoint = "glossary"))
-#> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:09:06 UTC
+#> ── NHL Stats Misc ──────────────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:58:11 UTC
 #> # A tibble: 321 × 7
 #>       id abbreviation   definition first_season_for_stat full_name language_code
 #>    <int> <chr>          <chr>                      <int> <chr>     <chr>        
@@ -86,8 +86,8 @@ the columns are:
 #> # ℹ 311 more rows
 #> # ℹ 1 more variable: last_updated <chr>
   try(nhl_stats_misc(endpoint = "franchise"))
-#> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:09:06 UTC
+#> ── NHL Stats Misc ──────────────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:58:11 UTC
 #> # A tibble: 40 × 4
 #>       id full_name             team_common_name team_place_name
 #>    <int> <chr>                 <chr>            <chr>          
@@ -103,8 +103,8 @@ the columns are:
 #> 10    17 Pittsburgh Penguins   Penguins         Pittsburgh     
 #> # ℹ 30 more rows
   try(nhl_stats_misc(endpoint = "country"))
-#> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:09:06 UTC
+#> ── NHL Stats Misc ──────────────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:58:12 UTC
 #> # A tibble: 50 × 11
 #>    id    country3code country_code country_name   has_player_stats image_url    
 #>    <chr> <chr>        <chr>        <chr>                     <int> <chr>        

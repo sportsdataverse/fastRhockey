@@ -38,8 +38,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_records_trophy())
-#> ── NHL Records Trophy ───────────────────────────────────── fastRhockey 1.0.0 ──
-#> ℹ Data updated: 2026-10-12 12:08:52 UTC
+#> ── NHL Records Trophy ──────────────────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-13 01:57:57 UTC
 #> # A tibble: 25 × 10
 #>       id brief_description           category_id created_on description footnote
 #>    <int> <chr>                             <int> <chr>      <chr>       <lgl>   
