@@ -42,30 +42,47 @@
   invisible(slot - now)
 }
 
+#' Statuses `.polite_perform()` retries.
+#' @noRd
+.EURO_RETRY_STATUSES <- c(429L, 500L, 502L, 503L, 504L)
+
+#' Cap on a server's `Retry-After`, in seconds (sdv-py `dl_utils._MAX_RETRY_AFTER`).
+#' @noRd
+.EURO_MAX_RETRY_AFTER <- 120
+
 #' Perform an httr2 request, throttled per host on every attempt.
 #'
-#' Retries a 429/503 or a connection failure up to `max_tries` attempts. Each
-#' attempt first waits its host's slot; the k-th retry waits at least
-#' `max(min_interval, 2^(k - 1))` seconds (1, 2, 4, ...) after the host's last
-#' request (backoff). Non-2xx responses are returned, not raised: pass the response
-#' to `.euro_check_status()` or `.euro_resp_json()`.
+#' Retries a 429/500/502/503/504 or a connection failure up to `max_tries`
+#' attempts (any other status is returned at once). Each attempt first waits its
+#' host's slot; after failed attempt k the next waits at least
+#' `max(min_interval, backoff * 2^(k - 1))` seconds after the host's last
+#' request (1, 2, 4, ... for `backoff = 1`), or the server's `Retry-After`
+#' (seconds, capped at 120) when that is longer. Non-2xx responses are
+#' returned, not raised: pass the response to `.euro_check_status()` or
+#' `.euro_resp_json()`.
 #'
 #' @param req An httr2 request (e.g. from `.build_request()`). Any
 #'   `req_retry()` / `req_error()` policy on it is replaced.
 #' @param max_tries Maximum attempts.
 #' @param min_interval Spacing between requests to one host, in seconds.
+#' @param backoff Base of the retry delay in seconds (1: 1, 2, 4; 2: 2, 4, 8).
 #' @return An httr2 response.
 #' @keywords internal
 #' @noRd
-.polite_perform <- function(req, max_tries = 3, min_interval = .EURO_MIN_INTERVAL) {
+.polite_perform <- function(req, max_tries = 3, min_interval = .EURO_MIN_INTERVAL, backoff = 1) {
   req <- req |>
     httr2::req_retry(max_tries = 1) |>
     httr2::req_error(is_error = function(resp) FALSE)
+  interval <- min_interval
   for (i in seq_len(max_tries)) {
-    .polite_wait(req$url, if (i == 1) min_interval else max(min_interval, 2^(i - 2)))
+    .polite_wait(req$url, interval)
     resp <- tryCatch(httr2::req_perform(req), httr2_failure = function(e) e)
-    if (!inherits(resp, "httr2_failure") && !httr2::resp_status(resp) %in% c(429L, 503L)) {
-      return(resp)
+    failed <- inherits(resp, "httr2_failure")
+    if (!failed && !httr2::resp_status(resp) %in% .EURO_RETRY_STATUSES) return(resp)
+    interval <- max(min_interval, backoff * 2^(i - 1))
+    if (!failed) {
+      ra <- suppressWarnings(httr2::resp_retry_after(resp))
+      if (length(ra) == 1L && !is.na(ra)) interval <- max(interval, min(ra, .EURO_MAX_RETRY_AFTER))
     }
   }
   if (inherits(resp, "httr2_failure")) {

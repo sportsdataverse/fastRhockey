@@ -232,9 +232,10 @@ khl_transport <- function(posts = list(), homes = NULL, frame = parent.frame()) 
   testthat::local_mocked_bindings(
     .polite_wait = function(url, min_interval = 1) {
       log$waits <- c(log$waits, url)
+      # an interval above the 1 s default is a retry backoff (2 s, 4 s) or a Retry-After
+      if (min_interval > 1) log$sleeps <- c(log$sleeps, min_interval)
       invisible(0)
     },
-    .khl_sleep = function(seconds) log$sleeps <- c(log$sleeps, seconds),
     .env = frame
   )
   httr2::local_mocked_responses(function(req) {
@@ -359,10 +360,10 @@ test_that("a 5xx POST is retried 2 s then 4 s apart, and the retries are bounded
   skip_on_cran()
   khl_reset()
   log <- khl_transport(list(khl_text("busy", 503L), khl_text("bad", 502L), khl_file("rest/game__header.json")))
-  # 503 is retried by the shared .polite_perform(); 502 by the khl loop
+  # both are retried by the shared .polite_perform(backoff = 2)
   expect_equal(.khl_get(paste0(KHL_REST, "/game/header/"), KHL_HEADER_FORM)$status, "success")
   expect_equal(sum(khl_methods(log) == "POST"), 3)
-  expect_equal(log$sleeps, 2)
+  expect_equal(log$sleeps, c(2, 4))
 
   khl_reset()
   log <- khl_transport(rep(list(khl_text("boom", 500L)), 3))

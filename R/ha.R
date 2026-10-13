@@ -26,9 +26,10 @@
 # 400/422 raises fastRhockey_bad_request. Wrappers raise; they never warn and
 # return an empty frame.
 #
-# Retries: a POST retries 429/500/502/503/504 and a dead connection up to three
-# attempts, each attempt behind the per-host clock, waiting max(2, 4 s) or the
-# server's Retry-After (capped at 120 s) between attempts. A 2xx body that opens
+# Retries: a POST goes through the shared .polite_perform(backoff = 2): it retries
+# 429/500/502/503/504 and a dead connection up to three attempts, each attempt
+# behind the per-host clock, waiting 2 s then 4 s or the server's Retry-After
+# (capped at 120 s) between attempts. A 2xx body that opens
 # like JSON but does not parse was cut off in transit: it is fetched again, twice.
 
 .HA_HOST <- "https://hockeyallsvenskan.se"
@@ -52,10 +53,6 @@
 .HA_FIRST_SEASON <- 2006L
 # Key the request is stamped under (the stats bodies do not say what they answer).
 .HA_REQUEST_KEY <- "_request"
-# Statuses a POST is retried on.
-.HA_RETRY_STATUSES <- c(429L, 500L, 502L, 503L, 504L)
-# Cap on a server's Retry-After, in seconds (sdv-py dl_utils._MAX_RETRY_AFTER).
-.HA_MAX_RETRY_AFTER <- 120
 .HA_HEADERS <- list(`User-Agent` = "fastRhockey", Accept = "application/json")
 
 .HA_FILTERS <- list(
@@ -967,41 +964,21 @@
 
 # ---- transport ---------------------------------------------------------------
 
-# Seams the tests replace: the network call and the sleep.
-.ha_perform <- function(req) httr2::req_perform(req)
+# Seam the tests replace: the sleep between re-fetches of a cut-off body.
 .ha_sleep <- function(seconds) Sys.sleep(seconds)
 
-#' POST a JSON body with retries on `.HA_RETRY_STATUSES` and dead connections.
+#' POST a JSON body through the shared throttled, retrying `.polite_perform()`.
 #'
-#' Each attempt waits on the per-host clock. A `Retry-After` header on a retried
-#' status (429 and 503 alike) lengthens the wait to what the server asks, capped
-#' at 120 s; otherwise 2 s, then 4 s. Any other status is returned at once (the
-#' caller decodes it under the error vocabulary); a dead connection on the last
-#' attempt raises `fastRhockey_asset_fetch`.
+#' Retries 429/500/502/503/504 and dead connections (2 s, then 4 s, or the
+#' server's `Retry-After`, capped at 120 s); any other status is returned at once
+#' (the caller decodes it under the error vocabulary); a dead connection on the
+#' last attempt raises `fastRhockey_asset_fetch`.
 #' @return An httr2 response.
 #' @noRd
-.ha_post <- function(url, json, timeout = 30, attempts = 3L) {
-  req <- .build_request(url, headers = .HA_HEADERS, timeout = timeout) |>
+.ha_post <- function(url, json, timeout = 30) {
+  .build_request(url, headers = .HA_HEADERS, timeout = timeout) |>
     httr2::req_body_json(json, auto_unbox = TRUE, null = "null") |>
-    httr2::req_retry(max_tries = 1) |>
-    httr2::req_error(is_error = function(resp) FALSE)
-  for (i in seq_len(attempts)) {
-    .polite_wait(url)
-    retry_after <- 0
-    resp <- tryCatch(.ha_perform(req), httr2_failure = function(e) e)
-    if (inherits(resp, "httr2_failure")) {
-      if (i == attempts) {
-        where <- .euro_where(url)
-        msg <- conditionMessage(resp)
-        .abort_asset_fetch("{where}: fetch failed after {attempts} attempt{?s}: {msg}", parent = resp)
-      }
-    } else {
-      if (!httr2::resp_status(resp) %in% .HA_RETRY_STATUSES || i == attempts) return(resp)
-      ra <- suppressWarnings(httr2::resp_retry_after(resp))
-      retry_after <- if (is.null(ra) || is.na(ra)) 0 else max(0, ra)
-    }
-    .ha_sleep(max(2 * 2^(i - 1L), min(retry_after, .HA_MAX_RETRY_AFTER)))
-  }
+    .polite_perform(backoff = 2)
 }
 
 # A 2xx body that opens like JSON (`{` / `[`) but did not decode was cut off.

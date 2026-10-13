@@ -49,6 +49,71 @@ test_that(".polite_perform returns the last 429 after max_tries for the caller t
   expect_error(.euro_resp_json(resp), class = "fastRhockey_asset_fetch")
 })
 
+# Mock the transport with a queue of statuses (the last repeats), recording the interval
+# each attempt asked the host clock for.
+retry_mock <- function(statuses, headers = list(), env = parent.frame()) {
+  st <- new.env()
+  st$calls <- 0L
+  st$intervals <- numeric()
+  testthat::local_mocked_bindings(
+    .polite_wait = function(url, min_interval = 1) {
+      st$intervals <- c(st$intervals, min_interval)
+      invisible(0)
+    },
+    .env = env
+  )
+  httr2::local_mocked_responses(function(req) {
+    st$calls <- st$calls + 1L
+    status <- statuses[[min(st$calls, length(statuses))]]
+    httr2::response(status_code = status, url = req$url, headers = headers, body = charToRaw("{}"))
+  }, env = env)
+  st
+}
+
+test_that(".polite_perform retries 429/500/502/503/504 with a 1, 2 s backoff", {
+  skip_on_cran()
+  for (status in c(429L, 500L, 502L, 503L, 504L)) {
+    st <- retry_mock(c(status, status, 200L))
+    resp <- .polite_perform(httr2::request("https://r.test/a.json"))
+    expect_equal(httr2::resp_status(resp), 200L, info = status)
+    expect_equal(st$calls, 3L, info = status)
+    expect_equal(st$intervals, c(1, 1, 2), info = status)
+  }
+})
+
+test_that(".polite_perform does not retry other 4xx statuses or successes", {
+  skip_on_cran()
+  for (status in c(200L, 204L, 400L, 403L, 404L, 422L)) {
+    st <- retry_mock(status)
+    expect_equal(httr2::resp_status(.polite_perform(httr2::request("https://r.test/a.json"))), status)
+    expect_equal(st$calls, 1L, info = status)
+  }
+})
+
+test_that(".polite_perform backoff scales the retry delay, never below min_interval", {
+  skip_on_cran()
+  st <- retry_mock(c(502L, 502L, 200L))
+  .polite_perform(httr2::request("https://r.test/a.json"), backoff = 2)
+  expect_equal(st$intervals, c(1, 2, 4))
+  st <- retry_mock(c(502L, 200L))
+  .polite_perform(httr2::request("https://r.test/a.json"), min_interval = 5)
+  expect_equal(st$intervals, c(5, 5))
+})
+
+test_that(".polite_perform honours Retry-After (seconds), capped at 120 s", {
+  skip_on_cran()
+  st <- retry_mock(c(429L, 503L, 200L), headers = list(`Retry-After` = "7"))
+  .polite_perform(httr2::request("https://r.test/a.json"))
+  expect_equal(st$intervals, c(1, 7, 7))
+  st <- retry_mock(c(503L, 200L), headers = list(`Retry-After` = "99999"))
+  .polite_perform(httr2::request("https://r.test/a.json"))
+  expect_equal(st$intervals, c(1, 120))
+  # a Retry-After shorter than the backoff does not shorten it
+  st <- retry_mock(c(503L, 503L, 200L), headers = list(`Retry-After` = "0"))
+  .polite_perform(httr2::request("https://r.test/a.json"))
+  expect_equal(st$intervals, c(1, 1, 2))
+})
+
 test_that("a connection failure after retries is fastRhockey_asset_fetch", {
   skip_on_cran()
   req <- httr2::req_timeout(httr2::request("http://127.0.0.1:9/never.json"), 2)

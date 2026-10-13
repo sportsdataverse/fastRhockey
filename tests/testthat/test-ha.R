@@ -92,12 +92,14 @@ fail_cond <- function(msg = "connection reset") {
             list(message = msg, call = NULL))
 }
 
-# Queue the answers (the last one repeats); every request, clock wait and sleep is recorded.
+# Queue the answers (the last one repeats); every request, clock wait (and the interval it
+# asked for) and re-fetch sleep is recorded. `st$waits` is the interval of each retry.
 mock_transport <- function(..., env = parent.frame()) {
   st <- new.env()
   st$queue <- list(...)
   st$reqs <- list()
   st$waited <- character()
+  st$intervals <- numeric()
   st$slept <- numeric()
   take <- function(req) {
     st$reqs[[length(st$reqs) + 1L]] <- req
@@ -112,15 +114,15 @@ mock_transport <- function(..., env = parent.frame()) {
     nxt
   }
   testthat::local_mocked_bindings(
-    .ha_perform = function(req) take(req),
-    .polite_perform = function(req, ...) take(req),
-    .polite_wait = function(url, ...) {
+    .polite_wait = function(url, min_interval = 1) {
       st$waited <- c(st$waited, url)
+      st$intervals <- c(st$intervals, min_interval)
       invisible(0)
     },
     .ha_sleep = function(seconds) st$slept <- c(st$slept, seconds),
     .env = env
   )
+  httr2::local_mocked_responses(function(req) take(req), env = env)
   st
 }
 sent_body <- function(st, i = 1L) st$reqs[[i]]$body$data
@@ -517,7 +519,7 @@ test_that("a 502 POST is retried, each attempt behind the clock", {
   .ha_get(paste0(HOST, "/api/league-standings-all-time"), list(season = 2026))
   expect_length(st$reqs, 2L)
   expect_length(st$waited, 2L)
-  expect_equal(st$slept, 2)
+  expect_equal(st$intervals[-1], 2)
 })
 
 test_that("non-200 answers follow the error vocabulary", {
@@ -539,7 +541,7 @@ test_that("a 429 or 503 Retry-After lengthens the wait to what the server asks",
     busy <- fake_resp('{"x":1}', status, headers = list(`Retry-After` = "7"))
     st <- mock_transport(busy, fake_resp('{"x":1}', status), ok_resp(fx_text("api__league-standings-all-time.json")))
     .ha_get(paste0(HOST, "/api/league-standings-all-time"), list(season = 2026))
-    expect_equal(st$slept, c(7, 4)) # the server's wait, then the plain backoff
+    expect_equal(st$intervals[-1], c(7, 4)) # the server's wait, then the plain backoff
     expect_length(st$waited, 3L)
   }
 })
@@ -549,7 +551,7 @@ test_that("a Retry-After beyond the cap is capped at 120 s", {
   busy <- fake_resp('{"x":1}', 503L, headers = list(`Retry-After` = "99999"))
   st <- mock_transport(busy, ok_resp(fx_text("api__league-standings-all-time.json")))
   .ha_get(paste0(HOST, "/api/league-standings-all-time"), list(season = 2026))
-  expect_equal(st$slept, 120)
+  expect_equal(st$intervals[-1], 120)
 })
 
 test_that("a dead connection is an asset-fetch error after three attempts", {
@@ -560,7 +562,7 @@ test_that("a dead connection is an asset-fetch error after three attempts", {
     class = "fastRhockey_asset_fetch", regexp = "fetch failed"
   )
   expect_length(st$reqs, 3L)
-  expect_equal(st$slept, c(2, 4))
+  expect_equal(st$intervals[-1], c(2, 4))
 })
 
 test_that("a cut-off 2xx JSON body is fetched again, twice, then refused", {

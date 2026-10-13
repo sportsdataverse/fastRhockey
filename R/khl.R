@@ -274,9 +274,6 @@
 # sessions (site -> cookie jar + sessid) and the cached season table
 .khl_state <- new.env(parent = emptyenv())
 
-# Sleeping is a function so tests can replace it.
-.khl_sleep <- function(seconds) Sys.sleep(seconds)
-
 # ---- value coercion (the sdv-py parser helpers, Python semantics) -------------
 
 .khl_is_obj <- function(x) is.list(x) && !is.null(names(x))
@@ -1144,15 +1141,9 @@
   )
 }
 
-# Throttled perform; a 500 / 502 / 504 is retried up to `attempts` in all (2, 4 s apart);
-# connection failures and 429 / 503 are retried by .polite_perform().
-.khl_send <- function(req, attempts = 3L) {
-  for (i in seq_len(attempts)) {
-    resp <- .polite_perform(req)
-    if (!httr2::resp_status(resp) %in% c(500L, 502L, 504L) || i == attempts) return(resp)
-    .khl_sleep(2 * 2^(i - 1))
-  }
-}
+# Throttled perform; 429 / 500 / 502 / 503 / 504 and connection failures are retried by
+# .polite_perform() (up to 3 attempts, 2 s then 4 s apart).
+.khl_send <- function(req) .polite_perform(req, backoff = 2)
 
 # GET site/ (following the cookie-setting 307) and scrape the Bitrix sessid.
 .khl_prime <- function(session, timeout = 60) {
