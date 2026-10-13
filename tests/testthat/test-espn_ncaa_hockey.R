@@ -50,8 +50,8 @@ parity_mismatches <- function(r, csv, cols = intersect(names(r), names(csv))) {
   }, integer(1))
 }
 read_parity <- function(f) {
-  readr::read_csv(fx("parity", f), na = "<NA>", col_types = readr::cols(.default = "c"),
-                  trim_ws = FALSE, progress = FALSE)
+  utils::read.csv(fx("parity", f), na.strings = "<NA>", colClasses = "character",
+                  check.names = FALSE, strip.white = FALSE, encoding = "UTF-8")
 }
 
 routes <- utils::read.csv(fx("routes.csv"), stringsAsFactors = FALSE, na.strings = character())

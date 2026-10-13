@@ -17,3 +17,7 @@ fixtures (never installed into any venv; a `git archive` of the package on PYTHO
 
 Do not hand-edit. To refresh after a sdv-py parser change, re-run the sdv-py parsers on the fixtures
 and rewrite these four files together.
+
+## File names vs sdv-py
+
+To keep tarball paths under 100 bytes, long `parity/<case>.csv` names drop the trailing `__2026__1` and, for five cases, the trailing route segment too (e.g. `team_goals_by_position__full_table__teamGoalPosNation__2026__1` is `team_goals_by_position__full_table`). `parity_cases.csv` and `parity_dtypes.csv` carry the shortened case names; the `fixture` column still holds the sdv-py fixture file.

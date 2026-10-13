@@ -24,3 +24,7 @@ sdv-py's `liiga_parsers` returns for the fixture the wrapper's example call read
 `columns` and the request stamped as the runtime stamps it. Nulls are written `\N` and a raw CR as `<CR>`
 (R's text-mode CSV read would drop it). `parity.json` holds each route's fixture, row count and the polars
 dtype of every column in frame order (= sdv-py's column list).
+
+## File names vs sdv-py
+
+Some files are renamed so that every path stays under the 100-byte tarball limit (R CMD check portable file names). The sdv-py name is the old one with `from__to__tournament__bool__` removed from the file name.

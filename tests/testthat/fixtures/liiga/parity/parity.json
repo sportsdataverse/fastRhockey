@@ -875,7 +875,7 @@
   }
  },
  "player_stats": {
-  "fixture": "players__stats__summed__from__to__tournament__bool__basicStats.json",
+  "fixture": "players__stats__summed__basicStats.json",
   "short": "player_stats",
   "rows": 3,
   "dtypes": {
@@ -927,7 +927,7 @@
   }
  },
  "player_stats__basicStats": {
-  "fixture": "players__stats__summed__from__to__tournament__bool__basicStats.json",
+  "fixture": "players__stats__summed__basicStats.json",
   "short": "player_stats",
   "rows": 3,
   "dtypes": {
@@ -979,7 +979,7 @@
   }
  },
  "player_stats__basicStatsGk": {
-  "fixture": "players__stats__summed__from__to__tournament__bool__basicStatsGk.json",
+  "fixture": "players__stats__summed__basicStatsGk.json",
   "short": "player_stats",
   "rows": 3,
   "dtypes": {
@@ -1043,7 +1043,7 @@
   }
  },
  "player_stats__advancedStats": {
-  "fixture": "players__stats__summed__from__to__tournament__bool__advancedStats.json",
+  "fixture": "players__stats__summed__advancedStats.json",
   "short": "player_stats",
   "rows": 3,
   "dtypes": {
@@ -1110,7 +1110,7 @@
   }
  },
  "player_stats__goalStats": {
-  "fixture": "players__stats__summed__from__to__tournament__bool__goalStats.json",
+  "fixture": "players__stats__summed__goalStats.json",
   "short": "player_stats",
   "rows": 3,
   "dtypes": {
@@ -1166,7 +1166,7 @@
   }
  },
  "player_stats__shotStats": {
-  "fixture": "players__stats__summed__from__to__tournament__bool__shotStats.json",
+  "fixture": "players__stats__summed__shotStats.json",
   "short": "player_stats",
   "rows": 3,
   "dtypes": {
@@ -1223,7 +1223,7 @@
   }
  },
  "player_stats__skatingStats": {
-  "fixture": "players__stats__summed__from__to__tournament__bool__skatingStats.json",
+  "fixture": "players__stats__summed__skatingStats.json",
   "short": "player_stats",
   "rows": 3,
   "dtypes": {
@@ -1286,7 +1286,7 @@
   }
  },
  "player_stats__faceOffStats": {
-  "fixture": "players__stats__summed__from__to__tournament__bool__faceOffStats.json",
+  "fixture": "players__stats__summed__faceOffStats.json",
   "short": "player_stats",
   "rows": 3,
   "dtypes": {
@@ -1354,7 +1354,7 @@
   }
  },
  "player_stats__penaltyStats": {
-  "fixture": "players__stats__summed__from__to__tournament__bool__penaltyStats.json",
+  "fixture": "players__stats__summed__penaltyStats.json",
   "short": "player_stats",
   "rows": 3,
   "dtypes": {
@@ -1412,7 +1412,7 @@
   }
  },
  "player_stats__powerplayPenaltykillStats": {
-  "fixture": "players__stats__summed__from__to__tournament__bool__powerplayPenaltykillStats.json",
+  "fixture": "players__stats__summed__powerplayPenaltykillStats.json",
   "short": "player_stats",
   "rows": 3,
   "dtypes": {
@@ -1472,7 +1472,7 @@
   }
  },
  "player_stats__passes": {
-  "fixture": "players__stats__summed__from__to__tournament__bool__passes.json",
+  "fixture": "players__stats__summed__passes.json",
   "short": "player_stats",
   "rows": 3,
   "dtypes": {
@@ -1547,7 +1547,7 @@
   }
  },
  "player_stats__winningShotComp": {
-  "fixture": "players__stats__summed__from__to__tournament__bool__winningShotComp.json",
+  "fixture": "players__stats__summed__winningShotComp.json",
   "short": "player_stats",
   "rows": 3,
   "dtypes": {
@@ -1604,7 +1604,7 @@
   }
  },
  "player_stats__winningShotCompGk": {
-  "fixture": "players__stats__summed__from__to__tournament__bool__winningShotCompGk.json",
+  "fixture": "players__stats__summed__winningShotCompGk.json",
   "short": "player_stats",
   "rows": 3,
   "dtypes": {
@@ -1661,7 +1661,7 @@
   }
  },
  "player_stats__gameTime": {
-  "fixture": "players__stats__summed__from__to__tournament__bool__gameTime.json",
+  "fixture": "players__stats__summed__gameTime.json",
   "short": "player_stats",
   "rows": 3,
   "dtypes": {

@@ -199,7 +199,7 @@ SHL_ROUTES <- list(
        paste0("/gameday/player-stats/", SHL_GAME), "gameday__player-stats__game_uuid.json"),
   list("player_h2h", quote(shl_player_h2h(SHL_SSGT, SHL_TEAM, SHL_AWAY, game_uuid = SHL_GAME)),
        paste0("/statistics-v2/player-h2h-v2/", SHL_SSGT, "/", SHL_TEAM, "/", SHL_AWAY),
-       "statistics-v2__player-h2h-v2__ssgt_uuid__home_team_uuid__away_team_uuid.json"),
+       "statistics-v2__player-h2h-v2__ssgt__home__away.json"),
   list("post_game_team_stats", quote(shl_post_game_team_stats(SHL_GAME, SHL_SSGT, SHL_TEAM, SHL_AWAY)),
        paste0("/gameday/post-game-data/team-stats/", SHL_GAME), "gameday__post-game-data__team-stats__game_uuid.json"),
   list("roster", quote(shl_roster(SHL_TEAM)),
@@ -241,17 +241,17 @@ test_that("each of the 26 single-table wrappers matches the sdv-py frame on the 
 
 test_that("shl_stats_info matches the sdv-py frame for all 34 modules and the two full bodies", {
   skip_on_cran()
-  mods <- sub("^statistics-v2__stats-info__module__(.*)\\.json$", "\\1",
-              list.files(shl_fx(), pattern = "^statistics-v2__stats-info__module__"))
+  mods <- sub("^stats-info__module__(.*)\\.json$", "\\1",
+              list.files(shl_fx(), pattern = "^stats-info__module__"))
   expect_length(mods, 34L)
   expect_setequal(mods, .SHL_MODULES)
   for (m in mods) {
-    f <- shl_fx(paste0("statistics-v2__stats-info__module__", m, ".json"))
+    f <- shl_fx(paste0("stats-info__module__", m, ".json"))
     local_shl(stats::setNames(list(charToRaw(shl_stats_body(f))), paste0("/statistics-v2/stats-info/", m)))
     expect_shl_parity(shl_stats_info(m, 2026), paste0("stats_info__", m))
   }
   for (m in c("teams_result", "goalkeepers_summary")) {
-    f <- shl_fx("full", paste0("statistics-v2__stats-info__", m, "__", SHL_SSGT, ".json"))
+    f <- shl_fx("full", paste0("stats-info__", m, "__", SHL_SSGT, ".json"))
     local_shl(stats::setNames(list(shl_raw(f)), paste0("/statistics-v2/stats-info/", m)))
     expect_shl_parity(shl_stats_info(m, 2026), paste0("stats_info__full_", m))
   }
@@ -295,7 +295,7 @@ test_that("the layout directory and the player crosswalk match sdv-py", {
   expect_identical(nrow(parsed), 110L)
   expect_identical(sort(unique(parsed$game_type)), c("playin", "playoff", "qualdown", "regular"))
 
-  f <- shl_fx("statistics-v2__stats-info__module__players_summary.json")
+  f <- shl_fx("stats-info__module__players_summary.json")
   local_shl(list("/statistics-v2/stats-info/players_summary" = charToRaw(shl_stats_body(f))))
   xw <- shl_player_crosswalk(2026)
   expect_s3_class(xw, "fastRhockey_data")
@@ -310,7 +310,7 @@ test_that("the layout directory and the player crosswalk match sdv-py", {
 
 test_that("stats-info maps the END year to its ssgt and always sends count = 1000", {
   skip_on_cran()
-  f <- shl_fx("statistics-v2__stats-info__module__standings_standings.json")
+  f <- shl_fx("stats-info__module__standings_standings.json")
   rec <- local_shl(list("/statistics-v2/stats-info/standings_standings" = charToRaw(shl_stats_body(f))))
   shl_stats_info("standings_standings", 2026)
   q <- rec$calls[[length(rec$calls)]]$query
@@ -324,7 +324,7 @@ test_that("stats-info maps the END year to its ssgt and always sends count = 100
 
 test_that("layout-info is fetched once per session", {
   skip_on_cran()
-  f <- shl_fx("full", paste0("statistics-v2__stats-info__teams_result__", SHL_SSGT, ".json"))
+  f <- shl_fx("full", paste0("stats-info__teams_result__", SHL_SSGT, ".json"))
   rec <- local_shl(list("/statistics-v2/stats-info/teams_result" = shl_raw(f)))
   for (i in 1:3) shl_stats_info("teams_result", 2026)
   paths <- vapply(rec$calls, function(x) x$path, "")
@@ -403,7 +403,7 @@ test_that("arguments outside their choices are refused before any request", {
 
 test_that("a truncated stats page is refused", {
   skip_on_cran()
-  body <- shl_json(shl_fx("statistics-v2__stats-info__module__players_summary.json"))
+  body <- shl_json(shl_fx("stats-info__module__players_summary.json"))
   body[[1]]$stats <- rep(body[[1]]$stats[1], 1000L)
   local_shl(list("/statistics-v2/stats-info/players_summary" = shl_dump(body)))
   expect_error(shl_stats_info("players_summary", 2026), class = "fastRhockey_asset_fetch", regexp = "may be cut")
@@ -412,14 +412,14 @@ test_that("a truncated stats page is refused", {
 test_that("a stats page short of its totalCount is refused", {
   skip_on_cran()
   local_shl(list("/statistics-v2/stats-info/players_summary" =
-                   shl_raw(shl_fx("statistics-v2__stats-info__module__players_summary.json"))))
+                   shl_raw(shl_fx("stats-info__module__players_summary.json"))))
   expect_error(shl_stats_info("players_summary", 2026), class = "fastRhockey_asset_fetch",
                regexp = "3 of totalCount=473")
 })
 
 test_that("a stats page matching its totalCount passes", {
   skip_on_cran()
-  f <- shl_fx("full", paste0("statistics-v2__stats-info__goalkeepers_summary__", SHL_SSGT, ".json"))
+  f <- shl_fx("full", paste0("stats-info__goalkeepers_summary__", SHL_SSGT, ".json"))
   local_shl(list("/statistics-v2/stats-info/goalkeepers_summary" = shl_raw(f)))
   expect_identical(nrow(shl_stats_info("goalkeepers_summary", 2026)), 36L)
 })

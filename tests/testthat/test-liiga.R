@@ -349,7 +349,7 @@ test_that("requests carry the END-year season and sdv-py's paths, query keys and
   chk(quote(liiga_player_game_log(21870028, 2026)), liiga_body("players__info__playerId__games__season.json"),
       "/players/info/21870028/games/2026")
   chk(quote(liiga_player_stats(2026, 2026, "playoffs", data_type = "goalStats")),
-      liiga_body("players__stats__summed__from__to__tournament__bool__goalStats.json"),
+      liiga_body("players__stats__summed__goalStats.json"),
       "/players/stats/summed/2026/2026/playoffs/true", list(dataType = "goalStats"))
 })
 
