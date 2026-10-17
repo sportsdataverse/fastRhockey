@@ -31,8 +31,8 @@
 #     charset, any other redirect, and a page for another scope or with a missing
 #     table, header drift, zero rows or a row of the wrong width).
 #   * Politeness: every attempt waits .polite_wait() (>= 1 s per host). 429/5xx are
-#     retried (3 attempts, 2 s / 4 s apart, or longer when a 429 / 503 sends
-#     Retry-After in seconds, capped at 120 s).
+#     retried by the shared .polite_perform() (3 attempts, 2 s / 4 s apart, or longer
+#     when the server sends Retry-After in seconds, capped at 120 s).
 #
 # Id key spaces (none joins another directly; every id is integer):
 #   home_club_id / away_club_id           club id, stable across seasons (calendar)
@@ -52,13 +52,8 @@
 .VHL_CALENDAR_ROOT <- paste0(.VHL_HOST, "/en/calendar/")
 .VHL_STAGES <- c("regular", "playoff")
 .VHL_STAGE_LABEL <- c(regular = "Regular Season", playoff = "Playoffs")
-.VHL_RETRY_STATUSES <- c(429L, 500L, 502L, 503L, 504L)
 .VHL_ATTEMPTS <- 3L
 .VHL_TIMEOUT <- 90
-.VHL_MAX_RETRY_AFTER <- 120
-
-# Sleep seam (tests mock it so a backoff does not cost seconds).
-.vhl_sleep <- function(seconds) Sys.sleep(seconds)
 
 # Process-wide caches: the season table and, per tn, the calendar's game -> number index.
 .vhl_cache <- new.env(parent = emptyenv())
@@ -1126,12 +1121,6 @@
 
 # ---- transport ----------------------------------------------------------------------------
 
-# Retry-After in seconds (an HTTP-date falls back to the exponential delay), capped.
-.vhl_retry_after <- function(resp) {
-  v <- suppressWarnings(as.numeric(httr2::resp_header(resp, "retry-after", default = "0")))
-  if (length(v) != 1L || is.na(v)) 0 else min(v, .VHL_MAX_RETRY_AFTER)
-}
-
 # Body bytes -> text, STRICTLY in the declared charset (UTF-8 when none is declared).
 .vhl_decode <- function(url, raw, ctype) {
   where <- .euro_where(url)
@@ -1156,28 +1145,10 @@
   if (identical(httr2::url_parse(url)$hostname, "www.vhlru.ru")) {
     req <- httr2::req_options(req, resolve = .VHL_PIN)
   }
-  req <- httr2::req_error(httr2::req_retry(req, max_tries = 1), is_error = function(resp) FALSE)
   full <- req$url
   where <- .euro_where(url)
-  resp <- NULL
-  for (attempt in seq_len(.VHL_ATTEMPTS)) {
-    .polite_wait(url)
-    delay <- 2 * 2^(attempt - 1L)
-    last <- attempt == .VHL_ATTEMPTS
-    resp <- tryCatch(httr2::req_perform(req), error = function(e) e)
-    if (inherits(resp, "error")) {
-      if (last) {
-        attempts <- .VHL_ATTEMPTS
-        .abort_asset_fetch("{where}: fetch failed after {attempts} attempts: {conditionMessage(resp)}",
-                           parent = resp)
-      }
-    } else {
-      status <- httr2::resp_status(resp)
-      if (!status %in% .VHL_RETRY_STATUSES || last) break
-      if (status %in% c(429L, 503L)) delay <- max(delay, .vhl_retry_after(resp))  # both may send Retry-After
-    }
-    .vhl_sleep(delay)
-  }
+  # Shared retry: 429/5xx + Retry-After, the host's 1 s slot on every attempt, 2 s / 4 s backoff.
+  resp <- .polite_perform(req, max_tries = .VHL_ATTEMPTS, backoff = 2)
   status <- httr2::resp_status(resp)
   if (status != 200L) {
     .euro_check_status(resp, where)  # raises unless 2xx
