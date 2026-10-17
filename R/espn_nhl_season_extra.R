@@ -341,6 +341,7 @@ espn_nhl_season_week_games <- function(season      = most_recent_nhl_season(),
 #' @noRd
 .espn_hockey_season_awards <- function(league = "nhl",
                                        season = most_recent_nhl_season(),
+                                       limit = NULL,
                                        ...) {
   .args <- .capture_args()
 
@@ -349,7 +350,10 @@ espn_nhl_season_week_games <- function(season      = most_recent_nhl_season(),
   tryCatch(
     expr = {
       path <- paste0("seasons/", season, "/awards")
+      query <- list()
+      if (!is.null(limit)) query[["limit"]] <- limit
       raw  <- .espn_hockey_request("core_v2", path = path,
+                                   query  = query,
                                    league = league,
                                    simplifyVector = TRUE, ...)
 

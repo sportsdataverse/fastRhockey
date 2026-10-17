@@ -11,14 +11,17 @@
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @return A `fastRhockey_data` tibble of team metadata.
 #' @noRd
-.espn_hockey_teams <- function(league = "nhl", ...) {
+.espn_hockey_teams <- function(league = "nhl", limit = NULL, ...) {
   .args <- .capture_args()
 
   teams <- data.frame()
 
   tryCatch(
     expr = {
-      raw <- .espn_hockey_request("site_v2", "teams", league = league, ...)
+      query <- list()
+      if (!is.null(limit)) query[["limit"]] <- limit
+      raw <- .espn_hockey_request("site_v2", "teams", query = query,
+                                  league = league, ...)
 
       leagues <- raw[["sports"]][["leagues"]][[1]][["teams"]][[1]][["team"]] %>%
         dplyr::group_by(.data$id) %>%

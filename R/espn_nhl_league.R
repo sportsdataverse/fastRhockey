@@ -265,14 +265,17 @@ espn_nhl_injuries <- function(...) {
 
 #' Internal: ESPN hockey transactions (league-generic, site_v2)
 #' @noRd
-.espn_hockey_transactions <- function(league = "nhl", ...) {
+.espn_hockey_transactions <- function(league = "nhl", limit = NULL, ...) {
   .args <- .capture_args()
 
   result <- data.frame()
 
   tryCatch(
     expr = {
+      query <- list()
+      if (!is.null(limit)) query[["limit"]] <- limit
       raw <- .espn_hockey_request("site_v2", "transactions",
+                                  query  = query,
                                   league = league,
                                   simplifyVector = FALSE, ...)
 

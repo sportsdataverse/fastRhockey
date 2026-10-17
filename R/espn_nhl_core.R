@@ -14,7 +14,9 @@
 #' @param ... Passed through to `.retry_request()`.
 #' @return A `fastRhockey_data` tibble, one row per game.
 #' @noRd
-.espn_hockey_scoreboard <- function(league = "nhl", dates = NULL, ...) {
+.espn_hockey_scoreboard <- function(league = "nhl", dates = NULL, week = NULL,
+                                    season_type = NULL, groups = NULL,
+                                    limit = NULL, ...) {
   .args <- .capture_args()
 
   scoreboard <- data.frame()
@@ -23,6 +25,10 @@
     expr = {
       query <- list()
       if (!is.null(dates)) query[["dates"]] <- dates
+      if (!is.null(week)) query[["week"]] <- week
+      if (!is.null(season_type)) query[["seasontype"]] <- season_type
+      if (!is.null(groups)) query[["groups"]] <- groups
+      if (!is.null(limit)) query[["limit"]] <- limit
 
       raw <- .espn_hockey_request("site_v2", "scoreboard",
                                   query  = query,
@@ -317,6 +323,8 @@ espn_nhl_scoreboard <- function(dates = NULL, ...) {
 #' @noRd
 .espn_hockey_standings <- function(league = "nhl",
                                    season = most_recent_nhl_season(),
+                                   group = NULL,
+                                   standings_type = NULL,
                                    ...) {
   .args <- .capture_args()
 
@@ -326,6 +334,8 @@ espn_nhl_scoreboard <- function(dates = NULL, ...) {
     expr = {
       query <- list()
       if (!is.null(season)) query[["season"]] <- season
+      if (!is.null(group)) query[["group"]] <- group
+      if (!is.null(standings_type)) query[["type"]] <- standings_type
 
       # Must use site_v2_alt (apis/v2/…) — plain site_v2/standings is a stub.
       raw <- .espn_hockey_request("site_v2_alt", "standings",
@@ -461,7 +471,7 @@ espn_nhl_standings <- function(season = most_recent_nhl_season(), ...) {
 #' @param ... Passed through.
 #' @return A `fastRhockey_data` tibble, one row per player.
 #' @noRd
-.espn_hockey_team_roster <- function(league = "nhl", team_id, ...) {
+.espn_hockey_team_roster <- function(league = "nhl", team_id, limit = NULL, ...) {
   .args <- .capture_args()
 
   roster <- data.frame()
@@ -469,7 +479,10 @@ espn_nhl_standings <- function(season = most_recent_nhl_season(), ...) {
   tryCatch(
     expr = {
       path <- paste0("teams/", team_id, "/roster")
+      query <- list()
+      if (!is.null(limit)) query[["limit"]] <- limit
       raw  <- .espn_hockey_request("site_v2", path,
+                                   query  = query,
                                    league = league,
                                    simplifyVector = FALSE, ...)
 

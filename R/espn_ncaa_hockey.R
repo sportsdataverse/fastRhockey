@@ -286,6 +286,10 @@ NULL
 #' @param dates Optional date or date-range string in `"YYYYMMDD"` or
 #'   `"YYYYMMDD-YYYYMMDD"` format. When `NULL` (default) the current day
 #'   is used.
+#' @param week Optional week number (ESPN `week` query).
+#' @param season_type Optional season phase (1 = pre, 2 = regular, 3 = post); sent as `seasontype`.
+#' @param groups Optional conference/group id filter.
+#' @param limit Optional maximum number of events (ESPN `limit`).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_scoreboard()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per game:
@@ -351,8 +355,8 @@ NULL
 #' \donttest{
 #'   try(espn_mch_scoreboard(dates = "20250110"))
 #' }
-espn_mch_scoreboard <- function(dates = NULL, ...) {
-  .espn_hockey_scoreboard(league = "mens-college-hockey", dates = dates, ...)
+espn_mch_scoreboard <- function(dates = NULL, week = NULL, season_type = NULL, groups = NULL, limit = NULL, ...) {
+  .espn_hockey_scoreboard(league = "mens-college-hockey", dates = dates, week = week, season_type = season_type, groups = groups, limit = limit, ...)
 }
 
 #' @name espn_mch_summary
@@ -511,6 +515,7 @@ NULL
 #' @title **Get ESPN MCH Transactions**
 #' @rdname espn_mch_transactions
 #' @author Saiem Gilani
+#' @param limit Optional maximum number of transactions (ESPN `limit`).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_transactions()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per transaction:
@@ -534,8 +539,8 @@ NULL
 #' \donttest{
 #'   try(espn_mch_transactions())
 #' }
-espn_mch_transactions <- function(...) {
-  .espn_hockey_transactions(league = "mens-college-hockey", ...)
+espn_mch_transactions <- function(limit = NULL, ...) {
+  .espn_hockey_transactions(league = "mens-college-hockey", limit = limit, ...)
 }
 
 #' @name espn_mch_conferences
@@ -637,6 +642,7 @@ NULL
 #' @title **Get ESPN MCH Teams (site_v2) -- alias for `espn_mch_teams()`**
 #' @rdname espn_mch_teams_site
 #' @author Saiem Gilani
+#' @param limit Optional maximum number of teams (ESPN `limit`).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_teams_site()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per MCH team. This is
@@ -665,8 +671,8 @@ NULL
 #' \donttest{
 #'   try(espn_mch_teams_site())
 #' }
-espn_mch_teams_site <- function(...) {
-  .espn_hockey_teams(league = "mens-college-hockey", ...)
+espn_mch_teams_site <- function(limit = NULL, ...) {
+  .espn_hockey_teams(league = "mens-college-hockey", limit = limit, ...)
 }
 
 #' @name espn_mch_team
@@ -719,6 +725,7 @@ NULL
 #' @author Saiem Gilani
 #' @param team_id ESPN team identifier (character or numeric, e.g. `"104"` for
 #'   Pittsburgh Penguins).
+#' @param limit Optional maximum number of athletes (ESPN `limit`).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team_roster()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per player:
@@ -787,8 +794,8 @@ NULL
 #' \donttest{
 #'   try(espn_mch_team_roster(team_id = "104"))
 #' }
-espn_mch_team_roster <- function(team_id, ...) {
-  .espn_hockey_team_roster(league = "mens-college-hockey", team_id = team_id, ...)
+espn_mch_team_roster <- function(team_id, limit = NULL, ...) {
+  .espn_hockey_team_roster(league = "mens-college-hockey", team_id = team_id, limit = limit, ...)
 }
 
 #' @name espn_mch_team_schedule
@@ -1293,6 +1300,8 @@ NULL
 #' @author Saiem Gilani
 #' @param season Season end-year (e.g. `2025`). Defaults to
 #'   `most_recent_nhl_season()`.
+#' @param group Optional conference/group id filter.
+#' @param standings_type Optional standings variant sent as `type` (e.g. `"by-division"`).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_standings()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per team:
@@ -1327,8 +1336,8 @@ NULL
 #' \donttest{
 #'   try(espn_mch_standings(season = 2025))
 #' }
-espn_mch_standings <- function(season = most_recent_nhl_season(), ...) {
-  .espn_hockey_standings(league = "mens-college-hockey", season = season, ...)
+espn_mch_standings <- function(season = most_recent_nhl_season(), group = NULL, standings_type = NULL, ...) {
+  .espn_hockey_standings(league = "mens-college-hockey", season = season, group = group, standings_type = standings_type, ...)
 }
 
 #' @name espn_mch_player_overview
@@ -1583,6 +1592,7 @@ NULL
 #'   type ESPN actually served.
 #' @param limit Athletes per page (default `50`).
 #' @param page Page number (default `1`).
+#' @param sort Optional ESPN `sort` query string.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_leaders()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per athlete:
@@ -1634,6 +1644,7 @@ espn_mch_leaders <- function(category    = "offensive",
                               season_type = 2L,
                               limit       = 50L,
                               page        = 1L,
+                              sort = NULL,
                               ...) {
   .espn_hockey_leaders(league      = "mens-college-hockey",
                         category    = category,
@@ -1641,6 +1652,7 @@ espn_mch_leaders <- function(category    = "offensive",
                         season_type = season_type,
                         limit       = limit,
                         page        = page,
+                        sort = sort,
                         ...)
 }
 
@@ -2657,6 +2669,7 @@ NULL
 #' @author Saiem Gilani
 #' @param season Season end-year (e.g. `2026`). Defaults to
 #'   `most_recent_nhl_season()`.
+#' @param limit Optional maximum number of awards (ESPN `limit`).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_awards()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per award reference, or an
@@ -2678,8 +2691,8 @@ NULL
 #' \donttest{
 #'   try(espn_mch_season_awards(season = 2025))
 #' }
-espn_mch_season_awards <- function(season = most_recent_nhl_season(), ...) {
-  .espn_hockey_season_awards(league = "mens-college-hockey", season = season, ...)
+espn_mch_season_awards <- function(season = most_recent_nhl_season(), limit = NULL, ...) {
+  .espn_hockey_season_awards(league = "mens-college-hockey", season = season, limit = limit, ...)
 }
 
 #' @name espn_mch_players_index
@@ -4485,6 +4498,7 @@ NULL
 #' @author Saiem Gilani
 #' @param coach_id ESPN coach identifier (character or numeric). Use
 #'   `espn_mch_coaches()` to discover valid coach ids.
+#' @param record_type Optional record type appended to the path (`coaches/{id}/record/{record_type}`, e.g. `0`).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_coach_record()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with coach career record data, or an
@@ -4509,8 +4523,8 @@ NULL
 #'     espn_mch_coach_record(coach_id = ccs$coach_id[1])
 #'   })
 #' }
-espn_mch_coach_record <- function(coach_id, ...) {
-  .espn_hockey_coach_record(league = "mens-college-hockey", coach_id = coach_id, ...)
+espn_mch_coach_record <- function(coach_id, record_type = NULL, ...) {
+  .espn_hockey_coach_record(league = "mens-college-hockey", coach_id = coach_id, record_type = record_type, ...)
 }
 
 #' @name espn_mch_coach_season
@@ -5150,6 +5164,10 @@ NULL
 #' @param dates Optional date or date-range string in `"YYYYMMDD"` or
 #'   `"YYYYMMDD-YYYYMMDD"` format. When `NULL` (default) the current day
 #'   is used.
+#' @param week Optional week number (ESPN `week` query).
+#' @param season_type Optional season phase (1 = pre, 2 = regular, 3 = post); sent as `seasontype`.
+#' @param groups Optional conference/group id filter.
+#' @param limit Optional maximum number of events (ESPN `limit`).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_scoreboard()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per game:
@@ -5215,8 +5233,8 @@ NULL
 #' \donttest{
 #'   try(espn_wch_scoreboard(dates = "20250110"))
 #' }
-espn_wch_scoreboard <- function(dates = NULL, ...) {
-  .espn_hockey_scoreboard(league = "womens-college-hockey", dates = dates, ...)
+espn_wch_scoreboard <- function(dates = NULL, week = NULL, season_type = NULL, groups = NULL, limit = NULL, ...) {
+  .espn_hockey_scoreboard(league = "womens-college-hockey", dates = dates, week = week, season_type = season_type, groups = groups, limit = limit, ...)
 }
 
 #' @name espn_wch_summary
@@ -5375,6 +5393,7 @@ NULL
 #' @title **Get ESPN WCH Transactions**
 #' @rdname espn_wch_transactions
 #' @author Saiem Gilani
+#' @param limit Optional maximum number of transactions (ESPN `limit`).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_transactions()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per transaction:
@@ -5398,8 +5417,8 @@ NULL
 #' \donttest{
 #'   try(espn_wch_transactions())
 #' }
-espn_wch_transactions <- function(...) {
-  .espn_hockey_transactions(league = "womens-college-hockey", ...)
+espn_wch_transactions <- function(limit = NULL, ...) {
+  .espn_hockey_transactions(league = "womens-college-hockey", limit = limit, ...)
 }
 
 #' @name espn_wch_conferences
@@ -5501,6 +5520,7 @@ NULL
 #' @title **Get ESPN WCH Teams (site_v2) -- alias for `espn_wch_teams()`**
 #' @rdname espn_wch_teams_site
 #' @author Saiem Gilani
+#' @param limit Optional maximum number of teams (ESPN `limit`).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_teams_site()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per WCH team. This is
@@ -5529,8 +5549,8 @@ NULL
 #' \donttest{
 #'   try(espn_wch_teams_site())
 #' }
-espn_wch_teams_site <- function(...) {
-  .espn_hockey_teams(league = "womens-college-hockey", ...)
+espn_wch_teams_site <- function(limit = NULL, ...) {
+  .espn_hockey_teams(league = "womens-college-hockey", limit = limit, ...)
 }
 
 #' @name espn_wch_team
@@ -5583,6 +5603,7 @@ NULL
 #' @author Saiem Gilani
 #' @param team_id ESPN team identifier (character or numeric, e.g. `"2137"` for
 #'   Pittsburgh Penguins).
+#' @param limit Optional maximum number of athletes (ESPN `limit`).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team_roster()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per player:
@@ -5651,8 +5672,8 @@ NULL
 #' \donttest{
 #'   try(espn_wch_team_roster(team_id = "2137"))
 #' }
-espn_wch_team_roster <- function(team_id, ...) {
-  .espn_hockey_team_roster(league = "womens-college-hockey", team_id = team_id, ...)
+espn_wch_team_roster <- function(team_id, limit = NULL, ...) {
+  .espn_hockey_team_roster(league = "womens-college-hockey", team_id = team_id, limit = limit, ...)
 }
 
 #' @name espn_wch_team_schedule
@@ -6157,6 +6178,8 @@ NULL
 #' @author Saiem Gilani
 #' @param season Season end-year (e.g. `2025`). Defaults to
 #'   `most_recent_nhl_season()`.
+#' @param group Optional conference/group id filter.
+#' @param standings_type Optional standings variant sent as `type` (e.g. `"by-division"`).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_standings()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per team:
@@ -6191,8 +6214,8 @@ NULL
 #' \donttest{
 #'   try(espn_wch_standings(season = 2025))
 #' }
-espn_wch_standings <- function(season = most_recent_nhl_season(), ...) {
-  .espn_hockey_standings(league = "womens-college-hockey", season = season, ...)
+espn_wch_standings <- function(season = most_recent_nhl_season(), group = NULL, standings_type = NULL, ...) {
+  .espn_hockey_standings(league = "womens-college-hockey", season = season, group = group, standings_type = standings_type, ...)
 }
 
 #' @name espn_wch_player_overview
@@ -6447,6 +6470,7 @@ NULL
 #'   type ESPN actually served.
 #' @param limit Athletes per page (default `50`).
 #' @param page Page number (default `1`).
+#' @param sort Optional ESPN `sort` query string.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_leaders()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per athlete:
@@ -6498,6 +6522,7 @@ espn_wch_leaders <- function(category    = "offensive",
                               season_type = 2L,
                               limit       = 50L,
                               page        = 1L,
+                              sort = NULL,
                               ...) {
   .espn_hockey_leaders(league      = "womens-college-hockey",
                         category    = category,
@@ -6505,6 +6530,7 @@ espn_wch_leaders <- function(category    = "offensive",
                         season_type = season_type,
                         limit       = limit,
                         page        = page,
+                        sort = sort,
                         ...)
 }
 
@@ -7521,6 +7547,7 @@ NULL
 #' @author Saiem Gilani
 #' @param season Season end-year (e.g. `2026`). Defaults to
 #'   `most_recent_nhl_season()`.
+#' @param limit Optional maximum number of awards (ESPN `limit`).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_awards()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per award reference, or an
@@ -7542,8 +7569,8 @@ NULL
 #' \donttest{
 #'   try(espn_wch_season_awards(season = 2025))
 #' }
-espn_wch_season_awards <- function(season = most_recent_nhl_season(), ...) {
-  .espn_hockey_season_awards(league = "womens-college-hockey", season = season, ...)
+espn_wch_season_awards <- function(season = most_recent_nhl_season(), limit = NULL, ...) {
+  .espn_hockey_season_awards(league = "womens-college-hockey", season = season, limit = limit, ...)
 }
 
 #' @name espn_wch_players_index
@@ -9349,6 +9376,7 @@ NULL
 #' @author Saiem Gilani
 #' @param coach_id ESPN coach identifier (character or numeric). Use
 #'   `espn_wch_coaches()` to discover valid coach ids.
+#' @param record_type Optional record type appended to the path (`coaches/{id}/record/{record_type}`, e.g. `0`).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_coach_record()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with coach career record data, or an
@@ -9373,8 +9401,8 @@ NULL
 #'     espn_wch_coach_record(coach_id = ccs$coach_id[1])
 #'   })
 #' }
-espn_wch_coach_record <- function(coach_id, ...) {
-  .espn_hockey_coach_record(league = "womens-college-hockey", coach_id = coach_id, ...)
+espn_wch_coach_record <- function(coach_id, record_type = NULL, ...) {
+  .espn_hockey_coach_record(league = "womens-college-hockey", coach_id = coach_id, record_type = record_type, ...)
 }
 
 #' @name espn_wch_coach_season
