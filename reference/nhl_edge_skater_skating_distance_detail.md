@@ -75,24 +75,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_edge_skater_skating_distance_detail(player_id = 8478402))
-#> ── NHL Edge Skater Skating Distance Detail ─────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:49:31 UTC
-#> # A tibble: 7 × 29
-#>   game_center_link  game_date player_on_home_team toi_all toi_even toi_pp toi_pk
-#>   <chr>             <chr>     <lgl>                 <int>    <int>  <int>  <int>
-#> 1 /gamecenter/uta-… 2026-10-… TRUE                   1552     1341    127     84
-#> 2 /gamecenter/edm-… 2026-10-… FALSE                  1297     1057    140    100
-#> 3 /gamecenter/edm-… 2026-10-… FALSE                  1444     1226    173     45
-#> 4 /gamecenter/edm-… 2026-10-… FALSE                  1471      978    257    236
-#> 5 /gamecenter/sea-… 2026-10-… TRUE                   1577     1256    270     51
-#> 6 /gamecenter/edm-… 2026-10-… FALSE                  1323      913    279    131
-#> 7 /gamecenter/van-… 2026-09-… TRUE                   1371     1012    320     39
-#> # ℹ 22 more variables: distance_skated_all_imperial <dbl>,
-#> #   distance_skated_all_metric <dbl>, distance_skated_even_imperial <dbl>,
-#> #   distance_skated_even_metric <dbl>, distance_skated_pp_imperial <dbl>,
-#> #   distance_skated_pp_metric <dbl>, distance_skated_pk_imperial <dbl>,
-#> #   distance_skated_pk_metric <dbl>, home_team_abbrev <chr>,
-#> #   home_team_slug <chr>, home_team_common_name_default <chr>,
-#> #   home_team_place_name_with_preposition_default <chr>, …
+#> 2026-10-18 06:16:06.556715: No NHL Edge skating-distance detail returned for player_id=8478402
+#> NULL
 # }
 ```

@@ -135,7 +135,7 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_player_box(match_id = 8161, team_id = 4))
 #> ── ICE Hockey League player_box from the eSports hokejovyzapis bucket ──────────
-#> ℹ Data updated: 2026-10-18 05:46:29 UTC
+#> ℹ Data updated: 2026-10-18 06:12:54 UTC
 #> # A tibble: 25 × 81
 #>    player_id name        firstname surname photo birthdate active position stick
 #>        <int> <chr>       <chr>     <chr>   <chr> <chr>     <lgl>  <chr>    <chr>

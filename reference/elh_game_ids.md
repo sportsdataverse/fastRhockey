@@ -71,7 +71,7 @@ Other ELH Functions:
 # \donttest{
   try(elh_game_ids(season = 2027))
 #> ── ELH Game Ids Information from hokej.cz ──────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:43:22 UTC
+#> ℹ Data updated: 2026-10-18 06:10:10 UTC
 #> # A tibble: 2,812 × 5
 #>    hokejcz_game_id season key                          last_modified        size
 #>              <int>  <int> <chr>                        <chr>               <int>

@@ -132,7 +132,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_games(season = 2026, tournament = "playoffs"))
 #> ── Liiga games Information from liiga.fi ───────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:47:27 UTC
+#> ℹ Data updated: 2026-10-18 06:13:49 UTC
 #> # A tibble: 60 × 59
 #>    game_id season start      end   periods finished_type started ended game_time
 #>      <int>  <int> <chr>      <chr> <chr>   <chr>         <lgl>   <lgl>     <int>

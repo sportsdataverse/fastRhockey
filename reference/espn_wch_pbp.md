@@ -215,7 +215,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_pbp(game_id = "401762970"))
 #> ── WOMENS-COLLEGE-HOCKEY Play-by-Play data from ESPN.com ───────────────────────
-#> ℹ Data updated: 2026-10-18 05:45:05 UTC
+#> ℹ Data updated: 2026-10-18 06:12:11 UTC
 #> # A tibble: 12 × 48
 #>    id             sequence_number type_id type_text text   away_score home_score
 #>    <chr>          <chr>           <chr>   <chr>     <chr>       <int>      <int>

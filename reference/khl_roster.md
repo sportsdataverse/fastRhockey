@@ -105,7 +105,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_roster(club_id = 7))
 #> ── KHL Roster from khl.ru ──────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:46:56 UTC
+#> ℹ Data updated: 2026-10-18 06:13:20 UTC
 #> # A tibble: 31 × 10
 #>    group   player_id photo country lastname firstname    jn   age favorite link 
 #>    <chr>       <int> <chr> <chr>   <chr>    <chr>     <int> <int> <lgl>    <chr>

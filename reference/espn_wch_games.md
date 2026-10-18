@@ -177,7 +177,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_games(limit = 10))
 #> ── WOMENS-COLLEGE-HOCKEY Games data from ESPN core-v2 ──────────────────────────
-#> ℹ Data updated: 2026-10-18 05:45:03 UTC
+#> ℹ Data updated: 2026-10-18 06:12:09 UTC
 #> # A tibble: 10 × 4
 #>    ref                                                 event_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>

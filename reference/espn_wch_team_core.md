@@ -199,7 +199,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_team_core(team_id = "2137"))
 #> ── WOMENS-COLLEGE-HOCKEY Team Core data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-10-18 05:45:18 UTC
+#> ℹ Data updated: 2026-10-18 06:12:27 UTC
 #> # A tibble: 1 × 29
 #>   team_id id    guid        uid   alternate_id_sdr slug  location name  nickname
 #>   <chr>   <chr> <chr>       <chr> <chr>            <chr> <chr>    <chr> <chr>   

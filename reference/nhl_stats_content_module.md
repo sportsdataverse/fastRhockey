@@ -30,7 +30,7 @@ failure.
 ``` r
 # \donttest{
   try(nhl_stats_content_module(template_key = "example"))
-#> 2026-10-18 05:50:14.315539: No content module data for 'example'
+#> 2026-10-18 06:17:00.434072: No content module data for 'example'
 #> NULL
 # }
 ```

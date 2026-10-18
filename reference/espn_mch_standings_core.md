@@ -169,7 +169,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_standings_core())
 #> ── MENS-COLLEGE-HOCKEY Standings data from ESPN core-v2 ────────────────────────
-#> ℹ Data updated: 2026-10-18 05:43:54 UTC
+#> ℹ Data updated: 2026-10-18 06:10:47 UTC
 #> # A tibble: 1 × 2
 #>   ref                                                               standings_id
 #>   <chr>                                                             <chr>       

@@ -113,7 +113,7 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_standings(season = 2027, league_id = 1))
 #> ── ICE Hockey League standings from the eSports hokejovyzapis bucket ───────────
-#> ℹ Data updated: 2026-10-18 05:46:32 UTC
+#> ℹ Data updated: 2026-10-18 06:12:57 UTC
 #> # A tibble: 14 × 31
 #>    group_id group_name complete team_id part_team_id name          team_original
 #>       <int> <chr>      <lgl>      <int>        <int> <chr>         <chr>        

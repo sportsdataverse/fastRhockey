@@ -114,7 +114,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_player_game_log(player_id = 21870028, season = 2026))
 #> ── Liiga player game log Information from liiga.fi ─── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:47:32 UTC
+#> ℹ Data updated: 2026-10-18 06:13:54 UTC
 #> # A tibble: 76 × 42
 #>    player_id season tournament game_str  game_id date                 assists
 #>        <int>  <int> <chr>      <chr>       <int> <chr>                  <int>

@@ -93,7 +93,7 @@ Other EIHL eSports functions:
 # \donttest{
   try(eihl_top_scorers(season = 2027, league_id = 3))
 #> ── EIHL top_scorers from the eSports hokejovyzapis bucket ──────────────────────
-#> ℹ Data updated: 2026-10-18 05:43:17 UTC
+#> ℹ Data updated: 2026-10-18 06:10:05 UTC
 #> # A tibble: 245 × 16
 #>    player_id name     surname   jersey birthdate team_id team_name team_shortcut
 #>        <int> <chr>    <chr>      <int> <chr>       <int> <chr>     <chr>        

@@ -101,7 +101,7 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_shots(match_id = 8161))
 #> ── ICE Hockey League shots from the eSports hokejovyzapis bucket ───────────────
-#> ℹ Data updated: 2026-10-18 05:46:31 UTC
+#> ℹ Data updated: 2026-10-18 06:12:56 UTC
 #> # A tibble: 78 × 25
 #>    match_id date       home_id home_name   home_shortcut visitor_id visitor_name
 #>       <int> <chr>        <int> <chr>       <chr>              <int> <chr>       

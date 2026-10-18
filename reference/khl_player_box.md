@@ -150,7 +150,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_player_box(game_id = 898236, season = 2026))
 #> ── KHL Player Box Score from khl.ru ────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:46:48 UTC
+#> ℹ Data updated: 2026-10-18 06:13:11 UTC
 #> # A tibble: 190 × 30
 #>    game_id tournament_id period team_side    jn player_id player_name   position
 #>      <int>         <int>  <int> <chr>     <int>     <int> <chr>         <chr>   

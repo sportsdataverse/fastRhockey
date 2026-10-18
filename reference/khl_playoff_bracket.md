@@ -116,7 +116,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_playoff_bracket(season = 2026))
 #> ── KHL Playoff Bracket from khl.ru ─────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:46:55 UTC
+#> ℹ Data updated: 2026-10-18 06:13:19 UTC
 #> # A tibble: 30 × 9
 #>    round wins_to_advance  pair conference  seed club_id name         series_wins
 #>    <int>           <int> <int> <chr>      <int>   <int> <chr>              <int>

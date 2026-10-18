@@ -195,7 +195,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_player_core(athlete_id = "5136656"))
 #> ── MENS-COLLEGE-HOCKEY Player Core data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-10-18 05:43:42 UTC
+#> ℹ Data updated: 2026-10-18 06:10:33 UTC
 #> # A tibble: 1 × 28
 #>   athlete_id uid         guid  type  first_name last_name full_name display_name
 #>   <chr>      <chr>       <chr> <chr> <chr>      <chr>     <chr>     <chr>       

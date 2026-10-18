@@ -195,7 +195,7 @@ Saiem Gilani
                                  group_id = grps$group_id[1])
   })
 #> ── NHL Season Group Teams data from ESPN core-v2 ───── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:44:32 UTC
+#> ℹ Data updated: 2026-10-18 06:11:29 UTC
 #> # A tibble: 16 × 5
 #>    ref                                       team_id season season_type group_id
 #>    <chr>                                     <chr>    <int>       <int>    <int>

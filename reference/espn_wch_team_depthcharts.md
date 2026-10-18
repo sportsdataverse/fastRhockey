@@ -186,7 +186,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_team_depthcharts(team_id = "2137"))
 #> ── WOMENS-COLLEGE-HOCKEY Team Depth Charts data from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-10-18 05:45:18 UTC
+#> ℹ Data updated: 2026-10-18 06:12:28 UTC
 #> # A tibble: 1 × 16
 #>   team_id timestamp      status season_year season_type season_name team_espn_id
 #>   <chr>   <chr>          <chr>        <int>       <int> <chr>       <chr>       

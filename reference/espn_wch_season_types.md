@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_season_types(season = 2026))
 #> ── WOMENS-COLLEGE-HOCKEY Season Types data from ESPN core-v2 ───────────────────
-#> ℹ Data updated: 2026-10-18 05:45:14 UTC
+#> ℹ Data updated: 2026-10-18 06:12:23 UTC
 #> # A tibble: 2 × 3
 #>   ref                                                      season_type_id season
 #>   <chr>                                                             <int>  <int>

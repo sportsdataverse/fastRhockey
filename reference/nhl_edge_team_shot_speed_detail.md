@@ -69,26 +69,19 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_team_shot_speed_detail(team_id = 10))
 #> ── NHL Edge Team Shot Speed Detail ─────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:49:34 UTC
-#> # A tibble: 10 × 25
-#>    game_center_link    game_date game_type is_home_team time_in_period player_id
-#>    <chr>               <chr>         <int> <lgl>        <chr>              <int>
-#>  1 /gamecenter/tor-vs… 2026-10-…         2 FALSE        07:26            8477939
-#>  2 /gamecenter/tor-vs… 2026-10-…         2 FALSE        18:05            8478178
-#>  3 /gamecenter/ott-vs… 2026-10-…         2 TRUE         03:32            8478178
-#>  4 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         19:19            8478178
-#>  5 /gamecenter/nyi-vs… 2026-09-…         2 TRUE         19:28            8478178
-#>  6 /gamecenter/nsh-vs… 2026-10-…         2 TRUE         03:04            8479520
-#>  7 /gamecenter/mtl-vs… 2026-09-…         2 TRUE         12:39            8477939
-#>  8 /gamecenter/tor-vs… 2026-10-…         2 FALSE        11:57            8479318
-#>  9 /gamecenter/tor-vs… 2026-10-…         2 FALSE        13:22            8478178
-#> 10 /gamecenter/nyi-vs… 2026-09-…         2 TRUE         12:58            8475171
-#> # ℹ 19 more variables: player_slug <chr>, player_first_name_default <chr>,
-#> #   player_last_name_default <chr>, shot_speed_imperial <dbl>,
-#> #   shot_speed_metric <dbl>, period_descriptor_number <int>,
-#> #   period_descriptor_period_type <chr>,
-#> #   period_descriptor_max_regulation_periods <int>,
-#> #   home_team_common_name_default <chr>,
-#> #   home_team_place_name_with_preposition_default <chr>, …
+#> ℹ Data updated: 2026-10-18 06:16:11 UTC
+#> # A tibble: 3 × 34
+#>   position top_shot_speed_imperial top_shot_speed_metric top_shot_speed_rank
+#>   <chr>                      <dbl>                 <dbl>               <int>
+#> 1 all                         99.3                  160.                   4
+#> 2 D                           94.8                  153.                  11
+#> 3 F                           99.3                  160.                   2
+#> # ℹ 30 more variables: top_shot_speed_league_avg_imperial <dbl>,
+#> #   top_shot_speed_league_avg_metric <dbl>,
+#> #   top_shot_speed_overlay_game_date <chr>,
+#> #   top_shot_speed_overlay_time_in_period <chr>,
+#> #   top_shot_speed_overlay_game_type <int>,
+#> #   top_shot_speed_overlay_player_first_name_default <chr>,
+#> #   top_shot_speed_overlay_player_last_name_default <chr>, …
 # }
 ```

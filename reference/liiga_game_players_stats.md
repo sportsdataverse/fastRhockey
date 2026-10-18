@@ -146,7 +146,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_game_players_stats(game_id = 1, season = 2026))
 #> ── Liiga game player stats Information from liiga.fi ───────────────────────────
-#> ℹ Data updated: 2026-10-18 05:47:21 UTC
+#> ℹ Data updated: 2026-10-18 06:13:42 UTC
 #> # A tibble: 42 × 96
 #>    season game_id side  player_id  team_id team_slug team_name  line
 #>     <int>   <int> <chr>     <int>    <int> <chr>     <chr>     <int>

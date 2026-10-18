@@ -194,7 +194,7 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_odds(event_id = sb$game_id[1])
   })
-#> ! 2026-10-18 05:43:32.80086: No odds returned for event 401715296.
+#> ! 2026-10-18 06:10:21.568929: No odds returned for event 401715296.
 #> data frame with 0 columns and 0 rows
 # }
 ```

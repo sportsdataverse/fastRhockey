@@ -116,7 +116,7 @@ Other DEL eSports functions:
 # \donttest{
   try(del_schedule(season = 2027, league_id = 1))
 #> ── DEL schedule from the eSports hokejovyzapis bucket ──────────────────────────
-#> ℹ Data updated: 2026-10-18 05:43:00 UTC
+#> ℹ Data updated: 2026-10-18 06:09:47 UTC
 #> # A tibble: 364 × 33
 #>    match_id start_date       real_end_date league_id league season round home_id
 #>       <int> <chr>            <chr>             <int> <chr>   <int> <chr>   <int>

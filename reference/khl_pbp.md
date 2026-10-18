@@ -146,7 +146,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_pbp(game_id = 898236, season = 2026))
 #> ── KHL Play-by-Play from khl.ru ────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:46:45 UTC
+#> ℹ Data updated: 2026-10-18 06:13:08 UTC
 #> # A tibble: 268 × 26
 #>    game_id tournament_id period event_index event_type time  time_seconds
 #>      <int>         <int>  <int>       <int> <chr>      <chr>        <int>

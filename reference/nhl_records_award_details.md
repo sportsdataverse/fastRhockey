@@ -58,7 +58,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_award_details())
 #> ── NHL Records Award Details ───────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:49:47 UTC
+#> ℹ Data updated: 2026-10-18 06:16:26 UTC
 #> # A tibble: 5,407 × 20
 #>       id awarded_posthumously coach_id created_on       detail_summary full_name
 #>    <int> <lgl>                   <int> <chr>            <lgl>          <chr>    
@@ -80,7 +80,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #> #   vote_count <int>
   try(nhl_records_award_details(season_id = 20232024))
 #> ── NHL Records Award Details ───────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:49:47 UTC
+#> ℹ Data updated: 2026-10-18 06:16:26 UTC
 #> # A tibble: 72 × 20
 #>       id awarded_posthumously coach_id created_on       detail_summary full_name
 #>    <int> <lgl>                   <int> <chr>            <lgl>          <chr>    

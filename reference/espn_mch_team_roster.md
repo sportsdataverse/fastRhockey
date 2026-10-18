@@ -226,7 +226,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_team_roster(team_id = "104"))
-#> ✖ 2026-10-18 05:43:57.899731: Invalid arguments or no ESPN mens-college-hockey team roster data available!
+#> ✖ 2026-10-18 06:10:51.428006: Invalid arguments or no ESPN mens-college-hockey team roster data available!
 #> ✖ Args: league = "mens-college-hockey", team_id = "104", limit = 500
 #> ✖ Error: arguments imply differing number of rows: 1, 0
 #> data frame with 0 columns and 0 rows

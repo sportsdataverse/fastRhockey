@@ -37,7 +37,7 @@ Other OHL Functions:
 ``` r
  try(ohl_season_id()) 
 #> ── OHL Season IDs from HockeyTech ──────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:50:45 UTC
+#> ℹ Data updated: 2026-10-18 06:17:33 UTC
 #> # A tibble: 73 × 9
 #>    season_id season_name         season_short career playoff start_date end_date
 #>        <dbl> <chr>               <chr>        <chr>  <chr>   <chr>      <chr>   

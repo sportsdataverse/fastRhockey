@@ -32,7 +32,7 @@ columns).
 ``` r
  try(fox_nhl_league_leaders("scoring")) 
 #> ── Fox Sports NHL league_leaders ───────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:45:24 UTC
+#> ℹ Data updated: 2026-10-18 06:12:32 UTC
 #> # A tibble: 100 × 7
 #>    players v2             gp    entity_id g     a     p    
 #>    <chr>   <chr>          <chr> <chr>     <chr> <chr> <chr>

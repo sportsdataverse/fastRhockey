@@ -171,6 +171,21 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_teams_core(limit = 100))
-#> data frame with 0 columns and 0 rows
+#> ── MENS-COLLEGE-HOCKEY Teams Core data from ESPN core-v2 ───────────────────────
+#> ℹ Data updated: 2026-10-18 06:10:52 UTC
+#> # A tibble: 100 × 4
+#>    ref                                                  team_id count page_count
+#>    <chr>                                                <chr>   <int>      <int>
+#>  1 http://sports.core.api.espn.com/v2/sports/hockey/le… 1         116          2
+#>  2 http://sports.core.api.espn.com/v2/sports/hockey/le… 9         116          2
+#>  3 http://sports.core.api.espn.com/v2/sports/hockey/le… 12        116          2
+#>  4 http://sports.core.api.espn.com/v2/sports/hockey/le… 41        116          2
+#>  5 http://sports.core.api.espn.com/v2/sports/hockey/le… 43        116          2
+#>  6 http://sports.core.api.espn.com/v2/sports/hockey/le… 87        116          2
+#>  7 http://sports.core.api.espn.com/v2/sports/hockey/le… 103       116          2
+#>  8 http://sports.core.api.espn.com/v2/sports/hockey/le… 104       116          2
+#>  9 http://sports.core.api.espn.com/v2/sports/hockey/le… 107       116          2
+#> 10 http://sports.core.api.espn.com/v2/sports/hockey/le… 108       116          2
+#> # ℹ 90 more rows
 # }
 ```

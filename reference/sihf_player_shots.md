@@ -127,7 +127,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_player_shots(season = 2026, league_id = 1))
 #> ── SIHF Player Shots Information from data.sihf.ch ─── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:52:08 UTC
+#> ℹ Data updated: 2026-10-18 06:18:40 UTC
 #> # A tibble: 427 × 21
 #>    season phase_id  rank player          team_id team_name team_acronym position
 #>     <int>    <int> <int> <chr>             <int> <chr>     <chr>        <chr>   

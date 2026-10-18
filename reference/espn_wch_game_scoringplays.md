@@ -202,10 +202,10 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20250110")
     espn_wch_game_scoringplays(event_id = sb$game_id[1])
   })
-#> ✖ 2026-10-18 05:45:00.459583: 
+#> ✖ 2026-10-18 06:12:06.718147: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, limit = 300
 #> ✖ Error: The API returned an error
-#> ! 2026-10-18 05:45:00.472246: No plays data available to filter for scoring plays (event ).
+#> ! 2026-10-18 06:12:06.726249: No plays data available to filter for scoring plays (event ).
 #> data frame with 0 columns and 0 rows
 # }
 ```

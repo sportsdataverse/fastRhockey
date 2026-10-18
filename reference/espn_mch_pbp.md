@@ -215,7 +215,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_pbp(game_id = "401717648"))
 #> ── MENS-COLLEGE-HOCKEY Play-by-Play data from ESPN.com ─────────────────────────
-#> ℹ Data updated: 2026-10-18 05:43:41 UTC
+#> ℹ Data updated: 2026-10-18 06:10:32 UTC
 #> # A tibble: 12 × 48
 #>    id             sequence_number type_id type_text text   away_score home_score
 #>    <chr>          <chr>           <chr>   <chr>     <chr>       <int>      <int>

@@ -124,7 +124,7 @@ Other VHL Functions:
 # \donttest{
   try(vhl_game_info(season = 2026, game_id = 899223))
 #> ── VHL Game Info Information from vhlru.ru ─────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:52:31 UTC
+#> ℹ Data updated: 2026-10-18 06:19:02 UTC
 #> # A tibble: 1 × 32
 #>   game_id season stage   game_number    tn date  local_time date_text attendance
 #>     <int>  <int> <chr>         <int> <int> <chr> <chr>      <chr>          <int>

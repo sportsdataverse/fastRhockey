@@ -138,7 +138,7 @@ Other National League Functions:
 # \donttest{
   try(nl_player_box(game_id = 20261105000325))
 #> ── National League Player Box Score Information from nationalleague.ch ─────────
-#> ℹ Data updated: 2026-10-18 05:50:25 UTC
+#> ℹ Data updated: 2026-10-18 06:17:14 UTC
 #> # A tibble: 44 × 38
 #>    game_id team_side team_id player_id number first_name last_name   short_name 
 #>      <dbl> <chr>       <dbl>     <dbl> <chr>  <chr>      <chr>       <chr>      

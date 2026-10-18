@@ -82,7 +82,7 @@ Other Ligue Magnus Functions:
 # \donttest{
   try(magnus_round_games(phase_id = 714, round = 1))
 #> ── Ligue Magnus Round Games Information from liguemagnus.com ───────────────────
-#> ℹ Data updated: 2026-10-18 05:48:58 UTC
+#> ℹ Data updated: 2026-10-18 06:15:32 UTC
 #> # A tibble: 6 × 22
 #>   game_id season competition_id phase_id phase  round game_datetime       status
 #>     <int>  <int>          <int>    <int> <chr>  <int> <dttm>              <chr> 

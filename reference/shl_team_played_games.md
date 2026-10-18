@@ -122,7 +122,7 @@ Other SHL Functions:
 # \donttest{
   shl_team_played_games(team_uuid = "087a-087aTQv9u")
 #> ── SHL Team Played Games Information from www.shl.se ───────────────────────────
-#> ℹ Data updated: 2026-10-18 05:51:49 UTC
+#> ℹ Data updated: 2026-10-18 06:18:20 UTC
 #> # A tibble: 5 × 41
 #>   date      time  game_uuid    start_date_time state overtime shootout ssgt_uuid
 #>   <chr>     <chr> <chr>        <chr>           <chr> <lgl>    <lgl>    <chr>    

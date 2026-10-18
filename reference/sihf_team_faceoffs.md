@@ -124,7 +124,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_team_faceoffs(season = 2026, league_id = 1))
 #> ── SIHF Team Faceoffs Information from data.sihf.ch ── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:52:16 UTC
+#> ℹ Data updated: 2026-10-18 06:18:46 UTC
 #> # A tibble: 15 × 18
 #>    season phase_id  rank team_id team_name    team_acronym games_played faceoffs
 #>     <int>    <int> <int>   <int> <chr>        <chr>               <int>    <int>

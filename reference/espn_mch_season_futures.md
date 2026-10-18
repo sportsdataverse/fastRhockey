@@ -180,7 +180,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_season_futures(season = 2026))
 #> ── MENS-COLLEGE-HOCKEY Season Futures data from ESPN core-v2 ───────────────────
-#> ℹ Data updated: 2026-10-18 05:43:49 UTC
+#> ℹ Data updated: 2026-10-18 06:10:40 UTC
 #> # A tibble: 1 × 10
 #>   future_ref   future_id future_name future_type future_display_name provider_id
 #>   <chr>        <chr>     <chr>       <chr>       <chr>               <chr>      

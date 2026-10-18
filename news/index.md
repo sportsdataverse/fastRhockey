@@ -79,6 +79,18 @@
 
 #### Bug fixes
 
+- `khl_player_stats(position = "goalies")` returned 20 goalies who had
+  not played (khl.ru orders goalies by goals-against average ascending
+  and ignores sort fields). It now fetches every page (the count from
+  `nav.max`) and returns one list sorted by games played, then wins,
+  then name, as sportsdataverse-py does; `page` is ignored for goalies.
+  A partial list (a missing page, a row count that does not fit the page
+  count, a player on two pages, more than 30 pages) raises
+  `fastRhockey_asset_fetch`. The goalie columns (`w`, `l`, `sop`, `ga`,
+  `sv`, `sv_pct`, `gaa`, `so`, `toi`) are now documented and typed as in
+  sdv-py: `sv_pct` is on a 0-100 scale (92.2), `gaa` is double, `toi` is
+  mm:ss text with `"-"` as `NA`. Skaters are unchanged.
+
 - ESPN college hockey routes match sportsdataverse-py: `coach_record`
   asks for `coaches/{id}/record/{record_type}` (default `0`) and
   `coach_season` for `coaches/{id}/seasons/{season}`. `calendar`

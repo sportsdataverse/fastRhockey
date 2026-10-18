@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_positions())
 #> ── WOMENS-COLLEGE-HOCKEY Positions data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-10-18 05:45:09 UTC
+#> ℹ Data updated: 2026-10-18 06:12:17 UTC
 #> # A tibble: 28 × 4
 #>    ref                                              position_id count page_count
 #>    <chr>                                            <chr>       <int>      <int>

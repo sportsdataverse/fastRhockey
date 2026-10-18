@@ -185,7 +185,7 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_leaders(event_id = sb$game_id[1])
   })
-#> ✖ 2026-10-18 05:43:32.489328: Invalid arguments or no ESPN mens-college-hockey game leaders for event 401715296 available!
+#> ✖ 2026-10-18 06:10:21.161777: Invalid arguments or no ESPN mens-college-hockey game leaders for event 401715296 available!
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

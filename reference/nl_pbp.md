@@ -134,7 +134,7 @@ Other National League Functions:
 # \donttest{
   try(nl_pbp(game_id = 20261105000325))
 #> ── National League Play-by-Play Information from nationalleague.ch ─────────────
-#> ℹ Data updated: 2026-10-18 05:50:24 UTC
+#> ℹ Data updated: 2026-10-18 06:17:13 UTC
 #> # A tibble: 17 × 34
 #>    game_id event_index team_side game_seconds team_id home_team time  video_time
 #>      <dbl>       <int> <chr>            <int>   <dbl> <lgl>     <chr>      <int>

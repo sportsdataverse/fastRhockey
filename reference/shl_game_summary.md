@@ -89,7 +89,7 @@ Other SHL Functions:
 # \donttest{
   shl_game_summary(game_uuid = "bdhvuc5tex")
 #> ── SHL Game Summary Information from www.shl.se ────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:51:20 UTC
+#> ℹ Data updated: 2026-10-18 06:18:02 UTC
 #> # A tibble: 1 × 7
 #>   team_head2_head  team_period_caption team_period_overtime team_period_shootout
 #>   <chr>            <chr>               <lgl>                <lgl>               

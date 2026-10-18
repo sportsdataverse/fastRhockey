@@ -115,7 +115,7 @@ Other National League Functions:
 # \donttest{
   try(nl_team_info(team_id = 101144))
 #> ── National League Team Info Information from nationalleague.ch ────────────────
-#> ℹ Data updated: 2026-10-18 05:50:37 UTC
+#> ℹ Data updated: 2026-10-18 06:17:25 UTC
 #> # A tibble: 1 × 27
 #>   name   cms_node_id url_segment type    content_type url            fields_grid
 #>   <chr>        <dbl> <chr>       <chr>   <chr>        <chr>          <chr>      

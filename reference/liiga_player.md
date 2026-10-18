@@ -85,7 +85,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_player(player_id = 21870028))
 #> ── Liiga player Information from liiga.fi ──────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:47:30 UTC
+#> ℹ Data updated: 2026-10-18 06:13:51 UTC
 #> # A tibble: 1 × 18
 #>   active_seasons                   team_seasons team_list birth_locality_count…¹
 #>   <chr>                            <chr>        <chr>     <chr>                 

@@ -126,7 +126,7 @@ Other SHL Functions:
 # \donttest{
   shl_next_game_day()
 #> ── SHL Next Game Day Information from www.shl.se ───── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:51:23 UTC
+#> ℹ Data updated: 2026-10-18 06:18:06 UTC
 #> # A tibble: 2 × 39
 #>   game_uuid  start_date_time  state overtime shootout ssgt_uuid home_team_status
 #>   <chr>      <chr>            <chr> <lgl>    <lgl>    <chr>     <chr>           

@@ -133,7 +133,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_player_faceoffs_by_zone(season = 2026, league_id = 1))
 #> ── SIHF Player Faceoffs By Zone Information from data.sihf.ch ──────────────────
-#> ℹ Data updated: 2026-10-18 05:52:04 UTC
+#> ℹ Data updated: 2026-10-18 06:18:35 UTC
 #> # A tibble: 427 × 22
 #>    season phase_id  rank player          team_id team_name team_acronym position
 #>     <int>    <int> <int> <chr>             <int> <chr>     <chr>        <chr>   

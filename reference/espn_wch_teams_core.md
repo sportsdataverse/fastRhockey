@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_teams_core(limit = 100))
 #> ── WOMENS-COLLEGE-HOCKEY Teams Core data from ESPN core-v2 ─────────────────────
-#> ℹ Data updated: 2026-10-18 05:45:20 UTC
+#> ℹ Data updated: 2026-10-18 06:12:30 UTC
 #> # A tibble: 47 × 4
 #>    ref                                                  team_id count page_count
 #>    <chr>                                                <chr>   <int>      <int>

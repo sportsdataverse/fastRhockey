@@ -1,6 +1,7 @@
 # **KHL Player Stats**
 
-League player stats of a tournament, one page (one row per player).
+League player stats of a tournament, one page (one row per player);
+goalies come as one list of every page, sorted by games played.
 
 ## Usage
 
@@ -45,6 +46,7 @@ khl_player_stats(
 - page:
 
   1-based page. Loop until a page comes back shorter than per_page.
+  Ignored for `position = "goalies"` (every page is fetched).
 
 - headers:
 
@@ -71,7 +73,7 @@ khl_player_stats(
 
 ## Value
 
-A `fastRhockey_data` tibble (36 columns; zero rows with the same columns
+A `fastRhockey_data` tibble (45 columns; zero rows with the same columns
 when the payload is empty), or the raw body as a list when
 `return_parsed = FALSE`. Raises `fastRhockey_no_data` (nothing there, or
 an unknown season / stage), `fastRhockey_asset_fetch` (an error
@@ -118,6 +120,15 @@ fetch) and `fastRhockey_bad_request` (an invalid argument or an HTTP 400
 | sftsh_avg | numeric | Average short-handed shifts per game |
 | hits | integer | Hits (body checks) |
 | bls | integer | Shots blocked by the player |
+| w | integer | Wins (goalies only) |
+| l | integer | Losses (goalies only) |
+| sop | integer | Games that went to a shootout (goalies only) |
+| ga | integer | Goals against (goalies only) |
+| sv | integer | Saves, shots on goal stopped (goalies only) |
+| sv_pct | numeric | Save percentage on a 0-100 scale, e.g. 92.2 (goalies only) |
+| gaa | numeric | Goals-against average, 60 min x goals against / time on ice (goalies only) |
+| so | integer | Shutouts, games without a goal against (goalies only) |
+| toi | character | Total time on the ice, mm:ss, e.g. "3521:21" (goalies only; NA when none) |
 
 ## Details
 
@@ -135,6 +146,15 @@ Ids and counts are integers (sdv-py Int64); a column holding values past
 2^31 (epoch milliseconds) is returned as a whole-number double.
 
 At least one second is left between two requests to a host.
+
+**Goalies.** `position = "goalies"` fetches every page (the page count
+is the first page's `nav.max`) and returns them as one list sorted by
+games played, then wins (both descending), then name and player link:
+khl.ru orders goalies by goals-against average ascending and ignores
+sort fields, so its page 1 is the goalies without a game. `page` is
+ignored. A partial list (a missing page, a row count that does not fit
+the page count, a player on two pages, more than 30 pages) raises
+`fastRhockey_asset_fetch`. Skaters are one page, as asked.
 
 **Owner flag (sanctions).** The KHL and its webcaster platform are run
 by Russian operators, some clubs by sanctioned state companies. Fetching
@@ -173,8 +193,8 @@ Other KHL Functions:
 # \donttest{
   try(khl_player_stats(position = "forwards", season = 2026))
 #> ── KHL Player Stats from khl.ru ────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:46:53 UTC
-#> # A tibble: 20 × 36
+#> ℹ Data updated: 2026-10-18 06:13:16 UTC
+#> # A tibble: 20 × 45
 #>    group    rank player_id player_name image    jn    gp     g     a   pts    pm
 #>    <chr>   <int>     <int> <chr>       <chr> <int> <int> <int> <int> <int> <int>
 #>  1 forwar…     1     43033 Энэс Сэм    //im…     7    67    32    57    89    25
@@ -197,11 +217,12 @@ Other KHL Functions:
 #> 18 forwar…    18     21246 Хайруллин … //im…    61    67    19    30    49     9
 #> 19 forwar…    19     30629 Абросимов … //im…    17    62    24    24    48    15
 #> 20 forwar…    20     20700 Белозёров … //im…    71    62    27    21    48     4
-#> # ℹ 25 more variables: plus <int>, minus <int>, pim <int>, eqg <int>,
+#> # ℹ 34 more variables: plus <int>, minus <int>, pim <int>, eqg <int>,
 #> #   ppg <int>, shg <int>, otg <int>, gwg <int>, sds <int>, sog <int>,
 #> #   sog_pct <dbl>, sog_avg <dbl>, fo <int>, fow <int>, fo_pct <dbl>,
 #> #   toi_avg <chr>, sft_avg <dbl>, tie_avg <chr>, sfte_avg <dbl>,
 #> #   tipp_avg <chr>, sftpp_avg <dbl>, tish_avg <chr>, sftsh_avg <dbl>,
-#> #   hits <int>, bls <int>
+#> #   hits <int>, bls <int>, w <int>, l <int>, sop <int>, ga <int>, sv <int>,
+#> #   sv_pct <dbl>, gaa <dbl>, so <int>, toi <chr>
 # }
 ```

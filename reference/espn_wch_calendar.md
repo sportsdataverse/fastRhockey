@@ -168,7 +168,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_calendar())
 #> ── WOMENS-COLLEGE-HOCKEY Calendar data from ESPN.com ───────────────────────────
-#> ℹ Data updated: 2026-10-18 05:44:55 UTC
+#> ℹ Data updated: 2026-10-18 06:12:00 UTC
 #> # A tibble: 83 × 5
 #>    date              calendar_type calendar_start_date calendar_end_date
 #>    <chr>             <chr>         <chr>               <chr>            

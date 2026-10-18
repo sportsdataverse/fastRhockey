@@ -113,7 +113,7 @@ Other National League Functions:
 # \donttest{
   try(nl_lineups(game_id = 20261105000325))
 #> ── National League Lineups Information from nationalleague.ch ──────────────────
-#> ℹ Data updated: 2026-10-18 05:50:23 UTC
+#> ℹ Data updated: 2026-10-18 06:17:12 UTC
 #> # A tibble: 44 × 13
 #>    game_id team_side team_id unit  player_id position  line first_name last_name
 #>      <dbl> <chr>       <dbl> <chr>     <dbl> <chr>    <int> <chr>      <chr>    

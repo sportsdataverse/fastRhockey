@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_season_pointer())
 #> ── WOMENS-COLLEGE-HOCKEY Current Season Pointer data from ESPN core-v2 ─────────
-#> ℹ Data updated: 2026-10-18 05:45:12 UTC
+#> ℹ Data updated: 2026-10-18 06:12:21 UTC
 #> # A tibble: 1 × 9
 #>   season start_date        end_date    display_name current_type_id current_type
 #>    <int> <chr>             <chr>       <chr>        <chr>                  <int>

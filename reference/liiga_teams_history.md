@@ -86,7 +86,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_teams_history())
 #> ── Liiga team history Information from liiga.fi ────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:47:52 UTC
+#> ℹ Data updated: 2026-10-18 06:14:19 UTC
 #> # A tibble: 593 × 25
 #>       id season league_id serie_id    team_id away_games away_losses away_ties
 #>    <int>  <int>     <int>    <int>      <int>      <int>       <int>     <int>

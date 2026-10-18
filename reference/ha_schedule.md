@@ -136,7 +136,7 @@ Other HA Functions:
 # \donttest{
   try(ha_schedule())
 #> ── HA Schedule Information from hockeyallsvenskan.se ───────────────────────────
-#> ℹ Data updated: 2026-10-18 05:46:18 UTC
+#> ℹ Data updated: 2026-10-18 06:12:43 UTC
 #> # A tibble: 364 × 70
 #>    season game_cms_id game_document_id      cms_season statnet_game_number slug 
 #>     <int>       <int> <chr>                 <chr>                    <int> <chr>

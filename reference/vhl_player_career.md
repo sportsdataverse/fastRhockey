@@ -120,7 +120,7 @@ Other VHL Functions:
 # \donttest{
   try(vhl_player_career(player_id = 34526))
 #> ── VHL Player Career Information from vhlru.ru ─────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:52:42 UTC
+#> ℹ Data updated: 2026-10-18 06:19:12 UTC
 #> # A tibble: 5 × 39
 #>   player_id season stage      tn team_season_id team   jersey games_played goals
 #>       <int>  <int> <chr>   <int>          <int> <chr>   <int>        <int> <int>

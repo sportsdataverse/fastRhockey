@@ -185,7 +185,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_team(team_id = "2137"))
 #> ── WOMENS-COLLEGE-HOCKEY Team data from ESPN.com ───── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:45:17 UTC
+#> ℹ Data updated: 2026-10-18 06:12:27 UTC
 #> # A tibble: 1 × 17
 #>   team_id id    uid      slug  location name  nickname abbreviation display_name
 #>   <chr>   <chr> <chr>    <chr> <chr>    <chr> <chr>    <chr>        <chr>       

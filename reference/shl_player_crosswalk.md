@@ -92,7 +92,7 @@ Other SHL Functions:
   xw <- shl_player_crosswalk(2026)
   xw[xw$player_id == 2427, ]
 #> ── SHL Player Crosswalk Information from www.shl.se ── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:51:38 UTC
+#> ℹ Data updated: 2026-10-18 06:18:09 UTC
 #> # A tibble: 1 × 14
 #>   player_id athlete_uuid  first_name last_name jersey_number position shoots
 #>       <int> <chr>         <chr>      <chr>             <int> <chr>    <chr> 

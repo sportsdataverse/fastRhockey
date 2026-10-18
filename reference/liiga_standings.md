@@ -116,7 +116,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_standings(season = 2026))
 #> ── Liiga standings Information from liiga.fi ───────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:47:39 UTC
+#> ℹ Data updated: 2026-10-18 06:14:02 UTC
 #> # A tibble: 54 × 49
 #>    season tournament internal_id  team_id team_slug team_name team_logos_dark_bg
 #>     <int> <chr>            <int>    <int> <chr>     <chr>     <chr>             

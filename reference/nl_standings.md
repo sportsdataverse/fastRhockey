@@ -221,7 +221,7 @@ Other National League Functions:
 # \donttest{
   try(nl_standings(phase = 4940, season = 2026))
 #> ── National League Standings Information from nationalleague.ch ────────────────
-#> ℹ Data updated: 2026-10-18 05:50:36 UTC
+#> ℹ Data updated: 2026-10-18 06:17:24 UTC
 #> # A tibble: 14 × 123
 #>     rank team_id name      short_name streak    gp    gw  gwot  gwpe    gl  glot
 #>    <int>   <dbl> <chr>     <chr>      <chr>  <int> <int> <int> <int> <int> <int>

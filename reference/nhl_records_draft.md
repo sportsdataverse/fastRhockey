@@ -69,7 +69,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_draft(cayenne_exp = "draftYear=2020", limit = 5))
 #> ── NHL Records Draft ───────────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 05:49:47 UTC
+#> ℹ Data updated: 2026-10-18 06:16:26 UTC
 #> # A tibble: 5 × 31
 #>      id age_in_days age_in_days_for_year age_in_years amateur_club_name
 #>   <int>       <int>                <int>        <int> <chr>            
