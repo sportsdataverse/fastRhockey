@@ -20,7 +20,7 @@ WCH game has 200-260 plays.}
 }
 \value{
 A \code{fastRhockey_data} tibble with one row per play:\tabular{lll}{
-   col_name \tab types \tab description \cr
+   col_name \tab type \tab description \cr
    event_id \tab character \tab ESPN event id (echoed from arg). \cr
    cid \tab character \tab Competition id (echoed from arg). \cr
    id \tab character \tab ESPN play identifier. \cr
@@ -54,7 +54,7 @@ A \code{fastRhockey_data} tibble with one row per play:\tabular{lll}{
 \strong{Get ESPN WCH Game Plays (core-v2 Play-by-Play)}
 }
 \details{
-League slug \code{womens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_game_plays()} (columns inherited); a collection may be empty.
+League slug \code{womens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_game_plays()}; columns verified against a captured WCH body.
 }
 \examples{
 \donttest{
@@ -107,8 +107,10 @@ Other ESPN WCH Functions:
 \code{\link[=espn_wch_league_notes]{espn_wch_league_notes()}},
 \code{\link[=espn_wch_league_root]{espn_wch_league_root()}},
 \code{\link[=espn_wch_news]{espn_wch_news()}},
+\code{\link[=espn_wch_pbp]{espn_wch_pbp()}},
 \code{\link[=espn_wch_player_awards]{espn_wch_player_awards()}},
 \code{\link[=espn_wch_player_bio]{espn_wch_player_bio()}},
+\code{\link[=espn_wch_player_box]{espn_wch_player_box()}},
 \code{\link[=espn_wch_player_career_stats]{espn_wch_player_career_stats()}},
 \code{\link[=espn_wch_player_contracts]{espn_wch_player_contracts()}},
 \code{\link[=espn_wch_player_core]{espn_wch_player_core()}},
@@ -167,6 +169,7 @@ Other ESPN WCH Functions:
 \code{\link[=espn_wch_summary]{espn_wch_summary()}},
 \code{\link[=espn_wch_talentpicks]{espn_wch_talentpicks()}},
 \code{\link[=espn_wch_team]{espn_wch_team()}},
+\code{\link[=espn_wch_team_box]{espn_wch_team_box()}},
 \code{\link[=espn_wch_team_core]{espn_wch_team_core()}},
 \code{\link[=espn_wch_team_depthcharts]{espn_wch_team_depthcharts()}},
 \code{\link[=espn_wch_team_history]{espn_wch_team_history()}},

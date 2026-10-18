@@ -4,11 +4,13 @@
 \alias{espn_mch_season_awards}
 \title{\strong{Get ESPN MCH Season Awards (core-v2)}}
 \usage{
-espn_mch_season_awards(season = most_recent_nhl_season(), ...)
+espn_mch_season_awards(season = most_recent_nhl_season(), limit = NULL, ...)
 }
 \arguments{
 \item{season}{Season end-year (e.g. \code{2026}). Defaults to
 \code{most_recent_nhl_season()}.}
+
+\item{limit}{Optional maximum number of awards (ESPN \code{limit}).}
 
 \item{...}{Reserved for forward compatibility.}
 }
@@ -79,8 +81,10 @@ Other ESPN MCH Functions:
 \code{\link[=espn_mch_league_notes]{espn_mch_league_notes()}},
 \code{\link[=espn_mch_league_root]{espn_mch_league_root()}},
 \code{\link[=espn_mch_news]{espn_mch_news()}},
+\code{\link[=espn_mch_pbp]{espn_mch_pbp()}},
 \code{\link[=espn_mch_player_awards]{espn_mch_player_awards()}},
 \code{\link[=espn_mch_player_bio]{espn_mch_player_bio()}},
+\code{\link[=espn_mch_player_box]{espn_mch_player_box()}},
 \code{\link[=espn_mch_player_career_stats]{espn_mch_player_career_stats()}},
 \code{\link[=espn_mch_player_contracts]{espn_mch_player_contracts()}},
 \code{\link[=espn_mch_player_core]{espn_mch_player_core()}},
@@ -138,6 +142,7 @@ Other ESPN MCH Functions:
 \code{\link[=espn_mch_summary]{espn_mch_summary()}},
 \code{\link[=espn_mch_talentpicks]{espn_mch_talentpicks()}},
 \code{\link[=espn_mch_team]{espn_mch_team()}},
+\code{\link[=espn_mch_team_box]{espn_mch_team_box()}},
 \code{\link[=espn_mch_team_core]{espn_mch_team_core()}},
 \code{\link[=espn_mch_team_depthcharts]{espn_mch_team_depthcharts()}},
 \code{\link[=espn_mch_team_history]{espn_mch_team_history()}},

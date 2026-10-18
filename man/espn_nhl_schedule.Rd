@@ -35,7 +35,7 @@ A \code{fastRhockey_data} tibble with one row per game:\tabular{lll}{
    venue_full_name \tab character \tab Venue full name. \cr
    venue_city \tab character \tab Venue city. \cr
    venue_state \tab character \tab Venue state. \cr
-   broadcast \tab character \tab Broadcast network(s). \cr
+   broadcast \tab character \tab Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. \cr
    home_id \tab character \tab Home team ESPN identifier. \cr
    home_name \tab character \tab Home team display name. \cr
    home_abbreviation \tab character \tab Home team abbreviation. \cr

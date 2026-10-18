@@ -15,7 +15,7 @@ espn_mch_season_types(season = most_recent_nhl_season(), ...)
 \value{
 A \code{fastRhockey_data} tibble with one row per season type
 (pre-season, regular, post-season, off-season):\tabular{lll}{
-   col_name \tab types \tab description \cr
+   col_name \tab type \tab description \cr
    ref \tab character \tab \verb{$ref} URL for the season-type object. \cr
    season_type_id \tab integer \tab Season type id (1=pre, 2=reg, 3=post, 4=off). \cr
    season \tab integer \tab Season year (echoed from arg). \cr
@@ -25,7 +25,7 @@ A \code{fastRhockey_data} tibble with one row per season type
 \strong{Get ESPN MCH Season Types (core-v2)}
 }
 \details{
-League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_season_types()} (columns inherited); a collection may be empty.
+League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_season_types()}; columns verified against a captured MCH body.
 }
 \examples{
 \donttest{
@@ -76,8 +76,10 @@ Other ESPN MCH Functions:
 \code{\link[=espn_mch_league_notes]{espn_mch_league_notes()}},
 \code{\link[=espn_mch_league_root]{espn_mch_league_root()}},
 \code{\link[=espn_mch_news]{espn_mch_news()}},
+\code{\link[=espn_mch_pbp]{espn_mch_pbp()}},
 \code{\link[=espn_mch_player_awards]{espn_mch_player_awards()}},
 \code{\link[=espn_mch_player_bio]{espn_mch_player_bio()}},
+\code{\link[=espn_mch_player_box]{espn_mch_player_box()}},
 \code{\link[=espn_mch_player_career_stats]{espn_mch_player_career_stats()}},
 \code{\link[=espn_mch_player_contracts]{espn_mch_player_contracts()}},
 \code{\link[=espn_mch_player_core]{espn_mch_player_core()}},
@@ -135,6 +137,7 @@ Other ESPN MCH Functions:
 \code{\link[=espn_mch_summary]{espn_mch_summary()}},
 \code{\link[=espn_mch_talentpicks]{espn_mch_talentpicks()}},
 \code{\link[=espn_mch_team]{espn_mch_team()}},
+\code{\link[=espn_mch_team_box]{espn_mch_team_box()}},
 \code{\link[=espn_mch_team_core]{espn_mch_team_core()}},
 \code{\link[=espn_mch_team_depthcharts]{espn_mch_team_depthcharts()}},
 \code{\link[=espn_mch_team_history]{espn_mch_team_history()}},

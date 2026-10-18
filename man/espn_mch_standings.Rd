@@ -4,17 +4,26 @@
 \alias{espn_mch_standings}
 \title{\strong{Get ESPN MCH Standings}}
 \usage{
-espn_mch_standings(season = most_recent_nhl_season(), ...)
+espn_mch_standings(
+  season = most_recent_nhl_season(),
+  group = NULL,
+  standings_type = NULL,
+  ...
+)
 }
 \arguments{
 \item{season}{Season end-year (e.g. \code{2025}). Defaults to
 \code{most_recent_nhl_season()}.}
 
+\item{group}{Optional conference/group id filter.}
+
+\item{standings_type}{Optional standings variant sent as \code{type} (e.g. \code{"by-division"}).}
+
 \item{...}{Reserved for forward compatibility.}
 }
 \value{
 A \code{fastRhockey_data} tibble with one row per team:\tabular{lll}{
-   col_name \tab types \tab description \cr
+   col_name \tab type \tab description \cr
    group_name \tab character \tab Group name (conference / division). \cr
    group_abbreviation \tab character \tab Group abbreviation. \cr
    team_id \tab character \tab ESPN team identifier. \cr
@@ -23,24 +32,32 @@ A \code{fastRhockey_data} tibble with one row per team:\tabular{lll}{
    team_display_name \tab character \tab Team display name. \cr
    team_location \tab character \tab Team location (city). \cr
    team_logo \tab character \tab Team logo URL. \cr
-   season \tab integer \tab Season end-year (echoed from arg). \cr
    ot_losses \tab numeric \tab Overtime losses. \cr
+   ot_wins \tab numeric \tab Overtime wins. \cr
+   avg_points_against \tab numeric \tab Average goals against per game. \cr
+   avg_points_for \tab numeric \tab Average goals for per game. \cr
+   differential \tab numeric \tab Goal differential. \cr
+   games_behind \tab numeric \tab Games behind the group leader. \cr
    games_played \tab numeric \tab Games played. \cr
    losses \tab numeric \tab Regulation losses. \cr
-   points \tab numeric \tab Points. \cr
-   wins \tab numeric \tab Wins. \cr
-   points_for \tab numeric \tab Goals/points scored. \cr
-   points_against \tab numeric \tab Goals/points allowed. \cr
    playoff_seed \tab numeric \tab Current playoff seed. \cr
+   point_differential \tab numeric \tab Point (goal) differential. \cr
+   points \tab numeric \tab Points. \cr
+   points_against \tab numeric \tab Goals/points allowed. \cr
+   points_for \tab numeric \tab Goals/points scored. \cr
    streak \tab numeric \tab Current streak value. \cr
+   tiegames \tab numeric \tab Tie games (sent in the mch body). \cr
+   win_percent \tab numeric \tab Win percentage. \cr
+   wins \tab numeric \tab Wins. \cr
    overall \tab numeric \tab Overall record stat. \cr
+   season \tab integer \tab Season end-year (echoed from arg). \cr
 }
 }
 \description{
 \strong{Get ESPN MCH Standings}
 }
 \details{
-League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_standings()} (columns inherited); a collection may be empty.
+League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_standings()}; columns verified against a captured MCH body One numeric column per ESPN stat in the body, so the set follows the feed (the MCH body sends \code{tiegames}, the WCH body \code{ties}).
 }
 \examples{
 \donttest{
@@ -91,8 +108,10 @@ Other ESPN MCH Functions:
 \code{\link[=espn_mch_league_notes]{espn_mch_league_notes()}},
 \code{\link[=espn_mch_league_root]{espn_mch_league_root()}},
 \code{\link[=espn_mch_news]{espn_mch_news()}},
+\code{\link[=espn_mch_pbp]{espn_mch_pbp()}},
 \code{\link[=espn_mch_player_awards]{espn_mch_player_awards()}},
 \code{\link[=espn_mch_player_bio]{espn_mch_player_bio()}},
+\code{\link[=espn_mch_player_box]{espn_mch_player_box()}},
 \code{\link[=espn_mch_player_career_stats]{espn_mch_player_career_stats()}},
 \code{\link[=espn_mch_player_contracts]{espn_mch_player_contracts()}},
 \code{\link[=espn_mch_player_core]{espn_mch_player_core()}},
@@ -150,6 +169,7 @@ Other ESPN MCH Functions:
 \code{\link[=espn_mch_summary]{espn_mch_summary()}},
 \code{\link[=espn_mch_talentpicks]{espn_mch_talentpicks()}},
 \code{\link[=espn_mch_team]{espn_mch_team()}},
+\code{\link[=espn_mch_team_box]{espn_mch_team_box()}},
 \code{\link[=espn_mch_team_core]{espn_mch_team_core()}},
 \code{\link[=espn_mch_team_depthcharts]{espn_mch_team_depthcharts()}},
 \code{\link[=espn_mch_team_history]{espn_mch_team_history()}},

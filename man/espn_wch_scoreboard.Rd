@@ -4,18 +4,33 @@
 \alias{espn_wch_scoreboard}
 \title{\strong{Get ESPN WCH Scoreboard}}
 \usage{
-espn_wch_scoreboard(dates = NULL, ...)
+espn_wch_scoreboard(
+  dates = NULL,
+  week = NULL,
+  season_type = NULL,
+  groups = NULL,
+  limit = NULL,
+  ...
+)
 }
 \arguments{
 \item{dates}{Optional date or date-range string in \code{"YYYYMMDD"} or
 \code{"YYYYMMDD-YYYYMMDD"} format. When \code{NULL} (default) the current day
 is used.}
 
+\item{week}{Optional week number (ESPN \code{week} query).}
+
+\item{season_type}{Optional season phase (1 = pre, 2 = regular, 3 = post); sent as \code{seasontype}.}
+
+\item{groups}{Optional conference/group id filter.}
+
+\item{limit}{Optional maximum number of events (ESPN \code{limit}).}
+
 \item{...}{Reserved for forward compatibility.}
 }
 \value{
 A \code{fastRhockey_data} tibble with one row per game:\tabular{lll}{
-   col_name \tab types \tab description \cr
+   col_name \tab type \tab description \cr
    game_id \tab character \tab ESPN event identifier. \cr
    uid \tab character \tab ESPN event uid. \cr
    date \tab character \tab Game date-time (ISO 8601). \cr
@@ -42,7 +57,7 @@ A \code{fastRhockey_data} tibble with one row per game:\tabular{lll}{
    venue_city \tab character \tab Venue city. \cr
    venue_state \tab character \tab Venue state. \cr
    venue_indoor \tab logical \tab Whether the venue is indoors. \cr
-   broadcast \tab character \tab Broadcast network(s). \cr
+   broadcast \tab character \tab Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. \cr
    note \tab character \tab Game note or headline. \cr
    home_id \tab character \tab Home team ESPN identifier. \cr
    home_name \tab character \tab Home team name. \cr
@@ -72,7 +87,7 @@ A \code{fastRhockey_data} tibble with one row per game:\tabular{lll}{
 \strong{Get ESPN WCH Scoreboard}
 }
 \details{
-League slug \code{womens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_scoreboard()} (columns inherited); a collection may be empty.
+League slug \code{womens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_scoreboard()}; columns verified against a captured WCH body.
 }
 \examples{
 \donttest{
@@ -123,8 +138,10 @@ Other ESPN WCH Functions:
 \code{\link[=espn_wch_league_notes]{espn_wch_league_notes()}},
 \code{\link[=espn_wch_league_root]{espn_wch_league_root()}},
 \code{\link[=espn_wch_news]{espn_wch_news()}},
+\code{\link[=espn_wch_pbp]{espn_wch_pbp()}},
 \code{\link[=espn_wch_player_awards]{espn_wch_player_awards()}},
 \code{\link[=espn_wch_player_bio]{espn_wch_player_bio()}},
+\code{\link[=espn_wch_player_box]{espn_wch_player_box()}},
 \code{\link[=espn_wch_player_career_stats]{espn_wch_player_career_stats()}},
 \code{\link[=espn_wch_player_contracts]{espn_wch_player_contracts()}},
 \code{\link[=espn_wch_player_core]{espn_wch_player_core()}},
@@ -182,6 +199,7 @@ Other ESPN WCH Functions:
 \code{\link[=espn_wch_summary]{espn_wch_summary()}},
 \code{\link[=espn_wch_talentpicks]{espn_wch_talentpicks()}},
 \code{\link[=espn_wch_team]{espn_wch_team()}},
+\code{\link[=espn_wch_team_box]{espn_wch_team_box()}},
 \code{\link[=espn_wch_team_core]{espn_wch_team_core()}},
 \code{\link[=espn_wch_team_depthcharts]{espn_wch_team_depthcharts()}},
 \code{\link[=espn_wch_team_history]{espn_wch_team_history()}},
