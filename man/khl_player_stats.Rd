@@ -28,7 +28,8 @@ default. One of \code{goalies}, \code{defenses}, \code{forwards}, \code{skaters}
 
 \item{club}{Club slug (khl_stat_filters, filter clubs_full) or all. NULL = every club.}
 
-\item{page}{1-based page. Loop until a page comes back shorter than per_page.}
+\item{page}{1-based page. Loop until a page comes back shorter than per_page. Ignored for
+\code{position = "goalies"} (every page is fetched).}
 
 \item{headers}{Named list of extra request headers, merged over the defaults (\code{X-Requested-With},
 \code{Origin}, \code{Referer}). The cookie jar and \code{sessid} are kept in-process, so nothing
@@ -46,7 +47,7 @@ for 20.}
 \code{errors}; betting fields removed).}
 }
 \value{
-A \code{fastRhockey_data} tibble (36 columns; zero rows with the same columns when the payload
+A \code{fastRhockey_data} tibble (45 columns; zero rows with the same columns when the payload
 is empty), or the raw body as a list when \code{return_parsed = FALSE}. Raises
 \code{fastRhockey_no_data} (nothing there, or an unknown season / stage),
 \code{fastRhockey_asset_fetch} (an error envelope, an answer for another id than the one
@@ -89,10 +90,20 @@ asked, or a failed fetch) and \code{fastRhockey_bad_request} (an invalid argumen
    sftsh_avg \tab numeric \tab Average short-handed shifts per game \cr
    hits \tab integer \tab Hits (body checks) \cr
    bls \tab integer \tab Shots blocked by the player \cr
+   w \tab integer \tab Wins (goalies only) \cr
+   l \tab integer \tab Losses (goalies only) \cr
+   sop \tab integer \tab Games that went to a shootout (goalies only) \cr
+   ga \tab integer \tab Goals against (goalies only) \cr
+   sv \tab integer \tab Saves, shots on goal stopped (goalies only) \cr
+   sv_pct \tab numeric \tab Save percentage on a 0-100 scale, e.g. 92.2 (goalies only) \cr
+   gaa \tab numeric \tab Goals-against average, 60 min x goals against / time on ice (goalies only) \cr
+   so \tab integer \tab Shutouts, games without a goal against (goalies only) \cr
+   toi \tab character \tab Total time on the ice, mm:ss, e.g. "3521:21" (goalies only; NA when none) \cr
 }
 }
 \description{
-League player stats of a tournament, one page (one row per player).
+League player stats of a tournament, one page (one row per player); goalies
+come as one list of every page, sorted by games played.
 }
 \details{
 Endpoint: \verb{POST https://www.khl.ru/rest/stat/players/}.
@@ -108,6 +119,13 @@ Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (e
 milliseconds) is returned as a whole-number double.
 
 At least one second is left between two requests to a host.
+
+\strong{Goalies.} \code{position = "goalies"} fetches every page (the page count is the first page's
+\code{nav.max}) and returns them as one list sorted by games played, then wins (both descending),
+then name and player link: khl.ru orders goalies by goals-against average ascending and ignores
+sort fields, so its page 1 is the goalies without a game. \code{page} is ignored. A partial list (a
+missing page, a row count that does not fit the page count, a player on two pages, more than 30
+pages) raises \code{fastRhockey_asset_fetch}. Skaters are one page, as asked.
 
 \strong{Owner flag (sanctions).} The KHL and its webcaster platform are run by Russian operators, some
 clubs by sanctioned state companies. Fetching on your own machine is fine; any published data

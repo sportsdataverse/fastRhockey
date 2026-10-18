@@ -374,6 +374,15 @@ khl_player_stats,tish_avg,character,1
 khl_player_stats,sftsh_avg,double,1
 khl_player_stats,hits,integer,1
 khl_player_stats,bls,integer,1
+khl_player_stats,w,integer,1
+khl_player_stats,l,integer,1
+khl_player_stats,sop,integer,1
+khl_player_stats,ga,integer,1
+khl_player_stats,sv,integer,1
+khl_player_stats,sv_pct,double,1
+khl_player_stats,gaa,double,1
+khl_player_stats,so,integer,1
+khl_player_stats,toi,character,1
 khl_webcaster_stages,season,integer,1
 khl_webcaster_stages,type,character,1
 khl_webcaster_stages,tournament_id,integer,1

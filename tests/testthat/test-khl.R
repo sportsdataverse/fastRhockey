@@ -476,6 +476,116 @@ test_that("betting fields are stripped from khl.ru bodies", {
   expect_false(any(c("fonbet", "bets") %in% names(got$data$game)))
 })
 
+# ---- goalies: every page, sorted by games played (sdv-py #865) ---------------------------
+
+# A position=goalies page built from the committed fixture: one row per c(gp, w, name).
+khl_goalie_page <- function(page, last, gps, nav = TRUE) {
+  body <- khl_fx("rest/stat__players_goalies.json")
+  template <- body$data$list[[1]]$list[[1]]
+  body$data$list[[1]]$list <- lapply(gps, function(x) {
+    row <- template
+    row$first[[2]]$val <- x[[3]]
+    row$first[[2]]$link <- paste0("/players/", paste(utf8ToInt(x[[3]]), collapse = ""), "/")
+    row$cols$gp <- as.integer(x[[1]])
+    row$cols$w <- as.integer(x[[2]])
+    row
+  })
+  body$data$list[[1]]$nav <- if (nav) list(active = page, start = 1L, end = last, max = last)
+  khl_body(body)
+}
+KHL_GOALIES <- list(`values[tournament]` = 1369, `values[amplua_full]` = "goalies", `nav[count]` = 3)
+khl_pages_posted <- function(log) {
+  vapply(Filter(function(x) x$method == "POST", log$calls), function(x) as.character(x$form[["nav[page]"]]), "")
+}
+
+test_that("goalies fetch every page and sort by games played, then wins, then name", {
+  skip_on_cran()
+  khl_reset()
+  log <- khl_transport(list(
+    khl_goalie_page(1, 3, list(list(0, 0, "Bee"), list(0, 0, "Abe"), list(12, 5, "Cid"))),
+    khl_goalie_page(2, 3, list(list(30, 18, "Dan"), list(30, 20, "Eli"), list(12, 5, "Ace"))),
+    khl_goalie_page(3, 3, list(list(45, 25, "Fox")))
+  ))
+  raw <- .khl_get(paste0(KHL_REST, "/stat/players/"), KHL_GOALIES)
+  expect_equal(khl_pages_posted(log), c("1", "2", "3"))
+  # every request waits its host slot first
+  expect_equal(log$waits, c("https://www.khl.ru/", rep(paste0(KHL_REST, "/stat/players/"), 3)))
+  df <- .khl_parse_player_stats(raw)
+  expect_equal(df$player_name, c("Fox", "Eli", "Dan", "Ace", "Cid", "Abe", "Bee"))
+  expect_identical(df$gp, c(45L, 30L, 30L, 12L, 12L, 0L, 0L))
+})
+
+test_that("goalies through the wrapper; skaters stay the one page asked for", {
+  skip_on_cran()
+  khl_reset()
+  log <- khl_transport(list(
+    khl_goalie_page(1, 2, list(list(0, 0, "Abe"), list(1, 0, "Bee"), list(2, 1, "Cid"))),
+    khl_goalie_page(2, 2, list(list(40, 22, "Dan"))),
+    khl_file("rest/stat__players.json")
+  ))
+  df <- khl_player_stats(tournament_id = 1369, position = "goalies", per_page = 3, page = 5)
+  expect_s3_class(df, "fastRhockey_data")
+  expect_identical(df$gp, c(40L, 2L, 1L, 0L))
+  expect_equal(unique(df$group), "goalies")
+  expect_equal(names(df), names(.KHL_SCHEMAS$khl_player_stats))
+  khl_player_stats(tournament_id = 1369, position = "forwards", page = 2)
+  expect_equal(khl_pages_posted(log), c("1", "2", "2"))
+})
+
+test_that("goalie columns are typed as sdv-py: sv_pct / gaa double, toi text with '-' as NA", {
+  skip_on_cran()
+  df <- .khl_parse_player_stats(khl_fx("rest/stat__players_goalies.json"))
+  expect_true(is.double(df$sv_pct) && is.double(df$gaa))
+  expect_true(is.integer(df$w) && is.integer(df$ga) && is.integer(df$so))
+  expect_true(is.character(df$toi) && all(is.na(df$toi)))
+  # a played goalie: toi stays mm:ss text, the rates stay double
+  body <- khl_fx("rest/stat__players_goalies.json")
+  body$data$list[[1]]$list[[1]]$cols[c("gp", "sv_pct", "gaa", "toi")] <- list(59L, 92.2, 2.47, "3521:21")
+  df <- .khl_parse_player_stats(body)
+  expect_equal(c(df$sv_pct[[1]], df$gaa[[1]]), c(92.2, 2.47))
+  expect_equal(df$toi[[1]], "3521:21")
+  expect_true(is.na(df$toi[[2]]))
+})
+
+test_that("a missing goalie page never returns a partial list", {
+  skip_on_cran()
+  khl_reset()
+  empty <- khl_fx("rest/stat__players_goalies.json")
+  empty$data$list[[1]]$list <- list()
+  khl_transport(list(
+    khl_goalie_page(1, 3, list(list(0, 0, "Abe"), list(1, 0, "Bee"), list(2, 1, "Cid"))),
+    khl_goalie_page(2, 3, list(list(3, 1, "Dan"), list(4, 2, "Eli"), list(5, 3, "Fox"))),
+    khl_body(empty)  # page 3 of 3 comes back empty
+  ))
+  expect_error(.khl_get(paste0(KHL_REST, "/stat/players/"), KHL_GOALIES), "do not fill 3 pages",
+               class = "fastRhockey_asset_fetch")
+})
+
+test_that("goalie paging is bounded and refuses a shifted list", {
+  skip_on_cran()
+  khl_reset()
+  khl_transport(list(khl_goalie_page(1, 999, list(list(0, 0, "Abe"), list(1, 0, "Bee"), list(2, 1, "Cid")))))
+  expect_error(.khl_get(paste0(KHL_REST, "/stat/players/"), KHL_GOALIES), "page guard",
+               class = "fastRhockey_asset_fetch")
+
+  khl_reset()
+  full <- list(list(1, 0, "A"), list(2, 0, "B"), list(3, 0, "C"))
+  khl_transport(lapply(1:3, function(i) {
+    khl_goalie_page(i, 0, lapply(full, function(x) list(x[[1]], x[[2]], paste0(x[[3]], i))), nav = FALSE)
+  }))
+  form <- .khl_form("/stat/players/", KHL_GOALIES)
+  expect_error(.khl_all_goalies(paste0(KHL_REST, "/stat/players/"), form, max_pages = 2),
+               "still paging goalies after 2 pages", class = "fastRhockey_asset_fetch")
+
+  khl_reset()
+  khl_transport(list(
+    khl_goalie_page(1, 2, list(list(0, 0, "Abe"), list(1, 0, "Bee"), list(2, 1, "Cid"))),
+    khl_goalie_page(2, 2, list(list(2, 1, "Cid")))  # Cid moved onto page 2 too
+  ))
+  expect_error(.khl_get(paste0(KHL_REST, "/stat/players/"), KHL_GOALIES), "on two pages",
+               class = "fastRhockey_asset_fetch")
+})
+
 # ---- webcaster runtime --------------------------------------------------------------------
 
 test_that("the season table maps an END year to a tournament id and a stage id", {
