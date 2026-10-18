@@ -144,7 +144,11 @@ You can view CSVs of historical boxscore and play-by-play on the [**`fastRhockey
 
 ********************************************************************
 
-## Star History
+## Follow the [SportsDataverse](https://twitter.com/sportsdataverse) on Twitter and star this repo
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
+
+[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&logo=github&style=for-the-badge&label=Star%20fastRhockey&maxAge=2592000)](https://github.com/sportsdataverse/fastRhockey)
 
 <a href="https://github.com/sportsdataverse/fastRhockey/stargazers">
   <picture>
@@ -152,12 +156,6 @@ You can view CSVs of historical boxscore and play-by-play on the [**`fastRhockey
     <img alt="Star history of sportsdataverse/fastRhockey" src="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/star-history/star-history.png" width="600">
   </picture>
 </a>
-
-## Follow the [SportsDataverse](https://twitter.com/sportsdataverse) on Twitter and star this repo
-
-[![Twitter Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
-
-[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&logo=github&style=for-the-badge&label=Star%20fastRhockey&maxAge=2592000)](https://github.com/sportsdataverse/fastRhockey)
 
 
 ## **Our Authors**
