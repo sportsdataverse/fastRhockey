@@ -121,7 +121,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_webcaster_teams(season = 2026))
 #> ── KHL Webcaster Teams from khl.api.webcaster.pro ──── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:13:36 UTC
+#> ℹ Data updated: 2026-10-18 12:06:35 UTC
 #> # A tibble: 22 × 9
 #>       id khl_id name         location     image division division_key conference
 #>    <int>  <int> <chr>        <chr>        <chr> <chr>    <chr>        <chr>     

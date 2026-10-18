@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_venues())
 #> ── WOMENS-COLLEGE-HOCKEY Venues data from ESPN core-v2 ─────────────────────────
-#> ℹ Data updated: 2026-10-18 06:12:31 UTC
+#> ℹ Data updated: 2026-10-18 12:05:22 UTC
 #> # A tibble: 57 × 4
 #>    ref                                                 venue_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>

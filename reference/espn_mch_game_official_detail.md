@@ -194,8 +194,8 @@ Saiem Gilani
     offs <- espn_mch_game_officials(event_id = eid)
     espn_mch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
   })
-#> ! 2026-10-18 06:10:21.948485: No officials returned for event 401715296.
-#> ✖ 2026-10-18 06:10:21.992902: 
+#> ! 2026-10-18 12:02:41.54854: No officials returned for event 401715296.
+#> ✖ 2026-10-18 12:02:41.600537: 
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", official_id = NULL
 #> ✖ Error: arguments imply differing number of rows: 1, 0
 #> data frame with 0 columns and 0 rows

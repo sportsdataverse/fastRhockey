@@ -119,7 +119,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_webcaster_tables())
 #> ── KHL Webcaster Tables from khl.api.webcaster.pro ─── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:13:35 UTC
+#> ℹ Data updated: 2026-10-18 12:06:34 UTC
 #> # A tibble: 468 × 29
 #>    season season_label  rank    gp     w   otw   sow   sol   otl otl_en     l
 #>     <dbl> <chr>        <int> <int> <int> <int> <int> <int> <int>  <int> <int>

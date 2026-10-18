@@ -136,7 +136,27 @@ Returns `NULL` on failure / empty response.
       strength = "all",
       sort_by = "total"
   ))
-#> 2026-10-18 06:16:03.885846: No NHL Edge skating-distance top-10 data returned for F/all/total
-#> NULL
+#> ── NHL Edge Skater Distance Top 10 ─────────────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-18 12:09:09 UTC
+#> # A tibble: 10 × 66
+#>    player_slug             player_headshot player_position player_sweater_number
+#>    <chr>                   <chr>           <chr>                           <int>
+#>  1 jack-eichel-8478403     https://assets… C                                   9
+#>  2 connor-mcdavid-8478402  https://assets… C                                  97
+#>  3 mika-zibanejad-8476459  https://assets… C                                  93
+#>  4 auston-matthews-8479318 https://assets… C                                  34
+#>  5 tim-stützle-8482116     https://assets… C                                  18
+#>  6 jack-hughes-8481559     https://assets… C                                  86
+#>  7 elias-pettersson-84800… https://assets… C                                  40
+#>  8 mitch-marner-8478483    https://assets… R                                  93
+#>  9 alexis-lafrenière-8482… https://assets… L                                  13
+#> 10 sam-reinhart-8477933    https://assets… C                                  13
+#> # ℹ 62 more variables: player_first_name_default <chr>,
+#> #   player_first_name_cs <chr>, player_first_name_de <chr>,
+#> #   player_first_name_es <chr>, player_first_name_fi <chr>,
+#> #   player_first_name_sk <chr>, player_first_name_sv <chr>,
+#> #   player_last_name_default <chr>, player_team_abbrev <chr>,
+#> #   player_team_slug <chr>, player_team_common_name_default <chr>,
+#> #   player_team_common_name_fr <chr>, …
 # }
 ```

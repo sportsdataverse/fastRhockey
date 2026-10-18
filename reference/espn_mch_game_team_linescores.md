@@ -190,7 +190,7 @@ Saiem Gilani
     espn_mch_game_team_linescores(event_id = eid, team_id = tms$team_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Team Linescores data from ESPN core-v2 ─────────────
-#> ℹ Data updated: 2026-10-18 06:10:27 UTC
+#> ℹ Data updated: 2026-10-18 12:02:49 UTC
 #> # A tibble: 3 × 9
 #>   event_id  cid       team_id period value display_value source_id source_desc 
 #>   <chr>     <chr>     <chr>    <int> <dbl> <chr>         <chr>     <chr>       

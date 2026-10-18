@@ -197,7 +197,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_team_box(game_id = "401762970"))
 #> ── WOMENS-COLLEGE-HOCKEY Team Box Score data from ESPN.com ─────────────────────
-#> ℹ Data updated: 2026-10-18 06:12:27 UTC
+#> ℹ Data updated: 2026-10-18 12:05:17 UTC
 #> # A tibble: 2 × 30
 #>   team_id team_uid         team_slug   team_location team_name team_abbreviation
 #>   <chr>   <chr>            <chr>       <chr>         <chr>     <chr>            

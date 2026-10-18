@@ -181,7 +181,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_season_info(season = 2026))
 #> ── WOMENS-COLLEGE-HOCKEY Season Info data from ESPN core-v2 ────────────────────
-#> ℹ Data updated: 2026-10-18 06:12:21 UTC
+#> ℹ Data updated: 2026-10-18 12:05:08 UTC
 #> # A tibble: 1 × 13
 #>   season start_date        end_date   display_name season_ref types_ref type_ref
 #>    <int> <chr>             <chr>      <chr>        <chr>      <chr>     <chr>   

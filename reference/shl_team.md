@@ -111,7 +111,7 @@ Other SHL Functions:
 # \donttest{
   shl_team(team_uuid = "087a-087aTQv9u")
 #> ── SHL Team Information from www.shl.se ────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:18:19 UTC
+#> ℹ Data updated: 2026-10-18 12:11:49 UTC
 #> # A tibble: 1 × 30
 #>   names_code names_short names_long  names_full names_code_site names_short_site
 #>   <chr>      <chr>       <chr>       <chr>      <chr>           <chr>           

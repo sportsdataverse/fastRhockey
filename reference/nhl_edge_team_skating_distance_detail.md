@@ -68,7 +68,26 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_edge_team_skating_distance_detail(team_id = 10))
-#> 2026-10-18 06:16:11.479793: No NHL Edge team skating distance detail returned for team_id=10
-#> NULL
+#> ── NHL Edge Team Skating Distance Detail ───────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-18 12:09:17 UTC
+#> # A tibble: 9 × 26
+#>   game_center_link         game_date is_home_team toi_all toi_even toi_pp toi_pk
+#>   <chr>                    <chr>     <lgl>          <int>    <int>  <int>  <int>
+#> 1 /gamecenter/nyi-vs-tor/… 2026-10-… TRUE           17802    15092   1800    910
+#> 2 /gamecenter/buf-vs-tor/… 2026-10-… TRUE           18342    16838    920    584
+#> 3 /gamecenter/tor-vs-uta/… 2026-10-… FALSE          17674    14558   1776   1340
+#> 4 /gamecenter/tor-vs-col/… 2026-10-… FALSE          17405    13540   1505   2360
+#> 5 /gamecenter/tor-vs-vgk/… 2026-10-… FALSE          18420    15900    600   1920
+#> 6 /gamecenter/nsh-vs-tor/… 2026-10-… TRUE           18756    16713   1635    408
+#> 7 /gamecenter/ott-vs-tor/… 2026-10-… TRUE           17470    13620   1930   1920
+#> 8 /gamecenter/nyi-vs-tor/… 2026-09-… TRUE           17618    13328   2370   1920
+#> 9 /gamecenter/mtl-vs-tor/… 2026-09-… TRUE           17715    14955   1800    960
+#> # ℹ 19 more variables: distance_skated_all_imperial <dbl>,
+#> #   distance_skated_all_metric <dbl>, distance_skated_even_imperial <dbl>,
+#> #   distance_skated_even_metric <dbl>, distance_skated_pp_imperial <dbl>,
+#> #   distance_skated_pp_metric <dbl>, distance_skated_pk_imperial <dbl>,
+#> #   distance_skated_pk_metric <dbl>, home_team_common_name_default <chr>,
+#> #   home_team_place_name_with_preposition_default <chr>,
+#> #   home_team_place_name_with_preposition_fr <chr>, …
 # }
 ```

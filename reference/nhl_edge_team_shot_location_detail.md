@@ -50,7 +50,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_team_shot_location_detail(team_id = 10))
 #> ── NHL Edge Team Shot Location Detail ──────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:16:10 UTC
+#> ℹ Data updated: 2026-10-18 12:09:16 UTC
 #> # A tibble: 17 × 7
 #>    area           sog sog_rank goals goals_rank shooting_pctg shooting_pctg_rank
 #>    <chr>        <int>    <int> <int>      <int>         <dbl>              <int>

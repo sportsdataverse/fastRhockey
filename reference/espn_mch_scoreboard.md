@@ -243,7 +243,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_scoreboard(dates = "20250110"))
 #> ── MENS-COLLEGE-HOCKEY Scoreboard data from ESPN.com ───────────────────────────
-#> ℹ Data updated: 2026-10-18 06:10:39 UTC
+#> ℹ Data updated: 2026-10-18 12:03:03 UTC
 #> # A tibble: 29 × 50
 #>    game_id   uid      date  name  short_name season_year season_type season_slug
 #>    <chr>     <chr>    <chr> <chr> <chr>            <int>       <int> <chr>      

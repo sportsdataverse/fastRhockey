@@ -131,7 +131,7 @@ Other HA Functions:
 # \donttest{
   try(ha_goalie_stats(season = 2026, category = "summary"))
 #> ── HA Goalie Stats Information from hockeyallsvenskan.se ───────────────────────
-#> ℹ Data updated: 2026-10-18 06:12:37 UTC
+#> ℹ Data updated: 2026-10-18 12:05:30 UTC
 #> # A tibble: 45 × 16
 #>    season  rank player_name     team_statnet_id   svs svs_perc    gp   gpi    ga
 #>     <int> <int> <chr>           <chr>           <int>    <dbl> <int> <int> <int>

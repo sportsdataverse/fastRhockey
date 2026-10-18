@@ -146,7 +146,7 @@ Other National League Functions:
 # \donttest{
   try(nl_game_overview(game_id = 20261105000325))
 #> ── National League Game Overview Information from nationalleague.ch ────────────
-#> ℹ Data updated: 2026-10-18 06:17:11 UTC
+#> ℹ Data updated: 2026-10-18 12:10:24 UTC
 #> # A tibble: 1 × 47
 #>   game_id home_team_short_name home_team_name away_team_short_name
 #>     <dbl> <chr>                <chr>          <chr>               

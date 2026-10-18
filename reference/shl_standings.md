@@ -100,7 +100,7 @@ Other SHL Functions:
 # \donttest{
   shl_standings(ssgt_uuid = "iuzqg7dqk9")
 #> ── SHL Standings Information from www.shl.se ───────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:18:17 UTC
+#> ℹ Data updated: 2026-10-18 12:11:47 UTC
 #> # A tibble: 14 × 18
 #>    season ssgt_uuid  team_code team_uuid       team_name   team_short_name  rank
 #>     <int> <chr>      <chr>     <chr>           <chr>       <chr>           <int>

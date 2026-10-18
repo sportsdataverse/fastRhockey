@@ -94,7 +94,7 @@ Other DEL eSports functions:
 # \donttest{
   try(del_goalie_box(match_id = 4444))
 #> ── DEL goalie_box from the eSports hokejovyzapis bucket ────────────────────────
-#> ℹ Data updated: 2026-10-18 06:09:43 UTC
+#> ℹ Data updated: 2026-10-18 12:02:00 UTC
 #> # A tibble: 7 × 18
 #>   player_id name     surname      team_id team_name team_shortcut jersey matches
 #>       <int> <chr>    <chr>          <int> <chr>     <chr>          <int>   <int>

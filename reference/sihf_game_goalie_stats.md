@@ -105,7 +105,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_game_goalie_stats(game_id = 20261105000325))
 #> ── SIHF Game Goalie Stats Information from data.sihf.ch ────────────────────────
-#> ℹ Data updated: 2026-10-18 06:18:23 UTC
+#> ℹ Data updated: 2026-10-18 12:11:53 UTC
 #> # A tibble: 4 × 15
 #>   game_id team_side team_id team_name  player_number player  goals_against saves
 #>     <dbl> <chr>       <int> <chr>              <int> <chr>           <int> <int>

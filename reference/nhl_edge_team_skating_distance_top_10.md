@@ -96,7 +96,27 @@ A data frame (`fastRhockey_data`) with the following columns:
     strength = "all",
     sort_by = "total"
   ))
-#> 2026-10-18 06:16:11.866338: No NHL Edge team skating distance top 10 returned
-#> NULL
+#> ── NHL Edge Team Skating Distance Top 10 ───────────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-18 12:09:18 UTC
+#> # A tibble: 10 × 36
+#>    team_abbrev team_slug           team_common_name_def…¹ team_place_name_with…²
+#>    <chr>       <chr>               <chr>                  <chr>                 
+#>  1 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
+#>  2 PHI         philadelphia-flyer… Flyers                 Philadelphia          
+#>  3 VAN         vancouver-canucks-… Canucks                Vancouver             
+#>  4 NYR         new-york-rangers-3  Rangers                New York              
+#>  5 BUF         buffalo-sabres-7    Sabres                 Buffalo               
+#>  6 SEA         seattle-kraken-55   Kraken                 Seattle               
+#>  7 FLA         florida-panthers-13 Panthers               Florida               
+#>  8 UTA         utah-mammoth-68     Mammoth                Utah                  
+#>  9 CHI         chicago-blackhawks… Blackhawks             Chicago               
+#> 10 OTT         ottawa-senators-9   Senators               Ottawa                
+#> # ℹ abbreviated names: ¹​team_common_name_default,
+#> #   ²​team_place_name_with_preposition_default
+#> # ℹ 32 more variables: team_team_logo_light <chr>, team_team_logo_dark <chr>,
+#> #   distance_total_imperial <dbl>, distance_total_metric <dbl>,
+#> #   distance_per60_imperial <dbl>, distance_per60_metric <dbl>,
+#> #   distance_max_per_game_imperial <dbl>, distance_max_per_game_metric <dbl>,
+#> #   distance_max_per_game_overlay_game_date <chr>, …
 # }
 ```

@@ -44,7 +44,7 @@ Other AHL Functions:
 ``` r
  try(ahl_standings()) 
 #> ── AHL Standings from HockeyTech ───────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:09:38 UTC
+#> ℹ Data updated: 2026-10-18 12:01:55 UTC
 #> # A tibble: 32 × 19
 #>    team_code wins  losses ot_losses shootout_losses regulation_wins row   points
 #>    <chr>     <chr>  <dbl> <chr>     <chr>                     <dbl> <chr>  <dbl>

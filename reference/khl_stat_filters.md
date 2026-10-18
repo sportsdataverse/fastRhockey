@@ -120,7 +120,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_stat_filters(season = 2026))
 #> ── KHL Stat Filters from khl.ru ────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:13:28 UTC
+#> ℹ Data updated: 2026-10-18 12:06:27 UTC
 #> # A tibble: 51 × 6
 #>    filter filter_name value name         def active
 #>    <chr>  <chr>       <chr> <chr>      <int>  <int>

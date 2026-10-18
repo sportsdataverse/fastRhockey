@@ -191,7 +191,7 @@ Saiem Gilani
     espn_mch_game_teams(event_id = sb$game_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Teams data from ESPN core-v2 ───────────────────────
-#> ℹ Data updated: 2026-10-18 06:10:29 UTC
+#> ℹ Data updated: 2026-10-18 12:02:51 UTC
 #> # A tibble: 2 × 16
 #>   event_id  cid    team_id uid   type  order home_away winner team_ref score_ref
 #>   <chr>     <chr>  <chr>   <chr> <chr> <int> <chr>     <lgl>  <chr>    <chr>    

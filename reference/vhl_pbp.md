@@ -114,7 +114,7 @@ Other VHL Functions:
 # \donttest{
   try(vhl_pbp(game_id = 899223, season = 2026))
 #> ── VHL Play-by-Play Information from vhlru.ru ──────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:19:08 UTC
+#> ℹ Data updated: 2026-10-18 12:12:41 UTC
 #> # A tibble: 61 × 16
 #>    game_id season stage   game_number event_index kind     kind_code time  clock
 #>      <int>  <int> <chr>         <int>       <int> <chr>    <chr>     <chr> <chr>

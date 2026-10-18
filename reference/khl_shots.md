@@ -135,7 +135,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_shots(game_id = 898236, season = 2026))
 #> ── KHL Shot Map from khl.ru ────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:13:24 UTC
+#> ℹ Data updated: 2026-10-18 12:06:23 UTC
 #> # A tibble: 69 × 15
 #>    game_id tournament_id period time  time_seconds team_side    jn player_id
 #>      <int>         <int>  <int> <chr>        <int> <chr>     <int>     <int>

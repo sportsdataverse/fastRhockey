@@ -75,7 +75,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_teams())
 #> ── Liiga teams Information from liiga.fi ───────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:14:17 UTC
+#> ℹ Data updated: 2026-10-18 12:07:18 UTC
 #> # A tibble: 16 × 14
 #>       team_id team_slug name    contact_info externals country_code country_name
 #>         <int> <chr>     <chr>   <chr>        <chr>     <chr>        <chr>       

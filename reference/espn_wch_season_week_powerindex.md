@@ -185,7 +185,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_wch_season_week_powerindex(season = 2026, season_type = 2, week = 3))
-#> ✖ 2026-10-18 06:12:24.456677: Invalid arguments or no ESPN womens-college-hockey power index available!
+#> ✖ 2026-10-18 12:05:13.38107: Invalid arguments or no ESPN womens-college-hockey power index available!
 #> ✖ Args: league = "womens-college-hockey", kind = "weekly", path = "seasons/2026/types/2/weeks/3/powerindex", query = list()
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

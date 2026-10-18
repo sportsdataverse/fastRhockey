@@ -140,7 +140,7 @@ Other National League Functions:
 # \donttest{
   try(nl_team_stats(game_id = 20261105000325))
 #> ── National League Team Stats Information from nationalleague.ch ───────────────
-#> ℹ Data updated: 2026-10-18 06:17:28 UTC
+#> ℹ Data updated: 2026-10-18 12:10:41 UTC
 #> # A tibble: 2 × 40
 #>   game_id team_side team_id     g    ga    sa  sog1  sog2  sog3 sog_ot sog_ot1
 #>     <dbl> <chr>       <dbl> <int> <int> <int> <int> <int> <int>  <int>   <int>

@@ -85,7 +85,7 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_faceoffs(match_id = 8161))
 #> ── ICE Hockey League faceoffs from the eSports hokejovyzapis bucket ────────────
-#> ℹ Data updated: 2026-10-18 06:12:47 UTC
+#> ℹ Data updated: 2026-10-18 12:05:43 UTC
 #> # A tibble: 62 × 9
 #>       id  time realtime         position position_shortcut winner_id winner_name
 #>    <int> <int> <chr>            <chr>    <chr>                 <int> <chr>      

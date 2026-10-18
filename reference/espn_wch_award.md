@@ -181,7 +181,7 @@ Saiem Gilani
     if (nrow(awards) > 0) espn_wch_award(award_id = awards$award_id[1])
   })
 #> ── WOMENS-COLLEGE-HOCKEY Award data from ESPN core-v2 ──────────────────────────
-#> ℹ Data updated: 2026-10-18 06:11:59 UTC
+#> ℹ Data updated: 2026-10-18 12:04:43 UTC
 #> # A tibble: 1 × 6
 #>   award_id id    name  display_name description award_ref
 #>   <chr>    <chr> <chr> <chr>        <chr>       <chr>    

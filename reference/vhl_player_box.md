@@ -125,7 +125,7 @@ Other VHL Functions:
 # \donttest{
   try(vhl_player_box(season = 2026, game_id = 899223))
 #> ── VHL Player Box Information from vhlru.ru ────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:19:11 UTC
+#> ℹ Data updated: 2026-10-18 12:12:44 UTC
 #> # A tibble: 34 × 33
 #>    game_id season stage  game_number team_side team_page_id team  position_group
 #>      <int>  <int> <chr>        <int> <chr>            <int> <chr> <chr>         

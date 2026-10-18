@@ -192,7 +192,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_rankings())
 #> ── MENS-COLLEGE-HOCKEY Rankings data from ESPN.com ─── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:10:37 UTC
+#> ℹ Data updated: 2026-10-18 12:03:01 UTC
 #> # A tibble: 41 × 25
 #>    poll_id poll_name        poll_short_name  poll_type  season season_type  week
 #>      <int> <chr>            <chr>            <chr>       <int>       <int> <int>

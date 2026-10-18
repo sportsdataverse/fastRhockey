@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_teams_core(limit = 100))
 #> ── MENS-COLLEGE-HOCKEY Teams Core data from ESPN core-v2 ───────────────────────
-#> ℹ Data updated: 2026-10-18 06:10:52 UTC
+#> ℹ Data updated: 2026-10-18 12:03:19 UTC
 #> # A tibble: 100 × 4
 #>    ref                                                  team_id count page_count
 #>    <chr>                                                <chr>   <int>      <int>

@@ -189,7 +189,7 @@ Saiem Gilani
     tms <- espn_mch_game_teams(event_id = eid)
     espn_mch_game_team_statistics(event_id = eid, team_id = tms$team_id[1])
   })
-#> ✖ 2026-10-18 06:10:29.382233: Invalid arguments or no ESPN mens-college-hockey game team statistics for event 401715296 / team 194 available!
+#> ✖ 2026-10-18 12:02:51.086941: Invalid arguments or no ESPN mens-college-hockey game team statistics for event 401715296 / team 194 available!
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", team_id = "194"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

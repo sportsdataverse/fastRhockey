@@ -94,7 +94,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_game_team_stats(game_id = 1, season = 2026))
 #> ── Liiga game team stats Information from liiga.fi ─── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:13:45 UTC
+#> ℹ Data updated: 2026-10-18 12:06:43 UTC
 #> # A tibble: 10 × 22
 #>    season game_id side  period   team_id team_slug goals shots
 #>     <int>   <int> <chr>  <int>     <int> <chr>     <int> <int>

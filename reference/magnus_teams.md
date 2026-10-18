@@ -68,7 +68,7 @@ Other Ligue Magnus Functions:
 # \donttest{
   try(magnus_teams(phase_id = 714))
 #> ── Ligue Magnus Teams Information from liguemagnus.com ─────────────────────────
-#> ℹ Data updated: 2026-10-18 06:15:37 UTC
+#> ℹ Data updated: 2026-10-18 12:08:40 UTC
 #> # A tibble: 12 × 11
 #>    team_id team     team_abbreviation team_short_name team_label gender logo_url
 #>      <int> <chr>    <chr>             <chr>           <chr>      <chr>  <chr>   

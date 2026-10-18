@@ -132,7 +132,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_game_info(game_id = 20261105000325))
 #> ── SIHF Game Info Information from data.sihf.ch ────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:18:24 UTC
+#> ℹ Data updated: 2026-10-18 12:11:53 UTC
 #> # A tibble: 1 × 41
 #>   game_id season round league_id league_name     region_id region_name group_id
 #>     <dbl>  <int> <int>     <int> <chr>               <int> <chr>          <int>

@@ -205,9 +205,9 @@ Saiem Gilani
     pls <- espn_mch_game_plays(event_id = eid)
     espn_mch_game_play(event_id = eid, play_id = pls$id[1])
   })
-#> ! 2026-10-18 06:10:22.753653: No plays returned for event 401715296.
+#> ! 2026-10-18 12:02:42.581505: No plays returned for event 401715296.
 #> ── MENS-COLLEGE-HOCKEY Game Play data from ESPN core-v2 ────────────────────────
-#> ℹ Data updated: 2026-10-18 06:10:22 UTC
+#> ℹ Data updated: 2026-10-18 12:02:42 UTC
 #> # A tibble: 1 × 23
 #>   event_id  cid       play_id id    sequence_number type_id type_text
 #>   <chr>     <chr>     <chr>   <chr>           <int> <chr>   <chr>    

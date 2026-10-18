@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_awards())
 #> ── WOMENS-COLLEGE-HOCKEY Awards data from ESPN core-v2 ─────────────────────────
-#> ℹ Data updated: 2026-10-18 06:11:59 UTC
+#> ℹ Data updated: 2026-10-18 12:04:43 UTC
 #> # A tibble: 31 × 4
 #>    ref                                                 award_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>

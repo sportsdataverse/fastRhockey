@@ -168,7 +168,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_calendar())
 #> ── MENS-COLLEGE-HOCKEY Calendar data from ESPN.com ─── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:10:17 UTC
+#> ℹ Data updated: 2026-10-18 12:02:35 UTC
 #> # A tibble: 92 × 5
 #>    date              calendar_type calendar_start_date calendar_end_date
 #>    <chr>             <chr>         <chr>               <chr>            

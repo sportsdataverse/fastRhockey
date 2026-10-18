@@ -104,7 +104,7 @@ Other EIHL eSports functions:
 # \donttest{
   try(eihl_standings(season = 2027, league_id = 3))
 #> ── EIHL standings from the eSports hokejovyzapis bucket ────────────────────────
-#> ℹ Data updated: 2026-10-18 06:10:03 UTC
+#> ℹ Data updated: 2026-10-18 12:02:21 UTC
 #> # A tibble: 10 × 27
 #>    group_id group_name complete team_id part_team_id name          team_original
 #>       <int> <chr>      <lgl>      <int>        <int> <chr>         <chr>        

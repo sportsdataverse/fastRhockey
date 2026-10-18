@@ -191,8 +191,8 @@ Saiem Gilani
     pls <- espn_mch_game_plays(event_id = eid)
     espn_mch_game_play_personnel(event_id = eid, play_id = pls$id[1])
   })
-#> ! 2026-10-18 06:10:23.220027: No plays returned for event 401715296.
-#> ✖ 2026-10-18 06:10:23.265203: 
+#> ! 2026-10-18 12:02:43.18157: No plays returned for event 401715296.
+#> ✖ 2026-10-18 12:02:43.231646: 
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", play_id = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

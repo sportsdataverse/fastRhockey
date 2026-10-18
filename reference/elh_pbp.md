@@ -76,7 +76,7 @@ Other ELH Functions:
 # \donttest{
   try(elh_pbp(season = 2027, match_id = 2928321))
 #> ── ELH Pbp Information from hokej.cz ───────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 06:10:11 UTC
+#> ℹ Data updated: 2026-10-18 12:02:29 UTC
 #> # A tibble: 119 × 39
 #>    comment_id  sort_order event_type label2 time_type phase clock game_seconds
 #>         <int>       <dbl> <chr>      <chr>  <chr>     <chr> <chr>        <int>

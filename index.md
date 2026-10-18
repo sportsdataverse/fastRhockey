@@ -241,13 +241,16 @@ Releases**](https://fastRhockey.sportsdataverse.org/news/index.html)
 
 ------------------------------------------------------------------------
 
-## Follow the [SportsDataverse](https://twitter.com/sportsdataverse) on Twitter and star this repo
+## Follow the SportsDataverse (@SportsDataverse) on X and star this repo
 
-[![Twitter
-Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
+[![X
+Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
 
 [![GitHub
 stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&logo=github&style=for-the-badge&label=Star%20fastRhockey&maxAge=2592000)](https://github.com/sportsdataverse/fastRhockey)
+
+[![Star history of
+sportsdataverse/fastRhockey](https://raw.githubusercontent.com/sportsdataverse/fastRhockey/star-history/star-history.png)](https://github.com/sportsdataverse/fastRhockey/stargazers)
 
 ## **Our Authors**
 
