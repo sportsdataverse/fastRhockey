@@ -338,3 +338,62 @@ test_that("LIVE: espn_mch_rankings / espn_wch_scoreboard answer", {
   y <- espn_wch_scoreboard(dates = "20250110")
   expect_true(is.data.frame(y))
 })
+
+# ---------------------------------------------------------------------------
+# F2: every verified @return table matches the columns the wrapper returns on
+# the captured mch/wch body it was verified against (fixtures/.../bodies/).
+# ---------------------------------------------------------------------------
+doc_table <- function(src, name) {
+  i <- grep(paste0("^#' @rdname ", name, "$"), src)
+  j <- grep(paste0("^", name, " <- function"), src)
+  rows <- regmatches(src[i:j], regexpr("^#'\\s+\\| [a-z0-9_]+ \\| [a-z]+ \\|", src[i:j]))
+  rows <- rows[!grepl("| col_name |", rows, fixed = TRUE)]
+  parts <- strsplit(sub("^#'\\s+\\| ", "", rows), " \\| ")
+  stats::setNames(vapply(parts, function(x) sub(" \\|$", "", x[2]), ""), vapply(parts, `[`, "", 1))
+}
+
+test_that("verified @return tables match the columns on the captured bodies", {
+  skip_on_cran()
+  src_file <- testthat::test_path("..", "..", "R", "espn_ncaa_hockey.R")
+  skip_if_not(file.exists(src_file), "package source not available")
+  src <- readLines(src_file, warn = FALSE)
+  args <- list(team = list(team_id = "2005"), team_schedule = list(team_id = "2005", season = 2027),
+               standings = list(season = 2026), season_info = list(season = 2026),
+               season_types = list(season = 2026))
+  bodies <- list.files(fx("bodies"), pattern = "\\.json$")
+  bodies <- c(bodies, "mch_calendar.json", "wch_calendar.json")
+  for (b in bodies) {
+    lg <- sub("_.*", "", b)
+    fn <- sub("^[mw]ch_(.*)\\.json$", "\\1", b)
+    if (fn %in% c("team_roster", "injuries", "transactions")) next  # empty in every capture
+    path <- if (fn == "calendar") fx("bodies", paste0(lg, "_scoreboard.json")) else fx("bodies", b)
+    mock_getter(read_fx(file.path("bodies", basename(path))))
+    name <- paste0("espn_", lg, "_", fn)
+    x <- suppressMessages(do.call(get(name, envir = asNamespace("fastRhockey")), args[[fn]] %||% list()))
+    expect_gt(nrow(x), 0L, label = name)
+    got <- vapply(x, function(col) class(col)[1], "")
+    expect_identical(got, doc_table(src, name), label = name)
+  }
+  # sdv-py's committed mch/wch fixtures
+  for (lg in names(SLUG)) {
+    for (fn in c("pbp", "team_box", "player_box", "game_plays", "rankings")) {
+      f <- switch(fn, game_plays = paste0(lg, "_game_plays.json"),
+                  rankings = paste0("rankings_", lg, ".json"), paste0(lg, "_summary.json"))
+      mock_getter(read_fx(f))
+      name <- paste0("espn_", lg, "_", fn)
+      a <- switch(fn, game_plays = list(event_id = "E1"), rankings = list(), list(game_id = "E1"))
+      x <- suppressMessages(do.call(get(name, envir = asNamespace("fastRhockey")), a))
+      expect_gt(nrow(x), 0L, label = name)
+      expect_identical(vapply(x, function(col) class(col)[1], ""), doc_table(src, name), label = name)
+    }
+  }
+})
+
+test_that("team_schedule keeps played and unplayed games together", {
+  skip_on_cran()
+  mock_getter(read_fx(file.path("bodies", "mch_team_schedule.json")))
+  x <- espn_mch_team_schedule(team_id = "2005", season = 2027)
+  expect_equal(nrow(x), 3L)
+  expect_type(x$home_score, "character")
+  expect_equal(sum(is.na(x$home_score)), 1L)
+})
