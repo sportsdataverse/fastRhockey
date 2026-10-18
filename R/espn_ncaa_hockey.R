@@ -289,7 +289,7 @@ NULL
 #' @param week Optional week number (ESPN `week` query).
 #' @param season_type Optional season phase (1 = pre, 2 = regular, 3 = post); sent as `seasontype`.
 #' @param groups Optional conference/group id filter.
-#' @param limit Optional maximum number of events (ESPN `limit`).
+#' @param limit Maximum number of events (ESPN `limit`; default `500`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_scoreboard()`; columns verified against a captured MCH body.
 #' @return A `fastRhockey_data` tibble with one row per game:
@@ -355,7 +355,7 @@ NULL
 #' \donttest{
 #'   try(espn_mch_scoreboard(dates = "20250110"))
 #' }
-espn_mch_scoreboard <- function(dates = NULL, week = NULL, season_type = NULL, groups = NULL, limit = NULL, ...) {
+espn_mch_scoreboard <- function(dates = NULL, week = NULL, season_type = NULL, groups = NULL, limit = 500, ...) {
   .espn_hockey_scoreboard(league = "mens-college-hockey", dates = dates, week = week, season_type = season_type, groups = groups, limit = limit, ...)
 }
 
@@ -718,7 +718,7 @@ NULL
 #' @title **Get ESPN MCH Transactions**
 #' @rdname espn_mch_transactions
 #' @author Saiem Gilani
-#' @param limit Optional maximum number of transactions (ESPN `limit`).
+#' @param limit Maximum number of transactions (ESPN `limit`; default `500`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_transactions()`; ESPN answered an empty collection for every captured MCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
 #' @return A `fastRhockey_data` tibble with one row per transaction:
@@ -742,7 +742,7 @@ NULL
 #' \donttest{
 #'   try(espn_mch_transactions())
 #' }
-espn_mch_transactions <- function(limit = NULL, ...) {
+espn_mch_transactions <- function(limit = 500, ...) {
   .espn_hockey_transactions(league = "mens-college-hockey", limit = limit, ...)
 }
 
@@ -845,7 +845,7 @@ NULL
 #' @title **Get ESPN MCH Teams (site_v2) -- alias for `espn_mch_teams()`**
 #' @rdname espn_mch_teams_site
 #' @author Saiem Gilani
-#' @param limit Optional maximum number of teams (ESPN `limit`).
+#' @param limit Maximum number of teams (ESPN `limit`; default `1000`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_teams_site()`; columns verified against a captured MCH body.
 #' @return A `fastRhockey_data` tibble with one row per MCH team. This is
@@ -885,7 +885,7 @@ NULL
 #' \donttest{
 #'   try(espn_mch_teams_site())
 #' }
-espn_mch_teams_site <- function(limit = NULL, ...) {
+espn_mch_teams_site <- function(limit = 1000, ...) {
   .espn_hockey_teams(league = "mens-college-hockey", limit = limit, ...)
 }
 
@@ -939,7 +939,7 @@ NULL
 #' @author Saiem Gilani
 #' @param team_id ESPN team identifier (character or numeric, e.g. `"104"` for
 #'   Pittsburgh Penguins).
-#' @param limit Optional maximum number of athletes (ESPN `limit`).
+#' @param limit Maximum number of athletes (ESPN `limit`; default `500`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team_roster()`; ESPN answered an empty collection for every captured MCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
 #' @return A `fastRhockey_data` tibble with one row per player:
@@ -1008,7 +1008,7 @@ NULL
 #' \donttest{
 #'   try(espn_mch_team_roster(team_id = "104"))
 #' }
-espn_mch_team_roster <- function(team_id, limit = NULL, ...) {
+espn_mch_team_roster <- function(team_id, limit = 500, ...) {
   .espn_hockey_team_roster(league = "mens-college-hockey", team_id = team_id, limit = limit, ...)
 }
 
@@ -2891,7 +2891,7 @@ NULL
 #' @author Saiem Gilani
 #' @param season Season end-year (e.g. `2026`). Defaults to
 #'   `most_recent_nhl_season()`.
-#' @param limit Optional maximum number of awards (ESPN `limit`).
+#' @param limit Maximum number of awards (ESPN `limit`; default `200`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_awards()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per award reference, or an
@@ -2913,7 +2913,7 @@ NULL
 #' \donttest{
 #'   try(espn_mch_season_awards(season = 2025))
 #' }
-espn_mch_season_awards <- function(season = most_recent_nhl_season(), limit = NULL, ...) {
+espn_mch_season_awards <- function(season = most_recent_nhl_season(), limit = 200, ...) {
   .espn_hockey_season_awards(league = "mens-college-hockey", season = season, limit = limit, ...)
 }
 
@@ -5390,7 +5390,7 @@ NULL
 #' @param week Optional week number (ESPN `week` query).
 #' @param season_type Optional season phase (1 = pre, 2 = regular, 3 = post); sent as `seasontype`.
 #' @param groups Optional conference/group id filter.
-#' @param limit Optional maximum number of events (ESPN `limit`).
+#' @param limit Maximum number of events (ESPN `limit`; default `500`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_scoreboard()`; columns verified against a captured WCH body.
 #' @return A `fastRhockey_data` tibble with one row per game:
@@ -5456,7 +5456,7 @@ NULL
 #' \donttest{
 #'   try(espn_wch_scoreboard(dates = "20250110"))
 #' }
-espn_wch_scoreboard <- function(dates = NULL, week = NULL, season_type = NULL, groups = NULL, limit = NULL, ...) {
+espn_wch_scoreboard <- function(dates = NULL, week = NULL, season_type = NULL, groups = NULL, limit = 500, ...) {
   .espn_hockey_scoreboard(league = "womens-college-hockey", dates = dates, week = week, season_type = season_type, groups = groups, limit = limit, ...)
 }
 
@@ -5819,7 +5819,7 @@ NULL
 #' @title **Get ESPN WCH Transactions**
 #' @rdname espn_wch_transactions
 #' @author Saiem Gilani
-#' @param limit Optional maximum number of transactions (ESPN `limit`).
+#' @param limit Maximum number of transactions (ESPN `limit`; default `500`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_transactions()`; ESPN answered an empty collection for every captured MCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
 #' @return A `fastRhockey_data` tibble with one row per transaction:
@@ -5843,7 +5843,7 @@ NULL
 #' \donttest{
 #'   try(espn_wch_transactions())
 #' }
-espn_wch_transactions <- function(limit = NULL, ...) {
+espn_wch_transactions <- function(limit = 500, ...) {
   .espn_hockey_transactions(league = "womens-college-hockey", limit = limit, ...)
 }
 
@@ -5946,7 +5946,7 @@ NULL
 #' @title **Get ESPN WCH Teams (site_v2) -- alias for `espn_wch_teams()`**
 #' @rdname espn_wch_teams_site
 #' @author Saiem Gilani
-#' @param limit Optional maximum number of teams (ESPN `limit`).
+#' @param limit Maximum number of teams (ESPN `limit`; default `1000`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_teams_site()`; columns verified against a captured WCH body.
 #' @return A `fastRhockey_data` tibble with one row per WCH team. This is
@@ -5986,7 +5986,7 @@ NULL
 #' \donttest{
 #'   try(espn_wch_teams_site())
 #' }
-espn_wch_teams_site <- function(limit = NULL, ...) {
+espn_wch_teams_site <- function(limit = 1000, ...) {
   .espn_hockey_teams(league = "womens-college-hockey", limit = limit, ...)
 }
 
@@ -6040,7 +6040,7 @@ NULL
 #' @author Saiem Gilani
 #' @param team_id ESPN team identifier (character or numeric, e.g. `"2137"` for
 #'   Pittsburgh Penguins).
-#' @param limit Optional maximum number of athletes (ESPN `limit`).
+#' @param limit Maximum number of athletes (ESPN `limit`; default `500`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team_roster()`; ESPN answered an empty collection for every captured WCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
 #' @return A `fastRhockey_data` tibble with one row per player:
@@ -6109,7 +6109,7 @@ NULL
 #' \donttest{
 #'   try(espn_wch_team_roster(team_id = "2137"))
 #' }
-espn_wch_team_roster <- function(team_id, limit = NULL, ...) {
+espn_wch_team_roster <- function(team_id, limit = 500, ...) {
   .espn_hockey_team_roster(league = "womens-college-hockey", team_id = team_id, limit = limit, ...)
 }
 
@@ -7992,7 +7992,7 @@ NULL
 #' @author Saiem Gilani
 #' @param season Season end-year (e.g. `2026`). Defaults to
 #'   `most_recent_nhl_season()`.
-#' @param limit Optional maximum number of awards (ESPN `limit`).
+#' @param limit Maximum number of awards (ESPN `limit`; default `200`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_awards()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per award reference, or an
@@ -8014,7 +8014,7 @@ NULL
 #' \donttest{
 #'   try(espn_wch_season_awards(season = 2025))
 #' }
-espn_wch_season_awards <- function(season = most_recent_nhl_season(), limit = NULL, ...) {
+espn_wch_season_awards <- function(season = most_recent_nhl_season(), limit = 200, ...) {
   .espn_hockey_season_awards(league = "womens-college-hockey", season = season, limit = limit, ...)
 }
 

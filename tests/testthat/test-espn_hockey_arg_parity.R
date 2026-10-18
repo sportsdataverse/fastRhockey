@@ -57,7 +57,13 @@ test_that("mch/wch wrappers with no new args hit the expected URLs", {
     pre <- if (lg == "mens-college-hockey") "espn_mch_" else "espn_wch_"
     r <- capture_req(function() get(paste0(pre, "scoreboard"))())
     expect_identical(r$url, paste0(SITE, "/", lg, "/scoreboard"))
-    expect_identical(r$params, list())
+    expect_identical(r$params, list(limit = 500))  # sdv-py default
+    for (rt in list(c("teams_site", 1000), c("transactions", 500), c("season_awards", 200))) {
+      r <- capture_req(function() get(paste0(pre, rt[[1]]))())
+      expect_identical(r$params$limit, as.numeric(rt[[2]]))
+    }
+    r <- capture_req(function() get(paste0(pre, "team_roster"))(team_id = 10))
+    expect_identical(r$params$limit, 500)
     # F2: college coach_record defaults to sdv-py's record/0
     r <- capture_req(function() get(paste0(pre, "coach_record"))(coach_id = 7))
     expect_identical(r$url, paste0(CORE, "/", lg, "/coaches/7/record/0"))

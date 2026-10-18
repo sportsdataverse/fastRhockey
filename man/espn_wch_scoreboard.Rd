@@ -9,7 +9,7 @@ espn_wch_scoreboard(
   week = NULL,
   season_type = NULL,
   groups = NULL,
-  limit = NULL,
+  limit = 500,
   ...
 )
 }
@@ -24,7 +24,7 @@ is used.}
 
 \item{groups}{Optional conference/group id filter.}
 
-\item{limit}{Optional maximum number of events (ESPN \code{limit}).}
+\item{limit}{Maximum number of events (ESPN \code{limit}; default \code{500}, as sdv-py).}
 
 \item{...}{Reserved for forward compatibility.}
 }

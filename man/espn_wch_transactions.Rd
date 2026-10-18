@@ -4,10 +4,10 @@
 \alias{espn_wch_transactions}
 \title{\strong{Get ESPN WCH Transactions}}
 \usage{
-espn_wch_transactions(limit = NULL, ...)
+espn_wch_transactions(limit = 500, ...)
 }
 \arguments{
-\item{limit}{Optional maximum number of transactions (ESPN \code{limit}).}
+\item{limit}{Maximum number of transactions (ESPN \code{limit}; default \code{500}, as sdv-py).}
 
 \item{...}{Reserved for forward compatibility.}
 }

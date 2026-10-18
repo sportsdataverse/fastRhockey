@@ -4,10 +4,10 @@
 \alias{espn_wch_teams_site}
 \title{\strong{Get ESPN WCH Teams (site_v2) -- alias for \code{espn_wch_teams()}}}
 \usage{
-espn_wch_teams_site(limit = NULL, ...)
+espn_wch_teams_site(limit = 1000, ...)
 }
 \arguments{
-\item{limit}{Optional maximum number of teams (ESPN \code{limit}).}
+\item{limit}{Maximum number of teams (ESPN \code{limit}; default \code{1000}, as sdv-py).}
 
 \item{...}{Reserved for forward compatibility.}
 }

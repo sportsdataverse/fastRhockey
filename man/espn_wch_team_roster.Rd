@@ -4,13 +4,13 @@
 \alias{espn_wch_team_roster}
 \title{\strong{Get ESPN WCH Team Roster}}
 \usage{
-espn_wch_team_roster(team_id, limit = NULL, ...)
+espn_wch_team_roster(team_id, limit = 500, ...)
 }
 \arguments{
 \item{team_id}{ESPN team identifier (character or numeric, e.g. \code{"2137"} for
 Pittsburgh Penguins).}
 
-\item{limit}{Optional maximum number of athletes (ESPN \code{limit}).}
+\item{limit}{Maximum number of athletes (ESPN \code{limit}; default \code{500}, as sdv-py).}
 
 \item{...}{Reserved for forward compatibility.}
 }

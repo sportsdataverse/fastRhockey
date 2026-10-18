@@ -74,6 +74,13 @@
   college bodies (no `alternateColor`; played and unplayed games mixing score
   types, which also hit NHL schedules spanning both; a standings table at the
   root of the body).
+  **Type change:** `espn_nhl_team_schedule()` `home_score` / `away_score` are now
+  always character, as documented; a fully played season used to come back as
+  double.
+* ESPN college `limit` arguments now default as in sportsdataverse-py
+  (`scoreboard`, `team_roster` and `transactions` 500, `teams_site` 1000,
+  `season_awards` 200), so R and Python fetch the same page; NHL requests are
+  unchanged.
 * KHL: when khl.ru answers session priming with its ServicePipe anti-bot
   challenge page, the error now says so ("khl.ru served an anti-bot challenge
   page; try again later or through `getOption('fastRhockey.proxy')`") instead

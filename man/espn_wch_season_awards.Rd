@@ -4,13 +4,13 @@
 \alias{espn_wch_season_awards}
 \title{\strong{Get ESPN WCH Season Awards (core-v2)}}
 \usage{
-espn_wch_season_awards(season = most_recent_nhl_season(), limit = NULL, ...)
+espn_wch_season_awards(season = most_recent_nhl_season(), limit = 200, ...)
 }
 \arguments{
 \item{season}{Season end-year (e.g. \code{2026}). Defaults to
 \code{most_recent_nhl_season()}.}
 
-\item{limit}{Optional maximum number of awards (ESPN \code{limit}).}
+\item{limit}{Maximum number of awards (ESPN \code{limit}; default \code{200}, as sdv-py).}
 
 \item{...}{Reserved for forward compatibility.}
 }
