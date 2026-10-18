@@ -404,6 +404,209 @@ espn_mch_summary <- function(event_id, ...) {
   .espn_hockey_summary(league = "mens-college-hockey", game_id = event_id, ...)
 }
 
+#' @name espn_mch_pbp
+NULL
+#' @title **Get ESPN MCH Play-by-Play**
+#' @rdname espn_mch_pbp
+#' @author Saiem Gilani
+#' @param game_id ESPN event identifier (character or numeric).
+#' @param ... Reserved for forward compatibility.
+#' @details League slug `mens-college-hockey`. Parsed from the site-v2 `summary` payload by the same
+#'   helper as `espn_nhl_pbp()`; columns verified against a captured mch summary body.
+#' @return A `fastRhockey_data` tibble, one row per play:
+#'
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | id | character | ESPN play identifier. |
+#'    | sequence_number | character | Play sequence number. |
+#'    | type_id | character | Play type identifier. |
+#'    | type_text | character | Play type display text. |
+#'    | text | character | Play description text. |
+#'    | away_score | integer | Away team score at time of play. |
+#'    | home_score | integer | Home team score at time of play. |
+#'    | scoring_play | logical | Whether the play resulted in a goal. |
+#'    | score_value | integer | Goal value (1 for regulation/OT goals). |
+#'    | shooting_play | logical | Whether the play was a shot attempt. |
+#'    | wallclock | character | Wall-clock timestamp (ISO 8601). |
+#'    | period_number | integer | Period number (1-3 regulation, 4+ OT/SO). |
+#'    | period_display_value | character | Period display label (e.g. "1st Period"). |
+#'    | clock_display_value | character | Game clock display string (e.g. "14:32"). |
+#'    | team_id | character | ESPN team identifier for the acting team. |
+#'    | coordinate_x | numeric | X coordinate of play location. |
+#'    | coordinate_y | numeric | Y coordinate of play location. |
+#'    | strength_id | character | Strength situation identifier. |
+#'    | strength_text | character | Strength situation text (e.g. "Even Strength"). |
+#'    | shot_info_id | character | Shot type identifier. |
+#'    | shot_info_text | character | Shot type text (e.g. "Wrist Shot"). |
+#'    | athlete_id_1 | character | Primary participant athlete identifier. |
+#'    | athlete_id_2 | character | Secondary participant athlete identifier. |
+#'    | athlete_id_3 | character | Tertiary participant athlete identifier. |
+#'    | home_team_id | character | Home team ESPN identifier. |
+#'    | home_team_name | character | Home team name. |
+#'    | home_team_location | character | Home team city/location. |
+#'    | home_team_abbrev | character | Home team abbreviation. |
+#'    | home_team_display_name | character | Home team display name. |
+#'    | home_team_color | character | Home team primary color hex. |
+#'    | home_team_alternate_color | character | Home team alternate color hex. |
+#'    | home_team_logo | character | Home team logo URL. |
+#'    | home_team_score | character | Home team final score. |
+#'    | home_team_winner | logical | Whether the home team won. |
+#'    | away_team_id | character | Away team ESPN identifier. |
+#'    | away_team_name | character | Away team name. |
+#'    | away_team_location | character | Away team city/location. |
+#'    | away_team_abbrev | character | Away team abbreviation. |
+#'    | away_team_display_name | character | Away team display name. |
+#'    | away_team_color | character | Away team primary color hex. |
+#'    | away_team_alternate_color | character | Away team alternate color hex. |
+#'    | away_team_logo | character | Away team logo URL. |
+#'    | away_team_score | character | Away team final score. |
+#'    | away_team_winner | logical | Whether the away team won. |
+#'    | game_id | character | ESPN event identifier (echoed from arg). |
+#'    | season | integer | Season end-year. |
+#'    | season_type | integer | Season type code. |
+#'    | game_date | character | Game date-time (ISO 8601). |
+#'
+#' @export
+#' @family ESPN MCH Functions
+#' @examples
+#' \donttest{
+#'   try(espn_mch_pbp(game_id = "401717648"))
+#' }
+espn_mch_pbp <- function(game_id, ...) {
+  .espn_hockey_pbp(league = "mens-college-hockey", game_id = game_id, ...)
+}
+
+#' @name espn_mch_team_box
+NULL
+#' @title **Get ESPN MCH Team Box Score**
+#' @rdname espn_mch_team_box
+#' @author Saiem Gilani
+#' @param game_id ESPN event identifier (character or numeric).
+#' @param ... Reserved for forward compatibility.
+#' @details League slug `mens-college-hockey`. Parsed from the site-v2 `summary` payload by the same
+#'   helper as `espn_nhl_team_box()`; columns verified against a captured mch summary body.
+#' @return A `fastRhockey_data` tibble, one row per team (2 rows):
+#'
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | team_id | character | ESPN team identifier. |
+#'    | team_uid | character | ESPN team uid. |
+#'    | team_slug | character | Team URL slug. |
+#'    | team_location | character | Team city/location. |
+#'    | team_name | character | Team name (mascot). |
+#'    | team_abbreviation | character | Team abbreviation. |
+#'    | team_display_name | character | Team display name. |
+#'    | team_short_display_name | character | Team short display name. |
+#'    | team_color | character | Team primary color hex. |
+#'    | team_alternate_color | character | Team alternate color hex. |
+#'    | team_logo | character | Team logo URL. |
+#'    | home_away | character | "home" or "away". |
+#'    | game_id | character | ESPN event identifier (echoed from arg). |
+#'    | season | integer | Season end-year. |
+#'    | season_type | integer | Season type code. |
+#'    | game_date | character | Game date-time (ISO 8601). |
+#'    | blocked_shots | character | Total blocked shots. |
+#'    | hits | character | Total hits. |
+#'    | takeaways | character | Total takeaways. |
+#'    | shots_total | character | Total shots on goal. |
+#'    | power_play_goals | character | Power play goals. |
+#'    | power_play_opportunities | character | Power play opportunities. |
+#'    | power_play_pct | character | Power play percentage. |
+#'    | short_handed_goals | character | Short-handed goals. |
+#'    | shootout_goals | character | Shootout goals. |
+#'    | faceoffs_won | character | Faceoffs won. |
+#'    | faceoff_percent | character | Faceoff win percentage. |
+#'    | giveaways | character | Giveaways. |
+#'    | penalties | character | Penalty count. |
+#'    | penalty_minutes | character | Penalty minutes. |
+#'
+#' @export
+#' @family ESPN MCH Functions
+#' @examples
+#' \donttest{
+#'   try(espn_mch_team_box(game_id = "401717648"))
+#' }
+espn_mch_team_box <- function(game_id, ...) {
+  .espn_hockey_team_box(league = "mens-college-hockey", game_id = game_id, ...)
+}
+
+#' @name espn_mch_player_box
+NULL
+#' @title **Get ESPN MCH Player Box Score**
+#' @rdname espn_mch_player_box
+#' @author Saiem Gilani
+#' @param game_id ESPN event identifier (character or numeric).
+#' @param ... Reserved for forward compatibility.
+#' @details League slug `mens-college-hockey`. Parsed from the site-v2 `summary` payload by the same
+#'   helper as `espn_nhl_player_box()`; columns verified against a captured mch summary body.
+#' @return A `fastRhockey_data` tibble, one row per player appearance (skaters and goalies bound; columns not kept for a position group are `NA`):
+#'
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | athlete_id | character | ESPN athlete identifier. |
+#'    | athlete_display_name | character | Athlete full display name. |
+#'    | athlete_short_name | character | Athlete short name. |
+#'    | athlete_last_name | character | Athlete last name. |
+#'    | athlete_jersey | character | Jersey number. |
+#'    | athlete_headshot_href | character | Headshot image URL. |
+#'    | athlete_position_name | character | Position name. |
+#'    | athlete_position_abbreviation | character | Position abbreviation. |
+#'    | athlete_active | logical | Whether the athlete was active. |
+#'    | athlete_scratched | logical | Whether the athlete was scratched. |
+#'    | stat_group | character | Stat group name ("forwards","defenses","goalies"). |
+#'    | team_id | character | ESPN team identifier. |
+#'    | team_abbreviation | character | Team abbreviation. |
+#'    | team_display_name | character | Team display name. |
+#'    | home_away | character | "home" or "away". |
+#'    | team_score | character | Team final score. |
+#'    | team_winner | logical | Whether the team won. |
+#'    | opponent_team_id | character | Opponent team identifier. |
+#'    | opponent_team_abbreviation | character | Opponent team abbreviation. |
+#'    | game_id | character | ESPN event identifier (echoed from arg). |
+#'    | season | integer | Season end-year. |
+#'    | season_type | integer | Season type code. |
+#'    | game_date | character | Game date-time (ISO 8601). |
+#'    | bs | character | Blocked shots (skaters). |
+#'    | ht | character | Hits (skaters). |
+#'    | tk | character | Takeaways (skaters). |
+#'    | plus_minus | character | Plus/minus rating (skaters). |
+#'    | toi | character | Time on ice (skaters, MM:SS). |
+#'    | pptoi | character | Power play time on ice (skaters, MM:SS). |
+#'    | shtoi | character | Short-handed time on ice (skaters, MM:SS). |
+#'    | estoi | character | Even-strength time on ice (skaters, MM:SS). |
+#'    | shft | character | Total shifts (skaters). |
+#'    | g | character | Goals (skaters). |
+#'    | ytdg | character | Year-to-date goals (skaters/goalies). |
+#'    | a | character | Assists (skaters). |
+#'    | s | character | Shots (skaters). |
+#'    | sm | character | Missed shots (skaters). |
+#'    | sog | character | Shots on goal (skaters). |
+#'    | fw | character | Faceoffs won (skaters). |
+#'    | fl | character | Faceoffs lost (skaters). |
+#'    | fo_percent | character | Faceoff percentage (skaters). |
+#'    | gv | character | Giveaways (skaters). |
+#'    | pn | character | Penalties taken (skaters). |
+#'    | pim | character | Penalty minutes (skaters/goalies). |
+#'    | ga | character | Goals against (goalies). |
+#'    | sa | character | Shots against (goalies). |
+#'    | sos | character | Shootout saves (goalies). |
+#'    | sosa | character | Shootout shots against (goalies). |
+#'    | sv | character | Saves (goalies). |
+#'    | sv_percent | character | Save percentage (goalies). |
+#'    | essv | character | Even-strength saves (goalies). |
+#'    | ppsv | character | Power play saves (goalies). |
+#'    | shsv | character | Short-handed saves (goalies). |
+#'
+#' @export
+#' @family ESPN MCH Functions
+#' @examples
+#' \donttest{
+#'   try(espn_mch_player_box(game_id = "401717648"))
+#' }
+espn_mch_player_box <- function(game_id, ...) {
+  .espn_hockey_player_box(league = "mens-college-hockey", game_id = game_id, ...)
+}
+
 #' @name espn_mch_calendar
 NULL
 #' @title **Get ESPN MCH Calendar**
@@ -4498,7 +4701,7 @@ NULL
 #' @author Saiem Gilani
 #' @param coach_id ESPN coach identifier (character or numeric). Use
 #'   `espn_mch_coaches()` to discover valid coach ids.
-#' @param record_type Optional record type appended to the path (`coaches/{id}/record/{record_type}`, e.g. `0`).
+#' @param record_type Record type path segment (`coaches/{id}/record/{record_type}`); default `0`, as sdv-py. `NULL` drops the segment.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_coach_record()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with coach career record data, or an
@@ -4523,7 +4726,7 @@ NULL
 #'     espn_mch_coach_record(coach_id = ccs$coach_id[1])
 #'   })
 #' }
-espn_mch_coach_record <- function(coach_id, record_type = NULL, ...) {
+espn_mch_coach_record <- function(coach_id, record_type = 0, ...) {
   .espn_hockey_coach_record(league = "mens-college-hockey", coach_id = coach_id, record_type = record_type, ...)
 }
 
@@ -4566,6 +4769,7 @@ espn_mch_coach_season <- function(coach_id,
   .espn_hockey_coach_season(league   = "mens-college-hockey",
                               coach_id = coach_id,
                               season   = season,
+                              coach_first = TRUE,
                               ...)
 }
 
@@ -5280,6 +5484,209 @@ NULL
 #' }
 espn_wch_summary <- function(event_id, ...) {
   .espn_hockey_summary(league = "womens-college-hockey", game_id = event_id, ...)
+}
+
+#' @name espn_wch_pbp
+NULL
+#' @title **Get ESPN WCH Play-by-Play**
+#' @rdname espn_wch_pbp
+#' @author Saiem Gilani
+#' @param game_id ESPN event identifier (character or numeric).
+#' @param ... Reserved for forward compatibility.
+#' @details League slug `womens-college-hockey`. Parsed from the site-v2 `summary` payload by the same
+#'   helper as `espn_nhl_pbp()`; columns verified against a captured wch summary body.
+#' @return A `fastRhockey_data` tibble, one row per play:
+#'
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | id | character | ESPN play identifier. |
+#'    | sequence_number | character | Play sequence number. |
+#'    | type_id | character | Play type identifier. |
+#'    | type_text | character | Play type display text. |
+#'    | text | character | Play description text. |
+#'    | away_score | integer | Away team score at time of play. |
+#'    | home_score | integer | Home team score at time of play. |
+#'    | scoring_play | logical | Whether the play resulted in a goal. |
+#'    | score_value | integer | Goal value (1 for regulation/OT goals). |
+#'    | shooting_play | logical | Whether the play was a shot attempt. |
+#'    | wallclock | character | Wall-clock timestamp (ISO 8601). |
+#'    | period_number | integer | Period number (1-3 regulation, 4+ OT/SO). |
+#'    | period_display_value | character | Period display label (e.g. "1st Period"). |
+#'    | clock_display_value | character | Game clock display string (e.g. "14:32"). |
+#'    | team_id | character | ESPN team identifier for the acting team. |
+#'    | coordinate_x | numeric | X coordinate of play location. |
+#'    | coordinate_y | numeric | Y coordinate of play location. |
+#'    | strength_id | character | Strength situation identifier. |
+#'    | strength_text | character | Strength situation text (e.g. "Even Strength"). |
+#'    | shot_info_id | character | Shot type identifier. |
+#'    | shot_info_text | character | Shot type text (e.g. "Wrist Shot"). |
+#'    | athlete_id_1 | character | Primary participant athlete identifier. |
+#'    | athlete_id_2 | character | Secondary participant athlete identifier. |
+#'    | athlete_id_3 | character | Tertiary participant athlete identifier. |
+#'    | home_team_id | character | Home team ESPN identifier. |
+#'    | home_team_name | character | Home team name. |
+#'    | home_team_location | character | Home team city/location. |
+#'    | home_team_abbrev | character | Home team abbreviation. |
+#'    | home_team_display_name | character | Home team display name. |
+#'    | home_team_color | character | Home team primary color hex. |
+#'    | home_team_alternate_color | character | Home team alternate color hex. |
+#'    | home_team_logo | character | Home team logo URL. |
+#'    | home_team_score | character | Home team final score. |
+#'    | home_team_winner | logical | Whether the home team won. |
+#'    | away_team_id | character | Away team ESPN identifier. |
+#'    | away_team_name | character | Away team name. |
+#'    | away_team_location | character | Away team city/location. |
+#'    | away_team_abbrev | character | Away team abbreviation. |
+#'    | away_team_display_name | character | Away team display name. |
+#'    | away_team_color | character | Away team primary color hex. |
+#'    | away_team_alternate_color | character | Away team alternate color hex. |
+#'    | away_team_logo | character | Away team logo URL. |
+#'    | away_team_score | character | Away team final score. |
+#'    | away_team_winner | logical | Whether the away team won. |
+#'    | game_id | character | ESPN event identifier (echoed from arg). |
+#'    | season | integer | Season end-year. |
+#'    | season_type | integer | Season type code. |
+#'    | game_date | character | Game date-time (ISO 8601). |
+#'
+#' @export
+#' @family ESPN WCH Functions
+#' @examples
+#' \donttest{
+#'   try(espn_wch_pbp(game_id = "401762970"))
+#' }
+espn_wch_pbp <- function(game_id, ...) {
+  .espn_hockey_pbp(league = "womens-college-hockey", game_id = game_id, ...)
+}
+
+#' @name espn_wch_team_box
+NULL
+#' @title **Get ESPN WCH Team Box Score**
+#' @rdname espn_wch_team_box
+#' @author Saiem Gilani
+#' @param game_id ESPN event identifier (character or numeric).
+#' @param ... Reserved for forward compatibility.
+#' @details League slug `womens-college-hockey`. Parsed from the site-v2 `summary` payload by the same
+#'   helper as `espn_nhl_team_box()`; columns verified against a captured wch summary body.
+#' @return A `fastRhockey_data` tibble, one row per team (2 rows):
+#'
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | team_id | character | ESPN team identifier. |
+#'    | team_uid | character | ESPN team uid. |
+#'    | team_slug | character | Team URL slug. |
+#'    | team_location | character | Team city/location. |
+#'    | team_name | character | Team name (mascot). |
+#'    | team_abbreviation | character | Team abbreviation. |
+#'    | team_display_name | character | Team display name. |
+#'    | team_short_display_name | character | Team short display name. |
+#'    | team_color | character | Team primary color hex. |
+#'    | team_alternate_color | character | Team alternate color hex. |
+#'    | team_logo | character | Team logo URL. |
+#'    | home_away | character | "home" or "away". |
+#'    | game_id | character | ESPN event identifier (echoed from arg). |
+#'    | season | integer | Season end-year. |
+#'    | season_type | integer | Season type code. |
+#'    | game_date | character | Game date-time (ISO 8601). |
+#'    | blocked_shots | character | Total blocked shots. |
+#'    | hits | character | Total hits. |
+#'    | takeaways | character | Total takeaways. |
+#'    | shots_total | character | Total shots on goal. |
+#'    | power_play_goals | character | Power play goals. |
+#'    | power_play_opportunities | character | Power play opportunities. |
+#'    | power_play_pct | character | Power play percentage. |
+#'    | short_handed_goals | character | Short-handed goals. |
+#'    | shootout_goals | character | Shootout goals. |
+#'    | faceoffs_won | character | Faceoffs won. |
+#'    | faceoff_percent | character | Faceoff win percentage. |
+#'    | giveaways | character | Giveaways. |
+#'    | penalties | character | Penalty count. |
+#'    | penalty_minutes | character | Penalty minutes. |
+#'
+#' @export
+#' @family ESPN WCH Functions
+#' @examples
+#' \donttest{
+#'   try(espn_wch_team_box(game_id = "401762970"))
+#' }
+espn_wch_team_box <- function(game_id, ...) {
+  .espn_hockey_team_box(league = "womens-college-hockey", game_id = game_id, ...)
+}
+
+#' @name espn_wch_player_box
+NULL
+#' @title **Get ESPN WCH Player Box Score**
+#' @rdname espn_wch_player_box
+#' @author Saiem Gilani
+#' @param game_id ESPN event identifier (character or numeric).
+#' @param ... Reserved for forward compatibility.
+#' @details League slug `womens-college-hockey`. Parsed from the site-v2 `summary` payload by the same
+#'   helper as `espn_nhl_player_box()`; columns verified against a captured wch summary body.
+#' @return A `fastRhockey_data` tibble, one row per player appearance (skaters and goalies bound; columns not kept for a position group are `NA`):
+#'
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | athlete_id | character | ESPN athlete identifier. |
+#'    | athlete_display_name | character | Athlete full display name. |
+#'    | athlete_short_name | character | Athlete short name. |
+#'    | athlete_last_name | character | Athlete last name. |
+#'    | athlete_jersey | character | Jersey number. |
+#'    | athlete_headshot_href | character | Headshot image URL. |
+#'    | athlete_position_name | character | Position name. |
+#'    | athlete_position_abbreviation | character | Position abbreviation. |
+#'    | athlete_active | logical | Whether the athlete was active. |
+#'    | athlete_scratched | logical | Whether the athlete was scratched. |
+#'    | stat_group | character | Stat group name ("forwards","defenses","goalies"). |
+#'    | team_id | character | ESPN team identifier. |
+#'    | team_abbreviation | character | Team abbreviation. |
+#'    | team_display_name | character | Team display name. |
+#'    | home_away | character | "home" or "away". |
+#'    | team_score | character | Team final score. |
+#'    | team_winner | logical | Whether the team won. |
+#'    | opponent_team_id | character | Opponent team identifier. |
+#'    | opponent_team_abbreviation | character | Opponent team abbreviation. |
+#'    | game_id | character | ESPN event identifier (echoed from arg). |
+#'    | season | integer | Season end-year. |
+#'    | season_type | integer | Season type code. |
+#'    | game_date | character | Game date-time (ISO 8601). |
+#'    | bs | character | Blocked shots (skaters). |
+#'    | ht | character | Hits (skaters). |
+#'    | tk | character | Takeaways (skaters). |
+#'    | plus_minus | character | Plus/minus rating (skaters). |
+#'    | toi | character | Time on ice (skaters, MM:SS). |
+#'    | pptoi | character | Power play time on ice (skaters, MM:SS). |
+#'    | shtoi | character | Short-handed time on ice (skaters, MM:SS). |
+#'    | estoi | character | Even-strength time on ice (skaters, MM:SS). |
+#'    | shft | character | Total shifts (skaters). |
+#'    | g | character | Goals (skaters). |
+#'    | ytdg | character | Year-to-date goals (skaters/goalies). |
+#'    | a | character | Assists (skaters). |
+#'    | s | character | Shots (skaters). |
+#'    | sm | character | Missed shots (skaters). |
+#'    | sog | character | Shots on goal (skaters). |
+#'    | fw | character | Faceoffs won (skaters). |
+#'    | fl | character | Faceoffs lost (skaters). |
+#'    | fo_percent | character | Faceoff percentage (skaters). |
+#'    | gv | character | Giveaways (skaters). |
+#'    | pn | character | Penalties taken (skaters). |
+#'    | pim | character | Penalty minutes (skaters/goalies). |
+#'    | ga | character | Goals against (goalies). |
+#'    | sa | character | Shots against (goalies). |
+#'    | sos | character | Shootout saves (goalies). |
+#'    | sosa | character | Shootout shots against (goalies). |
+#'    | sv | character | Saves (goalies). |
+#'    | sv_percent | character | Save percentage (goalies). |
+#'    | essv | character | Even-strength saves (goalies). |
+#'    | ppsv | character | Power play saves (goalies). |
+#'    | shsv | character | Short-handed saves (goalies). |
+#'
+#' @export
+#' @family ESPN WCH Functions
+#' @examples
+#' \donttest{
+#'   try(espn_wch_player_box(game_id = "401762970"))
+#' }
+espn_wch_player_box <- function(game_id, ...) {
+  .espn_hockey_player_box(league = "womens-college-hockey", game_id = game_id, ...)
 }
 
 #' @name espn_wch_calendar
@@ -9376,7 +9783,7 @@ NULL
 #' @author Saiem Gilani
 #' @param coach_id ESPN coach identifier (character or numeric). Use
 #'   `espn_wch_coaches()` to discover valid coach ids.
-#' @param record_type Optional record type appended to the path (`coaches/{id}/record/{record_type}`, e.g. `0`).
+#' @param record_type Record type path segment (`coaches/{id}/record/{record_type}`); default `0`, as sdv-py. `NULL` drops the segment.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_coach_record()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with coach career record data, or an
@@ -9401,7 +9808,7 @@ NULL
 #'     espn_wch_coach_record(coach_id = ccs$coach_id[1])
 #'   })
 #' }
-espn_wch_coach_record <- function(coach_id, record_type = NULL, ...) {
+espn_wch_coach_record <- function(coach_id, record_type = 0, ...) {
   .espn_hockey_coach_record(league = "womens-college-hockey", coach_id = coach_id, record_type = record_type, ...)
 }
 
@@ -9444,6 +9851,7 @@ espn_wch_coach_season <- function(coach_id,
   .espn_hockey_coach_season(league   = "womens-college-hockey",
                               coach_id = coach_id,
                               season   = season,
+                              coach_first = TRUE,
                               ...)
 }
 

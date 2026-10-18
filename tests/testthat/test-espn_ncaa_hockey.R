@@ -80,12 +80,12 @@ test_that("espn_mch_*/espn_wch_* export the sdv-py function set", {
 # ---------------------------------------------------------------------------
 # 2. Routing: every wrapper requests the sdv-py URL for its league slug
 # ---------------------------------------------------------------------------
-# Routes where the shared espn_nhl_* helper (reused on purpose) builds a
-# different path than sdv-py. Pinned so a silent change is noticed.
-# calendar: the helper reads the calendar out of the scoreboard payload.
-# coach_record: no /record/{record_type} segment. coach_season: the helper uses
-# seasons/{season}/coaches/{id}, sdv-py coaches/{id}/seasons/{season}.
-KNOWN_ROUTE_DEVIATIONS <- c("calendar", "coach_record", "coach_season")
+# Routes where R deliberately builds a different path than sdv-py. Pinned so a
+# silent change is noticed.
+# calendar: sdv-py's site-v2 /calendar answers 404 for both college leagues
+# (checked live 2026-10-18), so R keeps reading leagues[].calendar out of the
+# scoreboard payload, which answers.
+KNOWN_ROUTE_DEVIATIONS <- c("calendar")
 
 test_that("every wrapper hits the sdv-py URL for its league", {
   skip_on_cran()
@@ -108,6 +108,37 @@ test_that("every wrapper hits the sdv-py URL for its league", {
   }
   expect_setequal(sub(":.*$", "", sub("^(mch|wch)_", "", bad)), KNOWN_ROUTE_DEVIATIONS)
   expect_length(bad, 2L * length(KNOWN_ROUTE_DEVIATIONS))
+})
+
+test_that("coach routes keep the NHL path order; college uses sdv-py's", {
+  skip_on_cran()
+  seen <- mock_getter("{}")
+  suppressMessages(espn_nhl_coach_season(coach_id = "C1", season = 2026))
+  expect_match(seen$urls[1], "/leagues/nhl/seasons/2026/coaches/C1$")
+  seen <- mock_getter("{}")
+  suppressMessages(espn_nhl_coach_record(coach_id = "C1"))
+  expect_match(seen$urls[1], "/leagues/nhl/coaches/C1/record$")
+  seen <- mock_getter("{}")
+  suppressMessages(espn_wch_coach_record(coach_id = "C1", record_type = 2))
+  expect_match(seen$urls[1], "/leagues/womens-college-hockey/coaches/C1/record/2$")
+})
+
+test_that("pbp / team_box / player_box shims read the summary route", {
+  skip_on_cran()
+  for (lg in names(SLUG)) {
+    for (k in c("pbp", "team_box", "player_box")) {
+      fn <- get(paste0("espn_", lg, "_", k), envir = asNamespace("fastRhockey"))
+      expect_identical(names(formals(fn)),
+                       names(formals(get(paste0("espn_nhl_", k), envir = asNamespace("fastRhockey")))))
+      seen <- mock_getter(read_fx(paste0(lg, "_summary.json")))
+      x <- fn(game_id = "E1")
+      expect_identical(seen$urls[1], paste0(
+        "https://site.api.espn.com/apis/site/v2/sports/hockey/", SLUG[[lg]], "/summary"))
+      expect_identical(seen$params[[1]]$event, "E1")
+      expect_s3_class(x, "fastRhockey_data")
+      expect_gt(nrow(x), 0L)
+    }
+  }
 })
 
 # ---------------------------------------------------------------------------

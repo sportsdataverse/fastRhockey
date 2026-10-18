@@ -52,13 +52,16 @@ test_that("NHL requests are unchanged by the new helper args (URL + query)", {
       paste0(WEB, "/nhl/statistics/byathlete"), list(limit = 25, page = 1L))
 })
 
-test_that("mch/wch wrappers with no new args hit the same URLs as before", {
+test_that("mch/wch wrappers with no new args hit the expected URLs", {
   for (lg in c(mch = "mens-college-hockey", wch = "womens-college-hockey")) {
     pre <- if (lg == "mens-college-hockey") "espn_mch_" else "espn_wch_"
     r <- capture_req(function() get(paste0(pre, "scoreboard"))())
     expect_identical(r$url, paste0(SITE, "/", lg, "/scoreboard"))
     expect_identical(r$params, list())
+    # F2: college coach_record defaults to sdv-py's record/0
     r <- capture_req(function() get(paste0(pre, "coach_record"))(coach_id = 7))
+    expect_identical(r$url, paste0(CORE, "/", lg, "/coaches/7/record/0"))
+    r <- capture_req(function() get(paste0(pre, "coach_record"))(coach_id = 7, record_type = NULL))
     expect_identical(r$url, paste0(CORE, "/", lg, "/coaches/7/record"))
   }
 })
