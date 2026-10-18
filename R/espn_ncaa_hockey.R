@@ -322,7 +322,7 @@ NULL
 #'    | venue_city | character | Venue city. |
 #'    | venue_state | character | Venue state. |
 #'    | venue_indoor | logical | Whether the venue is indoors. |
-#'    | broadcast | character | Broadcast network(s). |
+#'    | broadcast | character | Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
 #'    | note | character | Game note or headline. |
 #'    | home_id | character | Home team ESPN identifier. |
 #'    | home_name | character | Home team name. |
@@ -1045,7 +1045,7 @@ NULL
 #'    | venue_full_name | character | Venue full name. |
 #'    | venue_city | character | Venue city. |
 #'    | venue_state | character | Venue state. |
-#'    | broadcast | character | Broadcast network(s). |
+#'    | broadcast | character | Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
 #'    | home_id | character | Home team ESPN identifier. |
 #'    | home_name | character | Home team display name. |
 #'    | home_abbreviation | character | Home team abbreviation. |
@@ -5423,7 +5423,7 @@ NULL
 #'    | venue_city | character | Venue city. |
 #'    | venue_state | character | Venue state. |
 #'    | venue_indoor | logical | Whether the venue is indoors. |
-#'    | broadcast | character | Broadcast network(s). |
+#'    | broadcast | character | Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
 #'    | note | character | Game note or headline. |
 #'    | home_id | character | Home team ESPN identifier. |
 #'    | home_name | character | Home team name. |
@@ -6146,7 +6146,7 @@ NULL
 #'    | venue_full_name | character | Venue full name. |
 #'    | venue_city | character | Venue city. |
 #'    | venue_state | character | Venue state. |
-#'    | broadcast | character | Broadcast network(s). |
+#'    | broadcast | character | Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
 #'    | home_id | character | Home team ESPN identifier. |
 #'    | home_name | character | Home team display name. |
 #'    | home_abbreviation | character | Home team abbreviation. |

@@ -170,12 +170,10 @@ for (lg in names(SLUG)) {
       expect_equal(sort(names(x)), sort(names(csv)))
       expect_equal(nrow(x), nrow(csv))
       mm <- parity_mismatches(x, csv)
-      # sdv-py keeps only the first network of a market (names[0]); the shared R
-      # helper joins them ("ESPNU/ESPN+"). One wch game; pinned.
-      known <- if (lg == "wch") c(broadcast = 1L) else setNames(integer(), character())
-      expect_identical(names(mm)[mm > 0], names(known))
-      expect_equal(sum(mm), sum(known))
-      if (lg == "wch") expect_true("ESPNU/ESPN+" %in% x$broadcast)
+      # Both sides join every network name with ", " (sdv-py _broadcast_names);
+      # the CSV is sdv-py main's frame on the same fixture. Zero mismatches.
+      expect_identical(names(mm)[mm > 0], character())
+      if (lg == "wch") expect_true("ESPNU, ESPN+" %in% x$broadcast)
       # id dtypes (one dtype per id, as in sdv-py)
       expect_type(x$game_id, "character")
       expect_type(x$home_id, "character")
@@ -387,6 +385,20 @@ test_that("verified @return tables match the columns on the captured bodies", {
       expect_identical(vapply(x, function(col) class(col)[1], ""), doc_table(src, name), label = name)
     }
   }
+})
+
+test_that("broadcast names follow sdv-py's _broadcast_names", {
+  skip_on_cran()
+  bn <- fastRhockey:::.espn_broadcast_names
+  expect_identical(bn(list()), "")
+  expect_identical(bn(list(list(market = "national", names = list("ESPNU", "ESPN+")),
+                           list(market = "home", names = list("ESPN+", "NESN")))), "ESPNU, ESPN+, NESN")
+  expect_identical(bn(list(list(market = "national", names = list()))), "national")
+  expect_identical(bn(list(list(market = list(id = "1"), names = list()))), "")
+  expect_identical(bn(list(list(names = "ABC"))), "ABC")
+  # simplified (data.frame) form, as the scoreboard reads it
+  df <- jsonlite::fromJSON('[{"market":"national","names":["ESPNU","ESPN+"]},{"market":"away","names":[]}]')
+  expect_identical(bn(df), "ESPNU, ESPN+, away")
 })
 
 test_that("team_schedule keeps played and unplayed games together", {

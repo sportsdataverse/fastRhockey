@@ -3,6 +3,40 @@
 # Internal league-generic helpers + public NHL shims.
 
 # ===========================================================================
+# 0. Broadcast names (shared by scoreboard and team schedule)
+# ===========================================================================
+
+#' Internal: every network name of a competition, ", "-joined
+#'
+#' Mirrors sdv-py's `_broadcast_names`: feed order, deduped; a broadcast with
+#' no `names` contributes its `market` when that is a string; anything that is
+#' not a non-empty string is skipped; no broadcasts gives `""`.
+#'
+#' @param bc The competition's `broadcasts`: a data.frame (simplified JSON) or
+#'   a list of lists.
+#' @return A length-one character string.
+#' @noRd
+.espn_broadcast_names <- function(bc) {
+  if (is.data.frame(bc)) {
+    bc <- lapply(seq_len(nrow(bc)), function(i) {
+      lapply(bc, function(col) if (is.data.frame(col)) col[i, , drop = FALSE] else col[[i]])
+    })
+  }
+  out <- character()
+  for (b in bc) {
+    if (!is.list(b) || is.data.frame(b)) next
+    nms <- b[["names"]]
+    cand <- if (length(nms) == 0) list(b[["market"]]) else as.list(nms)
+    for (n in cand) {
+      if (is.character(n) && length(n) == 1L && !is.na(n) && nzchar(n) && !(n %in% out)) {
+        out <- c(out, n)
+      }
+    }
+  }
+  paste(out, collapse = ", ")
+}
+
+# ===========================================================================
 # 1. Scoreboard
 # ===========================================================================
 
@@ -99,12 +133,11 @@
         home_logo_href <- .cfield_sb(home_team_df, "logo")
         away_logo_href <- .cfield_sb(away_team_df, "logo")
 
-        # broadcast
+        # broadcast: every network name, ", "-joined (sdv-py _broadcast_names)
         broadcast_str <- tryCatch({
-          bc_raw <- comps$broadcast
-          if (!is.null(bc_raw) && nzchar(as.character(bc_raw %||% "")))
-            as.character(bc_raw)
-          else ""
+          bc <- comps$broadcasts
+          if (is.list(bc) && !is.data.frame(bc)) bc <- bc[[1]]
+          .espn_broadcast_names(bc %||% list())
         }, error = function(e) "")
 
         # note
@@ -272,7 +305,7 @@ NULL
 #'    |venue_city               |character |Venue city.                                      |
 #'    |venue_state              |character |Venue state.                                     |
 #'    |venue_indoor             |logical   |Whether the venue is indoors.                    |
-#'    |broadcast                |character |Broadcast network(s).                            |
+#'    |broadcast                |character |Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
 #'    |note                     |character |Game note or headline.                           |
 #'    |home_id                  |character |Home team ESPN identifier.                       |
 #'    |home_name                |character |Home team name.                                  |
@@ -851,13 +884,8 @@ espn_nhl_calendar <- function(...) {
         home_score_val <- as.character(if (is.list(home_score_raw)) home_score_raw$value %||% NA_character_ else home_score_raw %||% NA_character_)
         away_score_val <- as.character(if (is.list(away_score_raw)) away_score_raw$value %||% NA_character_ else away_score_raw %||% NA_character_)
 
-        broadcast_str <- tryCatch({
-          bc <- comps$broadcasts %||% list()
-          if (length(bc) > 0) {
-            nms <- bc[[1]]$names %||% list()
-            if (length(nms) > 0) paste(nms, collapse = ", ") else ""
-          } else ""
-        }, error = function(e) "")
+        broadcast_str <- tryCatch(.espn_broadcast_names(comps$broadcasts %||% list()),
+                                  error = function(e) "")
 
         list(
           game_id            = ev$id %||% NA_character_,
@@ -958,7 +986,7 @@ NULL
 #'    |venue_full_name       |character |Venue full name.                                   |
 #'    |venue_city            |character |Venue city.                                        |
 #'    |venue_state           |character |Venue state.                                       |
-#'    |broadcast             |character |Broadcast network(s).                              |
+#'    |broadcast             |character |Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
 #'    |home_id               |character |Home team ESPN identifier.                         |
 #'    |home_name             |character |Home team display name.                            |
 #'    |home_abbreviation     |character |Home team abbreviation.                            |
