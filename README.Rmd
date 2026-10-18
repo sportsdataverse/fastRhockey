@@ -144,6 +144,15 @@ You can view CSVs of historical boxscore and play-by-play on the [**`fastRhockey
 
 ********************************************************************
 
+## Star History
+
+<a href="https://github.com/sportsdataverse/fastRhockey/stargazers">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/star-history/star-history-dark.svg">
+    <img alt="Star history of sportsdataverse/fastRhockey" src="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/star-history/star-history.png" width="600">
+  </picture>
+</a>
+
 ## Follow the [SportsDataverse](https://twitter.com/sportsdataverse) on Twitter and star this repo
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
