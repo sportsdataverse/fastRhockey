@@ -103,7 +103,8 @@
     g = "i", a = "i", pts = "i", pm = "i", plus = "i", minus = "i", pim = "i", eqg = "i",
     ppg = "i", shg = "i", otg = "i", gwg = "i", sds = "i", sog = "i", sog_pct = "f", sog_avg = "f",
     fo = "i", fow = "i", fo_pct = "f", toi_avg = "s", sft_avg = "f", tie_avg = "s", sfte_avg = "f",
-    tipp_avg = "s", sftpp_avg = "f", tish_avg = "s", sftsh_avg = "f", hits = "i", bls = "i"
+    tipp_avg = "s", sftpp_avg = "f", tish_avg = "s", sftsh_avg = "f", hits = "i", bls = "i",
+    w = "i", l = "i", sop = "i", ga = "i", sv = "i", sv_pct = "f", gaa = "f", so = "i", toi = "s"
   ),
   khl_playoff_bracket = c(
     round = "i", wins_to_advance = "i", pair = "i", conference = "s", seed = "i", club_id = "i",
@@ -251,6 +252,9 @@
 .KHL_REDACTED <- c("bets", "fonbet", "remote_ip")
 .KHL_ERROR_KEYS <- c("error", "errors", "message", "code", "detail", "status")
 .KHL_TOURNAMENT <- "values[tournament]"
+.KHL_POSITION <- "values[amplua_full]"
+# Runaway-paging guard for the all-pages goalie list (khl.ru has about 7 pages of 20).
+.KHL_MAX_PAGES <- 30L
 # Routes that answer an error envelope without a tournament.
 .KHL_NEEDS_TOURNAMENT <- c("/game/header/", "/game/text/", "/game/protocol/", "/standings/playoff/")
 # Where each route keeps its rows (an empty container there is "no data"); an
@@ -506,15 +510,21 @@
 }
 
 # Stat columns sent as numbers or numeric strings: mm:ss text stays text, rates are double,
-# all-integer columns integer, all-numeric ones double; "-" and "" are NA.
+# all-integer columns integer, all-numeric ones double; "-" and "" are NA, also in the
+# text columns (goalie toi, text even when every value is "-").
 .khl_stat_cast <- function(df, cols) {
-  float_stats <- c("ts", "dt", "as", "pcd", "dt_a", "dt_b")
+  float_stats <- c("ts", "dt", "as", "pcd", "dt_a", "dt_b", "gaa")
+  text_stats <- "toi"
   for (cn in cols) {
     if (!cn %in% names(df)) next
     x <- df[[cn]]
     text <- trimws(vapply(seq_along(x), function(i) {
       if (is.na(x[[i]])) NA_character_ else .khl_pystr(x[[i]])
     }, character(1)))
+    if (cn %in% text_stats) {
+      df[[cn]] <- ifelse(text %in% c("-", ""), NA_character_, text)
+      next
+    }
     vals <- text[!is.na(text) & !text %in% c("", "-")]
     if (any(grepl(":", vals, fixed = TRUE))) next
     num <- suppressWarnings(as.numeric(text))
@@ -1275,6 +1285,14 @@
 .khl_get <- function(url, params = list(), headers = NULL, timeout = 60) {
   route <- sub("^/rest", "", httr2::url_parse(url)$path)
   form <- .khl_form(route, params)
+  if (route == "/stat/players/" && identical(form[[.KHL_POSITION]], "goalies")) {
+    return(.khl_all_goalies(url, form, headers, timeout))
+  }
+  .khl_post(url, route, form, headers, timeout)
+}
+
+# One checked POST of `form` to `url` within the primed session (see .khl_get()).
+.khl_post <- function(url, route, form, headers = NULL, timeout = 60) {
   site <- sub("^([a-z]+://[^/]+).*$", "\\1", url)
   session <- .khl_state$sessions[[site]] %||% .khl_new_session(site, timeout)
   raw <- NULL
@@ -1301,6 +1319,72 @@
   }
   .khl_rest_check(url, route, raw, form)
   .khl_strip(raw)
+}
+
+# Sort key parts of a goalie row: gp, w (numbers, 0 when not one), name and player link.
+.khl_goalie_key <- function(row) {
+  num <- function(v) {
+    x <- if (length(v) == 1 && (is.numeric(v) || is.character(v))) suppressWarnings(as.numeric(v)) else NA_real_
+    if (is.na(x)) 0 else x
+  }
+  cols <- .khl_obj(.khl_obj(row)[["cols"]])
+  who <- list()
+  for (cell in .khl_arr(.khl_obj(row)[["first"]])) {
+    if (.khl_is_obj(cell) && .khl_truthy(cell[["link"]])) { who <- cell; break }
+  }
+  txt <- function(v) if (.khl_truthy(v)) .khl_pystr(v) else ""
+  list(gp = num(cols[["gp"]]), w = num(cols[["w"]]), name = txt(who[["val"]]), link = txt(who[["link"]]))
+}
+
+# Every page of position=goalies, merged into page 1's envelope, sorted by gp desc, w desc,
+# name, link (as sdv-py's khl_runtime._all_goalies). khl.ru orders goalies by goals-against
+# average ascending and ignores every sort field, so page 1 is the goalies without a game.
+# The page count is the body's nav.max; paging stops there or on an empty page (without a
+# nav.max, on a short page). Never a partial list: more than `max_pages` pages, a row count
+# that does not fill nav.max pages, or a player on two pages is a failed fetch.
+.khl_all_goalies <- function(url, form, headers = NULL, timeout = 60, max_pages = .KHL_MAX_PAGES) {
+  where <- .euro_where(url)
+  route <- "/stat/players/"
+  per_page <- as.integer(form[["nav[count]"]] %||% 20L)
+  first <- NULL
+  rows <- list()
+  total <- NULL
+  page <- 0L
+  repeat {
+    page <- page + 1L
+    if (page > max_pages) .abort_asset_fetch("{where}: still paging goalies after {max_pages} pages")
+    form[["nav[page]"]] <- as.character(page)
+    raw <- tryCatch(.khl_post(url, route, form, headers, timeout),
+                    fastRhockey_no_data = function(e) if (page == 1L) stop(e) else NULL)
+    if (is.null(raw)) break  # an empty page past the end
+    group <- .khl_dig(raw, list("data", "list", 1))
+    got <- if (.khl_is_obj(group)) .khl_arr(group[["list"]]) else list()
+    nav <- if (.khl_is_obj(group)) group[["nav"]] else NULL
+    if (is.null(total) && .khl_is_obj(nav)) {
+      total <- .khl_int(nav[["max"]])
+      if (is.na(total)) total <- NULL
+      if (!is.null(total) && total > max_pages) {
+        .abort_asset_fetch("{where}: {total} goalie pages, more than the {max_pages}-page guard")
+      }
+    }
+    first <- first %||% raw
+    rows <- c(rows, got)
+    if ((!is.null(total) && page >= total) || (is.null(total) && length(got) < per_page)) break
+  }
+  n <- length(rows)
+  if (!is.null(total) && !((total - 1) * per_page < n && n <= total * per_page)) {
+    .abort_asset_fetch("{where}: {n} goalies do not fill {total} pages of {per_page}; refusing a partial list")
+  }
+  keys <- lapply(rows, .khl_goalie_key)
+  links <- vapply(keys, function(k) k$link, "")
+  if (anyDuplicated(links)) {
+    .abort_asset_fetch("{where}: a goalie is on two pages (the list shifted while paging)")
+  }
+  ord <- order(-vapply(keys, function(k) k$gp, 0), -vapply(keys, function(k) k$w, 0),
+               vapply(keys, function(k) k$name, ""), links, method = "radix")
+  first$data$list[[1]]$list <- rows[ord]
+  first$data$list[[1]]$sort <- list(gp = "desc", w = "desc", name = "asc")
+  first
 }
 
 # ---- argument checks and the exported-wrapper tail --------------------------------
@@ -2479,7 +2563,8 @@ khl_standings <- function(season = NULL, headers = NULL, tournament_id = NULL, r
 }
 
 #' @title **KHL Player Stats**
-#' @description League player stats of a tournament, one page (one row per player).
+#' @description League player stats of a tournament, one page (one row per player); goalies
+#'   come as one list of every page, sorted by games played.
 #' @details
 #' Endpoint: `POST https://www.khl.ru/rest/stat/players/`.
 #'
@@ -2495,6 +2580,13 @@ khl_standings <- function(season = NULL, headers = NULL, tournament_id = NULL, r
 #'
 #' At least one second is left between two requests to a host.
 #'
+#' **Goalies.** `position = "goalies"` fetches every page (the page count is the first page's
+#' `nav.max`) and returns them as one list sorted by games played, then wins (both descending),
+#' then name and player link: khl.ru orders goalies by goals-against average ascending and ignores
+#' sort fields, so its page 1 is the goalies without a game. `page` is ignored. A partial list (a
+#' missing page, a row count that does not fit the page count, a player on two pages, more than 30
+#' pages) raises `fastRhockey_asset_fetch`. Skaters are one page, as asked.
+#'
 #' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
 #' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
 #' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
@@ -2505,7 +2597,8 @@ khl_standings <- function(season = NULL, headers = NULL, tournament_id = NULL, r
 #' @param position Position group: goalies, defenses, forwards, skaters or all. NULL = the site's
 #'   default. One of `goalies`, `defenses`, `forwards`, `skaters`, `all`.
 #' @param club Club slug (khl_stat_filters, filter clubs_full) or all. NULL = every club.
-#' @param page 1-based page. Loop until a page comes back shorter than per_page.
+#' @param page 1-based page. Loop until a page comes back shorter than per_page. Ignored for
+#'   `position = "goalies"` (every page is fetched).
 #' @param headers Named list of extra request headers, merged over the defaults (`X-Requested-With`,
 #'   `Origin`, `Referer`). The cookie jar and `sessid` are kept in-process, so nothing
 #'   needs reusing across calls.
@@ -2517,7 +2610,7 @@ khl_standings <- function(season = NULL, headers = NULL, tournament_id = NULL, r
 #' @param return_parsed Logical. `TRUE` (default) returns the parsed `fastRhockey_data` tibble;
 #'   `FALSE` returns the raw khl.ru envelope as a list (`status`, `data`,
 #'   `errors`; betting fields removed).
-#' @return A `fastRhockey_data` tibble (36 columns; zero rows with the same columns when the payload
+#' @return A `fastRhockey_data` tibble (45 columns; zero rows with the same columns when the payload
 #'   is empty), or the raw body as a list when `return_parsed = FALSE`. Raises
 #'   `fastRhockey_no_data` (nothing there, or an unknown season / stage),
 #'   `fastRhockey_asset_fetch` (an error envelope, an answer for another id than the one
@@ -2562,6 +2655,15 @@ khl_standings <- function(season = NULL, headers = NULL, tournament_id = NULL, r
 #'    |sftsh_avg   |numeric   |Average short-handed shifts per game |
 #'    |hits        |integer   |Hits (body checks) |
 #'    |bls         |integer   |Shots blocked by the player |
+#'    |w           |integer   |Wins (goalies only) |
+#'    |l           |integer   |Losses (goalies only) |
+#'    |sop         |integer   |Games that went to a shootout (goalies only) |
+#'    |ga          |integer   |Goals against (goalies only) |
+#'    |sv          |integer   |Saves, shots on goal stopped (goalies only) |
+#'    |sv_pct      |numeric   |Save percentage on a 0-100 scale, e.g. 92.2 (goalies only) |
+#'    |gaa         |numeric   |Goals-against average, 60 min x goals against / time on ice (goalies only) |
+#'    |so          |integer   |Shutouts, games without a goal against (goalies only) |
+#'    |toi         |character |Total time on the ice, mm:ss, e.g. "3521:21" (goalies only; NA when none) |
 #' @examples
 #' \donttest{
 #'   try(khl_player_stats(position = "forwards", season = 2026))
