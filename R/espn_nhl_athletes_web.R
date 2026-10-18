@@ -536,6 +536,7 @@ espn_nhl_player_splits <- function(athlete_id,
                                   season_type = 2L,
                                   limit       = 50L,
                                   page        = 1L,
+                                  sort        = NULL,
                                   ...) {
   .args <- .capture_args()
 
@@ -549,6 +550,7 @@ espn_nhl_player_splits <- function(athlete_id,
       query <- list()
       if (!is.null(limit))    query[["limit"]] <- limit
       if (!is.null(page))     query[["page"]]  <- page
+      if (!is.null(sort))     query[["sort"]]  <- sort
 
       raw <- .espn_hockey_request("web_v3", "statistics/byathlete",
                                   query          = query,

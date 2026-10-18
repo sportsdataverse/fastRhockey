@@ -102,7 +102,7 @@ NULL
 #'    |venue_full_name       |character |Venue full name.                                   |
 #'    |venue_city            |character |Venue city.                                        |
 #'    |venue_state           |character |Venue state.                                       |
-#'    |broadcast             |character |Broadcast network(s).                              |
+#'    |broadcast             |character |Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
 #'    |home_id               |character |Home team ESPN identifier.                         |
 #'    |home_name             |character |Home team display name.                            |
 #'    |home_abbreviation     |character |Home team abbreviation.                            |
@@ -448,6 +448,8 @@ espn_nhl_leaders_core <- function(...) {
 #' Internal: ESPN hockey coach-in-season (league-generic, core-v2)
 #'
 #' Endpoint: `seasons/{season}/coaches/{coach_id}`
+#' (`coaches/{coach_id}/seasons/{season}` with `coach_first = TRUE`, as the
+#' college wrappers and sdv-py use).
 #'
 #' Note: sdv-py documents the path as `coaches/{coach_id}/seasons/{season}`
 #' but live verification confirms only `seasons/{season}/coaches/{coach_id}`
@@ -457,6 +459,7 @@ espn_nhl_leaders_core <- function(...) {
 .espn_hockey_coach_season <- function(league   = "nhl",
                                        coach_id,
                                        season   = most_recent_nhl_season(),
+                                       coach_first = FALSE,
                                        ...) {
   .args <- .capture_args()
 
@@ -464,7 +467,13 @@ espn_nhl_leaders_core <- function(...) {
 
   tryCatch(
     expr = {
-      path <- paste0("seasons/", season, "/coaches/", coach_id)
+      # coach_first: sdv-py's coaches/{id}/seasons/{season} (college leagues);
+      # the NHL keeps seasons/{season}/coaches/{id}, the only order that answers there.
+      path <- if (isTRUE(coach_first)) {
+        paste0("coaches/", coach_id, "/seasons/", season)
+      } else {
+        paste0("seasons/", season, "/coaches/", coach_id)
+      }
 
       raw <- .espn_hockey_request("core_v2", path = path,
                                    league         = league,

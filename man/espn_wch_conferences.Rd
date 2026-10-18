@@ -12,7 +12,7 @@ espn_wch_conferences(...)
 \value{
 A \code{fastRhockey_data} tibble with one row per conference/division
 combination (4 rows for WCH: 2 conferences x 2 divisions each):\tabular{lll}{
-   col_name \tab types \tab description \cr
+   col_name \tab type \tab description \cr
    conference_name \tab character \tab Conference name (e.g. "Eastern Conference"). \cr
    conference_abbreviation \tab character \tab Conference abbreviation. \cr
    division_name \tab character \tab Division name (e.g. "Atlantic Division"). \cr
@@ -23,7 +23,7 @@ combination (4 rows for WCH: 2 conferences x 2 divisions each):\tabular{lll}{
 \strong{Get ESPN WCH Conferences}
 }
 \details{
-League slug \code{womens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_conferences()} (columns inherited); a collection may be empty.
+League slug \code{womens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_conferences()}; columns verified against a captured MCH body (same helper; no WCH body captured).
 }
 \examples{
 \donttest{
@@ -73,8 +73,10 @@ Other ESPN WCH Functions:
 \code{\link[=espn_wch_league_notes]{espn_wch_league_notes()}},
 \code{\link[=espn_wch_league_root]{espn_wch_league_root()}},
 \code{\link[=espn_wch_news]{espn_wch_news()}},
+\code{\link[=espn_wch_pbp]{espn_wch_pbp()}},
 \code{\link[=espn_wch_player_awards]{espn_wch_player_awards()}},
 \code{\link[=espn_wch_player_bio]{espn_wch_player_bio()}},
+\code{\link[=espn_wch_player_box]{espn_wch_player_box()}},
 \code{\link[=espn_wch_player_career_stats]{espn_wch_player_career_stats()}},
 \code{\link[=espn_wch_player_contracts]{espn_wch_player_contracts()}},
 \code{\link[=espn_wch_player_core]{espn_wch_player_core()}},
@@ -133,6 +135,7 @@ Other ESPN WCH Functions:
 \code{\link[=espn_wch_summary]{espn_wch_summary()}},
 \code{\link[=espn_wch_talentpicks]{espn_wch_talentpicks()}},
 \code{\link[=espn_wch_team]{espn_wch_team()}},
+\code{\link[=espn_wch_team_box]{espn_wch_team_box()}},
 \code{\link[=espn_wch_team_core]{espn_wch_team_core()}},
 \code{\link[=espn_wch_team_depthcharts]{espn_wch_team_depthcharts()}},
 \code{\link[=espn_wch_team_history]{espn_wch_team_history()}},

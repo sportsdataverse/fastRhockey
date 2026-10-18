@@ -286,62 +286,66 @@ NULL
 #' @param dates Optional date or date-range string in `"YYYYMMDD"` or
 #'   `"YYYYMMDD-YYYYMMDD"` format. When `NULL` (default) the current day
 #'   is used.
+#' @param week Optional week number (ESPN `week` query).
+#' @param season_type Optional season phase (1 = pre, 2 = regular, 3 = post); sent as `seasontype`.
+#' @param groups Optional conference/group id filter.
+#' @param limit Maximum number of events (ESPN `limit`; default `500`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_scoreboard()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_scoreboard()`; columns verified against a captured MCH body.
 #' @return A `fastRhockey_data` tibble with one row per game:
 #'
-#'    |col_name                 |types     |description                                      |
-#'    |:------------------------|:---------|:------------------------------------------------|
-#'    |game_id                  |character |ESPN event identifier.                           |
-#'    |uid                      |character |ESPN event uid.                                  |
-#'    |date                     |character |Game date-time (ISO 8601).                       |
-#'    |name                     |character |Full game name.                                  |
-#'    |short_name               |character |Short game name.                                 |
-#'    |season_year              |integer   |Season end year.                                 |
-#'    |season_type              |integer   |Season type code (1=pre, 2=regular, 3=post).     |
-#'    |season_slug              |character |Season type slug.                                |
-#'    |status_type_id           |character |Status type identifier.                          |
-#'    |status_type_name         |character |Status type name.                                |
-#'    |status_type_state        |character |Status state (pre/in/post).                      |
-#'    |status_type_completed    |logical   |Whether the game is complete.                    |
-#'    |status_type_description  |character |Status description.                              |
-#'    |status_type_detail       |character |Status detail text.                              |
-#'    |status_type_short_detail |character |Short status detail.                             |
-#'    |status_clock             |numeric   |Game clock in seconds.                           |
-#'    |status_display_clock     |character |Display clock string.                            |
-#'    |status_period            |integer   |Current period.                                  |
-#'    |neutral_site             |logical   |Whether the game is at a neutral site.           |
-#'    |conference_competition   |character |Whether it is a conference competition.          |
-#'    |attendance               |integer   |Game attendance.                                 |
-#'    |venue_id                 |character |ESPN venue identifier.                           |
-#'    |venue_full_name          |character |Venue full name.                                 |
-#'    |venue_city               |character |Venue city.                                      |
-#'    |venue_state              |character |Venue state.                                     |
-#'    |venue_indoor             |logical   |Whether the venue is indoors.                    |
-#'    |broadcast                |character |Broadcast network(s).                            |
-#'    |note                     |character |Game note or headline.                           |
-#'    |home_id                  |character |Home team ESPN identifier.                       |
-#'    |home_name                |character |Home team name.                                  |
-#'    |home_abbreviation        |character |Home team abbreviation.                          |
-#'    |home_display_name        |character |Home team display name.                          |
-#'    |home_location            |character |Home team city/location.                         |
-#'    |home_color               |character |Home team primary color hex.                     |
-#'    |home_alternate_color     |character |Home team alternate color hex.                   |
-#'    |home_logo                |character |Home team logo URL.                              |
-#'    |home_score               |character |Home team score.                                 |
-#'    |home_winner              |logical   |Whether the home team won.                       |
-#'    |home_rank                |integer   |Home team rank (if ranked).                      |
-#'    |away_id                  |character |Away team ESPN identifier.                       |
-#'    |away_name                |character |Away team name.                                  |
-#'    |away_abbreviation        |character |Away team abbreviation.                          |
-#'    |away_display_name        |character |Away team display name.                          |
-#'    |away_location            |character |Away team city/location.                         |
-#'    |away_color               |character |Away team primary color hex.                     |
-#'    |away_alternate_color     |character |Away team alternate color hex.                   |
-#'    |away_logo                |character |Away team logo URL.                              |
-#'    |away_score               |character |Away team score.                                 |
-#'    |away_winner              |logical   |Whether the away team won.                       |
-#'    |away_rank                |integer   |Away team rank (if ranked).                      |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | game_id | character | ESPN event identifier. |
+#'    | uid | character | ESPN event uid. |
+#'    | date | character | Game date-time (ISO 8601). |
+#'    | name | character | Full game name. |
+#'    | short_name | character | Short game name. |
+#'    | season_year | integer | Season end year. |
+#'    | season_type | integer | Season type code (1=pre, 2=regular, 3=post). |
+#'    | season_slug | character | Season type slug. |
+#'    | status_type_id | character | Status type identifier. |
+#'    | status_type_name | character | Status type name. |
+#'    | status_type_state | character | Status state (pre/in/post). |
+#'    | status_type_completed | logical | Whether the game is complete. |
+#'    | status_type_description | character | Status description. |
+#'    | status_type_detail | character | Status detail text. |
+#'    | status_type_short_detail | character | Short status detail. |
+#'    | status_clock | numeric | Game clock in seconds. |
+#'    | status_display_clock | character | Display clock string. |
+#'    | status_period | integer | Current period. |
+#'    | neutral_site | logical | Whether the game is at a neutral site. |
+#'    | conference_competition | character | Whether it is a conference competition. |
+#'    | attendance | integer | Game attendance. |
+#'    | venue_id | character | ESPN venue identifier. |
+#'    | venue_full_name | character | Venue full name. |
+#'    | venue_city | character | Venue city. |
+#'    | venue_state | character | Venue state. |
+#'    | venue_indoor | logical | Whether the venue is indoors. |
+#'    | broadcast | character | Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
+#'    | note | character | Game note or headline. |
+#'    | home_id | character | Home team ESPN identifier. |
+#'    | home_name | character | Home team name. |
+#'    | home_abbreviation | character | Home team abbreviation. |
+#'    | home_display_name | character | Home team display name. |
+#'    | home_location | character | Home team city/location. |
+#'    | home_color | character | Home team primary color hex. |
+#'    | home_alternate_color | character | Home team alternate color hex. |
+#'    | home_logo | character | Home team logo URL. |
+#'    | home_score | character | Home team score. |
+#'    | home_winner | logical | Whether the home team won. |
+#'    | home_rank | integer | Home team rank (if ranked). |
+#'    | away_id | character | Away team ESPN identifier. |
+#'    | away_name | character | Away team name. |
+#'    | away_abbreviation | character | Away team abbreviation. |
+#'    | away_display_name | character | Away team display name. |
+#'    | away_location | character | Away team city/location. |
+#'    | away_color | character | Away team primary color hex. |
+#'    | away_alternate_color | character | Away team alternate color hex. |
+#'    | away_logo | character | Away team logo URL. |
+#'    | away_score | character | Away team score. |
+#'    | away_winner | logical | Whether the away team won. |
+#'    | away_rank | integer | Away team rank (if ranked). |
 #'
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom janitor clean_names
@@ -351,8 +355,8 @@ NULL
 #' \donttest{
 #'   try(espn_mch_scoreboard(dates = "20250110"))
 #' }
-espn_mch_scoreboard <- function(dates = NULL, ...) {
-  .espn_hockey_scoreboard(league = "mens-college-hockey", dates = dates, ...)
+espn_mch_scoreboard <- function(dates = NULL, week = NULL, season_type = NULL, groups = NULL, limit = 500, ...) {
+  .espn_hockey_scoreboard(league = "mens-college-hockey", dates = dates, week = week, season_type = season_type, groups = groups, limit = limit, ...)
 }
 
 #' @name espn_mch_summary
@@ -400,22 +404,225 @@ espn_mch_summary <- function(event_id, ...) {
   .espn_hockey_summary(league = "mens-college-hockey", game_id = event_id, ...)
 }
 
+#' @name espn_mch_pbp
+NULL
+#' @title **Get ESPN MCH Play-by-Play**
+#' @rdname espn_mch_pbp
+#' @author Saiem Gilani
+#' @param game_id ESPN event identifier (character or numeric).
+#' @param ... Reserved for forward compatibility.
+#' @details League slug `mens-college-hockey`. Parsed from the site-v2 `summary` payload by the same
+#'   helper as `espn_nhl_pbp()`; columns verified against a captured mch summary body.
+#' @return A `fastRhockey_data` tibble, one row per play:
+#'
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | id | character | ESPN play identifier. |
+#'    | sequence_number | character | Play sequence number. |
+#'    | type_id | character | Play type identifier. |
+#'    | type_text | character | Play type display text. |
+#'    | text | character | Play description text. |
+#'    | away_score | integer | Away team score at time of play. |
+#'    | home_score | integer | Home team score at time of play. |
+#'    | scoring_play | logical | Whether the play resulted in a goal. |
+#'    | score_value | integer | Goal value (1 for regulation/OT goals). |
+#'    | shooting_play | logical | Whether the play was a shot attempt. |
+#'    | wallclock | character | Wall-clock timestamp (ISO 8601). |
+#'    | period_number | integer | Period number (1-3 regulation, 4+ OT/SO). |
+#'    | period_display_value | character | Period display label (e.g. "1st Period"). |
+#'    | clock_display_value | character | Game clock display string (e.g. "14:32"). |
+#'    | team_id | character | ESPN team identifier for the acting team. |
+#'    | coordinate_x | numeric | X coordinate of play location. |
+#'    | coordinate_y | numeric | Y coordinate of play location. |
+#'    | strength_id | character | Strength situation identifier. |
+#'    | strength_text | character | Strength situation text (e.g. "Even Strength"). |
+#'    | shot_info_id | character | Shot type identifier. |
+#'    | shot_info_text | character | Shot type text (e.g. "Wrist Shot"). |
+#'    | athlete_id_1 | character | Primary participant athlete identifier. |
+#'    | athlete_id_2 | character | Secondary participant athlete identifier. |
+#'    | athlete_id_3 | character | Tertiary participant athlete identifier. |
+#'    | home_team_id | character | Home team ESPN identifier. |
+#'    | home_team_name | character | Home team name. |
+#'    | home_team_location | character | Home team city/location. |
+#'    | home_team_abbrev | character | Home team abbreviation. |
+#'    | home_team_display_name | character | Home team display name. |
+#'    | home_team_color | character | Home team primary color hex. |
+#'    | home_team_alternate_color | character | Home team alternate color hex. |
+#'    | home_team_logo | character | Home team logo URL. |
+#'    | home_team_score | character | Home team final score. |
+#'    | home_team_winner | logical | Whether the home team won. |
+#'    | away_team_id | character | Away team ESPN identifier. |
+#'    | away_team_name | character | Away team name. |
+#'    | away_team_location | character | Away team city/location. |
+#'    | away_team_abbrev | character | Away team abbreviation. |
+#'    | away_team_display_name | character | Away team display name. |
+#'    | away_team_color | character | Away team primary color hex. |
+#'    | away_team_alternate_color | character | Away team alternate color hex. |
+#'    | away_team_logo | character | Away team logo URL. |
+#'    | away_team_score | character | Away team final score. |
+#'    | away_team_winner | logical | Whether the away team won. |
+#'    | game_id | character | ESPN event identifier (echoed from arg). |
+#'    | season | integer | Season end-year. |
+#'    | season_type | integer | Season type code. |
+#'    | game_date | character | Game date-time (ISO 8601). |
+#'
+#' @export
+#' @family ESPN MCH Functions
+#' @examples
+#' \donttest{
+#'   try(espn_mch_pbp(game_id = "401717648"))
+#' }
+espn_mch_pbp <- function(game_id, ...) {
+  .espn_hockey_pbp(league = "mens-college-hockey", game_id = game_id, ...)
+}
+
+#' @name espn_mch_team_box
+NULL
+#' @title **Get ESPN MCH Team Box Score**
+#' @rdname espn_mch_team_box
+#' @author Saiem Gilani
+#' @param game_id ESPN event identifier (character or numeric).
+#' @param ... Reserved for forward compatibility.
+#' @details League slug `mens-college-hockey`. Parsed from the site-v2 `summary` payload by the same
+#'   helper as `espn_nhl_team_box()`; columns verified against a captured mch summary body.
+#' @return A `fastRhockey_data` tibble, one row per team (2 rows):
+#'
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | team_id | character | ESPN team identifier. |
+#'    | team_uid | character | ESPN team uid. |
+#'    | team_slug | character | Team URL slug. |
+#'    | team_location | character | Team city/location. |
+#'    | team_name | character | Team name (mascot). |
+#'    | team_abbreviation | character | Team abbreviation. |
+#'    | team_display_name | character | Team display name. |
+#'    | team_short_display_name | character | Team short display name. |
+#'    | team_color | character | Team primary color hex. |
+#'    | team_alternate_color | character | Team alternate color hex. |
+#'    | team_logo | character | Team logo URL. |
+#'    | home_away | character | "home" or "away". |
+#'    | game_id | character | ESPN event identifier (echoed from arg). |
+#'    | season | integer | Season end-year. |
+#'    | season_type | integer | Season type code. |
+#'    | game_date | character | Game date-time (ISO 8601). |
+#'    | blocked_shots | character | Total blocked shots. |
+#'    | hits | character | Total hits. |
+#'    | takeaways | character | Total takeaways. |
+#'    | shots_total | character | Total shots on goal. |
+#'    | power_play_goals | character | Power play goals. |
+#'    | power_play_opportunities | character | Power play opportunities. |
+#'    | power_play_pct | character | Power play percentage. |
+#'    | short_handed_goals | character | Short-handed goals. |
+#'    | shootout_goals | character | Shootout goals. |
+#'    | faceoffs_won | character | Faceoffs won. |
+#'    | faceoff_percent | character | Faceoff win percentage. |
+#'    | giveaways | character | Giveaways. |
+#'    | penalties | character | Penalty count. |
+#'    | penalty_minutes | character | Penalty minutes. |
+#'
+#' @export
+#' @family ESPN MCH Functions
+#' @examples
+#' \donttest{
+#'   try(espn_mch_team_box(game_id = "401717648"))
+#' }
+espn_mch_team_box <- function(game_id, ...) {
+  .espn_hockey_team_box(league = "mens-college-hockey", game_id = game_id, ...)
+}
+
+#' @name espn_mch_player_box
+NULL
+#' @title **Get ESPN MCH Player Box Score**
+#' @rdname espn_mch_player_box
+#' @author Saiem Gilani
+#' @param game_id ESPN event identifier (character or numeric).
+#' @param ... Reserved for forward compatibility.
+#' @details League slug `mens-college-hockey`. Parsed from the site-v2 `summary` payload by the same
+#'   helper as `espn_nhl_player_box()`; columns verified against a captured mch summary body.
+#' @return A `fastRhockey_data` tibble, one row per player appearance (skaters and goalies bound; columns not kept for a position group are `NA`):
+#'
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | athlete_id | character | ESPN athlete identifier. |
+#'    | athlete_display_name | character | Athlete full display name. |
+#'    | athlete_short_name | character | Athlete short name. |
+#'    | athlete_last_name | character | Athlete last name. |
+#'    | athlete_jersey | character | Jersey number. |
+#'    | athlete_headshot_href | character | Headshot image URL. |
+#'    | athlete_position_name | character | Position name. |
+#'    | athlete_position_abbreviation | character | Position abbreviation. |
+#'    | athlete_active | logical | Whether the athlete was active. |
+#'    | athlete_scratched | logical | Whether the athlete was scratched. |
+#'    | stat_group | character | Stat group name ("forwards","defenses","goalies"). |
+#'    | team_id | character | ESPN team identifier. |
+#'    | team_abbreviation | character | Team abbreviation. |
+#'    | team_display_name | character | Team display name. |
+#'    | home_away | character | "home" or "away". |
+#'    | team_score | character | Team final score. |
+#'    | team_winner | logical | Whether the team won. |
+#'    | opponent_team_id | character | Opponent team identifier. |
+#'    | opponent_team_abbreviation | character | Opponent team abbreviation. |
+#'    | game_id | character | ESPN event identifier (echoed from arg). |
+#'    | season | integer | Season end-year. |
+#'    | season_type | integer | Season type code. |
+#'    | game_date | character | Game date-time (ISO 8601). |
+#'    | bs | character | Blocked shots (skaters). |
+#'    | ht | character | Hits (skaters). |
+#'    | tk | character | Takeaways (skaters). |
+#'    | plus_minus | character | Plus/minus rating (skaters). |
+#'    | toi | character | Time on ice (skaters, MM:SS). |
+#'    | pptoi | character | Power play time on ice (skaters, MM:SS). |
+#'    | shtoi | character | Short-handed time on ice (skaters, MM:SS). |
+#'    | estoi | character | Even-strength time on ice (skaters, MM:SS). |
+#'    | shft | character | Total shifts (skaters). |
+#'    | g | character | Goals (skaters). |
+#'    | ytdg | character | Year-to-date goals (skaters/goalies). |
+#'    | a | character | Assists (skaters). |
+#'    | s | character | Shots (skaters). |
+#'    | sm | character | Missed shots (skaters). |
+#'    | sog | character | Shots on goal (skaters). |
+#'    | fw | character | Faceoffs won (skaters). |
+#'    | fl | character | Faceoffs lost (skaters). |
+#'    | fo_percent | character | Faceoff percentage (skaters). |
+#'    | gv | character | Giveaways (skaters). |
+#'    | pn | character | Penalties taken (skaters). |
+#'    | pim | character | Penalty minutes (skaters/goalies). |
+#'    | ga | character | Goals against (goalies). |
+#'    | sa | character | Shots against (goalies). |
+#'    | sos | character | Shootout saves (goalies). |
+#'    | sosa | character | Shootout shots against (goalies). |
+#'    | sv | character | Saves (goalies). |
+#'    | sv_percent | character | Save percentage (goalies). |
+#'    | essv | character | Even-strength saves (goalies). |
+#'    | ppsv | character | Power play saves (goalies). |
+#'    | shsv | character | Short-handed saves (goalies). |
+#'
+#' @export
+#' @family ESPN MCH Functions
+#' @examples
+#' \donttest{
+#'   try(espn_mch_player_box(game_id = "401717648"))
+#' }
+espn_mch_player_box <- function(game_id, ...) {
+  .espn_hockey_player_box(league = "mens-college-hockey", game_id = game_id, ...)
+}
+
 #' @name espn_mch_calendar
 NULL
 #' @title **Get ESPN MCH Calendar**
 #' @rdname espn_mch_calendar
 #' @author Saiem Gilani
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_calendar()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_calendar()`; columns verified against a captured MCH body.
 #' @return A `fastRhockey_data` tibble with one row per game date:
 #'
-#'    |col_name                |types     |description                                         |
-#'    |:-----------------------|:---------|:---------------------------------------------------|
-#'    |date                    |character |Game date (ISO 8601 datetime string).               |
-#'    |calendar_type           |character |Calendar type (e.g. `"day"`).                       |
-#'    |calendar_start_date     |character |Calendar season start date.                         |
-#'    |calendar_end_date       |character |Calendar season end date.                           |
-#'    |calendar_is_whitelist   |logical   |Whether dates are a whitelist of game days.         |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | date | character | Game date (ISO 8601 datetime string). |
+#'    | calendar_type | character | Calendar type (e.g. `"day"`). |
+#'    | calendar_start_date | character | Calendar season start date. |
+#'    | calendar_end_date | character | Calendar season end date. |
+#'    | calendar_is_whitelist | logical | Whether dates are a whitelist of game days. |
 #'
 #' @importFrom dplyr mutate
 #' @importFrom janitor clean_names
@@ -436,23 +643,23 @@ NULL
 #' @author Saiem Gilani
 #' @param limit Maximum number of articles to return (default `50`).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_news()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_news()`; columns verified against a captured MCH body.
 #' @return A `fastRhockey_data` tibble with one row per article:
 #'
-#'    |col_name       |types     |description                                         |
-#'    |:--------------|:---------|:---------------------------------------------------|
-#'    |article_id     |character |ESPN article identifier.                            |
-#'    |now_id         |character |ESPN Now identifier.                                |
-#'    |content_key    |character |Content management key.                             |
-#'    |type           |character |Article type (e.g. "Story", "Media").               |
-#'    |headline       |character |Article headline.                                   |
-#'    |description    |character |Article description/excerpt.                        |
-#'    |last_modified  |character |ISO 8601 last-modified datetime.                    |
-#'    |published      |character |ISO 8601 published datetime.                        |
-#'    |byline         |character |Author byline.                                      |
-#'    |premium        |logical   |Whether the article is premium content.             |
-#'    |image_href     |character |URL of the lead image.                              |
-#'    |web_href       |character |URL of the article on ESPN.com.                     |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | article_id | character | ESPN article identifier. |
+#'    | now_id | character | ESPN Now identifier. |
+#'    | content_key | character | Content management key. |
+#'    | type | character | Article type (e.g. "Story", "Media"). |
+#'    | headline | character | Article headline. |
+#'    | description | character | Article description/excerpt. |
+#'    | last_modified | character | ISO 8601 last-modified datetime. |
+#'    | published | character | ISO 8601 published datetime. |
+#'    | byline | character | Author byline. |
+#'    | premium | logical | Whether the article is premium content. |
+#'    | image_href | character | URL of the lead image. |
+#'    | web_href | character | URL of the article on ESPN.com. |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -472,7 +679,7 @@ NULL
 #' @rdname espn_mch_injuries
 #' @author Saiem Gilani
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_injuries()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_injuries()`; ESPN answered an empty collection for every captured MCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
 #' @return A `fastRhockey_data` tibble with one row per injured player:
 #'
 #'    |col_name               |types     |description                                    |
@@ -511,8 +718,9 @@ NULL
 #' @title **Get ESPN MCH Transactions**
 #' @rdname espn_mch_transactions
 #' @author Saiem Gilani
+#' @param limit Maximum number of transactions (ESPN `limit`; default `500`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_transactions()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_transactions()`; ESPN answered an empty collection for every captured MCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
 #' @return A `fastRhockey_data` tibble with one row per transaction:
 #'
 #'    |col_name           |types     |description                                         |
@@ -534,8 +742,8 @@ NULL
 #' \donttest{
 #'   try(espn_mch_transactions())
 #' }
-espn_mch_transactions <- function(...) {
-  .espn_hockey_transactions(league = "mens-college-hockey", ...)
+espn_mch_transactions <- function(limit = 500, ...) {
+  .espn_hockey_transactions(league = "mens-college-hockey", limit = limit, ...)
 }
 
 #' @name espn_mch_conferences
@@ -544,16 +752,16 @@ NULL
 #' @rdname espn_mch_conferences
 #' @author Saiem Gilani
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_conferences()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_conferences()`; columns verified against a captured MCH body.
 #' @return A `fastRhockey_data` tibble with one row per conference/division
 #'   combination (4 rows for MCH: 2 conferences x 2 divisions each):
 #'
-#'    |col_name                 |types     |description                             |
-#'    |:------------------------|:---------|:---------------------------------------|
-#'    |conference_name          |character |Conference name (e.g. "Eastern Conference"). |
-#'    |conference_abbreviation  |character |Conference abbreviation.                |
-#'    |division_name            |character |Division name (e.g. "Atlantic Division"). |
-#'    |division_abbreviation    |character |Division abbreviation.                  |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | conference_name | character | Conference name (e.g. "Eastern Conference"). |
+#'    | conference_abbreviation | character | Conference abbreviation. |
+#'    | division_name | character | Division name (e.g. "Atlantic Division"). |
+#'    | division_abbreviation | character | Division abbreviation. |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -637,23 +845,35 @@ NULL
 #' @title **Get ESPN MCH Teams (site_v2) -- alias for `espn_mch_teams()`**
 #' @rdname espn_mch_teams_site
 #' @author Saiem Gilani
+#' @param limit Maximum number of teams (ESPN `limit`; default `1000`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_teams_site()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_teams_site()`; columns verified against a captured MCH body.
 #' @return A `fastRhockey_data` tibble with one row per MCH team. This is
 #'   identical to the output of teams.
 #'
-#'    |col_name         |types     |description                         |
-#'    |:----------------|:---------|:-----------------------------------|
-#'    |espn_team_id     |character |ESPN team identifier.               |
-#'    |team             |character |Team location/city name.            |
-#'    |mascot           |character |Team mascot/nickname.               |
-#'    |display_name     |character |Team display name.                  |
-#'    |short_name       |character |Short team display name.            |
-#'    |abbreviation     |character |Team abbreviation.                  |
-#'    |color            |character |Primary color hex.                  |
-#'    |alternate_color  |character |Alternate color hex.                |
-#'    |logo             |character |Light-background logo URL.          |
-#'    |logo_dark        |character |Dark-background logo URL.           |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | abbreviation | character | Team abbreviation. |
+#'    | display_name | character | Team display name. |
+#'    | espn_team_id | integer | ESPN team identifier. |
+#'    | team | character | Team location/city name. |
+#'    | logo | character | Light-background logo URL. |
+#'    | logo_dark | character | Dark-background logo URL. |
+#'    | logos_href_3 | character | Logo variant 3 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_4 | character | Logo variant 4 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_5 | character | Logo variant 5 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_6 | character | Logo variant 6 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_7 | character | Logo variant 7 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_8 | character | Logo variant 8 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_9 | character | Logo variant 9 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_10 | character | Logo variant 10 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_11 | character | Logo variant 11 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_12 | character | Logo variant 12 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_13 | character | Logo variant 13 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_14 | character | Logo variant 14 URL (ESPN sends a varying number of logos per team). |
+#'    | mascot | character | Team mascot/nickname. |
+#'    | nickname | character | Team nickname. |
+#'    | short_name | character | Short team display name. |
 #'
 #' @importFrom dplyr group_by ungroup select rename
 #' @importFrom tidyr unnest_wider
@@ -665,8 +885,8 @@ NULL
 #' \donttest{
 #'   try(espn_mch_teams_site())
 #' }
-espn_mch_teams_site <- function(...) {
-  .espn_hockey_teams(league = "mens-college-hockey", ...)
+espn_mch_teams_site <- function(limit = 1000, ...) {
+  .espn_hockey_teams(league = "mens-college-hockey", limit = limit, ...)
 }
 
 #' @name espn_mch_team
@@ -677,28 +897,28 @@ NULL
 #' @param team_id ESPN team identifier (character or numeric, e.g. `"104"` for
 #'   Chicago Blackhawks).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team()`; columns verified against a captured MCH body.
 #' @return A `fastRhockey_data` tibble with one row per team:
 #'
-#'    |col_name            |types     |description                             |
-#'    |:-------------------|:---------|:---------------------------------------|
-#'    |team_id             |character |ESPN team identifier (echoed from arg). |
-#'    |id                  |character |ESPN team identifier.                   |
-#'    |uid                 |character |ESPN team uid.                          |
-#'    |slug                |character |URL slug.                               |
-#'    |location            |character |Team city/location.                     |
-#'    |name                |character |Team mascot name.                       |
-#'    |nickname            |character |Team nickname.                          |
-#'    |abbreviation        |character |Team abbreviation.                      |
-#'    |display_name        |character |Full display name.                      |
-#'    |short_display_name  |character |Short display name.                     |
-#'    |color               |character |Primary color hex.                      |
-#'    |alternate_color     |character |Alternate color hex.                    |
-#'    |is_active           |logical   |Whether the team is active.             |
-#'    |logo                |character |Primary logo URL.                       |
-#'    |logo_dark           |character |Dark logo URL.                          |
-#'    |stand_summary       |character |Standing summary string.                |
-#'    |franchise_ref       |character |Franchise resource ref URL.             |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | team_id | character | ESPN team identifier (echoed from arg). |
+#'    | id | character | ESPN team identifier. |
+#'    | uid | character | ESPN team uid. |
+#'    | slug | character | URL slug. |
+#'    | location | character | Team city/location. |
+#'    | name | character | Team mascot name. |
+#'    | nickname | character | Team nickname. |
+#'    | abbreviation | character | Team abbreviation. |
+#'    | display_name | character | Full display name. |
+#'    | short_display_name | character | Short display name. |
+#'    | color | character | Primary color hex. |
+#'    | alternate_color | character | Alternate color hex. |
+#'    | is_active | logical | Whether the team is active. |
+#'    | logo | character | Primary logo URL. |
+#'    | logo_dark | character | Dark logo URL. |
+#'    | stand_summary | character | Standing summary string. |
+#'    | franchise_ref | character | Franchise resource ref URL. |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -719,8 +939,9 @@ NULL
 #' @author Saiem Gilani
 #' @param team_id ESPN team identifier (character or numeric, e.g. `"104"` for
 #'   Pittsburgh Penguins).
+#' @param limit Maximum number of athletes (ESPN `limit`; default `500`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team_roster()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team_roster()`; ESPN answered an empty collection for every captured MCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
 #' @return A `fastRhockey_data` tibble with one row per player:
 #'
 #'    |col_name                      |types     |description                         |
@@ -787,8 +1008,8 @@ NULL
 #' \donttest{
 #'   try(espn_mch_team_roster(team_id = "104"))
 #' }
-espn_mch_team_roster <- function(team_id, ...) {
-  .espn_hockey_team_roster(league = "mens-college-hockey", team_id = team_id, ...)
+espn_mch_team_roster <- function(team_id, limit = 500, ...) {
+  .espn_hockey_team_roster(league = "mens-college-hockey", team_id = team_id, limit = limit, ...)
 }
 
 #' @name espn_mch_team_schedule
@@ -801,46 +1022,46 @@ NULL
 #' @param season Season end-year (e.g. `2025`). Defaults to
 #'   `most_recent_nhl_season()`.
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team_schedule()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team_schedule()`; columns verified against a captured MCH body.
 #' @return A `fastRhockey_data` tibble with one row per game. Identical to
 #'   schedule.
 #'
-#'    |col_name              |types     |description                                        |
-#'    |:---------------------|:---------|:--------------------------------------------------|
-#'    |game_id               |character |ESPN event identifier.                             |
-#'    |date                  |character |Game date-time (ISO 8601).                         |
-#'    |name                  |character |Full game name.                                    |
-#'    |short_name            |character |Short game name.                                   |
-#'    |season_year           |integer   |Season end year.                                   |
-#'    |season_type           |integer   |Season type code.                                  |
-#'    |time_valid            |logical   |Whether the game time is confirmed.                |
-#'    |status_type_id        |character |Status type identifier.                            |
-#'    |status_type_name      |character |Status type name.                                  |
-#'    |status_type_state     |character |Status state (pre/in/post).                        |
-#'    |status_type_completed |logical   |Whether the game is complete.                      |
-#'    |neutral_site          |logical   |Whether the game is at a neutral site.             |
-#'    |attendance            |integer   |Game attendance.                                   |
-#'    |venue_id              |character |Venue identifier.                                  |
-#'    |venue_full_name       |character |Venue full name.                                   |
-#'    |venue_city            |character |Venue city.                                        |
-#'    |venue_state           |character |Venue state.                                       |
-#'    |broadcast             |character |Broadcast network(s).                              |
-#'    |home_id               |character |Home team ESPN identifier.                         |
-#'    |home_name             |character |Home team display name.                            |
-#'    |home_abbreviation     |character |Home team abbreviation.                            |
-#'    |home_location         |character |Home team city.                                    |
-#'    |home_logo             |character |Home team logo URL.                                |
-#'    |home_score            |character |Home team score.                                   |
-#'    |home_winner           |logical   |Whether the home team won.                         |
-#'    |away_id               |character |Away team ESPN identifier.                         |
-#'    |away_name             |character |Away team display name.                            |
-#'    |away_abbreviation     |character |Away team abbreviation.                            |
-#'    |away_location         |character |Away team city.                                    |
-#'    |away_logo             |character |Away team logo URL.                                |
-#'    |away_score            |character |Away team score.                                   |
-#'    |away_winner           |logical   |Whether the away team won.                         |
-#'    |team_id               |character |ESPN team identifier (echoed from arg).            |
-#'    |season                |integer   |Season end-year (echoed from arg).                 |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | game_id | character | ESPN event identifier. |
+#'    | date | character | Game date-time (ISO 8601). |
+#'    | name | character | Full game name. |
+#'    | short_name | character | Short game name. |
+#'    | season_year | integer | Season end year. |
+#'    | season_type | integer | Season type code. |
+#'    | time_valid | logical | Whether the game time is confirmed. |
+#'    | status_type_id | character | Status type identifier. |
+#'    | status_type_name | character | Status type name. |
+#'    | status_type_state | character | Status state (pre/in/post). |
+#'    | status_type_completed | logical | Whether the game is complete. |
+#'    | neutral_site | logical | Whether the game is at a neutral site. |
+#'    | attendance | integer | Game attendance. |
+#'    | venue_id | character | Venue identifier. |
+#'    | venue_full_name | character | Venue full name. |
+#'    | venue_city | character | Venue city. |
+#'    | venue_state | character | Venue state. |
+#'    | broadcast | character | Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
+#'    | home_id | character | Home team ESPN identifier. |
+#'    | home_name | character | Home team display name. |
+#'    | home_abbreviation | character | Home team abbreviation. |
+#'    | home_location | character | Home team city. |
+#'    | home_logo | character | Home team logo URL. |
+#'    | home_score | character | Home team score. |
+#'    | home_winner | logical | Whether the home team won. |
+#'    | away_id | character | Away team ESPN identifier. |
+#'    | away_name | character | Away team display name. |
+#'    | away_abbreviation | character | Away team abbreviation. |
+#'    | away_location | character | Away team city. |
+#'    | away_logo | character | Away team logo URL. |
+#'    | away_score | character | Away team score. |
+#'    | away_winner | logical | Whether the away team won. |
+#'    | team_id | character | ESPN team identifier (echoed from arg). |
+#'    | season | integer | Season end-year (echoed from arg). |
 #'
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom janitor clean_names
@@ -1293,31 +1514,41 @@ NULL
 #' @author Saiem Gilani
 #' @param season Season end-year (e.g. `2025`). Defaults to
 #'   `most_recent_nhl_season()`.
+#' @param group Optional conference/group id filter.
+#' @param standings_type Optional standings variant sent as `type` (e.g. `"by-division"`).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_standings()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_standings()`; columns verified against a captured MCH body One numeric column per ESPN stat in the body, so the set follows the feed (the MCH body sends `tiegames`, the WCH body `ties`).
 #' @return A `fastRhockey_data` tibble with one row per team:
 #'
-#'    |col_name            |types     |description                                |
-#'    |:-------------------|:---------|:------------------------------------------|
-#'    |group_name          |character |Group name (conference / division).        |
-#'    |group_abbreviation  |character |Group abbreviation.                        |
-#'    |team_id             |character |ESPN team identifier.                      |
-#'    |team_name           |character |Team name.                                 |
-#'    |team_abbreviation   |character |Team abbreviation.                         |
-#'    |team_display_name   |character |Team display name.                         |
-#'    |team_location       |character |Team location (city).                      |
-#'    |team_logo           |character |Team logo URL.                             |
-#'    |season              |integer   |Season end-year (echoed from arg).         |
-#'    |ot_losses           |numeric   |Overtime losses.                           |
-#'    |games_played        |numeric   |Games played.                              |
-#'    |losses              |numeric   |Regulation losses.                         |
-#'    |points              |numeric   |Points.                                    |
-#'    |wins                |numeric   |Wins.                                      |
-#'    |points_for          |numeric   |Goals/points scored.                       |
-#'    |points_against      |numeric   |Goals/points allowed.                      |
-#'    |playoff_seed        |numeric   |Current playoff seed.                      |
-#'    |streak              |numeric   |Current streak value.                      |
-#'    |overall             |numeric   |Overall record stat.                       |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | group_name | character | Group name (conference / division). |
+#'    | group_abbreviation | character | Group abbreviation. |
+#'    | team_id | character | ESPN team identifier. |
+#'    | team_name | character | Team name. |
+#'    | team_abbreviation | character | Team abbreviation. |
+#'    | team_display_name | character | Team display name. |
+#'    | team_location | character | Team location (city). |
+#'    | team_logo | character | Team logo URL. |
+#'    | ot_losses | numeric | Overtime losses. |
+#'    | ot_wins | numeric | Overtime wins. |
+#'    | avg_points_against | numeric | Average goals against per game. |
+#'    | avg_points_for | numeric | Average goals for per game. |
+#'    | differential | numeric | Goal differential. |
+#'    | games_behind | numeric | Games behind the group leader. |
+#'    | games_played | numeric | Games played. |
+#'    | losses | numeric | Regulation losses. |
+#'    | playoff_seed | numeric | Current playoff seed. |
+#'    | point_differential | numeric | Point (goal) differential. |
+#'    | points | numeric | Points. |
+#'    | points_against | numeric | Goals/points allowed. |
+#'    | points_for | numeric | Goals/points scored. |
+#'    | streak | numeric | Current streak value. |
+#'    | tiegames | numeric | Tie games (sent in the mch body). |
+#'    | win_percent | numeric | Win percentage. |
+#'    | wins | numeric | Wins. |
+#'    | overall | numeric | Overall record stat. |
+#'    | season | integer | Season end-year (echoed from arg). |
 #'
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom janitor clean_names make_clean_names
@@ -1327,8 +1558,8 @@ NULL
 #' \donttest{
 #'   try(espn_mch_standings(season = 2025))
 #' }
-espn_mch_standings <- function(season = most_recent_nhl_season(), ...) {
-  .espn_hockey_standings(league = "mens-college-hockey", season = season, ...)
+espn_mch_standings <- function(season = most_recent_nhl_season(), group = NULL, standings_type = NULL, ...) {
+  .espn_hockey_standings(league = "mens-college-hockey", season = season, group = group, standings_type = standings_type, ...)
 }
 
 #' @name espn_mch_player_overview
@@ -1583,6 +1814,7 @@ NULL
 #'   type ESPN actually served.
 #' @param limit Athletes per page (default `50`).
 #' @param page Page number (default `1`).
+#' @param sort Optional ESPN `sort` query string.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_leaders()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per athlete:
@@ -1634,6 +1866,7 @@ espn_mch_leaders <- function(category    = "offensive",
                               season_type = 2L,
                               limit       = 50L,
                               page        = 1L,
+                              sort = NULL,
                               ...) {
   .espn_hockey_leaders(league      = "mens-college-hockey",
                         category    = category,
@@ -1641,6 +1874,7 @@ espn_mch_leaders <- function(category    = "offensive",
                         season_type = season_type,
                         limit       = limit,
                         page        = page,
+                        sort = sort,
                         ...)
 }
 
@@ -1650,27 +1884,27 @@ NULL
 #' @rdname espn_mch_league_root
 #' @author Saiem Gilani
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_league_root()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_league_root()`; columns verified against a captured MCH body.
 #' @return A one-row `fastRhockey_data` tibble with league metadata:
 #'
-#'    |col_name        |types     |description                                      |
-#'    |:---------------|:---------|:------------------------------------------------|
-#'    |id              |character |ESPN league identifier (e.g. "90" for MCH).      |
-#'    |guid            |character |League global unique identifier.                 |
-#'    |uid             |character |League uid string.                               |
-#'    |name            |character |Full league name.                                |
-#'    |display_name    |character |League display name.                             |
-#'    |abbreviation    |character |League abbreviation (e.g. "MCH").                |
-#'    |short_name      |character |League short name.                               |
-#'    |slug            |character |League slug (e.g. "nhl").                        |
-#'    |is_tournament   |logical   |Whether the league is a tournament.              |
-#'    |gender          |character |League gender designation.                       |
-#'    |season_ref      |character |`$ref` URL for the current season object.        |
-#'    |seasons_ref     |character |`$ref` URL for the seasons collection.           |
-#'    |groups_ref      |character |`$ref` URL for the groups collection.            |
-#'    |franchises_ref  |character |`$ref` URL for the franchises collection.        |
-#'    |teams_ref       |character |`$ref` URL for the teams collection.             |
-#'    |events_ref      |character |`$ref` URL for the events collection.            |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | id | character | ESPN league identifier (e.g. "90" for MCH). |
+#'    | guid | character | League global unique identifier. |
+#'    | uid | character | League uid string. |
+#'    | name | character | Full league name. |
+#'    | display_name | character | League display name. |
+#'    | abbreviation | character | League abbreviation (e.g. "MCH"). |
+#'    | short_name | character | League short name. |
+#'    | slug | character | League slug (e.g. "nhl"). |
+#'    | is_tournament | logical | Whether the league is a tournament. |
+#'    | gender | character | League gender designation. |
+#'    | season_ref | character | `$ref` URL for the current season object. |
+#'    | seasons_ref | character | `$ref` URL for the seasons collection. |
+#'    | groups_ref | character | `$ref` URL for the groups collection. |
+#'    | franchises_ref | character | `$ref` URL for the franchises collection. |
+#'    | teams_ref | character | `$ref` URL for the teams collection. |
+#'    | events_ref | character | `$ref` URL for the events collection. |
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -1722,15 +1956,15 @@ NULL
 #' @author Saiem Gilani
 #' @param limit Maximum number of seasons to return (default `200`).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_seasons()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_seasons()`; columns verified against a captured MCH body.
 #' @return A `fastRhockey_data` tibble with one row per season:
 #'
-#'    |col_name    |types     |description                                         |
-#'    |:-----------|:---------|:---------------------------------------------------|
-#'    |ref         |character |`$ref` URL for the season object.                   |
-#'    |season      |integer   |Season year parsed from the `$ref` URL.             |
-#'    |count       |integer   |Total number of seasons in the collection.          |
-#'    |page_count  |integer   |Total number of pages in the collection.            |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | ref | character | `$ref` URL for the season object. |
+#'    | season | integer | Season year parsed from the `$ref` URL. |
+#'    | count | integer | Total number of seasons in the collection. |
+#'    | page_count | integer | Total number of pages in the collection. |
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -1751,24 +1985,24 @@ NULL
 #' @param season Season end-year (e.g. `2026`). Defaults to
 #'   `most_recent_nhl_season()`.
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_info()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_info()`; columns verified against a captured MCH body.
 #' @return A one-row `fastRhockey_data` tibble with season metadata:
 #'
-#'    |col_name       |types     |description                                      |
-#'    |:--------------|:---------|:------------------------------------------------|
-#'    |season         |integer   |Season year (echoed from arg).                   |
-#'    |start_date     |character |Season start date (ISO 8601).                    |
-#'    |end_date       |character |Season end date (ISO 8601).                      |
-#'    |display_name   |character |Season display name (e.g. "2025-26").            |
-#'    |season_ref     |character |`$ref` URL for this season.                      |
-#'    |types_ref      |character |`$ref` URL for the season-types collection.      |
-#'    |type_ref       |character |`$ref` URL for the current season type.          |
-#'    |rankings_ref   |character |`$ref` URL for rankings.                         |
-#'    |coaches_ref    |character |`$ref` URL for coaches.                          |
-#'    |athletes_ref   |character |`$ref` URL for athletes.                         |
-#'    |awards_ref     |character |`$ref` URL for awards.                           |
-#'    |futures_ref    |character |`$ref` URL for futures.                          |
-#'    |leaders_ref    |character |`$ref` URL for leaders.                          |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | season | integer | Season year (echoed from arg). |
+#'    | start_date | character | Season start date (ISO 8601). |
+#'    | end_date | character | Season end date (ISO 8601). |
+#'    | display_name | character | Season display name (e.g. "2025-26"). |
+#'    | season_ref | character | `$ref` URL for this season. |
+#'    | types_ref | character | `$ref` URL for the season-types collection. |
+#'    | type_ref | character | `$ref` URL for the current season type. |
+#'    | rankings_ref | character | `$ref` URL for rankings. |
+#'    | coaches_ref | character | `$ref` URL for coaches. |
+#'    | athletes_ref | character | `$ref` URL for athletes. |
+#'    | awards_ref | character | `$ref` URL for awards. |
+#'    | futures_ref | character | `$ref` URL for futures. |
+#'    | leaders_ref | character | `$ref` URL for leaders. |
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -1789,15 +2023,15 @@ NULL
 #' @param season Season end-year (e.g. `2026`). Defaults to
 #'   `most_recent_nhl_season()`.
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_types()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_types()`; columns verified against a captured MCH body.
 #' @return A `fastRhockey_data` tibble with one row per season type
 #'   (pre-season, regular, post-season, off-season):
 #'
-#'    |col_name        |types     |description                                          |
-#'    |:---------------|:---------|:----------------------------------------------------|
-#'    |ref             |character |`$ref` URL for the season-type object.               |
-#'    |season_type_id  |integer   |Season type id (1=pre, 2=reg, 3=post, 4=off).        |
-#'    |season          |integer   |Season year (echoed from arg).                       |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | ref | character | `$ref` URL for the season-type object. |
+#'    | season_type_id | integer | Season type id (1=pre, 2=reg, 3=post, 4=off). |
+#'    | season | integer | Season year (echoed from arg). |
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -2657,6 +2891,7 @@ NULL
 #' @author Saiem Gilani
 #' @param season Season end-year (e.g. `2026`). Defaults to
 #'   `most_recent_nhl_season()`.
+#' @param limit Maximum number of awards (ESPN `limit`; default `200`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_awards()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per award reference, or an
@@ -2678,8 +2913,8 @@ NULL
 #' \donttest{
 #'   try(espn_mch_season_awards(season = 2025))
 #' }
-espn_mch_season_awards <- function(season = most_recent_nhl_season(), ...) {
-  .espn_hockey_season_awards(league = "mens-college-hockey", season = season, ...)
+espn_mch_season_awards <- function(season = most_recent_nhl_season(), limit = 200, ...) {
+  .espn_hockey_season_awards(league = "mens-college-hockey", season = season, limit = limit, ...)
 }
 
 #' @name espn_mch_players_index
@@ -3634,38 +3869,38 @@ NULL
 #' @param limit Maximum number of plays to return. Defaults to `1000`. A typical
 #'   MCH game has 200-260 plays.
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_plays()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_plays()`; columns verified against a captured MCH body.
 #' @return A `fastRhockey_data` tibble with one row per play:
 #'
-#'    |col_name          |types     |description                                           |
-#'    |:-----------------|:---------|:-----------------------------------------------------|
-#'    |event_id          |character |ESPN event id (echoed from arg).                      |
-#'    |cid               |character |Competition id (echoed from arg).                     |
-#'    |id                |character |ESPN play identifier.                                 |
-#'    |sequence_number   |integer   |Play sequence number within the game.                 |
-#'    |type_id           |character |Play type id.                                         |
-#'    |type_text         |character |Play type label (e.g. "Goal", "Shot", "Face Off").    |
-#'    |type_abbreviation |character |Play type abbreviation.                               |
-#'    |text              |character |Full play description text.                           |
-#'    |short_text        |character |Short play description text.                          |
-#'    |period_number     |integer   |Period number (1-3 regulation, 4+ OT).                |
-#'    |period_display    |character |Period display string (e.g. "1st").                   |
-#'    |clock_value       |numeric   |Clock value in seconds.                               |
-#'    |clock_display     |character |Clock display string (e.g. "19:34").                  |
-#'    |away_score        |integer   |Away team score after this play.                      |
-#'    |home_score        |integer   |Home team score after this play.                      |
-#'    |scoring_play      |logical   |Whether this play resulted in a goal.                 |
-#'    |score_value       |integer   |Point value of the scoring play (1 for a goal).       |
-#'    |priority          |logical   |Whether this is a priority play for display.          |
-#'    |shooting_play     |logical   |Whether this is a shot on goal.                       |
-#'    |is_penalty        |logical   |Whether this is a penalty play.                       |
-#'    |wallclock         |character |Wall-clock UTC timestamp of the play.                 |
-#'    |coordinate_x      |numeric   |X coordinate on the ice surface.                      |
-#'    |coordinate_y      |numeric   |Y coordinate on the ice surface.                      |
-#'    |strength_id       |character |Strength situation id (e.g. even strength, PP, SH).  |
-#'    |strength_text     |character |Strength situation description.                       |
-#'    |team_ref          |character |`$ref` URL for the team associated with the play.     |
-#'    |play_ref          |character |`$ref` URL for this play object.                      |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | event_id | character | ESPN event id (echoed from arg). |
+#'    | cid | character | Competition id (echoed from arg). |
+#'    | id | character | ESPN play identifier. |
+#'    | sequence_number | integer | Play sequence number within the game. |
+#'    | type_id | character | Play type id. |
+#'    | type_text | character | Play type label (e.g. "Goal", "Shot", "Face Off"). |
+#'    | type_abbreviation | character | Play type abbreviation. |
+#'    | text | character | Full play description text. |
+#'    | short_text | character | Short play description text. |
+#'    | period_number | integer | Period number (1-3 regulation, 4+ OT). |
+#'    | period_display | character | Period display string (e.g. "1st"). |
+#'    | clock_value | numeric | Clock value in seconds. |
+#'    | clock_display | character | Clock display string (e.g. "19:34"). |
+#'    | away_score | integer | Away team score after this play. |
+#'    | home_score | integer | Home team score after this play. |
+#'    | scoring_play | logical | Whether this play resulted in a goal. |
+#'    | score_value | integer | Point value of the scoring play (1 for a goal). |
+#'    | priority | logical | Whether this is a priority play for display. |
+#'    | shooting_play | logical | Whether this is a shot on goal. |
+#'    | is_penalty | logical | Whether this is a penalty play. |
+#'    | wallclock | character | Wall-clock UTC timestamp of the play. |
+#'    | coordinate_x | numeric | X coordinate on the ice surface. |
+#'    | coordinate_y | numeric | Y coordinate on the ice surface. |
+#'    | strength_id | character | Strength situation id (e.g. even strength, PP, SH). |
+#'    | strength_text | character | Strength situation description. |
+#'    | team_ref | character | `$ref` URL for the team associated with the play. |
+#'    | play_ref | character | `$ref` URL for this play object. |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -4306,15 +4541,15 @@ NULL
 #' @param limit Maximum number of venues to return (default `1000`). The MCH
 #'   venue catalog contains ~180 entries; `200` returns all in one request.
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_venues()` (columns inherited); a collection may be empty.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_venues()`; columns verified against a captured MCH body.
 #' @return A `fastRhockey_data` tibble with one row per venue reference:
 #'
-#'    |col_name    |types     |description                                        |
-#'    |:-----------|:---------|:--------------------------------------------------|
-#'    |ref         |character |`$ref` URL for the venue object.                   |
-#'    |venue_id    |character |ESPN venue id parsed from the `$ref` URL.          |
-#'    |count       |integer   |Total venues in the collection.                    |
-#'    |page_count  |integer   |Total pages in the collection.                     |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | ref | character | `$ref` URL for the venue object. |
+#'    | venue_id | character | ESPN venue id parsed from the `$ref` URL. |
+#'    | count | integer | Total venues in the collection. |
+#'    | page_count | integer | Total pages in the collection. |
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -4485,6 +4720,7 @@ NULL
 #' @author Saiem Gilani
 #' @param coach_id ESPN coach identifier (character or numeric). Use
 #'   `espn_mch_coaches()` to discover valid coach ids.
+#' @param record_type Record type path segment (`coaches/{id}/record/{record_type}`); default `0`, as sdv-py. `NULL` drops the segment.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_coach_record()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with coach career record data, or an
@@ -4509,8 +4745,8 @@ NULL
 #'     espn_mch_coach_record(coach_id = ccs$coach_id[1])
 #'   })
 #' }
-espn_mch_coach_record <- function(coach_id, ...) {
-  .espn_hockey_coach_record(league = "mens-college-hockey", coach_id = coach_id, ...)
+espn_mch_coach_record <- function(coach_id, record_type = 0, ...) {
+  .espn_hockey_coach_record(league = "mens-college-hockey", coach_id = coach_id, record_type = record_type, ...)
 }
 
 #' @name espn_mch_coach_season
@@ -4552,6 +4788,7 @@ espn_mch_coach_season <- function(coach_id,
   .espn_hockey_coach_season(league   = "mens-college-hockey",
                               coach_id = coach_id,
                               season   = season,
+                              coach_first = TRUE,
                               ...)
 }
 
@@ -4826,33 +5063,33 @@ NULL
 #' @return A `fastRhockey_data` tibble with one row per (poll, team), always with
 #'   the same 25 columns; zero rows (with those columns) when no poll is published:
 #'
-#'    |col_name           |types     |description                                              |
-#'    |:------------------|:---------|:--------------------------------------------------------|
-#'    |poll_id            |integer   |ESPN poll identifier.                                    |
-#'    |poll_name          |character |Poll name.                                               |
-#'    |poll_short_name    |character |Poll short name.                                         |
-#'    |poll_type          |character |Poll type code.                                          |
-#'    |season             |integer   |Season end-year.                                         |
-#'    |season_type        |integer   |Season type (2 = regular season, 3 = postseason).       |
-#'    |week               |integer   |Poll week within the season type.                        |
-#'    |week_display       |character |Poll week display string.                                |
-#'    |poll_date          |character |Poll date (ISO 8601).                                    |
-#'    |ranked             |logical   |`TRUE` for a ranked team, `FALSE` for a team receiving votes. |
-#'    |team_id            |character |ESPN team identifier.                                    |
-#'    |rank               |integer   |Current rank (`NA` when not ranked).                     |
-#'    |previous_rank      |integer   |Previous poll rank (`0` = unranked).                     |
-#'    |points             |numeric   |Poll points.                                             |
-#'    |first_place_votes  |integer   |First-place votes (`NA` when not published).             |
-#'    |trend              |character |Rank trend indicator.                                    |
-#'    |record_summary     |character |Team record summary.                                     |
-#'    |team_uid           |character |ESPN team UID.                                           |
-#'    |team_location      |character |Team location.                                           |
-#'    |team_name          |character |Team name.                                               |
-#'    |team_nickname      |character |Team nickname.                                           |
-#'    |team_abbreviation  |character |Team abbreviation.                                       |
-#'    |team_color         |character |Team colour hex (`NA` when ESPN ships `"NULL"`).         |
-#'    |team_logo          |character |Team logo URL.                                           |
-#'    |last_updated       |character |Entry last-updated timestamp.                            |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | poll_id | integer | ESPN poll identifier. |
+#'    | poll_name | character | Poll name. |
+#'    | poll_short_name | character | Poll short name. |
+#'    | poll_type | character | Poll type code. |
+#'    | season | integer | Season end-year. |
+#'    | season_type | integer | Season type (2 = regular season, 3 = postseason). |
+#'    | week | integer | Poll week within the season type. |
+#'    | week_display | character | Poll week display string. |
+#'    | poll_date | character | Poll date (ISO 8601). |
+#'    | ranked | logical | `TRUE` for a ranked team, `FALSE` for a team receiving votes. |
+#'    | team_id | character | ESPN team identifier. |
+#'    | rank | integer | Current rank (`NA` when not ranked). |
+#'    | previous_rank | integer | Previous poll rank (`0` = unranked). |
+#'    | points | numeric | Poll points. |
+#'    | first_place_votes | integer | First-place votes (`NA` when not published). |
+#'    | trend | character | Rank trend indicator. |
+#'    | record_summary | character | Team record summary. |
+#'    | team_uid | character | ESPN team UID. |
+#'    | team_location | character | Team location. |
+#'    | team_name | character | Team name. |
+#'    | team_nickname | character | Team nickname. |
+#'    | team_abbreviation | character | Team abbreviation. |
+#'    | team_color | character | Team colour hex (`NA` when ESPN ships `"NULL"`). |
+#'    | team_logo | character | Team logo URL. |
+#'    | last_updated | character | Entry last-updated timestamp. |
 #'
 #' @importFrom dplyr bind_rows
 #' @export
@@ -5150,62 +5387,66 @@ NULL
 #' @param dates Optional date or date-range string in `"YYYYMMDD"` or
 #'   `"YYYYMMDD-YYYYMMDD"` format. When `NULL` (default) the current day
 #'   is used.
+#' @param week Optional week number (ESPN `week` query).
+#' @param season_type Optional season phase (1 = pre, 2 = regular, 3 = post); sent as `seasontype`.
+#' @param groups Optional conference/group id filter.
+#' @param limit Maximum number of events (ESPN `limit`; default `500`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_scoreboard()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_scoreboard()`; columns verified against a captured WCH body.
 #' @return A `fastRhockey_data` tibble with one row per game:
 #'
-#'    |col_name                 |types     |description                                      |
-#'    |:------------------------|:---------|:------------------------------------------------|
-#'    |game_id                  |character |ESPN event identifier.                           |
-#'    |uid                      |character |ESPN event uid.                                  |
-#'    |date                     |character |Game date-time (ISO 8601).                       |
-#'    |name                     |character |Full game name.                                  |
-#'    |short_name               |character |Short game name.                                 |
-#'    |season_year              |integer   |Season end year.                                 |
-#'    |season_type              |integer   |Season type code (1=pre, 2=regular, 3=post).     |
-#'    |season_slug              |character |Season type slug.                                |
-#'    |status_type_id           |character |Status type identifier.                          |
-#'    |status_type_name         |character |Status type name.                                |
-#'    |status_type_state        |character |Status state (pre/in/post).                      |
-#'    |status_type_completed    |logical   |Whether the game is complete.                    |
-#'    |status_type_description  |character |Status description.                              |
-#'    |status_type_detail       |character |Status detail text.                              |
-#'    |status_type_short_detail |character |Short status detail.                             |
-#'    |status_clock             |numeric   |Game clock in seconds.                           |
-#'    |status_display_clock     |character |Display clock string.                            |
-#'    |status_period            |integer   |Current period.                                  |
-#'    |neutral_site             |logical   |Whether the game is at a neutral site.           |
-#'    |conference_competition   |character |Whether it is a conference competition.          |
-#'    |attendance               |integer   |Game attendance.                                 |
-#'    |venue_id                 |character |ESPN venue identifier.                           |
-#'    |venue_full_name          |character |Venue full name.                                 |
-#'    |venue_city               |character |Venue city.                                      |
-#'    |venue_state              |character |Venue state.                                     |
-#'    |venue_indoor             |logical   |Whether the venue is indoors.                    |
-#'    |broadcast                |character |Broadcast network(s).                            |
-#'    |note                     |character |Game note or headline.                           |
-#'    |home_id                  |character |Home team ESPN identifier.                       |
-#'    |home_name                |character |Home team name.                                  |
-#'    |home_abbreviation        |character |Home team abbreviation.                          |
-#'    |home_display_name        |character |Home team display name.                          |
-#'    |home_location            |character |Home team city/location.                         |
-#'    |home_color               |character |Home team primary color hex.                     |
-#'    |home_alternate_color     |character |Home team alternate color hex.                   |
-#'    |home_logo                |character |Home team logo URL.                              |
-#'    |home_score               |character |Home team score.                                 |
-#'    |home_winner              |logical   |Whether the home team won.                       |
-#'    |home_rank                |integer   |Home team rank (if ranked).                      |
-#'    |away_id                  |character |Away team ESPN identifier.                       |
-#'    |away_name                |character |Away team name.                                  |
-#'    |away_abbreviation        |character |Away team abbreviation.                          |
-#'    |away_display_name        |character |Away team display name.                          |
-#'    |away_location            |character |Away team city/location.                         |
-#'    |away_color               |character |Away team primary color hex.                     |
-#'    |away_alternate_color     |character |Away team alternate color hex.                   |
-#'    |away_logo                |character |Away team logo URL.                              |
-#'    |away_score               |character |Away team score.                                 |
-#'    |away_winner              |logical   |Whether the away team won.                       |
-#'    |away_rank                |integer   |Away team rank (if ranked).                      |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | game_id | character | ESPN event identifier. |
+#'    | uid | character | ESPN event uid. |
+#'    | date | character | Game date-time (ISO 8601). |
+#'    | name | character | Full game name. |
+#'    | short_name | character | Short game name. |
+#'    | season_year | integer | Season end year. |
+#'    | season_type | integer | Season type code (1=pre, 2=regular, 3=post). |
+#'    | season_slug | character | Season type slug. |
+#'    | status_type_id | character | Status type identifier. |
+#'    | status_type_name | character | Status type name. |
+#'    | status_type_state | character | Status state (pre/in/post). |
+#'    | status_type_completed | logical | Whether the game is complete. |
+#'    | status_type_description | character | Status description. |
+#'    | status_type_detail | character | Status detail text. |
+#'    | status_type_short_detail | character | Short status detail. |
+#'    | status_clock | numeric | Game clock in seconds. |
+#'    | status_display_clock | character | Display clock string. |
+#'    | status_period | integer | Current period. |
+#'    | neutral_site | logical | Whether the game is at a neutral site. |
+#'    | conference_competition | character | Whether it is a conference competition. |
+#'    | attendance | integer | Game attendance. |
+#'    | venue_id | character | ESPN venue identifier. |
+#'    | venue_full_name | character | Venue full name. |
+#'    | venue_city | character | Venue city. |
+#'    | venue_state | character | Venue state. |
+#'    | venue_indoor | logical | Whether the venue is indoors. |
+#'    | broadcast | character | Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
+#'    | note | character | Game note or headline. |
+#'    | home_id | character | Home team ESPN identifier. |
+#'    | home_name | character | Home team name. |
+#'    | home_abbreviation | character | Home team abbreviation. |
+#'    | home_display_name | character | Home team display name. |
+#'    | home_location | character | Home team city/location. |
+#'    | home_color | character | Home team primary color hex. |
+#'    | home_alternate_color | character | Home team alternate color hex. |
+#'    | home_logo | character | Home team logo URL. |
+#'    | home_score | character | Home team score. |
+#'    | home_winner | logical | Whether the home team won. |
+#'    | home_rank | integer | Home team rank (if ranked). |
+#'    | away_id | character | Away team ESPN identifier. |
+#'    | away_name | character | Away team name. |
+#'    | away_abbreviation | character | Away team abbreviation. |
+#'    | away_display_name | character | Away team display name. |
+#'    | away_location | character | Away team city/location. |
+#'    | away_color | character | Away team primary color hex. |
+#'    | away_alternate_color | character | Away team alternate color hex. |
+#'    | away_logo | character | Away team logo URL. |
+#'    | away_score | character | Away team score. |
+#'    | away_winner | logical | Whether the away team won. |
+#'    | away_rank | integer | Away team rank (if ranked). |
 #'
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom janitor clean_names
@@ -5215,8 +5456,8 @@ NULL
 #' \donttest{
 #'   try(espn_wch_scoreboard(dates = "20250110"))
 #' }
-espn_wch_scoreboard <- function(dates = NULL, ...) {
-  .espn_hockey_scoreboard(league = "womens-college-hockey", dates = dates, ...)
+espn_wch_scoreboard <- function(dates = NULL, week = NULL, season_type = NULL, groups = NULL, limit = 500, ...) {
+  .espn_hockey_scoreboard(league = "womens-college-hockey", dates = dates, week = week, season_type = season_type, groups = groups, limit = limit, ...)
 }
 
 #' @name espn_wch_summary
@@ -5264,22 +5505,225 @@ espn_wch_summary <- function(event_id, ...) {
   .espn_hockey_summary(league = "womens-college-hockey", game_id = event_id, ...)
 }
 
+#' @name espn_wch_pbp
+NULL
+#' @title **Get ESPN WCH Play-by-Play**
+#' @rdname espn_wch_pbp
+#' @author Saiem Gilani
+#' @param game_id ESPN event identifier (character or numeric).
+#' @param ... Reserved for forward compatibility.
+#' @details League slug `womens-college-hockey`. Parsed from the site-v2 `summary` payload by the same
+#'   helper as `espn_nhl_pbp()`; columns verified against a captured wch summary body.
+#' @return A `fastRhockey_data` tibble, one row per play:
+#'
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | id | character | ESPN play identifier. |
+#'    | sequence_number | character | Play sequence number. |
+#'    | type_id | character | Play type identifier. |
+#'    | type_text | character | Play type display text. |
+#'    | text | character | Play description text. |
+#'    | away_score | integer | Away team score at time of play. |
+#'    | home_score | integer | Home team score at time of play. |
+#'    | scoring_play | logical | Whether the play resulted in a goal. |
+#'    | score_value | integer | Goal value (1 for regulation/OT goals). |
+#'    | shooting_play | logical | Whether the play was a shot attempt. |
+#'    | wallclock | character | Wall-clock timestamp (ISO 8601). |
+#'    | period_number | integer | Period number (1-3 regulation, 4+ OT/SO). |
+#'    | period_display_value | character | Period display label (e.g. "1st Period"). |
+#'    | clock_display_value | character | Game clock display string (e.g. "14:32"). |
+#'    | team_id | character | ESPN team identifier for the acting team. |
+#'    | coordinate_x | numeric | X coordinate of play location. |
+#'    | coordinate_y | numeric | Y coordinate of play location. |
+#'    | strength_id | character | Strength situation identifier. |
+#'    | strength_text | character | Strength situation text (e.g. "Even Strength"). |
+#'    | shot_info_id | character | Shot type identifier. |
+#'    | shot_info_text | character | Shot type text (e.g. "Wrist Shot"). |
+#'    | athlete_id_1 | character | Primary participant athlete identifier. |
+#'    | athlete_id_2 | character | Secondary participant athlete identifier. |
+#'    | athlete_id_3 | character | Tertiary participant athlete identifier. |
+#'    | home_team_id | character | Home team ESPN identifier. |
+#'    | home_team_name | character | Home team name. |
+#'    | home_team_location | character | Home team city/location. |
+#'    | home_team_abbrev | character | Home team abbreviation. |
+#'    | home_team_display_name | character | Home team display name. |
+#'    | home_team_color | character | Home team primary color hex. |
+#'    | home_team_alternate_color | character | Home team alternate color hex. |
+#'    | home_team_logo | character | Home team logo URL. |
+#'    | home_team_score | character | Home team final score. |
+#'    | home_team_winner | logical | Whether the home team won. |
+#'    | away_team_id | character | Away team ESPN identifier. |
+#'    | away_team_name | character | Away team name. |
+#'    | away_team_location | character | Away team city/location. |
+#'    | away_team_abbrev | character | Away team abbreviation. |
+#'    | away_team_display_name | character | Away team display name. |
+#'    | away_team_color | character | Away team primary color hex. |
+#'    | away_team_alternate_color | character | Away team alternate color hex. |
+#'    | away_team_logo | character | Away team logo URL. |
+#'    | away_team_score | character | Away team final score. |
+#'    | away_team_winner | logical | Whether the away team won. |
+#'    | game_id | character | ESPN event identifier (echoed from arg). |
+#'    | season | integer | Season end-year. |
+#'    | season_type | integer | Season type code. |
+#'    | game_date | character | Game date-time (ISO 8601). |
+#'
+#' @export
+#' @family ESPN WCH Functions
+#' @examples
+#' \donttest{
+#'   try(espn_wch_pbp(game_id = "401762970"))
+#' }
+espn_wch_pbp <- function(game_id, ...) {
+  .espn_hockey_pbp(league = "womens-college-hockey", game_id = game_id, ...)
+}
+
+#' @name espn_wch_team_box
+NULL
+#' @title **Get ESPN WCH Team Box Score**
+#' @rdname espn_wch_team_box
+#' @author Saiem Gilani
+#' @param game_id ESPN event identifier (character or numeric).
+#' @param ... Reserved for forward compatibility.
+#' @details League slug `womens-college-hockey`. Parsed from the site-v2 `summary` payload by the same
+#'   helper as `espn_nhl_team_box()`; columns verified against a captured wch summary body.
+#' @return A `fastRhockey_data` tibble, one row per team (2 rows):
+#'
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | team_id | character | ESPN team identifier. |
+#'    | team_uid | character | ESPN team uid. |
+#'    | team_slug | character | Team URL slug. |
+#'    | team_location | character | Team city/location. |
+#'    | team_name | character | Team name (mascot). |
+#'    | team_abbreviation | character | Team abbreviation. |
+#'    | team_display_name | character | Team display name. |
+#'    | team_short_display_name | character | Team short display name. |
+#'    | team_color | character | Team primary color hex. |
+#'    | team_alternate_color | character | Team alternate color hex. |
+#'    | team_logo | character | Team logo URL. |
+#'    | home_away | character | "home" or "away". |
+#'    | game_id | character | ESPN event identifier (echoed from arg). |
+#'    | season | integer | Season end-year. |
+#'    | season_type | integer | Season type code. |
+#'    | game_date | character | Game date-time (ISO 8601). |
+#'    | blocked_shots | character | Total blocked shots. |
+#'    | hits | character | Total hits. |
+#'    | takeaways | character | Total takeaways. |
+#'    | shots_total | character | Total shots on goal. |
+#'    | power_play_goals | character | Power play goals. |
+#'    | power_play_opportunities | character | Power play opportunities. |
+#'    | power_play_pct | character | Power play percentage. |
+#'    | short_handed_goals | character | Short-handed goals. |
+#'    | shootout_goals | character | Shootout goals. |
+#'    | faceoffs_won | character | Faceoffs won. |
+#'    | faceoff_percent | character | Faceoff win percentage. |
+#'    | giveaways | character | Giveaways. |
+#'    | penalties | character | Penalty count. |
+#'    | penalty_minutes | character | Penalty minutes. |
+#'
+#' @export
+#' @family ESPN WCH Functions
+#' @examples
+#' \donttest{
+#'   try(espn_wch_team_box(game_id = "401762970"))
+#' }
+espn_wch_team_box <- function(game_id, ...) {
+  .espn_hockey_team_box(league = "womens-college-hockey", game_id = game_id, ...)
+}
+
+#' @name espn_wch_player_box
+NULL
+#' @title **Get ESPN WCH Player Box Score**
+#' @rdname espn_wch_player_box
+#' @author Saiem Gilani
+#' @param game_id ESPN event identifier (character or numeric).
+#' @param ... Reserved for forward compatibility.
+#' @details League slug `womens-college-hockey`. Parsed from the site-v2 `summary` payload by the same
+#'   helper as `espn_nhl_player_box()`; columns verified against a captured wch summary body.
+#' @return A `fastRhockey_data` tibble, one row per player appearance (skaters and goalies bound; columns not kept for a position group are `NA`):
+#'
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | athlete_id | character | ESPN athlete identifier. |
+#'    | athlete_display_name | character | Athlete full display name. |
+#'    | athlete_short_name | character | Athlete short name. |
+#'    | athlete_last_name | character | Athlete last name. |
+#'    | athlete_jersey | character | Jersey number. |
+#'    | athlete_headshot_href | character | Headshot image URL. |
+#'    | athlete_position_name | character | Position name. |
+#'    | athlete_position_abbreviation | character | Position abbreviation. |
+#'    | athlete_active | logical | Whether the athlete was active. |
+#'    | athlete_scratched | logical | Whether the athlete was scratched. |
+#'    | stat_group | character | Stat group name ("forwards","defenses","goalies"). |
+#'    | team_id | character | ESPN team identifier. |
+#'    | team_abbreviation | character | Team abbreviation. |
+#'    | team_display_name | character | Team display name. |
+#'    | home_away | character | "home" or "away". |
+#'    | team_score | character | Team final score. |
+#'    | team_winner | logical | Whether the team won. |
+#'    | opponent_team_id | character | Opponent team identifier. |
+#'    | opponent_team_abbreviation | character | Opponent team abbreviation. |
+#'    | game_id | character | ESPN event identifier (echoed from arg). |
+#'    | season | integer | Season end-year. |
+#'    | season_type | integer | Season type code. |
+#'    | game_date | character | Game date-time (ISO 8601). |
+#'    | bs | character | Blocked shots (skaters). |
+#'    | ht | character | Hits (skaters). |
+#'    | tk | character | Takeaways (skaters). |
+#'    | plus_minus | character | Plus/minus rating (skaters). |
+#'    | toi | character | Time on ice (skaters, MM:SS). |
+#'    | pptoi | character | Power play time on ice (skaters, MM:SS). |
+#'    | shtoi | character | Short-handed time on ice (skaters, MM:SS). |
+#'    | estoi | character | Even-strength time on ice (skaters, MM:SS). |
+#'    | shft | character | Total shifts (skaters). |
+#'    | g | character | Goals (skaters). |
+#'    | ytdg | character | Year-to-date goals (skaters/goalies). |
+#'    | a | character | Assists (skaters). |
+#'    | s | character | Shots (skaters). |
+#'    | sm | character | Missed shots (skaters). |
+#'    | sog | character | Shots on goal (skaters). |
+#'    | fw | character | Faceoffs won (skaters). |
+#'    | fl | character | Faceoffs lost (skaters). |
+#'    | fo_percent | character | Faceoff percentage (skaters). |
+#'    | gv | character | Giveaways (skaters). |
+#'    | pn | character | Penalties taken (skaters). |
+#'    | pim | character | Penalty minutes (skaters/goalies). |
+#'    | ga | character | Goals against (goalies). |
+#'    | sa | character | Shots against (goalies). |
+#'    | sos | character | Shootout saves (goalies). |
+#'    | sosa | character | Shootout shots against (goalies). |
+#'    | sv | character | Saves (goalies). |
+#'    | sv_percent | character | Save percentage (goalies). |
+#'    | essv | character | Even-strength saves (goalies). |
+#'    | ppsv | character | Power play saves (goalies). |
+#'    | shsv | character | Short-handed saves (goalies). |
+#'
+#' @export
+#' @family ESPN WCH Functions
+#' @examples
+#' \donttest{
+#'   try(espn_wch_player_box(game_id = "401762970"))
+#' }
+espn_wch_player_box <- function(game_id, ...) {
+  .espn_hockey_player_box(league = "womens-college-hockey", game_id = game_id, ...)
+}
+
 #' @name espn_wch_calendar
 NULL
 #' @title **Get ESPN WCH Calendar**
 #' @rdname espn_wch_calendar
 #' @author Saiem Gilani
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_calendar()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_calendar()`; columns verified against a captured WCH body.
 #' @return A `fastRhockey_data` tibble with one row per game date:
 #'
-#'    |col_name                |types     |description                                         |
-#'    |:-----------------------|:---------|:---------------------------------------------------|
-#'    |date                    |character |Game date (ISO 8601 datetime string).               |
-#'    |calendar_type           |character |Calendar type (e.g. `"day"`).                       |
-#'    |calendar_start_date     |character |Calendar season start date.                         |
-#'    |calendar_end_date       |character |Calendar season end date.                           |
-#'    |calendar_is_whitelist   |logical   |Whether dates are a whitelist of game days.         |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | date | character | Game date (ISO 8601 datetime string). |
+#'    | calendar_type | character | Calendar type (e.g. `"day"`). |
+#'    | calendar_start_date | character | Calendar season start date. |
+#'    | calendar_end_date | character | Calendar season end date. |
+#'    | calendar_is_whitelist | logical | Whether dates are a whitelist of game days. |
 #'
 #' @importFrom dplyr mutate
 #' @importFrom janitor clean_names
@@ -5300,23 +5744,23 @@ NULL
 #' @author Saiem Gilani
 #' @param limit Maximum number of articles to return (default `50`).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_news()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_news()`; columns verified against a captured WCH body.
 #' @return A `fastRhockey_data` tibble with one row per article:
 #'
-#'    |col_name       |types     |description                                         |
-#'    |:--------------|:---------|:---------------------------------------------------|
-#'    |article_id     |character |ESPN article identifier.                            |
-#'    |now_id         |character |ESPN Now identifier.                                |
-#'    |content_key    |character |Content management key.                             |
-#'    |type           |character |Article type (e.g. "Story", "Media").               |
-#'    |headline       |character |Article headline.                                   |
-#'    |description    |character |Article description/excerpt.                        |
-#'    |last_modified  |character |ISO 8601 last-modified datetime.                    |
-#'    |published      |character |ISO 8601 published datetime.                        |
-#'    |byline         |character |Author byline.                                      |
-#'    |premium        |logical   |Whether the article is premium content.             |
-#'    |image_href     |character |URL of the lead image.                              |
-#'    |web_href       |character |URL of the article on ESPN.com.                     |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | article_id | character | ESPN article identifier. |
+#'    | now_id | character | ESPN Now identifier. |
+#'    | content_key | character | Content management key. |
+#'    | type | character | Article type (e.g. "Story", "Media"). |
+#'    | headline | character | Article headline. |
+#'    | description | character | Article description/excerpt. |
+#'    | last_modified | character | ISO 8601 last-modified datetime. |
+#'    | published | character | ISO 8601 published datetime. |
+#'    | byline | character | Author byline. |
+#'    | premium | logical | Whether the article is premium content. |
+#'    | image_href | character | URL of the lead image. |
+#'    | web_href | character | URL of the article on ESPN.com. |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -5336,7 +5780,7 @@ NULL
 #' @rdname espn_wch_injuries
 #' @author Saiem Gilani
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_injuries()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_injuries()`; ESPN answered an empty collection for every captured MCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
 #' @return A `fastRhockey_data` tibble with one row per injured player:
 #'
 #'    |col_name               |types     |description                                    |
@@ -5375,8 +5819,9 @@ NULL
 #' @title **Get ESPN WCH Transactions**
 #' @rdname espn_wch_transactions
 #' @author Saiem Gilani
+#' @param limit Maximum number of transactions (ESPN `limit`; default `500`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_transactions()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_transactions()`; ESPN answered an empty collection for every captured MCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
 #' @return A `fastRhockey_data` tibble with one row per transaction:
 #'
 #'    |col_name           |types     |description                                         |
@@ -5398,8 +5843,8 @@ NULL
 #' \donttest{
 #'   try(espn_wch_transactions())
 #' }
-espn_wch_transactions <- function(...) {
-  .espn_hockey_transactions(league = "womens-college-hockey", ...)
+espn_wch_transactions <- function(limit = 500, ...) {
+  .espn_hockey_transactions(league = "womens-college-hockey", limit = limit, ...)
 }
 
 #' @name espn_wch_conferences
@@ -5408,16 +5853,16 @@ NULL
 #' @rdname espn_wch_conferences
 #' @author Saiem Gilani
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_conferences()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_conferences()`; columns verified against a captured MCH body (same helper; no WCH body captured).
 #' @return A `fastRhockey_data` tibble with one row per conference/division
 #'   combination (4 rows for WCH: 2 conferences x 2 divisions each):
 #'
-#'    |col_name                 |types     |description                             |
-#'    |:------------------------|:---------|:---------------------------------------|
-#'    |conference_name          |character |Conference name (e.g. "Eastern Conference"). |
-#'    |conference_abbreviation  |character |Conference abbreviation.                |
-#'    |division_name            |character |Division name (e.g. "Atlantic Division"). |
-#'    |division_abbreviation    |character |Division abbreviation.                  |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | conference_name | character | Conference name (e.g. "Eastern Conference"). |
+#'    | conference_abbreviation | character | Conference abbreviation. |
+#'    | division_name | character | Division name (e.g. "Atlantic Division"). |
+#'    | division_abbreviation | character | Division abbreviation. |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -5501,23 +5946,35 @@ NULL
 #' @title **Get ESPN WCH Teams (site_v2) -- alias for `espn_wch_teams()`**
 #' @rdname espn_wch_teams_site
 #' @author Saiem Gilani
+#' @param limit Maximum number of teams (ESPN `limit`; default `1000`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_teams_site()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_teams_site()`; columns verified against a captured WCH body.
 #' @return A `fastRhockey_data` tibble with one row per WCH team. This is
 #'   identical to the output of teams.
 #'
-#'    |col_name         |types     |description                         |
-#'    |:----------------|:---------|:-----------------------------------|
-#'    |espn_team_id     |character |ESPN team identifier.               |
-#'    |team             |character |Team location/city name.            |
-#'    |mascot           |character |Team mascot/nickname.               |
-#'    |display_name     |character |Team display name.                  |
-#'    |short_name       |character |Short team display name.            |
-#'    |abbreviation     |character |Team abbreviation.                  |
-#'    |color            |character |Primary color hex.                  |
-#'    |alternate_color  |character |Alternate color hex.                |
-#'    |logo             |character |Light-background logo URL.          |
-#'    |logo_dark        |character |Dark-background logo URL.           |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | abbreviation | character | Team abbreviation. |
+#'    | display_name | character | Team display name. |
+#'    | espn_team_id | integer | ESPN team identifier. |
+#'    | team | character | Team location/city name. |
+#'    | logo | character | Light-background logo URL. |
+#'    | logo_dark | character | Dark-background logo URL. |
+#'    | logos_href_3 | character | Logo variant 3 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_4 | character | Logo variant 4 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_5 | character | Logo variant 5 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_6 | character | Logo variant 6 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_7 | character | Logo variant 7 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_8 | character | Logo variant 8 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_9 | character | Logo variant 9 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_10 | character | Logo variant 10 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_11 | character | Logo variant 11 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_12 | character | Logo variant 12 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_13 | character | Logo variant 13 URL (ESPN sends a varying number of logos per team). |
+#'    | logos_href_14 | character | Logo variant 14 URL (ESPN sends a varying number of logos per team). |
+#'    | mascot | character | Team mascot/nickname. |
+#'    | nickname | character | Team nickname. |
+#'    | short_name | character | Short team display name. |
 #'
 #' @importFrom dplyr group_by ungroup select rename
 #' @importFrom tidyr unnest_wider
@@ -5529,8 +5986,8 @@ NULL
 #' \donttest{
 #'   try(espn_wch_teams_site())
 #' }
-espn_wch_teams_site <- function(...) {
-  .espn_hockey_teams(league = "womens-college-hockey", ...)
+espn_wch_teams_site <- function(limit = 1000, ...) {
+  .espn_hockey_teams(league = "womens-college-hockey", limit = limit, ...)
 }
 
 #' @name espn_wch_team
@@ -5541,28 +5998,28 @@ NULL
 #' @param team_id ESPN team identifier (character or numeric, e.g. `"2137"` for
 #'   Chicago Blackhawks).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team()`; columns verified against a captured WCH body.
 #' @return A `fastRhockey_data` tibble with one row per team:
 #'
-#'    |col_name            |types     |description                             |
-#'    |:-------------------|:---------|:---------------------------------------|
-#'    |team_id             |character |ESPN team identifier (echoed from arg). |
-#'    |id                  |character |ESPN team identifier.                   |
-#'    |uid                 |character |ESPN team uid.                          |
-#'    |slug                |character |URL slug.                               |
-#'    |location            |character |Team city/location.                     |
-#'    |name                |character |Team mascot name.                       |
-#'    |nickname            |character |Team nickname.                          |
-#'    |abbreviation        |character |Team abbreviation.                      |
-#'    |display_name        |character |Full display name.                      |
-#'    |short_display_name  |character |Short display name.                     |
-#'    |color               |character |Primary color hex.                      |
-#'    |alternate_color     |character |Alternate color hex.                    |
-#'    |is_active           |logical   |Whether the team is active.             |
-#'    |logo                |character |Primary logo URL.                       |
-#'    |logo_dark           |character |Dark logo URL.                          |
-#'    |stand_summary       |character |Standing summary string.                |
-#'    |franchise_ref       |character |Franchise resource ref URL.             |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | team_id | character | ESPN team identifier (echoed from arg). |
+#'    | id | character | ESPN team identifier. |
+#'    | uid | character | ESPN team uid. |
+#'    | slug | character | URL slug. |
+#'    | location | character | Team city/location. |
+#'    | name | character | Team mascot name. |
+#'    | nickname | character | Team nickname. |
+#'    | abbreviation | character | Team abbreviation. |
+#'    | display_name | character | Full display name. |
+#'    | short_display_name | character | Short display name. |
+#'    | color | character | Primary color hex. |
+#'    | alternate_color | character | Alternate color hex. |
+#'    | is_active | logical | Whether the team is active. |
+#'    | logo | character | Primary logo URL. |
+#'    | logo_dark | character | Dark logo URL. |
+#'    | stand_summary | character | Standing summary string. |
+#'    | franchise_ref | character | Franchise resource ref URL. |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -5583,8 +6040,9 @@ NULL
 #' @author Saiem Gilani
 #' @param team_id ESPN team identifier (character or numeric, e.g. `"2137"` for
 #'   Pittsburgh Penguins).
+#' @param limit Maximum number of athletes (ESPN `limit`; default `500`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team_roster()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team_roster()`; ESPN answered an empty collection for every captured WCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
 #' @return A `fastRhockey_data` tibble with one row per player:
 #'
 #'    |col_name                      |types     |description                         |
@@ -5651,8 +6109,8 @@ NULL
 #' \donttest{
 #'   try(espn_wch_team_roster(team_id = "2137"))
 #' }
-espn_wch_team_roster <- function(team_id, ...) {
-  .espn_hockey_team_roster(league = "womens-college-hockey", team_id = team_id, ...)
+espn_wch_team_roster <- function(team_id, limit = 500, ...) {
+  .espn_hockey_team_roster(league = "womens-college-hockey", team_id = team_id, limit = limit, ...)
 }
 
 #' @name espn_wch_team_schedule
@@ -5665,46 +6123,46 @@ NULL
 #' @param season Season end-year (e.g. `2025`). Defaults to
 #'   `most_recent_nhl_season()`.
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team_schedule()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team_schedule()`; columns verified against a captured MCH body (same helper; no WCH body captured).
 #' @return A `fastRhockey_data` tibble with one row per game. Identical to
 #'   schedule.
 #'
-#'    |col_name              |types     |description                                        |
-#'    |:---------------------|:---------|:--------------------------------------------------|
-#'    |game_id               |character |ESPN event identifier.                             |
-#'    |date                  |character |Game date-time (ISO 8601).                         |
-#'    |name                  |character |Full game name.                                    |
-#'    |short_name            |character |Short game name.                                   |
-#'    |season_year           |integer   |Season end year.                                   |
-#'    |season_type           |integer   |Season type code.                                  |
-#'    |time_valid            |logical   |Whether the game time is confirmed.                |
-#'    |status_type_id        |character |Status type identifier.                            |
-#'    |status_type_name      |character |Status type name.                                  |
-#'    |status_type_state     |character |Status state (pre/in/post).                        |
-#'    |status_type_completed |logical   |Whether the game is complete.                      |
-#'    |neutral_site          |logical   |Whether the game is at a neutral site.             |
-#'    |attendance            |integer   |Game attendance.                                   |
-#'    |venue_id              |character |Venue identifier.                                  |
-#'    |venue_full_name       |character |Venue full name.                                   |
-#'    |venue_city            |character |Venue city.                                        |
-#'    |venue_state           |character |Venue state.                                       |
-#'    |broadcast             |character |Broadcast network(s).                              |
-#'    |home_id               |character |Home team ESPN identifier.                         |
-#'    |home_name             |character |Home team display name.                            |
-#'    |home_abbreviation     |character |Home team abbreviation.                            |
-#'    |home_location         |character |Home team city.                                    |
-#'    |home_logo             |character |Home team logo URL.                                |
-#'    |home_score            |character |Home team score.                                   |
-#'    |home_winner           |logical   |Whether the home team won.                         |
-#'    |away_id               |character |Away team ESPN identifier.                         |
-#'    |away_name             |character |Away team display name.                            |
-#'    |away_abbreviation     |character |Away team abbreviation.                            |
-#'    |away_location         |character |Away team city.                                    |
-#'    |away_logo             |character |Away team logo URL.                                |
-#'    |away_score            |character |Away team score.                                   |
-#'    |away_winner           |logical   |Whether the away team won.                         |
-#'    |team_id               |character |ESPN team identifier (echoed from arg).            |
-#'    |season                |integer   |Season end-year (echoed from arg).                 |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | game_id | character | ESPN event identifier. |
+#'    | date | character | Game date-time (ISO 8601). |
+#'    | name | character | Full game name. |
+#'    | short_name | character | Short game name. |
+#'    | season_year | integer | Season end year. |
+#'    | season_type | integer | Season type code. |
+#'    | time_valid | logical | Whether the game time is confirmed. |
+#'    | status_type_id | character | Status type identifier. |
+#'    | status_type_name | character | Status type name. |
+#'    | status_type_state | character | Status state (pre/in/post). |
+#'    | status_type_completed | logical | Whether the game is complete. |
+#'    | neutral_site | logical | Whether the game is at a neutral site. |
+#'    | attendance | integer | Game attendance. |
+#'    | venue_id | character | Venue identifier. |
+#'    | venue_full_name | character | Venue full name. |
+#'    | venue_city | character | Venue city. |
+#'    | venue_state | character | Venue state. |
+#'    | broadcast | character | Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
+#'    | home_id | character | Home team ESPN identifier. |
+#'    | home_name | character | Home team display name. |
+#'    | home_abbreviation | character | Home team abbreviation. |
+#'    | home_location | character | Home team city. |
+#'    | home_logo | character | Home team logo URL. |
+#'    | home_score | character | Home team score. |
+#'    | home_winner | logical | Whether the home team won. |
+#'    | away_id | character | Away team ESPN identifier. |
+#'    | away_name | character | Away team display name. |
+#'    | away_abbreviation | character | Away team abbreviation. |
+#'    | away_location | character | Away team city. |
+#'    | away_logo | character | Away team logo URL. |
+#'    | away_score | character | Away team score. |
+#'    | away_winner | logical | Whether the away team won. |
+#'    | team_id | character | ESPN team identifier (echoed from arg). |
+#'    | season | integer | Season end-year (echoed from arg). |
 #'
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom janitor clean_names
@@ -6157,31 +6615,41 @@ NULL
 #' @author Saiem Gilani
 #' @param season Season end-year (e.g. `2025`). Defaults to
 #'   `most_recent_nhl_season()`.
+#' @param group Optional conference/group id filter.
+#' @param standings_type Optional standings variant sent as `type` (e.g. `"by-division"`).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_standings()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_standings()`; columns verified against a captured WCH body One numeric column per ESPN stat in the body, so the set follows the feed (the MCH body sends `tiegames`, the WCH body `ties`).
 #' @return A `fastRhockey_data` tibble with one row per team:
 #'
-#'    |col_name            |types     |description                                |
-#'    |:-------------------|:---------|:------------------------------------------|
-#'    |group_name          |character |Group name (conference / division).        |
-#'    |group_abbreviation  |character |Group abbreviation.                        |
-#'    |team_id             |character |ESPN team identifier.                      |
-#'    |team_name           |character |Team name.                                 |
-#'    |team_abbreviation   |character |Team abbreviation.                         |
-#'    |team_display_name   |character |Team display name.                         |
-#'    |team_location       |character |Team location (city).                      |
-#'    |team_logo           |character |Team logo URL.                             |
-#'    |season              |integer   |Season end-year (echoed from arg).         |
-#'    |ot_losses           |numeric   |Overtime losses.                           |
-#'    |games_played        |numeric   |Games played.                              |
-#'    |losses              |numeric   |Regulation losses.                         |
-#'    |points              |numeric   |Points.                                    |
-#'    |wins                |numeric   |Wins.                                      |
-#'    |points_for          |numeric   |Goals/points scored.                       |
-#'    |points_against      |numeric   |Goals/points allowed.                      |
-#'    |playoff_seed        |numeric   |Current playoff seed.                      |
-#'    |streak              |numeric   |Current streak value.                      |
-#'    |overall             |numeric   |Overall record stat.                       |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | group_name | character | Group name (conference / division). |
+#'    | group_abbreviation | character | Group abbreviation. |
+#'    | team_id | character | ESPN team identifier. |
+#'    | team_name | character | Team name. |
+#'    | team_abbreviation | character | Team abbreviation. |
+#'    | team_display_name | character | Team display name. |
+#'    | team_location | character | Team location (city). |
+#'    | team_logo | character | Team logo URL. |
+#'    | ot_losses | numeric | Overtime losses. |
+#'    | ot_wins | numeric | Overtime wins. |
+#'    | avg_points_against | numeric | Average goals against per game. |
+#'    | avg_points_for | numeric | Average goals for per game. |
+#'    | differential | numeric | Goal differential. |
+#'    | games_behind | numeric | Games behind the group leader. |
+#'    | games_played | numeric | Games played. |
+#'    | losses | numeric | Regulation losses. |
+#'    | playoff_seed | numeric | Current playoff seed. |
+#'    | point_differential | numeric | Point (goal) differential. |
+#'    | points | numeric | Points. |
+#'    | points_against | numeric | Goals/points allowed. |
+#'    | points_for | numeric | Goals/points scored. |
+#'    | streak | numeric | Current streak value. |
+#'    | ties | numeric | Ties (sent in the wch body). |
+#'    | win_percent | numeric | Win percentage. |
+#'    | wins | numeric | Wins. |
+#'    | overall | numeric | Overall record stat. |
+#'    | season | integer | Season end-year (echoed from arg). |
 #'
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom janitor clean_names make_clean_names
@@ -6191,8 +6659,8 @@ NULL
 #' \donttest{
 #'   try(espn_wch_standings(season = 2025))
 #' }
-espn_wch_standings <- function(season = most_recent_nhl_season(), ...) {
-  .espn_hockey_standings(league = "womens-college-hockey", season = season, ...)
+espn_wch_standings <- function(season = most_recent_nhl_season(), group = NULL, standings_type = NULL, ...) {
+  .espn_hockey_standings(league = "womens-college-hockey", season = season, group = group, standings_type = standings_type, ...)
 }
 
 #' @name espn_wch_player_overview
@@ -6447,6 +6915,7 @@ NULL
 #'   type ESPN actually served.
 #' @param limit Athletes per page (default `50`).
 #' @param page Page number (default `1`).
+#' @param sort Optional ESPN `sort` query string.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_leaders()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per athlete:
@@ -6498,6 +6967,7 @@ espn_wch_leaders <- function(category    = "offensive",
                               season_type = 2L,
                               limit       = 50L,
                               page        = 1L,
+                              sort = NULL,
                               ...) {
   .espn_hockey_leaders(league      = "womens-college-hockey",
                         category    = category,
@@ -6505,6 +6975,7 @@ espn_wch_leaders <- function(category    = "offensive",
                         season_type = season_type,
                         limit       = limit,
                         page        = page,
+                        sort = sort,
                         ...)
 }
 
@@ -6514,27 +6985,27 @@ NULL
 #' @rdname espn_wch_league_root
 #' @author Saiem Gilani
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_league_root()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_league_root()`; columns verified against a captured WCH body.
 #' @return A one-row `fastRhockey_data` tibble with league metadata:
 #'
-#'    |col_name        |types     |description                                      |
-#'    |:---------------|:---------|:------------------------------------------------|
-#'    |id              |character |ESPN league identifier (e.g. "90" for WCH).      |
-#'    |guid            |character |League global unique identifier.                 |
-#'    |uid             |character |League uid string.                               |
-#'    |name            |character |Full league name.                                |
-#'    |display_name    |character |League display name.                             |
-#'    |abbreviation    |character |League abbreviation (e.g. "WCH").                |
-#'    |short_name      |character |League short name.                               |
-#'    |slug            |character |League slug (e.g. "nhl").                        |
-#'    |is_tournament   |logical   |Whether the league is a tournament.              |
-#'    |gender          |character |League gender designation.                       |
-#'    |season_ref      |character |`$ref` URL for the current season object.        |
-#'    |seasons_ref     |character |`$ref` URL for the seasons collection.           |
-#'    |groups_ref      |character |`$ref` URL for the groups collection.            |
-#'    |franchises_ref  |character |`$ref` URL for the franchises collection.        |
-#'    |teams_ref       |character |`$ref` URL for the teams collection.             |
-#'    |events_ref      |character |`$ref` URL for the events collection.            |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | id | character | ESPN league identifier (e.g. "90" for WCH). |
+#'    | guid | character | League global unique identifier. |
+#'    | uid | character | League uid string. |
+#'    | name | character | Full league name. |
+#'    | display_name | character | League display name. |
+#'    | abbreviation | character | League abbreviation (e.g. "WCH"). |
+#'    | short_name | character | League short name. |
+#'    | slug | character | League slug (e.g. "nhl"). |
+#'    | is_tournament | logical | Whether the league is a tournament. |
+#'    | gender | character | League gender designation. |
+#'    | season_ref | character | `$ref` URL for the current season object. |
+#'    | seasons_ref | character | `$ref` URL for the seasons collection. |
+#'    | groups_ref | character | `$ref` URL for the groups collection. |
+#'    | franchises_ref | character | `$ref` URL for the franchises collection. |
+#'    | teams_ref | character | `$ref` URL for the teams collection. |
+#'    | events_ref | character | `$ref` URL for the events collection. |
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -6586,15 +7057,15 @@ NULL
 #' @author Saiem Gilani
 #' @param limit Maximum number of seasons to return (default `200`).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_seasons()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_seasons()`; columns verified against a captured WCH body.
 #' @return A `fastRhockey_data` tibble with one row per season:
 #'
-#'    |col_name    |types     |description                                         |
-#'    |:-----------|:---------|:---------------------------------------------------|
-#'    |ref         |character |`$ref` URL for the season object.                   |
-#'    |season      |integer   |Season year parsed from the `$ref` URL.             |
-#'    |count       |integer   |Total number of seasons in the collection.          |
-#'    |page_count  |integer   |Total number of pages in the collection.            |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | ref | character | `$ref` URL for the season object. |
+#'    | season | integer | Season year parsed from the `$ref` URL. |
+#'    | count | integer | Total number of seasons in the collection. |
+#'    | page_count | integer | Total number of pages in the collection. |
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -6615,24 +7086,24 @@ NULL
 #' @param season Season end-year (e.g. `2026`). Defaults to
 #'   `most_recent_nhl_season()`.
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_info()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_info()`; columns verified against a captured WCH body.
 #' @return A one-row `fastRhockey_data` tibble with season metadata:
 #'
-#'    |col_name       |types     |description                                      |
-#'    |:--------------|:---------|:------------------------------------------------|
-#'    |season         |integer   |Season year (echoed from arg).                   |
-#'    |start_date     |character |Season start date (ISO 8601).                    |
-#'    |end_date       |character |Season end date (ISO 8601).                      |
-#'    |display_name   |character |Season display name (e.g. "2025-26").            |
-#'    |season_ref     |character |`$ref` URL for this season.                      |
-#'    |types_ref      |character |`$ref` URL for the season-types collection.      |
-#'    |type_ref       |character |`$ref` URL for the current season type.          |
-#'    |rankings_ref   |character |`$ref` URL for rankings.                         |
-#'    |coaches_ref    |character |`$ref` URL for coaches.                          |
-#'    |athletes_ref   |character |`$ref` URL for athletes.                         |
-#'    |awards_ref     |character |`$ref` URL for awards.                           |
-#'    |futures_ref    |character |`$ref` URL for futures.                          |
-#'    |leaders_ref    |character |`$ref` URL for leaders.                          |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | season | integer | Season year (echoed from arg). |
+#'    | start_date | character | Season start date (ISO 8601). |
+#'    | end_date | character | Season end date (ISO 8601). |
+#'    | display_name | character | Season display name (e.g. "2025-26"). |
+#'    | season_ref | character | `$ref` URL for this season. |
+#'    | types_ref | character | `$ref` URL for the season-types collection. |
+#'    | type_ref | character | `$ref` URL for the current season type. |
+#'    | rankings_ref | character | `$ref` URL for rankings. |
+#'    | coaches_ref | character | `$ref` URL for coaches. |
+#'    | athletes_ref | character | `$ref` URL for athletes. |
+#'    | awards_ref | character | `$ref` URL for awards. |
+#'    | futures_ref | character | `$ref` URL for futures. |
+#'    | leaders_ref | character | `$ref` URL for leaders. |
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -6653,15 +7124,15 @@ NULL
 #' @param season Season end-year (e.g. `2026`). Defaults to
 #'   `most_recent_nhl_season()`.
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_types()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_types()`; columns verified against a captured WCH body.
 #' @return A `fastRhockey_data` tibble with one row per season type
 #'   (pre-season, regular, post-season, off-season):
 #'
-#'    |col_name        |types     |description                                          |
-#'    |:---------------|:---------|:----------------------------------------------------|
-#'    |ref             |character |`$ref` URL for the season-type object.               |
-#'    |season_type_id  |integer   |Season type id (1=pre, 2=reg, 3=post, 4=off).        |
-#'    |season          |integer   |Season year (echoed from arg).                       |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | ref | character | `$ref` URL for the season-type object. |
+#'    | season_type_id | integer | Season type id (1=pre, 2=reg, 3=post, 4=off). |
+#'    | season | integer | Season year (echoed from arg). |
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -7521,6 +7992,7 @@ NULL
 #' @author Saiem Gilani
 #' @param season Season end-year (e.g. `2026`). Defaults to
 #'   `most_recent_nhl_season()`.
+#' @param limit Maximum number of awards (ESPN `limit`; default `200`, as sdv-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_awards()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per award reference, or an
@@ -7542,8 +8014,8 @@ NULL
 #' \donttest{
 #'   try(espn_wch_season_awards(season = 2025))
 #' }
-espn_wch_season_awards <- function(season = most_recent_nhl_season(), ...) {
-  .espn_hockey_season_awards(league = "womens-college-hockey", season = season, ...)
+espn_wch_season_awards <- function(season = most_recent_nhl_season(), limit = 200, ...) {
+  .espn_hockey_season_awards(league = "womens-college-hockey", season = season, limit = limit, ...)
 }
 
 #' @name espn_wch_players_index
@@ -8498,38 +8970,38 @@ NULL
 #' @param limit Maximum number of plays to return. Defaults to `1000`. A typical
 #'   WCH game has 200-260 plays.
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_plays()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_plays()`; columns verified against a captured WCH body.
 #' @return A `fastRhockey_data` tibble with one row per play:
 #'
-#'    |col_name          |types     |description                                           |
-#'    |:-----------------|:---------|:-----------------------------------------------------|
-#'    |event_id          |character |ESPN event id (echoed from arg).                      |
-#'    |cid               |character |Competition id (echoed from arg).                     |
-#'    |id                |character |ESPN play identifier.                                 |
-#'    |sequence_number   |integer   |Play sequence number within the game.                 |
-#'    |type_id           |character |Play type id.                                         |
-#'    |type_text         |character |Play type label (e.g. "Goal", "Shot", "Face Off").    |
-#'    |type_abbreviation |character |Play type abbreviation.                               |
-#'    |text              |character |Full play description text.                           |
-#'    |short_text        |character |Short play description text.                          |
-#'    |period_number     |integer   |Period number (1-3 regulation, 4+ OT).                |
-#'    |period_display    |character |Period display string (e.g. "1st").                   |
-#'    |clock_value       |numeric   |Clock value in seconds.                               |
-#'    |clock_display     |character |Clock display string (e.g. "19:34").                  |
-#'    |away_score        |integer   |Away team score after this play.                      |
-#'    |home_score        |integer   |Home team score after this play.                      |
-#'    |scoring_play      |logical   |Whether this play resulted in a goal.                 |
-#'    |score_value       |integer   |Point value of the scoring play (1 for a goal).       |
-#'    |priority          |logical   |Whether this is a priority play for display.          |
-#'    |shooting_play     |logical   |Whether this is a shot on goal.                       |
-#'    |is_penalty        |logical   |Whether this is a penalty play.                       |
-#'    |wallclock         |character |Wall-clock UTC timestamp of the play.                 |
-#'    |coordinate_x      |numeric   |X coordinate on the ice surface.                      |
-#'    |coordinate_y      |numeric   |Y coordinate on the ice surface.                      |
-#'    |strength_id       |character |Strength situation id (e.g. even strength, PP, SH).  |
-#'    |strength_text     |character |Strength situation description.                       |
-#'    |team_ref          |character |`$ref` URL for the team associated with the play.     |
-#'    |play_ref          |character |`$ref` URL for this play object.                      |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | event_id | character | ESPN event id (echoed from arg). |
+#'    | cid | character | Competition id (echoed from arg). |
+#'    | id | character | ESPN play identifier. |
+#'    | sequence_number | integer | Play sequence number within the game. |
+#'    | type_id | character | Play type id. |
+#'    | type_text | character | Play type label (e.g. "Goal", "Shot", "Face Off"). |
+#'    | type_abbreviation | character | Play type abbreviation. |
+#'    | text | character | Full play description text. |
+#'    | short_text | character | Short play description text. |
+#'    | period_number | integer | Period number (1-3 regulation, 4+ OT). |
+#'    | period_display | character | Period display string (e.g. "1st"). |
+#'    | clock_value | numeric | Clock value in seconds. |
+#'    | clock_display | character | Clock display string (e.g. "19:34"). |
+#'    | away_score | integer | Away team score after this play. |
+#'    | home_score | integer | Home team score after this play. |
+#'    | scoring_play | logical | Whether this play resulted in a goal. |
+#'    | score_value | integer | Point value of the scoring play (1 for a goal). |
+#'    | priority | logical | Whether this is a priority play for display. |
+#'    | shooting_play | logical | Whether this is a shot on goal. |
+#'    | is_penalty | logical | Whether this is a penalty play. |
+#'    | wallclock | character | Wall-clock UTC timestamp of the play. |
+#'    | coordinate_x | numeric | X coordinate on the ice surface. |
+#'    | coordinate_y | numeric | Y coordinate on the ice surface. |
+#'    | strength_id | character | Strength situation id (e.g. even strength, PP, SH). |
+#'    | strength_text | character | Strength situation description. |
+#'    | team_ref | character | `$ref` URL for the team associated with the play. |
+#'    | play_ref | character | `$ref` URL for this play object. |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -9170,15 +9642,15 @@ NULL
 #' @param limit Maximum number of venues to return (default `1000`). The WCH
 #'   venue catalog contains ~180 entries; `200` returns all in one request.
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_venues()` (columns inherited); a collection may be empty.
+#' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_venues()`; columns verified against a captured WCH body.
 #' @return A `fastRhockey_data` tibble with one row per venue reference:
 #'
-#'    |col_name    |types     |description                                        |
-#'    |:-----------|:---------|:--------------------------------------------------|
-#'    |ref         |character |`$ref` URL for the venue object.                   |
-#'    |venue_id    |character |ESPN venue id parsed from the `$ref` URL.          |
-#'    |count       |integer   |Total venues in the collection.                    |
-#'    |page_count  |integer   |Total pages in the collection.                     |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | ref | character | `$ref` URL for the venue object. |
+#'    | venue_id | character | ESPN venue id parsed from the `$ref` URL. |
+#'    | count | integer | Total venues in the collection. |
+#'    | page_count | integer | Total pages in the collection. |
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -9349,6 +9821,7 @@ NULL
 #' @author Saiem Gilani
 #' @param coach_id ESPN coach identifier (character or numeric). Use
 #'   `espn_wch_coaches()` to discover valid coach ids.
+#' @param record_type Record type path segment (`coaches/{id}/record/{record_type}`); default `0`, as sdv-py. `NULL` drops the segment.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_coach_record()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with coach career record data, or an
@@ -9373,8 +9846,8 @@ NULL
 #'     espn_wch_coach_record(coach_id = ccs$coach_id[1])
 #'   })
 #' }
-espn_wch_coach_record <- function(coach_id, ...) {
-  .espn_hockey_coach_record(league = "womens-college-hockey", coach_id = coach_id, ...)
+espn_wch_coach_record <- function(coach_id, record_type = 0, ...) {
+  .espn_hockey_coach_record(league = "womens-college-hockey", coach_id = coach_id, record_type = record_type, ...)
 }
 
 #' @name espn_wch_coach_season
@@ -9416,6 +9889,7 @@ espn_wch_coach_season <- function(coach_id,
   .espn_hockey_coach_season(league   = "womens-college-hockey",
                               coach_id = coach_id,
                               season   = season,
+                              coach_first = TRUE,
                               ...)
 }
 
@@ -9690,33 +10164,33 @@ NULL
 #' @return A `fastRhockey_data` tibble with one row per (poll, team), always with
 #'   the same 25 columns; zero rows (with those columns) when no poll is published:
 #'
-#'    |col_name           |types     |description                                              |
-#'    |:------------------|:---------|:--------------------------------------------------------|
-#'    |poll_id            |integer   |ESPN poll identifier.                                    |
-#'    |poll_name          |character |Poll name.                                               |
-#'    |poll_short_name    |character |Poll short name.                                         |
-#'    |poll_type          |character |Poll type code.                                          |
-#'    |season             |integer   |Season end-year.                                         |
-#'    |season_type        |integer   |Season type (2 = regular season, 3 = postseason).       |
-#'    |week               |integer   |Poll week within the season type.                        |
-#'    |week_display       |character |Poll week display string.                                |
-#'    |poll_date          |character |Poll date (ISO 8601).                                    |
-#'    |ranked             |logical   |`TRUE` for a ranked team, `FALSE` for a team receiving votes. |
-#'    |team_id            |character |ESPN team identifier.                                    |
-#'    |rank               |integer   |Current rank (`NA` when not ranked).                     |
-#'    |previous_rank      |integer   |Previous poll rank (`0` = unranked).                     |
-#'    |points             |numeric   |Poll points.                                             |
-#'    |first_place_votes  |integer   |First-place votes (`NA` when not published).             |
-#'    |trend              |character |Rank trend indicator.                                    |
-#'    |record_summary     |character |Team record summary.                                     |
-#'    |team_uid           |character |ESPN team UID.                                           |
-#'    |team_location      |character |Team location.                                           |
-#'    |team_name          |character |Team name.                                               |
-#'    |team_nickname      |character |Team nickname.                                           |
-#'    |team_abbreviation  |character |Team abbreviation.                                       |
-#'    |team_color         |character |Team colour hex (`NA` when ESPN ships `"NULL"`).         |
-#'    |team_logo          |character |Team logo URL.                                           |
-#'    |last_updated       |character |Entry last-updated timestamp.                            |
+#'    | col_name | type | description |
+#'    |:---|:---|:---|
+#'    | poll_id | integer | ESPN poll identifier. |
+#'    | poll_name | character | Poll name. |
+#'    | poll_short_name | character | Poll short name. |
+#'    | poll_type | character | Poll type code. |
+#'    | season | integer | Season end-year. |
+#'    | season_type | integer | Season type (2 = regular season, 3 = postseason). |
+#'    | week | integer | Poll week within the season type. |
+#'    | week_display | character | Poll week display string. |
+#'    | poll_date | character | Poll date (ISO 8601). |
+#'    | ranked | logical | `TRUE` for a ranked team, `FALSE` for a team receiving votes. |
+#'    | team_id | character | ESPN team identifier. |
+#'    | rank | integer | Current rank (`NA` when not ranked). |
+#'    | previous_rank | integer | Previous poll rank (`0` = unranked). |
+#'    | points | numeric | Poll points. |
+#'    | first_place_votes | integer | First-place votes (`NA` when not published). |
+#'    | trend | character | Rank trend indicator. |
+#'    | record_summary | character | Team record summary. |
+#'    | team_uid | character | ESPN team UID. |
+#'    | team_location | character | Team location. |
+#'    | team_name | character | Team name. |
+#'    | team_nickname | character | Team nickname. |
+#'    | team_abbreviation | character | Team abbreviation. |
+#'    | team_color | character | Team colour hex (`NA` when ESPN ships `"NULL"`). |
+#'    | team_logo | character | Team logo URL. |
+#'    | last_updated | character | Entry last-updated timestamp. |
 #'
 #' @importFrom dplyr bind_rows
 #' @export

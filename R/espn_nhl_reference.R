@@ -767,7 +767,8 @@ espn_nhl_coach <- function(coach_id, ...) {
 
 #' Internal: ESPN hockey coach record (league-generic, core-v2)
 #' @noRd
-.espn_hockey_coach_record <- function(league = "nhl", coach_id, ...) {
+.espn_hockey_coach_record <- function(league = "nhl", coach_id,
+                                      record_type = NULL, ...) {
   .args <- .capture_args()
 
   result <- data.frame()
@@ -775,6 +776,7 @@ espn_nhl_coach <- function(coach_id, ...) {
   tryCatch(
     expr = {
       path <- paste0("coaches/", coach_id, "/record")
+      if (!is.null(record_type)) path <- paste0(path, "/", record_type)
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,
                                    simplifyVector = TRUE, ...)

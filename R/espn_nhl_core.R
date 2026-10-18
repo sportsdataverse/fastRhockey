@@ -3,6 +3,40 @@
 # Internal league-generic helpers + public NHL shims.
 
 # ===========================================================================
+# 0. Broadcast names (shared by scoreboard and team schedule)
+# ===========================================================================
+
+#' Internal: every network name of a competition, ", "-joined
+#'
+#' Mirrors sdv-py's `_broadcast_names`: feed order, deduped; a broadcast with
+#' no `names` contributes its `market` when that is a string; anything that is
+#' not a non-empty string is skipped; no broadcasts gives `""`.
+#'
+#' @param bc The competition's `broadcasts`: a data.frame (simplified JSON) or
+#'   a list of lists.
+#' @return A length-one character string.
+#' @noRd
+.espn_broadcast_names <- function(bc) {
+  if (is.data.frame(bc)) {
+    bc <- lapply(seq_len(nrow(bc)), function(i) {
+      lapply(bc, function(col) if (is.data.frame(col)) col[i, , drop = FALSE] else col[[i]])
+    })
+  }
+  out <- character()
+  for (b in bc) {
+    if (!is.list(b) || is.data.frame(b)) next
+    nms <- b[["names"]]
+    cand <- if (length(nms) == 0) list(b[["market"]]) else as.list(nms)
+    for (n in cand) {
+      if (is.character(n) && length(n) == 1L && !is.na(n) && nzchar(n) && !(n %in% out)) {
+        out <- c(out, n)
+      }
+    }
+  }
+  paste(out, collapse = ", ")
+}
+
+# ===========================================================================
 # 1. Scoreboard
 # ===========================================================================
 
@@ -14,7 +48,9 @@
 #' @param ... Passed through to `.retry_request()`.
 #' @return A `fastRhockey_data` tibble, one row per game.
 #' @noRd
-.espn_hockey_scoreboard <- function(league = "nhl", dates = NULL, ...) {
+.espn_hockey_scoreboard <- function(league = "nhl", dates = NULL, week = NULL,
+                                    season_type = NULL, groups = NULL,
+                                    limit = NULL, ...) {
   .args <- .capture_args()
 
   scoreboard <- data.frame()
@@ -23,6 +59,10 @@
     expr = {
       query <- list()
       if (!is.null(dates)) query[["dates"]] <- dates
+      if (!is.null(week)) query[["week"]] <- week
+      if (!is.null(season_type)) query[["seasontype"]] <- season_type
+      if (!is.null(groups)) query[["groups"]] <- groups
+      if (!is.null(limit)) query[["limit"]] <- limit
 
       raw <- .espn_hockey_request("site_v2", "scoreboard",
                                   query  = query,
@@ -93,12 +133,11 @@
         home_logo_href <- .cfield_sb(home_team_df, "logo")
         away_logo_href <- .cfield_sb(away_team_df, "logo")
 
-        # broadcast
+        # broadcast: every network name, ", "-joined (sdv-py _broadcast_names)
         broadcast_str <- tryCatch({
-          bc_raw <- comps$broadcast
-          if (!is.null(bc_raw) && nzchar(as.character(bc_raw %||% "")))
-            as.character(bc_raw)
-          else ""
+          bc <- comps$broadcasts
+          if (is.list(bc) && !is.data.frame(bc)) bc <- bc[[1]]
+          .espn_broadcast_names(bc %||% list())
         }, error = function(e) "")
 
         # note
@@ -266,7 +305,7 @@ NULL
 #'    |venue_city               |character |Venue city.                                      |
 #'    |venue_state              |character |Venue state.                                     |
 #'    |venue_indoor             |logical   |Whether the venue is indoors.                    |
-#'    |broadcast                |character |Broadcast network(s).                            |
+#'    |broadcast                |character |Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
 #'    |note                     |character |Game note or headline.                           |
 #'    |home_id                  |character |Home team ESPN identifier.                       |
 #'    |home_name                |character |Home team name.                                  |
@@ -317,6 +356,8 @@ espn_nhl_scoreboard <- function(dates = NULL, ...) {
 #' @noRd
 .espn_hockey_standings <- function(league = "nhl",
                                    season = most_recent_nhl_season(),
+                                   group = NULL,
+                                   standings_type = NULL,
                                    ...) {
   .args <- .capture_args()
 
@@ -326,6 +367,8 @@ espn_nhl_scoreboard <- function(dates = NULL, ...) {
     expr = {
       query <- list()
       if (!is.null(season)) query[["season"]] <- season
+      if (!is.null(group)) query[["group"]] <- group
+      if (!is.null(standings_type)) query[["type"]] <- standings_type
 
       # Must use site_v2_alt (apis/v2/…) — plain site_v2/standings is a stub.
       raw <- .espn_hockey_request("site_v2_alt", "standings",
@@ -334,6 +377,10 @@ espn_nhl_scoreboard <- function(dates = NULL, ...) {
                                   simplifyVector = FALSE, ...)
 
       children <- raw[["children"]] %||% list()
+      # Some bodies (wch) carry one table at the root and no children.
+      if (length(children) == 0 && length(raw[["standings"]][["entries"]]) > 0) {
+        children <- list(raw)
+      }
       if (length(children) == 0) return(standings)
 
       .extract_entries <- function(child_list, parent_name = "", parent_abbr = "") {
@@ -461,7 +508,7 @@ espn_nhl_standings <- function(season = most_recent_nhl_season(), ...) {
 #' @param ... Passed through.
 #' @return A `fastRhockey_data` tibble, one row per player.
 #' @noRd
-.espn_hockey_team_roster <- function(league = "nhl", team_id, ...) {
+.espn_hockey_team_roster <- function(league = "nhl", team_id, limit = NULL, ...) {
   .args <- .capture_args()
 
   roster <- data.frame()
@@ -469,7 +516,10 @@ espn_nhl_standings <- function(season = most_recent_nhl_season(), ...) {
   tryCatch(
     expr = {
       path <- paste0("teams/", team_id, "/roster")
+      query <- list()
+      if (!is.null(limit)) query[["limit"]] <- limit
       raw  <- .espn_hockey_request("site_v2", path,
+                                   query  = query,
                                    league = league,
                                    simplifyVector = FALSE, ...)
 
@@ -831,16 +881,11 @@ espn_nhl_calendar <- function(...) {
 
         home_score_raw <- home$score %||% list()
         away_score_raw <- away$score %||% list()
-        home_score_val <- if (is.list(home_score_raw)) home_score_raw$value %||% NA_character_ else as.character(home_score_raw %||% NA_character_)
-        away_score_val <- if (is.list(away_score_raw)) away_score_raw$value %||% NA_character_ else as.character(away_score_raw %||% NA_character_)
+        home_score_val <- as.character(if (is.list(home_score_raw)) home_score_raw$value %||% NA_character_ else home_score_raw %||% NA_character_)
+        away_score_val <- as.character(if (is.list(away_score_raw)) away_score_raw$value %||% NA_character_ else away_score_raw %||% NA_character_)
 
-        broadcast_str <- tryCatch({
-          bc <- comps$broadcasts %||% list()
-          if (length(bc) > 0) {
-            nms <- bc[[1]]$names %||% list()
-            if (length(nms) > 0) paste(nms, collapse = ", ") else ""
-          } else ""
-        }, error = function(e) "")
+        broadcast_str <- tryCatch(.espn_broadcast_names(comps$broadcasts %||% list()),
+                                  error = function(e) "")
 
         list(
           game_id            = ev$id %||% NA_character_,
@@ -941,7 +986,7 @@ NULL
 #'    |venue_full_name       |character |Venue full name.                                   |
 #'    |venue_city            |character |Venue city.                                        |
 #'    |venue_state           |character |Venue state.                                       |
-#'    |broadcast             |character |Broadcast network(s).                              |
+#'    |broadcast             |character |Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
 #'    |home_id               |character |Home team ESPN identifier.                         |
 #'    |home_name             |character |Home team display name.                            |
 #'    |home_abbreviation     |character |Home team abbreviation.                            |

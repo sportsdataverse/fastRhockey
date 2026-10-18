@@ -4,18 +4,33 @@
 \alias{espn_mch_scoreboard}
 \title{\strong{Get ESPN MCH Scoreboard}}
 \usage{
-espn_mch_scoreboard(dates = NULL, ...)
+espn_mch_scoreboard(
+  dates = NULL,
+  week = NULL,
+  season_type = NULL,
+  groups = NULL,
+  limit = 500,
+  ...
+)
 }
 \arguments{
 \item{dates}{Optional date or date-range string in \code{"YYYYMMDD"} or
 \code{"YYYYMMDD-YYYYMMDD"} format. When \code{NULL} (default) the current day
 is used.}
 
+\item{week}{Optional week number (ESPN \code{week} query).}
+
+\item{season_type}{Optional season phase (1 = pre, 2 = regular, 3 = post); sent as \code{seasontype}.}
+
+\item{groups}{Optional conference/group id filter.}
+
+\item{limit}{Maximum number of events (ESPN \code{limit}; default \code{500}, as sdv-py).}
+
 \item{...}{Reserved for forward compatibility.}
 }
 \value{
 A \code{fastRhockey_data} tibble with one row per game:\tabular{lll}{
-   col_name \tab types \tab description \cr
+   col_name \tab type \tab description \cr
    game_id \tab character \tab ESPN event identifier. \cr
    uid \tab character \tab ESPN event uid. \cr
    date \tab character \tab Game date-time (ISO 8601). \cr
@@ -42,7 +57,7 @@ A \code{fastRhockey_data} tibble with one row per game:\tabular{lll}{
    venue_city \tab character \tab Venue city. \cr
    venue_state \tab character \tab Venue state. \cr
    venue_indoor \tab logical \tab Whether the venue is indoors. \cr
-   broadcast \tab character \tab Broadcast network(s). \cr
+   broadcast \tab character \tab Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. \cr
    note \tab character \tab Game note or headline. \cr
    home_id \tab character \tab Home team ESPN identifier. \cr
    home_name \tab character \tab Home team name. \cr
@@ -72,7 +87,7 @@ A \code{fastRhockey_data} tibble with one row per game:\tabular{lll}{
 \strong{Get ESPN MCH Scoreboard}
 }
 \details{
-League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_scoreboard()} (columns inherited); a collection may be empty.
+League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_scoreboard()}; columns verified against a captured MCH body.
 }
 \examples{
 \donttest{
@@ -123,8 +138,10 @@ Other ESPN MCH Functions:
 \code{\link[=espn_mch_league_notes]{espn_mch_league_notes()}},
 \code{\link[=espn_mch_league_root]{espn_mch_league_root()}},
 \code{\link[=espn_mch_news]{espn_mch_news()}},
+\code{\link[=espn_mch_pbp]{espn_mch_pbp()}},
 \code{\link[=espn_mch_player_awards]{espn_mch_player_awards()}},
 \code{\link[=espn_mch_player_bio]{espn_mch_player_bio()}},
+\code{\link[=espn_mch_player_box]{espn_mch_player_box()}},
 \code{\link[=espn_mch_player_career_stats]{espn_mch_player_career_stats()}},
 \code{\link[=espn_mch_player_contracts]{espn_mch_player_contracts()}},
 \code{\link[=espn_mch_player_core]{espn_mch_player_core()}},
@@ -182,6 +199,7 @@ Other ESPN MCH Functions:
 \code{\link[=espn_mch_summary]{espn_mch_summary()}},
 \code{\link[=espn_mch_talentpicks]{espn_mch_talentpicks()}},
 \code{\link[=espn_mch_team]{espn_mch_team()}},
+\code{\link[=espn_mch_team_box]{espn_mch_team_box()}},
 \code{\link[=espn_mch_team_core]{espn_mch_team_core()}},
 \code{\link[=espn_mch_team_depthcharts]{espn_mch_team_depthcharts()}},
 \code{\link[=espn_mch_team_history]{espn_mch_team_history()}},

@@ -12,7 +12,7 @@ espn_mch_rankings(...)
 \value{
 A \code{fastRhockey_data} tibble with one row per (poll, team), always with
 the same 25 columns; zero rows (with those columns) when no poll is published:\tabular{lll}{
-   col_name \tab types \tab description \cr
+   col_name \tab type \tab description \cr
    poll_id \tab integer \tab ESPN poll identifier. \cr
    poll_name \tab character \tab Poll name. \cr
    poll_short_name \tab character \tab Poll short name. \cr
@@ -97,8 +97,10 @@ Other ESPN MCH Functions:
 \code{\link[=espn_mch_league_notes]{espn_mch_league_notes()}},
 \code{\link[=espn_mch_league_root]{espn_mch_league_root()}},
 \code{\link[=espn_mch_news]{espn_mch_news()}},
+\code{\link[=espn_mch_pbp]{espn_mch_pbp()}},
 \code{\link[=espn_mch_player_awards]{espn_mch_player_awards()}},
 \code{\link[=espn_mch_player_bio]{espn_mch_player_bio()}},
+\code{\link[=espn_mch_player_box]{espn_mch_player_box()}},
 \code{\link[=espn_mch_player_career_stats]{espn_mch_player_career_stats()}},
 \code{\link[=espn_mch_player_contracts]{espn_mch_player_contracts()}},
 \code{\link[=espn_mch_player_core]{espn_mch_player_core()}},
@@ -156,6 +158,7 @@ Other ESPN MCH Functions:
 \code{\link[=espn_mch_summary]{espn_mch_summary()}},
 \code{\link[=espn_mch_talentpicks]{espn_mch_talentpicks()}},
 \code{\link[=espn_mch_team]{espn_mch_team()}},
+\code{\link[=espn_mch_team_box]{espn_mch_team_box()}},
 \code{\link[=espn_mch_team_core]{espn_mch_team_core()}},
 \code{\link[=espn_mch_team_depthcharts]{espn_mch_team_depthcharts()}},
 \code{\link[=espn_mch_team_history]{espn_mch_team_history()}},

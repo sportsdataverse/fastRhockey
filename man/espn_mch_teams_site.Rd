@@ -4,32 +4,45 @@
 \alias{espn_mch_teams_site}
 \title{\strong{Get ESPN MCH Teams (site_v2) -- alias for \code{espn_mch_teams()}}}
 \usage{
-espn_mch_teams_site(...)
+espn_mch_teams_site(limit = 1000, ...)
 }
 \arguments{
+\item{limit}{Maximum number of teams (ESPN \code{limit}; default \code{1000}, as sdv-py).}
+
 \item{...}{Reserved for forward compatibility.}
 }
 \value{
 A \code{fastRhockey_data} tibble with one row per MCH team. This is
 identical to the output of teams.\tabular{lll}{
-   col_name \tab types \tab description \cr
-   espn_team_id \tab character \tab ESPN team identifier. \cr
-   team \tab character \tab Team location/city name. \cr
-   mascot \tab character \tab Team mascot/nickname. \cr
-   display_name \tab character \tab Team display name. \cr
-   short_name \tab character \tab Short team display name. \cr
+   col_name \tab type \tab description \cr
    abbreviation \tab character \tab Team abbreviation. \cr
-   color \tab character \tab Primary color hex. \cr
-   alternate_color \tab character \tab Alternate color hex. \cr
+   display_name \tab character \tab Team display name. \cr
+   espn_team_id \tab integer \tab ESPN team identifier. \cr
+   team \tab character \tab Team location/city name. \cr
    logo \tab character \tab Light-background logo URL. \cr
    logo_dark \tab character \tab Dark-background logo URL. \cr
+   logos_href_3 \tab character \tab Logo variant 3 URL (ESPN sends a varying number of logos per team). \cr
+   logos_href_4 \tab character \tab Logo variant 4 URL (ESPN sends a varying number of logos per team). \cr
+   logos_href_5 \tab character \tab Logo variant 5 URL (ESPN sends a varying number of logos per team). \cr
+   logos_href_6 \tab character \tab Logo variant 6 URL (ESPN sends a varying number of logos per team). \cr
+   logos_href_7 \tab character \tab Logo variant 7 URL (ESPN sends a varying number of logos per team). \cr
+   logos_href_8 \tab character \tab Logo variant 8 URL (ESPN sends a varying number of logos per team). \cr
+   logos_href_9 \tab character \tab Logo variant 9 URL (ESPN sends a varying number of logos per team). \cr
+   logos_href_10 \tab character \tab Logo variant 10 URL (ESPN sends a varying number of logos per team). \cr
+   logos_href_11 \tab character \tab Logo variant 11 URL (ESPN sends a varying number of logos per team). \cr
+   logos_href_12 \tab character \tab Logo variant 12 URL (ESPN sends a varying number of logos per team). \cr
+   logos_href_13 \tab character \tab Logo variant 13 URL (ESPN sends a varying number of logos per team). \cr
+   logos_href_14 \tab character \tab Logo variant 14 URL (ESPN sends a varying number of logos per team). \cr
+   mascot \tab character \tab Team mascot/nickname. \cr
+   nickname \tab character \tab Team nickname. \cr
+   short_name \tab character \tab Short team display name. \cr
 }
 }
 \description{
 \strong{Get ESPN MCH Teams (site_v2) -- alias for \code{espn_mch_teams()}}
 }
 \details{
-League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_teams_site()} (columns inherited); a collection may be empty.
+League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_teams_site()}; columns verified against a captured MCH body.
 }
 \examples{
 \donttest{
@@ -82,8 +95,10 @@ Other ESPN MCH Functions:
 \code{\link[=espn_mch_league_notes]{espn_mch_league_notes()}},
 \code{\link[=espn_mch_league_root]{espn_mch_league_root()}},
 \code{\link[=espn_mch_news]{espn_mch_news()}},
+\code{\link[=espn_mch_pbp]{espn_mch_pbp()}},
 \code{\link[=espn_mch_player_awards]{espn_mch_player_awards()}},
 \code{\link[=espn_mch_player_bio]{espn_mch_player_bio()}},
+\code{\link[=espn_mch_player_box]{espn_mch_player_box()}},
 \code{\link[=espn_mch_player_career_stats]{espn_mch_player_career_stats()}},
 \code{\link[=espn_mch_player_contracts]{espn_mch_player_contracts()}},
 \code{\link[=espn_mch_player_core]{espn_mch_player_core()}},
@@ -142,6 +157,7 @@ Other ESPN MCH Functions:
 \code{\link[=espn_mch_summary]{espn_mch_summary()}},
 \code{\link[=espn_mch_talentpicks]{espn_mch_talentpicks()}},
 \code{\link[=espn_mch_team]{espn_mch_team()}},
+\code{\link[=espn_mch_team_box]{espn_mch_team_box()}},
 \code{\link[=espn_mch_team_core]{espn_mch_team_core()}},
 \code{\link[=espn_mch_team_depthcharts]{espn_mch_team_depthcharts()}},
 \code{\link[=espn_mch_team_history]{espn_mch_team_history()}},

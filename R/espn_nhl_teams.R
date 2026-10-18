@@ -11,14 +11,17 @@
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @return A `fastRhockey_data` tibble of team metadata.
 #' @noRd
-.espn_hockey_teams <- function(league = "nhl", ...) {
+.espn_hockey_teams <- function(league = "nhl", limit = NULL, ...) {
   .args <- .capture_args()
 
   teams <- data.frame()
 
   tryCatch(
     expr = {
-      raw <- .espn_hockey_request("site_v2", "teams", league = league, ...)
+      query <- list()
+      if (!is.null(limit)) query[["limit"]] <- limit
+      raw <- .espn_hockey_request("site_v2", "teams", query = query,
+                                  league = league, ...)
 
       leagues <- raw[["sports"]][["leagues"]][[1]][["teams"]][[1]][["team"]] %>%
         dplyr::group_by(.data$id) %>%
@@ -68,7 +71,8 @@
         )
 
       teams <- leagues %>%
-        dplyr::rename(
+        # any_of: college bodies carry no alternateColor (nor a second logo)
+        dplyr::rename(dplyr::any_of(c(
           "logo"            = "logos_href_1",
           "logo_dark"       = "logos_href_2",
           "mascot"          = "name",
@@ -77,7 +81,7 @@
           "short_name"      = "shortDisplayName",
           "alternate_color" = "alternateColor",
           "display_name"    = "displayName"
-        ) %>%
+        ))) %>%
         dplyr::mutate(
           espn_team_id = as.integer(.data$espn_team_id)
         )

@@ -80,12 +80,12 @@ test_that("espn_mch_*/espn_wch_* export the sdv-py function set", {
 # ---------------------------------------------------------------------------
 # 2. Routing: every wrapper requests the sdv-py URL for its league slug
 # ---------------------------------------------------------------------------
-# Routes where the shared espn_nhl_* helper (reused on purpose) builds a
-# different path than sdv-py. Pinned so a silent change is noticed.
-# calendar: the helper reads the calendar out of the scoreboard payload.
-# coach_record: no /record/{record_type} segment. coach_season: the helper uses
-# seasons/{season}/coaches/{id}, sdv-py coaches/{id}/seasons/{season}.
-KNOWN_ROUTE_DEVIATIONS <- c("calendar", "coach_record", "coach_season")
+# Routes where R deliberately builds a different path than sdv-py. Pinned so a
+# silent change is noticed.
+# calendar: sdv-py's site-v2 /calendar answers 404 for both college leagues
+# (checked live 2026-10-18), so R keeps reading leagues[].calendar out of the
+# scoreboard payload, which answers.
+KNOWN_ROUTE_DEVIATIONS <- c("calendar")
 
 test_that("every wrapper hits the sdv-py URL for its league", {
   skip_on_cran()
@@ -108,6 +108,37 @@ test_that("every wrapper hits the sdv-py URL for its league", {
   }
   expect_setequal(sub(":.*$", "", sub("^(mch|wch)_", "", bad)), KNOWN_ROUTE_DEVIATIONS)
   expect_length(bad, 2L * length(KNOWN_ROUTE_DEVIATIONS))
+})
+
+test_that("coach routes keep the NHL path order; college uses sdv-py's", {
+  skip_on_cran()
+  seen <- mock_getter("{}")
+  suppressMessages(espn_nhl_coach_season(coach_id = "C1", season = 2026))
+  expect_match(seen$urls[1], "/leagues/nhl/seasons/2026/coaches/C1$")
+  seen <- mock_getter("{}")
+  suppressMessages(espn_nhl_coach_record(coach_id = "C1"))
+  expect_match(seen$urls[1], "/leagues/nhl/coaches/C1/record$")
+  seen <- mock_getter("{}")
+  suppressMessages(espn_wch_coach_record(coach_id = "C1", record_type = 2))
+  expect_match(seen$urls[1], "/leagues/womens-college-hockey/coaches/C1/record/2$")
+})
+
+test_that("pbp / team_box / player_box shims read the summary route", {
+  skip_on_cran()
+  for (lg in names(SLUG)) {
+    for (k in c("pbp", "team_box", "player_box")) {
+      fn <- get(paste0("espn_", lg, "_", k), envir = asNamespace("fastRhockey"))
+      expect_identical(names(formals(fn)),
+                       names(formals(get(paste0("espn_nhl_", k), envir = asNamespace("fastRhockey")))))
+      seen <- mock_getter(read_fx(paste0(lg, "_summary.json")))
+      x <- fn(game_id = "E1")
+      expect_identical(seen$urls[1], paste0(
+        "https://site.api.espn.com/apis/site/v2/sports/hockey/", SLUG[[lg]], "/summary"))
+      expect_identical(seen$params[[1]]$event, "E1")
+      expect_s3_class(x, "fastRhockey_data")
+      expect_gt(nrow(x), 0L)
+    }
+  }
 })
 
 # ---------------------------------------------------------------------------
@@ -139,12 +170,10 @@ for (lg in names(SLUG)) {
       expect_equal(sort(names(x)), sort(names(csv)))
       expect_equal(nrow(x), nrow(csv))
       mm <- parity_mismatches(x, csv)
-      # sdv-py keeps only the first network of a market (names[0]); the shared R
-      # helper joins them ("ESPNU/ESPN+"). One wch game; pinned.
-      known <- if (lg == "wch") c(broadcast = 1L) else setNames(integer(), character())
-      expect_identical(names(mm)[mm > 0], names(known))
-      expect_equal(sum(mm), sum(known))
-      if (lg == "wch") expect_true("ESPNU/ESPN+" %in% x$broadcast)
+      # Both sides join every network name with ", " (sdv-py _broadcast_names);
+      # the CSV is sdv-py main's frame on the same fixture. Zero mismatches.
+      expect_identical(names(mm)[mm > 0], character())
+      if (lg == "wch") expect_true("ESPNU, ESPN+" %in% x$broadcast)
       # id dtypes (one dtype per id, as in sdv-py)
       expect_type(x$game_id, "character")
       expect_type(x$home_id, "character")
@@ -306,4 +335,77 @@ test_that("LIVE: espn_mch_rankings / espn_wch_scoreboard answer", {
   Sys.sleep(1)
   y <- espn_wch_scoreboard(dates = "20250110")
   expect_true(is.data.frame(y))
+})
+
+# ---------------------------------------------------------------------------
+# F2: every verified @return table matches the columns the wrapper returns on
+# the captured mch/wch body it was verified against (fixtures/.../bodies/).
+# ---------------------------------------------------------------------------
+doc_table <- function(src, name) {
+  i <- grep(paste0("^#' @rdname ", name, "$"), src)
+  j <- grep(paste0("^", name, " <- function"), src)
+  rows <- regmatches(src[i:j], regexpr("^#'\\s+\\| [a-z0-9_]+ \\| [a-z]+ \\|", src[i:j]))
+  rows <- rows[!grepl("| col_name |", rows, fixed = TRUE)]
+  parts <- strsplit(sub("^#'\\s+\\| ", "", rows), " \\| ")
+  stats::setNames(vapply(parts, function(x) sub(" \\|$", "", x[2]), ""), vapply(parts, `[`, "", 1))
+}
+
+test_that("verified @return tables match the columns on the captured bodies", {
+  skip_on_cran()
+  src_file <- testthat::test_path("..", "..", "R", "espn_ncaa_hockey.R")
+  skip_if_not(file.exists(src_file), "package source not available")
+  src <- readLines(src_file, warn = FALSE)
+  args <- list(team = list(team_id = "2005"), team_schedule = list(team_id = "2005", season = 2027),
+               standings = list(season = 2026), season_info = list(season = 2026),
+               season_types = list(season = 2026))
+  bodies <- list.files(fx("bodies"), pattern = "\\.json$")
+  bodies <- c(bodies, "mch_calendar.json", "wch_calendar.json")
+  for (b in bodies) {
+    lg <- sub("_.*", "", b)
+    fn <- sub("^[mw]ch_(.*)\\.json$", "\\1", b)
+    if (fn %in% c("team_roster", "injuries", "transactions")) next  # empty in every capture
+    path <- if (fn == "calendar") fx("bodies", paste0(lg, "_scoreboard.json")) else fx("bodies", b)
+    mock_getter(read_fx(file.path("bodies", basename(path))))
+    name <- paste0("espn_", lg, "_", fn)
+    x <- suppressMessages(do.call(get(name, envir = asNamespace("fastRhockey")), args[[fn]] %||% list()))
+    expect_gt(nrow(x), 0L, label = name)
+    got <- vapply(x, function(col) class(col)[1], "")
+    expect_identical(got, doc_table(src, name), label = name)
+  }
+  # sdv-py's committed mch/wch fixtures
+  for (lg in names(SLUG)) {
+    for (fn in c("pbp", "team_box", "player_box", "game_plays", "rankings")) {
+      f <- switch(fn, game_plays = paste0(lg, "_game_plays.json"),
+                  rankings = paste0("rankings_", lg, ".json"), paste0(lg, "_summary.json"))
+      mock_getter(read_fx(f))
+      name <- paste0("espn_", lg, "_", fn)
+      a <- switch(fn, game_plays = list(event_id = "E1"), rankings = list(), list(game_id = "E1"))
+      x <- suppressMessages(do.call(get(name, envir = asNamespace("fastRhockey")), a))
+      expect_gt(nrow(x), 0L, label = name)
+      expect_identical(vapply(x, function(col) class(col)[1], ""), doc_table(src, name), label = name)
+    }
+  }
+})
+
+test_that("broadcast names follow sdv-py's _broadcast_names", {
+  skip_on_cran()
+  bn <- fastRhockey:::.espn_broadcast_names
+  expect_identical(bn(list()), "")
+  expect_identical(bn(list(list(market = "national", names = list("ESPNU", "ESPN+")),
+                           list(market = "home", names = list("ESPN+", "NESN")))), "ESPNU, ESPN+, NESN")
+  expect_identical(bn(list(list(market = "national", names = list()))), "national")
+  expect_identical(bn(list(list(market = list(id = "1"), names = list()))), "")
+  expect_identical(bn(list(list(names = "ABC"))), "ABC")
+  # simplified (data.frame) form, as the scoreboard reads it
+  df <- jsonlite::fromJSON('[{"market":"national","names":["ESPNU","ESPN+"]},{"market":"away","names":[]}]')
+  expect_identical(bn(df), "ESPNU, ESPN+, away")
+})
+
+test_that("team_schedule keeps played and unplayed games together", {
+  skip_on_cran()
+  mock_getter(read_fx(file.path("bodies", "mch_team_schedule.json")))
+  x <- espn_mch_team_schedule(team_id = "2005", season = 2027)
+  expect_equal(nrow(x), 3L)
+  expect_type(x$home_score, "character")
+  expect_equal(sum(is.na(x$home_score)), 1L)
 })

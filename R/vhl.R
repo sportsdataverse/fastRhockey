@@ -31,8 +31,8 @@
 #     charset, any other redirect, and a page for another scope or with a missing
 #     table, header drift, zero rows or a row of the wrong width).
 #   * Politeness: every attempt waits .polite_wait() (>= 1 s per host). 429/5xx are
-#     retried (3 attempts, 2 s / 4 s apart, or longer when a 429 / 503 sends
-#     Retry-After in seconds, capped at 120 s).
+#     retried by the shared .polite_perform() (3 attempts, 2 s / 4 s apart, or longer
+#     when the server sends Retry-After in seconds, capped at 120 s).
 #
 # Id key spaces (none joins another directly; every id is integer):
 #   home_club_id / away_club_id           club id, stable across seasons (calendar)
@@ -52,13 +52,8 @@
 .VHL_CALENDAR_ROOT <- paste0(.VHL_HOST, "/en/calendar/")
 .VHL_STAGES <- c("regular", "playoff")
 .VHL_STAGE_LABEL <- c(regular = "Regular Season", playoff = "Playoffs")
-.VHL_RETRY_STATUSES <- c(429L, 500L, 502L, 503L, 504L)
 .VHL_ATTEMPTS <- 3L
 .VHL_TIMEOUT <- 90
-.VHL_MAX_RETRY_AFTER <- 120
-
-# Sleep seam (tests mock it so a backoff does not cost seconds).
-.vhl_sleep <- function(seconds) Sys.sleep(seconds)
 
 # Process-wide caches: the season table and, per tn, the calendar's game -> number index.
 .vhl_cache <- new.env(parent = emptyenv())
@@ -122,6 +117,10 @@
   rvest::read_html(page, encoding = "UTF-8")
 }
 
+# xml2 xpath with no namespace table: rvest::html_element(s)() on a nodeset calls xml_ns() and
+# one xml_find_first per node, which is the dominant cost on the 5 MB stats / calendar pages.
+.vhl_ff <- function(x, xp) xml2::xml_find_first(x, xp, ns = character())
+.vhl_fa <- function(x, xp) xml2::xml_find_all(x, xp, ns = character())
 .vhl_clean <- function(x) trimws(gsub("[\\s\\p{Z}\\x{85}]+", " ", x, perl = TRUE))
 
 # Whitespace-collapsed text of a node or nodeset (NA for a missing node); block elements
@@ -129,11 +128,11 @@
 # used for every node with no block / script / style element inside). All calls are
 # vectorised: a per-node xpath call costs O(document) in xml2 (it rebuilds the namespace
 # table), which is minutes on the 4-6 MB calendar and stats pages.
-.vhl_text <- function(x) {
+.vhl_text <- function(x, blocky = NULL) {
   if (is.null(x) || !length(x)) return(character())
-  if (inherits(x, "xml_node")) x <- rvest::html_elements(x, xpath = "self::*")
-  blocky <- !is.na(rvest::html_name(rvest::html_element(
-    x, xpath = ".//br|.//p|.//div|.//li|.//td|.//th|.//tr|.//script|.//style"
+  if (inherits(x, "xml_node")) x <- .vhl_fa(x, "self::*")
+  if (is.null(blocky)) blocky <- !is.na(rvest::html_name(.vhl_ff(
+    x, ".//br|.//p|.//div|.//li|.//td|.//th|.//tr|.//script|.//style"
   )))
   out <- rvest::html_text(x)
   if (any(blocky)) out[blocky] <- rvest::html_text2(x[blocky])
@@ -146,7 +145,7 @@
 }
 .vhl_all <- function(node, cls = NULL, tag = "*") {
   xp <- paste0(".//", tag, if (!is.null(cls)) paste0("[", .vhl_xp_cls(cls), "]") else "")
-  rvest::html_elements(node, xpath = xp)
+  .vhl_fa(node, xp)
 }
 .vhl_first <- function(node, cls = NULL, tag = "*") {
   ns <- .vhl_all(node, cls, tag)
@@ -160,7 +159,7 @@
 }
 .vhl_links <- function(node) {
   if (is.null(node)) return(character())
-  .vhl_attr(rvest::html_elements(node, xpath = ".//a"), "href")
+  .vhl_attr(.vhl_fa(node, ".//a"), "href")
 }
 .vhl_classes <- function(node) strsplit(.vhl_attr(node, "class"), "\\s+")[[1]]
 
@@ -374,40 +373,68 @@
 
 .vhl_width <- function(cells) sum(vapply(cells, function(c) c$span, 1L))
 
-# The j-th <td>/<th> of every row, as parallel vectors (NA / "" where a row has no j-th cell).
-# `rows` is a nodeset of <tr>; every call is vectorised over the rows.
-.vhl_cell_column <- function(rows, j) {
-  cj <- rvest::html_element(rows, xpath = sprintf("(td|th)[%d]", j))
-  present <- !is.na(rvest::html_name(cj))
-  n <- length(rows)
-  blank <- function(x, fill) {
-    out <- rep(fill, n)
-    out[present] <- x
+# Identity key of each node of a nodeset (xml2 hands out a stable pointer per libxml2 node).
+.vhl_key <- function(x) vapply(unclass(x), function(n) format.default(n$node), "")
+
+# Every <td>/<th> that is a direct child of a <tr> of `table`, in ONE xml_find_all, as parallel
+# per-column vectors over `trs` (NA / "" where a row has no j-th cell). Per-cell facts are
+# vectorised over all cells; the few predicate lookups (block-level children, links) run as one
+# table-wide query each and are mapped back to (row, column) from the (few) cells they return.
+.vhl_cell_columns <- function(table, trs) {
+  n <- length(trs)
+  tc <- ".//tr/*[self::td or self::th]"
+  cells <- .vhl_fa(table, tc)
+  if (!length(cells)) return(list())
+  cnt <- as.integer(xml2::xml_find_num(trs, "count(td|th)", ns = character()))
+  trkey <- .vhl_key(trs)
+  if (length(.vhl_fa(table, ".//tr//tr"))) {  # nested rows interleave in document order: key each cell's row
+    ri <- match(vapply(unclass(cells), function(n) format.default(xml2::xml_parent(n)$node), ""), trkey)
+    jj <- stats::ave(seq_along(ri), ri, FUN = seq_along)
+  } else {
+    ri <- rep(seq_len(n), times = cnt)
+    jj <- sequence(cnt)
+  }
+  idmat <- matrix(NA_integer_, n, max(jj))
+  idmat[cbind(ri, jj)] <- seq_along(cells)
+  flag <- function(pred) {
+    sub <- .vhl_fa(table, paste0(tc, "[", pred, "]"))
+    out <- logical(length(cells))
+    if (length(sub)) {
+      r <- match(vapply(unclass(sub), function(n) format.default(xml2::xml_parent(n)$node), ""), trkey)
+      j <- xml2::xml_find_num(sub, "count(preceding-sibling::*[self::td or self::th])", ns = character()) + 1
+      out[idmat[cbind(r, as.integer(j))]] <- TRUE
+    }
     out
   }
-  cp <- cj[present]
-  first_a <- rvest::html_element(cp, xpath = ".//a")
-  linked <- !is.na(rvest::html_name(first_a))
-  phref <- rep("", length(cp))
+  blocky <- flag(".//br or .//p or .//div or .//li or .//td or .//th or .//tr or .//script or .//style")
+  linked <- flag(".//a")
+  href <- phref <- rep("", length(cells))
   if (any(linked)) {
-    phref[linked] <- .vhl_attr(rvest::html_element(cp[linked], xpath = ".//a[contains(@href, '/players/')]"), "href")
+    href[linked] <- .vhl_attr(.vhl_ff(cells[linked], ".//a"), "href")
+    phref[linked] <- .vhl_attr(.vhl_ff(cells[linked], ".//a[contains(@href, '/players/')]"), "href")
   }
-  style <- gsub(" ", "", tolower(.vhl_attr(cp, "style")), fixed = TRUE)
-  colspan <- .vhl_attr(cp, "colspan")
+  style <- gsub(" ", "", tolower(.vhl_attr(cells, "style")), fixed = TRUE)
+  colspan <- .vhl_attr(cells, "colspan")
   span <- suppressWarnings(as.integer(colspan))
   span <- pmax(ifelse(is.na(span), 1L, span), 1L)
-  list(
-    present = present,
-    hidden = blank(grepl("display:none", style, fixed = TRUE), FALSE),
-    tag = blank(rvest::html_name(cp), NA_character_),
-    colspan = blank(colspan, ""),
-    rowspan = blank(.vhl_attr(cp, "rowspan"), ""),
-    span = blank(span, 1L),
-    text = blank(.vhl_text(cp), NA_character_),
-    href = blank(.vhl_attr(first_a, "href"), ""),
-    phref = blank(phref, ""),
-    has_link = blank(linked, FALSE)
-  )
+  txt <- .vhl_text(cells, blocky)
+  tag <- xml2::xml_name(cells, ns = character())
+  rowspan <- .vhl_attr(cells, "rowspan")
+  hidden <- grepl("display:none", style, fixed = TRUE)
+  lapply(seq_len(min(max(jj), 400L)), function(j) {
+    k <- which(jj == j)
+    put <- function(x, fill) {
+      out <- rep(fill, n)
+      out[ri[k]] <- x[k]
+      out
+    }
+    list(
+      present = put(rep(TRUE, length(cells)), FALSE),
+      hidden = put(hidden, FALSE), tag = put(tag, NA_character_), colspan = put(colspan, ""),
+      rowspan = put(rowspan, ""), span = put(span, 1L), text = put(txt, NA_character_),
+      href = put(href, ""), phref = put(phref, ""), has_link = put(linked, FALSE)
+    )
+  })
 }
 
 # (header cells, body rows) of a table: the header is the LAST <thead> row (else a leading
@@ -417,17 +444,12 @@
 .vhl_table_parts <- function(table) {
   head <- list()
   body <- list()
-  trs <- rvest::html_elements(table, xpath = ".//tr")
+  trs <- .vhl_fa(table, ".//tr")
   n <- length(trs)
   if (!n) return(list(head = head, body = body))
-  has_body <- length(rvest::html_elements(table, xpath = ".//tbody")) > 0L
-  sect <- rvest::html_name(rvest::html_element(trs, xpath = "parent::*"))
-  columns <- list()
-  repeat {
-    col <- .vhl_cell_column(trs, length(columns) + 1L)
-    if (!any(col$present) || length(columns) >= 400L) break
-    columns[[length(columns) + 1L]] <- col
-  }
+  has_body <- length(.vhl_fa(table, ".//tbody")) > 0L
+  sect <- rvest::html_name(.vhl_ff(trs, "parent::*"))
+  columns <- .vhl_cell_columns(table, trs)
   for (i in seq_len(n)) {
     cells <- list()
     for (col in columns) {
@@ -497,12 +519,12 @@
 # (tn, label) of the selected <option> of <select name=name>; the tn is the first
 # /number/ in its value.
 .vhl_options <- function(root, name) {
-  sel <- rvest::html_elements(root, xpath = sprintf(".//select[@name='%s']", name))
-  if (length(sel)) rvest::html_elements(sel[[1]], xpath = ".//option") else sel
+  sel <- .vhl_fa(root, sprintf(".//select[@name='%s']", name))
+  if (length(sel)) .vhl_fa(sel[[1]], ".//option") else sel
 }
 .vhl_selected <- function(root, name) {
-  sel <- rvest::html_elements(root, xpath = sprintf(".//select[@name='%s']", name))
-  opt <- if (length(sel)) rvest::html_elements(sel[[1]], xpath = ".//option[@selected]") else sel
+  sel <- .vhl_fa(root, sprintf(".//select[@name='%s']", name))
+  opt <- if (length(sel)) .vhl_fa(sel[[1]], ".//option[@selected]") else sel
   if (!length(opt)) return(list(tn = NA_integer_, label = NA_character_))
   opt <- opt[[1]]
   m <- .vhl_re("/([0-9]+)/", .vhl_attr(opt, "value"))
@@ -586,10 +608,10 @@
   # Every call below is vectorised over all the cards (see .vhl_text on why).
   cls <- function(x) sprintf("[%s]", .vhl_xp_cls(x))
   # (not `.//*[day]//*[match]`: that is quadratic on a 1,000-game calendar)
-  cards <- rvest::html_elements(root, xpath = sprintf(".//*%s[ancestor::*%s]", cls("calendar-page__match"), cls("calendar-page__day")))
+  cards <- .vhl_fa(root, sprintf(".//*%s[ancestor::*%s]", cls("calendar-page__match"), cls("calendar-page__day")))
   .vhl_need(length(cards) > 0L, "zero games")
-  day <- rvest::html_element(cards, xpath = sprintf("ancestor::*%s[1]", cls("calendar-page__day")))
-  field <- function(nodes, c) rvest::html_element(nodes, xpath = sprintf(".//*%s", cls(c)))
+  day <- .vhl_ff(cards, sprintf("ancestor::*%s[1]", cls("calendar-page__day")))
+  field <- function(nodes, c) .vhl_ff(nodes, sprintf(".//*%s", cls(c)))
   txt <- function(nodes) .vhl_str_vec(.vhl_text(nodes))
   dates <- txt(field(day, "calendar-page__day-date"))
   weekdays <- txt(field(day, "calendar-page__day-week"))
@@ -597,7 +619,7 @@
   hm <- lapply(href, function(h) .vhl_re("/report/([0-9]+)/\\?idgame=([0-9]+)", h))
   bad <- which(vapply(hm, function(m) is.null(m) || !.vhl_same(.vhl_int(m[[2]]), tn), NA))
   .vhl_need(length(bad) == 0L, sprintf("game link %s outside tn %s", if (length(bad)) href[[bad[[1]]]] else "", tn))
-  team_at <- function(k) rvest::html_element(cards, xpath = sprintf("(.//*%s)[%d]", cls("calendar-page__match-team"), k))
+  team_at <- function(k) .vhl_ff(cards, sprintf("(.//*%s)[%d]", cls("calendar-page__match-team"), k))
   teams <- list(team_at(1L), team_at(2L))
   extra <- team_at(3L)
   .vhl_need(all(!is.na(rvest::html_name(teams[[1]]))) && all(!is.na(rvest::html_name(teams[[2]]))) &&
@@ -608,11 +630,11 @@
   status <- txt(field(cards, "calendar-page__match-status"))
   num <- txt(field(cards, "calendar-page__match-num"))
   city <- txt(field(cards, "calendar-page__match-city"))
-  online <- .vhl_attr(rvest::html_element(cards, xpath = ".//a[contains(@href, 'online.vhlru.ru/online/')]"), "href")
+  online <- .vhl_attr(.vhl_ff(cards, ".//a[contains(@href, 'online.vhlru.ru/online/')]"), "href")
   classes <- .vhl_attr(cards, "class")
   side_fields <- lapply(teams, function(t) {
     list(
-      club = lapply(.vhl_attr(rvest::html_element(t, xpath = ".//img"), "src"),
+      club = lapply(.vhl_attr(.vhl_ff(t, ".//img"), "src"),
                     function(src) .vhl_re("/teams/\\w+/[0-9]+/([0-9]+)/", src)),
       name = txt(field(t, "calendar-page__match-team-name"))
     )
@@ -675,7 +697,7 @@
   )
   ctx <- list(title = NA_character_, team = NA_character_, desc = NA_character_)
   out <- list()
-  for (node in rvest::html_elements(prot, xpath = xp)) {
+  for (node in .vhl_fa(prot, xp)) {
     cl <- .vhl_classes(node)
     if (rvest::html_name(node) == "table") {
       out[[length(out) + 1L]] <- c(ctx, list(table = node))
@@ -871,7 +893,7 @@
     away_city = if (length(cities) == 2L) cities[[2]] else NA_character_
   )
   evs <- .vhl_all(root, "game-event-item")
-  fld <- function(c) rvest::html_element(evs, xpath = sprintf(".//*[%s]", .vhl_xp_cls(c)))
+  fld <- function(c) .vhl_ff(evs, sprintf(".//*[%s]", .vhl_xp_cls(c)))
   tm <- fld("game-event-item__time")
   sc <- fld("game-event-item__score-re__num")
   st <- fld("game-event-item__score-status")
@@ -884,7 +906,7 @@
   # player ids linked in the event text, in link order (k-th player link of every event at once)
   pids <- rep(list(integer()), length(evs))
   for (k in seq_len(50L)) {
-    a_k <- rvest::html_element(right, xpath = sprintf("(.//a[contains(@href, '/players/')])[%d]", k))
+    a_k <- .vhl_ff(right, sprintf("(.//a[contains(@href, '/players/')])[%d]", k))
     if (all(is.na(rvest::html_name(a_k)))) break
     ids <- vapply(.vhl_attr(a_k, "href"), .vhl_id, 1L, kind = "players", USE.NAMES = FALSE)
     for (i in which(!is.na(ids))) pids[[i]] <- c(pids[[i]], ids[[i]])
@@ -917,7 +939,7 @@
     box <- if (any(box_tabs == tab)) boxes[[which(box_tabs == tab)[[1]]]] else NULL
     .vhl_need(!is.null(box), sprintf("no %s tab", tab))
     periods <- list()
-    for (per in rvest::html_elements(box, xpath = ".//*[@data-tab]")) {
+    for (per in .vhl_fa(box, ".//*[@data-tab]")) {
       pt <- .vhl_attr(per, "data-tab")
       pm <- .vhl_re("^stats-teams-(match|period-([0-9]+))$", pt)
       if (is.null(pm)) next
@@ -1024,7 +1046,7 @@
   }
   img <- .vhl_first(root, "player-card__img", "img")
   pos <- .vhl_first(root, "player-card__subtitle")
-  tables <- rvest::html_elements(root, xpath = ".//table")
+  tables <- .vhl_fa(root, ".//table")
   rec <- list(
     player_id = pid, name = name,
     jersey = .vhl_int(sub("^#", "", if (is.null(num)) "" else .vhl_text(num))),
@@ -1056,7 +1078,7 @@
   h2 <- .vhl_first(content, tag = "h2")
   hm <- .vhl_re("^(.*?)\\s*,\\s*(.*?)\\s*\\|\\s*Year of foundation:\\s*([0-9]+)", .vhl_ntext(h2))
   officials <- list()  # every '<p>Role:<b>Name</b></p>' line, whatever the role
-  for (p in rvest::html_elements(content, xpath = ".//p")) {
+  for (p in .vhl_fa(content, ".//p")) {
     b <- .vhl_first(p, tag = "b")
     if (!is.null(b)) {
       ptxt <- .vhl_text(p)
@@ -1078,7 +1100,7 @@
   cal <- links[grepl("/calendar/[0-9]+/0/[0-9]+/", links)][1]
   cm <- .vhl_re("/calendar/([0-9]+)/0/([0-9]+)/", if (is.na(cal)) "" else cal)
   asof <- .vhl_first(root, "right_team")
-  ptexts <- .vhl_text(rvest::html_elements(root, xpath = ".//p"))
+  ptexts <- .vhl_text(.vhl_fa(root, ".//p"))
   cap <- ptexts[startsWith(ptexts, "Capacity:")][1]
   addr <- .vhl_first(content, tag = "address")
   rec <- list(
@@ -1096,7 +1118,7 @@
     arena_capacity = .vhl_int(.vhl_str(gsub("\\D", "", .vhl_or(cap, ""), perl = TRUE))),
     roster = .vhl_rows(.vhl_first(root, tag = "table"), .VHL_ROSTER, "roster")
   )
-  h3s <- rvest::html_elements(root, xpath = ".//h3[not(*) and normalize-space(@class)='']")
+  h3s <- .vhl_fa(root, ".//h3[not(*) and normalize-space(@class)='']")
   txts <- .vhl_text(h3s)
   rec$honours <- as.list(txts[nzchar(txts) & txts != "Players"])
   rec
@@ -1126,12 +1148,6 @@
 
 # ---- transport ----------------------------------------------------------------------------
 
-# Retry-After in seconds (an HTTP-date falls back to the exponential delay), capped.
-.vhl_retry_after <- function(resp) {
-  v <- suppressWarnings(as.numeric(httr2::resp_header(resp, "retry-after", default = "0")))
-  if (length(v) != 1L || is.na(v)) 0 else min(v, .VHL_MAX_RETRY_AFTER)
-}
-
 # Body bytes -> text, STRICTLY in the declared charset (UTF-8 when none is declared).
 .vhl_decode <- function(url, raw, ctype) {
   where <- .euro_where(url)
@@ -1156,28 +1172,10 @@
   if (identical(httr2::url_parse(url)$hostname, "www.vhlru.ru")) {
     req <- httr2::req_options(req, resolve = .VHL_PIN)
   }
-  req <- httr2::req_error(httr2::req_retry(req, max_tries = 1), is_error = function(resp) FALSE)
   full <- req$url
   where <- .euro_where(url)
-  resp <- NULL
-  for (attempt in seq_len(.VHL_ATTEMPTS)) {
-    .polite_wait(url)
-    delay <- 2 * 2^(attempt - 1L)
-    last <- attempt == .VHL_ATTEMPTS
-    resp <- tryCatch(httr2::req_perform(req), error = function(e) e)
-    if (inherits(resp, "error")) {
-      if (last) {
-        attempts <- .VHL_ATTEMPTS
-        .abort_asset_fetch("{where}: fetch failed after {attempts} attempts: {conditionMessage(resp)}",
-                           parent = resp)
-      }
-    } else {
-      status <- httr2::resp_status(resp)
-      if (!status %in% .VHL_RETRY_STATUSES || last) break
-      if (status %in% c(429L, 503L)) delay <- max(delay, .vhl_retry_after(resp))  # both may send Retry-After
-    }
-    .vhl_sleep(delay)
-  }
+  # Shared retry: 429/5xx + Retry-After, the host's 1 s slot on every attempt, 2 s / 4 s backoff.
+  resp <- .polite_perform(req, max_tries = .VHL_ATTEMPTS, backoff = 2)
   status <- httr2::resp_status(resp)
   if (status != 200L) {
     .euro_check_status(resp, where)  # raises unless 2xx

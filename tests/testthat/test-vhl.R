@@ -522,9 +522,12 @@ fetch_env <- function(env = parent.frame()) {
   waits <- new.env()
   waits$urls <- character()
   waits$slept <- numeric()
+  # the shared .polite_perform() asks the host clock for 1 s first, then the retry delay
   testthat::local_mocked_bindings(
-    .polite_wait = function(url, min_interval = 1) waits$urls <- c(waits$urls, url),
-    .vhl_sleep = function(seconds) waits$slept <- c(waits$slept, seconds),
+    .polite_wait = function(url, min_interval = 1) {
+      waits$urls <- c(waits$urls, url)
+      waits$slept <- c(waits$slept, min_interval)
+    },
     .env = env
   )
   waits
@@ -601,13 +604,13 @@ test_that(".vhl_fetch retries 5xx and transport errors, waiting the host slot on
   got <- .vhl_fetch(PLAYER)
   expect_match(got, "ok")
   expect_length(w$urls, 3L)
-  expect_identical(w$slept, c(2, 4))  # 2 s then 4 s
+  expect_identical(w$slept, c(1, 2, 4))  # first slot, then 2 s and 4 s
   # three dead connections: asset_fetch after 3 attempts
   w$urls <- character()
   calls <- 0L
   httr2::local_mocked_responses(function(req) {
     calls <<- calls + 1L
-    stop("connection reset")
+    rlang::abort("connection reset", class = "httr2_failure")
   })
   expect_error(.vhl_fetch(PLAYER), "after 3 attempts", class = "fastRhockey_asset_fetch")
   expect_identical(calls, 3L)
@@ -617,28 +620,25 @@ test_that(".vhl_fetch retries 5xx and transport errors, waiting the host slot on
   expect_error(.vhl_fetch(PLAYER), "502", class = "fastRhockey_asset_fetch")
 })
 
-test_that(".vhl_fetch honours Retry-After on 429 and 503 (capped at 120 s) and not on 500", {
+test_that(".vhl_fetch honours Retry-After (seconds, capped at 120 s) through the shared retry", {
   skip_on_cran()
   w <- fetch_env()
   good <- html_resp()
   for (status in c(429L, 503L)) {
-    w$slept <- numeric()
     httr2::local_mocked_responses(list(html_resp("busy", status, headers = list(`Retry-After` = "30")), good))
-    .vhl_fetch(PLAYER)
-    expect_identical(w$slept, 30)  # Retry-After over the 2 s backoff
     w$slept <- numeric()
+    .vhl_fetch(PLAYER)
+    expect_identical(w$slept, c(1, 30))  # Retry-After over the 2 s backoff
     httr2::local_mocked_responses(list(html_resp("busy", status, headers = list(`Retry-After` = "86400")), good))
-    .vhl_fetch(PLAYER)
-    expect_identical(w$slept, 120)
     w$slept <- numeric()
-    httr2::local_mocked_responses(list(html_resp("busy", status, headers = list(`Retry-After` = "Wed, 21 Oct 2026 07:28:00 GMT")), good))
     .vhl_fetch(PLAYER)
-    expect_identical(w$slept, 2)  # an HTTP-date falls back to the exponential delay
+    expect_identical(w$slept, c(1, 120))
   }
+  # no Retry-After: the 2 s backoff
+  httr2::local_mocked_responses(list(html_resp("busy", 500L), good))
   w$slept <- numeric()
-  httr2::local_mocked_responses(list(html_resp("busy", 500L, headers = list(`Retry-After` = "30")), good))
   .vhl_fetch(PLAYER)
-  expect_identical(w$slept, 2)
+  expect_identical(w$slept, c(1, 2))
 })
 
 # ---- the exported wrappers ------------------------------------------------------------------------------
