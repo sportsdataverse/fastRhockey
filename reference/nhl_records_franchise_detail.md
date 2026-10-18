@@ -50,7 +50,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_franchise_detail())
 #> ── NHL Records Franchise Detail ────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:57:49 UTC
+#> ℹ Data updated: 2026-10-18 05:49:56 UTC
 #> # A tibble: 40 × 13
 #>       id active captain_history      coaching_history date_awarded directory_url
 #>    <int> <lgl>  <chr>                <chr>            <chr>        <chr>        

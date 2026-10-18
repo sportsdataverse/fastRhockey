@@ -254,7 +254,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_webcaster_event(event_id = 2786714))
 #> ── KHL Webcaster Event from khl.api.webcaster.pro ──── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:55:03 UTC
+#> ℹ Data updated: 2026-10-18 05:47:07 UTC
 #> # A tibble: 1 × 159
 #>   game_state_key period hd         id season    stage_id type_id commentator
 #>   <chr>           <int> <lgl>   <int> <chr>        <int>   <int> <lgl>      

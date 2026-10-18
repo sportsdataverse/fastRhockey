@@ -169,7 +169,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_positions())
 #> ── NHL Positions data from ESPN core-v2 ────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:53:08 UTC
+#> ℹ Data updated: 2026-10-18 05:44:28 UTC
 #> # A tibble: 28 × 4
 #>    ref                                              position_id count page_count
 #>    <chr>                                            <chr>       <int>      <int>

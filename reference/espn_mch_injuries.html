@@ -117,7 +117,7 @@
     <p>A <code>fastRhockey_data</code> tibble with one row per injured player:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>team_id</td><td>character</td><td>ESPN team identifier.</td></tr><tr><td>team_display_name</td><td>character</td><td>Team display name.</td></tr><tr><td>player_id</td><td>character</td><td>ESPN player identifier.</td></tr><tr><td>player_display_name</td><td>character</td><td>Player display name.</td></tr><tr><td>player_short_name</td><td>character</td><td>Player short name.</td></tr><tr><td>player_position</td><td>character</td><td>Player position abbreviation.</td></tr><tr><td>injury_id</td><td>character</td><td>ESPN injury identifier.</td></tr><tr><td>injury_status</td><td>character</td><td>Injury status (e.g. "Questionable", "Out").</td></tr><tr><td>injury_date</td><td>character</td><td>Injury date (ISO 8601).</td></tr><tr><td>injury_short_comment</td><td>character</td><td>Short injury comment.</td></tr><tr><td>injury_long_comment</td><td>character</td><td>Long injury comment.</td></tr><tr><td>injury_type</td><td>character</td><td>Injury type name.</td></tr><tr><td>injury_abbreviation</td><td>character</td><td>Injury type abbreviation.</td></tr><tr><td>detail_side</td><td>character</td><td>Injured side (e.g. "Left", "Right").</td></tr><tr><td>detail_fantasy_status</td><td>character</td><td>Fantasy relevance status.</td></tr><tr><td>detail_return_date</td><td>character</td><td>Projected return date.</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>League slug <code>mens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_injuries.html">espn_nhl_injuries()</a></code> (columns inherited); a collection may be empty.</p>
+    <p>League slug <code>mens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_injuries.html">espn_nhl_injuries()</a></code>; ESPN answered an empty collection for every captured MCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -163,8 +163,10 @@
 <code><a href="espn_mch_league_notes.html">espn_mch_league_notes()</a></code>,
 <code><a href="espn_mch_league_root.html">espn_mch_league_root()</a></code>,
 <code><a href="espn_mch_news.html">espn_mch_news()</a></code>,
+<code><a href="espn_mch_pbp.html">espn_mch_pbp()</a></code>,
 <code><a href="espn_mch_player_awards.html">espn_mch_player_awards()</a></code>,
 <code><a href="espn_mch_player_bio.html">espn_mch_player_bio()</a></code>,
+<code><a href="espn_mch_player_box.html">espn_mch_player_box()</a></code>,
 <code><a href="espn_mch_player_career_stats.html">espn_mch_player_career_stats()</a></code>,
 <code><a href="espn_mch_player_contracts.html">espn_mch_player_contracts()</a></code>,
 <code><a href="espn_mch_player_core.html">espn_mch_player_core()</a></code>,
@@ -223,6 +225,7 @@
 <code><a href="espn_mch_summary.html">espn_mch_summary()</a></code>,
 <code><a href="espn_mch_talentpicks.html">espn_mch_talentpicks()</a></code>,
 <code><a href="espn_mch_team.html">espn_mch_team()</a></code>,
+<code><a href="espn_mch_team_box.html">espn_mch_team_box()</a></code>,
 <code><a href="espn_mch_team_core.html">espn_mch_team_core()</a></code>,
 <code><a href="espn_mch_team_depthcharts.html">espn_mch_team_depthcharts()</a></code>,
 <code><a href="espn_mch_team_history.html">espn_mch_team_history()</a></code>,

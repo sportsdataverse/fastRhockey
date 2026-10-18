@@ -134,8 +134,10 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_notes.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_root.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_news.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_pbp.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_awards.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_bio.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_box.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_career_stats.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_contracts.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_core.html</loc></url>
@@ -194,6 +196,7 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_summary.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_talentpicks.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_team.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_box.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_core.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_depthcharts.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_history.html</loc></url>
@@ -378,8 +381,10 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_league_notes.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_league_root.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_news.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_pbp.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_awards.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_bio.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_box.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_career_stats.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_contracts.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_core.html</loc></url>
@@ -438,6 +443,7 @@
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_summary.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_talentpicks.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_team.html</loc></url>
+<url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_box.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_core.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_depthcharts.html</loc></url>
 <url><loc>https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_history.html</loc></url>

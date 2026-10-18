@@ -73,7 +73,7 @@ Other Ligue Magnus Functions:
 # \donttest{
   try(magnus_lineups(game_id = 77779))
 #> ── Ligue Magnus Lineups Information from liguemagnus.com ───────────────────────
-#> ℹ Data updated: 2026-10-13 01:56:46 UTC
+#> ℹ Data updated: 2026-10-18 05:48:54 UTC
 #> # A tibble: 41 × 14
 #>    game_id team_id home_away player_id player_participant_id player_name        
 #>      <int>   <int> <chr>         <int>                 <int> <chr>              

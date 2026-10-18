@@ -121,12 +121,12 @@ Other SHL Functions:
 # \donttest{
   shl_athlete_profile(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl")
 #> ── SHL Athlete Profile Information from www.shl.se ─── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:59:09 UTC
-#> # A tibble: 1 × 33
+#> ℹ Data updated: 2026-10-18 05:51:14 UTC
+#> # A tibble: 1 × 34
 #>   uuid    full_name first_name last_name birth_date nationality gender age_value
 #>   <chr>   <chr>     <chr>      <chr>     <chr>      <chr>       <chr>      <int>
 #> 1 qQ9-34… Lars Joh… Lars       Johansson 1987-07-11 SE          male          39
-#> # ℹ 25 more variables: age_format <chr>, weight_value <int>,
+#> # ℹ 26 more variables: age_format <chr>, weight_value <int>,
 #> #   weight_format <chr>, height_value <int>, height_format <chr>,
 #> #   jersey_number <int>, position <chr>, position_code <chr>, shoots <chr>,
 #> #   team_uuid <chr>, team_instance_id <chr>, team_name <chr>, team_code <chr>,

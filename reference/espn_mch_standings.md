@@ -5,7 +5,12 @@
 ## Usage
 
 ``` r
-espn_mch_standings(season = most_recent_nhl_season(), ...)
+espn_mch_standings(
+  season = most_recent_nhl_season(),
+  group = NULL,
+  standings_type = NULL,
+  ...
+)
 ```
 
 ## Arguments
@@ -14,6 +19,14 @@ espn_mch_standings(season = most_recent_nhl_season(), ...)
 
   Season end-year (e.g. `2025`). Defaults to
   [`most_recent_nhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_nhl_season.md).
+
+- group:
+
+  Optional conference/group id filter.
+
+- standings_type:
+
+  Optional standings variant sent as `type` (e.g. `"by-division"`).
 
 - ...:
 
@@ -25,7 +38,7 @@ A `fastRhockey_data` tibble with one row per team:
 
 |                    |           |                                     |
 |--------------------|-----------|-------------------------------------|
-| col_name           | types     | description                         |
+| col_name           | type      | description                         |
 | group_name         | character | Group name (conference / division). |
 | group_abbreviation | character | Group abbreviation.                 |
 | team_id            | character | ESPN team identifier.               |
@@ -34,24 +47,34 @@ A `fastRhockey_data` tibble with one row per team:
 | team_display_name  | character | Team display name.                  |
 | team_location      | character | Team location (city).               |
 | team_logo          | character | Team logo URL.                      |
-| season             | integer   | Season end-year (echoed from arg).  |
 | ot_losses          | numeric   | Overtime losses.                    |
+| ot_wins            | numeric   | Overtime wins.                      |
+| avg_points_against | numeric   | Average goals against per game.     |
+| avg_points_for     | numeric   | Average goals for per game.         |
+| differential       | numeric   | Goal differential.                  |
+| games_behind       | numeric   | Games behind the group leader.      |
 | games_played       | numeric   | Games played.                       |
 | losses             | numeric   | Regulation losses.                  |
-| points             | numeric   | Points.                             |
-| wins               | numeric   | Wins.                               |
-| points_for         | numeric   | Goals/points scored.                |
-| points_against     | numeric   | Goals/points allowed.               |
 | playoff_seed       | numeric   | Current playoff seed.               |
+| point_differential | numeric   | Point (goal) differential.          |
+| points             | numeric   | Points.                             |
+| points_against     | numeric   | Goals/points allowed.               |
+| points_for         | numeric   | Goals/points scored.                |
 | streak             | numeric   | Current streak value.               |
+| tiegames           | numeric   | Tie games (sent in the mch body).   |
+| win_percent        | numeric   | Win percentage.                     |
+| wins               | numeric   | Wins.                               |
 | overall            | numeric   | Overall record stat.                |
+| season             | integer   | Season end-year (echoed from arg).  |
 
 ## Details
 
 League slug `mens-college-hockey`; `season` is the END year (`2026` =
 2025-26). Same ESPN helper as
-[`espn_nhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_standings.md)
-(columns inherited); a collection may be empty.
+[`espn_nhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_standings.md);
+columns verified against a captured MCH body One numeric column per ESPN
+stat in the body, so the set follows the feed (the MCH body sends
+`tiegames`, the WCH body `ties`).
 
 ## See also
 
@@ -98,8 +121,10 @@ Other ESPN MCH Functions:
 [`espn_mch_league_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_notes.md),
 [`espn_mch_league_root()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_root.md),
 [`espn_mch_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_news.md),
+[`espn_mch_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_pbp.md),
 [`espn_mch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_awards.md),
 [`espn_mch_player_bio()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_bio.md),
+[`espn_mch_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_box.md),
 [`espn_mch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_career_stats.md),
 [`espn_mch_player_contracts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_contracts.md),
 [`espn_mch_player_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_core.md),
@@ -157,6 +182,7 @@ Other ESPN MCH Functions:
 [`espn_mch_summary()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_summary.md),
 [`espn_mch_talentpicks()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_talentpicks.md),
 [`espn_mch_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team.md),
+[`espn_mch_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_box.md),
 [`espn_mch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_core.md),
 [`espn_mch_team_depthcharts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_depthcharts.md),
 [`espn_mch_team_history()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_history.md),
@@ -184,7 +210,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_standings(season = 2025))
 #> ── MENS-COLLEGE-HOCKEY Standings data from ESPN.com ── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:52:30 UTC
+#> ℹ Data updated: 2026-10-18 05:43:53 UTC
 #> # A tibble: 1 × 27
 #>   group_name         group_abbreviation team_id team_name team_abbreviation
 #>   <chr>              <chr>              <chr>   <chr>     <chr>            

@@ -53,7 +53,7 @@ A `fastRhockey_data` tibble with one row per game:
 | venue_city | character | Venue city. |
 | venue_state | character | Venue state. |
 | venue_indoor | logical | Whether the venue is indoors. |
-| broadcast | character | Broadcast network(s). |
+| broadcast | character | Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
 | note | character | Game note or headline. |
 | home_id | character | Home team ESPN identifier. |
 | home_name | character | Home team name. |
@@ -216,7 +216,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_scoreboard(dates = "20250110"))
 #> ── NHL Scoreboard data from ESPN.com ───────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:53:09 UTC
+#> ℹ Data updated: 2026-10-18 05:44:30 UTC
 #> # A tibble: 5 × 50
 #>   game_id   uid       date  name  short_name season_year season_type season_slug
 #>   <chr>     <chr>     <chr> <chr> <chr>            <int>       <int> <chr>      

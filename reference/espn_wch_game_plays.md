@@ -35,7 +35,7 @@ A `fastRhockey_data` tibble with one row per play:
 
 |  |  |  |
 |----|----|----|
-| col_name | types | description |
+| col_name | type | description |
 | event_id | character | ESPN event id (echoed from arg). |
 | cid | character | Competition id (echoed from arg). |
 | id | character | ESPN play identifier. |
@@ -68,8 +68,8 @@ A `fastRhockey_data` tibble with one row per play:
 
 League slug `womens-college-hockey`; `season` is the END year (`2026` =
 2025-26). Same ESPN helper as
-[`espn_nhl_game_plays()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_game_plays.md)
-(columns inherited); a collection may be empty.
+[`espn_nhl_game_plays()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_game_plays.md);
+columns verified against a captured WCH body.
 
 ## See also
 
@@ -115,8 +115,10 @@ Other ESPN WCH Functions:
 [`espn_wch_league_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_league_notes.md),
 [`espn_wch_league_root()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_league_root.md),
 [`espn_wch_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_news.md),
+[`espn_wch_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_pbp.md),
 [`espn_wch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_awards.md),
 [`espn_wch_player_bio()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_bio.md),
+[`espn_wch_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_box.md),
 [`espn_wch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_career_stats.md),
 [`espn_wch_player_contracts()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_contracts.md),
 [`espn_wch_player_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_core.md),
@@ -175,6 +177,7 @@ Other ESPN WCH Functions:
 [`espn_wch_summary()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_summary.md),
 [`espn_wch_talentpicks()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_talentpicks.md),
 [`espn_wch_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team.md),
+[`espn_wch_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_box.md),
 [`espn_wch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_core.md),
 [`espn_wch_team_depthcharts()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_depthcharts.md),
 [`espn_wch_team_history()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_history.md),
@@ -204,7 +207,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20250110")
     espn_wch_game_plays(event_id = sb$game_id[1])
   })
-#> ✖ 2026-10-13 01:53:45.018692: 
+#> ✖ 2026-10-18 05:44:59.402571: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, limit = 1000
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

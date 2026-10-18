@@ -99,8 +99,10 @@ Other ESPN MCH Functions:
 [`espn_mch_league_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_notes.md),
 [`espn_mch_league_root()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_root.md),
 [`espn_mch_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_news.md),
+[`espn_mch_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_pbp.md),
 [`espn_mch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_awards.md),
 [`espn_mch_player_bio()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_bio.md),
+[`espn_mch_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_box.md),
 [`espn_mch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_career_stats.md),
 [`espn_mch_player_contracts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_contracts.md),
 [`espn_mch_player_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_core.md),
@@ -159,6 +161,7 @@ Other ESPN MCH Functions:
 [`espn_mch_summary()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_summary.md),
 [`espn_mch_talentpicks()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_talentpicks.md),
 [`espn_mch_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team.md),
+[`espn_mch_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_box.md),
 [`espn_mch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_core.md),
 [`espn_mch_team_depthcharts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_depthcharts.md),
 [`espn_mch_team_history()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_history.md),
@@ -190,7 +193,7 @@ Saiem Gilani
     tms <- espn_mch_game_teams(event_id = eid)
     espn_mch_game_team_record(event_id = eid, team_id = tms$team_id[1])
   })
-#> ✖ 2026-10-13 01:52:15.011036: Invalid arguments or no ESPN mens-college-hockey game record for event 401715296 / team 194 available!
+#> ✖ 2026-10-18 05:43:38.402556: Invalid arguments or no ESPN mens-college-hockey game record for event 401715296 / team 194 available!
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", team_id = "194"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

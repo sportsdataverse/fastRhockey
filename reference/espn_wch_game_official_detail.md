@@ -100,8 +100,10 @@ Other ESPN WCH Functions:
 [`espn_wch_league_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_league_notes.md),
 [`espn_wch_league_root()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_league_root.md),
 [`espn_wch_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_news.md),
+[`espn_wch_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_pbp.md),
 [`espn_wch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_awards.md),
 [`espn_wch_player_bio()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_bio.md),
+[`espn_wch_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_box.md),
 [`espn_wch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_career_stats.md),
 [`espn_wch_player_contracts()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_contracts.md),
 [`espn_wch_player_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_core.md),
@@ -160,6 +162,7 @@ Other ESPN WCH Functions:
 [`espn_wch_summary()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_summary.md),
 [`espn_wch_talentpicks()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_talentpicks.md),
 [`espn_wch_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team.md),
+[`espn_wch_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_box.md),
 [`espn_wch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_core.md),
 [`espn_wch_team_depthcharts()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_depthcharts.md),
 [`espn_wch_team_history()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_history.md),
@@ -191,10 +194,10 @@ Saiem Gilani
     offs <- espn_wch_game_officials(event_id = eid)
     espn_wch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
   })
-#> ✖ 2026-10-13 01:53:44.072222: 
+#> ✖ 2026-10-18 05:44:58.48717: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
 #> ✖ Error: The API returned an error
-#> ✖ 2026-10-13 01:53:44.105088: 
+#> ✖ 2026-10-18 05:44:58.531541: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, official_id = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

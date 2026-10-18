@@ -24,7 +24,7 @@ A `fastRhockey_data` tibble with one row per article:
 
 |               |           |                                         |
 |---------------|-----------|-----------------------------------------|
-| col_name      | types     | description                             |
+| col_name      | type      | description                             |
 | article_id    | character | ESPN article identifier.                |
 | now_id        | character | ESPN Now identifier.                    |
 | content_key   | character | Content management key.                 |
@@ -42,8 +42,8 @@ A `fastRhockey_data` tibble with one row per article:
 
 League slug `womens-college-hockey`; `season` is the END year (`2026` =
 2025-26). Same ESPN helper as
-[`espn_nhl_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_news.md)
-(columns inherited); a collection may be empty.
+[`espn_nhl_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_news.md);
+columns verified against a captured WCH body.
 
 ## See also
 
@@ -89,8 +89,10 @@ Other ESPN WCH Functions:
 [`espn_wch_leaders_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_leaders_core.md),
 [`espn_wch_league_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_league_notes.md),
 [`espn_wch_league_root()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_league_root.md),
+[`espn_wch_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_pbp.md),
 [`espn_wch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_awards.md),
 [`espn_wch_player_bio()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_bio.md),
+[`espn_wch_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_box.md),
 [`espn_wch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_career_stats.md),
 [`espn_wch_player_contracts()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_contracts.md),
 [`espn_wch_player_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_core.md),
@@ -149,6 +151,7 @@ Other ESPN WCH Functions:
 [`espn_wch_summary()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_summary.md),
 [`espn_wch_talentpicks()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_talentpicks.md),
 [`espn_wch_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team.md),
+[`espn_wch_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_box.md),
 [`espn_wch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_core.md),
 [`espn_wch_team_depthcharts()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_depthcharts.md),
 [`espn_wch_team_history()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_history.md),
@@ -176,20 +179,20 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_news(limit = 10))
 #> ── WOMENS-COLLEGE-HOCKEY News data from ESPN.com ───── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:53:49 UTC
+#> ℹ Data updated: 2026-10-18 05:45:04 UTC
 #> # A tibble: 10 × 12
 #>    article_id now_id     content_key    type  headline description last_modified
 #>    <chr>      <chr>      <chr>          <chr> <chr>    <chr>       <chr>        
-#>  1 50161587   1-50161587 50161587-1-29… Media New Ham… New Hampsh… 2026-10-12T1…
-#>  2 50152753   1-50152753 50152753-1-29… Media St. Clo… St. Cloud … 2026-10-12T1…
-#>  3 50150537   1-50150537 50150537-1-29… Media Provide… Providence… 2026-10-10T2…
-#>  4 50142528   1-50142528 50142528-1-29… Media Northea… Northeaste… 2026-10-12T1…
-#>  5 50093340   1-50093340 50093340-1-29… Media Clarkso… Clarkson G… 2026-10-03T2…
-#>  6 50087330   1-50087330 50087330-1-29… Media Clarkso… Clarkson G… 2026-10-03T0…
-#>  7 50086549   1-50086549 50086549-1-29… Media Provide… Providence… 2026-10-02T2…
-#>  8 50085544   1-50085544 50085544-1-29… Media Minn. D… Minn. Dulu… 2026-10-02T1…
-#>  9 50030077   1-50030077 50030077-1-29… Media Quinnip… Quinnipiac… 2026-09-26T0…
-#> 10 50030053   1-50030053 50030053-1-29… Media Wiscons… Wisconsin … 2026-09-26T0…
+#>  1 50205708   1-50205708 50205708-1-29… Media Colgate… Colgate Ra… 2026-10-18T0…
+#>  2 50198851   1-50198851 50198851-1-29… Media Northea… Northeaste… 2026-10-17T0…
+#>  3 50196596   1-50196596 50196596-1-5-1 Head… NCAA su… The NCAA h… 2026-10-16T2…
+#>  4 50161587   1-50161587 50161587-1-29… Media New Ham… New Hampsh… 2026-10-12T1…
+#>  5 50152753   1-50152753 50152753-1-29… Media St. Clo… St. Cloud … 2026-10-12T1…
+#>  6 50150537   1-50150537 50150537-1-29… Media Provide… Providence… 2026-10-10T2…
+#>  7 50142528   1-50142528 50142528-1-29… Media Northea… Northeaste… 2026-10-12T1…
+#>  8 50093340   1-50093340 50093340-1-29… Media Clarkso… Clarkson G… 2026-10-03T2…
+#>  9 50087330   1-50087330 50087330-1-29… Media Clarkso… Clarkson G… 2026-10-03T0…
+#> 10 50086549   1-50086549 50086549-1-29… Media Provide… Providence… 2026-10-02T2…
 #> # ℹ 5 more variables: published <chr>, byline <chr>, premium <lgl>,
 #> #   image_href <chr>, web_href <chr>
 # }

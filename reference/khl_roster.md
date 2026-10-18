@@ -105,7 +105,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_roster(club_id = 7))
 #> ── KHL Roster from khl.ru ──────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:54:54 UTC
+#> ℹ Data updated: 2026-10-18 05:46:56 UTC
 #> # A tibble: 31 × 10
 #>    group   player_id photo country lastname firstname    jn   age favorite link 
 #>    <chr>       <int> <chr> <chr>   <chr>    <chr>     <int> <int> <lgl>    <chr>
@@ -118,7 +118,7 @@ Other KHL Functions:
 #>  7 defend…     29100 //im… Россия  Князев   Артемий       8    25 FALSE    /pla…
 #>  8 defend…     38354 //im… Россия  Королёв  Вениамин     89    23 FALSE    /pla…
 #>  9 defend…     17624 //im… Россия  Миронов  Андрей А.    94    32 FALSE    /pla…
-#> 10 defend…     24359 //im… Канада  Райлли   Уилл         44    29 FALSE    /pla…
+#> 10 defend…     39327 //im… Россия  Орлов    Даниил Р.    62    22 FALSE    /pla…
 #> # ℹ 21 more rows
 # }
 ```

@@ -20,7 +20,7 @@ A `fastRhockey_data` tibble with one row per game date:
 
 |  |  |  |
 |----|----|----|
-| col_name | types | description |
+| col_name | type | description |
 | date | character | Game date (ISO 8601 datetime string). |
 | calendar_type | character | Calendar type (e.g. `"day"`). |
 | calendar_start_date | character | Calendar season start date. |
@@ -31,8 +31,8 @@ A `fastRhockey_data` tibble with one row per game date:
 
 League slug `mens-college-hockey`; `season` is the END year (`2026` =
 2025-26). Same ESPN helper as
-[`espn_nhl_calendar()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_calendar.md)
-(columns inherited); a collection may be empty.
+[`espn_nhl_calendar()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_calendar.md);
+columns verified against a captured MCH body.
 
 ## See also
 
@@ -78,8 +78,10 @@ Other ESPN MCH Functions:
 [`espn_mch_league_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_notes.md),
 [`espn_mch_league_root()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_root.md),
 [`espn_mch_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_news.md),
+[`espn_mch_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_pbp.md),
 [`espn_mch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_awards.md),
 [`espn_mch_player_bio()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_bio.md),
+[`espn_mch_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_box.md),
 [`espn_mch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_career_stats.md),
 [`espn_mch_player_contracts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_contracts.md),
 [`espn_mch_player_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_core.md),
@@ -138,6 +140,7 @@ Other ESPN MCH Functions:
 [`espn_mch_summary()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_summary.md),
 [`espn_mch_talentpicks()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_talentpicks.md),
 [`espn_mch_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team.md),
+[`espn_mch_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_box.md),
 [`espn_mch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_core.md),
 [`espn_mch_team_depthcharts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_depthcharts.md),
 [`espn_mch_team_history()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_history.md),
@@ -165,7 +168,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_calendar())
 #> ── MENS-COLLEGE-HOCKEY Calendar data from ESPN.com ─── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:52:04 UTC
+#> ℹ Data updated: 2026-10-18 05:43:29 UTC
 #> # A tibble: 92 × 5
 #>    date              calendar_type calendar_start_date calendar_end_date
 #>    <chr>             <chr>         <chr>               <chr>            

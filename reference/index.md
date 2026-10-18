@@ -2321,6 +2321,11 @@ odds, roster, stats, game log, standings, leaders)
 
   **Get ESPN MCH News**
 
+- [`espn_mch_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_pbp.md)
+  :
+
+  **Get ESPN MCH Play-by-Play**
+
 - [`espn_mch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_awards.md)
   :
 
@@ -2330,6 +2335,11 @@ odds, roster, stats, game log, standings, leaders)
   :
 
   **Get ESPN MCH Player Bio**
+
+- [`espn_mch_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_box.md)
+  :
+
+  **Get ESPN MCH Player Box Score**
 
 - [`espn_mch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_career_stats.md)
   :
@@ -2620,6 +2630,11 @@ odds, roster, stats, game log, standings, leaders)
   :
 
   **Get ESPN MCH Team Detail**
+
+- [`espn_mch_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_box.md)
+  :
+
+  **Get ESPN MCH Team Box Score**
 
 - [`espn_mch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_core.md)
   :
@@ -2914,6 +2929,11 @@ odds, roster, stats, game log, standings, leaders)
 
   **Get ESPN WCH News**
 
+- [`espn_wch_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_pbp.md)
+  :
+
+  **Get ESPN WCH Play-by-Play**
+
 - [`espn_wch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_awards.md)
   :
 
@@ -2923,6 +2943,11 @@ odds, roster, stats, game log, standings, leaders)
   :
 
   **Get ESPN WCH Player Bio**
+
+- [`espn_wch_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_box.md)
+  :
+
+  **Get ESPN WCH Player Box Score**
 
 - [`espn_wch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_career_stats.md)
   :
@@ -3213,6 +3238,11 @@ odds, roster, stats, game log, standings, leaders)
   :
 
   **Get ESPN WCH Team Detail**
+
+- [`espn_wch_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_box.md)
+  :
+
+  **Get ESPN WCH Team Box Score**
 
 - [`espn_wch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_core.md)
   :

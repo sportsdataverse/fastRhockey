@@ -26,7 +26,7 @@ A `fastRhockey_data` tibble of countries, or `NULL` on failure.
 # \donttest{
   try(nhl_stats_country())
 #> ── NHL Stats Country ───────────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:58:09 UTC
+#> ℹ Data updated: 2026-10-18 05:50:14 UTC
 #> # A tibble: 50 × 11
 #>    id    country3code country_code country_name   has_player_stats image_url    
 #>    <chr> <chr>        <chr>        <chr>                     <int> <chr>        

@@ -95,21 +95,21 @@ Other VHL Functions:
 # \donttest{
   try(vhl_roster(team_page_id = 390))
 #> ── VHL Roster Information from vhlru.ru ────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 02:00:27 UTC
-#> # A tibble: 27 × 11
+#> ℹ Data updated: 2026-10-18 05:52:43 UTC
+#> # A tibble: 26 × 11
 #>    team_page_id team  calendar_tn calendar_team_season_id roster_as_of jersey
 #>           <int> <chr>       <int>                   <int> <chr>         <int>
-#>  1          390 Toros        1430                   15531 13.10.2026       40
-#>  2          390 Toros        1430                   15531 13.10.2026       28
-#>  3          390 Toros        1430                   15531 13.10.2026       97
-#>  4          390 Toros        1430                   15531 13.10.2026       31
-#>  5          390 Toros        1430                   15531 13.10.2026       25
-#>  6          390 Toros        1430                   15531 13.10.2026       71
-#>  7          390 Toros        1430                   15531 13.10.2026       36
-#>  8          390 Toros        1430                   15531 13.10.2026       49
-#>  9          390 Toros        1430                   15531 13.10.2026       46
-#> 10          390 Toros        1430                   15531 13.10.2026       19
-#> # ℹ 17 more rows
+#>  1          390 Toros        1430                   15531 18.10.2026       28
+#>  2          390 Toros        1430                   15531 18.10.2026       97
+#>  3          390 Toros        1430                   15531 18.10.2026       31
+#>  4          390 Toros        1430                   15531 18.10.2026       25
+#>  5          390 Toros        1430                   15531 18.10.2026       71
+#>  6          390 Toros        1430                   15531 18.10.2026       36
+#>  7          390 Toros        1430                   15531 18.10.2026       49
+#>  8          390 Toros        1430                   15531 18.10.2026       46
+#>  9          390 Toros        1430                   15531 18.10.2026       19
+#> 10          390 Toros        1430                   15531 18.10.2026       88
+#> # ℹ 16 more rows
 #> # ℹ 5 more variables: position <chr>, player_id <int>, player <chr>,
 #> #   born <chr>, country <chr>
 # }

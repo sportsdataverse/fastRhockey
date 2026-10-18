@@ -69,7 +69,7 @@ Other Ligue Magnus Functions:
 # \donttest{
   try(magnus_rounds(phase_id = 714))
 #> ── Ligue Magnus Rounds Information from liguemagnus.com ────────────────────────
-#> ℹ Data updated: 2026-10-13 01:56:51 UTC
+#> ℹ Data updated: 2026-10-18 05:48:59 UTC
 #> # A tibble: 44 × 9
 #>    round_id round round_label phase_id phase    competition_id season start_date
 #>       <int> <int> <chr>          <int> <chr>             <int>  <int> <date>    

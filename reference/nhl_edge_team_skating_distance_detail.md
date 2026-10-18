@@ -69,16 +69,18 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_team_skating_distance_detail(team_id = 10))
 #> ── NHL Edge Team Skating Distance Detail ───────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:57:24 UTC
-#> # A tibble: 6 × 26
+#> ℹ Data updated: 2026-10-18 05:49:34 UTC
+#> # A tibble: 8 × 26
 #>   game_center_link         game_date is_home_team toi_all toi_even toi_pp toi_pk
 #>   <chr>                    <chr>     <lgl>          <int>    <int>  <int>  <int>
-#> 1 /gamecenter/tor-vs-col/… 2026-10-… FALSE          17405    13540   1505   2360
-#> 2 /gamecenter/tor-vs-vgk/… 2026-10-… FALSE          18420    15900    600   1920
-#> 3 /gamecenter/nsh-vs-tor/… 2026-10-… TRUE           18756    16713   1635    408
-#> 4 /gamecenter/ott-vs-tor/… 2026-10-… TRUE           17470    13620   1930   1920
-#> 5 /gamecenter/nyi-vs-tor/… 2026-09-… TRUE           17618    13328   2370   1920
-#> 6 /gamecenter/mtl-vs-tor/… 2026-09-… TRUE           17715    14955   1800    960
+#> 1 /gamecenter/buf-vs-tor/… 2026-10-… TRUE           18342    16838    920    584
+#> 2 /gamecenter/tor-vs-uta/… 2026-10-… FALSE          17674    14558   1776   1340
+#> 3 /gamecenter/tor-vs-col/… 2026-10-… FALSE          17405    13540   1505   2360
+#> 4 /gamecenter/tor-vs-vgk/… 2026-10-… FALSE          18420    15900    600   1920
+#> 5 /gamecenter/nsh-vs-tor/… 2026-10-… TRUE           18756    16713   1635    408
+#> 6 /gamecenter/ott-vs-tor/… 2026-10-… TRUE           17470    13620   1930   1920
+#> 7 /gamecenter/nyi-vs-tor/… 2026-09-… TRUE           17618    13328   2370   1920
+#> 8 /gamecenter/mtl-vs-tor/… 2026-09-… TRUE           17715    14955   1800    960
 #> # ℹ 19 more variables: distance_skated_all_imperial <dbl>,
 #> #   distance_skated_all_metric <dbl>, distance_skated_even_imperial <dbl>,
 #> #   distance_skated_even_metric <dbl>, distance_skated_pp_imperial <dbl>,

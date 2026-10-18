@@ -106,8 +106,8 @@ Other HA Functions:
 # \donttest{
   try(ha_players(team = "AIK"))
 #> ── HA Players Information from hockeyallsvenskan.se ── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:54:14 UTC
-#> # A tibble: 29 × 26
+#> ℹ Data updated: 2026-10-18 05:46:16 UTC
+#> # A tibble: 30 × 26
 #>    family_name first_name  player_cms_id player_document_id      headshots_large
 #>    <chr>       <chr>               <int> <chr>                   <chr>          
 #>  1 Bengtsson   Christopher          2690 xk3ojogy15d4kcx4htv30z… https://ha-med…
@@ -118,9 +118,9 @@ Other HA Functions:
 #>  6 Enroth      Jhonas               2685 l8adior0jcfjisdz9r15aa… https://ha-med…
 #>  7 Eriksson    Max                  1810 nei92n4kb77qrjtzv1guwr… NA             
 #>  8 Grönlund    Anders               2700 hqg7rjrije0l5ku3dcrh1q… https://ha-med…
-#>  9 Hellgren    Ludwig               1999 x4wyyhq9avlg3a2ege8tro… NA             
+#>  9 Hellgren    Ludwig               2750 x4wyyhq9avlg3a2ege8tro… NA             
 #> 10 Isén        Edvin                2701 u866bnxgqrns6wk5zkiplf… https://ha-med…
-#> # ℹ 19 more rows
+#> # ℹ 20 more rows
 #> # ℹ 21 more variables: headshots_small <chr>, headshots_thumb <chr>,
 #> #   headshots_medium <chr>, position_code <chr>, jersey_number <int>,
 #> #   birth_date <chr>, country <chr>, height <int>, weight <int>, shoots <chr>,

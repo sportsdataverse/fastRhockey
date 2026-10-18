@@ -140,7 +140,7 @@ Other HA Functions:
 # \donttest{
   try(ha_games(season = 2026))
 #> ── HA Games Information from hockeyallsvenskan.se ──── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:54:10 UTC
+#> ℹ Data updated: 2026-10-18 05:46:13 UTC
 #> # A tibble: 364 × 26
 #>    season date    home_team_code away_team_code home_score away_score decided_in
 #>     <int> <chr>   <chr>          <chr>               <int>      <int> <chr>     

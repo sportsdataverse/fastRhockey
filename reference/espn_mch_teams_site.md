@@ -5,10 +5,14 @@
 ## Usage
 
 ``` r
-espn_mch_teams_site(...)
+espn_mch_teams_site(limit = 1000, ...)
 ```
 
 ## Arguments
+
+- limit:
+
+  Maximum number of teams (ESPN `limit`; default `1000`, as sdv-py).
 
 - ...:
 
@@ -19,26 +23,37 @@ espn_mch_teams_site(...)
 A `fastRhockey_data` tibble with one row per MCH team. This is identical
 to the output of teams.
 
-|                 |           |                            |
-|-----------------|-----------|----------------------------|
-| col_name        | types     | description                |
-| espn_team_id    | character | ESPN team identifier.      |
-| team            | character | Team location/city name.   |
-| mascot          | character | Team mascot/nickname.      |
-| display_name    | character | Team display name.         |
-| short_name      | character | Short team display name.   |
-| abbreviation    | character | Team abbreviation.         |
-| color           | character | Primary color hex.         |
-| alternate_color | character | Alternate color hex.       |
-| logo            | character | Light-background logo URL. |
-| logo_dark       | character | Dark-background logo URL.  |
+|  |  |  |
+|----|----|----|
+| col_name | type | description |
+| abbreviation | character | Team abbreviation. |
+| display_name | character | Team display name. |
+| espn_team_id | integer | ESPN team identifier. |
+| team | character | Team location/city name. |
+| logo | character | Light-background logo URL. |
+| logo_dark | character | Dark-background logo URL. |
+| logos_href_3 | character | Logo variant 3 URL (ESPN sends a varying number of logos per team). |
+| logos_href_4 | character | Logo variant 4 URL (ESPN sends a varying number of logos per team). |
+| logos_href_5 | character | Logo variant 5 URL (ESPN sends a varying number of logos per team). |
+| logos_href_6 | character | Logo variant 6 URL (ESPN sends a varying number of logos per team). |
+| logos_href_7 | character | Logo variant 7 URL (ESPN sends a varying number of logos per team). |
+| logos_href_8 | character | Logo variant 8 URL (ESPN sends a varying number of logos per team). |
+| logos_href_9 | character | Logo variant 9 URL (ESPN sends a varying number of logos per team). |
+| logos_href_10 | character | Logo variant 10 URL (ESPN sends a varying number of logos per team). |
+| logos_href_11 | character | Logo variant 11 URL (ESPN sends a varying number of logos per team). |
+| logos_href_12 | character | Logo variant 12 URL (ESPN sends a varying number of logos per team). |
+| logos_href_13 | character | Logo variant 13 URL (ESPN sends a varying number of logos per team). |
+| logos_href_14 | character | Logo variant 14 URL (ESPN sends a varying number of logos per team). |
+| mascot | character | Team mascot/nickname. |
+| nickname | character | Team nickname. |
+| short_name | character | Short team display name. |
 
 ## Details
 
 League slug `mens-college-hockey`; `season` is the END year (`2026` =
 2025-26). Same ESPN helper as
-[`espn_nhl_teams_site()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_teams_site.md)
-(columns inherited); a collection may be empty.
+[`espn_nhl_teams_site()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_teams_site.md);
+columns verified against a captured MCH body.
 
 ## See also
 
@@ -87,8 +102,10 @@ Other ESPN MCH Functions:
 [`espn_mch_league_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_notes.md),
 [`espn_mch_league_root()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_root.md),
 [`espn_mch_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_news.md),
+[`espn_mch_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_pbp.md),
 [`espn_mch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_awards.md),
 [`espn_mch_player_bio()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_bio.md),
+[`espn_mch_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_box.md),
 [`espn_mch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_career_stats.md),
 [`espn_mch_player_contracts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_contracts.md),
 [`espn_mch_player_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_core.md),
@@ -147,6 +164,7 @@ Other ESPN MCH Functions:
 [`espn_mch_summary()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_summary.md),
 [`espn_mch_talentpicks()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_talentpicks.md),
 [`espn_mch_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team.md),
+[`espn_mch_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_box.md),
 [`espn_mch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_core.md),
 [`espn_mch_team_depthcharts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_depthcharts.md),
 [`espn_mch_team_history()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_history.md),
@@ -172,9 +190,26 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_teams_site())
-#> ✖ 2026-10-13 01:52:35.7423: Invalid arguments or no ESPN mens-college-hockey teams data available!
-#> ✖ Args: league = "mens-college-hockey"
-#> ✖ Error: Can't rename columns that don't exist. ✖ Column `alternateColor` doesn't exist.
-#> data frame with 0 columns and 0 rows
+#> ── MENS-COLLEGE-HOCKEY Teams data from ESPN.com ────── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-18 05:43:59 UTC
+#> # A tibble: 116 × 23
+#>    abbreviation display_name espn_team_id team  mascot nickname short_name logo 
+#>    <chr>        <chr>               <int> <chr> <chr>  <chr>    <chr>      <chr>
+#>  1 ADR          Adrian Bull…       110134 Adri… Bulld… Adrian   Adrian     NA   
+#>  2 AF           Air Force F…         2005 Air … Falco… Air For… Air Force  http…
+#>  3 AH           Alabama Hun…         2008 Alab… Charg… Alabama… Alabama H… NA   
+#>  4 UAA          Alaska Anch…            1 Alas… Seawo… Alaska … Alaska An… http…
+#>  5 AKFB         Alaska Nano…          298 Alas… Nanoo… Alaska   Alaska     http…
+#>  6 ABCA         Alberta Gol…        14196 Albe… Golde… Alberta  Alberta    NA   
+#>  7 AIC          American In…         2022 Amer… Yello… America… American … http…
+#>  8 ANMR         Anna Maria …       126807 Anna… Amcats Anna Ma… Anna Maria NA   
+#>  9 ASU          Arizona Sta…            9 Ariz… Sun D… Arizona… Arizona S… http…
+#> 10 ARIZ         Arizona Wil…           12 Ariz… Wildc… Arizona  Arizona    http…
+#> # ℹ 106 more rows
+#> # ℹ 15 more variables: logo_dark <chr>, logos_href_3 <chr>, logos_href_4 <chr>,
+#> #   logos_href_5 <chr>, logos_href_6 <chr>, logos_href_7 <chr>,
+#> #   logos_href_8 <chr>, logos_href_9 <chr>, logos_href_10 <chr>,
+#> #   logos_href_11 <chr>, logos_href_12 <chr>, logos_href_13 <chr>,
+#> #   logos_href_14 <chr>, alternate_color <chr>, color <chr>
 # }
 ```

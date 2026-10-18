@@ -5,10 +5,14 @@
 ## Usage
 
 ``` r
-espn_wch_teams_site(...)
+espn_wch_teams_site(limit = 1000, ...)
 ```
 
 ## Arguments
+
+- limit:
+
+  Maximum number of teams (ESPN `limit`; default `1000`, as sdv-py).
 
 - ...:
 
@@ -19,26 +23,37 @@ espn_wch_teams_site(...)
 A `fastRhockey_data` tibble with one row per WCH team. This is identical
 to the output of teams.
 
-|                 |           |                            |
-|-----------------|-----------|----------------------------|
-| col_name        | types     | description                |
-| espn_team_id    | character | ESPN team identifier.      |
-| team            | character | Team location/city name.   |
-| mascot          | character | Team mascot/nickname.      |
-| display_name    | character | Team display name.         |
-| short_name      | character | Short team display name.   |
-| abbreviation    | character | Team abbreviation.         |
-| color           | character | Primary color hex.         |
-| alternate_color | character | Alternate color hex.       |
-| logo            | character | Light-background logo URL. |
-| logo_dark       | character | Dark-background logo URL.  |
+|  |  |  |
+|----|----|----|
+| col_name | type | description |
+| abbreviation | character | Team abbreviation. |
+| display_name | character | Team display name. |
+| espn_team_id | integer | ESPN team identifier. |
+| team | character | Team location/city name. |
+| logo | character | Light-background logo URL. |
+| logo_dark | character | Dark-background logo URL. |
+| logos_href_3 | character | Logo variant 3 URL (ESPN sends a varying number of logos per team). |
+| logos_href_4 | character | Logo variant 4 URL (ESPN sends a varying number of logos per team). |
+| logos_href_5 | character | Logo variant 5 URL (ESPN sends a varying number of logos per team). |
+| logos_href_6 | character | Logo variant 6 URL (ESPN sends a varying number of logos per team). |
+| logos_href_7 | character | Logo variant 7 URL (ESPN sends a varying number of logos per team). |
+| logos_href_8 | character | Logo variant 8 URL (ESPN sends a varying number of logos per team). |
+| logos_href_9 | character | Logo variant 9 URL (ESPN sends a varying number of logos per team). |
+| logos_href_10 | character | Logo variant 10 URL (ESPN sends a varying number of logos per team). |
+| logos_href_11 | character | Logo variant 11 URL (ESPN sends a varying number of logos per team). |
+| logos_href_12 | character | Logo variant 12 URL (ESPN sends a varying number of logos per team). |
+| logos_href_13 | character | Logo variant 13 URL (ESPN sends a varying number of logos per team). |
+| logos_href_14 | character | Logo variant 14 URL (ESPN sends a varying number of logos per team). |
+| mascot | character | Team mascot/nickname. |
+| nickname | character | Team nickname. |
+| short_name | character | Short team display name. |
 
 ## Details
 
 League slug `womens-college-hockey`; `season` is the END year (`2026` =
 2025-26). Same ESPN helper as
-[`espn_nhl_teams_site()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_teams_site.md)
-(columns inherited); a collection may be empty.
+[`espn_nhl_teams_site()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_teams_site.md);
+columns verified against a captured WCH body.
 
 ## See also
 
@@ -87,8 +102,10 @@ Other ESPN WCH Functions:
 [`espn_wch_league_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_league_notes.md),
 [`espn_wch_league_root()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_league_root.md),
 [`espn_wch_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_news.md),
+[`espn_wch_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_pbp.md),
 [`espn_wch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_awards.md),
 [`espn_wch_player_bio()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_bio.md),
+[`espn_wch_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_box.md),
 [`espn_wch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_career_stats.md),
 [`espn_wch_player_contracts()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_contracts.md),
 [`espn_wch_player_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_core.md),
@@ -147,6 +164,7 @@ Other ESPN WCH Functions:
 [`espn_wch_summary()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_summary.md),
 [`espn_wch_talentpicks()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_talentpicks.md),
 [`espn_wch_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team.md),
+[`espn_wch_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_box.md),
 [`espn_wch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_core.md),
 [`espn_wch_team_depthcharts()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_depthcharts.md),
 [`espn_wch_team_history()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_history.md),
@@ -172,9 +190,26 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_wch_teams_site())
-#> ✖ 2026-10-13 01:54:05.358486: Invalid arguments or no ESPN womens-college-hockey teams data available!
-#> ✖ Args: league = "womens-college-hockey"
-#> ✖ Error: Can't rename columns that don't exist. ✖ Column `alternateColor` doesn't exist.
-#> data frame with 0 columns and 0 rows
+#> ── WOMENS-COLLEGE-HOCKEY Teams data from ESPN.com ──── fastRhockey 1.0.0.9000 ──
+#> ℹ Data updated: 2026-10-18 05:45:21 UTC
+#> # A tibble: 47 × 21
+#>    abbreviation display_name     espn_team_id team  logo  logo_dark logos_href_3
+#>    <chr>        <chr>                   <int> <chr> <chr> <chr>     <chr>       
+#>  1 ASP          Assumption Grey…       127962 Assu… http… https://… NA          
+#>  2 BST          Bemidji State B…          132 Bemi… http… https://… https://a.e…
+#>  3 BC           Boston College …          103 Bost… http… https://… https://a.e…
+#>  4 BU           Boston Universi…          104 Bost… http… https://… https://a.e…
+#>  5 BRWN         Brown Bears               225 Brown http… https://… https://a.e…
+#>  6 CLAR         Clarkson Golden…         2137 Clar… http… https://… https://a.e…
+#>  7 COLG         Colgate Raiders          2142 Colg… http… https://… https://a.e…
+#>  8 COR          Cornell Big Red           172 Corn… http… https://… https://a.e…
+#>  9 DART         Dartmouth Big G…          159 Dart… http… https://… https://a.e…
+#> 10 FP           Franklin Pierce…       121934 Fran… http… https://… https://a.e…
+#> # ℹ 37 more rows
+#> # ℹ 14 more variables: logos_href_4 <chr>, logos_href_5 <chr>,
+#> #   logos_href_6 <chr>, logos_href_7 <chr>, logos_href_8 <chr>,
+#> #   logos_href_9 <chr>, logos_href_10 <chr>, logos_href_11 <chr>,
+#> #   logos_href_12 <chr>, logos_href_13 <chr>, logos_href_14 <chr>,
+#> #   mascot <chr>, nickname <chr>, short_name <chr>
 # }
 ```

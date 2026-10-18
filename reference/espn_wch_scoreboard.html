@@ -101,7 +101,14 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">espn_wch_scoreboard</span><span class="op">(</span>dates <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">espn_wch_scoreboard</span><span class="op">(</span></span>
+<span>  dates <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  week <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  season_type <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  groups <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  limit <span class="op">=</span> <span class="fl">500</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -114,16 +121,32 @@
 is used.</p></dd>
 
 
+<dt id="arg-week">week<a class="anchor" aria-label="anchor" href="#arg-week"></a></dt>
+<dd><p>Optional week number (ESPN <code>week</code> query).</p></dd>
+
+
+<dt id="arg-season-type">season_type<a class="anchor" aria-label="anchor" href="#arg-season-type"></a></dt>
+<dd><p>Optional season phase (1 = pre, 2 = regular, 3 = post); sent as <code>seasontype</code>.</p></dd>
+
+
+<dt id="arg-groups">groups<a class="anchor" aria-label="anchor" href="#arg-groups"></a></dt>
+<dd><p>Optional conference/group id filter.</p></dd>
+
+
+<dt id="arg-limit">limit<a class="anchor" aria-label="anchor" href="#arg-limit"></a></dt>
+<dd><p>Maximum number of events (ESPN <code>limit</code>; default <code>500</code>, as sdv-py).</p></dd>
+
+
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Reserved for forward compatibility.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>fastRhockey_data</code> tibble with one row per game:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>game_id</td><td>character</td><td>ESPN event identifier.</td></tr><tr><td>uid</td><td>character</td><td>ESPN event uid.</td></tr><tr><td>date</td><td>character</td><td>Game date-time (ISO 8601).</td></tr><tr><td>name</td><td>character</td><td>Full game name.</td></tr><tr><td>short_name</td><td>character</td><td>Short game name.</td></tr><tr><td>season_year</td><td>integer</td><td>Season end year.</td></tr><tr><td>season_type</td><td>integer</td><td>Season type code (1=pre, 2=regular, 3=post).</td></tr><tr><td>season_slug</td><td>character</td><td>Season type slug.</td></tr><tr><td>status_type_id</td><td>character</td><td>Status type identifier.</td></tr><tr><td>status_type_name</td><td>character</td><td>Status type name.</td></tr><tr><td>status_type_state</td><td>character</td><td>Status state (pre/in/post).</td></tr><tr><td>status_type_completed</td><td>logical</td><td>Whether the game is complete.</td></tr><tr><td>status_type_description</td><td>character</td><td>Status description.</td></tr><tr><td>status_type_detail</td><td>character</td><td>Status detail text.</td></tr><tr><td>status_type_short_detail</td><td>character</td><td>Short status detail.</td></tr><tr><td>status_clock</td><td>numeric</td><td>Game clock in seconds.</td></tr><tr><td>status_display_clock</td><td>character</td><td>Display clock string.</td></tr><tr><td>status_period</td><td>integer</td><td>Current period.</td></tr><tr><td>neutral_site</td><td>logical</td><td>Whether the game is at a neutral site.</td></tr><tr><td>conference_competition</td><td>character</td><td>Whether it is a conference competition.</td></tr><tr><td>attendance</td><td>integer</td><td>Game attendance.</td></tr><tr><td>venue_id</td><td>character</td><td>ESPN venue identifier.</td></tr><tr><td>venue_full_name</td><td>character</td><td>Venue full name.</td></tr><tr><td>venue_city</td><td>character</td><td>Venue city.</td></tr><tr><td>venue_state</td><td>character</td><td>Venue state.</td></tr><tr><td>venue_indoor</td><td>logical</td><td>Whether the venue is indoors.</td></tr><tr><td>broadcast</td><td>character</td><td>Broadcast network(s).</td></tr><tr><td>note</td><td>character</td><td>Game note or headline.</td></tr><tr><td>home_id</td><td>character</td><td>Home team ESPN identifier.</td></tr><tr><td>home_name</td><td>character</td><td>Home team name.</td></tr><tr><td>home_abbreviation</td><td>character</td><td>Home team abbreviation.</td></tr><tr><td>home_display_name</td><td>character</td><td>Home team display name.</td></tr><tr><td>home_location</td><td>character</td><td>Home team city/location.</td></tr><tr><td>home_color</td><td>character</td><td>Home team primary color hex.</td></tr><tr><td>home_alternate_color</td><td>character</td><td>Home team alternate color hex.</td></tr><tr><td>home_logo</td><td>character</td><td>Home team logo URL.</td></tr><tr><td>home_score</td><td>character</td><td>Home team score.</td></tr><tr><td>home_winner</td><td>logical</td><td>Whether the home team won.</td></tr><tr><td>home_rank</td><td>integer</td><td>Home team rank (if ranked).</td></tr><tr><td>away_id</td><td>character</td><td>Away team ESPN identifier.</td></tr><tr><td>away_name</td><td>character</td><td>Away team name.</td></tr><tr><td>away_abbreviation</td><td>character</td><td>Away team abbreviation.</td></tr><tr><td>away_display_name</td><td>character</td><td>Away team display name.</td></tr><tr><td>away_location</td><td>character</td><td>Away team city/location.</td></tr><tr><td>away_color</td><td>character</td><td>Away team primary color hex.</td></tr><tr><td>away_alternate_color</td><td>character</td><td>Away team alternate color hex.</td></tr><tr><td>away_logo</td><td>character</td><td>Away team logo URL.</td></tr><tr><td>away_score</td><td>character</td><td>Away team score.</td></tr><tr><td>away_winner</td><td>logical</td><td>Whether the away team won.</td></tr><tr><td>away_rank</td><td>integer</td><td>Away team rank (if ranked).</td></tr></table></div>
+    <p>A <code>fastRhockey_data</code> tibble with one row per game:</p><table class="table table"><tr><td>col_name</td><td>type</td><td>description</td></tr><tr><td>game_id</td><td>character</td><td>ESPN event identifier.</td></tr><tr><td>uid</td><td>character</td><td>ESPN event uid.</td></tr><tr><td>date</td><td>character</td><td>Game date-time (ISO 8601).</td></tr><tr><td>name</td><td>character</td><td>Full game name.</td></tr><tr><td>short_name</td><td>character</td><td>Short game name.</td></tr><tr><td>season_year</td><td>integer</td><td>Season end year.</td></tr><tr><td>season_type</td><td>integer</td><td>Season type code (1=pre, 2=regular, 3=post).</td></tr><tr><td>season_slug</td><td>character</td><td>Season type slug.</td></tr><tr><td>status_type_id</td><td>character</td><td>Status type identifier.</td></tr><tr><td>status_type_name</td><td>character</td><td>Status type name.</td></tr><tr><td>status_type_state</td><td>character</td><td>Status state (pre/in/post).</td></tr><tr><td>status_type_completed</td><td>logical</td><td>Whether the game is complete.</td></tr><tr><td>status_type_description</td><td>character</td><td>Status description.</td></tr><tr><td>status_type_detail</td><td>character</td><td>Status detail text.</td></tr><tr><td>status_type_short_detail</td><td>character</td><td>Short status detail.</td></tr><tr><td>status_clock</td><td>numeric</td><td>Game clock in seconds.</td></tr><tr><td>status_display_clock</td><td>character</td><td>Display clock string.</td></tr><tr><td>status_period</td><td>integer</td><td>Current period.</td></tr><tr><td>neutral_site</td><td>logical</td><td>Whether the game is at a neutral site.</td></tr><tr><td>conference_competition</td><td>character</td><td>Whether it is a conference competition.</td></tr><tr><td>attendance</td><td>integer</td><td>Game attendance.</td></tr><tr><td>venue_id</td><td>character</td><td>ESPN venue identifier.</td></tr><tr><td>venue_full_name</td><td>character</td><td>Venue full name.</td></tr><tr><td>venue_city</td><td>character</td><td>Venue city.</td></tr><tr><td>venue_state</td><td>character</td><td>Venue state.</td></tr><tr><td>venue_indoor</td><td>logical</td><td>Whether the venue is indoors.</td></tr><tr><td>broadcast</td><td>character</td><td>Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none.</td></tr><tr><td>note</td><td>character</td><td>Game note or headline.</td></tr><tr><td>home_id</td><td>character</td><td>Home team ESPN identifier.</td></tr><tr><td>home_name</td><td>character</td><td>Home team name.</td></tr><tr><td>home_abbreviation</td><td>character</td><td>Home team abbreviation.</td></tr><tr><td>home_display_name</td><td>character</td><td>Home team display name.</td></tr><tr><td>home_location</td><td>character</td><td>Home team city/location.</td></tr><tr><td>home_color</td><td>character</td><td>Home team primary color hex.</td></tr><tr><td>home_alternate_color</td><td>character</td><td>Home team alternate color hex.</td></tr><tr><td>home_logo</td><td>character</td><td>Home team logo URL.</td></tr><tr><td>home_score</td><td>character</td><td>Home team score.</td></tr><tr><td>home_winner</td><td>logical</td><td>Whether the home team won.</td></tr><tr><td>home_rank</td><td>integer</td><td>Home team rank (if ranked).</td></tr><tr><td>away_id</td><td>character</td><td>Away team ESPN identifier.</td></tr><tr><td>away_name</td><td>character</td><td>Away team name.</td></tr><tr><td>away_abbreviation</td><td>character</td><td>Away team abbreviation.</td></tr><tr><td>away_display_name</td><td>character</td><td>Away team display name.</td></tr><tr><td>away_location</td><td>character</td><td>Away team city/location.</td></tr><tr><td>away_color</td><td>character</td><td>Away team primary color hex.</td></tr><tr><td>away_alternate_color</td><td>character</td><td>Away team alternate color hex.</td></tr><tr><td>away_logo</td><td>character</td><td>Away team logo URL.</td></tr><tr><td>away_score</td><td>character</td><td>Away team score.</td></tr><tr><td>away_winner</td><td>logical</td><td>Whether the away team won.</td></tr><tr><td>away_rank</td><td>integer</td><td>Away team rank (if ranked).</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>League slug <code>womens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_scoreboard.html">espn_nhl_scoreboard()</a></code> (columns inherited); a collection may be empty.</p>
+    <p>League slug <code>womens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_scoreboard.html">espn_nhl_scoreboard()</a></code>; columns verified against a captured WCH body.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -170,8 +193,10 @@ is used.</p></dd>
 <code><a href="espn_wch_league_notes.html">espn_wch_league_notes()</a></code>,
 <code><a href="espn_wch_league_root.html">espn_wch_league_root()</a></code>,
 <code><a href="espn_wch_news.html">espn_wch_news()</a></code>,
+<code><a href="espn_wch_pbp.html">espn_wch_pbp()</a></code>,
 <code><a href="espn_wch_player_awards.html">espn_wch_player_awards()</a></code>,
 <code><a href="espn_wch_player_bio.html">espn_wch_player_bio()</a></code>,
+<code><a href="espn_wch_player_box.html">espn_wch_player_box()</a></code>,
 <code><a href="espn_wch_player_career_stats.html">espn_wch_player_career_stats()</a></code>,
 <code><a href="espn_wch_player_contracts.html">espn_wch_player_contracts()</a></code>,
 <code><a href="espn_wch_player_core.html">espn_wch_player_core()</a></code>,
@@ -229,6 +254,7 @@ is used.</p></dd>
 <code><a href="espn_wch_summary.html">espn_wch_summary()</a></code>,
 <code><a href="espn_wch_talentpicks.html">espn_wch_talentpicks()</a></code>,
 <code><a href="espn_wch_team.html">espn_wch_team()</a></code>,
+<code><a href="espn_wch_team_box.html">espn_wch_team_box()</a></code>,
 <code><a href="espn_wch_team_core.html">espn_wch_team_core()</a></code>,
 <code><a href="espn_wch_team_depthcharts.html">espn_wch_team_depthcharts()</a></code>,
 <code><a href="espn_wch_team_history.html">espn_wch_team_history()</a></code>,

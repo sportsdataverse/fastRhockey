@@ -5,7 +5,7 @@
 ## Usage
 
 ``` r
-espn_mch_team_roster(team_id, ...)
+espn_mch_team_roster(team_id, limit = 500, ...)
 ```
 
 ## Arguments
@@ -14,6 +14,10 @@ espn_mch_team_roster(team_id, ...)
 
   ESPN team identifier (character or numeric, e.g. `"104"` for
   Pittsburgh Penguins).
+
+- limit:
+
+  Maximum number of athletes (ESPN `limit`; default `500`, as sdv-py).
 
 - ...:
 
@@ -84,8 +88,10 @@ A `fastRhockey_data` tibble with one row per player:
 
 League slug `mens-college-hockey`; `season` is the END year (`2026` =
 2025-26). Same ESPN helper as
-[`espn_nhl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_team_roster.md)
-(columns inherited); a collection may be empty.
+[`espn_nhl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_team_roster.md);
+ESPN answered an empty collection for every captured MCH body (2026-10),
+so the columns below are the NHL helper's and unverified for this
+league.
 
 ## See also
 
@@ -132,8 +138,10 @@ Other ESPN MCH Functions:
 [`espn_mch_league_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_notes.md),
 [`espn_mch_league_root()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_root.md),
 [`espn_mch_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_news.md),
+[`espn_mch_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_pbp.md),
 [`espn_mch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_awards.md),
 [`espn_mch_player_bio()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_bio.md),
+[`espn_mch_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_box.md),
 [`espn_mch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_career_stats.md),
 [`espn_mch_player_contracts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_contracts.md),
 [`espn_mch_player_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_core.md),
@@ -192,6 +200,7 @@ Other ESPN MCH Functions:
 [`espn_mch_summary()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_summary.md),
 [`espn_mch_talentpicks()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_talentpicks.md),
 [`espn_mch_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team.md),
+[`espn_mch_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_box.md),
 [`espn_mch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_core.md),
 [`espn_mch_team_depthcharts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_depthcharts.md),
 [`espn_mch_team_history()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_history.md),
@@ -217,8 +226,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_team_roster(team_id = "104"))
-#> ✖ 2026-10-13 01:52:34.048331: Invalid arguments or no ESPN mens-college-hockey team roster data available!
-#> ✖ Args: league = "mens-college-hockey", team_id = "104"
+#> ✖ 2026-10-18 05:43:57.899731: Invalid arguments or no ESPN mens-college-hockey team roster data available!
+#> ✖ Args: league = "mens-college-hockey", team_id = "104", limit = 500
 #> ✖ Error: arguments imply differing number of rows: 1, 0
 #> data frame with 0 columns and 0 rows
 # }

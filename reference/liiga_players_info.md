@@ -103,7 +103,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_players_info(season_from = 2026, season_to = 2026))
 #> ── Liiga roster Information from liiga.fi ──────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:55:30 UTC
+#> ℹ Data updated: 2026-10-18 05:47:35 UTC
 #> # A tibble: 633 × 23
 #>    player_id    team_id team_slug team_name country_of_birth place_of_birth
 #>        <int>      <int> <chr>     <chr>     <chr>            <chr>         

@@ -24,7 +24,7 @@ A `fastRhockey_data` tibble with one row per article:
 
 |               |           |                                         |
 |---------------|-----------|-----------------------------------------|
-| col_name      | types     | description                             |
+| col_name      | type      | description                             |
 | article_id    | character | ESPN article identifier.                |
 | now_id        | character | ESPN Now identifier.                    |
 | content_key   | character | Content management key.                 |
@@ -42,8 +42,8 @@ A `fastRhockey_data` tibble with one row per article:
 
 League slug `mens-college-hockey`; `season` is the END year (`2026` =
 2025-26). Same ESPN helper as
-[`espn_nhl_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_news.md)
-(columns inherited); a collection may be empty.
+[`espn_nhl_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_news.md);
+columns verified against a captured MCH body.
 
 ## See also
 
@@ -89,8 +89,10 @@ Other ESPN MCH Functions:
 [`espn_mch_leaders_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_leaders_core.md),
 [`espn_mch_league_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_notes.md),
 [`espn_mch_league_root()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_root.md),
+[`espn_mch_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_pbp.md),
 [`espn_mch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_awards.md),
 [`espn_mch_player_bio()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_bio.md),
+[`espn_mch_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_box.md),
 [`espn_mch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_career_stats.md),
 [`espn_mch_player_contracts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_contracts.md),
 [`espn_mch_player_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_core.md),
@@ -149,6 +151,7 @@ Other ESPN MCH Functions:
 [`espn_mch_summary()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_summary.md),
 [`espn_mch_talentpicks()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_talentpicks.md),
 [`espn_mch_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team.md),
+[`espn_mch_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_box.md),
 [`espn_mch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_core.md),
 [`espn_mch_team_depthcharts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_depthcharts.md),
 [`espn_mch_team_history()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_history.md),
@@ -176,20 +179,20 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_news(limit = 10))
 #> ── MENS-COLLEGE-HOCKEY News data from ESPN.com ─────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:52:17 UTC
+#> ℹ Data updated: 2026-10-18 05:43:41 UTC
 #> # A tibble: 10 × 12
 #>    article_id now_id     content_key    type  headline description last_modified
 #>    <chr>      <chr>      <chr>          <chr> <chr>    <chr>       <chr>        
-#>  1 50153041   1-50153041 50153041-1-29… Media Brown B… Brown Bear… 2026-10-11T0…
-#>  2 50153001   1-50153001 50153001-1-29… Media Quinnip… Quinnipiac… 2026-10-12T1…
-#>  3 50152575   1-50152575 50152575-1-29… Media Bowling… Bowling Gr… 2026-10-11T0…
-#>  4 50144045   1-50144045 50144045-1-29… Media RIT Tig… RIT Tigers… 2026-10-12T1…
-#>  5 50143859   1-50143859 50143859-1-29… Media Quinnip… Quinnipiac… 2026-10-12T1…
-#>  6 50143798   1-50143798 50143798-1-29… Media St. Law… St. Lawren… 2026-10-10T0…
-#>  7 50143771   1-50143771 50143771-1-29… Media Ohio St… Ohio St. B… 2026-10-10T0…
-#>  8 50136577   1-50136577 50136577-1-5-1 Head… Arizona… An ASU ass… 2026-10-10T0…
-#>  9 50118123   1-50118123 50118123-1-6-1 Story The top… The colleg… 2026-10-07T1…
-#> 10 50093965   1-50093965 50093965-1-29… Media Merrima… Merrimack … 2026-10-03T2…
+#>  1 50199200   1-50199200 50199200-1-29… Media Minneso… Minnesota … 2026-10-17T0…
+#>  2 50199090   1-50199090 50199090-1-29… Media Colorad… Colorado C… 2026-10-17T0…
+#>  3 50199061   1-50199061 50199061-1-29… Media Boston … Boston U. … 2026-10-17T0…
+#>  4 50196596   1-50196596 50196596-1-5-1 Head… NCAA su… The NCAA h… 2026-10-16T2…
+#>  5 50193166   1-50193166 50193166-1-29… Media St. Clo… St. Cloud … 2026-10-16T0…
+#>  6 50153041   1-50153041 50153041-1-29… Media Brown B… Brown Bear… 2026-10-11T0…
+#>  7 50153001   1-50153001 50153001-1-29… Media Quinnip… Quinnipiac… 2026-10-12T1…
+#>  8 50152575   1-50152575 50152575-1-29… Media Bowling… Bowling Gr… 2026-10-11T0…
+#>  9 50144045   1-50144045 50144045-1-29… Media RIT Tig… RIT Tigers… 2026-10-12T1…
+#> 10 50143859   1-50143859 50143859-1-29… Media Quinnip… Quinnipiac… 2026-10-12T1…
 #> # ℹ 5 more variables: published <chr>, byline <chr>, premium <lgl>,
 #> #   image_href <chr>, web_href <chr>
 # }

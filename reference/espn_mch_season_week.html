@@ -186,8 +186,10 @@ in ESPN core-v2 — HTTP 404 is the expected response:</p><table class="table ta
 <code><a href="espn_mch_league_notes.html">espn_mch_league_notes()</a></code>,
 <code><a href="espn_mch_league_root.html">espn_mch_league_root()</a></code>,
 <code><a href="espn_mch_news.html">espn_mch_news()</a></code>,
+<code><a href="espn_mch_pbp.html">espn_mch_pbp()</a></code>,
 <code><a href="espn_mch_player_awards.html">espn_mch_player_awards()</a></code>,
 <code><a href="espn_mch_player_bio.html">espn_mch_player_bio()</a></code>,
+<code><a href="espn_mch_player_box.html">espn_mch_player_box()</a></code>,
 <code><a href="espn_mch_player_career_stats.html">espn_mch_player_career_stats()</a></code>,
 <code><a href="espn_mch_player_contracts.html">espn_mch_player_contracts()</a></code>,
 <code><a href="espn_mch_player_core.html">espn_mch_player_core()</a></code>,
@@ -245,6 +247,7 @@ in ESPN core-v2 — HTTP 404 is the expected response:</p><table class="table ta
 <code><a href="espn_mch_summary.html">espn_mch_summary()</a></code>,
 <code><a href="espn_mch_talentpicks.html">espn_mch_talentpicks()</a></code>,
 <code><a href="espn_mch_team.html">espn_mch_team()</a></code>,
+<code><a href="espn_mch_team_box.html">espn_mch_team_box()</a></code>,
 <code><a href="espn_mch_team_core.html">espn_mch_team_core()</a></code>,
 <code><a href="espn_mch_team_depthcharts.html">espn_mch_team_depthcharts()</a></code>,
 <code><a href="espn_mch_team_history.html">espn_mch_team_history()</a></code>,
@@ -273,7 +276,7 @@ in ESPN core-v2 — HTTP 404 is the expected response:</p><table class="table ta
 <span class="r-in"><span>  <span class="co"># NOTE: Returns empty tibble for NHL (ESPN does not use weeks for hockey)</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_mch_season_week</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span>, season_type <span class="op">=</span> <span class="fl">2</span>, week <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MENS-COLLEGE-HOCKEY Season Week data from ESPN core-v2 ──────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-13 01:52:29 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-18 05:43:52 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 9</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   season season_type  week number start_date  end_date text  week_ref events_ref</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>

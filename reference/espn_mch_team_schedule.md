@@ -30,50 +30,50 @@ espn_mch_team_schedule(team_id, season = most_recent_nhl_season(), ...)
 A `fastRhockey_data` tibble with one row per game. Identical to
 schedule.
 
-|                       |           |                                         |
-|-----------------------|-----------|-----------------------------------------|
-| col_name              | types     | description                             |
-| game_id               | character | ESPN event identifier.                  |
-| date                  | character | Game date-time (ISO 8601).              |
-| name                  | character | Full game name.                         |
-| short_name            | character | Short game name.                        |
-| season_year           | integer   | Season end year.                        |
-| season_type           | integer   | Season type code.                       |
-| time_valid            | logical   | Whether the game time is confirmed.     |
-| status_type_id        | character | Status type identifier.                 |
-| status_type_name      | character | Status type name.                       |
-| status_type_state     | character | Status state (pre/in/post).             |
-| status_type_completed | logical   | Whether the game is complete.           |
-| neutral_site          | logical   | Whether the game is at a neutral site.  |
-| attendance            | integer   | Game attendance.                        |
-| venue_id              | character | Venue identifier.                       |
-| venue_full_name       | character | Venue full name.                        |
-| venue_city            | character | Venue city.                             |
-| venue_state           | character | Venue state.                            |
-| broadcast             | character | Broadcast network(s).                   |
-| home_id               | character | Home team ESPN identifier.              |
-| home_name             | character | Home team display name.                 |
-| home_abbreviation     | character | Home team abbreviation.                 |
-| home_location         | character | Home team city.                         |
-| home_logo             | character | Home team logo URL.                     |
-| home_score            | character | Home team score.                        |
-| home_winner           | logical   | Whether the home team won.              |
-| away_id               | character | Away team ESPN identifier.              |
-| away_name             | character | Away team display name.                 |
-| away_abbreviation     | character | Away team abbreviation.                 |
-| away_location         | character | Away team city.                         |
-| away_logo             | character | Away team logo URL.                     |
-| away_score            | character | Away team score.                        |
-| away_winner           | logical   | Whether the away team won.              |
-| team_id               | character | ESPN team identifier (echoed from arg). |
-| season                | integer   | Season end-year (echoed from arg).      |
+|  |  |  |
+|----|----|----|
+| col_name | type | description |
+| game_id | character | ESPN event identifier. |
+| date | character | Game date-time (ISO 8601). |
+| name | character | Full game name. |
+| short_name | character | Short game name. |
+| season_year | integer | Season end year. |
+| season_type | integer | Season type code. |
+| time_valid | logical | Whether the game time is confirmed. |
+| status_type_id | character | Status type identifier. |
+| status_type_name | character | Status type name. |
+| status_type_state | character | Status state (pre/in/post). |
+| status_type_completed | logical | Whether the game is complete. |
+| neutral_site | logical | Whether the game is at a neutral site. |
+| attendance | integer | Game attendance. |
+| venue_id | character | Venue identifier. |
+| venue_full_name | character | Venue full name. |
+| venue_city | character | Venue city. |
+| venue_state | character | Venue state. |
+| broadcast | character | Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
+| home_id | character | Home team ESPN identifier. |
+| home_name | character | Home team display name. |
+| home_abbreviation | character | Home team abbreviation. |
+| home_location | character | Home team city. |
+| home_logo | character | Home team logo URL. |
+| home_score | character | Home team score. |
+| home_winner | logical | Whether the home team won. |
+| away_id | character | Away team ESPN identifier. |
+| away_name | character | Away team display name. |
+| away_abbreviation | character | Away team abbreviation. |
+| away_location | character | Away team city. |
+| away_logo | character | Away team logo URL. |
+| away_score | character | Away team score. |
+| away_winner | logical | Whether the away team won. |
+| team_id | character | ESPN team identifier (echoed from arg). |
+| season | integer | Season end-year (echoed from arg). |
 
 ## Details
 
 League slug `mens-college-hockey`; `season` is the END year (`2026` =
 2025-26). Same ESPN helper as
-[`espn_nhl_team_schedule()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_team_schedule.md)
-(columns inherited); a collection may be empty.
+[`espn_nhl_team_schedule()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_team_schedule.md);
+columns verified against a captured MCH body.
 
 ## See also
 
@@ -122,8 +122,10 @@ Other ESPN MCH Functions:
 [`espn_mch_league_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_notes.md),
 [`espn_mch_league_root()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_root.md),
 [`espn_mch_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_news.md),
+[`espn_mch_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_pbp.md),
 [`espn_mch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_awards.md),
 [`espn_mch_player_bio()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_bio.md),
+[`espn_mch_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_box.md),
 [`espn_mch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_career_stats.md),
 [`espn_mch_player_contracts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_contracts.md),
 [`espn_mch_player_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_core.md),
@@ -182,6 +184,7 @@ Other ESPN MCH Functions:
 [`espn_mch_summary()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_summary.md),
 [`espn_mch_talentpicks()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_talentpicks.md),
 [`espn_mch_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team.md),
+[`espn_mch_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_box.md),
 [`espn_mch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_core.md),
 [`espn_mch_team_depthcharts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_depthcharts.md),
 [`espn_mch_team_history()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_history.md),
@@ -208,7 +211,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_team_schedule(team_id = "104", season = 2025))
 #> ── MENS-COLLEGE-HOCKEY Team Schedule data from ESPN.com ────────────────────────
-#> ℹ Data updated: 2026-10-13 01:52:34 UTC
+#> ℹ Data updated: 2026-10-18 05:43:58 UTC
 #> # A tibble: 40 × 34
 #>    game_id   date            name  short_name season_year season_type time_valid
 #>    <chr>     <chr>           <chr> <chr>            <int>       <int> <lgl>     
@@ -228,6 +231,6 @@ Saiem Gilani
 #> #   attendance <int>, venue_id <chr>, venue_full_name <chr>, venue_city <chr>,
 #> #   venue_state <chr>, broadcast <chr>, home_id <chr>, home_name <chr>,
 #> #   home_abbreviation <chr>, home_location <chr>, home_logo <chr>,
-#> #   home_score <dbl>, home_winner <lgl>, away_id <chr>, away_name <chr>, …
+#> #   home_score <chr>, home_winner <lgl>, away_id <chr>, away_name <chr>, …
 # }
 ```

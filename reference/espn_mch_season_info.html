@@ -119,10 +119,10 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A one-row <code>fastRhockey_data</code> tibble with season metadata:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>season</td><td>integer</td><td>Season year (echoed from arg).</td></tr><tr><td>start_date</td><td>character</td><td>Season start date (ISO 8601).</td></tr><tr><td>end_date</td><td>character</td><td>Season end date (ISO 8601).</td></tr><tr><td>display_name</td><td>character</td><td>Season display name (e.g. "2025-26").</td></tr><tr><td>season_ref</td><td>character</td><td><code>$ref</code> URL for this season.</td></tr><tr><td>types_ref</td><td>character</td><td><code>$ref</code> URL for the season-types collection.</td></tr><tr><td>type_ref</td><td>character</td><td><code>$ref</code> URL for the current season type.</td></tr><tr><td>rankings_ref</td><td>character</td><td><code>$ref</code> URL for rankings.</td></tr><tr><td>coaches_ref</td><td>character</td><td><code>$ref</code> URL for coaches.</td></tr><tr><td>athletes_ref</td><td>character</td><td><code>$ref</code> URL for athletes.</td></tr><tr><td>awards_ref</td><td>character</td><td><code>$ref</code> URL for awards.</td></tr><tr><td>futures_ref</td><td>character</td><td><code>$ref</code> URL for futures.</td></tr><tr><td>leaders_ref</td><td>character</td><td><code>$ref</code> URL for leaders.</td></tr></table></div>
+    <p>A one-row <code>fastRhockey_data</code> tibble with season metadata:</p><table class="table table"><tr><td>col_name</td><td>type</td><td>description</td></tr><tr><td>season</td><td>integer</td><td>Season year (echoed from arg).</td></tr><tr><td>start_date</td><td>character</td><td>Season start date (ISO 8601).</td></tr><tr><td>end_date</td><td>character</td><td>Season end date (ISO 8601).</td></tr><tr><td>display_name</td><td>character</td><td>Season display name (e.g. "2025-26").</td></tr><tr><td>season_ref</td><td>character</td><td><code>$ref</code> URL for this season.</td></tr><tr><td>types_ref</td><td>character</td><td><code>$ref</code> URL for the season-types collection.</td></tr><tr><td>type_ref</td><td>character</td><td><code>$ref</code> URL for the current season type.</td></tr><tr><td>rankings_ref</td><td>character</td><td><code>$ref</code> URL for rankings.</td></tr><tr><td>coaches_ref</td><td>character</td><td><code>$ref</code> URL for coaches.</td></tr><tr><td>athletes_ref</td><td>character</td><td><code>$ref</code> URL for athletes.</td></tr><tr><td>awards_ref</td><td>character</td><td><code>$ref</code> URL for awards.</td></tr><tr><td>futures_ref</td><td>character</td><td><code>$ref</code> URL for futures.</td></tr><tr><td>leaders_ref</td><td>character</td><td><code>$ref</code> URL for leaders.</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>League slug <code>mens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_season_info.html">espn_nhl_season_info()</a></code> (columns inherited); a collection may be empty.</p>
+    <p>League slug <code>mens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_season_info.html">espn_nhl_season_info()</a></code>; columns verified against a captured MCH body.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -169,8 +169,10 @@
 <code><a href="espn_mch_league_notes.html">espn_mch_league_notes()</a></code>,
 <code><a href="espn_mch_league_root.html">espn_mch_league_root()</a></code>,
 <code><a href="espn_mch_news.html">espn_mch_news()</a></code>,
+<code><a href="espn_mch_pbp.html">espn_mch_pbp()</a></code>,
 <code><a href="espn_mch_player_awards.html">espn_mch_player_awards()</a></code>,
 <code><a href="espn_mch_player_bio.html">espn_mch_player_bio()</a></code>,
+<code><a href="espn_mch_player_box.html">espn_mch_player_box()</a></code>,
 <code><a href="espn_mch_player_career_stats.html">espn_mch_player_career_stats()</a></code>,
 <code><a href="espn_mch_player_contracts.html">espn_mch_player_contracts()</a></code>,
 <code><a href="espn_mch_player_core.html">espn_mch_player_core()</a></code>,
@@ -228,6 +230,7 @@
 <code><a href="espn_mch_summary.html">espn_mch_summary()</a></code>,
 <code><a href="espn_mch_talentpicks.html">espn_mch_talentpicks()</a></code>,
 <code><a href="espn_mch_team.html">espn_mch_team()</a></code>,
+<code><a href="espn_mch_team_box.html">espn_mch_team_box()</a></code>,
 <code><a href="espn_mch_team_core.html">espn_mch_team_core()</a></code>,
 <code><a href="espn_mch_team_depthcharts.html">espn_mch_team_depthcharts()</a></code>,
 <code><a href="espn_mch_team_history.html">espn_mch_team_history()</a></code>,
@@ -255,7 +258,7 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_mch_season_info</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MENS-COLLEGE-HOCKEY Season Info data from ESPN core-v2 ──────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-13 01:52:26 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-18 05:43:50 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 13</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   season start_date        end_date   display_name season_ref types_ref type_ref</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>

@@ -101,7 +101,12 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">espn_wch_standings</span><span class="op">(</span>season <span class="op">=</span> <span class="fu"><a href="most_recent_nhl_season.html">most_recent_nhl_season</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">espn_wch_standings</span><span class="op">(</span></span>
+<span>  season <span class="op">=</span> <span class="fu"><a href="most_recent_nhl_season.html">most_recent_nhl_season</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  group <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  standings_type <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -113,16 +118,24 @@
 <code><a href="most_recent_nhl_season.html">most_recent_nhl_season()</a></code>.</p></dd>
 
 
+<dt id="arg-group">group<a class="anchor" aria-label="anchor" href="#arg-group"></a></dt>
+<dd><p>Optional conference/group id filter.</p></dd>
+
+
+<dt id="arg-standings-type">standings_type<a class="anchor" aria-label="anchor" href="#arg-standings-type"></a></dt>
+<dd><p>Optional standings variant sent as <code>type</code> (e.g. <code>"by-division"</code>).</p></dd>
+
+
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Reserved for forward compatibility.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>fastRhockey_data</code> tibble with one row per team:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>group_name</td><td>character</td><td>Group name (conference / division).</td></tr><tr><td>group_abbreviation</td><td>character</td><td>Group abbreviation.</td></tr><tr><td>team_id</td><td>character</td><td>ESPN team identifier.</td></tr><tr><td>team_name</td><td>character</td><td>Team name.</td></tr><tr><td>team_abbreviation</td><td>character</td><td>Team abbreviation.</td></tr><tr><td>team_display_name</td><td>character</td><td>Team display name.</td></tr><tr><td>team_location</td><td>character</td><td>Team location (city).</td></tr><tr><td>team_logo</td><td>character</td><td>Team logo URL.</td></tr><tr><td>season</td><td>integer</td><td>Season end-year (echoed from arg).</td></tr><tr><td>ot_losses</td><td>numeric</td><td>Overtime losses.</td></tr><tr><td>games_played</td><td>numeric</td><td>Games played.</td></tr><tr><td>losses</td><td>numeric</td><td>Regulation losses.</td></tr><tr><td>points</td><td>numeric</td><td>Points.</td></tr><tr><td>wins</td><td>numeric</td><td>Wins.</td></tr><tr><td>points_for</td><td>numeric</td><td>Goals/points scored.</td></tr><tr><td>points_against</td><td>numeric</td><td>Goals/points allowed.</td></tr><tr><td>playoff_seed</td><td>numeric</td><td>Current playoff seed.</td></tr><tr><td>streak</td><td>numeric</td><td>Current streak value.</td></tr><tr><td>overall</td><td>numeric</td><td>Overall record stat.</td></tr></table></div>
+    <p>A <code>fastRhockey_data</code> tibble with one row per team:</p><table class="table table"><tr><td>col_name</td><td>type</td><td>description</td></tr><tr><td>group_name</td><td>character</td><td>Group name (conference / division).</td></tr><tr><td>group_abbreviation</td><td>character</td><td>Group abbreviation.</td></tr><tr><td>team_id</td><td>character</td><td>ESPN team identifier.</td></tr><tr><td>team_name</td><td>character</td><td>Team name.</td></tr><tr><td>team_abbreviation</td><td>character</td><td>Team abbreviation.</td></tr><tr><td>team_display_name</td><td>character</td><td>Team display name.</td></tr><tr><td>team_location</td><td>character</td><td>Team location (city).</td></tr><tr><td>team_logo</td><td>character</td><td>Team logo URL.</td></tr><tr><td>ot_losses</td><td>numeric</td><td>Overtime losses.</td></tr><tr><td>ot_wins</td><td>numeric</td><td>Overtime wins.</td></tr><tr><td>avg_points_against</td><td>numeric</td><td>Average goals against per game.</td></tr><tr><td>avg_points_for</td><td>numeric</td><td>Average goals for per game.</td></tr><tr><td>differential</td><td>numeric</td><td>Goal differential.</td></tr><tr><td>games_behind</td><td>numeric</td><td>Games behind the group leader.</td></tr><tr><td>games_played</td><td>numeric</td><td>Games played.</td></tr><tr><td>losses</td><td>numeric</td><td>Regulation losses.</td></tr><tr><td>playoff_seed</td><td>numeric</td><td>Current playoff seed.</td></tr><tr><td>point_differential</td><td>numeric</td><td>Point (goal) differential.</td></tr><tr><td>points</td><td>numeric</td><td>Points.</td></tr><tr><td>points_against</td><td>numeric</td><td>Goals/points allowed.</td></tr><tr><td>points_for</td><td>numeric</td><td>Goals/points scored.</td></tr><tr><td>streak</td><td>numeric</td><td>Current streak value.</td></tr><tr><td>ties</td><td>numeric</td><td>Ties (sent in the wch body).</td></tr><tr><td>win_percent</td><td>numeric</td><td>Win percentage.</td></tr><tr><td>wins</td><td>numeric</td><td>Wins.</td></tr><tr><td>overall</td><td>numeric</td><td>Overall record stat.</td></tr><tr><td>season</td><td>integer</td><td>Season end-year (echoed from arg).</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>League slug <code>womens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_standings.html">espn_nhl_standings()</a></code> (columns inherited); a collection may be empty.</p>
+    <p>League slug <code>womens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_standings.html">espn_nhl_standings()</a></code>; columns verified against a captured WCH body One numeric column per ESPN stat in the body, so the set follows the feed (the MCH body sends <code>tiegames</code>, the WCH body <code>ties</code>).</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -169,8 +182,10 @@
 <code><a href="espn_wch_league_notes.html">espn_wch_league_notes()</a></code>,
 <code><a href="espn_wch_league_root.html">espn_wch_league_root()</a></code>,
 <code><a href="espn_wch_news.html">espn_wch_news()</a></code>,
+<code><a href="espn_wch_pbp.html">espn_wch_pbp()</a></code>,
 <code><a href="espn_wch_player_awards.html">espn_wch_player_awards()</a></code>,
 <code><a href="espn_wch_player_bio.html">espn_wch_player_bio()</a></code>,
+<code><a href="espn_wch_player_box.html">espn_wch_player_box()</a></code>,
 <code><a href="espn_wch_player_career_stats.html">espn_wch_player_career_stats()</a></code>,
 <code><a href="espn_wch_player_contracts.html">espn_wch_player_contracts()</a></code>,
 <code><a href="espn_wch_player_core.html">espn_wch_player_core()</a></code>,
@@ -228,6 +243,7 @@
 <code><a href="espn_wch_summary.html">espn_wch_summary()</a></code>,
 <code><a href="espn_wch_talentpicks.html">espn_wch_talentpicks()</a></code>,
 <code><a href="espn_wch_team.html">espn_wch_team()</a></code>,
+<code><a href="espn_wch_team_box.html">espn_wch_team_box()</a></code>,
 <code><a href="espn_wch_team_core.html">espn_wch_team_core()</a></code>,
 <code><a href="espn_wch_team_depthcharts.html">espn_wch_team_depthcharts()</a></code>,
 <code><a href="espn_wch_team_history.html">espn_wch_team_history()</a></code>,
@@ -254,7 +270,29 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_wch_standings</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── WOMENS-COLLEGE-HOCKEY Standings data from ESPN.com ──────────────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-18 05:45:16 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 11 × 27</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    group_name          group_abbreviation team_id team_name    team_abbreviation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> NCAA Women's Hockey CWHOC              172     Big Red      COR              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> NCAA Women's Hockey CWHOC              104     Terriers     BU               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> NCAA Women's Hockey CWHOC              134     Bulldogs     UMD              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> NCAA Women's Hockey CWHOC              194     Buckeyes     OSU              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> NCAA Women's Hockey CWHOC              213     Nittany Lio… PSU              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> NCAA Women's Hockey CWHOC              2779    Saints       USL              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> NCAA Women's Hockey CWHOC              275     Badgers      WIS              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> NCAA Women's Hockey CWHOC              2137    Golden Knig… CLAR             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> NCAA Women's Hockey CWHOC              2142    Raiders      COLG             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> NCAA Women's Hockey CWHOC              2529    Pioneers     SHU              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> NCAA Women's Hockey CWHOC              135     Golden Goph… MINN             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 22 more variables: team_display_name &lt;chr&gt;, team_location &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_logo &lt;chr&gt;, ot_losses &lt;dbl&gt;, ot_wins &lt;dbl&gt;, avg_points_against &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   avg_points_for &lt;dbl&gt;, differential &lt;dbl&gt;, games_behind &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   games_played &lt;dbl&gt;, losses &lt;dbl&gt;, playoff_seed &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   point_differential &lt;dbl&gt;, points &lt;dbl&gt;, points_against &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   points_for &lt;dbl&gt;, streak &lt;dbl&gt;, ties &lt;dbl&gt;, win_percent &lt;dbl&gt;, wins &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   overall &lt;dbl&gt;, season &lt;int&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

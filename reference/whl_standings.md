@@ -44,20 +44,20 @@ Other WHL Functions:
 ``` r
  try(whl_standings()) 
 #> ── WHL Standings from HockeyTech ───────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 02:00:47 UTC
+#> ℹ Data updated: 2026-10-18 05:52:57 UTC
 #> # A tibble: 23 × 21
 #>    team_code wins  losses ties  ot_losses ot_wins shootout_wins shootout_losses
 #>    <chr>     <chr>  <dbl> <chr> <chr>     <chr>   <chr>         <chr>          
-#>  1 BDN       7          2 0     0         1       2             0              
-#>  2 SC        5          4 0     0         0       2             0              
-#>  3 SAS       4          2 0     1         0       0             0              
-#>  4 REG       3          3 0     0         0       0             1              
-#>  5 MJ        3          3 0     0         1       1             0              
-#>  6 PA        2          6 0     0         0       0             1              
-#>  7 RD        6          2 0     0         0       0             1              
-#>  8 MH        4          2 0     0         0       0             1              
-#>  9 CGY       4          3 0     0         1       1             0              
-#> 10 LET       4          4 0     0         0       0             0              
+#>  1 BDN       7          3 0     0         1       2             0              
+#>  2 SC        7          4 0     0         0       2             0              
+#>  3 SAS       5          3 0     1         0       0             0              
+#>  4 REG       4          4 0     0         0       0             1              
+#>  5 MJ        4          4 0     0         1       2             0              
+#>  6 PA        2          6 0     0         0       0             2              
+#>  7 RD        7          3 0     0         0       0             1              
+#>  8 MH        5          3 0     0         0       0             1              
+#>  9 CGY       5          4 0     0         1       1             0              
+#> 10 LET       5          6 0     0         0       0             0              
 #> # ℹ 13 more rows
 #> # ℹ 13 more variables: regulation_wins <dbl>, row <chr>, points <dbl>,
 #> #   penalty_minutes <chr>, streak <chr>, goals_for <chr>, goals_against <chr>,

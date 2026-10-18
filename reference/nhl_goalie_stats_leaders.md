@@ -66,32 +66,33 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_goalie_stats_leaders())
 #> ── NHL Goalie Stats Leaders ────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:57:31 UTC
-#> # A tibble: 20 × 15
+#> ℹ Data updated: 2026-10-18 05:49:41 UTC
+#> # A tibble: 20 × 18
 #>         id sweater_number headshot          team_abbrev team_logo position value
 #>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>
-#>  1 8480280              1 https://assets.n… BOS         https://… G        4    
-#>  2 8476999             35 https://assets.n… OTT         https://… G        4    
-#>  3 8482661             30 https://assets.n… MIN         https://… G        3    
-#>  4 8478048             31 https://assets.n… NYR         https://… G        3    
-#>  5 8478872             70 https://assets.n… UTA         https://… G        3    
-#>  6 8479979             29 https://assets.n… DAL         https://… G        2    
-#>  7 8484170             32 https://assets.n… MTL         https://… G        1    
-#>  8 8480193             80 https://assets.n… DET         https://… G        1    
-#>  9 8482193             33 https://assets.n… NYR         https://… G        1    
-#> 10 8480981             30 https://assets.n… STL         https://… G        1    
-#> 11 8480193             80 https://assets.n… DET         https://… G        0.974
-#> 12 8479979             29 https://assets.n… DAL         https://… G        0.963
-#> 13 8482193             33 https://assets.n… NYR         https://… G        0.946
-#> 14 8476999             35 https://assets.n… OTT         https://… G        0.942
-#> 15 8483703              1 https://assets.n… PIT         https://… G        0.939
-#> 16 8480193             80 https://assets.n… DET         https://… G        0.660
-#> 17 8479979             29 https://assets.n… DAL         https://… G        0.743
-#> 18 8482193             33 https://assets.n… NYR         https://… G        1.20 
-#> 19 8476999             35 https://assets.n… OTT         https://… G        1.34 
-#> 20 8484170             32 https://assets.n… MTL         https://… G        1.46 
-#> # ℹ 8 more variables: first_name_default <chr>, last_name_default <chr>,
-#> #   team_name_default <chr>, team_name_fr <chr>, last_name_cs <chr>,
-#> #   last_name_fi <chr>, last_name_sk <chr>, category <chr>
+#>  1 8480280              1 https://assets.n… BOS         https://… G        6    
+#>  2 8476999             35 https://assets.n… OTT         https://… G        6    
+#>  3 8482661             30 https://assets.n… MIN         https://… G        5    
+#>  4 8478872             70 https://assets.n… UTA         https://… G        5    
+#>  5 8481611             52 https://assets.n… CAR         https://… G        5    
+#>  6 8479979             29 https://assets.n… DAL         https://… G        3    
+#>  7 8480193             80 https://assets.n… DET         https://… G        1    
+#>  8 8484170             32 https://assets.n… MTL         https://… G        1    
+#>  9 8481668             37 https://assets.n… PIT         https://… G        1    
+#> 10 8482982             73 https://assets.n… CBJ         https://… G        1    
+#> 11 8480193             80 https://assets.n… DET         https://… G        0.965
+#> 12 8479979             29 https://assets.n… DAL         https://… G        0.952
+#> 13 8476999             35 https://assets.n… OTT         https://… G        0.945
+#> 14 8478009             30 https://assets.n… NYI         https://… G        0.940
+#> 15 8478024             33 https://assets.n… ANA         https://… G        0.936
+#> 16 8480193             80 https://assets.n… DET         https://… G        0.795
+#> 17 8479979             29 https://assets.n… DAL         https://… G        1.000
+#> 18 8476999             35 https://assets.n… OTT         https://… G        1.33 
+#> 19 8478024             33 https://assets.n… ANA         https://… G        1.58 
+#> 20 8478009             30 https://assets.n… NYI         https://… G        1.68 
+#> # ℹ 11 more variables: first_name_default <chr>, last_name_default <chr>,
+#> #   team_name_default <chr>, team_name_fr <chr>, first_name_cs <chr>,
+#> #   first_name_fi <chr>, first_name_sk <chr>, last_name_fi <chr>,
+#> #   category <chr>, last_name_cs <chr>, last_name_sk <chr>
 # }
 ```

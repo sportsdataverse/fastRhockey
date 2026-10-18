@@ -211,26 +211,19 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_player_gamelog(athlete_id = "5149125"))
 #> ── NHL Player Gamelog data from ESPN.com ───────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:53:00 UTC
-#> # A tibble: 69 × 35
-#>    athlete_id event_id  season_type_display    category_display category_type
-#>    <chr>      <chr>     <chr>                  <chr>            <chr>        
-#>  1 5149125    401803656 2025-26 Regular Season April            event        
-#>  2 5149125    401803639 2025-26 Regular Season April            event        
-#>  3 5149125    401803617 2025-26 Regular Season April            event        
-#>  4 5149125    401803606 2025-26 Regular Season April            event        
-#>  5 5149125    401803582 2025-26 Regular Season April            event        
-#>  6 5149125    401803572 2025-26 Regular Season April            event        
-#>  7 5149125    401803551 2025-26 Regular Season April            event        
-#>  8 5149125    401803537 2025-26 Regular Season March            event        
-#>  9 5149125    401803522 2025-26 Regular Season March            event        
-#> 10 5149125    401803502 2025-26 Regular Season March            event        
-#> # ℹ 59 more rows
+#> ℹ Data updated: 2026-10-18 05:44:22 UTC
+#> # A tibble: 3 × 35
+#>   athlete_id event_id  season_type_display    category_display category_type
+#>   <chr>      <chr>     <chr>                  <chr>            <chr>        
+#> 1 5149125    401892528 2026-27 Regular Season October          event        
+#> 2 5149125    401892512 2026-27 Regular Season October          event        
+#> 3 5149125    401892496 2026-27 Regular Season October          event        
 #> # ℹ 30 more variables: category_split_type <chr>, game_date <chr>, at_vs <chr>,
 #> #   score <chr>, home_team_id <chr>, away_team_id <chr>, home_team_score <chr>,
 #> #   away_team_score <chr>, game_result <chr>, opponent_id <chr>,
 #> #   opponent_name <chr>, opponent_abbr <chr>, team_id <chr>, team_abbr <chr>,
 #> #   league_name <chr>, league_abbreviation <chr>, goals <chr>, assists <chr>,
-#> #   points <chr>, plus_minus <chr>, penalty_minutes <chr>, shots_total <chr>, …
+#> #   points <chr>, plus_minus <chr>, penalty_minutes <chr>, shots_total <chr>,
+#> #   shooting_pct <chr>, power_play_goals <chr>, power_play_assists <chr>, …
 # }
 ```

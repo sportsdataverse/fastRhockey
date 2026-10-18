@@ -95,21 +95,21 @@ Other DEL eSports functions:
 # \donttest{
   try(del_top_scorers(season = 2027, league_id = 1))
 #> ── DEL top_scorers from the eSports hokejovyzapis bucket ───────────────────────
-#> ℹ Data updated: 2026-10-13 01:51:40 UTC
-#> # A tibble: 367 × 13
+#> ℹ Data updated: 2026-10-18 05:43:05 UTC
+#> # A tibble: 371 × 13
 #>    player_id name   surname team_id team_name team_shortcut goals assists points
 #>        <int> <chr>  <chr>     <int> <chr>     <chr>         <int>   <int>  <int>
-#>  1      3410 Liam   Kirk          3 Eisbären… EBB               5      11     16
-#>  2      2209 Ty     Ronning       3 Eisbären… EBB               7       7     14
+#>  1      3410 Liam   Kirk          3 Eisbären… EBB               7      12     19
+#>  2      2209 Ty     Ronning       3 Eisbären… EBB               8       7     15
 #>  3      3950 Mathew Santos        5 Krefeld … KEV               7       6     13
-#>  4       507 Marcel Noebels      11 Kölner H… KEC               7       5     12
-#>  5      2935 Max    Newton        5 Krefeld … KEV               3       9     12
+#>  4      2935 Max    Newton        5 Krefeld … KEV               4       9     13
+#>  5       507 Marcel Noebels      11 Kölner H… KEC               7       5     12
 #>  6      3572 Patri… Russell      11 Kölner H… KEC               2      10     12
-#>  7      3594 Kyle   Mayhew       13 Augsburg… AEV               2       9     11
-#>  8      3550 Nicho… Hallor…       6 Straubin… STR               4       6     10
-#>  9      3426 Taro   Hirose       12 EHC Red … RBM               1       9     10
-#> 10      1799 Gregor MacLeod      11 Kölner H… KEC               1       9     10
-#> # ℹ 357 more rows
+#>  7      3576 Riley  Barber        1 ERC Ingo… ING               6       5     11
+#>  8      3550 Nicho… Hallor…       6 Straubin… STR               5       6     11
+#>  9      3426 Taro   Hirose       12 EHC Red … RBM               2       9     11
+#> 10      3594 Kyle   Mayhew       13 Augsburg… AEV               2       9     11
+#> # ℹ 361 more rows
 #> # ℹ 4 more variables: shots <int>, games <int>, penalty_minutes <int>,
 #> #   time_on_ice <int>
 # }

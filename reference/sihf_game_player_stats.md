@@ -116,7 +116,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_game_player_stats(game_id = 20261105000325))
 #> ── SIHF Game Player Stats Information from data.sihf.ch ────────────────────────
-#> ℹ Data updated: 2026-10-13 01:59:38 UTC
+#> ℹ Data updated: 2026-10-18 05:51:54 UTC
 #> # A tibble: 42 × 26
 #>    game_id team_side team_id team_name player_number player      player_position
 #>      <dbl> <chr>       <int> <chr>             <int> <chr>       <chr>          

@@ -188,7 +188,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_season_type_leaders(season = 2026, season_type = 2))
 #> ── NHL Season Type Leaders data from ESPN core-v2 ──── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:53:14 UTC
+#> ℹ Data updated: 2026-10-18 05:44:34 UTC
 #> # A tibble: 225 × 12
 #>    category_name category_display_name category_short_display_name
 #>    <chr>         <chr>                 <chr>                      

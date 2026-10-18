@@ -50,27 +50,27 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_skater_shot_location_detail(player_id = 8478402))
 #> ── NHL Edge Skater Shot Location Detail ────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:57:20 UTC
+#> ℹ Data updated: 2026-10-18 05:49:29 UTC
 #> # A tibble: 17 × 7
 #>    area                  sog goals shooting_pctg sog_percentile goals_percentile
 #>    <chr>               <int> <int>         <dbl>          <dbl>            <dbl>
-#>  1 Behind the Net          1     0         0              0.993            0.995
-#>  2 Beyond Red Line         0     0        NA              0.856            0.988
-#>  3 Center Point            1     0         0              0.951            0.988
-#>  4 Crease                  1     0         0              0.933            0.905
-#>  5 High Slot               3     1         0.333          0.974            0.986
-#>  6 L Circle                0     0        NA              0.491            0.914
-#>  7 L Corner                0     0        NA              0.970            0.995
-#>  8 L Net Side              1     1         1              0.970            1    
-#>  9 L Point                 0     0        NA              0.826            0.998
-#> 10 Low Slot                3     0         0              0.713            0.634
-#> 11 Offensive Neutral …     1     1         1              0.982            1    
-#> 12 Outside L               0     0        NA              0.653            0.977
-#> 13 Outside R               0     0        NA              0.724            0.982
-#> 14 R Circle                1     0         0              0.806            0.924
-#> 15 R Corner                0     0        NA              0.993            1    
-#> 16 R Net Side              0     0        NA              0.787            0.977
-#> 17 R Point                 0     0        NA              0.826            0.991
+#>  1 Behind the Net          1     0         0              0.989            0.996
+#>  2 Beyond Red Line         0     0        NA              0.806            0.986
+#>  3 Center Point            1     0         0              0.919            0.982
+#>  4 Crease                  2     1         0.5            0.964            0.984
+#>  5 High Slot               3     1         0.333          0.944            0.975
+#>  6 L Circle                0     0        NA              0.409            0.874
+#>  7 L Corner                0     0        NA              0.964            0.996
+#>  8 L Net Side              1     1         1              0.946            1    
+#>  9 L Point                 0     0        NA              0.779            0.993
+#> 10 Low Slot                4     0         0              0.688            0.571
+#> 11 Offensive Neutral …     1     1         1              0.968            1    
+#> 12 Outside L               0     0        NA              0.587            0.964
+#> 13 Outside R               1     0         0              0.878            0.980
+#> 14 R Circle                2     0         0              0.844            0.885
+#> 15 R Corner                0     0        NA              0.984            1    
+#> 16 R Net Side              0     0        NA              0.743            0.966
+#> 17 R Point                 0     0        NA              0.772            0.982
 #> # ℹ 1 more variable: shooting_pctg_percentile <dbl>
 # }
 ```

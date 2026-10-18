@@ -89,21 +89,21 @@ Other Metal Ligaen eSports functions:
 # \donttest{
   try(metal_top_scorers(season = 2027, league_id = 1))
 #> ── Metal Ligaen top_scorers from the eSports hokejovyzapis bucket ──────────────
-#> ℹ Data updated: 2026-10-13 01:57:02 UTC
-#> # A tibble: 236 × 11
-#>    player_id name      surname   birthdate team_id team_name team_shortcut goals
-#>        <int> <chr>     <chr>     <chr>       <int> <chr>     <chr>         <int>
-#>  1       428 "Troy"    Lajeunes… 1997-05-…       5 Esbjerg … ESB               7
-#>  2       429 "Zane "   Franklin  1999-05-…       5 Esbjerg … ESB               4
-#>  3       398 "Kevin"   O'Neil    1998-02-…       6 Herning … HER               4
-#>  4        46 "Morten"  Poulsen   1988-09-…       6 Herning … HER               6
-#>  5       210 "Oliver"  Kjær      2000-07-…       5 Esbjerg … ESB               4
-#>  6        38 "Mathias" Bau Hans… 1993-07-…       6 Herning … HER               2
-#>  7       496 "Olle"    Liss      1992-10-…       1 Rungsted… RUN               8
-#>  8       391 "Atte"    Karppinen 1998-03-…       3 Frederik… FRE               6
-#>  9       396 "Leo"     Ring      2001-10-…       3 Frederik… FRE               3
-#> 10       146 "Nicolas" Werbik    1997-10-…       5 Esbjerg … ESB               6
-#> # ℹ 226 more rows
+#> ℹ Data updated: 2026-10-18 05:49:10 UTC
+#> # A tibble: 237 × 11
+#>    player_id name        surname birthdate team_id team_name team_shortcut goals
+#>        <int> <chr>       <chr>   <chr>       <int> <chr>     <chr>         <int>
+#>  1       428 "Troy"      Lajeun… 1997-05-…       5 Esbjerg … ESB               7
+#>  2       398 "Kevin"     O'Neil  1998-02-…       6 Herning … HER               5
+#>  3       429 "Zane "     Frankl… 1999-05-…       5 Esbjerg … ESB               4
+#>  4        38 "Mathias"   Bau Ha… 1993-07-…       6 Herning … HER               3
+#>  5        46 "Morten"    Poulsen 1988-09-…       6 Herning … HER               6
+#>  6       210 "Oliver"    Kjær    2000-07-…       5 Esbjerg … ESB               4
+#>  7       496 "Olle"      Liss    1992-10-…       1 Rungsted… RUN               8
+#>  8        66 "Victor Da… Cubars  2000-08-…       7 Herlev E… HLV               7
+#>  9       391 "Atte"      Karppi… 1998-03-…       3 Frederik… FRE               6
+#> 10        60 "Matthias"  Asperup 1995-03-…       7 Herlev E… HLV               3
+#> # ℹ 227 more rows
 #> # ℹ 3 more variables: assists <int>, points <int>, shots <int>
 # }
 ```

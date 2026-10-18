@@ -156,7 +156,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_team_stats(data_type = "shots", season_from = 2026, season_to = 2026))
 #> ── Liiga team stat tables Information from liiga.fi ── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:55:36 UTC
+#> ℹ Data updated: 2026-10-18 05:47:40 UTC
 #> # A tibble: 16 × 67
 #>    sort_desc    team_id team_name team_short_name team_logos_dark_bg            
 #>    <lgl>          <int> <chr>     <chr>           <chr>                         

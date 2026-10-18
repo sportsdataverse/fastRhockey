@@ -166,7 +166,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_game_header(game_id = 898236, season = 2026))
 #> ── KHL Game Header from khl.ru ─────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:54:38 UTC
+#> ℹ Data updated: 2026-10-18 05:46:40 UTC
 #> # A tibble: 1 × 47
 #>   game_id tournament_id home_club_id home_team_season_id away_club_id
 #>     <int>         <int>        <int>               <int>        <int>

@@ -82,8 +82,10 @@ Other ESPN MCH Functions:
 [`espn_mch_league_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_notes.md),
 [`espn_mch_league_root()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_league_root.md),
 [`espn_mch_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_news.md),
+[`espn_mch_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_pbp.md),
 [`espn_mch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_awards.md),
 [`espn_mch_player_bio()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_bio.md),
+[`espn_mch_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_box.md),
 [`espn_mch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_career_stats.md),
 [`espn_mch_player_contracts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_contracts.md),
 [`espn_mch_player_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_core.md),
@@ -142,6 +144,7 @@ Other ESPN MCH Functions:
 [`espn_mch_summary()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_summary.md),
 [`espn_mch_talentpicks()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_talentpicks.md),
 [`espn_mch_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team.md),
+[`espn_mch_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_box.md),
 [`espn_mch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_core.md),
 [`espn_mch_team_depthcharts()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_depthcharts.md),
 [`espn_mch_team_history()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_history.md),
@@ -169,20 +172,20 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_awards())
 #> ── MENS-COLLEGE-HOCKEY Awards data from ESPN core-v2 ───────────────────────────
-#> ℹ Data updated: 2026-10-13 01:52:04 UTC
-#> # A tibble: 31 × 4
+#> ℹ Data updated: 2026-10-18 05:43:28 UTC
+#> # A tibble: 34 × 4
 #>    ref                                                 award_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>
-#>  1 http://sports.core.api.espn.com/v2/sports/hockey/l… 1           31          1
-#>  2 http://sports.core.api.espn.com/v2/sports/hockey/l… 2           31          1
-#>  3 http://sports.core.api.espn.com/v2/sports/hockey/l… 3           31          1
-#>  4 http://sports.core.api.espn.com/v2/sports/hockey/l… 4           31          1
-#>  5 http://sports.core.api.espn.com/v2/sports/hockey/l… 5           31          1
-#>  6 http://sports.core.api.espn.com/v2/sports/hockey/l… 9           31          1
-#>  7 http://sports.core.api.espn.com/v2/sports/hockey/l… 20          31          1
-#>  8 http://sports.core.api.espn.com/v2/sports/hockey/l… 21          31          1
-#>  9 http://sports.core.api.espn.com/v2/sports/hockey/l… 22          31          1
-#> 10 http://sports.core.api.espn.com/v2/sports/hockey/l… 24          31          1
-#> # ℹ 21 more rows
+#>  1 http://sports.core.api.espn.com/v2/sports/hockey/l… 1           34          1
+#>  2 http://sports.core.api.espn.com/v2/sports/hockey/l… 2           34          1
+#>  3 http://sports.core.api.espn.com/v2/sports/hockey/l… 3           34          1
+#>  4 http://sports.core.api.espn.com/v2/sports/hockey/l… 4           34          1
+#>  5 http://sports.core.api.espn.com/v2/sports/hockey/l… 5           34          1
+#>  6 http://sports.core.api.espn.com/v2/sports/hockey/l… 9           34          1
+#>  7 http://sports.core.api.espn.com/v2/sports/hockey/l… 20          34          1
+#>  8 http://sports.core.api.espn.com/v2/sports/hockey/l… 21          34          1
+#>  9 http://sports.core.api.espn.com/v2/sports/hockey/l… 22          34          1
+#> 10 http://sports.core.api.espn.com/v2/sports/hockey/l… 24          34          1
+#> # ℹ 24 more rows
 # }
 ```

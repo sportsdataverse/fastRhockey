@@ -97,23 +97,23 @@ A data frame (`fastRhockey_data`) with the following columns:
     sort_by = "total"
   ))
 #> ── NHL Edge Team Skating Distance Top 10 ───────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:57:25 UTC
-#> # A tibble: 10 × 35
+#> ℹ Data updated: 2026-10-18 05:49:35 UTC
+#> # A tibble: 10 × 36
 #>    team_abbrev team_slug           team_common_name_def…¹ team_place_name_with…²
 #>    <chr>       <chr>               <chr>                  <chr>                 
-#>  1 PHI         philadelphia-flyer… Flyers                 Philadelphia          
-#>  2 CAR         carolina-hurricane… Hurricanes             Carolina              
+#>  1 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
+#>  2 PHI         philadelphia-flyer… Flyers                 Philadelphia          
 #>  3 VAN         vancouver-canucks-… Canucks                Vancouver             
 #>  4 NYR         new-york-rangers-3  Rangers                New York              
-#>  5 PIT         pittsburgh-penguin… Penguins               Pittsburgh            
-#>  6 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
+#>  5 BUF         buffalo-sabres-7    Sabres                 Buffalo               
+#>  6 FLA         florida-panthers-13 Panthers               Florida               
 #>  7 SEA         seattle-kraken-55   Kraken                 Seattle               
 #>  8 CHI         chicago-blackhawks… Blackhawks             Chicago               
-#>  9 UTA         utah-mammoth-68     Mammoth                Utah                  
-#> 10 BOS         boston-bruins-6     Bruins                 Boston                
+#>  9 OTT         ottawa-senators-9   Senators               Ottawa                
+#> 10 UTA         utah-mammoth-68     Mammoth                Utah                  
 #> # ℹ abbreviated names: ¹​team_common_name_default,
 #> #   ²​team_place_name_with_preposition_default
-#> # ℹ 31 more variables: team_team_logo_light <chr>, team_team_logo_dark <chr>,
+#> # ℹ 32 more variables: team_team_logo_light <chr>, team_team_logo_dark <chr>,
 #> #   distance_total_imperial <dbl>, distance_total_metric <dbl>,
 #> #   distance_per60_imperial <dbl>, distance_per60_metric <dbl>,
 #> #   distance_max_per_game_imperial <dbl>, distance_max_per_game_metric <dbl>,

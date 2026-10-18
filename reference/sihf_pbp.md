@@ -125,7 +125,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_pbp(game_id = 20261105000325))
 #> ── SIHF PBP Information from data.sihf.ch ──────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:59:44 UTC
+#> ℹ Data updated: 2026-10-18 05:52:00 UTC
 #> # A tibble: 17 × 34
 #>    game_id event_index period_number period     event_type   time  game_seconds
 #>      <dbl>       <int>         <int> <chr>      <chr>        <chr>        <int>

@@ -71,24 +71,25 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_skater_stats_leaders())
 #> ── NHL Skater Stats Leaders ────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:58:06 UTC
-#> # A tibble: 45 × 17
+#> ℹ Data updated: 2026-10-18 05:50:12 UTC
+#> # A tibble: 45 × 19
 #>         id sweater_number headshot          team_abbrev team_logo position value
 #>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>
-#>  1 8483678             25 https://assets.n… VAN         https://… D            1
+#>  1 8481726             84 https://assets.n… NSH         https://… C            2
 #>  2 8482116             18 https://assets.n… OTT         https://… C            1
-#>  3 8482702             22 https://assets.n… CAR         https://… C            1
-#>  4 8482476             51 https://assets.n… NYI         https://… L            1
-#>  5 8478427             20 https://assets.n… CAR         https://… C            1
-#>  6 8478402             97 https://assets.n… EDM         https://… C           12
-#>  7 8480803              2 https://assets.n… EDM         https://… D           12
-#>  8 8475218             14 https://assets.n… EDM         https://… D           11
-#>  9 8477934             29 https://assets.n… EDM         https://… C            9
-#> 10 8475188              3 https://assets.n… VGK         https://… D            8
+#>  3 8480459             22 https://assets.n… STL         https://… C            1
+#>  4 8483678             25 https://assets.n… VAN         https://… D            1
+#>  5 8477949             89 https://assets.n… WSH         https://… R            1
+#>  6 8478402             97 https://assets.n… EDM         https://… C           19
+#>  7 8480803              2 https://assets.n… EDM         https://… D           17
+#>  8 8475218             14 https://assets.n… EDM         https://… D           16
+#>  9 8477934             29 https://assets.n… EDM         https://… C           15
+#> 10 8475188              3 https://assets.n… VGK         https://… D           14
 #> # ℹ 35 more rows
-#> # ℹ 10 more variables: first_name_default <chr>, last_name_default <chr>,
-#> #   team_name_default <chr>, team_name_fr <chr>, category <chr>,
+#> # ℹ 12 more variables: first_name_default <chr>, last_name_default <chr>,
 #> #   last_name_cs <chr>, last_name_fi <chr>, last_name_sk <chr>,
-#> #   first_name_cs <chr>, first_name_sk <chr>
+#> #   last_name_sv <chr>, team_name_default <chr>, team_name_fr <chr>,
+#> #   category <chr>, first_name_cs <chr>, first_name_sk <chr>,
+#> #   first_name_fi <chr>
 # }
 ```

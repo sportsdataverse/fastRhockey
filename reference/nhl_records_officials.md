@@ -55,8 +55,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_officials())
 #> ── NHL Records Officials ───────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:57:52 UTC
-#> # A tibble: 601 × 23
+#> ℹ Data updated: 2026-10-18 05:49:58 UTC
+#> # A tibble: 606 × 23
 #>       id active association_url birth_city     birth_date  coach_id country_code
 #>    <int> <lgl>  <chr>           <chr>          <chr>          <int> <chr>       
 #>  1   100 FALSE  NA              NA             NA                NA NA          
@@ -69,7 +69,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8   107 FALSE  NA              Guelph         NA                NA CAN         
 #>  9   108 FALSE  NA              Galt           1930-03-05…       NA CAN         
 #> 10   109 FALSE  NA              Toronto        1946-11-06…       NA CAN         
-#> # ℹ 591 more rows
+#> # ℹ 596 more rows
 #> # ℹ 16 more variables: deceased <lgl>, deceased_date <chr>, first_name <chr>,
 #> #   first_playoff_game_id <int>, first_regular_game_id <int>,
 #> #   general_manager_id <lgl>, headshot_url <chr>, last_name <chr>,

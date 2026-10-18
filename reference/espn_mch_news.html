@@ -118,10 +118,10 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>fastRhockey_data</code> tibble with one row per article:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>article_id</td><td>character</td><td>ESPN article identifier.</td></tr><tr><td>now_id</td><td>character</td><td>ESPN Now identifier.</td></tr><tr><td>content_key</td><td>character</td><td>Content management key.</td></tr><tr><td>type</td><td>character</td><td>Article type (e.g. "Story", "Media").</td></tr><tr><td>headline</td><td>character</td><td>Article headline.</td></tr><tr><td>description</td><td>character</td><td>Article description/excerpt.</td></tr><tr><td>last_modified</td><td>character</td><td>ISO 8601 last-modified datetime.</td></tr><tr><td>published</td><td>character</td><td>ISO 8601 published datetime.</td></tr><tr><td>byline</td><td>character</td><td>Author byline.</td></tr><tr><td>premium</td><td>logical</td><td>Whether the article is premium content.</td></tr><tr><td>image_href</td><td>character</td><td>URL of the lead image.</td></tr><tr><td>web_href</td><td>character</td><td>URL of the article on ESPN.com.</td></tr></table></div>
+    <p>A <code>fastRhockey_data</code> tibble with one row per article:</p><table class="table table"><tr><td>col_name</td><td>type</td><td>description</td></tr><tr><td>article_id</td><td>character</td><td>ESPN article identifier.</td></tr><tr><td>now_id</td><td>character</td><td>ESPN Now identifier.</td></tr><tr><td>content_key</td><td>character</td><td>Content management key.</td></tr><tr><td>type</td><td>character</td><td>Article type (e.g. "Story", "Media").</td></tr><tr><td>headline</td><td>character</td><td>Article headline.</td></tr><tr><td>description</td><td>character</td><td>Article description/excerpt.</td></tr><tr><td>last_modified</td><td>character</td><td>ISO 8601 last-modified datetime.</td></tr><tr><td>published</td><td>character</td><td>ISO 8601 published datetime.</td></tr><tr><td>byline</td><td>character</td><td>Author byline.</td></tr><tr><td>premium</td><td>logical</td><td>Whether the article is premium content.</td></tr><tr><td>image_href</td><td>character</td><td>URL of the lead image.</td></tr><tr><td>web_href</td><td>character</td><td>URL of the article on ESPN.com.</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>League slug <code>mens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_news.html">espn_nhl_news()</a></code> (columns inherited); a collection may be empty.</p>
+    <p>League slug <code>mens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_news.html">espn_nhl_news()</a></code>; columns verified against a captured MCH body.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -167,8 +167,10 @@
 <code><a href="espn_mch_leaders_core.html">espn_mch_leaders_core()</a></code>,
 <code><a href="espn_mch_league_notes.html">espn_mch_league_notes()</a></code>,
 <code><a href="espn_mch_league_root.html">espn_mch_league_root()</a></code>,
+<code><a href="espn_mch_pbp.html">espn_mch_pbp()</a></code>,
 <code><a href="espn_mch_player_awards.html">espn_mch_player_awards()</a></code>,
 <code><a href="espn_mch_player_bio.html">espn_mch_player_bio()</a></code>,
+<code><a href="espn_mch_player_box.html">espn_mch_player_box()</a></code>,
 <code><a href="espn_mch_player_career_stats.html">espn_mch_player_career_stats()</a></code>,
 <code><a href="espn_mch_player_contracts.html">espn_mch_player_contracts()</a></code>,
 <code><a href="espn_mch_player_core.html">espn_mch_player_core()</a></code>,
@@ -227,6 +229,7 @@
 <code><a href="espn_mch_summary.html">espn_mch_summary()</a></code>,
 <code><a href="espn_mch_talentpicks.html">espn_mch_talentpicks()</a></code>,
 <code><a href="espn_mch_team.html">espn_mch_team()</a></code>,
+<code><a href="espn_mch_team_box.html">espn_mch_team_box()</a></code>,
 <code><a href="espn_mch_team_core.html">espn_mch_team_core()</a></code>,
 <code><a href="espn_mch_team_depthcharts.html">espn_mch_team_depthcharts()</a></code>,
 <code><a href="espn_mch_team_history.html">espn_mch_team_history()</a></code>,
@@ -254,20 +257,20 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_mch_news</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MENS-COLLEGE-HOCKEY News data from ESPN.com ─────── <span style="font-style: italic;">fastRhockey 1.0.0.9000</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-13 01:52:17 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-18 05:43:41 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 12</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    article_id now_id     content_key    type  headline description last_modified</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 50153041   1-50153041 50153041-1-29… Media Brown B… Brown Bear… 2026-10-11T0…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 50153001   1-50153001 50153001-1-29… Media Quinnip… Quinnipiac… 2026-10-12T1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 50152575   1-50152575 50152575-1-29… Media Bowling… Bowling Gr… 2026-10-11T0…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 50144045   1-50144045 50144045-1-29… Media RIT Tig… RIT Tigers… 2026-10-12T1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 50143859   1-50143859 50143859-1-29… Media Quinnip… Quinnipiac… 2026-10-12T1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 50143798   1-50143798 50143798-1-29… Media St. Law… St. Lawren… 2026-10-10T0…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 50143771   1-50143771 50143771-1-29… Media Ohio St… Ohio St. B… 2026-10-10T0…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 50136577   1-50136577 50136577-1-5-1 Head… Arizona… An ASU ass… 2026-10-10T0…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 50118123   1-50118123 50118123-1-6-1 Story The top… The colleg… 2026-10-07T1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 50093965   1-50093965 50093965-1-29… Media Merrima… Merrimack … 2026-10-03T2…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 50199200   1-50199200 50199200-1-29… Media Minneso… Minnesota … 2026-10-17T0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 50199090   1-50199090 50199090-1-29… Media Colorad… Colorado C… 2026-10-17T0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 50199061   1-50199061 50199061-1-29… Media Boston … Boston U. … 2026-10-17T0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 50196596   1-50196596 50196596-1-5-1 Head… NCAA su… The NCAA h… 2026-10-16T2…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 50193166   1-50193166 50193166-1-29… Media St. Clo… St. Cloud … 2026-10-16T0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 50153041   1-50153041 50153041-1-29… Media Brown B… Brown Bear… 2026-10-11T0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 50153001   1-50153001 50153001-1-29… Media Quinnip… Quinnipiac… 2026-10-12T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 50152575   1-50152575 50152575-1-29… Media Bowling… Bowling Gr… 2026-10-11T0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 50144045   1-50144045 50144045-1-29… Media RIT Tig… RIT Tigers… 2026-10-12T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 50143859   1-50143859 50143859-1-29… Media Quinnip… Quinnipiac… 2026-10-12T1…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5 more variables: published &lt;chr&gt;, byline &lt;chr&gt;, premium &lt;lgl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   image_href &lt;chr&gt;, web_href &lt;chr&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>

@@ -108,7 +108,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_schedule(season = 2026, tournament = "runkosarja"))
 #> ── Liiga schedule Information from liiga.fi ────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:55:32 UTC
+#> ℹ Data updated: 2026-10-18 05:47:37 UTC
 #> # A tibble: 480 × 35
 #>    game_id serie_id season home_team_name away_team_name home_team_id
 #>      <int>    <int>  <int> <chr>          <chr>                 <int>

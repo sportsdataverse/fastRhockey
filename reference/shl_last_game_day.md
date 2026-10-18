@@ -126,17 +126,17 @@ Other SHL Functions:
 # \donttest{
   shl_last_game_day()
 #> ── SHL Last Game Day Information from www.shl.se ───── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:59:16 UTC
+#> ℹ Data updated: 2026-10-18 05:51:21 UTC
 #> # A tibble: 7 × 39
 #>   game_uuid  start_date_time  state overtime shootout ssgt_uuid home_team_status
 #>   <chr>      <chr>            <chr> <lgl>    <lgl>    <chr>     <chr>           
-#> 1 f0qxq2l2lo 2026-10-10T13:1… post… FALSE    FALSE    qa98unlb… WIN             
-#> 2 ris2j0oqtk 2026-10-10T13:1… post… FALSE    FALSE    qa98unlb… WIN             
-#> 3 x4aluhmxwe 2026-10-10T13:1… post… TRUE     FALSE    qa98unlb… LOSE            
-#> 4 cba6g1yfvo 2026-10-10T16:0… post… FALSE    FALSE    qa98unlb… WIN             
-#> 5 wlwcftkp4r 2026-10-10T16:0… post… FALSE    FALSE    qa98unlb… WIN             
-#> 6 xh68muyldy 2026-10-10T16:0… post… FALSE    FALSE    qa98unlb… WIN             
-#> 7 xue9kxhrcn 2026-10-10T16:0… post… FALSE    FALSE    qa98unlb… WIN             
+#> 1 et9erhx0si 2026-10-17T13:1… post… FALSE    TRUE     qa98unlb… WIN             
+#> 2 pmch0rrshr 2026-10-17T13:1… post… FALSE    TRUE     qa98unlb… WIN             
+#> 3 ux4bplsxbh 2026-10-17T13:1… post… FALSE    FALSE    qa98unlb… WIN             
+#> 4 wffn21lxeb 2026-10-17T13:1… post… FALSE    FALSE    qa98unlb… LOSE            
+#> 5 yklkh1aqmw 2026-10-17T13:1… post… FALSE    FALSE    qa98unlb… LOSE            
+#> 6 b6ddleumyx 2026-10-17T16:0… post… FALSE    FALSE    qa98unlb… LOSE            
+#> 7 mwtzjf68g1 2026-10-17T16:0… post… FALSE    FALSE    qa98unlb… WIN             
 #> # ℹ 32 more variables: home_team_uuid <chr>, home_team_owner_instance_id <chr>,
 #> #   home_team_code <chr>, home_team_names_code <chr>,
 #> #   home_team_names_short <chr>, home_team_names_long <chr>,

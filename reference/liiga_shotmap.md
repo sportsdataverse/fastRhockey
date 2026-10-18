@@ -88,8 +88,8 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_shotmap(game_id = 1, season = 2026))
 #> ── Liiga shotmap Information from liiga.fi ─────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:55:33 UTC
-#> # A tibble: 90 × 15
+#> ℹ Data updated: 2026-10-18 05:47:38 UTC
+#> # A tibble: 90 × 16
 #>    season game_id type     shooting_team_id left_team_id right_team_id game_time
 #>     <int>   <int> <chr>               <int>        <int>         <int>     <int>
 #>  1   2026       1 EvenStr…        651304385    651304385      55786244        13
@@ -103,8 +103,8 @@ Other Liiga Functions:
 #>  9   2026       1 EvenStr…        651304385    651304385      55786244       293
 #> 10   2026       1 EvenStr…        651304385    651304385      55786244       320
 #> # ℹ 80 more rows
-#> # ℹ 8 more variables: period <int>, shot_x <int>, shot_y <int>,
+#> # ℹ 9 more variables: period <int>, shot_x <int>, shot_y <int>,
 #> #   blocker_id <int>, shooter_id <int>, event_type <chr>,
-#> #   own_team_players_on_ice <int>, other_team_players_on_ice <int>
+#> #   own_team_players_on_ice <int>, other_team_players_on_ice <int>, xg <dbl>
 # }
 ```

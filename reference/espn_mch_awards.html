@@ -168,8 +168,10 @@ The MCH has 34 awards; <code>100</code> returns all in one request.</p></dd>
 <code><a href="espn_mch_league_notes.html">espn_mch_league_notes()</a></code>,
 <code><a href="espn_mch_league_root.html">espn_mch_league_root()</a></code>,
 <code><a href="espn_mch_news.html">espn_mch_news()</a></code>,
+<code><a href="espn_mch_pbp.html">espn_mch_pbp()</a></code>,
 <code><a href="espn_mch_player_awards.html">espn_mch_player_awards()</a></code>,
 <code><a href="espn_mch_player_bio.html">espn_mch_player_bio()</a></code>,
+<code><a href="espn_mch_player_box.html">espn_mch_player_box()</a></code>,
 <code><a href="espn_mch_player_career_stats.html">espn_mch_player_career_stats()</a></code>,
 <code><a href="espn_mch_player_contracts.html">espn_mch_player_contracts()</a></code>,
 <code><a href="espn_mch_player_core.html">espn_mch_player_core()</a></code>,
@@ -228,6 +230,7 @@ The MCH has 34 awards; <code>100</code> returns all in one request.</p></dd>
 <code><a href="espn_mch_summary.html">espn_mch_summary()</a></code>,
 <code><a href="espn_mch_talentpicks.html">espn_mch_talentpicks()</a></code>,
 <code><a href="espn_mch_team.html">espn_mch_team()</a></code>,
+<code><a href="espn_mch_team_box.html">espn_mch_team_box()</a></code>,
 <code><a href="espn_mch_team_core.html">espn_mch_team_core()</a></code>,
 <code><a href="espn_mch_team_depthcharts.html">espn_mch_team_depthcharts()</a></code>,
 <code><a href="espn_mch_team_history.html">espn_mch_team_history()</a></code>,
@@ -255,21 +258,21 @@ The MCH has 34 awards; <code>100</code> returns all in one request.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_mch_awards</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MENS-COLLEGE-HOCKEY Awards data from ESPN core-v2 ───────────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-13 01:52:04 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 31 × 4</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-18 05:43:28 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 34 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ref                                                 award_id count page_count</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 1           31          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 2           31          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 3           31          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 4           31          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 5           31          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 9           31          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 20          31          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 21          31          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 22          31          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 24          31          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 21 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 1           34          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 2           34          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 3           34          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 4           34          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 5           34          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 9           34          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 20          34          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 21          34          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 22          34          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> http://sports.core.api.espn.com/v2/sports/hockey/l… 24          34          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 24 more rows</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

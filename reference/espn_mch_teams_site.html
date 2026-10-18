@@ -101,24 +101,28 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">espn_mch_teams_site</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">espn_mch_teams_site</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">1000</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dl><dt id="arg-limit">limit<a class="anchor" aria-label="anchor" href="#arg-limit"></a></dt>
+<dd><p>Maximum number of teams (ESPN <code>limit</code>; default <code>1000</code>, as sdv-py).</p></dd>
+
+
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Reserved for forward compatibility.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A <code>fastRhockey_data</code> tibble with one row per MCH team. This is
-identical to the output of teams.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>espn_team_id</td><td>character</td><td>ESPN team identifier.</td></tr><tr><td>team</td><td>character</td><td>Team location/city name.</td></tr><tr><td>mascot</td><td>character</td><td>Team mascot/nickname.</td></tr><tr><td>display_name</td><td>character</td><td>Team display name.</td></tr><tr><td>short_name</td><td>character</td><td>Short team display name.</td></tr><tr><td>abbreviation</td><td>character</td><td>Team abbreviation.</td></tr><tr><td>color</td><td>character</td><td>Primary color hex.</td></tr><tr><td>alternate_color</td><td>character</td><td>Alternate color hex.</td></tr><tr><td>logo</td><td>character</td><td>Light-background logo URL.</td></tr><tr><td>logo_dark</td><td>character</td><td>Dark-background logo URL.</td></tr></table></div>
+identical to the output of teams.</p><table class="table table"><tr><td>col_name</td><td>type</td><td>description</td></tr><tr><td>abbreviation</td><td>character</td><td>Team abbreviation.</td></tr><tr><td>display_name</td><td>character</td><td>Team display name.</td></tr><tr><td>espn_team_id</td><td>integer</td><td>ESPN team identifier.</td></tr><tr><td>team</td><td>character</td><td>Team location/city name.</td></tr><tr><td>logo</td><td>character</td><td>Light-background logo URL.</td></tr><tr><td>logo_dark</td><td>character</td><td>Dark-background logo URL.</td></tr><tr><td>logos_href_3</td><td>character</td><td>Logo variant 3 URL (ESPN sends a varying number of logos per team).</td></tr><tr><td>logos_href_4</td><td>character</td><td>Logo variant 4 URL (ESPN sends a varying number of logos per team).</td></tr><tr><td>logos_href_5</td><td>character</td><td>Logo variant 5 URL (ESPN sends a varying number of logos per team).</td></tr><tr><td>logos_href_6</td><td>character</td><td>Logo variant 6 URL (ESPN sends a varying number of logos per team).</td></tr><tr><td>logos_href_7</td><td>character</td><td>Logo variant 7 URL (ESPN sends a varying number of logos per team).</td></tr><tr><td>logos_href_8</td><td>character</td><td>Logo variant 8 URL (ESPN sends a varying number of logos per team).</td></tr><tr><td>logos_href_9</td><td>character</td><td>Logo variant 9 URL (ESPN sends a varying number of logos per team).</td></tr><tr><td>logos_href_10</td><td>character</td><td>Logo variant 10 URL (ESPN sends a varying number of logos per team).</td></tr><tr><td>logos_href_11</td><td>character</td><td>Logo variant 11 URL (ESPN sends a varying number of logos per team).</td></tr><tr><td>logos_href_12</td><td>character</td><td>Logo variant 12 URL (ESPN sends a varying number of logos per team).</td></tr><tr><td>logos_href_13</td><td>character</td><td>Logo variant 13 URL (ESPN sends a varying number of logos per team).</td></tr><tr><td>logos_href_14</td><td>character</td><td>Logo variant 14 URL (ESPN sends a varying number of logos per team).</td></tr><tr><td>mascot</td><td>character</td><td>Team mascot/nickname.</td></tr><tr><td>nickname</td><td>character</td><td>Team nickname.</td></tr><tr><td>short_name</td><td>character</td><td>Short team display name.</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>League slug <code>mens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_teams_site.html">espn_nhl_teams_site()</a></code> (columns inherited); a collection may be empty.</p>
+    <p>League slug <code>mens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_teams_site.html">espn_nhl_teams_site()</a></code>; columns verified against a captured MCH body.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -166,8 +170,10 @@ identical to the output of teams.</p><table class="table table"><tr><td>col_name
 <code><a href="espn_mch_league_notes.html">espn_mch_league_notes()</a></code>,
 <code><a href="espn_mch_league_root.html">espn_mch_league_root()</a></code>,
 <code><a href="espn_mch_news.html">espn_mch_news()</a></code>,
+<code><a href="espn_mch_pbp.html">espn_mch_pbp()</a></code>,
 <code><a href="espn_mch_player_awards.html">espn_mch_player_awards()</a></code>,
 <code><a href="espn_mch_player_bio.html">espn_mch_player_bio()</a></code>,
+<code><a href="espn_mch_player_box.html">espn_mch_player_box()</a></code>,
 <code><a href="espn_mch_player_career_stats.html">espn_mch_player_career_stats()</a></code>,
 <code><a href="espn_mch_player_contracts.html">espn_mch_player_contracts()</a></code>,
 <code><a href="espn_mch_player_core.html">espn_mch_player_core()</a></code>,
@@ -226,6 +232,7 @@ identical to the output of teams.</p><table class="table table"><tr><td>col_name
 <code><a href="espn_mch_summary.html">espn_mch_summary()</a></code>,
 <code><a href="espn_mch_talentpicks.html">espn_mch_talentpicks()</a></code>,
 <code><a href="espn_mch_team.html">espn_mch_team()</a></code>,
+<code><a href="espn_mch_team_box.html">espn_mch_team_box()</a></code>,
 <code><a href="espn_mch_team_core.html">espn_mch_team_core()</a></code>,
 <code><a href="espn_mch_team_depthcharts.html">espn_mch_team_depthcharts()</a></code>,
 <code><a href="espn_mch_team_history.html">espn_mch_team_history()</a></code>,
@@ -251,10 +258,27 @@ identical to the output of teams.</p><table class="table table"><tr><td>col_name
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_mch_teams_site</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-10-13 01:52:35.7423: Invalid arguments or no ESPN mens-college-hockey teams data available!</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "mens-college-hockey"</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: Can't rename columns that don't exist. <span style="color: #BB0000;">✖</span> Column `alternateColor` doesn't exist.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MENS-COLLEGE-HOCKEY Teams data from ESPN.com ────── <span style="font-style: italic;">fastRhockey 1.0.0.9000</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-18 05:43:59 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 116 × 23</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    abbreviation display_name espn_team_id team  mascot nickname short_name logo </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> ADR          Adrian Bull…       <span style="text-decoration: underline;">110</span>134 Adri… Bulld… Adrian   Adrian     <span style="color: #BB0000;">NA</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> AF           Air Force F…         <span style="text-decoration: underline;">2</span>005 Air … Falco… Air For… Air Force  http…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> AH           Alabama Hun…         <span style="text-decoration: underline;">2</span>008 Alab… Charg… Alabama… Alabama H… <span style="color: #BB0000;">NA</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> UAA          Alaska Anch…            1 Alas… Seawo… Alaska … Alaska An… http…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> AKFB         Alaska Nano…          298 Alas… Nanoo… Alaska   Alaska     http…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> ABCA         Alberta Gol…        <span style="text-decoration: underline;">14</span>196 Albe… Golde… Alberta  Alberta    <span style="color: #BB0000;">NA</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> AIC          American In…         <span style="text-decoration: underline;">2</span>022 Amer… Yello… America… American … http…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> ANMR         Anna Maria …       <span style="text-decoration: underline;">126</span>807 Anna… Amcats Anna Ma… Anna Maria <span style="color: #BB0000;">NA</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> ASU          Arizona Sta…            9 Ariz… Sun D… Arizona… Arizona S… http…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ARIZ         Arizona Wil…           12 Ariz… Wildc… Arizona  Arizona    http…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 106 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 15 more variables: logo_dark &lt;chr&gt;, logos_href_3 &lt;chr&gt;, logos_href_4 &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   logos_href_5 &lt;chr&gt;, logos_href_6 &lt;chr&gt;, logos_href_7 &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   logos_href_8 &lt;chr&gt;, logos_href_9 &lt;chr&gt;, logos_href_10 &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   logos_href_11 &lt;chr&gt;, logos_href_12 &lt;chr&gt;, logos_href_13 &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   logos_href_14 &lt;chr&gt;, alternate_color &lt;chr&gt;, color &lt;chr&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

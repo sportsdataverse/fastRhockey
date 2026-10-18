@@ -174,8 +174,10 @@ e.g. <code>"5263060"</code>). Obtain via <code><a href="espn_wch_team_roster.htm
 <code><a href="espn_wch_league_notes.html">espn_wch_league_notes()</a></code>,
 <code><a href="espn_wch_league_root.html">espn_wch_league_root()</a></code>,
 <code><a href="espn_wch_news.html">espn_wch_news()</a></code>,
+<code><a href="espn_wch_pbp.html">espn_wch_pbp()</a></code>,
 <code><a href="espn_wch_player_awards.html">espn_wch_player_awards()</a></code>,
 <code><a href="espn_wch_player_bio.html">espn_wch_player_bio()</a></code>,
+<code><a href="espn_wch_player_box.html">espn_wch_player_box()</a></code>,
 <code><a href="espn_wch_player_career_stats.html">espn_wch_player_career_stats()</a></code>,
 <code><a href="espn_wch_player_contracts.html">espn_wch_player_contracts()</a></code>,
 <code><a href="espn_wch_player_core.html">espn_wch_player_core()</a></code>,
@@ -233,6 +235,7 @@ e.g. <code>"5263060"</code>). Obtain via <code><a href="espn_wch_team_roster.htm
 <code><a href="espn_wch_summary.html">espn_wch_summary()</a></code>,
 <code><a href="espn_wch_talentpicks.html">espn_wch_talentpicks()</a></code>,
 <code><a href="espn_wch_team.html">espn_wch_team()</a></code>,
+<code><a href="espn_wch_team_box.html">espn_wch_team_box()</a></code>,
 <code><a href="espn_wch_team_core.html">espn_wch_team_core()</a></code>,
 <code><a href="espn_wch_team_depthcharts.html">espn_wch_team_depthcharts()</a></code>,
 <code><a href="espn_wch_team_history.html">espn_wch_team_history()</a></code>,
@@ -259,7 +262,7 @@ e.g. <code>"5263060"</code>). Obtain via <code><a href="espn_wch_team_roster.htm
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_wch_player_splits</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"5263060"</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-10-13 01:53:53.013201: Invalid arguments or no ESPN womens-college-hockey player splits data available!</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-10-18 05:45:08.348772: Invalid arguments or no ESPN womens-college-hockey player splits data available!</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "womens-college-hockey", athlete_id = "5263060", season = 2025</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: The API returned an error</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>

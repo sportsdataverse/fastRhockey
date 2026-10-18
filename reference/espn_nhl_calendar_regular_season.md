@@ -168,7 +168,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_calendar_regular_season())
 #> ── NHL Calendar Regular-Season data from ESPN core-v2 ──────────────────────────
-#> ℹ Data updated: 2026-10-13 01:52:38 UTC
+#> ℹ Data updated: 2026-10-18 05:44:02 UTC
 #> # A tibble: 193 × 4
 #>    date              date_type start_date        end_date         
 #>    <chr>             <chr>     <chr>             <chr>            

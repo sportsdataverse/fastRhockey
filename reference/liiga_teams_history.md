@@ -86,26 +86,26 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_teams_history())
 #> ── Liiga team history Information from liiga.fi ────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:55:46 UTC
+#> ℹ Data updated: 2026-10-18 05:47:52 UTC
 #> # A tibble: 593 × 25
 #>       id season league_id serie_id    team_id away_games away_losses away_ties
 #>    <int>  <int>     <int>    <int>      <int>      <int>       <int>     <int>
-#>  1   841   2027         1     1188  951626834          7           2         1
-#>  2   843   2027         1     1188  292293444          6           3         0
-#>  3   854   2027         1     1188  679171680          5           1         2
-#>  4   847   2027         1     1188  495643563          7           2         3
-#>  5   844   2027         1     1188  219244634         10           3         0
-#>  6   848   2027         1     1188  624554857          5           0         1
-#>  7   855   2027         1     1188 1368624751          6           2         4
-#>  8   850   2027         1     1188  933686567          5           2         0
-#>  9   852   2027         1     1188  362185137          6           3         0
-#> 10   840   2027         1     1188   55786244          5           3         1
+#>  1   854   2027         1     1188  679171680          7           1         2
+#>  2   841   2027         1     1188  951626834          8           3         1
+#>  3   848   2027         1     1188  624554857          7           0         2
+#>  4   844   2027         1     1188  219244634         10           3         0
+#>  5   843   2027         1     1188  292293444          6           3         0
+#>  6   847   2027         1     1188  495643563          8           2         4
+#>  7   850   2027         1     1188  933686567          5           2         0
+#>  8   853   2027         1     1188  651304385          7           4         2
+#>  9   840   2027         1     1188   55786244          6           4         1
+#> 10   855   2027         1     1188 1368624751          7           3         4
 #> # ℹ 583 more rows
 #> # ℹ 17 more variables: away_wins <int>, away_wins_in_extra_time <int>,
 #> #   games <int>, goals_against <int>, goals_scored <int>, home_games <int>,
 #> #   home_losses <int>, home_ties <int>, home_wins <int>,
-#> #   home_wins_in_extra_time <int>, losses <int>, playoff_rank <int>,
-#> #   points <int>, regular_season_rank <int>, ties <int>, wins <int>,
+#> #   home_wins_in_extra_time <int>, losses <int>, points <int>,
+#> #   playoff_rank <int>, regular_season_rank <int>, ties <int>, wins <int>,
 #> #   wins_in_extra_time <int>
 # }
 ```

@@ -126,17 +126,12 @@ Other SHL Functions:
 # \donttest{
   shl_next_game_day()
 #> ── SHL Next Game Day Information from www.shl.se ───── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:59:18 UTC
-#> # A tibble: 7 × 39
+#> ℹ Data updated: 2026-10-18 05:51:23 UTC
+#> # A tibble: 2 × 39
 #>   game_uuid  start_date_time  state overtime shootout ssgt_uuid home_team_status
 #>   <chr>      <chr>            <chr> <lgl>    <lgl>    <chr>     <chr>           
-#> 1 blr9i7wd72 2026-10-15T17:0… pre-… FALSE    FALSE    qa98unlb… N/A             
-#> 2 pdllryhpd8 2026-10-15T17:0… pre-… FALSE    FALSE    qa98unlb… N/A             
-#> 3 pkjfr73iqb 2026-10-15T17:0… pre-… FALSE    FALSE    qa98unlb… N/A             
-#> 4 pqcc7xg1m4 2026-10-15T17:0… pre-… FALSE    FALSE    qa98unlb… N/A             
-#> 5 s3fwiszzmr 2026-10-15T17:0… pre-… FALSE    FALSE    qa98unlb… N/A             
-#> 6 uxqethue6t 2026-10-15T17:0… pre-… FALSE    FALSE    qa98unlb… N/A             
-#> 7 x0ws1h01an 2026-10-15T17:0… pre-… FALSE    FALSE    qa98unlb… N/A             
+#> 1 gzft1r1ngx 2026-10-20T17:0… pre-… FALSE    FALSE    qa98unlb… N/A             
+#> 2 mtn5yq64mp 2026-10-20T17:0… pre-… FALSE    FALSE    qa98unlb… N/A             
 #> # ℹ 32 more variables: home_team_uuid <chr>, home_team_owner_instance_id <chr>,
 #> #   home_team_code <chr>, home_team_names_code <chr>,
 #> #   home_team_names_short <chr>, home_team_names_long <chr>,

@@ -183,7 +183,7 @@ Saiem Gilani
     espn_nhl_coach(coach_id = ccs$coach_id[1])
   })
 #> ── NHL Coach data from ESPN core-v2 ────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:52:38 UTC
+#> ℹ Data updated: 2026-10-18 05:44:02 UTC
 #> # A tibble: 1 × 10
 #>   coach_id id    uid              first_name last_name date_of_birth  birth_city
 #>   <chr>    <chr> <chr>            <chr>      <chr>     <chr>          <chr>     

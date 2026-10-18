@@ -40,6 +40,6 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_player_stats(player_id = 1)) 
 #> ── QMJHL Player Stats from HockeyTech ──────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:59:02 UTC
+#> ℹ Data updated: 2026-10-18 05:51:03 UTC
 #> # A tibble: 0 × 0
 ```

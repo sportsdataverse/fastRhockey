@@ -5,7 +5,14 @@
 ## Usage
 
 ``` r
-espn_wch_scoreboard(dates = NULL, ...)
+espn_wch_scoreboard(
+  dates = NULL,
+  week = NULL,
+  season_type = NULL,
+  groups = NULL,
+  limit = 500,
+  ...
+)
 ```
 
 ## Arguments
@@ -15,6 +22,23 @@ espn_wch_scoreboard(dates = NULL, ...)
   Optional date or date-range string in `"YYYYMMDD"` or
   `"YYYYMMDD-YYYYMMDD"` format. When `NULL` (default) the current day is
   used.
+
+- week:
+
+  Optional week number (ESPN `week` query).
+
+- season_type:
+
+  Optional season phase (1 = pre, 2 = regular, 3 = post); sent as
+  `seasontype`.
+
+- groups:
+
+  Optional conference/group id filter.
+
+- limit:
+
+  Maximum number of events (ESPN `limit`; default `500`, as sdv-py).
 
 - ...:
 
@@ -26,7 +50,7 @@ A `fastRhockey_data` tibble with one row per game:
 
 |  |  |  |
 |----|----|----|
-| col_name | types | description |
+| col_name | type | description |
 | game_id | character | ESPN event identifier. |
 | uid | character | ESPN event uid. |
 | date | character | Game date-time (ISO 8601). |
@@ -53,7 +77,7 @@ A `fastRhockey_data` tibble with one row per game:
 | venue_city | character | Venue city. |
 | venue_state | character | Venue state. |
 | venue_indoor | logical | Whether the venue is indoors. |
-| broadcast | character | Broadcast network(s). |
+| broadcast | character | Every network name, feed order, deduped, joined with ", " (e.g. "ESPNU, ESPN+"); a broadcast without names gives its market; "" when none. |
 | note | character | Game note or headline. |
 | home_id | character | Home team ESPN identifier. |
 | home_name | character | Home team name. |
@@ -82,8 +106,8 @@ A `fastRhockey_data` tibble with one row per game:
 
 League slug `womens-college-hockey`; `season` is the END year (`2026` =
 2025-26). Same ESPN helper as
-[`espn_nhl_scoreboard()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_scoreboard.md)
-(columns inherited); a collection may be empty.
+[`espn_nhl_scoreboard()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_scoreboard.md);
+columns verified against a captured WCH body.
 
 ## See also
 
@@ -130,8 +154,10 @@ Other ESPN WCH Functions:
 [`espn_wch_league_notes()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_league_notes.md),
 [`espn_wch_league_root()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_league_root.md),
 [`espn_wch_news()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_news.md),
+[`espn_wch_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_pbp.md),
 [`espn_wch_player_awards()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_awards.md),
 [`espn_wch_player_bio()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_bio.md),
+[`espn_wch_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_box.md),
 [`espn_wch_player_career_stats()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_career_stats.md),
 [`espn_wch_player_contracts()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_contracts.md),
 [`espn_wch_player_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_core.md),
@@ -189,6 +215,7 @@ Other ESPN WCH Functions:
 [`espn_wch_summary()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_summary.md),
 [`espn_wch_talentpicks()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_talentpicks.md),
 [`espn_wch_team()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team.md),
+[`espn_wch_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_box.md),
 [`espn_wch_team_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_core.md),
 [`espn_wch_team_depthcharts()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_depthcharts.md),
 [`espn_wch_team_history()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_team_history.md),

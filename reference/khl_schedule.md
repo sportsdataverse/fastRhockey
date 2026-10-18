@@ -130,7 +130,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_schedule(season = 2026))
 #> ── KHL Schedule from khl.ru ────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:54:58 UTC
+#> ℹ Data updated: 2026-10-18 05:47:00 UTC
 #> # A tibble: 748 × 16
 #>    game_id tournament_id date       time  home_club_id home_name    away_club_id
 #>      <int>         <int> <chr>      <chr>        <int> <chr>               <int>

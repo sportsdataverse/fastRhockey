@@ -60,20 +60,20 @@ A data frame (`fastRhockey_data`) with the following columns:
     sort_by = "offensive"
   ))
 #> ── NHL Edge Team Zone Time Top 10 ──────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:57:26 UTC
+#> ℹ Data updated: 2026-10-18 05:49:36 UTC
 #> # A tibble: 10 × 11
 #>    offensive_zone_time neutral_zone_time defensive_zone_time team_abbrev
 #>                  <dbl>             <dbl>               <dbl> <chr>      
-#>  1               0.466             0.179               0.354 CAR        
-#>  2               0.449             0.180               0.371 VGK        
-#>  3               0.445             0.179               0.376 FLA        
-#>  4               0.439             0.175               0.386 UTA        
-#>  5               0.436             0.176               0.388 TBL        
-#>  6               0.432             0.178               0.390 EDM        
-#>  7               0.432             0.187               0.381 NJD        
-#>  8               0.431             0.184               0.384 BUF        
-#>  9               0.430             0.182               0.388 COL        
-#> 10               0.430             0.177               0.393 OTT        
+#>  1               0.466             0.177               0.357 CAR        
+#>  2               0.443             0.179               0.378 FLA        
+#>  3               0.438             0.180               0.382 VGK        
+#>  4               0.433             0.178               0.390 UTA        
+#>  5               0.432             0.182               0.386 NJD        
+#>  6               0.430             0.182               0.388 TBL        
+#>  7               0.425             0.177               0.398 MTL        
+#>  8               0.420             0.178               0.402 NYR        
+#>  9               0.419             0.176               0.405 OTT        
+#> 10               0.418             0.176               0.406 EDM        
 #> # ℹ 7 more variables: team_slug <chr>, team_common_name_default <chr>,
 #> #   team_common_name_fr <chr>, team_place_name_with_preposition_default <chr>,
 #> #   team_place_name_with_preposition_fr <chr>, team_team_logo_light <chr>,

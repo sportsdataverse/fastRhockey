@@ -111,7 +111,7 @@ Other SHL Functions:
 # \donttest{
   shl_boxscore(game_uuid = "bdhvuc5tex")
 #> ── SHL Boxscore Information from www.shl.se ────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-13 01:59:11 UTC
+#> ℹ Data updated: 2026-10-18 05:51:16 UTC
 #> # A tibble: 44 × 29
 #>    team_side position_group player_id team_id period full_name        first_name
 #>    <chr>     <chr>              <int> <chr>    <int> <chr>            <chr>     
