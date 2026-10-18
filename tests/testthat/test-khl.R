@@ -328,6 +328,24 @@ test_that("a 307 re-primes once and retries; a second 307 is a failed fetch", {
                class = "fastRhockey_asset_fetch")
 })
 
+test_that("a ServicePipe challenge on priming is named, never retried, never POSTed", {
+  skip_on_cran()
+  khl_reset()
+  page <- khl_fx_text("rest/servicepipe_challenge.html")
+  challenge <- function(req) httr2::response(status_code = 200L, url = req$url,
+                                             headers = list(`Content-Type` = "text/html"),
+                                             body = charToRaw(page))
+  log <- khl_transport(list(khl_file("rest/game__header.json")), homes = list(challenge, challenge))
+  expect_error(.khl_get(paste0(KHL_REST, "/game/header/"), KHL_HEADER_FORM),
+               "anti-bot challenge page.*fastRhockey.proxy", class = "fastRhockey_asset_fetch")
+  expect_equal(khl_methods(log), "GET")
+  # a 200 page without a sessid and without challenge markers keeps the generic message
+  khl_reset()
+  khl_transport(homes = list(khl_text("<html>maintenance</html>")))
+  expect_error(.khl_get(paste0(KHL_REST, "/game/header/"), KHL_HEADER_FORM), "without a sessid",
+               class = "fastRhockey_asset_fetch")
+})
+
 test_that("an error envelope is a failed fetch", {
   skip_on_cran()
   khl_reset()

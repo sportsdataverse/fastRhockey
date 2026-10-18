@@ -1146,6 +1146,9 @@
 # .polite_perform() (up to 3 attempts, 2 s then 4 s apart).
 .khl_send <- function(req) .polite_perform(req, backoff = 2)
 
+# Markers of ServicePipe's anti-bot JS-challenge page (as sdv-py's khl_runtime.CHALLENGE_RE).
+.KHL_CHALLENGE_RE <- "servicepipe\\.tech|<js-challenge|get_cookie_spid|id_captcha_frame_div"
+
 # GET site/ (following the cookie-setting 307) and scrape the Bitrix sessid.
 .khl_prime <- function(session, timeout = 60) {
   home <- paste0(session$site, "/")
@@ -1156,6 +1159,13 @@
   .euro_check_status(resp)
   text <- if (httr2::resp_has_body(resp)) .resp_text(resp) else ""
   m <- regmatches(text, regexec("sessid\":\"([a-f0-9]{32})", text))[[1]]
+  if (length(m) != 2 && grepl(.KHL_CHALLENGE_RE, text, ignore.case = TRUE)) {
+    # ServicePipe's JS challenge (HTTP 200 HTML, no sessid): a block, not a parse bug.
+    # It is never solved or bypassed.
+    .abort_asset_fetch(paste0(
+      "khl.ru served an anti-bot challenge page; try again later or through ",
+      "{.code getOption('fastRhockey.proxy')}."))
+  }
   if (length(m) != 2) {
     where <- .euro_where(home)
     status <- httr2::resp_status(resp)
