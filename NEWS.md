@@ -47,9 +47,37 @@
 * `nhl_game_shifts()` gains a `detailed` argument: `detailed = TRUE` returns
   the per-player shift records (one row per player-shift with game-second
   on/off times) instead of the aggregated one-row-per-change frame (#26).
+* ESPN college hockey follow-ups: the `espn_mch_*` / `espn_wch_*` wrappers take
+  the sportsdataverse-py arguments the shared helpers used to drop (scoreboard
+  `week`, `season_type`, `groups`, `limit`; standings `group`,
+  `standings_type`; leaders `sort`; coach_record `record_type`; `limit` on
+  teams_site, team_roster, transactions and season_awards); `espn_nhl_*`
+  requests are unchanged. New `espn_{mch,wch}_{pbp,team_box,player_box}`
+  wrappers mirror the NHL ones. The college `@return` tables are now checked
+  against captured mch/wch bodies (30 verified; injuries, transactions and
+  rosters were empty in every capture and say so).
+* VHL: requests use the shared polite retry (429/5xx with `Retry-After`) and
+  HTML tables parse about 6x faster (a stats page 24.7 s -> 4.0 s).
 
 ### Bug fixes
 
+* ESPN college hockey routes match sportsdataverse-py: `coach_record` asks
+  for `coaches/{id}/record/{record_type}` (default `0`) and `coach_season` for
+  `coaches/{id}/seasons/{season}`. `calendar` deliberately keeps reading the
+  scoreboard payload: sportsdataverse-py's `/calendar` route answers 404 for
+  both college leagues.
+* ESPN scoreboards (`espn_nhl_scoreboard()` and the college ones): the
+  `broadcast` column joins every network name with ", " ("ESPNU, ESPN+"; feed
+  order, deduped), exactly as sportsdataverse-py; it used to carry ESPN's
+  "/"-joined first-market string. Team schedules use the same rule.
+* ESPN `teams_site`, `team_schedule` and `standings` returned empty frames on
+  college bodies (no `alternateColor`; played and unplayed games mixing score
+  types, which also hit NHL schedules spanning both; a standings table at the
+  root of the body).
+* KHL: when khl.ru answers session priming with its ServicePipe anti-bot
+  challenge page, the error now says so ("khl.ru served an anti-bot challenge
+  page; try again later or through `getOption('fastRhockey.proxy')`") instead
+  of reporting a missing `sessid`.
 * The NHL release loaders rejected the 2009-10 season: every `load_nhl_*()`
   release loader (and `.nhl_release_loader()`'s default) required
   `seasons >= 2011`, but each sportsdataverse-data release publishes from 2010.
