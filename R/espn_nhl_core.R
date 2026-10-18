@@ -344,6 +344,10 @@ espn_nhl_scoreboard <- function(dates = NULL, ...) {
                                   simplifyVector = FALSE, ...)
 
       children <- raw[["children"]] %||% list()
+      # Some bodies (wch) carry one table at the root and no children.
+      if (length(children) == 0 && length(raw[["standings"]][["entries"]]) > 0) {
+        children <- list(raw)
+      }
       if (length(children) == 0) return(standings)
 
       .extract_entries <- function(child_list, parent_name = "", parent_abbr = "") {
@@ -844,8 +848,8 @@ espn_nhl_calendar <- function(...) {
 
         home_score_raw <- home$score %||% list()
         away_score_raw <- away$score %||% list()
-        home_score_val <- if (is.list(home_score_raw)) home_score_raw$value %||% NA_character_ else as.character(home_score_raw %||% NA_character_)
-        away_score_val <- if (is.list(away_score_raw)) away_score_raw$value %||% NA_character_ else as.character(away_score_raw %||% NA_character_)
+        home_score_val <- as.character(if (is.list(home_score_raw)) home_score_raw$value %||% NA_character_ else home_score_raw %||% NA_character_)
+        away_score_val <- as.character(if (is.list(away_score_raw)) away_score_raw$value %||% NA_character_ else away_score_raw %||% NA_character_)
 
         broadcast_str <- tryCatch({
           bc <- comps$broadcasts %||% list()

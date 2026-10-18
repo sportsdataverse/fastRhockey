@@ -71,7 +71,8 @@
         )
 
       teams <- leagues %>%
-        dplyr::rename(
+        # any_of: college bodies carry no alternateColor (nor a second logo)
+        dplyr::rename(dplyr::any_of(c(
           "logo"            = "logos_href_1",
           "logo_dark"       = "logos_href_2",
           "mascot"          = "name",
@@ -80,7 +81,7 @@
           "short_name"      = "shortDisplayName",
           "alternate_color" = "alternateColor",
           "display_name"    = "displayName"
-        ) %>%
+        ))) %>%
         dplyr::mutate(
           espn_team_id = as.integer(.data$espn_team_id)
         )
