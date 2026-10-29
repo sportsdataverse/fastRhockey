@@ -39,6 +39,9 @@
   slot <- max(now, (.polite_clock[[host]] %||% -Inf) + min_interval)
   .polite_clock[[host]] <- slot
   if (slot > now) Sys.sleep(slot - now)
+  # Stamp the actual wake time: Sys.sleep() can oversleep (macOS timer coalescing on a
+  # loaded machine), and that overshoot must not be charged to the next request's interval.
+  .polite_clock[[host]] <- max(slot, proc.time()[["elapsed"]])
   invisible(slot - now)
 }
 

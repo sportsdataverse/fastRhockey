@@ -19,6 +19,23 @@ test_that(".polite_wait spaces requests to one host and leaves other hosts alone
   expect_equal(other, 0)
 })
 
+test_that(".polite_wait charges an oversleep to the slept request, not the next one", {
+  skip_on_cran()
+  # Sys.sleep() can overshoot (macOS timer coalescing on a loaded runner); inject a
+  # 0.2 s overshoot on the first sleep only.
+  n <- 0
+  wait <- .polite_wait
+  environment(wait) <- list2env(list(Sys.sleep = function(s) {
+    n <<- n + 1
+    base::Sys.sleep(s + if (n == 1) 0.2 else 0)
+  }), parent = environment(.polite_wait))
+  wait("https://oversleep.test/a", min_interval = 0.3)
+  wait("https://oversleep.test/b", min_interval = 0.3) # sleeps 0.3, overshoots to 0.5
+  woke <- proc.time()[["elapsed"]]
+  wait("https://oversleep.test/c", min_interval = 0.3)
+  expect_gte(proc.time()[["elapsed"]] - woke, 0.29)
+})
+
 test_that(".polite_perform waits on every attempt, retries included, and the next call waits after the retry", {
   skip_on_cran()
   seen <- numeric()
