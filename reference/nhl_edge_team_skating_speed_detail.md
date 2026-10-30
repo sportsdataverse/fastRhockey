@@ -67,20 +67,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_team_skating_speed_detail(team_id = 10))
 #> ── NHL Edge Team Skating Speed Detail ──────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:09:18 UTC
+#> ℹ Data updated: 2026-10-30 00:17:58 UTC
 #> # A tibble: 10 × 30
 #>    game_center_link    game_date game_type is_home_team time_in_period player_id
 #>    <chr>               <chr>         <int> <lgl>        <chr>              <int>
-#>  1 /gamecenter/tor-vs… 2026-10-…         2 FALSE        02:05            8486067
-#>  2 /gamecenter/tor-vs… 2026-10-…         2 FALSE        03:00            8479520
-#>  3 /gamecenter/tor-vs… 2026-10-…         2 FALSE        04:17            8480893
-#>  4 /gamecenter/buf-vs… 2026-10-…         2 TRUE         09:34            8479772
-#>  5 /gamecenter/tor-vs… 2026-10-…         2 FALSE        03:13            8486067
-#>  6 /gamecenter/tor-vs… 2026-10-…         2 FALSE        04:55            8478458
-#>  7 /gamecenter/buf-vs… 2026-10-…         2 TRUE         19:31            8484158
-#>  8 /gamecenter/nsh-vs… 2026-10-…         2 TRUE         19:38            8478458
-#>  9 /gamecenter/nyi-vs… 2026-09-…         2 TRUE         02:54            8484158
-#> 10 /gamecenter/tor-vs… 2026-10-…         2 FALSE        03:57            8484158
+#>  1 /gamecenter/nyr-vs… 2026-10-…         2 TRUE         04:58            8478458
+#>  2 /gamecenter/tor-vs… 2026-10-…         2 FALSE        16:15            8478458
+#>  3 /gamecenter/tor-vs… 2026-10-…         2 FALSE        02:05            8486067
+#>  4 /gamecenter/sjs-vs… 2026-10-…         2 TRUE         05:25            8478458
+#>  5 /gamecenter/tor-vs… 2026-10-…         2 FALSE        03:00            8479520
+#>  6 /gamecenter/sjs-vs… 2026-10-…         2 TRUE         09:37            8479968
+#>  7 /gamecenter/tor-vs… 2026-10-…         2 FALSE        04:17            8480893
+#>  8 /gamecenter/buf-vs… 2026-10-…         2 TRUE         09:34            8479772
+#>  9 /gamecenter/tor-vs… 2026-10-…         2 FALSE        03:13            8486067
+#> 10 /gamecenter/tor-vs… 2026-10-…         2 FALSE        04:55            8478458
 #> # ℹ 24 more variables: player_slug <chr>, player_first_name_default <chr>,
 #> #   player_last_name_default <chr>, player_last_name_cs <chr>,
 #> #   player_last_name_fi <chr>, player_last_name_sk <chr>,

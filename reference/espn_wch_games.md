@@ -177,19 +177,12 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_games(limit = 10))
 #> ── WOMENS-COLLEGE-HOCKEY Games data from ESPN core-v2 ──────────────────────────
-#> ℹ Data updated: 2026-10-18 12:04:55 UTC
-#> # A tibble: 10 × 4
-#>    ref                                                 event_id count page_count
-#>    <chr>                                               <chr>    <int>      <int>
-#>  1 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019041…    19          2
-#>  2 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019041…    19          2
-#>  3 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019041…    19          2
-#>  4 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019038…    19          2
-#>  5 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019040…    19          2
-#>  6 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019037…    19          2
-#>  7 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019037…    19          2
-#>  8 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019037…    19          2
-#>  9 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019040…    19          2
-#> 10 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019042…    19          2
+#> ℹ Data updated: 2026-10-30 00:10:41 UTC
+#> # A tibble: 3 × 4
+#>   ref                                                  event_id count page_count
+#>   <chr>                                                <chr>    <int>      <int>
+#> 1 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019123…     3          1
+#> 2 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019136…     3          1
+#> 3 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019041…     3          1
 # }
 ```

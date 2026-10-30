@@ -141,21 +141,21 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_league_part_player_stats(league_part_id = 56))
 #> ── ICE Hockey League league_part_player_stats from the eSports hokejovyzapis buc
-#> ℹ Data updated: 2026-10-18 12:05:49 UTC
-#> # A tibble: 345 × 91
+#> ℹ Data updated: 2026-10-30 00:14:32 UTC
+#> # A tibble: 356 × 91
 #>    player_id name       firstname surname birthdate position stick weight height
 #>        <int> <chr>      <chr>     <chr>   <chr>     <chr>    <chr>  <int>  <int>
 #>  1      4795 Joshua Da… Joshua D… Lawren… 2002-01-… FW       NA         0      0
 #>  2      4716 Brady Shaw Brady     Shaw    1992-10-… FW       left      91    185
-#>  3      3531 Marly Qui… Marly     Quince  1994-01-… FW       left      92    183
+#>  3      2979 Graham Kn… Graham    Knott   1997-01-… FW       left      87    191
 #>  4      4024 Nick Swan… Nick      Swaney  1997-09-… FW       left       0      0
-#>  5      2979 Graham Kn… Graham    Knott   1997-01-… FW       left      87    191
-#>  6      3494 Linden Vey Linden    Vey     1991-07-… FW       left       0      0
-#>  7      4816 Jakob Lil… Jakob     Lilja   1993-07-… FW       NA        89    184
-#>  8      4700 Carter Sa… Carter    Savoie  2002-01-… FW       left      86    178
-#>  9      2943 Jeremy Gr… Jeremy    Gregoi… 1995-09-… FW       NA        88    183
-#> 10      3499 Cole Schn… Cole      Schnei… 1990-08-… FW       NA         0      0
-#> # ℹ 335 more rows
+#>  5      4700 Carter Sa… Carter    Savoie  2002-01-… FW       left      86    178
+#>  6      2999 Brad McCl… Brad      McClure 1993-08-… FW       right     79    180
+#>  7      2861 Nicolai M… Nicolai   Meyer   1993-07-… FW       left      82    179
+#>  8      3531 Marly Qui… Marly     Quince  1994-01-… FW       left      92    183
+#>  9      3499 Cole Schn… Cole      Schnei… 1990-08-… FW       NA         0      0
+#> 10      4759 Blake Mur… Blake     Murray  2001-07-… FW       left       0      0
+#> # ℹ 346 more rows
 #> # ℹ 82 more variables: jersey <int>, birth_country <chr>, nationality <chr>,
 #> #   nationality_short <chr>, team_id <int>, team_shortcut <chr>, games <int>,
 #> #   goals <int>, goals_home <int>, goals_away <int>, assists <int>,

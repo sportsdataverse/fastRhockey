@@ -109,19 +109,19 @@ Other Metal Ligaen eSports functions:
 # \donttest{
   try(metal_standings(season = 2027, league_id = 1))
 #> ── Metal Ligaen standings from the eSports hokejovyzapis bucket ────────────────
-#> ℹ Data updated: 2026-10-18 12:08:46 UTC
+#> ℹ Data updated: 2026-10-30 00:17:23 UTC
 #> # A tibble: 9 × 31
 #>   group_id group_name complete team_id part_team_id name  team_original shortcut
 #>      <int> <chr>      <lgl>      <int>        <int> <chr> <chr>         <chr>   
 #> 1       NA ""         TRUE           6           42 Hern… Herning Blue… HER     
 #> 2       NA ""         TRUE           3           40 Fred… Frederikshav… FRE     
 #> 3       NA ""         TRUE           5           39 Esbj… Esbjerg Ener… ESB     
-#> 4       NA ""         TRUE           7           41 Herl… Herlev Eagles HLV     
-#> 5       NA ""         TRUE           2           46 Sønd… Sønderjyske … SON     
-#> 6       NA ""         TRUE           4           38 Aalb… Aalborg Pira… AAL     
+#> 4       NA ""         TRUE           2           46 Sønd… Sønderjyske … SON     
+#> 5       NA ""         TRUE           7           41 Herl… Herlev Eagles HLV     
+#> 6       NA ""         TRUE           1           45 Rung… Rungsted Sei… RUN     
 #> 7       NA ""         TRUE           9           43 Oden… Odense Bulld… ODE     
-#> 8       NA ""         TRUE           8           44 Rødo… Rødovre Migh… ROD     
-#> 9       NA ""         TRUE           1           45 Rung… Rungsted Sei… RUN     
+#> 8       NA ""         TRUE           4           38 Aalb… Aalborg Pira… AAL     
+#> 9       NA ""         TRUE           8           44 Rødo… Rødovre Migh… ROD     
 #> # ℹ 23 more variables: position <int>, points <int>, games <int>, wins <int>,
 #> #   wins_ot <int>, wins_reg <int>, ties <int>, losts_ot <int>, losts <int>,
 #> #   score1 <int>, score2 <int>, goals_away <int>, points_away <int>,

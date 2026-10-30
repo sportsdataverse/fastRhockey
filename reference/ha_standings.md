@@ -103,29 +103,8 @@ Other HA Functions:
 ``` r
 # \donttest{
   try(ha_standings(season = 2026))
-#> ── HA Standings Information from hockeyallsvenskan.se ──────────────────────────
-#> ℹ Data updated: 2026-10-18 12:05:40 UTC
-#> # A tibble: 14 × 18
-#>    season  rank team_code_mixed team_code games_played regulation_wins
-#>     <int> <int> <chr>           <chr>            <int>           <int>
-#>  1   2026     1 IFB             IFB                 52              34
-#>  2   2026     2 KHC             KHC                 52              34
-#>  3   2026     3 BIK             BIK                 52              26
-#>  4   2026     4 MODO            MoDo                52              24
-#>  5   2026     5 AIK             AIK                 52              22
-#>  6   2026     6 NVIF            NVIF                52              19
-#>  7   2026     7 SSK             SSK                 52              20
-#>  8   2026     8 IKO             IKO                 52              21
-#>  9   2026     9 AIS             AIS                 52              18
-#> 10   2026    10 MORA            MORA                52              14
-#> 11   2026    11 ÖIK             ÖIK                 52              16
-#> 12   2026    12 VHC             VHC                 52              14
-#> 13   2026    13 VIK             VIK                 52              13
-#> 14   2026    14 TRO             TRO                 52               9
-#> # ℹ 12 more variables: regulation_losses <int>, ties <int>,
-#> #   overtime_and_shootout_wins <int>, overtime_and_shootout_losses <int>,
-#> #   shootouts_wins <int>, shootouts_losses <int>, goals <int>,
-#> #   goals_against <int>, goal_difference <int>, total_points <int>,
-#> #   power_play_perc <dbl>, penalty_kill_perc <dbl>
+#> Error in nothing("answered no rows (a season or phase without data, or an unknown filter value)") : 
+#>   hockeyallsvenskan.se/api/league-standings-all-time: answered no rows (a
+#> season or phase without data, or an unknown filter value)
 # }
 ```

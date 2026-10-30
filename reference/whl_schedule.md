@@ -47,7 +47,7 @@ Other WHL Functions:
 ``` r
  try(whl_schedule()) 
 #> ── WHL Schedule from HockeyTech ────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:13:04 UTC
+#> ℹ Data updated: 2026-10-30 00:21:35 UTC
 #> # A tibble: 782 × 12
 #>    game_id game_date     game_status home_team home_team_id home_score away_team
 #>    <chr>   <chr>         <chr>       <chr>     <chr>        <chr>      <chr>    

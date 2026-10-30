@@ -148,7 +148,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_webcaster_players(player_ids = "[33405, 1144]", season = 2026))
 #> ── KHL Webcaster Players from khl.api.webcaster.pro ── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:06:30 UTC
+#> ℹ Data updated: 2026-10-30 00:15:11 UTC
 #> # A tibble: 0 × 29
 #> # ℹ 29 variables: id <int>, height <int>, weight <int>, age <int>,
 #> #   shirt_number <int>, khl_id <int>, role <chr>, role_key <chr>,

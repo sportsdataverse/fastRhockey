@@ -195,7 +195,7 @@ Saiem Gilani
   # NOTE: Returns empty tibble for NHL (ESPN does not use weeks for hockey)
   try(espn_wch_season_week(season = 2026, season_type = 2, week = 1))
 #> ── WOMENS-COLLEGE-HOCKEY Season Week data from ESPN core-v2 ────────────────────
-#> ℹ Data updated: 2026-10-18 12:05:12 UTC
+#> ℹ Data updated: 2026-10-30 00:10:57 UTC
 #> # A tibble: 1 × 9
 #>   season season_type  week number start_date  end_date text  week_ref events_ref
 #>    <int>       <int> <int>  <int> <chr>       <chr>    <chr> <chr>    <chr>     

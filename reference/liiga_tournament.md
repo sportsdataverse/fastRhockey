@@ -64,10 +64,10 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_tournament())
 #> ── Liiga tournament Information from liiga.fi ──────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:07:20 UTC
+#> ℹ Data updated: 2026-10-30 00:15:54 UTC
 #> # A tibble: 1 × 3
 #>   cachebust game_week max_game_week
 #>   <lgl>         <int>         <int>
-#> 1 FALSE             7            28
+#> 1 FALSE             9            28
 # }
 ```

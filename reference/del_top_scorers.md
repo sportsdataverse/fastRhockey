@@ -95,21 +95,21 @@ Other DEL eSports functions:
 # \donttest{
   try(del_top_scorers(season = 2027, league_id = 1))
 #> ── DEL top_scorers from the eSports hokejovyzapis bucket ───────────────────────
-#> ℹ Data updated: 2026-10-18 12:02:10 UTC
-#> # A tibble: 371 × 13
+#> ℹ Data updated: 2026-10-30 00:08:11 UTC
+#> # A tibble: 373 × 13
 #>    player_id name   surname team_id team_name team_shortcut goals assists points
 #>        <int> <chr>  <chr>     <int> <chr>     <chr>         <int>   <int>  <int>
-#>  1      3410 Liam   Kirk          3 Eisbären… EBB               7      12     19
-#>  2      2209 Ty     Ronning       3 Eisbären… EBB               8       7     15
-#>  3      3950 Mathew Santos        5 Krefeld … KEV               7       6     13
-#>  4      2935 Max    Newton        5 Krefeld … KEV               4       9     13
-#>  5       507 Marcel Noebels      11 Kölner H… KEC               7       5     12
-#>  6      3572 Patri… Russell      11 Kölner H… KEC               2      10     12
-#>  7      3576 Riley  Barber        1 ERC Ingo… ING               6       5     11
-#>  8      3550 Nicho… Hallor…       6 Straubin… STR               5       6     11
-#>  9      3426 Taro   Hirose       12 EHC Red … RBM               2       9     11
-#> 10      3594 Kyle   Mayhew       13 Augsburg… AEV               2       9     11
-#> # ℹ 361 more rows
+#>  1      3410 Liam   Kirk          3 Eisbären… EBB               7      15     22
+#>  2      3950 Mathew Santos        5 Krefeld … KEV               9       9     18
+#>  3      2209 Ty     Ronning       3 Eisbären… EBB              10       7     17
+#>  4      2935 Max    Newton        5 Krefeld … KEV               6      11     17
+#>  5      3442 Samuel Dove-M…      14 Nürnberg… NIT               8       8     16
+#>  6       507 Marcel Noebels      11 Kölner H… KEC               7       9     16
+#>  7      3572 Patri… Russell      11 Kölner H… KEC               4      12     16
+#>  8      1863 Thomas Heigl        14 Nürnberg… NIT               6       9     15
+#>  9      3704 Peter  Abband…       1 ERC Ingo… ING               5      10     15
+#> 10       648 Louis… Aubry        11 Kölner H… KEC               8       6     14
+#> # ℹ 363 more rows
 #> # ℹ 4 more variables: shots <int>, games <int>, penalty_minutes <int>,
 #> #   time_on_ice <int>
 # }

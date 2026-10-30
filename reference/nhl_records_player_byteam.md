@@ -105,20 +105,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_player_byteam(team_id = 10))
 #> ── NHL Records Player by Team ──────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:09:54 UTC
+#> ℹ Data updated: 2026-10-30 00:18:36 UTC
 #> # A tibble: 80 × 71
 #>         id accrued_seasons add_names   age_sign_waiver age_signel_fa alert
 #>      <int>           <int> <chr>                 <int>         <int> <chr>
 #>  1 8475166              17 NA                       19            18 N    
 #>  2 8475690              14 Christopher              21            20 N    
 #>  3 8477425              10 NA                       20            21 Y    
-#>  4 8477503              11 NA                       18            18 N    
-#>  5 8477541               3 NA                       21            21 N    
-#>  6 8478007               7 NA                       24            25 Y    
-#>  7 8478057               4 NA                       23            23 Y    
-#>  8 8479026               5 Phil                     18            18 N    
-#>  9 8479528              NA NA                       NA            NA N    
-#> 10 8479543               4 NA                       20            20 N    
+#>  4 8480893               4 NA                       22            22 Y    
+#>  5 8483546               0 NA                       25            25 N    
+#>  6 8483565               3 Nicholas                 23            24 N    
+#>  7 8477503              11 NA                       18            18 N    
+#>  8 8478007               7 NA                       24            25 Y    
+#>  9 8479026               5 Phil                     18            18 N    
+#> 10 8479528              NA NA                       NA            NA N    
 #> # ℹ 70 more rows
 #> # ℹ 65 more variables: birth_city <chr>, birth_country <chr>, birth_date <chr>,
 #> #   birth_state_province <chr>, career_team_id <lgl>,

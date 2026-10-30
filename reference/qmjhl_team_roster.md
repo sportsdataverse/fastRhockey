@@ -48,8 +48,8 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_team_roster(team_id = 1)) 
 #> ── QMJHL Team Roster from HockeyTech ───────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:11:09 UTC
-#> # A tibble: 24 × 45
+#> ℹ Data updated: 2026-10-30 00:19:55 UTC
+#> # A tibble: 24 × 46
 #>    id    person_id active first_name last_name phonetic_name display_name shoots
 #>    <chr> <chr>     <chr>  <chr>      <chr>     <chr>         <chr>        <chr> 
 #>  1 24551 25541     1      Tommy      Coccaro   ""            ""           L     
@@ -63,10 +63,10 @@ Other QMJHL Functions:
 #>  9 23415 27123     1      Noah       Survilas  ""            ""           R     
 #> 10 21351 26824     1      Charlie    Benigno   ""            ""           R     
 #> # ℹ 14 more rows
-#> # ℹ 37 more variables: hometown <chr>, homeprov <chr>, homecntry <chr>,
+#> # ℹ 38 more variables: hometown <chr>, homeprov <chr>, homecntry <chr>,
 #> #   homeplace <chr>, birthtown <chr>, birthprov <chr>, birthcntry <chr>,
 #> #   birthplace <chr>, height <chr>, weight <chr>, height_hyphenated <chr>,
-#> #   hidden <chr>, current_team <chr>, player_id <chr>, status <chr>,
-#> #   birthdate <chr>, birthdate_year <chr>, rawbirthdate <chr>,
+#> #   hidden <chr>, current_team <chr>, grad_year <chr>, player_id <chr>,
+#> #   status <chr>, birthdate <chr>, birthdate_year <chr>, rawbirthdate <chr>,
 #> #   latest_team_id <chr>, veteran_status <chr>, veteran_description <chr>, …
 ```

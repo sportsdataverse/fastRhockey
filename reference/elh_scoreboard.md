@@ -84,8 +84,7 @@ Other ELH Functions:
 ``` r
 # \donttest{
   try(elh_scoreboard(date = format(Sys.Date() - 1)))
-#> Error in .elh_check_json(url, raw) : 
-#>   json.esports.cz/hokejcz/scoreboard/2026-10-17.json: no Extraliga (league
-#> 101) game that day
+#> Error in .euro_check_status(resp) : 
+#>   json.esports.cz/hokejcz/scoreboard/2026-10-29.json answered HTTP 404.
 # }
 ```

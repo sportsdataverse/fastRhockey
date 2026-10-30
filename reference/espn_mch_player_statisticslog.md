@@ -175,7 +175,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_player_statisticslog(athlete_id = "5136656"))
 #> ── MENS-COLLEGE-HOCKEY Player Statisticslog data from ESPN core-v2 ─────────────
-#> ℹ Data updated: 2026-10-18 12:02:59 UTC
+#> ℹ Data updated: 2026-10-30 00:08:58 UTC
 #> # A tibble: 2 × 6
 #>   athlete_id season season_ref           total_stats_ref team_stats_ref team_ref
 #>   <chr>       <int> <chr>                <chr>           <chr>          <chr>   

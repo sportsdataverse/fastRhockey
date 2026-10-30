@@ -211,13 +211,16 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_player_gamelog(athlete_id = "5149125"))
 #> ── NHL Player Gamelog data from ESPN.com ───────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:03:51 UTC
-#> # A tibble: 3 × 35
+#> ℹ Data updated: 2026-10-30 00:09:44 UTC
+#> # A tibble: 6 × 35
 #>   athlete_id event_id  season_type_display    category_display category_type
 #>   <chr>      <chr>     <chr>                  <chr>            <chr>        
-#> 1 5149125    401892528 2026-27 Regular Season October          event        
-#> 2 5149125    401892512 2026-27 Regular Season October          event        
-#> 3 5149125    401892496 2026-27 Regular Season October          event        
+#> 1 5149125    401892587 2026-27 Regular Season October          event        
+#> 2 5149125    401892578 2026-27 Regular Season October          event        
+#> 3 5149125    401892564 2026-27 Regular Season October          event        
+#> 4 5149125    401892528 2026-27 Regular Season October          event        
+#> 5 5149125    401892512 2026-27 Regular Season October          event        
+#> 6 5149125    401892496 2026-27 Regular Season October          event        
 #> # ℹ 30 more variables: category_split_type <chr>, game_date <chr>, at_vs <chr>,
 #> #   score <chr>, home_team_id <chr>, away_team_id <chr>, home_team_score <chr>,
 #> #   away_team_score <chr>, game_result <chr>, opponent_id <chr>,

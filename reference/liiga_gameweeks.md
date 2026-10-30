@@ -75,7 +75,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_gameweeks(season = 2026))
 #> ── Liiga game weeks Information from liiga.fi ──────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:06:48 UTC
+#> ℹ Data updated: 2026-10-30 00:15:30 UTC
 #> # A tibble: 1 × 3
 #>   season serie      nb_weeks
 #>    <int> <chr>         <int>

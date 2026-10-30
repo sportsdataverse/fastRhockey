@@ -186,7 +186,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_fpi(season = 2026))
-#> ✖ 2026-10-18 12:02:37.648844: Invalid arguments or no ESPN mens-college-hockey power index available!
+#> ✖ 2026-10-30 00:08:39.282841: Invalid arguments or no ESPN mens-college-hockey power index available!
 #> ✖ Args: league = "mens-college-hockey", kind = "fpi", path = NULL, query = list(season = 2026)
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

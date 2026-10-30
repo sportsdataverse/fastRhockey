@@ -128,27 +128,6 @@ Other SHL Functions:
 ``` r
 # \donttest{
   shl_schedule(season = 2026)
-#> ── SHL Schedule Information from www.shl.se ────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:11:43 UTC
-#> # A tibble: 364 × 42
-#>    game_uuid  raw_start_date_time      start_date_time   state overtime shootout
-#>    <chr>      <chr>                    <chr>             <chr> <lgl>    <lgl>   
-#>  1 bdhvuc5tex 2025-09-13T13:15:00.000Z 2025-09-13 15:15… post… FALSE    FALSE   
-#>  2 c98ytzvqnc 2025-09-13T13:15:00.000Z 2025-09-13 15:15… post… FALSE    FALSE   
-#>  3 ohx2e9aofl 2025-09-13T13:15:00.000Z 2025-09-13 15:15… post… FALSE    FALSE   
-#>  4 c2ukp33wez 2025-09-13T16:00:00.000Z 2025-09-13 18:00… post… TRUE     FALSE   
-#>  5 ds1mrdpfo2 2025-09-13T16:00:00.000Z 2025-09-13 18:00… post… FALSE    FALSE   
-#>  6 rdzmudkxwd 2025-09-13T16:00:00.000Z 2025-09-13 18:00… post… FALSE    FALSE   
-#>  7 s2a1at20o5 2025-09-13T16:00:00.000Z 2025-09-13 18:00… post… FALSE    FALSE   
-#>  8 cexeiyibd5 2025-09-16T17:00:00.000Z 2025-09-16 19:00… post… FALSE    FALSE   
-#>  9 gez145lpie 2025-09-16T17:00:00.000Z 2025-09-16 19:00… post… FALSE    FALSE   
-#> 10 jhg1bzfao7 2025-09-16T17:00:00.000Z 2025-09-16 19:00… post… FALSE    FALSE   
-#> # ℹ 354 more rows
-#> # ℹ 36 more variables: ssgt_uuid <chr>, home_team_status <chr>,
-#> #   home_team_uuid <chr>, home_team_owner_instance_id <chr>,
-#> #   home_team_code <chr>, home_team_names_code <chr>,
-#> #   home_team_names_short <chr>, home_team_names_long <chr>,
-#> #   home_team_names_full <chr>, home_team_names_code_site <chr>,
-#> #   home_team_names_short_site <chr>, home_team_names_full_site <chr>, …
+#> Error in .shl_directory(): www.shl.se/api/statistics-v2/layout-info: no ssgt directory in the body
 # }
 ```

@@ -139,27 +139,8 @@ Other HA Functions:
 ``` r
 # \donttest{
   try(ha_games(season = 2026))
-#> ── HA Games Information from hockeyallsvenskan.se ──── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:05:29 UTC
-#> # A tibble: 364 × 26
-#>    season date    home_team_code away_team_code home_score away_score decided_in
-#>     <int> <chr>   <chr>          <chr>               <int>      <int> <chr>     
-#>  1   2026 2025-0… MoDo           ÖIK                     3          1 FT        
-#>  2   2026 2025-0… SSK            BIK                     1          4 FT        
-#>  3   2026 2025-0… AIK            VIK                     2          1 FT        
-#>  4   2026 2025-0… MORA           IFB                     1          2 SO        
-#>  5   2026 2025-0… NVIF           IKO                     3          2 FT        
-#>  6   2026 2025-0… AIS            KHC                     4          1 FT        
-#>  7   2026 2025-0… VHC            TRO                     1          2 OT        
-#>  8   2026 2025-0… SSK            TRO                     5          4 FT        
-#>  9   2026 2025-0… IFB            AIK                     5          1 FT        
-#> 10   2026 2025-0… KHC            VHC                     6          1 FT        
-#> # ℹ 354 more rows
-#> # ℹ 19 more variables: is_played <lgl>, arena <chr>, attendance <int>,
-#> #   home_shots_total <int>, home_shots_goal <int>, home_shots_efficiency <dbl>,
-#> #   home_powerplay_goals <int>, home_powerplay_num_pp <int>,
-#> #   home_powerplay_efficiency <dbl>, home_expulsions_in_minutes <int>,
-#> #   away_shots_total <int>, away_shots_goal <int>, away_shots_efficiency <dbl>,
-#> #   away_powerplay_goals <int>, away_powerplay_num_pp <int>, …
+#> Error in nothing("answered no rows (a season or phase without data, or an unknown filter value)") : 
+#>   hockeyallsvenskan.se/api/all-time-games-stats: answered no rows (a
+#> season or phase without data, or an unknown filter value)
 # }
 ```

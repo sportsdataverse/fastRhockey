@@ -127,7 +127,7 @@ Other SHL Functions:
 # \donttest{
   shl_athlete_career(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl")
 #> ── SHL Athlete Career Information from www.shl.se ──── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:11:12 UTC
+#> ℹ Data updated: 2026-10-30 00:19:56 UTC
 #> # A tibble: 37 × 38
 #>       gp   gpi    ga   gaa   svs svs_perc     w     t     l    so info_uuid    
 #>    <dbl> <dbl> <dbl> <dbl> <dbl>    <dbl> <dbl> <dbl> <dbl> <dbl> <chr>        

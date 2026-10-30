@@ -125,19 +125,6 @@ Other SHL Functions:
 ``` r
 # \donttest{
   shl_next_game_day()
-#> ── SHL Next Game Day Information from www.shl.se ───── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:11:29 UTC
-#> # A tibble: 2 × 39
-#>   game_uuid  start_date_time  state overtime shootout ssgt_uuid home_team_status
-#>   <chr>      <chr>            <chr> <lgl>    <lgl>    <chr>     <chr>           
-#> 1 gzft1r1ngx 2026-10-20T17:0… pre-… FALSE    FALSE    qa98unlb… N/A             
-#> 2 mtn5yq64mp 2026-10-20T17:0… pre-… FALSE    FALSE    qa98unlb… N/A             
-#> # ℹ 32 more variables: home_team_uuid <chr>, home_team_owner_instance_id <chr>,
-#> #   home_team_code <chr>, home_team_names_code <chr>,
-#> #   home_team_names_short <chr>, home_team_names_long <chr>,
-#> #   home_team_names_full <chr>, home_team_names_code_site <chr>,
-#> #   home_team_names_short_site <chr>, home_team_names_full_site <chr>,
-#> #   home_team_names_long_site <chr>, home_team_score <int>,
-#> #   home_team_icon <chr>, away_team_status <chr>, away_team_uuid <chr>, …
+#> Error in .shl_directory(): www.shl.se/api/statistics-v2/layout-info: no ssgt directory in the body
 # }
 ```

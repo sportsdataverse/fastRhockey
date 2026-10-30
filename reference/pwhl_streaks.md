@@ -62,7 +62,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(pwhl_streaks(season = 2025))
 #> ── PWHL Player Streaks ─────────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:11:02 UTC
+#> ℹ Data updated: 2026-10-30 00:19:46 UTC
 #> # A tibble: 26 × 26
 #>    id    player_id rookie first_game_date last_game_date first_name last_name
 #>    <chr> <chr>     <chr>  <chr>           <chr>          <chr>      <chr>    
@@ -73,8 +73,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  5 23422 15        0      Feb 16, 2025    Feb 20, 2025   Alina      Müller   
 #>  6 23414 157       0      Apr 26, 2025    present        Catherine  Dubois   
 #>  7 23226 195       1      Dec  1, 2024    Dec  7, 2024   Dominique  Petrie   
-#>  8 23327 53        0      Feb 22, 2025    Feb 26, 2025   Emily      Clark    
-#>  9 23317 57        0      Feb 13, 2025    Feb 16, 2025   Gabbie     Hughes   
+#>  8 23317 57        0      Feb 13, 2025    Feb 16, 2025   Gabbie     Hughes   
+#>  9 23327 53        0      Feb 22, 2025    Feb 26, 2025   Emily      Clark    
 #> 10 23289 161       0      Mar 15, 2025    Mar 22, 2025   Tereza     Vanišová 
 #> # ℹ 16 more rows
 #> # ℹ 19 more variables: name <chr>, length <chr>, goals <chr>, assists <chr>,

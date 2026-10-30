@@ -178,7 +178,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_season_groups(season = 2026, season_type = 2))
 #> ── MENS-COLLEGE-HOCKEY Season Groups data from ESPN core-v2 ────────────────────
-#> ℹ Data updated: 2026-10-18 12:03:06 UTC
+#> ℹ Data updated: 2026-10-30 00:09:04 UTC
 #> # A tibble: 10 × 4
 #>    ref                                               group_id season season_type
 #>    <chr>                                                <int>  <int>       <int>

@@ -93,21 +93,21 @@ Other EIHL eSports functions:
 # \donttest{
   try(eihl_top_scorers(season = 2027, league_id = 3))
 #> ── EIHL top_scorers from the eSports hokejovyzapis bucket ──────────────────────
-#> ℹ Data updated: 2026-10-18 12:02:23 UTC
-#> # A tibble: 245 × 16
-#>    player_id name     surname   jersey birthdate team_id team_name team_shortcut
-#>        <int> <chr>    <chr>      <int> <chr>       <int> <chr>     <chr>        
-#>  1      4929 Karl     Boudrias      71 2000-04-…      97 Guildfor… GUI          
-#>  2      4757 Mitchell Balmas        92 1998-03-…     100 Sheffiel… SHE          
-#>  3      4734 Victor   Bjorkung      10 1993-04-…      95 Fife Fly… FIF          
-#>  4      4843 Josh     MacDonald     92 1994-03-…      92 Cardiff … CAR          
-#>  5      5096 Joseph   Pierce        18 2002-10-…      95 Fife Fly… FIF          
-#>  6      5102 Xander   Lamppa         9 2000-04-…      95 Fife Fly… FIF          
-#>  7      4449 Brandon  Whistle       74 1997-12-…     100 Sheffiel… SHE          
-#>  8      4584 Brett    Neumann       68 1999-02-…      97 Guildfor… GUI          
-#>  9      5004 William  Boysen        40 1997-05-…      93 Coventry… COV          
-#> 10      5171 Olivier  Archamba…     93 1993-02-…     100 Sheffiel… SHE          
-#> # ℹ 235 more rows
+#> ℹ Data updated: 2026-10-30 00:08:25 UTC
+#> # A tibble: 248 × 16
+#>    player_id name    surname    jersey birthdate team_id team_name team_shortcut
+#>        <int> <chr>   <chr>       <int> <chr>       <int> <chr>     <chr>        
+#>  1      4973 Brandon Cutler         29 2000-01-…      98 Manchest… MAN          
+#>  2      4734 Victor  Bjorkung       10 1993-04-…      95 Fife Fly… FIF          
+#>  3      4449 Brandon Whistle        74 1997-12-…     100 Sheffiel… SHE          
+#>  4      5171 Olivier Archambau…     93 1993-02-…     100 Sheffiel… SHE          
+#>  5      4843 Josh    MacDonald      92 1994-03-…      92 Cardiff … CAR          
+#>  6      5105 Kyle    Maksimovi…      9 1998-03-…      98 Manchest… MAN          
+#>  7      5102 Xander  Lamppa          9 2000-04-…      95 Fife Fly… FIF          
+#>  8      4104 Joshua  Waller         91 1999-06-…      97 Guildfor… GUI          
+#>  9      4584 Brett   Neumann        68 1999-02-…      97 Guildfor… GUI          
+#> 10      5104 Tim     McGauley       23 1995-07-…      98 Manchest… MAN          
+#> # ℹ 238 more rows
 #> # ℹ 8 more variables: matches <int>, goals <int>, assists <int>, points <int>,
 #> #   shots <int>, positives <int>, negatives <int>, positives_negatives <int>
 # }

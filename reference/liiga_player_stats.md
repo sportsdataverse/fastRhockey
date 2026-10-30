@@ -138,7 +138,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_player_stats(season_from = 2026, season_to = 2026, tournament = "runkosarja"))
 #> ── Liiga player stat tables Information from liiga.fi ──────────────────────────
-#> ℹ Data updated: 2026-10-18 12:06:55 UTC
+#> ℹ Data updated: 2026-10-30 00:15:35 UTC
 #> # A tibble: 531 × 45
 #>    player_id    team_id team_name team_short_name role  first_name last_name    
 #>        <int>      <int> <chr>     <chr>           <chr> <chr>      <chr>        

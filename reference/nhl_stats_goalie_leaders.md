@@ -58,20 +58,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_stats_goalie_leaders(attribute = "savePctg"))
 #> ── NHL Stats Goalie Leaders ────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:10:14 UTC
+#> ℹ Data updated: 2026-10-30 00:18:51 UTC
 #> # A tibble: 10 × 15
 #>    save_pctg player_id player_current_team_id player_first_name player_full_name
-#>        <dbl>     <int>                  <int> <chr>             <chr>           
-#>  1         1   8484910                     55 Victor            Victor Ostman   
-#>  2         1   8484293                     NA Yaniv             Yaniv Perets    
-#>  3         1   8483575                     18 Matt              Matt Murray     
-#>  4         1   8483158                     NA Matthew           Matthew Berlin  
-#>  5         1   8481033                     13 Akira             Akira Schmid    
-#>  6         1   8480313                     15 Logan             Logan Thompson  
-#>  7         1   8480022                      6 Michael           Michael DiPietro
-#>  8         1   8479979                     25 Jake              Jake Oettinger  
-#>  9         1   8479288                     NA Kasimir           Kasimir Kaskisuo
-#> 10         1   8479138                     NA Scott             Scott Foster    
+#>        <dbl>     <int> <lgl>                  <chr>             <chr>           
+#>  1         1   8445249 NA                     Murray            Murray Bannerman
+#>  2         1   8445457 NA                     Marc              Marc Behrend    
+#>  3         1   8446087 NA                     Chris             Chris Clifford  
+#>  4         1   8446306 NA                     Marc              Marc D'amour    
+#>  5         1   8446368 NA                     Matt              Matt Delguidice 
+#>  6         1   8446488 NA                     Dave              Dave Dryden     
+#>  7         1   8446602 NA                     Gary              Gary Edwards    
+#>  8         1   8446723 NA                     Randy             Randy Exelby    
+#>  9         1   8446991 NA                     Grant             Grant Fuhr      
+#> 10         1   8447066 NA                     John              John Garrett    
 #> # ℹ 10 more variables: player_last_name <chr>, player_position_code <chr>,
 #> #   player_sweater_number <int>, team_id <int>, team_franchise_id <int>,
 #> #   team_full_name <chr>, team_league_id <int>, team_logos <list>,

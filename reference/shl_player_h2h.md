@@ -156,7 +156,7 @@ Other SHL Functions:
   shl_player_h2h(ssgt_uuid = "iuzqg7dqk9", home_team_uuid = "087a-087aTQv9u",
     away_team_uuid = "41c4-41c4BiYZU", game_uuid = "bdhvuc5tex")
 #> ── SHL Player H2h Information from www.shl.se ──────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:11:40 UTC
+#> ℹ Data updated: 2026-10-30 00:20:12 UTC
 #> # A tibble: 46 × 60
 #>    uuid          first_name last_name    full_name birth_date nationality gender
 #>    <chr>         <chr>      <chr>        <chr>     <chr>      <chr>       <chr> 

@@ -104,7 +104,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_game_lineups(game_id = 1, season = 2026))
 #> ── Liiga game lineups Information from liiga.fi ────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:06:37 UTC
+#> ℹ Data updated: 2026-10-30 00:15:19 UTC
 #> # A tibble: 62 × 32
 #>    season game_id side  player_id  team_id team_slug team_name  line
 #>     <int>   <int> <chr>     <int>    <int> <chr>     <chr>     <int>

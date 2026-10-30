@@ -130,23 +130,8 @@ Other HA Functions:
 ``` r
 # \donttest{
   try(ha_goalie_stats(season = 2026, category = "summary"))
-#> ── HA Goalie Stats Information from hockeyallsvenskan.se ───────────────────────
-#> ℹ Data updated: 2026-10-18 12:05:30 UTC
-#> # A tibble: 45 × 16
-#>    season  rank player_name     team_statnet_id   svs svs_perc    gp   gpi    ga
-#>     <int> <int> <chr>           <chr>           <int>    <dbl> <int> <int> <int>
-#>  1   2026     1 Frans Tuohimaa  IFB               664     92.6    47    30    53
-#>  2   2026     2 Jacob Crespin   KHC               821     92.1    51    36    70
-#>  3   2026     3 Olle Eriksson … IFB               442     92.1    52    25    38
-#>  4   2026     4 Love Härenstam  SSK               664     92.0    42    32    58
-#>  5   2026     5 Herman Liv      AIS               620     91.6    43    25    57
-#>  6   2026     6 Olof Lindbom    BIK               529     91.2    34    27    51
-#>  7   2026     7 Carl Lidö       OSIK              970     90.9    50    40    97
-#>  8   2026     8 Marcus Hellgre… MIK               893     90.8    49    36    90
-#>  9   2026     9 Pontus Eltonius VHC               814     90.6    50    36    84
-#> 10   2026    10 Adam Werner     MODO              792     90.4    49    38    84
-#> # ℹ 35 more rows
-#> # ℹ 7 more variables: gaa <dbl>, w <int>, t <int>, l <int>, so <int>,
-#> #   mip <chr>, valid_ranking <int>
+#> Error in nothing("answered no rows (a season or phase without data, or an unknown filter value)") : 
+#>   hockeyallsvenskan.se/api/all-time-goalkeepers-stats: answered no rows (a
+#> season or phase without data, or an unknown filter value)
 # }
 ```

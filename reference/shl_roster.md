@@ -93,8 +93,8 @@ Other SHL Functions:
 # \donttest{
   shl_roster(team_uuid = "087a-087aTQv9u")
 #> ── SHL Roster Information from www.shl.se ──────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:11:42 UTC
-#> # A tibble: 24 × 11
+#> ℹ Data updated: 2026-10-30 00:20:14 UTC
+#> # A tibble: 24 × 14
 #>    position  position_code player_type gender uuid          first_name last_name
 #>    <chr>     <chr>         <chr>       <chr>  <chr>         <chr>      <chr>    
 #>  1 Målvakter GK            athlete     male   qd1-1JVKWgydZ Tobias     Normann  
@@ -108,7 +108,7 @@ Other SHL Functions:
 #>  9 Backar    D             athlete     male   qYE-6h9YI4iy9 Stefan     Milošević
 #> 10 Backar    D             athlete     male   qZh-2QDdvSum1 Christian  Folin    
 #> # ℹ 14 more rows
-#> # ℹ 4 more variables: full_name <chr>, nationality <chr>, jersey_number <int>,
-#> #   portrait_url <chr>
+#> # ℹ 7 more variables: full_name <chr>, nationality <chr>, jersey_number <int>,
+#> #   portrait_url <chr>, date_of_birth <chr>, height <int>, weight <int>
 # }
 ```

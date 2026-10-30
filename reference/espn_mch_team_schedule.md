@@ -211,7 +211,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_team_schedule(team_id = "104", season = 2025))
 #> ── MENS-COLLEGE-HOCKEY Team Schedule data from ESPN.com ────────────────────────
-#> ℹ Data updated: 2026-10-18 12:03:18 UTC
+#> ℹ Data updated: 2026-10-30 00:09:15 UTC
 #> # A tibble: 40 × 34
 #>    game_id   date            name  short_name season_year season_type time_valid
 #>    <chr>     <chr>           <chr> <chr>            <int>       <int> <lgl>     

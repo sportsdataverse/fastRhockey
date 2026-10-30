@@ -107,7 +107,7 @@ Other VHL Functions:
 # \donttest{
   try(vhl_goalie_stats(season = 2026, stage = "playoff"))
 #> ── VHL Goalie Stats Information from vhlru.ru ──────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:12:38 UTC
+#> ℹ Data updated: 2026-10-30 00:21:10 UTC
 #> # A tibble: 58 × 21
 #>    season stage      tn player_id player  jersey team  games_played  wins losses
 #>     <int> <chr>   <int>     <int> <chr>    <int> <chr>        <int> <int>  <int>

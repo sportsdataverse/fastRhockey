@@ -129,7 +129,7 @@ Other SHL Functions:
 # \donttest{
   shl_game_header(game_uuid = "bdhvuc5tex")
 #> ── SHL Game Header Information from www.shl.se ─────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:11:23 UTC
+#> ℹ Data updated: 2026-10-30 00:20:02 UTC
 #> # A tibble: 1 × 47
 #>   instance_context_site_team_is_…¹ instance_context_sit…² instance_context_sit…³
 #>   <lgl>                            <lgl>                  <lgl>                 

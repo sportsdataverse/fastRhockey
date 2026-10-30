@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_season_pointer())
 #> ── MENS-COLLEGE-HOCKEY Current Season Pointer data from ESPN core-v2 ───────────
-#> ℹ Data updated: 2026-10-18 12:03:07 UTC
+#> ℹ Data updated: 2026-10-30 00:09:05 UTC
 #> # A tibble: 1 × 9
 #>   season start_date        end_date    display_name current_type_id current_type
 #>    <int> <chr>             <chr>       <chr>        <chr>                  <int>

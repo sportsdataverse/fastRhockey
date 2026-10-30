@@ -354,28 +354,7 @@ shl_stats_info(module, season, game_type = "regular", return_parsed = TRUE)
   ``` r
   # \donttest{
     shl_stats_info(module = "players_summary", season = 2026)
-  #> ── SHL Stats Info Information from www.shl.se ──────── fastRhockey 1.0.0.9000 ──
-  #> ℹ Data updated: 2026-10-18 12:11:48 UTC
-  #> # A tibble: 473 × 262
-  #>     rank    gp     w     l leading trailing     g    ga   gfg   otw   otl   sow
-  #>    <int> <dbl> <dbl> <dbl>   <dbl>    <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
-  #>  1     1    52    NA    NA      NA       NA    30    NA    NA    NA    NA    NA
-  #>  2     2    52    NA    NA      NA       NA    20    NA    NA    NA    NA    NA
-  #>  3     3    50    NA    NA      NA       NA    30    NA    NA    NA    NA    NA
-  #>  4     4    52    NA    NA      NA       NA    15    NA    NA    NA    NA    NA
-  #>  5     5    51    NA    NA      NA       NA    12    NA    NA    NA    NA    NA
-  #>  6     6    50    NA    NA      NA       NA    23    NA    NA    NA    NA    NA
-  #>  7     7    48    NA    NA      NA       NA    16    NA    NA    NA    NA    NA
-  #>  8     8    52    NA    NA      NA       NA    21    NA    NA    NA    NA    NA
-  #>  9     9    51    NA    NA      NA       NA    15    NA    NA    NA    NA    NA
-  #> 10    10    49    NA    NA      NA       NA    12    NA    NA    NA    NA    NA
-  #> # ℹ 463 more rows
-  #> # ℹ 250 more variables: sol <dbl>, p_gp_format <dbl>, gpg <dbl>, gapg <dbl>,
-  #> #   points <dbl>, info_type <chr>, info_id <chr>, info_uuid <chr>,
-  #> #   info_created_at <chr>, info_created_by <chr>, info_deleted <lgl>,
-  #> #   info_gender <chr>, info_graphics_library <chr>, info_last_modified <chr>,
-  #> #   info_nationality <chr>, info_owner_instance_id <chr>, info_ownersite <chr>,
-  #> #   info_team_code <chr>, info_series <chr>, info_sport <chr>, …
+  #> Error in .shl_directory(): www.shl.se/api/statistics-v2/layout-info: no ssgt directory in the body
   # }
   ```
 

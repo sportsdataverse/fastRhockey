@@ -116,16 +116,11 @@ Other National League Functions:
 # \donttest{
   try(nl_current_games(season = 2027))
 #> ── National League Current Games Information from nationalleague.ch ────────────
-#> ℹ Data updated: 2026-10-18 12:10:23 UTC
-#> # A tibble: 6 × 29
-#>   game_id home_team_short_name home_team_name     away_team_short_name
-#>     <dbl> <chr>                <chr>              <chr>               
-#> 1 2.03e13 HCAP                 HC Ambri-Piotta    FRI                 
-#> 2 2.03e13 SCB                  SC Bern            SCL                 
-#> 3 2.03e13 EHCB                 EHC Biel-Bienne    SCRJ                
-#> 4 2.03e13 GSHC                 Genève-Servette HC HCL                 
-#> 5 2.03e13 EHCK                 EHC Kloten         LHC                 
-#> 6 2.03e13 ZSC                  ZSC Lions          HCD                 
+#> ℹ Data updated: 2026-10-30 00:19:06 UTC
+#> # A tibble: 1 × 29
+#>   game_id home_team_short_name home_team_name away_team_short_name
+#>     <dbl> <chr>                <chr>          <chr>               
+#> 1 2.03e13 HCL                  HC Lugano      LHC                 
 #> # ℹ 25 more variables: away_team_name <chr>, home_team_id <dbl>,
 #> #   away_team_id <dbl>, vimeo_video_id <dbl>, date <chr>, status <chr>,
 #> #   base_status <chr>, home_team_result <int>, away_team_result <int>,

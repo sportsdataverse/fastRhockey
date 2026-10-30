@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_franchises())
 #> ── MENS-COLLEGE-HOCKEY Franchises data from ESPN core-v2 ───────────────────────
-#> ℹ Data updated: 2026-10-18 12:02:38 UTC
+#> ℹ Data updated: 2026-10-30 00:08:39 UTC
 #> # A tibble: 116 × 4
 #>    ref                                             franchise_id count page_count
 #>    <chr>                                           <chr>        <int>      <int>

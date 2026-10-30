@@ -40,6 +40,6 @@ Other AHL Functions:
 
 ``` r
  try(ahl_pbp(game_id = 1000093924)) 
-#> ✖ 2026-10-18 12:01:53.41767: AHL PBP for game_id 1000093924 unavailable! Error in `$<-.data.frame`(`*tmp*`, "game_date", value = ""): replacement has 1 row, data has 0
+#> ✖ 2026-10-30 00:07:55.261835: AHL PBP for game_id 1000093924 unavailable! Error in `$<-.data.frame`(`*tmp*`, "game_date", value = ""): replacement has 1 row, data has 0
 #> data frame with 0 columns and 0 rows
 ```

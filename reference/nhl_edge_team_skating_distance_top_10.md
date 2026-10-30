@@ -97,20 +97,20 @@ A data frame (`fastRhockey_data`) with the following columns:
     sort_by = "total"
   ))
 #> ── NHL Edge Team Skating Distance Top 10 ───────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:09:18 UTC
+#> ℹ Data updated: 2026-10-30 00:17:58 UTC
 #> # A tibble: 10 × 36
 #>    team_abbrev team_slug           team_common_name_def…¹ team_place_name_with…²
 #>    <chr>       <chr>               <chr>                  <chr>                 
-#>  1 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
-#>  2 PHI         philadelphia-flyer… Flyers                 Philadelphia          
-#>  3 VAN         vancouver-canucks-… Canucks                Vancouver             
-#>  4 NYR         new-york-rangers-3  Rangers                New York              
-#>  5 BUF         buffalo-sabres-7    Sabres                 Buffalo               
-#>  6 SEA         seattle-kraken-55   Kraken                 Seattle               
-#>  7 FLA         florida-panthers-13 Panthers               Florida               
-#>  8 UTA         utah-mammoth-68     Mammoth                Utah                  
-#>  9 CHI         chicago-blackhawks… Blackhawks             Chicago               
-#> 10 OTT         ottawa-senators-9   Senators               Ottawa                
+#>  1 PHI         philadelphia-flyer… Flyers                 Philadelphia          
+#>  2 TOR         toronto-maple-leaf… Maple Leafs            Toronto               
+#>  3 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
+#>  4 CAR         carolina-hurricane… Hurricanes             Carolina              
+#>  5 VAN         vancouver-canucks-… Canucks                Vancouver             
+#>  6 MIN         minnesota-wild-30   Wild                   Minnesota             
+#>  7 NYR         new-york-rangers-3  Rangers                New York              
+#>  8 NJD         new-jersey-devils-1 Devils                 New Jersey            
+#>  9 SEA         seattle-kraken-55   Kraken                 Seattle               
+#> 10 EDM         edmonton-oilers-22  Oilers                 Edmonton              
 #> # ℹ abbreviated names: ¹​team_common_name_default,
 #> #   ²​team_place_name_with_preposition_default
 #> # ℹ 32 more variables: team_team_logo_light <chr>, team_team_logo_dark <chr>,

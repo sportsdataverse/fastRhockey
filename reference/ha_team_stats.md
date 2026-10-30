@@ -137,26 +137,8 @@ Other HA Functions:
 ``` r
 # \donttest{
   try(ha_team_stats(season = 2026, category = "results"))
-#> ── HA Team Stats Information from hockeyallsvenskan.se ─────────────────────────
-#> ℹ Data updated: 2026-10-18 12:05:41 UTC
-#> # A tibble: 14 × 19
-#>    season  rank team_code    gp wins_total losses_total leading trailing     g
-#>     <int> <int> <chr>     <int>      <int>        <int>   <int>    <int> <int>
-#>  1   2026     1 IFB          52         41           11      60       29   192
-#>  2   2026     2 KHC          52         37           15      54       32   189
-#>  3   2026     3 BIK          52         34           18      48       37   145
-#>  4   2026     4 MoDo         52         31           21      50       35   141
-#>  5   2026     5 AIK          52         29           23      54       42   150
-#>  6   2026     6 AIS          52         25           27      36       49   127
-#>  7   2026     7 NVIF         52         25           27      46       46   139
-#>  8   2026     8 MORA         52         24           28      36       57   134
-#>  9   2026     9 IKO          52         23           29      42       43   143
-#> 10   2026    10 SSK          52         22           30      45       36   130
-#> 11   2026    11 ÖIK          52         21           31      37       53   123
-#> 12   2026    12 VHC          52         21           31      35       50   111
-#> 13   2026    13 VIK          52         17           35      37       50   125
-#> 14   2026    14 TRO          52         14           38      35       56   123
-#> # ℹ 10 more variables: ga <int>, gfg <int>, otw <int>, otl <int>, sow <int>,
-#> #   sol <int>, p_gp <dbl>, gpg <dbl>, gapg <dbl>, points <int>
+#> Error in nothing("answered no rows (a season or phase without data, or an unknown filter value)") : 
+#>   hockeyallsvenskan.se/api/all-time-teams-stats: answered no rows (a
+#> season or phase without data, or an unknown filter value)
 # }
 ```

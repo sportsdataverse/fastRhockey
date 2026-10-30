@@ -152,23 +152,8 @@ Other HA Functions:
 ``` r
 # \donttest{
   try(ha_skater_stats(season = 2026, category = "summary"))
-#> ── HA Skater Stats Information from hockeyallsvenskan.se ───────────────────────
-#> ℹ Data updated: 2026-10-18 12:05:39 UTC
-#> # A tibble: 511 × 19
-#>    season  rank player_name  team_statnet_id    gp    tp     g     a   pim   gwg
-#>     <int> <int> <chr>        <chr>           <int> <int> <int> <int> <int> <int>
-#>  1   2026     1 Scott Pooley AIK                51    59    27    32     8     4
-#>  2   2026     2 Liam Dower … IFB                51    57    21    36    22     4
-#>  3   2026     3 George Diaco KHC                52    54    25    29    20     4
-#>  4   2026     4 Teemu Lepaus IKO                52    51    15    36    16     2
-#>  5   2026     5 Mikkel Øby-… AIS                52    48    28    20     6    10
-#>  6   2026     6 Liam Hawel   KHC                51    45    13    32    12     3
-#>  7   2026     7 Marcus Nils… IFB                50    45    12    33    14     4
-#>  8   2026     8 Axel Ottoss… IFB                52    41    25    16    48     4
-#>  9   2026     9 Herman Träff IKO                51    41    23    18    32     6
-#> 10   2026    10 Oscar Tells… IFB                52    40    20    20    14     6
-#> # ℹ 501 more rows
-#> # ℹ 9 more variables: ppg <int>, sog <int>, hits <int>, bks <int>, plus <int>,
-#> #   minus <int>, plus_minus <int>, toi_gp <chr>, tppg <dbl>
+#> Error in nothing("answered no rows (a season or phase without data, or an unknown filter value)") : 
+#>   hockeyallsvenskan.se/api/all-time-skaters-stats: answered no rows (a
+#> season or phase without data, or an unknown filter value)
 # }
 ```

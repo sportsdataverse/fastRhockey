@@ -51,20 +51,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_teams())
 #> ── NHL Teams ───────────────────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:10:19 UTC
+#> ℹ Data updated: 2026-10-30 00:19:02 UTC
 #> # A tibble: 32 × 20
 #>    team_abbr team_name            team_common_name team_logo     conference_abbr
 #>    <chr>     <chr>                <chr>            <chr>         <chr>          
-#>  1 VGK       Vegas Golden Knights Golden Knights   https://asse… Western        
-#>  2 CAR       Carolina Hurricanes  Hurricanes       https://asse… Eastern        
-#>  3 BOS       Boston Bruins        Bruins           https://asse… Eastern        
-#>  4 EDM       Edmonton Oilers      Oilers           https://asse… Western        
-#>  5 NYR       New York Rangers     Rangers          https://asse… Eastern        
-#>  6 TBL       Tampa Bay Lightning  Lightning        https://asse… Eastern        
-#>  7 UTA       Utah Mammoth         Mammoth          https://asse… Western        
-#>  8 OTT       Ottawa Senators      Senators         https://asse… Eastern        
-#>  9 FLA       Florida Panthers     Panthers         https://asse… Eastern        
-#> 10 COL       Colorado Avalanche   Avalanche        https://asse… Western        
+#>  1 CAR       Carolina Hurricanes  Hurricanes       https://asse… Eastern        
+#>  2 EDM       Edmonton Oilers      Oilers           https://asse… Western        
+#>  3 MIN       Minnesota Wild       Wild             https://asse… Western        
+#>  4 BOS       Boston Bruins        Bruins           https://asse… Eastern        
+#>  5 VGK       Vegas Golden Knights Golden Knights   https://asse… Western        
+#>  6 SEA       Seattle Kraken       Kraken           https://asse… Western        
+#>  7 MTL       Montréal Canadiens   Canadiens        https://asse… Eastern        
+#>  8 UTA       Utah Mammoth         Mammoth          https://asse… Western        
+#>  9 NJD       New Jersey Devils    Devils           https://asse… Eastern        
+#> 10 OTT       Ottawa Senators      Senators         https://asse… Eastern        
 #> # ℹ 22 more rows
 #> # ℹ 15 more variables: conference_name <chr>, division_abbr <chr>,
 #> #   division_name <chr>, place_name <chr>, games_played <int>, wins <int>,

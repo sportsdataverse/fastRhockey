@@ -128,7 +128,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_team_penalty_kill(season = 2026, league_id = 1))
 #> ── SIHF Team Penalty Kill Information from data.sihf.ch ────────────────────────
-#> ℹ Data updated: 2026-10-18 12:12:21 UTC
+#> ℹ Data updated: 2026-10-30 00:20:55 UTC
 #> # A tibble: 15 × 17
 #>    season phase_id  rank team_id team_name             team_acronym games_played
 #>     <int>    <int> <int>   <int> <chr>                 <chr>               <int>

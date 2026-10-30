@@ -103,25 +103,8 @@ Other HA Functions:
 ``` r
 # \donttest{
   try(ha_leaders(metric = "TP"))
-#> ── HA Leaders Information from hockeyallsvenskan.se ── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:05:32 UTC
-#> # A tibble: 25 × 18
-#>     rank player_name     team_code team_statnet_id jersey_number position metric
-#>    <int> <chr>           <chr>     <chr>                   <int> <chr>    <chr> 
-#>  1     1 Tyler Kelleher  LIF       LIF                        16 F        TP    
-#>  2     2 Joel Svensson   IKO       IKO                        13 F        TP    
-#>  3     3 Calle Karlsson  IKO       IKO                        14 F        TP    
-#>  4     4 Carter Souch    SSK       SSK                        18 F        TP    
-#>  5     5 Oskar Lang      LIF       LIF                        14 F        TP    
-#>  6     6 Patrik Zackris… LIF       LIF                         9 F        TP    
-#>  7     7 Åke Stakkestad  LIF       LIF                        15 F        TP    
-#>  8     8 Tim Theocharid… AIK       AIK                        98 D        TP    
-#>  9     9 Hugo Lejon      VHC       VHC                        58 F        TP    
-#> 10    10 Tarun Fizer     SSK       SSK                         8 F        TP    
-#> # ℹ 15 more rows
-#> # ℹ 11 more variables: metric_value <chr>, player_statnet_id <int>,
-#> #   first_name <chr>, family_name <chr>, slug <chr>, headshot <chr>,
-#> #   headshot_small <chr>, headshot_medium <chr>, team_logo <chr>,
-#> #   team_name <chr>, team_main_color <chr>
+#> Error in nothing("answered no rows (a season or phase without data, or an unknown filter value)") : 
+#>   hockeyallsvenskan.se/api/player-leaderboard: answered no rows (a season
+#> or phase without data, or an unknown filter value)
 # }
 ```

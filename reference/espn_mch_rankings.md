@@ -192,21 +192,21 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_rankings())
 #> ── MENS-COLLEGE-HOCKEY Rankings data from ESPN.com ─── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:03:01 UTC
-#> # A tibble: 41 × 25
+#> ℹ Data updated: 2026-10-30 00:09:00 UTC
+#> # A tibble: 34 × 25
 #>    poll_id poll_name        poll_short_name  poll_type  season season_type  week
 #>      <int> <chr>            <chr>            <chr>       <int>       <int> <int>
-#>  1   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     3
-#>  2   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     3
-#>  3   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     3
-#>  4   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     3
-#>  5   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     3
-#>  6   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     3
-#>  7   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     3
-#>  8   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     3
-#>  9   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     3
-#> 10   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     3
-#> # ℹ 31 more rows
+#>  1   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     5
+#>  2   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     5
+#>  3   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     5
+#>  4   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     5
+#>  5   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     5
+#>  6   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     5
+#>  7   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     5
+#>  8   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     5
+#>  9   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     5
+#> 10   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     5
+#> # ℹ 24 more rows
 #> # ℹ 18 more variables: week_display <chr>, poll_date <chr>, ranked <lgl>,
 #> #   team_id <chr>, rank <int>, previous_rank <int>, points <dbl>,
 #> #   first_place_votes <int>, trend <chr>, record_summary <chr>, team_uid <chr>,

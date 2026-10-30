@@ -73,22 +73,22 @@ Other Ligue Magnus Functions:
 # \donttest{
   try(magnus_standings(phase_id = 714))
 #> ── Ligue Magnus Standings Information from liguemagnus.com ─────────────────────
-#> ℹ Data updated: 2026-10-18 12:08:40 UTC
+#> ℹ Data updated: 2026-10-30 00:17:16 UTC
 #> # A tibble: 12 × 17
 #>     rank team_id team   team_abbreviation team_participant_id games_played  wins
 #>    <int>   <int> <chr>  <chr>                           <int>        <int> <int>
-#>  1     1     327 GRENO… GRE                              9125           10     8
-#>  2     2     253 ROUEN  ROU                              9127           12     7
-#>  3     3    3095 MARSE… MAR                              9129           11     6
-#>  4     4     553 ANGERS ANG                              9130           11     6
-#>  5     5     611 CHAMO… CHA                              9123           10     5
-#>  6     6     472 NICE   NIC                              9126           10     4
-#>  7     7    1671 BORDE… BOR                              9121           10     4
-#>  8     8     103 AMIENS AMI                              9120           10     3
-#>  9     9     345 CERGY… CER                              9122           10     2
-#> 10    10    3409 BRIAN… BRI                              9131           10     2
-#> 11    11     366 GAP    GAP                              9124           10     2
-#> 12    12      75 ANGLET HOR                              9128           10     1
+#>  1     1     327 GRENO… GRE                              9125           12    10
+#>  2     2     253 ROUEN  ROU                              9127           14     9
+#>  3     3    3095 MARSE… MAR                              9129           14     7
+#>  4     4     611 CHAMO… CHA                              9123           12     6
+#>  5     5     553 ANGERS ANG                              9130           13     6
+#>  6     6     472 NICE   NIC                              9126           13     5
+#>  7     7    1671 BORDE… BOR                              9121           13     5
+#>  8     8     103 AMIENS AMI                              9120           13     4
+#>  9     9     345 CERGY… CER                              9122           13     4
+#> 10    10     366 GAP    GAP                              9124           13     3
+#> 11    11    3409 BRIAN… BRI                              9131           13     3
+#> 12    12      75 ANGLET HOR                              9128           13     1
 #> # ℹ 10 more variables: ot_wins <int>, ot_losses <int>, losses <int>,
 #> #   ties <int>, points <int>, goals_for <int>, goals_against <int>,
 #> #   penalty_minutes <int>, last_results <chr>, standings_id <int>

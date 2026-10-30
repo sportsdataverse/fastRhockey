@@ -91,7 +91,7 @@ Other Ligue Magnus Functions:
 # \donttest{
   try(magnus_pbp(game_id = 77779))
 #> ── Ligue Magnus Play-by-play Information from liguemagnus.com ──────────────────
-#> ℹ Data updated: 2026-10-18 12:08:33 UTC
+#> ℹ Data updated: 2026-10-30 00:17:09 UTC
 #> # A tibble: 159 × 29
 #>    game_id event_id event_type event_type_raw period period_seconds game_seconds
 #>      <int> <chr>    <chr>      <chr>           <int>          <int>        <int>

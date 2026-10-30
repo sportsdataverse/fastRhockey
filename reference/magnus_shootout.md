@@ -68,7 +68,7 @@ Other Ligue Magnus Functions:
 # \donttest{
   try(magnus_shootout(game_id = 77779))
 #> ── Ligue Magnus Shootout Information from liguemagnus.com ──────────────────────
-#> ℹ Data updated: 2026-10-18 12:08:38 UTC
+#> ℹ Data updated: 2026-10-30 00:17:14 UTC
 #> # A tibble: 10 × 10
 #>    game_id attempt_id shootout_round team_id team_abbreviation shooter_player_id
 #>      <int>      <int>          <int>   <int> <chr>                         <int>

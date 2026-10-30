@@ -243,7 +243,7 @@ Other National League Functions:
 # \donttest{
   try(nl_player_stats(phase = 4940, season = 2026))
 #> ── National League Player Stats Information from nationalleague.ch ─────────────
-#> ℹ Data updated: 2026-10-18 12:10:31 UTC
+#> ℹ Data updated: 2026-10-30 00:19:15 UTC
 #> # A tibble: 502 × 145
 #>    player_id first_name last_name      team_id team_short_name team_name  number
 #>        <dbl> <chr>      <chr>            <dbl> <chr>           <chr>      <chr> 

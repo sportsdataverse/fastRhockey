@@ -79,6 +79,13 @@
 
 #### Bug fixes
 
+- The European hockey per-host throttle stamped each request at its
+  scheduled time, not when its wait actually ended, so an oversleeping
+  [`Sys.sleep()`](https://rdrr.io/r/base/Sys.sleep.html) (macOS timer
+  coalescing on a loaded machine) let the next request to that host go
+  out early, inside the one-second spacing. The clock now records the
+  real wake time.
+
 - `khl_player_stats(position = "goalies")` returned 20 goalies who had
   not played (khl.ru orders goalies by goals-against average ascending
   and ignores sort fields). It now fetches every page (the count from

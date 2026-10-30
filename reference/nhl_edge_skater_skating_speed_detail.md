@@ -67,20 +67,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_skater_skating_speed_detail(player_id = 8478402))
 #> ── NHL Edge Skater Skating Speed Detail ────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 12:09:13 UTC
+#> ℹ Data updated: 2026-10-30 00:17:52 UTC
 #> # A tibble: 10 × 24
 #>    game_center_link       game_date game_type player_on_home_team time_in_period
 #>    <chr>                  <chr>         <int> <lgl>               <chr>         
 #>  1 /gamecenter/sea-vs-ed… 2026-10-…         2 TRUE                04:16         
 #>  2 /gamecenter/edm-vs-an… 2026-10-…         2 FALSE               07:02         
-#>  3 /gamecenter/edm-vs-va… 2026-10-…         2 FALSE               13:45         
-#>  4 /gamecenter/edm-vs-sj… 2026-10-…         2 FALSE               05:23         
-#>  5 /gamecenter/edm-vs-an… 2026-10-…         2 FALSE               17:15         
-#>  6 /gamecenter/edm-vs-va… 2026-10-…         2 FALSE               02:40         
-#>  7 /gamecenter/edm-vs-va… 2026-10-…         2 FALSE               16:05         
-#>  8 /gamecenter/van-vs-ed… 2026-09-…         2 TRUE                09:39         
-#>  9 /gamecenter/van-vs-ed… 2026-09-…         2 TRUE                03:55         
-#> 10 /gamecenter/edm-vs-an… 2026-10-…         2 FALSE               00:19         
+#>  3 /gamecenter/car-vs-ed… 2026-10-…         2 TRUE                11:07         
+#>  4 /gamecenter/edm-vs-va… 2026-10-…         2 FALSE               13:45         
+#>  5 /gamecenter/cgy-vs-ed… 2026-10-…         2 TRUE                16:25         
+#>  6 /gamecenter/edm-vs-sj… 2026-10-…         2 FALSE               05:23         
+#>  7 /gamecenter/car-vs-ed… 2026-10-…         2 TRUE                08:01         
+#>  8 /gamecenter/edm-vs-an… 2026-10-…         2 FALSE               17:15         
+#>  9 /gamecenter/edm-vs-va… 2026-10-…         2 FALSE               02:40         
+#> 10 /gamecenter/cgy-vs-ed… 2026-10-…         2 TRUE                04:43         
 #> # ℹ 19 more variables: skating_speed_imperial <dbl>,
 #> #   skating_speed_metric <dbl>, period_descriptor_number <int>,
 #> #   period_descriptor_period_type <chr>,

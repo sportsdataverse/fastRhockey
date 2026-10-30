@@ -100,8 +100,8 @@ Other KHL Functions:
 # \donttest{
   try(khl_webcaster_players_light())
 #> ── KHL Webcaster Players (Light) from khl.api.webcaster.pro ────────────────────
-#> ℹ Data updated: 2026-10-18 12:06:32 UTC
-#> # A tibble: 730 × 10
+#> ℹ Data updated: 2026-10-30 00:15:13 UTC
+#> # A tibble: 750 × 10
 #>       id shirt_number khl_id image           name  team_id team_khl_id team_name
 #>    <int>        <int>  <int> <chr>           <chr>   <int>       <int> <chr>    
 #>  1 33797           11  23248 https://www.kh… Abra…      12          54 Amur     
@@ -111,10 +111,10 @@ Other KHL Functions:
 #>  5 47627           95  40373 https://www.kh… Agla…      NA          NA NA       
 #>  6  4993           77  18961 https://www.kh… Adam…      10          34 Avangard 
 #>  7 28477           53  35353 https://www.kh… Aimu…      44          24 SKA      
-#>  8 38403           19  33710 https://www.kh… Akma…      12          54 Amur     
-#>  9  7699           90  15620 https://www.kh… Akol…     113         451 HC Sochi 
-#> 10 28149           61  34493 https://www.kh… Alal…      NA          NA NA       
-#> # ℹ 720 more rows
+#>  8 38403           19  33710 https://www.kh… Akma…      NA          NA NA       
+#>  9  7699           90  15620 https://www.kh… Akol…      NA          NA NA       
+#> 10 28149           61  34493 https://www.kh… Alal…      32          38 Salavat …
+#> # ℹ 740 more rows
 #> # ℹ 2 more variables: team_location <chr>, team <chr>
 # }
 ```

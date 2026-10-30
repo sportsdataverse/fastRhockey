@@ -168,7 +168,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_conferences())
 #> ── MENS-COLLEGE-HOCKEY Conferences data from ESPN.com ──────────────────────────
-#> ℹ Data updated: 2026-10-18 12:02:36 UTC
+#> ℹ Data updated: 2026-10-30 00:08:38 UTC
 #> # A tibble: 10 × 4
 #>    conference_name    conference_abbreviat…¹ division_name division_abbreviation
 #>    <chr>              <chr>                  <chr>         <chr>                

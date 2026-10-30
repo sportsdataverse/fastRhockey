@@ -138,7 +138,7 @@ Other DEL eSports functions:
 # \donttest{
   try(del_team_player_stats(season = 2027, team_id = 12, league_id = 1))
 #> ── DEL team_player_stats from the eSports hokejovyzapis bucket ─────────────────
-#> ℹ Data updated: 2026-10-18 12:02:09 UTC
+#> ℹ Data updated: 2026-10-30 00:08:10 UTC
 #> # A tibble: 27 × 51
 #>    player_id holema_id name      firstname surname date_of_birth active position
 #>        <int>     <int> <chr>     <chr>     <chr>   <chr>         <lgl>  <chr>   
