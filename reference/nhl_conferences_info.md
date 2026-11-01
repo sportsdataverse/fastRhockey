@@ -73,23 +73,23 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_conferences_info(conference_name = "Eastern"))
-#> ── NHL Conference Information from NHL.com ─────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:17:38 UTC
+#> ── NHL Conference Information from NHL.com ──────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:01:24 UTC
 #> # A tibble: 16 × 36
 #>    team_abbr team_name             team_common_name team_logo    conference_name
 #>    <chr>     <chr>                 <chr>            <chr>        <chr>          
 #>  1 CAR       Carolina Hurricanes   Hurricanes       https://ass… Eastern        
 #>  2 BOS       Boston Bruins         Bruins           https://ass… Eastern        
 #>  3 MTL       Montréal Canadiens    Canadiens        https://ass… Eastern        
-#>  4 NJD       New Jersey Devils     Devils           https://ass… Eastern        
-#>  5 OTT       Ottawa Senators       Senators         https://ass… Eastern        
-#>  6 FLA       Florida Panthers      Panthers         https://ass… Eastern        
-#>  7 TOR       Toronto Maple Leafs   Maple Leafs      https://ass… Eastern        
-#>  8 TBL       Tampa Bay Lightning   Lightning        https://ass… Eastern        
-#>  9 NYR       New York Rangers      Rangers          https://ass… Eastern        
+#>  4 OTT       Ottawa Senators       Senators         https://ass… Eastern        
+#>  5 TBL       Tampa Bay Lightning   Lightning        https://ass… Eastern        
+#>  6 NJD       New Jersey Devils     Devils           https://ass… Eastern        
+#>  7 FLA       Florida Panthers      Panthers         https://ass… Eastern        
+#>  8 TOR       Toronto Maple Leafs   Maple Leafs      https://ass… Eastern        
+#>  9 BUF       Buffalo Sabres        Sabres           https://ass… Eastern        
 #> 10 WSH       Washington Capitals   Capitals         https://ass… Eastern        
 #> 11 NYI       New York Islanders    Islanders        https://ass… Eastern        
-#> 12 BUF       Buffalo Sabres        Sabres           https://ass… Eastern        
+#> 12 NYR       New York Rangers      Rangers          https://ass… Eastern        
 #> 13 DET       Detroit Red Wings     Red Wings        https://ass… Eastern        
 #> 14 PIT       Pittsburgh Penguins   Penguins         https://ass… Eastern        
 #> 15 CBJ       Columbus Blue Jackets Blue Jackets     https://ass… Eastern        

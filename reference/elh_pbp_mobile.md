@@ -69,8 +69,8 @@ Other ELH Functions:
 ``` r
 # \donttest{
   try(elh_pbp_mobile(season = 2027, match_id = 2928321))
-#> ── ELH Pbp Mobile Information from hokej.cz ────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:08:34 UTC
+#> ── ELH Pbp Mobile Information from hokej.cz ─────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:53:08 UTC
 #> # A tibble: 119 × 4
 #>    comment_id event_type game_seconds content                                   
 #>         <int> <chr>             <int> <chr>                                     

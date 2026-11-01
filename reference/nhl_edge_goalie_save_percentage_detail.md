@@ -62,8 +62,8 @@ Returns `NULL` on failure / empty response.
 ``` r
 # \donttest{
   try(nhl_edge_goalie_save_percentage_detail(player_id = 8475883))
-#> ── NHL Edge Goalie Save Percentage Detail ──────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:17:46 UTC
+#> ── NHL Edge Goalie Save Percentage Detail ───────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:01:32 UTC
 #> # A tibble: 10 × 17
 #>    game_center_link             save_pctg game_date player_on_home_team decision
 #>    <chr>                            <dbl> <chr>     <lgl>               <chr>   

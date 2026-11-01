@@ -24,7 +24,7 @@ espn_nhl_game_officials(event_id, cid = event_id, ...)
 
 ## Value
 
-A `fastRhockey_data` tibble with one row per official (typically 4 — 2
+A `fastRhockey_data` tibble with one row per official (typically 4 - 2
 referees + 2 linesmen):
 
 |  |  |  |
@@ -183,8 +183,8 @@ Saiem Gilani
     sb <- espn_nhl_scoreboard(dates = "20250110")
     espn_nhl_game_officials(event_id = sb$game_id[1])
   })
-#> ── NHL Game Officials data from ESPN core-v2 ───────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:09:27 UTC
+#> ── NHL Game Officials data from ESPN core-v2 ────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:54:31 UTC
 #> # A tibble: 4 × 12
 #>   event_id  cid    official_id first_name last_name full_name display_name order
 #>   <chr>     <chr>  <chr>       <chr>      <chr>     <chr>     <chr>        <int>

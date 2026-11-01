@@ -1,4 +1,4 @@
-# **PHF (Premier Hockey Federation) Endpoint Overview — DEPRECATED**
+# **PHF (Premier Hockey Federation) Endpoint Overview - DEPRECATED**
 
 Wrappers for the now-defunct Premier Hockey Federation (PHF, formerly
 NWHL). The PHF ceased operations in mid-2023, so these functions are

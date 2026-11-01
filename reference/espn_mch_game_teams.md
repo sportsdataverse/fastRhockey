@@ -190,8 +190,8 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_teams(event_id = sb$game_id[1])
   })
-#> ── MENS-COLLEGE-HOCKEY Game Teams data from ESPN core-v2 ───────────────────────
-#> ℹ Data updated: 2026-10-30 00:08:51 UTC
+#> ── MENS-COLLEGE-HOCKEY Game Teams data from ESPN core-v2 ── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:53:33 UTC
 #> # A tibble: 2 × 16
 #>   event_id  cid    team_id uid   type  order home_away winner team_ref score_ref
 #>   <chr>     <chr>  <chr>   <chr> <chr> <int> <chr>     <lgl>  <chr>    <chr>    

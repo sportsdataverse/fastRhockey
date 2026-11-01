@@ -212,15 +212,12 @@ webcaster stage id through the season table of
 `getOption("fastRhockey.proxy")`; betting fields and the caller's IP are
 removed from every body.
 
-Ids and counts are integers (sdv-py Int64); a column holding values past
-2^31 (epoch milliseconds) is returned as a whole-number double.
+Ids and counts are integers; a column holding values past 2^31 (epoch
+milliseconds) is returned as a whole-number double.
 
 At least one second is left between two requests to a host.
 
-**Owner flag (sanctions).** The KHL and its webcaster platform are run
-by Russian operators, some clubs by sanctioned state companies. Fetching
-on your own machine is fine; any published data release, hosted mirror
-or redistribution needs owner (sanctions / legal) sign-off first.
+Check the provider's terms of use before redistributing this data.
 
 ## See also
 
@@ -253,8 +250,8 @@ Other KHL Functions:
 ``` r
 # \donttest{
   try(khl_webcaster_event(event_id = 2786714))
-#> ── KHL Webcaster Event from khl.api.webcaster.pro ──── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:15:08 UTC
+#> ── KHL Webcaster Event from khl.api.webcaster.pro ───────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:58:06 UTC
 #> # A tibble: 1 × 159
 #>   game_state_key period hd         id season    stage_id type_id commentator
 #>   <chr>           <int> <lgl>   <int> <chr>        <int>   <int> <lgl>      

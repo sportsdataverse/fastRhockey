@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,7 +113,7 @@
 
 
 <dt id="arg-return-parsed">return_parsed<a class="anchor" aria-label="anchor" href="#arg-return-parsed"></a></dt>
-<dd><p><code>TRUE</code> (default) returns the parsed tibble; <code>FALSE</code> returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus <code>_request</code> with the season, stage, tn and the ids asked for).</p></dd>
+<dd><p><code>TRUE</code> (default) returns the parsed tibble; <code>FALSE</code> returns the page's parsed record (a named list, plus <code>_request</code> with the season, stage, tn and the ids asked for).</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -125,10 +125,10 @@
     <p>Source: <code>GET https://www.vhlru.ru/en/players/{player_id}/</code> (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.</p>
     </div>
     <div class="section level2">
-    <h2 id="owner-flag-sanctions-">Owner flag (sanctions)<a class="anchor" aria-label="anchor" href="#owner-flag-sanctions-"></a></h2>
+    <h2 id="terms-of-use">Terms of use<a class="anchor" aria-label="anchor" href="#terms-of-use"></a></h2>
 
 
-<p>The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.</p>
+<p>Check the provider's terms of use before redistributing this data.</p>
     </div>
     <div class="section level2">
     <h2 id="errors">Errors<a class="anchor" aria-label="anchor" href="#errors"></a></h2>
@@ -160,8 +160,8 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">vhl_player_career</span><span class="op">(</span>player_id <span class="op">=</span> <span class="fl">34526</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── VHL Player Career Information from vhlru.ru ─────── <span style="font-style: italic;">fastRhockey 1.0.0.9000</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-30 00:21:17 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── VHL Player Career Information from vhlru.ru ──────────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-01 22:05:32 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 39</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   player_id season stage      tn team_season_id team   jersey games_played goals</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>

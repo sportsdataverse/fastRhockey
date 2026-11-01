@@ -4,13 +4,13 @@ Returns NHL metadata (players, teams, season states, game types).
 
 Three branches are supported:
 
-- Both `year` and `series_letter` supplied — returns playoff-series
+- Both `year` and `series_letter` supplied - returns playoff-series
   metadata via `meta/playoff-series/{year}/{seriesLetter}`.
 
-- Only `game_id` supplied — returns per-game metadata via
+- Only `game_id` supplied - returns per-game metadata via
   `meta/game/{game_id}`.
 
-- No arguments — returns general league meta via `meta`.
+- No arguments - returns general league meta via `meta`.
 
 ## Usage
 

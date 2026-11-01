@@ -30,8 +30,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_roster_season(team_abbr = "TOR"))
-#> ── NHL Roster Season ───────────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:38 UTC
+#> ── NHL Roster Season ────────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:34 UTC
 #> # A tibble: 99 × 2
 #>      season team_abbr
 #>       <int> <chr>    

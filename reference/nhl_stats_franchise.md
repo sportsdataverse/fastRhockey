@@ -1,4 +1,4 @@
-# **NHL Stats API — Franchise Listing**
+# **NHL Stats API - Franchise Listing**
 
 Returns the franchise listing from the NHL Stats REST API
 (`https://api.nhle.com/stats/rest/{lang}/franchise`). Parallels the
@@ -46,8 +46,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_stats_franchise())
-#> ── NHL Stats Franchise ─────────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:49 UTC
+#> ── NHL Stats Franchise ──────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:52 UTC
 #> # A tibble: 40 × 4
 #>       id full_name             team_common_name team_place_name
 #>    <int> <chr>                 <chr>            <chr>          

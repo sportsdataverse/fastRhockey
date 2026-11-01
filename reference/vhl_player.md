@@ -18,8 +18,8 @@ vhl_player(player_id, return_parsed = TRUE)
 - return_parsed:
 
   `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's
-  parsed record (a named list, the sdv-internal-refs capture shape, plus
-  `_request` with the season, stage, tn and the ids asked for).
+  parsed record (a named list, plus `_request` with the season, stage,
+  tn and the ids asked for).
 
 ## Value
 
@@ -48,12 +48,9 @@ Source: `GET https://www.vhlru.ru/en/players/{player_id}/`
 (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a
 public source; payloads are not redistributed.
 
-## Owner flag (sanctions)
+## Terms of use
 
-The VHL is run by Russian league operators, and several clubs are owned
-or sponsored by sanctioned state companies. Fetching on your own machine
-is fine; a published data release or a hosted mirror of this data needs
-the owner's sanctions / legal sign-off first.
+Check the provider's terms of use before redistributing this data.
 
 ## Errors
 
@@ -90,8 +87,8 @@ Other VHL Functions:
 ``` r
 # \donttest{
   try(vhl_player(player_id = 34526))
-#> ── VHL Player Information from vhlru.ru ────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:21:16 UTC
+#> ── VHL Player Information from vhlru.ru ─────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:05:31 UTC
 #> # A tibble: 1 × 10
 #>   player_id name         jersey position height_cm weight_kg born    age country
 #>       <int> <chr>         <int> <chr>        <int>     <int> <chr> <int> <chr>  

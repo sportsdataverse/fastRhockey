@@ -1,4 +1,4 @@
-# **NHL Stats API — Players Listing**
+# **NHL Stats API - Players Listing**
 
 Returns the player listing from the NHL Stats REST API
 (`https://api.nhle.com/stats/rest/{lang}/players`). This is a full
@@ -39,7 +39,7 @@ A `fastRhockey_data` tibble of players, or `NULL` on failure.
 ``` r
 # \donttest{
   try(nhl_stats_players())
-#> 2026-10-30 00:18:55.401211: No players data (try passing a `cayenne_exp` filter)
+#> 2026-11-01 22:02:56.165128: No players data (try passing a `cayenne_exp` filter)
 #> NULL
 # }
 ```

@@ -18,8 +18,8 @@ vhl_roster(team_page_id, return_parsed = TRUE)
 - return_parsed:
 
   `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's
-  parsed record (a named list, the sdv-internal-refs capture shape, plus
-  `_request` with the season, stage, tn and the ids asked for).
+  parsed record (a named list, plus `_request` with the season, stage,
+  tn and the ids asked for).
 
 ## Value
 
@@ -36,7 +36,7 @@ A `fastRhockey_data` tibble with one row per player:
 | `jersey` | integer | Jersey number (integer). |
 | `position` | character | Position in English, lower case: goaltender, defense, forward. |
 | `player_id` | integer | Player id: the `{player_id}` of `/en/players/{player_id}/`, stable across seasons and teams; also the photo id on img.khl.ru. Same numeric sequence as khl.ru player ids; whether it equals the same person's khl.ru id is unverified. |
-| `player` | character | Player name, 'Surname Given' — in CYRILLIC even on the /en/ page. |
+| `player` | character | Player name, 'Surname Given' - in CYRILLIC even on the /en/ page. |
 | `born` | character | Birth date 'DD.MM.YYYY' as the public page prints it. |
 | `country` | character | Citizenship (English). |
 
@@ -52,12 +52,9 @@ Source: `GET https://www.vhlru.ru/en/teams/{team_page_id}/`
 (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a
 public source; payloads are not redistributed.
 
-## Owner flag (sanctions)
+## Terms of use
 
-The VHL is run by Russian league operators, and several clubs are owned
-or sponsored by sanctioned state companies. Fetching on your own machine
-is fine; a published data release or a hosted mirror of this data needs
-the owner's sanctions / legal sign-off first.
+Check the provider's terms of use before redistributing this data.
 
 ## Errors
 
@@ -94,22 +91,22 @@ Other VHL Functions:
 ``` r
 # \donttest{
   try(vhl_roster(team_page_id = 390))
-#> ── VHL Roster Information from vhlru.ru ────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:21:18 UTC
-#> # A tibble: 24 × 11
+#> ── VHL Roster Information from vhlru.ru ─────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:05:34 UTC
+#> # A tibble: 23 × 11
 #>    team_page_id team  calendar_tn calendar_team_season_id roster_as_of jersey
 #>           <int> <chr>       <int>                   <int> <chr>         <int>
-#>  1          390 Toros        1430                   15531 30.10.2026       28
-#>  2          390 Toros        1430                   15531 30.10.2026       97
-#>  3          390 Toros        1430                   15531 30.10.2026       31
-#>  4          390 Toros        1430                   15531 30.10.2026       25
-#>  5          390 Toros        1430                   15531 30.10.2026       71
-#>  6          390 Toros        1430                   15531 30.10.2026       36
-#>  7          390 Toros        1430                   15531 30.10.2026        1
-#>  8          390 Toros        1430                   15531 30.10.2026       46
-#>  9          390 Toros        1430                   15531 30.10.2026       19
-#> 10          390 Toros        1430                   15531 30.10.2026       88
-#> # ℹ 14 more rows
+#>  1          390 Toros        1430                   15531 02.11.2026       28
+#>  2          390 Toros        1430                   15531 02.11.2026       97
+#>  3          390 Toros        1430                   15531 02.11.2026       31
+#>  4          390 Toros        1430                   15531 02.11.2026       25
+#>  5          390 Toros        1430                   15531 02.11.2026       71
+#>  6          390 Toros        1430                   15531 02.11.2026       36
+#>  7          390 Toros        1430                   15531 02.11.2026        1
+#>  8          390 Toros        1430                   15531 02.11.2026       46
+#>  9          390 Toros        1430                   15531 02.11.2026       19
+#> 10          390 Toros        1430                   15531 02.11.2026       88
+#> # ℹ 13 more rows
 #> # ℹ 5 more variables: position <chr>, player_id <int>, player <chr>,
 #> #   born <chr>, country <chr>
 # }

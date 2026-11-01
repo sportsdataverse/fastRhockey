@@ -72,8 +72,8 @@ Other Ligue Magnus Functions:
 ``` r
 # \donttest{
   try(magnus_lineups(game_id = 77779))
-#> ── Ligue Magnus Lineups Information from liguemagnus.com ───────────────────────
-#> ℹ Data updated: 2026-10-30 00:17:08 UTC
+#> ── Ligue Magnus Lineups Information from liguemagnus.com ── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:00:49 UTC
 #> # A tibble: 41 × 14
 #>    game_id team_id home_away player_id player_participant_id player_name        
 #>      <int>   <int> <chr>         <int>                 <int> <chr>              

@@ -1,4 +1,4 @@
-# **NHL Stats API — Config**
+# **NHL Stats API - Config**
 
 Returns the Stats REST API configuration payload
 (`https://api.nhle.com/stats/rest/{lang}/config`). This endpoint is

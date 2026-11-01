@@ -79,7 +79,7 @@ A `fastRhockey_data` tibble (the raw JSON list when
 | info_statistics_provider | character | Stats provider of the data (statnet seen). |
 | info_is_in_squad | logical | Whether the player is in the current squad. |
 | info_player_id | integer | isa (StatNet) player id as an INTEGER. Join trap: play-by-play sends the same id as a STRING (player.playerId, pop/nep, assists) and map keys are strings; cast before joining. |
-| info_ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams\[\]. |
+| info_ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams\[\]. |
 
 ## Errors
 
@@ -128,10 +128,10 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_athlete_game_log(athlete_uuid = "qQ9-349c7WDv6",
-    master_site_instance_id = "shl1_shl", season = 2026)
-#> ── SHL Athlete Game Log Information from www.shl.se ── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:19:58 UTC
+  try(shl_athlete_game_log(athlete_uuid = "qQ9-349c7WDv6",
+    master_site_instance_id = "shl1_shl", season = 2026))
+#> ── SHL Athlete Game Log Information from www.shl.se ─────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:06 UTC
 #> # A tibble: 58 × 35
 #>    date   series home_team home_team_icon guest_team guest_team_icon    gp   gpi
 #>    <chr>  <chr>  <chr>     <chr>          <chr>      <chr>           <dbl> <dbl>

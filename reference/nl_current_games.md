@@ -63,12 +63,11 @@ returns a zero-row tibble with these columns.
 
 ## Details
 
-**robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows
-`/api`. The owner approved building on it on 2026-10-12, for polite,
-incremental use only: requests are spaced at least one second apart (on
-every attempt, retries included), and a bulk backfill or a published
-mirror needs the owner's sign-off first. Crawl incrementally: fetch a
-finished game once (keyed by `game_id`), find new games with one
+**Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so
+keep use light and incremental. Requests are spaced at least one second
+apart (on every attempt, retries included). Check the site's terms of
+use before any bulk download or redistribution. Crawl incrementally:
+fetch a finished game once (keyed by `game_id`), find new games with one
 [`nl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/nl_schedule.md)
 call per run, and fetch season tables at most once per game day.
 
@@ -116,11 +115,12 @@ Other National League Functions:
 # \donttest{
   try(nl_current_games(season = 2027))
 #> ── National League Current Games Information from nationalleague.ch ────────────
-#> ℹ Data updated: 2026-10-30 00:19:06 UTC
-#> # A tibble: 1 × 29
+#> ℹ Data updated: 2026-11-01 22:03:05 UTC
+#> # A tibble: 2 × 29
 #>   game_id home_team_short_name home_team_name away_team_short_name
 #>     <dbl> <chr>                <chr>          <chr>               
-#> 1 2.03e13 HCL                  HC Lugano      LHC                 
+#> 1 2.03e13 HCL                  HC Lugano      SCB                 
+#> 2 2.03e13 EVZ                  EV Zug         HCAP                
 #> # ℹ 25 more variables: away_team_name <chr>, home_team_id <dbl>,
 #> #   away_team_id <dbl>, vimeo_video_id <dbl>, date <chr>, status <chr>,
 #> #   base_status <chr>, home_team_result <int>, away_team_result <int>,

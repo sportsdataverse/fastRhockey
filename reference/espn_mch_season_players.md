@@ -39,7 +39,7 @@ espn_mch_season_players(
 A `fastRhockey_data` tibble with one row per player reference for the
 requested page. This function hits the same endpoint as
 `espn_mch_season_athletes()` (`seasons/{season}/athletes`) but uses the
-`player_id` column name for consistency with the `sdv-py`
+`player_id` column name for consistency with the `sportsdataverse-py`
 `espn_mch_season_players` naming convention:
 
 |            |           |                                              |
@@ -193,7 +193,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_season_players(season = 2026, limit = 10, page = 1))
 #> ── MENS-COLLEGE-HOCKEY Season Players data from ESPN core-v2 ───────────────────
-#> ℹ Data updated: 2026-10-30 00:09:05 UTC
+#> ℹ Data updated: 2026-11-01 21:53:54 UTC
 #> # A tibble: 10 × 6
 #>    ref                                   player_id season  page count page_count
 #>    <chr>                                 <chr>      <int> <int> <int>      <int>

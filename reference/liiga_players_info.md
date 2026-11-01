@@ -64,12 +64,13 @@ has none).
 
 Endpoint: `GET https://liiga.fi/api/v2/players/info`
 
-Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests
-to liiga.fi are spaced at least one second apart. A request Liiga
-answers with nothing (an unknown game, a tournament not played that
-season, a shot map before 2016) raises `fastRhockey_no_data`; a failed
-fetch or an error-shaped answer raises `fastRhockey_asset_fetch`; a bad
-argument raises `fastRhockey_bad_request`.
+Seasons are END years (2026 = 2025-26), the same key as
+sportsdataverse-py. Requests to liiga.fi are spaced at least one second
+apart. A request Liiga answers with nothing (an unknown game, a
+tournament not played that season, a shot map before 2016) raises
+`fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
+`fastRhockey_asset_fetch`; a bad argument raises
+`fastRhockey_bad_request`.
 
 ## See also
 
@@ -102,8 +103,8 @@ Other Liiga Functions:
 ``` r
 # \donttest{
   try(liiga_players_info(season_from = 2026, season_to = 2026))
-#> ── Liiga roster Information from liiga.fi ──────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:15:36 UTC
+#> ── Liiga roster Information from liiga.fi ───────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:58:40 UTC
 #> # A tibble: 633 × 23
 #>    player_id    team_id team_slug team_name country_of_birth place_of_birth
 #>        <int>      <int> <chr>     <chr>     <chr>            <chr>         

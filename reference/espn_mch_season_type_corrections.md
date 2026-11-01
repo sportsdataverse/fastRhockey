@@ -32,7 +32,7 @@ espn_mch_season_type_corrections(
 
 A `fastRhockey_data` tibble with one row per correction entry, or an
 empty tibble when no corrections are recorded. **Note**: ESPN does not
-publish score corrections for MCH — this endpoint returns empty for all
+publish score corrections for MCH - this endpoint returns empty for all
 tested seasons:
 
 |               |           |                                           |

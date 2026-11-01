@@ -45,7 +45,8 @@ A `fastRhockey_data` tibble with one row per ranking item:
 
 League slug `mens-college-hockey`. Core-v2 `weeks/{week}/rankings`
 collection; `$ref`-only items become `ref` + `ranking_id`, inline items
-are flattened. Mirrors sdv-py `espn_mch_season_week_rankings()`.
+are flattened. Mirrors sportsdataverse-py
+`espn_mch_season_week_rankings()`.
 
 ## See also
 
@@ -181,7 +182,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_season_week_rankings(season = 2026, season_type = 2, week = 3))
 #> ── MENS-COLLEGE-HOCKEY Week Rankings data from ESPN core-v2 ────────────────────
-#> ℹ Data updated: 2026-10-30 00:09:09 UTC
+#> ℹ Data updated: 2026-11-01 21:54:00 UTC
 #> # A tibble: 2 × 5
 #>   ref                                        ranking_id season season_type  week
 #>   <chr>                                      <chr>       <int>       <int> <int>

@@ -1,4 +1,4 @@
-# **NHL Stats API — Team Listing**
+# **NHL Stats API - Team Listing**
 
 Returns the top-level team listing from the NHL Stats REST API. When
 `team_id` is `NULL` (default) this hits
@@ -56,8 +56,8 @@ the following columns:
 ``` r
 # \donttest{
   try(nhl_stats_team_listing())
-#> ── NHL Stats Team Listing ──────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:57 UTC
+#> ── NHL Stats Team Listing ───────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:58 UTC
 #> # A tibble: 62 × 6
 #>       id franchise_id full_name              league_id raw_tricode tri_code
 #>    <int>        <int> <chr>                      <int> <chr>       <chr>   
@@ -73,8 +73,8 @@ the following columns:
 #> 10    45            3 St. Louis Eagles             133 SLE         SLE     
 #> # ℹ 52 more rows
   try(nhl_stats_team_listing(team_id = 10))
-#> ── NHL Stats Team Listing ──────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:59 UTC
+#> ── NHL Stats Team Listing ───────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:58 UTC
 #> # A tibble: 1 × 6
 #>      id franchise_id full_name           league_id raw_tricode tri_code
 #>   <int>        <int> <chr>                   <int> <chr>       <chr>   

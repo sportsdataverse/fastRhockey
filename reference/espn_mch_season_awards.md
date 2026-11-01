@@ -17,7 +17,8 @@ espn_mch_season_awards(season = most_recent_nhl_season(), limit = 200, ...)
 
 - limit:
 
-  Maximum number of awards (ESPN `limit`; default `200`, as sdv-py).
+  Maximum number of awards (ESPN `limit`; default `200`, as
+  sportsdataverse-py).
 
 - ...:
 

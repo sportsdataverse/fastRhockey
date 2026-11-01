@@ -24,7 +24,7 @@ espn_nhl_award(award_id, ...)
 A one-row `fastRhockey_data` tibble with award metadata, or an empty
 tibble when the endpoint is unavailable. **Note**: The individual award
 endpoint (`core_v2/awards/{award_id}`) currently returns HTTP 500 for
-all tested NHL award ids — an empty tibble is returned gracefully:
+all tested NHL award ids - an empty tibble is returned gracefully:
 
 |              |           |                                                |
 |--------------|-----------|------------------------------------------------|
@@ -177,8 +177,8 @@ Saiem Gilani
     awards <- espn_nhl_awards()
     if (nrow(awards) > 0) espn_nhl_award(award_id = awards$award_id[1])
   })
-#> ── NHL Award data from ESPN core-v2 ────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:09:19 UTC
+#> ── NHL Award data from ESPN core-v2 ─────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:54:17 UTC
 #> # A tibble: 1 × 6
 #>   award_id id    name  display_name description award_ref
 #>   <chr>    <chr> <chr> <chr>        <chr>       <chr>    

@@ -20,7 +20,7 @@ category values bring their own count columns (sent as numbers, parsed from the 
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -224,9 +224,24 @@ non-JSON, error-shaped, truncated or out-of-scope 200 (the answer is unknown, no
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">ha_skater_stats</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span>, category <span class="op">=</span> <span class="st">"summary"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in nothing("answered no rows (a season or phase without data, or an unknown filter value)") : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   hockeyallsvenskan.se/api/all-time-skaters-stats: answered no rows (a</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> season or phase without data, or an unknown filter value)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── HA Skater Stats Information from hockeyallsvenskan.se ── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-01 21:57:18 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 511 × 19</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    season  rank player_name  team_statnet_id    gp    tp     g     a   pim   gwg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>026     1 Scott Pooley AIK                51    59    27    32     8     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   <span style="text-decoration: underline;">2</span>026     2 Liam Dower … IFB                51    57    21    36    22     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   <span style="text-decoration: underline;">2</span>026     3 George Diaco KHC                52    54    25    29    20     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   <span style="text-decoration: underline;">2</span>026     4 Teemu Lepaus IKO                52    51    15    36    16     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>   <span style="text-decoration: underline;">2</span>026     5 Mikkel Øby-… AIS                52    48    28    20     6    10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   <span style="text-decoration: underline;">2</span>026     6 Liam Hawel   KHC                51    45    13    32    12     3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>   <span style="text-decoration: underline;">2</span>026     7 Marcus Nils… IFB                50    45    12    33    14     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>026     8 Axel Ottoss… IFB                52    41    25    16    48     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>026     9 Herman Träff IKO                51    41    23    18    32     6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>026    10 Oscar Tells… IFB                52    40    20    20    14     6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 501 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 9 more variables: ppg &lt;int&gt;, sog &lt;int&gt;, hits &lt;int&gt;, bks &lt;int&gt;, plus &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   minus &lt;int&gt;, plus_minus &lt;int&gt;, toi_gp &lt;chr&gt;, tppg &lt;dbl&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

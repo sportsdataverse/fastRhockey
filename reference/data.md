@@ -10,7 +10,7 @@ for all PHF teams.
 
 A dataset containing the full team names, abbreviations, colors & logos
 for all PWHL teams. Carries 14 rows: the 6 founding franchises appear
-twice each — once under their inaugural 2023-24 identity (`PWHL Boston`,
+twice each - once under their inaugural 2023-24 identity (`PWHL Boston`,
 etc., matching the live
 [`pwhl_teams()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_teams.md)
 payload) and once under their 2024-25 rebranded identity (Boston Fleet,

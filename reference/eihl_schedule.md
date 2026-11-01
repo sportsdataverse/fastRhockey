@@ -107,9 +107,9 @@ Other EIHL eSports functions:
 ``` r
 # \donttest{
   try(eihl_schedule(season = 2027, league_id = 3))
-#> ── EIHL schedule from the eSports hokejovyzapis bucket ─────────────────────────
-#> ℹ Data updated: 2026-10-30 00:08:21 UTC
-#> # A tibble: 270 × 32
+#> ── EIHL schedule from the eSports hokejovyzapis bucket ──── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:52:55 UTC
+#> # A tibble: 270 × 34
 #>    match_id start_date     league_id league season round group home_id home_name
 #>       <int> <chr>              <int> <chr>   <int> <chr> <chr>   <int> <chr>    
 #>  1     4401 2027-03-24 19…         3 EIHL     2027 249   ""         98 Manchest…
@@ -123,7 +123,7 @@ Other EIHL eSports functions:
 #>  9     4427 2026-10-03 19…         3 EIHL     2027 9     ""        100 Sheffiel…
 #> 10     4428 2026-10-04 17…         3 EIHL     2027 10    NA         93 Coventry…
 #> # ℹ 260 more rows
-#> # ℹ 23 more variables: home_shortcut <chr>, guest_id <int>, guest_name <chr>,
+#> # ℹ 25 more variables: home_shortcut <chr>, guest_id <int>, guest_name <chr>,
 #> #   guest_shortcut <chr>, status <chr>, overtime_count <int>, extra_time <lgl>,
 #> #   shooting <lgl>, contumacy <lgl>, final_score_home <int>,
 #> #   final_score_guest <int>, first_period_score_home <int>,

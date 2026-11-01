@@ -113,8 +113,8 @@ Other SIHF Functions:
 ``` r
 # \donttest{
   try(sihf_phases(season = 2026, league_id = 1))
-#> ── SIHF Phases Information from data.sihf.ch ───────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:20:37 UTC
+#> ── SIHF Phases Information from data.sihf.ch ────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:48 UTC
 #> # A tibble: 7 × 4
 #>   season phase_id phase_name        n_games
 #>    <int>    <int> <chr>               <int>

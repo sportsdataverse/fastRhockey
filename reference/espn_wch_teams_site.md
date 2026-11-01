@@ -12,7 +12,8 @@ espn_wch_teams_site(limit = 1000, ...)
 
 - limit:
 
-  Maximum number of teams (ESPN `limit`; default `1000`, as sdv-py).
+  Maximum number of teams (ESPN `limit`; default `1000`, as
+  sportsdataverse-py).
 
 - ...:
 
@@ -190,8 +191,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_wch_teams_site())
-#> ── WOMENS-COLLEGE-HOCKEY Teams data from ESPN.com ──── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:11:05 UTC
+#> ── WOMENS-COLLEGE-HOCKEY Teams data from ESPN.com ───────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:56:59 UTC
 #> # A tibble: 47 × 21
 #>    abbreviation display_name     espn_team_id team  logo  logo_dark logos_href_3
 #>    <chr>        <chr>                   <int> <chr> <chr> <chr>     <chr>       

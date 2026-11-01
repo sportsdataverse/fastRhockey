@@ -14,7 +14,7 @@ mapped to the site's ssgt uuids through /statistics-v2/layout-info."><meta prope
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -116,7 +116,7 @@ mapped to the site's ssgt uuids through <code>/statistics-v2/layout-info</code>.
 
 <dl><dt id="arg-ssgt-uuid">ssgt_uuid<a class="anchor" aria-label="anchor" href="#arg-ssgt-uuid"></a></dt>
 <dd><p>ssgt uuid: one season + series + game type (e.g. 2025/2026 SHL regular season).
-Directory: /statistics-v2/layout-info seasonSeriesGameTypeTeams[].ssgtUuid.</p></dd>
+Directory: /statistics-v2/layout-info originalSeasonSeriesGameTypeTeams[].ssgtUuid.</p></dd>
 
 
 <dt id="arg-return-parsed">return_parsed<a class="anchor" aria-label="anchor" href="#arg-return-parsed"></a></dt>
@@ -126,7 +126,7 @@ decoded JSON as a list.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>fastRhockey_data</code> tibble (the raw JSON list when <code>return_parsed = FALSE</code>) with the following columns:</p><table class="table table"><tr><td>col_name</td><td>type</td><td>description</td></tr><tr><td>season</td><td>integer</td><td>Season END year (2026 = 2025/26).</td></tr><tr><td>ssgt_uuid</td><td>character</td><td>ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[].</td></tr><tr><td>team_code</td><td>character</td><td>StatNet team code (SAIK, FHC).</td></tr><tr><td>team_uuid</td><td>character</td><td>Platform team uuid.</td></tr><tr><td>team_name</td><td>character</td><td>Name of the team.</td></tr><tr><td>team_short_name</td><td>character</td><td>Short display name of the team.</td></tr><tr><td>rank</td><td>integer</td><td>Position in the table (1 = top).</td></tr><tr><td>rank_diff</td><td>integer</td><td>Change in standings rank, in places (the reference point is unverified).</td></tr><tr><td>gp</td><td>integer</td><td>Number of games played.</td></tr><tr><td>w</td><td>integer</td><td>Regulation wins.</td></tr><tr><td>t</td><td>integer</td><td>Games tied after regulation, decided in overtime or a shootout (= OTW + OTL).</td></tr><tr><td>l</td><td>integer</td><td>Regulation losses.</td></tr><tr><td>otw</td><td>integer</td><td>Overtime and shootout wins.</td></tr><tr><td>otl</td><td>integer</td><td>Overtime and shootout losses.</td></tr><tr><td>p</td><td>integer</td><td>Standings points (3 per regulation win, 2 per OT/SO win, 1 per OT/SO loss).</td></tr><tr><td>gf</td><td>integer</td><td>Number of goals scored (goals for).</td></tr><tr><td>ga</td><td>integer</td><td>Number of goals conceded (goals against).</td></tr><tr><td>diff</td><td>integer</td><td>Goal difference.</td></tr></table></div>
+    <p>A <code>fastRhockey_data</code> tibble (the raw JSON list when <code>return_parsed = FALSE</code>) with the following columns:</p><table class="table table"><tr><td>col_name</td><td>type</td><td>description</td></tr><tr><td>season</td><td>integer</td><td>Season END year (2026 = 2025/26).</td></tr><tr><td>ssgt_uuid</td><td>character</td><td>ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[].</td></tr><tr><td>team_code</td><td>character</td><td>StatNet team code (SAIK, FHC).</td></tr><tr><td>team_uuid</td><td>character</td><td>Platform team uuid.</td></tr><tr><td>team_name</td><td>character</td><td>Name of the team.</td></tr><tr><td>team_short_name</td><td>character</td><td>Short display name of the team.</td></tr><tr><td>rank</td><td>integer</td><td>Position in the table (1 = top).</td></tr><tr><td>rank_diff</td><td>integer</td><td>Change in standings rank, in places (the reference point is unverified).</td></tr><tr><td>gp</td><td>integer</td><td>Number of games played.</td></tr><tr><td>w</td><td>integer</td><td>Regulation wins.</td></tr><tr><td>t</td><td>integer</td><td>Games tied after regulation, decided in overtime or a shootout (= OTW + OTL).</td></tr><tr><td>l</td><td>integer</td><td>Regulation losses.</td></tr><tr><td>otw</td><td>integer</td><td>Overtime and shootout wins.</td></tr><tr><td>otl</td><td>integer</td><td>Overtime and shootout losses.</td></tr><tr><td>p</td><td>integer</td><td>Standings points (3 per regulation win, 2 per OT/SO win, 1 per OT/SO loss).</td></tr><tr><td>gf</td><td>integer</td><td>Number of goals scored (goals for).</td></tr><tr><td>ga</td><td>integer</td><td>Number of goals conceded (goals against).</td></tr><tr><td>diff</td><td>integer</td><td>Goal difference.</td></tr></table></div>
     <div class="section level2">
     <h2 id="errors">Errors<a class="anchor" aria-label="anchor" href="#errors"></a></h2>
 
@@ -174,9 +174,9 @@ season that is not a year, or an argument outside its choices.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="fu">shl_standings</span><span class="op">(</span>ssgt_uuid <span class="op">=</span> <span class="st">"iuzqg7dqk9"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── SHL Standings Information from www.shl.se ───────── <span style="font-style: italic;">fastRhockey 1.0.0.9000</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-30 00:20:21 UTC</span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">shl_standings</span><span class="op">(</span>ssgt_uuid <span class="op">=</span> <span class="st">"iuzqg7dqk9"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── SHL Standings Information from www.shl.se ────────────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-01 22:04:31 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 14 × 18</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    season ssgt_uuid  team_code team_uuid       team_name   team_short_name  rank</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>

@@ -17,7 +17,7 @@ shl_ssgt_provider(ssgt_uuid, return_parsed = TRUE)
 
   ssgt uuid: one season + series + game type (e.g. 2025/2026 SHL regular
   season). Directory: /statistics-v2/layout-info
-  seasonSeriesGameTypeTeams\[\].ssgtUuid.
+  originalSeasonSeriesGameTypeTeams\[\].ssgtUuid.
 
 - return_parsed:
 
@@ -81,9 +81,9 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_ssgt_provider(ssgt_uuid = "iuzqg7dqk9")
-#> ── SHL Ssgt Provider Information from www.shl.se ───── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:20:18 UTC
+  try(shl_ssgt_provider(ssgt_uuid = "iuzqg7dqk9"))
+#> ── SHL Ssgt Provider Information from www.shl.se ────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:30 UTC
 #> # A tibble: 1 × 1
 #>   provider
 #>   <chr>   

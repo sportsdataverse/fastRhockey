@@ -39,7 +39,7 @@ Other OHL Functions:
 
 ``` r
  try(ohl_game_shifts(game_id = 27225)) 
-#> ── OHL Game Shifts from HockeyTech ─────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:19:27 UTC
+#> ── OHL Game Shifts from HockeyTech ──────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:03:27 UTC
 #> # A tibble: 0 × 0
 ```

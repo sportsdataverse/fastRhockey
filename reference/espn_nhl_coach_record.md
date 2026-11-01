@@ -24,7 +24,7 @@ espn_nhl_coach_record(coach_id, ...)
 
 A `fastRhockey_data` tibble with coach career record data, or an empty
 tibble when the endpoint is unavailable. **Note**: The coach record path
-(`coaches/{id}/record`) returns HTTP 404 for NHL — this endpoint is not
+(`coaches/{id}/record`) returns HTTP 404 for NHL - this endpoint is not
 populated by ESPN for the NHL league. An empty tibble is returned
 gracefully with a warning:
 
@@ -175,7 +175,7 @@ Saiem Gilani
     ccs <- espn_nhl_coaches(season = 2026)
     espn_nhl_coach_record(coach_id = ccs$coach_id[1])
   })
-#> ! 2026-10-30 00:09:21.303975: ESPN nhl coach record for coach 900 is not available (HTTP 404 is normal for NHL).
+#> ! 2026-11-01 21:54:21.182978: ESPN nhl coach record for coach 900 is not available (HTTP 404 is normal for NHL).
 #> ! Warning: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }

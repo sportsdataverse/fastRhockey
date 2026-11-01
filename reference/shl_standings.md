@@ -17,7 +17,7 @@ shl_standings(ssgt_uuid, return_parsed = TRUE)
 
   ssgt uuid: one season + series + game type (e.g. 2025/2026 SHL regular
   season). Directory: /statistics-v2/layout-info
-  seasonSeriesGameTypeTeams\[\].ssgtUuid.
+  originalSeasonSeriesGameTypeTeams\[\].ssgtUuid.
 
 - return_parsed:
 
@@ -33,7 +33,7 @@ A `fastRhockey_data` tibble (the raw JSON list when
 |----|----|----|
 | col_name | type | description |
 | season | integer | Season END year (2026 = 2025/26). |
-| ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams\[\]. |
+| ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams\[\]. |
 | team_code | character | StatNet team code (SAIK, FHC). |
 | team_uuid | character | Platform team uuid. |
 | team_name | character | Name of the team. |
@@ -98,9 +98,9 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_standings(ssgt_uuid = "iuzqg7dqk9")
-#> ── SHL Standings Information from www.shl.se ───────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:20:21 UTC
+  try(shl_standings(ssgt_uuid = "iuzqg7dqk9"))
+#> ── SHL Standings Information from www.shl.se ────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:31 UTC
 #> # A tibble: 14 × 18
 #>    season ssgt_uuid  team_code team_uuid       team_name   team_short_name  rank
 #>     <int> <chr>      <chr>     <chr>           <chr>       <chr>           <int>

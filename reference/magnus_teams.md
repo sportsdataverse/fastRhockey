@@ -35,7 +35,7 @@ A tibble (`return_parsed = TRUE`), else the raw envelope list:
 | team | character | Team display name (e.g., "Rapaces de Gap"). |
 | team_abbreviation | character | Team abbreviation (e.g., "GAP"). |
 | team_short_name | character | Short team label (e.g., "GAP", "ANGLET"). |
-| team_label | character | Back-office label, " - "; use team for display. |
+| team_label | character | Back-office label, `"<club code> - <NAME> <level>"`; use team for display. |
 | gender | character | Gender of the team: M (men; the only value observed). |
 | logo_url | character | URL of the team logo image. |
 | club_id | integer | Id of the club (legal entity) behind the team (integer). |
@@ -67,8 +67,8 @@ Other Ligue Magnus Functions:
 ``` r
 # \donttest{
   try(magnus_teams(phase_id = 714))
-#> ── Ligue Magnus Teams Information from liguemagnus.com ─────────────────────────
-#> ℹ Data updated: 2026-10-30 00:17:16 UTC
+#> ── Ligue Magnus Teams Information from liguemagnus.com ──── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:00:58 UTC
 #> # A tibble: 12 × 11
 #>    team_id team     team_abbreviation team_short_name team_label gender logo_url
 #>      <int> <chr>    <chr>             <chr>           <chr>      <chr>  <chr>   

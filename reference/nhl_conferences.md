@@ -33,8 +33,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_conferences())
-#> ── NHL Conferences from NHL.com ────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:17:38 UTC
+#> ── NHL Conferences from NHL.com ─────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:01:24 UTC
 #> # A tibble: 2 × 1
 #>   conference_name
 #>   <chr>          

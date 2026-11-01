@@ -28,7 +28,7 @@ espn_mch_season_freeagents(season = most_recent_nhl_season(), limit = 100, ...)
 A `fastRhockey_data` tibble with one row per free-agent athlete
 reference. **Note**: The MCH free-agents endpoint
 (`seasons/{season}/freeagents`) currently returns `count=0` for all
-tested seasons — the endpoint exists but ESPN does not populate it for
+tested seasons - the endpoint exists but ESPN does not populate it for
 MCH. An empty tibble is returned gracefully in that case:
 
 |            |           |                                                    |

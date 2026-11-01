@@ -118,8 +118,8 @@ Other SIHF Functions:
 ``` r
 # \donttest{
   try(sihf_goalie_shootouts(season = 2026, league_id = 1))
-#> ── SIHF Goalie Shootouts Information from data.sihf.ch ─────────────────────────
-#> ℹ Data updated: 2026-10-30 00:20:31 UTC
+#> ── SIHF Goalie Shootouts Information from data.sihf.ch ──── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:42 UTC
 #> # A tibble: 35 × 13
 #>    season phase_id  rank player      team_id team_name team_acronym games_played
 #>     <int>    <int> <int> <chr>         <int> <chr>     <chr>               <int>

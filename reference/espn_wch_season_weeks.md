@@ -28,7 +28,7 @@ espn_wch_season_weeks(season = most_recent_nhl_season(), season_type = 2, ...)
 
 A `fastRhockey_data` tibble with one row per week, or an empty tibble
 when the endpoint returns no items. **Note**: The WCH does not use
-weekly scheduling in the ESPN core-v2 API — this endpoint consistently
+weekly scheduling in the ESPN core-v2 API - this endpoint consistently
 returns `count=0` for WCH. An empty tibble is returned gracefully:
 
 |             |           |                                            |
@@ -183,7 +183,7 @@ Saiem Gilani
   # NOTE: Returns empty tibble for WCH (ESPN does not populate weeks for hockey)
   try(espn_wch_season_weeks(season = 2026, season_type = 2))
 #> ── WOMENS-COLLEGE-HOCKEY Season Weeks data from ESPN core-v2 ───────────────────
-#> ℹ Data updated: 2026-10-30 00:10:58 UTC
+#> ℹ Data updated: 2026-11-01 21:56:46 UTC
 #> # A tibble: 25 × 6
 #>    ref                                  week season season_type count page_count
 #>    <chr>                               <int>  <int>       <int> <int>      <int>

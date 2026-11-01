@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -136,7 +136,7 @@
     <p>A <code>fastRhockey_data</code> tibble with one row per draft pick, or an
 empty tibble when the endpoint is unavailable. The confirmed path is
 <code>seasons/{season}/draft/rounds/{round_num}/picks</code>; for NHL this returns
-HTTP 404 — the draft data is not served by the core-v2 sub-tree:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>ref</td><td>character</td><td><code>$ref</code> URL for the draft pick object.</td></tr><tr><td>pick_id</td><td>character</td><td>Pick id parsed from the <code>$ref</code> URL.</td></tr><tr><td>season</td><td>integer</td><td>Season year (echoed from arg).</td></tr><tr><td>round_num</td><td>integer</td><td>Round number (echoed from arg).</td></tr><tr><td>count</td><td>integer</td><td>Total picks in the collection.</td></tr><tr><td>page_count</td><td>integer</td><td>Total pages in the collection.</td></tr></table></div>
+HTTP 404 - the draft data is not served by the core-v2 sub-tree:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>ref</td><td>character</td><td><code>$ref</code> URL for the draft pick object.</td></tr><tr><td>pick_id</td><td>character</td><td>Pick id parsed from the <code>$ref</code> URL.</td></tr><tr><td>season</td><td>integer</td><td>Season year (echoed from arg).</td></tr><tr><td>round_num</td><td>integer</td><td>Round number (echoed from arg).</td></tr><tr><td>count</td><td>integer</td><td>Total picks in the collection.</td></tr><tr><td>page_count</td><td>integer</td><td>Total pages in the collection.</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>League slug <code>mens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_season_draft_round_picks.html">espn_nhl_season_draft_round_picks()</a></code> (columns inherited); a collection may be empty.</p>
@@ -275,7 +275,7 @@ HTTP 404 — the draft data is not served by the core-v2 sub-tree:</p><table cla
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="co"># NOTE: Returns an empty tibble for NHL (404 from ESPN)</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_mch_season_draft_round_picks</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span>, round_num <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-10-30 00:09:03.013954: ESPN mens-college-hockey season draft round picks for 2025 round 1 is not available (HTTP 404 is normal for NHL).</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-11-01 21:53:51.195849: ESPN mens-college-hockey season draft round picks for 2025 round 1 is not available (HTTP 404 is normal for NHL).</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Warning: The API returned an error</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>

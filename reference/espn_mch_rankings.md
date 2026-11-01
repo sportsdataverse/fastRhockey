@@ -56,7 +56,7 @@ published:
 ESPN men's college hockey polls (USCHO), league slug
 `mens-college-hockey`. `rank` is `NA` on the vote-receiving rows
 (`ranked = FALSE`); `previous_rank` keeps ESPN's `0` for a team unranked
-in the previous poll. Mirrors sdv-py `espn_mch_rankings()`.
+in the previous poll. Mirrors sportsdataverse-py `espn_mch_rankings()`.
 
 ## See also
 
@@ -191,8 +191,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_rankings())
-#> ── MENS-COLLEGE-HOCKEY Rankings data from ESPN.com ─── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:09:00 UTC
+#> ── MENS-COLLEGE-HOCKEY Rankings data from ESPN.com ──────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:53:47 UTC
 #> # A tibble: 34 × 25
 #>    poll_id poll_name        poll_short_name  poll_type  season season_type  week
 #>      <int> <chr>            <chr>            <chr>       <int>       <int> <int>

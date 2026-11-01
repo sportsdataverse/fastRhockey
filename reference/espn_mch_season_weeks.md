@@ -28,7 +28,7 @@ espn_mch_season_weeks(season = most_recent_nhl_season(), season_type = 2, ...)
 
 A `fastRhockey_data` tibble with one row per week, or an empty tibble
 when the endpoint returns no items. **Note**: The MCH does not use
-weekly scheduling in the ESPN core-v2 API — this endpoint consistently
+weekly scheduling in the ESPN core-v2 API - this endpoint consistently
 returns `count=0` for MCH. An empty tibble is returned gracefully:
 
 |             |           |                                            |
@@ -183,7 +183,7 @@ Saiem Gilani
   # NOTE: Returns empty tibble for MCH (ESPN does not populate weeks for hockey)
   try(espn_mch_season_weeks(season = 2026, season_type = 2))
 #> ── MENS-COLLEGE-HOCKEY Season Weeks data from ESPN core-v2 ─────────────────────
-#> ℹ Data updated: 2026-10-30 00:09:09 UTC
+#> ℹ Data updated: 2026-11-01 21:54:00 UTC
 #> # A tibble: 25 × 6
 #>    ref                                  week season season_type count page_count
 #>    <chr>                               <int>  <int>       <int> <int>      <int>

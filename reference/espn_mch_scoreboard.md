@@ -38,7 +38,8 @@ espn_mch_scoreboard(
 
 - limit:
 
-  Maximum number of events (ESPN `limit`; default `500`, as sdv-py).
+  Maximum number of events (ESPN `limit`; default `500`, as
+  sportsdataverse-py).
 
 - ...:
 
@@ -242,8 +243,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_scoreboard(dates = "20250110"))
-#> ── MENS-COLLEGE-HOCKEY Scoreboard data from ESPN.com ───────────────────────────
-#> ℹ Data updated: 2026-10-30 00:09:01 UTC
+#> ── MENS-COLLEGE-HOCKEY Scoreboard data from ESPN.com ────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:53:49 UTC
 #> # A tibble: 29 × 50
 #>    game_id   uid      date  name  short_name season_year season_type season_slug
 #>    <chr>     <chr>    <chr> <chr> <chr>            <int>       <int> <chr>      

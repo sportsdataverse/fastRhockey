@@ -136,27 +136,27 @@ Returns `NULL` on failure / empty response.
       strength = "all",
       sort_by = "total"
   ))
-#> ── NHL Edge Skater Distance Top 10 ─────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:17:48 UTC
+#> ── NHL Edge Skater Distance Top 10 ──────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:01:36 UTC
 #> # A tibble: 10 × 47
 #>    player_slug             player_headshot player_position player_sweater_number
 #>    <chr>                   <chr>           <chr>                           <int>
 #>  1 connor-mcdavid-8478402  https://assets… C                                  97
 #>  2 auston-matthews-8479318 https://assets… C                                  34
 #>  3 kirill-kaprizov-8478864 https://assets… L                                  97
-#>  4 jack-eichel-8478403     https://assets… C                                   9
-#>  5 jack-hughes-8481559     https://assets… C                                  86
-#>  6 mika-zibanejad-8476459  https://assets… C                                  93
-#>  7 william-nylander-84779… https://assets… R                                  88
-#>  8 matt-boldy-8481557      https://assets… L                                  12
-#>  9 trevor-zegras-8481533   https://assets… C                                  46
-#> 10 sebastian-aho-8478427   https://assets… C                                  20
+#>  4 tim-stützle-8482116     https://assets… C                                  18
+#>  5 elias-pettersson-84800… https://assets… C                                  40
+#>  6 jack-eichel-8478403     https://assets… C                                   9
+#>  7 jack-hughes-8481559     https://assets… C                                  86
+#>  8 kyle-connor-8478398     https://assets… L                                  81
+#>  9 macklin-celebrini-8484… https://assets… C                                  71
+#> 10 mark-scheifele-8476460  https://assets… C                                  55
 #> # ℹ 43 more variables: player_first_name_default <chr>,
 #> #   player_last_name_default <chr>, player_team_abbrev <chr>,
 #> #   player_team_slug <chr>, player_team_common_name_default <chr>,
+#> #   player_team_common_name_fr <chr>,
 #> #   player_team_place_name_with_preposition_default <chr>,
 #> #   player_team_place_name_with_preposition_fr <chr>,
-#> #   player_team_team_logo_light <chr>, player_team_team_logo_dark <chr>,
-#> #   distance_total_imperial <dbl>, distance_total_metric <dbl>, …
+#> #   player_team_team_logo_light <chr>, player_team_team_logo_dark <chr>, …
 # }
 ```

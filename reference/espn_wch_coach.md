@@ -23,7 +23,7 @@ espn_wch_coach(coach_id, ...)
 
 A one-row `fastRhockey_data` tibble with coach detail. Note that
 `careerRecords` and `coachSeasons` are sparse (empty arrays) for many
-WCH coaches — see
+WCH coaches - see
 [`espn_wch_coach_record()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_coach_record.md)
 for season-scoped records:
 

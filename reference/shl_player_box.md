@@ -117,9 +117,9 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_player_box(game_uuid = "bdhvuc5tex")
-#> ── SHL Player Box Information from www.shl.se ──────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:20:09 UTC
+  try(shl_player_box(game_uuid = "bdhvuc5tex"))
+#> ── SHL Player Box Information from www.shl.se ───────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:18 UTC
 #> # A tibble: 44 × 37
 #>    team_side position_group player_id team_id period full_name        first_name
 #>    <chr>     <chr>              <int> <chr>    <int> <chr>            <chr>     

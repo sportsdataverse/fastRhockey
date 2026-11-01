@@ -43,8 +43,8 @@ A `fastRhockey_data` tibble with one row per recruit:
 
 League slug `mens-college-hockey`. Core-v2 `seasons/{season}/recruits`;
 `$ref`-only items become `ref` + `recruit_id`, inline items are
-flattened. Mirrors sdv-py `espn_mch_season_recruits()`; ESPN may publish
-nothing for men's college hockey.
+flattened. Mirrors sportsdataverse-py `espn_mch_season_recruits()`; ESPN
+may publish nothing for men's college hockey.
 
 ## See also
 

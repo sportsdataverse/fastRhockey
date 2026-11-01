@@ -168,8 +168,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_awards())
-#> ── NHL Awards data from ESPN core-v2 ───────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:09:19 UTC
+#> ── NHL Awards data from ESPN core-v2 ────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:54:18 UTC
 #> # A tibble: 34 × 4
 #>    ref                                                 award_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>

@@ -29,7 +29,7 @@ espn_wch_game_probabilities(event_id, cid = event_id, limit = 300, ...)
 ## Value
 
 A `fastRhockey_data` tibble with one row per play probability entry.
-**Note:** This endpoint is sparse for WCH — most games return an empty
+**Note:** This endpoint is sparse for WCH - most games return an empty
 tibble with a warning. When populated, columns include:
 
 |  |  |  |
@@ -188,7 +188,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20250110")
     espn_wch_game_probabilities(event_id = sb$game_id[1])
   })
-#> ✖ 2026-10-30 00:10:38.206726: 
+#> ✖ 2026-11-01 21:56:15.128963: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, limit = 300
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

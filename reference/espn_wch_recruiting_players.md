@@ -45,7 +45,7 @@ A `fastRhockey_data` tibble with one row per recruit:
 League slug `womens-college-hockey`. Core-v2
 `recruiting/{year}/athletes`; inline athlete objects are flattened and
 snake-cased, `$ref`-only items become `ref` + `recruit_id`. Mirrors
-sdv-py `espn_wch_recruiting_players()`.
+sportsdataverse-py `espn_wch_recruiting_players()`.
 
 ## See also
 

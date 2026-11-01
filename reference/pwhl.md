@@ -2,7 +2,7 @@
 
 Wrappers around the HockeyTech feeds that back the PWHL stats portal,
 grouped by what they return. Three feed flavors are used internally
-(`statviewfeed`, `modulekit`, `gc`) — see `pwhl_helpers.R` for the
+(`statviewfeed`, `modulekit`, `gc`) - see `pwhl_helpers.R` for the
 `.pwhl_api()` / `.pwhl_modulekit_url()` / `.pwhl_gc_url()` helpers that
 build the JSONP URLs and strip the Angular callbacks.
 

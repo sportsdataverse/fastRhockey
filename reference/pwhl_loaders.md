@@ -44,3 +44,11 @@ catalog table below.
 PWHL loaders use the **end year** of the season (e.g. `2026` for the
 2025-26 season), matching
 [`most_recent_pwhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_pwhl_season.md).
+
+## Default season
+
+When `seasons` is left at its default and the newest season's file is
+not published yet (it appears with the season's first games), the loader
+falls back to the season before it and says so in a message. An explicit
+request for that season is kept as asked and returns an empty frame with
+a warning.

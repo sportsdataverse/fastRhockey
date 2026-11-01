@@ -32,15 +32,15 @@ Top-level keys typically include: `boxscore`, `format`, `gameInfo`,
 `leaders`, `seasonseries`, `broadcasts`, `pickcenter`, `odds`, `plays`,
 `header`, `standings`, and others.
 
-- `$boxscore$teams` — list of 2 team stat objects.
+- `$boxscore$teams` - list of 2 team stat objects.
 
-- `$boxscore$players` — list of 2 player stat group objects.
+- `$boxscore$players` - list of 2 player stat group objects.
 
-- `$plays` — list of play objects.
+- `$plays` - list of play objects.
 
-- `$header$season` — season year and type.
+- `$header$season` - season year and type.
 
-- `$header$competitions[[1]]$competitors` — home/away team + score.
+- `$header$competitions[[1]]$competitors` - home/away team + score.
 
 ## See also
 

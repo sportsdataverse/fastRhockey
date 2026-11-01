@@ -41,6 +41,14 @@ catalog table below.
 |  |  |
 |----|----|
 | Function | Purpose |
-| [`update_nhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_nhl_db.md) | Idempotent loader → DB writer (delta only) |
+| [`update_nhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_nhl_db.md) | Idempotent loader -\> DB writer (delta only) |
 | `build_nhl_db()` | Bulk-build a DB from release files |
 | `get_missing_nhl_games()` | Show games missing from a DB target |
+
+## Default season
+
+When `seasons` is left at its default and the newest season's file is
+not published yet (it appears with the season's first games), the loader
+falls back to the season before it and says so in a message. An explicit
+request for that season is kept as asked and returns an empty frame with
+a warning.

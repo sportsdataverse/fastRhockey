@@ -58,15 +58,12 @@ webcaster stage id through the season table of
 `getOption("fastRhockey.proxy")`; betting fields and the caller's IP are
 removed from every body.
 
-Ids and counts are integers (sdv-py Int64); a column holding values past
-2^31 (epoch milliseconds) is returned as a whole-number double.
+Ids and counts are integers; a column holding values past 2^31 (epoch
+milliseconds) is returned as a whole-number double.
 
 At least one second is left between two requests to a host.
 
-**Owner flag (sanctions).** The KHL and its webcaster platform are run
-by Russian operators, some clubs by sanctioned state companies. Fetching
-on your own machine is fine; any published data release, hosted mirror
-or redistribution needs owner (sanctions / legal) sign-off first.
+Check the provider's terms of use before redistributing this data.
 
 ## See also
 
@@ -100,8 +97,8 @@ Other KHL Functions:
 # \donttest{
   try(khl_webcaster_players_light())
 #> ── KHL Webcaster Players (Light) from khl.api.webcaster.pro ────────────────────
-#> ℹ Data updated: 2026-10-30 00:15:13 UTC
-#> # A tibble: 750 × 10
+#> ℹ Data updated: 2026-11-01 21:58:10 UTC
+#> # A tibble: 751 × 10
 #>       id shirt_number khl_id image           name  team_id team_khl_id team_name
 #>    <int>        <int>  <int> <chr>           <chr>   <int>       <int> <chr>    
 #>  1 33797           11  23248 https://www.kh… Abra…      12          54 Amur     
@@ -114,7 +111,7 @@ Other KHL Functions:
 #>  8 38403           19  33710 https://www.kh… Akma…      NA          NA NA       
 #>  9  7699           90  15620 https://www.kh… Akol…      NA          NA NA       
 #> 10 28149           61  34493 https://www.kh… Alal…      32          38 Salavat …
-#> # ℹ 740 more rows
+#> # ℹ 741 more rows
 #> # ℹ 2 more variables: team_location <chr>, team <chr>
 # }
 ```

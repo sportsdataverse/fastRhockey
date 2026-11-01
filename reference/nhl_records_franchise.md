@@ -4,7 +4,7 @@ Returns the franchise listing from the NHL Records API
 (`https://records.nhl.com/site/api/franchise`). Optionally filter to a
 single franchise via `franchise_id`, which is translated into the
 Cayenne filter `id={franchise_id}` (the records API does **not** accept
-a path-suffix `franchise/{id}` form — it returns 404).
+a path-suffix `franchise/{id}` form - it returns 404).
 
 ## Usage
 
@@ -44,8 +44,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_records_franchise())
-#> ── NHL Records Franchise ───────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:28 UTC
+#> ── NHL Records Franchise ────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:23 UTC
 #> # A tibble: 40 × 8
 #>       id first_season_id full_name            last_season_id most_recent_team_id
 #>    <int>           <int> <chr>                         <int>               <int>
@@ -63,8 +63,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 #> # ℹ 3 more variables: team_abbrev <chr>, team_common_name <chr>,
 #> #   team_place_name <chr>
   try(nhl_records_franchise(franchise_id = 5))
-#> ── NHL Records Franchise ───────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:28 UTC
+#> ── NHL Records Franchise ────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:23 UTC
 #> # A tibble: 1 × 8
 #>      id first_season_id full_name last_season_id most_recent_team_id team_abbrev
 #>   <int>           <int> <chr>     <lgl>                        <int> <chr>      

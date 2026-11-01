@@ -30,7 +30,7 @@ A `fastRhockey_data` tibble with one row per standings item:
 
 League slug `womens-college-hockey`. Core-v2 league-level `standings`;
 ESPN answers with a bare `$ref` pointer to the current season's group
-standings, returned as one `ref` row. Mirrors sdv-py
+standings, returned as one `ref` row. Mirrors sportsdataverse-py
 `espn_wch_standings_core()`, which takes no arguments; use
 [`espn_wch_standings()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_standings.md)
 for the per-team table.
@@ -169,7 +169,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_standings_core())
 #> ── WOMENS-COLLEGE-HOCKEY Standings data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-10-30 00:11:00 UTC
+#> ℹ Data updated: 2026-11-01 21:56:48 UTC
 #> # A tibble: 1 × 2
 #>   ref                                                               standings_id
 #>   <chr>                                                             <chr>       

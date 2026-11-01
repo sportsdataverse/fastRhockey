@@ -25,7 +25,7 @@ espn_wch_game_predictor(event_id, cid = event_id, ...)
 ## Value
 
 A one-row `fastRhockey_data` tibble with ESPN Predictor data. **Note:**
-This endpoint is sparse for WCH — most games return an empty tibble with
+This endpoint is sparse for WCH - most games return an empty tibble with
 a warning. When populated, scalar fields from the predictor object are
 returned as character columns alongside `event_id` and `cid`.
 
@@ -36,7 +36,7 @@ Columns when populated:
 | col_name | type | description |
 | event_id | character | ESPN event identifier (echoed from the argument). |
 | cid | character | Competition identifier (echoed from the argument). |
-|  | character | One column per scalar field of the ESPN predictor object, cleaned by [`janitor::clean_names()`](https://sfirke.github.io/janitor/reference/clean_names.html); `predictor_ref` (the `$ref` URL) when the object has no scalars. |
+| `<field>` | character | One column per scalar field of the ESPN predictor object, cleaned by [`janitor::clean_names()`](https://sfirke.github.io/janitor/reference/clean_names.html); `predictor_ref` (the `$ref` URL) when the object has no scalars. |
 
 ## Details
 
@@ -181,7 +181,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20250110")
     espn_wch_game_predictor(event_id = sb$game_id[1])
   })
-#> ✖ 2026-10-30 00:10:37.93873: 
+#> ✖ 2026-11-01 21:56:14.759224: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

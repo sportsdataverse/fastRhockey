@@ -36,7 +36,7 @@ Columns when populated:
 | description | character | Record description. |
 | type | character | Record type (overall, home, away). |
 | summary | character | Record summary string, e.g. `'10-5-1'`. |
-|  | numeric | One column per ESPN stat on the record, named by [`janitor::make_clean_names()`](https://sfirke.github.io/janitor/reference/make_clean_names.html) of the stat name. |
+| `<stat>` | numeric | One column per ESPN stat on the record, named by [`janitor::make_clean_names()`](https://sfirke.github.io/janitor/reference/make_clean_names.html) of the stat name. |
 
 ## Details
 

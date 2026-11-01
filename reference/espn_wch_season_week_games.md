@@ -43,7 +43,7 @@ espn_wch_season_week_games(
 
 A `fastRhockey_data` tibble with one row per game (event) in the week,
 or an empty tibble when the endpoint is unavailable. **Note**: NHL does
-not use weeks in ESPN core-v2 — HTTP 404 is expected:
+not use weeks in ESPN core-v2 - HTTP 404 is expected:
 
 |             |           |                                           |
 |-------------|-----------|-------------------------------------------|
@@ -198,7 +198,7 @@ Saiem Gilani
   # NOTE: Returns empty tibble for NHL (ESPN does not use weeks for hockey)
   try(espn_wch_season_week_games(season = 2026, season_type = 2, week = 1))
 #> ── WOMENS-COLLEGE-HOCKEY Season Week Games data from ESPN core-v2 ──────────────
-#> ℹ Data updated: 2026-10-30 00:10:57 UTC
+#> ℹ Data updated: 2026-11-01 21:56:45 UTC
 #> # A tibble: 8 × 7
 #>   ref                         event_id season season_type  week count page_count
 #>   <chr>                       <chr>     <int>       <int> <int> <int>      <int>

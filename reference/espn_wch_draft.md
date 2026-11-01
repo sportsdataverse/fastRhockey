@@ -18,7 +18,7 @@ espn_wch_draft(...)
 
 A `fastRhockey_data` tibble with draft data, or an empty tibble when the
 endpoint is unavailable. **Note**: The WCH draft endpoint
-(`site/v2/sports/hockey/nhl/draft`) currently returns HTTP 500 for WCH —
+(`site/v2/sports/hockey/nhl/draft`) currently returns HTTP 500 for WCH -
 an empty tibble is returned gracefully:
 
 |          |           |                                       |

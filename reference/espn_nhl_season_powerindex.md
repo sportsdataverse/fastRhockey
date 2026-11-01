@@ -33,7 +33,7 @@ espn_nhl_season_powerindex(
 
 A `fastRhockey_data` tibble with one row per power-index entry, or an
 empty tibble when no data is available. **Note**: ESPN does not publish
-power-index data for NHL — this endpoint consistently returns empty
+power-index data for NHL - this endpoint consistently returns empty
 results for hockey:
 
 |               |           |                                            |
@@ -184,7 +184,7 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns empty tibble for NHL (ESPN does not publish powerindex for hockey)
   try(espn_nhl_season_powerindex(season = 2026))
-#> ! 2026-10-30 00:09:58.444501: ESPN nhl season powerindex for 2026 not available (not published for NHL).
+#> ! 2026-11-01 21:55:18.140803: ESPN nhl season powerindex for 2026 not available (not published for NHL).
 #> ! Warning: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }

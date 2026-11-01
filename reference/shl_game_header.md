@@ -77,7 +77,7 @@ A `fastRhockey_data` tibble (the raw JSON list when
 | away_team_email | character | Contact email address of the club. |
 | away_team_icon | character | URL of the team logo image. |
 | away_team_score | integer | Goals scored by the team in the game. |
-| ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams\[\]. |
+| ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams\[\]. |
 | series_uuid | character | Series uuid (platform key space; SHL = qQ9-bb0bzEWUk); the seriesUuid param of game-schedule. |
 
 ## Errors
@@ -127,9 +127,9 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_game_header(game_uuid = "bdhvuc5tex")
-#> ── SHL Game Header Information from www.shl.se ─────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:20:02 UTC
+  try(shl_game_header(game_uuid = "bdhvuc5tex"))
+#> ── SHL Game Header Information from www.shl.se ──────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:10 UTC
 #> # A tibble: 1 × 47
 #>   instance_context_site_team_is_…¹ instance_context_sit…² instance_context_sit…³
 #>   <lgl>                            <lgl>                  <lgl>                 

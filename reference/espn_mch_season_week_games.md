@@ -43,7 +43,7 @@ espn_mch_season_week_games(
 
 A `fastRhockey_data` tibble with one row per game (event) in the week,
 or an empty tibble when the endpoint is unavailable. **Note**: NHL does
-not use weeks in ESPN core-v2 — HTTP 404 is expected:
+not use weeks in ESPN core-v2 - HTTP 404 is expected:
 
 |             |           |                                           |
 |-------------|-----------|-------------------------------------------|

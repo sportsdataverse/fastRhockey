@@ -13,7 +13,7 @@ espn_wch_transactions(limit = 500, ...)
 - limit:
 
   Maximum number of transactions (ESPN `limit`; default `500`, as
-  sdv-py).
+  sportsdataverse-py).
 
 - ...:
 

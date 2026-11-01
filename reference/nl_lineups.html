@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -125,10 +125,9 @@ as a nested list (api keys already dropped).</p></dd>
 A valid but empty payload returns a zero-row tibble with these columns.</p><table class="table table"><tr><td>col_name</td><td>type</td><td>description</td></tr><tr><td>game_id</td><td>numeric</td><td>SIHF game id <code>&lt;season(4)&gt;&lt;competition(4)&gt;&lt;sequence(6)&gt;</code> (whole number; e.g. 20261105000325, 1105 = National League). The same id as the sihf family's game_id; its first four digits are the season END year.</td></tr><tr><td>team_side</td><td>character</td><td>home or away: the side of the team this row belongs to.</td></tr><tr><td>team_id</td><td>numeric</td><td>SIHF team id (whole number; e.g. 101151 = HC Davos). The same key space as the sihf family's team_id.</td></tr><tr><td>unit</td><td>character</td><td>Lineup group: goalkeeper, or the line number 1-4 as a string.</td></tr><tr><td>player_id</td><td>numeric</td><td>SIHF licence number (whole number; e.g. 305519 = Tobias Geisser). Joins the sihf family's player_id and every SIHF *LicenceNr.</td></tr><tr><td>position</td><td>character</td><td>goalkeeper, defender or forwarder (sic)</td></tr><tr><td>line</td><td>integer</td><td>Line number, an integer (goalkeepers 1-2 = first / backup)</td></tr><tr><td>first_name</td><td>character</td><td>First (given) name of the player</td></tr><tr><td>last_name</td><td>character</td><td>Last (family) name of the player</td></tr><tr><td>number</td><td>character</td><td>Sweater number, a string</td></tr><tr><td>is_topscorer</td><td>logical</td><td>Wears the team's PostFinance Top Scorer jersey</td></tr><tr><td>is_captain</td><td>logical</td><td>Whether the player is the team captain</td></tr><tr><td>first_goalkeeper</td><td>logical</td><td>Starting goaltender</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p><strong>robots.txt ruling.</strong> <code>www.nationalleague.ch/robots.txt</code> disallows <code>/api</code>. The owner approved building on it
-on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-incrementally: fetch a finished game once (keyed by <code>game_id</code>), find new games with one <code><a href="nl_schedule.html">nl_schedule()</a></code> call
+    <p><strong>Polite use.</strong> <code>www.nationalleague.ch/robots.txt</code> disallows <code>/api</code>, so keep use light and incremental. Requests
+are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by <code>game_id</code>), find new games with one <code><a href="nl_schedule.html">nl_schedule()</a></code> call
 per run, and fetch season tables at most once per game day.</p>
 <p>Seasons are END years and go on the wire unchanged. Ids (<code>*_id</code>) are whole-number <code>numeric</code> (a 14-digit
 <code>game_id</code> exceeds R's 32-bit integer); every other whole-number column is <code>integer</code>. The club backend key the
@@ -172,7 +171,7 @@ for a 400/422 or an argument that is not a whole number.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nl_lineups</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">20261105000325</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── National League Lineups Information from nationalleague.ch ──────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-30 00:19:08 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-01 22:03:07 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 44 × 13</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    game_id team_side team_id unit  player_id position  line first_name last_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>

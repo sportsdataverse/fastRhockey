@@ -96,21 +96,21 @@ A data frame (`fastRhockey_data`) with the following columns:
     strength = "all",
     sort_by = "total"
   ))
-#> ── NHL Edge Team Skating Distance Top 10 ───────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:17:58 UTC
+#> ── NHL Edge Team Skating Distance Top 10 ────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:01:48 UTC
 #> # A tibble: 10 × 36
 #>    team_abbrev team_slug           team_common_name_def…¹ team_place_name_with…²
 #>    <chr>       <chr>               <chr>                  <chr>                 
-#>  1 PHI         philadelphia-flyer… Flyers                 Philadelphia          
+#>  1 VAN         vancouver-canucks-… Canucks                Vancouver             
 #>  2 TOR         toronto-maple-leaf… Maple Leafs            Toronto               
 #>  3 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
-#>  4 CAR         carolina-hurricane… Hurricanes             Carolina              
-#>  5 VAN         vancouver-canucks-… Canucks                Vancouver             
-#>  6 MIN         minnesota-wild-30   Wild                   Minnesota             
-#>  7 NYR         new-york-rangers-3  Rangers                New York              
-#>  8 NJD         new-jersey-devils-1 Devils                 New Jersey            
-#>  9 SEA         seattle-kraken-55   Kraken                 Seattle               
-#> 10 EDM         edmonton-oilers-22  Oilers                 Edmonton              
+#>  4 SJS         san-jose-sharks-28  Sharks                 San Jose              
+#>  5 CAR         carolina-hurricane… Hurricanes             Carolina              
+#>  6 PHI         philadelphia-flyer… Flyers                 Philadelphia          
+#>  7 BOS         boston-bruins-6     Bruins                 Boston                
+#>  8 OTT         ottawa-senators-9   Senators               Ottawa                
+#>  9 MIN         minnesota-wild-30   Wild                   Minnesota             
+#> 10 SEA         seattle-kraken-55   Kraken                 Seattle               
 #> # ℹ abbreviated names: ¹​team_common_name_default,
 #> #   ²​team_place_name_with_preposition_default
 #> # ℹ 32 more variables: team_team_logo_light <chr>, team_team_logo_dark <chr>,

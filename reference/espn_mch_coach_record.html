@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,7 +114,7 @@
 
 
 <dt id="arg-record-type">record_type<a class="anchor" aria-label="anchor" href="#arg-record-type"></a></dt>
-<dd><p>Record type path segment (<code>coaches/{id}/record/{record_type}</code>); default <code>0</code>, as sdv-py. <code>NULL</code> drops the segment.</p></dd>
+<dd><p>Record type path segment (<code>coaches/{id}/record/{record_type}</code>); default <code>0</code>, as sportsdataverse-py. <code>NULL</code> drops the segment.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -125,7 +125,7 @@
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A <code>fastRhockey_data</code> tibble with coach career record data, or an
 empty tibble when the endpoint is unavailable. <strong>Note</strong>: The coach record
-path (<code>coaches/{id}/record</code>) returns HTTP 404 for NHL — this endpoint is
+path (<code>coaches/{id}/record</code>) returns HTTP 404 for NHL - this endpoint is
 not populated by ESPN for the NHL league. An empty tibble is returned
 gracefully with a warning:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>coach_id</td><td>character</td><td>ESPN coach id (echoed from arg).</td></tr><tr><td>...</td><td>varies</td><td>Additional record fields if returned (sparse for NHL).</td></tr></table></div>
     <div class="section level2">

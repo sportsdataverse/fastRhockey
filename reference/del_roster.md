@@ -39,7 +39,7 @@ columns, for an empty frame); the raw JSON list when
 |----|----|----|
 | col_name | type | description |
 | team_side | character | Team of the row: home or visitor. |
-| slot | character | Line slot, three digits : group 1 = goalies (101, 102), 2 = defence pairs, 3 = forward lines. |
+| slot | character | Line slot, three digits `<group><line><position>`: group 1 = goalies (101, 102), 2 = defence pairs, 3 = forward lines. |
 | player_id | integer | Player id (player key space, per bucket, stable across games and seasons); joins to `playerId` in rosters, events, boxscores and leaderboards. |
 | match_player_id | integer | Match-player id (one row per player per game; a different key space from the player id); joins to `matchPlayerId` in the same game's roster and events only. |
 | name | character | Player first name. |
@@ -85,8 +85,8 @@ Other DEL eSports functions:
 ``` r
 # \donttest{
   try(del_roster(match_id = 4444))
-#> ── DEL roster from the eSports hokejovyzapis bucket ── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:08:05 UTC
+#> ── DEL roster from the eSports hokejovyzapis bucket ─────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:52:38 UTC
 #> # A tibble: 42 × 10
 #>    team_side slot  player_id match_player_id name      surname   jersey position
 #>    <chr>     <chr>     <int>           <int> <chr>     <chr>      <int> <chr>   

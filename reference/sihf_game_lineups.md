@@ -101,8 +101,8 @@ Other SIHF Functions:
 ``` r
 # \donttest{
   try(sihf_game_lineups(game_id = 20261105000325))
-#> ── SIHF Game Lineups Information from data.sihf.ch ─── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:20:28 UTC
+#> ── SIHF Game Lineups Information from data.sihf.ch ──────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:39 UTC
 #> # A tibble: 49 × 12
 #>    game_id team_side team_id unit       slot player_id player_name player_jersey
 #>      <dbl> <chr>       <int> <chr>     <int>     <int> <chr>               <int>

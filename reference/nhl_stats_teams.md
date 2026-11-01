@@ -1,4 +1,4 @@
-# **NHL Stats API — Team Stats**
+# **NHL Stats API - Team Stats**
 
 Queries the NHL Stats REST API for team-level statistics.
 
@@ -65,7 +65,27 @@ Returns a data frame with team statistics.
 ``` r
 # \donttest{
   try(nhl_stats_teams())
-#> 2026-10-30 00:18:59.645443: No team stats data
-#> NULL
+#> ── NHL Stats Teams ──────────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:59 UTC
+#> # A tibble: 32 × 25
+#>    faceoff_win_pct games_played goals_against goals_against_per_game goals_for
+#>              <dbl>        <int>         <int>                  <dbl>     <int>
+#>  1           0.505           16            35                   2.19        63
+#>  2           0.496           14            42                   3           59
+#>  3           0.547           15            36                   2.4         55
+#>  4           0.492           15            35                   2.33        47
+#>  5           0.516           14            42                   3           46
+#>  6           0.505           15            44                   2.93        52
+#>  7           0.524           15            45                   3           47
+#>  8           0.475           13            42                   3.23        48
+#>  9           0.501           14            40                   2.86        48
+#> 10           0.528           16            52                   3.25        60
+#> # ℹ 22 more rows
+#> # ℹ 20 more variables: goals_for_per_game <dbl>, losses <int>, ot_losses <int>,
+#> #   penalty_kill_net_pct <dbl>, penalty_kill_pct <dbl>, point_pct <dbl>,
+#> #   points <int>, power_play_net_pct <dbl>, power_play_pct <dbl>,
+#> #   regulation_and_ot_wins <int>, season_id <int>,
+#> #   shots_against_per_game <dbl>, shots_for_per_game <dbl>,
+#> #   team_full_name <chr>, team_id <int>, team_shutouts <int>, ties <lgl>, …
 # }
 ```

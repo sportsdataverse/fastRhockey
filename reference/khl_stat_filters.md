@@ -78,15 +78,12 @@ site rotates its cookie or the `sessid` expires. No route takes a year:
 tournament id (tnId) through the webcaster season table, or pass
 `tournament_id` (the All-Star games have their own tnId).
 
-Ids and counts are integers (sdv-py Int64); a column holding values past
-2^31 (epoch milliseconds) is returned as a whole-number double.
+Ids and counts are integers; a column holding values past 2^31 (epoch
+milliseconds) is returned as a whole-number double.
 
 At least one second is left between two requests to a host.
 
-**Owner flag (sanctions).** The KHL and its webcaster platform are run
-by Russian operators, some clubs by sanctioned state companies. Fetching
-on your own machine is fine; any published data release, hosted mirror
-or redistribution needs owner (sanctions / legal) sign-off first.
+Check the provider's terms of use before redistributing this data.
 
 ## See also
 
@@ -119,8 +116,8 @@ Other KHL Functions:
 ``` r
 # \donttest{
   try(khl_stat_filters(season = 2026))
-#> ── KHL Stat Filters from khl.ru ────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:15:08 UTC
+#> ── KHL Stat Filters from khl.ru ─────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:58:05 UTC
 #> # A tibble: 51 × 6
 #>    filter filter_name value name         def active
 #>    <chr>  <chr>       <chr> <chr>      <int>  <int>

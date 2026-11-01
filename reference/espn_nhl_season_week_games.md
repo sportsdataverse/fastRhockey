@@ -43,7 +43,7 @@ espn_nhl_season_week_games(
 
 A `fastRhockey_data` tibble with one row per game (event) in the week,
 or an empty tibble when the endpoint is unavailable. **Note**: NHL does
-not use weeks in ESPN core-v2 — HTTP 404 is expected:
+not use weeks in ESPN core-v2 - HTTP 404 is expected:
 
 |             |           |                                           |
 |-------------|-----------|-------------------------------------------|
@@ -194,8 +194,8 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns empty tibble for NHL (ESPN does not use weeks for hockey)
   try(espn_nhl_season_week_games(season = 2026, season_type = 2, week = 1))
-#> ── NHL Season Week Games data from ESPN core-v2 ────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:10:01 UTC
+#> ── NHL Season Week Games data from ESPN core-v2 ─────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:55:21 UTC
 #> # A tibble: 48 × 7
 #>    ref                        event_id season season_type  week count page_count
 #>    <chr>                      <chr>     <int>       <int> <int> <int>      <int>

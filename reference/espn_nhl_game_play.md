@@ -202,8 +202,8 @@ Saiem Gilani
     pls <- espn_nhl_game_plays(event_id = eid)
     espn_nhl_game_play(event_id = eid, play_id = pls$id[1])
   })
-#> ── NHL Game Play data from ESPN core-v2 ────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:09:27 UTC
+#> ── NHL Game Play data from ESPN core-v2 ─────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:54:32 UTC
 #> # A tibble: 1 × 23
 #>   event_id  cid       play_id            id    sequence_number type_id type_text
 #>   <chr>     <chr>     <chr>              <chr>           <int> <chr>   <chr>    

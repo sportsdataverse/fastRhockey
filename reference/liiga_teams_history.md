@@ -47,12 +47,13 @@ has none).
 
 Endpoint: `GET https://liiga.fi/api/v2/teams/info` (with `team=all`)
 
-Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests
-to liiga.fi are spaced at least one second apart. A request Liiga
-answers with nothing (an unknown game, a tournament not played that
-season, a shot map before 2016) raises `fastRhockey_no_data`; a failed
-fetch or an error-shaped answer raises `fastRhockey_asset_fetch`; a bad
-argument raises `fastRhockey_bad_request`.
+Seasons are END years (2026 = 2025-26), the same key as
+sportsdataverse-py. Requests to liiga.fi are spaced at least one second
+apart. A request Liiga answers with nothing (an unknown game, a
+tournament not played that season, a shot map before 2016) raises
+`fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
+`fastRhockey_asset_fetch`; a bad argument raises
+`fastRhockey_bad_request`.
 
 ## See also
 
@@ -85,21 +86,21 @@ Other Liiga Functions:
 ``` r
 # \donttest{
   try(liiga_teams_history())
-#> ── Liiga team history Information from liiga.fi ────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:15:53 UTC
+#> ── Liiga team history Information from liiga.fi ─────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:59:08 UTC
 #> # A tibble: 593 × 25
 #>       id season league_id serie_id    team_id away_games away_losses away_ties
 #>    <int>  <int>     <int>    <int>      <int>      <int>       <int>     <int>
 #>  1   848   2027         1     1188  624554857          9           0         3
-#>  2   850   2027         1     1188  933686567          8           3         0
-#>  3   843   2027         1     1188  292293444          8           3         1
-#>  4   847   2027         1     1188  495643563          9           2         5
-#>  5   841   2027         1     1188  951626834         11           5         1
-#>  6   844   2027         1     1188  219244634         10           3         0
-#>  7   853   2027         1     1188  651304385         10           5         3
-#>  8   854   2027         1     1188  679171680         10           4         2
-#>  9   852   2027         1     1188  362185137         10           4         2
-#> 10   855   2027         1     1188 1368624751          8           4         4
+#>  2   841   2027         1     1188  951626834         12           5         2
+#>  3   843   2027         1     1188  292293444          9           3         1
+#>  4   844   2027         1     1188  219244634         11           3         0
+#>  5   854   2027         1     1188  679171680         11           4         2
+#>  6   850   2027         1     1188  933686567          8           3         0
+#>  7   847   2027         1     1188  495643563          9           2         5
+#>  8   853   2027         1     1188  651304385         10           5         3
+#>  9   855   2027         1     1188 1368624751         10           4         4
+#> 10   852   2027         1     1188  362185137         10           4         2
 #> # ℹ 583 more rows
 #> # ℹ 17 more variables: away_wins <int>, away_wins_in_extra_time <int>,
 #> #   games <int>, goals_against <int>, goals_scored <int>, home_games <int>,

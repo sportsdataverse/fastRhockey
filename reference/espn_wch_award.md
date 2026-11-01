@@ -24,7 +24,7 @@ espn_wch_award(award_id, ...)
 A one-row `fastRhockey_data` tibble with award metadata, or an empty
 tibble when the endpoint is unavailable. **Note**: The individual award
 endpoint (`core_v2/awards/{award_id}`) currently returns HTTP 500 for
-all tested WCH award ids — an empty tibble is returned gracefully:
+all tested WCH award ids - an empty tibble is returned gracefully:
 
 |              |           |                                                |
 |--------------|-----------|------------------------------------------------|
@@ -180,8 +180,8 @@ Saiem Gilani
     awards <- espn_wch_awards()
     if (nrow(awards) > 0) espn_wch_award(award_id = awards$award_id[1])
   })
-#> ── WOMENS-COLLEGE-HOCKEY Award data from ESPN core-v2 ──────────────────────────
-#> ℹ Data updated: 2026-10-30 00:10:31 UTC
+#> ── WOMENS-COLLEGE-HOCKEY Award data from ESPN core-v2 ───── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:56:04 UTC
 #> # A tibble: 1 × 6
 #>   award_id id    name  display_name description award_ref
 #>   <chr>    <chr> <chr> <chr>        <chr>       <chr>    

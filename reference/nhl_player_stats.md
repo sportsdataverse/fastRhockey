@@ -74,8 +74,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_player_stats(player_id = 8476899))
-#> ── NHL Player Stats Information from NHL.com ───────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:11 UTC
+#> ── NHL Player Stats Information from NHL.com ────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:02 UTC
 #> # A tibble: 37 × 41
 #>    game_type_id games_played goals_against_avg league_abbrev save_pctg   season
 #>           <int>        <int>             <dbl> <chr>             <dbl>    <int>

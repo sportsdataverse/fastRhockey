@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,12 +113,12 @@
 
 
 <dt id="arg-return-parsed">return_parsed<a class="anchor" aria-label="anchor" href="#arg-return-parsed"></a></dt>
-<dd><p><code>TRUE</code> (default) returns the parsed tibble; <code>FALSE</code> returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus <code>_request</code> with the season, stage, tn and the ids asked for).</p></dd>
+<dd><p><code>TRUE</code> (default) returns the parsed tibble; <code>FALSE</code> returns the page's parsed record (a named list, plus <code>_request</code> with the season, stage, tn and the ids asked for).</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>fastRhockey_data</code> tibble with one row per player:</p><table class="table table"><tr><td>col_name</td><td>type</td><td>description</td></tr><tr><td><code>team_page_id</code></td><td>integer</td><td>Team page id (vhlru.ru <code>/en/teams/{team_page_id}/</code>), stable across seasons; for report rows the page id of the row's side.</td></tr><tr><td><code>team</code></td><td>character</td><td>Team short name (Latin; the report tables' form).</td></tr><tr><td><code>calendar_tn</code></td><td>integer</td><td>Tournament id of the team's CURRENT season stage (the page's 'To the calendar' link).</td></tr><tr><td><code>calendar_team_season_id</code></td><td>integer</td><td>The team's team-season id in calendar_tn.</td></tr><tr><td><code>roster_as_of</code></td><td>character</td><td>Date the roster is valid for, as printed ('12.10.2026').</td></tr><tr><td><code>jersey</code></td><td>integer</td><td>Jersey number (integer).</td></tr><tr><td><code>position</code></td><td>character</td><td>Position in English, lower case: goaltender, defense, forward.</td></tr><tr><td><code>player_id</code></td><td>integer</td><td>Player id: the <code>{player_id}</code> of <code>/en/players/{player_id}/</code>, stable across seasons and teams; also the photo id on img.khl.ru. Same numeric sequence as khl.ru player ids; whether it equals the same person's khl.ru id is unverified.</td></tr><tr><td><code>player</code></td><td>character</td><td>Player name, 'Surname Given' — in CYRILLIC even on the /en/ page.</td></tr><tr><td><code>born</code></td><td>character</td><td>Birth date 'DD.MM.YYYY' as the public page prints it.</td></tr><tr><td><code>country</code></td><td>character</td><td>Citizenship (English).</td></tr></table><p>With <code>return_parsed = FALSE</code>, the page's parsed record (a named list) instead.</p>
+    <p>A <code>fastRhockey_data</code> tibble with one row per player:</p><table class="table table"><tr><td>col_name</td><td>type</td><td>description</td></tr><tr><td><code>team_page_id</code></td><td>integer</td><td>Team page id (vhlru.ru <code>/en/teams/{team_page_id}/</code>), stable across seasons; for report rows the page id of the row's side.</td></tr><tr><td><code>team</code></td><td>character</td><td>Team short name (Latin; the report tables' form).</td></tr><tr><td><code>calendar_tn</code></td><td>integer</td><td>Tournament id of the team's CURRENT season stage (the page's 'To the calendar' link).</td></tr><tr><td><code>calendar_team_season_id</code></td><td>integer</td><td>The team's team-season id in calendar_tn.</td></tr><tr><td><code>roster_as_of</code></td><td>character</td><td>Date the roster is valid for, as printed ('12.10.2026').</td></tr><tr><td><code>jersey</code></td><td>integer</td><td>Jersey number (integer).</td></tr><tr><td><code>position</code></td><td>character</td><td>Position in English, lower case: goaltender, defense, forward.</td></tr><tr><td><code>player_id</code></td><td>integer</td><td>Player id: the <code>{player_id}</code> of <code>/en/players/{player_id}/</code>, stable across seasons and teams; also the photo id on img.khl.ru. Same numeric sequence as khl.ru player ids; whether it equals the same person's khl.ru id is unverified.</td></tr><tr><td><code>player</code></td><td>character</td><td>Player name, 'Surname Given' - in CYRILLIC even on the /en/ page.</td></tr><tr><td><code>born</code></td><td>character</td><td>Birth date 'DD.MM.YYYY' as the public page prints it.</td></tr><tr><td><code>country</code></td><td>character</td><td>Citizenship (English).</td></tr></table><p>With <code>return_parsed = FALSE</code>, the page's parsed record (a named list) instead.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -126,10 +126,10 @@
 <p>Source: <code>GET https://www.vhlru.ru/en/teams/{team_page_id}/</code> (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.</p>
     </div>
     <div class="section level2">
-    <h2 id="owner-flag-sanctions-">Owner flag (sanctions)<a class="anchor" aria-label="anchor" href="#owner-flag-sanctions-"></a></h2>
+    <h2 id="terms-of-use">Terms of use<a class="anchor" aria-label="anchor" href="#terms-of-use"></a></h2>
 
 
-<p>The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.</p>
+<p>Check the provider's terms of use before redistributing this data.</p>
     </div>
     <div class="section level2">
     <h2 id="errors">Errors<a class="anchor" aria-label="anchor" href="#errors"></a></h2>
@@ -161,22 +161,22 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">vhl_roster</span><span class="op">(</span>team_page_id <span class="op">=</span> <span class="fl">390</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── VHL Roster Information from vhlru.ru ────────────── <span style="font-style: italic;">fastRhockey 1.0.0.9000</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-30 00:21:18 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 24 × 11</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── VHL Roster Information from vhlru.ru ─────────────────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-01 22:05:34 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 23 × 11</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    team_page_id team  calendar_tn calendar_team_season_id roster_as_of jersey</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 30.10.2026       28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 30.10.2026       97</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 30.10.2026       31</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 30.10.2026       25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 30.10.2026       71</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 30.10.2026       36</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 30.10.2026        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 30.10.2026       46</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 30.10.2026       19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 30.10.2026       88</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 14 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 02.11.2026       28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 02.11.2026       97</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 02.11.2026       31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 02.11.2026       25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 02.11.2026       71</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 02.11.2026       36</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 02.11.2026        1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 02.11.2026       46</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 02.11.2026       19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          390 Toros        <span style="text-decoration: underline;">1</span>430                   <span style="text-decoration: underline;">15</span>531 02.11.2026       88</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5 more variables: position &lt;chr&gt;, player_id &lt;int&gt;, player &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   born &lt;chr&gt;, country &lt;chr&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>

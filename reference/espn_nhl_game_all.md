@@ -23,16 +23,16 @@ espn_nhl_game_all(game_id, ...)
 A named list with three elements, all parsed from a **single** HTTP
 request to the ESPN summary endpoint:
 
-- **`plays`** — `fastRhockey_data` tibble, one row per play. See
+- **`plays`** - `fastRhockey_data` tibble, one row per play. See
   [`espn_nhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_pbp.md)
   for the full column reference.
 
-- **`team_box`** — `fastRhockey_data` tibble, one row per team (2 rows).
+- **`team_box`** - `fastRhockey_data` tibble, one row per team (2 rows).
   See
   [`espn_nhl_team_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_team_box.md)
   for the full column reference.
 
-- **`player_box`** — `fastRhockey_data` tibble, one row per player. See
+- **`player_box`** - `fastRhockey_data` tibble, one row per player. See
   [`espn_nhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_player_box.md)
   for the full column reference.
 

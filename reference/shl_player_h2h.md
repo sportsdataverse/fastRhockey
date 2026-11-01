@@ -24,7 +24,7 @@ shl_player_h2h(
 
   ssgt uuid: one season + series + game type (e.g. 2025/2026 SHL regular
   season). Directory: /statistics-v2/layout-info
-  seasonSeriesGameTypeTeams\[\].ssgtUuid.
+  originalSeasonSeriesGameTypeTeams\[\].ssgtUuid.
 
 - home_team_uuid:
 
@@ -153,10 +153,10 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_player_h2h(ssgt_uuid = "iuzqg7dqk9", home_team_uuid = "087a-087aTQv9u",
-    away_team_uuid = "41c4-41c4BiYZU", game_uuid = "bdhvuc5tex")
-#> ── SHL Player H2h Information from www.shl.se ──────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:20:12 UTC
+  try(shl_player_h2h(ssgt_uuid = "iuzqg7dqk9", home_team_uuid = "087a-087aTQv9u",
+    away_team_uuid = "41c4-41c4BiYZU", game_uuid = "bdhvuc5tex"))
+#> ── SHL Player H2h Information from www.shl.se ───────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:24 UTC
 #> # A tibble: 46 × 60
 #>    uuid          first_name last_name    full_name birth_date nationality gender
 #>    <chr>         <chr>      <chr>        <chr>     <chr>      <chr>       <chr> 

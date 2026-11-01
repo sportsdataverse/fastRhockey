@@ -191,8 +191,8 @@ Saiem Gilani
     sb <- espn_nhl_scoreboard(dates = "20250110")
     espn_nhl_game_competition(event_id = sb$game_id[1])
   })
-#> ── NHL Game Competition data from ESPN core-v2 ─────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:09:25 UTC
+#> ── NHL Game Competition data from ESPN core-v2 ──────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:54:29 UTC
 #> # A tibble: 1 × 20
 #>   event_id  cid       id    guid  uid   date  attendance neutral_site time_valid
 #>   <chr>     <chr>     <chr> <chr> <chr> <chr>      <int> <lgl>        <lgl>     

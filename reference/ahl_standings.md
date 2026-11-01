@@ -43,21 +43,21 @@ Other AHL Functions:
 
 ``` r
  try(ahl_standings()) 
-#> ── AHL Standings from HockeyTech ───────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:07:57 UTC
+#> ── AHL Standings from HockeyTech ────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:52:28 UTC
 #> # A tibble: 32 × 19
 #>    team_code wins  losses ot_losses shootout_losses regulation_wins row   points
 #>    <chr>     <chr>  <dbl> <chr>     <chr>                     <dbl> <chr>  <dbl>
-#>  1 HER       6          2 0         0                             6 6         12
-#>  2 CLT       6          4 0         0                             5 5         12
-#>  3 WBS       4          3 1         0                             4 4          9
-#>  4 LV        4          3 1         0                             3 4          9
-#>  5 HFD       4          6 0         0                             4 4          8
-#>  6 SPR       3          3 1         1                             2 3          8
-#>  7 PRO       3          6 0         0                             3 3          6
-#>  8 LAV       7          2 0         0                             6 7         14
-#>  9 TOR       5          3 1         0                             3 4         11
-#> 10 BEL       4          4 2         0                             3 3         10
+#>  1 CLT       7          4 0         0                             6 6         14
+#>  2 HER       6          3 0         0                             6 6         12
+#>  3 HFD       5          6 1         0                             5 5         11
+#>  4 WBS       4          4 1         0                             4 4          9
+#>  5 LV        4          4 1         0                             3 4          9
+#>  6 SPR       3          3 2         1                             2 3          9
+#>  7 PRO       4          6 0         0                             3 4          8
+#>  8 LAV       8          3 0         0                             7 8         16
+#>  9 TOR       6          4 1         0                             4 5         13
+#> 10 BEL       5          5 2         0                             4 4         12
 #> # ℹ 22 more rows
 #> # ℹ 11 more variables: penalty_minutes <chr>, streak <chr>, goals_for <chr>,
 #> #   goals_against <chr>, games_remaining <chr>, percentage <chr>,

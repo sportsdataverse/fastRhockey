@@ -217,9 +217,9 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_team_roster(team_id = "4"))
-#> ── NHL Team Roster data from ESPN.com ──────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:10:28 UTC
-#> # A tibble: 25 × 53
+#> ── NHL Team Roster data from ESPN.com ───────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:55:58 UTC
+#> # A tibble: 24 × 53
 #>    position_group id      uid    guid  alternate_id alternate_ids_sdr first_name
 #>    <chr>          <chr>   <chr>  <chr> <chr>        <chr>             <chr>     
 #>  1 Centers        5149125 s:70~… 81dd… 5149125      5149125           Connor    
@@ -232,7 +232,7 @@ Saiem Gilani
 #>  8 Left Wings     3042056 s:70~… 5075… 3042056      3042056           Tyler     
 #>  9 Left Wings     3900260 s:70~… 16ee… 3900260      3900260           Jordan    
 #> 10 Left Wings     5173765 s:70~… aa76… 5173765      5173765           Nick      
-#> # ℹ 15 more rows
+#> # ℹ 14 more rows
 #> # ℹ 46 more variables: last_name <chr>, full_name <chr>, display_name <chr>,
 #> #   short_name <chr>, weight <dbl>, display_weight <chr>, height <dbl>,
 #> #   display_height <chr>, age <int>, date_of_birth <chr>, slug <chr>,

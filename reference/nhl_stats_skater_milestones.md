@@ -1,4 +1,4 @@
-# **NHL Stats API — Skater Milestones**
+# **NHL Stats API - Skater Milestones**
 
 Returns skater milestone achievements from the NHL Stats REST API
 (`https://api.nhle.com/stats/rest/{lang}/milestones/skaters`).
@@ -64,8 +64,8 @@ failure, with the following columns:
 ``` r
 # \donttest{
   try(nhl_stats_skater_milestones())
-#> ── NHL Stats Skater Milestones ─────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:57 UTC
+#> ── NHL Stats Skater Milestones ──────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:57 UTC
 #> # A tibble: 100 × 17
 #>       id assists current_team_id first_name   game_type_id games_played goals
 #>    <int>   <int>           <int> <chr>               <int>        <int> <int>

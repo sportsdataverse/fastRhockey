@@ -22,7 +22,7 @@ Adding a new dataset is one new row in the catalog table below."><meta property=
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -137,6 +137,15 @@ Adding a new dataset is one new row in the catalog table below.</p>
 
 <p>PWHL loaders use the <strong>end year</strong> of the season (e.g. <code>2026</code> for the
 2025-26 season), matching <code><a href="most_recent_pwhl_season.html">most_recent_pwhl_season()</a></code>.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="default-season">Default season<a class="anchor" aria-label="anchor" href="#default-season"></a></h2>
+
+
+<p>When <code>seasons</code> is left at its default and the newest season's file is not
+published yet (it appears with the season's first games), the loader falls
+back to the season before it and says so in a message. An explicit request
+for that season is kept as asked and returns an empty frame with a warning.</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

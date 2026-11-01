@@ -40,8 +40,8 @@ A `fastRhockey_data` tibble with one row per player reference for the
 requested page. This function hits the same endpoint as
 [`espn_nhl_season_athletes()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_season_athletes.md)
 (`seasons/{season}/athletes`) but uses the `player_id` column name for
-consistency with the `sdv-py` `espn_nhl_season_players` naming
-convention:
+consistency with the `sportsdataverse-py` `espn_nhl_season_players`
+naming convention:
 
 |            |           |                                              |
 |------------|-----------|----------------------------------------------|
@@ -190,8 +190,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_season_players(season = 2026, limit = 10, page = 1))
-#> ── NHL Season Players data from ESPN core-v2 ───────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:09:57 UTC
+#> ── NHL Season Players data from ESPN core-v2 ────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:55:17 UTC
 #> # A tibble: 10 × 6
 #>    ref                                   player_id season  page count page_count
 #>    <chr>                                 <chr>      <int> <int> <int>      <int>

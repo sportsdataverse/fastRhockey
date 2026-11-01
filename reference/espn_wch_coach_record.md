@@ -18,7 +18,7 @@ espn_wch_coach_record(coach_id, record_type = 0, ...)
 - record_type:
 
   Record type path segment (`coaches/{id}/record/{record_type}`);
-  default `0`, as sdv-py. `NULL` drops the segment.
+  default `0`, as sportsdataverse-py. `NULL` drops the segment.
 
 - ...:
 
@@ -28,7 +28,7 @@ espn_wch_coach_record(coach_id, record_type = 0, ...)
 
 A `fastRhockey_data` tibble with coach career record data, or an empty
 tibble when the endpoint is unavailable. **Note**: The coach record path
-(`coaches/{id}/record`) returns HTTP 404 for NHL — this endpoint is not
+(`coaches/{id}/record`) returns HTTP 404 for NHL - this endpoint is not
 populated by ESPN for the NHL league. An empty tibble is returned
 gracefully with a warning:
 

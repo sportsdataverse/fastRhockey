@@ -5,19 +5,21 @@ PWHL Standings lookup
 ## Usage
 
 ``` r
-pwhl_standings(season = 2023, regular = TRUE)
+pwhl_standings(season = most_recent_pwhl_season(), regular = TRUE)
 ```
 
 ## Arguments
 
 - season:
 
-  Season (YYYY) to pull the roster from, the concluding year in XXXX-YY
-  format
+  Season (YYYY) to pull the standings for, the concluding year (e.g.
+  2025 for 2024-25). Defaults to
+  [`most_recent_pwhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_pwhl_season.md).
 
 - regular:
 
-  Bool for whether to pull regular or pre-season rosters
+  Bool for whether to pull regular-season (`TRUE`) or preseason
+  (`FALSE`) standings
 
 ## Value
 

@@ -25,7 +25,7 @@ espn_wch_game_powerindex(event_id, cid = event_id, ...)
 ## Value
 
 A `fastRhockey_data` tibble with ESPN Power Index data. **Note:** This
-endpoint is sparse for WCH — most games return an empty tibble with a
+endpoint is sparse for WCH - most games return an empty tibble with a
 warning. When populated, columns contain power-index values alongside
 `event_id` and `cid`.
 
@@ -37,7 +37,7 @@ Columns when populated:
 | event_id | character | ESPN event identifier (echoed from the argument). |
 | cid | character | Competition identifier (echoed from the argument). |
 | pi_ref | character | `$ref` URL of the power-index item (list responses). |
-|  | character | One column per scalar field of the ESPN power-index object (object responses), cleaned by [`janitor::clean_names()`](https://sfirke.github.io/janitor/reference/clean_names.html); `powerindex_ref` when it has no scalars. |
+| `<field>` | character | One column per scalar field of the ESPN power-index object (object responses), cleaned by [`janitor::clean_names()`](https://sfirke.github.io/janitor/reference/clean_names.html); `powerindex_ref` when it has no scalars. |
 
 ## Details
 
@@ -182,7 +182,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20250110")
     espn_wch_game_powerindex(event_id = sb$game_id[1])
   })
-#> ✖ 2026-10-30 00:10:37.668769: 
+#> ✖ 2026-11-01 21:56:14.377711: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

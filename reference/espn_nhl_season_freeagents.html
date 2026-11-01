@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -125,7 +125,7 @@
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A <code>fastRhockey_data</code> tibble with one row per free-agent athlete
 reference. <strong>Note</strong>: The NHL free-agents endpoint (<code>seasons/{season}/freeagents</code>)
-currently returns <code>count=0</code> for all tested seasons — the endpoint exists
+currently returns <code>count=0</code> for all tested seasons - the endpoint exists
 but ESPN does not populate it for NHL. An empty tibble is returned
 gracefully in that case:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>ref</td><td>character</td><td><code>$ref</code> URL for the athlete-in-season object.</td></tr><tr><td>athlete_id</td><td>character</td><td>ESPN athlete id parsed from the <code>$ref</code> URL.</td></tr><tr><td>season</td><td>integer</td><td>Season year (echoed from arg).</td></tr><tr><td>count</td><td>integer</td><td>Total free agents in the collection (typically 0).</td></tr><tr><td>page_count</td><td>integer</td><td>Total pages in the collection.</td></tr></table></div>
     <div class="section level2">

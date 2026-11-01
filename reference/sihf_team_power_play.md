@@ -122,8 +122,8 @@ Other SIHF Functions:
 ``` r
 # \donttest{
   try(sihf_team_power_play(season = 2026, league_id = 1))
-#> ── SIHF Team Power Play Information from data.sihf.ch ──────────────────────────
-#> ℹ Data updated: 2026-10-30 00:20:56 UTC
+#> ── SIHF Team Power Play Information from data.sihf.ch ───── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:05:08 UTC
 #> # A tibble: 15 × 17
 #>    season phase_id  rank team_id team_name             team_acronym games_played
 #>     <int>    <int> <int>   <int> <chr>                 <chr>               <int>

@@ -1,4 +1,4 @@
-# **NHL Stats API — Skater Stats**
+# **NHL Stats API - Skater Stats**
 
 Queries the NHL Stats REST API for skater statistics. Supports various
 report types and filtering.
@@ -66,7 +66,27 @@ Returns a data frame with skater statistics.
 ``` r
 # \donttest{
   try(nhl_stats_skaters())
-#> 2026-10-30 00:18:57.355005: No skater stats data
-#> NULL
+#> ── NHL Stats Skaters ────────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:58 UTC
+#> # A tibble: 50 × 26
+#>    assists ev_goals ev_points faceoff_win_pct game_winning_goals games_played
+#>      <int>    <int>     <int>           <dbl>              <int>        <int>
+#>  1      29        7        22           0.470                  0           14
+#>  2      14        6        17           0.577                  1           14
+#>  3      15        7        20           0.467                  1           14
+#>  4      10       10        17           0.2                    3           15
+#>  5      13        8        15           0.535                  2           16
+#>  6      16        6        16          NA                      2           14
+#>  7      12        6        16           0.545                  1           15
+#>  8      12        4        11           0.577                  1           16
+#>  9      11        7        14           0.364                  0           16
+#> 10      16        3         9           0                      1           14
+#> # ℹ 40 more rows
+#> # ℹ 20 more variables: goals <int>, last_name <chr>, ot_goals <int>,
+#> #   penalty_minutes <int>, player_id <int>, plus_minus <int>, points <int>,
+#> #   points_per_game <dbl>, position_code <chr>, pp_goals <int>,
+#> #   pp_points <int>, season_id <int>, sh_goals <int>, sh_points <int>,
+#> #   shooting_pct <dbl>, shoots_catches <chr>, shots <int>,
+#> #   skater_full_name <chr>, team_abbrevs <chr>, time_on_ice_per_game <dbl>
 # }
 ```

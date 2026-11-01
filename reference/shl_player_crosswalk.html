@@ -18,7 +18,7 @@ one stats-info call per season gives the whole crosswalk."><meta property="og:im
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -175,10 +175,18 @@ API may add more, after these):</p><table class="table table"><tr><td>col_name</
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="va">xw</span> <span class="op">&lt;-</span> <span class="fu">shl_player_crosswalk</span><span class="op">(</span><span class="fl">2026</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .shl_directory():</span> www.shl.se/api/statistics-v2/layout-info: no ssgt directory in the body</span>
-<span class="r-in"><span>  <span class="va">xw</span><span class="op">[</span><span class="va">xw</span><span class="op">$</span><span class="va">player_id</span> <span class="op">==</span> <span class="fl">2427</span>, <span class="op">]</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'xw' not found</span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="va">xw</span> <span class="op">&lt;-</span> <span class="fu">shl_player_crosswalk</span><span class="op">(</span><span class="fl">2026</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="va">xw</span><span class="op">[</span><span class="va">xw</span><span class="op">$</span><span class="va">player_id</span> <span class="op">==</span> <span class="fl">2427</span>, <span class="op">]</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── SHL Player Crosswalk Information from www.shl.se ─────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-01 22:04:23 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 14</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   player_id athlete_uuid  first_name last_name jersey_number position shoots</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>      <span style="text-decoration: underline;">2</span>427 qQ9-349c7WDv6 Lars       Johansson             1 GK       L     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7 more variables: ep_url &lt;chr&gt;, full_name &lt;chr&gt;, date_of_birth &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   nationality &lt;chr&gt;, gender &lt;chr&gt;, weight &lt;int&gt;, height &lt;int&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

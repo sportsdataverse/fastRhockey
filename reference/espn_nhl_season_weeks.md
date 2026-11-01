@@ -28,7 +28,7 @@ espn_nhl_season_weeks(season = most_recent_nhl_season(), season_type = 2, ...)
 
 A `fastRhockey_data` tibble with one row per week, or an empty tibble
 when the endpoint returns no items. **Note**: The NHL does not use
-weekly scheduling in the ESPN core-v2 API — this endpoint consistently
+weekly scheduling in the ESPN core-v2 API - this endpoint consistently
 returns `count=0` for NHL. An empty tibble is returned gracefully:
 
 |             |           |                                            |
@@ -179,8 +179,8 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns empty tibble for NHL (ESPN does not populate weeks for hockey)
   try(espn_nhl_season_weeks(season = 2026, season_type = 2))
-#> ── NHL Season Weeks data from ESPN core-v2 ─────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:10:01 UTC
+#> ── NHL Season Weeks data from ESPN core-v2 ──────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:55:22 UTC
 #> # A tibble: 25 × 6
 #>    ref                                  week season season_type count page_count
 #>    <chr>                               <int>  <int>       <int> <int>      <int>

@@ -16,7 +16,7 @@ the last one to the same host."><meta property="og:image" content="https://raw.g
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -156,9 +156,9 @@ the last one to the same host.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">eihl_schedule</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2027</span>, league_id <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── EIHL schedule from the eSports hokejovyzapis bucket ─────────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-30 00:08:21 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 270 × 32</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── EIHL schedule from the eSports hokejovyzapis bucket ──── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-01 21:52:55 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 270 × 34</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    match_id start_date     league_id league season round group home_id home_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>     <span style="text-decoration: underline;">4</span>401 2027-03-24 19…         3 EIHL     <span style="text-decoration: underline;">2</span>027 249   <span style="color: #949494;">""</span>         98 Manchest…</span>
@@ -172,7 +172,7 @@ the last one to the same host.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>     <span style="text-decoration: underline;">4</span>427 2026-10-03 19…         3 EIHL     <span style="text-decoration: underline;">2</span>027 9     <span style="color: #949494;">""</span>        100 Sheffiel…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>     <span style="text-decoration: underline;">4</span>428 2026-10-04 17…         3 EIHL     <span style="text-decoration: underline;">2</span>027 10    <span style="color: #BB0000;">NA</span>         93 Coventry…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 260 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 23 more variables: home_shortcut &lt;chr&gt;, guest_id &lt;int&gt;, guest_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 25 more variables: home_shortcut &lt;chr&gt;, guest_id &lt;int&gt;, guest_name &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   guest_shortcut &lt;chr&gt;, status &lt;chr&gt;, overtime_count &lt;int&gt;, extra_time &lt;lgl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   shooting &lt;lgl&gt;, contumacy &lt;lgl&gt;, final_score_home &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   final_score_guest &lt;int&gt;, first_period_score_home &lt;int&gt;,</span></span>

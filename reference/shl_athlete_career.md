@@ -75,7 +75,7 @@ A `fastRhockey_data` tibble (the raw JSON list when
 | info_statistics_provider | character | Stats provider of the data (statnet seen). |
 | info_is_in_squad | logical | Whether the player is in the current squad. |
 | info_player_id | integer | isa (StatNet) player id as an INTEGER. Join trap: play-by-play sends the same id as a STRING (player.playerId, pop/nep, assists) and map keys are strings; cast before joining. |
-| info_ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams\[\]. |
+| info_ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams\[\]. |
 | info_team_id | character | Team code (e.g. FHC) in gameday and standings payloads; not the team uuid. |
 
 ## Errors
@@ -125,9 +125,9 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_athlete_career(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl")
-#> ── SHL Athlete Career Information from www.shl.se ──── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:19:56 UTC
+  try(shl_athlete_career(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl"))
+#> ── SHL Athlete Career Information from www.shl.se ───────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:04 UTC
 #> # A tibble: 37 × 38
 #>       gp   gpi    ga   gaa   svs svs_perc     w     t     l    so info_uuid    
 #>    <dbl> <dbl> <dbl> <dbl> <dbl>    <dbl> <dbl> <dbl> <dbl> <dbl> <chr>        

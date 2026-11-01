@@ -18,7 +18,7 @@ the current season."><meta property="og:image" content="https://raw.githubuserco
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -143,28 +143,28 @@ season), an 8-character API season (e.g., <code>"20242025"</code>), or <code>NUL
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_edge_team_shot_location_detail</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Edge Team Shot Location Detail ──────────────── <span style="font-style: italic;">fastRhockey 1.0.0.9000</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-30 00:17:55 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Edge Team Shot Location Detail ───────────────────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-01 22:01:45 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 17 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    area           sog sog_rank goals goals_rank shooting_pctg shooting_pctg_rank</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Behind the …     3       13     0          6       <span style="color: #BB0000;">NA</span>                      <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Beyond Red …    16        2     1          5        0.062<span style="text-decoration: underline;">5</span>                 12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Center Point    25       15     0         21       <span style="color: #BB0000;">NA</span>                      <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Crease          14       11     1         26        0.071<span style="text-decoration: underline;">4</span>                 29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> High Slot       38        9     6          9        0.158                  18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> L Circle        56        1     6          3        0.107                  16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> L Corner         0       20     0          3       <span style="color: #BB0000;">NA</span>                      <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> L Net Side       6       23     0         22       <span style="color: #BB0000;">NA</span>                      <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> L Point         17       19     0         18       <span style="color: #BB0000;">NA</span>                      <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Low Slot       106        5    30          1        0.283                   1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> Offensive N…     6       18     1          3        0.167                   4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> Outside L       16       24     2          2        0.125                   2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> Outside R       27        2     1          3        0.037                  20</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> R Circle        47        1     5          4        0.106                  14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> R Corner         0       14     0          2       <span style="color: #BB0000;">NA</span>                      <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> R Net Side      17        3     1          7        0.058<span style="text-decoration: underline;">8</span>                 17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> R Point         27        9     2          4        0.074<span style="text-decoration: underline;">1</span>                  7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Behind the …     4       12     0          6       <span style="color: #BB0000;">NA</span>                      <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Beyond Red …    16        4     1          6        0.062<span style="text-decoration: underline;">5</span>                 13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Center Point    26       19     1         14        0.038<span style="text-decoration: underline;">5</span>                 16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Crease          14       14     1         28        0.071<span style="text-decoration: underline;">4</span>                 31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> High Slot       42        8     7          9        0.167                  14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> L Circle        57        2     6          5        0.105                  16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> L Corner         0       21     0          3       <span style="color: #BB0000;">NA</span>                      <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> L Net Side       6       24     0         22       <span style="color: #BB0000;">NA</span>                      <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> L Point         17       29     0         18       <span style="color: #BB0000;">NA</span>                      <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Low Slot       116        5    31          1        0.267                   1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> Offensive N…     6       21     1          3        0.167                   4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> Outside L       19       21     2          3        0.105                   4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> Outside R       31        1     2          2        0.064<span style="text-decoration: underline;">5</span>                  9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> R Circle        49        3     5          5        0.102                  14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> R Corner         0       15     0          2       <span style="color: #BB0000;">NA</span>                      <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> R Net Side      19        2     1          8        0.052<span style="text-decoration: underline;">6</span>                 18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> R Point         28       12     2          5        0.071<span style="text-decoration: underline;">4</span>                  7</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

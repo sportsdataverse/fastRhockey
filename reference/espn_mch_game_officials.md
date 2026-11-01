@@ -24,7 +24,7 @@ espn_mch_game_officials(event_id, cid = event_id, ...)
 
 ## Value
 
-A `fastRhockey_data` tibble with one row per official (typically 4 — 2
+A `fastRhockey_data` tibble with one row per official (typically 4 - 2
 referees + 2 linesmen):
 
 |  |  |  |
@@ -186,7 +186,7 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_officials(event_id = sb$game_id[1])
   })
-#> ! 2026-10-30 00:08:43.146213: No officials returned for event 401715296.
+#> ! 2026-11-01 21:53:21.69056: No officials returned for event 401715296.
 #> data frame with 0 columns and 0 rows
 # }
 ```

@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -131,7 +131,7 @@ provided, fetches power-index data for a single team. Defaults to <code>NULL</co
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A <code>fastRhockey_data</code> tibble with one row per power-index entry, or
 an empty tibble when no data is available. <strong>Note</strong>: ESPN does not publish
-power-index data for WCH — this endpoint consistently returns empty
+power-index data for WCH - this endpoint consistently returns empty
 results for hockey:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>ref</td><td>character</td><td><code>$ref</code> URL for the power-index object.</td></tr><tr><td>powerindex_id</td><td>character</td><td>Power-index id parsed from the <code>$ref</code> URL.</td></tr><tr><td>season</td><td>integer</td><td>Season year (echoed from arg).</td></tr><tr><td>team_id</td><td>character</td><td>Team id (echoed from arg, if supplied).</td></tr><tr><td>count</td><td>integer</td><td>Total entries in the collection.</td></tr><tr><td>page_count</td><td>integer</td><td>Total pages in the collection.</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -271,7 +271,7 @@ results for hockey:</p><table class="table table"><tr><td>col_name</td><td>types
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="co"># NOTE: Returns empty tibble for WCH (ESPN does not publish powerindex for hockey)</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_wch_season_powerindex</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-10-30 00:10:55.111839: ESPN womens-college-hockey season powerindex for 2026 not available (not published for NHL).</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-11-01 21:56:41.204349: ESPN womens-college-hockey season powerindex for 2026 not available (not published for NHL).</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Warning: The API returned an error</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>

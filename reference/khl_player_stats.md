@@ -142,8 +142,8 @@ site rotates its cookie or the `sessid` expires. No route takes a year:
 tournament id (tnId) through the webcaster season table, or pass
 `tournament_id` (the All-Star games have their own tnId).
 
-Ids and counts are integers (sdv-py Int64); a column holding values past
-2^31 (epoch milliseconds) is returned as a whole-number double.
+Ids and counts are integers; a column holding values past 2^31 (epoch
+milliseconds) is returned as a whole-number double.
 
 At least one second is left between two requests to a host.
 
@@ -156,10 +156,7 @@ ignored. A partial list (a missing page, a row count that does not fit
 the page count, a player on two pages, more than 30 pages) raises
 `fastRhockey_asset_fetch`. Skaters are one page, as asked.
 
-**Owner flag (sanctions).** The KHL and its webcaster platform are run
-by Russian operators, some clubs by sanctioned state companies. Fetching
-on your own machine is fine; any published data release, hosted mirror
-or redistribution needs owner (sanctions / legal) sign-off first.
+Check the provider's terms of use before redistributing this data.
 
 ## See also
 
@@ -192,8 +189,8 @@ Other KHL Functions:
 ``` r
 # \donttest{
   try(khl_player_stats(position = "forwards", season = 2026))
-#> ── KHL Player Stats from khl.ru ────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:14:56 UTC
+#> ── KHL Player Stats from khl.ru ─────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:57:53 UTC
 #> # A tibble: 20 × 45
 #>    group    rank player_id player_name image    jn    gp     g     a   pts    pm
 #>    <chr>   <int>     <int> <chr>       <chr> <int> <int> <int> <int> <int> <int>

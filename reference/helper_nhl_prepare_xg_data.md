@@ -3,10 +3,11 @@
 Helper function to prepare fastRhockey PBP data for expected goals (xG)
 calculations.
 
-Adapted from the hockeyR `helper_nhl_prepare_xg_data()` function. The
-feature engineering logic (lag events, era dummies, shot metrics,
-one-hot encoding) is identical to the hockeyR xG training pipeline so
-that the same xgboost models can be used for inference.
+Adapted from the [hockeyR](https://github.com/danmorse314/hockeyR)
+(Daniel Morse) `helper_nhl_prepare_xg_data()` function. The feature
+engineering logic (lag events, era dummies, shot metrics, one-hot
+encoding) is identical to the hockeyR xG training pipeline so that the
+same xgboost models can be used for inference.
 
 ## Usage
 

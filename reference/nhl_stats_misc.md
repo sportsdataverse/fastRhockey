@@ -1,4 +1,4 @@
-# **NHL Stats API — Miscellaneous Endpoints**
+# **NHL Stats API - Miscellaneous Endpoints**
 
 Generic dispatcher for the NHL Stats REST API
 (`https://api.nhle.com/stats/rest/{lang}/{endpoint}`). Pass any valid
@@ -30,7 +30,7 @@ nhl_stats_misc(endpoint = "glossary", game_id = NULL, lang = "en")
   - **Health check:** `"ping"`
 
   Note: dedicated wrappers exist for `season`, `draft`,
-  `skater/{report}`, `goalie/{report}`, and `team/{report}` — see
+  `skater/{report}`, `goalie/{report}`, and `team/{report}` - see
   [`nhl_stats_seasons()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_seasons.md),
   [`nhl_stats_draft()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_draft.md),
   [`nhl_stats_skaters()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_skaters.md),
@@ -68,8 +68,8 @@ the columns are:
 ``` r
 # \donttest{
   try(nhl_stats_misc(endpoint = "glossary"))
-#> ── NHL Stats Misc ──────────────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:53 UTC
+#> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:55 UTC
 #> # A tibble: 321 × 7
 #>       id abbreviation   definition first_season_for_stat full_name language_code
 #>    <int> <chr>          <chr>                      <int> <chr>     <chr>        
@@ -86,8 +86,8 @@ the columns are:
 #> # ℹ 311 more rows
 #> # ℹ 1 more variable: last_updated <chr>
   try(nhl_stats_misc(endpoint = "franchise"))
-#> ── NHL Stats Misc ──────────────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:53 UTC
+#> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:55 UTC
 #> # A tibble: 40 × 4
 #>       id full_name             team_common_name team_place_name
 #>    <int> <chr>                 <chr>            <chr>          
@@ -103,8 +103,8 @@ the columns are:
 #> 10    17 Pittsburgh Penguins   Penguins         Pittsburgh     
 #> # ℹ 30 more rows
   try(nhl_stats_misc(endpoint = "country"))
-#> ── NHL Stats Misc ──────────────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:54 UTC
+#> ── NHL Stats Misc ───────────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:55 UTC
 #> # A tibble: 50 × 11
 #>    id    country3code country_code country_name   has_player_stats image_url    
 #>    <chr> <chr>        <chr>        <chr>                     <int> <chr>        

@@ -43,7 +43,7 @@ A `fastRhockey_data` tibble with one row per recruit:
 
 League slug `womens-college-hockey`. Core-v2
 `seasons/{season}/recruits`; `$ref`-only items become `ref` +
-`recruit_id`, inline items are flattened. Mirrors sdv-py
+`recruit_id`, inline items are flattened. Mirrors sportsdataverse-py
 `espn_wch_season_recruits()`; ESPN may publish nothing for women's
 college hockey.
 

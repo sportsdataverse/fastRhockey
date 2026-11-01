@@ -25,7 +25,7 @@ espn_mch_game_leaders(event_id, cid = event_id, ...)
 ## Value
 
 A `fastRhockey_data` tibble with one row per (category, leader) pair.
-**Note:** This endpoint is sparse for MCH — most games return an empty
+**Note:** This endpoint is sparse for MCH - most games return an empty
 tibble with a warning. When populated:
 
 |                  |           |                                    |
@@ -185,7 +185,7 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_leaders(event_id = sb$game_id[1])
   })
-#> ✖ 2026-10-30 00:08:41.802406: Invalid arguments or no ESPN mens-college-hockey game leaders for event 401715296 available!
+#> ✖ 2026-11-01 21:53:19.788809: Invalid arguments or no ESPN mens-college-hockey game leaders for event 401715296 available!
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

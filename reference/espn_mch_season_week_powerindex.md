@@ -50,7 +50,8 @@ A `fastRhockey_data` tibble with one row per team:
 League slug `mens-college-hockey`. One row per team, `predictives` and
 `efficiencies` flattened to one column per field (a name colliding
 across the two blocks is suffixed). A zero-row `data.frame` when
-unpublished. Mirrors sdv-py `espn_mch_season_week_powerindex()`.
+unpublished. Mirrors sportsdataverse-py
+`espn_mch_season_week_powerindex()`.
 
 ## See also
 
@@ -185,7 +186,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_season_week_powerindex(season = 2026, season_type = 2, week = 3))
-#> ✖ 2026-10-30 00:09:08.948241: Invalid arguments or no ESPN mens-college-hockey power index available!
+#> ✖ 2026-11-01 21:53:59.613521: Invalid arguments or no ESPN mens-college-hockey power index available!
 #> ✖ Args: league = "mens-college-hockey", kind = "weekly", path = "seasons/2026/types/2/weeks/3/powerindex", query = list()
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

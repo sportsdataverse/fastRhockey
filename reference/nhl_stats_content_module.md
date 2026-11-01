@@ -1,4 +1,4 @@
-# **NHL Stats API — Content Module**
+# **NHL Stats API - Content Module**
 
 Returns an NHL.com CMS content module from the Stats REST API
 (`https://api.nhle.com/stats/rest/{lang}/content/module/{template_key}`).
@@ -30,7 +30,7 @@ failure.
 ``` r
 # \donttest{
   try(nhl_stats_content_module(template_key = "example"))
-#> 2026-10-30 00:18:47.378144: No content module data for 'example'
+#> 2026-11-01 22:02:51.386038: No content module data for 'example'
 #> NULL
 # }
 ```

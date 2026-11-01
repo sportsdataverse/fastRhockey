@@ -25,7 +25,7 @@ espn_wch_game_odds(event_id, cid = event_id, ...)
 ## Value
 
 A `fastRhockey_data` tibble with one row per odds provider (typically 2
-rows per game — consensus + one sportsbook):
+rows per game - consensus + one sportsbook):
 
 |  |  |  |
 |----|----|----|
@@ -194,7 +194,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20250110")
     espn_wch_game_odds(event_id = sb$game_id[1])
   })
-#> ✖ 2026-10-30 00:10:35.825302: 
+#> ✖ 2026-11-01 21:56:11.645304: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

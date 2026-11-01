@@ -56,7 +56,7 @@ published:
 ESPN women's college hockey polls (USCHO), league slug
 `womens-college-hockey`. `rank` is `NA` on the vote-receiving rows
 (`ranked = FALSE`); `previous_rank` keeps ESPN's `0` for a team unranked
-in the previous poll. Mirrors sdv-py `espn_wch_rankings()`.
+in the previous poll. Mirrors sportsdataverse-py `espn_wch_rankings()`.
 
 ## See also
 
@@ -191,8 +191,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_wch_rankings())
-#> ── WOMENS-COLLEGE-HOCKEY Rankings data from ESPN.com ───────────────────────────
-#> ℹ Data updated: 2026-10-30 00:10:50 UTC
+#> ── WOMENS-COLLEGE-HOCKEY Rankings data from ESPN.com ────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:56:34 UTC
 #> # A tibble: 20 × 25
 #>    poll_id poll_name          poll_short_name poll_type season season_type  week
 #>      <int> <chr>              <chr>           <chr>      <int>       <int> <int>

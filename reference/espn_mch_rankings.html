@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -120,7 +120,7 @@ the same 25 columns; zero rows (with those columns) when no poll is published:</
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>ESPN men's college hockey polls (USCHO), league slug <code>mens-college-hockey</code>. <code>rank</code> is <code>NA</code> on
 the vote-receiving rows (<code>ranked = FALSE</code>); <code>previous_rank</code> keeps ESPN's <code>0</code>
-for a team unranked in the previous poll. Mirrors sdv-py <code>espn_mch_rankings()</code>.</p>
+for a team unranked in the previous poll. Mirrors sportsdataverse-py <code>espn_mch_rankings()</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -255,8 +255,8 @@ for a team unranked in the previous poll. Mirrors sdv-py <code>espn_mch_rankings
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_mch_rankings</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MENS-COLLEGE-HOCKEY Rankings data from ESPN.com ─── <span style="font-style: italic;">fastRhockey 1.0.0.9000</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-30 00:09:00 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MENS-COLLEGE-HOCKEY Rankings data from ESPN.com ──────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-01 21:53:47 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 34 × 25</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    poll_id poll_name        poll_short_name  poll_type  season season_type  week</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>

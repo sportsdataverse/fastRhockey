@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,7 +121,7 @@
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A <code>fastRhockey_data</code> tibble with coach career record data, or an
 empty tibble when the endpoint is unavailable. <strong>Note</strong>: The coach record
-path (<code>coaches/{id}/record</code>) returns HTTP 404 for NHL — this endpoint is
+path (<code>coaches/{id}/record</code>) returns HTTP 404 for NHL - this endpoint is
 not populated by ESPN for the NHL league. An empty tibble is returned
 gracefully with a warning:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>coach_id</td><td>character</td><td>ESPN coach id (echoed from arg).</td></tr><tr><td>...</td><td>varies</td><td>Additional record fields if returned (sparse for NHL).</td></tr></table></div>
     <div class="section level2">
@@ -265,7 +265,7 @@ gracefully with a warning:</p><table class="table table"><tr><td>col_name</td><t
 <span class="r-in"><span>    <span class="va">ccs</span> <span class="op">&lt;-</span> <span class="fu"><a href="espn_nhl_coaches.html">espn_nhl_coaches</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span></span></span>
 <span class="r-in"><span>    <span class="fu">espn_nhl_coach_record</span><span class="op">(</span>coach_id <span class="op">=</span> <span class="va">ccs</span><span class="op">$</span><span class="va">coach_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-10-30 00:09:21.303975: ESPN nhl coach record for coach 900 is not available (HTTP 404 is normal for NHL).</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-11-01 21:54:21.182978: ESPN nhl coach record for coach 900 is not available (HTTP 404 is normal for NHL).</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Warning: The API returned an error</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>

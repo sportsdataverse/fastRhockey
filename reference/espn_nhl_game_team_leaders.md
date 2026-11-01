@@ -193,8 +193,8 @@ Saiem Gilani
     tms <- espn_nhl_game_teams(event_id = eid)
     espn_nhl_game_team_leaders(event_id = eid, team_id = tms$team_id[1])
   })
-#> ── NHL Game Team Leaders data from ESPN core-v2 ────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:09:32 UTC
+#> ── NHL Game Team Leaders data from ESPN core-v2 ─────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:54:39 UTC
 #> # A tibble: 41 × 12
 #>    event_id  cid       team_id category_name category_display category_short
 #>    <chr>     <chr>     <chr>   <chr>         <chr>            <chr>         

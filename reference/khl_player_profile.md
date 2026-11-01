@@ -58,7 +58,7 @@ fetch) and `fastRhockey_bad_request` (an invalid argument or an HTTP 400
 | jn | integer | Jersey number (not an id; 0 on a team event) |
 | club_name | character | Name in Russian (Cyrillic); the \*\_en / \*en sibling holds the English transliteration |
 | club_logo | character | Current club logo URL on khl.ru (protocol-relative) |
-| club_code | character | Club slug (/clubs//) |
+| club_code | character | Club slug (`/clubs/<slug>/`) |
 | height | character | Height with its Russian unit ('183 sm' = 183 cm) |
 | weight | character | Weight with its Russian unit ('85 kg' = 85 kg) |
 | birthdate | character | Birth date (Russian display format) |
@@ -83,15 +83,12 @@ site rotates its cookie or the `sessid` expires. No route takes a year:
 tournament id (tnId) through the webcaster season table, or pass
 `tournament_id` (the All-Star games have their own tnId).
 
-Ids and counts are integers (sdv-py Int64); a column holding values past
-2^31 (epoch milliseconds) is returned as a whole-number double.
+Ids and counts are integers; a column holding values past 2^31 (epoch
+milliseconds) is returned as a whole-number double.
 
 At least one second is left between two requests to a host.
 
-**Owner flag (sanctions).** The KHL and its webcaster platform are run
-by Russian operators, some clubs by sanctioned state companies. Fetching
-on your own machine is fine; any published data release, hosted mirror
-or redistribution needs owner (sanctions / legal) sign-off first.
+Check the provider's terms of use before redistributing this data.
 
 ## See also
 
@@ -124,8 +121,8 @@ Other KHL Functions:
 ``` r
 # \donttest{
   try(khl_player_profile(player_id = 41928))
-#> ── KHL Player Profile from khl.ru ──────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:14:55 UTC
+#> ── KHL Player Profile from khl.ru ───────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:57:52 UTC
 #> # A tibble: 1 × 31
 #>   player_id firstname lastname photo    position position_code biography is_hero
 #>       <int> <chr>     <chr>    <chr>    <chr>    <chr>         <chr>     <lgl>  

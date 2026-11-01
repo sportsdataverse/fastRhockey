@@ -18,5 +18,5 @@ Numeric value for the most recent PWHL season year (e.g., 2025).
 
 ``` r
 most_recent_pwhl_season()
-#> [1] 2026
+#> [1] 2027
 ```

@@ -117,8 +117,8 @@ Other DEL eSports functions:
 ``` r
 # \donttest{
   try(del_game_info(match_id = 4444))
-#> ── DEL game_info from the eSports hokejovyzapis bucket ─────────────────────────
-#> ℹ Data updated: 2026-10-30 00:08:01 UTC
+#> ── DEL game_info from the eSports hokejovyzapis bucket ──── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:52:33 UTC
 #> # A tibble: 1 × 41
 #>   actual_time_name actual_time_alias stadium      number_of_viewers
 #>   <chr>            <chr>             <chr>                    <int>

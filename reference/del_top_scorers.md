@@ -94,21 +94,21 @@ Other DEL eSports functions:
 ``` r
 # \donttest{
   try(del_top_scorers(season = 2027, league_id = 1))
-#> ── DEL top_scorers from the eSports hokejovyzapis bucket ───────────────────────
-#> ℹ Data updated: 2026-10-30 00:08:11 UTC
+#> ── DEL top_scorers from the eSports hokejovyzapis bucket ── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:52:44 UTC
 #> # A tibble: 373 × 13
 #>    player_id name   surname team_id team_name team_shortcut goals assists points
 #>        <int> <chr>  <chr>     <int> <chr>     <chr>         <int>   <int>  <int>
-#>  1      3410 Liam   Kirk          3 Eisbären… EBB               7      15     22
-#>  2      3950 Mathew Santos        5 Krefeld … KEV               9       9     18
-#>  3      2209 Ty     Ronning       3 Eisbären… EBB              10       7     17
-#>  4      2935 Max    Newton        5 Krefeld … KEV               6      11     17
-#>  5      3442 Samuel Dove-M…      14 Nürnberg… NIT               8       8     16
-#>  6       507 Marcel Noebels      11 Kölner H… KEC               7       9     16
-#>  7      3572 Patri… Russell      11 Kölner H… KEC               4      12     16
-#>  8      1863 Thomas Heigl        14 Nürnberg… NIT               6       9     15
-#>  9      3704 Peter  Abband…       1 ERC Ingo… ING               5      10     15
-#> 10       648 Louis… Aubry        11 Kölner H… KEC               8       6     14
+#>  1      3410 Liam   Kirk          3 Eisbären… EBB               7      16     23
+#>  2      3950 Mathew Santos        5 Krefeld … KEV               9      10     19
+#>  3       507 Marcel Noebels      11 Kölner H… KEC               7      12     19
+#>  4      2209 Ty     Ronning       3 Eisbären… EBB              10       8     18
+#>  5      3572 Patri… Russell      11 Kölner H… KEC               5      13     18
+#>  6      1863 Thomas Heigl        14 Nürnberg… NIT               7      10     17
+#>  7      2935 Max    Newton        5 Krefeld … KEV               6      11     17
+#>  8      3442 Samuel Dove-M…      14 Nürnberg… NIT               8       8     16
+#>  9      4315 Joseph Duszak        6 Straubin… STR               2      14     16
+#> 10       648 Louis… Aubry        11 Kölner H… KEC               8       7     15
 #> # ℹ 363 more rows
 #> # ℹ 4 more variables: shots <int>, games <int>, penalty_minutes <int>,
 #> #   time_on_ice <int>

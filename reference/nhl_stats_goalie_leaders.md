@@ -1,4 +1,4 @@
-# **NHL Stats API — Goalie Leaders**
+# **NHL Stats API - Goalie Leaders**
 
 Returns a goalie leaderboard for a given statistic attribute from the
 NHL Stats REST API
@@ -18,7 +18,7 @@ nhl_stats_goalie_leaders(attribute, lang = "en", cayenne_exp = NULL)
   values: `"savePctg"`, `"gaa"`, `"shutouts"`. Note that `"wins"`,
   `"saves"`, `"shotsAgainst"`, and `"goalsAgainst"` return 500 errors.
   The endpoint also does **not** accept `start` / `limit` query
-  parameters — passing them produces a 500.
+  parameters - passing them produces a 500.
 
 - lang:
 
@@ -57,8 +57,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_stats_goalie_leaders(attribute = "savePctg"))
-#> ── NHL Stats Goalie Leaders ────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:51 UTC
+#> ── NHL Stats Goalie Leaders ─────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:53 UTC
 #> # A tibble: 10 × 15
 #>    save_pctg player_id player_current_team_id player_first_name player_full_name
 #>        <dbl>     <int> <lgl>                  <chr>             <chr>           

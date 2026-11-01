@@ -113,10 +113,10 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_post_game_team_stats(game_uuid = "bdhvuc5tex", ssgt_uuid = "iuzqg7dqk9",
-    home_team_uuid = "087a-087aTQv9u", away_team_uuid = "41c4-41c4BiYZU")
-#> ── SHL Post Game Team Stats Information from www.shl.se ────────────────────────
-#> ℹ Data updated: 2026-10-30 00:20:13 UTC
+  try(shl_post_game_team_stats(game_uuid = "bdhvuc5tex", ssgt_uuid = "iuzqg7dqk9",
+    home_team_uuid = "087a-087aTQv9u", away_team_uuid = "41c4-41c4BiYZU"))
+#> ── SHL Post Game Team Stats Information from www.shl.se ─── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:25 UTC
 #> # A tibble: 3 × 14
 #>   home_team_side_translate_key home_team_left_type home_team_left_value
 #>   <chr>                        <chr>                              <int>

@@ -17,7 +17,8 @@ espn_wch_team_roster(team_id, limit = 500, ...)
 
 - limit:
 
-  Maximum number of athletes (ESPN `limit`; default `500`, as sdv-py).
+  Maximum number of athletes (ESPN `limit`; default `500`, as
+  sportsdataverse-py).
 
 - ...:
 

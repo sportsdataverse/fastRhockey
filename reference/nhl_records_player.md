@@ -107,8 +107,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_records_player())
-#> ── NHL Records Player ──────────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:35 UTC
+#> ── NHL Records Player ───────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:32 UTC
 #> # A tibble: 23,576 × 71
 #>         id accrued_seasons add_names         age_sign_waiver age_signel_fa alert
 #>      <int>           <int> <chr>                       <int>         <int> <chr>

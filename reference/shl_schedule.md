@@ -17,7 +17,7 @@ shl_schedule(season, game_type = "regular", return_parsed = TRUE)
 
   Required. Season END year (2026 = 2025/26). Mapped to the provider's
   ssgt through /statistics-v2/layout-info (SHL 1975/76 on); a season it
-  does not list raises NoDataError.
+  does not list raises a `fastRhockey_no_data` error.
 
 - game_type:
 
@@ -43,7 +43,7 @@ A `fastRhockey_data` tibble (the raw JSON list when
 | state | character | Game state: pre-game or post-game (hyphenated; a live value was not observed). |
 | overtime | logical | Whether the game went to overtime. |
 | shootout | logical | Whether the game went to a shootout. |
-| ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams\[\]. |
+| ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams\[\]. |
 | home_team_status | character | Result for the team (WIN, LOSE) or record status. |
 | home_team_uuid | character | Team uuid (platform key space, e.g. 087a-087aTQv9u); joins to `/sports-v2/teams/{team_uuid}` and schedule homeTeamInfo/awayTeamInfo.uuid. Not the team code. |
 | home_team_owner_instance_id | character | Club site instance id (e.g. fhc1_fhc); also names the logo at `sportality.cdn.s8y.se/team-logos/{id}.svg`. |
@@ -127,7 +127,28 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_schedule(season = 2026)
-#> Error in .shl_directory(): www.shl.se/api/statistics-v2/layout-info: no ssgt directory in the body
+  try(shl_schedule(season = 2026))
+#> ── SHL Schedule Information from www.shl.se ─────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:27 UTC
+#> # A tibble: 364 × 42
+#>    game_uuid  raw_start_date_time      start_date_time   state overtime shootout
+#>    <chr>      <chr>                    <chr>             <chr> <lgl>    <lgl>   
+#>  1 bdhvuc5tex 2025-09-13T13:15:00.000Z 2025-09-13 15:15… post… FALSE    FALSE   
+#>  2 c98ytzvqnc 2025-09-13T13:15:00.000Z 2025-09-13 15:15… post… FALSE    FALSE   
+#>  3 ohx2e9aofl 2025-09-13T13:15:00.000Z 2025-09-13 15:15… post… FALSE    FALSE   
+#>  4 c2ukp33wez 2025-09-13T16:00:00.000Z 2025-09-13 18:00… post… TRUE     FALSE   
+#>  5 ds1mrdpfo2 2025-09-13T16:00:00.000Z 2025-09-13 18:00… post… FALSE    FALSE   
+#>  6 rdzmudkxwd 2025-09-13T16:00:00.000Z 2025-09-13 18:00… post… FALSE    FALSE   
+#>  7 s2a1at20o5 2025-09-13T16:00:00.000Z 2025-09-13 18:00… post… FALSE    FALSE   
+#>  8 cexeiyibd5 2025-09-16T17:00:00.000Z 2025-09-16 19:00… post… FALSE    FALSE   
+#>  9 gez145lpie 2025-09-16T17:00:00.000Z 2025-09-16 19:00… post… FALSE    FALSE   
+#> 10 jhg1bzfao7 2025-09-16T17:00:00.000Z 2025-09-16 19:00… post… FALSE    FALSE   
+#> # ℹ 354 more rows
+#> # ℹ 36 more variables: ssgt_uuid <chr>, home_team_status <chr>,
+#> #   home_team_uuid <chr>, home_team_owner_instance_id <chr>,
+#> #   home_team_code <chr>, home_team_names_code <chr>,
+#> #   home_team_names_short <chr>, home_team_names_long <chr>,
+#> #   home_team_names_full <chr>, home_team_names_code_site <chr>,
+#> #   home_team_names_short_site <chr>, home_team_names_full_site <chr>, …
 # }
 ```

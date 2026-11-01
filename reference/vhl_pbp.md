@@ -30,8 +30,8 @@ vhl_pbp(game_id, season, stage = "regular", return_parsed = TRUE)
 - return_parsed:
 
   `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's
-  parsed record (a named list, the sdv-internal-refs capture shape, plus
-  `_request` with the season, stage, tn and the ids asked for).
+  parsed record (a named list, plus `_request` with the season, stage,
+  tn and the ids asked for).
 
 ## Value
 
@@ -71,12 +71,9 @@ Source: `GET https://online.vhlru.ru/online/{game_id}.html`
 (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a
 public source; payloads are not redistributed.
 
-## Owner flag (sanctions)
+## Terms of use
 
-The VHL is run by Russian league operators, and several clubs are owned
-or sponsored by sanctioned state companies. Fetching on your own machine
-is fine; a published data release or a hosted mirror of this data needs
-the owner's sanctions / legal sign-off first.
+Check the provider's terms of use before redistributing this data.
 
 ## Errors
 
@@ -113,8 +110,8 @@ Other VHL Functions:
 ``` r
 # \donttest{
   try(vhl_pbp(game_id = 899223, season = 2026))
-#> ── VHL Play-by-Play Information from vhlru.ru ──────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:21:13 UTC
+#> ── VHL Play-by-Play Information from vhlru.ru ───────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:05:28 UTC
 #> # A tibble: 61 × 16
 #>    game_id season stage   game_number event_index kind     kind_code time  clock
 #>      <int>  <int> <chr>         <int>       <int> <chr>    <chr>     <chr> <chr>

@@ -38,7 +38,7 @@ A `fastRhockey_data` tibble (the raw JSON list when
 | state | character | Game state: pre-game or post-game (hyphenated; a live value was not observed). |
 | overtime | logical | Whether the game went to overtime. |
 | shootout | logical | Whether the game went to a shootout. |
-| ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams\[\]. |
+| ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams\[\]. |
 | home_team_status | character | Result for the team (WIN, LOSE) or record status. |
 | home_team_uuid | character | Team uuid (platform key space, e.g. 087a-087aTQv9u); joins to `/sports-v2/teams/{team_uuid}` and schedule homeTeamInfo/awayTeamInfo.uuid. Not the team code. |
 | home_team_owner_instance_id | character | Club site instance id (e.g. fhc1_fhc); also names the logo at `sportality.cdn.s8y.se/team-logos/{id}.svg`. |
@@ -120,17 +120,17 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_team_played_games(team_uuid = "087a-087aTQv9u")
-#> ── SHL Team Played Games Information from www.shl.se ───────────────────────────
-#> ℹ Data updated: 2026-10-30 00:20:24 UTC
+  try(shl_team_played_games(team_uuid = "087a-087aTQv9u"))
+#> ── SHL Team Played Games Information from www.shl.se ────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:34 UTC
 #> # A tibble: 5 × 41
 #>   date      time  game_uuid  start_date_time   state overtime shootout ssgt_uuid
 #>   <chr>     <chr> <chr>      <chr>             <chr> <lgl>    <lgl>    <chr>    
-#> 1 29 oct 26 18:00 uj81qqlh4n 2026-10-29T18:00… post… FALSE    FALSE    qa98unlb…
-#> 2 27 oct 26 18:00 jgd5dats0l 2026-10-27T18:00… post… FALSE    FALSE    qa98unlb…
-#> 3 24 oct 26 16:00 oj8c13mndy 2026-10-24T16:00… post… FALSE    FALSE    qa98unlb…
-#> 4 22 oct 26 17:00 no64p8kr92 2026-10-22T17:00… post… FALSE    FALSE    qa98unlb…
-#> 5 20 oct 26 17:00 mtn5yq64mp 2026-10-20T17:00… post… FALSE    FALSE    qa98unlb…
+#> 1 31 oct 26 14:15 ap2jc3o2qs 2026-10-31T14:15… post… FALSE    FALSE    qa98unlb…
+#> 2 29 oct 26 18:00 uj81qqlh4n 2026-10-29T18:00… post… FALSE    FALSE    qa98unlb…
+#> 3 27 oct 26 18:00 jgd5dats0l 2026-10-27T18:00… post… FALSE    FALSE    qa98unlb…
+#> 4 24 oct 26 16:00 oj8c13mndy 2026-10-24T16:00… post… FALSE    FALSE    qa98unlb…
+#> 5 22 oct 26 17:00 no64p8kr92 2026-10-22T17:00… post… FALSE    FALSE    qa98unlb…
 #> # ℹ 33 more variables: home_team_status <chr>, home_team_uuid <chr>,
 #> #   home_team_owner_instance_id <chr>, home_team_code <chr>,
 #> #   home_team_names_code <chr>, home_team_names_short <chr>,

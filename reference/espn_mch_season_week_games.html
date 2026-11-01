@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -141,7 +141,7 @@
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A <code>fastRhockey_data</code> tibble with one row per game (event) in the
 week, or an empty tibble when the endpoint is unavailable. <strong>Note</strong>: NHL
-does not use weeks in ESPN core-v2 — HTTP 404 is expected:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>ref</td><td>character</td><td><code>$ref</code> URL for the event object.</td></tr><tr><td>event_id</td><td>character</td><td>ESPN event id parsed from the <code>$ref</code> URL.</td></tr><tr><td>season</td><td>integer</td><td>Season year (echoed from arg).</td></tr><tr><td>season_type</td><td>integer</td><td>Season type code (echoed from arg).</td></tr><tr><td>week</td><td>integer</td><td>Week number (echoed from arg).</td></tr><tr><td>count</td><td>integer</td><td>Total events in the collection.</td></tr><tr><td>page_count</td><td>integer</td><td>Total pages in the collection.</td></tr></table></div>
+does not use weeks in ESPN core-v2 - HTTP 404 is expected:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>ref</td><td>character</td><td><code>$ref</code> URL for the event object.</td></tr><tr><td>event_id</td><td>character</td><td>ESPN event id parsed from the <code>$ref</code> URL.</td></tr><tr><td>season</td><td>integer</td><td>Season year (echoed from arg).</td></tr><tr><td>season_type</td><td>integer</td><td>Season type code (echoed from arg).</td></tr><tr><td>week</td><td>integer</td><td>Week number (echoed from arg).</td></tr><tr><td>count</td><td>integer</td><td>Total events in the collection.</td></tr><tr><td>page_count</td><td>integer</td><td>Total pages in the collection.</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>League slug <code>mens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_season_week_games.html">espn_nhl_season_week_games()</a></code> (columns inherited); a collection may be empty.</p>

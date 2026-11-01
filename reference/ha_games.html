@@ -24,7 +24,7 @@ complete page."><meta property="og:image" content="https://raw.githubusercontent
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -211,9 +211,28 @@ non-JSON, error-shaped, truncated or out-of-scope 200 (the answer is unknown, no
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">ha_games</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in nothing("answered no rows (a season or phase without data, or an unknown filter value)") : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   hockeyallsvenskan.se/api/all-time-games-stats: answered no rows (a</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> season or phase without data, or an unknown filter value)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── HA Games Information from hockeyallsvenskan.se ───────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-01 21:57:11 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 364 × 26</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    season date    home_team_code away_team_code home_score away_score decided_in</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>026 2025-0… MoDo           ÖIK                     3          1 FT        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   <span style="text-decoration: underline;">2</span>026 2025-0… SSK            BIK                     1          4 FT        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   <span style="text-decoration: underline;">2</span>026 2025-0… AIK            VIK                     2          1 FT        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   <span style="text-decoration: underline;">2</span>026 2025-0… MORA           IFB                     1          2 SO        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>   <span style="text-decoration: underline;">2</span>026 2025-0… NVIF           IKO                     3          2 FT        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   <span style="text-decoration: underline;">2</span>026 2025-0… AIS            KHC                     4          1 FT        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>   <span style="text-decoration: underline;">2</span>026 2025-0… VHC            TRO                     1          2 OT        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>026 2025-0… SSK            TRO                     5          4 FT        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>026 2025-0… IFB            AIK                     5          1 FT        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>026 2025-0… KHC            VHC                     6          1 FT        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 354 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 19 more variables: is_played &lt;lgl&gt;, arena &lt;chr&gt;, attendance &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_shots_total &lt;int&gt;, home_shots_goal &lt;int&gt;, home_shots_efficiency &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_powerplay_goals &lt;int&gt;, home_powerplay_num_pp &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_powerplay_efficiency &lt;dbl&gt;, home_expulsions_in_minutes &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   away_shots_total &lt;int&gt;, away_shots_goal &lt;int&gt;, away_shots_efficiency &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   away_powerplay_goals &lt;int&gt;, away_powerplay_num_pp &lt;int&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

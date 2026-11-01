@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,7 +119,7 @@
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>League slug <code>mens-college-hockey</code>. Core-v2 league-level <code>standings</code>; ESPN answers
 with a bare <code>$ref</code> pointer to the current season's group standings, returned
-as one <code>ref</code> row. Mirrors sdv-py <code>espn_mch_standings_core()</code>, which takes
+as one <code>ref</code> row. Mirrors sportsdataverse-py <code>espn_mch_standings_core()</code>, which takes
 no arguments; use <code><a href="espn_mch_standings.html">espn_mch_standings()</a></code> for the per-team table.</p>
     </div>
     <div class="section level2">
@@ -255,8 +255,8 @@ no arguments; use <code><a href="espn_mch_standings.html">espn_mch_standings()</
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_mch_standings_core</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MENS-COLLEGE-HOCKEY Standings data from ESPN core-v2 ────────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-30 00:09:10 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MENS-COLLEGE-HOCKEY Standings data from ESPN core-v2 ─── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-01 21:54:02 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ref                                                               standings_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span>

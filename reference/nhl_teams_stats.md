@@ -82,20 +82,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_teams_stats(team_abbr = "TBL"))
-#> ── NHL Teams Stats Information from NHL.com ────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:19:03 UTC
+#> ── NHL Teams Stats Information from NHL.com ─────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:03:02 UTC
 #> # A tibble: 24 × 41
 #>    player_id headshot position_code games_played goals assists points plus_minus
 #>        <int> <chr>    <chr>                <int> <int>   <int>  <int>      <int>
-#>  1   8474151 https:/… D                       11     0       2      2          4
-#>  2   8474590 https:/… D                       11     3       2      5         -3
-#>  3   8475167 https:/… D                       10     2       2      4          5
-#>  4   8476453 https:/… R                       11     4      10     14          2
+#>  1   8474151 https:/… D                       13     0       2      2          6
+#>  2   8474590 https:/… D                       13     5       3      8          1
+#>  3   8475167 https:/… D                       12     3       2      5          3
+#>  4   8476453 https:/… R                       13     4      14     18          5
 #>  5   8476878 https:/… C                       11     1       1      2          1
-#>  6   8477149 https:/… R                        2     0       1      1          1
-#>  7   8477404 https:/… C                       11     7       5     12          4
-#>  8   8478010 https:/… C                       11     2       7      9          4
-#>  9   8478416 https:/… D                       11     0       2      2          7
+#>  6   8477149 https:/… R                        3     0       1      1          2
+#>  7   8477404 https:/… C                       13     8       6     14          7
+#>  8   8478010 https:/… C                       13     3       8     11          7
+#>  9   8478416 https:/… D                       12     0       2      2          6
 #> 10   8478424 https:/… C                        1     0       0      0         -1
 #> # ℹ 14 more rows
 #> # ℹ 33 more variables: penalty_minutes <int>, power_play_goals <int>,

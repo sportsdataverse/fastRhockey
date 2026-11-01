@@ -1,4 +1,4 @@
-# **NHL Stats API — Ping**
+# **NHL Stats API - Ping**
 
 Health-check endpoint for the NHL Stats REST API
 (`https://api.nhle.com/stats/rest/ping`). This endpoint is non-tabular

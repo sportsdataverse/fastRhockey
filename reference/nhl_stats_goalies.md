@@ -1,4 +1,4 @@
-# **NHL Stats API — Goalie Stats**
+# **NHL Stats API - Goalie Stats**
 
 Queries the NHL Stats REST API for goalie statistics.
 
@@ -63,7 +63,26 @@ Returns a data frame with goalie statistics.
 ``` r
 # \donttest{
   try(nhl_stats_goalies())
-#> 2026-10-30 00:18:52.950691: No goalie stats data
-#> NULL
+#> ── NHL Stats Goalies ────────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:54 UTC
+#> # A tibble: 50 × 23
+#>    assists games_played games_started goalie_full_name    goals goals_against
+#>      <int>        <int>         <int> <chr>               <int>         <int>
+#>  1       0           10            10 Pyotr Kochetkov         0            15
+#>  2       0           13            13 Jesper Wallstedt        0            28
+#>  3       0            8             8 Linus Ullmark           0            10
+#>  4       0            8             8 Jacob Fowler            0            15
+#>  5       0           10            10 Mackenzie Blackwood     0            27
+#>  6       0           11            11 Jake Oettinger          0            18
+#>  7       0           11            11 Jeremy Swayman          0            26
+#>  8       0            7             7 Devon Levi              0            22
+#>  9       0           10            10 Andrei Vasilevskiy      0            30
+#> 10       0           10            10 Ilya Sorokin            0            24
+#> # ℹ 40 more rows
+#> # ℹ 17 more variables: goals_against_average <dbl>, last_name <chr>,
+#> #   losses <int>, ot_losses <int>, penalty_minutes <int>, player_id <int>,
+#> #   points <int>, save_pct <dbl>, saves <int>, season_id <int>,
+#> #   shoots_catches <chr>, shots_against <int>, shutouts <int>,
+#> #   team_abbrevs <chr>, ties <lgl>, time_on_ice <int>, wins <int>
 # }
 ```

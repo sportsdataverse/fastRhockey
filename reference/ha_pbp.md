@@ -125,8 +125,8 @@ Other HA Functions:
     statnet_game_number = 23401, home_statnet_id = "AIK", away_statnet_id = "MODO",
     scheduled_date_time = "2026-09-18T17:00:00.000Z"
   ))
-#> ── HA Pbp Information from hockeyallsvenskan.se ────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:12:14 UTC
+#> ── HA Pbp Information from hockeyallsvenskan.se ─────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:57:13 UTC
 #> # A tibble: 113 × 25
 #>    statnet_game_number home_statnet_id away_statnet_id period period_label
 #>                  <int> <chr>           <chr>            <int> <chr>       

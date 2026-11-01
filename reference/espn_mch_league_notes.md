@@ -18,7 +18,7 @@ espn_mch_league_notes(...)
 
 A `fastRhockey_data` tibble with one row per league note reference, or
 an empty tibble when the endpoint is unavailable. **Note**: The MCH
-league notes endpoint (`core_v2/notes`) currently returns `count=0` — an
+league notes endpoint (`core_v2/notes`) currently returns `count=0` - an
 empty tibble is returned gracefully:
 
 |            |           |                                              |

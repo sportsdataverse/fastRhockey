@@ -30,7 +30,7 @@ A `fastRhockey_data` tibble with one row per standings item:
 
 League slug `mens-college-hockey`. Core-v2 league-level `standings`;
 ESPN answers with a bare `$ref` pointer to the current season's group
-standings, returned as one `ref` row. Mirrors sdv-py
+standings, returned as one `ref` row. Mirrors sportsdataverse-py
 `espn_mch_standings_core()`, which takes no arguments; use
 [`espn_mch_standings()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_standings.md)
 for the per-team table.
@@ -168,8 +168,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_standings_core())
-#> ── MENS-COLLEGE-HOCKEY Standings data from ESPN core-v2 ────────────────────────
-#> ℹ Data updated: 2026-10-30 00:09:10 UTC
+#> ── MENS-COLLEGE-HOCKEY Standings data from ESPN core-v2 ─── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:54:02 UTC
 #> # A tibble: 1 × 2
 #>   ref                                                               standings_id
 #>   <chr>                                                             <chr>       

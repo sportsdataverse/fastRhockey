@@ -18,7 +18,7 @@ espn_nhl_calendar_regular_season(...)
 
 A `fastRhockey_data` tibble with one row per regular-season game date.
 Uses the core-v2 `calendar/whitelist` endpoint, which is the working
-equivalent of the sdv-py `calendar/regular-season` path (the
+equivalent of the sportsdataverse-py `calendar/regular-season` path (the
 `regular-season` path returns HTTP 400/503 for NHL; `whitelist` returns
 identical data with HTTP 200).
 
@@ -167,8 +167,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_calendar_regular_season())
-#> ── NHL Calendar Regular-Season data from ESPN core-v2 ──────────────────────────
-#> ℹ Data updated: 2026-10-30 00:09:20 UTC
+#> ── NHL Calendar Regular-Season data from ESPN core-v2 ───── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:54:20 UTC
 #> # A tibble: 193 × 4
 #>    date              date_type start_date        end_date         
 #>    <chr>             <chr>     <chr>             <chr>            

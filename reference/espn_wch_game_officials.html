@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -122,7 +122,7 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>fastRhockey_data</code> tibble with one row per official (typically 4 —
+    <p>A <code>fastRhockey_data</code> tibble with one row per official (typically 4 -
 2 referees + 2 linesmen):</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>event_id</td><td>character</td><td>ESPN event id (echoed from arg).</td></tr><tr><td>cid</td><td>character</td><td>Competition id (echoed from arg).</td></tr><tr><td>official_id</td><td>character</td><td>ESPN official identifier.</td></tr><tr><td>first_name</td><td>character</td><td>Official first name.</td></tr><tr><td>last_name</td><td>character</td><td>Official last name.</td></tr><tr><td>full_name</td><td>character</td><td>Official full name.</td></tr><tr><td>display_name</td><td>character</td><td>Official display name.</td></tr><tr><td>order</td><td>integer</td><td>Display order within officials list.</td></tr><tr><td>position_id</td><td>character</td><td>Official position identifier.</td></tr><tr><td>position_name</td><td>character</td><td>Official position name (e.g. "Referee", "Linesman").</td></tr><tr><td>position_display</td><td>character</td><td>Official position display name.</td></tr><tr><td>official_ref</td><td>character</td><td><code>$ref</code> URL for this official object.</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -264,7 +264,7 @@
 <span class="r-in"><span>    <span class="va">sb</span> <span class="op">&lt;-</span> <span class="fu"><a href="espn_wch_scoreboard.html">espn_wch_scoreboard</a></span><span class="op">(</span>dates <span class="op">=</span> <span class="st">"20250110"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>    <span class="fu">espn_wch_game_officials</span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">sb</span><span class="op">$</span><span class="va">game_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-10-30 00:10:36.462056: </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-01 21:56:12.53422: </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "womens-college-hockey", event_id = NULL, cid = NULL</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: The API returned an error</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>

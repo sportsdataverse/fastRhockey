@@ -1,4 +1,4 @@
-# **NHL Stats API — Seasons List**
+# **NHL Stats API - Seasons List**
 
 Returns a list of all seasons from the Stats REST API.
 
@@ -50,8 +50,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_stats_seasons())
-#> ── NHL Stats Seasons ───────────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:55 UTC
+#> ── NHL Stats Seasons ────────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:56 UTC
 #> # A tibble: 109 × 23
 #>          id all_star_game_in_use conferences_in_use divisions_in_use end_date   
 #>       <int>                <int>              <int>            <int> <chr>      

@@ -51,12 +51,11 @@ returns a zero-row tibble with these columns.
 
 ## Details
 
-**robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows
-`/api`. The owner approved building on it on 2026-10-12, for polite,
-incremental use only: requests are spaced at least one second apart (on
-every attempt, retries included), and a bulk backfill or a published
-mirror needs the owner's sign-off first. Crawl incrementally: fetch a
-finished game once (keyed by `game_id`), find new games with one
+**Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so
+keep use light and incremental. Requests are spaced at least one second
+apart (on every attempt, retries included). Check the site's terms of
+use before any bulk download or redistribution. Crawl incrementally:
+fetch a finished game once (keyed by `game_id`), find new games with one
 [`nl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/nl_schedule.md)
 call per run, and fetch season tables at most once per game day.
 
@@ -113,7 +112,7 @@ Other National League Functions:
 # \donttest{
   try(nl_lineups(game_id = 20261105000325))
 #> ── National League Lineups Information from nationalleague.ch ──────────────────
-#> ℹ Data updated: 2026-10-30 00:19:08 UTC
+#> ℹ Data updated: 2026-11-01 22:03:07 UTC
 #> # A tibble: 44 × 13
 #>    game_id team_side team_id unit  player_id position  line first_name last_name
 #>      <dbl> <chr>       <dbl> <chr>     <dbl> <chr>    <int> <chr>      <chr>    

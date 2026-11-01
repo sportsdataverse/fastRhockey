@@ -91,9 +91,9 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_roster(team_uuid = "087a-087aTQv9u")
-#> ── SHL Roster Information from www.shl.se ──────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:20:14 UTC
+  try(shl_roster(team_uuid = "087a-087aTQv9u"))
+#> ── SHL Roster Information from www.shl.se ───────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:26 UTC
 #> # A tibble: 24 × 14
 #>    position  position_code player_type gender uuid          first_name last_name
 #>    <chr>     <chr>         <chr>       <chr>  <chr>         <chr>      <chr>    

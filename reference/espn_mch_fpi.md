@@ -50,7 +50,7 @@ A `fastRhockey_data` tibble with one row per team:
 League slug `mens-college-hockey`. One row per team with a column per
 FPI field, snake-cased from the payload's `categories` labels (zipped by
 position and length-guarded); a zero-row `data.frame` when ESPN
-publishes no table for men's college hockey. Mirrors sdv-py
+publishes no table for men's college hockey. Mirrors sportsdataverse-py
 `espn_mch_fpi()`.
 
 ## See also
@@ -186,7 +186,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_fpi(season = 2026))
-#> ✖ 2026-10-30 00:08:39.282841: Invalid arguments or no ESPN mens-college-hockey power index available!
+#> ✖ 2026-11-01 21:53:16.047127: Invalid arguments or no ESPN mens-college-hockey power index available!
 #> ✖ Args: league = "mens-college-hockey", kind = "fpi", path = NULL, query = list(season = 2026)
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

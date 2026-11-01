@@ -32,7 +32,7 @@ A `fastRhockey_data` tibble (the raw JSON list when
 | game_type | character | Game type record (uuid, code regular / playoff / qualdown, Swedish name). |
 | game_type_name | character | Game type label in Swedish: Grundserie = regular season, Slutspel = playoffs, Kvalspel nedflyttning = relegation qualification, Kvalserien = the old promotion/relegation series. |
 | series_code | character | Series code (SHL, CHL; HA and Kvalserien in old career logs). |
-| ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams\[\]. |
+| ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams\[\]. |
 | state | character | ssgt state: active (the current season) or closed. |
 | season_uuid | character | Season uuid (platform key space; code 2025 = 2025/2026); the seasonUuid param of game-schedule. |
 | series_uuid | character | Series uuid (platform key space; SHL = qQ9-bb0bzEWUk). |
@@ -85,8 +85,24 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_layout_info()
-#> Error in .shl_check(url, route, raw, mapped$query, mapped$ssgt): www.shl.se/api/statistics-v2/layout-info answered no rows at
-#> "[].seasonSeriesGameTypeTeams[]"
+  try(shl_layout_info())
+#> ── SHL Layout Info Information from www.shl.se ──────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:15 UTC
+#> # A tibble: 110 × 11
+#>    season season_code season_name game_type game_type_name series_code ssgt_uuid
+#>     <int> <chr>       <chr>       <chr>     <chr>          <chr>       <chr>    
+#>  1   2025 2024        2024/2025   playoff   Slutspel       SHL         fg2i6uu9…
+#>  2   2026 2025        2025/2026   regular   Grundserie     SHL         iuzqg7dq…
+#>  3   2026 2025        2025/2026   qualdown  Kvalspel nedf… SHL         jjruyvpq…
+#>  4   2025 2024        2024/2025   qualdown  Kvalspel nedf… SHL         kr8hte1o…
+#>  5   2027 2026        2026/2027   regular   Grundserie     SHL         qa98unlb…
+#>  6   2022 2021        2021/2022   qualdown  Kvalspel nedf… SHL         qbK-6Iso…
+#>  7   2022 2021        2021/2022   playoff   Slutspel       SHL         qbK-6ItY…
+#>  8   2023 2022        2022/2023   regular   Grundserie     SHL         qbN-6KVf…
+#>  9   2023 2022        2022/2023   playoff   Slutspel       SHL         qbT-5I5t…
+#> 10   2023 2022        2022/2023   qualdown  Kvalspel nedf… SHL         qbT-5I9a…
+#> # ℹ 100 more rows
+#> # ℹ 4 more variables: state <chr>, season_uuid <chr>, series_uuid <chr>,
+#> #   game_type_uuid <chr>
 # }
 ```

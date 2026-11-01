@@ -1,4 +1,4 @@
-# **NHL Stats API — Glossary**
+# **NHL Stats API - Glossary**
 
 Returns the glossary of stat definitions from the NHL Stats REST API
 (`https://api.nhle.com/stats/rest/{lang}/glossary`). Useful to look up
@@ -36,8 +36,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_stats_glossary())
-#> ── NHL Stats Glossary ──────────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:49 UTC
+#> ── NHL Stats Glossary ───────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:53 UTC
 #> # A tibble: 321 × 7
 #>       id abbreviation   definition first_season_for_stat full_name language_code
 #>    <int> <chr>          <chr>                      <int> <chr>     <chr>        

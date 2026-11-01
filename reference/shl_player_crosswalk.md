@@ -89,9 +89,17 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  xw <- shl_player_crosswalk(2026)
-#> Error in .shl_directory(): www.shl.se/api/statistics-v2/layout-info: no ssgt directory in the body
-  xw[xw$player_id == 2427, ]
-#> Error: object 'xw' not found
+  try({
+    xw <- shl_player_crosswalk(2026)
+    xw[xw$player_id == 2427, ]
+  })
+#> ── SHL Player Crosswalk Information from www.shl.se ─────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:23 UTC
+#> # A tibble: 1 × 14
+#>   player_id athlete_uuid  first_name last_name jersey_number position shoots
+#>       <int> <chr>         <chr>      <chr>             <int> <chr>    <chr> 
+#> 1      2427 qQ9-349c7WDv6 Lars       Johansson             1 GK       L     
+#> # ℹ 7 more variables: ep_url <chr>, full_name <chr>, date_of_birth <chr>,
+#> #   nationality <chr>, gender <chr>, weight <int>, height <int>
 # }
 ```

@@ -18,7 +18,7 @@ espn_nhl_draft(...)
 
 A `fastRhockey_data` tibble with draft data, or an empty tibble when the
 endpoint is unavailable. **Note**: The NHL draft endpoint
-(`site/v2/sports/hockey/nhl/draft`) currently returns HTTP 500 for NHL —
+(`site/v2/sports/hockey/nhl/draft`) currently returns HTTP 500 for NHL -
 an empty tibble is returned gracefully:
 
 |          |           |                                       |

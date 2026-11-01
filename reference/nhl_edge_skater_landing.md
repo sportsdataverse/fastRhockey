@@ -39,8 +39,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_edge_skater_landing())
-#> ── NHL Edge Skater Landing ─────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:17:49 UTC
+#> ── NHL Edge Skater Landing ──────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:01:36 UTC
 #> # A tibble: 6 × 2
 #>         id game_types
 #>      <int> <list>    

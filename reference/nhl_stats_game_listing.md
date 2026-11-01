@@ -1,4 +1,4 @@
-# **NHL Stats API — Game Listing**
+# **NHL Stats API - Game Listing**
 
 Returns the game listing from the NHL Stats REST API
 (`https://api.nhle.com/stats/rest/{lang}/game`). Supports server-side
@@ -55,8 +55,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_stats_game_listing())
-#> ── NHL Stats Game Listing ──────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:49 UTC
+#> ── NHL Stats Game Listing ───────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:53 UTC
 #> # A tibble: 100 × 13
 #>            id eastern_start_time  game_date  game_number game_schedule_state_id
 #>         <int> <chr>               <chr>            <int>                  <int>

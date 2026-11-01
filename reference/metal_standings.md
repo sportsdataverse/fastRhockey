@@ -109,7 +109,7 @@ Other Metal Ligaen eSports functions:
 # \donttest{
   try(metal_standings(season = 2027, league_id = 1))
 #> ── Metal Ligaen standings from the eSports hokejovyzapis bucket ────────────────
-#> ℹ Data updated: 2026-10-30 00:17:23 UTC
+#> ℹ Data updated: 2026-11-01 22:01:05 UTC
 #> # A tibble: 9 × 31
 #>   group_id group_name complete team_id part_team_id name  team_original shortcut
 #>      <int> <chr>      <lgl>      <int>        <int> <chr> <chr>         <chr>   
@@ -118,8 +118,8 @@ Other Metal Ligaen eSports functions:
 #> 3       NA ""         TRUE           5           39 Esbj… Esbjerg Ener… ESB     
 #> 4       NA ""         TRUE           2           46 Sønd… Sønderjyske … SON     
 #> 5       NA ""         TRUE           7           41 Herl… Herlev Eagles HLV     
-#> 6       NA ""         TRUE           1           45 Rung… Rungsted Sei… RUN     
-#> 7       NA ""         TRUE           9           43 Oden… Odense Bulld… ODE     
+#> 6       NA ""         TRUE           9           43 Oden… Odense Bulld… ODE     
+#> 7       NA ""         TRUE           1           45 Rung… Rungsted Sei… RUN     
 #> 8       NA ""         TRUE           4           38 Aalb… Aalborg Pira… AAL     
 #> 9       NA ""         TRUE           8           44 Rødo… Rødovre Migh… ROD     
 #> # ℹ 23 more variables: position <int>, points <int>, games <int>, wins <int>,

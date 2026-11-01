@@ -42,7 +42,7 @@ A `fastRhockey_data` tibble (the raw JSON list when
 | state | character | Game state: pre-game or post-game (hyphenated; a live value was not observed). |
 | overtime | logical | Whether the game went to overtime. |
 | shootout | logical | Whether the game went to a shootout. |
-| ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams\[\]. |
+| ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams\[\]. |
 | home_team_status | character | Result for the team (WIN, LOSE) or record status. |
 | home_team_uuid | character | Team uuid (platform key space, e.g. 087a-087aTQv9u); joins to `/sports-v2/teams/{team_uuid}` and schedule homeTeamInfo/awayTeamInfo.uuid. Not the team code. |
 | home_team_owner_instance_id | character | Club site instance id (e.g. fhc1_fhc); also names the logo at `sportality.cdn.s8y.se/team-logos/{id}.svg`. |
@@ -124,7 +124,25 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_last_game_day()
-#> Error in .shl_directory(): www.shl.se/api/statistics-v2/layout-info: no ssgt directory in the body
+  try(shl_last_game_day())
+#> ── SHL Last Game Day Information from www.shl.se ────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:14 UTC
+#> # A tibble: 7 × 39
+#>   game_uuid  start_date_time  state overtime shootout ssgt_uuid home_team_status
+#>   <chr>      <chr>            <chr> <lgl>    <lgl>    <chr>     <chr>           
+#> 1 ap2jc3o2qs 2026-10-31T14:1… post… FALSE    FALSE    qa98unlb… WIN             
+#> 2 v35qq3250h 2026-10-31T14:1… post… FALSE    FALSE    qa98unlb… WIN             
+#> 3 y6kcu5sphd 2026-10-31T14:1… post… FALSE    FALSE    qa98unlb… LOSE            
+#> 4 e9fkipriff 2026-10-31T17:0… post… FALSE    FALSE    qa98unlb… WIN             
+#> 5 ed9bewzqn2 2026-10-31T17:0… post… TRUE     FALSE    qa98unlb… WIN             
+#> 6 nmj30kprbx 2026-10-31T17:0… post… TRUE     FALSE    qa98unlb… WIN             
+#> 7 ptbs69o5d8 2026-10-31T17:0… post… FALSE    TRUE     qa98unlb… LOSE            
+#> # ℹ 32 more variables: home_team_uuid <chr>, home_team_owner_instance_id <chr>,
+#> #   home_team_code <chr>, home_team_names_code <chr>,
+#> #   home_team_names_short <chr>, home_team_names_long <chr>,
+#> #   home_team_names_full <chr>, home_team_names_code_site <chr>,
+#> #   home_team_names_short_site <chr>, home_team_names_full_site <chr>,
+#> #   home_team_names_long_site <chr>, home_team_score <int>,
+#> #   home_team_icon <chr>, away_team_status <chr>, away_team_uuid <chr>, …
 # }
 ```

@@ -12,7 +12,8 @@ espn_mch_teams_site(limit = 1000, ...)
 
 - limit:
 
-  Maximum number of teams (ESPN `limit`; default `1000`, as sdv-py).
+  Maximum number of teams (ESPN `limit`; default `1000`, as
+  sportsdataverse-py).
 
 - ...:
 
@@ -190,8 +191,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_teams_site())
-#> ── MENS-COLLEGE-HOCKEY Teams data from ESPN.com ────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:09:17 UTC
+#> ── MENS-COLLEGE-HOCKEY Teams data from ESPN.com ─────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:54:15 UTC
 #> # A tibble: 116 × 23
 #>    abbreviation display_name espn_team_id team  mascot nickname short_name logo 
 #>    <chr>        <chr>               <int> <chr> <chr>  <chr>    <chr>      <chr>

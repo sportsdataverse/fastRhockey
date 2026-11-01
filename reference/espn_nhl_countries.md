@@ -22,7 +22,7 @@ espn_nhl_countries(limit = 200, ...)
 
 A `fastRhockey_data` tibble with one row per country reference, or an
 empty tibble when the endpoint is unpopulated. **Note**: The NHL
-countries endpoint (`leagues/nhl/countries`) returns `count=0` — ESPN
+countries endpoint (`leagues/nhl/countries`) returns `count=0` - ESPN
 does not populate this collection for the NHL. An empty tibble is
 returned gracefully with a warning:
 
@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns empty tibble for NHL (ESPN does not populate this endpoint)
   try(espn_nhl_countries())
-#> ! 2026-10-30 00:09:22.385015: No country items returned for nhl (count=0 is normal for NHL).
+#> ! 2026-11-01 21:54:22.792649: No country items returned for nhl (count=0 is normal for NHL).
 #> data frame with 0 columns and 0 rows
 # }
 ```

@@ -22,7 +22,7 @@ espn_wch_season_draft(season = most_recent_nhl_season(), ...)
 ## Value
 
 A `fastRhockey_data` tibble with draft round references, or an empty
-tibble when the endpoint is unavailable (HTTP 404 is normal for NHL —
+tibble when the endpoint is unavailable (HTTP 404 is normal for NHL -
 the draft sub-tree is not served by this core-v2 path):
 
 |          |           |                                                      |
@@ -173,7 +173,7 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns an empty tibble for NHL (404 from ESPN)
   try(espn_wch_season_draft(season = 2025))
-#> ! 2026-10-30 00:10:52.096332: ESPN womens-college-hockey season draft for 2025 is not available (HTTP 404 is normal for NHL).
+#> ! 2026-11-01 21:56:36.894061: ESPN womens-college-hockey season draft for 2025 is not available (HTTP 404 is normal for NHL).
 #> ! Warning: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }

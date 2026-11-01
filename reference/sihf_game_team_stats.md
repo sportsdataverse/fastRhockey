@@ -94,8 +94,8 @@ Other SIHF Functions:
 ``` r
 # \donttest{
   try(sihf_game_team_stats(game_id = 20261105000325))
-#> ── SIHF Game Team Stats Information from data.sihf.ch ──────────────────────────
-#> ℹ Data updated: 2026-10-30 00:20:30 UTC
+#> ── SIHF Game Team Stats Information from data.sihf.ch ───── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:42 UTC
 #> # A tibble: 49 × 4
 #>    game_id statistic home_value away_value
 #>      <dbl> <chr>     <chr>      <chr>     

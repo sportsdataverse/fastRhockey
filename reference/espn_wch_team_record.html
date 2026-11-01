@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -124,7 +124,7 @@ Chicago Blackhawks).</p></dd>
 currently returns an empty response for WCH; an empty tibble is returned
 with a cli warning. Columns when populated include <code>team_id</code>,
 <code>description</code>, <code>type</code>, <code>summary</code>, and one numeric column per stat.</p>
-<p>Columns when populated:</p><table class="table table"><tr><td>col_name</td><td>type</td><td>description</td></tr><tr><td>team_id</td><td>character</td><td>ESPN team identifier (echoed from the argument).</td></tr><tr><td>description</td><td>character</td><td>Record description.</td></tr><tr><td>type</td><td>character</td><td>Record type (overall, home, away).</td></tr><tr><td>summary</td><td>character</td><td>Record summary string, e.g. <code>'10-5-1'</code>.</td></tr><tr><td><stat></stat></td><td>numeric</td><td>One column per ESPN stat on the record, named by <code><a href="https://sfirke.github.io/janitor/reference/make_clean_names.html" class="external-link">janitor::make_clean_names()</a></code> of the stat name.</td></tr></table></div>
+<p>Columns when populated:</p><table class="table table"><tr><td>col_name</td><td>type</td><td>description</td></tr><tr><td>team_id</td><td>character</td><td>ESPN team identifier (echoed from the argument).</td></tr><tr><td>description</td><td>character</td><td>Record description.</td></tr><tr><td>type</td><td>character</td><td>Record type (overall, home, away).</td></tr><tr><td>summary</td><td>character</td><td>Record summary string, e.g. <code>'10-5-1'</code>.</td></tr><tr><td><code>&lt;stat&gt;</code></td><td>numeric</td><td>One column per ESPN stat on the record, named by <code><a href="https://sfirke.github.io/janitor/reference/make_clean_names.html" class="external-link">janitor::make_clean_names()</a></code> of the stat name.</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>League slug <code>womens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_team_record.html">espn_nhl_team_record()</a></code> (columns inherited); a collection may be empty.</p>

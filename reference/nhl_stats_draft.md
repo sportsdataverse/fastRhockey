@@ -1,4 +1,4 @@
-# **NHL Stats API — Draft Summaries**
+# **NHL Stats API - Draft Summaries**
 
 Queries the NHL Stats REST API for draft-year summaries (draft year and
 number of rounds). Optionally filter to a specific draft year via
@@ -45,8 +45,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(nhl_stats_draft())
-#> ── NHL Stats Draft ─────────────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:48 UTC
+#> ── NHL Stats Draft ──────────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:52 UTC
 #> # A tibble: 64 × 3
 #>       id draft_year rounds
 #>    <int>      <int>  <int>
@@ -62,8 +62,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 #> 10    10       1999      9
 #> # ℹ 54 more rows
   try(nhl_stats_draft(draft_year = 2024))
-#> ── NHL Stats Draft ─────────────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:48 UTC
+#> ── NHL Stats Draft ──────────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:52 UTC
 #> # A tibble: 1 × 3
 #>      id draft_year rounds
 #>   <int>      <int>  <int>

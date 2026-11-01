@@ -38,7 +38,7 @@ espn_mch_season_draft_round_picks(
 A `fastRhockey_data` tibble with one row per draft pick, or an empty
 tibble when the endpoint is unavailable. The confirmed path is
 `seasons/{season}/draft/rounds/{round_num}/picks`; for NHL this returns
-HTTP 404 — the draft data is not served by the core-v2 sub-tree:
+HTTP 404 - the draft data is not served by the core-v2 sub-tree:
 
 |            |           |                                       |
 |------------|-----------|---------------------------------------|
@@ -191,7 +191,7 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns an empty tibble for NHL (404 from ESPN)
   try(espn_mch_season_draft_round_picks(season = 2025, round_num = 1))
-#> ! 2026-10-30 00:09:03.013954: ESPN mens-college-hockey season draft round picks for 2025 round 1 is not available (HTTP 404 is normal for NHL).
+#> ! 2026-11-01 21:53:51.195849: ESPN mens-college-hockey season draft round picks for 2025 round 1 is not available (HTTP 404 is normal for NHL).
 #> ! Warning: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }

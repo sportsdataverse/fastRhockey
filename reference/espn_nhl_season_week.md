@@ -38,7 +38,7 @@ espn_nhl_season_week(
 
 A one-row `fastRhockey_data` tibble with week metadata, or an empty
 tibble when the endpoint is unavailable. **Note**: NHL does not use
-weeks in ESPN core-v2 — HTTP 404 is the expected response:
+weeks in ESPN core-v2 - HTTP 404 is the expected response:
 
 |             |           |                                         |
 |-------------|-----------|-----------------------------------------|
@@ -191,8 +191,8 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns empty tibble for NHL (ESPN does not use weeks for hockey)
   try(espn_nhl_season_week(season = 2026, season_type = 2, week = 1))
-#> ── NHL Season Week data from ESPN core-v2 ──────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:10:00 UTC
+#> ── NHL Season Week data from ESPN core-v2 ───────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:55:21 UTC
 #> # A tibble: 1 × 9
 #>   season season_type  week number start_date  end_date text  week_ref events_ref
 #>    <int>       <int> <int>  <int> <chr>       <chr>    <chr> <chr>    <chr>     

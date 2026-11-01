@@ -24,7 +24,7 @@ espn_nhl_coach(coach_id, ...)
 
 A one-row `fastRhockey_data` tibble with coach detail. Note that
 `careerRecords` and `coachSeasons` are sparse (empty arrays) for many
-NHL coaches — see
+NHL coaches - see
 [`espn_nhl_coach_record()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_coach_record.md)
 for season-scoped records:
 
@@ -182,8 +182,8 @@ Saiem Gilani
     ccs <- espn_nhl_coaches(season = 2026)
     espn_nhl_coach(coach_id = ccs$coach_id[1])
   })
-#> ── NHL Coach data from ESPN core-v2 ────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:09:20 UTC
+#> ── NHL Coach data from ESPN core-v2 ─────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:54:20 UTC
 #> # A tibble: 1 × 10
 #>   coach_id id    uid              first_name last_name date_of_birth  birth_city
 #>   <chr>    <chr> <chr>            <chr>      <chr>     <chr>          <chr>     

@@ -19,7 +19,9 @@ espn_wch_talentpicks(...)
 A `fastRhockey_data` tibble with one row per talent pick reference, or
 an empty tibble when the endpoint is unavailable. **Note**: The WCH
 talent picks endpoint (`core_v2/talentpicks`) currently returns
-`count=0` — an empty tibble is returned gracefully:
+`count=0`
+
+- an empty tibble is returned gracefully:
 
 |            |           |                                                     |
 |------------|-----------|-----------------------------------------------------|

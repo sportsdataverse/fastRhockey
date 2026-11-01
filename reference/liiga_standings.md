@@ -77,12 +77,13 @@ has none).
 
 Endpoint: `GET https://liiga.fi/api/v2/standings/`
 
-Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests
-to liiga.fi are spaced at least one second apart. A request Liiga
-answers with nothing (an unknown game, a tournament not played that
-season, a shot map before 2016) raises `fastRhockey_no_data`; a failed
-fetch or an error-shaped answer raises `fastRhockey_asset_fetch`; a bad
-argument raises `fastRhockey_bad_request`.
+Seasons are END years (2026 = 2025-26), the same key as
+sportsdataverse-py. Requests to liiga.fi are spaced at least one second
+apart. A request Liiga answers with nothing (an unknown game, a
+tournament not played that season, a shot map before 2016) raises
+`fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
+`fastRhockey_asset_fetch`; a bad argument raises
+`fastRhockey_bad_request`.
 
 ## See also
 
@@ -115,8 +116,8 @@ Other Liiga Functions:
 ``` r
 # \donttest{
   try(liiga_standings(season = 2026))
-#> ── Liiga standings Information from liiga.fi ───────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:15:40 UTC
+#> ── Liiga standings Information from liiga.fi ────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:58:45 UTC
 #> # A tibble: 54 × 49
 #>    season tournament internal_id  team_id team_slug team_name team_logos_dark_bg
 #>     <int> <chr>            <int>    <int> <chr>     <chr>     <chr>             

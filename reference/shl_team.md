@@ -49,7 +49,7 @@ A `fastRhockey_data` tibble (the raw JSON list when
 | info_email | character | Contact email address of the club. |
 | info_chairman | character | Name of the club chairman. |
 | info_manager | character | Club general manager. |
-| info_accreditation | character | Press-accreditation contact, free Swedish text (e.g. 'Senast dagen före match till …' = 'no later than the day before the game, to …'). |
+| info_accreditation | character | Press-accreditation contact, free Swedish text (e.g. 'Senast dagen före match till ...' = 'no later than the day before the game, to ...'). |
 | info_facebook | character | Club Facebook URL. |
 | info_instagram | character | Club Instagram URL. |
 | info_twitter | character | Club X/Twitter URL. |
@@ -109,9 +109,9 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_team(team_uuid = "087a-087aTQv9u")
-#> ── SHL Team Information from www.shl.se ────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:20:23 UTC
+  try(shl_team(team_uuid = "087a-087aTQv9u"))
+#> ── SHL Team Information from www.shl.se ─────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:33 UTC
 #> # A tibble: 1 × 30
 #>   names_code names_short names_long  names_full names_code_site names_short_site
 #>   <chr>      <chr>       <chr>       <chr>      <chr>           <chr>           

@@ -182,8 +182,8 @@ Saiem Gilani
     vns <- espn_wch_venues()
     espn_wch_venue(venue_id = vns$venue_id[1])
   })
-#> ── WOMENS-COLLEGE-HOCKEY Venue data from ESPN core-v2 ──────────────────────────
-#> ℹ Data updated: 2026-10-30 00:11:06 UTC
+#> ── WOMENS-COLLEGE-HOCKEY Venue data from ESPN core-v2 ───── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:57:01 UTC
 #> # A tibble: 1 × 11
 #>   venue_id id    guid  full_name       city  state country grass indoor capacity
 #>   <chr>    <chr> <chr> <chr>           <chr> <chr> <chr>   <lgl> <lgl>     <int>

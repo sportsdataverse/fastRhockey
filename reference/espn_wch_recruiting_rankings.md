@@ -35,7 +35,8 @@ A `fastRhockey_data` tibble with one row per ranking set:
 
 League slug `womens-college-hockey`. Core-v2
 `recruiting/{year}/rankings`; `$ref`-only items become `ref` +
-`ranking_id`. Mirrors sdv-py `espn_wch_recruiting_rankings()`.
+`ranking_id`. Mirrors sportsdataverse-py
+`espn_wch_recruiting_rankings()`.
 
 ## See also
 

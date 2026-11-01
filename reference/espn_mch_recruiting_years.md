@@ -29,7 +29,7 @@ A `fastRhockey_data` tibble with one row per recruiting year:
 ## Details
 
 League slug `mens-college-hockey`. Core-v2 `recruiting` collection (one
-item per recruiting class year). Mirrors sdv-py
+item per recruiting class year). Mirrors sportsdataverse-py
 `espn_mch_recruiting_years()`.
 
 ## See also

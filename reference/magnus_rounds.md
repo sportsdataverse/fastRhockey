@@ -68,8 +68,8 @@ Other Ligue Magnus Functions:
 ``` r
 # \donttest{
   try(magnus_rounds(phase_id = 714))
-#> ── Ligue Magnus Rounds Information from liguemagnus.com ────────────────────────
-#> ℹ Data updated: 2026-10-30 00:17:12 UTC
+#> ── Ligue Magnus Rounds Information from liguemagnus.com ─── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:00:54 UTC
 #> # A tibble: 44 × 9
 #>    round_id round round_label phase_id phase    competition_id season start_date
 #>       <int> <int> <chr>          <int> <chr>             <int>  <int> <date>    

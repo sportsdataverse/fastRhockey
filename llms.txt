@@ -1141,32 +1141,32 @@ stats
 - [`nhl_stats_skaters()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_skaters.md)
   :
 
-  **NHL Stats API — Skater Stats**
+  **NHL Stats API - Skater Stats**
 
 - [`nhl_stats_goalies()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_goalies.md)
   :
 
-  **NHL Stats API — Goalie Stats**
+  **NHL Stats API - Goalie Stats**
 
 - [`nhl_stats_teams()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_teams.md)
   :
 
-  **NHL Stats API — Team Stats**
+  **NHL Stats API - Team Stats**
 
 - [`nhl_stats_draft()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_draft.md)
   :
 
-  **NHL Stats API — Draft Summaries**
+  **NHL Stats API - Draft Summaries**
 
 - [`nhl_stats_seasons()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_seasons.md)
   :
 
-  **NHL Stats API — Seasons List**
+  **NHL Stats API - Seasons List**
 
 - [`nhl_stats_misc()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_misc.md)
   :
 
-  **NHL Stats API — Miscellaneous Endpoints**
+  **NHL Stats API - Miscellaneous Endpoints**
 
 - [`nhl_skater_stats_leaders()`](https://fastRhockey.sportsdataverse.org/reference/nhl_skater_stats_leaders.md)
   :
@@ -1197,67 +1197,67 @@ reachable via
 - [`nhl_stats_franchise()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_franchise.md)
   :
 
-  **NHL Stats API — Franchise Listing**
+  **NHL Stats API - Franchise Listing**
 
 - [`nhl_stats_players()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_players.md)
   :
 
-  **NHL Stats API — Players Listing**
+  **NHL Stats API - Players Listing**
 
 - [`nhl_stats_glossary()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_glossary.md)
   :
 
-  **NHL Stats API — Glossary**
+  **NHL Stats API - Glossary**
 
 - [`nhl_stats_country()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_country.md)
   :
 
-  **NHL Stats API — Country Lookup**
+  **NHL Stats API - Country Lookup**
 
 - [`nhl_stats_config()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_config.md)
   :
 
-  **NHL Stats API — Config**
+  **NHL Stats API - Config**
 
 - [`nhl_stats_ping()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_ping.md)
   :
 
-  **NHL Stats API — Ping**
+  **NHL Stats API - Ping**
 
 - [`nhl_stats_skater_leaders()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_skater_leaders.md)
   :
 
-  **NHL Stats API — Skater Leaders**
+  **NHL Stats API - Skater Leaders**
 
 - [`nhl_stats_goalie_leaders()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_goalie_leaders.md)
   :
 
-  **NHL Stats API — Goalie Leaders**
+  **NHL Stats API - Goalie Leaders**
 
 - [`nhl_stats_skater_milestones()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_skater_milestones.md)
   :
 
-  **NHL Stats API — Skater Milestones**
+  **NHL Stats API - Skater Milestones**
 
 - [`nhl_stats_goalie_milestones()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_goalie_milestones.md)
   :
 
-  **NHL Stats API — Goalie Milestones**
+  **NHL Stats API - Goalie Milestones**
 
 - [`nhl_stats_team_listing()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_team_listing.md)
   :
 
-  **NHL Stats API — Team Listing**
+  **NHL Stats API - Team Listing**
 
 - [`nhl_stats_game_listing()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_game_listing.md)
   :
 
-  **NHL Stats API — Game Listing**
+  **NHL Stats API - Game Listing**
 
 - [`nhl_stats_content_module()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_content_module.md)
   :
 
-  **NHL Stats API — Content Module**
+  **NHL Stats API - Content Module**
 
 ### NHL Edge Family Overview
 
@@ -4875,7 +4875,7 @@ PHF endpoint family overview (all deprecated)
   [`phf_deprecated`](https://fastRhockey.sportsdataverse.org/reference/phf.md)
   :
 
-  **PHF (Premier Hockey Federation) Endpoint Overview — DEPRECATED**
+  **PHF (Premier Hockey Federation) Endpoint Overview - DEPRECATED**
 
 ### Deprecated PHF Functions
 

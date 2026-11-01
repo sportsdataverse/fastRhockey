@@ -79,9 +79,9 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_ssgt_uuid(2026)
-#> Error in .shl_directory(): www.shl.se/api/statistics-v2/layout-info: no ssgt directory in the body
-  shl_ssgt_uuid(2025, "playoff")
-#> Error in .shl_directory(): www.shl.se/api/statistics-v2/layout-info: no ssgt directory in the body
+  try(shl_ssgt_uuid(2026))
+#> [1] "iuzqg7dqk9"
+  try(shl_ssgt_uuid(2025, "playoff"))
+#> [1] "fg2i6uu9dt"
 # }
 ```

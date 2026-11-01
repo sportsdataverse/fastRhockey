@@ -100,8 +100,8 @@ Other DEL eSports functions:
 ``` r
 # \donttest{
   try(del_shots(match_id = 4444))
-#> ── DEL shots from the eSports hokejovyzapis bucket ─── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:08:08 UTC
+#> ── DEL shots from the eSports hokejovyzapis bucket ──────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 21:52:41 UTC
 #> # A tibble: 99 × 25
 #>    match_id date       home_id home_name home_shortcut visitor_id visitor_name
 #>       <int> <chr>        <int> <chr>     <chr>              <int> <chr>       

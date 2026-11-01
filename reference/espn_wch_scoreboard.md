@@ -38,7 +38,8 @@ espn_wch_scoreboard(
 
 - limit:
 
-  Maximum number of events (ESPN `limit`; default `500`, as sdv-py).
+  Maximum number of events (ESPN `limit`; default `500`, as
+  sportsdataverse-py).
 
 - ...:
 

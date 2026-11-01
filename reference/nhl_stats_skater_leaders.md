@@ -1,4 +1,4 @@
-# **NHL Stats API — Skater Leaders**
+# **NHL Stats API - Skater Leaders**
 
 Returns a skater leaderboard for a given statistic attribute from the
 NHL Stats REST API
@@ -17,7 +17,7 @@ nhl_stats_skater_leaders(attribute, lang = "en", cayenne_exp = NULL)
 
   Character (required). The stat attribute to rank by. Known valid
   values include `"points"`, `"goals"`, `"assists"`. Note that this
-  endpoint does **not** accept `start` / `limit` query parameters —
+  endpoint does **not** accept `start` / `limit` query parameters -
   passing them produces a 500. Use `cayenne_exp` to filter.
 
 - lang:
@@ -58,8 +58,8 @@ failure. When ranking by `"assists"` the columns are:
 ``` r
 # \donttest{
   try(nhl_stats_skater_leaders(attribute = "assists"))
-#> ── NHL Stats Skater Leaders ────────────────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:18:56 UTC
+#> ── NHL Stats Skater Leaders ─────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:02:57 UTC
 #> # A tibble: 10 × 15
 #>    assists player_id player_current_team_id player_first_name player_full_name
 #>      <int>     <int> <lgl>                  <chr>             <chr>           

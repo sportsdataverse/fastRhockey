@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,7 +121,7 @@
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A one-row <code>fastRhockey_data</code> tibble with coach detail. Note that
 <code>careerRecords</code> and <code>coachSeasons</code> are sparse (empty arrays) for many MCH
-coaches — see <code><a href="espn_mch_coach_record.html">espn_mch_coach_record()</a></code> for season-scoped records:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>coach_id</td><td>character</td><td>ESPN coach id (echoed from arg).</td></tr><tr><td>id</td><td>character</td><td>ESPN coach identifier from response.</td></tr><tr><td>uid</td><td>character</td><td>Coach uid string.</td></tr><tr><td>first_name</td><td>character</td><td>Coach first name.</td></tr><tr><td>last_name</td><td>character</td><td>Coach last name.</td></tr><tr><td>date_of_birth</td><td>character</td><td>Coach date of birth (ISO 8601).</td></tr><tr><td>birth_city</td><td>character</td><td>Coach birth city.</td></tr><tr><td>birth_country</td><td>character</td><td>Coach birth country.</td></tr><tr><td>experience</td><td>integer</td><td>Years of coaching experience (if returned).</td></tr><tr><td>coach_ref</td><td>character</td><td><code>$ref</code> URL for this coach object.</td></tr></table></div>
+coaches - see <code><a href="espn_mch_coach_record.html">espn_mch_coach_record()</a></code> for season-scoped records:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>coach_id</td><td>character</td><td>ESPN coach id (echoed from arg).</td></tr><tr><td>id</td><td>character</td><td>ESPN coach identifier from response.</td></tr><tr><td>uid</td><td>character</td><td>Coach uid string.</td></tr><tr><td>first_name</td><td>character</td><td>Coach first name.</td></tr><tr><td>last_name</td><td>character</td><td>Coach last name.</td></tr><tr><td>date_of_birth</td><td>character</td><td>Coach date of birth (ISO 8601).</td></tr><tr><td>birth_city</td><td>character</td><td>Coach birth city.</td></tr><tr><td>birth_country</td><td>character</td><td>Coach birth country.</td></tr><tr><td>experience</td><td>integer</td><td>Years of coaching experience (if returned).</td></tr><tr><td>coach_ref</td><td>character</td><td><code>$ref</code> URL for this coach object.</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>League slug <code>mens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_coach.html">espn_nhl_coach()</a></code> (columns inherited); a collection may be empty.</p>

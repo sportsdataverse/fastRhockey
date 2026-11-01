@@ -147,9 +147,9 @@ Other SHL Functions:
 
 ``` r
 # \donttest{
-  shl_pbp(game_uuid = "bdhvuc5tex")
-#> ── SHL Pbp Information from www.shl.se ─────────────── fastRhockey 1.0.0.9000 ──
-#> ℹ Data updated: 2026-10-30 00:20:08 UTC
+  try(shl_pbp(game_uuid = "bdhvuc5tex"))
+#> ── SHL Pbp Information from www.shl.se ──────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-01 22:04:17 UTC
 #> # A tibble: 131 × 67
 #>    game_source_id   game_id event_id event_uuid round game_type arena attendance
 #>    <chr>              <int>    <int> <chr>      <int> <chr>     <chr>      <int>

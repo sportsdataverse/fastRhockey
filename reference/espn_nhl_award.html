@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastRhockey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -122,7 +122,7 @@
     <p>A one-row <code>fastRhockey_data</code> tibble with award metadata, or an
 empty tibble when the endpoint is unavailable. <strong>Note</strong>: The individual
 award endpoint (<code>core_v2/awards/{award_id}</code>) currently returns HTTP 500
-for all tested NHL award ids — an empty tibble is returned gracefully:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>award_id</td><td>character</td><td>Award id (echoed from arg).</td></tr><tr><td>id</td><td>character</td><td>ESPN award identifier (if returned).</td></tr><tr><td>name</td><td>character</td><td>Award name (if returned).</td></tr><tr><td>display_name</td><td>character</td><td>Award display name (if returned).</td></tr><tr><td>description</td><td>character</td><td>Award description (if returned).</td></tr><tr><td>award_ref</td><td>character</td><td><code>$ref</code> URL for the award object (if returned).</td></tr></table></div>
+for all tested NHL award ids - an empty tibble is returned gracefully:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>award_id</td><td>character</td><td>Award id (echoed from arg).</td></tr><tr><td>id</td><td>character</td><td>ESPN award identifier (if returned).</td></tr><tr><td>name</td><td>character</td><td>Award name (if returned).</td></tr><tr><td>display_name</td><td>character</td><td>Award display name (if returned).</td></tr><tr><td>description</td><td>character</td><td>Award description (if returned).</td></tr><tr><td>award_ref</td><td>character</td><td><code>$ref</code> URL for the award object (if returned).</td></tr></table></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN NHL Functions:
@@ -264,8 +264,8 @@ for all tested NHL award ids — an empty tibble is returned gracefully:</p><tab
 <span class="r-in"><span>    <span class="va">awards</span> <span class="op">&lt;-</span> <span class="fu"><a href="espn_nhl_awards.html">espn_nhl_awards</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>    <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">awards</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="fu">espn_nhl_award</span><span class="op">(</span>award_id <span class="op">=</span> <span class="va">awards</span><span class="op">$</span><span class="va">award_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Award data from ESPN core-v2 ────────────────── <span style="font-style: italic;">fastRhockey 1.0.0.9000</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-30 00:09:19 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Award data from ESPN core-v2 ─────────────────────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-01 21:54:17 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   award_id id    name  display_name description award_ref</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
