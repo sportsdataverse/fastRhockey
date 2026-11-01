@@ -203,25 +203,27 @@ sched <- load_nhl_schedule(seasons = 2024)
 rosters <- load_nhl_rosters(seasons = 2024)
 ```
 
-### Plotting shots on a rink
+*****************************************************************
 
-[`sportyR`](https://sportyR.sportsdataverse.org/) draws regulation rinks as `ggplot2` layers. The NHL play-by-play's `x_fixed` / `y_fixed` columns are in feet from centre ice with the home team shooting right, which is the frame `sportyR::geom_hockey("nhl")` draws. `sportyR` is not a `fastRhockey` dependency, so install it first (`install.packages("sportyR")`). For team logos and colours, see [`sdvplotR`](https://sdvplotR.sportsdataverse.org/articles/recipe-nhl-shot-map.html).
+## Plotting shots on a rink
 
-```{r nhl_rink_plot}
+[`sportyR`](https://sportyR.sportsdataverse.org/) draws regulation rinks as `ggplot2` layers. The PWHL play-by-play's `x_coord_fixed` / `y_coord_fixed` columns (the AHL, OHL, WHL and QMJHL `*_pbp()` functions return the same ones) are in feet from centre ice with the home team shooting right, which is the frame `sportyR::geom_hockey("pwhl")` draws. `sportyR` is not a `fastRhockey` dependency, so install it first (`install.packages("sportyR")`). For team logos and colours, see [`sdvplotR`](https://sdvplotR.sportsdataverse.org/articles/recipe-nhl-shot-map.html).
+
+```{r pwhl_rink_plot}
 library(ggplot2)
 
-shots <- pbp %>%
-  dplyr::filter(event_type %in% c("SHOT", "MISSED_SHOT", "GOAL"),
-                !is.na(x_fixed), !is.na(y_fixed))
+pwhl_shots <- load_pwhl_pbp(seasons = 2025) %>%
+  dplyr::filter(event %in% c("shot", "goal"),
+                !is.na(x_coord_fixed), !is.na(y_coord_fixed))
 
-sportyR::geom_hockey("nhl") +
+sportyR::geom_hockey("pwhl") +
   geom_point(
-    data = shots,
-    aes(x = x_fixed, y = y_fixed, colour = event_type == "GOAL"),
+    data = pwhl_shots,
+    aes(x = x_coord_fixed, y = y_coord_fixed, colour = event == "goal"),
     alpha = 0.3, size = 0.8
   ) +
   scale_colour_manual(values = c(`FALSE` = "grey40", `TRUE` = "red"),
-                      labels = c("Shot or miss", "Goal"), name = NULL)
+                      labels = c("Shot", "Goal"), name = NULL)
 ```
 
 *****************************************************************
