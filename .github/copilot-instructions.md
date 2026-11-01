@@ -220,10 +220,12 @@ R/                          # Source code (one function per file, mostly)
                             # _team_box, _schedule, _rosters, _game_rosters, _game_info,
                             # _scoring, _penalties, _three_stars, _scratches, _linescore,
                             # _shifts, _officials, _shots_by_period, _shootout,
-                            # load_nhl_groups, _group_seasons, _group_aliases,
-                            # _team_group_seasons,
                             # update_nhl_db (+ build_nhl_db, get_missing_nhl_games)
-                            # All 23 loaders share .nhl_release_loader() (matching PWHL pattern)
+                            # The 19 season loaders (+ 8 aliases) share
+                            # .nhl_release_loader() (RDS assets, matching PWHL)
+  nhl_group_loaders.R       # load_nhl_groups, _group_seasons, _group_aliases,
+                            # _team_group_seasons: .groups_release_loader()
+                            # reads CSV assets from the nhl_groups release
                             # nhl_schedule() also exposes include_data_flags = FALSE to
                             # left-join the cached games-in-data-repo flags onto live
                             # schedules.
@@ -307,12 +309,12 @@ The package uses `lifecycle` for formal deprecation of PHF functions:
 - **Pipe-first style**: functions use `%>%` (magrittr) extensively
 - **janitor::clean_names()** applied to all API responses for consistent snake_case columns
 - **httr2 helpers** for all HTTP requests (`httr` is not a dependency): `.retry_request(url, params = ...)` in `R/utils.R` (`httr2::req_retry()`, proxy via `getOption("fastRhockey.proxy")`), then `check_status()` and `.resp_text()` / `.resp_json()`
-- **Two error contracts.** NHL / PWHL / HockeyTech / ESPN / Fox wrappers use `tryCatch` with `message()` and return `NULL` on failure. European wrappers perform through `.polite_perform()` / `.euro_get()` (`R/euro_hockey_runtime.R`) and raise classed conditions (`fastRhockey_no_data`, `fastRhockey_asset_fetch`, `fastRhockey_bad_request`, all inheriting `fastRhockey_error`)
+- **Three failure contracts.** NHL and PWHL wrappers use `tryCatch` with `message()` and return `NULL`. ESPN (NHL and college), Fox and AHL/OHL/WHL/QMJHL wrappers report through `.report_api_error()` / `cli` and return an empty data frame. European wrappers perform through `.polite_perform()` / `.euro_get()` (`R/euro_hockey_runtime.R`; only 429/500/502/503/504 and connection failures are retried) and raise classed conditions, all inheriting `fastRhockey_error`: `fastRhockey_no_data` (404 / nothing there), `fastRhockey_bad_request` (400 / 422) and `fastRhockey_asset_fetch` (any other failure, including an exhausted 429)
 - **glue::glue()** for string interpolation and URL construction
 - Internal helper functions prefixed with `.` (e.g., `.parse_game_rosters()`, `.build_pbp()`)
 - **HockeyTech JSONP**: strip the callback envelope ONLY via `.hockeytech_api()` (`R/hockeytech_helpers.R`) — never a per-function regex on the callback tail; the tail shape varies by payload and hardcoded `gsub` fixes have silently emptied results
-- **Live tests always skip on CRAN and CI; run them locally** (`skip_on_cran()` plus the family's `skip_<family>_test()`); offline tests (mocks, fixtures, captured bodies) run everywhere
-- **Release loaders**: one loader per sportsdataverse-data hockey tag; add a dataset = one `(release_tag, file_prefix)` catalog row + a thin wrapper on `.nhl_release_loader()` / `.pwhl_release_loader()`
+- **Live tests always skip on CRAN and CI; run them locally** (gate them with the family's `skip_<family>_test()`, which calls `skip_on_cran()` and `skip_on_ci()`); offline tests (mocks, fixtures, captured bodies) run everywhere
+- **Release loaders**: one loader per sportsdataverse-data hockey tag; add a dataset = one `(release_tag, file_prefix)` catalog row + a thin wrapper on `.nhl_release_loader()` / `.pwhl_release_loader()` (the conference/division tables use `.groups_release_loader()` in `R/nhl_group_loaders.R`)
 - `globalVariables()` declarations in `utils.R` suppress R CMD check NSE notes
 
 ### Season Format
@@ -356,8 +358,8 @@ tryCatch(
 - **Location:** `tests/testthat/`
 - **Run all:** `devtools::test()` or `testthat::test_local()`
 - **Test naming:** `test-<function_name>.R`
-- **Environment:** live tests always skip on CRAN and CI; run them locally with `NOT_CRAN=true` set in your session
-- **Skip helpers:** `tests/testthat/helper-skip.R` provides `skip_nhl_test()`, `skip_pwhl_test()`, `skip_espn_test()`, `skip_euro_test()` and `skip_phf_test()`, controlled by `RUN_NHL_TESTS`, `RUN_PWHL_TESTS`, `RUN_ESPN_TESTS` (ESPN NHL; default `true`) and `RUN_EURO_TESTS` (European leagues and ESPN college hockey), `RUN_PHF_TESTS` (default `false`). Only the value `true` enables a family. `RUN_SLOW_NHL_TESTS=true` adds the two slow season-wide NHL aggregator tests
+- **Environment:** live tests always skip on CRAN and CI (the workflows pass `RUN_*_TESTS` through from repository variables, but `skip_on_ci()` wins); run them locally with `NOT_CRAN=true` and the family toggle set to `1`
+- **Skip helpers:** `tests/testthat/helper-skip.R` provides `skip_nhl_test()`, `skip_pwhl_test()`, `skip_espn_test()`, `skip_euro_test()` and `skip_phf_test()`, all through `skip_live_test()`, controlled by `RUN_NHL_TESTS`, `RUN_PWHL_TESTS`, `RUN_ESPN_TESTS` (ESPN NHL), `RUN_EURO_TESTS` (European leagues and ESPN college hockey) and `RUN_PHF_TESTS`. A family runs only when its toggle is `1` or `true`; unset means skip. `skip_slow_nhl_test()` (`RUN_SLOW_NHL_TESTS`, on top of `RUN_NHL_TESTS`) gates the two slow season-wide NHL aggregator tests
 
 ### Test Pattern
 
@@ -387,13 +389,11 @@ test_that("NHL - Descriptive test name", {
 ### Imports (required)
 
 cli, data.table, dplyr, glue, httr2, janitor, jsonlite, lifecycle, lubridate,
-magrittr, purrr, Rcpp, RcppParallel, rlang, rvest, stats, stringr, tibble,
-tidyr, utils, xml2
+magrittr, purrr, rlang, rvest, stats, stringr, tibble, tidyr, utils, xml2
 
 ### Suggests (optional)
 
-crayon, curl, DBI, furrr, future, ggplot2, ggrepel, progressr, rmarkdown,
-RSQLite, stringi, testthat (>= 3.1.7), usethis, withr, xgboost
+crayon, curl, DBI, progressr, RSQLite, testthat (>= 3.1.7), withr, xgboost
 
 ## Commit Message Guidelines
 

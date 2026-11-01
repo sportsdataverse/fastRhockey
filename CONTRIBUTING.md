@@ -69,11 +69,11 @@ devtools::check()
 
 ### Error Handling
 
-The package has two error contracts. Follow the one of the family you are
-working in.
+The package has three failure contracts. Follow the one of the family you
+are working in.
 
-**NHL, PWHL, HockeyTech, ESPN and Fox wrappers** return `NULL` with a
-message on failure:
+**NHL and PWHL wrappers** report the error with a message and return `NULL`
+(a few return an empty data frame):
 
 ```r
 tryCatch(
@@ -90,14 +90,23 @@ tryCatch(
 )
 ```
 
+**ESPN (NHL and men's/women's college), Fox Sports and AHL / OHL / WHL /
+QMJHL wrappers** report the error through `.report_api_error()` (or
+`cli::cli_alert_danger()`) and return an empty data frame.
+
 **European league wrappers** (`del_*`, `khl_*`, `shl_*`, `liiga_*`, ...)
 build the request with `.build_request()` and perform it through
-`.polite_perform()` or `.euro_get()` (`R/euro_hockey_runtime.R`), which space
-requests to one host at least a second apart and retry 429/5xx answers
-honouring `Retry-After`. On failure they raise a classed condition rather
-than returning `NULL`: `fastRhockey_no_data` (the provider has nothing for
-the request), `fastRhockey_asset_fetch` (a 403/5xx, a block, an empty or
-wrong body) or `fastRhockey_bad_request`, all inheriting `fastRhockey_error`.
+`.polite_perform()` or `.euro_get()` (`R/euro_hockey_runtime.R`). These
+space requests to one host at least a second apart and retry only HTTP 429,
+500, 502, 503 and 504 (plus connection failures), honouring `Retry-After`
+up to 120 s. On failure they raise a classed condition rather than returning
+`NULL`, all inheriting `fastRhockey_error`:
+
+- `fastRhockey_no_data`: HTTP 404, or the provider has nothing for the request.
+- `fastRhockey_bad_request`: HTTP 400 or 422.
+- `fastRhockey_asset_fetch`: any other non-2xx status (including a 429 or 5xx
+  still failing after the retries), a connection failure, a block page, or an
+  empty or wrong body.
 
 ### S3 Class
 
@@ -195,9 +204,9 @@ test_that("LEAGUE - Descriptive test name", {
 
 ### Test Conventions
 
-- `skip_on_cran()` plus the family's `skip_<family>_test()` on all tests
-  hitting live APIs; offline tests (mocks, fixtures, captured bodies) need
-  neither
+- the family's `skip_<family>_test()` on all tests hitting live APIs (it
+  already skips on CRAN and CI); offline tests (mocks, fixtures, captured
+  bodies) need no skip
 - Check both `data.frame` and `fastRhockey_data` S3 classes
 - Validate `nrow(x) > 0`
 - Check expected column names
@@ -217,27 +226,30 @@ captured bodies) run everywhere. To run the live tests on your machine:
   devtools::test()
   ```
 
-- **Family test toggles** (via `tests/testthat/helper-skip.R`). Only the
-  value `true` (any case) enables a family; anything else, such as `false`
-  or `1`, skips it:
+- **Family test toggles** (via `tests/testthat/helper-skip.R`). Every live
+  helper goes through `skip_live_test()`: it calls `skip_on_cran()` and
+  `skip_on_ci()`, then runs the test only when its toggle is `1` or `true`
+  (any case). An unset toggle skips, so every live family is off until you
+  turn it on:
 
-  | Variable | Default | Controls |
-  |----------|---------|----------|
-  | `RUN_NHL_TESTS` | `"true"` | NHL API tests (`skip_nhl_test()`) |
-  | `RUN_PWHL_TESTS` | `"true"` | PWHL API tests (`skip_pwhl_test()`) |
-  | `RUN_ESPN_TESTS` | `"true"` | ESPN NHL tests (`skip_espn_test()`) |
-  | `RUN_EURO_TESTS` | `"false"` | European league and ESPN college hockey (`espn_mch_*` / `espn_wch_*`) live tests (`skip_euro_test()`) |
-  | `RUN_PHF_TESTS` | `"false"` | Defunct PHF tests (`skip_phf_test()`) |
-  | `RUN_SLOW_NHL_TESTS` | unset | The two slow season-wide NHL aggregator tests |
+  | Variable | Controls |
+  |----------|----------|
+  | `RUN_NHL_TESTS` | NHL API tests (`skip_nhl_test()`) |
+  | `RUN_PWHL_TESTS` | PWHL API tests (`skip_pwhl_test()`) |
+  | `RUN_ESPN_TESTS` | ESPN NHL tests (`skip_espn_test()`) |
+  | `RUN_EURO_TESTS` | European league and ESPN college hockey (`espn_mch_*` / `espn_wch_*`) live tests (`skip_euro_test()`) |
+  | `RUN_PHF_TESTS` | Defunct PHF tests (`skip_phf_test()`) |
+  | `RUN_SLOW_NHL_TESTS` | The two slow season-wide NHL aggregator tests (`skip_slow_nhl_test()`, on top of `RUN_NHL_TESTS`) |
 
   Set them before running tests:
   ```r
-  Sys.setenv(NOT_CRAN = "true", RUN_NHL_TESTS = "true", RUN_EURO_TESTS = "true")
+  Sys.setenv(NOT_CRAN = "true", RUN_NHL_TESTS = "1", RUN_EURO_TESTS = "1")
   devtools::test()
   ```
 
-  The European and college hockey tests are opt-in because each European
-  league's host is throttled to one request a second, so a full run is slow.
+  CI (`R-CMD-check.yaml`, `test-coverage.yaml`) passes the toggles through
+  from repository variables, but `skip_on_ci()` still skips every live test
+  there, so CI runs the offline tests only.
 
 - **`GITHUB_PAT`**: Some loader functions access data from GitHub repositories
   under the `sportsdataverse` org. Set a GitHub personal access token to avoid
