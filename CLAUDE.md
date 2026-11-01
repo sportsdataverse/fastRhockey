@@ -11,7 +11,7 @@ and the legacy `fastRhockey-data` (PHF archive + older NHL JSON).
 
 - License MIT | R (>= 4.1.0) | roxygen2 8.1.0 markdown | testthat edition 3 |
   CRAN 1.0.0, next release 1.1.0
-- Live (network) tests run locally only: they skip on CRAN and on CI. Offline
+- Rule: live (network) tests always skip on CRAN and CI; run them locally. Offline
   tests (mocks, fixtures, captured bodies) run everywhere. Gate every new live
   test with `skip_on_cran()` plus its `skip_<family>_test()` helper.
 - HockeyTech JSONP is stripped ONLY via `.hockeytech_api()`
@@ -113,10 +113,11 @@ through `janitor::clean_names()`.
 - `skip_on_cran()` + `skip_<family>_test()` from `tests/testthat/helper-skip.R`.
   Each helper reads one toggle, and only the value `true` (any case) enables
   it: `RUN_NHL_TESTS` (default `true`), `RUN_PWHL_TESTS` (`true`),
-  `RUN_ESPN_TESTS` (`true`), `RUN_PHF_TESTS` (`false`), `RUN_EURO_TESTS`
-  (`false`). `RUN_SLOW_NHL_TESTS=true` also runs the two slow season-wide NHL
-  aggregator tests. Live tests run locally only (they skip on CRAN and CI), so
-  set the toggles in your own session, e.g.
+  `RUN_ESPN_TESTS` (`true`, ESPN NHL), `RUN_PHF_TESTS` (`false`),
+  `RUN_EURO_TESTS` (`false`, European leagues and ESPN college hockey).
+  `RUN_SLOW_NHL_TESTS=true` also runs the two slow season-wide NHL aggregator
+  tests. Live tests always skip on CRAN and CI, so set the toggles in your own
+  session, e.g.
   `Sys.setenv(NOT_CRAN = "true", RUN_EURO_TESTS = "true")`. Assert
   `data.frame` + `fastRhockey_data`, `nrow > 0`, columns.
 - xG tests add `skip_if_not_installed("xgboost")`; deprecated-fn tests use

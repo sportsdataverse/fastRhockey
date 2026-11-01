@@ -112,6 +112,11 @@ result <- make_fastRhockey_data(df, type = "Description of data", timestamp = Sy
 - All exported functions require roxygen2 documentation
 - Include `@examples` with `\donttest{ try(...) }` wrapper
 - Run `devtools::document()` to regenerate `man/` pages
+- Edit `README.Rmd`, never `README.md`, and knit it with
+  `devtools::build_readme()`. Its function counts read the *installed*
+  package's exports, and `build_readme()` installs the working copy first;
+  a plain `rmarkdown::render()` counts whatever version is installed (CRAN
+  1.0.0 gives 423 instead of 880)
 
 ## General Naming Conventions
 
@@ -201,9 +206,9 @@ test_that("LEAGUE - Descriptive test name", {
 
 ### Testing Environment Variables
 
-Most tests in this package make **live API calls**. Live tests run locally
-only: they skip on CRAN and on CI, so a pull request's CI run exercises only
-the offline tests. To run the live tests on your machine:
+Most tests in this package make **live API calls**. The rule: live tests
+always skip on CRAN and CI; run them locally. Offline tests (mocks, fixtures,
+captured bodies) run everywhere. To run the live tests on your machine:
 
 - **`NOT_CRAN=true`**: Set this environment variable so that `skip_on_cran()`
   does not skip tests. You can set it in your `.Renviron` file or inline:
@@ -220,8 +225,8 @@ the offline tests. To run the live tests on your machine:
   |----------|---------|----------|
   | `RUN_NHL_TESTS` | `"true"` | NHL API tests (`skip_nhl_test()`) |
   | `RUN_PWHL_TESTS` | `"true"` | PWHL API tests (`skip_pwhl_test()`) |
-  | `RUN_ESPN_TESTS` | `"true"` | ESPN NHL and college hockey tests (`skip_espn_test()`) |
-  | `RUN_EURO_TESTS` | `"false"` | European league live tests (`skip_euro_test()`) |
+  | `RUN_ESPN_TESTS` | `"true"` | ESPN NHL tests (`skip_espn_test()`) |
+  | `RUN_EURO_TESTS` | `"false"` | European league and ESPN college hockey (`espn_mch_*` / `espn_wch_*`) live tests (`skip_euro_test()`) |
   | `RUN_PHF_TESTS` | `"false"` | Defunct PHF tests (`skip_phf_test()`) |
   | `RUN_SLOW_NHL_TESTS` | unset | The two slow season-wide NHL aggregator tests |
 
@@ -231,8 +236,8 @@ the offline tests. To run the live tests on your machine:
   devtools::test()
   ```
 
-  The European tests are opt-in because each league's host is throttled to
-  one request a second, so a full run is slow.
+  The European and college hockey tests are opt-in because each European
+  league's host is throttled to one request a second, so a full run is slow.
 
 - **`GITHUB_PAT`**: Some loader functions access data from GitHub repositories
   under the `sportsdataverse` org. Set a GitHub personal access token to avoid

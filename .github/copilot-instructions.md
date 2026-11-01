@@ -311,7 +311,7 @@ The package uses `lifecycle` for formal deprecation of PHF functions:
 - **glue::glue()** for string interpolation and URL construction
 - Internal helper functions prefixed with `.` (e.g., `.parse_game_rosters()`, `.build_pbp()`)
 - **HockeyTech JSONP**: strip the callback envelope ONLY via `.hockeytech_api()` (`R/hockeytech_helpers.R`) — never a per-function regex on the callback tail; the tail shape varies by payload and hardcoded `gsub` fixes have silently emptied results
-- **Live tests run locally only**: they skip on CRAN and on CI (`skip_on_cran()` plus the family's `skip_<family>_test()`); offline tests (mocks, fixtures, captured bodies) run everywhere
+- **Live tests always skip on CRAN and CI; run them locally** (`skip_on_cran()` plus the family's `skip_<family>_test()`); offline tests (mocks, fixtures, captured bodies) run everywhere
 - **Release loaders**: one loader per sportsdataverse-data hockey tag; add a dataset = one `(release_tag, file_prefix)` catalog row + a thin wrapper on `.nhl_release_loader()` / `.pwhl_release_loader()`
 - `globalVariables()` declarations in `utils.R` suppress R CMD check NSE notes
 
@@ -356,8 +356,8 @@ tryCatch(
 - **Location:** `tests/testthat/`
 - **Run all:** `devtools::test()` or `testthat::test_local()`
 - **Test naming:** `test-<function_name>.R`
-- **Environment:** live tests run locally only (they skip on CRAN and CI); set `NOT_CRAN=true` in your session to run them
-- **Skip helpers:** `tests/testthat/helper-skip.R` provides `skip_nhl_test()`, `skip_pwhl_test()`, `skip_espn_test()`, `skip_euro_test()` and `skip_phf_test()`, controlled by `RUN_NHL_TESTS`, `RUN_PWHL_TESTS`, `RUN_ESPN_TESTS` (default `true`) and `RUN_EURO_TESTS`, `RUN_PHF_TESTS` (default `false`). Only the value `true` enables a family. `RUN_SLOW_NHL_TESTS=true` adds the two slow season-wide NHL aggregator tests
+- **Environment:** live tests always skip on CRAN and CI; run them locally with `NOT_CRAN=true` set in your session
+- **Skip helpers:** `tests/testthat/helper-skip.R` provides `skip_nhl_test()`, `skip_pwhl_test()`, `skip_espn_test()`, `skip_euro_test()` and `skip_phf_test()`, controlled by `RUN_NHL_TESTS`, `RUN_PWHL_TESTS`, `RUN_ESPN_TESTS` (ESPN NHL; default `true`) and `RUN_EURO_TESTS` (European leagues and ESPN college hockey), `RUN_PHF_TESTS` (default `false`). Only the value `true` enables a family. `RUN_SLOW_NHL_TESTS=true` adds the two slow season-wide NHL aggregator tests
 
 ### Test Pattern
 

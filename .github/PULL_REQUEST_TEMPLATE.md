@@ -31,7 +31,7 @@ List every change. Example rows:
 ## Testing & Validation
 
 - [ ] `devtools::check()` passes with no ERRORs or WARNINGs
-- [ ] `devtools::test()` -- all existing tests pass (live tests skip on CI; run the affected family locally with its `RUN_*_TESTS=true` toggle)
+- [ ] `devtools::test()` -- all existing tests pass (live tests always skip on CRAN and CI; run the affected family locally with its `RUN_*_TESTS=true` toggle)
 - [ ] New tests added for new/changed functions
 - [ ] Tested on at least one platform (macOS / Windows / Linux)
 
