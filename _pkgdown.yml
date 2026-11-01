@@ -59,7 +59,7 @@ authors:
 
 home:
   title: fastRhockey
-  description: "fastRhockey v1.0.0: Data and Tools for Professional Women's Hockey League (PWHL) and NHL play-by-play data."
+  description: "fastRhockey: data and tools for NHL, PWHL, AHL and CHL, European and college hockey play-by-play data."
   icon: fa-home
   href: index.html
 
@@ -70,7 +70,7 @@ navbar:
   components:
     home:
       title: fastRhockey
-      description: "fastRhockey v1.0.0: Data and Tools for Professional Women's Hockey League (PWHL) and NHL play-by-play data."
+      description: "fastRhockey: data and tools for NHL, PWHL, AHL and CHL, European and college hockey play-by-play data."
       icon: fa-home
       href: index.html
       aria-label: Home
@@ -292,6 +292,55 @@ reference:
     desc: Functions that update and create a database of fastRhockey PWHL play-by-play data
     contents:
       - "`update_pwhl_db`"
+  - title: "NHL Data Loaders"
+  - subtitle: Family Overview
+    desc: NHL loader family overview (release-tag catalog)
+    contents:
+      - "`nhl_loaders`"
+  - subtitle: Full Seasons of NHL Data
+    desc: Functions exported by fastRhockey which load full seasons of fastRhockey NHL data
+    contents:
+      - "`load_nhl_pbp`"
+      - "`load_nhl_pbp_lite`"
+      - "`load_nhl_pbp_full`"
+      - "`load_nhl_team_box`"
+      - "`load_nhl_player_box`"
+      - "`load_nhl_skater_box`"
+      - "`load_nhl_goalie_box`"
+      - "`load_nhl_rosters`"
+      - "`load_nhl_game_rosters`"
+      - "`load_nhl_schedule`"
+      - "`load_nhl_game_info`"
+      - "`load_nhl_scoring`"
+      - "`load_nhl_penalties`"
+      - "`load_nhl_three_stars`"
+      - "`load_nhl_scratches`"
+      - "`load_nhl_linescore`"
+      - "`load_nhl_shifts`"
+      - "`load_nhl_officials`"
+      - "`load_nhl_shots_by_period`"
+      - "`load_nhl_shootout`"
+  - subtitle: NHL Conference and Division Reference
+    desc: Functions exported by fastRhockey which load season-by-season NHL conference and division memberships from the nhl_groups release
+    contents:
+      - "`load_nhl_groups`"
+      - "`load_nhl_group_seasons`"
+      - "`load_nhl_group_aliases`"
+      - "`load_nhl_team_group_seasons`"
+  - subtitle: "Naming-parity Aliases (sportsdataverse-py)"
+    desc: Aliases of the canonical NHL loaders, named to match sportsdataverse-py.
+    contents:
+      - "`load_nhl_player_boxscore`"
+      - "`load_nhl_player_boxscores`"
+      - "`load_nhl_skater_boxscores`"
+      - "`load_nhl_goalie_boxscores`"
+      - "`load_nhl_team_boxscore`"
+      - "`load_nhl_team_boxscores`"
+      - "`load_nhl_schedules`"
+  - subtitle: "Update or Create NHL Database"
+    desc: Functions exported by fastRhockey which update and create a database of fastRhockey NHL play-by-play data
+    contents:
+      - "`update_nhl_db`"
   - title: "NHL Data"
   - subtitle: Family Overview
     desc: NHL Web API endpoint family overview
@@ -567,55 +616,6 @@ reference:
   - subtitle: "Ligue Magnus (France)"
     contents:
       - starts_with("magnus_")
-  - title: "fastRhockey Data"
-  - subtitle: Family Overview
-    desc: NHL loader family overview (release-tag catalog)
-    contents:
-      - "`nhl_loaders`"
-  - subtitle: Full Seasons of NHL Data
-    desc: Functions exported by fastRhockey which load full seasons of fastRhockey NHL data
-    contents:
-      - "`load_nhl_pbp`"
-      - "`load_nhl_pbp_lite`"
-      - "`load_nhl_pbp_full`"
-      - "`load_nhl_team_box`"
-      - "`load_nhl_player_box`"
-      - "`load_nhl_skater_box`"
-      - "`load_nhl_goalie_box`"
-      - "`load_nhl_rosters`"
-      - "`load_nhl_game_rosters`"
-      - "`load_nhl_schedule`"
-      - "`load_nhl_game_info`"
-      - "`load_nhl_scoring`"
-      - "`load_nhl_penalties`"
-      - "`load_nhl_three_stars`"
-      - "`load_nhl_scratches`"
-      - "`load_nhl_linescore`"
-      - "`load_nhl_shifts`"
-      - "`load_nhl_officials`"
-      - "`load_nhl_shots_by_period`"
-      - "`load_nhl_shootout`"
-  - subtitle: NHL Conference and Division Reference
-    desc: Functions exported by fastRhockey which load season-by-season NHL conference and division memberships from the nhl_groups release
-    contents:
-      - "`load_nhl_groups`"
-      - "`load_nhl_group_seasons`"
-      - "`load_nhl_group_aliases`"
-      - "`load_nhl_team_group_seasons`"
-  - subtitle: "Naming-parity Aliases (sportsdataverse-py)"
-    desc: Aliases of the canonical NHL loaders, named to match sportsdataverse-py.
-    contents:
-      - "`load_nhl_player_boxscore`"
-      - "`load_nhl_player_boxscores`"
-      - "`load_nhl_skater_boxscores`"
-      - "`load_nhl_goalie_boxscores`"
-      - "`load_nhl_team_boxscore`"
-      - "`load_nhl_team_boxscores`"
-      - "`load_nhl_schedules`"
-  - subtitle: "Update or Create NHL Database"
-    desc: Functions exported by fastRhockey which update and create a database of fastRhockey NHL play-by-play data
-    contents:
-      - "`update_nhl_db`"
   - title: Included data
     desc: Data included within the package
     contents:
@@ -639,9 +639,9 @@ reference:
       - "`refresh_xg_models`"
   - title: "Deprecated PHF Functions"
     desc: >
-      The Premier Hockey Federation (PHF) has ceased operations. These functions are
-      deprecated and will emit warnings when called. Historical data may still be
-      available via the load_phf_* functions.
+      The Premier Hockey Federation (PHF) has ceased operations. These functions
+      have been defunct since fastRhockey 1.0.0: each one stops with an error
+      when called. Use the PWHL functions for current women's professional hockey.
   - subtitle: PHF Family Overview
     desc: PHF endpoint family overview (all deprecated)
     contents:
@@ -665,8 +665,11 @@ reference:
       - "`phf_team_stats`"
   - title: "Deprecated PHF Data Loaders"
     desc: >
-      Data loaders for the defunct PHF league. Historical data may still be available
-      but is no longer updated.
+      Data loaders for the defunct PHF league. They have been defunct since
+      fastRhockey 1.0.0 and stop with an error when called. The archived PHF
+      data stays readable in the
+      [fastRhockey-data](https://github.com/sportsdataverse/fastRhockey-data)
+      repository, which is no longer updated.
     contents:
       - "`load_phf_pbp`"
       - "`load_phf_team_box`"
