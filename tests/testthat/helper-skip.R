@@ -25,3 +25,6 @@ skip_espn_test <- function() skip_live_test("RUN_ESPN_TESTS", "ESPN")
 # nl, elh, magnus, espn mch/wch). The providers are throttled to one request per
 # second per host; fixture tests always run.
 skip_euro_test <- function() skip_live_test("RUN_EURO_TESTS", "European hockey")
+
+# Slow NHL tests (one request per team) need RUN_SLOW_NHL_TESTS on top of RUN_NHL_TESTS.
+skip_slow_nhl_test <- function() skip_live_test("RUN_SLOW_NHL_TESTS", "Slow NHL")
