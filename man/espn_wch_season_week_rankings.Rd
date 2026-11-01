@@ -31,7 +31,7 @@ A \code{fastRhockey_data} tibble with one row per ranking item:\tabular{lll}{
 \details{
 League slug \code{womens-college-hockey}. Core-v2 \code{weeks/{week}/rankings} collection;
 \verb{$ref}-only items become \code{ref} + \code{ranking_id}, inline items are flattened.
-Mirrors sdv-py \code{espn_wch_season_week_rankings()}.
+Mirrors sportsdataverse-py \code{espn_wch_season_week_rankings()}.
 }
 \examples{
 \donttest{

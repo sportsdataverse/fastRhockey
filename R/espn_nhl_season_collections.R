@@ -534,7 +534,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with draft round references, or an
 #'   empty tibble when the endpoint is unavailable (HTTP 404 is normal for
-#'   NHL — the draft sub-tree is not served by this core-v2 path):
+#'   NHL - the draft sub-tree is not served by this core-v2 path):
 #'
 #'    |col_name  |types     |description                                           |
 #'    |:---------|:---------|:-----------------------------------------------------|
@@ -630,7 +630,7 @@ NULL
 #' @return A `fastRhockey_data` tibble with one row per draft pick, or an
 #'   empty tibble when the endpoint is unavailable. The confirmed path is
 #'   `seasons/{season}/draft/rounds/{round_num}/picks`; for NHL this returns
-#'   HTTP 404 — the draft data is not served by the core-v2 sub-tree:
+#'   HTTP 404 - the draft data is not served by the core-v2 sub-tree:
 #'
 #'    |col_name    |types     |description                                         |
 #'    |:-----------|:---------|:---------------------------------------------------|
@@ -861,7 +861,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with one row per free-agent athlete
 #'   reference. **Note**: The NHL free-agents endpoint (`seasons/{season}/freeagents`)
-#'   currently returns `count=0` for all tested seasons — the endpoint exists
+#'   currently returns `count=0` for all tested seasons - the endpoint exists
 #'   but ESPN does not populate it for NHL. An empty tibble is returned
 #'   gracefully in that case:
 #'

@@ -48,7 +48,7 @@ NULL
 #' @description
 #' A dataset containing the full team names, abbreviations, colors & logos
 #' for all PWHL teams. Carries 14 rows: the 6 founding franchises appear
-#' twice each — once under their inaugural 2023-24 identity
+#' twice each - once under their inaugural 2023-24 identity
 #' (`PWHL Boston`, etc., matching the live `pwhl_teams()` payload) and once
 #' under their 2024-25 rebranded identity (Boston Fleet, Minnesota Frost,
 #' Montréal Victoire, New York Sirens, Ottawa Charge, Toronto Sceptres).

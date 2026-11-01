@@ -728,7 +728,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return A one-row `fastRhockey_data` tibble with coach detail. Note that
 #'   `careerRecords` and `coachSeasons` are sparse (empty arrays) for many NHL
-#'   coaches — see `espn_nhl_coach_record()` for season-scoped records:
+#'   coaches - see `espn_nhl_coach_record()` for season-scoped records:
 #'
 #'    |col_name       |types     |description                                        |
 #'    |:--------------|:---------|:--------------------------------------------------|
@@ -829,7 +829,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with coach career record data, or an
 #'   empty tibble when the endpoint is unavailable. **Note**: The coach record
-#'   path (`coaches/{id}/record`) returns HTTP 404 for NHL — this endpoint is
+#'   path (`coaches/{id}/record`) returns HTTP 404 for NHL - this endpoint is
 #'   not populated by ESPN for the NHL league. An empty tibble is returned
 #'   gracefully with a warning:
 #'
@@ -920,7 +920,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with one row per country reference, or
 #'   an empty tibble when the endpoint is unpopulated. **Note**: The NHL
-#'   countries endpoint (`leagues/nhl/countries`) returns `count=0` — ESPN
+#'   countries endpoint (`leagues/nhl/countries`) returns `count=0` - ESPN
 #'   does not populate this collection for the NHL. An empty tibble is returned
 #'   gracefully with a warning:
 #'

@@ -15,7 +15,7 @@ espn_wch_game_odds(event_id, cid = event_id, ...)
 }
 \value{
 A \code{fastRhockey_data} tibble with one row per odds provider (typically
-2 rows per game — consensus + one sportsbook):\tabular{lll}{
+2 rows per game - consensus + one sportsbook):\tabular{lll}{
    col_name \tab types \tab description \cr
    event_id \tab character \tab ESPN event id (echoed from arg). \cr
    cid \tab character \tab Competition id (echoed from arg). \cr

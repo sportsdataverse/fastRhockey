@@ -22,11 +22,11 @@ Top-level keys typically include:
 \code{broadcasts}, \code{pickcenter}, \code{odds}, \code{plays}, \code{header}, \code{standings},
 and others.
 \itemize{
-\item \verb{$boxscore$teams} — list of 2 team stat objects.
-\item \verb{$boxscore$players} — list of 2 player stat group objects.
-\item \verb{$plays} — list of play objects.
-\item \verb{$header$season} — season year and type.
-\item \verb{$header$competitions[[1]]$competitors} — home/away team + score.
+\item \verb{$boxscore$teams} - list of 2 team stat objects.
+\item \verb{$boxscore$players} - list of 2 player stat group objects.
+\item \verb{$plays} - list of play objects.
+\item \verb{$header$season} - season year and type.
+\item \verb{$header$competitions[[1]]$competitors} - home/away team + score.
 }
 }
 \description{

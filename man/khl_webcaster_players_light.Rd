@@ -44,14 +44,12 @@ The webcaster API is keyless JSON. Neither backend takes a year: \code{season} (
 \code{khl_webcaster_stages()} (cached for the R session), or pass \code{stage_id}. Honours
 \code{getOption("fastRhockey.proxy")}; betting fields and the caller's IP are removed from every body.
 
-Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+Ids and counts are integers; a column holding values past 2^31 (epoch
 milliseconds) is returned as a whole-number double.
 
 At least one second is left between two requests to a host.
 
-\strong{Owner flag (sanctions).} The KHL and its webcaster platform are run by Russian operators, some
-clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+Check the provider's terms of use before redistributing this data.
 }
 \examples{
 \donttest{

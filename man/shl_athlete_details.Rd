@@ -51,7 +51,7 @@ season that is not a year, or an argument outside its choices.
 
 \examples{
 \donttest{
-  shl_athlete_details(athlete_uuid = "qQ9-349c7WDv6")
+  try(shl_athlete_details(athlete_uuid = "qQ9-349c7WDv6"))
 }
 }
 \seealso{

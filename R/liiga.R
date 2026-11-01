@@ -1,13 +1,13 @@
 # liiga.R -- Liiga (Finnish top league) wrappers over liiga.fi/api/v2 (keyless JSON).
 #
-# Mirrors sdv-py sportsdataverse/hockey/liiga/ (liiga_runtime.py, liiga_parsers.py,
+# Mirrors sportsdataverse-py sportsdataverse/hockey/liiga/ (liiga_runtime.py, liiga_parsers.py,
 # liiga_dtypes.py and the generated liiga.py): the same 23 wrappers, arguments, refusal
 # rules and column names. Seasons are END years natively (2026 = 2025-26), so no mapping
 # happens. Every request goes through .euro_get(), i.e. at least one second between two
 # requests to liiga.fi on every attempt.
 #
-# Layout of this file: runtime (.liiga_get and its refusal rules), parsers (the sdv-py
-# row/flatten/dtype rules, ported), dtype and column tables (generated from sdv-py's
+# Layout of this file: runtime (.liiga_get and its refusal rules), parsers (the sportsdataverse-py
+# row/flatten/dtype rules, ported), dtype and column tables (generated from sportsdataverse-py's
 # returns-schemas), then the 23 exported wrappers.
 
 # ---- runtime ---------------------------------------------------------------------------
@@ -820,7 +820,7 @@
   .lg_finish(.lg_frame(rows), columns, "parse_liiga_player_game_log")
 }
 
-# ---- generated from sdv-py's returns-schemas (liiga_dtypes.py / liiga.py _PARSER_COLUMNS) ----
+# ---- generated from sportsdataverse-py's returns-schemas (liiga_dtypes.py / liiga.py _PARSER_COLUMNS) ----
 
 # Column dtype of each parser (i integer, f double, b logical, s character): an empty frame, a
 # gap-filled column and an all-null column are typed from it, like the populated frame.
@@ -2441,7 +2441,7 @@
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/tournament`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -2476,7 +2476,7 @@ liiga_tournament <- function() {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/games`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -2570,7 +2570,7 @@ liiga_games <- function(season = NULL, tournament = NULL) {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/games`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -2635,7 +2635,7 @@ liiga_goals <- function(season = NULL, tournament = NULL) {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/schedule`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -2705,7 +2705,7 @@ liiga_schedule <- function(season = NULL, tournament = NULL) {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/gameweeks`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -2744,7 +2744,7 @@ liiga_gameweeks <- function(season = NULL, tournament = "runkosarja") {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/games/{season}/{game_id}`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -2835,7 +2835,7 @@ liiga_game <- function(season, game_id) {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/games/{season}/{game_id}`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -2901,7 +2901,7 @@ liiga_game_goals <- function(season, game_id) {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/games/{season}/{game_id}`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -2954,7 +2954,7 @@ liiga_game_penalties <- function(season, game_id) {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/games/{season}/{game_id}`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -3001,7 +3001,7 @@ liiga_game_shootout <- function(season, game_id) {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/games/{season}/{game_id}`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -3070,7 +3070,7 @@ liiga_game_lineups <- function(season, game_id) {
 #' Endpoint: `GET https://liiga.fi/api/v2/games/{season}/{game_id}`
 #' (with `dataType=playersWithStats`)
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -3178,7 +3178,7 @@ liiga_game_players_stats <- function(season, game_id) {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/games/stats/{season}/{game_id}`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -3274,7 +3274,7 @@ liiga_game_stats <- function(season, game_id) {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/games/stats/{season}/{game_id}`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -3332,7 +3332,7 @@ liiga_game_team_stats <- function(season, game_id) {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/shotmap/{season}/{game_id}`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -3383,7 +3383,7 @@ liiga_shotmap <- function(season, game_id) {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/standings/`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -3467,7 +3467,7 @@ liiga_standings <- function(season = NULL) {
 #' Endpoint: `GET https://liiga.fi/api/v2/teams/info`
 #' (with `team=all`)
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -3524,7 +3524,7 @@ liiga_teams_history <- function() {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/teams/info`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -3570,7 +3570,7 @@ liiga_teams <- function() {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/teams/stats`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -3680,7 +3680,7 @@ liiga_team_stats <- function(data_type, season_from = NULL, season_to = NULL, to
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/players/info`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -3741,7 +3741,7 @@ liiga_players_info <- function(season_from = NULL, season_to = NULL, tournament 
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/players/info/{player_id}`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -3793,7 +3793,7 @@ liiga_player <- function(player_id) {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/players/info/{player_id}`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -3866,7 +3866,7 @@ liiga_player_career <- function(player_id) {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/players/info/{player_id}/games/{season}`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises
@@ -3944,7 +3944,7 @@ liiga_player_game_log <- function(player_id, season) {
 #'
 #' Endpoint: `GET https://liiga.fi/api/v2/players/stats/summed/{season_from}/{season_to}/{tournament}/true`
 #'
-#' Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+#' Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 #' spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 #' tournament not played that season, a shot map before 2016) raises
 #' `fastRhockey_no_data`; a failed fetch or an error-shaped answer raises

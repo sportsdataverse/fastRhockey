@@ -51,7 +51,7 @@ Roster and bio of every player in a season range.
 \details{
 Endpoint: \verb{GET https://liiga.fi/api/v2/players/info}
 
-Seasons are END years (2026 = 2025-26), the same key as sdv-py. Requests to liiga.fi are
+Seasons are END years (2026 = 2025-26), the same key as sportsdataverse-py. Requests to liiga.fi are
 spaced at least one second apart. A request Liiga answers with nothing (an unknown game, a
 tournament not played that season, a shot map before 2016) raises
 \code{fastRhockey_no_data}; a failed fetch or an error-shaped answer raises

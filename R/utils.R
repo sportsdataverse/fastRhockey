@@ -62,6 +62,61 @@ rds_from_url <- function(url) {
 }
 
 
+# TRUE unless the release asset answers 404 (a network failure counts as TRUE,
+# so the loader goes on and reports the failed read as before).
+.release_asset_exists <- function(url) {
+  status <- tryCatch(
+    httr2::request(url) |>
+      httr2::req_method("HEAD") |>
+      httr2::req_timeout(15) |>
+      httr2::req_error(is_error = function(resp) FALSE) |>
+      httr2::req_perform() |>
+      httr2::resp_status(),
+    error = function(e) NA_integer_
+  )
+  !identical(as.integer(status), 404L)
+}
+
+# Validate `seasons` for a release loader (`first`..`last`; `TRUE` = all).
+#
+# The newest season's file appears only once its first games are published
+# (NHL: October; PWHL: December). When the loader was called with its default
+# season (`default = missing(seasons)`) and `url_for(last)` answers 404, the
+# loader falls back to the season before it with a message. An explicit
+# request for that season is kept as asked, so the read warns and returns an
+# empty frame.
+.loader_seasons <- function(seasons, first, last, what, url_for = NULL,
+                            default = FALSE) {
+  force(default)
+  first <- as.integer(first)
+  last <- as.integer(last)
+  avail <- first:last
+  newest_missing <- local({
+    ans <- NULL
+    function() {
+      if (is.null(ans)) ans <<- !is.null(url_for) && !.release_asset_exists(url_for(last))
+      ans
+    }
+  })
+  if (isTRUE(seasons)) {
+    if (newest_missing()) avail <- setdiff(avail, last)
+    return(avail)
+  }
+  if (!is.numeric(seasons) || length(seasons) == 0 || anyNA(seasons) ||
+      !all(seasons %in% avail)) {
+    cli::cli_abort(c(
+      "{what}: {.arg seasons} must be whole seasons from {first} to {last}.",
+      "x" = "You requested: {paste(seasons, collapse = ', ')}."
+    ))
+  }
+  if (isTRUE(default) && length(seasons) == 1 && seasons == last &&
+      last > first && newest_missing()) {
+    cli::cli_inform(c("i" = "{what}: season {last} is not published yet; loading {last - 1L} instead."))
+    seasons <- last - 1L
+  }
+  seasons
+}
+
 # check if a package is installed
 is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
 # custom mode function from https://stackoverflow.com/questions/2547402/is-there-a-built-in-function-for-finding-the-mode/8189441
@@ -370,12 +425,12 @@ check_status <- function(res) {
 # family or one kind:
 #   tryCatch(x, fastRhockey_no_data = function(e) NULL)
 #
-# * fastRhockey_no_data       = sdv-py NoDataError: the host answered "nothing
+# * fastRhockey_no_data       = sportsdataverse-py NoDataError: the host answered "nothing
 #   here" (HTTP 404, a 200 with no rows, a season the provider does not hold).
-# * fastRhockey_asset_fetch   = sdv-py AssetFetchError: the answer is unknown
+# * fastRhockey_asset_fetch   = sportsdataverse-py AssetFetchError: the answer is unknown
 #   (a 403/429/5xx after retries, a connection failure, an empty or non-JSON
 #   body, an error envelope, a body for another season or game).
-# * fastRhockey_bad_request   = sdv-py ValueError: the request itself is wrong
+# * fastRhockey_bad_request   = sportsdataverse-py ValueError: the request itself is wrong
 #   (HTTP 400/422, an unknown route or argument value); retrying cannot help.
 # `message` is a cli format string, interpolated in the caller's frame.
 
@@ -403,7 +458,7 @@ check_status <- function(res) {
 #' Zero-row tibble with the documented columns and types.
 #'
 #' What a parser returns for an empty payload, so callers can chain without a
-#' null check (sdv-py's `_PARSER_COLUMNS` contract).
+#' null check (sportsdataverse-py's `_PARSER_COLUMNS` contract).
 #'
 #' @param cols Named character vector, column name -> type: one of
 #'   `"character"`, `"integer"`, `"double"`, `"numeric"`, `"logical"`,
@@ -429,10 +484,6 @@ check_status <- function(res) {
 NULL
 
 #' @import utils
-
-
-#' @importFrom Rcpp getRcppVersion
-#' @importFrom RcppParallel defaultNumThreads
 NULL
 
 `%c%` <- function(x, y) {

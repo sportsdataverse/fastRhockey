@@ -1,17 +1,17 @@
 # sihf.R -- Swiss Ice Hockey Federation (SIHF) statistics wrappers.
 #
-# Mirrors sdv-py sportsdataverse/hockey/sihf/ (sihf_runtime.py,
+# Mirrors sportsdataverse-py sportsdataverse/hockey/sihf/ (sihf_runtime.py,
 # sihf_api_web_parsers.py, the generated sihf_api_web.py) and
 # tools/codegen/endpoints/sihf_api_web.yaml: 33 wrappers over the keyless JSON API
 # https://data.sihf.ch/statistic/api/cms (/table, /gameoverview). Community PR
-# sdv-py #779 (the first 11) plus the 22 detail tables added in #826.
+# sportsdataverse-py #779 (the first 11) plus the 22 detail tables added in #826.
 #
 # Transport: .euro_get() (throttled to one request per second per host, retries
 # included). Season: SIHF keys a season by its END year (2026 = 2025-26), so no
 # season mapping is needed; the results table needs the season-wide Date range
-# (01.07.<end-1>-30.06.<end>), built here as in sdv-py.
+# (01.07.<end-1>-30.06.<end>), built here as in sportsdataverse-py.
 #
-# Contracts measured live by sdv-py (2026-10-08 .. 2026-10-12), all kept here:
+# Contracts measured live by sportsdataverse-py (2026-10-08 .. 2026-10-12), all kept here:
 #  * the league is a scope, not a filter: searchQuery = "1//<league>";
 #  * the other filters are one composite pair (filterBy / filterQuery) in the
 #    order Season, Phase, Date, ContentType;
@@ -77,7 +77,7 @@
 
 # ---- naming -----------------------------------------------------------------
 
-# sdv-py dl_utils.underscore() + the replace() calls of _col().
+# sportsdataverse-py dl_utils.underscore() + the replace() calls of _col().
 .sihf_snake <- function(x) {
   x <- gsub("([A-Z]+)([A-Z][a-z])", "\\1_\\2", x, perl = TRUE)
   x <- gsub("([a-z0-9])([A-Z])", "\\1_\\2", x, perl = TRUE)

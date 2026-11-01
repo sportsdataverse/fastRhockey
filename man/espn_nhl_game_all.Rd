@@ -15,11 +15,11 @@ espn_nhl_game_all(game_id, ...)
 A named list with three elements, all parsed from a \strong{single} HTTP
 request to the ESPN summary endpoint:
 \itemize{
-\item \strong{\code{plays}} — \code{fastRhockey_data} tibble, one row per play.
+\item \strong{\code{plays}} - \code{fastRhockey_data} tibble, one row per play.
 See \code{\link[=espn_nhl_pbp]{espn_nhl_pbp()}} for the full column reference.
-\item \strong{\code{team_box}} — \code{fastRhockey_data} tibble, one row per team (2 rows).
+\item \strong{\code{team_box}} - \code{fastRhockey_data} tibble, one row per team (2 rows).
 See \code{\link[=espn_nhl_team_box]{espn_nhl_team_box()}} for the full column reference.
-\item \strong{\code{player_box}} — \code{fastRhockey_data} tibble, one row per player.
+\item \strong{\code{player_box}} - \code{fastRhockey_data} tibble, one row per player.
 See \code{\link[=espn_nhl_player_box]{espn_nhl_player_box()}} for the full column reference.
 }
 }

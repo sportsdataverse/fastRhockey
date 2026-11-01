@@ -16,7 +16,7 @@ espn_wch_award(award_id, ...)
 A one-row \code{fastRhockey_data} tibble with award metadata, or an
 empty tibble when the endpoint is unavailable. \strong{Note}: The individual
 award endpoint (\code{core_v2/awards/{award_id}}) currently returns HTTP 500
-for all tested WCH award ids — an empty tibble is returned gracefully:\tabular{lll}{
+for all tested WCH award ids - an empty tibble is returned gracefully:\tabular{lll}{
    col_name \tab types \tab description \cr
    award_id \tab character \tab Award id (echoed from arg). \cr
    id \tab character \tab ESPN award identifier (if returned). \cr

@@ -10,14 +10,14 @@ espn_wch_coach_record(coach_id, record_type = 0, ...)
 \item{coach_id}{ESPN coach identifier (character or numeric). Use
 \code{espn_wch_coaches()} to discover valid coach ids.}
 
-\item{record_type}{Record type path segment (\code{coaches/{id}/record/{record_type}}); default \code{0}, as sdv-py. \code{NULL} drops the segment.}
+\item{record_type}{Record type path segment (\code{coaches/{id}/record/{record_type}}); default \code{0}, as sportsdataverse-py. \code{NULL} drops the segment.}
 
 \item{...}{Reserved for forward compatibility.}
 }
 \value{
 A \code{fastRhockey_data} tibble with coach career record data, or an
 empty tibble when the endpoint is unavailable. \strong{Note}: The coach record
-path (\code{coaches/{id}/record}) returns HTTP 404 for NHL — this endpoint is
+path (\code{coaches/{id}/record}) returns HTTP 404 for NHL - this endpoint is
 not populated by ESPN for the NHL league. An empty tibble is returned
 gracefully with a warning:\tabular{lll}{
    col_name \tab types \tab description \cr

@@ -450,7 +450,7 @@ nhl_game_boxscore <- function(game_id) {
 }
 
 
-#' Safely coerce to data frame — returns zero-row tibble on NULL/error
+#' Safely coerce to data frame - returns zero-row tibble on NULL/error
 #' @noRd
 .safe_df <- function(x) {
     if (is.null(x)) {

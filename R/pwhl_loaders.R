@@ -43,6 +43,12 @@
 #' PWHL loaders use the **end year** of the season (e.g. `2026` for the
 #' 2025-26 season), matching `most_recent_pwhl_season()`.
 #'
+#' @section Default season:
+#' When `seasons` is left at its default and the newest season's file is not
+#' published yet (it appears with the season's first games), the loader falls
+#' back to the season before it and says so in a message. An explicit request
+#' for that season is kept as asked and returns an empty frame with a warning.
+#'
 #' @keywords PWHL Loaders
 #' @family PWHL Loaders
 NULL
@@ -79,23 +85,22 @@ NULL
 # progressr support, optionally writes into a DB, and tags the result with
 # the `fastRhockey_data` S3 class.
 .pwhl_release_loader <- function(seasons, release_tag, file_prefix,
-                                 dbConnection = NULL, tablename = NULL) {
+                                 dbConnection = NULL, tablename = NULL,
+                                 default = FALSE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
 
   loader <- rds_from_url
   in_db <- !is.null(dbConnection) && !is.null(tablename)
 
-  if (isTRUE(seasons)) seasons <- 2024:most_recent_pwhl_season()
-
-  stopifnot(is.numeric(seasons),
-            seasons >= 2024,
-            seasons <= most_recent_pwhl_season())
-
-  urls <- paste0(
+  url_for <- function(s) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/",
-    "releases/download/", release_tag, "/", file_prefix, "_", seasons, ".rds"
+    "releases/download/", release_tag, "/", file_prefix, "_", s, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2024, most_recent_pwhl_season(),
+                             what = release_tag, url_for = url_for,
+                             default = default)
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -234,7 +239,7 @@ NULL
 #' }
 load_pwhl_pbp <- function(seasons = most_recent_pwhl_season(), ...,
                           dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_pbp", file_prefix = "play_by_play",
     dbConnection = dbConnection, tablename = tablename
   )
@@ -291,7 +296,7 @@ NULL
 #' }
 load_pwhl_player_box <- function(seasons = most_recent_pwhl_season(), ...,
                                  dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_player_boxscores", file_prefix = "player_box",
     dbConnection = dbConnection, tablename = tablename
   )
@@ -354,7 +359,7 @@ NULL
 #' }
 load_pwhl_schedule <- function(seasons = most_recent_pwhl_season(), ...,
                                dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_schedules", file_prefix = "pwhl_schedule",
     dbConnection = dbConnection, tablename = tablename
   )
@@ -400,7 +405,7 @@ NULL
 #' }
 load_pwhl_rosters <- function(seasons = most_recent_pwhl_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_rosters", file_prefix = "rosters",
     dbConnection = dbConnection, tablename = tablename
   )
@@ -463,7 +468,7 @@ NULL
 #' }
 load_pwhl_skater_box <- function(seasons = most_recent_pwhl_season(), ...,
                                  dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_skater_boxscores", file_prefix = "skater_box",
     dbConnection = dbConnection, tablename = tablename
   )
@@ -521,7 +526,7 @@ NULL
 #' }
 load_pwhl_goalie_box <- function(seasons = most_recent_pwhl_season(), ...,
                                  dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_goalie_boxscores", file_prefix = "goalie_box",
     dbConnection = dbConnection, tablename = tablename
   )
@@ -581,7 +586,7 @@ NULL
 #' }
 load_pwhl_team_box <- function(seasons = most_recent_pwhl_season(), ...,
                                dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_team_boxscores", file_prefix = "team_box",
     dbConnection = dbConnection, tablename = tablename
   )
@@ -642,7 +647,7 @@ NULL
 #' }
 load_pwhl_game_info <- function(seasons = most_recent_pwhl_season(), ...,
                                 dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_game_info", file_prefix = "game_info",
     dbConnection = dbConnection, tablename = tablename
   )
@@ -706,7 +711,7 @@ NULL
 #' }
 load_pwhl_scoring_summary <- function(seasons = most_recent_pwhl_season(), ...,
                                       dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_scoring_summary", file_prefix = "scoring_summary",
     dbConnection = dbConnection, tablename = tablename
   )
@@ -763,7 +768,7 @@ NULL
 #' }
 load_pwhl_penalty_summary <- function(seasons = most_recent_pwhl_season(), ...,
                                       dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_penalty_summary", file_prefix = "penalty_summary",
     dbConnection = dbConnection, tablename = tablename
   )
@@ -820,7 +825,7 @@ NULL
 #' }
 load_pwhl_three_stars <- function(seasons = most_recent_pwhl_season(), ...,
                                   dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_three_stars", file_prefix = "three_stars",
     dbConnection = dbConnection, tablename = tablename
   )
@@ -863,7 +868,7 @@ NULL
 #' }
 load_pwhl_officials <- function(seasons = most_recent_pwhl_season(), ...,
                                 dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_officials", file_prefix = "officials",
     dbConnection = dbConnection, tablename = tablename
   )
@@ -907,7 +912,7 @@ NULL
 #' }
 load_pwhl_shots_by_period <- function(seasons = most_recent_pwhl_season(), ...,
                                       dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_shots_by_period", file_prefix = "shots_by_period",
     dbConnection = dbConnection, tablename = tablename
   )
@@ -956,7 +961,7 @@ NULL
 #' }
 load_pwhl_shootout <- function(seasons = most_recent_pwhl_season(), ...,
                                dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_shootout", file_prefix = "shootout_summary",
     dbConnection = dbConnection, tablename = tablename
   )
@@ -1009,14 +1014,14 @@ NULL
 #' }
 load_pwhl_game_rosters <- function(seasons = most_recent_pwhl_season(), ...,
                                    dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_game_rosters", file_prefix = "game_rosters",
     dbConnection = dbConnection, tablename = tablename
   )
 }
 
 
-# ── PWHL sdv-py naming-parity aliases ────────────────────────────────────────
+# ── PWHL sportsdataverse-py naming-parity aliases ────────────────────────────────────────
 # These thin wrappers exist solely for naming parity with sportsdataverse-py,
 # which uses the plural/boxscore(s) forms. They forward all arguments verbatim
 # to the canonical load_pwhl_*() functions.
@@ -1038,7 +1043,7 @@ NULL
 #'   try(load_pwhl_team_boxscores(2024))
 #' }
 load_pwhl_team_boxscores <- function(seasons = most_recent_pwhl_season(), ...) {
-  load_pwhl_team_box(seasons = seasons, ...)
+  if (missing(seasons)) load_pwhl_team_box(...) else load_pwhl_team_box(seasons = seasons, ...)
 }
 
 #' **Load PWHL player box scores (alias)**
@@ -1058,7 +1063,7 @@ NULL
 #'   try(load_pwhl_player_boxscores(2024))
 #' }
 load_pwhl_player_boxscores <- function(seasons = most_recent_pwhl_season(), ...) {
-  load_pwhl_player_box(seasons = seasons, ...)
+  if (missing(seasons)) load_pwhl_player_box(...) else load_pwhl_player_box(seasons = seasons, ...)
 }
 
 #' **Load PWHL skater box scores (alias)**
@@ -1078,7 +1083,7 @@ NULL
 #'   try(load_pwhl_skater_boxscores(2024))
 #' }
 load_pwhl_skater_boxscores <- function(seasons = most_recent_pwhl_season(), ...) {
-  load_pwhl_skater_box(seasons = seasons, ...)
+  if (missing(seasons)) load_pwhl_skater_box(...) else load_pwhl_skater_box(seasons = seasons, ...)
 }
 
 #' **Load PWHL goalie box scores (alias)**
@@ -1098,7 +1103,7 @@ NULL
 #'   try(load_pwhl_goalie_boxscores(2024))
 #' }
 load_pwhl_goalie_boxscores <- function(seasons = most_recent_pwhl_season(), ...) {
-  load_pwhl_goalie_box(seasons = seasons, ...)
+  if (missing(seasons)) load_pwhl_goalie_box(...) else load_pwhl_goalie_box(seasons = seasons, ...)
 }
 
 #' **Load PWHL schedules (alias)**
@@ -1118,7 +1123,7 @@ NULL
 #'   try(load_pwhl_schedules(2024))
 #' }
 load_pwhl_schedules <- function(seasons = most_recent_pwhl_season(), ...) {
-  load_pwhl_schedule(seasons = seasons, ...)
+  if (missing(seasons)) load_pwhl_schedule(...) else load_pwhl_schedule(seasons = seasons, ...)
 }
 
 
@@ -1364,7 +1369,7 @@ get_missing_pwhl_games <- function(completed_games, dbConnection, tablename) {
 #' }
 load_pwhl_shifts <- function(seasons = most_recent_pwhl_season(), ...,
                              dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_shifts", file_prefix = "shifts",
     dbConnection = dbConnection, tablename = tablename
   )
@@ -1390,7 +1395,7 @@ load_pwhl_shifts <- function(seasons = most_recent_pwhl_season(), ...,
 #' }
 load_pwhl_xg_pbp <- function(seasons = most_recent_pwhl_season(), ...,
                              dbConnection = NULL, tablename = NULL) {
-  .pwhl_release_loader(seasons,
+  .pwhl_release_loader(seasons, default = missing(seasons),
     release_tag = "pwhl_xg_pbp", file_prefix = "pwhl_xg_pbp",
     dbConnection = dbConnection, tablename = tablename
   )

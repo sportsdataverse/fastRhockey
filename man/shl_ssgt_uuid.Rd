@@ -34,8 +34,8 @@ could not be fetched or read.
 
 \examples{
 \donttest{
-  shl_ssgt_uuid(2026)
-  shl_ssgt_uuid(2025, "playoff")
+  try(shl_ssgt_uuid(2026))
+  try(shl_ssgt_uuid(2025, "playoff"))
 }
 }
 \seealso{

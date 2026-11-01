@@ -17,7 +17,7 @@ espn_wch_season_freeagents(season = most_recent_nhl_season(), limit = 100, ...)
 \value{
 A \code{fastRhockey_data} tibble with one row per free-agent athlete
 reference. \strong{Note}: The WCH free-agents endpoint (\code{seasons/{season}/freeagents})
-currently returns \code{count=0} for all tested seasons — the endpoint exists
+currently returns \code{count=0} for all tested seasons - the endpoint exists
 but ESPN does not populate it for WCH. An empty tibble is returned
 gracefully in that case:\tabular{lll}{
    col_name \tab types \tab description \cr

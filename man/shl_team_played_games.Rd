@@ -23,7 +23,7 @@ A \code{fastRhockey_data} tibble (the raw JSON list when \code{return_parsed = F
    state \tab character \tab Game state: pre-game or post-game (hyphenated; a live value was not observed). \cr
    overtime \tab logical \tab Whether the game went to overtime. \cr
    shootout \tab logical \tab Whether the game went to a shootout. \cr
-   ssgt_uuid \tab character \tab ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[]. \cr
+   ssgt_uuid \tab character \tab ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[]. \cr
    home_team_status \tab character \tab Result for the team (WIN, LOSE) or record status. \cr
    home_team_uuid \tab character \tab Team uuid (platform key space, e.g. 087a-087aTQv9u); joins to \verb{/sports-v2/teams/\{team_uuid\}} and schedule homeTeamInfo/awayTeamInfo.uuid. Not the team code. \cr
    home_team_owner_instance_id \tab character \tab Club site instance id (e.g. fhc1_fhc); also names the logo at \verb{sportality.cdn.s8y.se/team-logos/\{id\}.svg}. \cr
@@ -76,7 +76,7 @@ season that is not a year, or an argument outside its choices.
 
 \examples{
 \donttest{
-  shl_team_played_games(team_uuid = "087a-087aTQv9u")
+  try(shl_team_played_games(team_uuid = "087a-087aTQv9u"))
 }
 }
 \seealso{

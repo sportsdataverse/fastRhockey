@@ -7,7 +7,7 @@
 espn_wch_transactions(limit = 500, ...)
 }
 \arguments{
-\item{limit}{Maximum number of transactions (ESPN \code{limit}; default \code{500}, as sdv-py).}
+\item{limit}{Maximum number of transactions (ESPN \code{limit}; default \code{500}, as sportsdataverse-py).}
 
 \item{...}{Reserved for forward compatibility.}
 }

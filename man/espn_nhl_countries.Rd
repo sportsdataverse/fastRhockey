@@ -14,7 +14,7 @@ espn_nhl_countries(limit = 200, ...)
 \value{
 A \code{fastRhockey_data} tibble with one row per country reference, or
 an empty tibble when the endpoint is unpopulated. \strong{Note}: The NHL
-countries endpoint (\code{leagues/nhl/countries}) returns \code{count=0} — ESPN
+countries endpoint (\code{leagues/nhl/countries}) returns \code{count=0} - ESPN
 does not populate this collection for the NHL. An empty tibble is returned
 gracefully with a warning:\tabular{lll}{
    col_name \tab types \tab description \cr

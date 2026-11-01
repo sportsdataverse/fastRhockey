@@ -27,9 +27,9 @@ columns or build a URL by hand.
 \details{
 Source: \verb{GET https://www.vhlru.ru/en/calendar/} (server-rendered HTML, keyless; parsed with rvest).
 }
-\section{Owner flag (sanctions)}{
+\section{Terms of use}{
 
-The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+Check the provider's terms of use before redistributing this data.
 }
 
 \section{Errors}{

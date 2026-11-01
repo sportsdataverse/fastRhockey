@@ -9,7 +9,7 @@ vhl_roster(team_page_id, return_parsed = TRUE)
 \arguments{
 \item{team_page_id}{Team page id (home_team_page_id / away_team_page_id in vhl_game_info), e.g. 390. Neither a club id nor a team-season id.}
 
-\item{return_parsed}{\code{TRUE} (default) returns the parsed tibble; \code{FALSE} returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus \verb{_request} with the season, stage, tn and the ids asked for).}
+\item{return_parsed}{\code{TRUE} (default) returns the parsed tibble; \code{FALSE} returns the page's parsed record (a named list, plus \verb{_request} with the season, stage, tn and the ids asked for).}
 }
 \value{
 A \code{fastRhockey_data} tibble with one row per player:\tabular{lll}{
@@ -22,7 +22,7 @@ A \code{fastRhockey_data} tibble with one row per player:\tabular{lll}{
    \code{jersey} \tab integer \tab Jersey number (integer). \cr
    \code{position} \tab character \tab Position in English, lower case: goaltender, defense, forward. \cr
    \code{player_id} \tab integer \tab Player id: the \code{{player_id}} of \verb{/en/players/\{player_id\}/}, stable across seasons and teams; also the photo id on img.khl.ru. Same numeric sequence as khl.ru player ids; whether it equals the same person's khl.ru id is unverified. \cr
-   \code{player} \tab character \tab Player name, 'Surname Given' — in CYRILLIC even on the /en/ page. \cr
+   \code{player} \tab character \tab Player name, 'Surname Given' - in CYRILLIC even on the /en/ page. \cr
    \code{born} \tab character \tab Birth date 'DD.MM.YYYY' as the public page prints it. \cr
    \code{country} \tab character \tab Citizenship (English). \cr
 }
@@ -38,9 +38,9 @@ The roster is the team page's CURRENT one (names are Cyrillic even on \verb{/en/
 
 Source: \verb{GET https://www.vhlru.ru/en/teams/\{team_page_id\}/} (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.
 }
-\section{Owner flag (sanctions)}{
+\section{Terms of use}{
 
-The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+Check the provider's terms of use before redistributing this data.
 }
 
 \section{Errors}{

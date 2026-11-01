@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_country.R
 \name{nhl_stats_country}
 \alias{nhl_stats_country}
-\title{\strong{NHL Stats API — Country Lookup}}
+\title{\strong{NHL Stats API - Country Lookup}}
 \usage{
 nhl_stats_country(lang = "en")
 }

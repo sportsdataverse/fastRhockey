@@ -4,12 +4,14 @@
 \alias{pwhl_standings}
 \title{\strong{PWHL Standings}}
 \usage{
-pwhl_standings(season = 2023, regular = TRUE)
+pwhl_standings(season = most_recent_pwhl_season(), regular = TRUE)
 }
 \arguments{
-\item{season}{Season (YYYY) to pull the roster from, the concluding year in XXXX-YY format}
+\item{season}{Season (YYYY) to pull the standings for, the concluding year
+(e.g. 2025 for 2024-25). Defaults to \code{most_recent_pwhl_season()}.}
 
-\item{regular}{Bool for whether to pull regular or pre-season rosters}
+\item{regular}{Bool for whether to pull regular-season (\code{TRUE}) or preseason
+(\code{FALSE}) standings}
 }
 \value{
 A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{

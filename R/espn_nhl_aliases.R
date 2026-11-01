@@ -17,11 +17,11 @@
 #                        (items -> follow each $ref -> standings[] entries with team + records)
 #   leaders_core       : core_v2 (leagues/{league}/leaders) -- categories with leaders list
 #   coach_season       : core_v2 seasons/{season}/coaches/{coach_id}
-#                        (sdv-py says coaches/{id}/seasons/{s} but that 404s; correct path verified)
+#                        (sportsdataverse-py says coaches/{id}/seasons/{s} but that 404s; correct path verified)
 #   calendar_ondays    : core_v2 calendar/ondays -> eventDate.dates[]
 #   calendar_offseason : core_v2 seasons/{season}/types/1/calendar/offseason (site_v2 path 404s)
 #   calendar_postseason: core_v2 seasons/{season}/types/3/calendar/postseason (site_v2 path 404s)
-#   calendar_regular_season: core_v2 calendar/whitelist (sdv-py path calendar/regular-season 400s;
+#   calendar_regular_season: core_v2 calendar/whitelist (sportsdataverse-py path calendar/regular-season 400s;
 #                        whitelist returns identical shape and is the working equivalent)
 
 
@@ -449,11 +449,11 @@ espn_nhl_leaders_core <- function(...) {
 #'
 #' Endpoint: `seasons/{season}/coaches/{coach_id}`
 #' (`coaches/{coach_id}/seasons/{season}` with `coach_first = TRUE`, as the
-#' college wrappers and sdv-py use).
+#' college wrappers and sportsdataverse-py use).
 #'
-#' Note: sdv-py documents the path as `coaches/{coach_id}/seasons/{season}`
+#' Note: sportsdataverse-py documents the path as `coaches/{coach_id}/seasons/{season}`
 #' but live verification confirms only `seasons/{season}/coaches/{coach_id}`
-#' returns HTTP 200. The sdv-py path returns 404 for all tested coach IDs.
+#' returns HTTP 200. The sportsdataverse-py path returns 404 for all tested coach IDs.
 #'
 #' @noRd
 .espn_hockey_coach_season <- function(league   = "nhl",
@@ -467,7 +467,7 @@ espn_nhl_leaders_core <- function(...) {
 
   tryCatch(
     expr = {
-      # coach_first: sdv-py's coaches/{id}/seasons/{season} (college leagues);
+      # coach_first: sportsdataverse-py's coaches/{id}/seasons/{season} (college leagues);
       # the NHL keeps seasons/{season}/coaches/{id}, the only order that answers there.
       path <- if (isTRUE(coach_first)) {
         paste0("coaches/", coach_id, "/seasons/", season)
@@ -792,7 +792,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with one row per regular-season game
 #'   date. Uses the core-v2 `calendar/whitelist` endpoint, which is the
-#'   working equivalent of the sdv-py `calendar/regular-season` path (the
+#'   working equivalent of the sportsdataverse-py `calendar/regular-season` path (the
 #'   `regular-season` path returns HTTP 400/503 for NHL; `whitelist` returns
 #'   identical data with HTTP 200).
 #'

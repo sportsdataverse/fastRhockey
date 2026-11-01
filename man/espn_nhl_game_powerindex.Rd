@@ -15,7 +15,7 @@ espn_nhl_game_powerindex(event_id, cid = event_id, ...)
 }
 \value{
 A \code{fastRhockey_data} tibble with ESPN Power Index data. \strong{Note:}
-This endpoint is sparse for NHL — most games return an empty tibble with a
+This endpoint is sparse for NHL - most games return an empty tibble with a
 warning. When populated, columns contain power-index values alongside
 \code{event_id} and \code{cid}.
 }

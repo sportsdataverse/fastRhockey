@@ -178,7 +178,7 @@ nhl_game_shifts <- function(game_id, detailed = FALSE){
 
 #' Title-case a name string from an uppercase NHL TOI report
 #'
-#' `stringr::str_to_title()` alone produces "Mcdonald" / "O'brien" — fix the
+#' `stringr::str_to_title()` alone produces "Mcdonald" / "O'brien" - fix the
 #' usual hockey-name prefixes (Mc, Mac, leading apostrophe) so the
 #' HTML-fallback `player_name` column matches the proper-case shape the JSON
 #' shiftcharts endpoint returns.

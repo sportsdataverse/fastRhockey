@@ -3,7 +3,7 @@
 #'   (`https://records.nhl.com/site/api/franchise`). Optionally filter to a
 #'   single franchise via `franchise_id`, which is translated into the
 #'   Cayenne filter `id={franchise_id}` (the records API does **not**
-#'   accept a path-suffix `franchise/{id}` form — it returns 404).
+#'   accept a path-suffix `franchise/{id}` form - it returns 404).
 #' @param franchise_id Optional integer franchise ID.
 #' @param lang Character language code. Default `"en"`. Currently unused
 #'   server-side but reserved for future use.

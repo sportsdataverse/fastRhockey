@@ -26,7 +26,7 @@ espn_wch_season_week(
 \value{
 A one-row \code{fastRhockey_data} tibble with week metadata, or an empty
 tibble when the endpoint is unavailable. \strong{Note}: NHL does not use weeks
-in ESPN core-v2 — HTTP 404 is the expected response:\tabular{lll}{
+in ESPN core-v2 - HTTP 404 is the expected response:\tabular{lll}{
    col_name \tab types \tab description \cr
    season \tab integer \tab Season year (echoed from arg). \cr
    season_type \tab integer \tab Season type code (echoed from arg). \cr

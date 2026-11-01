@@ -46,8 +46,10 @@ one stats-info call per season gives the whole crosswalk.
 
 \examples{
 \donttest{
-  xw <- shl_player_crosswalk(2026)
-  xw[xw$player_id == 2427, ]
+  try({
+    xw <- shl_player_crosswalk(2026)
+    xw[xw$player_id == 2427, ]
+  })
 }
 }
 \seealso{

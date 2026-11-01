@@ -57,7 +57,7 @@ else the raw JSON list:\tabular{lll}{
    penalty_minutes \tab integer \tab Penalty minutes of the penalised player (player1); two penalties are summed. Null in 2016-17. \cr
    penalty_offense \tab character \tab Czech offense code(s), e.g. VYSH (high sticking), PODR (tripping); comma-joined for two penalties. Null in 2016-17. \cr
    strength \tab character \tab Strength of a goal: EQ (read as even strength; inferred, the only value observed). Null where the on-ice block is absent (all of 2016-17). \cr
-   message \tab character \tab Czech commentary text (may contain \if{html}{\out{<br />}}). \cr
+   message \tab character \tab Czech commentary text (may contain \verb{<br />}). \cr
    written \tab character \tab When the entry was written, local time YYYY-MM-DD HH:MM:SS. \cr
    last_change \tab character \tab Last edit of the entry, local time YYYY-MM-DD HH:MM:SS. \cr
 }

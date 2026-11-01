@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_goalie_milestones.R
 \name{nhl_stats_goalie_milestones}
 \alias{nhl_stats_goalie_milestones}
-\title{\strong{NHL Stats API — Goalie Milestones}}
+\title{\strong{NHL Stats API - Goalie Milestones}}
 \usage{
 nhl_stats_goalie_milestones(
   lang = "en",

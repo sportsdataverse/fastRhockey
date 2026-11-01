@@ -1,21 +1,19 @@
 # nationalleague.R -- National League (Switzerland) app API wrappers.
 #
-# Mirrors sdv-py sportsdataverse/hockey/nl/ (nationalleague_runtime.py,
+# Mirrors sportsdataverse-py sportsdataverse/hockey/nl/ (nationalleague_runtime.py,
 # nationalleague_parsers.py and the generated nl_* wrappers), route for route.
 # The API (www.nationalleague.ch/api) is keyless JSON in four body shapes: row
 # lists (/games*, /player*, /teams), one object (/player/{id}, /teams/{id}/info),
 # bracket trees (/games/playoffs, /games/playouts) and the game page
 # (/games/{gameId}, which feeds six wrappers).
 #
-# robots.txt on www.nationalleague.ch disallows /api. The owner approved building
-# on it on 2026-10-12 for polite, incremental use only: at least 1 s between
-# requests (the shared per-host throttle in euro_hockey_runtime.R, on every
-# attempt, retries included), one worker, and no bulk backfill or published
-# mirror without asking again. The ruling is repeated in every exported
-# function's @details.
+# robots.txt on www.nationalleague.ch disallows /api, so use is kept polite and
+# incremental: at least 1 s between requests (the shared per-host throttle in
+# euro_hockey_runtime.R, on every attempt, retries included) and one worker.
+# Every exported function's @details repeats this.
 #
 # Seasons are END years (2026 = 2025/26) and go on the wire unchanged. Ids are
-# whole-number doubles (sdv-py Int64): a 14-digit game_id exceeds R's 32-bit
+# whole-number doubles (sportsdataverse-py Int64): a 14-digit game_id exceeds R's 32-bit
 # integer. Every other whole-number column is an integer.
 
 .NL_HOST <- "https://www.nationalleague.ch/api"
@@ -57,7 +55,7 @@
   a
 }
 
-# sdv-py dl_utils.underscore(): camelCase -> snake_case (teamID -> team_id, sogOt1 -> sog_ot1).
+# sportsdataverse-py dl_utils.underscore(): camelCase -> snake_case (teamID -> team_id, sogOt1 -> sog_ot1).
 .nl_underscore <- function(word) {
   word <- gsub("([A-Z]+)([A-Z][a-z])", "\\1_\\2", word, perl = TRUE)
   word <- gsub("([a-z0-9])([A-Z])", "\\1_\\2", word, perl = TRUE)
@@ -149,7 +147,7 @@
   lapply(.nl_rows(.nl_scrub(raw)), function(r) .nl_rename(.nl_flatten(r), renames))
 }
 
-# ---- documented schemas (sdv-py _SCHEMAS; codes s = character, i = whole number,
+# ---- documented schemas (sportsdataverse-py _SCHEMAS; codes s = character, i = whole number,
 # f = double, b = logical) -------------------------------------------------------
 
 .nl_schema <- function(spec) {
@@ -353,7 +351,7 @@ unix:i unix_start:i
   tibble::as_tibble(cols, .name_repair = "minimal")
 }
 
-# ---- parsers (sdv-py parse_nationalleague_*) -------------------------------------
+# ---- parsers (sportsdataverse-py parse_nationalleague_*) -------------------------------------
 
 .nl_parse_games <- function(raw) .nl_frame(.nl_flat_rows(raw, lists_only = TRUE), "games")
 
@@ -536,7 +534,7 @@ unix:i unix_start:i
   })
 }
 
-# ---- getter: throttled, checked, api keys dropped (sdv-py nationalleague_runtime) ----
+# ---- getter: throttled, checked, api keys dropped (sportsdataverse-py nationalleague_runtime) ----
 
 .NL_ERROR_KEYS <- c("error", "errors", "message", "code", "detail", "status")
 
@@ -584,7 +582,7 @@ unix:i unix_start:i
   out
 }
 
-# Raise unless `body` is a real answer to `url` + `params` (sdv-py nationalleague_runtime._check).
+# Raise unless `body` is a real answer to `url` + `params` (sportsdataverse-py nationalleague_runtime._check).
 .nl_check <- function(url, params, body) {
   where <- .euro_where(url)
   route <- .nl_route(url)
@@ -703,17 +701,16 @@ unix:i unix_start:i
   make_fastRhockey_data(df, paste0("National League ", spec[[3]], " Information from nationalleague.ch"), Sys.time())
 }
 
-# ---- exported wrappers (sdv-py nl_*, one per route) ---------------------------------
+# ---- exported wrappers (sportsdataverse-py nl_*, one per route) ---------------------------------
 
 #' **National League schedule and results**
 #'
 #' Schedule and results for one season: NL plus exhibitions.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -783,10 +780,9 @@ nl_schedule <- function(season = NULL, return_parsed = TRUE) {
 #' The current or next game day.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -854,10 +850,9 @@ nl_current_games <- function(season = NULL, return_parsed = TRUE) {
 #' One team's games for one season.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -929,10 +924,9 @@ nl_team_schedule <- function(team_id, season = NULL, return_parsed = TRUE) {
 #' Playoff and play-in series by round: one row per game, with its series score.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -1012,10 +1006,9 @@ nl_playoffs <- function(season = NULL, return_parsed = TRUE) {
 #' Playout and league-qualification series by round: one row per game, with its series score.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -1095,10 +1088,9 @@ nl_playouts <- function(season = NULL, return_parsed = TRUE) {
 #' One game's header: teams, date, status, final and per-period score, coaches, referees, arena, attendance.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -1188,10 +1180,9 @@ nl_game_overview <- function(game_id, return_parsed = TRUE) {
 #' One game's event timeline: goals with assists, penalties, goaltender changes, revoked goals.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -1268,10 +1259,9 @@ nl_pbp <- function(game_id, return_parsed = TRUE) {
 #' One game's lineups: every dressed player by unit, with licence number, position and line.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -1327,10 +1317,9 @@ nl_lineups <- function(game_id, return_parsed = TRUE) {
 #' One game's player box score: goals, assists, shots, faceoffs, ice time, goaltending.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -1411,10 +1400,9 @@ nl_player_box <- function(game_id, return_parsed = TRUE) {
 #' One game's team totals: shots by period, faceoffs by zone, power play and penalty kill.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -1497,10 +1485,9 @@ nl_team_stats <- function(game_id, return_parsed = TRUE) {
 #' One game's shot attempts with rink location (metres) and expected goals (xG); NL games only.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -1563,10 +1550,9 @@ nl_shots <- function(game_id, return_parsed = TRUE) {
 #' Season stats for every player, with playerId.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -1755,10 +1741,9 @@ nl_player_stats <- function(season = NULL, phase = NULL, return_parsed = TRUE) {
 #' Top scorers (same row shape as /player).
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -1948,10 +1933,9 @@ nl_top_scorers <- function(take = NULL, season = NULL, phase = NULL, return_pars
 #' Season stats for one team's players.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -2142,10 +2126,9 @@ nl_team_player_stats <- function(team_id, season = NULL, phase = NULL, return_pa
 #' One player's season stats.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -2334,10 +2317,9 @@ nl_player_season <- function(player_id, season = NULL, phase = NULL, return_pars
 #' Standings with team season stats.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit
@@ -2504,10 +2486,9 @@ nl_standings <- function(season = NULL, phase = NULL, return_parsed = TRUE) {
 #' Club CMS record: names, logo, website, ticket links.
 #'
 #' @details
-#' **robots.txt ruling.** `www.nationalleague.ch/robots.txt` disallows `/api`. The owner approved building on it
-#' on 2026-10-12, for polite, incremental use only: requests are spaced at least one second apart (on every
-#' attempt, retries included), and a bulk backfill or a published mirror needs the owner's sign-off first. Crawl
-#' incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
+#' **Polite use.** `www.nationalleague.ch/robots.txt` disallows `/api`, so keep use light and incremental. Requests
+#' are spaced at least one second apart (on every attempt, retries included). Check the site's terms of use before
+#' any bulk download or redistribution. Crawl incrementally: fetch a finished game once (keyed by `game_id`), find new games with one [nl_schedule()] call
 #' per run, and fetch season tables at most once per game day.
 #'
 #' Seasons are END years and go on the wire unchanged. Ids (`*_id`) are whole-number `numeric` (a 14-digit

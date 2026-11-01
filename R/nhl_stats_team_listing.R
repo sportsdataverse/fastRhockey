@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Team Listing**
+#' @title **NHL Stats API - Team Listing**
 #' @description Returns the top-level team listing from the NHL Stats REST
 #'   API. When `team_id` is `NULL` (default) this hits
 #'   `https://api.nhle.com/stats/rest/{lang}/team` and returns the full

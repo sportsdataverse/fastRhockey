@@ -7,11 +7,11 @@
 shl_stats_info(module, season, game_type = "regular", return_parsed = TRUE)
 }
 \arguments{
-\item{module}{Stats module: \if{html}{\out{<group>}}_\if{html}{\out{<table>}}. Every name under layout-info
-[].filters.\if{html}{\out{<group>}}.modules.}
+\item{module}{Stats module: \verb{<group>_<table>}. Every name under layout-info
+\verb{[].filters.<group>.modules}.}
 
 \item{season}{Required. Season END year (2026 = 2025/26). Mapped to the provider's ssgt through
-/statistics-v2/layout-info (SHL 1975/76 on); a season it does not list raises NoDataError.}
+/statistics-v2/layout-info (SHL 1975/76 on); a season it does not list raises a \code{fastRhockey_no_data} error.}
 
 \item{game_type}{Game type: regular (Grundserie), playoff (Slutspel), qualdown (relegation
 qualification) or playin (2023/24 on).}
@@ -76,7 +76,7 @@ A \code{fastRhockey_data} tibble (the raw JSON list when \code{return_parsed = F
    info_team_info_email \tab character \tab Contact email address of the club. \cr
    info_team_info_chairman \tab character \tab Name of the club chairman. \cr
    info_team_info_manager \tab character \tab Club general manager. \cr
-   info_team_info_accreditation \tab character \tab Press-accreditation contact, free Swedish text (e.g. 'Senast dagen före match till …' = 'no later than the day before the game, to …'). \cr
+   info_team_info_accreditation \tab character \tab Press-accreditation contact, free Swedish text (e.g. 'Senast dagen före match till ...' = 'no later than the day before the game, to ...'). \cr
    info_team_info_facebook \tab character \tab Club Facebook URL. \cr
    info_team_info_instagram \tab character \tab Club Instagram URL. \cr
    info_team_info_twitter \tab character \tab Club X/Twitter URL. \cr
@@ -303,7 +303,7 @@ season that is not a year, or an argument outside its choices.
 
 \examples{
 \donttest{
-  shl_stats_info(module = "players_summary", season = 2026)
+  try(shl_stats_info(module = "players_summary", season = 2026))
 }
 }
 \seealso{

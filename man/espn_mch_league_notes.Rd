@@ -12,7 +12,7 @@ espn_mch_league_notes(...)
 \value{
 A \code{fastRhockey_data} tibble with one row per league note reference,
 or an empty tibble when the endpoint is unavailable. \strong{Note}: The MCH
-league notes endpoint (\code{core_v2/notes}) currently returns \code{count=0} —
+league notes endpoint (\code{core_v2/notes}) currently returns \code{count=0} -
 an empty tibble is returned gracefully:\tabular{lll}{
    col_name \tab types \tab description \cr
    ref \tab character \tab \verb{$ref} URL for the note object. \cr

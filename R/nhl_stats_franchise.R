@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Franchise Listing**
+#' @title **NHL Stats API - Franchise Listing**
 #' @description Returns the franchise listing from the NHL Stats REST API
 #'   (`https://api.nhle.com/stats/rest/{lang}/franchise`). Parallels the
 #'   `nhl-api-py` `Teams.franchises()` helper.

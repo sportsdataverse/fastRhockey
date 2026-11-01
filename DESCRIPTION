@@ -1,7 +1,6 @@
 Package: fastRhockey
-Title: Functions to Access Professional Women's Hockey League and National
-    Hockey League Play by Play Data
-Version: 1.0.0.9000
+Title: Functions to Access Hockey Play by Play Data and Statistics
+Version: 1.1.0
 Authors@R: c(
     person("Ben", "Howell", , "benhowell71@gmail.com", role = "aut"),
     person("Saiem", "Gilani", , "saiem.gilani@gmail.com", role = c("aut", "cre"),
@@ -9,12 +8,20 @@ Authors@R: c(
     person("Alyssa", "Longmuir", , "aklongmuir@gmail.com", role = "ctb"),
     person("fastRhockey authors", role = "cph")
   )
-Description: A utility to scrape and load play-by-play data and statistics
-    from the Professional Women's Hockey League
-    <https://www.thepwhl.com/>, formerly known as the Premier Hockey
-    Federation (PHF) or National Women's Hockey League (NWHL).
-    Additionally, allows access to the National Hockey League's stats API
-    <https://www.nhl.com/>.
+Description: A utility to scrape and load hockey play-by-play data and
+    statistics. It covers the National Hockey League <https://www.nhl.com/>
+    (the web API, the stats REST API, the Edge tracking API and the records
+    API), the Professional Women's Hockey League <https://www.thepwhl.com/>,
+    and the American Hockey League, Ontario Hockey League, Western Hockey
+    League and Quebec Maritimes Junior Hockey League through their
+    'HockeyTech' feeds. It also reads ESPN and Fox Sports NHL data, NCAA men's
+    and women's hockey from ESPN, and 13 European leagues: Germany's DEL,
+    Austria's ICE Hockey League, the United Kingdom's EIHL, Denmark's Metal
+    Ligaen, the KHL, Russia's VHL, Sweden's SHL and HockeyAllsvenskan,
+    Finland's Liiga, Switzerland's National League and Swiss Ice Hockey
+    Federation competitions, Czechia's Extraliga and France's Ligue Magnus.
+    Loaders read pre-scraped play-by-play, box score, schedule and
+    expected-goals datasets from the 'SportsDataverse' data releases.
 License: MIT + file LICENSE
 URL: https://fastRhockey.sportsdataverse.org/,
     https://github.com/sportsdataverse/fastRhockey
@@ -33,8 +40,6 @@ Imports:
     lubridate,
     magrittr,
     purrr (>= 1.0.0),
-    Rcpp,
-    RcppParallel,
     rlang (>= 1.0.4),
     rvest (>= 1.0.0),
     stats,
@@ -47,16 +52,9 @@ Suggests:
     crayon (>= 1.3.4),
     curl,
     DBI,
-    furrr,
-    future,
-    ggplot2,
-    ggrepel,
     progressr (>= 0.6.0),
-    rmarkdown,
     RSQLite,
-    stringi,
     testthat (>= 3.1.7),
-    usethis (>= 1.6.0),
     withr,
     xgboost
 Config/roxygen2/version: 8.1.0

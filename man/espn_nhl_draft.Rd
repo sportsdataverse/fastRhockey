@@ -12,7 +12,7 @@ espn_nhl_draft(...)
 \value{
 A \code{fastRhockey_data} tibble with draft data, or an empty tibble
 when the endpoint is unavailable. \strong{Note}: The NHL draft endpoint
-(\code{site/v2/sports/hockey/nhl/draft}) currently returns HTTP 500 for NHL —
+(\code{site/v2/sports/hockey/nhl/draft}) currently returns HTTP 500 for NHL -
 an empty tibble is returned gracefully:\tabular{lll}{
    col_name \tab types \tab description \cr
    id \tab character \tab Draft entry identifier (if returned). \cr

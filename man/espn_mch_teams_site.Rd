@@ -7,7 +7,7 @@
 espn_mch_teams_site(limit = 1000, ...)
 }
 \arguments{
-\item{limit}{Maximum number of teams (ESPN \code{limit}; default \code{1000}, as sdv-py).}
+\item{limit}{Maximum number of teams (ESPN \code{limit}; default \code{1000}, as sportsdataverse-py).}
 
 \item{...}{Reserved for forward compatibility.}
 }

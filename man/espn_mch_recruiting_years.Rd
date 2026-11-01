@@ -21,7 +21,7 @@ A \code{fastRhockey_data} tibble with one row per recruiting year:\tabular{lll}{
 }
 \details{
 League slug \code{mens-college-hockey}. Core-v2 \code{recruiting} collection (one item per
-recruiting class year). Mirrors sdv-py \code{espn_mch_recruiting_years()}.
+recruiting class year). Mirrors sportsdataverse-py \code{espn_mch_recruiting_years()}.
 }
 \examples{
 \donttest{

@@ -20,7 +20,7 @@ A tibble (\code{return_parsed = TRUE}), else the raw envelope list:\tabular{lll}
    team \tab character \tab Team display name (e.g., "Rapaces de Gap"). \cr
    team_abbreviation \tab character \tab Team abbreviation (e.g., "GAP"). \cr
    team_short_name \tab character \tab Short team label (e.g., "GAP", "ANGLET"). \cr
-   team_label \tab character \tab Back-office label, "\if{html}{\out{<club code>}} - \if{html}{\out{<NAME>}} \if{html}{\out{<level>}}"; use team for display. \cr
+   team_label \tab character \tab Back-office label, \code{"<club code> - <NAME> <level>"}; use team for display. \cr
    gender \tab character \tab Gender of the team: M (men; the only value observed). \cr
    logo_url \tab character \tab URL of the team logo image. \cr
    club_id \tab integer \tab Id of the club (legal entity) behind the team (integer). \cr

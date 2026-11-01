@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_players.R
 \name{nhl_stats_players}
 \alias{nhl_stats_players}
-\title{\strong{NHL Stats API — Players Listing}}
+\title{\strong{NHL Stats API - Players Listing}}
 \usage{
 nhl_stats_players(lang = "en", limit = 100, start = 0, cayenne_exp = NULL)
 }

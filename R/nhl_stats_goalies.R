@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Goalie Stats**
+#' @title **NHL Stats API - Goalie Stats**
 #' @description Queries the NHL Stats REST API for goalie statistics.
 #' @param report_type Character report type. Default "summary".
 #'   Common types: "summary", "bios", "advanced",
@@ -33,8 +33,7 @@ nhl_stats_goalies <- function(
     lang = "en"
 ) {
     if (is.null(season)) {
-        s <- most_recent_nhl_season()
-        season <- paste0(s, s + 1)
+        season <- as.character(most_recent_nhl_season_api_param())
     }
 
     base_url <- glue::glue(

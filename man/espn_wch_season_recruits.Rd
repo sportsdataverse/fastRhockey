@@ -29,7 +29,7 @@ A \code{fastRhockey_data} tibble with one row per recruit:\tabular{lll}{
 \details{
 League slug \code{womens-college-hockey}. Core-v2 \code{seasons/{season}/recruits};
 \verb{$ref}-only items become \code{ref} + \code{recruit_id}, inline items are flattened.
-Mirrors sdv-py \code{espn_wch_season_recruits()}; ESPN may publish nothing for women's college hockey.
+Mirrors sportsdataverse-py \code{espn_wch_season_recruits()}; ESPN may publish nothing for women's college hockey.
 }
 \examples{
 \donttest{

@@ -10,7 +10,7 @@ espn_mch_team_roster(team_id, limit = 500, ...)
 \item{team_id}{ESPN team identifier (character or numeric, e.g. \code{"104"} for
 Pittsburgh Penguins).}
 
-\item{limit}{Maximum number of athletes (ESPN \code{limit}; default \code{500}, as sdv-py).}
+\item{limit}{Maximum number of athletes (ESPN \code{limit}; default \code{500}, as sportsdataverse-py).}
 
 \item{...}{Reserved for forward compatibility.}
 }

@@ -42,13 +42,21 @@ the catalog table below.
 
 \subsection{\strong{DB helpers}}{\tabular{ll}{
    Function \tab Purpose \cr
-   \code{\link[=update_nhl_db]{update_nhl_db()}} \tab Idempotent loader → DB writer (delta only) \cr
+   \code{\link[=update_nhl_db]{update_nhl_db()}} \tab Idempotent loader -> DB writer (delta only) \cr
    \code{build_nhl_db()} \tab Bulk-build a DB from release files \cr
    \code{get_missing_nhl_games()} \tab Show games missing from a DB target \cr
 }
 
 }
 }
+\section{Default season}{
+
+When \code{seasons} is left at its default and the newest season's file is not
+published yet (it appears with the season's first games), the loader falls
+back to the season before it and says so in a message. An explicit request
+for that season is kept as asked and returns an empty frame with a warning.
+}
+
 \concept{NHL Loaders}
 \keyword{Loaders}
 \keyword{NHL}
