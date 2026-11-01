@@ -1,7 +1,7 @@
 test_that("PWHL - Get PWHL Standings", {
     skip_on_cran()
     skip_pwhl_test()
-    x <- pwhl_standings(season = 2024, regular = TRUE) # 2023-24, the first PWHL season
+    x <- pwhl_standings(season = 2023, regular = TRUE)
 
     expect_s3_class(x, "data.frame")
     expect_true(nrow(x) > 0)
