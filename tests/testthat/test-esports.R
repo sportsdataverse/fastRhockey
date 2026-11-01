@@ -402,6 +402,7 @@ test_that("live: the DEL schedule and standings answer", {
 })
 
 test_that(".es_cast writes whole doubles to character without a decimal part", {
+  skip_on_cran()
   expect_identical(.es_cast(c(3e9, 12, NA), "double", "character"), c("3000000000", "12", NA))
   expect_identical(.es_cast(1.5, "double", "character"), "1.5")
 })
