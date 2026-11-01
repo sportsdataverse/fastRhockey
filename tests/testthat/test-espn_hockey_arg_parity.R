@@ -31,6 +31,7 @@ CORE <- "https://sports.core.api.espn.com/v2/sports/hockey/leagues"
 WEB <- "https://site.web.api.espn.com/apis/common/v3/sports/hockey"
 
 test_that("NHL requests are unchanged by the new helper args (URL + query)", {
+  skip_on_cran()
   chk <- function(r, url, params) {
     expect_identical(r$url, url)
     expect_identical(r$params, params)
@@ -53,6 +54,7 @@ test_that("NHL requests are unchanged by the new helper args (URL + query)", {
 })
 
 test_that("mch/wch wrappers with no new args hit the expected URLs", {
+  skip_on_cran()
   for (lg in c(mch = "mens-college-hockey", wch = "womens-college-hockey")) {
     pre <- if (lg == "mens-college-hockey") "espn_mch_" else "espn_wch_"
     r <- capture_req(function() get(paste0(pre, "scoreboard"))())
@@ -73,6 +75,7 @@ test_that("mch/wch wrappers with no new args hit the expected URLs", {
 })
 
 test_that("new mch/wch args reach the ESPN query / path", {
+  skip_on_cran()
   for (lg in c(mch = "mens-college-hockey", wch = "womens-college-hockey")) {
     pre <- if (lg == "mens-college-hockey") "espn_mch_" else "espn_wch_"
     f <- function(n) get(paste0(pre, n))

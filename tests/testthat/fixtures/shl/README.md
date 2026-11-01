@@ -4,8 +4,8 @@ Real bodies from the SHL site API (keyless GET JSON; Sportality platform, stats 
 
 ## Truncated route samples (`*.json`)
 
-Copied unchanged from `sdv-internal-refs/shl/captures/` at refs commit `9e967aa` (captured
-2026-10-12 by `shl/tools/capture.py`). Every array is cut to 3 items and every id-keyed map
+Captured from the public SHL API on
+2026-10-12. Every array is cut to 3 items and every id-keyed map
 to 3 keys, except play-by-play, which keeps the first event of each `type`. The 34
 `stats-info__module__<module>.json` files were fetched with `count=1000`
 for the 2025/26 regular season (ssgt `iuzqg7dqk9`). File names follow `capture.py`'s slug
