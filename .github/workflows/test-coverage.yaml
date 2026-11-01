@@ -40,11 +40,15 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          # No xgboost: .onLoad() would load the xG boosters, and covr cannot serialize
-          # its counters once xgboost has disposed of them ("Booster has not been
-          # initialized"). The xG tests are NHL-gated, so they skip on CI anyway.
           extra-packages: any::covr, any::xml2
           needs: coverage
+
+      # xgboost (a Suggests) makes .onLoad() load the xG boosters, and covr then cannot
+      # serialize its counters ("Booster has not been initialized"). The xG tests are
+      # NHL-gated and skip on CI anyway, so measure coverage without it.
+      - name: Remove xgboost
+        run: if (nzchar(p <- system.file(package = "xgboost"))) remove.packages("xgboost", lib = dirname(p))
+        shell: Rscript {0}
 
       - name: Test coverage
         run: |
