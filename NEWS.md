@@ -80,6 +80,28 @@ upgrades from 1.0.0 may need to change.
 
 ### Bug fixes
 
+* SHL: `www.shl.se`'s `statistics-v2/layout-info` renamed its season directory
+  from `seasonSeriesGameTypeTeams` to `originalSeasonSeriesGameTypeTeams`, so
+  every SHL lookup (and `shl_last_game_day()`) stopped with "no ssgt directory
+  in the body". The SHL functions read the new key and fall back to the old one
+  (#90).
+* `pwhl_standings()` ignored `season` and `regular` and always returned
+  2023-24. It now resolves the HockeyTech season id from them, and its default
+  is `most_recent_pwhl_season()` (#90).
+* The PWHL season-id fallback table, used when the HockeyTech season list
+  cannot be read, now runs through 2026-27, and the AHL / OHL / WHL / QMJHL
+  most-recent-season fallback is computed from the date instead of a fixed
+  2026 (#90).
+* `nhl_stats_skaters()`, `nhl_stats_goalies()`, `nhl_stats_teams()` and
+  `nhl_playoff_carousel()` asked for the next season (`"20272028"` in
+  November 2026); they now default to `most_recent_nhl_season_api_param()`
+  (#90).
+* The PWHL and NHL release loaders called with their default season now load
+  the newest published season, with a message, when the current one has no
+  file yet (every `load_pwhl_*()` returned an empty table from 1 November
+  until the first 2026-27 game). An explicit request for an unpublished season
+  still returns an empty table, and a season outside the published range is a
+  cli error (#90).
 * The European hockey per-host throttle stamped each request at its scheduled
   time, not when its wait actually ended, so an oversleeping `Sys.sleep()`
   (macOS timer coalescing on a loaded machine) let the next request to that
@@ -182,6 +204,15 @@ upgrades from 1.0.0 may need to change.
 
 * `xml2 (>= 1.3)` and `stats` moved from Suggests to Imports and `utils` is
   now listed in Imports (#83); the `testthat` floor is raised to 3.1.7 (#74).
+* `Rcpp` and `RcppParallel` are no longer Imports (fastRhockey has no compiled
+  code), and furrr, future, ggplot2, ggrepel, rmarkdown, stringi and usethis
+  are no longer in Suggests: nothing used them (#90).
+
+### Documentation
+
+* The DESCRIPTION title and description now cover every family the package
+  wraps (NHL, PWHL, the CHL and AHL leagues, ESPN and Fox, the European
+  leagues and college hockey), and the help pages are plain ASCII (#90).
 
 # **fastRhockey 1.0.0**
 
