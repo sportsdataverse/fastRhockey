@@ -207,7 +207,7 @@ rosters <- load_nhl_rosters(seasons = 2024)
 
 ## Plotting shots on a rink
 
-[`sportyR`](https://sportyR.sportsdataverse.org/) draws regulation rinks as `ggplot2` layers. The PWHL play-by-play's `x_coord_fixed` / `y_coord_fixed` columns (the AHL, OHL, WHL and QMJHL `*_pbp()` functions return the same ones) are in feet from centre ice with the home team shooting right, which is the frame `sportyR::geom_hockey("pwhl")` draws. `sportyR` is not a `fastRhockey` dependency, so install it first (`install.packages("sportyR")`). For team logos and colours, see [`sdvplotR`](https://sdvplotR.sportsdataverse.org/articles/recipe-nhl-shot-map.html).
+[`sportyR`](https://sportyR.sportsdataverse.org/) draws regulation rinks as `ggplot2` layers. The PWHL play-by-play's `x_coord_fixed` / `y_coord_fixed` columns (the AHL, OHL, WHL and QMJHL `*_pbp()` functions return the same ones) are in feet from centre ice with the home team shooting right, which is the frame `sportyR::geom_hockey("pwhl")` draws. Neither `sportyR` nor `ggplot2` is a `fastRhockey` dependency, so install them first (`install.packages(c("sportyR", "ggplot2"))`). For team logos and colours, see [`sdvplotR`](https://sdvplotR.sportsdataverse.org/articles/recipe-nhl-shot-map.html).
 
 ```{r pwhl_rink_plot}
 library(ggplot2)

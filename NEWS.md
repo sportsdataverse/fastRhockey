@@ -77,6 +77,9 @@ upgrades from 1.0.0 may need to change.
   shared SportsDataverse article template (#67), the site gained Plausible
   analytics and a trimmed search index (#68), and the README and site link
   the package cheat sheet and cite the current release year.
+* Testing and CI: live tests now always skip on CRAN and CI and run only when
+  their `RUN_*_TESTS` toggle is `1` or `true`; an unset toggle skips. CI adds
+  an R-devel check job, a urlchecker job and a test-coverage job (#88).
 
 ### Bug fixes
 
