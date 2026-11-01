@@ -140,7 +140,7 @@ test_that("player on-ice corsi attribution", {
 
 test_that("empty-net goals measure to the attacking net; everything else to the nearer net", {
   testthat::skip_on_cran()
-  # sdv-internal-refs hockeytech/CANVAS.md: own-half events with a goalie in net are
+  # HockeyTech canvas convention: own-half events with a goalie in net are
   # mirrored coordinates (nearer net is right); own-half empty-net goals are real long shots.
   # Feet frame: the home team attacks x = -89. Canvas 560 -> x = 86.67 ft, the home team's
   # own end.
