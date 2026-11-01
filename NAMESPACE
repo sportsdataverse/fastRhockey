@@ -887,8 +887,6 @@ import(jsonlite)
 import(rvest)
 import(stringr)
 import(utils)
-importFrom(Rcpp,getRcppVersion)
-importFrom(RcppParallel,defaultNumThreads)
 importFrom(cli,cli_abort)
 importFrom(data.table,
   data.table,
