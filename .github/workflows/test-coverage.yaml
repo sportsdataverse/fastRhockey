@@ -40,7 +40,10 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::covr, any::xml2, any::xgboost
+          # No xgboost: .onLoad() would load the xG boosters, and covr cannot serialize
+          # its counters once xgboost has disposed of them ("Booster has not been
+          # initialized"). The xG tests are NHL-gated, so they skip on CI anyway.
+          extra-packages: any::covr, any::xml2
           needs: coverage
 
       - name: Test coverage

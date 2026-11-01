@@ -61,8 +61,8 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          # xgboost is a Suggests dep; install it explicitly so the xG model
-          # tests (test-calculate_xg.R) run on CI instead of being skipped.
+          # xgboost is a Suggests dep; install it so the check covers .onLoad()
+          # loading the xG models. (The xG tests are live-gated and skip on CI.)
           extra-packages: any::rcmdcheck, any::xgboost
           needs: check
 
