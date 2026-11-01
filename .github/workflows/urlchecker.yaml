@@ -3,7 +3,9 @@
 # PR that edits this file. URLs on stats.nba.com, stats.wnba.com, stats.ncaa.org and
 # the sports-reference family (incl. hockey-reference.com) are dropped before
 # checking: those hosts block or stall datacenter IPs, and SDV never calls them from
-# cloud runners. Check them by hand from a residential IP before a CRAN submission.
+# cloud runners. eliteleague.co.uk is dropped too (200 from a residential IP, but it
+# times out from GitHub runners). Check them by hand from a residential IP before a
+# CRAN submission. GitHub stargazers pages are ignored: they 404 for anonymous clients.
 on:
   workflow_dispatch:
   schedule:
@@ -43,9 +45,10 @@ jobs:
           # The vignette has no VignetteEngine, so urlchecker would skip it; add it by path.
           paths <- normalizePath(c(".", list.files("vignettes", pattern = "[.]Rmd$", full.names = TRUE)), winslash = "/")
           db <- urlchecker:::build_url_db(paths)
-          blocked <- "^https?://([a-z0-9-]+[.])*(stats[.]nba[.]com|stats[.]wnba[.]com|stats[.]ncaa[.]org|sports-reference[.]com|hockey-reference[.]com|basketball-reference[.]com)([:/?#]|$)"
+          blocked <- "^https?://([a-z0-9-]+[.])*(stats[.]nba[.]com|stats[.]wnba[.]com|stats[.]ncaa[.]org|sports-reference[.]com|hockey-reference[.]com|basketball-reference[.]com|eliteleague[.]co[.]uk)([:/?#]|$)"
           skip <- grepl(blocked, db$URL, ignore.case = TRUE)
-          message(sum(skip), " URL(s) on datacenter-blocked hosts not checked:")
+          skip <- skip | grepl("^https://github[.]com/[^/]+/[^/]+/stargazers/?$", db$URL)
+          message(sum(skip), " URL(s) on datacenter-blocked hosts or stargazers pages not checked:")
           writeLines(unique(db$URL[skip]))
           res <- urlchecker::url_check(".", db = db[!skip, ], fail = FALSE)
           print(res)
