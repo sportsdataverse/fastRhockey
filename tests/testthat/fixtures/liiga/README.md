@@ -1,9 +1,9 @@
 # Liiga fixtures (`liiga.fi/api/v2`)
 
-**Per-route captures** (`*.json` in this directory): copied verbatim from
-`sdv-internal-refs/liiga/captures/` (refs commit `ee1b52e`, captured 2026-10-12). They are truncated
-(every array cut to 3 elements, id-keyed maps to 3 keys); see that directory's README for the example
-ids (season 2026, game 1 HPK-TPS, team `55786244:hpk`, player `21870028`) and the variant naming.
+**Per-route captures** (`*.json` in this directory): captured from the
+public liiga.fi API on 2026-10-12. They are truncated
+(every array cut to 3 elements, id-keyed maps to 3 keys); example
+ids: season 2026, game 1 HPK-TPS, team `55786244:hpk`, player `21870028`.
 
 **Full bodies** (`full/`): fetched untruncated on 2026-10-12, keyless, 1.2 s apart. Dtypes and the
 returns-schemas of the box score and the games list are derived from these, not from the 3-row captures,

@@ -18,10 +18,7 @@ test_that("NHL - Game IDs by Season (single team fast path)", {
 test_that("NHL - Game IDs by Season (all teams, regular season)", {
     skip_on_cran()
     skip_nhl_test()
-    skip_if(
-        Sys.getenv("RUN_SLOW_NHL_TESTS") != "true",
-        "slow test"
-    )
+    skip_slow_nhl_test()
     x <- nhl_game_ids_by_season(
         season = 2024,
         game_types = c(2L)

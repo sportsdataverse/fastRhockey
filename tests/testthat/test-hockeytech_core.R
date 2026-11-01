@@ -137,10 +137,8 @@ test_that("game_summary three_stars falls back to mvps", {
 
 test_that(".hockeytech_most_recent_season returns the max season_yr from parsed seasons fixture", {
   testthat::skip_on_cran()
-  # Feed a fixture-derived seasons frame directly into the function's logic to
-  # avoid a network call. We mock .hockeytech_season_id_df by testing that
-  # .hockeytech_most_recent_season's contract (max season_yr or 2026L fallback)
-  # matches what we compute from the same fixture it would normally call.
+  # Serve a fixture-derived seasons frame in place of the live seasons feed, so
+  # .hockeytech_most_recent_season() makes no network call.
   seasons_df <- fastRhockey:::.parse_hockeytech_seasons(.load_fx("pwhl_seasons"))
   expected <- if (nrow(seasons_df) > 0 && "season_yr" %in% names(seasons_df)) {
     as.integer(max(seasons_df$season_yr, na.rm = TRUE))
@@ -149,14 +147,11 @@ test_that(".hockeytech_most_recent_season returns the max season_yr from parsed 
   }
   # Verify the expected value is sane before asserting the function matches it
   expect_true(expected >= 2024L)
-  # The function itself: returns max(season_yr) when seasons are available,
-  # or 2026L on failure. Since this uses the same underlying fixture logic,
-  # assert the function's return type and lower bound match the fixture-derived value.
+  local_mocked_bindings(.hockeytech_season_id_df = function(league) seasons_df)
   result <- fastRhockey:::.hockeytech_most_recent_season("pwhl")
-  # result may be 2026L if network is unavailable in the test environment; that's
-  # acceptable. What matters is the type contract and the lower bound.
-  expect_true(is.integer(result) || is.numeric(result))
-  expect_true(result >= 2024L)
+  expect_true(is.integer(result))
+  # The newest regular season is never past the newest season of any kind.
+  expect_true(result >= 2024L && result <= expected)
 })
 
 test_that("season names read as their end year (real HockeyTech name forms)", {

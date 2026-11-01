@@ -53,10 +53,12 @@ jobs:
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      # Optional live API toggles (tests short-circuit unless set):
-      RUN_NHL_TESTS: ${{ secrets.RUN_NHL_TESTS }}
-      RUN_PHF_TESTS: ${{ secrets.RUN_PHF_TESTS }}
-      RUN_PWHL_TESTS: ${{ secrets.RUN_PWHL_TESTS }}
+      # Live API toggles (repository variables; inert on CI, see tests/testthat/helper-skip.R):
+      RUN_NHL_TESTS: ${{ vars.RUN_NHL_TESTS }}
+      RUN_PHF_TESTS: ${{ vars.RUN_PHF_TESTS }}
+      RUN_PWHL_TESTS: ${{ vars.RUN_PWHL_TESTS }}
+      RUN_ESPN_TESTS: ${{ vars.RUN_ESPN_TESTS }}
+      RUN_EURO_TESTS: ${{ vars.RUN_EURO_TESTS }}
 
     steps:
       - uses: r-hub/actions/checkout@v1
@@ -85,10 +87,12 @@ jobs:
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      # Optional live API toggles (tests short-circuit unless set):
-      RUN_NHL_TESTS: ${{ secrets.RUN_NHL_TESTS }}
-      RUN_PHF_TESTS: ${{ secrets.RUN_PHF_TESTS }}
-      RUN_PWHL_TESTS: ${{ secrets.RUN_PWHL_TESTS }}
+      # Live API toggles (repository variables; inert on CI, see tests/testthat/helper-skip.R):
+      RUN_NHL_TESTS: ${{ vars.RUN_NHL_TESTS }}
+      RUN_PHF_TESTS: ${{ vars.RUN_PHF_TESTS }}
+      RUN_PWHL_TESTS: ${{ vars.RUN_PWHL_TESTS }}
+      RUN_ESPN_TESTS: ${{ vars.RUN_ESPN_TESTS }}
+      RUN_EURO_TESTS: ${{ vars.RUN_EURO_TESTS }}
 
     steps:
       - uses: r-hub/actions/checkout@v1

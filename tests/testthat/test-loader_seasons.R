@@ -9,6 +9,7 @@ mock_assets <- function(missing = character()) {
 }
 
 test_that(".loader_seasons falls back to the previous season only for the default", {
+  skip_on_cran()
   local_mocked_bindings(.release_asset_exists = mock_assets(url_for(2027)))
 
   expect_message(
@@ -25,6 +26,7 @@ test_that(".loader_seasons falls back to the previous season only for the defaul
 })
 
 test_that(".loader_seasons keeps the default season when it is published", {
+  skip_on_cran()
   local_mocked_bindings(.release_asset_exists = mock_assets())
   expect_no_message(
     out <- .loader_seasons(2027, 2024, 2027, what = "x", url_for = url_for, default = TRUE)
@@ -33,6 +35,7 @@ test_that(".loader_seasons keeps the default season when it is published", {
 })
 
 test_that(".loader_seasons(TRUE) expands to published seasons only", {
+  skip_on_cran()
   local_mocked_bindings(.release_asset_exists = mock_assets(url_for(2027)))
   expect_equal(.loader_seasons(TRUE, 2024, 2027, what = "x", url_for = url_for), 2024:2026)
 
@@ -43,6 +46,7 @@ test_that(".loader_seasons(TRUE) expands to published seasons only", {
 })
 
 test_that(".loader_seasons rejects seasons outside the range", {
+  skip_on_cran()
   expect_error(.loader_seasons(2023, 2024, 2027, what = "x"), "from 2024 to 2027")
   expect_error(.loader_seasons(2028, 2024, 2027, what = "x"), "You requested: 2028")
   expect_error(.loader_seasons(2024.5, 2024, 2027, what = "x"), "whole seasons")
@@ -52,12 +56,14 @@ test_that(".loader_seasons rejects seasons outside the range", {
 })
 
 test_that(".loader_seasons passes multi-season requests through without a check", {
+  skip_on_cran()
   local_mocked_bindings(.release_asset_exists = function(url) stop("no network expected"))
   expect_equal(.loader_seasons(c(2025, 2026), 2024, 2027, what = "x", url_for = url_for,
                                default = TRUE), c(2025, 2026))
 })
 
 test_that("loaders and their aliases flag a default-season call", {
+  skip_on_cran()
   seen <- NULL
   local_mocked_bindings(.pwhl_release_loader = function(seasons, ..., default = FALSE) {
     seen <<- default
@@ -74,6 +80,7 @@ test_that("loaders and their aliases flag a default-season call", {
 })
 
 test_that(".hockeytech_season_from_date rolls over in September", {
+  skip_on_cran()
   expect_identical(.hockeytech_season_from_date(as.Date("2026-08-31")), 2026L)
   expect_identical(.hockeytech_season_from_date(as.Date("2026-09-01")), 2027L)
   expect_identical(.hockeytech_season_from_date(as.Date("2027-04-15")), 2027L)

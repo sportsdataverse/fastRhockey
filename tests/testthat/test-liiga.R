@@ -434,6 +434,7 @@ test_that("live: tournament, schedule and a box score answer", {
 })
 
 test_that("game stats join tracking rows whose player_id is double against integer box-score ids", {
+  skip_on_cran()
   body <- liiga_body("full/games__stats__2026__1.json")
   base <- liiga_run(quote(liiga_game_stats(2026, 1)), body)
   for (key in c("homeTeamGamePlayerStats", "awayTeamGamePlayerStats")) {

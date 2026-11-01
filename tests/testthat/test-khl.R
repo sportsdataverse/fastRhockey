@@ -864,6 +864,7 @@ test_that("live: the season table and a primed khl.ru schedule", {
 })
 
 test_that(".khl_stage_for rejects non-whole seasons", {
+  skip_on_cran()
   expect_error(.khl_stage_for(2026.9), class = "fastRhockey_bad_request")
   expect_error(.khl_stage_for("2026x"), class = "fastRhockey_bad_request")
 })

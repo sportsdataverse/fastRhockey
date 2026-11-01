@@ -62,7 +62,7 @@ test_that("coord + clock transforms add parity columns", {
 
 test_that("derived coordinates are rotations that keep every event on the rink (real game 42)", {
   testthat::skip_on_cran()
-  # The feed puts the home team's attack toward x = 0 (sdv-internal-refs CANVAS.md).
+  # The feed puts the home team's attack toward x = 0 (HockeyTech canvas convention).
   df <- fastRhockey:::.parse_hockeytech_pbp(.load_fx("pwhl_pbp_42"), game_id = 42)
   home <- .load_fx("pwhl_game_summary_42")$GC$Gamesummary$meta$home_team
   df$home_team_id <- home

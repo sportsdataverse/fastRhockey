@@ -21,19 +21,29 @@ test_that(".polite_wait spaces requests to one host and leaves other hosts alone
 
 test_that(".polite_wait charges an oversleep to the slept request, not the next one", {
   skip_on_cran()
-  # Sys.sleep() can overshoot (macOS timer coalescing on a loaded runner); inject a
-  # 0.2 s overshoot on the first sleep only.
+  # Sys.sleep() can overshoot (macOS timer coalescing on a loaded runner). Run the
+  # throttle on a fake clock so the assertion is exact: the first sleep overshoots by
+  # 0.2 s, and the wall clock (which made this test flaky on CI) is never read.
+  t <- 0
   n <- 0
+  # Fake-clock stamps must not leak into a rerun in the same session.
+  hosts <- "oversleep.test"
+  rm(list = intersect(hosts, ls(.polite_clock)), envir = .polite_clock)
+  withr::defer(rm(list = intersect(hosts, ls(.polite_clock)), envir = .polite_clock))
   wait <- .polite_wait
-  environment(wait) <- list2env(list(Sys.sleep = function(s) {
-    n <<- n + 1
-    base::Sys.sleep(s + if (n == 1) 0.2 else 0)
-  }), parent = environment(.polite_wait))
-  wait("https://oversleep.test/a", min_interval = 0.3)
-  wait("https://oversleep.test/b", min_interval = 0.3) # sleeps 0.3, overshoots to 0.5
-  woke <- proc.time()[["elapsed"]]
-  wait("https://oversleep.test/c", min_interval = 0.3)
-  expect_gte(proc.time()[["elapsed"]] - woke, 0.29)
+  environment(wait) <- list2env(list(
+    proc.time = function() c(user.self = 0, sys.self = 0, elapsed = t),
+    Sys.sleep = function(s) {
+      n <<- n + 1
+      t <<- t + s + if (n == 1) 0.2 else 0
+    }
+  ), parent = environment(.polite_wait))
+  expect_equal(wait("https://oversleep.test/a", min_interval = 0.3), 0)
+  expect_equal(wait("https://oversleep.test/b", min_interval = 0.3), 0.3) # overshoots to 0.5
+  expect_equal(t, 0.5)
+  # Charged from the real wake time (0.5), not the scheduled slot (0.3): a full 0.3 s.
+  expect_equal(wait("https://oversleep.test/c", min_interval = 0.3), 0.3)
+  expect_equal(t, 0.8)
 })
 
 test_that(".polite_perform waits on every attempt, retries included, and the next call waits after the retry", {
@@ -217,6 +227,7 @@ test_that(".season_start_year maps an END year to the START year", {
 })
 
 test_that(".season_start_year rejects non-whole and non-numeric seasons rather than truncating", {
+  skip_on_cran()
   expect_identical(.season_start_year(2026), 2025L)
   expect_identical(.season_start_year("2026"), 2025L)
   expect_error(.season_start_year(2026.5), class = "fastRhockey_bad_request")
