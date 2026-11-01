@@ -1,7 +1,5 @@
 # **fastRhockey 1.1.0**
 
-<!-- batch-1 / batch-3 bullets go here (fill, then remove this marker) -->
-
 ### Breaking changes
 
 These change the shape or type of output that CRAN 1.0.0 returned. Code that
@@ -14,12 +12,13 @@ upgrades from 1.0.0 may need to change.
   now return every column as character, and `game_status` carries the
   schedule view's strings (`Final OT` where 1.0.0 returned `Final 1st OT`)
   (#74).
-* `pwhl_pbp()` and the AHL / OHL / WHL / QMJHL `*_pbp()` functions:
-  `x_coord_fixed` / `y_coord_fixed`, `x_coord_right` / `y_coord_right` and
-  `x_coord_vertical` / `y_coord_vertical` are now rotations of the feet frame
-  (home team shooting right), and the right and vertical columns are `NA`
-  when an event's side is unknown. See the bug fix below for the details
-  (#75).
+* `pwhl_pbp()` and the AHL / OHL / WHL / QMJHL `*_pbp()` functions: the
+  derived coordinates are now rotations of the feet frame.
+  `x_coord_fixed` / `y_coord_fixed` have the home team shooting right,
+  `x_coord_right` / `y_coord_right` have every team shooting right, and
+  `x_coord_vertical` / `y_coord_vertical` have every team shooting up. The
+  right and vertical columns are `NA` when an event's side is unknown. See
+  the bug fix below for the details (#75).
 
 ### New features
 
@@ -74,7 +73,10 @@ upgrades from 1.0.0 may need to change.
 * Documentation: a data status section and navbar link (#71), the HockeyTech
   raw-coordinate canvas documented (#73), the newer SportsDataverse packages
   in the site's SDV menu (#77), BibTeX spelled correctly (#78), and a star
-  history chart in the README (#86).
+  history chart in the README (#86). The pkgdown articles moved onto the
+  shared SportsDataverse article template (#67), the site gained Plausible
+  analytics and a trimmed search index (#68), and the README and site link
+  the package cheat sheet and cite the current release year.
 
 ### Bug fixes
 
@@ -178,8 +180,8 @@ upgrades from 1.0.0 may need to change.
 
 ### Dependencies
 
-* `xml2 (>= 1.3)` and `stats` moved from Suggests to Imports, `utils` is now
-  listed in Imports, and the `testthat` floor is raised to 3.1.7.
+* `xml2 (>= 1.3)` and `stats` moved from Suggests to Imports and `utils` is
+  now listed in Imports (#83); the `testthat` floor is raised to 3.1.7 (#74).
 
 # **fastRhockey 1.0.0**
 
@@ -220,6 +222,10 @@ upgrades from 1.0.0 may need to change.
 * `load_pwhl_schedule()` -- Load pre-scraped PWHL schedules.
 * `load_pwhl_rosters()` -- Load pre-scraped PWHL team rosters.
 * `update_pwhl_db()` -- Update or create a PWHL play-by-play database.
+* `load_pwhl_shifts()` and `load_pwhl_xg_pbp()` — loaders for the two
+  published PWHL release datasets that had no R access (per-player shift
+  charts and xG-enriched play-by-play), completing coverage of every
+  hockey tag on the sportsdataverse-data releases.
 
 ### **New NHL Functions**
 
@@ -235,6 +241,9 @@ upgrades from 1.0.0 may need to change.
   `nhl_game_content()`, `nhl_game_shifts()`, `nhl_playoff_bracket()`,
   `nhl_playoff_schedule()`, `nhl_playoff_carousel()`.
 * xG model integration via `helper_nhl_calculate_xg()`.
+* `nhl_game_shifts()` gains a `detailed` argument: `detailed = TRUE` returns
+  the per-player shift records (one row per player-shift with game-second
+  on/off times) instead of the aggregated one-row-per-change frame (#26).
 
 ### **Bug Fixes**
 
@@ -250,6 +259,41 @@ upgrades from 1.0.0 may need to change.
   instead of top-level bindings.
 * Fixed NAMESPACE: removed `import(tidyverse)` which violated CRAN policy.
   Individual packages (dplyr, tidyr, etc.) are already imported.
+* `pwhl_stats()` now resolves the `season` argument to the correct HockeyTech
+  season id instead of always returning the inaugural 2024 season (#50), and
+  the `team` filter works for both positions and accepts a team code
+  (`"OTT"`), label (`"Ottawa"`), or full name — an unknown team now errors
+  informatively instead of silently returning the whole league (#49).
+* `pwhl_stats()`, `pwhl_schedule()`, and `pwhl_standings()` now strip the
+  HockeyTech JSONP envelope through the shared `.hockeytech_api()` helper
+  instead of per-function regexes that broke on payload-shape changes
+  (empty results for 2025 onward).
+* `pwhl_stats()` skater results are resilient to the shootout stat block
+  dropping out of the feed (absent after the inaugural season).
+* **Fix:** `pwhl_playoff_bracket()` errored with `$ operator is invalid for
+  atomic vectors` and returned `NULL`. The HockeyTech feed returns
+  `team1`/`team2` as bare id strings (not nested objects) with wins in
+  sibling `team1_wins`/`team2_wins` fields; the parser now reads these
+  correctly.
+* `nhl_stats_players()` now detects `data: []` empty-list responses
+  (the API returns this when no `cayenne_exp` filter is supplied) and
+  returns `NULL` with a friendly hint instead of crashing
+  `clean_names()`.
+* `nhl_stats_skater_leaders()` and `nhl_stats_goalie_leaders()` no
+  longer pass `start`/`limit` query parameters, which the
+  `leaders/{skaters,goalies}/{attribute}` endpoint rejects with a 500
+  Cayenne SQL error. Roxygen now documents the valid `attribute`
+  values: skaters accept `assists`/`goals`/`points`; goalies accept
+  `savePctg`/`gaa`/`shutouts`.
+* `nhl_records_franchise(franchise_id = ...)` now translates the
+  `franchise_id` argument into a `cayenneExp=id={id}` filter. The
+  records API does not support a path-suffix `franchise/{id}` form
+  (returns 404).
+* `nhl_records_award_details()` -- replaced the broken `franchise_id`
+  argument with `season_id` (the `award-details` endpoint accepts
+  `seasonId` filtering but rejects `franchiseId`).
+* `nhl_stats_content_module()` now guards against unnamed CMS
+  responses that previously crashed `clean_names()`.
 
 ### **Deprecations**
 
@@ -262,6 +306,20 @@ upgrades from 1.0.0 may need to change.
   `load_phf_player_box()`, `load_phf_schedule()`, `load_phf_rosters()`,
   `update_phf_db()`.
 * Utility: `most_recent_phf_season()`.
+* **Deprecated:** nine NHL Edge "top-10" leaderboard wrappers whose upstream
+  endpoints the NHL has removed (every request returns HTTP 404):
+  `nhl_edge_goalie_5v5_top_10()`,
+  `nhl_edge_goalie_edge_save_pctg_top_10()`,
+  `nhl_edge_goalie_shot_location_top_10()`,
+  `nhl_edge_skater_shot_location_top_10()`,
+  `nhl_edge_skater_shot_speed_top_10()`,
+  `nhl_edge_skater_speed_top_10()`,
+  `nhl_edge_skater_zone_time_top_10()`,
+  `nhl_edge_team_shot_location_top_10()`, and
+  `nhl_edge_team_skating_speed_top_10()`. They now emit a
+  `lifecycle::deprecate_warn()` and return `NULL`. The Edge "top-10" wrappers
+  that remain live (skater distance, team skating-distance, team zone-time)
+  are unaffected.
 
 ### **Improvements**
 
@@ -294,30 +352,6 @@ upgrades from 1.0.0 may need to change.
 * Added `cran_comments.md` for CRAN submission.
 * Updated `_pkgdown.yml` with reorganized PWHL reference sections.
 * Added R CMD check CI workflow and pkgdown deployment workflow.
-
-### New features
-
-* `load_pwhl_shifts()` and `load_pwhl_xg_pbp()` — loaders for the two
-  published PWHL release datasets that had no R access (per-player shift
-  charts and xG-enriched play-by-play), completing coverage of every
-  hockey tag on the sportsdataverse-data releases.
-* `nhl_game_shifts()` gains a `detailed` argument: `detailed = TRUE` returns
-  the per-player shift records (one row per player-shift with game-second
-  on/off times) instead of the aggregated one-row-per-change frame (#26).
-
-### Bug fixes
-
-* `pwhl_stats()` now resolves the `season` argument to the correct HockeyTech
-  season id instead of always returning the inaugural 2024 season (#50), and
-  the `team` filter works for both positions and accepts a team code
-  (`"OTT"`), label (`"Ottawa"`), or full name — an unknown team now errors
-  informatively instead of silently returning the whole league (#49).
-* `pwhl_stats()`, `pwhl_schedule()`, and `pwhl_standings()` now strip the
-  HockeyTech JSONP envelope through the shared `.hockeytech_api()` helper
-  instead of per-function regexes that broke on payload-shape changes
-  (empty results for 2025 onward).
-* `pwhl_stats()` skater results are resilient to the shootout stat block
-  dropping out of the feed (absent after the inaugural season).
 
 ### Housekeeping
 
@@ -377,28 +411,6 @@ upgrades from 1.0.0 may need to change.
   Function outputs are unchanged.
 * Raised the minimum R version to **4.1.0** (the new `httr2` request helpers use
   the native `|>` pipe).
-
-### **Deprecations & fixes**
-
-* **Deprecated:** nine NHL Edge "top-10" leaderboard wrappers whose upstream
-  endpoints the NHL has removed (every request returns HTTP 404):
-  `nhl_edge_goalie_5v5_top_10()`,
-  `nhl_edge_goalie_edge_save_pctg_top_10()`,
-  `nhl_edge_goalie_shot_location_top_10()`,
-  `nhl_edge_skater_shot_location_top_10()`,
-  `nhl_edge_skater_shot_speed_top_10()`,
-  `nhl_edge_skater_speed_top_10()`,
-  `nhl_edge_skater_zone_time_top_10()`,
-  `nhl_edge_team_shot_location_top_10()`, and
-  `nhl_edge_team_skating_speed_top_10()`. They now emit a
-  `lifecycle::deprecate_warn()` and return `NULL`. The Edge "top-10" wrappers
-  that remain live (skater distance, team skating-distance, team zone-time)
-  are unaffected.
-* **Fix:** `pwhl_playoff_bracket()` errored with `$ operator is invalid for
-  atomic vectors` and returned `NULL`. The HockeyTech feed returns
-  `team1`/`team2` as bare id strings (not nested objects) with wins in
-  sibling `team1_wins`/`team2_wins` fields; the parser now reads these
-  correctly.
 
 ### **CI: NHL loader + xG tests, and two fixes**
 
@@ -657,28 +669,6 @@ tidy data frame:
 * `data-raw/nhl_records_openapi.{json,yaml}` -- OpenAPI 3.0.3 spec for
   `records.nhl.com/site/api/` (442 endpoints).
 * `data-raw/_gen_openapi.py` -- regenerator script.
-
-### **Bug Fixes / API quirks documented**
-
-* `nhl_stats_players()` now detects `data: []` empty-list responses
-  (the API returns this when no `cayenne_exp` filter is supplied) and
-  returns `NULL` with a friendly hint instead of crashing
-  `clean_names()`.
-* `nhl_stats_skater_leaders()` and `nhl_stats_goalie_leaders()` no
-  longer pass `start`/`limit` query parameters, which the
-  `leaders/{skaters,goalies}/{attribute}` endpoint rejects with a 500
-  Cayenne SQL error. Roxygen now documents the valid `attribute`
-  values: skaters accept `assists`/`goals`/`points`; goalies accept
-  `savePctg`/`gaa`/`shutouts`.
-* `nhl_records_franchise(franchise_id = ...)` now translates the
-  `franchise_id` argument into a `cayenneExp=id={id}` filter. The
-  records API does not support a path-suffix `franchise/{id}` form
-  (returns 404).
-* `nhl_records_award_details()` -- replaced the broken `franchise_id`
-  argument with `season_id` (the `award-details` endpoint accepts
-  `seasonId` filtering but rejects `franchiseId`).
-* `nhl_stats_content_module()` now guards against unnamed CMS
-  responses that previously crashed `clean_names()`.
 
 ### **New NHL Loaders**
 
