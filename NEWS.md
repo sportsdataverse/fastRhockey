@@ -1,4 +1,24 @@
-# **fastRhockey 1.0.0.9000 (continued development)**
+# **fastRhockey 1.1.0**
+
+### Breaking changes
+
+These change the shape or type of output that CRAN 1.0.0 returned. Code that
+upgrades from 1.0.0 may need to change.
+
+* `espn_nhl_team_schedule()`: `home_score` and `away_score` are now always
+  character, as documented. A fully played season used to return them as
+  double (#84).
+* `ahl_schedule()`, `ohl_schedule()`, `whl_schedule()` and `qmjhl_schedule()`
+  now return every column as character, and `game_status` carries the
+  schedule view's strings (`Final OT` where 1.0.0 returned `Final 1st OT`)
+  (#74).
+* `pwhl_pbp()` and the AHL / OHL / WHL / QMJHL `*_pbp()` functions: the
+  derived coordinates are now rotations of the feet frame.
+  `x_coord_fixed` / `y_coord_fixed` have the home team shooting right,
+  `x_coord_right` / `y_coord_right` have every team shooting right, and
+  `x_coord_vertical` / `y_coord_vertical` have every team shooting up. The
+  right and vertical columns are `NA` when an event's side is unknown. See
+  the bug fix below for the details (#75).
 
 ### New features
 
@@ -10,7 +30,7 @@
   nothing for the request), `fastRhockey_asset_fetch` (the answer is unknown:
   a 403/5xx, a block, an empty body, a body for another game) and
   `fastRhockey_bad_request`, all inheriting `fastRhockey_error`. Results are
-  `fastRhockey_data`; `return_parsed = FALSE` returns the raw payload.
+  `fastRhockey_data`; `return_parsed = FALSE` returns the raw payload (#83).
   * eSports (DEL, ICE Hockey League, EIHL, Metal Ligaen): 41 wrappers,
     `del_*` (12), `icehl_*` (12), `eihl_*` (9), `metal_*` (8).
   * KHL: 23 `khl_*` wrappers over khl.ru and the webcaster API.
@@ -21,10 +41,9 @@
   * Czech Extraliga: 9 `elh_*` wrappers.
   * HockeyAllsvenskan: 11 `ha_*` wrappers.
   * Swiss National League (nationalleague.ch): 17 `nl_*` wrappers. The site's
-    robots.txt disallows `/api`; building on it was approved by the owner on
-    2026-10-12 for polite, incremental use only (at least 1 s between
-    requests, no bulk backfill or published mirror without asking again), and
-    the ruling is repeated in each function's documentation.
+    robots.txt disallows `/api`, so use these functions sparingly: requests
+    are spaced at least 1 s apart, and they suit interactive, incremental
+    access rather than bulk backfills or public mirrors.
   * Ligue Magnus: 11 `magnus_*` wrappers.
   * VHL (Russia): 13 `vhl_*` wrappers plus `vhl_tn()`.
   * ESPN men's and women's college hockey: 236 wrappers, 118 per league
@@ -33,20 +52,13 @@
   ids past 2^31 (SIHF `game_id`, National League `game_id` and unix times,
   eSports epoch-millisecond timestamps, KHL webcaster `*_ts`, Czech
   Extraliga `sort_order`) are doubles, and `return_as_pandas` and `**kwargs`
-  are dropped.
-* `load_pwhl_shifts()` and `load_pwhl_xg_pbp()` — loaders for the two
-  published PWHL release datasets that had no R access (per-player shift
-  charts and xG-enriched play-by-play), completing coverage of every
-  hockey tag on the sportsdataverse-data releases.
+  are dropped (#83).
 * `load_nhl_groups()`, `load_nhl_group_seasons()`, `load_nhl_group_aliases()`
   and `load_nhl_team_group_seasons()` — season-by-season conference and
   division reference tables from the `nhl_groups` sportsdataverse-data
   release: each group's name and parent as of every season, every source's
   ids and names for it, and each team's conference and division by season
-  (1918+, keyed by the season's end year).
-* `nhl_game_shifts()` gains a `detailed` argument: `detailed = TRUE` returns
-  the per-player shift records (one row per player-shift with game-second
-  on/off times) instead of the aggregated one-row-per-change frame (#26).
+  (1918+, keyed by the season's end year) (#70).
 * ESPN college hockey follow-ups: the `espn_mch_*` / `espn_wch_*` wrappers take
   the sportsdataverse-py arguments the shared helpers used to drop (scoreboard
   `week`, `season_type`, `groups`, `limit`; standings `group`,
@@ -55,18 +67,49 @@
   requests are unchanged. New `espn_{mch,wch}_{pbp,team_box,player_box}`
   wrappers mirror the NHL ones. The college `@return` tables are now checked
   against captured mch/wch bodies (30 verified; injuries, transactions and
-  rosters were empty in every capture and say so).
+  rosters were empty in every capture and say so) (#84).
 * VHL: requests use the shared polite retry (429/5xx with `Retry-After`) and
-  HTML tables parse about 6x faster (a stats page 24.7 s -> 4.0 s).
+  HTML tables parse about 6x faster (a stats page 24.7 s -> 4.0 s) (#84).
+* Documentation: a data status section and navbar link (#71), the HockeyTech
+  raw-coordinate canvas documented (#73), the newer SportsDataverse packages
+  in the site's SDV menu (#77), BibTeX spelled correctly (#78), and a star
+  history chart in the README (#86). The pkgdown articles moved onto the
+  shared SportsDataverse article template (#67), the site gained Plausible
+  analytics and a trimmed search index (#68), and the README and site link
+  the package cheat sheet and cite the current release year.
+* Testing and CI: live tests now always skip on CRAN and CI and run only when
+  their `RUN_*_TESTS` toggle is `1` or `true`; an unset toggle skips. CI adds
+  an R-devel check job, a urlchecker job and a test-coverage job (#88).
 
 ### Bug fixes
 
+* SHL: `www.shl.se`'s `statistics-v2/layout-info` renamed its season directory
+  from `seasonSeriesGameTypeTeams` to `originalSeasonSeriesGameTypeTeams`, so
+  every SHL lookup (and `shl_last_game_day()`) stopped with "no ssgt directory
+  in the body". The SHL functions read the new key and fall back to the old one
+  (#90).
+* `pwhl_standings()` ignored `season` and `regular` and always returned
+  2023-24. It now resolves the HockeyTech season id from them, and its default
+  is `most_recent_pwhl_season()` (#90).
+* The PWHL season-id fallback table, used when the HockeyTech season list
+  cannot be read, now runs through 2026-27, and the AHL / OHL / WHL / QMJHL
+  most-recent-season fallback is computed from the date instead of a fixed
+  2026 (#90).
+* `nhl_stats_skaters()`, `nhl_stats_goalies()`, `nhl_stats_teams()` and
+  `nhl_playoff_carousel()` asked for the next season (`"20272028"` in
+  November 2026); they now default to `most_recent_nhl_season_api_param()`
+  (#90).
+* The PWHL and NHL release loaders called with their default season now load
+  the newest published season, with a message, when the current one has no
+  file yet (every `load_pwhl_*()` returned an empty table from 1 November
+  until the first 2026-27 game). An explicit request for an unpublished season
+  still returns an empty table, and a season outside the published range is a
+  cli error (#90).
 * The European hockey per-host throttle stamped each request at its scheduled
   time, not when its wait actually ended, so an oversleeping `Sys.sleep()`
   (macOS timer coalescing on a loaded machine) let the next request to that
   host go out early, inside the one-second spacing. The clock now records the
-  real wake time.
-
+  real wake time (#87).
 * `khl_player_stats(position = "goalies")` returned 20 goalies who had not
   played (khl.ru orders goalies by goals-against average ascending and ignores
   sort fields). It now fetches every page (the count from `nav.max`) and
@@ -75,64 +118,61 @@
   missing page, a row count that does not fit the page count, a player on two
   pages, more than 30 pages) raises `fastRhockey_asset_fetch`. The goalie
   columns (`w`, `l`, `sop`, `ga`, `sv`, `sv_pct`, `gaa`, `so`, `toi`) are now
-  documented and typed as in sdv-py: `sv_pct` is on a 0-100 scale (92.2),
-  `gaa` is double, `toi` is mm:ss text with `"-"` as `NA`. Skaters are
-  unchanged.
+  documented and typed as in sportsdataverse-py: `sv_pct` is on a 0-100 scale
+  (92.2), `gaa` is double, `toi` is mm:ss text with `"-"` as `NA`. Skaters are
+  unchanged (#85).
 * ESPN college hockey routes match sportsdataverse-py: `coach_record` asks
   for `coaches/{id}/record/{record_type}` (default `0`) and `coach_season` for
   `coaches/{id}/seasons/{season}`. `calendar` deliberately keeps reading the
   scoreboard payload: sportsdataverse-py's `/calendar` route answers 404 for
-  both college leagues.
+  both college leagues (#84).
 * ESPN scoreboards (`espn_nhl_scoreboard()` and the college ones): the
   `broadcast` column joins every network name with ", " ("ESPNU, ESPN+"; feed
   order, deduped), exactly as sportsdataverse-py; it used to carry ESPN's
-  "/"-joined first-market string. Team schedules use the same rule.
+  "/"-joined first-market string. Team schedules use the same rule (#84).
 * ESPN `teams_site`, `team_schedule` and `standings` returned empty frames on
   college bodies (no `alternateColor`; played and unplayed games mixing score
   types, which also hit NHL schedules spanning both; a standings table at the
-  root of the body).
-  **Type change:** `espn_nhl_team_schedule()` `home_score` / `away_score` are now
-  always character, as documented; a fully played season used to come back as
-  double.
+  root of the body) (#84). `espn_nhl_team_schedule()` scores are now always
+  character (see Breaking changes).
 * ESPN college `limit` arguments now default as in sportsdataverse-py
   (`scoreboard`, `team_roster` and `transactions` 500, `teams_site` 1000,
   `season_awards` 200), so R and Python fetch the same page; NHL requests are
-  unchanged.
+  unchanged (#84).
 * KHL: when khl.ru answers session priming with its ServicePipe anti-bot
   challenge page, the error now says so ("khl.ru served an anti-bot challenge
   page; try again later or through `getOption('fastRhockey.proxy')`") instead
-  of reporting a missing `sessid`.
+  of reporting a missing `sessid` (#84).
 * The NHL release loaders rejected the 2009-10 season: every `load_nhl_*()`
   release loader (and `.nhl_release_loader()`'s default) required
   `seasons >= 2011`, but each sportsdataverse-data release publishes from 2010.
-  They now accept 2010, matching sportsdataverse-py (#765). Two of those
+  They now accept 2010, matching sportsdataverse-py
+  (sportsdataverse/sportsdataverse-py#765) (#79). Two of those
   2009-10 files are thinner at the source: `load_nhl_pbp()` comes from a
   lighter feed (53 columns, not 92), and `load_nhl_three_stars()` covers 324
   of 1,318 games. `load_nhl_pbp_lite()`'s `play_by_play_lite_<year>` files
   started at 2024 until the release was backfilled for 2010-2023 (2026-10-11), so
   earlier lite seasons used to download nothing. `load_nhl_game_rosters()`
-  documents all twelve of its columns.
+  documents all twelve of its columns (#79).
 * `shot_distance` / `shot_angle` (and `scoring_chance`) of an empty-net goal from a
   team's own half were measured to the nearer net: 59 ft for a median 126-ft goal
   (27 such goals in 320 PWHL games). Empty-net goals are now measured to the net
   their team attacks. Every other event keeps the nearer net: per-event validation
   showed own-half events with a goalie in net are near-net events whose coordinates
-  the feed mirrored (sdv-internal-refs `hockeytech/CANVAS.md`, #52).
-
+  the feed mirrored (#76).
 * The derived play-by-play coordinates of `pwhl_pbp()` and the AHL / OHL / WHL /
   QMJHL `*_pbp()` functions put home-team events off the rink: the home flip
   applied a 0-200 x 0-85 mirror to coordinates already in centre-origin feet, so
   home `x_coord_right` ran 191 to 290 ft (PWHL game 42). The feed puts the home
-  team's attack toward x = 0 in every period (320 PWHL games, sdv-internal-refs
-  `hockeytech/CANVAS.md`), and the columns are now rotations of the feet frame:
+  team's attack toward x = 0 in every period (320 PWHL games), and the columns
+  are now rotations of the feet frame:
   `x_coord_fixed` / `y_coord_fixed` = (-x, -y), home team shooting right (the
   NHL `x_fixed` convention); `x_coord_right` / `y_coord_right` = home (-x, -y),
   visitor (x, y); `x_coord_vertical` / `y_coord_vertical` = (-y_right, x_right).
   The right and vertical columns are `NA` when an event's side is unknown (no
   team, as on faceoffs, or no home team id) instead of being treated as the
   visitor's. `x_coord`, `y_coord`, `shot_distance` and `shot_angle` are
-  unchanged.
-
+  unchanged (#75).
 * `ahl_schedule()`, `ohl_schedule()`, `whl_schedule()` and `qmjhl_schedule()`
   returned other seasons' games. They read HockeyTech's `modulekit/scorebar`,
   which ignores the `season_id` it is sent, returns games oldest first and
@@ -142,28 +182,117 @@
   games, OHL 682, WHL 782, QMJHL 578), and drop any row from another season.
   With neither `season` nor `season_id` they return the newest regular season.
   `game_status` now carries the schedule view's strings (`Final OT` where the
-  scorebar said `Final 1st OT`), and every column is character.
-
+  scorebar said `Final 1st OT`), and every column is character (#74).
 * The AHL, OHL, WHL and QMJHL functions that take `season =` (schedule,
   standings, teams, rosters, leaders, ...) could resolve it to the wrong
   HockeyTech season. `ahl_schedule(season = 2026)` resolved to the
   "2026 All-Star Challenge", which the feed lists ahead of the 2025-26 regular
   season, and the WHL's "2025 - 26" season names read as 2025, so
   `whl_schedule(season = 2026)` returned 2026-27. Season names now read as
-  their end year the way sdv-py reads them (spaced and slashed spans, `YY-ZZ`,
+  their end year the way sportsdataverse-py reads them (spaced and slashed spans, `YY-ZZ`,
   compact `YYZZ`, a one-year preseason that opens the next season), one-off
   events are skipped for regular-season and playoff lookups, and the newest
   season counts only real regular seasons. On the 20 leagues' real seasons
-  captures, R and sdv-py now agree on all 485 seasons' end year and type.
-
+  captures, R and sportsdataverse-py now agree on all 485 seasons' end year
+  and type (#74).
 * `nhl_teams(season =)` stopped with "missing value where TRUE/FALSE needed"
   (reported as "Error fetching teams") instead of returning `NULL` with "No
   team data found" when the NHL API has no standings for the date it asks
   for: the API then returns an empty list, whose `nrow()` is `NULL`. It also
   now says that `season` is the year the season starts in (2024 for 2024-25),
   which is what it queries (January of `season + 1`), while
-  `most_recent_nhl_season()` returns the year the season ends.
+  `most_recent_nhl_season()` returns the year the season ends (#69).
 
+### Dependencies
+
+* `xml2 (>= 1.3)` and `stats` moved from Suggests to Imports and `utils` is
+  now listed in Imports (#83); the `testthat` floor is raised to 3.1.7 (#74).
+* `Rcpp` and `RcppParallel` are no longer Imports (fastRhockey has no compiled
+  code), and furrr, future, ggplot2, ggrepel, rmarkdown, stringi and usethis
+  are no longer in Suggests: nothing used them (#90).
+
+### Documentation
+
+* The DESCRIPTION title and description now cover every family the package
+  wraps (NHL, PWHL, the CHL and AHL leagues, ESPN and Fox, the European
+  leagues and college hockey), and the help pages are plain ASCII (#90).
+
+# **fastRhockey 1.0.0**
+
+### **Breaking Changes**
+
+* **Version 1.0.0** signals API stability for NHL and PWHL endpoints.
+* All PHF functions are formally deprecated via `lifecycle`. The Premier Hockey
+  Federation ceased operations; use PWHL functions instead. Functions will be
+  removed in a future release.
+* Consolidated new NHL API functions into existing NHL function names rather
+  than creating `_v2` variants, since the original API endpoints were
+  deprecated by the NHL. This means `nhl_game_feed()`, `nhl_game_boxscore()`,
+  `nhl_schedule()`, `nhl_teams()`, `nhl_teams_roster()`, and
+  `nhl_player_info()` now use the new `api-web.nhle.com` endpoints directly.
+
+### **New PWHL Functions**
+
+* `pwhl_pbp()` -- PWHL play-by-play data.
+* `pwhl_player_box()` -- PWHL player box scores (skaters and goalies).
+* `pwhl_game_info()` -- PWHL game information and metadata.
+* `pwhl_game_summary()` -- Detailed game summary (scoring, penalties, shots
+  by period, three stars).
+* `pwhl_standings()` -- PWHL league standings.
+* `pwhl_stats()` -- PWHL stat leaders (skaters and goalies).
+* `pwhl_leaders()` -- League leaders (top scorers and top goalies).
+* `pwhl_season_id()` -- PWHL season ID lookup (now API-driven with fallback).
+* `pwhl_player_info()` -- Player biographical and profile information.
+* `pwhl_player_game_log()` -- Per-game statistics for a player in a season.
+* `pwhl_player_stats()` -- Career and season-by-season statistics for a player.
+* `pwhl_player_search()` -- Search for players by name.
+* `pwhl_transactions()` -- Player transactions for a season.
+* `pwhl_streaks()` -- Player streak data for a season.
+* `pwhl_playoff_bracket()` -- Playoff bracket / series data.
+* `pwhl_scorebar()` -- Recent and upcoming game scores.
+* `most_recent_pwhl_season()` -- Utility to get the current PWHL season year.
+* `load_pwhl_pbp()` -- Load pre-scraped PWHL play-by-play data.
+* `load_pwhl_player_box()` -- Load pre-scraped PWHL player box scores.
+* `load_pwhl_schedule()` -- Load pre-scraped PWHL schedules.
+* `load_pwhl_rosters()` -- Load pre-scraped PWHL team rosters.
+* `update_pwhl_db()` -- Update or create a PWHL play-by-play database.
+* `load_pwhl_shifts()` and `load_pwhl_xg_pbp()` — loaders for the two
+  published PWHL release datasets that had no R access (per-player shift
+  charts and xG-enriched play-by-play), completing coverage of every
+  hockey tag on the sportsdataverse-data releases.
+
+### **New NHL Functions**
+
+* `nhl_where_to_watch()` -- streaming/broadcast availability.
+* `nhl_partner_game_odds()` -- partner game odds by country.
+* NHL API migration to `api-web.nhle.com`: `nhl_game_feed()`,
+  `nhl_game_boxscore()`, `nhl_schedule()`, `nhl_teams()`,
+  `nhl_teams_roster()`, `nhl_player_info()`, `nhl_player_game_log()`,
+  `nhl_stats_goalies()`, `nhl_stats_skaters()`, `nhl_stats_teams()`,
+  `nhl_stats_misc()`, `nhl_gamecenter_landing()`,
+  `nhl_gamecenter_right_rail()`, `nhl_scoreboard()`, `nhl_scores()`,
+  `nhl_seasons()`, `nhl_tv_schedule()`, `nhl_game_story()`,
+  `nhl_game_content()`, `nhl_game_shifts()`, `nhl_playoff_bracket()`,
+  `nhl_playoff_schedule()`, `nhl_playoff_carousel()`.
+* xG model integration via `helper_nhl_calculate_xg()`.
+* `nhl_game_shifts()` gains a `detailed` argument: `detailed = TRUE` returns
+  the per-player shift records (one row per player-shift with game-second
+  on/off times) instead of the aggregated one-row-per-change frame (#26).
+
+### **Bug Fixes**
+
+* Fixed `nhl_draft_year()` -- NHL API removed the `/v1/draft/picks/{year}`
+  endpoint. The function now iterates over rounds 1-7 using
+  `/v1/draft/picks/{year}/{round}`.
+* Fixed `pwhl_stats()` -- resolved "object 'players' not found" error when
+  API calls failed. Fixed team ID resolution for skater stats.
+* Fixed `pwhl_schedule()` -- the `season` column was inadvertently dropped
+  from the output. It is now included.
+* Fixed `refresh_xg_models()` -- resolved "cannot change value of locked
+  binding" error by storing xG models in a package environment (`.xg_env`)
+  instead of top-level bindings.
+* Fixed NAMESPACE: removed `import(tidyverse)` which violated CRAN policy.
+  Individual packages (dplyr, tidyr, etc.) are already imported.
 * `pwhl_stats()` now resolves the `season` argument to the correct HockeyTech
   season id instead of always returning the inaugural 2024 season (#50), and
   the `team` filter works for both positions and accepts a team code
@@ -175,6 +304,88 @@
   (empty results for 2025 onward).
 * `pwhl_stats()` skater results are resilient to the shootout stat block
   dropping out of the feed (absent after the inaugural season).
+* **Fix:** `pwhl_playoff_bracket()` errored with `$ operator is invalid for
+  atomic vectors` and returned `NULL`. The HockeyTech feed returns
+  `team1`/`team2` as bare id strings (not nested objects) with wins in
+  sibling `team1_wins`/`team2_wins` fields; the parser now reads these
+  correctly.
+* `nhl_stats_players()` now detects `data: []` empty-list responses
+  (the API returns this when no `cayenne_exp` filter is supplied) and
+  returns `NULL` with a friendly hint instead of crashing
+  `clean_names()`.
+* `nhl_stats_skater_leaders()` and `nhl_stats_goalie_leaders()` no
+  longer pass `start`/`limit` query parameters, which the
+  `leaders/{skaters,goalies}/{attribute}` endpoint rejects with a 500
+  Cayenne SQL error. Roxygen now documents the valid `attribute`
+  values: skaters accept `assists`/`goals`/`points`; goalies accept
+  `savePctg`/`gaa`/`shutouts`.
+* `nhl_records_franchise(franchise_id = ...)` now translates the
+  `franchise_id` argument into a `cayenneExp=id={id}` filter. The
+  records API does not support a path-suffix `franchise/{id}` form
+  (returns 404).
+* `nhl_records_award_details()` -- replaced the broken `franchise_id`
+  argument with `season_id` (the `award-details` endpoint accepts
+  `seasonId` filtering but rejects `franchiseId`).
+* `nhl_stats_content_module()` now guards against unnamed CMS
+  responses that previously crashed `clean_names()`.
+
+### **Deprecations**
+
+* PHF functions: `phf_schedule()`, `phf_standings()`, `phf_pbp()`,
+  `phf_player_box()`, `phf_team_box()`, `phf_team_roster()`,
+  `phf_team_stats()`, `phf_player_stats()`, `phf_leaders()`,
+  `phf_league_info()`, `phf_game_all()`, `phf_game_raw()`,
+  `phf_game_details()`, `phf_game_summary()`.
+* PHF loaders: `load_phf_pbp()`, `load_phf_team_box()`,
+  `load_phf_player_box()`, `load_phf_schedule()`, `load_phf_rosters()`,
+  `update_phf_db()`.
+* Utility: `most_recent_phf_season()`.
+* **Deprecated:** nine NHL Edge "top-10" leaderboard wrappers whose upstream
+  endpoints the NHL has removed (every request returns HTTP 404):
+  `nhl_edge_goalie_5v5_top_10()`,
+  `nhl_edge_goalie_edge_save_pctg_top_10()`,
+  `nhl_edge_goalie_shot_location_top_10()`,
+  `nhl_edge_skater_shot_location_top_10()`,
+  `nhl_edge_skater_shot_speed_top_10()`,
+  `nhl_edge_skater_speed_top_10()`,
+  `nhl_edge_skater_zone_time_top_10()`,
+  `nhl_edge_team_shot_location_top_10()`, and
+  `nhl_edge_team_skating_speed_top_10()`. They now emit a
+  `lifecycle::deprecate_warn()` and return `NULL`. The Edge "top-10" wrappers
+  that remain live (skater distance, team skating-distance, team zone-time)
+  are unaffected.
+
+### **Improvements**
+
+* `pwhl_season_id()` now retrieves season data dynamically from the HockeyTech
+  API instead of using a hardcoded lookup table. Falls back to hardcoded data
+  when the API is unavailable.
+* Added internal helpers `.pwhl_api()`, `.pwhl_modulekit_url()`,
+  `.pwhl_gc_url()`, and `.pwhl_resolve_season_id()` to reduce JSONP parsing
+  boilerplate across PWHL functions.
+* Added `lifecycle` package for formal deprecation management.
+* Updated `testthat` dependency to `>= 3.0.0`.
+* Complete test coverage for all 95 exported functions (482 tests).
+* Added environment-controlled test toggles (`RUN_NHL_TESTS`,
+  `RUN_PHF_TESTS`, `RUN_PWHL_TESTS`) via `tests/testthat/helper-skip.R`.
+* CI workflow environment variables now match `helper-skip.R` names.
+* Updated test expectations to match current API responses.
+* `nhl_where_to_watch()` returns `NULL` gracefully when the NHL
+  `/v1/where-to-watch` endpoint is unavailable.
+* Updated `_pkgdown.yml` with reorganized reference sections and deprecated
+  function categories.
+
+### **Documentation & Infrastructure**
+
+* Updated `CONTRIBUTING.md` with naming conventions, testing environment
+  variables, conventional commits guide, and deprecation process.
+* Updated PR and issue templates.
+* Updated `CLAUDE.md` and `.github/copilot-instructions.md` to reflect
+  v1.0.0 changes and new PWHL endpoints.
+* Added `data-raw/pr_devel.md` development scratchpad.
+* Added `cran_comments.md` for CRAN submission.
+* Updated `_pkgdown.yml` with reorganized PWHL reference sections.
+* Added R CMD check CI workflow and pkgdown deployment workflow.
 
 ### Housekeeping
 
@@ -189,8 +400,7 @@
   `fox_nhl_odds()`, `fox_nhl_team_roster()`, `fox_nhl_team_stats()`,
   `fox_nhl_team_gamelog()`, `fox_nhl_standings()`, `fox_nhl_league_leaders()`.
   Flatten Fox's layout JSON into tidy `fastRhockey_data` tibbles. Parallels the
-  cfbfastR / hoopR / sportsdataverse-py `fox_*` families; reverse-engineering
-  notes + an OpenAPI 3.1 spec live in the `sdv-internal-refs` repo.
+  cfbfastR / hoopR / sportsdataverse-py `fox_*` families.
 * Added live HockeyTech wrappers for **AHL**, **OHL**, **WHL**, and **QMJHL**
   (`<lg>_schedule()`, `<lg>_pbp()`, `<lg>_standings()`, `<lg>_teams()`,
   `<lg>_team_roster()`, `<lg>_player_stats()`, `<lg>_leaders()`,
@@ -235,28 +445,6 @@
   Function outputs are unchanged.
 * Raised the minimum R version to **4.1.0** (the new `httr2` request helpers use
   the native `|>` pipe).
-
-### **Deprecations & fixes**
-
-* **Deprecated:** nine NHL Edge "top-10" leaderboard wrappers whose upstream
-  endpoints the NHL has removed (every request returns HTTP 404):
-  `nhl_edge_goalie_5v5_top_10()`,
-  `nhl_edge_goalie_edge_save_pctg_top_10()`,
-  `nhl_edge_goalie_shot_location_top_10()`,
-  `nhl_edge_skater_shot_location_top_10()`,
-  `nhl_edge_skater_shot_speed_top_10()`,
-  `nhl_edge_skater_speed_top_10()`,
-  `nhl_edge_skater_zone_time_top_10()`,
-  `nhl_edge_team_shot_location_top_10()`, and
-  `nhl_edge_team_skating_speed_top_10()`. They now emit a
-  `lifecycle::deprecate_warn()` and return `NULL`. The Edge "top-10" wrappers
-  that remain live (skater distance, team skating-distance, team zone-time)
-  are unaffected.
-* **Fix:** `pwhl_playoff_bracket()` errored with `$ operator is invalid for
-  atomic vectors` and returned `NULL`. The HockeyTech feed returns
-  `team1`/`team2` as bare id strings (not nested objects) with wins in
-  sibling `team1_wins`/`team2_wins` fields; the parser now reads these
-  correctly.
 
 ### **CI: NHL loader + xG tests, and two fixes**
 
@@ -516,28 +704,6 @@ tidy data frame:
   `records.nhl.com/site/api/` (442 endpoints).
 * `data-raw/_gen_openapi.py` -- regenerator script.
 
-### **Bug Fixes / API quirks documented**
-
-* `nhl_stats_players()` now detects `data: []` empty-list responses
-  (the API returns this when no `cayenne_exp` filter is supplied) and
-  returns `NULL` with a friendly hint instead of crashing
-  `clean_names()`.
-* `nhl_stats_skater_leaders()` and `nhl_stats_goalie_leaders()` no
-  longer pass `start`/`limit` query parameters, which the
-  `leaders/{skaters,goalies}/{attribute}` endpoint rejects with a 500
-  Cayenne SQL error. Roxygen now documents the valid `attribute`
-  values: skaters accept `assists`/`goals`/`points`; goalies accept
-  `savePctg`/`gaa`/`shutouts`.
-* `nhl_records_franchise(franchise_id = ...)` now translates the
-  `franchise_id` argument into a `cayenneExp=id={id}` filter. The
-  records API does not support a path-suffix `franchise/{id}` form
-  (returns 404).
-* `nhl_records_award_details()` -- replaced the broken `franchise_id`
-  argument with `season_id` (the `award-details` endpoint accepts
-  `seasonId` filtering but rejects `franchiseId`).
-* `nhl_stats_content_module()` now guards against unnamed CMS
-  responses that previously crashed `clean_names()`.
-
 ### **New NHL Loaders**
 
 Ten new season-level loaders that pull pre-compiled NHL datasets from new
@@ -591,121 +757,6 @@ The four pre-existing loaders (`load_pwhl_pbp()`, `load_pwhl_player_box()`,
 `load_pwhl_schedule()`, `load_pwhl_rosters()`) were refactored to share a
 single internal worker (`.pwhl_release_loader()`) without changing their
 public signatures or return types.
-
-# **fastRhockey 1.0.0**
-
-### **Breaking Changes**
-
-* **Version 1.0.0** signals API stability for NHL and PWHL endpoints.
-* All PHF functions are formally deprecated via `lifecycle`. The Premier Hockey
-  Federation ceased operations; use PWHL functions instead. Functions will be
-  removed in a future release.
-* Consolidated new NHL API functions into existing NHL function names rather
-  than creating `_v2` variants, since the original API endpoints were
-  deprecated by the NHL. This means `nhl_game_feed()`, `nhl_game_boxscore()`,
-  `nhl_schedule()`, `nhl_teams()`, `nhl_teams_roster()`, and
-  `nhl_player_info()` now use the new `api-web.nhle.com` endpoints directly.
-
-### **New PWHL Functions**
-
-* `pwhl_pbp()` -- PWHL play-by-play data.
-* `pwhl_player_box()` -- PWHL player box scores (skaters and goalies).
-* `pwhl_game_info()` -- PWHL game information and metadata.
-* `pwhl_game_summary()` -- Detailed game summary (scoring, penalties, shots
-  by period, three stars).
-* `pwhl_standings()` -- PWHL league standings.
-* `pwhl_stats()` -- PWHL stat leaders (skaters and goalies).
-* `pwhl_leaders()` -- League leaders (top scorers and top goalies).
-* `pwhl_season_id()` -- PWHL season ID lookup (now API-driven with fallback).
-* `pwhl_player_info()` -- Player biographical and profile information.
-* `pwhl_player_game_log()` -- Per-game statistics for a player in a season.
-* `pwhl_player_stats()` -- Career and season-by-season statistics for a player.
-* `pwhl_player_search()` -- Search for players by name.
-* `pwhl_transactions()` -- Player transactions for a season.
-* `pwhl_streaks()` -- Player streak data for a season.
-* `pwhl_playoff_bracket()` -- Playoff bracket / series data.
-* `pwhl_scorebar()` -- Recent and upcoming game scores.
-* `most_recent_pwhl_season()` -- Utility to get the current PWHL season year.
-* `load_pwhl_pbp()` -- Load pre-scraped PWHL play-by-play data.
-* `load_pwhl_player_box()` -- Load pre-scraped PWHL player box scores.
-* `load_pwhl_schedule()` -- Load pre-scraped PWHL schedules.
-* `load_pwhl_rosters()` -- Load pre-scraped PWHL team rosters.
-* `update_pwhl_db()` -- Update or create a PWHL play-by-play database.
-
-### **New NHL Functions**
-
-* `nhl_where_to_watch()` -- streaming/broadcast availability.
-* `nhl_partner_game_odds()` -- partner game odds by country.
-* NHL API migration to `api-web.nhle.com`: `nhl_game_feed()`,
-  `nhl_game_boxscore()`, `nhl_schedule()`, `nhl_teams()`,
-  `nhl_teams_roster()`, `nhl_player_info()`, `nhl_player_game_log()`,
-  `nhl_stats_goalies()`, `nhl_stats_skaters()`, `nhl_stats_teams()`,
-  `nhl_stats_misc()`, `nhl_gamecenter_landing()`,
-  `nhl_gamecenter_right_rail()`, `nhl_scoreboard()`, `nhl_scores()`,
-  `nhl_seasons()`, `nhl_tv_schedule()`, `nhl_game_story()`,
-  `nhl_game_content()`, `nhl_game_shifts()`, `nhl_playoff_bracket()`,
-  `nhl_playoff_schedule()`, `nhl_playoff_carousel()`.
-* xG model integration via `helper_nhl_calculate_xg()`.
-
-### **Bug Fixes**
-
-* Fixed `nhl_draft_year()` -- NHL API removed the `/v1/draft/picks/{year}`
-  endpoint. The function now iterates over rounds 1-7 using
-  `/v1/draft/picks/{year}/{round}`.
-* Fixed `pwhl_stats()` -- resolved "object 'players' not found" error when
-  API calls failed. Fixed team ID resolution for skater stats.
-* Fixed `pwhl_schedule()` -- the `season` column was inadvertently dropped
-  from the output. It is now included.
-* Fixed `refresh_xg_models()` -- resolved "cannot change value of locked
-  binding" error by storing xG models in a package environment (`.xg_env`)
-  instead of top-level bindings.
-* Fixed NAMESPACE: removed `import(tidyverse)` which violated CRAN policy.
-  Individual packages (dplyr, tidyr, etc.) are already imported.
-
-### **Deprecations**
-
-* PHF functions: `phf_schedule()`, `phf_standings()`, `phf_pbp()`,
-  `phf_player_box()`, `phf_team_box()`, `phf_team_roster()`,
-  `phf_team_stats()`, `phf_player_stats()`, `phf_leaders()`,
-  `phf_league_info()`, `phf_game_all()`, `phf_game_raw()`,
-  `phf_game_details()`, `phf_game_summary()`.
-* PHF loaders: `load_phf_pbp()`, `load_phf_team_box()`,
-  `load_phf_player_box()`, `load_phf_schedule()`, `load_phf_rosters()`,
-  `update_phf_db()`.
-* Utility: `most_recent_phf_season()`.
-
-### **Improvements**
-
-* `pwhl_season_id()` now retrieves season data dynamically from the HockeyTech
-  API instead of using a hardcoded lookup table. Falls back to hardcoded data
-  when the API is unavailable.
-* Added internal helpers `.pwhl_api()`, `.pwhl_modulekit_url()`,
-  `.pwhl_gc_url()`, and `.pwhl_resolve_season_id()` to reduce JSONP parsing
-  boilerplate across PWHL functions.
-* Added `lifecycle` package for formal deprecation management.
-* Updated `testthat` dependency to `>= 3.0.0`.
-* Complete test coverage for all 95 exported functions (482 tests).
-* Added environment-controlled test toggles (`RUN_NHL_TESTS`,
-  `RUN_PHF_TESTS`, `RUN_PWHL_TESTS`) via `tests/testthat/helper-skip.R`.
-* CI workflow environment variables now match `helper-skip.R` names.
-* Updated test expectations to match current API responses.
-* `nhl_where_to_watch()` returns `NULL` gracefully when the NHL
-  `/v1/where-to-watch` endpoint is unavailable.
-* Updated `_pkgdown.yml` with reorganized reference sections and deprecated
-  function categories.
-
-### **Documentation & Infrastructure**
-
-* Updated `CONTRIBUTING.md` with naming conventions, testing environment
-  variables, conventional commits guide, and deprecation process.
-* Updated PR and issue templates.
-* Updated `CLAUDE.md` and `.github/copilot-instructions.md` to reflect
-  v1.0.0 changes and new PWHL endpoints.
-* Added `data-raw/pr_devel.md` development scratchpad.
-* Added `cran_comments.md` for CRAN submission.
-* Updated `_pkgdown.yml` with reorganized PWHL reference sections.
-* Added R CMD check CI workflow and pkgdown deployment workflow.
-
 # **fastRhockey 0.7.0**
 
 ### **PWHL functions added**
