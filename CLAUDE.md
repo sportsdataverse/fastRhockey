@@ -1,17 +1,19 @@
 # CLAUDE.md — fastRhockey
 
 R package for tidy hockey data: live scrapers + pre-compiled loaders for the
-**NHL** and **PWHL**, plus ESPN/Fox NHL wrappers and four CHL/AHL HockeyTech
-leagues. Part of the [SportsDataverse](https://sportsdataverse.org) family
+**NHL** and **PWHL**, plus ESPN/Fox NHL wrappers, four CHL/AHL HockeyTech
+leagues, thirteen European leagues and ESPN men's/women's college hockey.
+Part of the [SportsDataverse](https://sportsdataverse.org) family
 (siblings: `hoopR`, `wehoop`, `cfbfastR`, `baseballr`, `sportsdataverse-py`).
 Docs: <https://fastRhockey.sportsdataverse.org>. Companion data repos:
 `fastRhockey-nhl-data` / `fastRhockey-pwhl-data` (release source for `load_*`),
 and the legacy `fastRhockey-data` (PHF archive + older NHL JSON).
 
-- License MIT | R (>= 4.1.0) | roxygen2 8.1.0 markdown | testthat edition 3 | v1.0.0
-- The ENTIRE test suite skips on CRAN (every `test_that` leads with
-  `skip_on_cran()`); tests run in CI (`NOT_CRAN=true`) on every push. New
-  tests must follow this.
+- License MIT | R (>= 4.1.0) | roxygen2 8.1.0 markdown | testthat edition 3 |
+  CRAN 1.0.0, next release 1.1.0
+- Live (network) tests run locally only: they skip on CRAN and on CI. Offline
+  tests (mocks, fixtures, captured bodies) run everywhere. Gate every new live
+  test with `skip_on_cran()` plus its `skip_<family>_test()` helper.
 - HockeyTech JSONP is stripped ONLY via `.hockeytech_api()`
   (`hockeytech_helpers.R`) — never per-function regex on the callback tail
   (the tail shape varies by payload and has silently emptied results).
@@ -35,8 +37,16 @@ release & oldrel-1), `pkgdown.yaml`, `rhub.yaml`. Released on CRAN + r-universe.
 
 ## Function families & data sources
 
-Live wrappers use **httr2** (`req_perform` / `req_retry`, ~17 call sites — there
-is no `httr::RETRY` here); responses go through `janitor::clean_names()`.
+Live wrappers use **httr2**; there is no `httr` dependency. NHL / PWHL /
+HockeyTech / ESPN / Fox wrappers call `.retry_request(url, params = ...)`
+(`utils.R`: `httr2::req_retry()`, non-2xx do not throw), then `check_status()`
+and `.resp_json()` / `.resp_text()`; they return `NULL` with a message on
+failure. The European wrappers build with `.build_request()` and perform
+through `.polite_perform()` / `.euro_get()` (`euro_hockey_runtime.R`: at least
+1 s between requests per host, 429/5xx retried with `Retry-After`) and raise
+classed conditions (`fastRhockey_no_data`, `fastRhockey_asset_fetch`,
+`fastRhockey_bad_request`, all inheriting `fastRhockey_error`). Responses go
+through `janitor::clean_names()`.
 
 | Family | Prefix(es) | Source | Files |
 |---|---|---|---|
@@ -46,9 +56,11 @@ is no `httr::RETRY` here); responses go through `janitor::clean_names()`.
 | NHL Records | `nhl_records_*` (25) | `records.nhl.com/site/api/` | `helpers_nhl_records.R` |
 | ESPN NHL | `espn_nhl_*` (126) | `sports.core.api.espn.com` / `site.api.espn.com` / `site.web.api.espn.com` | `espn_nhl_*.R` |
 | Fox NHL | `fox_nhl_*` (8) | `api.foxsports.com/bifrost/v1/nhl/` | `fox_nhl.R` |
-| PWHL | `pwhl_*` (35) | HockeyTech (`lscluster.hockeytech.com`) | `pwhl_*.R`, `pwhl_helpers.R` |
-| HockeyTech CHL/AHL | `ahl_*` `ohl_*` `whl_*` `qmjhl_*` (12 each) | HockeyTech | `hockeytech_*.R` |
-| PHF (deprecated) | `phf_*` | ESPN (league defunct) | `phf_*.R` |
+| PWHL | `pwhl_*` (22) | HockeyTech (`lscluster.hockeytech.com`) | `pwhl_*.R`, `pwhl_helpers.R` |
+| HockeyTech CHL/AHL | `ahl_*` `ohl_*` `whl_*` `qmjhl_*` (12 each) | HockeyTech | `ahl.R` `ohl.R` `whl.R` `qmjhl.R`, `hockeytech_*.R` |
+| European | `del_` `icehl_` `eihl_` `metal_` (eSports), `khl_` `vhl_` `shl_` `ha_` `liiga_` `sihf_` `nl_` `elh_` `magnus_` (211) | each league's public API | `esports*.R`, `khl.R`, `vhl.R`, `shl.R`, `ha.R`, `liiga.R`, `sihf.R`, `nationalleague.R`, `elh.R`, `magnus.R`, `euro_hockey_runtime.R` |
+| ESPN college | `espn_mch_*`, `espn_wch_*` (121 each) | ESPN (`mens-` / `womens-college-hockey`) | `espn_ncaa_hockey.R` |
+| PHF (defunct) | `phf_*`, `load_phf_*` | league defunct; every function stops (`deprecate_stop`) | `phf_*.R` |
 
 - **NHL Edge** `.nhl_edge_api()` handles the `/now` vs `/{season}/{gameType}`
   URL split; `.nhl_edge_to_df()` normalizes the assorted shapes.
@@ -64,8 +76,8 @@ is no `httr::RETRY` here); responses go through `janitor::clean_names()`.
 
 ## Loaders & xG
 
-- `load_nhl_*` (27, incl. parity aliases) share `.nhl_release_loader()` in
-  `nhl_loaders.R`; `load_pwhl_*` (22, incl. `load_pwhl_shifts` +
+- `load_nhl_*` (31: 23 canonical + 8 parity aliases) share `.nhl_release_loader()` in
+  `nhl_loaders.R`; `load_pwhl_*` (22: 17 canonical + 5 aliases, incl. `load_pwhl_shifts` +
   `load_pwhl_xg_pbp`) share `.pwhl_release_loader()` in
   `pwhl_loaders.R`. Every hockey tag on the sportsdataverse-data releases
   has a loader (verified 2026-08-25); `nhl_xg_models` is model artifacts,
@@ -74,8 +86,9 @@ is no `httr::RETRY` here); responses go through `janitor::clean_names()`.
   `progressr`), optionally write to a `DBIConnection`, and tag output
   `fastRhockey_data`. Add a dataset = one catalog row + a thin wrapper.
   DB helpers: `update_nhl_db()` / `update_pwhl_db()` / `update_phf_db()`.
-  `load_phf_*` remain exported (data archived); the live `phf_*()` scrapers
-  emit `lifecycle` deprecation.
+  `load_phf_*`, `update_phf_db()` and the `phf_*()` scrapers remain exported
+  but are defunct since 1.0.0 (`lifecycle::deprecate_stop()`); the archived
+  PHF data lives in the `fastRhockey-data` repo.
 - **xG**: 3 XGBoost models (5v5 / special-teams / penalty-shot) downloaded on
   `.onLoad()` from `fastRhockey-nhl-data/main/models/`, cached via
   `tools::R_user_dir("fastRhockey","cache")`, held in `.xg_env` (`zzz.R`).
@@ -91,14 +104,21 @@ is no `httr::RETRY` here); responses go through `janitor::clean_names()`.
 - All returns wrap in S3 class `fastRhockey_data` via
   `make_fastRhockey_data()` — tests assert `expect_s3_class(x, "fastRhockey_data")`.
 - Conventional Commits; scopes: nhl, nhl-edge, nhl-records, nhl-stats, espn,
-  fox, hockeytech, pwhl, phf, xg, loader, pkgdown, ci.
+  fox, hockeytech, pwhl, phf, euro (or the league prefix: khl, shl, ...), xg,
+  loader, pkgdown, ci.
 - **Never** add AI co-author/author trailers to commits.
 
 ## Testing
 
-- `skip_on_cran()` + `skip_<league>_test()` from `tests/testthat/helper-skip.R`,
-  gated by `RUN_NHL_TESTS` / `RUN_PHF_TESTS` / `RUN_PWHL_TESTS` (CI sets all
-  three `true`). Assert `data.frame` + `fastRhockey_data`, `nrow > 0`, columns.
+- `skip_on_cran()` + `skip_<family>_test()` from `tests/testthat/helper-skip.R`.
+  Each helper reads one toggle, and only the value `true` (any case) enables
+  it: `RUN_NHL_TESTS` (default `true`), `RUN_PWHL_TESTS` (`true`),
+  `RUN_ESPN_TESTS` (`true`), `RUN_PHF_TESTS` (`false`), `RUN_EURO_TESTS`
+  (`false`). `RUN_SLOW_NHL_TESTS=true` also runs the two slow season-wide NHL
+  aggregator tests. Live tests run locally only (they skip on CRAN and CI), so
+  set the toggles in your own session, e.g.
+  `Sys.setenv(NOT_CRAN = "true", RUN_EURO_TESTS = "true")`. Assert
+  `data.frame` + `fastRhockey_data`, `nrow > 0`, columns.
 - xG tests add `skip_if_not_installed("xgboost")`; deprecated-fn tests use
   `suppressWarnings()`. Use fixed game ids for reproducibility
   (e.g. `game_id = 2023020001`, PWHL `game_id = 27`).

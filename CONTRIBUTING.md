@@ -7,7 +7,7 @@ provides guidelines for contributing to the project.
 
 ### Prerequisites
 
-- R >= 4.0.0
+- R >= 4.1.0
 - [devtools](https://devtools.r-lib.org/) package
 - Git
 
@@ -59,19 +59,28 @@ devtools::check()
 
 - Use `%>%` (magrittr pipe) for chaining
 - Use `janitor::clean_names()` on all API responses
-- Use `httr::RETRY("GET", ...)` for HTTP requests (built-in retry)
+- Make HTTP requests through the package's **httr2** helpers in `R/utils.R`,
+  never `httr` (it is not a dependency): `.retry_request(url, params = ...)`
+  performs a GET with `httr2::req_retry()` and the proxy resolution described
+  under [Proxy support](#proxy-support); `.resp_text()` / `.resp_json()` read
+  the body
 - Use `glue::glue()` for URL string interpolation
 - Maximum line length: no strict limit, but keep readable
 
 ### Error Handling
 
-All API-calling functions must follow this pattern:
+The package has two error contracts. Follow the one of the family you are
+working in.
+
+**NHL, PWHL, HockeyTech, ESPN and Fox wrappers** return `NULL` with a
+message on failure:
 
 ```r
 tryCatch(
     expr = {
-        res <- httr::RETRY("GET", url)
+        res <- .retry_request(url)
         check_status(res)
+        raw <- jsonlite::fromJSON(.resp_text(res), flatten = TRUE)
         # ... parse and return
     },
     error = function(e) {
@@ -81,7 +90,14 @@ tryCatch(
 )
 ```
 
-Functions return `NULL` on failure -- never throw errors to the user.
+**European league wrappers** (`del_*`, `khl_*`, `shl_*`, `liiga_*`, ...)
+build the request with `.build_request()` and perform it through
+`.polite_perform()` or `.euro_get()` (`R/euro_hockey_runtime.R`), which space
+requests to one host at least a second apart and retry 429/5xx answers
+honouring `Retry-After`. On failure they raise a classed condition rather
+than returning `NULL`: `fastRhockey_no_data` (the provider has nothing for
+the request), `fastRhockey_asset_fetch` (a 403/5xx, a block, an empty or
+wrong body) or `fastRhockey_bad_request`, all inheriting `fastRhockey_error`.
 
 ### S3 Class
 
@@ -105,7 +121,8 @@ Use the `league_entity_action()` pattern:
 
 - `nhl_teams_roster()` -- NHL team roster
 - `pwhl_schedule()` -- PWHL schedule
-- `phf_standings()` -- PHF standings
+- `khl_standings()` -- KHL standings
+- `espn_mch_scoreboard()` -- ESPN men's college hockey scoreboard
 - `nhl_player_stats()` -- NHL player statistics
 
 ### Internal Helpers
@@ -144,7 +161,7 @@ Different APIs use different season formats:
 | NHL Web API / Stats API parameter | Concatenated years string | `"20242025"` |
 | `most_recent_nhl_season()` return value | Numeric end year | `2025` |
 | `most_recent_nhl_season_api_param()` return value | Concatenated string | `"20242025"` |
-| PWHL / PHF season parameter | Numeric year | `2024` |
+| PWHL / HockeyTech / ESPN / European season parameter | Numeric end year | `2026` (= 2025-26) |
 
 ## Testing
 
@@ -157,6 +174,7 @@ Different APIs use different season formats:
 ```r
 test_that("LEAGUE - Descriptive test name", {
     skip_on_cran()
+    skip_nhl_test()  # or skip_pwhl_test(), skip_espn_test(), skip_euro_test()
     x <- function_name(param = value)
 
     expect_s3_class(x, "data.frame")
@@ -172,7 +190,9 @@ test_that("LEAGUE - Descriptive test name", {
 
 ### Test Conventions
 
-- `skip_on_cran()` on all tests hitting live APIs
+- `skip_on_cran()` plus the family's `skip_<family>_test()` on all tests
+  hitting live APIs; offline tests (mocks, fixtures, captured bodies) need
+  neither
 - Check both `data.frame` and `fastRhockey_data` S3 classes
 - Validate `nrow(x) > 0`
 - Check expected column names
@@ -181,8 +201,9 @@ test_that("LEAGUE - Descriptive test name", {
 
 ### Testing Environment Variables
 
-Tests in this package make **live API calls** and are skipped on CRAN via
-`skip_on_cran()`. To run the full test suite locally:
+Most tests in this package make **live API calls**. Live tests run locally
+only: they skip on CRAN and on CI, so a pull request's CI run exercises only
+the offline tests. To run the live tests on your machine:
 
 - **`NOT_CRAN=true`**: Set this environment variable so that `skip_on_cran()`
   does not skip tests. You can set it in your `.Renviron` file or inline:
@@ -191,22 +212,27 @@ Tests in this package make **live API calls** and are skipped on CRAN via
   devtools::test()
   ```
 
-- **League-specific test toggles** (via `tests/testthat/helper-skip.R`):
+- **Family test toggles** (via `tests/testthat/helper-skip.R`). Only the
+  value `true` (any case) enables a family; anything else, such as `false`
+  or `1`, skips it:
 
   | Variable | Default | Controls |
   |----------|---------|----------|
   | `RUN_NHL_TESTS` | `"true"` | NHL API tests (`skip_nhl_test()`) |
   | `RUN_PWHL_TESTS` | `"true"` | PWHL API tests (`skip_pwhl_test()`) |
-  | `RUN_PHF_TESTS` | `"false"` | PHF deprecated tests (`skip_phf_test()`) |
+  | `RUN_ESPN_TESTS` | `"true"` | ESPN NHL and college hockey tests (`skip_espn_test()`) |
+  | `RUN_EURO_TESTS` | `"false"` | European league live tests (`skip_euro_test()`) |
+  | `RUN_PHF_TESTS` | `"false"` | Defunct PHF tests (`skip_phf_test()`) |
+  | `RUN_SLOW_NHL_TESTS` | unset | The two slow season-wide NHL aggregator tests |
 
   Set them before running tests:
   ```r
-  Sys.setenv(NOT_CRAN = "true", RUN_NHL_TESTS = "true", RUN_PWHL_TESTS = "true")
+  Sys.setenv(NOT_CRAN = "true", RUN_NHL_TESTS = "true", RUN_EURO_TESTS = "true")
   devtools::test()
   ```
 
-  On CI, these are set in `.github/workflows/R-CMD-check.yaml` as:
-  `NHL_TESTS=1`, `PWHL_TESTS=1`, `PHF_TESTS=0`.
+  The European tests are opt-in because each league's host is throttled to
+  one request a second, so a full run is slow.
 
 - **`GITHUB_PAT`**: Some loader functions access data from GitHub repositories
   under the `sportsdataverse` org. Set a GitHub personal access token to avoid
@@ -251,6 +277,10 @@ for all commit messages. The format is:
 | `nhl` | NHL functions and helpers |
 | `phf` | PHF functions (defunct league) |
 | `pwhl` | PWHL functions |
+| `hockeytech` | AHL / OHL / WHL / QMJHL and the shared HockeyTech helpers |
+| `espn` | ESPN NHL and college hockey functions |
+| `fox` | Fox Sports NHL functions |
+| `euro` | European league functions (or the league prefix, e.g. `khl`, `shl`) |
 | `xg` | Expected goals model pipeline |
 | `pkgdown` | pkgdown site and vignettes |
 | `ci` | GitHub Actions and CI/CD |

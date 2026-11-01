@@ -5,21 +5,24 @@
 ## Project Overview
 
 fastRhockey is an R package for accessing hockey data from the **NHL**
-(National Hockey League) and **PWHL** (Professional Women's Hockey League).
-It wraps public web APIs (NHL API, HockeyTech) to provide structured tibbles
+(National Hockey League), the **PWHL** (Professional Women's Hockey League),
+the AHL and the three Canadian major-junior leagues (OHL, WHL, QMJHL),
+thirteen European leagues and ESPN men's/women's college hockey.
+It wraps public web APIs (NHL API, HockeyTech, ESPN, Fox Sports and each
+European league's site) to provide structured tibbles
 of play-by-play, schedule, standings, roster, draft, player stats, and team
 data. The package also ships with integrated **expected goals (xG)** models
 trained via XGBoost and cached locally.
 
-The package includes deprecated functions for the defunct **PHF** (Premier
-Hockey Federation) league. These emit lifecycle warnings and will be removed
-in a future release.
+The package still exports the functions for the defunct **PHF** (Premier
+Hockey Federation) league. They have been defunct since 1.0.0: each one
+calls `lifecycle::deprecate_stop()` and stops with an error.
 
 **Part of the [SportsDataverse](https://sportsdataverse.org/) family** of
 R/Python packages for sports analytics.
 
-- **Version:** 1.0.0
-- **R version:** >= 4.0.0
+- **Version:** 1.0.0 on CRAN; next release 1.1.0
+- **R version:** >= 4.1.0
 - **License:** MIT
 - **Documentation site:** <https://fastRhockey.sportsdataverse.org/>
 - **GitHub:** <https://github.com/sportsdataverse/fastRhockey>
@@ -120,7 +123,7 @@ R/                          # Source code (one function per file, mostly)
   nhl_postal_lookup.R       # Broadcast region lookup by postal code
   nhl_smartlinks.R          # NHL.com smart-link router
 
-  # --- NHL Edge Analytics (33 functions) ---
+  # --- NHL Edge Analytics (35 functions: 33 nhl_edge_* + 2 nhl_cat_edge_*) ---
   # All wrappers share .nhl_edge_api() and .nhl_edge_to_df()
   nhl_edge_skater_*.R       # Detail, landing, comparison, shot location/speed,
                             # skating speed/distance, zone time, top-10 leaderboards
@@ -146,7 +149,7 @@ R/                          # Source code (one function per file, mostly)
   nhl_records_venue.R       # Arena/venue listing
   nhl_records_combine.R     # Draft combine measurements
 
-  # --- NHL Stats REST dedicated wrappers (13 functions) ---
+  # --- NHL Stats REST dedicated wrappers (19 nhl_stats_* functions) ---
   nhl_stats_franchise.R     # Franchise listing
   nhl_stats_players.R       # Players listing (requires cayenne_exp)
   nhl_stats_glossary.R      # Stat definition glossary
@@ -208,7 +211,7 @@ R/                          # Source code (one function per file, mostly)
                             # _team_box, _schedule, _rosters, _game_rosters,
                             # _game_info, _scoring_summary, _penalty_summary,
                             # _three_stars, _officials, _shots_by_period,
-                            # _shootout, update_pwhl_db
+                            # _shootout, _shifts, _xg_pbp, update_pwhl_db
                             # All share .pwhl_release_loader() (catalog row +
                             # thin wrapper to add a new dataset)
 
@@ -217,11 +220,29 @@ R/                          # Source code (one function per file, mostly)
                             # _team_box, _schedule, _rosters, _game_rosters, _game_info,
                             # _scoring, _penalties, _three_stars, _scratches, _linescore,
                             # _shifts, _officials, _shots_by_period, _shootout,
+                            # load_nhl_groups, _group_seasons, _group_aliases,
+                            # _team_group_seasons,
                             # update_nhl_db (+ build_nhl_db, get_missing_nhl_games)
-                            # All 19 loaders share .nhl_release_loader() (matching PWHL pattern)
+                            # All 23 loaders share .nhl_release_loader() (matching PWHL pattern)
                             # nhl_schedule() also exposes include_data_flags = FALSE to
                             # left-join the cached games-in-data-repo flags onto live
                             # schedules.
+
+  # --- ESPN, Fox and HockeyTech CHL/AHL ---
+  espn_nhl_*.R              # 126 espn_nhl_* wrappers (site / web / core APIs)
+  fox_nhl.R                 # 8 fox_nhl_* wrappers (Fox Sports Bifrost)
+  ahl.R, ohl.R, whl.R, qmjhl.R # ahl_* / ohl_* / whl_* / qmjhl_* (12 each)
+  hockeytech_*.R            # 5-league HockeyTech registry and shared helpers
+
+  # --- European leagues (211 functions) ---
+  euro_hockey_runtime.R     # .polite_perform(), .euro_get(): 1 s per-host
+                            # spacing, 429/5xx retry, classed conditions
+  esports.R, esports_leagues.R # del_*, icehl_*, eihl_*, metal_*
+  khl.R, vhl.R, shl.R, ha.R, liiga.R, sihf.R, nationalleague.R (nl_*),
+  elh.R, magnus.R           # one file per league
+
+  # --- ESPN college hockey (242 functions) ---
+  espn_ncaa_hockey.R        # espn_mch_* and espn_wch_* (121 each)
 
 tests/testthat/             # Unit tests (testthat edition 3)
 man/                        # Auto-generated roxygen2 documentation
@@ -232,7 +253,8 @@ vignettes/                  # Vignettes for pkgdown site
 
 ### API Architecture
 
-Five distinct backends:
+The NHL and PWHL backends (ESPN, Fox Sports, the other HockeyTech leagues and
+the European league APIs are covered in the file map above):
 
 | Backend | Base URL | Used By | Auth |
 |---------|----------|---------|------|
@@ -272,7 +294,7 @@ description, timestamp) and provides a custom `print()` method.
 ### Deprecation Strategy
 
 The package uses `lifecycle` for formal deprecation of PHF functions:
-- **PHF functions** (21 functions): Deprecated in v1.0.0 — league ceased operations
+- **PHF functions** (21 functions: 14 `phf_*`, 5 `load_phf_*`, `update_phf_db()`, `most_recent_phf_season()`): defunct since v1.0.0 — league ceased operations
 - All deprecated functions emit `lifecycle::deprecate_stop()` and raise errors
 - Tests for deprecated functions check for `lifecycle_error_deprecated` class
 
@@ -284,12 +306,12 @@ The package uses `lifecycle` for formal deprecation of PHF functions:
 - **roxygen2** for all documentation; regenerate with `devtools::document()`
 - **Pipe-first style**: functions use `%>%` (magrittr) extensively
 - **janitor::clean_names()** applied to all API responses for consistent snake_case columns
-- **httr::RETRY("GET", ...)** for all HTTP requests (built-in retry on transient failures)
-- **tryCatch** with `message()` for error handling — functions return `NULL` on failure, not errors
+- **httr2 helpers** for all HTTP requests (`httr` is not a dependency): `.retry_request(url, params = ...)` in `R/utils.R` (`httr2::req_retry()`, proxy via `getOption("fastRhockey.proxy")`), then `check_status()` and `.resp_text()` / `.resp_json()`
+- **Two error contracts.** NHL / PWHL / HockeyTech / ESPN / Fox wrappers use `tryCatch` with `message()` and return `NULL` on failure. European wrappers perform through `.polite_perform()` / `.euro_get()` (`R/euro_hockey_runtime.R`) and raise classed conditions (`fastRhockey_no_data`, `fastRhockey_asset_fetch`, `fastRhockey_bad_request`, all inheriting `fastRhockey_error`)
 - **glue::glue()** for string interpolation and URL construction
 - Internal helper functions prefixed with `.` (e.g., `.parse_game_rosters()`, `.build_pbp()`)
 - **HockeyTech JSONP**: strip the callback envelope ONLY via `.hockeytech_api()` (`R/hockeytech_helpers.R`) — never a per-function regex on the callback tail; the tail shape varies by payload and hardcoded `gsub` fixes have silently emptied results
-- **Tests skip on CRAN**: every `test_that` block leads with `testthat::skip_on_cran()`; the suite runs in CI (`NOT_CRAN=true`) on every push. New tests must follow this
+- **Live tests run locally only**: they skip on CRAN and on CI (`skip_on_cran()` plus the family's `skip_<family>_test()`); offline tests (mocks, fixtures, captured bodies) run everywhere
 - **Release loaders**: one loader per sportsdataverse-data hockey tag; add a dataset = one `(release_tag, file_prefix)` catalog row + a thin wrapper on `.nhl_release_loader()` / `.pwhl_release_loader()`
 - `globalVariables()` declarations in `utils.R` suppress R CMD check NSE notes
 
@@ -299,7 +321,7 @@ The package uses `lifecycle` for formal deprecation of PHF functions:
 - **NHL Stats API Cayenne filters:** `"20242025"` — same format
 - **most_recent_nhl_season():** Returns end year as numeric (e.g., `2025` for 2024-25 season)
 - **most_recent_nhl_season_api_param():** Returns `"20242025"` format
-- **PWHL:** Numeric year (e.g., `2025`)
+- **PWHL, HockeyTech, ESPN and the European leagues:** numeric END year (e.g., `2026` = 2025-26)
 - **most_recent_pwhl_season():** Returns concluding year as numeric (e.g., `2025`)
 - **pwhl_season_id():** Maps (season, game_type) to HockeyTech season_id dynamically
 
@@ -316,8 +338,9 @@ The package uses `lifecycle` for formal deprecation of PHF functions:
 ```r
 tryCatch(
     expr = {
-        res <- httr::RETRY("GET", url)
+        res <- .retry_request(url)
         check_status(res)
+        raw <- jsonlite::fromJSON(.resp_text(res), flatten = TRUE)
         # ... parse and return
     },
     error = function(e) {
@@ -333,8 +356,8 @@ tryCatch(
 - **Location:** `tests/testthat/`
 - **Run all:** `devtools::test()` or `testthat::test_local()`
 - **Test naming:** `test-<function_name>.R`
-- **Environment:** Set `NOT_CRAN=true` for full test suite on CI
-- **Skip helpers:** `tests/testthat/helper-skip.R` provides `skip_nhl_test()`, `skip_phf_test()`, `skip_pwhl_test()` controlled by env vars `RUN_NHL_TESTS`, `RUN_PHF_TESTS`, `RUN_PWHL_TESTS` (NHL/PWHL default `true`, PHF default `false`)
+- **Environment:** live tests run locally only (they skip on CRAN and CI); set `NOT_CRAN=true` in your session to run them
+- **Skip helpers:** `tests/testthat/helper-skip.R` provides `skip_nhl_test()`, `skip_pwhl_test()`, `skip_espn_test()`, `skip_euro_test()` and `skip_phf_test()`, controlled by `RUN_NHL_TESTS`, `RUN_PWHL_TESTS`, `RUN_ESPN_TESTS` (default `true`) and `RUN_EURO_TESTS`, `RUN_PHF_TESTS` (default `false`). Only the value `true` enables a family. `RUN_SLOW_NHL_TESTS=true` adds the two slow season-wide NHL aggregator tests
 
 ### Test Pattern
 
@@ -351,7 +374,7 @@ test_that("NHL - Descriptive test name", {
 ```
 
 **Key conventions:**
-- `skip_on_cran()` on all tests that hit live APIs
+- `skip_on_cran()` plus the family's skip helper on all tests that hit live APIs
 - Test both `data.frame` and `fastRhockey_data` S3 classes
 - Validate row counts > 0
 - Check for expected column names
@@ -363,13 +386,14 @@ test_that("NHL - Descriptive test name", {
 
 ### Imports (required)
 
-cli, data.table, dplyr, glue, httr, janitor, jsonlite, lifecycle, lubridate,
-magrittr, purrr, Rcpp, RcppParallel, rlang, rvest, stringr, tibble, tidyr
+cli, data.table, dplyr, glue, httr2, janitor, jsonlite, lifecycle, lubridate,
+magrittr, purrr, Rcpp, RcppParallel, rlang, rvest, stats, stringr, tibble,
+tidyr, utils, xml2
 
 ### Suggests (optional)
 
-crayon, curl, DBI, furrr, future, ggplot2, ggrepel, progressr, qs, rmarkdown,
-RSQLite, stringi, stats, testthat (>= 3.0.0), usethis, xgboost, xml2
+crayon, curl, DBI, furrr, future, ggplot2, ggrepel, progressr, rmarkdown,
+RSQLite, stringi, testthat (>= 3.1.7), usethis, withr, xgboost
 
 ## Commit Message Guidelines
 
@@ -397,6 +421,8 @@ Use Conventional Commits format:
 - `nhl-edge` — NHL Edge analytics family (`nhl_edge_*`, `nhl_cat_edge_*`)
 - `nhl-records` — NHL Records API family (`nhl_records_*`)
 - `nhl-stats` — NHL Stats REST family (`nhl_stats_*`)
+- `espn`, `fox`, `hockeytech` — ESPN (NHL and college), Fox Sports, and AHL/OHL/WHL/QMJHL families
+- `euro` (or the league prefix, e.g. `khl`, `shl`) — European league families
 - `xg` — xG model pipeline
 - `pkgdown` — documentation site
 - `ci` — GitHub Actions workflows

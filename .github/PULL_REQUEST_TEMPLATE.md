@@ -13,6 +13,13 @@
 
 ## Changes Made
 
+<!--
+List every change. Example rows:
+| `R/pwhl_standings.R` | `pwhl_standings()` resolves `season` to the HockeyTech season id | it always returned 2023-24 |
+| `tests/testthat/test-pwhl_standings.R` | offline test on a captured standings body | regression guard |
+| `man/`, `NAMESPACE` | regenerated with `devtools::document()` | roxygen changes |
+-->
+
 | File | Change | Why |
 |------|--------|-----|
 | | | |
@@ -24,7 +31,7 @@
 ## Testing & Validation
 
 - [ ] `devtools::check()` passes with no ERRORs or WARNINGs
-- [ ] `devtools::test()` -- all existing tests pass
+- [ ] `devtools::test()` -- all existing tests pass (live tests skip on CI; run the affected family locally with its `RUN_*_TESTS=true` toggle)
 - [ ] New tests added for new/changed functions
 - [ ] Tested on at least one platform (macOS / Windows / Linux)
 
