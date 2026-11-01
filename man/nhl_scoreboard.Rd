@@ -22,7 +22,7 @@ A named list of data frames: \code{gamesByDate}.
 }
 \description{
 Returns the current league-wide scoreboard with today's games,
-or — when \code{date} is supplied — the scoreboard for a specific date.
+or - when \code{date} is supplied - the scoreboard for a specific date.
 }
 \examples{
 \donttest{

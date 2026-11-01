@@ -666,7 +666,7 @@ espn_nhl_player_box <- function(game_id, ...) {
 #    ONE fetch shared across the three parse helpers.
 # ===========================================================================
 
-#' Internal: ESPN hockey game data (pbp + team box + player box) — ONE fetch.
+#' Internal: ESPN hockey game data (pbp + team box + player box) - ONE fetch.
 #'
 #' @param league ESPN league slug.
 #' @param game_id ESPN event identifier.
@@ -750,13 +750,13 @@ NULL
 #' @return A named list with three elements, all parsed from a **single** HTTP
 #'   request to the ESPN summary endpoint:
 #'
-#'   - **`plays`** — `fastRhockey_data` tibble, one row per play.
+#'   - **`plays`** - `fastRhockey_data` tibble, one row per play.
 #'     See [espn_nhl_pbp()] for the full column reference.
 #'
-#'   - **`team_box`** — `fastRhockey_data` tibble, one row per team (2 rows).
+#'   - **`team_box`** - `fastRhockey_data` tibble, one row per team (2 rows).
 #'     See [espn_nhl_team_box()] for the full column reference.
 #'
-#'   - **`player_box`** — `fastRhockey_data` tibble, one row per player.
+#'   - **`player_box`** - `fastRhockey_data` tibble, one row per player.
 #'     See [espn_nhl_player_box()] for the full column reference.
 #'
 #' @importFrom dplyr bind_rows case_when
@@ -829,11 +829,11 @@ NULL
 #'   `broadcasts`, `pickcenter`, `odds`, `plays`, `header`, `standings`,
 #'   and others.
 #'
-#'   - `$boxscore$teams` — list of 2 team stat objects.
-#'   - `$boxscore$players` — list of 2 player stat group objects.
-#'   - `$plays` — list of play objects.
-#'   - `$header$season` — season year and type.
-#'   - `$header$competitions[[1]]$competitors` — home/away team + score.
+#'   - `$boxscore$teams` - list of 2 team stat objects.
+#'   - `$boxscore$players` - list of 2 player stat group objects.
+#'   - `$plays` - list of play objects.
+#'   - `$header$season` - season year and type.
+#'   - `$header$competitions[[1]]$competitors` - home/away team + score.
 #'
 #' @importFrom jsonlite fromJSON
 #' @export

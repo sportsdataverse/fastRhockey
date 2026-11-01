@@ -22,7 +22,7 @@ A \code{fastRhockey_data} tibble with one row per standings item:\tabular{lll}{
 \details{
 League slug \code{mens-college-hockey}. Core-v2 league-level \code{standings}; ESPN answers
 with a bare \verb{$ref} pointer to the current season's group standings, returned
-as one \code{ref} row. Mirrors sdv-py \code{espn_mch_standings_core()}, which takes
+as one \code{ref} row. Mirrors sportsdataverse-py \code{espn_mch_standings_core()}, which takes
 no arguments; use \code{espn_mch_standings()} for the per-team table.
 }
 \examples{

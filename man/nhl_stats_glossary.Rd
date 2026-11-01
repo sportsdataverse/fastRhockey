@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_glossary.R
 \name{nhl_stats_glossary}
 \alias{nhl_stats_glossary}
-\title{\strong{NHL Stats API — Glossary}}
+\title{\strong{NHL Stats API - Glossary}}
 \usage{
 nhl_stats_glossary(lang = "en")
 }

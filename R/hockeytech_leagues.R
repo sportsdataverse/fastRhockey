@@ -1,4 +1,4 @@
-#' HockeyTech league registry. Mirrors sdv-py sportsdataverse/hockeytech/_leagues.py.
+#' HockeyTech league registry. Mirrors sportsdataverse-py sportsdataverse/hockeytech/_leagues.py.
 #' @noRd
 #' @keywords internal
 .hockeytech_leagues <- function() {
@@ -21,7 +21,7 @@
 #' TRUE for season names that are one-off events, not a regular season or
 #' playoffs: the feed lists them as seasons too ("2026 All-Star Challenge",
 #' "2025 Top Prospects", "CCHL Pre-Draft Combine 2026"), and the seasons parser
-#' labels them "regular". Mirrors sdv-py `SPECIAL_EVENT_SEASON_RE`.
+#' labels them "regular". Mirrors sportsdataverse-py `SPECIAL_EVENT_SEASON_RE`.
 #' @noRd
 #' @keywords internal
 .ht_is_special_event <- function(name) {
@@ -35,7 +35,7 @@
 #' Resolve an end-year `season` to integer HockeyTech season_id. Explicit season_id
 #' short-circuits. PWHL falls back to the hardcoded table via .pwhl_resolve_season_id.
 #'
-#' Mirrors sdv-py `resolve_season_id`: of the rows with that season_yr and
+#' Mirrors sportsdataverse-py `resolve_season_id`: of the rows with that season_yr and
 #' game_type_label, regular and playoff lookups drop one-off events (the AHL
 #' lists "2026 All-Star Challenge" ahead of "2025-26 Regular Season"), then a
 #' name that says its game type wins, then a name spanning two years, then feed
@@ -57,7 +57,7 @@
       hit <- hit[!.ht_is_special_event(hit$season_name), , drop = FALSE]
     }
     if (nrow(hit) > 0) {
-      # ponytail: sdv-py also ranks names carrying another league's code last (the OJHL
+      # ponytail: sportsdataverse-py also ranks names carrying another league's code last (the OJHL
       # feed lists CCHL seasons); none of the five R leagues needs it.
       nm <- ifelse(is.na(hit$season_name), "", hit$season_name)
       type_re <- switch(game_type, regular = "regular season", playoffs = "playoff",

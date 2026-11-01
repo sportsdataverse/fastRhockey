@@ -21,7 +21,7 @@
 
 #' Derive the end-year (integer) from a season name string.
 #'
-#' Mirrors sdv-py `_derive_season_year`; the first rule that matches wins.
+#' Mirrors sportsdataverse-py `_derive_season_year`; the first rule that matches wins.
 #' 1. `YYYY-YYYY` / `YYYY-YY` (`-` or `/`, spaces allowed): "2025-2026",
 #'    "2025/26", "2026 - 27" (the WHL's form) -> 2026, 2026, 2027. A two-digit
 #'    tail takes the start's century, +100 when that falls below the start
@@ -69,7 +69,7 @@
 #' Named with the .ht_ prefix to avoid collision with the NHL .game_type_label
 #' internal helper in nhl_game_feed.R (which converts numeric game-type codes).
 #'
-#' Mirrors sdv-py `_game_type_label`: "2025-26 Preseason Exhibition" stays a
+#' Mirrors sportsdataverse-py `_game_type_label`: "2025-26 Preseason Exhibition" stays a
 #' preseason; "2026-27 Exhibition Season" is an exhibition, not a regular season.
 #'
 #' @param name A season name character string.
@@ -110,7 +110,7 @@
     # A one-year preseason or exhibition name gives the camp's calendar year: "2026
     # Pre-season" starts 2026-08-11 and opens 2026-27, so it is 2027. Shifted only when
     # the name spans no two years and the row starts in the year the name gives; PWHL's
-    # "2024 Preseason" started 2023-11-01 and stays 2024. Mirrors sdv-py parse_seasons.
+    # "2024 Preseason" started 2023-11-01 and stays 2024. Mirrors sportsdataverse-py parse_seasons.
     if (label %in% c("preseason", "exhibition") && !is.na(yr) &&
         !grepl("\\d{2}\\s*[-/]\\s*\\d{2}", name) &&
         identical(substr(as.character(s$start_date %||% ""), 1L, 4L), as.character(yr))) {

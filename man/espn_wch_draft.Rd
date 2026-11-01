@@ -12,7 +12,7 @@ espn_wch_draft(...)
 \value{
 A \code{fastRhockey_data} tibble with draft data, or an empty tibble
 when the endpoint is unavailable. \strong{Note}: The WCH draft endpoint
-(\code{site/v2/sports/hockey/nhl/draft}) currently returns HTTP 500 for WCH —
+(\code{site/v2/sports/hockey/nhl/draft}) currently returns HTTP 500 for WCH -
 an empty tibble is returned gracefully:\tabular{lll}{
    col_name \tab types \tab description \cr
    id \tab character \tab Draft entry identifier (if returned). \cr

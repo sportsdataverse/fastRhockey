@@ -15,7 +15,7 @@ espn_nhl_coach_record(coach_id, ...)
 \value{
 A \code{fastRhockey_data} tibble with coach career record data, or an
 empty tibble when the endpoint is unavailable. \strong{Note}: The coach record
-path (\code{coaches/{id}/record}) returns HTTP 404 for NHL — this endpoint is
+path (\code{coaches/{id}/record}) returns HTTP 404 for NHL - this endpoint is
 not populated by ESPN for the NHL league. An empty tibble is returned
 gracefully with a warning:\tabular{lll}{
    col_name \tab types \tab description \cr

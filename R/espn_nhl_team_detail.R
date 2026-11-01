@@ -155,7 +155,7 @@ espn_nhl_team <- function(team_id, ...) {
 
 #' Internal: ESPN hockey team record (league-generic, site-v2)
 #'
-#' The `/record` endpoint returns `{}` for NHL — graceful-empty with warning.
+#' The `/record` endpoint returns `{}` for NHL - graceful-empty with warning.
 #' @noRd
 .espn_hockey_team_record <- function(league = "nhl", team_id, ...) {
   .args <- .capture_args()
@@ -374,7 +374,7 @@ espn_nhl_team_depthcharts <- function(team_id, ...) {
 
 #' Internal: ESPN hockey team injuries (league-generic, site-v2)
 #'
-#' Returns `{}` for NHL — graceful-empty with warning.
+#' Returns `{}` for NHL - graceful-empty with warning.
 #' @noRd
 .espn_hockey_team_injuries <- function(league = "nhl", team_id, ...) {
   .args <- .capture_args()
@@ -470,7 +470,7 @@ espn_nhl_team_injuries <- function(team_id, ...) {
 
 #' Internal: ESPN hockey team transactions (league-generic, site-v2)
 #'
-#' Returns `{}` for NHL — graceful-empty with warning.
+#' Returns `{}` for NHL - graceful-empty with warning.
 #' @noRd
 .espn_hockey_team_transactions <- function(league = "nhl", team_id, ...) {
   .args <- .capture_args()
@@ -559,7 +559,7 @@ espn_nhl_team_transactions <- function(team_id, ...) {
 
 #' Internal: ESPN hockey team history (league-generic, site-v2)
 #'
-#' Returns `{}` for NHL — graceful-empty with warning.
+#' Returns `{}` for NHL - graceful-empty with warning.
 #' @noRd
 .espn_hockey_team_history <- function(league = "nhl", team_id, ...) {
   .args <- .capture_args()
@@ -653,7 +653,7 @@ espn_nhl_team_history <- function(team_id, ...) {
 
 #' Internal: ESPN hockey team news (league-generic, site-v2)
 #'
-#' Returns `{}` for NHL — graceful-empty with warning.
+#' Returns `{}` for NHL - graceful-empty with warning.
 #' @noRd
 .espn_hockey_team_news <- function(league = "nhl", team_id, limit = 50, ...) {
   .args <- .capture_args()
@@ -750,7 +750,7 @@ espn_nhl_team_news <- function(team_id, limit = 50, ...) {
 
 #' Internal: ESPN hockey team leaders (league-generic, site-v2)
 #'
-#' Returns `{}` for NHL — graceful-empty with warning.
+#' Returns `{}` for NHL - graceful-empty with warning.
 #' @noRd
 .espn_hockey_team_leaders <- function(league = "nhl", team_id, ...) {
   .args <- .capture_args()

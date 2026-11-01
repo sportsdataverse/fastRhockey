@@ -1,7 +1,7 @@
 # khl.R -- Kontinental Hockey League (KHL) wrappers.
 #
-# Two backends, 23 exported wrappers, names/args/routes identical to sdv-py
-# (sportsdataverse.hockey.khl, sdv-py #826):
+# Two backends, 23 exported wrappers, names/args/routes identical to sportsdataverse-py
+# (sportsdataverse.hockey.khl, sportsdataverse-py #826):
 #
 #   khl_*            14 wrappers over POST https://www.khl.ru/rest/<route>/
 #                    (session priming + Bitrix sessid + POST form)
@@ -11,23 +11,23 @@
 # Seasons are END years (2026 = 2025/26). Neither backend takes a year: the
 # season (+ stage) is mapped to the khl.ru tournament id (tnId) / webcaster
 # stage id through the season table of webcaster data.json -> stages_v2, the
-# same table sdv-py reads (no arithmetic rule exists: 2009/10 is 167/168,
+# same table sportsdataverse-py reads (no arithmetic rule exists: 2009/10 is 167/168,
 # 2008/09 is 160/165). The All-Star games ride along in calendar/list under
 # their own tnId and are dropped by keeping only the requested tournament.
 #
 # Transport: every request goes through .build_request() / .polite_perform()
 # (>= 1 s per host on every attempt). Refusals use the classed conditions of
 # utils.R (fastRhockey_no_data / _asset_fetch / _bad_request) and mirror the
-# sdv-py runtimes: an answer for something other than what was asked is a
+# sportsdataverse-py runtimes: an answer for something other than what was asked is a
 # failed fetch, an empty one is "no data".
 #
 # Sections: constants/state -> value coercion (Python-faithful) -> generic frame
 # builders -> khl.ru parsers -> webcaster parsers -> khl.ru runtime ->
-# webcaster runtime -> exported wrappers (generated roxygen from sdv-py's
+# webcaster runtime -> exported wrappers (generated roxygen from sportsdataverse-py's
 # manual_column_descriptions.yaml).
 
 # Returns schemas of the 23 wrappers: column -> type code (i integer, f double, s character,
-# b logical), in the documented order. Generated from sdv-py's khl_schemas.py; the column
+# b logical), in the documented order. Generated from sportsdataverse-py's khl_schemas.py; the column
 # order and types here ARE the contract the parity tests pin.
 .KHL_SCHEMAS <- list(
   khl_game_header = c(
@@ -278,7 +278,7 @@
 # sessions (site -> cookie jar + sessid) and the cached season table
 .khl_state <- new.env(parent = emptyenv())
 
-# ---- value coercion (the sdv-py parser helpers, Python semantics) -------------
+# ---- value coercion (the sportsdataverse-py parser helpers, Python semantics) -------------
 
 .khl_is_obj <- function(x) is.list(x) && !is.null(names(x))
 .khl_is_arr <- function(x) is.list(x) && is.null(names(x))
@@ -1156,7 +1156,7 @@
 # .polite_perform() (up to 3 attempts, 2 s then 4 s apart).
 .khl_send <- function(req) .polite_perform(req, backoff = 2)
 
-# Markers of ServicePipe's anti-bot JS-challenge page (as sdv-py's khl_runtime.CHALLENGE_RE).
+# Markers of ServicePipe's anti-bot JS-challenge page (as sportsdataverse-py's khl_runtime.CHALLENGE_RE).
 .KHL_CHALLENGE_RE <- "servicepipe\\.tech|<js-challenge|get_cookie_spid|id_captcha_frame_div"
 
 # GET site/ (following the cookie-setting 307) and scrape the Bitrix sessid.
@@ -1337,7 +1337,7 @@
 }
 
 # Every page of position=goalies, merged into page 1's envelope, sorted by gp desc, w desc,
-# name, link (as sdv-py's khl_runtime._all_goalies). khl.ru orders goalies by goals-against
+# name, link (as sportsdataverse-py's khl_runtime._all_goalies). khl.ru orders goalies by goals-against
 # average ascending and ignores every sort field, so page 1 is the goalies without a game.
 # The page count is the body's nav.max; paging stops there or on an empty page (without a
 # nav.max, on a short page). Never a partial list: more than `max_pages` pages, a row count
@@ -1423,14 +1423,12 @@
 #' through the webcaster season table, or pass `tournament_id` (the All-Star games have their own
 #' tnId).
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL tournament id (tnId)
 #'   through the webcaster season table (khl_webcaster_stages). NULL = the site's
 #'   current season.
@@ -1502,14 +1500,12 @@ khl_schedule <- function(season = NULL, stage = "regular", headers = NULL, tourn
 #' through the webcaster season table, or pass `tournament_id` (the All-Star games have their own
 #' tnId).
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param club_id Required. khl.ru CLUB id (7 = Spartak; schedule home_club_id), not a team-season
 #'   id.
 #' @param headers Named list of extra request headers, merged over the defaults (`X-Requested-With`,
@@ -1569,14 +1565,12 @@ khl_roster <- function(club_id, headers = NULL, return_parsed = TRUE) {
 #' through the webcaster season table, or pass `tournament_id` (the All-Star games have their own
 #' tnId).
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL tournament id (tnId)
 #'   through the webcaster season table (khl_webcaster_stages). NULL = the site's
 #'   current season.
@@ -1638,14 +1632,12 @@ khl_stat_filters <- function(season = NULL, stage = "regular", headers = NULL, t
 #' through the webcaster season table, or pass `tournament_id` (the All-Star games have their own
 #' tnId).
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param game_id Required. khl.ru game id (the schedule's game_id; equals webcaster event khl_id).
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL tournament id (tnId)
 #'   through the webcaster season table (khl_webcaster_stages). The game's season;
@@ -1753,14 +1745,12 @@ khl_game_header <- function(game_id, season = NULL, stage = "regular", headers =
 #' through the webcaster season table, or pass `tournament_id` (the All-Star games have their own
 #' tnId).
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param game_id Required. khl.ru game id (the schedule's game_id; equals webcaster event khl_id).
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL tournament id (tnId)
 #'   through the webcaster season table (khl_webcaster_stages). The game's season;
@@ -1840,14 +1830,12 @@ khl_game_protocol <- function(game_id, season = NULL, stage = "regular", headers
 #' through the webcaster season table, or pass `tournament_id` (the All-Star games have their own
 #' tnId).
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param game_id Required. khl.ru game id (the schedule's game_id; equals webcaster event khl_id).
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL tournament id (tnId)
 #'   through the webcaster season table (khl_webcaster_stages). The game's season;
@@ -1977,14 +1965,12 @@ khl_game_info <- function(game_id, season = NULL, stage = "regular", headers = N
 #' through the webcaster season table, or pass `tournament_id` (the All-Star games have their own
 #' tnId).
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param game_id Required. khl.ru game id (the schedule's game_id; equals webcaster event khl_id).
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL tournament id (tnId)
 #'   through the webcaster season table (khl_webcaster_stages). The game's season;
@@ -2074,14 +2060,12 @@ khl_player_box <- function(game_id, season = NULL, stage = "regular", headers = 
 #' through the webcaster season table, or pass `tournament_id` (the All-Star games have their own
 #' tnId).
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param game_id Required. khl.ru game id (the schedule's game_id; equals webcaster event khl_id).
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL tournament id (tnId)
 #'   through the webcaster season table (khl_webcaster_stages). The game's season;
@@ -2166,14 +2150,12 @@ khl_pbp <- function(game_id, season = NULL, stage = "regular", headers = NULL,
 #' through the webcaster season table, or pass `tournament_id` (the All-Star games have their own
 #' tnId).
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param game_id Required. khl.ru game id (the schedule's game_id; equals webcaster event khl_id).
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL tournament id (tnId)
 #'   through the webcaster season table (khl_webcaster_stages). The game's season;
@@ -2247,14 +2229,12 @@ khl_shots <- function(game_id, season = NULL, stage = "regular", headers = NULL,
 #' through the webcaster season table, or pass `tournament_id` (the All-Star games have their own
 #' tnId).
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param player_id Required. khl.ru player id (the box score / roster player_id).
 #' @param headers Named list of extra request headers, merged over the defaults (`X-Requested-With`,
 #'   `Origin`, `Referer`). The cookie jar and `sessid` are kept in-process, so nothing
@@ -2332,14 +2312,12 @@ khl_player_profile <- function(player_id, headers = NULL, return_parsed = TRUE) 
 #' through the webcaster season table, or pass `tournament_id` (the All-Star games have their own
 #' tnId).
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param player_id Required. khl.ru player id (the box score / roster player_id).
 #' @param headers Named list of extra request headers, merged over the defaults (`X-Requested-With`,
 #'   `Origin`, `Referer`). The cookie jar and `sessid` are kept in-process, so nothing
@@ -2426,14 +2404,12 @@ khl_player_career <- function(player_id, headers = NULL, return_parsed = TRUE) {
 #' through the webcaster season table, or pass `tournament_id` (the All-Star games have their own
 #' tnId).
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL tournament id (tnId)
 #'   through the webcaster season table (khl_webcaster_stages). Required unless
 #'   tournament_id is given.
@@ -2497,14 +2473,12 @@ khl_playoff_bracket <- function(season = NULL, headers = NULL, tournament_id = N
 #' through the webcaster season table, or pass `tournament_id` (the All-Star games have their own
 #' tnId).
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL tournament id (tnId)
 #'   through the webcaster season table (khl_webcaster_stages). NULL = the site's
 #'   current season.
@@ -2575,7 +2549,7 @@ khl_standings <- function(season = NULL, headers = NULL, tournament_id = NULL, r
 #' through the webcaster season table, or pass `tournament_id` (the All-Star games have their own
 #' tnId).
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
@@ -2587,9 +2561,7 @@ khl_standings <- function(season = NULL, headers = NULL, tournament_id = NULL, r
 #' missing page, a row count that does not fit the page count, a player on two pages, more than 30
 #' pages) raises `fastRhockey_asset_fetch`. Skaters are one page, as asked.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL tournament id (tnId)
 #'   through the webcaster season table (khl_webcaster_stages). NULL = the site's
 #'   current season.
@@ -2705,14 +2677,12 @@ khl_player_stats <- function(season = NULL, stage = "regular", position = NULL, 
 #' `khl_webcaster_stages()` (cached for the R session), or pass `stage_id`. Honours
 #' `getOption("fastRhockey.proxy")`; betting fields and the caller's IP are removed from every body.
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param locale Response language: en or ru. One of `en`, `ru`.
 #' @param return_parsed Logical. `TRUE` (default) returns the parsed `fastRhockey_data` tibble;
 #'   `FALSE` returns the raw JSON body as a list (betting fields and the caller's
@@ -2762,14 +2732,12 @@ khl_webcaster_stages <- function(locale = "en", return_parsed = TRUE) {
 #' `khl_webcaster_stages()` (cached for the R session), or pass `stage_id`. Honours
 #' `getOption("fastRhockey.proxy")`; betting fields and the caller's IP are removed from every body.
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param event_id Required. Webcaster event id (khl_webcaster_events id), not the khl.ru game id.
 #' @param locale Response language: en or ru. One of `en`, `ru`.
 #' @param return_parsed Logical. `TRUE` (default) returns the parsed `fastRhockey_data` tibble;
@@ -2972,14 +2940,12 @@ khl_webcaster_event <- function(event_id, locale = "en", return_parsed = TRUE) {
 #' `khl_webcaster_stages()` (cached for the R session), or pass `stage_id`. Honours
 #' `getOption("fastRhockey.proxy")`; betting fields and the caller's IP are removed from every body.
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL webcaster stage id
 #'   through the webcaster season table (khl_webcaster_stages). NULL = the current
 #'   stage.
@@ -3095,14 +3061,12 @@ khl_webcaster_events <- function(season = NULL, stage = "regular", page = 1, sta
 #' `khl_webcaster_stages()` (cached for the R session), or pass `stage_id`. Honours
 #' `getOption("fastRhockey.proxy")`; betting fields and the caller's IP are removed from every body.
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL webcaster stage id
 #'   through the webcaster season table (khl_webcaster_stages). NULL = the current
 #'   stage.
@@ -3169,14 +3133,12 @@ khl_webcaster_leaders <- function(season = NULL, stage = "regular", stage_id = N
 #' `khl_webcaster_stages()` (cached for the R session), or pass `stage_id`. Honours
 #' `getOption("fastRhockey.proxy")`; betting fields and the caller's IP are removed from every body.
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param player_ids Webcaster player id(s), not khl.ru ids. NULL = every player of the stage (a
 #'   large body).
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL webcaster stage id
@@ -3260,14 +3222,12 @@ khl_webcaster_players <- function(player_ids = NULL, season = NULL, stage = "reg
 #' `khl_webcaster_stages()` (cached for the R session), or pass `stage_id`. Honours
 #' `getOption("fastRhockey.proxy")`; betting fields and the caller's IP are removed from every body.
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param locale Response language: en or ru. One of `en`, `ru`.
 #' @param return_parsed Logical. `TRUE` (default) returns the parsed `fastRhockey_data` tibble;
 #'   `FALSE` returns the raw JSON body as a list (betting fields and the caller's
@@ -3319,14 +3279,12 @@ khl_webcaster_players_light <- function(locale = "en", return_parsed = TRUE) {
 #' `khl_webcaster_stages()` (cached for the R session), or pass `stage_id`. Honours
 #' `getOption("fastRhockey.proxy")`; betting fields and the caller's IP are removed from every body.
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param locale Response language: en or ru. One of `en`, `ru`.
 #' @param return_parsed Logical. `TRUE` (default) returns the parsed `fastRhockey_data` tibble;
 #'   `FALSE` returns the raw JSON body as a list (betting fields and the caller's
@@ -3396,14 +3354,12 @@ khl_webcaster_tables <- function(locale = "en", return_parsed = TRUE) {
 #' `khl_webcaster_stages()` (cached for the R session), or pass `stage_id`. Honours
 #' `getOption("fastRhockey.proxy")`; betting fields and the caller's IP are removed from every body.
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param team_id Required. Webcaster team id (khl_webcaster_teams id), not the khl.ru club id.
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL webcaster stage id
 #'   through the webcaster season table (khl_webcaster_stages). NULL = the current
@@ -3502,14 +3458,12 @@ khl_webcaster_team <- function(team_id, season = NULL, stage = "regular", stage_
 #' `khl_webcaster_stages()` (cached for the R session), or pass `stage_id`. Honours
 #' `getOption("fastRhockey.proxy")`; betting fields and the caller's IP are removed from every body.
 #'
-#' Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+#' Ids and counts are integers; a column holding values past 2^31 (epoch
 #' milliseconds) is returned as a whole-number double.
 #'
 #' At least one second is left between two requests to a host.
 #'
-#' **Owner flag (sanctions).** The KHL and its webcaster platform are run by Russian operators, some
-#' clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-#' release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+#' Check the provider's terms of use before redistributing this data.
 #' @param season Season by its END year (2026 = 2025-26), mapped to the KHL webcaster stage id
 #'   through the webcaster season table (khl_webcaster_stages). NULL = the current
 #'   stage.

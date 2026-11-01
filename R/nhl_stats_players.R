@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Players Listing**
+#' @title **NHL Stats API - Players Listing**
 #' @description Returns the player listing from the NHL Stats REST API
 #'   (`https://api.nhle.com/stats/rest/{lang}/players`). This is a full
 #'   player roster dump; use `cayenne_exp` to filter (e.g.,

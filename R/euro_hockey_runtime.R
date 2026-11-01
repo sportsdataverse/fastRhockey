@@ -1,6 +1,6 @@
 # euro_hockey_runtime.R -- shared transport for the European hockey families.
 #
-# Mirrors sdv-py sportsdataverse/hockey/euro_hockey_runtime.py. Every European
+# Mirrors sportsdataverse-py sportsdataverse/hockey/euro_hockey_runtime.py. Every European
 # provider is wrapped politely: at least one second between two requests to the
 # same host, on EVERY attempt, retries included. httr2::req_throttle() cannot
 # do that (httr2 1.3 throttles once, before its retry loop, and not at all for
@@ -18,7 +18,7 @@
 # a connection failure after retries, an empty or non-JSON body ->
 # fastRhockey_asset_fetch.
 
-#' Minimum seconds between two requests to one host (Phase B ruling).
+#' Minimum seconds between two requests to one host .
 #' @noRd
 .EURO_MIN_INTERVAL <- 1
 
@@ -49,7 +49,7 @@
 #' @noRd
 .EURO_RETRY_STATUSES <- c(429L, 500L, 502L, 503L, 504L)
 
-#' Cap on a server's `Retry-After`, in seconds (sdv-py `dl_utils._MAX_RETRY_AFTER`).
+#' Cap on a server's `Retry-After`, in seconds (sportsdataverse-py `dl_utils._MAX_RETRY_AFTER`).
 #' @noRd
 .EURO_MAX_RETRY_AFTER <- 120
 
@@ -103,7 +103,7 @@
 #' @noRd
 .euro_where <- function(url) sub("^[a-z]+://", "", sub("[?#].*$", "", url))
 
-#' Raise unless the response is 2xx (the sdv-py `_check_status` vocabulary).
+#' Raise unless the response is 2xx (the sportsdataverse-py `_check_status` vocabulary).
 #'
 #' @param resp An httr2 response.
 #' @param where Label for messages; defaults to the request's `host/path`.

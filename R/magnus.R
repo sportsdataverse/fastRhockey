@@ -1,6 +1,6 @@
 # magnus.R -- Ligue Magnus (liguemagnus.com) wrappers.
 #
-# Port of sdv-py sportsdataverse/hockey/magnus/ (magnus_runtime.py,
+# Port of sportsdataverse-py sportsdataverse/hockey/magnus/ (magnus_runtime.py,
 # magnus_parsers.py and the generated magnus.py). One keyless host, throttled
 # to one request a second through the shared European hockey transport
 # (euro_hockey_runtime.R), two sources on it:
@@ -18,7 +18,7 @@
 # (seeded ids, one live lookup per session for an unseeded season). Coverage
 # starts in 2020-21 (season 2021).
 #
-# Refusals (sdv-py `_check_ajax` / `_game_sheet`): `success: false` with
+# Refusals (sportsdataverse-py `_check_ajax` / `_game_sheet`): `success: false` with
 # "Aucune donnee disponible" -> fastRhockey_no_data, with any other message ->
 # fastRhockey_asset_fetch; an empty `data` stub or zero rows -> no_data; a
 # Laravel validation dict naming a parameter -> fastRhockey_bad_request; rows
@@ -68,7 +68,7 @@
 .MAGNUS_POSITIONS <- c(A = "forward", D = "defence", GB = "goalie")
 
 # ---------------------------------------------------------------------------
-# Value helpers (sdv-py `_at`, `_int`, `_dicts`, `_coerce`)
+# Value helpers (sportsdataverse-py `_at`, `_int`, `_dicts`, `_coerce`)
 # ---------------------------------------------------------------------------
 
 # A JSON object (named list) / a JSON array (unnamed list), as jsonlite returns
@@ -161,7 +161,7 @@
   as.character(x)
 }
 
-# Accents, case and whitespace folded away (sdv-py `_fold`). Decomposed
+# Accents, case and whitespace folded away (sportsdataverse-py `_fold`). Decomposed
 # accents are dropped as combining marks; precomposed Latin-1 letters are
 # mapped by table.
 .magnus_fold <- function(text) {
@@ -179,7 +179,7 @@
 }
 
 # ---------------------------------------------------------------------------
-# Season -> competition_id (sdv-py `_competition_id`)
+# Season -> competition_id (sportsdataverse-py `_competition_id`)
 # ---------------------------------------------------------------------------
 
 # {season: competition_id} from one get_competition_by_type request, cached
@@ -221,7 +221,7 @@
 }
 
 # ---------------------------------------------------------------------------
-# Transport and refusals (sdv-py magnus_runtime.py)
+# Transport and refusals (sportsdataverse-py magnus_runtime.py)
 # ---------------------------------------------------------------------------
 
 # `_rows`: the row list of an admin-ajax `data` object (NULL when missing).
@@ -394,7 +394,7 @@
 }
 
 # GET a Ligue Magnus route: an admin-ajax action as checked JSON, or a game
-# page's game sheet (sdv-py `_get`).
+# page's game sheet (sportsdataverse-py `_get`).
 .magnus_get <- function(url, params = list()) {
   clean <- Filter(Negate(is.null), params)
   m <- regmatches(httr2::url_parse(url)$path, regexec("^/rencontre/([0-9]+)/?$", httr2::url_parse(url)$path))[[1]]
@@ -403,7 +403,7 @@
 }
 
 # ---------------------------------------------------------------------------
-# Frame builder (sdv-py `_frame` / `_coerce`)
+# Frame builder (sportsdataverse-py `_frame` / `_coerce`)
 # ---------------------------------------------------------------------------
 
 .magnus_spec_col <- function(type, get) list(type = type, get = get)
@@ -512,7 +512,7 @@
 }
 
 # ---------------------------------------------------------------------------
-# Parsers: admin-ajax (sdv-py magnus_parsers.py)
+# Parsers: admin-ajax (sportsdataverse-py magnus_parsers.py)
 # ---------------------------------------------------------------------------
 
 .MAGNUS_COMPETITIONS <- list(

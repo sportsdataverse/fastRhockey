@@ -2,11 +2,11 @@
 % Please edit documentation in R/nhl_game_feed.R
 \name{.extract_event_players}
 \alias{.extract_event_players}
-\title{Extract event players using coalesce pattern (adapted from hockeyR)}
+\title{Extract event players using coalesce pattern (adapted from hockeyR by Daniel Morse)}
 \usage{
 .extract_event_players(pbp)
 }
 \description{
-Extract event players using coalesce pattern (adapted from hockeyR)
+Extract event players using coalesce pattern (adapted from hockeyR by Daniel Morse)
 }
 \keyword{internal}

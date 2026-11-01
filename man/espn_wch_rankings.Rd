@@ -46,7 +46,7 @@ the same 25 columns; zero rows (with those columns) when no poll is published:\t
 \details{
 ESPN women's college hockey polls (USCHO), league slug \code{womens-college-hockey}. \code{rank} is \code{NA} on
 the vote-receiving rows (\code{ranked = FALSE}); \code{previous_rank} keeps ESPN's \code{0}
-for a team unranked in the previous poll. Mirrors sdv-py \code{espn_wch_rankings()}.
+for a team unranked in the previous poll. Mirrors sportsdataverse-py \code{espn_wch_rankings()}.
 }
 \examples{
 \donttest{

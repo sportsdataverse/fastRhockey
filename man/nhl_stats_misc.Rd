@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_misc.R
 \name{nhl_stats_misc}
 \alias{nhl_stats_misc}
-\title{\strong{NHL Stats API — Miscellaneous Endpoints}}
+\title{\strong{NHL Stats API - Miscellaneous Endpoints}}
 \usage{
 nhl_stats_misc(endpoint = "glossary", game_id = NULL, lang = "en")
 }
@@ -20,7 +20,7 @@ dedicated \code{game_id} argument for this one),
 }
 
 Note: dedicated wrappers exist for \code{season}, \code{draft}, \code{skater/{report}},
-\code{goalie/{report}}, and \code{team/{report}} — see \code{\link[=nhl_stats_seasons]{nhl_stats_seasons()}},
+\code{goalie/{report}}, and \code{team/{report}} - see \code{\link[=nhl_stats_seasons]{nhl_stats_seasons()}},
 \code{\link[=nhl_stats_draft]{nhl_stats_draft()}}, \code{\link[=nhl_stats_skaters]{nhl_stats_skaters()}}, \code{\link[=nhl_stats_goalies]{nhl_stats_goalies()}},
 and \code{\link[=nhl_stats_teams]{nhl_stats_teams()}}.}
 

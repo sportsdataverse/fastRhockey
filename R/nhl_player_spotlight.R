@@ -1,5 +1,5 @@
 #' @title **NHL Player Spotlight**
-#' @description Returns the current NHL player spotlight — featured players
+#' @description Returns the current NHL player spotlight - featured players
 #' highlighted by the league.
 #' @return A data frame (`fastRhockey_data`) with the following columns:
 #'

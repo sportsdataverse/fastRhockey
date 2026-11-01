@@ -30,7 +30,7 @@ A \code{fastRhockey_data} tibble with one row per recruit:\tabular{lll}{
 \details{
 League slug \code{womens-college-hockey}. Core-v2 \code{recruiting/{year}/athletes}; inline
 athlete objects are flattened and snake-cased, \verb{$ref}-only items become \code{ref} +
-\code{recruit_id}. Mirrors sdv-py \code{espn_wch_recruiting_players()}.
+\code{recruit_id}. Mirrors sportsdataverse-py \code{espn_wch_recruiting_players()}.
 }
 \examples{
 \donttest{

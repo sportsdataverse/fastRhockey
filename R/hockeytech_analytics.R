@@ -18,8 +18,8 @@
 #'   shot_angle    = abs(atan2(abs(y_coord), dx)) * 180 / pi
 #' with dx = goal_x - abs(x_coord), the distance to the nearer net. An own-half
 #' event with a goalie in net is a near-net event whose coordinates the feed
-#' mirrored, so the nearer net is right for it (sdv-internal-refs
-#' hockeytech/CANVAS.md, validated on 320 PWHL games). An empty-net goal
+#' mirrored, so the nearer net is right for it (validated on 320 PWHL
+#' games). An empty-net goal
 #' (`empty_net` "1") is measured to the net its team attacks instead: the feed
 #' puts the home team's attack at x = -goal_x and the visitor's at +goal_x, so
 #' dx = abs(attack_x - x_coord) (an own-half empty-net goal is a genuine long
@@ -182,7 +182,7 @@ hockeytech_build_on_ice <- function(pbp, shifts) {
   # not `>= end_s`): at a line change the outgoing shift's end_s equals the incoming
   # shift's start_s equals the event time_s; a closed interval counts BOTH lines
   # (impossible ~10-v-10 on-ice states). Half-open assigns the instant to the
-  # incoming shift only. Mirrors sdv-py hockeytech/_analytics.py::build_on_ice.
+  # incoming shift only. Mirrors sportsdataverse-py hockeytech/_analytics.py::build_on_ice.
   on_ice <- joined[joined$start_s >= joined$time_s & joined$time_s > joined$end_s, ]
 
   # Helper: aggregate one side into comma-joined sorted integer ids
@@ -247,7 +247,7 @@ hockeytech_build_on_ice <- function(pbp, shifts) {
 #' ("{home}v{away}", home perspective; e.g. "5v5", "5v4" home-PP, "6v5" home net
 #' empty), and `strength_state_valid` (logical; FALSE when a count is < 3 or > 6
 #' -- the HockeyTech shift-boundary noise that survives the build_on_ice fix).
-#' Mirrors sdv-py hockeytech/_analytics.py::add_strength_state.
+#' Mirrors sportsdataverse-py hockeytech/_analytics.py::add_strength_state.
 #'
 #' @param pbp        data.frame with `on_ice_home` / `on_ice_away`.
 #' @param goalie_ids goalie player_ids for the game (coerced to character).
@@ -477,8 +477,8 @@ hockeytech_per60 <- function(value, toi_seconds) {
 #' Raw coordinates (x_coord, y_coord) come from the HockeyTech feed on a
 #' 600x300 canvas with a top-left origin, so centre ice is (300, 150). Every
 #' probed league uses this one canvas, and the feed puts the home team's attack
-#' toward x = 0 and the visitor's toward x = 600 in every period
-#' (sdv-internal-refs hockeytech/CANVAS.md). This function adds ten derived
+#' toward x = 0 and the visitor's toward x = 600 in every period.
+#' This function adds ten derived
 #' columns, all on the centre-origin feet frame (x_t, y_t):
 #'
 #'   x_coord_original / y_coord_original = raw x_coord, y_coord

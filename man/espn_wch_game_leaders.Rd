@@ -15,7 +15,7 @@ espn_wch_game_leaders(event_id, cid = event_id, ...)
 }
 \value{
 A \code{fastRhockey_data} tibble with one row per (category, leader) pair.
-\strong{Note:} This endpoint is sparse for WCH — most games return an empty tibble
+\strong{Note:} This endpoint is sparse for WCH - most games return an empty tibble
 with a warning. When populated:\tabular{lll}{
    col_name \tab types \tab description \cr
    event_id \tab character \tab ESPN event id (echoed from arg). \cr

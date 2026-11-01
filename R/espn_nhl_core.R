@@ -8,7 +8,7 @@
 
 #' Internal: every network name of a competition, ", "-joined
 #'
-#' Mirrors sdv-py's `_broadcast_names`: feed order, deduped; a broadcast with
+#' Mirrors sportsdataverse-py's `_broadcast_names`: feed order, deduped; a broadcast with
 #' no `names` contributes its `market` when that is a string; anything that is
 #' not a non-empty string is skipped; no broadcasts gives `""`.
 #'
@@ -133,7 +133,7 @@
         home_logo_href <- .cfield_sb(home_team_df, "logo")
         away_logo_href <- .cfield_sb(away_team_df, "logo")
 
-        # broadcast: every network name, ", "-joined (sdv-py _broadcast_names)
+        # broadcast: every network name, ", "-joined (sportsdataverse-py _broadcast_names)
         broadcast_str <- tryCatch({
           bc <- comps$broadcasts
           if (is.list(bc) && !is.data.frame(bc)) bc <- bc[[1]]

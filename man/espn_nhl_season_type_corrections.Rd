@@ -22,7 +22,7 @@ espn_nhl_season_type_corrections(
 \value{
 A \code{fastRhockey_data} tibble with one row per correction entry, or
 an empty tibble when no corrections are recorded. \strong{Note}: ESPN does not
-publish score corrections for NHL — this endpoint returns empty for all
+publish score corrections for NHL - this endpoint returns empty for all
 tested seasons:\tabular{lll}{
    col_name \tab types \tab description \cr
    ref \tab character \tab \verb{$ref} URL for the correction object. \cr

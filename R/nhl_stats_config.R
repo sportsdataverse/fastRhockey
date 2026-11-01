@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Config**
+#' @title **NHL Stats API - Config**
 #' @description Returns the Stats REST API configuration payload
 #'   (`https://api.nhle.com/stats/rest/{lang}/config`). This endpoint is
 #'   non-tabular: the raw parsed list is returned as-is rather than wrapped

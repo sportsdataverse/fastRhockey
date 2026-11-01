@@ -89,7 +89,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with one row per week, or an empty
 #'   tibble when the endpoint returns no items. **Note**: The NHL does not use
-#'   weekly scheduling in the ESPN core-v2 API — this endpoint consistently
+#'   weekly scheduling in the ESPN core-v2 API - this endpoint consistently
 #'   returns `count=0` for NHL. An empty tibble is returned gracefully:
 #'
 #'    |col_name     |types     |description                                          |
@@ -192,7 +192,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return A one-row `fastRhockey_data` tibble with week metadata, or an empty
 #'   tibble when the endpoint is unavailable. **Note**: NHL does not use weeks
-#'   in ESPN core-v2 — HTTP 404 is the expected response:
+#'   in ESPN core-v2 - HTTP 404 is the expected response:
 #'
 #'    |col_name     |types     |description                                          |
 #'    |:------------|:---------|:----------------------------------------------------|
@@ -302,7 +302,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with one row per game (event) in the
 #'   week, or an empty tibble when the endpoint is unavailable. **Note**: NHL
-#'   does not use weeks in ESPN core-v2 — HTTP 404 is expected:
+#'   does not use weeks in ESPN core-v2 - HTTP 404 is expected:
 #'
 #'    |col_name     |types     |description                                          |
 #'    |:------------|:---------|:----------------------------------------------------|
@@ -499,7 +499,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with one row per power-index entry, or
 #'   an empty tibble when no data is available. **Note**: ESPN does not publish
-#'   power-index data for NHL — this endpoint consistently returns empty
+#'   power-index data for NHL - this endpoint consistently returns empty
 #'   results for hockey:
 #'
 #'    |col_name        |types     |description                                      |
@@ -798,7 +798,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with one row per correction entry, or
 #'   an empty tibble when no corrections are recorded. **Note**: ESPN does not
-#'   publish score corrections for NHL — this endpoint returns empty for all
+#'   publish score corrections for NHL - this endpoint returns empty for all
 #'   tested seasons:
 #'
 #'    |col_name        |types     |description                                          |
@@ -901,7 +901,7 @@ NULL
 #' @return A `fastRhockey_data` tibble with one row per player reference for
 #'   the requested page. This function hits the same endpoint as
 #'   `espn_nhl_season_athletes()` (`seasons/{season}/athletes`) but uses the
-#'   `player_id` column name for consistency with the `sdv-py`
+#'   `player_id` column name for consistency with the `sportsdataverse-py`
 #'   `espn_nhl_season_players` naming convention:
 #'
 #'    |col_name    |types     |description                                          |

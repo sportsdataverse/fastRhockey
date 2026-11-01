@@ -15,7 +15,7 @@ espn_nhl_coach(coach_id, ...)
 \value{
 A one-row \code{fastRhockey_data} tibble with coach detail. Note that
 \code{careerRecords} and \code{coachSeasons} are sparse (empty arrays) for many NHL
-coaches — see \code{espn_nhl_coach_record()} for season-scoped records:\tabular{lll}{
+coaches - see \code{espn_nhl_coach_record()} for season-scoped records:\tabular{lll}{
    col_name \tab types \tab description \cr
    coach_id \tab character \tab ESPN coach id (echoed from arg). \cr
    id \tab character \tab ESPN coach identifier from response. \cr

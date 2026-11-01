@@ -333,7 +333,7 @@ NULL
 #' @param cid Competition identifier. Defaults to `event_id`.
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with one row per odds provider (typically
-#'   2 rows per game — consensus + one sportsbook):
+#'   2 rows per game - consensus + one sportsbook):
 #'
 #'    |col_name              |types     |description                                             |
 #'    |:---------------------|:---------|:-------------------------------------------------------|
@@ -456,7 +456,7 @@ NULL
 #' @param limit Maximum number of probability entries to return. Defaults to `300`.
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with one row per play probability entry. **Note:**
-#'   This endpoint is sparse for NHL — most games return an empty tibble with a
+#'   This endpoint is sparse for NHL - most games return an empty tibble with a
 #'   warning. When populated, columns include:
 #'
 #'    |col_name            |types     |description                                           |
@@ -668,7 +668,7 @@ NULL
 #' @param event_id ESPN event (game) identifier.
 #' @param cid Competition identifier. Defaults to `event_id`.
 #' @param ... Reserved for forward compatibility.
-#' @return A `fastRhockey_data` tibble with one row per official (typically 4 —
+#' @return A `fastRhockey_data` tibble with one row per official (typically 4 -
 #'   2 referees + 2 linesmen):
 #'
 #'    |col_name         |types     |description                                             |
@@ -905,7 +905,7 @@ NULL
 #' @param cid Competition identifier. Defaults to `event_id`.
 #' @param ... Reserved for forward compatibility.
 #' @return A one-row `fastRhockey_data` tibble with ESPN Predictor data. **Note:**
-#'   This endpoint is sparse for NHL — most games return an empty tibble with a
+#'   This endpoint is sparse for NHL - most games return an empty tibble with a
 #'   warning. When populated, scalar fields from the predictor object are returned
 #'   as character columns alongside `event_id` and `cid`.
 #'
@@ -1005,7 +1005,7 @@ NULL
 #' @param cid Competition identifier. Defaults to `event_id`.
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with ESPN Power Index data. **Note:**
-#'   This endpoint is sparse for NHL — most games return an empty tibble with a
+#'   This endpoint is sparse for NHL - most games return an empty tibble with a
 #'   warning. When populated, columns contain power-index values alongside
 #'   `event_id` and `cid`.
 #'
@@ -1108,7 +1108,7 @@ NULL
 #' @param cid Competition identifier. Defaults to `event_id`.
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with one row per (category, leader) pair.
-#'   **Note:** This endpoint is sparse for NHL — most games return an empty tibble
+#'   **Note:** This endpoint is sparse for NHL - most games return an empty tibble
 #'   with a warning. When populated:
 #'
 #'    |col_name          |types     |description                                             |

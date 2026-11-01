@@ -1,6 +1,6 @@
 #' @title **NHL Scoreboard**
 #' @description Returns the current league-wide scoreboard with today's games,
-#' or — when `date` is supplied — the scoreboard for a specific date.
+#' or - when `date` is supplied - the scoreboard for a specific date.
 #' @param date Optional character string in `"YYYY-MM-DD"` format. When
 #'   `NULL` (default) the function hits `scoreboard/now`; when a date is
 #'   provided it hits `scoreboard/{date}`.

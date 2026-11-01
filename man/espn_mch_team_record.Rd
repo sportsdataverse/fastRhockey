@@ -25,7 +25,7 @@ Columns when populated:\tabular{lll}{
    description \tab character \tab Record description. \cr
    type \tab character \tab Record type (overall, home, away). \cr
    summary \tab character \tab Record summary string, e.g. \code{'10-5-1'}. \cr
-   \if{html}{\out{<stat>}} \tab numeric \tab One column per ESPN stat on the record, named by \code{janitor::make_clean_names()} of the stat name. \cr
+   \verb{<stat>} \tab numeric \tab One column per ESPN stat on the record, named by \code{janitor::make_clean_names()} of the stat name. \cr
 }
 }
 \description{
