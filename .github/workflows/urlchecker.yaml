@@ -40,8 +40,10 @@ jobs:
 
       - name: Check URLs
         run: |
-          db <- urlchecker:::build_url_db(normalizePath(".", winslash = "/"))
-          blocked <- "^https?://([a-z0-9-]+[.])*(stats[.]nba[.]com|stats[.]wnba[.]com|stats[.]ncaa[.]org|sports-reference[.]com|hockey-reference[.]com|basketball-reference[.]com)"
+          # The vignette has no VignetteEngine, so urlchecker would skip it; add it by path.
+          paths <- normalizePath(c(".", list.files("vignettes", pattern = "[.]Rmd$", full.names = TRUE)), winslash = "/")
+          db <- urlchecker:::build_url_db(paths)
+          blocked <- "^https?://([a-z0-9-]+[.])*(stats[.]nba[.]com|stats[.]wnba[.]com|stats[.]ncaa[.]org|sports-reference[.]com|hockey-reference[.]com|basketball-reference[.]com)([:/?#]|$)"
           skip <- grepl(blocked, db$URL, ignore.case = TRUE)
           message(sum(skip), " URL(s) on datacenter-blocked hosts not checked:")
           writeLines(unique(db$URL[skip]))
