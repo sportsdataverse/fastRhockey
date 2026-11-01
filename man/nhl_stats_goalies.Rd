@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_goalies.R
 \name{nhl_stats_goalies}
 \alias{nhl_stats_goalies}
-\title{\strong{NHL Stats API — Goalie Stats}}
+\title{\strong{NHL Stats API - Goalie Stats}}
 \usage{
 nhl_stats_goalies(
   report_type = "summary",

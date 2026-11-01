@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_skater_leaders.R
 \name{nhl_stats_skater_leaders}
 \alias{nhl_stats_skater_leaders}
-\title{\strong{NHL Stats API — Skater Leaders}}
+\title{\strong{NHL Stats API - Skater Leaders}}
 \usage{
 nhl_stats_skater_leaders(attribute, lang = "en", cayenne_exp = NULL)
 }
@@ -10,7 +10,7 @@ nhl_stats_skater_leaders(attribute, lang = "en", cayenne_exp = NULL)
 \item{attribute}{Character (required). The stat attribute to rank by.
 Known valid values include \code{"points"}, \code{"goals"}, \code{"assists"}. Note
 that this endpoint does \strong{not} accept \code{start} / \code{limit} query
-parameters — passing them produces a 500. Use \code{cayenne_exp} to filter.}
+parameters - passing them produces a 500. Use \code{cayenne_exp} to filter.}
 
 \item{lang}{Character language code. Default \code{"en"}.}
 

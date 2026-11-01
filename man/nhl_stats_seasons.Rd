@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_misc.R
 \name{nhl_stats_seasons}
 \alias{nhl_stats_seasons}
-\title{\strong{NHL Stats API — Seasons List}}
+\title{\strong{NHL Stats API - Seasons List}}
 \usage{
 nhl_stats_seasons(lang = "en")
 }

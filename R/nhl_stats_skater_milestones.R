@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Skater Milestones**
+#' @title **NHL Stats API - Skater Milestones**
 #' @description Returns skater milestone achievements from the NHL Stats
 #'   REST API (`https://api.nhle.com/stats/rest/{lang}/milestones/skaters`).
 #' @param lang Character language code. Default `"en"`.

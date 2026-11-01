@@ -13,9 +13,9 @@
 #'   `v1/cat/edge/` prefix and **without** the trailing `/{season}/{gameType}`
 #'   or `/now` suffix. The wrapper supplies that suffix.
 #' @param season Character or numeric season. May be:
-#'   * `NULL` (default) — fetches the `/now` endpoint
-#'   * a numeric year like `2025` — converted to API form `"20242025"`
-#'   * a pre-formatted 8-character string like `"20242025"` — used as-is
+#'   * `NULL` (default) - fetches the `/now` endpoint
+#'   * a numeric year like `2025` - converted to API form `"20242025"`
+#'   * a pre-formatted 8-character string like `"20242025"` - used as-is
 #' @param game_type Integer game type (1 = preseason, 2 = regular season,
 #'   3 = playoffs). Ignored when `season` is `NULL`.
 #' @param prefix Character URL prefix. Defaults to `"v1/edge"`. Pass

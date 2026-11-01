@@ -34,7 +34,7 @@ A \code{fastRhockey_data} tibble (the raw JSON list when \code{return_parsed = F
    info_email \tab character \tab Contact email address of the club. \cr
    info_chairman \tab character \tab Name of the club chairman. \cr
    info_manager \tab character \tab Club general manager. \cr
-   info_accreditation \tab character \tab Press-accreditation contact, free Swedish text (e.g. 'Senast dagen före match till …' = 'no later than the day before the game, to …'). \cr
+   info_accreditation \tab character \tab Press-accreditation contact, free Swedish text (e.g. 'Senast dagen före match till ...' = 'no later than the day before the game, to ...'). \cr
    info_facebook \tab character \tab Club Facebook URL. \cr
    info_instagram \tab character \tab Club Instagram URL. \cr
    info_twitter \tab character \tab Club X/Twitter URL. \cr
@@ -65,7 +65,7 @@ season that is not a year, or an argument outside its choices.
 
 \examples{
 \donttest{
-  shl_team(team_uuid = "087a-087aTQv9u")
+  try(shl_team(team_uuid = "087a-087aTQv9u"))
 }
 }
 \seealso{

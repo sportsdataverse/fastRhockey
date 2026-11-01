@@ -17,7 +17,7 @@ espn_mch_game_probabilities(event_id, cid = event_id, limit = 300, ...)
 }
 \value{
 A \code{fastRhockey_data} tibble with one row per play probability entry. \strong{Note:}
-This endpoint is sparse for MCH — most games return an empty tibble with a
+This endpoint is sparse for MCH - most games return an empty tibble with a
 warning. When populated, columns include:\tabular{lll}{
    col_name \tab types \tab description \cr
    event_id \tab character \tab ESPN event id (echoed from arg). \cr

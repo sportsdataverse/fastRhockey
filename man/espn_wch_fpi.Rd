@@ -36,7 +36,7 @@ A \code{fastRhockey_data} tibble with one row per team:\tabular{lll}{
 League slug \code{womens-college-hockey}. One row per team with a column per FPI field,
 snake-cased from the payload's \code{categories} labels (zipped by position and
 length-guarded); a zero-row \code{data.frame} when ESPN publishes no table for
-women's college hockey. Mirrors sdv-py \code{espn_wch_fpi()}.
+women's college hockey. Mirrors sportsdataverse-py \code{espn_wch_fpi()}.
 }
 \examples{
 \donttest{

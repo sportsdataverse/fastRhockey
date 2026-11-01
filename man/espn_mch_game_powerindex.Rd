@@ -15,7 +15,7 @@ espn_mch_game_powerindex(event_id, cid = event_id, ...)
 }
 \value{
 A \code{fastRhockey_data} tibble with ESPN Power Index data. \strong{Note:}
-This endpoint is sparse for MCH — most games return an empty tibble with a
+This endpoint is sparse for MCH - most games return an empty tibble with a
 warning. When populated, columns contain power-index values alongside
 \code{event_id} and \code{cid}.
 
@@ -24,7 +24,7 @@ Columns when populated:\tabular{lll}{
    event_id \tab character \tab ESPN event identifier (echoed from the argument). \cr
    cid \tab character \tab Competition identifier (echoed from the argument). \cr
    pi_ref \tab character \tab \verb{$ref} URL of the power-index item (list responses). \cr
-   \if{html}{\out{<field>}} \tab character \tab One column per scalar field of the ESPN power-index object (object responses), cleaned by \code{janitor::clean_names()}; \code{powerindex_ref} when it has no scalars. \cr
+   \verb{<field>} \tab character \tab One column per scalar field of the ESPN power-index object (object responses), cleaned by \code{janitor::clean_names()}; \code{powerindex_ref} when it has no scalars. \cr
 }
 }
 \description{

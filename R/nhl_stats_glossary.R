@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Glossary**
+#' @title **NHL Stats API - Glossary**
 #' @description Returns the glossary of stat definitions from the NHL Stats
 #'   REST API (`https://api.nhle.com/stats/rest/{lang}/glossary`). Useful to
 #'   look up what a given abbreviation or statistic (e.g., `PIM`) means.

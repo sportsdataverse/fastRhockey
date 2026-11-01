@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_franchise.R
 \name{nhl_stats_franchise}
 \alias{nhl_stats_franchise}
-\title{\strong{NHL Stats API — Franchise Listing}}
+\title{\strong{NHL Stats API - Franchise Listing}}
 \usage{
 nhl_stats_franchise(lang = "en", limit = 100, start = 0, cayenne_exp = NULL)
 }

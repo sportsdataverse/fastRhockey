@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Content Module**
+#' @title **NHL Stats API - Content Module**
 #' @description Returns an NHL.com CMS content module from the Stats REST
 #'   API (`https://api.nhle.com/stats/rest/{lang}/content/module/{template_key}`).
 #' @param template_key Character (required). The content module template

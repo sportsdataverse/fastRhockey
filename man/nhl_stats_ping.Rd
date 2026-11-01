@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_ping.R
 \name{nhl_stats_ping}
 \alias{nhl_stats_ping}
-\title{\strong{NHL Stats API — Ping}}
+\title{\strong{NHL Stats API - Ping}}
 \usage{
 nhl_stats_ping()
 }

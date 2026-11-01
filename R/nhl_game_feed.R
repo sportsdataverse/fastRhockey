@@ -573,7 +573,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 }
 
 
-#' Extract event players using coalesce pattern (adapted from hockeyR)
+#' Extract event players using coalesce pattern (adapted from hockeyR by Daniel Morse)
 #' @keywords internal
 .extract_event_players <- function(pbp) {
     # Player ID columns from the new API (details.*)

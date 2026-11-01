@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_config.R
 \name{nhl_stats_config}
 \alias{nhl_stats_config}
-\title{\strong{NHL Stats API — Config}}
+\title{\strong{NHL Stats API - Config}}
 \usage{
 nhl_stats_config(lang = "en")
 }

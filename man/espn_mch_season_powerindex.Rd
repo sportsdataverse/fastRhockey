@@ -23,7 +23,7 @@ provided, fetches power-index data for a single team. Defaults to \code{NULL}
 \value{
 A \code{fastRhockey_data} tibble with one row per power-index entry, or
 an empty tibble when no data is available. \strong{Note}: ESPN does not publish
-power-index data for MCH — this endpoint consistently returns empty
+power-index data for MCH - this endpoint consistently returns empty
 results for hockey:\tabular{lll}{
    col_name \tab types \tab description \cr
    ref \tab character \tab \verb{$ref} URL for the power-index object. \cr

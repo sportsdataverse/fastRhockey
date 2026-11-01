@@ -1,13 +1,13 @@
 # vhl.R -- VHL (Supreme Hockey League, Russia) wrappers over vhlru.ru pages.
 #
-# Mirrors sdv-py sportsdataverse/hockey/vhl/{vhl_runtime,vhl_parsers}.py and
+# Mirrors sportsdataverse-py sportsdataverse/hockey/vhl/{vhl_runtime,vhl_parsers}.py and
 # tools/codegen/endpoints/vhl.yaml (13 routes + the public helper vhl_tn()).
 #
 # The VHL serves no JSON: every route is a server-rendered text/html page on
 # www.vhlru.ru (or the broadcast on online.vhlru.ru). The getter fetches the page,
 # REFUSES every page that is not the one asked for (the site answers a wrong season,
 # game, player or team with HTTP 200 and another page), parses it into a record (a
-# named list, the shape of the sdv-internal-refs captures) and stamps the request
+# named list, the shape of the raw page) and stamps the request
 # under `_request`. The shapers turn the record into tibbles.
 #
 #   * IP pin. www.vhlru.ru has two A records and 185.210.57.37 stalls after about
@@ -1682,8 +1682,8 @@
 #'
 #' Source: `GET https://www.vhlru.ru/en/calendar/` (server-rendered HTML, keyless; parsed with rvest).
 #'
-#' @section Owner flag (sanctions):
-#' The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+#' @section Terms of use:
+#' Check the provider's terms of use before redistributing this data.
 #'
 #' @section Errors:
 #' * `fastRhockey_no_data`: the calendar lists no such season and stage.
@@ -1723,8 +1723,8 @@ vhl_tn <- function(season, stage = "regular") {
 #'
 #' Source: `GET https://www.vhlru.ru/en/calendar/{season}/0/` (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.
 #'
-#' @section Owner flag (sanctions):
-#' The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+#' @section Terms of use:
+#' Check the provider's terms of use before redistributing this data.
 #'
 #' @section Errors:
 #' * `fastRhockey_no_data`: the VHL has nothing for the request (a season without that stage, a game not in the season's calendar, an unknown game, player or team page).
@@ -1733,7 +1733,7 @@ vhl_tn <- function(season, stage = "regular") {
 #'
 #' @param season Season END year (2026 = 2025/26; the calendar covers 2010/11 on). With `stage` it is mapped to the site's tournament id, see [vhl_tn()].
 #' @param stage Season stage: `"regular"` (default) or `"playoff"`.
-#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus `_request` with the season, stage, tn and the ids asked for).
+#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, plus `_request` with the season, stage, tn and the ids asked for).
 #'
 #' @return A `fastRhockey_data` tibble with one row per game:
 #'
@@ -1786,8 +1786,8 @@ vhl_schedule <- function(season, stage = "regular", return_parsed = TRUE) {
 #'
 #' Source: `GET https://www.vhlru.ru/en/report/{season}/` (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.
 #'
-#' @section Owner flag (sanctions):
-#' The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+#' @section Terms of use:
+#' Check the provider's terms of use before redistributing this data.
 #'
 #' @section Errors:
 #' * `fastRhockey_no_data`: the VHL has nothing for the request (a season without that stage, a game not in the season's calendar, an unknown game, player or team page).
@@ -1797,7 +1797,7 @@ vhl_schedule <- function(season, stage = "regular", return_parsed = TRUE) {
 #' @param season Season END year (2026 = 2025/26; the calendar covers 2010/11 on). With `stage` it is mapped to the site's tournament id, see [vhl_tn()].
 #' @param game_id Required. Game id (game_id in vhl_schedule; the report's and the broadcast's idgame), e.g. 899223.
 #' @param stage Season stage: `"regular"` (default) or `"playoff"`.
-#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus `_request` with the season, stage, tn and the ids asked for).
+#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, plus `_request` with the season, stage, tn and the ids asked for).
 #'
 #' @return A `fastRhockey_data` tibble with one row per game (one row):
 #'
@@ -1863,8 +1863,8 @@ vhl_game_info <- function(season, game_id, stage = "regular", return_parsed = TR
 #'
 #' Source: `GET https://www.vhlru.ru/en/report/{season}/` (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.
 #'
-#' @section Owner flag (sanctions):
-#' The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+#' @section Terms of use:
+#' Check the provider's terms of use before redistributing this data.
 #'
 #' @section Errors:
 #' * `fastRhockey_no_data`: the VHL has nothing for the request (a season without that stage, a game not in the season's calendar, an unknown game, player or team page).
@@ -1874,7 +1874,7 @@ vhl_game_info <- function(season, game_id, stage = "regular", return_parsed = TR
 #' @param season Season END year (2026 = 2025/26; the calendar covers 2010/11 on). With `stage` it is mapped to the site's tournament id, see [vhl_tn()].
 #' @param game_id Required. Game id (game_id in vhl_schedule; the report's and the broadcast's idgame), e.g. 899223.
 #' @param stage Season stage: `"regular"` (default) or `"playoff"`.
-#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus `_request` with the season, stage, tn and the ids asked for).
+#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, plus `_request` with the season, stage, tn and the ids asked for).
 #'
 #' @return A `fastRhockey_data` tibble with one row per goal:
 #'
@@ -1931,8 +1931,8 @@ vhl_goals <- function(season, game_id, stage = "regular", return_parsed = TRUE) 
 #'
 #' Source: `GET https://www.vhlru.ru/en/report/{season}/` (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.
 #'
-#' @section Owner flag (sanctions):
-#' The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+#' @section Terms of use:
+#' Check the provider's terms of use before redistributing this data.
 #'
 #' @section Errors:
 #' * `fastRhockey_no_data`: the VHL has nothing for the request (a season without that stage, a game not in the season's calendar, an unknown game, player or team page).
@@ -1942,7 +1942,7 @@ vhl_goals <- function(season, game_id, stage = "regular", return_parsed = TRUE) 
 #' @param season Season END year (2026 = 2025/26; the calendar covers 2010/11 on). With `stage` it is mapped to the site's tournament id, see [vhl_tn()].
 #' @param game_id Required. Game id (game_id in vhl_schedule; the report's and the broadcast's idgame), e.g. 899223.
 #' @param stage Season stage: `"regular"` (default) or `"playoff"`.
-#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus `_request` with the season, stage, tn and the ids asked for).
+#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, plus `_request` with the season, stage, tn and the ids asked for).
 #'
 #' @return A `fastRhockey_data` tibble with one row per penalty:
 #'
@@ -1987,8 +1987,8 @@ vhl_penalties <- function(season, game_id, stage = "regular", return_parsed = TR
 #'
 #' Source: `GET https://www.vhlru.ru/en/report/{season}/` (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.
 #'
-#' @section Owner flag (sanctions):
-#' The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+#' @section Terms of use:
+#' Check the provider's terms of use before redistributing this data.
 #'
 #' @section Errors:
 #' * `fastRhockey_no_data`: the VHL has nothing for the request (a season without that stage, a game not in the season's calendar, an unknown game, player or team page).
@@ -1998,7 +1998,7 @@ vhl_penalties <- function(season, game_id, stage = "regular", return_parsed = TR
 #' @param season Season END year (2026 = 2025/26; the calendar covers 2010/11 on). With `stage` it is mapped to the site's tournament id, see [vhl_tn()].
 #' @param game_id Required. Game id (game_id in vhl_schedule; the report's and the broadcast's idgame), e.g. 899223.
 #' @param stage Season stage: `"regular"` (default) or `"playoff"`.
-#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus `_request` with the season, stage, tn and the ids asked for).
+#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, plus `_request` with the season, stage, tn and the ids asked for).
 #'
 #' @return A `fastRhockey_data` tibble with one row per skater:
 #'
@@ -2063,8 +2063,8 @@ vhl_player_box <- function(season, game_id, stage = "regular", return_parsed = T
 #'
 #' Source: `GET https://www.vhlru.ru/en/report/{season}/` (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.
 #'
-#' @section Owner flag (sanctions):
-#' The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+#' @section Terms of use:
+#' Check the provider's terms of use before redistributing this data.
 #'
 #' @section Errors:
 #' * `fastRhockey_no_data`: the VHL has nothing for the request (a season without that stage, a game not in the season's calendar, an unknown game, player or team page).
@@ -2074,7 +2074,7 @@ vhl_player_box <- function(season, game_id, stage = "regular", return_parsed = T
 #' @param season Season END year (2026 = 2025/26; the calendar covers 2010/11 on). With `stage` it is mapped to the site's tournament id, see [vhl_tn()].
 #' @param game_id Required. Game id (game_id in vhl_schedule; the report's and the broadcast's idgame), e.g. 899223.
 #' @param stage Season stage: `"regular"` (default) or `"playoff"`.
-#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus `_request` with the season, stage, tn and the ids asked for).
+#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, plus `_request` with the season, stage, tn and the ids asked for).
 #'
 #' @return A `fastRhockey_data` tibble with one row per goalie:
 #'
@@ -2132,8 +2132,8 @@ vhl_goalie_box <- function(season, game_id, stage = "regular", return_parsed = T
 #'
 #' Source: `GET https://online.vhlru.ru/online/{game_id}.html` (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.
 #'
-#' @section Owner flag (sanctions):
-#' The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+#' @section Terms of use:
+#' Check the provider's terms of use before redistributing this data.
 #'
 #' @section Errors:
 #' * `fastRhockey_no_data`: the VHL has nothing for the request (a season without that stage, a game not in the season's calendar, an unknown game, player or team page).
@@ -2143,7 +2143,7 @@ vhl_goalie_box <- function(season, game_id, stage = "regular", return_parsed = T
 #' @param game_id Game id (game_id in vhl_schedule; the report's and the broadcast's idgame), e.g. 899223.
 #' @param season Required. Season END year of the game (2026 = 2025/26); with `stage` it locates the game in the calendar, whose game number the broadcast page must carry (the page names no game id).
 #' @param stage Season stage: `"regular"` (default) or `"playoff"`.
-#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus `_request` with the season, stage, tn and the ids asked for).
+#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, plus `_request` with the season, stage, tn and the ids asked for).
 #'
 #' @return A `fastRhockey_data` tibble with one row per event:
 #'
@@ -2193,8 +2193,8 @@ vhl_pbp <- function(game_id, season, stage = "regular", return_parsed = TRUE) {
 #'
 #' Source: `GET https://www.vhlru.ru/en/standings/league/{season}/` (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.
 #'
-#' @section Owner flag (sanctions):
-#' The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+#' @section Terms of use:
+#' Check the provider's terms of use before redistributing this data.
 #'
 #' @section Errors:
 #' * `fastRhockey_no_data`: the VHL has nothing for the request (a season without that stage, a game not in the season's calendar, an unknown game, player or team page).
@@ -2202,7 +2202,7 @@ vhl_pbp <- function(game_id, season, stage = "regular", return_parsed = TRUE) {
 #' * `fastRhockey_asset_fetch`: the page could not be fetched, or it is not the page asked for (another season, game or player; a missing table or header drift).
 #'
 #' @param season Season END year (2026 = 2025/26; the calendar covers 2010/11 on). With `stage` it is mapped to the site's tournament id, see [vhl_tn()].
-#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus `_request` with the season, stage, tn and the ids asked for).
+#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, plus `_request` with the season, stage, tn and the ids asked for).
 #'
 #' @return A `fastRhockey_data` tibble with one row per team:
 #'
@@ -2249,8 +2249,8 @@ vhl_standings <- function(season, return_parsed = TRUE) {
 #'
 #' Source: `GET https://www.vhlru.ru/en/stats/players/{season}/` (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.
 #'
-#' @section Owner flag (sanctions):
-#' The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+#' @section Terms of use:
+#' Check the provider's terms of use before redistributing this data.
 #'
 #' @section Errors:
 #' * `fastRhockey_no_data`: the VHL has nothing for the request (a season without that stage, a game not in the season's calendar, an unknown game, player or team page).
@@ -2259,7 +2259,7 @@ vhl_standings <- function(season, return_parsed = TRUE) {
 #'
 #' @param season Season END year (2026 = 2025/26; the calendar covers 2010/11 on). With `stage` it is mapped to the site's tournament id, see [vhl_tn()].
 #' @param stage Season stage: `"regular"` (default) or `"playoff"`.
-#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus `_request` with the season, stage, tn and the ids asked for).
+#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, plus `_request` with the season, stage, tn and the ids asked for).
 #'
 #' @return A `fastRhockey_data` tibble with one row per skater and team:
 #'
@@ -2323,8 +2323,8 @@ vhl_skater_stats <- function(season, stage = "regular", return_parsed = TRUE) {
 #'
 #' Source: `GET https://www.vhlru.ru/en/stats/players/{season}/` (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.
 #'
-#' @section Owner flag (sanctions):
-#' The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+#' @section Terms of use:
+#' Check the provider's terms of use before redistributing this data.
 #'
 #' @section Errors:
 #' * `fastRhockey_no_data`: the VHL has nothing for the request (a season without that stage, a game not in the season's calendar, an unknown game, player or team page).
@@ -2333,7 +2333,7 @@ vhl_skater_stats <- function(season, stage = "regular", return_parsed = TRUE) {
 #'
 #' @param season Season END year (2026 = 2025/26; the calendar covers 2010/11 on). With `stage` it is mapped to the site's tournament id, see [vhl_tn()].
 #' @param stage Season stage: `"regular"` (default) or `"playoff"`.
-#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus `_request` with the season, stage, tn and the ids asked for).
+#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, plus `_request` with the season, stage, tn and the ids asked for).
 #'
 #' @return A `fastRhockey_data` tibble with one row per goalie and team:
 #'
@@ -2386,8 +2386,8 @@ vhl_goalie_stats <- function(season, stage = "regular", return_parsed = TRUE) {
 #'
 #' Source: `GET https://www.vhlru.ru/en/players/{player_id}/` (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.
 #'
-#' @section Owner flag (sanctions):
-#' The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+#' @section Terms of use:
+#' Check the provider's terms of use before redistributing this data.
 #'
 #' @section Errors:
 #' * `fastRhockey_no_data`: the VHL has nothing for the request (a season without that stage, a game not in the season's calendar, an unknown game, player or team page).
@@ -2395,7 +2395,7 @@ vhl_goalie_stats <- function(season, stage = "regular", return_parsed = TRUE) {
 #' * `fastRhockey_asset_fetch`: the page could not be fetched, or it is not the page asked for (another season, game or player; a missing table or header drift).
 #'
 #' @param player_id Player id (player_id in any VHL frame), e.g. 34526.
-#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus `_request` with the season, stage, tn and the ids asked for).
+#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, plus `_request` with the season, stage, tn and the ids asked for).
 #'
 #' @return A `fastRhockey_data` tibble with one row per player (one row):
 #'
@@ -2436,8 +2436,8 @@ vhl_player <- function(player_id, return_parsed = TRUE) {
 #'
 #' Source: `GET https://www.vhlru.ru/en/players/{player_id}/` (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.
 #'
-#' @section Owner flag (sanctions):
-#' The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+#' @section Terms of use:
+#' Check the provider's terms of use before redistributing this data.
 #'
 #' @section Errors:
 #' * `fastRhockey_no_data`: the VHL has nothing for the request (a season without that stage, a game not in the season's calendar, an unknown game, player or team page).
@@ -2445,7 +2445,7 @@ vhl_player <- function(player_id, return_parsed = TRUE) {
 #' * `fastRhockey_asset_fetch`: the page could not be fetched, or it is not the page asked for (another season, game or player; a missing table or header drift).
 #'
 #' @param player_id Player id (player_id in any VHL frame), e.g. 34526.
-#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus `_request` with the season, stage, tn and the ids asked for).
+#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, plus `_request` with the season, stage, tn and the ids asked for).
 #'
 #' @return A `fastRhockey_data` tibble with one row per season stage and team:
 #'
@@ -2517,8 +2517,8 @@ vhl_player_career <- function(player_id, return_parsed = TRUE) {
 #'
 #' Source: `GET https://www.vhlru.ru/en/teams/{team_page_id}/` (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.
 #'
-#' @section Owner flag (sanctions):
-#' The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+#' @section Terms of use:
+#' Check the provider's terms of use before redistributing this data.
 #'
 #' @section Errors:
 #' * `fastRhockey_no_data`: the VHL has nothing for the request (a season without that stage, a game not in the season's calendar, an unknown game, player or team page).
@@ -2526,7 +2526,7 @@ vhl_player_career <- function(player_id, return_parsed = TRUE) {
 #' * `fastRhockey_asset_fetch`: the page could not be fetched, or it is not the page asked for (another season, game or player; a missing table or header drift).
 #'
 #' @param team_page_id Team page id (home_team_page_id / away_team_page_id in vhl_game_info), e.g. 390. Neither a club id nor a team-season id.
-#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus `_request` with the season, stage, tn and the ids asked for).
+#' @param return_parsed `TRUE` (default) returns the parsed tibble; `FALSE` returns the page's parsed record (a named list, plus `_request` with the season, stage, tn and the ids asked for).
 #'
 #' @return A `fastRhockey_data` tibble with one row per player:
 #'
@@ -2540,7 +2540,7 @@ vhl_player_career <- function(player_id, return_parsed = TRUE) {
 #' | `jersey` | integer | Jersey number (integer). |
 #' | `position` | character | Position in English, lower case: goaltender, defense, forward. |
 #' | `player_id` | integer | Player id: the `{player_id}` of `/en/players/{player_id}/`, stable across seasons and teams; also the photo id on img.khl.ru. Same numeric sequence as khl.ru player ids; whether it equals the same person's khl.ru id is unverified. |
-#' | `player` | character | Player name, 'Surname Given' — in CYRILLIC even on the /en/ page. |
+#' | `player` | character | Player name, 'Surname Given' - in CYRILLIC even on the /en/ page. |
 #' | `born` | character | Birth date 'DD.MM.YYYY' as the public page prints it. |
 #' | `country` | character | Citizenship (English). |
 #'

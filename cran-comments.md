@@ -1,160 +1,84 @@
 ## Release summary
 
-This is version 1.0.0. Continued development on the 1.0.0 release adds:
+This is a minor release (1.1.0) on top of 1.0.0 (CRAN, 2026-08-25). The
+full list of changes is in NEWS.md. The main additions:
 
-* **HockeyTech multi-league analytics**: live wrappers for AHL, OHL, WHL, and
-  QMJHL (schedule, PBP, standings, teams, roster, player stats, leaders, game
-  summary, season ID, most-recent season helpers), plus on-ice Corsi/Fenwick/TOI
-  analytics across all five HockeyTech leagues (AHL/OHL/WHL/QMJHL/PWHL);
-  `pwhl_pbp()` extended with shot geometry, coordinate transforms, clock columns,
-  blocked-shot/hit events, and on-ice player tracking.
+* European hockey: 13 new league families with about 210 wrappers. They
+  cover Germany's DEL, Austria's ICE Hockey League, the United Kingdom's
+  EIHL, Denmark's Metal Ligaen, the KHL, Russia's VHL, Sweden's SHL and
+  HockeyAllsvenskan, Finland's Liiga, Switzerland's National League and
+  Swiss Ice Hockey Federation competitions, Czechia's Extraliga and France's
+  Ligue Magnus. Each family waits at least 1 s between requests to a host,
+  retries 429/5xx answers honouring `Retry-After`, and raises classed
+  conditions (`fastRhockey_no_data`, `fastRhockey_asset_fetch`,
+  `fastRhockey_bad_request`) instead of returning an empty result.
+* NCAA men's and women's hockey from ESPN (`espn_mch_*()`, `espn_wch_*()`).
+* NHL conference and division reference loaders (`load_nhl_groups()` and
+  friends), PWHL shift and expected-goals loaders, and a `detailed` option
+  for `nhl_game_shifts()`.
+* Fixes: the SHL wrappers read the API's renamed season directory key;
+  `pwhl_standings()` honours `season`; the NHL stats REST and playoff
+  wrappers no longer request a season that has not started; the PWHL and NHL
+  release loaders fall back to the previous season when the default season
+  is not published yet.
+* Dependencies: Rcpp and RcppParallel (unused; the package has no compiled
+  code) are no longer imported, and furrr, future, ggplot2, ggrepel,
+  rmarkdown, stringi and usethis (all unused) are no longer suggested.
 
-* **NHL Edge advanced-metrics integration (33 new functions)** wrapping
-  `https://api-web.nhle.com/v1/edge/...` for skater, goalie, and team
-  positional / shot-tracking analytics. All wrappers share an internal
-  `.nhl_edge_api()` helper and accept an optional `season` argument
-  that defaults to the current season via the `/now` form.
+## Examples
 
-* **NHL Records API integration (25 new functions)** -- first-time
-  fastRhockey integration with `https://records.nhl.com/site/api/` for
-  franchise, player, goalie, draft, award, HOF, official, attendance,
-  venue, and combine records. All share an internal
-  `.nhl_records_api()` helper that supports `cayenneExp` filtering and
-  pagination.
+* Every example that uses the network is in `\donttest{}` and wrapped in
+  `try()`, so it fails gracefully without network access. The only examples
+  outside `try()` are `most_recent_nhl_season()`,
+  `most_recent_nhl_season_api_param()` and `most_recent_pwhl_season()`,
+  which compute a season from the date.
+* Four examples are in `\dontrun{}` (see the check results below).
 
-* **NHL Stats REST dedicated wrappers (13 new functions)** that promote
-  endpoints previously only reachable via the `nhl_stats_misc()` generic
-  dispatcher: `nhl_stats_franchise()`, `nhl_stats_players()`,
-  `nhl_stats_glossary()`, `nhl_stats_country()`, `nhl_stats_config()`,
-  `nhl_stats_ping()`, `nhl_stats_skater_leaders()`,
-  `nhl_stats_goalie_leaders()`, `nhl_stats_skater_milestones()`,
-  `nhl_stats_goalie_milestones()`, `nhl_stats_team_listing()`,
-  `nhl_stats_game_listing()`, `nhl_stats_content_module()`.
+## Tests
 
-* **NHL api-web miscellaneous endpoints (6 new functions, 3 in-place
-  updates)**: `nhl_wsc_pbp()`, `nhl_draft_tracker()`, `nhl_ppt_replay()`,
-  `nhl_ppt_replay_goal()`, `nhl_postal_lookup()`, `nhl_smartlinks()`,
-  plus `nhl_scoreboard()` (now accepts `date`), `nhl_meta()` (now
-  supports playoff-series metadata), and `nhl_draft_year()` (now hits
-  the `draft/picks/{year}/all` shortcut when `round` is `NULL` or
-  `"all"`).
-
-* **Helper aggregators (6 new functions)** inspired by `nhl-api-py`'s
-  `Helpers` and `Stats` modules: `nhl_game_ids_by_season()`,
-  `nhl_all_players_by_season()`, `nhl_player_career_stats()`,
-  `nhl_team_summary_range()`, `nhl_skater_summary_range()`,
-  `nhl_goalie_summary_range()`.
-
-* **OpenAPI 3.0.3 specs and endpoint mapping** for all three NHL API
-  backends (`api-web.nhle.com/v1/`, `api.nhle.com/stats/rest/`,
-  `records.nhl.com/site/api/`) added to `data-raw/`.
-
-* **Thirteen new NHL season-level loaders**: `load_nhl_skater_box()`,
-  `load_nhl_goalie_box()`, `load_nhl_game_rosters()`, `load_nhl_game_info()`,
-  `load_nhl_scoring()`, `load_nhl_penalties()`, `load_nhl_three_stars()`,
-  `load_nhl_scratches()`, `load_nhl_linescore()`, `load_nhl_shifts()`,
-  `load_nhl_officials()`, `load_nhl_shots_by_period()`, `load_nhl_shootout()`
-  for pre-compiled datasets hosted on `sportsdataverse-data` GitHub releases.
-  The six pre-existing NHL loaders were internally refactored to share a
-  single helper (`.nhl_release_loader()`, in `R/nhl_loaders.R`) without
-  changing their public signatures. All accept `seasons` (Min: 2011) and
-  return `fastRhockey_data`. `nhl_schedule()` also gained an opt-in
-  `include_data_flags = FALSE` parameter that joins per-game
-  data-availability flags from the data repo onto the live schedule.
-
-* **Eleven new PWHL season-level loaders**: `load_pwhl_skater_box()`,
-  `load_pwhl_goalie_box()`, `load_pwhl_team_box()`, `load_pwhl_game_info()`,
-  `load_pwhl_scoring_summary()`, `load_pwhl_penalty_summary()`,
-  `load_pwhl_three_stars()`, `load_pwhl_officials()`,
-  `load_pwhl_shots_by_period()`, `load_pwhl_shootout()`,
-  `load_pwhl_game_rosters()`) for pre-compiled datasets hosted on
-  `sportsdataverse-data` GitHub releases. The four pre-existing PWHL loaders
-  were internally refactored to share a single helper without changing their
-  public signatures.
-
-* **CRAN-prep pass (2026-08-25)**: `load_pwhl_shifts()` + `load_pwhl_xg_pbp()`
-  loaders (completing coverage of the published hockey datasets);
-  four `load_nhl_*()` conference / division reference loaders
-  (`load_nhl_groups()`, `load_nhl_group_seasons()`,
-  `load_nhl_group_aliases()`, `load_nhl_team_group_seasons()`);
-  `nhl_game_shifts(detailed = TRUE)`; `pwhl_stats()` season/team resolution
-  fixes; HockeyTech JSONP handling centralized; documentation migrated to
-  roxygen2 8.1.0; `cph` role added to `Authors@R`; LICENSE year refreshed.
-
-No breaking changes. All previously exported functions retain their
-public signatures.
-
-The original 1.0.0 release notes are preserved below.
-
-## Release summary (1.0.0 - initial)
-
-Version 1.0.0 signals API stability for the NHL and PWHL
-endpoints. Key changes:
-
-* Formally deprecated all PHF functions via `lifecycle` (league ceased
-  operations).
-* Consolidated new NHL API functions into existing NHL functions rather than creating `_v2` variants and deprecating the existing ones since the original API endpoints were deprecated.
-* Added `lifecycle` package as an Imports dependency for formal deprecation
-  management.
-* Fixed NAMESPACE.
-* Fixed `nhl_draft_year()` to use updated NHL API endpoint format.
-* Fixed `pwhl_stats()` scoping bug and team ID resolution.
-* Fixed `refresh_xg_models()` locked binding error by using package environment.
-* Added complete test coverage for all exported functions (500+ tests passing).
-
-### **New PWHL Functions**
-
-* Player endpoints: `pwhl_player_info()`, `pwhl_player_game_log()`,
-  `pwhl_player_stats()`, `pwhl_player_search()`
-* League endpoints: `pwhl_leaders()`, `pwhl_transactions()`,
-  `pwhl_streaks()`, `pwhl_playoff_bracket()`
-* Game endpoints: `pwhl_game_summary()`, `pwhl_scorebar()`
-* Data loaders: `load_pwhl_pbp()`, `load_pwhl_player_box()`,
-  `load_pwhl_schedule()`, `load_pwhl_rosters()`, `update_pwhl_db()`
-* Utilities: `most_recent_pwhl_season()`
-
-### **New NHL Functions**
-
-* `nhl_where_to_watch()` -- streaming/broadcast availability.
-* `nhl_partner_game_odds()` -- partner game odds by country.
-* NHL API migration to `api-web.nhle.com`: `nhl_game_feed()`,
-  `nhl_game_boxscore()`, `nhl_schedule()`, `nhl_teams()`,
-  `nhl_teams_roster()`, `nhl_player_info()`, `nhl_player_game_log()`,
-  `nhl_stats_goalies()`, `nhl_stats_skaters()`, `nhl_stats_teams()`,
-  `nhl_stats_misc()`, `nhl_gamecenter_landing()`,
-  `nhl_gamecenter_right_rail()`, `nhl_scoreboard()`, `nhl_scores()`,
-  `nhl_seasons()`, `nhl_tv_schedule()`, `nhl_game_story()`,
-  `nhl_game_content()`, `nhl_game_shifts()`, `nhl_playoff_bracket()`,
-  `nhl_playoff_schedule()`, `nhl_playoff_carousel()`.
-* xG model integration via `helper_nhl_calculate_xg()`.
-
-## Test environments
-
-* local Windows 10, R 4.6.1
-* GitHub Actions: windows-latest (release), ubuntu-latest (release, oldrel-1)
-* R-hub: linux, windows, macos (R-devel)
+Every test that needs the network is skipped on CRAN (`skip_on_cran()` plus
+an environment variable per source). The tests that run on CRAN read
+committed fixtures and mock the HTTP layer.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 1 note
 
-(The local Windows run shows one NOTE about a `''NULL''` file in the check
-directory; this is a known artifact of rcmdcheck on Windows in the local
-environment and does not appear on the CI platforms.)
+* Local Windows 10, R 4.6.1, `R CMD check --as-cran` on the built tarball
+  (2026-11-01; NOT_CRAN unset, so every networked test skips): 0 errors,
+  0 warnings, 1 note. The note is
+
+      checking for non-standard things in the check directory ... NOTE
+      Found the following files/directories:
+        ''NULL''
+
+  That `'NULL'` folder is left in the check directory by this machine's R
+  startup profile, not by the package; it does not appear on other machines.
+  A second run showed an HTML-manual note for three unescaped
+  angle-bracket placeholders (`khl_player_profile`, `magnus_teams`). Those
+  pages are fixed, and a re-run (`--no-examples --no-tests`) builds the PDF
+  and HTML manuals cleanly with Status: OK.
+  The tarball is 2.2 MB; the installed size is 8.9 MB (R 2.1 MB, help
+  6.4 MB), because the help pages document about 880 exported functions,
+  most with a column table for the data they return. The examples with
+  `--run-donttest` pass in 11 minutes and the tests in 21 seconds.
+* The database and model-download examples (`update_pwhl_db()`,
+  `refresh_xg_models()`, `helper_nhl_calculate_xg()`, which needs the
+  downloaded xgboost models) and `nhl_game_boxscore()` are in `\dontrun{}`.
+
+* GitHub Actions (R release on Ubuntu, macOS and Windows): see the PR checks.
+* win-builder: TODO
+* R-hub: TODO
+
+## Reverse dependencies
+
+There are no reverse dependencies on CRAN
+(`tools::package_dependencies("fastRhockey", reverse = TRUE, db = available.packages())`
+is empty).
 
 ## Internet resources
 
-The full test suite skips on CRAN (`skip_on_cran()` in every test; the tests
-validate live APIs and committed fixtures in continuous integration on every
-push). All functions that access internet resources (the NHL and HockeyTech
-APIs, and the pre-built season datasets on GitHub release assets) fail
-gracefully with an informative message and return an empty table when the
-resource is unavailable; examples for these functions are wrapped in
-`\donttest{try(...)}`.
-
-## revdepcheck results
-
-We checked 0 reverse dependencies, comparing R CMD check results across CRAN and dev versions of this package.
-
- * We saw 0 new problems
- * We failed to check 0 packages
+All functions that access internet resources (the NHL, PWHL and HockeyTech
+APIs, ESPN, Fox Sports, the European league sites, and the pre-built season
+datasets on GitHub release assets) fail gracefully with an informative
+message or a classed condition when the resource is unavailable.

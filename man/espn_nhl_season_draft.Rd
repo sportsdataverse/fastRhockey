@@ -15,7 +15,7 @@ espn_nhl_season_draft(season = most_recent_nhl_season(), ...)
 \value{
 A \code{fastRhockey_data} tibble with draft round references, or an
 empty tibble when the endpoint is unavailable (HTTP 404 is normal for
-NHL — the draft sub-tree is not served by this core-v2 path):\tabular{lll}{
+NHL - the draft sub-tree is not served by this core-v2 path):\tabular{lll}{
    col_name \tab types \tab description \cr
    ref \tab character \tab \verb{$ref} URL for the draft round object (if returned). \cr
    draft_id \tab character \tab Draft/round id parsed from the \verb{$ref} URL. \cr

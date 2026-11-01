@@ -29,7 +29,7 @@ espn_nhl_season_week_games(
 \value{
 A \code{fastRhockey_data} tibble with one row per game (event) in the
 week, or an empty tibble when the endpoint is unavailable. \strong{Note}: NHL
-does not use weeks in ESPN core-v2 — HTTP 404 is expected:\tabular{lll}{
+does not use weeks in ESPN core-v2 - HTTP 404 is expected:\tabular{lll}{
    col_name \tab types \tab description \cr
    ref \tab character \tab \verb{$ref} URL for the event object. \cr
    event_id \tab character \tab ESPN event id parsed from the \verb{$ref} URL. \cr

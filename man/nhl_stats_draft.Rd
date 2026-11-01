@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_misc.R
 \name{nhl_stats_draft}
 \alias{nhl_stats_draft}
-\title{\strong{NHL Stats API — Draft Summaries}}
+\title{\strong{NHL Stats API - Draft Summaries}}
 \usage{
 nhl_stats_draft(draft_year = NULL, limit = 100, start = 0, lang = "en")
 }

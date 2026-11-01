@@ -1,17 +1,17 @@
 # espn_ncaa_hockey.R
 # ESPN men's (mch) and women's (wch) college hockey: espn_mch_*() / espn_wch_*().
 #
-# Mirrors sdv-py sportsdataverse/hockey/{mch,wch}/{mch,wch}_espn_ext.py. The wrappers are
+# Mirrors sportsdataverse-py sportsdataverse/hockey/{mch,wch}/{mch,wch}_espn_ext.py. The wrappers are
 # thin public shims over the league-generic ESPN hockey helpers already used by
 # espn_nhl_*() (R/espn_nhl_*.R): same hosts, same retry/transport, same
 # make_fastRhockey_data() return class. Only the league slug differs:
 #   mch = "mens-college-hockey", wch = "womens-college-hockey".
-# Seasons are END years (2026 = 2025-26), as in sdv-py and the NHL helpers.
+# Seasons are END years (2026 = 2025-26), as in sportsdataverse-py and the NHL helpers.
 # The shim blocks below are generated from the espn_nhl_* shims; the hand-written
-# internals at the end cover the routes sdv-py has and espn_nhl_* does not.
+# internals at the end cover the routes sportsdataverse-py has and espn_nhl_* does not.
 
 # ===========================================================================
-# Shared internals for the routes sdv-py has and espn_nhl_*() does not
+# Shared internals for the routes sportsdataverse-py has and espn_nhl_*() does not
 # (league-generic; the public espn_mch_*() / espn_wch_*() shims fix the slug).
 # ===========================================================================
 
@@ -28,7 +28,7 @@
   if (is.null(x) || length(x) == 0 || is.list(x)) NA_real_ else suppressWarnings(as.numeric(x[[1]]))
 }
 
-#' Column schema of the Site v2 rankings frame (mirrors sdv-py `_RANKINGS_SCHEMA`).
+#' Column schema of the Site v2 rankings frame (mirrors sportsdataverse-py `_RANKINGS_SCHEMA`).
 #' @noRd
 .ncaa_hockey_rankings_schema <- function() {
   c(poll_id = "integer", poll_name = "character", poll_short_name = "character",
@@ -45,7 +45,7 @@
 #' Internal: ESPN hockey Site v2 rankings (league-generic)
 #'
 #' One row per (poll, team): the ranked teams (`ranked = TRUE`) and the teams
-#' receiving votes (`ranked = FALSE`). Mirrors sdv-py `parse_rankings()`.
+#' receiving votes (`ranked = FALSE`). Mirrors sportsdataverse-py `parse_rankings()`.
 #' @noRd
 .espn_hockey_rankings <- function(league, ...) {
   .args <- .capture_args()
@@ -181,7 +181,7 @@
 #'
 #' `fpi`: the fitt-v3 season table (one row per team, one column per FPI field,
 #' labels zipped from the top-level `categories` metadata). `weekly`: the
-#' core-v2 weekly snapshot (`predictives` + `efficiencies`). Mirror sdv-py
+#' core-v2 weekly snapshot (`predictives` + `efficiencies`). Mirror sportsdataverse-py
 #' `parse_fpi()` / `parse_weekly_powerindex()`; zero rows when unpublished.
 #' @noRd
 .espn_hockey_powerindex <- function(league, kind = c("fpi", "weekly"),
@@ -289,7 +289,7 @@ NULL
 #' @param week Optional week number (ESPN `week` query).
 #' @param season_type Optional season phase (1 = pre, 2 = regular, 3 = post); sent as `seasontype`.
 #' @param groups Optional conference/group id filter.
-#' @param limit Maximum number of events (ESPN `limit`; default `500`, as sdv-py).
+#' @param limit Maximum number of events (ESPN `limit`; default `500`, as sportsdataverse-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_scoreboard()`; columns verified against a captured MCH body.
 #' @return A `fastRhockey_data` tibble with one row per game:
@@ -377,11 +377,11 @@ NULL
 #'   `broadcasts`, `pickcenter`, `odds`, `plays`, `header`, `standings`,
 #'   and others.
 #'
-#'   - `$boxscore$teams` — list of 2 team stat objects.
-#'   - `$boxscore$players` — list of 2 player stat group objects.
-#'   - `$plays` — list of play objects.
-#'   - `$header$season` — season year and type.
-#'   - `$header$competitions[[1]]$competitors` — home/away team + score.
+#'   - `$boxscore$teams` - list of 2 team stat objects.
+#'   - `$boxscore$players` - list of 2 player stat group objects.
+#'   - `$plays` - list of play objects.
+#'   - `$header$season` - season year and type.
+#'   - `$header$competitions[[1]]$competitors` - home/away team + score.
 #'
 #'   Shape:
 #'
@@ -718,7 +718,7 @@ NULL
 #' @title **Get ESPN MCH Transactions**
 #' @rdname espn_mch_transactions
 #' @author Saiem Gilani
-#' @param limit Maximum number of transactions (ESPN `limit`; default `500`, as sdv-py).
+#' @param limit Maximum number of transactions (ESPN `limit`; default `500`, as sportsdataverse-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_transactions()`; ESPN answered an empty collection for every captured MCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
 #' @return A `fastRhockey_data` tibble with one row per transaction:
@@ -819,7 +819,7 @@ NULL
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_draft()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with draft data, or an empty tibble
 #'   when the endpoint is unavailable. **Note**: The MCH draft endpoint
-#'   (`site/v2/sports/hockey/nhl/draft`) currently returns HTTP 500 for MCH —
+#'   (`site/v2/sports/hockey/nhl/draft`) currently returns HTTP 500 for MCH -
 #'   an empty tibble is returned gracefully:
 #'
 #'    |col_name |types     |description                                           |
@@ -845,7 +845,7 @@ NULL
 #' @title **Get ESPN MCH Teams (site_v2) -- alias for `espn_mch_teams()`**
 #' @rdname espn_mch_teams_site
 #' @author Saiem Gilani
-#' @param limit Maximum number of teams (ESPN `limit`; default `1000`, as sdv-py).
+#' @param limit Maximum number of teams (ESPN `limit`; default `1000`, as sportsdataverse-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_teams_site()`; columns verified against a captured MCH body.
 #' @return A `fastRhockey_data` tibble with one row per MCH team. This is
@@ -939,7 +939,7 @@ NULL
 #' @author Saiem Gilani
 #' @param team_id ESPN team identifier (character or numeric, e.g. `"104"` for
 #'   Pittsburgh Penguins).
-#' @param limit Maximum number of athletes (ESPN `limit`; default `500`, as sdv-py).
+#' @param limit Maximum number of athletes (ESPN `limit`; default `500`, as sportsdataverse-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team_roster()`; ESPN answered an empty collection for every captured MCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
 #' @return A `fastRhockey_data` tibble with one row per player:
@@ -1102,7 +1102,7 @@ NULL
 #'    |description|character|Record description.                                                                             |
 #'    |type       |character|Record type (overall, home, away).                                                              |
 #'    |summary    |character|Record summary string, e.g. `'10-5-1'`.                                                         |
-#'    |<stat>     |numeric  |One column per ESPN stat on the record, named by `janitor::make_clean_names()` of the stat name.|
+#'    |`<stat>`   |numeric  |One column per ESPN stat on the record, named by `janitor::make_clean_names()` of the stat name.|
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names make_clean_names
@@ -2326,7 +2326,7 @@ NULL
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_type_corrections()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per correction entry, or
 #'   an empty tibble when no corrections are recorded. **Note**: ESPN does not
-#'   publish score corrections for MCH — this endpoint returns empty for all
+#'   publish score corrections for MCH - this endpoint returns empty for all
 #'   tested seasons:
 #'
 #'    |col_name        |types     |description                                          |
@@ -2366,7 +2366,7 @@ NULL
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_weeks()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per week, or an empty
 #'   tibble when the endpoint returns no items. **Note**: The MCH does not use
-#'   weekly scheduling in the ESPN core-v2 API — this endpoint consistently
+#'   weekly scheduling in the ESPN core-v2 API - this endpoint consistently
 #'   returns `count=0` for MCH. An empty tibble is returned gracefully:
 #'
 #'    |col_name     |types     |description                                          |
@@ -2408,7 +2408,7 @@ NULL
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_week()` (columns inherited); a collection may be empty.
 #' @return A one-row `fastRhockey_data` tibble with week metadata, or an empty
 #'   tibble when the endpoint is unavailable. **Note**: NHL does not use weeks
-#'   in ESPN core-v2 — HTTP 404 is the expected response:
+#'   in ESPN core-v2 - HTTP 404 is the expected response:
 #'
 #'    |col_name     |types     |description                                          |
 #'    |:------------|:---------|:----------------------------------------------------|
@@ -2454,7 +2454,7 @@ NULL
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_week_games()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per game (event) in the
 #'   week, or an empty tibble when the endpoint is unavailable. **Note**: NHL
-#'   does not use weeks in ESPN core-v2 — HTTP 404 is expected:
+#'   does not use weeks in ESPN core-v2 - HTTP 404 is expected:
 #'
 #'    |col_name     |types     |description                                          |
 #'    |:------------|:---------|:----------------------------------------------------|
@@ -2598,7 +2598,7 @@ NULL
 #' @return A `fastRhockey_data` tibble with one row per player reference for
 #'   the requested page. This function hits the same endpoint as
 #'   `espn_mch_season_athletes()` (`seasons/{season}/athletes`) but uses the
-#'   `player_id` column name for consistency with the `sdv-py`
+#'   `player_id` column name for consistency with the `sportsdataverse-py`
 #'   `espn_mch_season_players` naming convention:
 #'
 #'    |col_name    |types     |description                                          |
@@ -2671,7 +2671,7 @@ NULL
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_draft()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with draft round references, or an
 #'   empty tibble when the endpoint is unavailable (HTTP 404 is normal for
-#'   NHL — the draft sub-tree is not served by this core-v2 path):
+#'   NHL - the draft sub-tree is not served by this core-v2 path):
 #'
 #'    |col_name  |types     |description                                           |
 #'    |:---------|:---------|:-----------------------------------------------------|
@@ -2706,7 +2706,7 @@ NULL
 #' @return A `fastRhockey_data` tibble with one row per draft pick, or an
 #'   empty tibble when the endpoint is unavailable. The confirmed path is
 #'   `seasons/{season}/draft/rounds/{round_num}/picks`; for NHL this returns
-#'   HTTP 404 — the draft data is not served by the core-v2 sub-tree:
+#'   HTTP 404 - the draft data is not served by the core-v2 sub-tree:
 #'
 #'    |col_name    |types     |description                                         |
 #'    |:-----------|:---------|:---------------------------------------------------|
@@ -2783,7 +2783,7 @@ NULL
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_freeagents()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per free-agent athlete
 #'   reference. **Note**: The MCH free-agents endpoint (`seasons/{season}/freeagents`)
-#'   currently returns `count=0` for all tested seasons — the endpoint exists
+#'   currently returns `count=0` for all tested seasons - the endpoint exists
 #'   but ESPN does not populate it for MCH. An empty tibble is returned
 #'   gracefully in that case:
 #'
@@ -2824,7 +2824,7 @@ NULL
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_powerindex()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per power-index entry, or
 #'   an empty tibble when no data is available. **Note**: ESPN does not publish
-#'   power-index data for MCH — this endpoint consistently returns empty
+#'   power-index data for MCH - this endpoint consistently returns empty
 #'   results for hockey:
 #'
 #'    |col_name        |types     |description                                      |
@@ -2891,7 +2891,7 @@ NULL
 #' @author Saiem Gilani
 #' @param season Season end-year (e.g. `2026`). Defaults to
 #'   `most_recent_nhl_season()`.
-#' @param limit Maximum number of awards (ESPN `limit`; default `200`, as sdv-py).
+#' @param limit Maximum number of awards (ESPN `limit`; default `200`, as sportsdataverse-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_awards()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per award reference, or an
@@ -3776,7 +3776,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_odds()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per odds provider (typically
-#'   2 rows per game — consensus + one sportsbook):
+#'   2 rows per game - consensus + one sportsbook):
 #'
 #'    |col_name              |types     |description                                             |
 #'    |:---------------------|:---------|:-------------------------------------------------------|
@@ -3826,7 +3826,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_probabilities()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per play probability entry. **Note:**
-#'   This endpoint is sparse for MCH — most games return an empty tibble with a
+#'   This endpoint is sparse for MCH - most games return an empty tibble with a
 #'   warning. When populated, columns include:
 #'
 #'    |col_name            |types     |description                                           |
@@ -4108,7 +4108,7 @@ NULL
 #' @param cid Competition identifier. Defaults to `event_id`.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_officials()` (columns inherited); a collection may be empty.
-#' @return A `fastRhockey_data` tibble with one row per official (typically 4 —
+#' @return A `fastRhockey_data` tibble with one row per official (typically 4 -
 #'   2 referees + 2 linesmen):
 #'
 #'    |col_name         |types     |description                                             |
@@ -4201,7 +4201,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_predictor()` (columns inherited); a collection may be empty.
 #' @return A one-row `fastRhockey_data` tibble with ESPN Predictor data. **Note:**
-#'   This endpoint is sparse for MCH — most games return an empty tibble with a
+#'   This endpoint is sparse for MCH - most games return an empty tibble with a
 #'   warning. When populated, scalar fields from the predictor object are returned
 #'   as character columns alongside `event_id` and `cid`.
 #'
@@ -4211,7 +4211,7 @@ NULL
 #'    |:-------|:--------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 #'    |event_id|character|ESPN event identifier (echoed from the argument).                                                                                                              |
 #'    |cid     |character|Competition identifier (echoed from the argument).                                                                                                             |
-#'    |<field> |character|One column per scalar field of the ESPN predictor object, cleaned by `janitor::clean_names()`; `predictor_ref` (the `$ref` URL) when the object has no scalars.|
+#'    |`<field>` |character|One column per scalar field of the ESPN predictor object, cleaned by `janitor::clean_names()`; `predictor_ref` (the `$ref` URL) when the object has no scalars.|
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -4238,7 +4238,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_powerindex()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with ESPN Power Index data. **Note:**
-#'   This endpoint is sparse for MCH — most games return an empty tibble with a
+#'   This endpoint is sparse for MCH - most games return an empty tibble with a
 #'   warning. When populated, columns contain power-index values alongside
 #'   `event_id` and `cid`.
 #'
@@ -4249,7 +4249,7 @@ NULL
 #'    |event_id|character|ESPN event identifier (echoed from the argument).                                                                                                           |
 #'    |cid     |character|Competition identifier (echoed from the argument).                                                                                                          |
 #'    |pi_ref  |character|`$ref` URL of the power-index item (list responses).                                                                                                        |
-#'    |<field> |character|One column per scalar field of the ESPN power-index object (object responses), cleaned by `janitor::clean_names()`; `powerindex_ref` when it has no scalars.|
+#'    |`<field>` |character|One column per scalar field of the ESPN power-index object (object responses), cleaned by `janitor::clean_names()`; `powerindex_ref` when it has no scalars.|
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -4317,7 +4317,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_leaders()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per (category, leader) pair.
-#'   **Note:** This endpoint is sparse for MCH — most games return an empty tibble
+#'   **Note:** This endpoint is sparse for MCH - most games return an empty tibble
 #'   with a warning. When populated:
 #'
 #'    |col_name          |types     |description                                             |
@@ -4684,7 +4684,7 @@ NULL
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_coach()` (columns inherited); a collection may be empty.
 #' @return A one-row `fastRhockey_data` tibble with coach detail. Note that
 #'   `careerRecords` and `coachSeasons` are sparse (empty arrays) for many MCH
-#'   coaches — see `espn_mch_coach_record()` for season-scoped records:
+#'   coaches - see `espn_mch_coach_record()` for season-scoped records:
 #'
 #'    |col_name       |types     |description                                        |
 #'    |:--------------|:---------|:--------------------------------------------------|
@@ -4720,12 +4720,12 @@ NULL
 #' @author Saiem Gilani
 #' @param coach_id ESPN coach identifier (character or numeric). Use
 #'   `espn_mch_coaches()` to discover valid coach ids.
-#' @param record_type Record type path segment (`coaches/{id}/record/{record_type}`); default `0`, as sdv-py. `NULL` drops the segment.
+#' @param record_type Record type path segment (`coaches/{id}/record/{record_type}`); default `0`, as sportsdataverse-py. `NULL` drops the segment.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_coach_record()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with coach career record data, or an
 #'   empty tibble when the endpoint is unavailable. **Note**: The coach record
-#'   path (`coaches/{id}/record`) returns HTTP 404 for NHL — this endpoint is
+#'   path (`coaches/{id}/record`) returns HTTP 404 for NHL - this endpoint is
 #'   not populated by ESPN for the NHL league. An empty tibble is returned
 #'   gracefully with a warning:
 #'
@@ -4927,7 +4927,7 @@ NULL
 #' @return A one-row `fastRhockey_data` tibble with award metadata, or an
 #'   empty tibble when the endpoint is unavailable. **Note**: The individual
 #'   award endpoint (`core_v2/awards/{award_id}`) currently returns HTTP 500
-#'   for all tested MCH award ids — an empty tibble is returned gracefully:
+#'   for all tested MCH award ids - an empty tibble is returned gracefully:
 #'
 #'    |col_name      |types     |description                                         |
 #'    |:-------------|:---------|:---------------------------------------------------|
@@ -4998,7 +4998,7 @@ NULL
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_league_notes()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per league note reference,
 #'   or an empty tibble when the endpoint is unavailable. **Note**: The MCH
-#'   league notes endpoint (`core_v2/notes`) currently returns `count=0` —
+#'   league notes endpoint (`core_v2/notes`) currently returns `count=0` -
 #'   an empty tibble is returned gracefully:
 #'
 #'    |col_name    |types     |description                                          |
@@ -5030,7 +5030,7 @@ NULL
 #' @return A `fastRhockey_data` tibble with one row per talent pick reference,
 #'   or an empty tibble when the endpoint is unavailable. **Note**: The MCH
 #'   talent picks endpoint (`core_v2/talentpicks`) currently returns `count=0`
-#'   — an empty tibble is returned gracefully:
+#'   - an empty tibble is returned gracefully:
 #'
 #'    |col_name    |types     |description                                          |
 #'    |:-----------|:---------|:----------------------------------------------------|
@@ -5059,7 +5059,7 @@ NULL
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @details ESPN men's college hockey polls (USCHO), league slug `mens-college-hockey`. `rank` is `NA` on
 #'   the vote-receiving rows (`ranked = FALSE`); `previous_rank` keeps ESPN's `0`
-#'   for a team unranked in the previous poll. Mirrors sdv-py `espn_mch_rankings()`.
+#'   for a team unranked in the previous poll. Mirrors sportsdataverse-py `espn_mch_rankings()`.
 #' @return A `fastRhockey_data` tibble with one row per (poll, team), always with
 #'   the same 25 columns; zero rows (with those columns) when no poll is published:
 #'
@@ -5115,7 +5115,7 @@ NULL
 #' @details League slug `mens-college-hockey`. One row per team with a column per FPI field,
 #'   snake-cased from the payload's `categories` labels (zipped by position and
 #'   length-guarded); a zero-row `data.frame` when ESPN publishes no table for
-#'   men's college hockey. Mirrors sdv-py `espn_mch_fpi()`.
+#'   men's college hockey. Mirrors sportsdataverse-py `espn_mch_fpi()`.
 #' @return A `fastRhockey_data` tibble with one row per team:
 #'
 #'    |col_name                |types     |description                                  |
@@ -5157,7 +5157,7 @@ NULL
 #' @details League slug `mens-college-hockey`. One row per team, `predictives` and
 #'   `efficiencies` flattened to one column per field (a name colliding across
 #'   the two blocks is suffixed). A zero-row `data.frame` when unpublished.
-#'   Mirrors sdv-py `espn_mch_season_week_powerindex()`.
+#'   Mirrors sportsdataverse-py `espn_mch_season_week_powerindex()`.
 #' @return A `fastRhockey_data` tibble with one row per team:
 #'
 #'    |col_name          |types     |description                                  |
@@ -5195,7 +5195,7 @@ NULL
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @details League slug `mens-college-hockey`. Core-v2 `weeks/{week}/rankings` collection;
 #'   `$ref`-only items become `ref` + `ranking_id`, inline items are flattened.
-#'   Mirrors sdv-py `espn_mch_season_week_rankings()`.
+#'   Mirrors sportsdataverse-py `espn_mch_season_week_rankings()`.
 #' @return A `fastRhockey_data` tibble with one row per ranking item:
 #'
 #'    |col_name     |types     |description                                  |
@@ -5232,7 +5232,7 @@ NULL
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @details League slug `mens-college-hockey`. Core-v2 `seasons/{season}/recruits`;
 #'   `$ref`-only items become `ref` + `recruit_id`, inline items are flattened.
-#'   Mirrors sdv-py `espn_mch_season_recruits()`; ESPN may publish nothing for men's college hockey.
+#'   Mirrors sportsdataverse-py `espn_mch_season_recruits()`; ESPN may publish nothing for men's college hockey.
 #' @return A `fastRhockey_data` tibble with one row per recruit:
 #'
 #'    |col_name   |types     |description                                  |
@@ -5262,7 +5262,7 @@ NULL
 #' @author Saiem Gilani
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @details League slug `mens-college-hockey`. Core-v2 `recruiting` collection (one item per
-#'   recruiting class year). Mirrors sdv-py `espn_mch_recruiting_years()`.
+#'   recruiting class year). Mirrors sportsdataverse-py `espn_mch_recruiting_years()`.
 #' @return A `fastRhockey_data` tibble with one row per recruiting year:
 #'
 #'    |col_name |types     |description                                  |
@@ -5292,7 +5292,7 @@ NULL
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @details League slug `mens-college-hockey`. Core-v2 `recruiting/{year}/athletes`; inline
 #'   athlete objects are flattened and snake-cased, `$ref`-only items become `ref` +
-#'   `recruit_id`. Mirrors sdv-py `espn_mch_recruiting_players()`.
+#'   `recruit_id`. Mirrors sportsdataverse-py `espn_mch_recruiting_players()`.
 #' @return A `fastRhockey_data` tibble with one row per recruit:
 #'
 #'    |col_name   |types     |description                                  |
@@ -5324,7 +5324,7 @@ NULL
 #' @param year Recruiting class year.
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @details League slug `mens-college-hockey`. Core-v2 `recruiting/{year}/rankings`;
-#'   `$ref`-only items become `ref` + `ranking_id`. Mirrors sdv-py
+#'   `$ref`-only items become `ref` + `ranking_id`. Mirrors sportsdataverse-py
 #'   `espn_mch_recruiting_rankings()`.
 #' @return A `fastRhockey_data` tibble with one row per ranking set:
 #'
@@ -5355,7 +5355,7 @@ NULL
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @details League slug `mens-college-hockey`. Core-v2 league-level `standings`; ESPN answers
 #'   with a bare `$ref` pointer to the current season's group standings, returned
-#'   as one `ref` row. Mirrors sdv-py `espn_mch_standings_core()`, which takes
+#'   as one `ref` row. Mirrors sportsdataverse-py `espn_mch_standings_core()`, which takes
 #'   no arguments; use `espn_mch_standings()` for the per-team table.
 #' @return A `fastRhockey_data` tibble with one row per standings item:
 #'
@@ -5390,7 +5390,7 @@ NULL
 #' @param week Optional week number (ESPN `week` query).
 #' @param season_type Optional season phase (1 = pre, 2 = regular, 3 = post); sent as `seasontype`.
 #' @param groups Optional conference/group id filter.
-#' @param limit Maximum number of events (ESPN `limit`; default `500`, as sdv-py).
+#' @param limit Maximum number of events (ESPN `limit`; default `500`, as sportsdataverse-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_scoreboard()`; columns verified against a captured WCH body.
 #' @return A `fastRhockey_data` tibble with one row per game:
@@ -5478,11 +5478,11 @@ NULL
 #'   `broadcasts`, `pickcenter`, `odds`, `plays`, `header`, `standings`,
 #'   and others.
 #'
-#'   - `$boxscore$teams` — list of 2 team stat objects.
-#'   - `$boxscore$players` — list of 2 player stat group objects.
-#'   - `$plays` — list of play objects.
-#'   - `$header$season` — season year and type.
-#'   - `$header$competitions[[1]]$competitors` — home/away team + score.
+#'   - `$boxscore$teams` - list of 2 team stat objects.
+#'   - `$boxscore$players` - list of 2 player stat group objects.
+#'   - `$plays` - list of play objects.
+#'   - `$header$season` - season year and type.
+#'   - `$header$competitions[[1]]$competitors` - home/away team + score.
 #'
 #'   Shape:
 #'
@@ -5819,7 +5819,7 @@ NULL
 #' @title **Get ESPN WCH Transactions**
 #' @rdname espn_wch_transactions
 #' @author Saiem Gilani
-#' @param limit Maximum number of transactions (ESPN `limit`; default `500`, as sdv-py).
+#' @param limit Maximum number of transactions (ESPN `limit`; default `500`, as sportsdataverse-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_transactions()`; ESPN answered an empty collection for every captured MCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
 #' @return A `fastRhockey_data` tibble with one row per transaction:
@@ -5920,7 +5920,7 @@ NULL
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_draft()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with draft data, or an empty tibble
 #'   when the endpoint is unavailable. **Note**: The WCH draft endpoint
-#'   (`site/v2/sports/hockey/nhl/draft`) currently returns HTTP 500 for WCH —
+#'   (`site/v2/sports/hockey/nhl/draft`) currently returns HTTP 500 for WCH -
 #'   an empty tibble is returned gracefully:
 #'
 #'    |col_name |types     |description                                           |
@@ -5946,7 +5946,7 @@ NULL
 #' @title **Get ESPN WCH Teams (site_v2) -- alias for `espn_wch_teams()`**
 #' @rdname espn_wch_teams_site
 #' @author Saiem Gilani
-#' @param limit Maximum number of teams (ESPN `limit`; default `1000`, as sdv-py).
+#' @param limit Maximum number of teams (ESPN `limit`; default `1000`, as sportsdataverse-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_teams_site()`; columns verified against a captured WCH body.
 #' @return A `fastRhockey_data` tibble with one row per WCH team. This is
@@ -6040,7 +6040,7 @@ NULL
 #' @author Saiem Gilani
 #' @param team_id ESPN team identifier (character or numeric, e.g. `"2137"` for
 #'   Pittsburgh Penguins).
-#' @param limit Maximum number of athletes (ESPN `limit`; default `500`, as sdv-py).
+#' @param limit Maximum number of athletes (ESPN `limit`; default `500`, as sportsdataverse-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team_roster()`; ESPN answered an empty collection for every captured WCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
 #' @return A `fastRhockey_data` tibble with one row per player:
@@ -6203,7 +6203,7 @@ NULL
 #'    |description|character|Record description.                                                                             |
 #'    |type       |character|Record type (overall, home, away).                                                              |
 #'    |summary    |character|Record summary string, e.g. `'10-5-1'`.                                                         |
-#'    |<stat>     |numeric  |One column per ESPN stat on the record, named by `janitor::make_clean_names()` of the stat name.|
+#'    |`<stat>`   |numeric  |One column per ESPN stat on the record, named by `janitor::make_clean_names()` of the stat name.|
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names make_clean_names
@@ -7427,7 +7427,7 @@ NULL
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_type_corrections()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per correction entry, or
 #'   an empty tibble when no corrections are recorded. **Note**: ESPN does not
-#'   publish score corrections for WCH — this endpoint returns empty for all
+#'   publish score corrections for WCH - this endpoint returns empty for all
 #'   tested seasons:
 #'
 #'    |col_name        |types     |description                                          |
@@ -7467,7 +7467,7 @@ NULL
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_weeks()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per week, or an empty
 #'   tibble when the endpoint returns no items. **Note**: The WCH does not use
-#'   weekly scheduling in the ESPN core-v2 API — this endpoint consistently
+#'   weekly scheduling in the ESPN core-v2 API - this endpoint consistently
 #'   returns `count=0` for WCH. An empty tibble is returned gracefully:
 #'
 #'    |col_name     |types     |description                                          |
@@ -7509,7 +7509,7 @@ NULL
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_week()` (columns inherited); a collection may be empty.
 #' @return A one-row `fastRhockey_data` tibble with week metadata, or an empty
 #'   tibble when the endpoint is unavailable. **Note**: NHL does not use weeks
-#'   in ESPN core-v2 — HTTP 404 is the expected response:
+#'   in ESPN core-v2 - HTTP 404 is the expected response:
 #'
 #'    |col_name     |types     |description                                          |
 #'    |:------------|:---------|:----------------------------------------------------|
@@ -7555,7 +7555,7 @@ NULL
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_week_games()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per game (event) in the
 #'   week, or an empty tibble when the endpoint is unavailable. **Note**: NHL
-#'   does not use weeks in ESPN core-v2 — HTTP 404 is expected:
+#'   does not use weeks in ESPN core-v2 - HTTP 404 is expected:
 #'
 #'    |col_name     |types     |description                                          |
 #'    |:------------|:---------|:----------------------------------------------------|
@@ -7699,7 +7699,7 @@ NULL
 #' @return A `fastRhockey_data` tibble with one row per player reference for
 #'   the requested page. This function hits the same endpoint as
 #'   `espn_wch_season_athletes()` (`seasons/{season}/athletes`) but uses the
-#'   `player_id` column name for consistency with the `sdv-py`
+#'   `player_id` column name for consistency with the `sportsdataverse-py`
 #'   `espn_wch_season_players` naming convention:
 #'
 #'    |col_name    |types     |description                                          |
@@ -7772,7 +7772,7 @@ NULL
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_draft()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with draft round references, or an
 #'   empty tibble when the endpoint is unavailable (HTTP 404 is normal for
-#'   NHL — the draft sub-tree is not served by this core-v2 path):
+#'   NHL - the draft sub-tree is not served by this core-v2 path):
 #'
 #'    |col_name  |types     |description                                           |
 #'    |:---------|:---------|:-----------------------------------------------------|
@@ -7807,7 +7807,7 @@ NULL
 #' @return A `fastRhockey_data` tibble with one row per draft pick, or an
 #'   empty tibble when the endpoint is unavailable. The confirmed path is
 #'   `seasons/{season}/draft/rounds/{round_num}/picks`; for NHL this returns
-#'   HTTP 404 — the draft data is not served by the core-v2 sub-tree:
+#'   HTTP 404 - the draft data is not served by the core-v2 sub-tree:
 #'
 #'    |col_name    |types     |description                                         |
 #'    |:-----------|:---------|:---------------------------------------------------|
@@ -7884,7 +7884,7 @@ NULL
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_freeagents()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per free-agent athlete
 #'   reference. **Note**: The WCH free-agents endpoint (`seasons/{season}/freeagents`)
-#'   currently returns `count=0` for all tested seasons — the endpoint exists
+#'   currently returns `count=0` for all tested seasons - the endpoint exists
 #'   but ESPN does not populate it for WCH. An empty tibble is returned
 #'   gracefully in that case:
 #'
@@ -7925,7 +7925,7 @@ NULL
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_powerindex()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per power-index entry, or
 #'   an empty tibble when no data is available. **Note**: ESPN does not publish
-#'   power-index data for WCH — this endpoint consistently returns empty
+#'   power-index data for WCH - this endpoint consistently returns empty
 #'   results for hockey:
 #'
 #'    |col_name        |types     |description                                      |
@@ -7992,7 +7992,7 @@ NULL
 #' @author Saiem Gilani
 #' @param season Season end-year (e.g. `2026`). Defaults to
 #'   `most_recent_nhl_season()`.
-#' @param limit Maximum number of awards (ESPN `limit`; default `200`, as sdv-py).
+#' @param limit Maximum number of awards (ESPN `limit`; default `200`, as sportsdataverse-py).
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_season_awards()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per award reference, or an
@@ -8877,7 +8877,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_odds()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per odds provider (typically
-#'   2 rows per game — consensus + one sportsbook):
+#'   2 rows per game - consensus + one sportsbook):
 #'
 #'    |col_name              |types     |description                                             |
 #'    |:---------------------|:---------|:-------------------------------------------------------|
@@ -8927,7 +8927,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_probabilities()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per play probability entry. **Note:**
-#'   This endpoint is sparse for WCH — most games return an empty tibble with a
+#'   This endpoint is sparse for WCH - most games return an empty tibble with a
 #'   warning. When populated, columns include:
 #'
 #'    |col_name            |types     |description                                           |
@@ -9209,7 +9209,7 @@ NULL
 #' @param cid Competition identifier. Defaults to `event_id`.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_officials()` (columns inherited); a collection may be empty.
-#' @return A `fastRhockey_data` tibble with one row per official (typically 4 —
+#' @return A `fastRhockey_data` tibble with one row per official (typically 4 -
 #'   2 referees + 2 linesmen):
 #'
 #'    |col_name         |types     |description                                             |
@@ -9302,7 +9302,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_predictor()` (columns inherited); a collection may be empty.
 #' @return A one-row `fastRhockey_data` tibble with ESPN Predictor data. **Note:**
-#'   This endpoint is sparse for WCH — most games return an empty tibble with a
+#'   This endpoint is sparse for WCH - most games return an empty tibble with a
 #'   warning. When populated, scalar fields from the predictor object are returned
 #'   as character columns alongside `event_id` and `cid`.
 #'
@@ -9312,7 +9312,7 @@ NULL
 #'    |:-------|:--------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 #'    |event_id|character|ESPN event identifier (echoed from the argument).                                                                                                              |
 #'    |cid     |character|Competition identifier (echoed from the argument).                                                                                                             |
-#'    |<field> |character|One column per scalar field of the ESPN predictor object, cleaned by `janitor::clean_names()`; `predictor_ref` (the `$ref` URL) when the object has no scalars.|
+#'    |`<field>` |character|One column per scalar field of the ESPN predictor object, cleaned by `janitor::clean_names()`; `predictor_ref` (the `$ref` URL) when the object has no scalars.|
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -9339,7 +9339,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_powerindex()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with ESPN Power Index data. **Note:**
-#'   This endpoint is sparse for WCH — most games return an empty tibble with a
+#'   This endpoint is sparse for WCH - most games return an empty tibble with a
 #'   warning. When populated, columns contain power-index values alongside
 #'   `event_id` and `cid`.
 #'
@@ -9350,7 +9350,7 @@ NULL
 #'    |event_id|character|ESPN event identifier (echoed from the argument).                                                                                                           |
 #'    |cid     |character|Competition identifier (echoed from the argument).                                                                                                          |
 #'    |pi_ref  |character|`$ref` URL of the power-index item (list responses).                                                                                                        |
-#'    |<field> |character|One column per scalar field of the ESPN power-index object (object responses), cleaned by `janitor::clean_names()`; `powerindex_ref` when it has no scalars.|
+#'    |`<field>` |character|One column per scalar field of the ESPN power-index object (object responses), cleaned by `janitor::clean_names()`; `powerindex_ref` when it has no scalars.|
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -9418,7 +9418,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_leaders()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per (category, leader) pair.
-#'   **Note:** This endpoint is sparse for WCH — most games return an empty tibble
+#'   **Note:** This endpoint is sparse for WCH - most games return an empty tibble
 #'   with a warning. When populated:
 #'
 #'    |col_name          |types     |description                                             |
@@ -9785,7 +9785,7 @@ NULL
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_coach()` (columns inherited); a collection may be empty.
 #' @return A one-row `fastRhockey_data` tibble with coach detail. Note that
 #'   `careerRecords` and `coachSeasons` are sparse (empty arrays) for many WCH
-#'   coaches — see `espn_wch_coach_record()` for season-scoped records:
+#'   coaches - see `espn_wch_coach_record()` for season-scoped records:
 #'
 #'    |col_name       |types     |description                                        |
 #'    |:--------------|:---------|:--------------------------------------------------|
@@ -9821,12 +9821,12 @@ NULL
 #' @author Saiem Gilani
 #' @param coach_id ESPN coach identifier (character or numeric). Use
 #'   `espn_wch_coaches()` to discover valid coach ids.
-#' @param record_type Record type path segment (`coaches/{id}/record/{record_type}`); default `0`, as sdv-py. `NULL` drops the segment.
+#' @param record_type Record type path segment (`coaches/{id}/record/{record_type}`); default `0`, as sportsdataverse-py. `NULL` drops the segment.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_coach_record()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with coach career record data, or an
 #'   empty tibble when the endpoint is unavailable. **Note**: The coach record
-#'   path (`coaches/{id}/record`) returns HTTP 404 for NHL — this endpoint is
+#'   path (`coaches/{id}/record`) returns HTTP 404 for NHL - this endpoint is
 #'   not populated by ESPN for the NHL league. An empty tibble is returned
 #'   gracefully with a warning:
 #'
@@ -10028,7 +10028,7 @@ NULL
 #' @return A one-row `fastRhockey_data` tibble with award metadata, or an
 #'   empty tibble when the endpoint is unavailable. **Note**: The individual
 #'   award endpoint (`core_v2/awards/{award_id}`) currently returns HTTP 500
-#'   for all tested WCH award ids — an empty tibble is returned gracefully:
+#'   for all tested WCH award ids - an empty tibble is returned gracefully:
 #'
 #'    |col_name      |types     |description                                         |
 #'    |:-------------|:---------|:---------------------------------------------------|
@@ -10099,7 +10099,7 @@ NULL
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_league_notes()` (columns inherited); a collection may be empty.
 #' @return A `fastRhockey_data` tibble with one row per league note reference,
 #'   or an empty tibble when the endpoint is unavailable. **Note**: The WCH
-#'   league notes endpoint (`core_v2/notes`) currently returns `count=0` —
+#'   league notes endpoint (`core_v2/notes`) currently returns `count=0` -
 #'   an empty tibble is returned gracefully:
 #'
 #'    |col_name    |types     |description                                          |
@@ -10131,7 +10131,7 @@ NULL
 #' @return A `fastRhockey_data` tibble with one row per talent pick reference,
 #'   or an empty tibble when the endpoint is unavailable. **Note**: The WCH
 #'   talent picks endpoint (`core_v2/talentpicks`) currently returns `count=0`
-#'   — an empty tibble is returned gracefully:
+#'   - an empty tibble is returned gracefully:
 #'
 #'    |col_name    |types     |description                                          |
 #'    |:-----------|:---------|:----------------------------------------------------|
@@ -10160,7 +10160,7 @@ NULL
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @details ESPN women's college hockey polls (USCHO), league slug `womens-college-hockey`. `rank` is `NA` on
 #'   the vote-receiving rows (`ranked = FALSE`); `previous_rank` keeps ESPN's `0`
-#'   for a team unranked in the previous poll. Mirrors sdv-py `espn_wch_rankings()`.
+#'   for a team unranked in the previous poll. Mirrors sportsdataverse-py `espn_wch_rankings()`.
 #' @return A `fastRhockey_data` tibble with one row per (poll, team), always with
 #'   the same 25 columns; zero rows (with those columns) when no poll is published:
 #'
@@ -10216,7 +10216,7 @@ NULL
 #' @details League slug `womens-college-hockey`. One row per team with a column per FPI field,
 #'   snake-cased from the payload's `categories` labels (zipped by position and
 #'   length-guarded); a zero-row `data.frame` when ESPN publishes no table for
-#'   women's college hockey. Mirrors sdv-py `espn_wch_fpi()`.
+#'   women's college hockey. Mirrors sportsdataverse-py `espn_wch_fpi()`.
 #' @return A `fastRhockey_data` tibble with one row per team:
 #'
 #'    |col_name                |types     |description                                  |
@@ -10258,7 +10258,7 @@ NULL
 #' @details League slug `womens-college-hockey`. One row per team, `predictives` and
 #'   `efficiencies` flattened to one column per field (a name colliding across
 #'   the two blocks is suffixed). A zero-row `data.frame` when unpublished.
-#'   Mirrors sdv-py `espn_wch_season_week_powerindex()`.
+#'   Mirrors sportsdataverse-py `espn_wch_season_week_powerindex()`.
 #' @return A `fastRhockey_data` tibble with one row per team:
 #'
 #'    |col_name          |types     |description                                  |
@@ -10296,7 +10296,7 @@ NULL
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @details League slug `womens-college-hockey`. Core-v2 `weeks/{week}/rankings` collection;
 #'   `$ref`-only items become `ref` + `ranking_id`, inline items are flattened.
-#'   Mirrors sdv-py `espn_wch_season_week_rankings()`.
+#'   Mirrors sportsdataverse-py `espn_wch_season_week_rankings()`.
 #' @return A `fastRhockey_data` tibble with one row per ranking item:
 #'
 #'    |col_name     |types     |description                                  |
@@ -10333,7 +10333,7 @@ NULL
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @details League slug `womens-college-hockey`. Core-v2 `seasons/{season}/recruits`;
 #'   `$ref`-only items become `ref` + `recruit_id`, inline items are flattened.
-#'   Mirrors sdv-py `espn_wch_season_recruits()`; ESPN may publish nothing for women's college hockey.
+#'   Mirrors sportsdataverse-py `espn_wch_season_recruits()`; ESPN may publish nothing for women's college hockey.
 #' @return A `fastRhockey_data` tibble with one row per recruit:
 #'
 #'    |col_name   |types     |description                                  |
@@ -10363,7 +10363,7 @@ NULL
 #' @author Saiem Gilani
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @details League slug `womens-college-hockey`. Core-v2 `recruiting` collection (one item per
-#'   recruiting class year). Mirrors sdv-py `espn_wch_recruiting_years()`.
+#'   recruiting class year). Mirrors sportsdataverse-py `espn_wch_recruiting_years()`.
 #' @return A `fastRhockey_data` tibble with one row per recruiting year:
 #'
 #'    |col_name |types     |description                                  |
@@ -10393,7 +10393,7 @@ NULL
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @details League slug `womens-college-hockey`. Core-v2 `recruiting/{year}/athletes`; inline
 #'   athlete objects are flattened and snake-cased, `$ref`-only items become `ref` +
-#'   `recruit_id`. Mirrors sdv-py `espn_wch_recruiting_players()`.
+#'   `recruit_id`. Mirrors sportsdataverse-py `espn_wch_recruiting_players()`.
 #' @return A `fastRhockey_data` tibble with one row per recruit:
 #'
 #'    |col_name   |types     |description                                  |
@@ -10425,7 +10425,7 @@ NULL
 #' @param year Recruiting class year.
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @details League slug `womens-college-hockey`. Core-v2 `recruiting/{year}/rankings`;
-#'   `$ref`-only items become `ref` + `ranking_id`. Mirrors sdv-py
+#'   `$ref`-only items become `ref` + `ranking_id`. Mirrors sportsdataverse-py
 #'   `espn_wch_recruiting_rankings()`.
 #' @return A `fastRhockey_data` tibble with one row per ranking set:
 #'
@@ -10456,7 +10456,7 @@ NULL
 #' @param ... Passed through to `.retry_request()` (e.g. `proxy =`).
 #' @details League slug `womens-college-hockey`. Core-v2 league-level `standings`; ESPN answers
 #'   with a bare `$ref` pointer to the current season's group standings, returned
-#'   as one `ref` row. Mirrors sdv-py `espn_wch_standings_core()`, which takes
+#'   as one `ref` row. Mirrors sportsdataverse-py `espn_wch_standings_core()`, which takes
 #'   no arguments; use `espn_wch_standings()` for the per-team table.
 #' @return A `fastRhockey_data` tibble with one row per standings item:
 #'

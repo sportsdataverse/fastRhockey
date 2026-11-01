@@ -49,7 +49,7 @@ whl_season_id <- function() {
 #' @examples
 #' \donttest{ try(most_recent_whl_season()) }
 most_recent_whl_season <- function() {
-  out <- 2026L
+  out <- .hockeytech_season_from_date()
   tryCatch(
     expr = { out <- .hockeytech_most_recent_season("whl") },
     error = function(e) cli::cli_alert_danger("{Sys.time()}: WHL most-recent season unavailable! {e}")

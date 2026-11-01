@@ -44,8 +44,8 @@
 #'
 #' Strips the query string, splits on \code{/}, and returns the last segment.
 #' Works for any core-v2 collection ref, e.g.
-#' \code{".../seasons/2026"} → \code{"2026"},
-#' \code{".../groups/7?lang=en"} → \code{"7"}.
+#' \code{".../seasons/2026"} -> \code{"2026"},
+#' \code{".../groups/7?lang=en"} -> \code{"7"}.
 #'
 #' @param ref A \code{\$ref} URL string.
 #' @return Character scalar (the trailing id segment), or \code{NA_character_}

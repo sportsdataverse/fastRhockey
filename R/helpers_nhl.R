@@ -4,11 +4,12 @@
 #'   fastRhockey xG models (XGBoost).
 #'
 #'   The models were trained on NHL PBP data from 2010-2024 using the same
-#'   methodology as the hockeyR xG models. Three models are used:
-#'   * **5v5 model** — Even-strength situations
-#'   * **Special teams model** — Power play, short-handed, and other
+#'   methodology as the [hockeyR](https://github.com/danmorse314/hockeyR)
+#'   (Daniel Morse) xG models. Three models are used:
+#'   * **5v5 model** - Even-strength situations
+#'   * **Special teams model** - Power play, short-handed, and other
 #'     non-5v5 situations (adds skater count features)
-#'   * **Penalty shot model** — A constant xG value for penalty shot attempts
+#'   * **Penalty shot model** - A constant xG value for penalty shot attempts
 #'
 #'   Models are loaded into the package namespace on package load via
 #'   `.onLoad()` (see `zzz.R`).
@@ -121,7 +122,8 @@ helper_nhl_calculate_xg <- function(pbp) {
 #' @description Helper function to prepare fastRhockey PBP data for expected
 #'   goals (xG) calculations.
 #'
-#'   Adapted from the hockeyR `helper_nhl_prepare_xg_data()` function. The feature
+#'   Adapted from the [hockeyR](https://github.com/danmorse314/hockeyR)
+#'   (Daniel Morse) `helper_nhl_prepare_xg_data()` function. The feature
 #'   engineering logic (lag events, era dummies, shot metrics, one-hot
 #'   encoding) is identical to the hockeyR xG training pipeline so that the
 #'   same xgboost models can be used for inference.

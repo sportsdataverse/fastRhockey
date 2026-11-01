@@ -15,7 +15,7 @@ espn_mch_game_predictor(event_id, cid = event_id, ...)
 }
 \value{
 A one-row \code{fastRhockey_data} tibble with ESPN Predictor data. \strong{Note:}
-This endpoint is sparse for MCH — most games return an empty tibble with a
+This endpoint is sparse for MCH - most games return an empty tibble with a
 warning. When populated, scalar fields from the predictor object are returned
 as character columns alongside \code{event_id} and \code{cid}.
 
@@ -23,7 +23,7 @@ Columns when populated:\tabular{lll}{
    col_name \tab type \tab description \cr
    event_id \tab character \tab ESPN event identifier (echoed from the argument). \cr
    cid \tab character \tab Competition identifier (echoed from the argument). \cr
-   \if{html}{\out{<field>}} \tab character \tab One column per scalar field of the ESPN predictor object, cleaned by \code{janitor::clean_names()}; \code{predictor_ref} (the \verb{$ref} URL) when the object has no scalars. \cr
+   \verb{<field>} \tab character \tab One column per scalar field of the ESPN predictor object, cleaned by \code{janitor::clean_names()}; \code{predictor_ref} (the \verb{$ref} URL) when the object has no scalars. \cr
 }
 }
 \description{

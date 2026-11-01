@@ -104,14 +104,12 @@ re-primed when the site rotates its cookie or the \code{sessid} expires. No rout
 through the webcaster season table, or pass \code{tournament_id} (the All-Star games have their own
 tnId).
 
-Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+Ids and counts are integers; a column holding values past 2^31 (epoch
 milliseconds) is returned as a whole-number double.
 
 At least one second is left between two requests to a host.
 
-\strong{Owner flag (sanctions).} The KHL and its webcaster platform are run by Russian operators, some
-clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+Check the provider's terms of use before redistributing this data.
 }
 \examples{
 \donttest{

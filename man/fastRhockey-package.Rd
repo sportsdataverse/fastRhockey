@@ -4,11 +4,11 @@
 \name{fastRhockey-package}
 \alias{fastRhockey}
 \alias{fastRhockey-package}
-\title{fastRhockey: Functions to Access Professional Women's Hockey League and National Hockey League Play by Play Data}
+\title{fastRhockey: Functions to Access Hockey Play by Play Data and Statistics}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-A utility to scrape and load play-by-play data and statistics from the Professional Women's Hockey League \url{https://www.thepwhl.com/}, formerly known as the Premier Hockey Federation (PHF) or National Women's Hockey League (NWHL). Additionally, allows access to the National Hockey League's stats API \url{https://www.nhl.com/}.
+A utility to scrape and load hockey play-by-play data and statistics. It covers the National Hockey League \url{https://www.nhl.com/} (the web API, the stats REST API, the Edge tracking API and the records API), the Professional Women's Hockey League \url{https://www.thepwhl.com/}, and the American Hockey League, Ontario Hockey League, Western Hockey League and Quebec Maritimes Junior Hockey League through their 'HockeyTech' feeds. It also reads ESPN and Fox Sports NHL data, NCAA men's and women's hockey from ESPN, and 13 European leagues: Germany's DEL, Austria's ICE Hockey League, the United Kingdom's EIHL, Denmark's Metal Ligaen, the KHL, Russia's VHL, Sweden's SHL and HockeyAllsvenskan, Finland's Liiga, Switzerland's National League and Swiss Ice Hockey Federation competitions, Czechia's Extraliga and France's Ligue Magnus. Loaders read pre-scraped play-by-play, box score, schedule and expected-goals datasets from the 'SportsDataverse' data releases.
 }
 \section{Proxy support}{
 

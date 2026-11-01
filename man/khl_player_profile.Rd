@@ -44,7 +44,7 @@ asked, or a failed fetch) and \code{fastRhockey_bad_request} (an invalid argumen
    jn \tab integer \tab Jersey number (not an id; 0 on a team event) \cr
    club_name \tab character \tab Name in Russian (Cyrillic); the *_en / *en sibling holds the English transliteration \cr
    club_logo \tab character \tab Current club logo URL on khl.ru (protocol-relative) \cr
-   club_code \tab character \tab Club slug (/clubs/\if{html}{\out{<slug>}}/) \cr
+   club_code \tab character \tab Club slug (\verb{/clubs/<slug>/}) \cr
    height \tab character \tab Height with its Russian unit ('183 sm' = 183 cm) \cr
    weight \tab character \tab Weight with its Russian unit ('85 kg' = 85 kg) \cr
    birthdate \tab character \tab Birth date (Russian display format) \cr
@@ -71,14 +71,12 @@ re-primed when the site rotates its cookie or the \code{sessid} expires. No rout
 through the webcaster season table, or pass \code{tournament_id} (the All-Star games have their own
 tnId).
 
-Ids and counts are integers (sdv-py Int64); a column holding values past 2^31 (epoch
+Ids and counts are integers; a column holding values past 2^31 (epoch
 milliseconds) is returned as a whole-number double.
 
 At least one second is left between two requests to a host.
 
-\strong{Owner flag (sanctions).} The KHL and its webcaster platform are run by Russian operators, some
-clubs by sanctioned state companies. Fetching on your own machine is fine; any published data
-release, hosted mirror or redistribution needs owner (sanctions / legal) sign-off first.
+Check the provider's terms of use before redistributing this data.
 }
 \examples{
 \donttest{

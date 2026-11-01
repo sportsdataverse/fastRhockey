@@ -1,7 +1,7 @@
 # shl.R -- SHL (Swedish Hockey League) wrappers over www.shl.se/api.
 #
-# Mirrors sdv-py sportsdataverse/hockey/shl/ (shl_runtime.py, shl_parsers.py and
-# the generated shl.py, sdv-py #826). The SHL site API (Sportality platform,
+# Mirrors sportsdataverse-py sportsdataverse/hockey/shl/ (shl_runtime.py, shl_parsers.py and
+# the generated shl.py, sportsdataverse-py #826). The SHL site API (Sportality platform,
 # stats by StatNet) is keyless JSON. Unofficial use of a public source.
 #
 # * Seasons are END years (2026 = 2025/26). The SHL keys a season by an "ssgt"
@@ -27,7 +27,7 @@
 # Route (path below /api; ids as [^/]+) -> pluck path of the rows that must be present.
 .SHL_ROWS <- c(
   "/sports-v2/season-series-game-types-filter" = "season[]",
-  "/statistics-v2/layout-info" = "[].seasonSeriesGameTypeTeams[]",
+  "/statistics-v2/layout-info" = "[].originalSeasonSeriesGameTypeTeams[]",
   "/sports-v2/game-schedule" = "gameInfo[]",
   "/sports-v2/game-info/[^/]+" = "gameInfo",
   "/sports-v2/teams/[^/]+" = "",
@@ -605,10 +605,17 @@
   .shl_finish(.shl_frame(rows), NULL)
 }
 
+# layout-info's ssgt list. The API renamed seasonSeriesGameTypeTeams to
+# originalSeasonSeriesGameTypeTeams in October 2026; read the new key, then the old one.
+.shl_ssgt_list <- function(body) {
+  if (!.shl_is_obj(body)) return(NULL)
+  body[["originalSeasonSeriesGameTypeTeams"]] %||% body[["seasonSeriesGameTypeTeams"]]
+}
+
 # layout-info: one row per ssgt (season + series + game type)
 .shl_parse_layout <- function(raw, schema = NULL) {
   body <- .shl_body(raw)
-  ssgts <- if (.shl_is_obj(body)) body[["seasonSeriesGameTypeTeams"]] else NULL
+  ssgts <- .shl_ssgt_list(body)
   rows <- list()
   for (s in if (.shl_is_arr(ssgts)) ssgts else list()) {
     if (!.shl_is_obj(s)) next
@@ -750,7 +757,7 @@
   raw <- .shl_fetch(url)
   body <- if (.shl_is_arr(raw) && length(raw) && .shl_is_obj(raw[[1]])) raw[[1]] else list()
   out <- list()
-  for (s in .shl_list(body[["seasonSeriesGameTypeTeams"]])) {
+  for (s in .shl_list(.shl_ssgt_list(body))) {
     if (!.shl_is_obj(s)) next
     code <- if (.shl_truthy(.shl_dict(s[["season"]])[["code"]])) .shl_pystr(s[["season"]][["code"]]) else ""
     gtype <- .shl_dict(s[["gameType"]])[["code"]]
@@ -842,6 +849,9 @@
   }
   if (is.null(route)) return(invisible(raw))
   rows <- .shl_pluck(raw, .SHL_ROWS[[route]])
+  if (!length(rows) && identical(route, "/statistics-v2/layout-info")) {
+    rows <- .shl_pluck(raw, "[].seasonSeriesGameTypeTeams[]") # pre-2026-10 key
+  }
   if (!any(vapply(rows, function(r) .shl_is_obj(r) && length(r) > 0, TRUE))) {
     path <- .SHL_ROWS[[route]]
     .abort_no_data("{where} answered no rows at {.val {path}}")
@@ -918,7 +928,7 @@
 }
 
 # ---------------------------------------------------------------------------
-# Documented columns per endpoint (sdv-py shl_schemas.SCHEMAS): an empty payload parses to a
+# Documented columns per endpoint (sportsdataverse-py shl_schemas.SCHEMAS): an empty payload parses to a
 # zero-row tibble with these columns and types. str=character, int=integer, float=double,
 # bool=logical, list[int]=list of integer vectors.
 # ---------------------------------------------------------------------------
@@ -1310,7 +1320,7 @@
 #' | info_statistics_provider | character | Stats provider of the data (statnet seen). |
 #' | info_is_in_squad | logical | Whether the player is in the current squad. |
 #' | info_player_id | integer | isa (StatNet) player id as an INTEGER. Join trap: play-by-play sends the same id as a STRING (player.playerId, pop/nep, assists) and map keys are strings; cast before joining. |
-#' | info_ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[]. |
+#' | info_ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[]. |
 #' | info_team_id | character | Team code (e.g. FHC) in gameday and standings payloads; not the team uuid. |
 #'
 #' @section Errors:
@@ -1323,7 +1333,7 @@
 #'
 #' @examples
 #' \donttest{
-#'   shl_athlete_career(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl")
+#'   try(shl_athlete_career(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -1382,7 +1392,7 @@ shl_athlete_career <- function(athlete_uuid, master_site_instance_id = NULL, ret
 #'
 #' @examples
 #' \donttest{
-#'   shl_athlete_details(athlete_uuid = "qQ9-349c7WDv6")
+#'   try(shl_athlete_details(athlete_uuid = "qQ9-349c7WDv6"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -1450,7 +1460,7 @@ shl_athlete_details <- function(athlete_uuid, return_parsed = TRUE) {
 #' | info_statistics_provider | character | Stats provider of the data (statnet seen). |
 #' | info_is_in_squad | logical | Whether the player is in the current squad. |
 #' | info_player_id | integer | isa (StatNet) player id as an INTEGER. Join trap: play-by-play sends the same id as a STRING (player.playerId, pop/nep, assists) and map keys are strings; cast before joining. |
-#' | info_ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[]. |
+#' | info_ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[]. |
 #'
 #' @section Errors:
 #' `fastRhockey_no_data`: the host answered 404, an empty body (gameday routes before 2023/24), a
@@ -1462,8 +1472,8 @@ shl_athlete_details <- function(athlete_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_athlete_game_log(athlete_uuid = "qQ9-349c7WDv6",
-#'     master_site_instance_id = "shl1_shl", season = 2026)
+#'   try(shl_athlete_game_log(athlete_uuid = "qQ9-349c7WDv6",
+#'     master_site_instance_id = "shl1_shl", season = 2026))
 #' }
 #' @export
 #' @family SHL Functions
@@ -1539,7 +1549,7 @@ shl_athlete_game_log <- function(athlete_uuid, master_site_instance_id = NULL, s
 #'
 #' @examples
 #' \donttest{
-#'   shl_athlete_profile(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl")
+#'   try(shl_athlete_profile(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -1585,7 +1595,7 @@ shl_athlete_profile <- function(athlete_uuid, master_site_instance_id = NULL, re
 #'
 #' @examples
 #' \donttest{
-#'   shl_athlete_seasons(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl")
+#'   try(shl_athlete_seasons(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -1657,7 +1667,7 @@ shl_athlete_seasons <- function(athlete_uuid, master_site_instance_id = NULL, re
 #'
 #' @examples
 #' \donttest{
-#'   shl_boxscore(game_uuid = "bdhvuc5tex")
+#'   try(shl_boxscore(game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -1734,7 +1744,7 @@ shl_boxscore <- function(game_uuid, return_parsed = TRUE) {
 #' | away_team_email | character | Contact email address of the club. |
 #' | away_team_icon | character | URL of the team logo image. |
 #' | away_team_score | integer | Goals scored by the team in the game. |
-#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[]. |
+#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[]. |
 #' | series_uuid | character | Series uuid (platform key space; SHL = qQ9-bb0bzEWUk); the seriesUuid param of game-schedule. |
 #'
 #' @section Errors:
@@ -1747,7 +1757,7 @@ shl_boxscore <- function(game_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_game_header(game_uuid = "bdhvuc5tex")
+#'   try(shl_game_header(game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -1812,7 +1822,7 @@ shl_game_header <- function(game_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_game_overview(game_uuid = "bdhvuc5tex")
+#'   try(shl_game_overview(game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -1862,7 +1872,7 @@ shl_game_overview <- function(game_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_game_summary(game_uuid = "bdhvuc5tex")
+#'   try(shl_game_summary(game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -1901,7 +1911,7 @@ shl_game_summary <- function(game_uuid, return_parsed = TRUE) {
 #' | state | character | Game state: pre-game or post-game (hyphenated; a live value was not observed). |
 #' | overtime | logical | Whether the game went to overtime. |
 #' | shootout | logical | Whether the game went to a shootout. |
-#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[]. |
+#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[]. |
 #' | home_team_status | character | Result for the team (WIN, LOSE) or record status. |
 #' | home_team_uuid | character | Team uuid (platform key space, e.g. 087a-087aTQv9u); joins to `/sports-v2/teams/{team_uuid}` and schedule homeTeamInfo/awayTeamInfo.uuid. Not the team code. |
 #' | home_team_owner_instance_id | character | Club site instance id (e.g. fhc1_fhc); also names the logo at `sportality.cdn.s8y.se/team-logos/{id}.svg`. |
@@ -1946,7 +1956,7 @@ shl_game_summary <- function(game_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_last_game_day()
+#'   try(shl_last_game_day())
 #' }
 #' @export
 #' @family SHL Functions
@@ -1983,7 +1993,7 @@ shl_last_game_day <- function(season = NULL, game_type = "regular", return_parse
 #' | game_type | character | Game type record (uuid, code regular / playoff / qualdown, Swedish name). |
 #' | game_type_name | character | Game type label in Swedish: Grundserie = regular season, Slutspel = playoffs, Kvalspel nedflyttning = relegation qualification, Kvalserien = the old promotion/relegation series. |
 #' | series_code | character | Series code (SHL, CHL; HA and Kvalserien in old career logs). |
-#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[]. |
+#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[]. |
 #' | state | character | ssgt state: active (the current season) or closed. |
 #' | season_uuid | character | Season uuid (platform key space; code 2025 = 2025/2026); the seasonUuid param of game-schedule. |
 #' | series_uuid | character | Series uuid (platform key space; SHL = qQ9-bb0bzEWUk). |
@@ -1999,7 +2009,7 @@ shl_last_game_day <- function(season = NULL, game_type = "regular", return_parse
 #'
 #' @examples
 #' \donttest{
-#'   shl_layout_info()
+#'   try(shl_layout_info())
 #' }
 #' @export
 #' @family SHL Functions
@@ -2038,7 +2048,7 @@ shl_layout_info <- function(return_parsed = TRUE) {
 #' | state | character | Game state: pre-game or post-game (hyphenated; a live value was not observed). |
 #' | overtime | logical | Whether the game went to overtime. |
 #' | shootout | logical | Whether the game went to a shootout. |
-#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[]. |
+#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[]. |
 #' | home_team_status | character | Result for the team (WIN, LOSE) or record status. |
 #' | home_team_uuid | character | Team uuid (platform key space, e.g. 087a-087aTQv9u); joins to `/sports-v2/teams/{team_uuid}` and schedule homeTeamInfo/awayTeamInfo.uuid. Not the team code. |
 #' | home_team_owner_instance_id | character | Club site instance id (e.g. fhc1_fhc); also names the logo at `sportality.cdn.s8y.se/team-logos/{id}.svg`. |
@@ -2083,7 +2093,7 @@ shl_layout_info <- function(return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_next_game_day()
+#'   try(shl_next_game_day())
 #' }
 #' @export
 #' @family SHL Functions
@@ -2194,7 +2204,7 @@ shl_next_game_day <- function(season = NULL, game_type = "regular", return_parse
 #'
 #' @examples
 #' \donttest{
-#'   shl_pbp(game_uuid = "bdhvuc5tex")
+#'   try(shl_pbp(game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -2274,7 +2284,7 @@ shl_pbp <- function(game_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_player_box(game_uuid = "bdhvuc5tex")
+#'   try(shl_player_box(game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -2301,7 +2311,7 @@ shl_player_box <- function(game_uuid, return_parsed = TRUE) {
 #'   ssgt uuids through `/statistics-v2/layout-info`.
 #'
 #' @param ssgt_uuid ssgt uuid: one season + series + game type (e.g. 2025/2026 SHL regular season).
-#'   Directory: /statistics-v2/layout-info seasonSeriesGameTypeTeams[].ssgtUuid.
+#'   Directory: /statistics-v2/layout-info originalSeasonSeriesGameTypeTeams[].ssgtUuid.
 #' @param home_team_uuid Home team uuid of the game.
 #' @param away_team_uuid Away team uuid of the game.
 #' @param game_uuid Game uuid; narrows the head-to-head to that game's line-ups.
@@ -2376,8 +2386,8 @@ shl_player_box <- function(game_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_player_h2h(ssgt_uuid = "iuzqg7dqk9", home_team_uuid = "087a-087aTQv9u",
-#'     away_team_uuid = "41c4-41c4BiYZU", game_uuid = "bdhvuc5tex")
+#'   try(shl_player_h2h(ssgt_uuid = "iuzqg7dqk9", home_team_uuid = "087a-087aTQv9u",
+#'     away_team_uuid = "41c4-41c4BiYZU", game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -2437,8 +2447,8 @@ shl_player_h2h <- function(ssgt_uuid, home_team_uuid, away_team_uuid, game_uuid 
 #'
 #' @examples
 #' \donttest{
-#'   shl_post_game_team_stats(game_uuid = "bdhvuc5tex", ssgt_uuid = "iuzqg7dqk9",
-#'     home_team_uuid = "087a-087aTQv9u", away_team_uuid = "41c4-41c4BiYZU")
+#'   try(shl_post_game_team_stats(game_uuid = "bdhvuc5tex", ssgt_uuid = "iuzqg7dqk9",
+#'     home_team_uuid = "087a-087aTQv9u", away_team_uuid = "41c4-41c4BiYZU"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -2492,7 +2502,7 @@ shl_post_game_team_stats <- function(game_uuid, ssgt_uuid, home_team_uuid, away_
 #'
 #' @examples
 #' \donttest{
-#'   shl_roster(team_uuid = "087a-087aTQv9u")
+#'   try(shl_roster(team_uuid = "087a-087aTQv9u"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -2517,7 +2527,7 @@ shl_roster <- function(team_uuid, return_parsed = TRUE) {
 #'   site's ssgt uuids through `/statistics-v2/layout-info`.
 #'
 #' @param season Required. Season END year (2026 = 2025/26). Mapped to the provider's ssgt through
-#'   /statistics-v2/layout-info (SHL 1975/76 on); a season it does not list raises NoDataError.
+#'   /statistics-v2/layout-info (SHL 1975/76 on); a season it does not list raises a `fastRhockey_no_data` error.
 #' @param game_type Game type: regular (Grundserie), playoff (Slutspel), qualdown (relegation
 #'   qualification) or playin (2023/24 on).
 #' @param return_parsed Parse the payload into a tibble (default `TRUE`); `FALSE` returns the raw
@@ -2532,7 +2542,7 @@ shl_roster <- function(team_uuid, return_parsed = TRUE) {
 #' | state | character | Game state: pre-game or post-game (hyphenated; a live value was not observed). |
 #' | overtime | logical | Whether the game went to overtime. |
 #' | shootout | logical | Whether the game went to a shootout. |
-#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[]. |
+#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[]. |
 #' | home_team_status | character | Result for the team (WIN, LOSE) or record status. |
 #' | home_team_uuid | character | Team uuid (platform key space, e.g. 087a-087aTQv9u); joins to `/sports-v2/teams/{team_uuid}` and schedule homeTeamInfo/awayTeamInfo.uuid. Not the team code. |
 #' | home_team_owner_instance_id | character | Club site instance id (e.g. fhc1_fhc); also names the logo at `sportality.cdn.s8y.se/team-logos/{id}.svg`. |
@@ -2579,7 +2589,7 @@ shl_roster <- function(team_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_schedule(season = 2026)
+#'   try(shl_schedule(season = 2026))
 #' }
 #' @export
 #' @family SHL Functions
@@ -2630,7 +2640,7 @@ shl_schedule <- function(season, game_type = "regular", return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_season_filter(series_uuid = "qQ9-bb0bzEWUk", season_uuid = "xs4m9qupsi")
+#'   try(shl_season_filter(series_uuid = "qQ9-bb0bzEWUk", season_uuid = "xs4m9qupsi"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -2655,7 +2665,7 @@ shl_season_filter <- function(series_uuid = NULL, season_uuid = NULL, return_par
 #'   mapped to the site's ssgt uuids through `/statistics-v2/layout-info`.
 #'
 #' @param ssgt_uuid ssgt uuid: one season + series + game type (e.g. 2025/2026 SHL regular season).
-#'   Directory: /statistics-v2/layout-info seasonSeriesGameTypeTeams[].ssgtUuid.
+#'   Directory: /statistics-v2/layout-info originalSeasonSeriesGameTypeTeams[].ssgtUuid.
 #' @param return_parsed Parse the payload into a tibble (default `TRUE`); `FALSE` returns the raw
 #'   decoded JSON as a list.
 #' @return A `fastRhockey_data` tibble (the raw JSON list when `return_parsed = FALSE`) with the following columns:
@@ -2678,7 +2688,7 @@ shl_season_filter <- function(series_uuid = NULL, season_uuid = NULL, return_par
 #'
 #' @examples
 #' \donttest{
-#'   shl_sites(ssgt_uuid = "iuzqg7dqk9")
+#'   try(shl_sites(ssgt_uuid = "iuzqg7dqk9"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -2703,7 +2713,7 @@ shl_sites <- function(ssgt_uuid, return_parsed = TRUE) {
 #'   mapped to the site's ssgt uuids through `/statistics-v2/layout-info`.
 #'
 #' @param ssgt_uuid ssgt uuid: one season + series + game type (e.g. 2025/2026 SHL regular season).
-#'   Directory: /statistics-v2/layout-info seasonSeriesGameTypeTeams[].ssgtUuid.
+#'   Directory: /statistics-v2/layout-info originalSeasonSeriesGameTypeTeams[].ssgtUuid.
 #' @param return_parsed Parse the payload into a tibble (default `TRUE`); `FALSE` returns the raw
 #'   decoded JSON as a list.
 #' @return A `fastRhockey_data` tibble (the raw JSON list when `return_parsed = FALSE`) with the following columns:
@@ -2722,7 +2732,7 @@ shl_sites <- function(ssgt_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_ssgt_provider(ssgt_uuid = "iuzqg7dqk9")
+#'   try(shl_ssgt_provider(ssgt_uuid = "iuzqg7dqk9"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -2747,7 +2757,7 @@ shl_ssgt_provider <- function(ssgt_uuid, return_parsed = TRUE) {
 #'   mapped to the site's ssgt uuids through `/statistics-v2/layout-info`.
 #'
 #' @param ssgt_uuid ssgt uuid: one season + series + game type (e.g. 2025/2026 SHL regular season).
-#'   Directory: /statistics-v2/layout-info seasonSeriesGameTypeTeams[].ssgtUuid.
+#'   Directory: /statistics-v2/layout-info originalSeasonSeriesGameTypeTeams[].ssgtUuid.
 #' @param return_parsed Parse the payload into a tibble (default `TRUE`); `FALSE` returns the raw
 #'   decoded JSON as a list.
 #' @return A `fastRhockey_data` tibble (the raw JSON list when `return_parsed = FALSE`) with the following columns:
@@ -2755,7 +2765,7 @@ shl_ssgt_provider <- function(ssgt_uuid, return_parsed = TRUE) {
 #' | col_name | type | description |
 #' |:---|:---|:---|
 #' | season | integer | Season END year (2026 = 2025/26). |
-#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[]. |
+#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[]. |
 #' | team_code | character | StatNet team code (SAIK, FHC). |
 #' | team_uuid | character | Platform team uuid. |
 #' | team_name | character | Name of the team. |
@@ -2783,7 +2793,7 @@ shl_ssgt_provider <- function(ssgt_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_standings(ssgt_uuid = "iuzqg7dqk9")
+#'   try(shl_standings(ssgt_uuid = "iuzqg7dqk9"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -2807,10 +2817,10 @@ shl_standings <- function(ssgt_uuid, return_parsed = TRUE) {
 #'   (www.shl.se). Unofficial use of a public source; seasons are END years (2026 = 2025/26) and are
 #'   mapped to the site's ssgt uuids through `/statistics-v2/layout-info`.
 #'
-#' @param module Stats module: <group>_<table>. Every name under layout-info
-#'   [].filters.<group>.modules.
+#' @param module Stats module: `<group>_<table>`. Every name under layout-info
+#'   `[].filters.<group>.modules`.
 #' @param season Required. Season END year (2026 = 2025/26). Mapped to the provider's ssgt through
-#'   /statistics-v2/layout-info (SHL 1975/76 on); a season it does not list raises NoDataError.
+#'   /statistics-v2/layout-info (SHL 1975/76 on); a season it does not list raises a `fastRhockey_no_data` error.
 #' @param game_type Game type: regular (Grundserie), playoff (Slutspel), qualdown (relegation
 #'   qualification) or playin (2023/24 on).
 #' @param return_parsed Parse the payload into a tibble (default `TRUE`); `FALSE` returns the raw
@@ -2873,7 +2883,7 @@ shl_standings <- function(ssgt_uuid, return_parsed = TRUE) {
 #' | info_team_info_email | character | Contact email address of the club. |
 #' | info_team_info_chairman | character | Name of the club chairman. |
 #' | info_team_info_manager | character | Club general manager. |
-#' | info_team_info_accreditation | character | Press-accreditation contact, free Swedish text (e.g. 'Senast dagen före match till …' = 'no later than the day before the game, to …'). |
+#' | info_team_info_accreditation | character | Press-accreditation contact, free Swedish text (e.g. 'Senast dagen före match till ...' = 'no later than the day before the game, to ...'). |
 #' | info_team_info_facebook | character | Club Facebook URL. |
 #' | info_team_info_instagram | character | Club Instagram URL. |
 #' | info_team_info_twitter | character | Club X/Twitter URL. |
@@ -3092,7 +3102,7 @@ shl_standings <- function(ssgt_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_stats_info(module = "players_summary", season = 2026)
+#'   try(shl_stats_info(module = "players_summary", season = 2026))
 #' }
 #' @export
 #' @family SHL Functions
@@ -3144,7 +3154,7 @@ shl_stats_info <- function(module, season, game_type = "regular", return_parsed 
 #' | info_email | character | Contact email address of the club. |
 #' | info_chairman | character | Name of the club chairman. |
 #' | info_manager | character | Club general manager. |
-#' | info_accreditation | character | Press-accreditation contact, free Swedish text (e.g. 'Senast dagen före match till …' = 'no later than the day before the game, to …'). |
+#' | info_accreditation | character | Press-accreditation contact, free Swedish text (e.g. 'Senast dagen före match till ...' = 'no later than the day before the game, to ...'). |
 #' | info_facebook | character | Club Facebook URL. |
 #' | info_instagram | character | Club Instagram URL. |
 #' | info_twitter | character | Club X/Twitter URL. |
@@ -3167,7 +3177,7 @@ shl_stats_info <- function(module, season, game_type = "regular", return_parsed 
 #'
 #' @examples
 #' \donttest{
-#'   shl_team(team_uuid = "087a-087aTQv9u")
+#'   try(shl_team(team_uuid = "087a-087aTQv9u"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -3206,7 +3216,7 @@ shl_team <- function(team_uuid, return_parsed = TRUE) {
 #' | state | character | Game state: pre-game or post-game (hyphenated; a live value was not observed). |
 #' | overtime | logical | Whether the game went to overtime. |
 #' | shootout | logical | Whether the game went to a shootout. |
-#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[]. |
+#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[]. |
 #' | home_team_status | character | Result for the team (WIN, LOSE) or record status. |
 #' | home_team_uuid | character | Team uuid (platform key space, e.g. 087a-087aTQv9u); joins to `/sports-v2/teams/{team_uuid}` and schedule homeTeamInfo/awayTeamInfo.uuid. Not the team code. |
 #' | home_team_owner_instance_id | character | Club site instance id (e.g. fhc1_fhc); also names the logo at `sportality.cdn.s8y.se/team-logos/{id}.svg`. |
@@ -3251,7 +3261,7 @@ shl_team <- function(team_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_team_played_games(team_uuid = "087a-087aTQv9u")
+#'   try(shl_team_played_games(team_uuid = "087a-087aTQv9u"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -3307,7 +3317,7 @@ shl_team_played_games <- function(team_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_team_stats(game_uuid = "bdhvuc5tex")
+#'   try(shl_team_stats(game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -3347,7 +3357,7 @@ shl_team_stats <- function(game_uuid, return_parsed = TRUE) {
 #' | state | character | Game state: pre-game or post-game (hyphenated; a live value was not observed). |
 #' | overtime | logical | Whether the game went to overtime. |
 #' | shootout | logical | Whether the game went to a shootout. |
-#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[]. |
+#' | ssgt_uuid | character | ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[]. |
 #' | home_team_status | character | Result for the team (WIN, LOSE) or record status. |
 #' | home_team_uuid | character | Team uuid (platform key space, e.g. 087a-087aTQv9u); joins to `/sports-v2/teams/{team_uuid}` and schedule homeTeamInfo/awayTeamInfo.uuid. Not the team code. |
 #' | home_team_owner_instance_id | character | Club site instance id (e.g. fhc1_fhc); also names the logo at `sportality.cdn.s8y.se/team-logos/{id}.svg`. |
@@ -3392,7 +3402,7 @@ shl_team_stats <- function(game_uuid, return_parsed = TRUE) {
 #'
 #' @examples
 #' \donttest{
-#'   shl_team_upcoming_games(team_uuid = "087a-087aTQv9u")
+#'   try(shl_team_upcoming_games(team_uuid = "087a-087aTQv9u"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -3432,8 +3442,8 @@ shl_team_upcoming_games <- function(team_uuid, game_place = NULL, return_parsed 
 #' could not be fetched or read.
 #' @examples
 #' \donttest{
-#'   shl_ssgt_uuid(2026)
-#'   shl_ssgt_uuid(2025, "playoff")
+#'   try(shl_ssgt_uuid(2026))
+#'   try(shl_ssgt_uuid(2025, "playoff"))
 #' }
 #' @export
 #' @family SHL Functions
@@ -3478,8 +3488,10 @@ shl_ssgt_uuid <- function(season, game_type = "regular") {
 #' `fastRhockey_asset_fetch`: the fetch failed or the table came back cut.
 #' @examples
 #' \donttest{
-#'   xw <- shl_player_crosswalk(2026)
-#'   xw[xw$player_id == 2427, ]
+#'   try({
+#'     xw <- shl_player_crosswalk(2026)
+#'     xw[xw$player_id == 2427, ]
+#'   })
 #' }
 #' @export
 #' @family SHL Functions

@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Goalie Leaders**
+#' @title **NHL Stats API - Goalie Leaders**
 #' @description Returns a goalie leaderboard for a given statistic attribute
 #'   from the NHL Stats REST API
 #'   (`https://api.nhle.com/stats/rest/{lang}/leaders/goalies/{attribute}`).
@@ -6,7 +6,7 @@
 #'   Known valid values: `"savePctg"`, `"gaa"`, `"shutouts"`. Note that
 #'   `"wins"`, `"saves"`, `"shotsAgainst"`, and `"goalsAgainst"` return
 #'   500 errors. The endpoint also does **not** accept `start` / `limit`
-#'   query parameters — passing them produces a 500.
+#'   query parameters - passing them produces a 500.
 #' @param lang Character language code. Default `"en"`.
 #' @param cayenne_exp Optional Cayenne filter expression string passed via
 #'   the `cayenneExp` query parameter (e.g., `"seasonId=20242025"`).

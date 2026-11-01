@@ -11,7 +11,7 @@
 \description{
 Wrappers around the HockeyTech feeds that back the PWHL stats portal,
 grouped by what they return. Three feed flavors are used internally
-(\code{statviewfeed}, \code{modulekit}, \code{gc}) — see \code{pwhl_helpers.R} for the
+(\code{statviewfeed}, \code{modulekit}, \code{gc}) - see \code{pwhl_helpers.R} for the
 \code{.pwhl_api()} / \code{.pwhl_modulekit_url()} / \code{.pwhl_gc_url()} helpers
 that build the JSONP URLs and strip the Angular callbacks.
 }

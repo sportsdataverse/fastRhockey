@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Goalie Milestones**
+#' @title **NHL Stats API - Goalie Milestones**
 #' @description Returns goalie milestone achievements from the NHL Stats
 #'   REST API (`https://api.nhle.com/stats/rest/{lang}/milestones/goalies`).
 #' @param lang Character language code. Default `"en"`.

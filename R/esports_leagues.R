@@ -1,10 +1,10 @@
 # esports_leagues.R -- the eSports (hokejovyzapis) league registry and getter.
 #
-# Mirrors sdv-py sportsdataverse/hockey/esports_runtime.py and the four
+# Mirrors sportsdataverse-py sportsdataverse/hockey/esports_runtime.py and the four
 # tools/codegen/endpoints/{del,icehl,eihl,metal}_esports.yaml files. The four
 # leagues' scoring system writes one key layout into four public S3 buckets on
 # s3.eu-west-1.amazonaws.com; keyless JSON. The buckets share one host, so the
-# per-host throttle spaces all four leagues together (as in sdv-py).
+# per-host throttle spaces all four leagues together (as in sportsdataverse-py).
 #
 # Season: every bucket keys a season by its START year (2026 = 2026/27). The
 # wrappers take the END year and .esports_get() maps it (season = 2027 requests
@@ -36,7 +36,7 @@
     shots                    = "/visualization/shots/{match_id}.json",
     game_center              = "/widget/esports/match/{match_id}.json"
   )
-  # route name (the sdv-py `<league>_<short>`) -> template
+  # route name (the sportsdataverse-py `<league>_<short>`) -> template
   pick <- function(...) {
     m <- c(...)
     nm <- names(m) %||% rep("", length(m))
@@ -85,7 +85,7 @@
 #'
 #' @param league One of `names(.esports_leagues())`.
 #' @param route A route the league publishes (`names(.esports_leagues()[[league]]$routes)`),
-#'   named like the sdv-py function suffix: `schedule`, `pbp`, `standings`, ...
+#'   named like the sportsdataverse-py function suffix: `schedule`, `pbp`, `standings`, ...
 #' @param season Season END year (2027 = 2026/27); mapped to the bucket's START year.
 #' @param league_id Competition id; defaults to the league's main competition.
 #' @param match_id,team_id,league_part_id Ids the route's path needs (eSports ids,
@@ -131,7 +131,7 @@
 .esports_is_obj <- function(x) is.list(x) && !is.null(names(x))
 .esports_nonempty <- function(x) is.list(x) && length(x) > 0
 
-#' Raise unless `body` holds rows for exactly what `url` asked (sdv-py `_check`).
+#' Raise unless `body` holds rows for exactly what `url` asked (sportsdataverse-py `_check`).
 #' @noRd
 .esports_check <- function(url, body) {
   where <- .euro_where(url)

@@ -30,7 +30,7 @@ Returns the franchise listing from the NHL Records API
 (\verb{https://records.nhl.com/site/api/franchise}). Optionally filter to a
 single franchise via \code{franchise_id}, which is translated into the
 Cayenne filter \code{id={franchise_id}} (the records API does \strong{not}
-accept a path-suffix \code{franchise/{id}} form — it returns 404).
+accept a path-suffix \code{franchise/{id}} form - it returns 404).
 }
 \examples{
 \donttest{

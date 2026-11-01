@@ -18,7 +18,7 @@ espn_wch_season_weeks(season = most_recent_nhl_season(), season_type = 2, ...)
 \value{
 A \code{fastRhockey_data} tibble with one row per week, or an empty
 tibble when the endpoint returns no items. \strong{Note}: The WCH does not use
-weekly scheduling in the ESPN core-v2 API — this endpoint consistently
+weekly scheduling in the ESPN core-v2 API - this endpoint consistently
 returns \code{count=0} for WCH. An empty tibble is returned gracefully:\tabular{lll}{
    col_name \tab types \tab description \cr
    ref \tab character \tab \verb{$ref} URL for the week object. \cr

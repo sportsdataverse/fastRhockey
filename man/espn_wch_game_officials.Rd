@@ -14,7 +14,7 @@ espn_wch_game_officials(event_id, cid = event_id, ...)
 \item{...}{Reserved for forward compatibility.}
 }
 \value{
-A \code{fastRhockey_data} tibble with one row per official (typically 4 —
+A \code{fastRhockey_data} tibble with one row per official (typically 4 -
 2 referees + 2 linesmen):\tabular{lll}{
    col_name \tab types \tab description \cr
    event_id \tab character \tab ESPN event id (echoed from arg). \cr
