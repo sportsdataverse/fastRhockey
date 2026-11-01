@@ -40,11 +40,11 @@
 #' Mirrors Python build_family()::_most_recent_season(). Returns the maximum
 #' season_yr of a regular season that is not a one-off event, so a preseason
 #' listed before its regular season ("2026-27 Pre-Season") is not a default;
-#' any row counts when the feed has no such season. 2026L as a fallback when
-#' no data is available.
+#' any row counts when the feed has no such season. Falls back to
+#' `.hockeytech_season_from_date()` when no data is available.
 #'
 #' @param league HockeyTech league key.
-#' @return Integer end-year (e.g. 2025L), or 2026L on failure.
+#' @return Integer end-year (e.g. 2025L).
 #' @noRd
 #' @keywords internal
 .hockeytech_most_recent_season <- function(league) {
@@ -56,7 +56,14 @@
     v <- suppressWarnings(max(yrs, na.rm = TRUE))
     if (is.finite(v)) return(as.integer(v))
   }
-  2026L
+  .hockeytech_season_from_date()
+}
+
+# End year of the season in progress by the calendar: the AHL and the CHL
+# leagues start in September, so September 2026 on is the 2027 season.
+.hockeytech_season_from_date <- function(date = Sys.Date()) {
+  d <- as.POSIXlt(date)
+  as.integer(d$year + 1900L + (d$mon >= 8L))
 }
 
 

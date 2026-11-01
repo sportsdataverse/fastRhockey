@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Team Stats**
+#' @title **NHL Stats API - Team Stats**
 #' @description Queries the NHL Stats REST API for team-level statistics.
 #' @param report_type Character report type. Default "summary".
 #'   Common types: "summary", "penalties", "penaltykill",
@@ -36,8 +36,7 @@ nhl_stats_teams <- function(
     lang = "en"
 ) {
     if (is.null(season)) {
-        s <- most_recent_nhl_season()
-        season <- paste0(s, s + 1)
+        season <- as.character(most_recent_nhl_season_api_param())
     }
 
     base_url <- glue::glue(

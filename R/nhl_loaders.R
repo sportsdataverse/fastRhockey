@@ -41,9 +41,15 @@
 #'
 #' | Function | Purpose |
 #' |---|---|
-#' | [update_nhl_db()]         | Idempotent loader → DB writer (delta only) |
+#' | [update_nhl_db()]         | Idempotent loader -> DB writer (delta only) |
 #' | `build_nhl_db()`          | Bulk-build a DB from release files |
 #' | `get_missing_nhl_games()` | Show games missing from a DB target |
+#'
+#' @section Default season:
+#' When `seasons` is left at its default and the newest season's file is not
+#' published yet (it appears with the season's first games), the loader falls
+#' back to the season before it and says so in a message. An explicit request
+#' for that season is kept as asked and returns an empty frame with a warning.
 #'
 #' @keywords NHL Loaders
 #' @family NHL Loaders
@@ -86,23 +92,22 @@ NULL
 # the `fastRhockey_data` S3 class.
 .nhl_release_loader <- function(seasons, release_tag, file_prefix,
                                 min_season = 2010,
-                                dbConnection = NULL, tablename = NULL) {
+                                dbConnection = NULL, tablename = NULL,
+                                default = FALSE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
 
   loader <- rds_from_url
   in_db <- !is.null(dbConnection) && !is.null(tablename)
 
-  if (isTRUE(seasons)) seasons <- min_season:most_recent_nhl_season()
-
-  stopifnot(is.numeric(seasons),
-            seasons >= min_season,
-            seasons <= most_recent_nhl_season())
-
-  urls <- paste0(
+  url_for <- function(s) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/",
-    "releases/download/", release_tag, "/", file_prefix, "_", seasons, ".rds"
+    "releases/download/", release_tag, "/", file_prefix, "_", s, ".rds"
   )
+  seasons <- .loader_seasons(seasons, min_season, most_recent_nhl_season(),
+                             what = release_tag, url_for = url_for,
+                             default = default)
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -238,7 +243,7 @@ NULL
 #' }
 load_nhl_pbp <- function(seasons = most_recent_nhl_season(), ...,
                          dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_pbp_full", file_prefix = "play_by_play",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -296,7 +301,7 @@ NULL
 #' }
 load_nhl_pbp_lite <- function(seasons = most_recent_nhl_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_pbp_lite", file_prefix = "play_by_play_lite",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -322,11 +327,11 @@ NULL
 #'   try(load_nhl_pbp_full(2024))
 #' }
 load_nhl_pbp_full <- function(seasons = most_recent_nhl_season(), ...) {
-  load_nhl_pbp(seasons = seasons, ...)
+  if (missing(seasons)) load_nhl_pbp(...) else load_nhl_pbp(seasons = seasons, ...)
 }
 
 
-# ── NHL sdv-py naming-parity aliases ─────────────────────────────────────────
+# ── NHL sportsdataverse-py naming-parity aliases ─────────────────────────────────────────
 # These thin wrappers exist solely for naming parity with sportsdataverse-py,
 # which uses the plural/boxscore(s) forms. They forward all arguments verbatim
 # to the canonical load_nhl_*() functions.
@@ -348,7 +353,7 @@ NULL
 #'   try(load_nhl_team_boxscore(2022))
 #' }
 load_nhl_team_boxscore <- function(seasons = most_recent_nhl_season(), ...) {
-  load_nhl_team_box(seasons = seasons, ...)
+  if (missing(seasons)) load_nhl_team_box(...) else load_nhl_team_box(seasons = seasons, ...)
 }
 
 #' **Load NHL team box scores (alias)**
@@ -368,7 +373,7 @@ NULL
 #'   try(load_nhl_team_boxscores(2022))
 #' }
 load_nhl_team_boxscores <- function(seasons = most_recent_nhl_season(), ...) {
-  load_nhl_team_box(seasons = seasons, ...)
+  if (missing(seasons)) load_nhl_team_box(...) else load_nhl_team_box(seasons = seasons, ...)
 }
 
 #' **Load NHL player box scores (alias)**
@@ -388,7 +393,7 @@ NULL
 #'   try(load_nhl_player_boxscore(2022))
 #' }
 load_nhl_player_boxscore <- function(seasons = most_recent_nhl_season(), ...) {
-  load_nhl_player_box(seasons = seasons, ...)
+  if (missing(seasons)) load_nhl_player_box(...) else load_nhl_player_box(seasons = seasons, ...)
 }
 
 #' **Load NHL player box scores (alias)**
@@ -408,7 +413,7 @@ NULL
 #'   try(load_nhl_player_boxscores(2022))
 #' }
 load_nhl_player_boxscores <- function(seasons = most_recent_nhl_season(), ...) {
-  load_nhl_player_box(seasons = seasons, ...)
+  if (missing(seasons)) load_nhl_player_box(...) else load_nhl_player_box(seasons = seasons, ...)
 }
 
 #' **Load NHL skater box scores (alias)**
@@ -428,7 +433,7 @@ NULL
 #'   try(load_nhl_skater_boxscores(2022))
 #' }
 load_nhl_skater_boxscores <- function(seasons = most_recent_nhl_season(), ...) {
-  load_nhl_skater_box(seasons = seasons, ...)
+  if (missing(seasons)) load_nhl_skater_box(...) else load_nhl_skater_box(seasons = seasons, ...)
 }
 
 #' **Load NHL goalie box scores (alias)**
@@ -448,7 +453,7 @@ NULL
 #'   try(load_nhl_goalie_boxscores(2022))
 #' }
 load_nhl_goalie_boxscores <- function(seasons = most_recent_nhl_season(), ...) {
-  load_nhl_goalie_box(seasons = seasons, ...)
+  if (missing(seasons)) load_nhl_goalie_box(...) else load_nhl_goalie_box(seasons = seasons, ...)
 }
 
 #' **Load NHL schedules (alias)**
@@ -468,7 +473,7 @@ NULL
 #'   try(load_nhl_schedules(2022))
 #' }
 load_nhl_schedules <- function(seasons = most_recent_nhl_season(), ...) {
-  load_nhl_schedule(seasons = seasons, ...)
+  if (missing(seasons)) load_nhl_schedule(...) else load_nhl_schedule(seasons = seasons, ...)
 }
 
 
@@ -514,7 +519,7 @@ NULL
 #' }
 load_nhl_team_box <- function(seasons = most_recent_nhl_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_team_boxscores", file_prefix = "team_box",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -583,7 +588,7 @@ NULL
 #' }
 load_nhl_player_box <- function(seasons = most_recent_nhl_season(), ...,
                                 dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_player_boxscores", file_prefix = "player_box",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -638,7 +643,7 @@ NULL
 #' }
 load_nhl_skater_box <- function(seasons = most_recent_nhl_season(), ...,
                                 dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_skater_boxscores", file_prefix = "skater_box",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -693,7 +698,7 @@ NULL
 #' }
 load_nhl_goalie_box <- function(seasons = most_recent_nhl_season(), ...,
                                 dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_goalie_boxscores", file_prefix = "goalie_box",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -746,7 +751,7 @@ NULL
 #' }
 load_nhl_schedule <- function(seasons = most_recent_nhl_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_schedules", file_prefix = "nhl_schedule",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -790,7 +795,7 @@ NULL
 #' }
 load_nhl_rosters <- function(seasons = most_recent_nhl_season(), ...,
                              dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_rosters", file_prefix = "rosters",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -837,7 +842,7 @@ NULL
 #' }
 load_nhl_game_rosters <- function(seasons = most_recent_nhl_season(), ...,
                                   dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_game_rosters", file_prefix = "game_rosters",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -882,7 +887,7 @@ NULL
 #' }
 load_nhl_game_info <- function(seasons = most_recent_nhl_season(), ...,
                                dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_game_info", file_prefix = "game_info",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -942,7 +947,7 @@ NULL
 #' }
 load_nhl_scoring <- function(seasons = most_recent_nhl_season(), ...,
                              dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_scoring", file_prefix = "scoring",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -986,7 +991,7 @@ NULL
 #' }
 load_nhl_penalties <- function(seasons = most_recent_nhl_season(), ...,
                                dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_penalties", file_prefix = "penalties",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -1038,7 +1043,7 @@ NULL
 #' }
 load_nhl_three_stars <- function(seasons = most_recent_nhl_season(), ...,
                                  dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_three_stars", file_prefix = "three_stars",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -1077,7 +1082,7 @@ NULL
 #' }
 load_nhl_scratches <- function(seasons = most_recent_nhl_season(), ...,
                                dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_scratches", file_prefix = "scratches",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -1122,7 +1127,7 @@ NULL
 #' }
 load_nhl_linescore <- function(seasons = most_recent_nhl_season(), ...,
                                dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_linescore", file_prefix = "linescore",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -1171,7 +1176,7 @@ NULL
 #' }
 load_nhl_shifts <- function(seasons = most_recent_nhl_season(), ...,
                             dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_shifts", file_prefix = "shifts",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -1211,7 +1216,7 @@ NULL
 #' }
 load_nhl_officials <- function(seasons = most_recent_nhl_season(), ...,
                                dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_officials", file_prefix = "officials",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -1253,7 +1258,7 @@ NULL
 #' }
 load_nhl_shots_by_period <- function(seasons = most_recent_nhl_season(), ...,
                                      dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_shots_by_period", file_prefix = "shots_by_period",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename
@@ -1300,7 +1305,7 @@ NULL
 #' }
 load_nhl_shootout <- function(seasons = most_recent_nhl_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
-  .nhl_release_loader(seasons,
+  .nhl_release_loader(seasons, default = missing(seasons),
     release_tag = "nhl_shootout", file_prefix = "shootout_summary",
     min_season = 2010,
     dbConnection = dbConnection, tablename = tablename

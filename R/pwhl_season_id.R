@@ -86,21 +86,25 @@ pwhl_season_id <- function(season = NULL, game_type = "regular") {
 
       # Fallback to hardcoded data
       season_df <- data.frame(
-        season_id = c(2, 1, 3, 4, 5, 6, 7, 8),
+        # Read off the live HockeyTech season list on 2026-11-01.
+        season_id = c(2, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11),
         season_name = c("2024 Preseason", "2024 Regular Season", "2024 Playoffs",
-                        "2024-25 Preseason", "2024-25 Regular Season", "2024-25 Playoffs",
-                        "2025-26 Preseason", "2025-26 Regular Season"),
+                        "2024-25 Preseason", "2024-25 Regular Season", "2025 Playoffs",
+                        "2025-26 Preseason", "2025-26 Regular Season", "2026 Playoffs",
+                        "2026-27 Pre-Season", "2026-27 Regular Season"),
         season_short = c("2024 Pre", "2024 Reg", "2024 Playoffs",
-                         "2024-25 Pre", "2024-25 Reg", "2024-25 Playoffs",
-                         "2025-26 Pre", "2025-26 Reg"),
-        season_yr = c(2024, 2024, 2024, 2025, 2025, 2025, 2026, 2026),
+                         "2024-25 Pre", "2024-25 Reg", "2025 Playoffs",
+                         "2025-26 Pre", "2025-26 Reg", "2026 Playoffs",
+                         "2026-27 Pre-Season", "2026-27 Reg"),
+        season_yr = c(2024, 2024, 2024, 2025, 2025, 2025, 2026, 2026, 2026, 2027, 2027),
         game_type_label = c("preseason", "regular", "playoffs",
                             "preseason", "regular", "playoffs",
+                            "preseason", "regular", "playoffs",
                             "preseason", "regular"),
-        career = c("0", "0", "0", "0", "0", "0", "0", "0"),
-        playoff = c("0", "0", "1", "0", "0", "1", "0", "0"),
-        start_date = rep(NA_character_, 8),
-        end_date = rep(NA_character_, 8),
+        career = rep("0", 11),
+        playoff = c("0", "0", "1", "0", "0", "1", "0", "0", "1", "0", "0"),
+        start_date = rep(NA_character_, 11),
+        end_date = rep(NA_character_, 11),
         stringsAsFactors = FALSE
       )
 
