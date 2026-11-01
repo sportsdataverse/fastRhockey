@@ -61,7 +61,7 @@ A \code{fastRhockey_data} tibble (the raw JSON list when \code{return_parsed = F
    away_team_email \tab character \tab Contact email address of the club. \cr
    away_team_icon \tab character \tab URL of the team logo image. \cr
    away_team_score \tab integer \tab Goals scored by the team in the game. \cr
-   ssgt_uuid \tab character \tab ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[]. \cr
+   ssgt_uuid \tab character \tab ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[]. \cr
    series_uuid \tab character \tab Series uuid (platform key space; SHL = qQ9-bb0bzEWUk); the seriesUuid param of game-schedule. \cr
 }
 }
@@ -82,7 +82,7 @@ season that is not a year, or an argument outside its choices.
 
 \examples{
 \donttest{
-  shl_game_header(game_uuid = "bdhvuc5tex")
+  try(shl_game_header(game_uuid = "bdhvuc5tex"))
 }
 }
 \seealso{

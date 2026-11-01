@@ -19,7 +19,7 @@ A \code{fastRhockey_data} tibble (the raw JSON list when \code{return_parsed = F
    game_type \tab character \tab Game type record (uuid, code regular / playoff / qualdown, Swedish name). \cr
    game_type_name \tab character \tab Game type label in Swedish: Grundserie = regular season, Slutspel = playoffs, Kvalspel nedflyttning = relegation qualification, Kvalserien = the old promotion/relegation series. \cr
    series_code \tab character \tab Series code (SHL, CHL; HA and Kvalserien in old career logs). \cr
-   ssgt_uuid \tab character \tab ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[]. \cr
+   ssgt_uuid \tab character \tab ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[]. \cr
    state \tab character \tab ssgt state: active (the current season) or closed. \cr
    season_uuid \tab character \tab Season uuid (platform key space; code 2025 = 2025/2026); the seasonUuid param of game-schedule. \cr
    series_uuid \tab character \tab Series uuid (platform key space; SHL = qQ9-bb0bzEWUk). \cr
@@ -43,7 +43,7 @@ season that is not a year, or an argument outside its choices.
 
 \examples{
 \donttest{
-  shl_layout_info()
+  try(shl_layout_info())
 }
 }
 \seealso{

@@ -8,7 +8,7 @@ shl_ssgt_provider(ssgt_uuid, return_parsed = TRUE)
 }
 \arguments{
 \item{ssgt_uuid}{ssgt uuid: one season + series + game type (e.g. 2025/2026 SHL regular season).
-Directory: /statistics-v2/layout-info seasonSeriesGameTypeTeams[].ssgtUuid.}
+Directory: /statistics-v2/layout-info originalSeasonSeriesGameTypeTeams[].ssgtUuid.}
 
 \item{return_parsed}{Parse the payload into a tibble (default \code{TRUE}); \code{FALSE} returns the raw
 decoded JSON as a list.}
@@ -36,7 +36,7 @@ season that is not a year, or an argument outside its choices.
 
 \examples{
 \donttest{
-  shl_ssgt_provider(ssgt_uuid = "iuzqg7dqk9")
+  try(shl_ssgt_provider(ssgt_uuid = "iuzqg7dqk9"))
 }
 }
 \seealso{

@@ -57,7 +57,7 @@ A \code{fastRhockey_data} tibble (the raw JSON list when \code{return_parsed = F
    info_statistics_provider \tab character \tab Stats provider of the data (statnet seen). \cr
    info_is_in_squad \tab logical \tab Whether the player is in the current squad. \cr
    info_player_id \tab integer \tab isa (StatNet) player id as an INTEGER. Join trap: play-by-play sends the same id as a STRING (player.playerId, pop/nep, assists) and map keys are strings; cast before joining. \cr
-   info_ssgt_uuid \tab character \tab ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[]. \cr
+   info_ssgt_uuid \tab character \tab ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[]. \cr
    info_team_id \tab character \tab Team code (e.g. FHC) in gameday and standings payloads; not the team uuid. \cr
 }
 }
@@ -78,7 +78,7 @@ season that is not a year, or an argument outside its choices.
 
 \examples{
 \donttest{
-  shl_athlete_career(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl")
+  try(shl_athlete_career(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl"))
 }
 }
 \seealso{
