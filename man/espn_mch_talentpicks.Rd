@@ -13,7 +13,9 @@ espn_mch_talentpicks(...)
 A \code{fastRhockey_data} tibble with one row per talent pick reference,
 or an empty tibble when the endpoint is unavailable. \strong{Note}: The MCH
 talent picks endpoint (\code{core_v2/talentpicks}) currently returns \code{count=0}
-— an empty tibble is returned gracefully:\tabular{lll}{
+\itemize{
+\item an empty tibble is returned gracefully:
+}\tabular{lll}{
    col_name \tab types \tab description \cr
    ref \tab character \tab \verb{$ref} URL for the talent pick object. \cr
    pick_id \tab character \tab ESPN pick id parsed from the \verb{$ref} URL. \cr

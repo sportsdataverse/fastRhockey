@@ -8,7 +8,7 @@ shl_standings(ssgt_uuid, return_parsed = TRUE)
 }
 \arguments{
 \item{ssgt_uuid}{ssgt uuid: one season + series + game type (e.g. 2025/2026 SHL regular season).
-Directory: /statistics-v2/layout-info seasonSeriesGameTypeTeams[].ssgtUuid.}
+Directory: /statistics-v2/layout-info originalSeasonSeriesGameTypeTeams[].ssgtUuid.}
 
 \item{return_parsed}{Parse the payload into a tibble (default \code{TRUE}); \code{FALSE} returns the raw
 decoded JSON as a list.}
@@ -17,7 +17,7 @@ decoded JSON as a list.}
 A \code{fastRhockey_data} tibble (the raw JSON list when \code{return_parsed = FALSE}) with the following columns:\tabular{lll}{
    col_name \tab type \tab description \cr
    season \tab integer \tab Season END year (2026 = 2025/26). \cr
-   ssgt_uuid \tab character \tab ssgt uuid (platform key space: one season + series + game type); label via layout-info seasonSeriesGameTypeTeams[]. \cr
+   ssgt_uuid \tab character \tab ssgt uuid (platform key space: one season + series + game type); label via layout-info originalSeasonSeriesGameTypeTeams[]. \cr
    team_code \tab character \tab StatNet team code (SAIK, FHC). \cr
    team_uuid \tab character \tab Platform team uuid. \cr
    team_name \tab character \tab Name of the team. \cr
@@ -53,7 +53,7 @@ season that is not a year, or an argument outside its choices.
 
 \examples{
 \donttest{
-  shl_standings(ssgt_uuid = "iuzqg7dqk9")
+  try(shl_standings(ssgt_uuid = "iuzqg7dqk9"))
 }
 }
 \seealso{

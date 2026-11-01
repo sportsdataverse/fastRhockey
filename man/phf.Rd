@@ -3,7 +3,7 @@
 \name{phf}
 \alias{phf}
 \alias{phf_deprecated}
-\title{\strong{PHF (Premier Hockey Federation) Endpoint Overview — DEPRECATED}}
+\title{\strong{PHF (Premier Hockey Federation) Endpoint Overview - DEPRECATED}}
 \description{
 Wrappers for the now-defunct Premier Hockey Federation (PHF, formerly
 NWHL). The PHF ceased operations in mid-2023, so these functions are

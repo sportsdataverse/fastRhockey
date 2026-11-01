@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Country Lookup**
+#' @title **NHL Stats API - Country Lookup**
 #' @description Returns the country lookup list from the NHL Stats REST API
 #'   (`https://api.nhle.com/stats/rest/{lang}/country`). Used for player
 #'   nationality mapping.

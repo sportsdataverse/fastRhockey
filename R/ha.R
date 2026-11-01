@@ -1,6 +1,6 @@
 # ha.R -- HockeyAllsvenskan (Sweden) wrappers.
 #
-# Port of sdv-py sportsdataverse/hockey/ha/ (ha_parsers.py, ha_runtime.py and the
+# Port of sportsdataverse-py sportsdataverse/hockey/ha/ (ha_parsers.py, ha_runtime.py and the
 # generated ha.py). One keyless host, hockeyallsvenskan.se, throttled to one
 # request a second through the shared European hockey transport
 # (euro_hockey_runtime.R). The site serves its data through its own Next.js
@@ -11,7 +11,7 @@
 # * GET  /api/game?slug= plain JSON.
 # * POST every other route, JSON body. The wrapper's arguments are the body
 #                        fields, laid over the route's default body (.HA_BODIES,
-#                        the bodies the sdv-internal-refs capture sends).
+#                        the bodies the live site sends).
 #
 # Seasons: the public `season` is the END year (2026 = 2025/26). The site keys a
 # season by its START year ("2025" = 2025/26), so the body carries `season - 1`.
@@ -19,7 +19,7 @@
 # Stats and standings start in 2005/06 (season 2006); an earlier season raises
 # fastRhockey_no_data without a request.
 #
-# Refusals (sdv-py ha_runtime._check): a non-2xx or an empty / non-JSON /
+# Refusals (sportsdataverse-py ha_runtime._check): a non-2xx or an empty / non-JSON /
 # error-enveloped / truncated / out-of-scope 2xx raises fastRhockey_asset_fetch;
 # an unknown game, a season or phase without rows raises fastRhockey_no_data; an
 # argument outside its set (phase, category, metric, the directory's team), HTTP
@@ -86,7 +86,7 @@
 )
 .HA_PAGED <- c("/api/all-time-games-stats", "/api/all-time-skaters-stats", "/api/all-time-goalkeepers-stats")
 
-# Documented column -> type of every frame (sdv-py's returns-schemas,
+# Documented column -> type of every frame (sportsdataverse-py's returns-schemas,
 # tools/codegen/schemas/native/ha/*.yaml). Zero-row results carry these columns;
 # populated frames are cast to the same types.
 .HA_SCHEMAS <- list(
@@ -431,14 +431,14 @@
   )
 )
 
-# Column -> type across all frames (one type per column name, as in sdv-py's
+# Column -> type across all frames (one type per column name, as in sportsdataverse-py's
 # _ha_schema.DTYPES).
 .HA_DTYPES <- (function() {
   all <- unlist(unname(.HA_SCHEMAS))
   all[!duplicated(names(all))]
 })()
 
-# ---- column typing (sdv-py ha_parsers) ---------------------------------------
+# ---- column typing (sportsdataverse-py ha_parsers) ---------------------------------------
 
 # Team StatNet ids are text (AIK, MODO); every other `*_id` is a number.
 .HA_STR_ID <- "(^|_)statnet_id$"
@@ -485,7 +485,7 @@
   "character"
 }
 
-#' sdv-py `dl_utils.underscore` + the StatNet spelling (`stat_net` -> `statnet`).
+#' sportsdataverse-py `dl_utils.underscore` + the StatNet spelling (`stat_net` -> `statnet`).
 #' @noRd
 .ha_col <- function(name) {
   x <- gsub("([A-Z]+)([A-Z][a-z])", "\\1_\\2", name, perl = TRUE)
@@ -509,7 +509,7 @@
 .ha_is_pyint <- function(x) {
   is.integer(x) || (is.numeric(x) && is.finite(x) && x == round(x) && abs(x) >= 2^31)
 }
-# Type-strict integer test: TRUE and 1.0 are not 1 (sdv-py _is_int).
+# Type-strict integer test: TRUE and 1.0 are not 1 (sportsdataverse-py _is_int).
 .ha_is_int <- function(x, value = NULL) {
   is.numeric(x) && length(x) == 1L && !is.na(x) && .ha_is_pyint(x) && (is.null(value) || x == value)
 }
@@ -686,7 +686,7 @@
 }
 
 # An id column to an integer: only when every non-null value survives an exact
-# round trip (sdv-py _cast_ids_int64); otherwise NULL (left as it is).
+# round trip (sportsdataverse-py _cast_ids_int64); otherwise NULL (left as it is).
 .ha_id_int <- function(native, kind) {
   if (kind == "String") {
     nn <- native[!is.na(native)]
@@ -705,7 +705,7 @@
   NULL
 }
 
-#' One column of parsed values cast to its pinned type (sdv-py `_typed`).
+#' One column of parsed values cast to its pinned type (sportsdataverse-py `_typed`).
 #' @noRd
 .ha_cast_col <- function(vals, col) {
   want <- .ha_dtype_for(col)
@@ -767,7 +767,7 @@
   .ha_finish(.ha_frame(rows), columns)
 }
 
-# ---- parsers (sdv-py ha_parsers.parse_ha*) ------------------------------------
+# ---- parsers (sportsdataverse-py ha_parsers.parse_ha*) ------------------------------------
 
 # Skater and goalkeeper tables: `player` is a name (no id), `team` the StatNet team id.
 .ha_parse_generic <- function(raw, columns = NULL) {
@@ -1123,7 +1123,7 @@
   rows
 }
 
-#' Raise unless `body` is a complete, in-scope answer to the request (sdv-py `_check`).
+#' Raise unless `body` is a complete, in-scope answer to the request (sportsdataverse-py `_check`).
 #' @noRd
 .ha_check <- function(path, body, request, stamp, where) {
   fail <- function(msg) .abort_asset_fetch("{where}: {msg}")
@@ -1287,7 +1287,7 @@
   invisible(value)
 }
 
-# ---- exported wrappers (generated from sdv-py's ha.yaml) -----------------------
+# ---- exported wrappers (generated from sportsdataverse-py's ha.yaml) -----------------------
 
 #' @title **HockeyAllsvenskan Schedule (season in progress)**
 #' @description The current season's games (CMS records, decoded from the schedule page): slug, StatNet game number

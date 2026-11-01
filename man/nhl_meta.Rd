@@ -24,11 +24,11 @@ Returns NHL metadata (players, teams, season states, game types).
 
 Three branches are supported:
 \itemize{
-\item Both \code{year} and \code{series_letter} supplied — returns playoff-series
+\item Both \code{year} and \code{series_letter} supplied - returns playoff-series
 metadata via \code{meta/playoff-series/{year}/{seriesLetter}}.
-\item Only \code{game_id} supplied — returns per-game metadata via
+\item Only \code{game_id} supplied - returns per-game metadata via
 \code{meta/game/{game_id}}.
-\item No arguments — returns general league meta via \code{meta}.
+\item No arguments - returns general league meta via \code{meta}.
 }
 }
 \examples{

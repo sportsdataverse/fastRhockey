@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_content_module.R
 \name{nhl_stats_content_module}
 \alias{nhl_stats_content_module}
-\title{\strong{NHL Stats API — Content Module}}
+\title{\strong{NHL Stats API - Content Module}}
 \usage{
 nhl_stats_content_module(template_key, lang = "en")
 }

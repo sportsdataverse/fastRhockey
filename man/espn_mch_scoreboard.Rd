@@ -24,7 +24,7 @@ is used.}
 
 \item{groups}{Optional conference/group id filter.}
 
-\item{limit}{Maximum number of events (ESPN \code{limit}; default \code{500}, as sdv-py).}
+\item{limit}{Maximum number of events (ESPN \code{limit}; default \code{500}, as sportsdataverse-py).}
 
 \item{...}{Reserved for forward compatibility.}
 }

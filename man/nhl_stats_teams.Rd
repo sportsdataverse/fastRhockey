@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_teams.R
 \name{nhl_stats_teams}
 \alias{nhl_stats_teams}
-\title{\strong{NHL Stats API — Team Stats}}
+\title{\strong{NHL Stats API - Team Stats}}
 \usage{
 nhl_stats_teams(
   report_type = "summary",

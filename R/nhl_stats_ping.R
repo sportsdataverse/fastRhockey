@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Ping**
+#' @title **NHL Stats API - Ping**
 #' @description Health-check endpoint for the NHL Stats REST API
 #'   (`https://api.nhle.com/stats/rest/ping`). This endpoint is non-tabular
 #'   and is not language-scoped: the raw parsed payload is returned as-is

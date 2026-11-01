@@ -22,7 +22,7 @@
 #' }
 nhl_playoff_carousel <- function(season = NULL) {
     if (is.null(season)) {
-        season <- most_recent_nhl_season()
+        season <- as.character(most_recent_nhl_season_api_param())
     }
     if (nchar(as.character(season)) >= 8) {
         api_season <- as.character(season)

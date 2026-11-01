@@ -358,7 +358,7 @@ espn_nhl_player_stats_v3 <- function(athlete_id,
 
 #' Internal: ESPN hockey player splits (league-generic, web-v3)
 #'
-#' Situational splits: one row per (split category × split).
+#' Situational splits: one row per (split category x split).
 #'
 #' @param league ESPN league slug.
 #' @param athlete_id ESPN athlete identifier.

@@ -14,7 +14,7 @@ shl_player_h2h(
 }
 \arguments{
 \item{ssgt_uuid}{ssgt uuid: one season + series + game type (e.g. 2025/2026 SHL regular season).
-Directory: /statistics-v2/layout-info seasonSeriesGameTypeTeams[].ssgtUuid.}
+Directory: /statistics-v2/layout-info originalSeasonSeriesGameTypeTeams[].ssgtUuid.}
 
 \item{home_team_uuid}{Home team uuid of the game.}
 
@@ -101,8 +101,8 @@ season that is not a year, or an argument outside its choices.
 
 \examples{
 \donttest{
-  shl_player_h2h(ssgt_uuid = "iuzqg7dqk9", home_team_uuid = "087a-087aTQv9u",
-    away_team_uuid = "41c4-41c4BiYZU", game_uuid = "bdhvuc5tex")
+  try(shl_player_h2h(ssgt_uuid = "iuzqg7dqk9", home_team_uuid = "087a-087aTQv9u",
+    away_team_uuid = "41c4-41c4BiYZU", game_uuid = "bdhvuc5tex"))
 }
 }
 \seealso{

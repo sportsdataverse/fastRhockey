@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Skater Leaders**
+#' @title **NHL Stats API - Skater Leaders**
 #' @description Returns a skater leaderboard for a given statistic attribute
 #'   from the NHL Stats REST API
 #'   (`https://api.nhle.com/stats/rest/{lang}/leaders/skaters/{attribute}`).
@@ -6,7 +6,7 @@
 #' @param attribute Character (required). The stat attribute to rank by.
 #'   Known valid values include `"points"`, `"goals"`, `"assists"`. Note
 #'   that this endpoint does **not** accept `start` / `limit` query
-#'   parameters — passing them produces a 500. Use `cayenne_exp` to filter.
+#'   parameters - passing them produces a 500. Use `cayenne_exp` to filter.
 #' @param lang Character language code. Default `"en"`.
 #' @param cayenne_exp Optional Cayenne filter expression string passed via
 #'   the `cayenneExp` query parameter (e.g., `"seasonId=20242025"`).

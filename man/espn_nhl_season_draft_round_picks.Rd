@@ -26,7 +26,7 @@ espn_nhl_season_draft_round_picks(
 A \code{fastRhockey_data} tibble with one row per draft pick, or an
 empty tibble when the endpoint is unavailable. The confirmed path is
 \code{seasons/{season}/draft/rounds/{round_num}/picks}; for NHL this returns
-HTTP 404 — the draft data is not served by the core-v2 sub-tree:\tabular{lll}{
+HTTP 404 - the draft data is not served by the core-v2 sub-tree:\tabular{lll}{
    col_name \tab types \tab description \cr
    ref \tab character \tab \verb{$ref} URL for the draft pick object. \cr
    pick_id \tab character \tab Pick id parsed from the \verb{$ref} URL. \cr

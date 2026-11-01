@@ -46,7 +46,7 @@ season that is not a year, or an argument outside its choices.
 
 \examples{
 \donttest{
-  shl_roster(team_uuid = "087a-087aTQv9u")
+  try(shl_roster(team_uuid = "087a-087aTQv9u"))
 }
 }
 \seealso{

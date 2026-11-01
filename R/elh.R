@@ -1,6 +1,6 @@
 # elh.R -- Czech Extraliga (hokej.cz) wrappers.
 #
-# Port of sdv-py sportsdataverse/hockey/elh/ (elh_parsers.py, elh_runtime.py and
+# Port of sportsdataverse-py sportsdataverse/hockey/elh/ (elh_parsers.py, elh_runtime.py and
 # the generated elh.py). Two keyless hosts, both throttled to one request a
 # second per host through the shared European hockey transport
 # (euro_hockey_runtime.R):
@@ -13,9 +13,9 @@
 #
 # Season key: the public argument is the season's END year (2027 = 2026-27);
 # the S3 folder is the START year, mapped at the boundary by
-# `.season_start_year()` (= sdv-py `elh_start_year`).
+# `.season_start_year()` (= sportsdataverse-py `elh_start_year`).
 #
-# Refusals (sdv-py `_check_json` / `_get_listing`): a 2xx error envelope, a
+# Refusals (sportsdataverse-py `_check_json` / `_get_listing`): a 2xx error envelope, a
 # wrong-scope body (shots of another game, a scoreboard dated another day), a
 # listing that is not a ListBucketResult and a truncated listing page raise
 # `fastRhockey_asset_fetch`; a stub body (no comments, no shots, no minutes, no
@@ -36,7 +36,7 @@
 # Seconds in a regulation period.
 .ELH_PERIOD_SECONDS <- 1200L
 
-# Documented column -> type of every frame (sdv-py ELH_SCHEMAS). Zero-row
+# Documented column -> type of every frame (sportsdataverse-py ELH_SCHEMAS). Zero-row
 # results carry these columns; populated frames are built to the same types.
 .ELH_SCHEMAS <- list(
   pbp = c(
@@ -214,7 +214,7 @@
 )
 
 # ---------------------------------------------------------------------------
-# Cell helpers (sdv-py _int/_id/_float/_str/_dict/_attrs/_many)
+# Cell helpers (sportsdataverse-py _int/_id/_float/_str/_dict/_attrs/_many)
 # ---------------------------------------------------------------------------
 # The XML-to-JSON feed writes every number as a string, an empty element as
 # `[]`, and a lone child element as an object while repeated ones become an
@@ -344,7 +344,7 @@
 }
 
 # ---------------------------------------------------------------------------
-# Parsers (sdv-py elh_parsers.py). Each returns the documented schema, zero
+# Parsers (sportsdataverse-py elh_parsers.py). Each returns the documented schema, zero
 # rows for an empty or malformed payload -- never an error.
 # ---------------------------------------------------------------------------
 
@@ -704,7 +704,7 @@
 }
 
 # ---------------------------------------------------------------------------
-# Transport and scope checks (sdv-py elh_runtime.py)
+# Transport and scope checks (sportsdataverse-py elh_runtime.py)
 # ---------------------------------------------------------------------------
 
 # GET a text body (the listing) under the shared error vocabulary: 404 ->
@@ -892,7 +892,7 @@
 #'    |penalty_minutes          |integer  |Penalty minutes of the penalised player (player1); two penalties are summed. Null in 2016-17.|
 #'    |penalty_offense          |character|Czech offense code(s), e.g. VYSH (high sticking), PODR (tripping); comma-joined for two penalties. Null in 2016-17.|
 #'    |strength                 |character|Strength of a goal: EQ (read as even strength; inferred, the only value observed). Null where the on-ice block is absent (all of 2016-17).|
-#'    |message                  |character|Czech commentary text (may contain <br />).|
+#'    |message                  |character|Czech commentary text (may contain `<br />`).|
 #'    |written                  |character|When the entry was written, local time YYYY-MM-DD HH:MM:SS.|
 #'    |last_change              |character|Last edit of the entry, local time YYYY-MM-DD HH:MM:SS.|
 #' @section Errors:
@@ -1008,7 +1008,7 @@ elh_pbp_goals <- function(season, match_id, return_parsed = TRUE) {
 #'    |penalty_minutes          |integer  |Penalty minutes of the penalised player (player1); two penalties are summed. Null in 2016-17.|
 #'    |penalty_offense          |character|Czech offense code(s), e.g. VYSH (high sticking), PODR (tripping); comma-joined for two penalties. Null in 2016-17.|
 #'    |strength                 |character|Strength of a goal: EQ (read as even strength; inferred, the only value observed). Null where the on-ice block is absent (all of 2016-17).|
-#'    |message                  |character|Czech commentary text (may contain <br />).|
+#'    |message                  |character|Czech commentary text (may contain `<br />`).|
 #'    |written                  |character|When the entry was written, local time YYYY-MM-DD HH:MM:SS.|
 #'    |last_change              |character|Last edit of the entry, local time YYYY-MM-DD HH:MM:SS.|
 #' @section Errors:

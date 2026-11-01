@@ -15,7 +15,7 @@ del_roster(match_id, return_parsed = TRUE)
 A \code{\link[tibble:tibble]{tibble::tibble()}} with one row per row of the file (zero rows, carrying the documented columns, for an empty frame); the raw JSON list when \code{return_parsed = FALSE}. Columns:\tabular{lll}{
    col_name \tab type \tab description \cr
    team_side \tab character \tab Team of the row: home or visitor. \cr
-   slot \tab character \tab Line slot, three digits \if{html}{\out{<group>}}\if{html}{\out{<line>}}\if{html}{\out{<position>}}: group 1 = goalies (101, 102), 2 = defence pairs, 3 = forward lines. \cr
+   slot \tab character \tab Line slot, three digits \verb{<group><line><position>}: group 1 = goalies (101, 102), 2 = defence pairs, 3 = forward lines. \cr
    player_id \tab integer \tab Player id (player key space, per bucket, stable across games and seasons); joins to \code{playerId} in rosters, events, boxscores and leaderboards. \cr
    match_player_id \tab integer \tab Match-player id (one row per player per game; a different key space from the player id); joins to \code{matchPlayerId} in the same game's roster and events only. \cr
    name \tab character \tab Player first name. \cr

@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Game Listing**
+#' @title **NHL Stats API - Game Listing**
 #' @description Returns the game listing from the NHL Stats REST API
 #'   (`https://api.nhle.com/stats/rest/{lang}/game`). Supports server-side
 #'   filtering via a Cayenne expression.

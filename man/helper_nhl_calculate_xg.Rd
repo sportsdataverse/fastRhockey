@@ -24,12 +24,13 @@ Adds an \code{xg} column to a play-by-play data frame using the
 fastRhockey xG models (XGBoost).
 
 The models were trained on NHL PBP data from 2010-2024 using the same
-methodology as the hockeyR xG models. Three models are used:
+methodology as the \href{https://github.com/danmorse314/hockeyR}{hockeyR}
+(Daniel Morse) xG models. Three models are used:
 \itemize{
-\item \strong{5v5 model} — Even-strength situations
-\item \strong{Special teams model} — Power play, short-handed, and other
+\item \strong{5v5 model} - Even-strength situations
+\item \strong{Special teams model} - Power play, short-handed, and other
 non-5v5 situations (adds skater count features)
-\item \strong{Penalty shot model} — A constant xG value for penalty shot attempts
+\item \strong{Penalty shot model} - A constant xG value for penalty shot attempts
 }
 
 Models are loaded into the package namespace on package load via

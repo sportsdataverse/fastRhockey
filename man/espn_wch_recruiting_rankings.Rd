@@ -24,7 +24,7 @@ A \code{fastRhockey_data} tibble with one row per ranking set:\tabular{lll}{
 }
 \details{
 League slug \code{womens-college-hockey}. Core-v2 \code{recruiting/{year}/rankings};
-\verb{$ref}-only items become \code{ref} + \code{ranking_id}. Mirrors sdv-py
+\verb{$ref}-only items become \code{ref} + \code{ranking_id}. Mirrors sportsdataverse-py
 \code{espn_wch_recruiting_rankings()}.
 }
 \examples{

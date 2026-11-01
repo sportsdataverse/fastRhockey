@@ -12,7 +12,7 @@ espn_nhl_calendar_regular_season(...)
 \value{
 A \code{fastRhockey_data} tibble with one row per regular-season game
 date. Uses the core-v2 \code{calendar/whitelist} endpoint, which is the
-working equivalent of the sdv-py \code{calendar/regular-season} path (the
+working equivalent of the sportsdataverse-py \code{calendar/regular-season} path (the
 \code{regular-season} path returns HTTP 400/503 for NHL; \code{whitelist} returns
 identical data with HTTP 200).\tabular{lll}{
    col_name \tab types \tab description \cr

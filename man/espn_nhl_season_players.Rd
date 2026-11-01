@@ -28,7 +28,7 @@ iterate.}
 A \code{fastRhockey_data} tibble with one row per player reference for
 the requested page. This function hits the same endpoint as
 \code{espn_nhl_season_athletes()} (\code{seasons/{season}/athletes}) but uses the
-\code{player_id} column name for consistency with the \code{sdv-py}
+\code{player_id} column name for consistency with the \code{sportsdataverse-py}
 \code{espn_nhl_season_players} naming convention:\tabular{lll}{
    col_name \tab types \tab description \cr
    ref \tab character \tab \verb{$ref} URL for the athlete-in-season object. \cr

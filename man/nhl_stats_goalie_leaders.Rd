@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_goalie_leaders.R
 \name{nhl_stats_goalie_leaders}
 \alias{nhl_stats_goalie_leaders}
-\title{\strong{NHL Stats API — Goalie Leaders}}
+\title{\strong{NHL Stats API - Goalie Leaders}}
 \usage{
 nhl_stats_goalie_leaders(attribute, lang = "en", cayenne_exp = NULL)
 }
@@ -11,7 +11,7 @@ nhl_stats_goalie_leaders(attribute, lang = "en", cayenne_exp = NULL)
 Known valid values: \code{"savePctg"}, \code{"gaa"}, \code{"shutouts"}. Note that
 \code{"wins"}, \code{"saves"}, \code{"shotsAgainst"}, and \code{"goalsAgainst"} return
 500 errors. The endpoint also does \strong{not} accept \code{start} / \code{limit}
-query parameters — passing them produces a 500.}
+query parameters - passing them produces a 500.}
 
 \item{lang}{Character language code. Default \code{"en"}.}
 

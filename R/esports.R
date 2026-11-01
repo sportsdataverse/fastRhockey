@@ -1,6 +1,6 @@
 # esports.R -- DEL / ICE Hockey League / EIHL / Metal Ligaen wrappers.
 #
-# Mirrors sdv-py sportsdataverse/hockey/esports_runtime.py, esports_parsers.py and
+# Mirrors sportsdataverse-py sportsdataverse/hockey/esports_runtime.py, esports_parsers.py and
 # the four generated del_esports / icehl_esports / eihl_esports / metal_esports
 # families. The four leagues' scoring system writes one key layout into four public
 # S3 buckets (keyless JSON, see esports_leagues.R); .esports_get() does the fetch,
@@ -13,12 +13,12 @@
 # game id. player_id is the `playerId` key space; `match_player_id` (lineups only)
 # is the per-game roster entry and never joins to it.
 #
-# The parsers follow the sdv-py contract: snake_case columns, nested objects
+# The parsers follow the sportsdataverse-py contract: snake_case columns, nested objects
 # flattened to <parent>_<child>, list cells as JSON text, the returns-schema types
 # on every frame (empty, partial or full), documented columns first and in order.
 # Int64 columns that overflow R's 32-bit integer (epoch milliseconds) are numeric.
 
-# Returns-schema types, column by column (sdv-py _esports_schemas.SCHEMAS).
+# Returns-schema types, column by column (sportsdataverse-py _esports_schemas.SCHEMAS).
 .ES_SCHEMAS <- list(
   del_schedule = c(
     `match_id` = "integer", `start_date` = "character", `real_end_date` = "character",
@@ -660,7 +660,7 @@
 
 
 # ---------------------------------------------------------------------------
-# Parsers. Mirrors sdv-py hockey/esports_parsers.py. A body is decoded with
+# Parsers. Mirrors sportsdataverse-py hockey/esports_parsers.py. A body is decoded with
 # simplifyVector = FALSE (objects are named lists, arrays unnamed lists, JSON
 # null is NULL). Every parser turns a body into a list of "rows" (named lists)
 # and `.es_frame()` types them against the route's returns schema. A parser
@@ -1745,7 +1745,7 @@ del_pbp <- function(match_id, return_parsed = TRUE) {
 #'    | col_name | type | description |
 #'    |:---------|:-----|:------------|
 #'    | team_side | character | Team of the row: home or visitor. |
-#'    | slot | character | Line slot, three digits <group><line><position>: group 1 = goalies (101, 102), 2 = defence pairs, 3 = forward lines. |
+#'    | slot | character | Line slot, three digits `<group><line><position>`: group 1 = goalies (101, 102), 2 = defence pairs, 3 = forward lines. |
 #'    | player_id | integer | Player id (player key space, per bucket, stable across games and seasons); joins to `playerId` in rosters, events, boxscores and leaderboards. |
 #'    | match_player_id | integer | Match-player id (one row per player per game; a different key space from the player id); joins to `matchPlayerId` in the same game's roster and events only. |
 #'    | name | character | Player first name. |

@@ -1,4 +1,4 @@
-#' @title **NHL Stats API — Draft Summaries**
+#' @title **NHL Stats API - Draft Summaries**
 #' @description Queries the NHL Stats REST API for draft-year summaries
 #'   (draft year and number of rounds). Optionally filter to a specific
 #'   draft year via `draft_year`.
@@ -75,7 +75,7 @@ nhl_stats_draft <- function(
 }
 
 
-#' @title **NHL Stats API — Seasons List**
+#' @title **NHL Stats API - Seasons List**
 #' @description Returns a list of all seasons from the Stats REST API.
 #' @param lang Character language code. Default "en".
 #' @return A data frame (`fastRhockey_data`) with the following columns:
@@ -151,7 +151,7 @@ nhl_stats_seasons <- function(lang = "en") {
 }
 
 
-#' @title **NHL Stats API — Miscellaneous Endpoints**
+#' @title **NHL Stats API - Miscellaneous Endpoints**
 #' @description Generic dispatcher for the NHL Stats REST API
 #'   (`https://api.nhle.com/stats/rest/{lang}/{endpoint}`). Pass any valid
 #'   endpoint name as `endpoint` and the helper will issue the request and
@@ -169,7 +169,7 @@ nhl_stats_seasons <- function(lang = "en") {
 #'   * **Health check:** `"ping"`
 #'
 #'   Note: dedicated wrappers exist for `season`, `draft`, `skater/{report}`,
-#'   `goalie/{report}`, and `team/{report}` — see [nhl_stats_seasons()],
+#'   `goalie/{report}`, and `team/{report}` - see [nhl_stats_seasons()],
 #'   [nhl_stats_draft()], [nhl_stats_skaters()], [nhl_stats_goalies()],
 #'   and [nhl_stats_teams()].
 #' @param game_id Optional game ID (required for `endpoint = "shiftcharts"`).

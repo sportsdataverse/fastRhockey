@@ -11,7 +11,7 @@ vhl_skater_stats(season, stage = "regular", return_parsed = TRUE)
 
 \item{stage}{Season stage: \code{"regular"} (default) or \code{"playoff"}.}
 
-\item{return_parsed}{\code{TRUE} (default) returns the parsed tibble; \code{FALSE} returns the page's parsed record (a named list, the sdv-internal-refs capture shape, plus \verb{_request} with the season, stage, tn and the ids asked for).}
+\item{return_parsed}{\code{TRUE} (default) returns the parsed tibble; \code{FALSE} returns the page's parsed record (a named list, plus \verb{_request} with the season, stage, tn and the ids asked for).}
 }
 \value{
 A \code{fastRhockey_data} tibble with one row per skater and team:\tabular{lll}{
@@ -59,9 +59,9 @@ Season stats of every defenseman and forward of one season stage.
 \details{
 Source: \verb{GET https://www.vhlru.ru/en/stats/players/\{season\}/} (server-rendered HTML, keyless; parsed with rvest). Unofficial use of a public source; payloads are not redistributed.
 }
-\section{Owner flag (sanctions)}{
+\section{Terms of use}{
 
-The VHL is run by Russian league operators, and several clubs are owned or sponsored by sanctioned state companies. Fetching on your own machine is fine; a published data release or a hosted mirror of this data needs the owner's sanctions / legal sign-off first.
+Check the provider's terms of use before redistributing this data.
 }
 
 \section{Errors}{

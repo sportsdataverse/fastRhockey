@@ -3,7 +3,6 @@
 # Read-only wrappers over api.foxsports.com/bifrost/v1/nhl/*, flattening
 # Fox's layout JSON (sections -> tables -> rows -> cells) into tidy fastRhockey
 # tibbles. Hockey play-by-play is period-based (1ST/2ND/3RD PERIOD -> plays).
-# Reverse-engineering notes + an OpenAPI spec live in the sdv-internal-refs repo.
 
 .FOX_NHL_KEY <- "jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq"
 .fox_or <- function(a, b) if (is.null(a) || length(a) == 0) b else a

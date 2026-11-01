@@ -1,8 +1,10 @@
 #' @title  **PWHL Standings**
 #' @description PWHL Standings lookup
 #'
-#' @param season Season (YYYY) to pull the roster from, the concluding year in XXXX-YY format
-#' @param regular Bool for whether to pull regular or pre-season rosters
+#' @param season Season (YYYY) to pull the standings for, the concluding year
+#'   (e.g. 2025 for 2024-25). Defaults to `most_recent_pwhl_season()`.
+#' @param regular Bool for whether to pull regular-season (`TRUE`) or preseason
+#'   (`FALSE`) standings
 #' @return A data frame (`fastRhockey_data`) with the following columns:
 #'
 #'    |col_name                   |types     |description                       |
@@ -40,12 +42,11 @@
 #'   try(pwhl_standings(season = 2024, regular = TRUE))
 #' }
 
-pwhl_standings <- function(season = 2023, regular = TRUE) {
-  if (regular) {
-    season_id <- 1
-  } else if (! regular) {
-    season_id <- 2
-  }
+pwhl_standings <- function(season = most_recent_pwhl_season(), regular = TRUE) {
+  season_id <- .pwhl_resolve_season_id(
+    season,
+    game_type = if (isTRUE(regular)) "regular" else "preseason"
+  )
 
   REG_URL = paste0("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=teams&groupTeamsBy=league&context=overall&site_id=2&season=", season_id, "&special=false&key=694cfeed58c932ee&client_code=pwhl&league_id=1&division=undefined&sort=points&lang=en&callback=angular.callbacks._b")
   URL = paste0("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=teams&groupTeamsBy=division&context=overall&site_id=2&season=", season_id, "&special=true&key=694cfeed58c932ee&client_code=pwhl&league_id=1&division=-1&sort=points&lang=en&callback=angular.callbacks._4")

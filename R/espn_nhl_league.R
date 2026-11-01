@@ -1,5 +1,5 @@
 # espn_nhl_league.R
-# ESPN NHL: league-level endpoints (Group A parity with sdv-py)
+# ESPN NHL: league-level endpoints (Group A parity with sportsdataverse-py)
 # Endpoints: news, injuries, transactions, conferences, statistics_league,
 #            draft, games, awards, award, tournaments, talentpicks, league_notes
 #
@@ -661,7 +661,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with draft data, or an empty tibble
 #'   when the endpoint is unavailable. **Note**: The NHL draft endpoint
-#'   (`site/v2/sports/hockey/nhl/draft`) currently returns HTTP 500 for NHL —
+#'   (`site/v2/sports/hockey/nhl/draft`) currently returns HTTP 500 for NHL -
 #'   an empty tibble is returned gracefully:
 #'
 #'    |col_name |types     |description                                           |
@@ -910,7 +910,7 @@ NULL
 #' @return A one-row `fastRhockey_data` tibble with award metadata, or an
 #'   empty tibble when the endpoint is unavailable. **Note**: The individual
 #'   award endpoint (`core_v2/awards/{award_id}`) currently returns HTTP 500
-#'   for all tested NHL award ids — an empty tibble is returned gracefully:
+#'   for all tested NHL award ids - an empty tibble is returned gracefully:
 #'
 #'    |col_name      |types     |description                                         |
 #'    |:-------------|:---------|:---------------------------------------------------|
@@ -1082,7 +1082,7 @@ NULL
 #' @return A `fastRhockey_data` tibble with one row per talent pick reference,
 #'   or an empty tibble when the endpoint is unavailable. **Note**: The NHL
 #'   talent picks endpoint (`core_v2/talentpicks`) currently returns `count=0`
-#'   — an empty tibble is returned gracefully:
+#'   - an empty tibble is returned gracefully:
 #'
 #'    |col_name    |types     |description                                          |
 #'    |:-----------|:---------|:----------------------------------------------------|
@@ -1165,7 +1165,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with one row per league note reference,
 #'   or an empty tibble when the endpoint is unavailable. **Note**: The NHL
-#'   league notes endpoint (`core_v2/notes`) currently returns `count=0` —
+#'   league notes endpoint (`core_v2/notes`) currently returns `count=0` -
 #'   an empty tibble is returned gracefully:
 #'
 #'    |col_name    |types     |description                                          |

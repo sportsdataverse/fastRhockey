@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_stats_game_listing.R
 \name{nhl_stats_game_listing}
 \alias{nhl_stats_game_listing}
-\title{\strong{NHL Stats API — Game Listing}}
+\title{\strong{NHL Stats API - Game Listing}}
 \usage{
 nhl_stats_game_listing(lang = "en", limit = 100, start = 0, cayenne_exp = NULL)
 }

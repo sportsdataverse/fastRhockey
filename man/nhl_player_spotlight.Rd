@@ -25,7 +25,7 @@ A data frame (\code{fastRhockey_data}) with the following columns:\tabular{lll}{
 }
 }
 \description{
-Returns the current NHL player spotlight — featured players
+Returns the current NHL player spotlight - featured players
 highlighted by the league.
 }
 \examples{

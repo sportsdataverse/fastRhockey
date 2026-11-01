@@ -34,7 +34,7 @@ A \code{fastRhockey_data} tibble with one row per team:\tabular{lll}{
 League slug \code{womens-college-hockey}. One row per team, \code{predictives} and
 \code{efficiencies} flattened to one column per field (a name colliding across
 the two blocks is suffixed). A zero-row \code{data.frame} when unpublished.
-Mirrors sdv-py \code{espn_wch_season_week_powerindex()}.
+Mirrors sportsdataverse-py \code{espn_wch_season_week_powerindex()}.
 }
 \examples{
 \donttest{

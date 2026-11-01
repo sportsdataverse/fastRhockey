@@ -14,7 +14,7 @@
 #   is encountered.
 #
 # NOTE on players_index:
-#   sdv-py espn_nhl_players_index uses core_v2 /athletes (same backing endpoint
+#   sportsdataverse-py espn_nhl_players_index uses core_v2 /athletes (same backing endpoint
 #   as espn_nhl_athletes_index). This wrapper provides a site_v2-named parity
 #   alias with an identical implementation. Use espn_nhl_athletes_index for the
 #   established function.
@@ -445,7 +445,7 @@ espn_nhl_player_info <- function(athlete_id, ...) {
 #' Wraps `core_v2 athletes/{id}/statistics`. Returns all split categories
 #' flattened into a single wide tibble row (one row per athlete). This mirrors
 #' [espn_nhl_player_statistics()] which uses the same endpoint but this
-#' function preserves the `stat_type` optional path-segment per sdv-py parity.
+#' function preserves the `stat_type` optional path-segment per sportsdataverse-py parity.
 #'
 #' @param league ESPN league slug.
 #' @param athlete_id ESPN athlete identifier.
@@ -808,7 +808,7 @@ espn_nhl_player_gamelog <- function(athlete_id, season = NULL, ...) {
 
 #' Internal: ESPN hockey players index, site_v2 parity alias (league-generic)
 #'
-#' sdv-py `espn_nhl_players_index` uses `core_v2 /athletes` (same backing
+#' sportsdataverse-py `espn_nhl_players_index` uses `core_v2 /athletes` (same backing
 #' endpoint as [espn_nhl_athletes_index()]). This wrapper provides a
 #' `players_index`-named alias for parity.
 #'
