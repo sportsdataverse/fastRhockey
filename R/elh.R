@@ -892,7 +892,7 @@
 #'    |penalty_minutes          |integer  |Penalty minutes of the penalised player (player1); two penalties are summed. Null in 2016-17.|
 #'    |penalty_offense          |character|Czech offense code(s), e.g. VYSH (high sticking), PODR (tripping); comma-joined for two penalties. Null in 2016-17.|
 #'    |strength                 |character|Strength of a goal: EQ (read as even strength; inferred, the only value observed). Null where the on-ice block is absent (all of 2016-17).|
-#'    |message                  |character|Czech commentary text (may contain <br />).|
+#'    |message                  |character|Czech commentary text (may contain `<br />`).|
 #'    |written                  |character|When the entry was written, local time YYYY-MM-DD HH:MM:SS.|
 #'    |last_change              |character|Last edit of the entry, local time YYYY-MM-DD HH:MM:SS.|
 #' @section Errors:
@@ -1008,7 +1008,7 @@ elh_pbp_goals <- function(season, match_id, return_parsed = TRUE) {
 #'    |penalty_minutes          |integer  |Penalty minutes of the penalised player (player1); two penalties are summed. Null in 2016-17.|
 #'    |penalty_offense          |character|Czech offense code(s), e.g. VYSH (high sticking), PODR (tripping); comma-joined for two penalties. Null in 2016-17.|
 #'    |strength                 |character|Strength of a goal: EQ (read as even strength; inferred, the only value observed). Null where the on-ice block is absent (all of 2016-17).|
-#'    |message                  |character|Czech commentary text (may contain <br />).|
+#'    |message                  |character|Czech commentary text (may contain `<br />`).|
 #'    |written                  |character|When the entry was written, local time YYYY-MM-DD HH:MM:SS.|
 #'    |last_change              |character|Last edit of the entry, local time YYYY-MM-DD HH:MM:SS.|
 #' @section Errors:

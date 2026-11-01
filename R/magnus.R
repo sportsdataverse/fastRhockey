@@ -1478,7 +1478,7 @@ magnus_standings <- function(phase_id, return_parsed = TRUE) {
 #'   |team             |character|Team display name (e.g., "Rapaces de Gap").|
 #'   |team_abbreviation|character|Team abbreviation (e.g., "GAP").|
 #'   |team_short_name  |character|Short team label (e.g., "GAP", "ANGLET").|
-#'   |team_label       |character|Back-office label, "<club code> - <NAME> <level>"; use team for display.|
+#'   |team_label       |character|Back-office label, `"<club code> - <NAME> <level>"`; use team for display.|
 #'   |gender           |character|Gender of the team: M (men; the only value observed).|
 #'   |logo_url         |character|URL of the team logo image.|
 #'   |club_id          |integer  |Id of the club (legal entity) behind the team (integer).|

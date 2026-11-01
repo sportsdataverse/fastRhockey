@@ -2270,7 +2270,7 @@ khl_shots <- function(game_id, season = NULL, stage = "regular", headers = NULL,
 #'    |jn                 |integer   |Jersey number (not an id; 0 on a team event) |
 #'    |club_name          |character |Name in Russian (Cyrillic); the *_en / *en sibling holds the English transliteration |
 #'    |club_logo          |character |Current club logo URL on khl.ru (protocol-relative) |
-#'    |club_code          |character |Club slug (/clubs/<slug>/) |
+#'    |club_code          |character |Club slug (`/clubs/<slug>/`) |
 #'    |height             |character |Height with its Russian unit ('183 sm' = 183 cm) |
 #'    |weight             |character |Weight with its Russian unit ('85 kg' = 85 kg) |
 #'    |birthdate          |character |Birth date (Russian display format) |
