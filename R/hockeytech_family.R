@@ -59,8 +59,8 @@
   .hockeytech_season_from_date()
 }
 
-# End year of the season in progress by the calendar: the AHL and the CHL
-# leagues start in September, so September 2026 on is the 2027 season.
+# End year of the season in progress by the calendar. The CHL leagues start in
+# September (the AHL in October), so September 2026 on is the 2027 season.
 .hockeytech_season_from_date <- function(date = Sys.Date()) {
   d <- as.POSIXlt(date)
   as.integer(d$year + 1900L + (d$mon >= 8L))

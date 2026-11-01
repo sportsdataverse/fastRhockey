@@ -57,7 +57,7 @@
       hit <- hit[!.ht_is_special_event(hit$season_name), , drop = FALSE]
     }
     if (nrow(hit) > 0) {
-      # ponytail: sportsdataverse-py also ranks names carrying another league's code last (the OJHL
+      # sportsdataverse-py also ranks names carrying another league's code last (the OJHL
       # feed lists CCHL seasons); none of the five R leagues needs it.
       nm <- ifelse(is.na(hit$season_name), "", hit$season_name)
       type_re <- switch(game_type, regular = "regular season", playoffs = "playoff",
