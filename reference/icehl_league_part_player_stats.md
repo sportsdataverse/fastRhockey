@@ -141,7 +141,7 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_league_part_player_stats(league_part_id = 56))
 #> ── ICE Hockey League league_part_player_stats from the eSports hokejovyzapis buc
-#> ℹ Data updated: 2026-11-01 21:57:28 UTC
+#> ℹ Data updated: 2026-11-01 23:55:42 UTC
 #> # A tibble: 359 × 91
 #>    player_id name       firstname surname birthdate position stick weight height
 #>        <int> <chr>      <chr>     <chr>   <chr>     <chr>    <chr>  <int>  <int>

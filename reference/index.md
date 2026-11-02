@@ -590,6 +590,200 @@ play-by-play data
 
   **Update or create a fastRhockey PWHL play-by-play database**
 
+## NHL Data Loaders
+
+### Family Overview
+
+NHL loader family overview (release-tag catalog)
+
+- [`nhl_loaders`](https://fastRhockey.sportsdataverse.org/reference/nhl_loaders.md)
+  [`load_nhl`](https://fastRhockey.sportsdataverse.org/reference/nhl_loaders.md)
+  :
+
+  **NHL Data Loaders Overview**
+
+### Full Seasons of NHL Data
+
+Functions exported by fastRhockey which load full seasons of fastRhockey
+NHL data
+
+- [`load_nhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp.md)
+  :
+
+  **Load fastRhockey NHL play-by-play**
+
+- [`load_nhl_pbp_lite()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp_lite.md)
+  :
+
+  **Load fastRhockey NHL play-by-play (lite)**
+
+- [`load_nhl_pbp_full()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp_full.md)
+  :
+
+  **Load fastRhockey NHL play-by-play (full, alias)**
+
+- [`load_nhl_team_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_box.md)
+  :
+
+  **Load fastRhockey NHL team box scores**
+
+- [`load_nhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_player_box.md)
+  :
+
+  **Load fastRhockey NHL player box scores**
+
+- [`load_nhl_skater_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_skater_box.md)
+  :
+
+  **Load fastRhockey NHL skater box scores**
+
+- [`load_nhl_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_goalie_box.md)
+  :
+
+  **Load fastRhockey NHL goalie box scores**
+
+- [`load_nhl_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_rosters.md)
+  :
+
+  **Load fastRhockey NHL team rosters**
+
+- [`load_nhl_game_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_game_rosters.md)
+  :
+
+  **Load fastRhockey NHL per-game rosters**
+
+- [`load_nhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_schedule.md)
+  :
+
+  **Load fastRhockey NHL schedules**
+
+- [`load_nhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_game_info.md)
+  :
+
+  **Load fastRhockey NHL game info**
+
+- [`load_nhl_scoring()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_scoring.md)
+  :
+
+  **Load fastRhockey NHL scoring summary**
+
+- [`load_nhl_penalties()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_penalties.md)
+  :
+
+  **Load fastRhockey NHL penalty summary**
+
+- [`load_nhl_three_stars()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_three_stars.md)
+  :
+
+  **Load fastRhockey NHL three stars / decisions**
+
+- [`load_nhl_scratches()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_scratches.md)
+  :
+
+  **Load fastRhockey NHL scratches**
+
+- [`load_nhl_linescore()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_linescore.md)
+  :
+
+  **Load fastRhockey NHL linescore**
+
+- [`load_nhl_shifts()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shifts.md)
+  :
+
+  **Load fastRhockey NHL shifts**
+
+- [`load_nhl_officials()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_officials.md)
+  :
+
+  **Load fastRhockey NHL officials**
+
+- [`load_nhl_shots_by_period()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shots_by_period.md)
+  :
+
+  **Load fastRhockey NHL shots by period**
+
+- [`load_nhl_shootout()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shootout.md)
+  :
+
+  **Load fastRhockey NHL shootout summary**
+
+### NHL Conference and Division Reference
+
+Functions exported by fastRhockey which load season-by-season NHL
+conference and division memberships from the nhl_groups release
+
+- [`load_nhl_groups()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_groups.md)
+  :
+
+  **Load NHL groups (conferences and divisions) from the SportsDataverse
+  data repo**
+
+- [`load_nhl_group_seasons()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_group_seasons.md)
+  :
+
+  **Load NHL conference and division names and parents by season from
+  the SportsDataverse data repo**
+
+- [`load_nhl_group_aliases()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_group_aliases.md)
+  :
+
+  **Load NHL group aliases from the SportsDataverse data repo**
+
+- [`load_nhl_team_group_seasons()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_group_seasons.md)
+  :
+
+  **Load NHL team conference and division memberships by season from the
+  SportsDataverse data repo**
+
+### Naming-parity Aliases (sportsdataverse-py)
+
+Aliases of the canonical NHL loaders, named to match sportsdataverse-py.
+
+- [`load_nhl_player_boxscore()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_player_boxscore.md)
+  :
+
+  **Load NHL player box scores (alias)**
+
+- [`load_nhl_player_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_player_boxscores.md)
+  :
+
+  **Load NHL player box scores (alias)**
+
+- [`load_nhl_skater_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_skater_boxscores.md)
+  :
+
+  **Load NHL skater box scores (alias)**
+
+- [`load_nhl_goalie_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_goalie_boxscores.md)
+  :
+
+  **Load NHL goalie box scores (alias)**
+
+- [`load_nhl_team_boxscore()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_boxscore.md)
+  :
+
+  **Load NHL team box scores (alias)**
+
+- [`load_nhl_team_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_boxscores.md)
+  :
+
+  **Load NHL team box scores (alias)**
+
+- [`load_nhl_schedules()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_schedules.md)
+  :
+
+  **Load NHL schedules (alias)**
+
+### Update or Create NHL Database
+
+Functions exported by fastRhockey which update and create a database of
+fastRhockey NHL play-by-play data
+
+- [`update_nhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_nhl_db.md)
+  :
+
+  **Update or create a fastRhockey NHL play-by-play database**
+
 ## NHL Data
 
 ### Family Overview
@@ -4295,200 +4489,6 @@ request waits at least one second after the last one to the same host.
 
   **Ligue Magnus teams of a phase**
 
-## fastRhockey Data
-
-### Family Overview
-
-NHL loader family overview (release-tag catalog)
-
-- [`nhl_loaders`](https://fastRhockey.sportsdataverse.org/reference/nhl_loaders.md)
-  [`load_nhl`](https://fastRhockey.sportsdataverse.org/reference/nhl_loaders.md)
-  :
-
-  **NHL Data Loaders Overview**
-
-### Full Seasons of NHL Data
-
-Functions exported by fastRhockey which load full seasons of fastRhockey
-NHL data
-
-- [`load_nhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp.md)
-  :
-
-  **Load fastRhockey NHL play-by-play**
-
-- [`load_nhl_pbp_lite()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp_lite.md)
-  :
-
-  **Load fastRhockey NHL play-by-play (lite)**
-
-- [`load_nhl_pbp_full()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp_full.md)
-  :
-
-  **Load fastRhockey NHL play-by-play (full, alias)**
-
-- [`load_nhl_team_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_box.md)
-  :
-
-  **Load fastRhockey NHL team box scores**
-
-- [`load_nhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_player_box.md)
-  :
-
-  **Load fastRhockey NHL player box scores**
-
-- [`load_nhl_skater_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_skater_box.md)
-  :
-
-  **Load fastRhockey NHL skater box scores**
-
-- [`load_nhl_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_goalie_box.md)
-  :
-
-  **Load fastRhockey NHL goalie box scores**
-
-- [`load_nhl_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_rosters.md)
-  :
-
-  **Load fastRhockey NHL team rosters**
-
-- [`load_nhl_game_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_game_rosters.md)
-  :
-
-  **Load fastRhockey NHL per-game rosters**
-
-- [`load_nhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_schedule.md)
-  :
-
-  **Load fastRhockey NHL schedules**
-
-- [`load_nhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_game_info.md)
-  :
-
-  **Load fastRhockey NHL game info**
-
-- [`load_nhl_scoring()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_scoring.md)
-  :
-
-  **Load fastRhockey NHL scoring summary**
-
-- [`load_nhl_penalties()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_penalties.md)
-  :
-
-  **Load fastRhockey NHL penalty summary**
-
-- [`load_nhl_three_stars()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_three_stars.md)
-  :
-
-  **Load fastRhockey NHL three stars / decisions**
-
-- [`load_nhl_scratches()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_scratches.md)
-  :
-
-  **Load fastRhockey NHL scratches**
-
-- [`load_nhl_linescore()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_linescore.md)
-  :
-
-  **Load fastRhockey NHL linescore**
-
-- [`load_nhl_shifts()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shifts.md)
-  :
-
-  **Load fastRhockey NHL shifts**
-
-- [`load_nhl_officials()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_officials.md)
-  :
-
-  **Load fastRhockey NHL officials**
-
-- [`load_nhl_shots_by_period()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shots_by_period.md)
-  :
-
-  **Load fastRhockey NHL shots by period**
-
-- [`load_nhl_shootout()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shootout.md)
-  :
-
-  **Load fastRhockey NHL shootout summary**
-
-### NHL Conference and Division Reference
-
-Functions exported by fastRhockey which load season-by-season NHL
-conference and division memberships from the nhl_groups release
-
-- [`load_nhl_groups()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_groups.md)
-  :
-
-  **Load NHL groups (conferences and divisions) from the SportsDataverse
-  data repo**
-
-- [`load_nhl_group_seasons()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_group_seasons.md)
-  :
-
-  **Load NHL conference and division names and parents by season from
-  the SportsDataverse data repo**
-
-- [`load_nhl_group_aliases()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_group_aliases.md)
-  :
-
-  **Load NHL group aliases from the SportsDataverse data repo**
-
-- [`load_nhl_team_group_seasons()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_group_seasons.md)
-  :
-
-  **Load NHL team conference and division memberships by season from the
-  SportsDataverse data repo**
-
-### Naming-parity Aliases (sportsdataverse-py)
-
-Aliases of the canonical NHL loaders, named to match sportsdataverse-py.
-
-- [`load_nhl_player_boxscore()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_player_boxscore.md)
-  :
-
-  **Load NHL player box scores (alias)**
-
-- [`load_nhl_player_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_player_boxscores.md)
-  :
-
-  **Load NHL player box scores (alias)**
-
-- [`load_nhl_skater_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_skater_boxscores.md)
-  :
-
-  **Load NHL skater box scores (alias)**
-
-- [`load_nhl_goalie_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_goalie_boxscores.md)
-  :
-
-  **Load NHL goalie box scores (alias)**
-
-- [`load_nhl_team_boxscore()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_boxscore.md)
-  :
-
-  **Load NHL team box scores (alias)**
-
-- [`load_nhl_team_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_boxscores.md)
-  :
-
-  **Load NHL team box scores (alias)**
-
-- [`load_nhl_schedules()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_schedules.md)
-  :
-
-  **Load NHL schedules (alias)**
-
-### Update or Create NHL Database
-
-Functions exported by fastRhockey which update and create a database of
-fastRhockey NHL play-by-play data
-
-- [`update_nhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_nhl_db.md)
-  :
-
-  **Update or create a fastRhockey NHL play-by-play database**
-
 ## Included data
 
 Data included within the package
@@ -4562,8 +4562,9 @@ loading data
 ## Deprecated PHF Functions
 
 The Premier Hockey Federation (PHF) has ceased operations. These
-functions are deprecated and will emit warnings when called. Historical
-data may still be available via the load_phf\_\* functions.
+functions have been defunct since fastRhockey 1.0.0: each one stops with
+an error when called. Use the PWHL functions for current women’s
+professional hockey.
 
 ### PHF Family Overview
 
@@ -4649,8 +4650,11 @@ PHF function listing (all deprecated)
 
 ## Deprecated PHF Data Loaders
 
-Data loaders for the defunct PHF league. Historical data may still be
-available but is no longer updated.
+Data loaders for the defunct PHF league. They have been defunct since
+fastRhockey 1.0.0 and stop with an error when called. The archived PHF
+data stays readable in the
+[fastRhockey-data](https://github.com/sportsdataverse/fastRhockey-data)
+repository, which is no longer updated.
 
 - [`load_phf_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_phf_pbp.md)
   **\[deprecated\]** :

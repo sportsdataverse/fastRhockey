@@ -16,8 +16,8 @@
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
 <meta property="og:title" content="fastRhockey">
-<meta name="description" content="fastRhockey v1.0.0: Data and Tools for Professional Women's Hockey League (PWHL) and NHL play-by-play data.">
-<meta property="og:description" content="fastRhockey v1.0.0: Data and Tools for Professional Women's Hockey League (PWHL) and NHL play-by-play data.">
+<meta name="description" content="fastRhockey: data and tools for NHL, PWHL, AHL and CHL, European and college hockey play-by-play data.">
+<meta property="og:description" content="fastRhockey: data and tools for NHL, PWHL, AHL and CHL, European and college hockey play-by-play data.">
 <meta property="og:image" content="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/logo.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@benhowell71">
@@ -131,16 +131,13 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header">
-<img src="logo.png" class="logo" alt=""><h1 id="section"></h1>
-</div>
-</div>
-<div class="section level1">
-<h1 id="fastrhockey-">fastRhockey 
+<img src="logo.png" class="logo" alt=""><h1 id="fastrhockey-">fastRhockey 
 <a class="anchor" aria-label="anchor" href="#fastrhockey-"></a>
 </h1>
+</div>
 <!-- badges: start -->
 
-<p><a href="https://github.com/sportsdataverse/fastRhockey" class="external-link"><code>fastRhockey</code></a> is an R package for accessing hockey data from the <strong>NHL</strong> (National Hockey League) and <strong>PWHL</strong> (Professional Women’s Hockey League) via public web APIs. It provides structured data frames of play-by-play, schedule, standings, roster, draft, player stats, and team data. The package also includes integrated <strong>expected goals (xG)</strong> models trained via XGBoost.</p>
+<p><a href="https://github.com/sportsdataverse/fastRhockey" class="external-link"><code>fastRhockey</code></a> is an R package for accessing hockey data via public web APIs: the <strong>NHL</strong> (National Hockey League), the <strong>PWHL</strong> (Professional Women’s Hockey League), the AHL and the three Canadian major-junior leagues (OHL, WHL, QMJHL), thirteen European leagues, and NCAA men’s and women’s college hockey through ESPN. It exports 880 functions that return structured data frames of play-by-play, schedule, standings, roster, draft, player stats, and team data. The package also includes integrated <strong>expected goals (xG)</strong> models trained via XGBoost.</p>
 <p>Part of the <a href="https://sportsdataverse.org/" class="external-link">SportsDataverse</a> family of R/Python packages for sports analytics.</p>
 <div class="section level3">
 <h3 id="key-features">Key Features<a class="anchor" aria-label="anchor" href="#key-features"></a>
@@ -150,7 +147,7 @@
 <strong>NHL Data</strong> – Game feeds, boxscores, play-by-play with shifts, schedules, standings, rosters, draft picks, player/team stats, playoffs, and broadcast information via <code>api-web.nhle.com</code> and <code>api.nhle.com/stats</code>
 </li>
 <li>
-<strong>NHL Edge Analytics</strong> (33 functions) – Skater, goalie, and team advanced metrics from <code>api-web.nhle.com/v1/edge/...</code> covering shot location, shot speed, skating speed, skating distance, zone time, comparisons, landing pages, and top-10 leaderboards. Each wrapper accepts an optional <code>season</code> argument and falls back to the current season via the <code>/now</code> form</li>
+<strong>NHL Edge Analytics</strong> (35 functions, including the two <code>/cat/edge</code> detail wrappers <code><a href="reference/nhl_cat_edge_skater_detail.html">nhl_cat_edge_skater_detail()</a></code> and <code><a href="reference/nhl_cat_edge_goalie_detail.html">nhl_cat_edge_goalie_detail()</a></code>) – Skater, goalie, and team advanced metrics from <code>api-web.nhle.com/v1/edge/...</code> covering shot location, shot speed, skating speed, skating distance, zone time, comparisons, landing pages, and top-10 leaderboards. Each wrapper accepts an optional <code>season</code> argument and falls back to the current season via the <code>/now</code> form</li>
 <li>
 <strong>NHL Records API</strong> (25 functions) – First-time integration with <code>records.nhl.com/site/api/</code> for franchise totals, player/skater/goalie career and real-time stats, draft lottery, hall of fame, trophies, awards, attendance, venues, officials, and combine data</li>
 <li>
@@ -158,15 +155,25 @@
 <li>
 <strong>PWHL Data</strong> – Schedules, standings, play-by-play, player box scores, team rosters, stat leaders, player profiles, game logs, career stats, player search, league leaders, transactions, streaks, playoff brackets, game summaries, and scorebar via the HockeyTech API</li>
 <li>
+<strong><a href="https://fastRhockey.sportsdataverse.org/reference/index.html#espn-nhl">ESPN NHL</a></strong> (126 functions, <code>espn_nhl_*</code>) – Play-by-play, team and player box scores, scoreboards, schedules, standings, teams, rosters, athletes, odds, win probability, injuries, transactions and the draft from ESPN’s site, web and core APIs</li>
+<li>
+<strong><a href="https://fastRhockey.sportsdataverse.org/reference/index.html#fox-sports-nhl-data">Fox Sports NHL</a></strong> (8 functions, <code>fox_nhl_*</code>) – Play-by-play, box scores, odds, team rosters, team stats, game logs, standings and league leaders from Fox Sports’ Bifrost API</li>
+<li>
+<strong><a href="https://fastRhockey.sportsdataverse.org/reference/index.html#ahl-data">AHL</a>, <a href="https://fastRhockey.sportsdataverse.org/reference/index.html#ohl-data">OHL</a>, <a href="https://fastRhockey.sportsdataverse.org/reference/index.html#whl-data">WHL</a> and <a href="https://fastRhockey.sportsdataverse.org/reference/index.html#qmjhl-data">QMJHL</a></strong> (48 functions, <code>ahl_*</code>, <code>ohl_*</code>, <code>whl_*</code>, <code>qmjhl_*</code>) – Schedules, play-by-play, standings, teams, rosters, player stats, leaders, game summaries and on-ice shift / TOI / Corsi analytics through the same HockeyTech API as the PWHL</li>
+<li>
+<strong><a href="https://fastRhockey.sportsdataverse.org/reference/index.html#european-hockey">European leagues</a></strong> (211 functions) – Thirteen leagues: DEL (<code>del_*</code>), ICE Hockey League (<code>icehl_*</code>), EIHL (<code>eihl_*</code>), Metal Ligaen (<code>metal_*</code>), KHL (<code>khl_*</code>), VHL (<code>vhl_*</code>), SHL (<code>shl_*</code>), HockeyAllsvenskan (<code>ha_*</code>), Liiga (<code>liiga_*</code>), the Swiss federation (<code>sihf_*</code>) and National League (<code>nl_*</code>), the Czech Extraliga (<code>elh_*</code>) and Ligue Magnus (<code>magnus_*</code>). Seasons are end years (2027 = 2026-27), requests to one host are spaced at least a second apart, and failures raise classed conditions (<code>fastRhockey_no_data</code>, <code>fastRhockey_asset_fetch</code>, <code>fastRhockey_bad_request</code>)</li>
+<li>
+<strong><a href="https://fastRhockey.sportsdataverse.org/reference/index.html#espn-college-hockey">NCAA college hockey</a></strong> (242 functions) – ESPN men’s (<code>espn_mch_*</code>) and women’s (<code>espn_wch_*</code>) college hockey: play-by-play, box scores, scoreboards, schedules, standings, teams, rosters, rankings and leaders</li>
+<li>
 <strong>xG Models</strong> – Expected goals predictions for NHL play-by-play data using XGBoost models (5v5, special teams, penalty shots)</li>
 <li>
 <strong>Helper Aggregators</strong> – Convenience functions inspired by <code>nhl-api-py</code> that combine multiple endpoint calls into a single tidy frame: <code><a href="reference/nhl_game_ids_by_season.html">nhl_game_ids_by_season()</a></code>, <code><a href="reference/nhl_all_players_by_season.html">nhl_all_players_by_season()</a></code>, <code><a href="reference/nhl_player_career_stats.html">nhl_player_career_stats()</a></code>, <code><a href="reference/nhl_team_summary_range.html">nhl_team_summary_range()</a></code>, <code><a href="reference/nhl_skater_summary_range.html">nhl_skater_summary_range()</a></code>, <code><a href="reference/nhl_goalie_summary_range.html">nhl_goalie_summary_range()</a></code>
 </li>
 <li>
-<strong>Full Season Loaders</strong> – Nineteen NHL loaders covering play-by-play (full + lite), schedules, season + per-game rosters, player/skater/goalie/team boxscores, game info, scoring &amp; penalty summaries, three stars, scratches, linescores, shifts, officials, shots-by-period, and shootouts (<code><a href="reference/load_nhl_pbp.html">load_nhl_pbp()</a></code>, <code><a href="reference/load_nhl_pbp_lite.html">load_nhl_pbp_lite()</a></code>, <code><a href="reference/load_nhl_schedule.html">load_nhl_schedule()</a></code>, <code><a href="reference/load_nhl_rosters.html">load_nhl_rosters()</a></code>, <code><a href="reference/load_nhl_game_rosters.html">load_nhl_game_rosters()</a></code>, <code><a href="reference/load_nhl_team_box.html">load_nhl_team_box()</a></code>, <code><a href="reference/load_nhl_player_box.html">load_nhl_player_box()</a></code>, <code><a href="reference/load_nhl_skater_box.html">load_nhl_skater_box()</a></code>, <code><a href="reference/load_nhl_goalie_box.html">load_nhl_goalie_box()</a></code>, <code><a href="reference/load_nhl_game_info.html">load_nhl_game_info()</a></code>, <code><a href="reference/load_nhl_scoring.html">load_nhl_scoring()</a></code>, <code><a href="reference/load_nhl_penalties.html">load_nhl_penalties()</a></code>, <code><a href="reference/load_nhl_three_stars.html">load_nhl_three_stars()</a></code>, <code><a href="reference/load_nhl_scratches.html">load_nhl_scratches()</a></code>, <code><a href="reference/load_nhl_linescore.html">load_nhl_linescore()</a></code>, <code><a href="reference/load_nhl_shifts.html">load_nhl_shifts()</a></code>, <code><a href="reference/load_nhl_officials.html">load_nhl_officials()</a></code>, <code><a href="reference/load_nhl_shots_by_period.html">load_nhl_shots_by_period()</a></code>, <code><a href="reference/load_nhl_shootout.html">load_nhl_shootout()</a></code>); for PWHL, fifteen loaders covering play-by-play, schedules, season + per-game rosters, player/skater/goalie/team boxscores, game info, scoring &amp; penalty summaries, three stars, officials, shots-by-period, and shootouts (<code><a href="reference/load_pwhl_pbp.html">load_pwhl_pbp()</a></code>, <code><a href="reference/load_pwhl_schedule.html">load_pwhl_schedule()</a></code>, <code><a href="reference/load_pwhl_rosters.html">load_pwhl_rosters()</a></code>, <code><a href="reference/load_pwhl_game_rosters.html">load_pwhl_game_rosters()</a></code>, <code><a href="reference/load_pwhl_player_box.html">load_pwhl_player_box()</a></code>, <code><a href="reference/load_pwhl_skater_box.html">load_pwhl_skater_box()</a></code>, <code><a href="reference/load_pwhl_goalie_box.html">load_pwhl_goalie_box()</a></code>, <code><a href="reference/load_pwhl_team_box.html">load_pwhl_team_box()</a></code>, <code><a href="reference/load_pwhl_game_info.html">load_pwhl_game_info()</a></code>, <code><a href="reference/load_pwhl_scoring_summary.html">load_pwhl_scoring_summary()</a></code>, <code><a href="reference/load_pwhl_penalty_summary.html">load_pwhl_penalty_summary()</a></code>, <code><a href="reference/load_pwhl_three_stars.html">load_pwhl_three_stars()</a></code>, <code><a href="reference/load_pwhl_officials.html">load_pwhl_officials()</a></code>, <code><a href="reference/load_pwhl_shots_by_period.html">load_pwhl_shots_by_period()</a></code>, <code><a href="reference/load_pwhl_shootout.html">load_pwhl_shootout()</a></code>)</li>
+<strong><a href="https://fastRhockey.sportsdataverse.org/reference/index.html#nhl-data-loaders">Full Season Loaders</a></strong> – Twenty-three NHL loaders covering play-by-play (full + lite), schedules, season + per-game rosters, player/skater/goalie/team boxscores, game info, scoring &amp; penalty summaries, three stars, scratches, linescores, shifts, officials, shots-by-period, shootouts, and conference / division reference tables (<code><a href="reference/load_nhl_pbp.html">load_nhl_pbp()</a></code>, <code><a href="reference/load_nhl_pbp_lite.html">load_nhl_pbp_lite()</a></code>, <code><a href="reference/load_nhl_schedule.html">load_nhl_schedule()</a></code>, <code><a href="reference/load_nhl_rosters.html">load_nhl_rosters()</a></code>, <code><a href="reference/load_nhl_game_rosters.html">load_nhl_game_rosters()</a></code>, <code><a href="reference/load_nhl_team_box.html">load_nhl_team_box()</a></code>, <code><a href="reference/load_nhl_player_box.html">load_nhl_player_box()</a></code>, <code><a href="reference/load_nhl_skater_box.html">load_nhl_skater_box()</a></code>, <code><a href="reference/load_nhl_goalie_box.html">load_nhl_goalie_box()</a></code>, <code><a href="reference/load_nhl_game_info.html">load_nhl_game_info()</a></code>, <code><a href="reference/load_nhl_scoring.html">load_nhl_scoring()</a></code>, <code><a href="reference/load_nhl_penalties.html">load_nhl_penalties()</a></code>, <code><a href="reference/load_nhl_three_stars.html">load_nhl_three_stars()</a></code>, <code><a href="reference/load_nhl_scratches.html">load_nhl_scratches()</a></code>, <code><a href="reference/load_nhl_linescore.html">load_nhl_linescore()</a></code>, <code><a href="reference/load_nhl_shifts.html">load_nhl_shifts()</a></code>, <code><a href="reference/load_nhl_officials.html">load_nhl_officials()</a></code>, <code><a href="reference/load_nhl_shots_by_period.html">load_nhl_shots_by_period()</a></code>, <code><a href="reference/load_nhl_shootout.html">load_nhl_shootout()</a></code>, <code><a href="reference/load_nhl_groups.html">load_nhl_groups()</a></code>, <code><a href="reference/load_nhl_group_seasons.html">load_nhl_group_seasons()</a></code>, <code><a href="reference/load_nhl_group_aliases.html">load_nhl_group_aliases()</a></code>, <code><a href="reference/load_nhl_team_group_seasons.html">load_nhl_team_group_seasons()</a></code>); for the <a href="https://fastRhockey.sportsdataverse.org/reference/index.html#pwhl-data-loaders">PWHL</a>, seventeen loaders covering play-by-play (plain and xG-enriched), schedules, season + per-game rosters, player/skater/goalie/team boxscores, game info, scoring &amp; penalty summaries, three stars, officials, shots-by-period, shootouts, and shifts (<code><a href="reference/load_pwhl_pbp.html">load_pwhl_pbp()</a></code>, <code><a href="reference/load_pwhl_xg_pbp.html">load_pwhl_xg_pbp()</a></code>, <code><a href="reference/load_pwhl_schedule.html">load_pwhl_schedule()</a></code>, <code><a href="reference/load_pwhl_rosters.html">load_pwhl_rosters()</a></code>, <code><a href="reference/load_pwhl_game_rosters.html">load_pwhl_game_rosters()</a></code>, <code><a href="reference/load_pwhl_player_box.html">load_pwhl_player_box()</a></code>, <code><a href="reference/load_pwhl_skater_box.html">load_pwhl_skater_box()</a></code>, <code><a href="reference/load_pwhl_goalie_box.html">load_pwhl_goalie_box()</a></code>, <code><a href="reference/load_pwhl_team_box.html">load_pwhl_team_box()</a></code>, <code><a href="reference/load_pwhl_game_info.html">load_pwhl_game_info()</a></code>, <code><a href="reference/load_pwhl_scoring_summary.html">load_pwhl_scoring_summary()</a></code>, <code><a href="reference/load_pwhl_penalty_summary.html">load_pwhl_penalty_summary()</a></code>, <code><a href="reference/load_pwhl_three_stars.html">load_pwhl_three_stars()</a></code>, <code><a href="reference/load_pwhl_officials.html">load_pwhl_officials()</a></code>, <code><a href="reference/load_pwhl_shots_by_period.html">load_pwhl_shots_by_period()</a></code>, <code><a href="reference/load_pwhl_shootout.html">load_pwhl_shootout()</a></code>, <code><a href="reference/load_pwhl_shifts.html">load_pwhl_shifts()</a></code>). Both families also export aliases named to match <a href="https://py.sportsdataverse.org/" class="external-link">sportsdataverse-py</a> (<code><a href="reference/load_nhl_schedules.html">load_nhl_schedules()</a></code>, <code><a href="reference/load_pwhl_team_boxscores.html">load_pwhl_team_boxscores()</a></code>, …).</li>
 </ul>
 <blockquote>
-<p><strong>Note:</strong> PHF (Premier Hockey Federation) functions are deprecated as of v1.0.0. The league ceased operations; use PWHL functions instead.</p>
+<p><strong>Note:</strong> PHF (Premier Hockey Federation) functions have been defunct since v1.0.0: they stop with an error. The league ceased operations; use PWHL functions instead.</p>
 </blockquote>
 <center>
 <p><img src="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png" width="70%" alt="fastRhockey holographic logo banner"></p>
@@ -276,6 +283,21 @@
 <span><span class="fu"><a href="reference/pwhl_leaders.html">pwhl_leaders</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"skaters"</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/pwhl_game_summary.html">pwhl_game_summary</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">27</span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># ESPN and Fox Sports NHL</span></span>
+<span><span class="fu"><a href="reference/espn_nhl_scoreboard.html">espn_nhl_scoreboard</a></span><span class="op">(</span>dates <span class="op">=</span> <span class="fl">20250301</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/fox_nhl_standings.html">fox_nhl_standings</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="st">"1"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># AHL, OHL, WHL and QMJHL (HockeyTech)</span></span>
+<span><span class="fu"><a href="reference/ahl_schedule.html">ahl_schedule</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># European leagues (seasons are end years: 2026 = 2025-26)</span></span>
+<span><span class="fu"><a href="reference/liiga_schedule.html">liiga_schedule</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/khl_standings.html">khl_standings</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># NCAA men's and women's college hockey (ESPN)</span></span>
+<span><span class="fu"><a href="reference/espn_mch_scoreboard.html">espn_mch_scoreboard</a></span><span class="op">(</span>dates <span class="op">=</span> <span class="fl">20250301</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/espn_wch_standings.html">espn_wch_standings</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
 <span><span class="co"># Full season loaders</span></span>
 <span><span class="fu"><a href="reference/load_nhl_pbp.html">load_nhl_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/load_nhl_schedule.html">load_nhl_schedule</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
@@ -297,6 +319,21 @@
 <hr>
 </div>
 <div class="section level2">
+<h2 id="companion-packages">Companion packages<a class="anchor" aria-label="anchor" href="#companion-packages"></a>
+</h2>
+<ul>
+<li>
+<a href="https://sdvplotR.sportsdataverse.org/" class="external-link"><strong><code>sdvplotR</code></strong></a> (<code>pak::pak("sportsdataverse/sdvplotR")</code>) adds NHL team logos and colours to <code>ggplot2</code> charts and draws shot maps from the <code>fastRhockey</code> loaders; see its <a href="https://sdvplotR.sportsdataverse.org/articles/nhl-viz.html" class="external-link">NHL visualization</a> and <a href="https://sdvplotR.sportsdataverse.org/articles/recipe-nhl-shot-map.html" class="external-link">NHL shot map</a> articles.</li>
+<li>
+<a href="https://sportyR.sportsdataverse.org/" class="external-link"><strong><code>sportyR</code></strong></a> (<code>install.packages("sportyR")</code>) draws regulation rinks (<code>sportyR::geom_hockey("nhl")</code>) to plot the <code>x_coord_fixed</code> / <code>y_coord_fixed</code> play-by-play coordinates on.</li>
+<li>
+<a href="https://github.com/danmorse314/hockeyR" class="external-link"><strong><code>hockeyR</code></strong></a> (Daniel Morse) is the other NHL play-by-play package for R. The <code>fastRhockey</code> NHL xG feature pipeline is adapted from hockeyR’s.</li>
+<li>
+<a href="https://py.sportsdataverse.org/" class="external-link"><strong><code>sportsdataverse-py</code></strong></a> is the Python package; most <code>fastRhockey</code> functions have a Python twin of the same name.</li>
+</ul>
+<hr>
+</div>
+<div class="section level2">
 <h2 id="changelog">Changelog<a class="anchor" aria-label="anchor" href="#changelog"></a>
 </h2>
 <p><a href="https://fastRhockey.sportsdataverse.org/news/index.html"><strong>Full News on Releases</strong></a></p>
@@ -307,7 +344,7 @@
 </h2>
 <p><a href="https://x.com/SportsDataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/SportsDataverse?color=blue&amp;label=%40SportsDataverse&amp;logo=x&amp;style=for-the-badge" alt="X Follow"></a></p>
 <p><a href="https://github.com/sportsdataverse/fastRhockey" class="external-link"><img src="https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&amp;logo=github&amp;style=for-the-badge&amp;label=Star%20fastRhockey&amp;maxAge=2592000" alt="GitHub stars"></a></p>
-<p><a href="https://github.com/sportsdataverse/fastRhockey/stargazers" class="external-link"> <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/star-history/star-history-dark.svg"><img alt="Star history of sportsdataverse/fastRhockey" src="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/star-history/star-history.png" width="600"></picture></a></p>
+<p><a href="https://github.com/sportsdataverse/fastRhockey" class="external-link"> <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/star-history/star-history-dark.svg"><img alt="Star history of sportsdataverse/fastRhockey" src="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/star-history/star-history.png" width="600"></picture></a></p>
 </div>
 <div class="section level2">
 <h2 id="our-authors">
@@ -355,7 +392,6 @@
 <span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 </div>
-
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">

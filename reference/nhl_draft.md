@@ -44,7 +44,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
    try(nhl_draft())
 #> ── NHL Draft Data from NHL.com ──────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 22:01:25 UTC
+#> ℹ Data updated: 2026-11-01 23:58:24 UTC
 #> # A tibble: 32 × 20
 #>    round pick_in_round overall_pick team_id team_abbrev team_name$default  $fr  
 #>    <int>         <int>        <int>   <int> <chr>       <chr>              <chr>

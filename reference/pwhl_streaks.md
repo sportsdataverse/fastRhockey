@@ -62,7 +62,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(pwhl_streaks(season = 2025))
 #> ── PWHL Player Streaks ──────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 22:03:52 UTC
+#> ℹ Data updated: 2026-11-02 00:00:02 UTC
 #> # A tibble: 26 × 26
 #>    id    player_id rookie first_game_date last_game_date first_name last_name
 #>    <chr> <chr>     <chr>  <chr>           <chr>          <chr>      <chr>    

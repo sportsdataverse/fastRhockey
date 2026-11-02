@@ -128,7 +128,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_team_goals_by_position(season = 2026, league_id = 1))
 #> ── SIHF Team Goals By Position Information from data.sihf.ch ───────────────────
-#> ℹ Data updated: 2026-11-01 22:05:05 UTC
+#> ℹ Data updated: 2026-11-02 00:01:05 UTC
 #> # A tibble: 15 × 17
 #>    season phase_id  rank team_id team_name             team_acronym games_played
 #>     <int>    <int> <int>   <int> <chr>                 <chr>               <int>

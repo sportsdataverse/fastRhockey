@@ -125,7 +125,7 @@ Other VHL Functions:
 # \donttest{
   try(vhl_goals(season = 2026, game_id = 899223))
 #> ── VHL Goals Information from vhlru.ru ──────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 22:05:26 UTC
+#> ℹ Data updated: 2026-11-02 00:01:22 UTC
 #> # A tibble: 5 × 25
 #>   game_id season stage   game_number team_side team_page_id goal_number period
 #>     <int>  <int> <chr>         <int> <chr>            <int>       <int> <chr> 

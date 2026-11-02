@@ -194,7 +194,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_wch_player_splits(athlete_id = "5263060", season = 2025))
-#> ✖ 2026-11-01 21:56:30.950823: Invalid arguments or no ESPN womens-college-hockey player splits data available!
+#> ✖ 2026-11-01 23:55:07.608536: Invalid arguments or no ESPN womens-college-hockey player splits data available!
 #> ✖ Args: league = "womens-college-hockey", athlete_id = "5263060", season = 2025
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

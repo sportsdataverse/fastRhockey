@@ -1,13 +1,14 @@
-# 
-
 # fastRhockey
 
 [`fastRhockey`](https://github.com/sportsdataverse/fastRhockey) is an R
-package for accessing hockey data from the **NHL** (National Hockey
-League) and **PWHL** (Professional Women’s Hockey League) via public web
-APIs. It provides structured data frames of play-by-play, schedule,
-standings, roster, draft, player stats, and team data. The package also
-includes integrated **expected goals (xG)** models trained via XGBoost.
+package for accessing hockey data via public web APIs: the **NHL**
+(National Hockey League), the **PWHL** (Professional Women’s Hockey
+League), the AHL and the three Canadian major-junior leagues (OHL, WHL,
+QMJHL), thirteen European leagues, and NCAA men’s and women’s college
+hockey through ESPN. It exports 880 functions that return structured
+data frames of play-by-play, schedule, standings, roster, draft, player
+stats, and team data. The package also includes integrated **expected
+goals (xG)** models trained via XGBoost.
 
 Part of the [SportsDataverse](https://sportsdataverse.org/) family of
 R/Python packages for sports analytics.
@@ -18,12 +19,17 @@ R/Python packages for sports analytics.
   schedules, standings, rosters, draft picks, player/team stats,
   playoffs, and broadcast information via `api-web.nhle.com` and
   `api.nhle.com/stats`
-- **NHL Edge Analytics** (33 functions) – Skater, goalie, and team
-  advanced metrics from `api-web.nhle.com/v1/edge/...` covering shot
-  location, shot speed, skating speed, skating distance, zone time,
-  comparisons, landing pages, and top-10 leaderboards. Each wrapper
-  accepts an optional `season` argument and falls back to the current
-  season via the `/now` form
+- **NHL Edge Analytics** (35 functions, including the two `/cat/edge`
+  detail wrappers
+  [`nhl_cat_edge_skater_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_cat_edge_skater_detail.md)
+  and
+  [`nhl_cat_edge_goalie_detail()`](https://fastRhockey.sportsdataverse.org/reference/nhl_cat_edge_goalie_detail.md))
+  – Skater, goalie, and team advanced metrics from
+  `api-web.nhle.com/v1/edge/...` covering shot location, shot speed,
+  skating speed, skating distance, zone time, comparisons, landing
+  pages, and top-10 leaderboards. Each wrapper accepts an optional
+  `season` argument and falls back to the current season via the `/now`
+  form
 - **NHL Records API** (25 functions) – First-time integration with
   `records.nhl.com/site/api/` for franchise totals, player/skater/goalie
   career and real-time stats, draft lottery, hall of fame, trophies,
@@ -54,6 +60,42 @@ R/Python packages for sports analytics.
   team rosters, stat leaders, player profiles, game logs, career stats,
   player search, league leaders, transactions, streaks, playoff
   brackets, game summaries, and scorebar via the HockeyTech API
+- **[ESPN
+  NHL](https://fastRhockey.sportsdataverse.org/reference/index.html#espn-nhl)**
+  (126 functions, `espn_nhl_*`) – Play-by-play, team and player box
+  scores, scoreboards, schedules, standings, teams, rosters, athletes,
+  odds, win probability, injuries, transactions and the draft from
+  ESPN’s site, web and core APIs
+- **[Fox Sports
+  NHL](https://fastRhockey.sportsdataverse.org/reference/index.html#fox-sports-nhl-data)**
+  (8 functions, `fox_nhl_*`) – Play-by-play, box scores, odds, team
+  rosters, team stats, game logs, standings and league leaders from Fox
+  Sports’ Bifrost API
+- **[AHL](https://fastRhockey.sportsdataverse.org/reference/index.html#ahl-data),
+  [OHL](https://fastRhockey.sportsdataverse.org/reference/index.html#ohl-data),
+  [WHL](https://fastRhockey.sportsdataverse.org/reference/index.html#whl-data)
+  and
+  [QMJHL](https://fastRhockey.sportsdataverse.org/reference/index.html#qmjhl-data)**
+  (48 functions, `ahl_*`, `ohl_*`, `whl_*`, `qmjhl_*`) – Schedules,
+  play-by-play, standings, teams, rosters, player stats, leaders, game
+  summaries and on-ice shift / TOI / Corsi analytics through the same
+  HockeyTech API as the PWHL
+- **[European
+  leagues](https://fastRhockey.sportsdataverse.org/reference/index.html#european-hockey)**
+  (211 functions) – Thirteen leagues: DEL (`del_*`), ICE Hockey League
+  (`icehl_*`), EIHL (`eihl_*`), Metal Ligaen (`metal_*`), KHL (`khl_*`),
+  VHL (`vhl_*`), SHL (`shl_*`), HockeyAllsvenskan (`ha_*`), Liiga
+  (`liiga_*`), the Swiss federation (`sihf_*`) and National League
+  (`nl_*`), the Czech Extraliga (`elh_*`) and Ligue Magnus (`magnus_*`).
+  Seasons are end years (2027 = 2026-27), requests to one host are
+  spaced at least a second apart, and failures raise classed conditions
+  (`fastRhockey_no_data`, `fastRhockey_asset_fetch`,
+  `fastRhockey_bad_request`)
+- **[NCAA college
+  hockey](https://fastRhockey.sportsdataverse.org/reference/index.html#espn-college-hockey)**
+  (242 functions) – ESPN men’s (`espn_mch_*`) and women’s (`espn_wch_*`)
+  college hockey: play-by-play, box scores, scoreboards, schedules,
+  standings, teams, rosters, rankings and leaders
 - **xG Models** – Expected goals predictions for NHL play-by-play data
   using XGBoost models (5v5, special teams, penalty shots)
 - **Helper Aggregators** – Convenience functions inspired by
@@ -65,11 +107,13 @@ R/Python packages for sports analytics.
   [`nhl_team_summary_range()`](https://fastRhockey.sportsdataverse.org/reference/nhl_team_summary_range.md),
   [`nhl_skater_summary_range()`](https://fastRhockey.sportsdataverse.org/reference/nhl_skater_summary_range.md),
   [`nhl_goalie_summary_range()`](https://fastRhockey.sportsdataverse.org/reference/nhl_goalie_summary_range.md)
-- **Full Season Loaders** – Nineteen NHL loaders covering play-by-play
-  (full + lite), schedules, season + per-game rosters,
-  player/skater/goalie/team boxscores, game info, scoring & penalty
-  summaries, three stars, scratches, linescores, shifts, officials,
-  shots-by-period, and shootouts
+- **[Full Season
+  Loaders](https://fastRhockey.sportsdataverse.org/reference/index.html#nhl-data-loaders)**
+  – Twenty-three NHL loaders covering play-by-play (full + lite),
+  schedules, season + per-game rosters, player/skater/goalie/team
+  boxscores, game info, scoring & penalty summaries, three stars,
+  scratches, linescores, shifts, officials, shots-by-period, shootouts,
+  and conference / division reference tables
   ([`load_nhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp.md),
   [`load_nhl_pbp_lite()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp_lite.md),
   [`load_nhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_schedule.md),
@@ -88,12 +132,19 @@ R/Python packages for sports analytics.
   [`load_nhl_shifts()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shifts.md),
   [`load_nhl_officials()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_officials.md),
   [`load_nhl_shots_by_period()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shots_by_period.md),
-  [`load_nhl_shootout()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shootout.md));
-  for PWHL, fifteen loaders covering play-by-play, schedules, season +
-  per-game rosters, player/skater/goalie/team boxscores, game info,
-  scoring & penalty summaries, three stars, officials, shots-by-period,
-  and shootouts
+  [`load_nhl_shootout()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_shootout.md),
+  [`load_nhl_groups()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_groups.md),
+  [`load_nhl_group_seasons()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_group_seasons.md),
+  [`load_nhl_group_aliases()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_group_aliases.md),
+  [`load_nhl_team_group_seasons()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_team_group_seasons.md));
+  for the
+  [PWHL](https://fastRhockey.sportsdataverse.org/reference/index.html#pwhl-data-loaders),
+  seventeen loaders covering play-by-play (plain and xG-enriched),
+  schedules, season + per-game rosters, player/skater/goalie/team
+  boxscores, game info, scoring & penalty summaries, three stars,
+  officials, shots-by-period, shootouts, and shifts
   ([`load_pwhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_pbp.md),
+  [`load_pwhl_xg_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_xg_pbp.md),
   [`load_pwhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_schedule.md),
   [`load_pwhl_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_rosters.md),
   [`load_pwhl_game_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_game_rosters.md),
@@ -107,10 +158,17 @@ R/Python packages for sports analytics.
   [`load_pwhl_three_stars()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_three_stars.md),
   [`load_pwhl_officials()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_officials.md),
   [`load_pwhl_shots_by_period()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shots_by_period.md),
-  [`load_pwhl_shootout()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shootout.md))
+  [`load_pwhl_shootout()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shootout.md),
+  [`load_pwhl_shifts()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_shifts.md)).
+  Both families also export aliases named to match
+  [sportsdataverse-py](https://py.sportsdataverse.org/)
+  ([`load_nhl_schedules()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_schedules.md),
+  [`load_pwhl_team_boxscores()`](https://fastRhockey.sportsdataverse.org/reference/load_pwhl_team_boxscores.md),
+  …).
 
-> **Note:** PHF (Premier Hockey Federation) functions are deprecated as
-> of v1.0.0. The league ceased operations; use PWHL functions instead.
+> **Note:** PHF (Premier Hockey Federation) functions have been defunct
+> since v1.0.0: they stop with an error. The league ceased operations;
+> use PWHL functions instead.
 
 ![fastRhockey holographic logo
 banner](https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png)
@@ -201,6 +259,21 @@ pwhl_player_info(player_id = 28)
 pwhl_leaders(position = "skaters", season = 2025)
 pwhl_game_summary(game_id = 27)
 
+# ESPN and Fox Sports NHL
+espn_nhl_scoreboard(dates = 20250301)
+fox_nhl_standings(team_id = "1")
+
+# AHL, OHL, WHL and QMJHL (HockeyTech)
+ahl_schedule(season = 2026)
+
+# European leagues (seasons are end years: 2026 = 2025-26)
+liiga_schedule(season = 2026)
+khl_standings(season = 2026)
+
+# NCAA men's and women's college hockey (ESPN)
+espn_mch_scoreboard(dates = 20250301)
+espn_wch_standings()
+
 # Full season loaders
 load_nhl_pbp(seasons = 2024)
 load_nhl_schedule(seasons = 2024)
@@ -234,6 +307,29 @@ well as the process for scraping that historical data.
 
 ------------------------------------------------------------------------
 
+## Companion packages
+
+- [**`sdvplotR`**](https://sdvplotR.sportsdataverse.org/)
+  (`pak::pak("sportsdataverse/sdvplotR")`) adds NHL team logos and
+  colours to `ggplot2` charts and draws shot maps from the `fastRhockey`
+  loaders; see its [NHL
+  visualization](https://sdvplotR.sportsdataverse.org/articles/nhl-viz.html)
+  and [NHL shot
+  map](https://sdvplotR.sportsdataverse.org/articles/recipe-nhl-shot-map.html)
+  articles.
+- [**`sportyR`**](https://sportyR.sportsdataverse.org/)
+  (`install.packages("sportyR")`) draws regulation rinks
+  (`sportyR::geom_hockey("nhl")`) to plot the `x_coord_fixed` /
+  `y_coord_fixed` play-by-play coordinates on.
+- [**`hockeyR`**](https://github.com/danmorse314/hockeyR) (Daniel Morse)
+  is the other NHL play-by-play package for R. The `fastRhockey` NHL xG
+  feature pipeline is adapted from hockeyR’s.
+- [**`sportsdataverse-py`**](https://py.sportsdataverse.org/) is the
+  Python package; most `fastRhockey` functions have a Python twin of the
+  same name.
+
+------------------------------------------------------------------------
+
 ## Changelog
 
 [**Full News on
@@ -250,7 +346,7 @@ Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%
 stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&logo=github&style=for-the-badge&label=Star%20fastRhockey&maxAge=2592000)](https://github.com/sportsdataverse/fastRhockey)
 
 [![Star history of
-sportsdataverse/fastRhockey](https://raw.githubusercontent.com/sportsdataverse/fastRhockey/star-history/star-history.png)](https://github.com/sportsdataverse/fastRhockey/stargazers)
+sportsdataverse/fastRhockey](https://raw.githubusercontent.com/sportsdataverse/fastRhockey/star-history/star-history.png)](https://github.com/sportsdataverse/fastRhockey)
 
 ## **Our Authors**
 

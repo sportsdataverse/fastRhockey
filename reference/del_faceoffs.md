@@ -85,7 +85,7 @@ Other DEL eSports functions:
 # \donttest{
   try(del_faceoffs(match_id = 4444))
 #> ── DEL faceoffs from the eSports hokejovyzapis bucket ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 21:52:33 UTC
+#> ℹ Data updated: 2026-11-01 23:52:43 UTC
 #> # A tibble: 60 × 9
 #>        id  time realtime        position position_shortcut winner_id winner_name
 #>     <int> <int> <chr>           <chr>    <chr>                 <int> <chr>      

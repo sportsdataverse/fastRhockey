@@ -64,12 +64,12 @@ Returns a data frame with goalie statistics.
 # \donttest{
   try(nhl_stats_goalies())
 #> ── NHL Stats Goalies ────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 22:02:54 UTC
+#> ℹ Data updated: 2026-11-01 23:59:23 UTC
 #> # A tibble: 50 × 23
 #>    assists games_played games_started goalie_full_name    goals goals_against
 #>      <int>        <int>         <int> <chr>               <int>         <int>
 #>  1       0           10            10 Pyotr Kochetkov         0            15
-#>  2       0           13            13 Jesper Wallstedt        0            28
+#>  2       0           14            14 Jesper Wallstedt        0            29
 #>  3       0            8             8 Linus Ullmark           0            10
 #>  4       0            8             8 Jacob Fowler            0            15
 #>  5       0           10            10 Mackenzie Blackwood     0            27

@@ -176,8 +176,8 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_injuries())
 #> ── NHL Injuries data from ESPN.com ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 21:54:44 UTC
-#> # A tibble: 260 × 16
+#> ℹ Data updated: 2026-11-01 23:54:05 UTC
+#> # A tibble: 258 × 16
 #>    team_id team_display_name player_id player_display_name player_short_name
 #>    <chr>   <chr>             <chr>     <chr>               <chr>            
 #>  1 25      Anaheim Ducks     NA        Troy Terry          T. Terry         
@@ -190,7 +190,7 @@ Saiem Gilani
 #>  8 2       Buffalo Sabres    NA        Jiri Kulich         J. Kulich        
 #>  9 2       Buffalo Sabres    NA        Konsta Helenius     K. Helenius      
 #> 10 2       Buffalo Sabres    NA        Konsta Helenius     K. Helenius      
-#> # ℹ 250 more rows
+#> # ℹ 248 more rows
 #> # ℹ 11 more variables: player_position <chr>, injury_id <chr>,
 #> #   injury_status <chr>, injury_date <chr>, injury_short_comment <chr>,
 #> #   injury_long_comment <chr>, injury_type <chr>, injury_abbreviation <chr>,

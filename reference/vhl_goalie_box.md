@@ -113,7 +113,7 @@ Other VHL Functions:
 # \donttest{
   try(vhl_goalie_box(season = 2026, game_id = 899223))
 #> ── VHL Goalie Box Information from vhlru.ru ─────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 22:05:21 UTC
+#> ℹ Data updated: 2026-11-02 00:01:18 UTC
 #> # A tibble: 4 × 24
 #>   game_id season stage game_number team_side team_page_id team  jersey player_id
 #>     <int>  <int> <chr>       <int> <chr>            <int> <chr>  <int>     <int>

@@ -1,11 +1,14 @@
 # Getting Started with fastRhockey
 
 [`fastRhockey`](https://github.com/sportsdataverse/fastRhockey) is an R
-package for accessing hockey data from the **PWHL** (Professional
-Women’s Hockey League) and **NHL** (National Hockey League) via public
-web APIs. It provides structured data frames of play-by-play, schedule,
-standings, roster, draft, player stats, and team data. The package also
-includes integrated **expected goals (xG)** models for NHL data.
+package for accessing hockey data via public web APIs: the **PWHL**
+(Professional Women’s Hockey League), the **NHL** (National Hockey
+League), the AHL and the three Canadian major-junior leagues (OHL, WHL,
+QMJHL), thirteen European leagues, and NCAA men’s and women’s college
+hockey through ESPN. It provides structured data frames of play-by-play,
+schedule, standings, roster, draft, player stats, and team data. The
+package also includes integrated **expected goals (xG)** models for NHL
+data.
 
 Part of the [SportsDataverse](https://sportsdataverse.org/) family of
 R/Python packages for sports analytics.
@@ -44,15 +47,16 @@ pak::pak("sportsdataverse/fastRhockey")
 ## PWHL Data
 
 The PWHL (Professional Women’s Hockey League) launched in January 2024
-with six teams: Boston, Minnesota, Montreal, New York, Ottawa, and
-Toronto. `fastRhockey` provides full access to PWHL schedules,
-standings, play-by-play, player box scores, team rosters, and stat
-leaders.
+with six teams (Boston, Minnesota, Montreal, New York, Ottawa and
+Toronto) and added Seattle and Vancouver for 2025-26. `fastRhockey`
+provides full access to PWHL schedules, standings, play-by-play, player
+box scores, team rosters, and stat leaders.
 
 ### Teams
 
 ``` r
 
+library(fastRhockey)
 library(dplyr)
 
 pwhl_teams()
@@ -210,9 +214,12 @@ nhl_draft_year(year = 2024, round = 1)
 
 ### Full Season Loaders
 
-For bulk historical data, use the loader functions that pull from the
-[fastRhockey-data](https://github.com/sportsdataverse/fastRhockey-data)
-repository:
+For bulk historical data, use the loader functions, which read pre-built
+season files from the
+[sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data/releases)
+releases instead of calling the APIs. There are 23 NHL loaders
+(`load_nhl_*()`, from 2010) and 17 PWHL loaders (`load_pwhl_*()`, from
+2024), plus aliases named to match sportsdataverse-py:
 
 ``` r
 
@@ -228,13 +235,124 @@ rosters <- load_nhl_rosters(seasons = 2024)
 
 ------------------------------------------------------------------------
 
+## Plotting shots on a rink
+
+[`sportyR`](https://sportyR.sportsdataverse.org/) draws regulation rinks
+as `ggplot2` layers. The PWHL play-by-play’s `x_coord_fixed` /
+`y_coord_fixed` columns (the AHL, OHL, WHL and QMJHL `*_pbp()` functions
+return the same ones) are in feet from centre ice with the home team
+shooting right, which is the frame `sportyR::geom_hockey("pwhl")` draws.
+Neither `sportyR` nor `ggplot2` is a `fastRhockey` dependency, so
+install them first (`install.packages(c("sportyR", "ggplot2"))`). For
+team logos and colours, see
+[`sdvplotR`](https://sdvplotR.sportsdataverse.org/articles/recipe-nhl-shot-map.html).
+
+``` r
+
+library(ggplot2)
+
+pwhl_shots <- load_pwhl_pbp(seasons = 2025) %>%
+  dplyr::filter(event %in% c("shot", "goal"),
+                !is.na(x_coord_fixed), !is.na(y_coord_fixed))
+
+sportyR::geom_hockey("pwhl") +
+  geom_point(
+    data = pwhl_shots,
+    aes(x = x_coord_fixed, y = y_coord_fixed, colour = event == "goal"),
+    alpha = 0.3, size = 0.8
+  ) +
+  scale_colour_manual(values = c(`FALSE` = "grey40", `TRUE` = "red"),
+                      labels = c("Shot", "Goal"), name = NULL)
+```
+
+------------------------------------------------------------------------
+
+## More leagues
+
+The same calling style covers the other families. Each links to its
+section of the [function
+reference](https://fastRhockey.sportsdataverse.org/reference/index.html).
+
+### ESPN and Fox Sports NHL
+
+[`espn_nhl_*()`](https://fastRhockey.sportsdataverse.org/reference/index.html#espn-nhl)
+(126 functions) read ESPN’s NHL API and
+[`fox_nhl_*()`](https://fastRhockey.sportsdataverse.org/reference/index.html#fox-sports-nhl-data)
+(8 functions) read Fox Sports’ Bifrost API.
+
+``` r
+
+espn_nhl_scoreboard(dates = 20250301)
+espn_nhl_pbp(game_id = "401688263")
+fox_nhl_standings(team_id = "1")
+```
+
+### AHL, OHL, WHL and QMJHL
+
+The
+[AHL](https://fastRhockey.sportsdataverse.org/reference/index.html#ahl-data),
+[OHL](https://fastRhockey.sportsdataverse.org/reference/index.html#ohl-data),
+[WHL](https://fastRhockey.sportsdataverse.org/reference/index.html#whl-data)
+and
+[QMJHL](https://fastRhockey.sportsdataverse.org/reference/index.html#qmjhl-data)
+run on the same HockeyTech feed as the PWHL, so each league has the same
+12 functions (`<league>_schedule()`, `<league>_pbp()`,
+`<league>_standings()`, …).
+
+``` r
+
+ahl_schedule(season = 2026)
+ohl_standings(season = 2026)
+```
+
+### European leagues
+
+Thirteen [European
+leagues](https://fastRhockey.sportsdataverse.org/reference/index.html#european-hockey)
+(211 functions): DEL (`del_*`), ICE Hockey League (`icehl_*`), EIHL
+(`eihl_*`), Metal Ligaen (`metal_*`), KHL (`khl_*`), VHL (`vhl_*`), SHL
+(`shl_*`), HockeyAllsvenskan (`ha_*`), Liiga (`liiga_*`), the Swiss
+federation (`sihf_*`) and National League (`nl_*`), the Czech Extraliga
+(`elh_*`) and Ligue Magnus (`magnus_*`). Seasons are end years (2026 =
+2025-26). Requests to one host are spaced at least a second apart, and a
+failed request raises a classed condition (`fastRhockey_no_data`,
+`fastRhockey_asset_fetch` or `fastRhockey_bad_request`, all inheriting
+`fastRhockey_error`) that you can catch with
+[`tryCatch()`](https://rdrr.io/r/base/conditions.html).
+
+``` r
+
+liiga_schedule(season = 2026)
+
+tryCatch(
+  khl_standings(season = 2026),
+  fastRhockey_error = function(e) message("KHL request failed: ", conditionMessage(e))
+)
+```
+
+### NCAA college hockey
+
+ESPN’s men’s
+([`espn_mch_*()`](https://fastRhockey.sportsdataverse.org/reference/index.html#espn-men-s-college-hockey))
+and women’s
+([`espn_wch_*()`](https://fastRhockey.sportsdataverse.org/reference/index.html#espn-women-s-college-hockey))
+college hockey wrappers, 121 per league, mirror the ESPN NHL family.
+
+``` r
+
+espn_mch_scoreboard(dates = 20250301)
+espn_wch_standings()
+```
+
+------------------------------------------------------------------------
+
 ## Deprecated PHF Functions
 
 The Premier Hockey Federation (PHF), formerly the National Women’s
 Hockey League (NWHL), ceased operations prior to the formation of the
-PWHL. All `phf_*` functions are deprecated as of v1.0.0 and will raise
-errors when called. Use the `pwhl_*` functions instead for women’s
-professional hockey data.
+PWHL. All `phf_*` and `load_phf_*` functions have been defunct since
+v1.0.0 and stop with an error when called. Use the `pwhl_*` functions
+instead for women’s professional hockey data.
 
 ------------------------------------------------------------------------
 
@@ -244,7 +362,7 @@ professional hockey data.
 Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
 
 [![GitHub
-stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&logo=github&style=for-the-badge&label=Star%20fastRhockey&maxAge=2592000)](https://github.com/sportsdataverse/fastRhockey/stargazers/)
+stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&logo=github&style=for-the-badge&label=Star%20fastRhockey&maxAge=2592000)](https://github.com/sportsdataverse/fastRhockey)
 
 ## **Our Authors**
 
@@ -278,6 +396,6 @@ BibTeX Citation
   title = {fastRhockey: Functions to Access Professional Women's Hockey League and National Hockey League Play by Play Data.},
   url = {https://fastRhockey.sportsdataverse.org/},
   doi = {10.32614/CRAN.package.fastRhockey},
-  year = {2025}
+  year = {2026}
 }
 ```

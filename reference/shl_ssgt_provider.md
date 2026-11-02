@@ -83,7 +83,7 @@ Other SHL Functions:
 # \donttest{
   try(shl_ssgt_provider(ssgt_uuid = "iuzqg7dqk9"))
 #> ── SHL Ssgt Provider Information from www.shl.se ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 22:04:30 UTC
+#> ℹ Data updated: 2026-11-02 00:00:32 UTC
 #> # A tibble: 1 × 1
 #>   provider
 #>   <chr>   

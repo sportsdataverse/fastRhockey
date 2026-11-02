@@ -98,7 +98,7 @@ Other VHL Functions:
 # \donttest{
   try(vhl_standings(season = 2026))
 #> ── VHL Standings Information from vhlru.ru ──────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 22:05:48 UTC
+#> ℹ Data updated: 2026-11-02 00:01:39 UTC
 #> # A tibble: 32 × 16
 #>    season stage      tn  rank team     team_season_id games_played  wins ot_wins
 #>     <int> <chr>   <int> <int> <chr>             <int>        <int> <int>   <int>

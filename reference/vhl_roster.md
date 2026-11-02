@@ -92,7 +92,7 @@ Other VHL Functions:
 # \donttest{
   try(vhl_roster(team_page_id = 390))
 #> ── VHL Roster Information from vhlru.ru ─────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 22:05:34 UTC
+#> ℹ Data updated: 2026-11-02 00:01:28 UTC
 #> # A tibble: 23 × 11
 #>    team_page_id team  calendar_tn calendar_team_season_id roster_as_of jersey
 #>           <int> <chr>       <int>                   <int> <chr>         <int>

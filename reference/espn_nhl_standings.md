@@ -184,7 +184,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_standings(season = 2025))
 #> ── NHL Standings data from ESPN.com ─────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 21:55:27 UTC
+#> ℹ Data updated: 2026-11-01 23:54:30 UTC
 #> # A tibble: 32 × 36
 #>    group_name         group_abbreviation team_id team_name    team_abbreviation
 #>    <chr>              <chr>              <chr>   <chr>        <chr>            

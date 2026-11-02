@@ -27,7 +27,7 @@ try(nhl_partner_game_odds())
 #> [1] "2026-11-01"
 #> 
 #> $lastUpdatedUTC
-#> [1] "2026-11-01T22:00:38Z"
+#> [1] "2026-11-01T23:30:38Z"
 #> 
 #> $bettingPartner
 #> $bettingPartner$partnerId
@@ -70,9 +70,9 @@ try(nhl_partner_game_odds())
 #> 5           https://assets.nhle.com/logos/nhl/svg/ANA_light.svg
 #>                                                                                                                                                  homeTeam.odds
 #> 1 PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 290, -500, -265, 154, 35000, -775, -7.5, , , O7.5, Draw, 
-#> 2  MONEY_LINE_3_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 1500, -160, -120, 575, 500, 1100, , O4.5, +2.5, , Draw, 
-#> 3    MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY_TNB, 120, 205, 265, -230, -120, 126, , , Draw, +1.5, O6.5, 
-#> 4                                 PUCK_LINE, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, 190, -118, 125, -125, 330, -1.5, O6.5, , , Draw
+#> 2  MONEY_LINE_3_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 12000, 145, -120, 1200, 700, 700, , O5.5, +1.5, , Draw, 
+#> 3 MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY_TNB, -750, -425, 450, -425, 140, -2200, , , Draw, -2.5, O7.5, 
+#> 4      PUCK_LINE, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 105, 110, 450, 250, 400, 340, +1.5, O7.5, , , Draw, 
 #> 5                                MONEY_LINE_2_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, -102, -135, -245, 150, 310, , O6.5, +1.5, , Draw
 #>   homeTeam.name.default awayTeam.id awayTeam.abbrev
 #> 1            Hurricanes          52             WPG
@@ -86,12 +86,12 @@ try(nhl_partner_game_odds())
 #> 3 https://assets.nhle.com/logos/nhl/svg/UTA_light.svg
 #> 4 https://assets.nhle.com/logos/nhl/svg/EDM_light.svg
 #> 5 https://assets.nhle.com/logos/nhl/svg/OTT_light.svg
-#>                                                                                                                                                   awayTeam.odds
-#> 1 PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -410, 340, 60000, -200, 35000, 475, +7.5, , , U7.5, Draw, 
-#> 2  MONEY_LINE_3_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -475, 124, -110, -950, 500, -2500, , U4.5, -2.5, , Draw, 
-#> 3    MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY_TNB, -154, 115, 265, 175, -110, -162, , , Draw, -1.5, U6.5, 
-#> 4                                  PUCK_LINE, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, -230, -102, 150, 105, 330, +1.5, U6.5, , , Draw
-#> 5                                   MONEY_LINE_2_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, -118, 114, 200, 130, 310, , U6.5, -1.5, , Draw
+#>                                                                                                                                                    awayTeam.odds
+#> 1  PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -410, 340, 60000, -200, 35000, 475, +7.5, , , U7.5, Draw, 
+#> 2 MONEY_LINE_3_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -900, -188, -110, -2800, 700, -1300, , U5.5, -1.5, , Draw, 
+#> 3     MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY_TNB, 470, 1400, 450, 300, -180, 1000, , , Draw, +2.5, U7.5, 
+#> 4   PUCK_LINE, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -135, -140, -210, -345, 400, -500, -1.5, U7.5, , , Draw, 
+#> 5                                    MONEY_LINE_2_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, -118, 114, 200, 130, 310, , U6.5, -1.5, , Draw
 #>   awayTeam.name.default awayTeam.name.fr
 #> 1                  Jets             <NA>
 #> 2                  Wild             <NA>

@@ -101,7 +101,7 @@
 <h2 id="getting-started">Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"></a></h2>
 <div class="section level3">
 <h3 id="prerequisites">Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"></a></h3>
-<ul><li>R &gt;= 4.0.0</li>
+<ul><li>R &gt;= 4.1.0</li>
 <li>
 <a href="https://devtools.r-lib.org/" class="external-link">devtools</a> package</li>
 <li>Git</li>
@@ -148,18 +148,20 @@
 <h3 id="style-guide">Style Guide<a class="anchor" aria-label="anchor" href="#style-guide"></a></h3>
 <ul><li>Use <code>%&gt;%</code> (magrittr pipe) for chaining</li>
 <li>Use <code><a href="https://sfirke.github.io/janitor/reference/clean_names.html" class="external-link">janitor::clean_names()</a></code> on all API responses</li>
-<li>Use <code>httr::RETRY("GET", ...)</code> for HTTP requests (built-in retry)</li>
+<li>Make HTTP requests through the package’s <strong>httr2</strong> helpers in <code>R/utils.R</code>, never <code>httr</code> (it is not a dependency): <code>.retry_request(url, params = ...)</code> performs a GET with <code><a href="https://httr2.r-lib.org/reference/req_retry.html" class="external-link">httr2::req_retry()</a></code> and the proxy resolution described under <a href="#proxy-support">Proxy support</a>; <code><a href="reference/dot-resp_text.html">.resp_text()</a></code> / <code><a href="reference/dot-resp_json.html">.resp_json()</a></code> read the body</li>
 <li>Use <code><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue::glue()</a></code> for URL string interpolation</li>
 <li>Maximum line length: no strict limit, but keep readable</li>
 </ul></div>
 <div class="section level3">
 <h3 id="error-handling">Error Handling<a class="anchor" aria-label="anchor" href="#error-handling"></a></h3>
-<p>All API-calling functions must follow this pattern:</p>
+<p>The package has three failure contracts. Follow the one of the family you are working in.</p>
+<p><strong>NHL and PWHL wrappers</strong> report the error with a message and return <code>NULL</code> (a few return an empty data frame):</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/conditions.html" class="external-link">tryCatch</a></span><span class="op">(</span></span>
 <span>    expr <span class="op">=</span> <span class="op">{</span></span>
-<span>        <span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/RETRY.html" class="external-link">RETRY</a></span><span class="op">(</span><span class="st">"GET"</span>, <span class="va">url</span><span class="op">)</span></span>
+<span>        <span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/dot-retry_request.html">.retry_request</a></span><span class="op">(</span><span class="va">url</span><span class="op">)</span></span>
 <span>        <span class="fu">check_status</span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
+<span>        <span class="va">raw</span> <span class="op">&lt;-</span> <span class="fu">jsonlite</span><span class="fu">::</span><span class="fu"><a href="https://jeroen.r-universe.dev/jsonlite/reference/fromJSON.html" class="external-link">fromJSON</a></span><span class="op">(</span><span class="fu"><a href="reference/dot-resp_text.html">.resp_text</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span>, flatten <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span>        <span class="co"># ... parse and return</span></span>
 <span>    <span class="op">}</span>,</span>
 <span>    error <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">e</span><span class="op">)</span> <span class="op">{</span></span>
@@ -167,8 +169,15 @@
 <span>        <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span></span>
 <span>    <span class="op">}</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>Functions return <code>NULL</code> on failure – never throw errors to the user.</p>
-</div>
+<p><strong>ESPN (NHL and men’s/women’s college), Fox Sports and AHL / OHL / WHL / QMJHL wrappers</strong> report the error through <code><a href="reference/dot-report_api_error.html">.report_api_error()</a></code> (or <code><a href="https://cli.r-lib.org/reference/cli_alert.html" class="external-link">cli::cli_alert_danger()</a></code>) and return an empty data frame.</p>
+<p><strong>European league wrappers</strong> (<code>del_*</code>, <code>khl_*</code>, <code>shl_*</code>, <code>liiga_*</code>, …) build the request with <code><a href="reference/dot-build_request.html">.build_request()</a></code> and perform it through <code>.polite_perform()</code> or <code>.euro_get()</code> (<code>R/euro_hockey_runtime.R</code>). These space requests to one host at least a second apart and retry only HTTP 429, 500, 502, 503 and 504 (plus connection failures), honouring <code>Retry-After</code> up to 120 s. On failure they raise a classed condition rather than returning <code>NULL</code>, all inheriting <code>fastRhockey_error</code>:</p>
+<ul><li>
+<code>fastRhockey_no_data</code>: HTTP 404, or the provider has nothing for the request.</li>
+<li>
+<code>fastRhockey_bad_request</code>: HTTP 400 or 422.</li>
+<li>
+<code>fastRhockey_asset_fetch</code>: any other non-2xx status (including a 429 or 5xx still failing after the retries), a connection failure, a block page, or an empty or wrong body.</li>
+</ul></div>
 <div class="section level3">
 <h3 id="s3-class">S3 Class<a class="anchor" aria-label="anchor" href="#s3-class"></a></h3>
 <p>All data-returning functions must wrap output with <code>make_fastRhockey_data()</code>:</p>
@@ -180,6 +189,7 @@
 <ul><li>All exported functions require roxygen2 documentation</li>
 <li>Include <code>@examples</code> with <code>\donttest{ try(...) }</code> wrapper</li>
 <li>Run <code>devtools::document()</code> to regenerate <code>man/</code> pages</li>
+<li>Edit <code>README.Rmd</code>, never <code>README.md</code>, and knit it with <code>devtools::build_readme()</code>. Its function counts read the <em>installed</em> package’s exports, and <code>build_readme()</code> installs the working copy first; a plain <code><a href="https://pkgs.rstudio.com/rmarkdown/reference/render.html" class="external-link">rmarkdown::render()</a></code> counts whatever version is installed (CRAN 1.0.0 gives 423 instead of 880)</li>
 </ul></div>
 </div>
 <div class="section level2">
@@ -192,7 +202,9 @@
 <li>
 <code><a href="reference/pwhl_schedule.html">pwhl_schedule()</a></code> – PWHL schedule</li>
 <li>
-<code><a href="reference/phf_standings.html">phf_standings()</a></code> – PHF standings</li>
+<code><a href="reference/khl_standings.html">khl_standings()</a></code> – KHL standings</li>
+<li>
+<code><a href="reference/espn_mch_scoreboard.html">espn_mch_scoreboard()</a></code> – ESPN men’s college hockey scoreboard</li>
 <li>
 <code><a href="reference/nhl_player_stats.html">nhl_player_stats()</a></code> – NHL player statistics</li>
 </ul></div>
@@ -238,9 +250,10 @@
 <code><a href="reference/most_recent_nhl_season_api_param.html">most_recent_nhl_season_api_param()</a></code> return value</td>
 <td>Concatenated string</td>
 <td><code>"20242025"</code></td>
-</tr><tr><td>PWHL / PHF season parameter</td>
-<td>Numeric year</td>
-<td><code>2024</code></td>
+</tr><tr><td>PWHL / HockeyTech / ESPN / European season parameter</td>
+<td>Numeric end year</td>
+<td>
+<code>2026</code> (= 2025-26)</td>
 </tr></tbody></table></div>
 </div>
 <div class="section level2">
@@ -258,6 +271,7 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">test_that</span><span class="op">(</span><span class="st">"LEAGUE - Descriptive test name"</span>, <span class="op">{</span></span>
 <span>    <span class="fu">skip_on_cran</span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="fu">skip_nhl_test</span><span class="op">(</span><span class="op">)</span>  <span class="co"># or skip_pwhl_test(), skip_espn_test(), skip_euro_test()</span></span>
 <span>    <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">function_name</span><span class="op">(</span>param <span class="op">=</span> <span class="va">value</span><span class="op">)</span></span>
 <span></span>
 <span>    <span class="fu">expect_s3_class</span><span class="op">(</span><span class="va">x</span>, <span class="st">"data.frame"</span><span class="op">)</span></span>
@@ -272,8 +286,7 @@
 </div>
 <div class="section level3">
 <h3 id="test-conventions">Test Conventions<a class="anchor" aria-label="anchor" href="#test-conventions"></a></h3>
-<ul><li>
-<code>skip_on_cran()</code> on all tests hitting live APIs</li>
+<ul><li>the family’s <code>skip_&lt;family&gt;_test()</code> on all tests hitting live APIs (it already skips on CRAN and CI); offline tests (mocks, fixtures, captured bodies) need no skip</li>
 <li>Check both <code>data.frame</code> and <code>fastRhockey_data</code> S3 classes</li>
 <li>Validate <code>nrow(x) &gt; 0</code>
 </li>
@@ -284,7 +297,7 @@
 </ul></div>
 <div class="section level3">
 <h3 id="testing-environment-variables">Testing Environment Variables<a class="anchor" aria-label="anchor" href="#testing-environment-variables"></a></h3>
-<p>Tests in this package make <strong>live API calls</strong> and are skipped on CRAN via <code>skip_on_cran()</code>. To run the full test suite locally:</p>
+<p>Most tests in this package make <strong>live API calls</strong>. The rule: live tests always skip on CRAN and CI; run them locally. Offline tests (mocks, fixtures, captured bodies) run everywhere. To run the live tests on your machine:</p>
 <ul><li>
 <p><strong><code>NOT_CRAN=true</code></strong>: Set this environment variable so that <code>skip_on_cran()</code> does not skip tests. You can set it in your <code>.Renviron</code> file or inline:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
@@ -292,24 +305,26 @@
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">test</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </li>
 <li>
-<p><strong>League-specific test toggles</strong> (via <code>tests/testthat/helper-skip.R</code>):</p>
-<table class="table"><colgroup><col width="34%"><col width="31%"><col width="34%"></colgroup><thead><tr><th>Variable</th>
-<th>Default</th>
+<p><strong>Family test toggles</strong> (via <code>tests/testthat/helper-skip.R</code>). Every live helper goes through <code>skip_live_test()</code>: it calls <code>skip_on_cran()</code> and <code>skip_on_ci()</code>, then runs the test only when its toggle is <code>1</code> or <code>true</code> (any case). An unset toggle skips, so every live family is off until you turn it on:</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Variable</th>
 <th>Controls</th>
 </tr></thead><tbody><tr><td><code>RUN_NHL_TESTS</code></td>
-<td><code>"true"</code></td>
 <td>NHL API tests (<code>skip_nhl_test()</code>)</td>
 </tr><tr><td><code>RUN_PWHL_TESTS</code></td>
-<td><code>"true"</code></td>
 <td>PWHL API tests (<code>skip_pwhl_test()</code>)</td>
+</tr><tr><td><code>RUN_ESPN_TESTS</code></td>
+<td>ESPN NHL tests (<code>skip_espn_test()</code>)</td>
+</tr><tr><td><code>RUN_EURO_TESTS</code></td>
+<td>European league and ESPN college hockey (<code>espn_mch_*</code> / <code>espn_wch_*</code>) live tests (<code>skip_euro_test()</code>)</td>
 </tr><tr><td><code>RUN_PHF_TESTS</code></td>
-<td><code>"false"</code></td>
-<td>PHF deprecated tests (<code>skip_phf_test()</code>)</td>
+<td>Defunct PHF tests (<code>skip_phf_test()</code>)</td>
+</tr><tr><td><code>RUN_SLOW_NHL_TESTS</code></td>
+<td>The two slow season-wide NHL aggregator tests (<code>skip_slow_nhl_test()</code>, on top of <code>RUN_NHL_TESTS</code>)</td>
 </tr></tbody></table><p>Set them before running tests:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>NOT_CRAN <span class="op">=</span> <span class="st">"true"</span>, RUN_NHL_TESTS <span class="op">=</span> <span class="st">"true"</span>, RUN_PWHL_TESTS <span class="op">=</span> <span class="st">"true"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>NOT_CRAN <span class="op">=</span> <span class="st">"true"</span>, RUN_NHL_TESTS <span class="op">=</span> <span class="st">"1"</span>, RUN_EURO_TESTS <span class="op">=</span> <span class="st">"1"</span><span class="op">)</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">test</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>On CI, these are set in <code>.github/workflows/R-CMD-check.yaml</code> as: <code>NHL_TESTS=1</code>, <code>PWHL_TESTS=1</code>, <code>PHF_TESTS=0</code>.</p>
+<p>CI (<code>R-CMD-check.yaml</code>, <code>test-coverage.yaml</code>) passes the toggles through from repository variables, but <code>skip_on_ci()</code> still skips every live test there, so CI runs the offline tests only.</p>
 </li>
 <li>
 <p><strong><code>GITHUB_PAT</code></strong>: Some loader functions access data from GitHub repositories under the <code>sportsdataverse</code> org. Set a GitHub personal access token to avoid rate limits:</p>
@@ -349,7 +364,7 @@
 </tr></tbody></table></div>
 <div class="section level3">
 <h3 id="scopes">Scopes<a class="anchor" aria-label="anchor" href="#scopes"></a></h3>
-<table class="table"><thead><tr><th>Scope</th>
+<table class="table"><colgroup><col width="46%"><col width="53%"></colgroup><thead><tr><th>Scope</th>
 <th>Covers</th>
 </tr></thead><tbody><tr><td><code>nhl</code></td>
 <td>NHL functions and helpers</td>
@@ -357,6 +372,14 @@
 <td>PHF functions (defunct league)</td>
 </tr><tr><td><code>pwhl</code></td>
 <td>PWHL functions</td>
+</tr><tr><td><code>hockeytech</code></td>
+<td>AHL / OHL / WHL / QMJHL and the shared HockeyTech helpers</td>
+</tr><tr><td><code>espn</code></td>
+<td>ESPN NHL and college hockey functions</td>
+</tr><tr><td><code>fox</code></td>
+<td>Fox Sports NHL functions</td>
+</tr><tr><td><code>euro</code></td>
+<td>European league functions (or the league prefix, e.g. <code>khl</code>, <code>shl</code>)</td>
 </tr><tr><td><code>xg</code></td>
 <td>Expected goals model pipeline</td>
 </tr><tr><td><code>pkgdown</code></td>

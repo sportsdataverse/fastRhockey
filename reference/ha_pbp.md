@@ -126,7 +126,7 @@ Other HA Functions:
     scheduled_date_time = "2026-09-18T17:00:00.000Z"
   ))
 #> ── HA Pbp Information from hockeyallsvenskan.se ─────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 21:57:13 UTC
+#> ℹ Data updated: 2026-11-01 23:55:29 UTC
 #> # A tibble: 113 × 25
 #>    statnet_game_number home_statnet_id away_statnet_id period period_label
 #>                  <int> <chr>           <chr>            <int> <chr>       

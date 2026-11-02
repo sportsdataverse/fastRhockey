@@ -126,7 +126,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_goalie_stats(season = 2026, league_id = 1))
 #> ── SIHF Goalie Stats Information from data.sihf.ch ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 22:04:44 UTC
+#> ℹ Data updated: 2026-11-02 00:00:45 UTC
 #> # A tibble: 35 × 19
 #>    season phase_id  rank player      team_id team_name team_acronym games_played
 #>     <int>    <int> <int> <chr>         <int> <chr>     <chr>               <int>

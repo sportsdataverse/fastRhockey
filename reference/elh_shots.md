@@ -102,7 +102,7 @@ Other ELH Functions:
 # \donttest{
   try(elh_shots(match_id = 2928321))
 #> ── ELH Shots Information from hokej.cz ──────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 21:53:10 UTC
+#> ℹ Data updated: 2026-11-01 23:53:16 UTC
 #> # A tibble: 121 × 23
 #>    hokejcz_game_id game_date  hokejcz_home_team_id home_team_name home_team_code
 #>              <int> <chr>                     <int> <chr>          <chr>         

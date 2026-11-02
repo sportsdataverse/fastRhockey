@@ -129,7 +129,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_game(game_id = 1, season = 2026))
 #> ── Liiga game header Information from liiga.fi ──────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 21:58:15 UTC
+#> ℹ Data updated: 2026-11-01 23:56:25 UTC
 #> # A tibble: 1 × 55
 #>   game_id season start  periods finished_type started ended game_time spectators
 #>     <int>  <int> <chr>  <chr>   <chr>         <lgl>   <lgl>     <int>      <int>

@@ -44,7 +44,7 @@ Other WHL Functions:
 ``` r
  try(whl_leaders()) 
 #> ── WHL Leaders from HockeyTech ──────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 22:05:51 UTC
+#> ℹ Data updated: 2026-11-02 00:01:41 UTC
 #> # A tibble: 10 × 15
 #>     rank player_id jersey_number name      team_id team_name team_code team_logo
 #>    <int> <chr>     <chr>         <chr>     <chr>   <chr>     <chr>     <chr>    
@@ -57,7 +57,7 @@ Other WHL Functions:
 #>  7     2 30198     11            Poul And… 211     Red Deer… RD        https://…
 #>  8     3 29516     21            Beckett … 211     Red Deer… RD        https://…
 #>  9     4 29463     27            Mathis P… 223     Vancouve… VAN       https://…
-#> 10     5 30072     13            Liam Pue  212     Regina P… REG       https://…
+#> 10     5 30709     89            Kris Mui… 201     Brandon … BDN       https://…
 #> # ℹ 7 more variables: team_logo_small <chr>, stat_formatted <chr>,
 #> #   type_formatted <chr>, photo <chr>, photo_small <chr>, position <chr>,
 #> #   division <chr>

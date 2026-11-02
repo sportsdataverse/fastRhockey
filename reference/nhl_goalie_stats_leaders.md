@@ -66,12 +66,12 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_goalie_stats_leaders())
 #> ── NHL Goalie Stats Leaders ─────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 22:01:57 UTC
+#> ℹ Data updated: 2026-11-01 23:58:44 UTC
 #> # A tibble: 20 × 21
 #>         id sweater_number headshot         team_abbrev team_logo position  value
 #>      <int>          <int> <chr>            <chr>       <chr>     <chr>     <dbl>
 #>  1 8481611             52 https://assets.… CAR         https://… G        10    
-#>  2 8482661             30 https://assets.… MIN         https://… G         8    
+#>  2 8482661             30 https://assets.… MIN         https://… G         9    
 #>  3 8480280              1 https://assets.… BOS         https://… G         7    
 #>  4 8479979             29 https://assets.… DAL         https://… G         7    
 #>  5 8478406             39 https://assets.… COL         https://… G         7    

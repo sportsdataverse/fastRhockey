@@ -16,8 +16,8 @@
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="Getting Started with fastRhockey">
-<meta name="description" content="A walkthrough of &lt;code&gt;fastRhockey&lt;/code&gt; for accessing PWHL and NHL hockey data.">
-<meta property="og:description" content="A walkthrough of &lt;code&gt;fastRhockey&lt;/code&gt; for accessing PWHL and NHL hockey data.">
+<meta name="description" content="A walkthrough of &lt;code&gt;fastRhockey&lt;/code&gt; for accessing NHL, PWHL, AHL and CHL, European and college hockey data.">
+<meta property="og:description" content="A walkthrough of &lt;code&gt;fastRhockey&lt;/code&gt; for accessing NHL, PWHL, AHL and CHL, European and college hockey data.">
 <meta property="og:image" content="https://github.com/sportsdataverse/fastRhockey-data/blob/main/themes/fastRhockey_card.png?raw=true">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@benhowell71">
@@ -151,12 +151,14 @@ Saiem Gilani
     
     
 <p><a href="https://github.com/sportsdataverse/fastRhockey" class="external-link"><code>fastRhockey</code></a>
-is an R package for accessing hockey data from the <strong>PWHL</strong>
-(Professional Women’s Hockey League) and <strong>NHL</strong> (National
-Hockey League) via public web APIs. It provides structured data frames
-of play-by-play, schedule, standings, roster, draft, player stats, and
-team data. The package also includes integrated <strong>expected goals
-(xG)</strong> models for NHL data.</p>
+is an R package for accessing hockey data via public web APIs: the
+<strong>PWHL</strong> (Professional Women’s Hockey League), the
+<strong>NHL</strong> (National Hockey League), the AHL and the three
+Canadian major-junior leagues (OHL, WHL, QMJHL), thirteen European
+leagues, and NCAA men’s and women’s college hockey through ESPN. It
+provides structured data frames of play-by-play, schedule, standings,
+roster, draft, player stats, and team data. The package also includes
+integrated <strong>expected goals (xG)</strong> models for NHL data.</p>
 <p>Part of the <a href="https://sportsdataverse.org/" class="external-link">SportsDataverse</a> family of
 R/Python packages for sports analytics.</p>
 <center>
@@ -185,15 +187,17 @@ with:</p>
 <h2 id="pwhl-data">PWHL Data<a class="anchor" aria-label="anchor" href="#pwhl-data"></a>
 </h2>
 <p>The PWHL (Professional Women’s Hockey League) launched in January
-2024 with six teams: Boston, Minnesota, Montreal, New York, Ottawa, and
-Toronto. <code>fastRhockey</code> provides full access to PWHL
-schedules, standings, play-by-play, player box scores, team rosters, and
-stat leaders.</p>
+2024 with six teams (Boston, Minnesota, Montreal, New York, Ottawa and
+Toronto) and added Seattle and Vancouver for 2025-26.
+<code>fastRhockey</code> provides full access to PWHL schedules,
+standings, play-by-play, player box scores, team rosters, and stat
+leaders.</p>
 <div class="section level3">
 <h3 id="teams">Teams<a class="anchor" aria-label="anchor" href="#teams"></a>
 </h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fastRhockey.sportsdataverse.org/">fastRhockey</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/pwhl_teams.html">pwhl_teams</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -328,9 +332,12 @@ integrated.</p>
 <div class="section level3">
 <h3 id="full-season-loaders">Full Season Loaders<a class="anchor" aria-label="anchor" href="#full-season-loaders"></a>
 </h3>
-<p>For bulk historical data, use the loader functions that pull from the
-<a href="https://github.com/sportsdataverse/fastRhockey-data" class="external-link">fastRhockey-data</a>
-repository:</p>
+<p>For bulk historical data, use the loader functions, which read
+pre-built season files from the <a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link">sportsdataverse-data</a>
+releases instead of calling the APIs. There are 23 NHL loaders
+(<code>load_nhl_*()</code>, from 2010) and 17 PWHL loaders
+(<code>load_pwhl_*()</code>, from 2024), plus aliases named to match
+sportsdataverse-py:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Full season of play-by-play</span></span>
 <span><span class="va">pbp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_nhl_pbp.html">load_nhl_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
@@ -344,13 +351,114 @@ repository:</p>
 </div>
 </div>
 <div class="section level2">
+<h2 id="plotting-shots-on-a-rink">Plotting shots on a rink<a class="anchor" aria-label="anchor" href="#plotting-shots-on-a-rink"></a>
+</h2>
+<p><a href="https://sportyR.sportsdataverse.org/" class="external-link"><code>sportyR</code></a>
+draws regulation rinks as <code>ggplot2</code> layers. The PWHL
+play-by-play’s <code>x_coord_fixed</code> / <code>y_coord_fixed</code>
+columns (the AHL, OHL, WHL and QMJHL <code>*_pbp()</code> functions
+return the same ones) are in feet from centre ice with the home team
+shooting right, which is the frame
+<code>sportyR::geom_hockey("pwhl")</code> draws. Neither
+<code>sportyR</code> nor <code>ggplot2</code> is a
+<code>fastRhockey</code> dependency, so install them first
+(<code>install.packages(c("sportyR", "ggplot2"))</code>). For team logos
+and colours, see <a href="https://sdvplotR.sportsdataverse.org/articles/recipe-nhl-shot-map.html" class="external-link"><code>sdvplotR</code></a>.</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">pwhl_shots</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_pwhl_pbp.html">load_pwhl_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">event</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"shot"</span>, <span class="st">"goal"</span><span class="op">)</span>,</span>
+<span>                <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">x_coord_fixed</span><span class="op">)</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">y_coord_fixed</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">sportyR</span><span class="fu">::</span><span class="fu"><a href="https://sportyR.sportsdataverse.org/reference/geom_hockey.html" class="external-link">geom_hockey</a></span><span class="op">(</span><span class="st">"pwhl"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">pwhl_shots</span>,</span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x_coord_fixed</span>, y <span class="op">=</span> <span class="va">y_coord_fixed</span>, colour <span class="op">=</span> <span class="va">event</span> <span class="op">==</span> <span class="st">"goal"</span><span class="op">)</span>,</span>
+<span>    alpha <span class="op">=</span> <span class="fl">0.3</span>, size <span class="op">=</span> <span class="fl">0.8</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_colour_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>`FALSE` <span class="op">=</span> <span class="st">"grey40"</span>, `TRUE` <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span>,</span>
+<span>                      labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Shot"</span>, <span class="st">"Goal"</span><span class="op">)</span>, name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div class="section level2">
+<h2 id="more-leagues">More leagues<a class="anchor" aria-label="anchor" href="#more-leagues"></a>
+</h2>
+<p>The same calling style covers the other families. Each links to its
+section of the <a href="https://fastRhockey.sportsdataverse.org/reference/index.html">function
+reference</a>.</p>
+<div class="section level3">
+<h3 id="espn-and-fox-sports-nhl">ESPN and Fox Sports NHL<a class="anchor" aria-label="anchor" href="#espn-and-fox-sports-nhl"></a>
+</h3>
+<p><a href="https://fastRhockey.sportsdataverse.org/reference/index.html#espn-nhl"><code>espn_nhl_*()</code></a>
+(126 functions) read ESPN’s NHL API and <a href="https://fastRhockey.sportsdataverse.org/reference/index.html#fox-sports-nhl-data"><code>fox_nhl_*()</code></a>
+(8 functions) read Fox Sports’ Bifrost API.</p>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/espn_nhl_scoreboard.html">espn_nhl_scoreboard</a></span><span class="op">(</span>dates <span class="op">=</span> <span class="fl">20250301</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_nhl_pbp.html">espn_nhl_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="st">"401688263"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/fox_nhl_standings.html">fox_nhl_standings</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="st">"1"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="ahl-ohl-whl-and-qmjhl">AHL, OHL, WHL and QMJHL<a class="anchor" aria-label="anchor" href="#ahl-ohl-whl-and-qmjhl"></a>
+</h3>
+<p>The <a href="https://fastRhockey.sportsdataverse.org/reference/index.html#ahl-data">AHL</a>,
+<a href="https://fastRhockey.sportsdataverse.org/reference/index.html#ohl-data">OHL</a>,
+<a href="https://fastRhockey.sportsdataverse.org/reference/index.html#whl-data">WHL</a>
+and <a href="https://fastRhockey.sportsdataverse.org/reference/index.html#qmjhl-data">QMJHL</a>
+run on the same HockeyTech feed as the PWHL, so each league has the same
+12 functions (<code>&lt;league&gt;_schedule()</code>,
+<code>&lt;league&gt;_pbp()</code>,
+<code>&lt;league&gt;_standings()</code>, …).</p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ahl_schedule.html">ahl_schedule</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/ohl_standings.html">ohl_standings</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="european-leagues">European leagues<a class="anchor" aria-label="anchor" href="#european-leagues"></a>
+</h3>
+<p>Thirteen <a href="https://fastRhockey.sportsdataverse.org/reference/index.html#european-hockey">European
+leagues</a> (211 functions): DEL (<code>del_*</code>), ICE Hockey League
+(<code>icehl_*</code>), EIHL (<code>eihl_*</code>), Metal Ligaen
+(<code>metal_*</code>), KHL (<code>khl_*</code>), VHL
+(<code>vhl_*</code>), SHL (<code>shl_*</code>), HockeyAllsvenskan
+(<code>ha_*</code>), Liiga (<code>liiga_*</code>), the Swiss federation
+(<code>sihf_*</code>) and National League (<code>nl_*</code>), the Czech
+Extraliga (<code>elh_*</code>) and Ligue Magnus (<code>magnus_*</code>).
+Seasons are end years (2026 = 2025-26). Requests to one host are spaced
+at least a second apart, and a failed request raises a classed condition
+(<code>fastRhockey_no_data</code>, <code>fastRhockey_asset_fetch</code>
+or <code>fastRhockey_bad_request</code>, all inheriting
+<code>fastRhockey_error</code>) that you can catch with
+<code><a href="https://rdrr.io/r/base/conditions.html" class="external-link">tryCatch()</a></code>.</p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/liiga_schedule.html">liiga_schedule</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/conditions.html" class="external-link">tryCatch</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/khl_standings.html">khl_standings</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span>,</span>
+<span>  fastRhockey_error <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">e</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"KHL request failed: "</span>, <span class="fu"><a href="https://rdrr.io/r/base/conditions.html" class="external-link">conditionMessage</a></span><span class="op">(</span><span class="va">e</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="ncaa-college-hockey">NCAA college hockey<a class="anchor" aria-label="anchor" href="#ncaa-college-hockey"></a>
+</h3>
+<p>ESPN’s men’s (<a href="https://fastRhockey.sportsdataverse.org/reference/index.html#espn-men-s-college-hockey"><code>espn_mch_*()</code></a>)
+and women’s (<a href="https://fastRhockey.sportsdataverse.org/reference/index.html#espn-women-s-college-hockey"><code>espn_wch_*()</code></a>)
+college hockey wrappers, 121 per league, mirror the ESPN NHL family.</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/espn_mch_scoreboard.html">espn_mch_scoreboard</a></span><span class="op">(</span>dates <span class="op">=</span> <span class="fl">20250301</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wch_standings.html">espn_wch_standings</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+</div>
+<div class="section level2">
 <h2 id="deprecated-phf-functions">Deprecated PHF Functions<a class="anchor" aria-label="anchor" href="#deprecated-phf-functions"></a>
 </h2>
 <p>The Premier Hockey Federation (PHF), formerly the National Women’s
 Hockey League (NWHL), ceased operations prior to the formation of the
-PWHL. All <code>phf_*</code> functions are deprecated as of v1.0.0 and
-will raise errors when called. Use the <code>pwhl_*</code> functions
-instead for women’s professional hockey data.</p>
+PWHL. All <code>phf_*</code> and <code>load_phf_*</code> functions have
+been defunct since v1.0.0 and stop with an error when called. Use the
+<code>pwhl_*</code> functions instead for women’s professional hockey
+data.</p>
 <hr>
 </div>
 <div class="section level2">
@@ -358,7 +466,7 @@ instead for women’s professional hockey data.</p>
 Twitter and star this repo<a class="anchor" aria-label="anchor" href="#follow-the-sportsdataverse-on-twitter-and-star-this-repo"></a>
 </h2>
 <p><a href="https://twitter.com/sportsdataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/sportsdataverse?color=blue&amp;label=%40sportsdataverse&amp;logo=twitter&amp;style=for-the-badge" alt="Twitter Follow"></a></p>
-<p><a href="https://github.com/sportsdataverse/fastRhockey/stargazers/" class="external-link"><img src="https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&amp;logo=github&amp;style=for-the-badge&amp;label=Star%20fastRhockey&amp;maxAge=2592000" alt="GitHub stars"></a></p>
+<p><a href="https://github.com/sportsdataverse/fastRhockey" class="external-link"><img src="https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&amp;logo=github&amp;style=for-the-badge&amp;label=Star%20fastRhockey&amp;maxAge=2592000" alt="GitHub stars"></a></p>
 </div>
 <div class="section level2">
 <h2 id="our-authors">
@@ -397,13 +505,13 @@ Twitter and star this repo<a class="anchor" aria-label="anchor" href="#follow-th
 <p>To cite the <a href="https://fastRhockey.sportsdataverse.org/"><strong><code>fastRhockey</code></strong></a>
 R package in publications, use:</p>
 <p>BibTeX Citation</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">howell_gilani_fastRhockey</span>,</span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>  <span class="dt">author</span> = {Ben Howell and Saiem Gilani},</span>
-<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>  <span class="dt">title</span> = {fastRhockey: Functions to Access Professional Women's Hockey League and National Hockey League Play by Play Data.},</span>
-<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>  <span class="dt">url</span> = {https://fastRhockey.sportsdataverse.org/},</span>
-<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>  <span class="dt">doi</span> = {10.32614/CRAN.package.fastRhockey},</span>
-<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a>  <span class="dt">year</span> = {2025}</span>
-<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">howell_gilani_fastRhockey</span>,</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>  <span class="dt">author</span> = {Ben Howell and Saiem Gilani},</span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>  <span class="dt">title</span> = {fastRhockey: Functions to Access Professional Women's Hockey League and National Hockey League Play by Play Data.},</span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a>  <span class="dt">url</span> = {https://fastRhockey.sportsdataverse.org/},</span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a>  <span class="dt">doi</span> = {10.32614/CRAN.package.fastRhockey},</span>
+<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a>  <span class="dt">year</span> = {2026}</span>
+<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a>}</span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
