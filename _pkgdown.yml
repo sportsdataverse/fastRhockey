@@ -65,7 +65,7 @@ home:
 
 navbar:
   structure:
-    left: [home, reference, articles, news, network, data, status]
+    left: [home, reference, articles, models, news, network, data, status]
     right: [search, x, github, lightswitch]
   components:
     home:
@@ -90,6 +90,22 @@ navbar:
       menu:
         - text: "fastRhockey Introduction"
           href: articles/introduction.html
+        - text: "Corsi, Fenwick and PDO in R"
+          href: articles/hockey-advanced-metrics-corsi-fenwick.html
+        - text: "NHL and PWHL Rink Plots and Shot Maps"
+          href: articles/nhl-pwhl-rink-plots-shot-maps.html
+        - text: "PWHL and College Hockey"
+          href: articles/pwhl-and-college-hockey.html
+        - text: "European Hockey Leagues"
+          href: articles/european-hockey-leagues.html
+    models:
+      icon: "fas fa-chart-line"
+      text: "Models"
+      menu:
+        - text: "NHL Expected Goals (xG) Model"
+          href: articles/nhl-expected-goals-xg-model.html
+        - text: "PWHL Expected Goals (xG) Model"
+          href: articles/pwhl-expected-goals-xg-model.html
     news:
       icon: "fas fa-newspaper"
       text: " News"

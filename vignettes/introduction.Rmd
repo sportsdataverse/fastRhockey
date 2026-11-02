@@ -1,6 +1,6 @@
 ---
-title: "Getting Started with fastRhockey"
-description: "A walkthrough of <code>fastRhockey</code> for accessing NHL, PWHL, AHL and CHL, European and college hockey data."
+title: "Getting Started with fastRhockey: NHL, PWHL and Hockey Data in R"
+description: "Install fastRhockey, load NHL and PWHL play-by-play into R, make your first hockey chart with ggplot2, and learn Corsi, Fenwick, xG and other analytics terms."
 author: "Ben Howell, Saiem Gilani <br><a href='https://x.com/BenHowell71' target='blank'><img src='https://img.shields.io/twitter/follow/BenHowell71?color=blue&amp;label=%40BenHowell71&amp;logo=x&amp;style=for-the-badge' alt='@BenHowell71'/></a> <a href='https://github.com/BenHowell71' target='blank'><img src='https://img.shields.io/github/followers/BenHowell71?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@BenHowell71'/></a> <a href='https://x.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
 opengraph:
   image:
@@ -15,15 +15,17 @@ output: html_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "../man/figures/introduction-",
   out.width = "100%",
-  eval = FALSE
+  fig.width = 8,
+  fig.height = 5,
+  message = FALSE,
+  warning = FALSE
 )
 ```
 
-[`fastRhockey`](https://github.com/sportsdataverse/fastRhockey) is an R package for accessing hockey data via public web APIs: the **PWHL** (Professional Women's Hockey League), the **NHL** (National Hockey League), the AHL and the three Canadian major-junior leagues (OHL, WHL, QMJHL), thirteen European leagues, and NCAA men's and women's college hockey through ESPN. It provides structured data frames of play-by-play, schedule, standings, roster, draft, player stats, and team data. The package also includes integrated **expected goals (xG)** models for NHL data.
+**[`fastRhockey`](https://github.com/sportsdataverse/fastRhockey) is an R package that turns public hockey data into tidy data frames.** It covers the **NHL** (National Hockey League), the **PWHL** (Professional Women's Hockey League), the AHL and the three Canadian major-junior leagues (OHL, WHL, QMJHL), thirteen European leagues, and NCAA men's and women's college hockey through ESPN. You get play-by-play, shifts, box scores, schedules, standings, rosters, draft and player data, plus **expected goals (xG)** for every NHL and PWHL shot.
 
-Part of the [SportsDataverse](https://sportsdataverse.org/) family of R/Python packages for sports analytics.
+`fastRhockey` is part of the [SportsDataverse](https://sportsdataverse.org/), a family of R and Python packages for sports analytics.
 
 <center>
 
@@ -31,262 +33,220 @@ Part of the [SportsDataverse](https://sportsdataverse.org/) family of R/Python p
 
 </center>
 
-*****************************************************************
+## What you'll learn
 
-## Installation
+By the end of this guide you will be able to:
 
-You can install the CRAN version of [**`fastRhockey`**](https://CRAN.R-project.org/package=fastRhockey) with:
-```r
+1. install R, RStudio and `fastRhockey`;
+2. understand how the package's functions are named, so you can find the right one for any league;
+3. load a full NHL season of play-by-play in one line, summarise it with `dplyr`, and draw your first chart with `ggplot2`;
+4. load PWHL play-by-play the same way;
+5. read the hockey analytics vocabulary (Corsi, Fenwick, xG, PDO, strength states and more) used in the rest of the documentation.
+
+Every number on this page is computed from the data when the page is built, so it stays current.
+
+## How do I install R, RStudio and fastRhockey?
+
+**1. Install R.** Download R for your operating system from [CRAN](https://cloud.r-project.org/) and run the installer.
+
+**2. Install RStudio (optional but recommended).** [RStudio Desktop](https://posit.co/download/rstudio-desktop/) is a free editor for R. Positron or VS Code also work.
+
+**3. Install `fastRhockey`.** Open R or RStudio and run one of these.
+
+The released version from [CRAN](https://CRAN.R-project.org/package=fastRhockey):
+
+```{r install_cran, eval = FALSE}
 install.packages("fastRhockey")
 ```
 
-You can install the development version from [GitHub](https://github.com/sportsdataverse/fastRhockey) with:
-``` r
-if (!requireNamespace('pak', quietly = TRUE)){
-  install.packages('pak')
+The development version from [GitHub](https://github.com/sportsdataverse/fastRhockey), which has the newest functions:
+
+```{r install_dev, eval = FALSE}
+if (!requireNamespace("pak", quietly = TRUE)) {
+  install.packages("pak")
 }
 pak::pak("sportsdataverse/fastRhockey")
 ```
 
-*********************************************************
+**4. Install the helper packages used in this guide.** `dplyr` and `ggplot2` are for data wrangling and plots, `sportyR` and `sdvplotR` draw rinks, and `xgboost` lets you compute NHL xG yourself. None of these are required to use `fastRhockey`.
 
-## PWHL Data
-
-The PWHL (Professional Women's Hockey League) launched in January 2024 with six teams (Boston, Minnesota, Montreal, New York, Ottawa and Toronto) and added Seattle and Vancouver for 2025-26. `fastRhockey` provides full access to PWHL schedules, standings, play-by-play, player box scores, team rosters, and stat leaders.
-
-### Teams
-
-```{r pwhl_teams}
-library(fastRhockey)
-library(dplyr)
-
-pwhl_teams()
+```{r install_helpers, eval = FALSE}
+install.packages(c("dplyr", "ggplot2", "sportyR", "xgboost"))
+pak::pak("sportsdataverse/sdvplotR")
 ```
 
-### Schedule
+## How is fastRhockey organised?
 
-Let's pull the 2024 PWHL season schedule:
+Every function name starts with a prefix that tells you the league and the data source. Once you know the prefix, the [function reference](../reference/index.html) groups everything else.
 
-```{r pwhl_schedule}
-schedule <- pwhl_schedule(season = 2024)
+| Prefix | League and source | Calls the internet? | Reference section |
+|---|---|---|---|
+| `load_nhl_*()` | NHL full seasons (2010 onward), pre-built files on GitHub releases | GitHub only | [NHL Data Loaders](../reference/index.html#nhl-data-loaders) |
+| `load_pwhl_*()` | PWHL full seasons (2024 onward), pre-built files on GitHub releases | GitHub only | [PWHL Data Loaders](../reference/index.html#pwhl-data-loaders) |
+| `nhl_*()` | NHL live APIs (`api-web.nhle.com`, `api.nhle.com/stats`, NHL Edge, NHL Records) | Yes | [NHL Data](../reference/index.html#nhl-data) |
+| `pwhl_*()` | PWHL live HockeyTech feed | Yes | [Professional Women's Hockey League](../reference/index.html#professional-women-s-hockey-league) |
+| `ahl_*()`, `ohl_*()`, `whl_*()`, `qmjhl_*()` | AHL and Canadian major-junior HockeyTech feeds | Yes | [AHL](../reference/index.html#ahl-data), [OHL](../reference/index.html#ohl-data), [WHL](../reference/index.html#whl-data), [QMJHL](../reference/index.html#qmjhl-data) |
+| `espn_nhl_*()`, `fox_nhl_*()` | NHL from ESPN and Fox Sports | Yes | [ESPN NHL](../reference/index.html#espn-nhl) |
+| `espn_mch_*()`, `espn_wch_*()` | NCAA men's and women's college hockey from ESPN | Yes | [ESPN College Hockey](../reference/index.html#espn-college-hockey) |
+| `del_*()`, `shl_*()`, `liiga_*()`, `khl_*()`, ... | Thirteen European leagues | Yes | [European Hockey](../reference/index.html#european-hockey) |
+| `helper_nhl_calculate_xg()`, `refresh_xg_models()` | NHL expected-goals model | Model files only | [Helpers](../reference/index.html#helpers) |
+| `phf_*()`, `load_phf_*()` | The defunct PHF (formerly NWHL). These stop with an error. | No | [Deprecated PHF Functions](../reference/index.html#deprecated-phf-functions) |
 
-schedule %>%
-  dplyr::filter(game_status == "Final") %>%
-  dplyr::select(game_id, game_date, home_team, away_team,
-                home_score, away_score, winner, venue) %>%
-  head(10)
-```
+**Which should you use?** Start with the `load_*()` loaders. They read one file per season from the [sportsdataverse-data releases](https://github.com/sportsdataverse/sportsdataverse-data/releases), so a whole season arrives in seconds, the files are already cleaned, and NHL and PWHL play-by-play come with xG attached. Use the live functions when you need today's games, a league the loaders don't cover, or an endpoint (player bios, standings snapshots, NHL Edge tracking) that isn't in a loader.
 
-The schedule returns game IDs, dates, teams, scores, and venue information for every game in the season.
+**Seasons are end years.** `seasons = 2026` means the 2025-26 season, in every league.
 
-### Standings
+## How do I load a full NHL season of play-by-play?
 
-```{r pwhl_standings}
-pwhl_standings(season = 2024) %>%
-  dplyr::select(team_rank, team, games_played, points,
-                wins, losses, goals_for, goals_against)
-```
-
-### Player Box Scores
-
-Pick a game from the schedule and pull individual player stats. `pwhl_player_box()` returns a list with two data frames: skaters and goalies.
-
-```{r pwhl_player_box}
-box <- pwhl_player_box(game_id = 27)
-
-# Skater stats
-box[[1]] %>%
-  dplyr::select(first_name, last_name, position, team_id,
-                goals, assists, points, shots, toi) %>%
-  dplyr::arrange(dplyr::desc(points)) %>%
-  head(10)
-
-# Goalie stats
-box[[2]] %>%
-  dplyr::select(first_name, last_name, team_id,
-                saves, goals_against, shots_against, toi)
-```
-
-### Play-by-Play
-
-The real power of `fastRhockey` is in the play-by-play data. `pwhl_pbp()` returns detailed event-level data including shot locations, faceoff results, penalties, goals with assist information, and plus/minus player tracking.
-
-```{r pwhl_pbp}
-pbp <- pwhl_pbp(game_id = 27)
-
-pbp %>%
-  dplyr::select(event, team_id, period_of_game, time_of_period,
-                player_name_first, player_name_last,
-                x_coord, y_coord) %>%
-  head(15)
-```
-
-The play-by-play data includes 90+ columns with event details, player information, coordinates (raw and transformed), and game context.
-
-### Stat Leaders
-
-Pull league-wide goalie or skater stats:
-
-```{r pwhl_stats_goalie}
-# Goalie stats
-pwhl_stats(position = "goalie", season = 2024) %>%
-  dplyr::select(player_name, team, games_played,
-                goals_against_avg, save_percentage, shutouts) %>%
-  head(10)
-```
-
-```{r pwhl_stats_skater}
-# Skater stats (all teams)
-pwhl_stats(position = "skater", season = 2024) %>%
-  dplyr::select(player_name, team, games_played,
-                goals, assists, points) %>%
-  head(10)
-```
-
-*****************************************************************
-
-## NHL Data
-
-`fastRhockey` also provides extensive access to NHL data via the `api-web.nhle.com` and `api.nhle.com/stats` APIs.
-
-### Schedule
-
-```{r nhl_schedule}
-nhl_schedule(season = "20242025") %>%
-  head(10)
-```
-
-### Standings
-
-```{r nhl_standings}
-nhl_standings(season = "20242025") %>%
-  head(10)
-```
-
-### Game Feed and Play-by-Play
-
-The `nhl_game_feed()` function returns detailed game data including play-by-play, rosters, and game information. `nhl_game_pbp()` provides play-by-play with shift data integrated.
-
-```{r nhl_game_feed}
-feed <- nhl_game_feed(game_id = 2024020001)
-
-dplyr::glimpse(feed)
-```
-
-### Player Stats
-
-```{r nhl_player_stats}
-# Skater season stats
-nhl_stats_skaters(season = "20242025") %>%
-  head(10)
-```
-
-### Draft Data
-
-```{r nhl_draft}
-# Get 2024 draft picks (round 1)
-nhl_draft_year(year = 2024, round = 1)
-```
-
-### Full Season Loaders
-
-For bulk historical data, use the loader functions, which read pre-built season files from the [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data/releases) releases instead of calling the APIs. There are 23 NHL loaders (`load_nhl_*()`, from 2010) and 17 PWHL loaders (`load_pwhl_*()`, from 2024), plus aliases named to match sportsdataverse-py:
+`load_nhl_pbp()` returns one row per event: faceoffs, hits, shots, goals, penalties, stoppages and line changes, with the skaters on the ice for each.
 
 ```{r load_nhl}
-# Full season of play-by-play
-pbp <- load_nhl_pbp(seasons = 2024)
-
-# Full season schedule
-sched <- load_nhl_schedule(seasons = 2024)
-
-# Full season rosters
-rosters <- load_nhl_rosters(seasons = 2024)
-```
-
-*****************************************************************
-
-## Plotting shots on a rink
-
-[`sportyR`](https://sportyR.sportsdataverse.org/) draws regulation rinks as `ggplot2` layers. The PWHL play-by-play's `x_coord_fixed` / `y_coord_fixed` columns (the AHL, OHL, WHL and QMJHL `*_pbp()` functions return the same ones) are in feet from centre ice with the home team shooting right, which is the frame `sportyR::geom_hockey("pwhl")` draws. Neither `sportyR` nor `ggplot2` is a `fastRhockey` dependency, so install them first (`install.packages(c("sportyR", "ggplot2"))`). For team logos and colours, see [`sdvplotR`](https://sdvplotR.sportsdataverse.org/articles/recipe-nhl-shot-map.html).
-
-```{r pwhl_rink_plot}
+library(fastRhockey)
+library(dplyr)
 library(ggplot2)
 
-pwhl_shots <- load_pwhl_pbp(seasons = 2025) %>%
-  dplyr::filter(event %in% c("shot", "goal"),
-                !is.na(x_coord_fixed), !is.na(y_coord_fixed))
+nhl_pbp <- load_nhl_pbp(seasons = 2026)
 
-sportyR::geom_hockey("pwhl") +
-  geom_point(
-    data = pwhl_shots,
-    aes(x = x_coord_fixed, y = y_coord_fixed, colour = event == "goal"),
-    alpha = 0.3, size = 0.8
+dim(nhl_pbp)
+```
+
+That is `r format(nrow(nhl_pbp), big.mark = ",")` events from `r format(dplyr::n_distinct(nhl_pbp$game_id), big.mark = ",")` games. The columns you will use most:
+
+- `event_type`: what happened (`SHOT`, `GOAL`, `MISSED_SHOT`, `BLOCKED_SHOT`, `HIT`, `FACEOFF`, `CHANGE`, ...).
+- `event_team_abbr`: the team credited with the event. For `BLOCKED_SHOT` this is the **blocking** team, not the shooting team.
+- `strength_state`: skaters on the ice from the event team's point of view, such as `"5v5"` or `"5v4"`.
+- `x`, `y`, `x_fixed`, `y_fixed`, `shot_distance`, `shot_angle`: where the event happened, in feet from centre ice.
+- `xg`: the expected-goals value of each unblocked shot.
+- `home_on_1` ... `away_on_7`, `home_goalie`, `away_goalie`: who was on the ice.
+
+```{r nhl_event_counts}
+nhl_pbp %>%
+  count(event_type, sort = TRUE) %>%
+  head(10)
+```
+
+### Summarise it: goals and expected goals by team
+
+Here we keep regular-season unblocked shots, then add up actual goals and expected goals for each team.
+
+```{r nhl_team_summary}
+team_xg <- nhl_pbp %>%
+  filter(season_type == "R", !is.na(xg)) %>%
+  group_by(team = event_team_abbr) %>%
+  summarise(
+    shots = n(),
+    goals = sum(event_type == "GOAL"),
+    xg    = sum(xg),
+    .groups = "drop"
+  ) %>%
+  mutate(goals_above_expected = goals - xg) %>%
+  arrange(desc(xg))
+
+head(team_xg, 10)
+```
+
+### Your first hockey chart
+
+Teams above the dashed line scored more goals than their shot quality predicted, through finishing talent, hot goaltending against them, or luck.
+
+```{r nhl_first_plot, fig.alt = "Scatter plot of NHL team goals against expected goals for the 2025-26 regular season, with a dashed y equals x line."}
+ggplot(team_xg, aes(x = xg, y = goals)) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", colour = "grey50") +
+  geom_point(colour = "#531896", size = 2.5) +
+  geom_text(aes(label = team), vjust = -0.8, size = 3) +
+  labs(
+    title = "NHL goals vs expected goals, 2025-26 regular season",
+    subtitle = "All strengths, unblocked shots; dashed line = goals equal xG",
+    x = "Expected goals (xG)", y = "Goals",
+    caption = "Data: fastRhockey::load_nhl_pbp()"
   ) +
-  scale_colour_manual(values = c(`FALSE` = "grey40", `TRUE` = "red"),
-                      labels = c("Shot", "Goal"), name = NULL)
+  theme_minimal()
 ```
 
-*****************************************************************
+The xG behind this chart has known limitations, including a coordinate issue described in [the NHL expected goals model article](nhl-expected-goals-xg-model.html). Read that before you lean on xG for player evaluation.
 
-## More leagues
+## How do I load PWHL play-by-play?
 
-The same calling style covers the other families. Each links to its section of the [function reference](https://fastRhockey.sportsdataverse.org/reference/index.html).
+The PWHL loaders work the same way. `load_pwhl_pbp()` returns one row per event from the HockeyTech feed, and `load_pwhl_xg_pbp()` returns one row per shot on goal with an `xg` column.
 
-### ESPN and Fox Sports NHL
+```{r load_pwhl}
+pwhl_pbp <- load_pwhl_pbp(seasons = 2026)
 
-[`espn_nhl_*()`](https://fastRhockey.sportsdataverse.org/reference/index.html#espn-nhl) (126 functions) read ESPN's NHL API and [`fox_nhl_*()`](https://fastRhockey.sportsdataverse.org/reference/index.html#fox-sports-nhl-data) (8 functions) read Fox Sports' Bifrost API.
-
-```{r espn_fox_nhl}
-espn_nhl_scoreboard(dates = 20250301)
-espn_nhl_pbp(game_id = "401688263")
-fox_nhl_standings(team_id = "1")
+pwhl_pbp %>%
+  count(event, sort = TRUE)
 ```
 
-### AHL, OHL, WHL and QMJHL
-
-The [AHL](https://fastRhockey.sportsdataverse.org/reference/index.html#ahl-data), [OHL](https://fastRhockey.sportsdataverse.org/reference/index.html#ohl-data), [WHL](https://fastRhockey.sportsdataverse.org/reference/index.html#whl-data) and [QMJHL](https://fastRhockey.sportsdataverse.org/reference/index.html#qmjhl-data) run on the same HockeyTech feed as the PWHL, so each league has the same 12 functions (`<league>_schedule()`, `<league>_pbp()`, `<league>_standings()`, ...).
-
-```{r hockeytech_leagues}
-ahl_schedule(season = 2026)
-ohl_standings(season = 2026)
+```{r pwhl_team_shots}
+pwhl_pbp %>%
+  filter(event %in% c("shot", "goal")) %>%
+  count(team_id, event) %>%
+  tidyr::pivot_wider(names_from = event, values_from = n)
 ```
 
-### European leagues
+The [PWHL and college hockey guide](pwhl-and-college-hockey.html) covers the PWHL loaders and live functions in depth.
 
-Thirteen [European leagues](https://fastRhockey.sportsdataverse.org/reference/index.html#european-hockey) (211 functions): DEL (`del_*`), ICE Hockey League (`icehl_*`), EIHL (`eihl_*`), Metal Ligaen (`metal_*`), KHL (`khl_*`), VHL (`vhl_*`), SHL (`shl_*`), HockeyAllsvenskan (`ha_*`), Liiga (`liiga_*`), the Swiss federation (`sihf_*`) and National League (`nl_*`), the Czech Extraliga (`elh_*`) and Ligue Magnus (`magnus_*`). Seasons are end years (2026 = 2025-26). Requests to one host are spaced at least a second apart, and a failed request raises a classed condition (`fastRhockey_no_data`, `fastRhockey_asset_fetch` or `fastRhockey_bad_request`, all inheriting `fastRhockey_error`) that you can catch with `tryCatch()`.
+## What do Corsi, Fenwick, xG and the other hockey terms mean?
 
-```{r euro_leagues}
-liiga_schedule(season = 2026)
+You will meet these terms throughout the `fastRhockey` documentation.
 
-tryCatch(
-  khl_standings(season = 2026),
-  fastRhockey_error = function(e) message("KHL request failed: ", conditionMessage(e))
-)
-```
+**Shot attempt.** Any attempt to shoot the puck at the net: a shot on goal, a goal, a missed shot or a blocked shot.
 
-### NCAA college hockey
+**Corsi (CF, CA, CF%).** A count of shot attempts. CF (Corsi for) counts a team's attempts, CA (Corsi against) its opponent's, and CF% = CF / (CF + CA). Because attempts are far more common than goals, Corsi is a stable early read on which team controlled the puck.
 
-ESPN's men's ([`espn_mch_*()`](https://fastRhockey.sportsdataverse.org/reference/index.html#espn-men-s-college-hockey)) and women's ([`espn_wch_*()`](https://fastRhockey.sportsdataverse.org/reference/index.html#espn-women-s-college-hockey)) college hockey wrappers, 121 per league, mirror the ESPN NHL family.
+**Fenwick (FF, FA, FF%).** Corsi without blocked shots, so it counts unblocked attempts only. Expected-goals models are usually built on Fenwick events, because a blocked shot never reaches the goalie.
 
-```{r espn_college}
-espn_mch_scoreboard(dates = 20250301)
-espn_wch_standings()
-```
+**Shots on goal (SF, SA).** Shots the goalie had to stop, plus goals.
 
-*****************************************************************
+**Expected goals (xG).** The probability, from 0 to 1, that a shot becomes a goal, estimated from where and how it was taken (distance, angle, shot type, rebound, rush and so on). Summing xG over shots gives the number of goals an average shooter would have scored. **xGF%** is a team's share of the xG in its games.
 
-## Deprecated PHF Functions
+**Goals above expected (GAX).** Goals minus xG. Positive values mean finishing better than shot quality predicts.
 
-The Premier Hockey Federation (PHF), formerly the National Women's Hockey League (NWHL), ceased operations prior to the formation of the PWHL. All `phf_*` and `load_phf_*` functions have been defunct since v1.0.0 and stop with an error when called. Use the `pwhl_*` functions instead for women's professional hockey data.
+**Shooting percentage (Sh%).** Goals divided by shots on goal.
 
-*****************************************************************
+**Save percentage (Sv%).** Saves divided by shots on goal faced, or 1 minus the opponent's Sh%.
+
+**PDO.** Sh% plus Sv% for the same team over the same time. League average is close to 1.000 (or 100). Values far from it usually drift back, so PDO is a quick luck check.
+
+**Strength state.** How many skaters each team has on the ice (goalies are not counted). `5v5` is even strength. In `fastRhockey` NHL data, `strength_state` is written from the event team's side, so `5v4` means the event team had the extra skater.
+
+**Power play (PP) and penalty kill (PK).** A team with more skaters because of an opponent penalty is on the power play; the shorthanded team is on the penalty kill. In `strength_code` these appear as `PP` and `SH`; `EV` is even strength.
+
+**Empty net and extra attacker.** When a team pulls its goalie for another skater, shots at its net are `empty_net` and the team itself has an `extra_attacker`. Strength states such as `6v5` capture this.
+
+**High-danger chance.** A shot from close to the net, usually the slot and crease area. Definitions vary; most use a distance or area cut-off. You can build one from `shot_distance` and `shot_angle`.
+
+**Rebound and rush.** A rebound is a shot taken within a couple of seconds of a previous shot. A rush shot follows a quick transition from the neutral or defensive zone. Both are inputs to the NHL xG model.
+
+**Shift.** One continuous stretch a player spends on the ice. `load_nhl_shifts()` and `load_pwhl_shifts()` return one row per shift.
+
+**Time on ice (TOI).** The total time a player spent on the ice, usually split by strength state (5v5 TOI, PP TOI).
+
+**Zones (OZ, NZ, DZ).** The offensive, neutral and defensive thirds of the rink, separated by the blue lines.
+
+## Where to go next
+
+The articles below build on this guide.
+
+| Article | What it covers |
+|---|---|
+| [NHL expected goals (xG) model](nhl-expected-goals-xg-model.html) | How the NHL xG model works, how to reproduce it, and its known limitations |
+| [PWHL expected goals (xG) model](pwhl-expected-goals-xg-model.html) | The PWHL coordinate xG model behind `load_pwhl_xg_pbp()` |
+| [Corsi, Fenwick and PDO in R](hockey-advanced-metrics-corsi-fenwick.html) | Team and player shot-share metrics at 5v5 from NHL play-by-play |
+| [Rink plots and shot maps](nhl-pwhl-rink-plots-shot-maps.html) | NHL and PWHL shot maps, xG-sized points and heatmaps with `sportyR` and `sdvplotR` |
+| [European hockey leagues](european-hockey-leagues.html) | The thirteen European league families: SHL, Liiga, DEL, KHL, National League and more |
+| [PWHL and college hockey](pwhl-and-college-hockey.html) | PWHL loaders and live functions, and NCAA hockey through ESPN |
+
+You can also browse the [function reference](../reference/index.html) by league, read the [changelog](../news/index.html), or check [data freshness](https://sportsdataverse.org/status).
+
+## Deprecated PHF functions
+
+The Premier Hockey Federation (PHF), formerly the National Women's Hockey League (NWHL), ceased operations before the PWHL formed. All `phf_*()` and `load_phf_*()` functions have been defunct since version 1.0.0 and stop with an error when called. Use the `pwhl_*()` and `load_pwhl_*()` functions for women's professional hockey.
 
 ## Follow the [SportsDataverse](https://twitter.com/sportsdataverse) on Twitter and star this repo
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
 
 [![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color=eee&logo=github&style=for-the-badge&label=Star%20fastRhockey&maxAge=2592000)](https://github.com/sportsdataverse/fastRhockey)
-
 
 ## **Our Authors**
 
