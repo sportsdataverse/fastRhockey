@@ -186,8 +186,8 @@ Saiem Gilani
     fcs <- espn_mch_franchises()
     espn_mch_franchise(franchise_id = fcs$franchise_id[1])
   })
-#> ! 2026-11-02 12:54:54.866753: No franchise items returned for mens-college-hockey.
-#> ✖ 2026-11-02 12:54:54.884043: 
+#> ! 2026-11-02 14:08:55.66668: No franchise items returned for mens-college-hockey.
+#> ✖ 2026-11-02 14:08:55.701032: 
 #> ✖ Args: league = "mens-college-hockey", franchise_id = NULL
 #> ✖ Error: arguments imply differing number of rows: 0, 1
 #> data frame with 0 columns and 0 rows

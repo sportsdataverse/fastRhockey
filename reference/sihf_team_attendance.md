@@ -118,7 +118,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_team_attendance(season = 2026, league_id = 1))
 #> ── SIHF Team Attendance Information from data.sihf.ch ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:02:29 UTC
+#> ℹ Data updated: 2026-11-02 14:16:51 UTC
 #> # A tibble: 15 × 12
 #>    season phase_id  rank team_id team_name    team_acronym home_games spectators
 #>     <int>    <int> <int>   <int> <chr>        <chr>             <int>      <int>

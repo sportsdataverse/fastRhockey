@@ -93,7 +93,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_webcaster_stages())
 #> ── KHL Webcaster Stages from khl.api.webcaster.pro ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 12:58:10 UTC
+#> ℹ Data updated: 2026-11-02 14:12:14 UTC
 #> # A tibble: 39 × 8
 #>    season type    tournament_id stage_id season_label title   display_rule
 #>     <int> <chr>           <int>    <int> <chr>        <chr>   <chr>       

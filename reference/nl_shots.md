@@ -119,7 +119,7 @@ Other National League Functions:
 # \donttest{
   try(nl_shots(game_id = 20261105000325))
 #> ── National League Shots Information from nationalleague.ch ────────────────────
-#> ℹ Data updated: 2026-11-02 13:01:06 UTC
+#> ℹ Data updated: 2026-11-02 14:15:24 UTC
 #> # A tibble: 105 × 20
 #>    game_id team_side team_id player_id player_number player_first_name
 #>      <dbl> <chr>       <dbl>     <dbl> <chr>         <chr>            

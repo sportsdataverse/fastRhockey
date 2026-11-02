@@ -44,7 +44,7 @@ Other WHL Functions:
 ``` r
  try(whl_teams()) 
 #> ── WHL Teams from HockeyTech ────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:02:54 UTC
+#> ℹ Data updated: 2026-11-02 14:17:16 UTC
 #> # A tibble: 23 × 7
 #>    team_name       team_id team_code team_nickname team_label division team_logo
 #>    <chr>           <chr>   <chr>     <chr>         <chr>      <chr>    <chr>    

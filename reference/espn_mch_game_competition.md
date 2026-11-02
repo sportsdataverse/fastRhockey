@@ -195,7 +195,7 @@ Saiem Gilani
     espn_mch_game_competition(event_id = sb$game_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Competition data from ESPN core-v2 ─────────────────
-#> ℹ Data updated: 2026-11-02 12:54:56 UTC
+#> ℹ Data updated: 2026-11-02 14:08:57 UTC
 #> # A tibble: 1 × 20
 #>   event_id  cid       id    guid  uid   date  attendance neutral_site time_valid
 #>   <chr>     <chr>     <chr> <chr> <chr> <chr>      <int> <lgl>        <lgl>     

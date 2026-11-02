@@ -176,7 +176,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_news(limit = 10))
 #> ── NHL News data from ESPN.com ──────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 12:55:55 UTC
+#> ℹ Data updated: 2026-11-02 14:09:57 UTC
 #> # A tibble: 10 × 12
 #>    article_id now_id     content_key    type  headline description last_modified
 #>    <chr>      <chr>      <chr>          <chr> <chr>    <chr>       <chr>        

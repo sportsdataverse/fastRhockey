@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_season_types(season = 2026))
 #> ── MENS-COLLEGE-HOCKEY Season Types data from ESPN core-v2 ─────────────────────
-#> ℹ Data updated: 2026-11-02 12:55:24 UTC
+#> ℹ Data updated: 2026-11-02 14:09:25 UTC
 #> # A tibble: 2 × 3
 #>   ref                                                      season_type_id season
 #>   <chr>                                                             <int>  <int>

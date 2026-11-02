@@ -88,7 +88,7 @@ Other VHL Functions:
 # \donttest{
   try(vhl_player(player_id = 34526))
 #> ── VHL Player Information from vhlru.ru ─────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:02:43 UTC
+#> ℹ Data updated: 2026-11-02 14:17:05 UTC
 #> # A tibble: 1 × 10
 #>   player_id name         jersey position height_cm weight_kg born    age country
 #>       <int> <chr>         <int> <chr>        <int>     <int> <chr> <int> <chr>  

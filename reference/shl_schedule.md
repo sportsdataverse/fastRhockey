@@ -129,7 +129,7 @@ Other SHL Functions:
 # \donttest{
   try(shl_schedule(season = 2026))
 #> ── SHL Schedule Information from www.shl.se ─────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:01:57 UTC
+#> ℹ Data updated: 2026-11-02 14:16:20 UTC
 #> # A tibble: 364 × 42
 #>    game_uuid  raw_start_date_time      start_date_time   state overtime shootout
 #>    <chr>      <chr>                    <chr>             <chr> <lgl>    <lgl>   

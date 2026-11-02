@@ -103,7 +103,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_game_goals(game_id = 1, season = 2026))
 #> ── Liiga game goals Information from liiga.fi ───────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 12:58:15 UTC
+#> ℹ Data updated: 2026-11-02 14:12:18 UTC
 #> # A tibble: 5 × 30
 #>   season game_id side   team_id team_slug log_time winning_goal game_time period
 #>    <int>   <int> <chr>    <int> <chr>     <chr>    <lgl>            <int>  <int>

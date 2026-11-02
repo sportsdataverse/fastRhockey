@@ -121,7 +121,7 @@ Other SHL Functions:
 # \donttest{
   try(shl_athlete_profile(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl"))
 #> ── SHL Athlete Profile Information from www.shl.se ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:01:41 UTC
+#> ℹ Data updated: 2026-11-02 14:16:03 UTC
 #> # A tibble: 1 × 34
 #>   uuid    full_name first_name last_name birth_date nationality gender age_value
 #>   <chr>   <chr>     <chr>      <chr>     <chr>      <chr>       <chr>      <int>

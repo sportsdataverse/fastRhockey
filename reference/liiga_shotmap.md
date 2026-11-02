@@ -89,7 +89,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_shotmap(game_id = 1, season = 2026))
 #> ── Liiga shotmap Information from liiga.fi ──────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 12:58:36 UTC
+#> ℹ Data updated: 2026-11-02 14:12:40 UTC
 #> # A tibble: 90 × 16
 #>    season game_id type     shooting_team_id left_team_id right_team_id game_time
 #>     <int>   <int> <chr>               <int>        <int>         <int>     <int>

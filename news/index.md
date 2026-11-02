@@ -121,6 +121,13 @@ that upgrades from 1.0.0 may need to change.
 
 #### Bug fixes
 
+- [`nhl_game_pbp()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_pbp.md)
+  /
+  [`nhl_game_feed()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_feed.md):
+  the shift `CHANGE` rows had `game_id = NA` (465 of 789 rows in game
+  2025021229), because the shift rows were padded with `NA` for every
+  play-by-play column. Grouping or filtering by `game_id` dropped every
+  shift. `game_id` is now set on every row.
 - [`helper_nhl_calculate_xg()`](https://fastRhockey.sportsdataverse.org/reference/helper_nhl_calculate_xg.md)
   joined the xG predictions back by `event_id`, which restarts at 0 in
   every game, so a frame of two or more games got extra rows (two

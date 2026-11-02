@@ -202,8 +202,8 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_scoringplays(event_id = sb$game_id[1])
   })
-#> ! 2026-11-02 12:55:02.645825: No plays returned for event 401715296.
-#> ! 2026-11-02 12:55:02.650165: No plays data available to filter for scoring plays (event 401715296).
+#> ! 2026-11-02 14:09:03.425196: No plays returned for event 401715296.
+#> ! 2026-11-02 14:09:03.430054: No plays data available to filter for scoring plays (event 401715296).
 #> data frame with 0 columns and 0 rows
 # }
 ```
