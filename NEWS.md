@@ -216,6 +216,13 @@ upgrades from 1.0.0 may need to change.
 * The DESCRIPTION title and description now cover every family the package
   wraps (NHL, PWHL, the CHL and AHL leagues, ESPN and Fox, the European
   leagues and college hockey), and the help pages are plain ASCII (#90).
+* Network examples whose hosts are slow from automated environments now run
+  only interactively (`@examplesIf interactive()`): `ha_games()`,
+  `liiga_teams()`, `nhl_records_draft_prospect()`,
+  `espn_nhl_standings_core()`, `load_nhl_pbp()`, `load_nhl_pbp_full()` and
+  nine VHL functions (`vhl_schedule()`, `vhl_game_info()`, `vhl_goals()`,
+  `vhl_penalties()`, `vhl_player_box()`, `vhl_goalie_box()`, `vhl_pbp()`,
+  `vhl_skater_stats()`, `vhl_goalie_stats()`). The functions are unchanged.
 
 # **fastRhockey 1.0.0**
 

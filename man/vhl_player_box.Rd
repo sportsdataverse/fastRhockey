@@ -77,9 +77,11 @@ Check the provider's terms of use before redistributing this data.
 }
 
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(vhl_player_box(season = 2026, game_id = 899223))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other VHL Functions:

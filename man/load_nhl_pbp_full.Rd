@@ -22,9 +22,11 @@ sportsdataverse-py. In this package \code{load_nhl_pbp()} already serves
 the full \code{nhl_pbp_full} release.
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(load_nhl_pbp_full(2024))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \code{\link[=load_nhl_pbp]{load_nhl_pbp()}} \code{\link[=load_nhl_pbp_lite]{load_nhl_pbp_lite()}}

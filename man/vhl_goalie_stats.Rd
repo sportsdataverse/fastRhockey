@@ -63,9 +63,11 @@ Check the provider's terms of use before redistributing this data.
 }
 
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(vhl_goalie_stats(season = 2026, stage = "playoff"))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other VHL Functions:

@@ -32,6 +32,18 @@ full list of changes is in NEWS.md. The main additions:
   outside `try()` are `most_recent_nhl_season()`,
   `most_recent_nhl_season_api_param()` and `most_recent_pwhl_season()`,
   which compute a season from the date.
+* Fifteen networked examples run only in interactive sessions
+  (`@examplesIf interactive()`, still inside `\donttest{}` and `try()`):
+  `ha_games()`, `liiga_teams()`, `nhl_records_draft_prospect()`,
+  `espn_nhl_standings_core()`, `load_nhl_pbp()`, `load_nhl_pbp_full()` and
+  nine `vhl_*()` functions (`vhl_schedule()`, `vhl_game_info()`,
+  `vhl_goals()`, `vhl_penalties()`, `vhl_player_box()`, `vhl_goalie_box()`,
+  `vhl_pbp()`, `vhl_skater_stats()`, `vhl_goalie_stats()`). Each took about
+  6 to 32 seconds in at least one of two GitHub Actions runner samples.
+  Five of the vhlru.ru examples took 4 to 12 times longer from the runner
+  than from a home connection, and `ha_games()` (hockeyallsvenskan.se) took
+  32 s in one runner sample, 5 s in the other and 3 s locally. Every
+  other function in those families keeps a `--run-donttest` example.
 * Four examples are in `\dontrun{}` (see the check results below).
 
 ## Tests
@@ -61,7 +73,7 @@ committed fixtures and mock the HTTP layer.
   The tarball is 2.2 MB; the installed size is 8.9 MB (R 2.1 MB, help
   6.4 MB), because the help pages document about 880 exported functions,
   most with a column table for the data they return. The examples with
-  `--run-donttest` pass in 11 minutes and the tests in 21 seconds.
+  `--run-donttest` pass in 9 minutes and the tests in 21 seconds.
 * The database and model-download examples (`update_pwhl_db()`,
   `refresh_xg_models()`, `helper_nhl_calculate_xg()`, which needs the
   downloaded xgboost models) and `nhl_game_boxscore()` are in `\dontrun{}`.

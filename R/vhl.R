@@ -1762,7 +1762,7 @@ vhl_tn <- function(season, stage = "regular") {
 #'
 #' With `return_parsed = FALSE`, the page's parsed record (a named list) instead.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(vhl_schedule(season = 2026))
 #'   try(vhl_schedule(season = 2026, stage = "playoff"))
@@ -1838,7 +1838,7 @@ vhl_schedule <- function(season, stage = "regular", return_parsed = TRUE) {
 #'
 #' With `return_parsed = FALSE`, the page's parsed record (a named list) instead.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(vhl_game_info(season = 2026, game_id = 899223))
 #' }
@@ -1908,7 +1908,7 @@ vhl_game_info <- function(season, game_id, stage = "regular", return_parsed = TR
 #'
 #' With `return_parsed = FALSE`, the page's parsed record (a named list) instead.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(vhl_goals(season = 2026, game_id = 899223))
 #' }
@@ -1964,7 +1964,7 @@ vhl_goals <- function(season, game_id, stage = "regular", return_parsed = TRUE) 
 #'
 #' With `return_parsed = FALSE`, the page's parsed record (a named list) instead.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(vhl_penalties(season = 2026, game_id = 899223))
 #' }
@@ -2040,7 +2040,7 @@ vhl_penalties <- function(season, game_id, stage = "regular", return_parsed = TR
 #'
 #' With `return_parsed = FALSE`, the page's parsed record (a named list) instead.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(vhl_player_box(season = 2026, game_id = 899223))
 #' }
@@ -2107,7 +2107,7 @@ vhl_player_box <- function(season, game_id, stage = "regular", return_parsed = T
 #'
 #' With `return_parsed = FALSE`, the page's parsed record (a named list) instead.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(vhl_goalie_box(season = 2026, game_id = 899223))
 #' }
@@ -2168,7 +2168,7 @@ vhl_goalie_box <- function(season, game_id, stage = "regular", return_parsed = T
 #'
 #' With `return_parsed = FALSE`, the page's parsed record (a named list) instead.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(vhl_pbp(game_id = 899223, season = 2026))
 #' }
@@ -2300,7 +2300,7 @@ vhl_standings <- function(season, return_parsed = TRUE) {
 #'
 #' With `return_parsed = FALSE`, the page's parsed record (a named list) instead.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(vhl_skater_stats(season = 2026))
 #' }
@@ -2363,7 +2363,7 @@ vhl_skater_stats <- function(season, stage = "regular", return_parsed = TRUE) {
 #'
 #' With `return_parsed = FALSE`, the page's parsed record (a named list) instead.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(vhl_goalie_stats(season = 2026, stage = "playoff"))
 #' }

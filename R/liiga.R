@@ -3550,7 +3550,7 @@ liiga_teams_history <- function() {
 #' | `short_name` | character | Team abbreviation. |
 #' | `teamtournamentstats` | character | Team totals per season and tournament, snake_case, percentages and averages sent as STRINGS. |
 #'
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(liiga_teams())
 #' }

@@ -43,9 +43,11 @@ group. Key columns:\tabular{lll}{
 \strong{Get ESPN NHL Standings (core-v2)}
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(espn_nhl_standings_core(season = 2026, season_type = 2))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other ESPN NHL Functions:

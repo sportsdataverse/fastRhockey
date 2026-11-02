@@ -91,9 +91,11 @@ non-JSON, error-shaped, truncated or out-of-scope 200 (the answer is unknown, no
 }
 
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(ha_games(season = 2026))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other HA Functions:

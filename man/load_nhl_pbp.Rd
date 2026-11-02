@@ -126,7 +126,9 @@ the \href{https://github.com/sportsdataverse/sportsdataverse-data}{sportsdataver
 releases either into memory or writes it into a database.
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(load_nhl_pbp(2022))
 }
+\dontshow{\}) # examplesIf}
 }
