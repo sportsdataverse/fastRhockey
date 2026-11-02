@@ -179,7 +179,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_news(limit = 10))
 #> ── MENS-COLLEGE-HOCKEY News data from ESPN.com ──────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:01:53 UTC
+#> ℹ Data updated: 2026-11-02 12:55:09 UTC
 #> # A tibble: 10 × 12
 #>    article_id now_id     content_key    type  headline description last_modified
 #>    <chr>      <chr>      <chr>          <chr> <chr>    <chr>       <chr>        

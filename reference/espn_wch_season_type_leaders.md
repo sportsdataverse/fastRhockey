@@ -190,7 +190,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_wch_season_type_leaders(season = 2026, season_type = 2))
-#> ✖ 2026-11-02 06:03:22.602767: Invalid arguments or no ESPN womens-college-hockey season type leaders for 2026 type 2 available!
+#> ✖ 2026-11-02 12:56:59.240566: Invalid arguments or no ESPN womens-college-hockey season type leaders for 2026 type 2 available!
 #> ✖ Args: league = "womens-college-hockey", season = 2026, season_type = 2
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

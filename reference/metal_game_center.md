@@ -198,7 +198,7 @@ Other Metal Ligaen eSports functions:
 # \donttest{
   try(metal_game_center(match_id = 575))
 #> ── Metal Ligaen game_center from the eSports hokejovyzapis bucket ──────────────
-#> ℹ Data updated: 2026-11-02 06:05:47 UTC
+#> ℹ Data updated: 2026-11-02 12:59:32 UTC
 #> # A tibble: 1 × 125
 #>   status_id status_msg data_game_data_id data_game_data_division_id
 #>       <int> <chr>                  <int>                      <int>

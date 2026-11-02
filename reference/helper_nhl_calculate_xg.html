@@ -157,13 +157,16 @@ Must contain columns needed by <code><a href="helper_nhl_prepare_xg_data.html">h
 <code>secondary_type</code>, <code>period_type</code>, <code>period</code>, <code>game_seconds</code>, <code>x</code>, <code>y</code>,
 <code>x_fixed</code>, <code>event_team_abbr</code>, <code>home_abbr</code>, <code>away_abbr</code>, <code>home_skaters</code>,
 <code>away_skaters</code>, <code>shot_distance</code>, <code>shot_angle</code>, <code>empty_net</code>,
-<code>strength_state</code>, <code>event_id</code>, <code>season</code>.</p></dd>
+<code>strength_state</code>, <code>game_id</code>, <code>event_id</code>, <code>season</code>.</p>
+<p><code>pbp</code> may hold more than one game: predictions are matched back by
+<code>game_id</code> and <code>event_id</code>. An existing <code>xg</code> column is replaced.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>The original <code>pbp</code> data frame with an <code>xg</code> column appended.
-<code>xg</code> is NA for non-shot events.</p>
+    <p>The original <code>pbp</code> data frame, same rows in the same order, with an
+<code>xg</code> column appended (replacing any existing one):</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>xg</td><td>numeric</td><td>Expected-goal probability of the shot, NA for non-shot events.</td></tr></table><p>If <code>xgboost</code> is not installed, the function raises a warning of class
+<code>fastRhockey_no_xgboost</code> and every <code>xg</code> is NA.</p>
     </div>
 
     <div class="section level2">

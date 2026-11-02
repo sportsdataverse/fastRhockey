@@ -189,7 +189,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_players_index(active = TRUE, limit = 10, page = 1))
 #> ── MENS-COLLEGE-HOCKEY Players Index data from ESPN.com ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:01:58 UTC
+#> ℹ Data updated: 2026-11-02 12:55:15 UTC
 #> # A tibble: 10 × 6
 #>    ref                                  athlete_id active  page count page_count
 #>    <chr>                                <chr>      <lgl>  <int> <int>      <int>

@@ -151,9 +151,9 @@ indicators so the same models generalize past the training cutoff:</p><table cla
 <h3 id="dependencies"><strong>Dependencies</strong><a class="anchor" aria-label="anchor" href="#dependencies"></a></h3>
 
 
-<p>The <code>xgboost</code> suggested package is required. The pipeline fails
-gracefully (returns <code>pbp</code> unchanged with an <code>xg = NA_real_</code> column) if
-<code>xgboost</code> is absent.</p>
+<p>The <code>xgboost</code> suggested package is required. If it is absent,
+<code><a href="helper_nhl_calculate_xg.html">helper_nhl_calculate_xg()</a></code> warns and returns <code>pbp</code> with an
+<code>xg = NA_real_</code> column.</p>
 </div>
 
     </div>

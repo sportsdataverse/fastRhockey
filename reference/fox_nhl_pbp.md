@@ -25,7 +25,7 @@ A `fastRhockey_data` tibble, one row per play: `game_id`, `period`,
 ``` r
  try(fox_nhl_pbp("44398")) 
 #> ── Fox Sports NHL pbp ───────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:03:32 UTC
+#> ℹ Data updated: 2026-11-02 12:57:11 UTC
 #> # A tibble: 817 × 10
 #>    game_id period     left_team right_team play_id clock team  left_score_change
 #>    <chr>   <chr>      <chr>     <chr>      <chr>   <chr> <chr> <chr>            

@@ -131,7 +131,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_player_career(player_id = 41928))
 #> ── KHL Player Career from khl.ru ────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:04:08 UTC
+#> ℹ Data updated: 2026-11-02 12:57:49 UTC
 #> # A tibble: 6 × 40
 #>   player_id season_label tournament_id team_season_id club_id team_name    jn
 #>       <int> <chr>                <int>          <int>   <int> <chr>     <int>

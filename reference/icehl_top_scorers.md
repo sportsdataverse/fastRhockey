@@ -95,7 +95,7 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_top_scorers(season = 2027, league_id = 1))
 #> ── ICE Hockey League top_scorers from the eSports hokejovyzapis bucket ─────────
-#> ℹ Data updated: 2026-11-02 06:03:56 UTC
+#> ℹ Data updated: 2026-11-02 12:57:37 UTC
 #> # A tibble: 430 × 13
 #>    player_id name  surname photo birthdate team_id team_name team_shortcut goals
 #>        <int> <chr> <chr>   <chr> <chr>       <int> <chr>     <chr>         <int>

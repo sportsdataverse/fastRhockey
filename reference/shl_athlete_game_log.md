@@ -131,7 +131,7 @@ Other SHL Functions:
   try(shl_athlete_game_log(athlete_uuid = "qQ9-349c7WDv6",
     master_site_instance_id = "shl1_shl", season = 2026))
 #> ── SHL Athlete Game Log Information from www.shl.se ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:07:41 UTC
+#> ℹ Data updated: 2026-11-02 13:01:40 UTC
 #> # A tibble: 58 × 35
 #>    date   series home_team home_team_icon guest_team guest_team_icon    gp   gpi
 #>    <chr>  <chr>  <chr>     <chr>          <chr>      <chr>           <dbl> <dbl>

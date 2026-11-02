@@ -73,7 +73,7 @@ Other Ligue Magnus Functions:
 # \donttest{
   try(magnus_standings(phase_id = 714))
 #> ── Ligue Magnus Standings Information from liguemagnus.com ─────────────────────
-#> ℹ Data updated: 2026-11-02 06:05:46 UTC
+#> ℹ Data updated: 2026-11-02 12:59:30 UTC
 #> # A tibble: 12 × 17
 #>     rank team_id team   team_abbreviation team_participant_id games_played  wins
 #>    <int>   <int> <chr>  <chr>                           <int>        <int> <int>

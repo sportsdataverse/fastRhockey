@@ -81,7 +81,7 @@ Other HA Functions:
 # \donttest{
   try(ha_teams(season = 2026))
 #> ── HA Teams Information from hockeyallsvenskan.se ───────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:03:43 UTC
+#> ℹ Data updated: 2026-11-02 12:57:24 UTC
 #> # A tibble: 14 × 10
 #>    season team_statnet_id team_code name        full_name logos_icon logos_large
 #>     <int> <chr>           <chr>     <chr>       <chr>     <chr>      <chr>      

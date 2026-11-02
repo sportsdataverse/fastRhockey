@@ -176,7 +176,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_leaders_core())
 #> ── MENS-COLLEGE-HOCKEY Leaders (core-v2) data from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-11-02 06:01:52 UTC
+#> ℹ Data updated: 2026-11-02 12:55:08 UTC
 #> # A tibble: 7 × 9
 #>   category_name category_display_name category_short_display_name
 #>   <chr>         <chr>                 <chr>                      

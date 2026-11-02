@@ -193,7 +193,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_season_players(season = 2026, limit = 10, page = 1))
 #> ── MENS-COLLEGE-HOCKEY Season Players data from ESPN core-v2 ───────────────────
-#> ℹ Data updated: 2026-11-02 06:02:02 UTC
+#> ℹ Data updated: 2026-11-02 12:55:21 UTC
 #> # A tibble: 10 × 6
 #>    ref                                   player_id season  page count page_count
 #>    <chr>                                 <chr>      <int> <int> <int>      <int>

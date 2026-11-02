@@ -44,6 +44,6 @@ produce all of them.
 
 ### **Dependencies**
 
-The `xgboost` suggested package is required. The pipeline fails
-gracefully (returns `pbp` unchanged with an `xg = NA_real_` column) if
-`xgboost` is absent.
+The `xgboost` suggested package is required. If it is absent,
+[`helper_nhl_calculate_xg()`](https://fastRhockey.sportsdataverse.org/reference/helper_nhl_calculate_xg.md)
+warns and returns `pbp` with an `xg = NA_real_` column.

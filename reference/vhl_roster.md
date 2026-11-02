@@ -92,8 +92,8 @@ Other VHL Functions:
 # \donttest{
   try(vhl_roster(team_page_id = 390))
 #> ── VHL Roster Information from vhlru.ru ─────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:08:44 UTC
-#> # A tibble: 23 × 11
+#> ℹ Data updated: 2026-11-02 13:02:45 UTC
+#> # A tibble: 24 × 11
 #>    team_page_id team  calendar_tn calendar_team_season_id roster_as_of jersey
 #>           <int> <chr>       <int>                   <int> <chr>         <int>
 #>  1          390 Toros        1430                   15531 02.11.2026       28
@@ -101,12 +101,12 @@ Other VHL Functions:
 #>  3          390 Toros        1430                   15531 02.11.2026       31
 #>  4          390 Toros        1430                   15531 02.11.2026       25
 #>  5          390 Toros        1430                   15531 02.11.2026       71
-#>  6          390 Toros        1430                   15531 02.11.2026       36
-#>  7          390 Toros        1430                   15531 02.11.2026        1
-#>  8          390 Toros        1430                   15531 02.11.2026       46
-#>  9          390 Toros        1430                   15531 02.11.2026       19
-#> 10          390 Toros        1430                   15531 02.11.2026       88
-#> # ℹ 13 more rows
+#>  6          390 Toros        1430                   15531 02.11.2026       93
+#>  7          390 Toros        1430                   15531 02.11.2026       36
+#>  8          390 Toros        1430                   15531 02.11.2026        1
+#>  9          390 Toros        1430                   15531 02.11.2026       46
+#> 10          390 Toros        1430                   15531 02.11.2026       19
+#> # ℹ 14 more rows
 #> # ℹ 5 more variables: position <chr>, player_id <int>, player <chr>,
 #> #   born <chr>, country <chr>
 # }

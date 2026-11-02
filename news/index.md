@@ -121,6 +121,24 @@ that upgrades from 1.0.0 may need to change.
 
 #### Bug fixes
 
+- [`helper_nhl_calculate_xg()`](https://fastRhockey.sportsdataverse.org/reference/helper_nhl_calculate_xg.md)
+  joined the xG predictions back by `event_id`, which restarts at 0 in
+  every game, so a frame of two or more games got extra rows (two
+  2025-26 games: 1,540 rows in, 1,554 out) and shots took xG from the
+  wrong game. It now joins by `game_id` and `event_id` and keeps the
+  input row order. Given a frame that already has `xg` (as
+  [`nhl_game_pbp()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_pbp.md)
+  output does), it now replaces that column instead of returning `xg.x`
+  / `xg.y`.
+- [`helper_nhl_calculate_xg()`](https://fastRhockey.sportsdataverse.org/reference/helper_nhl_calculate_xg.md)
+  stopped with an error when `xgboost` was not installed, though
+  [`?nhl_xg`](https://fastRhockey.sportsdataverse.org/reference/nhl_xg.md)
+  says xG comes back `NA`. It now warns (class `fastRhockey_no_xgboost`,
+  once per session) and returns `pbp` with `xg = NA`.
+  [`nhl_game_pbp()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_pbp.md)
+  /
+  [`nhl_game_feed()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_feed.md)
+  pass that warning on.
 - SHL: `www.shl.se`’s `statistics-v2/layout-info` renamed its season
   directory from `seasonSeriesGameTypeTeams` to
   `originalSeasonSeriesGameTypeTeams`, so every SHL lookup (and

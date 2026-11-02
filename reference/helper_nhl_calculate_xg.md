@@ -36,12 +36,24 @@ helper_nhl_calculate_xg(pbp)
   `event_type`, `secondary_type`, `period_type`, `period`,
   `game_seconds`, `x`, `y`, `x_fixed`, `event_team_abbr`, `home_abbr`,
   `away_abbr`, `home_skaters`, `away_skaters`, `shot_distance`,
-  `shot_angle`, `empty_net`, `strength_state`, `event_id`, `season`.
+  `shot_angle`, `empty_net`, `strength_state`, `game_id`, `event_id`,
+  `season`.
+
+  `pbp` may hold more than one game: predictions are matched back by
+  `game_id` and `event_id`. An existing `xg` column is replaced.
 
 ## Value
 
-The original `pbp` data frame with an `xg` column appended. `xg` is NA
-for non-shot events.
+The original `pbp` data frame, same rows in the same order, with an `xg`
+column appended (replacing any existing one):
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| xg | numeric | Expected-goal probability of the shot, NA for non-shot events. |
+
+If `xgboost` is not installed, the function raises a warning of class
+`fastRhockey_no_xgboost` and every `xg` is NA.
 
 ## Examples
 
