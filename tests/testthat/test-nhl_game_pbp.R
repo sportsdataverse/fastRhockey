@@ -23,7 +23,8 @@ test_that("NHL - nhl_game_pbp fills game_id on shift CHANGE rows (offline)", {
 
     pbp <- suppressMessages(nhl_game_pbp(game_id = 2025021229))
 
-    expect_gt(sum(pbp$event_type == "CHANGE"), 0)
+    # Every captured shift row made it in, so integration really ran.
+    expect_equal(sum(pbp$event_type == "CHANGE"), nrow(shifts))
     expect_false(anyNA(pbp$game_id))
     expect_true(all(pbp$game_id == 2025021229L))
     expect_type(pbp$game_id, "integer")
