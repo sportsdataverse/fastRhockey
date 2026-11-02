@@ -102,6 +102,8 @@ test_that("NHL - helper_nhl_calculate_xg keeps one row per event across games", 
 
 test_that("NHL - helper_nhl_calculate_xg returns NA xg with a warning without xgboost", {
     games <- readRDS(test_path("fixtures", "nhl", "xg_two_games.rds"))
+    # The warning fires once per session; make it fire on every call here.
+    withr::local_options(rlib_warning_verbosity = "verbose")
     local_mocked_bindings(
         requireNamespace = function(...) FALSE,
         .package = "base"
