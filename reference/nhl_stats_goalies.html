@@ -26,6 +26,15 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-book-reader"></span> Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/introduction.html">fastRhockey Introduction</a></li>
+    <li><a class="dropdown-item" href="../articles/hockey-advanced-metrics-corsi-fenwick.html">Corsi, Fenwick and PDO in R</a></li>
+    <li><a class="dropdown-item" href="../articles/nhl-pwhl-rink-plots-shot-maps.html">NHL and PWHL Rink Plots and Shot Maps</a></li>
+    <li><a class="dropdown-item" href="../articles/pwhl-and-college-hockey.html">PWHL and College Hockey</a></li>
+    <li><a class="dropdown-item" href="../articles/european-hockey-leagues.html">European Hockey Leagues</a></li>
+  </ul></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-models" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-chart-line"></span> Models</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-models"><li><a class="dropdown-item" href="../articles/nhl-expected-goals-xg-model.html">NHL Expected Goals (xG) Model</a></li>
+    <li><a class="dropdown-item" href="../articles/pwhl-expected-goals-xg-model.html">PWHL Expected Goals (xG) Model</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html"><span class="fa fas fa-newspaper"></span>  News</a></li>
 <li class="nav-item dropdown">
@@ -163,20 +172,20 @@ If NULL, uses current season.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_stats_goalies</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Stats Goalies ────────────────────────────────────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-02 03:51:35 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-02 06:06:51 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 50 × 23</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    assists games_played games_started goalie_full_name    goals goals_against</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>       0           10            10 Pyotr Kochetkov         0            15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>       0           14            14 Jesper Wallstedt        0            29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>       0            8             8 Jacob Fowler            0            15</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>       0            8             8 Linus Ullmark           0            10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>       0            8             8 Linus Ullmark           0            10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>       0            8             8 Jacob Fowler            0            15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>       0           10            10 Mackenzie Blackwood     0            27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>       0           11            11 Jake Oettinger          0            18</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>       0           11            11 Jeremy Swayman          0            26</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>       0            7             7 Devon Levi              0            22</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>       0           10            10 Andrei Vasilevskiy      0            30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>       0           10            10 Ilya Sorokin            0            24</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>       0           10            10 Ilya Sorokin            0            24</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>       0           10            10 Andrei Vasilevskiy      0            30</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 40 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 17 more variables: goals_against_average &lt;dbl&gt;, last_name &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   losses &lt;int&gt;, ot_losses &lt;int&gt;, penalty_minutes &lt;int&gt;, player_id &lt;int&gt;,</span></span>
@@ -195,7 +204,7 @@ If NULL, uses current season.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.9000.</p>
 </div>
 
     </footer></div>

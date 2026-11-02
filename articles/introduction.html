@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Getting Started with fastRhockey • fastRhockey</title>
+<title>Getting Started with fastRhockey: NHL, PWHL and Hockey Data in R • fastRhockey</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -15,9 +15,9 @@
 <script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="Getting Started with fastRhockey">
-<meta name="description" content="A walkthrough of &lt;code&gt;fastRhockey&lt;/code&gt; for accessing NHL, PWHL, AHL and CHL, European and college hockey data.">
-<meta property="og:description" content="A walkthrough of &lt;code&gt;fastRhockey&lt;/code&gt; for accessing NHL, PWHL, AHL and CHL, European and college hockey data.">
+<meta property="og:title" content="Getting Started with fastRhockey: NHL, PWHL and Hockey Data in R">
+<meta name="description" content="Install fastRhockey, load NHL and PWHL play-by-play into R, make your first hockey chart with ggplot2, and learn Corsi, Fenwick, xG and other analytics terms.">
+<meta property="og:description" content="Install fastRhockey, load NHL and PWHL play-by-play into R, make your first hockey chart with ggplot2, and learn Corsi, Fenwick, xG and other analytics terms.">
 <meta property="og:image" content="https://github.com/sportsdataverse/fastRhockey-data/blob/main/themes/fastRhockey_card.png?raw=true">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@benhowell71">
@@ -55,6 +55,17 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-book-reader"></span> Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/introduction.html">fastRhockey Introduction</a></li>
+    <li><a class="dropdown-item" href="../articles/hockey-advanced-metrics-corsi-fenwick.html">Corsi, Fenwick and PDO in R</a></li>
+    <li><a class="dropdown-item" href="../articles/nhl-pwhl-rink-plots-shot-maps.html">NHL and PWHL Rink Plots and Shot Maps</a></li>
+    <li><a class="dropdown-item" href="../articles/pwhl-and-college-hockey.html">PWHL and College Hockey</a></li>
+    <li><a class="dropdown-item" href="../articles/european-hockey-leagues.html">European Hockey Leagues</a></li>
+  </ul>
+</li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-models" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-chart-line"></span> Models</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-models">
+<li><a class="dropdown-item" href="../articles/nhl-expected-goals-xg-model.html">NHL Expected Goals (xG) Model</a></li>
+    <li><a class="dropdown-item" href="../articles/pwhl-expected-goals-xg-model.html">PWHL Expected Goals (xG) Model</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html"><span class="fa fas fa-newspaper"></span>  News</a></li>
@@ -134,7 +145,7 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Getting Started with fastRhockey</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Getting Started with fastRhockey: NHL, PWHL and Hockey Data in R</h1>
                         <h4 data-toc-skip class="author">Ben Howell,
 Saiem Gilani
 <br><a href="https://x.com/BenHowell71" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/BenHowell71?color=blue&amp;label=%40BenHowell71&amp;logo=x&amp;style=for-the-badge" alt="@BenHowell71"></a>
@@ -150,316 +161,472 @@ Saiem Gilani
 
     
     
-<p><a href="https://github.com/sportsdataverse/fastRhockey" class="external-link"><code>fastRhockey</code></a>
-is an R package for accessing hockey data via public web APIs: the
-<strong>PWHL</strong> (Professional Women’s Hockey League), the
-<strong>NHL</strong> (National Hockey League), the AHL and the three
-Canadian major-junior leagues (OHL, WHL, QMJHL), thirteen European
-leagues, and NCAA men’s and women’s college hockey through ESPN. It
-provides structured data frames of play-by-play, schedule, standings,
-roster, draft, player stats, and team data. The package also includes
-integrated <strong>expected goals (xG)</strong> models for NHL data.</p>
-<p>Part of the <a href="https://sportsdataverse.org/" class="external-link">SportsDataverse</a> family of
-R/Python packages for sports analytics.</p>
+<p><strong><a href="https://github.com/sportsdataverse/fastRhockey" class="external-link"><code>fastRhockey</code></a>
+is an R package that turns public hockey data into tidy data
+frames.</strong> It covers the <strong>NHL</strong> (National Hockey
+League), the <strong>PWHL</strong> (Professional Women’s Hockey League),
+the AHL and the three Canadian major-junior leagues (OHL, WHL, QMJHL),
+thirteen European leagues, and NCAA men’s and women’s college hockey
+through ESPN. You get play-by-play, shifts, box scores, schedules,
+standings, rosters, draft and player data, plus <strong>expected goals
+(xG)</strong> for every NHL and PWHL shot.</p>
+<p><code>fastRhockey</code> is part of the <a href="https://sportsdataverse.org/" class="external-link">SportsDataverse</a>, a family of R
+and Python packages for sports analytics.</p>
 <center>
 <div class="float">
 <img src="https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/man/figures/fastRhockey_full_holographic_graphic.png" style="width:70.0%" alt="fastRhockey holographic logo banner"><div class="figcaption">fastRhockey holographic logo banner</div>
 </div>
 </center>
-<hr>
 <div class="section level2">
-<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+<h2 id="what-youll-learn">What you’ll learn<a class="anchor" aria-label="anchor" href="#what-youll-learn"></a>
 </h2>
-<p>You can install the CRAN version of <a href="https://CRAN.R-project.org/package=fastRhockey" class="external-link"><strong><code>fastRhockey</code></strong></a>
-with:</p>
+<p>By the end of this guide you will be able to:</p>
+<ol style="list-style-type: decimal">
+<li>install R, RStudio and <code>fastRhockey</code>;</li>
+<li>understand how the package’s functions are named, so you can find
+the right one for any league;</li>
+<li>load a full NHL season of play-by-play in one line, summarise it
+with <code>dplyr</code>, and draw your first chart with
+<code>ggplot2</code>;</li>
+<li>load PWHL play-by-play the same way;</li>
+<li>read the hockey analytics vocabulary (Corsi, Fenwick, xG, PDO,
+strength states and more) used in the rest of the documentation.</li>
+</ol>
+<p>Every number on this page is computed from the data when the page is
+built, so it stays current.</p>
+</div>
+<div class="section level2">
+<h2 id="how-do-i-install-r-rstudio-and-fastrhockey">How do I install R, RStudio and fastRhockey?<a class="anchor" aria-label="anchor" href="#how-do-i-install-r-rstudio-and-fastrhockey"></a>
+</h2>
+<p><strong>1. Install R.</strong> Download R for your operating system
+from <a href="https://cloud.r-project.org/" class="external-link">CRAN</a> and run the
+installer.</p>
+<p><strong>2. Install RStudio (optional but recommended).</strong> <a href="https://posit.co/download/rstudio-desktop/" class="external-link">RStudio Desktop</a> is
+a free editor for R. Positron or VS Code also work.</p>
+<p><strong>3. Install <code>fastRhockey</code>.</strong> Open R or
+RStudio and run one of these.</p>
+<p>The released version from <a href="https://CRAN.R-project.org/package=fastRhockey" class="external-link">CRAN</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"fastRhockey"</span><span class="op">)</span></span></code></pre></div>
-<p>You can install the development version from <a href="https://github.com/sportsdataverse/fastRhockey" class="external-link">GitHub</a>
-with:</p>
+<p>The development version from <a href="https://github.com/sportsdataverse/fastRhockey" class="external-link">GitHub</a>, which
+has the newest functions:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">'pak'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'pak'</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"pak"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"sportsdataverse/fastRhockey"</span><span class="op">)</span></span></code></pre></div>
-<hr>
+<p><strong>4. Install the helper packages used in this guide.</strong>
+<code>dplyr</code> and <code>ggplot2</code> are for data wrangling and
+plots, <code>sportyR</code> and <code>sdvplotR</code> draw rinks, and
+<code>xgboost</code> lets you compute NHL xG yourself. None of these are
+required to use <code>fastRhockey</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dplyr"</span>, <span class="st">"ggplot2"</span>, <span class="st">"sportyR"</span>, <span class="st">"xgboost"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"sportsdataverse/sdvplotR"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="pwhl-data">PWHL Data<a class="anchor" aria-label="anchor" href="#pwhl-data"></a>
+<h2 id="how-is-fastrhockey-organised">How is fastRhockey organised?<a class="anchor" aria-label="anchor" href="#how-is-fastrhockey-organised"></a>
 </h2>
-<p>The PWHL (Professional Women’s Hockey League) launched in January
-2024 with six teams (Boston, Minnesota, Montreal, New York, Ottawa and
-Toronto) and added Seattle and Vancouver for 2025-26.
-<code>fastRhockey</code> provides full access to PWHL schedules,
-standings, play-by-play, player box scores, team rosters, and stat
-leaders.</p>
-<div class="section level3">
-<h3 id="teams">Teams<a class="anchor" aria-label="anchor" href="#teams"></a>
-</h3>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<p>Every function name starts with a prefix that tells you the league
+and the data source. Once you know the prefix, the <a href="../reference/index.html">function reference</a> groups everything
+else.</p>
+<table class="table">
+<colgroup>
+<col width="25%">
+<col width="25%">
+<col width="25%">
+<col width="25%">
+</colgroup>
+<thead><tr class="header">
+<th>Prefix</th>
+<th>League and source</th>
+<th>Calls the internet?</th>
+<th>Reference section</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>load_nhl_*()</code></td>
+<td>NHL full seasons (2010 onward), pre-built files on GitHub
+releases</td>
+<td>GitHub only</td>
+<td><a href="../reference/index.html#nhl-data-loaders">NHL Data
+Loaders</a></td>
+</tr>
+<tr class="even">
+<td><code>load_pwhl_*()</code></td>
+<td>PWHL full seasons (2024 onward), pre-built files on GitHub
+releases</td>
+<td>GitHub only</td>
+<td><a href="../reference/index.html#pwhl-data-loaders">PWHL Data
+Loaders</a></td>
+</tr>
+<tr class="odd">
+<td><code>nhl_*()</code></td>
+<td>NHL live APIs (<code>api-web.nhle.com</code>,
+<code>api.nhle.com/stats</code>, NHL Edge, NHL Records)</td>
+<td>Yes</td>
+<td><a href="../reference/index.html#nhl-data">NHL Data</a></td>
+</tr>
+<tr class="even">
+<td><code>pwhl_*()</code></td>
+<td>PWHL live HockeyTech feed</td>
+<td>Yes</td>
+<td><a href="../reference/index.html#professional-women-s-hockey-league">Professional
+Women’s Hockey League</a></td>
+</tr>
+<tr class="odd">
+<td>
+<code>ahl_*()</code>, <code>ohl_*()</code>, <code>whl_*()</code>,
+<code>qmjhl_*()</code>
+</td>
+<td>AHL and Canadian major-junior HockeyTech feeds</td>
+<td>Yes</td>
+<td>
+<a href="../reference/index.html#ahl-data">AHL</a>, <a href="../reference/index.html#ohl-data">OHL</a>, <a href="../reference/index.html#whl-data">WHL</a>, <a href="../reference/index.html#qmjhl-data">QMJHL</a>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code>espn_nhl_*()</code>, <code>fox_nhl_*()</code>
+</td>
+<td>NHL from ESPN and Fox Sports</td>
+<td>Yes</td>
+<td><a href="../reference/index.html#espn-nhl">ESPN NHL</a></td>
+</tr>
+<tr class="odd">
+<td>
+<code>espn_mch_*()</code>, <code>espn_wch_*()</code>
+</td>
+<td>NCAA men’s and women’s college hockey from ESPN</td>
+<td>Yes</td>
+<td><a href="../reference/index.html#espn-college-hockey">ESPN College
+Hockey</a></td>
+</tr>
+<tr class="even">
+<td>
+<code>del_*()</code>, <code>shl_*()</code>, <code>liiga_*()</code>,
+<code>khl_*()</code>, …</td>
+<td>Thirteen European leagues</td>
+<td>Yes</td>
+<td><a href="../reference/index.html#european-hockey">European
+Hockey</a></td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="../reference/helper_nhl_calculate_xg.html">helper_nhl_calculate_xg()</a></code>,
+<code><a href="../reference/refresh_xg_models.html">refresh_xg_models()</a></code>
+</td>
+<td>NHL expected-goals model</td>
+<td>Model files only</td>
+<td><a href="../reference/index.html#helpers">Helpers</a></td>
+</tr>
+<tr class="even">
+<td>
+<code>phf_*()</code>, <code>load_phf_*()</code>
+</td>
+<td>The defunct PHF (formerly NWHL). These stop with an error.</td>
+<td>No</td>
+<td><a href="../reference/index.html#deprecated-phf-functions">Deprecated PHF
+Functions</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Which should you use?</strong> Start with the
+<code>load_*()</code> loaders. They read one file per season from the <a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link">sportsdataverse-data
+releases</a>, so a whole season arrives in seconds, the files are
+already cleaned, and NHL and PWHL play-by-play come with xG attached.
+Use the live functions when you need today’s games, a league the loaders
+don’t cover, or an endpoint (player bios, standings snapshots, NHL Edge
+tracking) that isn’t in a loader.</p>
+<p><strong>Seasons are end years.</strong> <code>seasons = 2026</code>
+means the 2025-26 season, in every league.</p>
+</div>
+<div class="section level2">
+<h2 id="how-do-i-load-a-full-nhl-season-of-play-by-play">How do I load a full NHL season of play-by-play?<a class="anchor" aria-label="anchor" href="#how-do-i-load-a-full-nhl-season-of-play-by-play"></a>
+</h2>
+<p><code><a href="../reference/load_nhl_pbp.html">load_nhl_pbp()</a></code> returns one row per event: faceoffs,
+hits, shots, goals, penalties, stoppages and line changes, with the
+skaters on the ice for each.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fastRhockey.sportsdataverse.org/">fastRhockey</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/pwhl_teams.html">pwhl_teams</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="schedule">Schedule<a class="anchor" aria-label="anchor" href="#schedule"></a>
-</h3>
-<p>Let’s pull the 2024 PWHL season schedule:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">schedule</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/pwhl_schedule.html">pwhl_schedule</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span><span class="va">nhl_pbp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_nhl_pbp.html">load_nhl_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">schedule</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">game_status</span> <span class="op">==</span> <span class="st">"Final"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">game_id</span>, <span class="va">game_date</span>, <span class="va">home_team</span>, <span class="va">away_team</span>,</span>
-<span>                <span class="va">home_score</span>, <span class="va">away_score</span>, <span class="va">winner</span>, <span class="va">venue</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
-<p>The schedule returns game IDs, dates, teams, scores, and venue
-information for every game in the season.</p>
-</div>
-<div class="section level3">
-<h3 id="standings">Standings<a class="anchor" aria-label="anchor" href="#standings"></a>
-</h3>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">nhl_pbp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 1100073      94</span></span></code></pre></div>
+<p>That is 1,100,073 events from 1,395 games. The columns you will use
+most:</p>
+<ul>
+<li>
+<code>event_type</code>: what happened (<code>SHOT</code>,
+<code>GOAL</code>, <code>MISSED_SHOT</code>, <code>BLOCKED_SHOT</code>,
+<code>HIT</code>, <code>FACEOFF</code>, <code>CHANGE</code>, …).</li>
+<li>
+<code>event_team_abbr</code>: the team credited with the event. For
+<code>BLOCKED_SHOT</code> this is the <strong>blocking</strong> team,
+not the shooting team.</li>
+<li>
+<code>strength_state</code>: skaters on the ice from the event
+team’s point of view, such as <code>"5v5"</code> or
+<code>"5v4"</code>.</li>
+<li>
+<code>x</code>, <code>y</code>, <code>x_fixed</code>,
+<code>y_fixed</code>, <code>shot_distance</code>,
+<code>shot_angle</code>: where the event happened, in feet from centre
+ice.</li>
+<li>
+<code>xg</code>: the expected-goals value of each unblocked
+shot.</li>
+<li>
+<code>home_on_1</code> … <code>away_on_7</code>,
+<code>home_goalie</code>, <code>away_goalie</code>: who was on the
+ice.</li>
+</ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/pwhl_standings.html">pwhl_standings</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">team_rank</span>, <span class="va">team</span>, <span class="va">games_played</span>, <span class="va">points</span>,</span>
-<span>                <span class="va">wins</span>, <span class="va">losses</span>, <span class="va">goals_for</span>, <span class="va">goals_against</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="player-box-scores">Player Box Scores<a class="anchor" aria-label="anchor" href="#player-box-scores"></a>
-</h3>
-<p>Pick a game from the schedule and pull individual player stats.
-<code><a href="../reference/pwhl_player_box.html">pwhl_player_box()</a></code> returns a list with two data frames:
-skaters and goalies.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">box</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/pwhl_player_box.html">pwhl_player_box</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">27</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Skater stats</span></span>
-<span><span class="va">box</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">first_name</span>, <span class="va">last_name</span>, <span class="va">position</span>, <span class="va">team_id</span>,</span>
-<span>                <span class="va">goals</span>, <span class="va">assists</span>, <span class="va">points</span>, <span class="va">shots</span>, <span class="va">toi</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">points</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<code class="sourceCode R"><span><span class="va">nhl_pbp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">event_type</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 2</span></span></span>
+<span><span class="co">#&gt;    event_type        n</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> CHANGE       <span style="text-decoration: underline;">656</span>504</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> FACEOFF       <span style="text-decoration: underline;">78</span>491</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> SHOT          <span style="text-decoration: underline;">69</span>507</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> STOP          <span style="text-decoration: underline;">61</span>160</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> HIT           <span style="text-decoration: underline;">59</span>279</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> BLOCKED_SHOT  <span style="text-decoration: underline;">43</span>664</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> GIVEAWAY      <span style="text-decoration: underline;">42</span>970</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> MISSED_SHOT   <span style="text-decoration: underline;">41</span>811</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> TAKEAWAY      <span style="text-decoration: underline;">12</span>878</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> PENALTY       <span style="text-decoration: underline;">10</span>496</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="summarise-it-goals-and-expected-goals-by-team">Summarise it: goals and expected goals by team<a class="anchor" aria-label="anchor" href="#summarise-it-goals-and-expected-goals-by-team"></a>
+</h3>
+<p>Here we keep regular-season unblocked shots, then add up actual goals
+and expected goals for each team.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">team_xg</span> <span class="op">&lt;-</span> <span class="va">nhl_pbp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">season_type</span> <span class="op">==</span> <span class="st">"R"</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">xg</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span>team <span class="op">=</span> <span class="va">event_team_abbr</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span></span>
+<span>    shots <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    goals <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">event_type</span> <span class="op">==</span> <span class="st">"GOAL"</span><span class="op">)</span>,</span>
+<span>    xg    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">xg</span><span class="op">)</span>,</span>
+<span>    .groups <span class="op">=</span> <span class="st">"drop"</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>goals_above_expected <span class="op">=</span> <span class="va">goals</span> <span class="op">-</span> <span class="va">xg</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">xg</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Goalie stats</span></span>
-<span><span class="va">box</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">first_name</span>, <span class="va">last_name</span>, <span class="va">team_id</span>,</span>
-<span>                <span class="va">saves</span>, <span class="va">goals_against</span>, <span class="va">shots_against</span>, <span class="va">toi</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">team_xg</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 5</span></span></span>
+<span><span class="co">#&gt;    team  shots goals    xg goals_above_expected</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> CAR    <span style="text-decoration: underline;">4</span>105   281  328.               -<span style="color: #BB0000;">47.3</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> COL    <span style="text-decoration: underline;">4</span>061   287  325.               -<span style="color: #BB0000;">38.3</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> EDM    <span style="text-decoration: underline;">3</span>533   274  302.               -<span style="color: #BB0000;">27.7</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> TBL    <span style="text-decoration: underline;">3</span>506   276  301.               -<span style="color: #BB0000;">25.5</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> ANA    <span style="text-decoration: underline;">3</span>856   256  300.               -<span style="color: #BB0000;">44.2</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> MTL    <span style="text-decoration: underline;">3</span>322   270  297.               -<span style="color: #BB0000;">26.6</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> OTT    <span style="text-decoration: underline;">3</span>562   269  294.               -<span style="color: #BB0000;">24.8</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> VGK    <span style="text-decoration: underline;">3</span>532   256  290.               -<span style="color: #BB0000;">33.7</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> PIT    <span style="text-decoration: underline;">3</span>538   284  289.                -<span style="color: #BB0000;">4.63</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> WSH    <span style="text-decoration: underline;">3</span>496   254  289.               -<span style="color: #BB0000;">34.6</span></span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="play-by-play">Play-by-Play<a class="anchor" aria-label="anchor" href="#play-by-play"></a>
+<h3 id="your-first-hockey-chart">Your first hockey chart<a class="anchor" aria-label="anchor" href="#your-first-hockey-chart"></a>
 </h3>
-<p>The real power of <code>fastRhockey</code> is in the play-by-play
-data. <code><a href="../reference/pwhl_pbp.html">pwhl_pbp()</a></code> returns detailed event-level data
-including shot locations, faceoff results, penalties, goals with assist
-information, and plus/minus player tracking.</p>
+<p>Teams above the dashed line scored more goals than their shot quality
+predicted, through finishing talent, hot goaltending against them, or
+luck.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">pbp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/pwhl_pbp.html">pwhl_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">27</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">pbp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">event</span>, <span class="va">team_id</span>, <span class="va">period_of_game</span>, <span class="va">time_of_period</span>,</span>
-<span>                <span class="va">player_name_first</span>, <span class="va">player_name_last</span>,</span>
-<span>                <span class="va">x_coord</span>, <span class="va">y_coord</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span></span></code></pre></div>
-<p>The play-by-play data includes 90+ columns with event details, player
-information, coordinates (raw and transformed), and game context.</p>
-</div>
-<div class="section level3">
-<h3 id="stat-leaders">Stat Leaders<a class="anchor" aria-label="anchor" href="#stat-leaders"></a>
-</h3>
-<p>Pull league-wide goalie or skater stats:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Goalie stats</span></span>
-<span><span class="fu"><a href="../reference/pwhl_stats.html">pwhl_stats</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"goalie"</span>, season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">player_name</span>, <span class="va">team</span>, <span class="va">games_played</span>,</span>
-<span>                <span class="va">goals_against_avg</span>, <span class="va">save_percentage</span>, <span class="va">shutouts</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Skater stats (all teams)</span></span>
-<span><span class="fu"><a href="../reference/pwhl_stats.html">pwhl_stats</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"skater"</span>, season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">player_name</span>, <span class="va">team</span>, <span class="va">games_played</span>,</span>
-<span>                <span class="va">goals</span>, <span class="va">assists</span>, <span class="va">points</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
-<hr>
-</div>
-</div>
-<div class="section level2">
-<h2 id="nhl-data">NHL Data<a class="anchor" aria-label="anchor" href="#nhl-data"></a>
-</h2>
-<p><code>fastRhockey</code> also provides extensive access to NHL data
-via the <code>api-web.nhle.com</code> and
-<code>api.nhle.com/stats</code> APIs.</p>
-<div class="section level3">
-<h3 id="schedule-1">Schedule<a class="anchor" aria-label="anchor" href="#schedule-1"></a>
-</h3>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/nhl_schedule.html">nhl_schedule</a></span><span class="op">(</span>season <span class="op">=</span> <span class="st">"20242025"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="standings-1">Standings<a class="anchor" aria-label="anchor" href="#standings-1"></a>
-</h3>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/nhl_standings.html">nhl_standings</a></span><span class="op">(</span>season <span class="op">=</span> <span class="st">"20242025"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="game-feed-and-play-by-play">Game Feed and Play-by-Play<a class="anchor" aria-label="anchor" href="#game-feed-and-play-by-play"></a>
-</h3>
-<p>The <code><a href="../reference/nhl_game_feed.html">nhl_game_feed()</a></code> function returns detailed game data
-including play-by-play, rosters, and game information.
-<code><a href="../reference/nhl_game_pbp.html">nhl_game_pbp()</a></code> provides play-by-play with shift data
-integrated.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">feed</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/nhl_game_feed.html">nhl_game_feed</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">2024020001</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">feed</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="player-stats">Player Stats<a class="anchor" aria-label="anchor" href="#player-stats"></a>
-</h3>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Skater season stats</span></span>
-<span><span class="fu"><a href="../reference/nhl_stats_skaters.html">nhl_stats_skaters</a></span><span class="op">(</span>season <span class="op">=</span> <span class="st">"20242025"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="draft-data">Draft Data<a class="anchor" aria-label="anchor" href="#draft-data"></a>
-</h3>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Get 2024 draft picks (round 1)</span></span>
-<span><span class="fu"><a href="../reference/nhl_draft_year.html">nhl_draft_year</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2024</span>, round <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="full-season-loaders">Full Season Loaders<a class="anchor" aria-label="anchor" href="#full-season-loaders"></a>
-</h3>
-<p>For bulk historical data, use the loader functions, which read
-pre-built season files from the <a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link">sportsdataverse-data</a>
-releases instead of calling the APIs. There are 23 NHL loaders
-(<code>load_nhl_*()</code>, from 2010) and 17 PWHL loaders
-(<code>load_pwhl_*()</code>, from 2024), plus aliases named to match
-sportsdataverse-py:</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Full season of play-by-play</span></span>
-<span><span class="va">pbp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_nhl_pbp.html">load_nhl_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Full season schedule</span></span>
-<span><span class="va">sched</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_nhl_schedule.html">load_nhl_schedule</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Full season rosters</span></span>
-<span><span class="va">rosters</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_nhl_rosters.html">load_nhl_rosters</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span></code></pre></div>
-<hr>
-</div>
-</div>
-<div class="section level2">
-<h2 id="plotting-shots-on-a-rink">Plotting shots on a rink<a class="anchor" aria-label="anchor" href="#plotting-shots-on-a-rink"></a>
-</h2>
-<p><a href="https://sportyR.sportsdataverse.org/" class="external-link"><code>sportyR</code></a>
-draws regulation rinks as <code>ggplot2</code> layers. The PWHL
-play-by-play’s <code>x_coord_fixed</code> / <code>y_coord_fixed</code>
-columns (the AHL, OHL, WHL and QMJHL <code>*_pbp()</code> functions
-return the same ones) are in feet from centre ice with the home team
-shooting right, which is the frame
-<code>sportyR::geom_hockey("pwhl")</code> draws. Neither
-<code>sportyR</code> nor <code>ggplot2</code> is a
-<code>fastRhockey</code> dependency, so install them first
-(<code>install.packages(c("sportyR", "ggplot2"))</code>). For team logos
-and colours, see <a href="https://sdvplotR.sportsdataverse.org/articles/recipe-nhl-shot-map.html" class="external-link"><code>sdvplotR</code></a>.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">pwhl_shots</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_pwhl_pbp.html">load_pwhl_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">event</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"shot"</span>, <span class="st">"goal"</span><span class="op">)</span>,</span>
-<span>                <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">x_coord_fixed</span><span class="op">)</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">y_coord_fixed</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">sportyR</span><span class="fu">::</span><span class="fu"><a href="https://sportyR.sportsdataverse.org/reference/geom_hockey.html" class="external-link">geom_hockey</a></span><span class="op">(</span><span class="st">"pwhl"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span></span>
-<span>    data <span class="op">=</span> <span class="va">pwhl_shots</span>,</span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x_coord_fixed</span>, y <span class="op">=</span> <span class="va">y_coord_fixed</span>, colour <span class="op">=</span> <span class="va">event</span> <span class="op">==</span> <span class="st">"goal"</span><span class="op">)</span>,</span>
-<span>    alpha <span class="op">=</span> <span class="fl">0.3</span>, size <span class="op">=</span> <span class="fl">0.8</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">team_xg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">xg</span>, y <span class="op">=</span> <span class="va">goals</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html" class="external-link">geom_abline</a></span><span class="op">(</span>slope <span class="op">=</span> <span class="fl">1</span>, intercept <span class="op">=</span> <span class="fl">0</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>, colour <span class="op">=</span> <span class="st">"grey50"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"#531896"</span>, size <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">team</span><span class="op">)</span>, vjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.8</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"NHL goals vs expected goals, 2025-26 regular season"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"All strengths, unblocked shots; dashed line = goals equal xG"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"Expected goals (xG)"</span>, y <span class="op">=</span> <span class="st">"Goals"</span>,</span>
+<span>    caption <span class="op">=</span> <span class="st">"Data: fastRhockey::load_nhl_pbp()"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_colour_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>`FALSE` <span class="op">=</span> <span class="st">"grey40"</span>, `TRUE` <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span>,</span>
-<span>                      labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Shot"</span>, <span class="st">"Goal"</span><span class="op">)</span>, name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
-<hr>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="introduction_files/figure-html/nhl_first_plot-1.png" class="r-plt" alt="Scatter plot of NHL team goals against expected goals for the 2025-26 regular season, with a dashed y equals x line." width="100%"></p>
+<p>The xG behind this chart has known limitations, including a
+coordinate issue described in <a href="nhl-expected-goals-xg-model.html">the NHL expected goals model
+article</a>. Read that before you lean on xG for player evaluation.</p>
+</div>
 </div>
 <div class="section level2">
-<h2 id="more-leagues">More leagues<a class="anchor" aria-label="anchor" href="#more-leagues"></a>
+<h2 id="how-do-i-load-pwhl-play-by-play">How do I load PWHL play-by-play?<a class="anchor" aria-label="anchor" href="#how-do-i-load-pwhl-play-by-play"></a>
 </h2>
-<p>The same calling style covers the other families. Each links to its
-section of the <a href="https://fastRhockey.sportsdataverse.org/reference/index.html">function
-reference</a>.</p>
-<div class="section level3">
-<h3 id="espn-and-fox-sports-nhl">ESPN and Fox Sports NHL<a class="anchor" aria-label="anchor" href="#espn-and-fox-sports-nhl"></a>
-</h3>
-<p><a href="https://fastRhockey.sportsdataverse.org/reference/index.html#espn-nhl"><code>espn_nhl_*()</code></a>
-(126 functions) read ESPN’s NHL API and <a href="https://fastRhockey.sportsdataverse.org/reference/index.html#fox-sports-nhl-data"><code>fox_nhl_*()</code></a>
-(8 functions) read Fox Sports’ Bifrost API.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/espn_nhl_scoreboard.html">espn_nhl_scoreboard</a></span><span class="op">(</span>dates <span class="op">=</span> <span class="fl">20250301</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/espn_nhl_pbp.html">espn_nhl_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="st">"401688263"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/fox_nhl_standings.html">fox_nhl_standings</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="st">"1"</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="ahl-ohl-whl-and-qmjhl">AHL, OHL, WHL and QMJHL<a class="anchor" aria-label="anchor" href="#ahl-ohl-whl-and-qmjhl"></a>
-</h3>
-<p>The <a href="https://fastRhockey.sportsdataverse.org/reference/index.html#ahl-data">AHL</a>,
-<a href="https://fastRhockey.sportsdataverse.org/reference/index.html#ohl-data">OHL</a>,
-<a href="https://fastRhockey.sportsdataverse.org/reference/index.html#whl-data">WHL</a>
-and <a href="https://fastRhockey.sportsdataverse.org/reference/index.html#qmjhl-data">QMJHL</a>
-run on the same HockeyTech feed as the PWHL, so each league has the same
-12 functions (<code>&lt;league&gt;_schedule()</code>,
-<code>&lt;league&gt;_pbp()</code>,
-<code>&lt;league&gt;_standings()</code>, …).</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ahl_schedule.html">ahl_schedule</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/ohl_standings.html">ohl_standings</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="european-leagues">European leagues<a class="anchor" aria-label="anchor" href="#european-leagues"></a>
-</h3>
-<p>Thirteen <a href="https://fastRhockey.sportsdataverse.org/reference/index.html#european-hockey">European
-leagues</a> (211 functions): DEL (<code>del_*</code>), ICE Hockey League
-(<code>icehl_*</code>), EIHL (<code>eihl_*</code>), Metal Ligaen
-(<code>metal_*</code>), KHL (<code>khl_*</code>), VHL
-(<code>vhl_*</code>), SHL (<code>shl_*</code>), HockeyAllsvenskan
-(<code>ha_*</code>), Liiga (<code>liiga_*</code>), the Swiss federation
-(<code>sihf_*</code>) and National League (<code>nl_*</code>), the Czech
-Extraliga (<code>elh_*</code>) and Ligue Magnus (<code>magnus_*</code>).
-Seasons are end years (2026 = 2025-26). Requests to one host are spaced
-at least a second apart, and a failed request raises a classed condition
-(<code>fastRhockey_no_data</code>, <code>fastRhockey_asset_fetch</code>
-or <code>fastRhockey_bad_request</code>, all inheriting
-<code>fastRhockey_error</code>) that you can catch with
-<code><a href="https://rdrr.io/r/base/conditions.html" class="external-link">tryCatch()</a></code>.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/liiga_schedule.html">liiga_schedule</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span></span>
+<p>The PWHL loaders work the same way. <code><a href="../reference/load_pwhl_pbp.html">load_pwhl_pbp()</a></code>
+returns one row per event from the HockeyTech feed, and
+<code><a href="../reference/load_pwhl_xg_pbp.html">load_pwhl_xg_pbp()</a></code> returns one row per shot on goal with an
+<code>xg</code> column.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pwhl_pbp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_pwhl_pbp.html">load_pwhl_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span></span>
 <span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/conditions.html" class="external-link">tryCatch</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="../reference/khl_standings.html">khl_standings</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span>,</span>
-<span>  fastRhockey_error <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">e</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"KHL request failed: "</span>, <span class="fu"><a href="https://rdrr.io/r/base/conditions.html" class="external-link">conditionMessage</a></span><span class="op">(</span><span class="va">e</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="ncaa-college-hockey">NCAA college hockey<a class="anchor" aria-label="anchor" href="#ncaa-college-hockey"></a>
-</h3>
-<p>ESPN’s men’s (<a href="https://fastRhockey.sportsdataverse.org/reference/index.html#espn-men-s-college-hockey"><code>espn_mch_*()</code></a>)
-and women’s (<a href="https://fastRhockey.sportsdataverse.org/reference/index.html#espn-women-s-college-hockey"><code>espn_wch_*()</code></a>)
-college hockey wrappers, 121 per league, mirror the ESPN NHL family.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/espn_mch_scoreboard.html">espn_mch_scoreboard</a></span><span class="op">(</span>dates <span class="op">=</span> <span class="fl">20250301</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/espn_wch_standings.html">espn_wch_standings</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<hr>
-</div>
+<span><span class="va">pwhl_pbp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">event</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 9 × 2</span></span></span>
+<span><span class="co">#&gt;   event             n</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> shot           <span style="text-decoration: underline;">7</span>438</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> faceoff        <span style="text-decoration: underline;">7</span>415</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> hit            <span style="text-decoration: underline;">3</span>658</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> blocked_shot   <span style="text-decoration: underline;">3</span>197</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> penalty         850</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> goal            602</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> goalie_change   561</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> shootout        112</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">9</span> penaltyshot       5</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pwhl_pbp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">event</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"shot"</span>, <span class="st">"goal"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">team_id</span>, <span class="va">event</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">event</span>, values_from <span class="op">=</span> <span class="va">n</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 8 × 3</span></span></span>
+<span><span class="co">#&gt;   team_id  goal  shot</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 1          78   959</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 2         101   999</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 3          95  <span style="text-decoration: underline;">1</span>135</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 4          62   885</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 5          84   982</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 6          51   848</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> 8          63   837</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> 9          68   793</span></span></code></pre></div>
+<p>The <a href="pwhl-and-college-hockey.html">PWHL and college hockey
+guide</a> covers the PWHL loaders and live functions in depth.</p>
 </div>
 <div class="section level2">
-<h2 id="deprecated-phf-functions">Deprecated PHF Functions<a class="anchor" aria-label="anchor" href="#deprecated-phf-functions"></a>
+<h2 id="what-do-corsi-fenwick-xg-and-the-other-hockey-terms-mean">What do Corsi, Fenwick, xG and the other hockey terms mean?<a class="anchor" aria-label="anchor" href="#what-do-corsi-fenwick-xg-and-the-other-hockey-terms-mean"></a>
+</h2>
+<p>You will meet these terms throughout the <code>fastRhockey</code>
+documentation.</p>
+<p><strong>Shot attempt.</strong> Any attempt to shoot the puck at the
+net: a shot on goal, a goal, a missed shot or a blocked shot.</p>
+<p><strong>Corsi (CF, CA, CF%).</strong> A count of shot attempts. CF
+(Corsi for) counts a team’s attempts, CA (Corsi against) its opponent’s,
+and CF% = CF / (CF + CA). Because attempts are far more common than
+goals, Corsi is a stable early read on which team controlled the
+puck.</p>
+<p><strong>Fenwick (FF, FA, FF%).</strong> Corsi without blocked shots,
+so it counts unblocked attempts only. Expected-goals models are usually
+built on Fenwick events, because a blocked shot never reaches the
+goalie.</p>
+<p><strong>Shots on goal (SF, SA).</strong> Shots the goalie had to
+stop, plus goals.</p>
+<p><strong>Expected goals (xG).</strong> The probability, from 0 to 1,
+that a shot becomes a goal, estimated from where and how it was taken
+(distance, angle, shot type, rebound, rush and so on). Summing xG over
+shots gives the number of goals an average shooter would have scored.
+<strong>xGF%</strong> is a team’s share of the xG in its games.</p>
+<p><strong>Goals above expected (GAX).</strong> Goals minus xG. Positive
+values mean finishing better than shot quality predicts.</p>
+<p><strong>Shooting percentage (Sh%).</strong> Goals divided by shots on
+goal.</p>
+<p><strong>Save percentage (Sv%).</strong> Saves divided by shots on
+goal faced, or 1 minus the opponent’s Sh%.</p>
+<p><strong>PDO.</strong> Sh% plus Sv% for the same team over the same
+time. League average is close to 1.000 (or 100). Values far from it
+usually drift back, so PDO is a quick luck check.</p>
+<p><strong>Strength state.</strong> How many skaters each team has on
+the ice (goalies are not counted). <code>5v5</code> is even strength. In
+<code>fastRhockey</code> NHL data, <code>strength_state</code> is
+written from the event team’s side, so <code>5v4</code> means the event
+team had the extra skater.</p>
+<p><strong>Power play (PP) and penalty kill (PK).</strong> A team with
+more skaters because of an opponent penalty is on the power play; the
+shorthanded team is on the penalty kill. In <code>strength_code</code>
+these appear as <code>PP</code> and <code>SH</code>; <code>EV</code> is
+even strength.</p>
+<p><strong>Empty net and extra attacker.</strong> When a team pulls its
+goalie for another skater, shots at its net are <code>empty_net</code>
+and the team itself has an <code>extra_attacker</code>. Strength states
+such as <code>6v5</code> capture this.</p>
+<p><strong>High-danger chance.</strong> A shot from close to the net,
+usually the slot and crease area. Definitions vary; most use a distance
+or area cut-off. You can build one from <code>shot_distance</code> and
+<code>shot_angle</code>.</p>
+<p><strong>Rebound and rush.</strong> A rebound is a shot taken within a
+couple of seconds of a previous shot. A rush shot follows a quick
+transition from the neutral or defensive zone. Both are inputs to the
+NHL xG model.</p>
+<p><strong>Shift.</strong> One continuous stretch a player spends on the
+ice. <code><a href="../reference/load_nhl_shifts.html">load_nhl_shifts()</a></code> and <code><a href="../reference/load_pwhl_shifts.html">load_pwhl_shifts()</a></code>
+return one row per shift.</p>
+<p><strong>Time on ice (TOI).</strong> The total time a player spent on
+the ice, usually split by strength state (5v5 TOI, PP TOI).</p>
+<p><strong>Zones (OZ, NZ, DZ).</strong> The offensive, neutral and
+defensive thirds of the rink, separated by the blue lines.</p>
+</div>
+<div class="section level2">
+<h2 id="where-to-go-next">Where to go next<a class="anchor" aria-label="anchor" href="#where-to-go-next"></a>
+</h2>
+<p>The articles below build on this guide.</p>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr class="header">
+<th>Article</th>
+<th>What it covers</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><a href="nhl-expected-goals-xg-model.html">NHL expected goals (xG)
+model</a></td>
+<td>How the NHL xG model works, how to reproduce it, and its known
+limitations</td>
+</tr>
+<tr class="even">
+<td><a href="pwhl-expected-goals-xg-model.html">PWHL expected goals (xG)
+model</a></td>
+<td>The PWHL coordinate xG model behind
+<code><a href="../reference/load_pwhl_xg_pbp.html">load_pwhl_xg_pbp()</a></code>
+</td>
+</tr>
+<tr class="odd">
+<td><a href="hockey-advanced-metrics-corsi-fenwick.html">Corsi, Fenwick
+and PDO in R</a></td>
+<td>Team and player shot-share metrics at 5v5 from NHL play-by-play</td>
+</tr>
+<tr class="even">
+<td><a href="nhl-pwhl-rink-plots-shot-maps.html">Rink plots and shot
+maps</a></td>
+<td>NHL and PWHL shot maps, xG-sized points and heatmaps with
+<code>sportyR</code> and <code>sdvplotR</code>
+</td>
+</tr>
+<tr class="odd">
+<td><a href="european-hockey-leagues.html">European hockey
+leagues</a></td>
+<td>The thirteen European league families: SHL, Liiga, DEL, KHL,
+National League and more</td>
+</tr>
+<tr class="even">
+<td><a href="pwhl-and-college-hockey.html">PWHL and college
+hockey</a></td>
+<td>PWHL loaders and live functions, and NCAA hockey through ESPN</td>
+</tr>
+</tbody>
+</table>
+<p>You can also browse the <a href="../reference/index.html">function
+reference</a> by league, read the <a href="../news/index.html">changelog</a>, or check <a href="https://sportsdataverse.org/status" class="external-link">data freshness</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="deprecated-phf-functions">Deprecated PHF functions<a class="anchor" aria-label="anchor" href="#deprecated-phf-functions"></a>
 </h2>
 <p>The Premier Hockey Federation (PHF), formerly the National Women’s
-Hockey League (NWHL), ceased operations prior to the formation of the
-PWHL. All <code>phf_*</code> and <code>load_phf_*</code> functions have
-been defunct since v1.0.0 and stop with an error when called. Use the
-<code>pwhl_*</code> functions instead for women’s professional hockey
-data.</p>
-<hr>
+Hockey League (NWHL), ceased operations before the PWHL formed. All
+<code>phf_*()</code> and <code>load_phf_*()</code> functions have been
+defunct since version 1.0.0 and stop with an error when called. Use the
+<code>pwhl_*()</code> and <code>load_pwhl_*()</code> functions for
+women’s professional hockey.</p>
 </div>
 <div class="section level2">
 <h2 id="follow-the-sportsdataverse-on-twitter-and-star-this-repo">Follow the <a href="https://twitter.com/sportsdataverse" class="external-link">SportsDataverse</a> on
@@ -505,13 +672,13 @@ Twitter and star this repo<a class="anchor" aria-label="anchor" href="#follow-th
 <p>To cite the <a href="https://fastRhockey.sportsdataverse.org/"><strong><code>fastRhockey</code></strong></a>
 R package in publications, use:</p>
 <p>BibTeX Citation</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">howell_gilani_fastRhockey</span>,</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>  <span class="dt">author</span> = {Ben Howell and Saiem Gilani},</span>
-<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>  <span class="dt">title</span> = {fastRhockey: Functions to Access Professional Women's Hockey League and National Hockey League Play by Play Data.},</span>
-<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a>  <span class="dt">url</span> = {https://fastRhockey.sportsdataverse.org/},</span>
-<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a>  <span class="dt">doi</span> = {10.32614/CRAN.package.fastRhockey},</span>
-<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a>  <span class="dt">year</span> = {2026}</span>
-<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">howell_gilani_fastRhockey</span>,</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="dt">author</span> = {Ben Howell and Saiem Gilani},</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  <span class="dt">title</span> = {fastRhockey: Functions to Access Professional Women's Hockey League and National Hockey League Play by Play Data.},</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  <span class="dt">url</span> = {https://fastRhockey.sportsdataverse.org/},</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  <span class="dt">doi</span> = {10.32614/CRAN.package.fastRhockey},</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  <span class="dt">year</span> = {2026}</span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>}</span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
@@ -524,7 +691,7 @@ R package in publications, use:</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.9000.</p>
 </div>
 
     </footer>

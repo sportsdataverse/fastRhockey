@@ -122,7 +122,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_standings(season = 2026))
 #> ── KHL Standings from khl.ru ────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 03:49:04 UTC
+#> ℹ Data updated: 2026-11-02 06:04:23 UTC
 #> # A tibble: 69 × 17
 #>    table   rank club_id name       gp     w   otw   sow   sol   otl otl_en     l
 #>    <chr>  <int>   <int> <chr>   <int> <int> <int> <int> <int> <int>  <int> <int>

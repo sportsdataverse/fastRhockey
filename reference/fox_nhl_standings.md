@@ -24,14 +24,14 @@ standings columns, `entity_id`).
 ``` r
  try(fox_nhl_standings("1")) 
 #> ── Fox Sports NHL standings ─────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 03:48:13 UTC
+#> ℹ Data updated: 2026-11-02 06:03:32 UTC
 #> # A tibble: 128 × 24
 #>    team_id section    eastern_conference v2      w_l_otl pts   gp    row   sow  
 #>    <chr>   <chr>      <chr>              <chr>   <chr>   <chr> <chr> <chr> <chr>
 #>  1 1       CONFERENCE 1                  Hurric… 12-2-2  26    16    12    0    
 #>  2 1       CONFERENCE 2                  Bruins  10-4-1  21    15    10    0    
 #>  3 1       CONFERENCE 3                  Canadi… 9-3-2   20    14    7     2    
-#>  4 1       CONFERENCE 4                  Senato… 9-5-1   19    15    7     2    
+#>  4 1       CONFERENCE 4                  Senato… 9-6-1   19    16    7     2    
 #>  5 1       CONFERENCE 5                  Lightn… 8-3-2   18    13    8     0    
 #>  6 1       CONFERENCE 6                  Devils  9-5-0   18    14    9     0    
 #>  7 1       CONFERENCE 7                  Panthe… 8-4-2   18    14    8     0    

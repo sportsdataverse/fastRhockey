@@ -190,7 +190,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_player_stats(position = "forwards", season = 2026))
 #> ── KHL Player Stats from khl.ru ─────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 03:48:53 UTC
+#> ℹ Data updated: 2026-11-02 06:04:12 UTC
 #> # A tibble: 20 × 45
 #>    group    rank player_id player_name image    jn    gp     g     a   pts    pm
 #>    <chr>   <int>     <int> <chr>       <chr> <int> <int> <int> <int> <int> <int>

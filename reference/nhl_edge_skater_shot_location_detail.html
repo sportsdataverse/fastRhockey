@@ -34,6 +34,15 @@ fetch the current season."><meta property="og:image" content="https://raw.github
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-book-reader"></span> Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/introduction.html">fastRhockey Introduction</a></li>
+    <li><a class="dropdown-item" href="../articles/hockey-advanced-metrics-corsi-fenwick.html">Corsi, Fenwick and PDO in R</a></li>
+    <li><a class="dropdown-item" href="../articles/nhl-pwhl-rink-plots-shot-maps.html">NHL and PWHL Rink Plots and Shot Maps</a></li>
+    <li><a class="dropdown-item" href="../articles/pwhl-and-college-hockey.html">PWHL and College Hockey</a></li>
+    <li><a class="dropdown-item" href="../articles/european-hockey-leagues.html">European Hockey Leagues</a></li>
+  </ul></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-models" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-chart-line"></span> Models</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-models"><li><a class="dropdown-item" href="../articles/nhl-expected-goals-xg-model.html">NHL Expected Goals (xG) Model</a></li>
+    <li><a class="dropdown-item" href="../articles/pwhl-expected-goals-xg-model.html">PWHL Expected Goals (xG) Model</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html"><span class="fa fas fa-newspaper"></span>  News</a></li>
 <li class="nav-item dropdown">
@@ -145,27 +154,27 @@ season), an 8-character API season (e.g., <code>"20242025"</code>), or <code>NUL
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_edge_skater_shot_location_detail</span><span class="op">(</span>player_id <span class="op">=</span> <span class="fl">8478402</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Edge Skater Shot Location Detail ─────────────────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-02 03:50:54 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-02 06:06:11 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 17 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    area                  sog goals shooting_pctg sog_percentile goals_percentile</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Behind the Net          2     0         0              0.992            0.990</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Beyond Red Line         0     0        <span style="color: #BB0000;">NA</span>              0.705            0.969</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Center Point            1     0         0              0.860            0.967</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Crease                  3     2         0.667          0.961            0.992</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> High Slot               5     1         0.2            0.928            0.948</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> L Circle                5     1         0.2            0.944            0.975</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> L Corner                0     0        <span style="color: #BB0000;">NA</span>              0.957            0.996</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> L Net Side              1     1         1              0.870            0.990</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> L Point                 0     0        <span style="color: #BB0000;">NA</span>              0.670            0.986</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Low Slot                7     1         0.143          0.672            0.709</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Beyond Red Line         0     0        <span style="color: #BB0000;">NA</span>              0.703            0.969</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Center Point            1     0         0              0.858            0.967</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Crease                  4     2         0.5            0.981            0.992</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> High Slot               5     1         0.2            0.922            0.946</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> L Circle                6     1         0.167          0.959            0.973</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> L Corner                0     0        <span style="color: #BB0000;">NA</span>              0.955            0.996</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> L Net Side              1     1         1              0.858            0.990</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> L Point                 0     0        <span style="color: #BB0000;">NA</span>              0.668            0.986</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Low Slot               10     2         0.2            0.833            0.872</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> Offensive Neutral …     2     1         0.5            0.969            1    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> Outside L               1     0         0              0.736            0.946</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> Outside R               3     0         0              0.948            0.953</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> R Circle                6     1         0.167          0.955            0.973</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> Outside L               1     0         0              0.728            0.944</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> Outside R               3     0         0              0.946            0.953</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> R Circle                6     1         0.167          0.955            0.971</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> R Corner                0     0        <span style="color: #BB0000;">NA</span>              0.969            0.998</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> R Net Side              0     0        <span style="color: #BB0000;">NA</span>              0.627            0.946</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> R Point                 0     0        <span style="color: #BB0000;">NA</span>              0.643            0.973</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> R Net Side              1     0         0              0.862            0.942</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> R Point                 0     0        <span style="color: #BB0000;">NA</span>              0.637            0.971</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1 more variable: shooting_pctg_percentile &lt;dbl&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
@@ -179,7 +188,7 @@ season), an 8-character API season (e.g., <code>"20242025"</code>), or <code>NUL
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.9000.</p>
 </div>
 
     </footer></div>

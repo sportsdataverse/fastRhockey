@@ -188,7 +188,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_player_career_stats(athlete_id = "5136656"))
-#> ✖ 2026-11-02 03:46:08.280308: Invalid arguments or no ESPN mens-college-hockey player career stats for athlete 5136656 available!
+#> ✖ 2026-11-02 06:01:54.707044: Invalid arguments or no ESPN mens-college-hockey player career stats for athlete 5136656 available!
 #> ✖ Args: league = "mens-college-hockey", athlete_id = "5136656", stat_type = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

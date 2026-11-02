@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_positions())
 #> ── MENS-COLLEGE-HOCKEY Positions data from ESPN core-v2 ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 03:46:13 UTC
+#> ℹ Data updated: 2026-11-02 06:01:58 UTC
 #> # A tibble: 28 × 4
 #>    ref                                              position_id count page_count
 #>    <chr>                                            <chr>       <int>      <int>

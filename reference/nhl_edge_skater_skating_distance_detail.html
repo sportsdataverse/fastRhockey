@@ -34,6 +34,15 @@ fetch the current season."><meta property="og:image" content="https://raw.github
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-book-reader"></span> Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/introduction.html">fastRhockey Introduction</a></li>
+    <li><a class="dropdown-item" href="../articles/hockey-advanced-metrics-corsi-fenwick.html">Corsi, Fenwick and PDO in R</a></li>
+    <li><a class="dropdown-item" href="../articles/nhl-pwhl-rink-plots-shot-maps.html">NHL and PWHL Rink Plots and Shot Maps</a></li>
+    <li><a class="dropdown-item" href="../articles/pwhl-and-college-hockey.html">PWHL and College Hockey</a></li>
+    <li><a class="dropdown-item" href="../articles/european-hockey-leagues.html">European Hockey Leagues</a></li>
+  </ul></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-models" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-chart-line"></span> Models</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-models"><li><a class="dropdown-item" href="../articles/nhl-expected-goals-xg-model.html">NHL Expected Goals (xG) Model</a></li>
+    <li><a class="dropdown-item" href="../articles/pwhl-expected-goals-xg-model.html">PWHL Expected Goals (xG) Model</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html"><span class="fa fas fa-newspaper"></span>  News</a></li>
 <li class="nav-item dropdown">
@@ -149,20 +158,20 @@ season), an 8-character API season (e.g., <code>"20242025"</code>), or <code>NUL
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_edge_skater_skating_distance_detail</span><span class="op">(</span>player_id <span class="op">=</span> <span class="fl">8478402</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Edge Skater Skating Distance Detail ──────────────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-02 03:50:55 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-02 06:06:12 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 29</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    game_center_link game_date player_on_home_team toi_all toi_even toi_pp toi_pk</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> /gamecenter/edm… 2026-10-… FALSE                  <span style="text-decoration: underline;">1</span>400      788    462    150</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> /gamecenter/cgy… 2026-10-… TRUE                   <span style="text-decoration: underline;">1</span>130     <span style="text-decoration: underline;">1</span>011     83     36</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> /gamecenter/det… 2026-10-… TRUE                   <span style="text-decoration: underline;">1</span>587     <span style="text-decoration: underline;">1</span>128    301    158</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> /gamecenter/tor… 2026-10-… TRUE                   <span style="text-decoration: underline;">1</span>347     <span style="text-decoration: underline;">1</span>103    230     14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> /gamecenter/car… 2026-10-… TRUE                   <span style="text-decoration: underline;">1</span>502     <span style="text-decoration: underline;">1</span>248    208     46</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> /gamecenter/min… 2026-10-… TRUE                   <span style="text-decoration: underline;">1</span>531     <span style="text-decoration: underline;">1</span>037    380    114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> /gamecenter/edm… 2026-10-… FALSE                  <span style="text-decoration: underline;">1</span>192     <span style="text-decoration: underline;">1</span>068      8    116</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> /gamecenter/uta… 2026-10-… TRUE                   <span style="text-decoration: underline;">1</span>552     <span style="text-decoration: underline;">1</span>341    127     84</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> /gamecenter/edm… 2026-10-… FALSE                  <span style="text-decoration: underline;">1</span>297     <span style="text-decoration: underline;">1</span>057    140    100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> /gamecenter/edm… 2026-10-… FALSE                  <span style="text-decoration: underline;">1</span>444     <span style="text-decoration: underline;">1</span>226    173     45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> /gamecenter/edm… 2026-11-… FALSE                  <span style="text-decoration: underline;">1</span>402     <span style="text-decoration: underline;">1</span>069    273     60</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> /gamecenter/edm… 2026-10-… FALSE                  <span style="text-decoration: underline;">1</span>400      788    462    150</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> /gamecenter/cgy… 2026-10-… TRUE                   <span style="text-decoration: underline;">1</span>130     <span style="text-decoration: underline;">1</span>011     83     36</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> /gamecenter/det… 2026-10-… TRUE                   <span style="text-decoration: underline;">1</span>587     <span style="text-decoration: underline;">1</span>128    301    158</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> /gamecenter/tor… 2026-10-… TRUE                   <span style="text-decoration: underline;">1</span>347     <span style="text-decoration: underline;">1</span>103    230     14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> /gamecenter/car… 2026-10-… TRUE                   <span style="text-decoration: underline;">1</span>502     <span style="text-decoration: underline;">1</span>248    208     46</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> /gamecenter/min… 2026-10-… TRUE                   <span style="text-decoration: underline;">1</span>531     <span style="text-decoration: underline;">1</span>037    380    114</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> /gamecenter/edm… 2026-10-… FALSE                  <span style="text-decoration: underline;">1</span>192     <span style="text-decoration: underline;">1</span>068      8    116</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> /gamecenter/uta… 2026-10-… TRUE                   <span style="text-decoration: underline;">1</span>552     <span style="text-decoration: underline;">1</span>341    127     84</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> /gamecenter/edm… 2026-10-… FALSE                  <span style="text-decoration: underline;">1</span>297     <span style="text-decoration: underline;">1</span>057    140    100</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 22 more variables: distance_skated_all_imperial &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   distance_skated_all_metric &lt;dbl&gt;, distance_skated_even_imperial &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   distance_skated_even_metric &lt;dbl&gt;, distance_skated_pp_imperial &lt;dbl&gt;,</span></span>
@@ -182,7 +191,7 @@ season), an 8-character API season (e.g., <code>"20242025"</code>), or <code>NUL
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.9000.</p>
 </div>
 
     </footer></div>

@@ -26,6 +26,15 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-book-reader"></span> Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/introduction.html">fastRhockey Introduction</a></li>
+    <li><a class="dropdown-item" href="../articles/hockey-advanced-metrics-corsi-fenwick.html">Corsi, Fenwick and PDO in R</a></li>
+    <li><a class="dropdown-item" href="../articles/nhl-pwhl-rink-plots-shot-maps.html">NHL and PWHL Rink Plots and Shot Maps</a></li>
+    <li><a class="dropdown-item" href="../articles/pwhl-and-college-hockey.html">PWHL and College Hockey</a></li>
+    <li><a class="dropdown-item" href="../articles/european-hockey-leagues.html">European Hockey Leagues</a></li>
+  </ul></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-models" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-chart-line"></span> Models</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-models"><li><a class="dropdown-item" href="../articles/nhl-expected-goals-xg-model.html">NHL Expected Goals (xG) Model</a></li>
+    <li><a class="dropdown-item" href="../articles/pwhl-expected-goals-xg-model.html">PWHL Expected Goals (xG) Model</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html"><span class="fa fas fa-newspaper"></span>  News</a></li>
 <li class="nav-item dropdown">
@@ -253,20 +262,20 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_nhl_transactions</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Transactions data from ESPN.com ──────────────────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-02 03:47:33 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-02 06:03:00 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 25 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    date            description team_id team_location team_name team_abbreviation</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2026-11-01T07:… Recalled F… 129764  Utah          Mammoth   UTA              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2026-11-01T07:… Recalled D… 37      Vegas         Golden K… VGK              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2026-11-01T07:… Acquired G… 23      Washington    Capitals  WSH              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2026-11-01T07:… Assigned R… 17      Colorado      Avalanche COL              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2026-11-01T07:… Assigned F… 16      Pittsburgh    Penguins  PIT              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2026-11-01T07:… Reinstated… 15      Philadelphia  Flyers    PHI              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2026-11-01T07:… Assigned D… 12      New York      Islanders NYI              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2026-11-01T07:… Acquired a… 11      New Jersey    Devils    NJ               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2026-11-01T07:… Assigned D… 9       Dallas        Stars     DAL              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2026-11-01T07:… Recalled F… 5       Detroit       Red Wings DET              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2026-11-01T07:… Traded C S… 124292  Seattle       Kraken    SEA              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2026-11-01T07:… Recalled D… 37      Vegas         Golden K… VGK              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2026-11-01T07:… Traded RW … 27      Nashville     Predators NSH              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2026-11-01T07:… Activated … 25      Anaheim       Ducks     ANA              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2026-11-01T07:… Acquired G… 23      Washington    Capitals  WSH              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2026-11-01T07:… Sent D Col… 21      Toronto       Maple Le… TOR              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2026-11-01T07:… Assigned R… 17      Colorado      Avalanche COL              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2026-11-01T07:… Assigned F… 16      Pittsburgh    Penguins  PIT              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2026-11-01T07:… Reinstated… 15      Philadelphia  Flyers    PHI              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 15 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: team_display_name &lt;chr&gt;, team_color &lt;chr&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
@@ -281,7 +290,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.9000.</p>
 </div>
 
     </footer></div>

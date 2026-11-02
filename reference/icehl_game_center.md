@@ -203,7 +203,7 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_game_center(match_id = 8161))
 #> ── ICE Hockey League game_center from the eSports hokejovyzapis bucket ─────────
-#> ℹ Data updated: 2026-11-02 03:48:26 UTC
+#> ℹ Data updated: 2026-11-02 06:03:45 UTC
 #> # A tibble: 1 × 126
 #>   status_id status_msg data_game_data_id data_game_data_division_id
 #>       <int> <chr>                  <int>                      <int>

@@ -137,21 +137,21 @@ Returns `NULL` on failure / empty response.
       sort_by = "total"
   ))
 #> ── NHL Edge Skater Distance Top 10 ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 03:50:53 UTC
-#> # A tibble: 10 × 47
+#> ℹ Data updated: 2026-11-02 06:06:10 UTC
+#> # A tibble: 10 × 48
 #>    player_slug             player_headshot player_position player_sweater_number
 #>    <chr>                   <chr>           <chr>                           <int>
 #>  1 connor-mcdavid-8478402  https://assets… C                                  97
-#>  2 auston-matthews-8479318 https://assets… C                                  34
+#>  2 tim-stützle-8482116     https://assets… C                                  18
 #>  3 kirill-kaprizov-8478864 https://assets… L                                  97
-#>  4 tim-stützle-8482116     https://assets… C                                  18
-#>  5 elias-pettersson-84800… https://assets… C                                  40
-#>  6 jack-eichel-8478403     https://assets… C                                   9
-#>  7 jack-hughes-8481559     https://assets… C                                  86
-#>  8 kyle-connor-8478398     https://assets… L                                  81
-#>  9 macklin-celebrini-8484… https://assets… C                                  71
-#> 10 mark-scheifele-8476460  https://assets… C                                  55
-#> # ℹ 43 more variables: player_first_name_default <chr>,
+#>  4 auston-matthews-8479318 https://assets… C                                  34
+#>  5 kyle-connor-8478398     https://assets… L                                  81
+#>  6 mark-scheifele-8476460  https://assets… C                                  55
+#>  7 matt-boldy-8481557      https://assets… L                                  12
+#>  8 sebastian-aho-8478427   https://assets… C                                  20
+#>  9 elias-pettersson-84800… https://assets… C                                  40
+#> 10 jack-eichel-8478403     https://assets… C                                   9
+#> # ℹ 44 more variables: player_first_name_default <chr>,
 #> #   player_last_name_default <chr>, player_team_abbrev <chr>,
 #> #   player_team_slug <chr>, player_team_common_name_default <chr>,
 #> #   player_team_common_name_fr <chr>,

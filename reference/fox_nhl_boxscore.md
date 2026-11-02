@@ -25,7 +25,7 @@ A `fastRhockey_data` tibble (long), one row per (player, stat):
 ``` r
  try(fox_nhl_boxscore("44398")) 
 #> ── Fox Sports NHL boxscore ──────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 03:48:11 UTC
+#> ℹ Data updated: 2026-11-02 06:03:31 UTC
 #> # A tibble: 438 × 7
 #>    game_id team   stat_group player    athlete_id stat  value
 #>    <chr>   <chr>  <chr>      <chr>     <chr>      <chr> <chr>

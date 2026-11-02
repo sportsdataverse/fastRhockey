@@ -24,6 +24,6 @@ six-pack odds columns). Empty when no market is posted.
 ``` r
  try(fox_nhl_odds("44398")) 
 #> ── Fox Sports NHL odds ──────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 03:48:11 UTC
+#> ℹ Data updated: 2026-11-02 06:03:31 UTC
 #> # A tibble: 0 × 0
 ```

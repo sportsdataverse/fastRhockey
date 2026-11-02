@@ -131,7 +131,7 @@ Other EIHL eSports functions:
 # \donttest{
   try(eihl_team_player_stats(season = 2027, team_id = 96, league_id = 3))
 #> ── EIHL team_player_stats from the eSports hokejovyzapis bucket ────────────────
-#> ℹ Data updated: 2026-11-02 03:45:36 UTC
+#> ℹ Data updated: 2026-11-02 06:01:27 UTC
 #> # A tibble: 27 × 70
 #>    player_id name       firstname surname birthdate active position stick weight
 #>        <int> <chr>      <chr>     <chr>   <chr>     <lgl>  <chr>    <chr>  <int>
