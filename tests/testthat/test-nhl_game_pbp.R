@@ -22,6 +22,8 @@ test_that("NHL - nhl_game_pbp fills game_id on shift CHANGE rows (offline)", {
     )
 
     pbp <- suppressMessages(nhl_game_pbp(game_id = 2025021229))
+    expect_s3_class(pbp, "data.frame")
+    expect_s3_class(pbp, "fastRhockey_data")
 
     # Every captured shift row made it in, so integration really ran.
     expect_equal(sum(pbp$event_type == "CHANGE"), nrow(shifts))
