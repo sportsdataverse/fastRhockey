@@ -1,0 +1,68 @@
+# TEMPORARY diagnostic: per-example --run-donttest timing from a GitHub runner.
+# Not for merge; deleted before the PR is opened.
+on:
+  workflow_dispatch:
+  push:
+    branches: [fix/slow-donttest-examples]
+
+name: example-timing
+permissions:
+  contents: read
+jobs:
+  timing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    name: timing (${{ matrix.shard.name }})
+    strategy:
+      fail-fast: false
+      matrix:
+        shard:
+          - { name: espn-0, pat: "^espn_", n: 3, k: 0 }
+          - { name: espn-1, pat: "^espn_", n: 3, k: 1 }
+          - { name: espn-2, pat: "^espn_", n: 3, k: 2 }
+          - { name: nhl-0, pat: "^nhl_", n: 2, k: 0 }
+          - { name: nhl-1, pat: "^nhl_", n: 2, k: 1 }
+          - { name: euro, pat: "^(sihf|shl|liiga|khl|nl|icehl|del|magnus|elh|eihl|metal)_", n: 1, k: 0 }
+          - { name: other, pat: "^(?!espn_|nhl_|sihf_|shl_|liiga_|khl_|nl_|icehl_|del_|magnus_|elh_|eihl_|metal_)", n: 1, k: 0 }
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      PAT_RE: ${{ matrix.shard.pat }}
+      NSPLIT: ${{ matrix.shard.n }}
+      SPLIT: ${{ matrix.shard.k }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::xgboost, local::.
+          needs: check
+      - name: Extract examples (donttest included)
+        run: |
+          mkdir -p ex
+          Rscript -e '
+            f <- sort(list.files("man", pattern = "\\.Rd$", full.names = TRUE))
+            f <- f[grepl(Sys.getenv("PAT_RE"), basename(f), perl = TRUE)]
+            n <- as.integer(Sys.getenv("NSPLIT")); k <- as.integer(Sys.getenv("SPLIT"))
+            f <- f[(seq_along(f) - 1L) %% n == k]
+            for (x in f) tools::Rd2ex(x, file.path("ex", sub("\\.Rd$", ".R", basename(x))), commentDonttest = FALSE)
+            cat(length(list.files("ex")), "example files\n")'
+      - name: Run each example under timeout 90
+        run: |
+          mkdir -p log
+          start=$(date +%s)
+          for f in ex/*.R; do
+            b=$(basename "$f" .R)
+            s=$(date +%s.%N)
+            timeout 90 Rscript -e 'suppressMessages(library(fastRhockey)); source(commandArgs(TRUE)[1], echo = FALSE)' "$f" > "log/$b.log" 2>&1
+            rc=$?
+            e=$(echo "$(date +%s.%N) - $s" | bc)
+            if [ $rc -eq 124 ]; then st=timeout; elif [ $rc -ne 0 ]; then st=error; elif grep -q "^Error" "log/$b.log"; then st=ok-tryerror; else st=ok; fi
+            printf 'TIMING %-45s %7.1f %s\n' "$b" "$e" "$st" | tee -a timings.txt
+            if [ "$st" != ok ] || awk "BEGIN{exit !($e >= 10)}"; then grep -m3 -iE "error|timed? ?out|resolve|curl|http" "log/$b.log" | sed 's/^/    /' | cut -c1-200; fi
+          done
+          echo "SHARD_TOTAL_SECONDS=$(( $(date +%s) - start ))"
+          echo "=== slowest (>5 s) ==="
+          sort -k3 -nr timings.txt | awk '$3 > 5'
