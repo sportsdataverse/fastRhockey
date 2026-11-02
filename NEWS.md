@@ -83,6 +83,10 @@ upgrades from 1.0.0 may need to change.
 
 ### Bug fixes
 
+* `nhl_game_pbp()` / `nhl_game_feed()`: the shift `CHANGE` rows had
+  `game_id = NA` (465 of 789 rows in game 2025021229), because the shift rows
+  were padded with `NA` for every play-by-play column. Grouping or filtering
+  by `game_id` dropped every shift. `game_id` is now set on every row.
 * `helper_nhl_calculate_xg()` joined the xG predictions back by `event_id`,
   which restarts at 0 in every game, so a frame of two or more games got extra
   rows (two 2025-26 games: 1,540 rows in, 1,554 out) and shots took xG from

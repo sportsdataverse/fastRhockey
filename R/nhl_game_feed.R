@@ -369,7 +369,9 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
     # ----- Event index and description -----
     pbp <- .add_descriptions(pbp, home_abbr, away_abbr)
 
-    # Add season and team columns needed by xG and downstream analysis
+    # Add game, season and team columns needed by xG and downstream analysis.
+    # Set after shift integration so the CHANGE rows get them too.
+    pbp$game_id <- as.integer(game_id)
     pbp$season <- season
     pbp$season_type <- season_type
     pbp$home_abbr <- home_abbr
