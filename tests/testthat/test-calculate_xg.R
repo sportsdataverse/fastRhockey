@@ -68,3 +68,27 @@ test_that("NHL - helper_nhl_calculate_xg only fills shot events", {
         )
     }
 })
+
+test_that("NHL - helper_nhl_calculate_xg keeps one row per event across games", {
+    skip_on_cran()
+    skip_if_not_installed("xgboost")
+    skip_if(
+        is.null(fastRhockey:::.xg_env$xg_model_5v5),
+        message = "xG models not loaded; run refresh_xg_models() first"
+    )
+
+    # Two real games (2025021229, 2025021230); event_id restarts at 0 in each.
+    games <- readRDS(test_path("fixtures", "nhl", "xg_two_games.rds"))
+    two <- rbind(games[[1]], games[[2]])
+    out <- helper_nhl_calculate_xg(two)
+
+    expect_equal(nrow(out), nrow(two))
+    expect_equal(out$event_id, two$event_id)
+
+    single <- helper_nhl_calculate_xg(games[[1]])
+    first <- out[seq_len(nrow(games[[1]])), ]
+    shot <- which(!is.na(single$xg))[1]
+    expect_false(is.na(shot))
+    expect_equal(first$xg[shot], single$xg[shot])
+    expect_equal(first$xg, single$xg)
+})

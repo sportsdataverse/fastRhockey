@@ -22,8 +22,12 @@
 #'   `away_skaters`, `shot_distance`, `shot_angle`, `empty_net`,
 #'   `strength_state`, `event_id`, `season`.
 #'
-#' @return The original `pbp` data frame with an `xg` column appended.
-#'   `xg` is NA for non-shot events.
+#'   `pbp` may hold more than one game: predictions are matched back by
+#'   `game_id` and `event_id`.
+#'
+#' @return The original `pbp` data frame, same rows in the same order, with an
+#'   `xg` column appended. `xg` is NA for non-shot events. If `xgboost` is not
+#'   installed, the function warns and every `xg` is NA.
 #'
 #' @export
 #'
@@ -36,11 +40,12 @@
 #' }
 helper_nhl_calculate_xg <- function(pbp) {
     if (!requireNamespace("xgboost", quietly = TRUE)) {
-        stop(
-            "Package 'xgboost' is required for xG calculations. ",
-            "Install it with: install.packages('xgboost')",
-            call. = FALSE
-        )
+        cli::cli_warn(c(
+            "Package {.pkg xgboost} is not installed, so {.field xg} is {.val {NA}}.",
+            "i" = "Install it with {.code install.packages(\"xgboost\")}."
+        ))
+        pbp$xg <- NA_real_
+        return(pbp)
     }
 
     # Verify models are loaded
@@ -91,26 +96,21 @@ helper_nhl_calculate_xg <- function(pbp) {
 
     # Combine predictions
     xg_results <- dplyr::bind_rows(
-        data_5v5 %>% dplyr::select("event_id", "xg"),
-        data_st %>% dplyr::select("event_id", "xg")
+        data_5v5 %>% dplyr::select("game_id", "event_id", "xg"),
+        data_st %>% dplyr::select("game_id", "event_id", "xg")
     )
 
-    # Join xG back to original PBP
+    # Join xG back to original PBP. event_id is unique only within a game,
+    # so the key must include game_id or a multi-game frame multiplies rows.
+    # left_join keeps the row order of pbp.
     pbp <- pbp %>%
-        dplyr::left_join(xg_results, by = "event_id")
+        dplyr::left_join(xg_results, by = c("game_id", "event_id"))
 
     # Override penalty shot xG with constant model value
     if ("secondary_type" %in% names(pbp)) {
         penalty_shot_mask <- !is.na(pbp$secondary_type) &
             pbp$secondary_type == "Penalty Shot"
         pbp$xg[penalty_shot_mask] <- .xg_env$xg_model_ps
-    }
-
-    # Ensure event order is preserved
-    if ("event_idx" %in% names(pbp)) {
-        pbp <- pbp %>% dplyr::arrange(.data$event_idx)
-    } else if ("event_id" %in% names(pbp)) {
-        pbp <- pbp %>% dplyr::arrange(.data$event_id)
     }
 
     return(pbp)

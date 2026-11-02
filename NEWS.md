@@ -83,6 +83,14 @@ upgrades from 1.0.0 may need to change.
 
 ### Bug fixes
 
+* `helper_nhl_calculate_xg()` joined the xG predictions back by `event_id`,
+  which restarts at 0 in every game, so a frame of two or more games got extra
+  rows (two 2025-26 games: 1,540 rows in, 1,554 out) and shots took xG from
+  the wrong game. It now joins by `game_id` and `event_id` and keeps the input
+  row order.
+* `helper_nhl_calculate_xg()` stopped with an error when `xgboost` was not
+  installed, though `?nhl_xg` says xG comes back `NA`. It now warns and returns
+  `pbp` with `xg = NA`.
 * SHL: `www.shl.se`'s `statistics-v2/layout-info` renamed its season directory
   from `seasonSeriesGameTypeTeams` to `originalSeasonSeriesGameTypeTeams`, so
   every SHL lookup (and `shl_last_game_day()`) stopped with "no ssgt directory
