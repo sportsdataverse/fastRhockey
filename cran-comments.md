@@ -32,6 +32,14 @@ full list of changes is in NEWS.md. The main additions:
   outside `try()` are `most_recent_nhl_season()`,
   `most_recent_nhl_season_api_param()` and `most_recent_pwhl_season()`,
   which compute a season from the date.
+* Six networked examples run only in interactive sessions
+  (`@examplesIf interactive()`, still inside `\donttest{}` and `try()`):
+  `ha_games()`, `liiga_teams()`, `nhl_records_draft_prospect()`,
+  `espn_nhl_standings_core()`, `load_nhl_pbp()` and `load_nhl_pbp_full()`.
+  Each took 10 to 32 seconds from a GitHub Actions runner (the
+  hockeyallsvenskan.se one is fast from a home connection and stalls
+  intermittently from a datacenter). Every other function in those families
+  keeps a `--run-donttest` example.
 * Four examples are in `\dontrun{}` (see the check results below).
 
 ## Tests

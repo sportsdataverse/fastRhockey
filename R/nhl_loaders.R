@@ -237,7 +237,7 @@ NULL
 #'    |away_goalie_id            |integer   |Player id of the away goalie on the ice.           |
 #'    |xg                        |numeric   |Expected goals value for the shot event.           |
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(load_nhl_pbp(2022))
 #' }
@@ -322,7 +322,7 @@ NULL
 #' @seealso [load_nhl_pbp()] [load_nhl_pbp_lite()]
 #' @export
 #' @family NHL Loader Functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(load_nhl_pbp_full(2024))
 #' }

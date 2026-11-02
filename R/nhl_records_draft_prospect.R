@@ -44,7 +44,7 @@
 #' @importFrom dplyr as_tibble
 #' @importFrom glue glue
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nhl_records_draft_prospect())
 #' }

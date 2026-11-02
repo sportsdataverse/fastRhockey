@@ -1646,7 +1646,7 @@ ha_pbp <- function(
 #' @keywords HA Games
 #' @family HA Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(ha_games(season = 2026))
 #' }

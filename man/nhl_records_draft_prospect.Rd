@@ -53,9 +53,11 @@ to a single prospect via \code{prospect_id} (switches resource to
 \code{draft-prospect/{prospect_id}}).
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(nhl_records_draft_prospect())
 }
+\dontshow{\}) # examplesIf}
 }
 \keyword{Draft}
 \keyword{NHL}

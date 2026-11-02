@@ -38,9 +38,11 @@ tournament not played that season, a shot map before 2016) raises
 \code{fastRhockey_asset_fetch}; a bad argument raises \code{fastRhockey_bad_request}.
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(liiga_teams())
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other Liiga Functions:
