@@ -118,20 +118,9 @@ Other VHL Functions:
 ## Examples
 
 ``` r
+if (FALSE) { # interactive()
 # \donttest{
   try(vhl_game_info(season = 2026, game_id = 899223))
-#> ── VHL Game Info Information from vhlru.ru ──────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 00:01:17 UTC
-#> # A tibble: 1 × 32
-#>   game_id season stage   game_number    tn date  local_time date_text attendance
-#>     <int>  <int> <chr>         <int> <int> <chr> <chr>      <chr>          <int>
-#> 1  899223   2026 regular         984  1374 2026… 17:00      18 Март …        910
-#> # ℹ 23 more variables: score <chr>, home_score <int>, away_score <int>,
-#> #   decision <chr>, period_scores <list>, home_team_page_id <int>,
-#> #   home_team <chr>, home_short <chr>, home_city <chr>, home_coach <chr>,
-#> #   away_team_page_id <int>, away_team <chr>, away_short <chr>,
-#> #   away_city <chr>, away_coach <chr>, referee1_number <int>, referee1 <chr>,
-#> #   referee2_number <int>, referee2 <chr>, linesman1_number <int>,
-#> #   linesman1 <chr>, linesman2_number <int>, linesman2 <chr>
 # }
+}
 ```

@@ -183,7 +183,7 @@ Saiem Gilani
   # NOTE: Returns empty tibble for MCH (ESPN does not populate weeks for hockey)
   try(espn_mch_season_weeks(season = 2026, season_type = 2))
 #> ── MENS-COLLEGE-HOCKEY Season Weeks data from ESPN core-v2 ─────────────────────
-#> ℹ Data updated: 2026-11-01 23:53:44 UTC
+#> ℹ Data updated: 2026-11-02 03:46:23 UTC
 #> # A tibble: 25 × 6
 #>    ref                                  week season season_type count page_count
 #>    <chr>                               <int>  <int>       <int> <int>      <int>

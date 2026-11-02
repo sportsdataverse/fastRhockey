@@ -138,7 +138,7 @@ Other HA Functions:
 # \donttest{
   try(ha_team_stats(season = 2026, category = "results"))
 #> ── HA Team Stats Information from hockeyallsvenskan.se ──── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 23:55:36 UTC
+#> ℹ Data updated: 2026-11-02 03:48:23 UTC
 #> # A tibble: 14 × 19
 #>    season  rank team_code    gp wins_total losses_total leading trailing     g
 #>     <int> <int> <chr>     <int>      <int>        <int>   <int>    <int> <int>

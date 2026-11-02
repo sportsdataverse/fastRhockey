@@ -62,7 +62,7 @@ failure / empty response.
 #> Warning: `nhl_edge_skater_zone_time_top_10()` was deprecated in fastRhockey 1.0.0.
 #> ℹ The NHL has removed this Edge top-10 leaderboard endpoint; the function
 #>   returns NULL.
-#> 2026-11-01 23:58:35.280262: Error fetching https://api-web.nhle.com/v1/edge/skater-zone-time-top-10/F/all/total/now: The API returned an error
+#> 2026-11-02 03:50:57.199207: Error fetching https://api-web.nhle.com/v1/edge/skater-zone-time-top-10/F/all/total/now: The API returned an error
 #> NULL
 # }
 ```

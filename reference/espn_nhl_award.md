@@ -178,7 +178,7 @@ Saiem Gilani
     if (nrow(awards) > 0) espn_nhl_award(award_id = awards$award_id[1])
   })
 #> ── NHL Award data from ESPN core-v2 ─────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 23:53:51 UTC
+#> ℹ Data updated: 2026-11-02 03:46:32 UTC
 #> # A tibble: 1 × 6
 #>   award_id id    name  display_name description award_ref
 #>   <chr>    <chr> <chr> <chr>        <chr>       <chr>    

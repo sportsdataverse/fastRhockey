@@ -307,6 +307,25 @@ that upgrades from 1.0.0 may need to change.
   European leagues and college hockey), and the help pages are plain
   ASCII
   ([\#90](https://github.com/sportsdataverse/fastRhockey/issues/90)).
+- Network examples whose hosts are slow from automated environments now
+  run only interactively (`@examplesIf interactive()`):
+  [`ha_games()`](https://fastRhockey.sportsdataverse.org/reference/ha_games.md),
+  [`liiga_teams()`](https://fastRhockey.sportsdataverse.org/reference/liiga_teams.md),
+  [`nhl_records_draft_prospect()`](https://fastRhockey.sportsdataverse.org/reference/nhl_records_draft_prospect.md),
+  [`espn_nhl_standings_core()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_standings_core.md),
+  [`load_nhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp.md),
+  [`load_nhl_pbp_full()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp_full.md)
+  and nine VHL functions
+  ([`vhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/vhl_schedule.md),
+  [`vhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/vhl_game_info.md),
+  [`vhl_goals()`](https://fastRhockey.sportsdataverse.org/reference/vhl_goals.md),
+  [`vhl_penalties()`](https://fastRhockey.sportsdataverse.org/reference/vhl_penalties.md),
+  [`vhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/vhl_player_box.md),
+  [`vhl_goalie_box()`](https://fastRhockey.sportsdataverse.org/reference/vhl_goalie_box.md),
+  [`vhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/vhl_pbp.md),
+  [`vhl_skater_stats()`](https://fastRhockey.sportsdataverse.org/reference/vhl_skater_stats.md),
+  [`vhl_goalie_stats()`](https://fastRhockey.sportsdataverse.org/reference/vhl_goalie_stats.md)).
+  The functions are unchanged.
 
 ## **fastRhockey 1.0.0**
 

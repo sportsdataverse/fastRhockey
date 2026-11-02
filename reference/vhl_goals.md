@@ -122,23 +122,9 @@ Other VHL Functions:
 ## Examples
 
 ``` r
+if (FALSE) { # interactive()
 # \donttest{
   try(vhl_goals(season = 2026, game_id = 899223))
-#> ── VHL Goals Information from vhlru.ru ──────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 00:01:22 UTC
-#> # A tibble: 5 × 25
-#>   game_id season stage   game_number team_side team_page_id goal_number period
-#>     <int>  <int> <chr>         <int> <chr>            <int>       <int> <chr> 
-#> 1  899223   2026 regular         984 away            505612           1 1     
-#> 2  899223   2026 regular         984 away            505612           2 1     
-#> 3  899223   2026 regular         984 home               390           3 3     
-#> 4  899223   2026 regular         984 home               390           4 3     
-#> 5  899223   2026 regular         984 away            505612           5 РБ    
-#> # ℹ 17 more variables: time <chr>, score <chr>, strength <chr>,
-#> #   scorer_id <int>, scorer <chr>, scorer_jersey <int>,
-#> #   scorer_season_total <int>, assist1_id <int>, assist1 <chr>,
-#> #   assist1_jersey <int>, assist1_season_total <int>, assist2_id <int>,
-#> #   assist2 <chr>, assist2_jersey <int>, assist2_season_total <int>,
-#> #   home_on_ice <list>, away_on_ice <list>
 # }
+}
 ```

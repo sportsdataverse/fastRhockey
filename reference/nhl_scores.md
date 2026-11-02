@@ -25,8 +25,8 @@ Returns a data frame with game scores.
 # \donttest{
   try(nhl_scores())
 #> ── NHL Scores ───────────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 23:59:18 UTC
-#> # A tibble: 5 × 48
+#> ℹ Data updated: 2026-11-02 03:51:30 UTC
+#> # A tibble: 5 × 41
 #>           id   season game_type game_date  start_time_utc     eastern_utc_offset
 #>        <int>    <int>     <int> <chr>      <chr>              <chr>             
 #> 1 2026020227 20262027         2 2026-11-01 2026-11-01T18:00:… -05:00            
@@ -34,12 +34,12 @@ Returns a data frame with game scores.
 #> 3 2026020229 20262027         2 2026-11-01 2026-11-01T21:00:… -05:00            
 #> 4 2026020230 20262027         2 2026-11-01 2026-11-01T23:00:… -05:00            
 #> 5 2026020231 20262027         2 2026-11-01 2026-11-02T01:00:… -05:00            
-#> # ℹ 42 more variables: venue_utc_offset <chr>, tv_broadcasts <list>,
+#> # ℹ 35 more variables: venue_utc_offset <chr>, tv_broadcasts <list>,
 #> #   game_state <chr>, game_schedule_state <chr>, game_center_link <chr>,
 #> #   three_min_recap <chr>, three_min_recap_fr <chr>, condensed_game <chr>,
 #> #   condensed_game_fr <chr>, neutral_site <lgl>, venue_timezone <chr>,
-#> #   period <int>, goals <list>, tickets_link <chr>, tickets_link_fr <chr>,
-#> #   team_leaders <list>, venue_default <chr>, away_team_id <int>,
-#> #   away_team_abbrev <chr>, away_team_score <int>, away_team_sog <int>, …
+#> #   period <int>, goals <list>, venue_default <chr>, away_team_id <int>,
+#> #   away_team_abbrev <chr>, away_team_score <int>, away_team_sog <int>,
+#> #   away_team_logo <chr>, away_team_name_default <chr>, …
 # }
 ```

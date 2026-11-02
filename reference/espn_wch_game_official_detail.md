@@ -194,10 +194,10 @@ Saiem Gilani
     offs <- espn_wch_game_officials(event_id = eid)
     espn_wch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
   })
-#> ✖ 2026-11-01 23:54:56.734809: 
+#> ✖ 2026-11-02 03:47:38.899374: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
 #> ✖ Error: The API returned an error
-#> ✖ 2026-11-01 23:54:56.765908: 
+#> ✖ 2026-11-02 03:47:38.919473: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, official_id = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

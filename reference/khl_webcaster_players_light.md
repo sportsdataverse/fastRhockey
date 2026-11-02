@@ -97,7 +97,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_webcaster_players_light())
 #> ── KHL Webcaster Players (Light) from khl.api.webcaster.pro ────────────────────
-#> ℹ Data updated: 2026-11-01 23:56:21 UTC
+#> ℹ Data updated: 2026-11-02 03:49:09 UTC
 #> # A tibble: 751 × 10
 #>       id shirt_number khl_id image           name  team_id team_khl_id team_name
 #>    <int>        <int>  <int> <chr>           <chr>   <int>       <int> <chr>    

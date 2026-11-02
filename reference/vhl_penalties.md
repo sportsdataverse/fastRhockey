@@ -98,17 +98,9 @@ Other VHL Functions:
 ## Examples
 
 ``` r
+if (FALSE) { # interactive()
 # \donttest{
   try(vhl_penalties(season = 2026, game_id = 899223))
-#> ── VHL Penalties Information from vhlru.ru ──────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 00:01:24 UTC
-#> # A tibble: 3 × 13
-#>   game_id season stage  game_number team_side team_page_id team  time  player_id
-#>     <int>  <int> <chr>        <int> <chr>            <int> <chr> <chr>     <int>
-#> 1  899223   2026 regul…         984 home               390 Toros 45:16     25292
-#> 2  899223   2026 regul…         984 away            505612 Magn… 39:17     23837
-#> 3  899223   2026 regul…         984 away            505612 Magn… 42:08     41489
-#> # ℹ 4 more variables: player <chr>, player_jersey <int>, minutes <int>,
-#> #   infraction <chr>
 # }
+}
 ```

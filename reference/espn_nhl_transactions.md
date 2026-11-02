@@ -168,20 +168,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_transactions())
 #> ── NHL Transactions data from ESPN.com ──────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 23:54:51 UTC
+#> ℹ Data updated: 2026-11-02 03:47:33 UTC
 #> # A tibble: 25 × 8
 #>    date            description team_id team_location team_name team_abbreviation
 #>    <chr>           <chr>       <chr>   <chr>         <chr>     <chr>            
 #>  1 2026-11-01T07:… Recalled F… 129764  Utah          Mammoth   UTA              
 #>  2 2026-11-01T07:… Recalled D… 37      Vegas         Golden K… VGK              
 #>  3 2026-11-01T07:… Acquired G… 23      Washington    Capitals  WSH              
-#>  4 2026-11-01T07:… Assigned F… 16      Pittsburgh    Penguins  PIT              
-#>  5 2026-11-01T07:… Reinstated… 15      Philadelphia  Flyers    PHI              
-#>  6 2026-11-01T07:… Assigned D… 12      New York      Islanders NYI              
-#>  7 2026-11-01T07:… Acquired a… 11      New Jersey    Devils    NJ               
-#>  8 2026-11-01T07:… Assigned D… 9       Dallas        Stars     DAL              
-#>  9 2026-11-01T07:… Recalled F… 5       Detroit       Red Wings DET              
-#> 10 2026-11-01T07:… Assigned D… 2       Buffalo       Sabres    BUF              
+#>  4 2026-11-01T07:… Assigned R… 17      Colorado      Avalanche COL              
+#>  5 2026-11-01T07:… Assigned F… 16      Pittsburgh    Penguins  PIT              
+#>  6 2026-11-01T07:… Reinstated… 15      Philadelphia  Flyers    PHI              
+#>  7 2026-11-01T07:… Assigned D… 12      New York      Islanders NYI              
+#>  8 2026-11-01T07:… Acquired a… 11      New Jersey    Devils    NJ               
+#>  9 2026-11-01T07:… Assigned D… 9       Dallas        Stars     DAL              
+#> 10 2026-11-01T07:… Recalled F… 5       Detroit       Red Wings DET              
 #> # ℹ 15 more rows
 #> # ℹ 2 more variables: team_display_name <chr>, team_color <chr>
 # }

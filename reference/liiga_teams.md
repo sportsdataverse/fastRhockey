@@ -73,31 +73,9 @@ Other Liiga Functions:
 ## Examples
 
 ``` r
+if (FALSE) { # interactive()
 # \donttest{
   try(liiga_teams())
-#> ── Liiga teams Information from liiga.fi ────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 23:56:57 UTC
-#> # A tibble: 16 × 14
-#>       team_id team_slug name    contact_info externals country_code country_name
-#>         <int> <chr>     <chr>   <chr>        <chr>     <chr>        <chr>       
-#>  1  495643563 karpat    Kärpät  "<p><strong… "[{\"url… FIN          Finland     
-#>  2  933686567 saipa     SaiPa   "<p><strong… "[{\"url… FIN          Finland     
-#>  3  679171680 assat     Ässät   "<p><strong… "[{\"url… FIN          Finland     
-#>  4  859884935 kalpa     KalPa   "<p><strong… "[{\"url… FIN          Finland     
-#>  5  362185137 tappara   Tappara "<p><strong… "[{\"url… FIN          Finland     
-#>  6  461765763 kookoo    KooKoo  "<p><strong… "[{\"url… FIN          Finland     
-#>  7  168761288 hifk      HIFK    "<p><strong… "[{\"url… FIN          Finland     
-#>  8  219244634 jyp       JYP     "<p><strong… "[{\"url… FIN          Finland     
-#>  9  951626834 ilves     Ilves   "<p><strong… "[{\"url… FIN          Finland     
-#> 10  875886777 pelicans  Pelica… "<p><strong… "[{\"url… FIN          Finland     
-#> 11  626537494 sport     Sport   "<p><strong… "[{\"url… FIN          Finland     
-#> 12  292293444 jukurit   Jukurit "<p><strong… "[{\"url… FIN          Finland     
-#> 13   55786244 hpk       HPK     "<p><strong… "[{\"url… FIN          Finland     
-#> 14  624554857 lukko     Lukko   "<p><strong… "[{\"url… FIN          Finland     
-#> 15  651304385 tps       TPS     "<p><strong… "[{\"url… FIN          Finland     
-#> 16 1368624751 k-espoo   K-Espoo "<p><strong… "[{\"url… FIN          Finland     
-#> # ℹ 7 more variables: current_venue_capacity <int>, general_info <chr>,
-#> #   url <chr>, locality <chr>, logo <chr>, short_name <chr>,
-#> #   teamtournamentstats <chr>
 # }
+}
 ```

@@ -67,20 +67,20 @@ Returns a data frame with skater statistics.
 # \donttest{
   try(nhl_stats_skaters())
 #> ── NHL Stats Skaters ────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 23:59:25 UTC
+#> ℹ Data updated: 2026-11-02 03:51:38 UTC
 #> # A tibble: 50 × 26
 #>    assists ev_goals ev_points faceoff_win_pct game_winning_goals games_played
 #>      <int>    <int>     <int>           <dbl>              <int>        <int>
-#>  1      29        7        22           0.470                  0           14
-#>  2      14        6        17           0.577                  1           14
-#>  3      10       11        18           0.2                    3           16
-#>  4      15        7        20           0.467                  1           14
-#>  5      13        8        15           0.535                  2           16
-#>  6      16        6        16          NA                      2           14
+#>  1      30        8        23           0.472                  0           15
+#>  2      16        6        18           0.568                  1           15
+#>  3      18        6        18          NA                      2           15
+#>  4      10       11        18           0.2                    3           16
+#>  5      15        7        20           0.467                  1           14
+#>  6      13        8        15           0.535                  2           16
 #>  7      12        6        16           0.545                  1           15
-#>  8      11        7        14           0.364                  0           16
-#>  9      16        3        13          NA                      2           16
-#> 10      12        4        11           0.577                  1           16
+#>  8      12        4        11           0.577                  1           16
+#>  9      11        7        14           0.364                  0           16
+#> 10      16        3        13          NA                      2           16
 #> # ℹ 40 more rows
 #> # ℹ 20 more variables: goals <int>, last_name <chr>, ot_goals <int>,
 #> #   penalty_minutes <int>, player_id <int>, plus_minus <int>, points <int>,

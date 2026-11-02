@@ -74,7 +74,7 @@ the same one-row-per-event data frame.
   try(nhl_game_feed(game_id = 2024020001))
 #> $pbp
 #> ── NHL Game PBP from NHL.com ────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 23:58:41 UTC
+#> ℹ Data updated: 2026-11-02 03:51:03 UTC
 #> # A tibble: 850 × 93
 #>    event_type   event secondary_type event_team_abbr event_team_type description
 #>    <chr>        <chr> <chr>          <chr>           <chr>           <glue>     

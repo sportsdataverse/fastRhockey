@@ -119,29 +119,9 @@ Other VHL Functions:
 ## Examples
 
 ``` r
+if (FALSE) { # interactive()
 # \donttest{
   try(vhl_player_box(season = 2026, game_id = 899223))
-#> ── VHL Player Box Information from vhlru.ru ─────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 00:01:26 UTC
-#> # A tibble: 34 × 33
-#>    game_id season stage  game_number team_side team_page_id team  position_group
-#>      <int>  <int> <chr>        <int> <chr>            <int> <chr> <chr>         
-#>  1  899223   2026 regul…         984 home               390 Toros defense       
-#>  2  899223   2026 regul…         984 home               390 Toros defense       
-#>  3  899223   2026 regul…         984 home               390 Toros defense       
-#>  4  899223   2026 regul…         984 home               390 Toros defense       
-#>  5  899223   2026 regul…         984 home               390 Toros defense       
-#>  6  899223   2026 regul…         984 home               390 Toros defense       
-#>  7  899223   2026 regul…         984 home               390 Toros defense       
-#>  8  899223   2026 regul…         984 home               390 Toros forward       
-#>  9  899223   2026 regul…         984 home               390 Toros forward       
-#> 10  899223   2026 regul…         984 home               390 Toros forward       
-#> # ℹ 24 more rows
-#> # ℹ 25 more variables: jersey <int>, player_id <int>, player <chr>,
-#> #   captaincy <chr>, games_played <int>, goals <int>, assists <int>,
-#> #   points <int>, plus_minus <int>, penalty_minutes <int>,
-#> #   even_strength_goals <int>, power_play_goals <int>, shorthanded_goals <int>,
-#> #   overtime_goals <int>, game_winning_goals <int>,
-#> #   shootout_deciding_goals <int>, shots_on_goal <int>, shot_pct <dbl>, …
 # }
+}
 ```

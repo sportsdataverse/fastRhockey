@@ -84,8 +84,24 @@ Other ELH Functions:
 ``` r
 # \donttest{
   try(elh_scoreboard(date = format(Sys.Date() - 1)))
-#> Error in .elh_check_json(url, raw) : 
-#>   json.esports.cz/hokejcz/scoreboard/2026-10-31.json: no Extraliga (league
-#> 101) game that day
+#> ── ELH Scoreboard Information from hokej.cz ─────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-02 03:45:47 UTC
+#> # A tibble: 7 × 23
+#>   league_id league_name    hokejcz_game_id onlajny_game_id game_date  start_time
+#>       <int> <chr>                    <int>           <int> <date>     <chr>     
+#> 1       101 Tipsport extr…         2928368          533030 2026-11-01 15:00     
+#> 2       101 Tipsport extr…         2928369          533027 2026-11-01 16:00     
+#> 3       101 Tipsport extr…         2928370          533028 2026-11-01 16:00     
+#> 4       101 Tipsport extr…         2928367          533029 2026-11-01 16:30     
+#> 5       101 Tipsport extr…         2928371          533031 2026-11-01 17:00     
+#> 6       101 Tipsport extr…         2928372          533032 2026-11-01 17:00     
+#> 7       101 Tipsport extr…         2928373          533033 2026-11-01 17:30     
+#> # ℹ 17 more variables: status_code <chr>, status_name <chr>,
+#> #   match_status <chr>, home_score <int>, away_score <int>,
+#> #   score_periods <chr>, hokejcz_home_team_id <int>,
+#> #   onlajny_home_team_id <int>, home_team_name <chr>,
+#> #   home_team_short_name <chr>, home_team_code <chr>,
+#> #   hokejcz_away_team_id <int>, onlajny_away_team_id <int>,
+#> #   away_team_name <chr>, away_team_short_name <chr>, away_team_code <chr>, …
 # }
 ```

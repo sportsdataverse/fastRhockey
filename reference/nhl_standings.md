@@ -66,13 +66,13 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_standings())
 #> ── NHL Standings ────────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 23:59:20 UTC
+#> ℹ Data updated: 2026-11-02 03:51:32 UTC
 #> # A tibble: 32 × 36
 #>    team_abbr team_name            team_common_name team_logo     conference_name
 #>    <chr>     <chr>                <chr>            <chr>         <chr>          
 #>  1 CAR       Carolina Hurricanes  Hurricanes       https://asse… Eastern        
-#>  2 MIN       Minnesota Wild       Wild             https://asse… Western        
-#>  3 EDM       Edmonton Oilers      Oilers           https://asse… Western        
+#>  2 EDM       Edmonton Oilers      Oilers           https://asse… Western        
+#>  3 MIN       Minnesota Wild       Wild             https://asse… Western        
 #>  4 BOS       Boston Bruins        Bruins           https://asse… Eastern        
 #>  5 MTL       Montréal Canadiens   Canadiens        https://asse… Eastern        
 #>  6 VGK       Vegas Golden Knights Golden Knights   https://asse… Western        
@@ -89,7 +89,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #> #   goals_against <int>, goal_differential <int>, home_wins <int>, …
   try(nhl_standings(date = "2024-03-01"))
 #> ── NHL Standings ────────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 23:59:20 UTC
+#> ℹ Data updated: 2026-11-02 03:51:32 UTC
 #> # A tibble: 32 × 36
 #>    team_abbr team_name            team_common_name team_logo     conference_name
 #>    <chr>     <chr>                <chr>            <chr>         <chr>          

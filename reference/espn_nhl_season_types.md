@@ -169,7 +169,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_season_types(season = 2026))
 #> ── NHL Season Types data from ESPN core-v2 ──────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-01 23:54:26 UTC
+#> ℹ Data updated: 2026-11-02 03:47:18 UTC
 #> # A tibble: 4 × 3
 #>   ref                                                      season_type_id season
 #>   <chr>                                                             <int>  <int>
