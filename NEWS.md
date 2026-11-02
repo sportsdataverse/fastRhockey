@@ -219,8 +219,10 @@ upgrades from 1.0.0 may need to change.
 * Network examples whose hosts are slow from automated environments now run
   only interactively (`@examplesIf interactive()`): `ha_games()`,
   `liiga_teams()`, `nhl_records_draft_prospect()`,
-  `espn_nhl_standings_core()`, `load_nhl_pbp()` and `load_nhl_pbp_full()`.
-  The functions are unchanged.
+  `espn_nhl_standings_core()`, `load_nhl_pbp()`, `load_nhl_pbp_full()` and
+  nine VHL functions (`vhl_schedule()`, `vhl_game_info()`, `vhl_goals()`,
+  `vhl_penalties()`, `vhl_player_box()`, `vhl_goalie_box()`, `vhl_pbp()`,
+  `vhl_skater_stats()`, `vhl_goalie_stats()`). The functions are unchanged.
 
 # **fastRhockey 1.0.0**
 

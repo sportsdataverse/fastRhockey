@@ -74,9 +74,11 @@ Check the provider's terms of use before redistributing this data.
 }
 
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(vhl_skater_stats(season = 2026))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other VHL Functions:
