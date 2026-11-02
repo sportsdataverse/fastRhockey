@@ -72,7 +72,7 @@ committed fixtures and mock the HTTP layer.
   The tarball is 2.2 MB; the installed size is 8.9 MB (R 2.1 MB, help
   6.4 MB), because the help pages document about 880 exported functions,
   most with a column table for the data they return. The examples with
-  `--run-donttest` pass in 11 minutes and the tests in 21 seconds.
+  `--run-donttest` pass in 9 minutes and the tests in 21 seconds.
 * The database and model-download examples (`update_pwhl_db()`,
   `refresh_xg_models()`, `helper_nhl_calculate_xg()`, which needs the
   downloaded xgboost models) and `nhl_game_boxscore()` are in `\dontrun{}`.
