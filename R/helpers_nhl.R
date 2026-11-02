@@ -51,7 +51,7 @@ helper_nhl_calculate_xg <- function(pbp) {
             "i" = "Install it with {.code install.packages(\"xgboost\")}."
         ), class = "fastRhockey_no_xgboost", .frequency = "once",
         .frequency_id = "fastRhockey_no_xgboost")
-        pbp$xg <- NA_real_
+        pbp$xg <- rep(NA_real_, nrow(pbp))
         return(pbp)
     }
 
@@ -73,7 +73,7 @@ helper_nhl_calculate_xg <- function(pbp) {
     model_data <- helper_nhl_prepare_xg_data(pbp)
 
     if (nrow(model_data) == 0) {
-        pbp$xg <- NA_real_
+        pbp$xg <- rep(NA_real_, nrow(pbp))
         return(pbp)
     }
 

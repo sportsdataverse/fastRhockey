@@ -112,4 +112,8 @@ test_that("NHL - helper_nhl_calculate_xg returns NA xg with a warning without xg
     )
     expect_equal(nrow(out), nrow(games[[1]]))
     expect_true(all(is.na(out$xg)))
+
+    empty <- suppressWarnings(helper_nhl_calculate_xg(games[[1]][0, ]))
+    expect_equal(nrow(empty), 0L)
+    expect_type(empty$xg, "double")
 })
