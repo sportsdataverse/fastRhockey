@@ -39,10 +39,11 @@ full list of changes is in NEWS.md. The main additions:
   nine `vhl_*()` functions (`vhl_schedule()`, `vhl_game_info()`,
   `vhl_goals()`, `vhl_penalties()`, `vhl_player_box()`, `vhl_goalie_box()`,
   `vhl_pbp()`, `vhl_skater_stats()`, `vhl_goalie_stats()`). Each took about
-  7 to 32 seconds from a GitHub Actions runner. The hockeyallsvenskan.se
-  and vhlru.ru hosts are fast from a home connection but slow or
-  intermittently stalled from a datacenter. Every other function in those
-  families keeps a `--run-donttest` example.
+  6 to 32 seconds in at least one of two GitHub Actions runner samples.
+  Five of the vhlru.ru examples took 4 to 12 times longer from the runner
+  than from a home connection, and `ha_games()` (hockeyallsvenskan.se) took
+  32 s in one runner sample, 5 s in the other and 3 s locally. Every
+  other function in those families keeps a `--run-donttest` example.
 * Four examples are in `\dontrun{}` (see the check results below).
 
 ## Tests
