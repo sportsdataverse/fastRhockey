@@ -47,9 +47,9 @@ The input \code{pbp} data frame must include \code{event_type}, \code{secondary_
 
 \subsection{\strong{Dependencies}}{
 
-The \code{xgboost} suggested package is required. The pipeline fails
-gracefully (returns \code{pbp} unchanged with an \code{xg = NA_real_} column) if
-\code{xgboost} is absent.
+The \code{xgboost} suggested package is required. If it is absent,
+\code{\link[=helper_nhl_calculate_xg]{helper_nhl_calculate_xg()}} warns and returns \code{pbp} with an
+\code{xg = NA_real_} column.
 }
 }
 \concept{NHL xG}

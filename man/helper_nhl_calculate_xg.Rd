@@ -13,11 +13,21 @@ Must contain columns needed by \code{helper_nhl_prepare_xg_data()}: \code{event_
 \code{secondary_type}, \code{period_type}, \code{period}, \code{game_seconds}, \code{x}, \code{y},
 \code{x_fixed}, \code{event_team_abbr}, \code{home_abbr}, \code{away_abbr}, \code{home_skaters},
 \code{away_skaters}, \code{shot_distance}, \code{shot_angle}, \code{empty_net},
-\code{strength_state}, \code{event_id}, \code{season}.}
+\code{strength_state}, \code{game_id}, \code{event_id}, \code{season}.
+
+\code{pbp} may hold more than one game: predictions are matched back by
+\code{game_id} and \code{event_id}. An existing \code{xg} column is replaced.}
 }
 \value{
-The original \code{pbp} data frame with an \code{xg} column appended.
-\code{xg} is NA for non-shot events.
+The original \code{pbp} data frame, same rows in the same order, with an
+\code{xg} column appended (replacing any existing one):\tabular{lll}{
+   col_name \tab types \tab description \cr
+   xg \tab numeric \tab Expected-goal probability of the shot, NA for non-shot events. \cr
+}
+
+
+If \code{xgboost} is not installed, the function raises a warning of class
+\code{fastRhockey_no_xgboost} and every \code{xg} is NA.
 }
 \description{
 Adds an \code{xg} column to a play-by-play data frame using the
