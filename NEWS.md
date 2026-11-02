@@ -87,10 +87,12 @@ upgrades from 1.0.0 may need to change.
   which restarts at 0 in every game, so a frame of two or more games got extra
   rows (two 2025-26 games: 1,540 rows in, 1,554 out) and shots took xG from
   the wrong game. It now joins by `game_id` and `event_id` and keeps the input
-  row order.
+  row order. Given a frame that already has `xg` (as `nhl_game_pbp()` output
+  does), it now replaces that column instead of returning `xg.x` / `xg.y`.
 * `helper_nhl_calculate_xg()` stopped with an error when `xgboost` was not
-  installed, though `?nhl_xg` says xG comes back `NA`. It now warns and returns
-  `pbp` with `xg = NA`.
+  installed, though `?nhl_xg` says xG comes back `NA`. It now warns (class
+  `fastRhockey_no_xgboost`, once per session) and returns `pbp` with
+  `xg = NA`. `nhl_game_pbp()` / `nhl_game_feed()` pass that warning on.
 * SHL: `www.shl.se`'s `statistics-v2/layout-info` renamed its season directory
   from `seasonSeriesGameTypeTeams` to `originalSeasonSeriesGameTypeTeams`, so
   every SHL lookup (and `shl_last_game_day()`) stopped with "no ssgt directory

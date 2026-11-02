@@ -91,4 +91,25 @@ test_that("NHL - helper_nhl_calculate_xg keeps one row per event across games", 
     expect_false(is.na(shot))
     expect_equal(first$xg[shot], single$xg[shot])
     expect_equal(first$xg, single$xg)
+    second <- out[-seq_len(nrow(games[[1]])), ]
+    expect_equal(second$xg, helper_nhl_calculate_xg(games[[2]])$xg)
+
+    # An existing xg column (nhl_game_pbp() output has one) is replaced.
+    again <- helper_nhl_calculate_xg(out)
+    expect_equal(names(again), names(out))
+    expect_equal(again$xg, out$xg)
+})
+
+test_that("NHL - helper_nhl_calculate_xg returns NA xg with a warning without xgboost", {
+    games <- readRDS(test_path("fixtures", "nhl", "xg_two_games.rds"))
+    local_mocked_bindings(
+        requireNamespace = function(...) FALSE,
+        .package = "base"
+    )
+    expect_warning(
+        out <- helper_nhl_calculate_xg(games[[1]]),
+        class = "fastRhockey_no_xgboost"
+    )
+    expect_equal(nrow(out), nrow(games[[1]]))
+    expect_true(all(is.na(out$xg)))
 })

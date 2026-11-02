@@ -21,8 +21,8 @@
 #' @importFrom utils packageName
 .onLoad <- function(libname, pkgname) {
     # Attempt to load xG models silently. If xgboost is not installed or
-    # model download fails, the package still loads — only helper_nhl_calculate_xg()
-    # will error with a helpful message.
+    # model download fails, the package still loads — helper_nhl_calculate_xg()
+    # then warns (no xgboost) or errors (models not loaded) with a helpful message.
     tryCatch(
         .load_xg_models(pkgname),
         error = function(e) {

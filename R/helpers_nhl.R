@@ -20,14 +20,20 @@
 #'   `secondary_type`, `period_type`, `period`, `game_seconds`, `x`, `y`,
 #'   `x_fixed`, `event_team_abbr`, `home_abbr`, `away_abbr`, `home_skaters`,
 #'   `away_skaters`, `shot_distance`, `shot_angle`, `empty_net`,
-#'   `strength_state`, `event_id`, `season`.
+#'   `strength_state`, `game_id`, `event_id`, `season`.
 #'
 #'   `pbp` may hold more than one game: predictions are matched back by
-#'   `game_id` and `event_id`.
+#'   `game_id` and `event_id`. An existing `xg` column is replaced.
 #'
 #' @return The original `pbp` data frame, same rows in the same order, with an
-#'   `xg` column appended. `xg` is NA for non-shot events. If `xgboost` is not
-#'   installed, the function warns and every `xg` is NA.
+#'   `xg` column appended (replacing any existing one):
+#'
+#'    |col_name |types   |description                                          |
+#'    |:--------|:-------|:----------------------------------------------------|
+#'    |xg       |numeric |Expected-goal probability of the shot, NA for non-shot events. |
+#'
+#'   If `xgboost` is not installed, the function raises a warning of class
+#'   `fastRhockey_no_xgboost` and every `xg` is NA.
 #'
 #' @export
 #'
@@ -43,10 +49,15 @@ helper_nhl_calculate_xg <- function(pbp) {
         cli::cli_warn(c(
             "Package {.pkg xgboost} is not installed, so {.field xg} is {.val {NA}}.",
             "i" = "Install it with {.code install.packages(\"xgboost\")}."
-        ))
+        ), class = "fastRhockey_no_xgboost", .frequency = "once",
+        .frequency_id = "fastRhockey_no_xgboost")
         pbp$xg <- NA_real_
         return(pbp)
     }
+
+    # nhl_game_pbp() output already carries xg; replace it rather than
+    # letting the join make xg.x / xg.y.
+    pbp$xg <- NULL
 
     # Verify models are loaded
     if (is.null(.xg_env$xg_model_5v5) || is.null(.xg_env$xg_model_st)) {
