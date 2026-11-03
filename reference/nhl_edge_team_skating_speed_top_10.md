@@ -40,8 +40,8 @@ nhl_edge_team_skating_speed_top_10(
 
 ## Value
 
-A `fastRhockey_data` tibble with the top-10 team leaderboard, or `NULL`
-on failure / empty response.
+`NULL`, always: the NHL removed this endpoint, so the function no longer
+sends a request.
 
 ## Examples
 
@@ -54,7 +54,6 @@ on failure / empty response.
 #> Warning: `nhl_edge_team_skating_speed_top_10()` was deprecated in fastRhockey 1.0.0.
 #> ℹ The NHL has removed this Edge top-10 leaderboard endpoint; the function
 #>   returns NULL.
-#> 2026-11-02 14:14:20.898854: Error fetching https://api-web.nhle.com/v1/edge/team-skating-speed-top-10/F/total/now: The API returned an error
 #> NULL
 # }
 ```

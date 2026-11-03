@@ -204,7 +204,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_schedule(team_id = "4", season = 2025))
 #> ── NHL Team Schedule data from ESPN.com ─────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:10:13 UTC
+#> ℹ Data updated: 2026-11-03 10:03:51 UTC
 #> # A tibble: 82 × 34
 #>    game_id   date            name  short_name season_year season_type time_valid
 #>    <chr>     <chr>           <chr> <chr>            <int>       <int> <lgl>     

@@ -48,7 +48,7 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_team_roster(team_id = 1)) 
 #> ── QMJHL Team Roster from HockeyTech ────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:15:59 UTC
+#> ℹ Data updated: 2026-11-03 10:09:08 UTC
 #> # A tibble: 24 × 46
 #>    id    person_id active first_name last_name phonetic_name display_name shoots
 #>    <chr> <chr>     <chr>  <chr>      <chr>     <chr>         <chr>        <chr> 

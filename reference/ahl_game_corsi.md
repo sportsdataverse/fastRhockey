@@ -39,6 +39,11 @@ Other AHL Functions:
 
 ``` r
  try(ahl_game_corsi(game_id = 1000093924)) 
-#> ✖ 2026-11-02 14:08:10.011442: AHL game Corsi for game_id 1000093924 unavailable! Error in `$<-.data.frame`(`*tmp*`, "game_date", value = ""): replacement has 1 row, data has 0
-#> data frame with 0 columns and 0 rows
+#> ── AHL Game Corsi from HockeyTech ───────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-03 10:01:48 UTC
+#> # A tibble: 0 × 10
+#> # ℹ 10 variables: player_id <chr>, corsi_for <int>, corsi_against <int>,
+#> #   corsi_for_pct <dbl>, fenwick_for <int>, fenwick_against <int>,
+#> #   fenwick_for_pct <dbl>, corsi_includes_missed <lgl>, toi_seconds <dbl>,
+#> #   corsi_for_per60 <dbl>
 ```

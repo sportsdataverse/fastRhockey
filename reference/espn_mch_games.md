@@ -177,11 +177,13 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_games(limit = 10))
 #> ── MENS-COLLEGE-HOCKEY Games data from ESPN core-v2 ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:09:08 UTC
-#> # A tibble: 2 × 4
+#> ℹ Data updated: 2026-11-03 10:02:46 UTC
+#> # A tibble: 4 × 4
 #>   ref                                                  event_id count page_count
 #>   <chr>                                                <chr>    <int>      <int>
-#> 1 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019050…     2          1
-#> 2 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019231…     2          1
+#> 1 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019048…     4          1
+#> 2 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019123…     4          1
+#> 3 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019124…     4          1
+#> 4 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019231…     4          1
 # }
 ```

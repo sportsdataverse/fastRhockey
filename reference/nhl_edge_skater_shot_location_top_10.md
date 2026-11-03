@@ -47,8 +47,8 @@ nhl_edge_skater_shot_location_top_10(
 
 ## Value
 
-A `fastRhockey_data` tibble with the top-10 leaderboard, or `NULL` on
-failure / empty response.
+`NULL`, always: the NHL removed this endpoint, so the function no longer
+sends a request.
 
 ## Examples
 
@@ -62,7 +62,6 @@ failure / empty response.
 #> Warning: `nhl_edge_skater_shot_location_top_10()` was deprecated in fastRhockey 1.0.0.
 #> ℹ The NHL has removed this Edge top-10 leaderboard endpoint; the function
 #>   returns NULL.
-#> 2026-11-02 14:14:13.784549: Error fetching https://api-web.nhle.com/v1/edge/skater-shot-location-top-10/F/high/total/now: The API returned an error
 #> NULL
 # }
 ```

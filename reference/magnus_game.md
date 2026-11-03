@@ -76,16 +76,9 @@ Other Ligue Magnus Functions:
 ``` r
 # \donttest{
   try(magnus_game(game_id = 77779))
-#> ── Ligue Magnus Game Information from liguemagnus.com ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:13:34 UTC
-#> # A tibble: 1 × 21
-#>   game_id competition        phase round game_datetime       status home_team_id
-#>     <int> <chr>              <chr> <int> <dttm>              <chr>         <int>
-#> 1   77779 Synerglace Ligue … Sais…     6 2026-09-29 20:30:00 final           553
-#> # ℹ 14 more variables: home_team <chr>, home_team_abbreviation <chr>,
-#> #   away_team_id <int>, away_team <chr>, away_team_abbreviation <chr>,
-#> #   home_score <int>, away_score <int>, home_team_participant_id <int>,
-#> #   away_team_participant_id <int>, has_shootout <lgl>, n_periods <int>,
-#> #   period_minutes <int>, attendance <int>, venue <chr>
+#> Error in .euro_check_status(resp) : 
+#>   liguemagnus.com/rencontre/77779/ answered HTTP 403: <html><body><h1>403
+#> Forbidden</h1> Request forbidden by administrative rules. Interdiction
+#> d'acceder a cette ressource </body></html>
 # }
 ```

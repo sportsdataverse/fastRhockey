@@ -60,19 +60,19 @@ A data frame (`fastRhockey_data`) with the following columns:
     sort_by = "offensive"
   ))
 #> ── NHL Edge Team Zone Time Top 10 ───────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:14:21 UTC
+#> ℹ Data updated: 2026-11-03 10:07:41 UTC
 #> # A tibble: 10 × 11
 #>    offensive_zone_time neutral_zone_time defensive_zone_time team_abbrev
 #>                  <dbl>             <dbl>               <dbl> <chr>      
 #>  1               0.457             0.179               0.364 CAR        
-#>  2               0.436             0.177               0.387 FLA        
+#>  2               0.437             0.177               0.385 FLA        
 #>  3               0.431             0.178               0.390 UTA        
 #>  4               0.428             0.176               0.396 OTT        
-#>  5               0.422             0.185               0.393 VGK        
-#>  6               0.422             0.171               0.407 MIN        
-#>  7               0.421             0.182               0.397 NJD        
-#>  8               0.421             0.170               0.409 DET        
-#>  9               0.420             0.182               0.398 COL        
+#>  5               0.422             0.171               0.407 MIN        
+#>  6               0.421             0.182               0.397 NJD        
+#>  7               0.421             0.182               0.397 COL        
+#>  8               0.420             0.186               0.394 VGK        
+#>  9               0.417             0.171               0.413 DET        
 #> 10               0.416             0.173               0.410 MTL        
 #> # ℹ 7 more variables: team_slug <chr>, team_common_name_default <chr>,
 #> #   team_common_name_fr <chr>, team_place_name_with_preposition_default <chr>,

@@ -39,6 +39,11 @@ Other QMJHL Functions:
 
 ``` r
  try(qmjhl_game_corsi(game_id = 27225)) 
-#> ✖ 2026-11-02 14:15:54.469939: QMJHL game Corsi for game_id 27225 unavailable! Error in `$<-.data.frame`(`*tmp*`, "corsi_for_per60", value = NA_real_): replacement has 1 row, data has 0
-#> data frame with 0 columns and 0 rows
+#> ── QMJHL Game Corsi from HockeyTech ─────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-03 10:09:04 UTC
+#> # A tibble: 0 × 10
+#> # ℹ 10 variables: player_id <chr>, corsi_for <int>, corsi_against <int>,
+#> #   corsi_for_pct <dbl>, fenwick_for <int>, fenwick_against <int>,
+#> #   fenwick_for_pct <dbl>, corsi_includes_missed <lgl>, toi_seconds <dbl>,
+#> #   corsi_for_per60 <dbl>
 ```

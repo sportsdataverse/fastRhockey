@@ -98,7 +98,7 @@ Other EIHL eSports functions:
 # \donttest{
   try(eihl_shots(match_id = 4440))
 #> ── EIHL shots from the eSports hokejovyzapis bucket ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:08:38 UTC
+#> ℹ Data updated: 2026-11-03 10:02:16 UTC
 #> # A tibble: 114 × 25
 #>    match_id date       home_id home_name   home_shortcut visitor_id visitor_name
 #>       <int> <chr>        <int> <chr>       <chr>              <int> <chr>       

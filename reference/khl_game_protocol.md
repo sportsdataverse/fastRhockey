@@ -138,7 +138,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_game_protocol(game_id = 898236, season = 2026))
 #> ── KHL Game Protocol from khl.ru ────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:11:48 UTC
+#> ℹ Data updated: 2026-11-03 10:05:25 UTC
 #> # A tibble: 5 × 21
 #>   game_id tournament_id period goal_number time  team_side score_a score_b
 #>     <int>         <int>  <int>       <int> <chr> <chr>       <int>   <int>

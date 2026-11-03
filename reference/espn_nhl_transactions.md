@@ -168,20 +168,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_transactions())
 #> ── NHL Transactions data from ESPN.com ──────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:10:34 UTC
+#> ℹ Data updated: 2026-11-03 10:04:12 UTC
 #> # A tibble: 25 × 8
 #>    date            description team_id team_location team_name team_abbreviation
 #>    <chr>           <chr>       <chr>   <chr>         <chr>     <chr>            
-#>  1 2026-11-01T07:… Recalled F… 129764  Utah          Mammoth   UTA              
-#>  2 2026-11-01T07:… Traded C S… 124292  Seattle       Kraken    SEA              
-#>  3 2026-11-01T07:… Recalled D… 37      Vegas         Golden K… VGK              
-#>  4 2026-11-01T07:… Traded RW … 27      Nashville     Predators NSH              
-#>  5 2026-11-01T07:… Activated … 25      Anaheim       Ducks     ANA              
-#>  6 2026-11-01T07:… Acquired G… 23      Washington    Capitals  WSH              
-#>  7 2026-11-01T07:… Sent D Col… 21      Toronto       Maple Le… TOR              
-#>  8 2026-11-01T07:… Assigned R… 17      Colorado      Avalanche COL              
-#>  9 2026-11-01T07:… Assigned F… 16      Pittsburgh    Penguins  PIT              
-#> 10 2026-11-01T07:… Reinstated… 15      Philadelphia  Flyers    PHI              
+#>  1 2026-11-02T08:… Activated … 26      Florida       Panthers  FLA              
+#>  2 2026-11-02T08:… Placed F A… 25      Anaheim       Ducks     ANA              
+#>  3 2026-11-02T08:… Placed F B… 21      Toronto       Maple Le… TOR              
+#>  4 2026-11-02T08:… Recalled D… 17      Colorado      Avalanche COL              
+#>  5 2026-11-02T08:… Recalled F… 16      Pittsburgh    Penguins  PIT              
+#>  6 2026-11-02T08:… Loaned F A… 15      Philadelphia  Flyers    PHI              
+#>  7 2026-11-01T07:… Recalled F… 129764  Utah          Mammoth   UTA              
+#>  8 2026-11-01T07:… Traded C S… 124292  Seattle       Kraken    SEA              
+#>  9 2026-11-01T07:… Recalled D… 37      Vegas         Golden K… VGK              
+#> 10 2026-11-01T07:… Traded RW … 27      Nashville     Predators NSH              
 #> # ℹ 15 more rows
 #> # ℹ 2 more variables: team_display_name <chr>, team_color <chr>
 # }

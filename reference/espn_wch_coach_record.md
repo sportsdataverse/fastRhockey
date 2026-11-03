@@ -12,7 +12,8 @@ espn_wch_coach_record(coach_id, record_type = 0, ...)
 
 - coach_id:
 
-  ESPN coach identifier (character or numeric). Use `espn_wch_coaches()`
+  ESPN coach identifier (character or numeric). Use
+  [`espn_wch_season_coaches()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_coaches.md)
   to discover valid coach ids.
 
 - record_type:
@@ -179,10 +180,9 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns an empty tibble for NHL (404 from ESPN)
   try({
-    ccs <- espn_wch_coaches(season = 2026)
-    espn_wch_coach_record(coach_id = ccs$coach_id[1])
+    ccs <- espn_wch_season_coaches(season = 2026)
+    # the coach list can be empty for college hockey
+    if (nrow(ccs) > 0) espn_wch_coach_record(coach_id = ccs$coach_id[1])
   })
-#> Error in espn_wch_coaches(season = 2026) : 
-#>   could not find function "espn_wch_coaches"
 # }
 ```

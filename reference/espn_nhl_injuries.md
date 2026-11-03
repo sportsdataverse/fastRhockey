@@ -176,21 +176,21 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_injuries())
 #> ── NHL Injuries data from ESPN.com ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:09:53 UTC
-#> # A tibble: 258 × 16
+#> ℹ Data updated: 2026-11-03 10:03:30 UTC
+#> # A tibble: 260 × 16
 #>    team_id team_display_name player_id player_display_name player_short_name
 #>    <chr>   <chr>             <chr>     <chr>               <chr>            
-#>  1 25      Anaheim Ducks     NA        Troy Terry          T. Terry         
-#>  2 25      Anaheim Ducks     NA        Troy Terry          T. Terry         
-#>  3 25      Anaheim Ducks     NA        Ian Moore           I. Moore         
-#>  4 25      Anaheim Ducks     NA        Ian Moore           I. Moore         
-#>  5 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
-#>  6 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
-#>  7 2       Buffalo Sabres    NA        Jiri Kulich         J. Kulich        
-#>  8 2       Buffalo Sabres    NA        Jiri Kulich         J. Kulich        
-#>  9 2       Buffalo Sabres    NA        Konsta Helenius     K. Helenius      
-#> 10 2       Buffalo Sabres    NA        Konsta Helenius     K. Helenius      
-#> # ℹ 248 more rows
+#>  1 25      Anaheim Ducks     NA        A.J. Greer          A.J. Greer       
+#>  2 25      Anaheim Ducks     NA        A.J. Greer          A.J. Greer       
+#>  3 25      Anaheim Ducks     NA        Troy Terry          T. Terry         
+#>  4 25      Anaheim Ducks     NA        Troy Terry          T. Terry         
+#>  5 25      Anaheim Ducks     NA        Ian Moore           I. Moore         
+#>  6 25      Anaheim Ducks     NA        Ian Moore           I. Moore         
+#>  7 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
+#>  8 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
+#>  9 1       Boston Bruins     NA        Matthew Poitras     M. Poitras       
+#> 10 1       Boston Bruins     NA        Matthew Poitras     M. Poitras       
+#> # ℹ 250 more rows
 #> # ℹ 11 more variables: player_position <chr>, injury_id <chr>,
 #> #   injury_status <chr>, injury_date <chr>, injury_short_comment <chr>,
 #> #   injury_long_comment <chr>, injury_type <chr>, injury_abbreviation <chr>,

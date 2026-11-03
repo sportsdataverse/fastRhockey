@@ -116,21 +116,9 @@ Other Ligue Magnus Functions:
 ``` r
 # \donttest{
   try(magnus_schedule(season = 2027, phase_id = 714, round = 2))
-#> ── Ligue Magnus Schedule Information from liguemagnus.com ──────────────────────
-#> ℹ Data updated: 2026-11-02 14:13:40 UTC
-#> # A tibble: 6 × 22
-#>   game_id season competition_id phase_id phase  round game_datetime       status
-#>     <int>  <int>          <int>    <int> <chr>  <int> <dttm>              <chr> 
-#> 1   77753   2027            240      714 Saiso…     2 2026-09-18 20:00:00 final 
-#> 2   77752   2027            240      714 Saiso…     2 2026-09-18 20:05:00 final 
-#> 3   77751   2027            240      714 Saiso…     2 2026-09-18 20:15:00 final 
-#> 4   77755   2027            240      714 Saiso…     2 2026-09-18 20:15:00 final 
-#> 5   77750   2027            240      714 Saiso…     2 2026-09-18 20:30:00 final 
-#> 6   77754   2027            240      714 Saiso…     2 2026-09-18 20:30:00 final 
-#> # ℹ 14 more variables: decision <chr>, home_team_id <int>, home_team <chr>,
-#> #   home_team_abbreviation <chr>, away_team_id <int>, away_team <chr>,
-#> #   away_team_abbreviation <chr>, home_score <int>, away_score <int>,
-#> #   home_team_participant_id <int>, away_team_participant_id <int>,
-#> #   venue_id <int>, venue <chr>, game_label <chr>
+#> Error in .euro_check_status(resp) : 
+#>   liguemagnus.com/wp-admin/admin-ajax.php answered HTTP 403:
+#> <html><body><h1>403 Forbidden</h1> Request forbidden by administrative rules.
+#> Interdiction d'acceder a cette ressource </body></html>
 # }
 ```

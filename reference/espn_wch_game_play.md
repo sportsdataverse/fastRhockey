@@ -205,10 +205,10 @@ Saiem Gilani
     pls <- espn_wch_game_plays(event_id = eid)
     espn_wch_game_play(event_id = eid, play_id = pls$id[1])
   })
-#> ✖ 2026-11-02 14:10:42.530009: 
+#> ✖ 2026-11-03 10:04:19.371737: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, limit = 1000
 #> ✖ Error: The API returned an error
-#> ✖ 2026-11-02 14:10:42.564792: 
+#> ✖ 2026-11-03 10:04:19.401724: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, play_id = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

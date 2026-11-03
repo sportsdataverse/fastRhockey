@@ -12,7 +12,8 @@ espn_mch_coach(coach_id, ...)
 
 - coach_id:
 
-  ESPN coach identifier (character or numeric). Use `espn_mch_coaches()`
+  ESPN coach identifier (character or numeric). Use
+  [`espn_mch_season_coaches()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_coaches.md)
   to discover valid coach ids.
 
 - ...:
@@ -181,10 +182,9 @@ Saiem Gilani
 ``` r
 # \donttest{
   try({
-    ccs <- espn_mch_coaches(season = 2026)
-    espn_mch_coach(coach_id = ccs$coach_id[1])
+    ccs <- espn_mch_season_coaches(season = 2026)
+    # the coach list can be empty for college hockey
+    if (nrow(ccs) > 0) espn_mch_coach(coach_id = ccs$coach_id[1])
   })
-#> Error in espn_mch_coaches(season = 2026) : 
-#>   could not find function "espn_mch_coaches"
 # }
 ```

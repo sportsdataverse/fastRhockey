@@ -176,7 +176,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_leaders_core())
 #> ── WOMENS-COLLEGE-HOCKEY Leaders (core-v2) data from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-11-02 14:10:48 UTC
+#> ℹ Data updated: 2026-11-03 10:04:25 UTC
 #> # A tibble: 7 × 9
 #>   category_name category_display_name category_short_display_name
 #>   <chr>         <chr>                 <chr>                      

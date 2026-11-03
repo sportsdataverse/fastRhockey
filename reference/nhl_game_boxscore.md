@@ -127,9 +127,31 @@ Uses the endpoint
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
-  box <- nhl_game_boxscore(2024020001)
-  box$game_info
-  box$skater_stats
-} # }
+# \donttest{
+  try({
+    box <- nhl_game_boxscore(2024020001)
+    box$game_info
+    box$skater_stats
+  })
+#> ── NHL Game Skater Stats from NHL.com ───────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-03 10:07:42 UTC
+#> # A tibble: 36 × 21
+#>    home_away team_id team_abbrev player_id player_name sweater_number position
+#>    <chr>       <int> <chr>           <int> <chr>                <int> <chr>   
+#>  1 away            1 NJD           8476474 S. Noesen               11 R       
+#>  2 away            1 NJD           8480002 N. Hischier             13 C       
+#>  3 away            1 NJD           8479414 N. Bastian              14 R       
+#>  4 away            1 NJD           8476292 O. Palat                18 L       
+#>  5 away            1 NJD           8478414 T. Meier                28 R       
+#>  6 away            1 NJD           8477508 C. Lazar                42 C       
+#>  7 away            1 NJD           8481032 P. Cotter               47 L       
+#>  8 away            1 NJD           8475287 E. Haula                56 L       
+#>  9 away            1 NJD           8479407 J. Bratt                63 L       
+#> 10 away            1 NJD           8481559 J. Hughes               86 C       
+#> # ℹ 26 more rows
+#> # ℹ 14 more variables: goals <int>, assists <int>, points <int>,
+#> #   plus_minus <int>, pim <int>, hits <int>, power_play_goals <int>,
+#> #   shots_on_goal <int>, faceoff_winning_pctg <dbl>, toi <chr>,
+#> #   blocked_shots <int>, shifts <int>, giveaways <int>, takeaways <int>
+# }
 ```

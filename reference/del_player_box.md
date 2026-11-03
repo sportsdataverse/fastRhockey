@@ -132,7 +132,7 @@ Other DEL eSports functions:
 # \donttest{
   try(del_player_box(match_id = 4444, team_id = 12))
 #> ── DEL player_box from the eSports hokejovyzapis bucket ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:08:20 UTC
+#> ℹ Data updated: 2026-11-03 10:01:58 UTC
 #> # A tibble: 27 × 51
 #>    player_id holema_id name      firstname surname date_of_birth active position
 #>        <int>     <int> <chr>     <chr>     <chr>   <chr>         <lgl>  <chr>   

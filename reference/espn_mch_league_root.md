@@ -179,7 +179,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_league_root())
 #> ── MENS-COLLEGE-HOCKEY League Root data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-11-02 14:09:10 UTC
+#> ℹ Data updated: 2026-11-03 10:02:47 UTC
 #> # A tibble: 1 × 16
 #>   id    guid              uid   name  display_name abbreviation short_name slug 
 #>   <chr> <chr>             <chr> <chr> <chr>        <chr>        <chr>      <chr>

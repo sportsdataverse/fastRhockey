@@ -34,7 +34,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_draft_lottery_odds())
 #> ── NHL Records Draft Lottery Odds ───────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:14:36 UTC
+#> ℹ Data updated: 2026-11-03 10:07:54 UTC
 #> # A tibble: 32 × 5
 #>       id draft_year format_content                     odds_content result_notes
 #>    <int>      <int> <chr>                              <chr>        <chr>       

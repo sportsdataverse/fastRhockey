@@ -86,7 +86,7 @@ Other DEL eSports functions:
 # \donttest{
   try(del_shifts(match_id = 4444))
 #> ── DEL shifts from the eSports hokejovyzapis bucket ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:08:24 UTC
+#> ℹ Data updated: 2026-11-03 10:02:01 UTC
 #> # A tibble: 766 × 10
 #>    shift_id start_time start_real_time     end_time end_real_time      player_id
 #>       <int>      <int> <chr>                  <int> <chr>                  <int>

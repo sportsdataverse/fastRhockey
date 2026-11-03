@@ -97,20 +97,20 @@ A data frame (`fastRhockey_data`) with the following columns:
     sort_by = "total"
   ))
 #> ── NHL Edge Team Skating Distance Top 10 ────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:14:20 UTC
+#> ℹ Data updated: 2026-11-03 10:07:40 UTC
 #> # A tibble: 10 × 36
 #>    team_abbrev team_slug           team_common_name_def…¹ team_place_name_with…²
 #>    <chr>       <chr>               <chr>                  <chr>                 
-#>  1 CAR         carolina-hurricane… Hurricanes             Carolina              
-#>  2 PHI         philadelphia-flyer… Flyers                 Philadelphia          
-#>  3 OTT         ottawa-senators-9   Senators               Ottawa                
-#>  4 VAN         vancouver-canucks-… Canucks                Vancouver             
-#>  5 MIN         minnesota-wild-30   Wild                   Minnesota             
-#>  6 TOR         toronto-maple-leaf… Maple Leafs            Toronto               
-#>  7 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
-#>  8 EDM         edmonton-oilers-22  Oilers                 Edmonton              
-#>  9 SJS         san-jose-sharks-28  Sharks                 San Jose              
-#> 10 WPG         winnipeg-jets-52    Jets                   Winnipeg              
+#>  1 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
+#>  2 SJS         san-jose-sharks-28  Sharks                 San Jose              
+#>  3 CAR         carolina-hurricane… Hurricanes             Carolina              
+#>  4 BOS         boston-bruins-6     Bruins                 Boston                
+#>  5 PHI         philadelphia-flyer… Flyers                 Philadelphia          
+#>  6 OTT         ottawa-senators-9   Senators               Ottawa                
+#>  7 VAN         vancouver-canucks-… Canucks                Vancouver             
+#>  8 MIN         minnesota-wild-30   Wild                   Minnesota             
+#>  9 TOR         toronto-maple-leaf… Maple Leafs            Toronto               
+#> 10 EDM         edmonton-oilers-22  Oilers                 Edmonton              
 #> # ℹ abbreviated names: ¹​team_common_name_default,
 #> #   ²​team_place_name_with_preposition_default
 #> # ℹ 32 more variables: team_team_logo_light <chr>, team_team_logo_dark <chr>,

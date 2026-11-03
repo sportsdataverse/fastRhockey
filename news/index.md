@@ -32,7 +32,7 @@ that upgrades from 1.0.0 may need to change.
 
 #### New features
 
-- European hockey and ESPN college hockey (447 wrappers), at parity with
+- European hockey and ESPN college hockey (453 wrappers), at parity with
   sportsdataverse-py. Seasons are END years (2027 = 2026-27). Every
   request waits at least one second after the last one to the same host,
   429/500/502/ 503/504 answers are retried honouring `Retry-After`
@@ -63,7 +63,7 @@ that upgrades from 1.0.0 may need to change.
   - Ligue Magnus: 11 `magnus_*` wrappers.
   - VHL (Russia): 13 `vhl_*` wrappers plus
     [`vhl_tn()`](https://fastRhockey.sportsdataverse.org/reference/vhl_tn.md).
-  - ESPN men’s and women’s college hockey: 236 wrappers, 118 per league
+  - ESPN men’s and women’s college hockey: 242 wrappers, 121 per league
     (`espn_mch_*` and `espn_wch_*`).
 - Deliberate differences from sportsdataverse-py: R has no 64-bit
   integer, so ids past 2^31 (SIHF `game_id`, National League `game_id`
@@ -121,6 +121,27 @@ that upgrades from 1.0.0 may need to change.
 
 #### Bug fixes
 
+- [`ahl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/ahl_pbp.md),
+  [`ohl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/ohl_pbp.md),
+  [`whl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/whl_pbp.md),
+  [`qmjhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/qmjhl_pbp.md)
+  and the four `*_game_corsi()` functions: a game with no events failed
+  with “replacement has 1 row, data has 0”. They now return an empty
+  data frame.
+- The nine deprecated NHL Edge top-10 functions
+  ([`nhl_edge_goalie_5v5_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_5v5_top_10.md)
+  and friends) no longer send a request to the removed endpoint. They
+  warn and return `NULL`.
+- The
+  [`espn_mch_coach()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_coach.md),
+  [`espn_mch_coach_record()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_coach_record.md),
+  [`espn_wch_coach()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_coach.md)
+  and
+  [`espn_wch_coach_record()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_coach_record.md)
+  examples called functions that do not exist. They now use
+  [`espn_mch_season_coaches()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_coaches.md)
+  /
+  [`espn_wch_season_coaches()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_coaches.md).
 - [`nhl_game_pbp()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_pbp.md)
   /
   [`nhl_game_feed()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_feed.md):

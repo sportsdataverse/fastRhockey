@@ -47,8 +47,8 @@ nhl_edge_skater_zone_time_top_10(
 
 ## Value
 
-A `fastRhockey_data` tibble with the top-10 leaderboard, or `NULL` on
-failure / empty response.
+`NULL`, always: the NHL removed this endpoint, so the function no longer
+sends a request.
 
 ## Examples
 
@@ -62,7 +62,6 @@ failure / empty response.
 #> Warning: `nhl_edge_skater_zone_time_top_10()` was deprecated in fastRhockey 1.0.0.
 #> ℹ The NHL has removed this Edge top-10 leaderboard endpoint; the function
 #>   returns NULL.
-#> 2026-11-02 14:14:16.68545: Error fetching https://api-web.nhle.com/v1/edge/skater-zone-time-top-10/F/all/total/now: The API returned an error
 #> NULL
 # }
 ```

@@ -36,20 +36,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_player_spotlight())
 #> ── NHL Player Spotlight ─────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:14:31 UTC
+#> ℹ Data updated: 2026-11-03 10:07:50 UTC
 #> # A tibble: 10 × 13
 #>    player_id player_slug  position sweater_number team_id headshot team_tri_code
 #>        <int> <chr>        <chr>             <int>   <int> <chr>    <chr>        
-#>  1   8484801 macklin-cel… C                    71      28 https:/… SJS          
+#>  1   8484153 leo-carlsso… C                    91      24 https:/… ANA          
 #>  2   8471675 sidney-cros… C                    87       5 https:/… PIT          
 #>  3   8484170 jacob-fowle… G                    32       8 https:/… MTL          
 #>  4   8476945 connor-hell… G                    37       1 https:/… NJD          
-#>  5   8478864 kirill-kapr… L                    97      30 https:/… MIN          
-#>  6   8481611 pyotr-koche… G                    52      12 https:/… CAR          
+#>  5   8477465 tristan-jar… G                    35      22 https:/… EDM          
+#>  6   8478864 kirill-kapr… L                    97      30 https:/… MIN          
 #>  7   8476453 nikita-kuch… R                    86      14 https:/… TBL          
-#>  8   8480069 cale-makar-… D                     8      21 https:/… COL          
-#>  9   8478402 connor-mcda… C                    97      22 https:/… EDM          
-#> 10   8485366 matthew-sch… D                    48       2 https:/… NYI          
+#>  8   8478402 connor-mcda… C                    97      22 https:/… EDM          
+#>  9   8485366 matthew-sch… D                    48       2 https:/… NYI          
+#> 10   8479420 tage-thomps… C                    72       7 https:/… BUF          
 #> # ℹ 6 more variables: team_logo <chr>, sort_id <int>, name_default <chr>,
 #> #   name_cs <chr>, name_fi <chr>, name_sk <chr>
 # }

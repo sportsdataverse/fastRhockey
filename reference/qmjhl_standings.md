@@ -44,8 +44,8 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_standings()) 
 #> ── QMJHL Standings from HockeyTech ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:15:58 UTC
-#> # A tibble: 18 × 20
+#> ℹ Data updated: 2026-11-03 10:09:08 UTC
+#> # A tibble: 20 × 20
 #>    team_code wins  losses ot_losses ot_wins shootout_wins shootout_losses row  
 #>    <chr>     <chr>  <dbl> <chr>     <chr>   <chr>         <chr>           <chr>
 #>  1 NFL       10         5 1         2       0             1               10   
@@ -66,6 +66,8 @@ Other QMJHL Functions:
 #> 16 BLB       6         10 1         3       0             0               6    
 #> 17 Dru       5          8 0         1       1             2               4    
 #> 18 Sha       4          7 3         0       0             0               4    
+#> 19 Sud       0          1 0         0       0             0               0    
+#> 20 NtB       0          1 0         0       0             0               0    
 #> # ℹ 12 more variables: points <dbl>, penalty_minutes <chr>, streak <chr>,
 #> #   goals_for <chr>, goals_against <chr>, goals_diff <chr>, percentage <chr>,
 #> #   overall_rank <chr>, games_played <dbl>, team_rank <int>, past_10 <chr>,

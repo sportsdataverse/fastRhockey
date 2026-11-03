@@ -184,7 +184,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20250110")
     espn_wch_game(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-02 14:10:39.752543: 
+#> ✖ 2026-11-03 10:04:17.391139: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL
 #> ✖ Error: arguments imply differing number of rows: 0, 1
 #> data frame with 0 columns and 0 rows

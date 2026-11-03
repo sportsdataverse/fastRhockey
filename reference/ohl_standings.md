@@ -44,8 +44,8 @@ Other OHL Functions:
 ``` r
  try(ohl_standings()) 
 #> ── OHL Standings from HockeyTech ────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:15:36 UTC
-#> # A tibble: 22 × 21
+#> ℹ Data updated: 2026-11-03 10:08:48 UTC
+#> # A tibble: 20 × 21
 #>    team_code wins  losses ot_losses ot_wins shootout_wins shootout_losses
 #>    <chr>     <chr>  <dbl> <chr>     <chr>   <chr>         <chr>          
 #>  1 BFD       11         5 0         0       1             1              
@@ -58,7 +58,16 @@ Other OHL Functions:
 #>  8 NB        7          9 1         1       0             0              
 #>  9 BAR       3         10 3         1       0             0              
 #> 10 BRAM      2         12 1         0       0             1              
-#> # ℹ 12 more rows
+#> 11 FLNT      11         3 1         1       1             0              
+#> 12 SOO       10         5 2         5       0             0              
+#> 13 WSR       8          5 2         0       0             1              
+#> 14 SAG       6          7 2         1       1             1              
+#> 15 SAR       6         10 1         0       0             0              
+#> 16 GUE       12         3 0         2       0             0              
+#> 17 LDN       10         3 1         3       1             1              
+#> 18 KIT       8          5 2         2       0             1              
+#> 19 ER        8          6 2         0       1             0              
+#> 20 OS        6          9 1         1       0             0              
 #> # ℹ 14 more variables: regulation_wins <dbl>, row <chr>, points <dbl>,
 #> #   penalty_minutes <chr>, streak <chr>, goals_for <chr>, goals_against <chr>,
 #> #   goals_diff <chr>, percentage <chr>, overall_rank <chr>, games_played <dbl>,

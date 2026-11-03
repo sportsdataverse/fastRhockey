@@ -134,7 +134,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_game_stats(game_id = 1, season = 2026))
 #> ── Liiga game box score Information from liiga.fi ───────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:12:25 UTC
+#> ℹ Data updated: 2026-11-03 10:06:01 UTC
 #> # A tibble: 210 × 60
 #>    season game_id side   team_id team_slug period player_id jersey is_goalie
 #>     <int>   <int> <chr>    <int> <chr>      <int>     <int>  <int> <lgl>    

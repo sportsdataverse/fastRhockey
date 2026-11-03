@@ -24,19 +24,19 @@ A `fastRhockey_data` tibble (long): `team_id`, `season_type`,
 ``` r
  try(fox_nhl_team_gamelog("1")) 
 #> ── Fox Sports NHL gamelog ───────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-02 14:11:16 UTC
+#> ℹ Data updated: 2026-11-03 10:04:53 UTC
 #> # A tibble: 50 × 8
 #>    team_id season_type    category game_id game_date opponent stat       value
 #>    <chr>   <chr>          <chr>    <chr>   <chr>     <chr>    <chr>      <chr>
-#>  1 1       REGULAR SEASON overall  44772   10/31     CHI      g          5    
-#>  2 1       REGULAR SEASON overall  44772   10/31     CHI      a          7.0  
-#>  3 1       REGULAR SEASON overall  44772   10/31     CHI      ga         4    
-#>  4 1       REGULAR SEASON overall  44772   10/31     CHI      sa         41.0 
-#>  5 1       REGULAR SEASON overall  44772   10/31     CHI      sv         37.0 
-#>  6 1       REGULAR SEASON overall  44772   10/31     CHI      sv_percent .902 
-#>  7 1       REGULAR SEASON overall  44772   10/31     CHI      g_2        0    
-#>  8 1       REGULAR SEASON overall  44772   10/31     CHI      opp        3    
-#>  9 1       REGULAR SEASON overall  44772   10/31     CHI      kpct       -    
-#> 10 1       REGULAR SEASON overall  44772   10/31     CHI      fpwpct     69.4 
+#>  1 1       REGULAR SEASON overall  44788   11/2      VGK      g          2    
+#>  2 1       REGULAR SEASON overall  44788   11/2      VGK      a          4.0  
+#>  3 1       REGULAR SEASON overall  44788   11/2      VGK      ga         2    
+#>  4 1       REGULAR SEASON overall  44788   11/2      VGK      sa         23.0 
+#>  5 1       REGULAR SEASON overall  44788   11/2      VGK      sv         21.0 
+#>  6 1       REGULAR SEASON overall  44788   11/2      VGK      sv_percent .913 
+#>  7 1       REGULAR SEASON overall  44788   11/2      VGK      g_2        1    
+#>  8 1       REGULAR SEASON overall  44788   11/2      VGK      opp        4    
+#>  9 1       REGULAR SEASON overall  44788   11/2      VGK      kpct       -    
+#> 10 1       REGULAR SEASON overall  44788   11/2      VGK      fpwpct     53.7 
 #> # ℹ 40 more rows
 ```

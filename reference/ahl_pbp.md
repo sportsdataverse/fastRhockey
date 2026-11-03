@@ -40,6 +40,14 @@ Other AHL Functions:
 
 ``` r
  try(ahl_pbp(game_id = 1000093924)) 
-#> ✖ 2026-11-02 14:08:11.417057: AHL PBP for game_id 1000093924 unavailable! Error in `$<-.data.frame`(`*tmp*`, "game_date", value = ""): replacement has 1 row, data has 0
-#> data frame with 0 columns and 0 rows
+#> ── AHL Play-by-Play from HockeyTech ─────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-03 10:01:49 UTC
+#> # A tibble: 0 × 32
+#> # ℹ 32 variables: game_date <chr>, game_season <int>, game_season_id <chr>,
+#> #   home_team <chr>, home_team_id <chr>, away_team <chr>, away_team_id <chr>,
+#> #   x_coord_original <dbl>, y_coord_original <dbl>, x_coord_neutral <dbl>,
+#> #   y_coord_neutral <dbl>, x_coord_fixed <dbl>, y_coord_fixed <dbl>,
+#> #   x_coord_right <dbl>, y_coord_right <dbl>, x_coord_vertical <dbl>,
+#> #   y_coord_vertical <dbl>, minute_start <int>, second_start <int>,
+#> #   clock <chr>, sec_from_start <int>, short_handed <chr>, power_play <chr>, …
 ```
