@@ -106,10 +106,12 @@
 #' `https://api-web.nhle.com/v1/gamecenter/{game_id}/boxscore`.
 #'
 #' @examples
-#' \dontrun{
-#'   box <- nhl_game_boxscore(2024020001)
-#'   box$game_info
-#'   box$skater_stats
+#' \donttest{
+#'   try({
+#'     box <- nhl_game_boxscore(2024020001)
+#'     box$game_info
+#'     box$skater_stats
+#'   })
 #' }
 #'
 #' @export
