@@ -182,7 +182,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_season_week_rankings(season = 2026, season_type = 2, week = 3))
 #> ── WOMENS-COLLEGE-HOCKEY Week Rankings data from ESPN core-v2 ──────────────────
-#> ℹ Data updated: 2026-11-03 10:04:41 UTC
+#> ℹ Data updated: 2026-11-03 11:53:04 UTC
 #> # A tibble: 2 × 5
 #>   ref                                        ranking_id season season_type  week
 #>   <chr>                                      <chr>       <int>       <int> <int>

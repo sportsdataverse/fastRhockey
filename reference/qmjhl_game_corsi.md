@@ -40,7 +40,7 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_game_corsi(game_id = 27225)) 
 #> ── QMJHL Game Corsi from HockeyTech ─────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 10:09:04 UTC
+#> ℹ Data updated: 2026-11-03 11:57:43 UTC
 #> # A tibble: 0 × 10
 #> # ℹ 10 variables: player_id <chr>, corsi_for <int>, corsi_against <int>,
 #> #   corsi_for_pct <dbl>, fenwick_for <int>, fenwick_against <int>,

@@ -192,7 +192,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_rankings())
 #> ── WOMENS-COLLEGE-HOCKEY Rankings data from ESPN.com ────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 10:04:33 UTC
+#> ℹ Data updated: 2026-11-03 11:52:56 UTC
 #> # A tibble: 20 × 25
 #>    poll_id poll_name          poll_short_name poll_type season season_type  week
 #>      <int> <chr>              <chr>           <chr>      <int>       <int> <int>

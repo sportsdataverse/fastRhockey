@@ -186,7 +186,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_wch_fpi(season = 2026))
-#> ✖ 2026-11-03 10:04:15.96189: Invalid arguments or no ESPN womens-college-hockey power index available!
+#> ✖ 2026-11-03 11:52:39.046344: Invalid arguments or no ESPN womens-college-hockey power index available!
 #> ✖ Args: league = "womens-college-hockey", kind = "fpi", path = NULL, query = list(season = 2026)
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

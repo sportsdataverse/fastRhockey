@@ -182,7 +182,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20250110")
     espn_wch_game_powerindex(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-03 10:04:20.265627: 
+#> ✖ 2026-11-03 11:52:43.697732: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

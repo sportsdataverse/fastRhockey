@@ -192,7 +192,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_teams_site())
 #> ── MENS-COLLEGE-HOCKEY Teams data from ESPN.com ─────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 10:03:11 UTC
+#> ℹ Data updated: 2026-11-03 11:51:41 UTC
 #> # A tibble: 116 × 23
 #>    abbreviation display_name espn_team_id team  mascot nickname short_name logo 
 #>    <chr>        <chr>               <int> <chr> <chr>  <chr>    <chr>      <chr>

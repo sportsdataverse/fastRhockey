@@ -195,7 +195,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_player_core(athlete_id = "5263060"))
 #> ── WOMENS-COLLEGE-HOCKEY Player Core data from ESPN core-v2 ────────────────────
-#> ℹ Data updated: 2026-11-03 10:04:28 UTC
+#> ℹ Data updated: 2026-11-03 11:52:52 UTC
 #> # A tibble: 1 × 28
 #>   athlete_id uid         guid  type  first_name last_name full_name display_name
 #>   <chr>      <chr>       <chr> <chr> <chr>      <chr>     <chr>     <chr>       

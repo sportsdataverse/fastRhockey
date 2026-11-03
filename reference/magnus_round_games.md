@@ -81,9 +81,21 @@ Other Ligue Magnus Functions:
 ``` r
 # \donttest{
   try(magnus_round_games(phase_id = 714, round = 1))
-#> Error in .euro_check_status(resp) : 
-#>   liguemagnus.com/wp-admin/admin-ajax.php answered HTTP 403:
-#> <html><body><h1>403 Forbidden</h1> Request forbidden by administrative rules.
-#> Interdiction d'acceder a cette ressource </body></html>
+#> ── Ligue Magnus Round Games Information from liguemagnus.com ───────────────────
+#> ℹ Data updated: 2026-11-03 11:55:35 UTC
+#> # A tibble: 6 × 22
+#>   game_id season competition_id phase_id phase  round game_datetime       status
+#>     <int>  <int>          <int>    <int> <chr>  <int> <dttm>              <chr> 
+#> 1   77745   2027            240      714 Saiso…     1 2026-09-15 20:00:00 final 
+#> 2   77746   2027            240      714 Saiso…     1 2026-09-15 20:00:00 final 
+#> 3   77744   2027            240      714 Saiso…     1 2026-09-15 20:15:00 final 
+#> 4   77749   2027            240      714 Saiso…     1 2026-09-15 20:15:00 final 
+#> 5   77747   2027            240      714 Saiso…     1 2026-09-15 20:30:00 final 
+#> 6   77748   2027            240      714 Saiso…     1 2026-09-15 20:30:00 final 
+#> # ℹ 14 more variables: decision <chr>, home_team_id <int>, home_team <chr>,
+#> #   home_team_abbreviation <chr>, away_team_id <int>, away_team <chr>,
+#> #   away_team_abbreviation <chr>, home_score <int>, away_score <int>,
+#> #   home_team_participant_id <int>, away_team_participant_id <int>,
+#> #   venue_id <int>, venue <chr>, game_label <chr>
 # }
 ```

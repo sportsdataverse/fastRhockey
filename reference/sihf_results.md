@@ -133,7 +133,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_results(season = 2026, league_id = 1))
 #> ── SIHF Results Information from data.sihf.ch ───────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 10:09:59 UTC
+#> ℹ Data updated: 2026-11-03 11:58:39 UTC
 #> # A tibble: 414 × 26
 #>    season phase_id day   date       time  home_team_id home_team_name           
 #>     <int>    <int> <chr> <date>     <chr>        <int> <chr>                    

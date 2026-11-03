@@ -210,7 +210,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_standings(season = 2025))
 #> ── WOMENS-COLLEGE-HOCKEY Standings data from ESPN.com ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 10:04:43 UTC
+#> ℹ Data updated: 2026-11-03 11:53:05 UTC
 #> # A tibble: 11 × 27
 #>    group_name          group_abbreviation team_id team_name    team_abbreviation
 #>    <chr>               <chr>              <chr>   <chr>        <chr>            

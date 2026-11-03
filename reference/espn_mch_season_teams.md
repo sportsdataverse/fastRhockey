@@ -178,7 +178,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_season_teams(season = 2026))
 #> ── MENS-COLLEGE-HOCKEY Season Teams data from ESPN core-v2 ─────────────────────
-#> ℹ Data updated: 2026-11-03 10:03:02 UTC
+#> ℹ Data updated: 2026-11-03 11:51:31 UTC
 #> # A tibble: 100 × 5
 #>    ref                                           team_id season count page_count
 #>    <chr>                                         <chr>    <int> <int>      <int>

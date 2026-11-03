@@ -44,7 +44,7 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_teams()) 
 #> ── QMJHL Teams from HockeyTech ──────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 10:09:09 UTC
+#> ℹ Data updated: 2026-11-03 11:57:49 UTC
 #> # A tibble: 20 × 7
 #>    team_name       team_id team_code team_nickname team_label division team_logo
 #>    <chr>           <chr>   <chr>     <chr>         <chr>      <chr>    <chr>    

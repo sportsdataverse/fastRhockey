@@ -189,7 +189,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_players_index(active = TRUE, limit = 10, page = 1))
 #> ── WOMENS-COLLEGE-HOCKEY Players Index data from ESPN.com ──────────────────────
-#> ℹ Data updated: 2026-11-03 10:04:32 UTC
+#> ℹ Data updated: 2026-11-03 11:52:55 UTC
 #> # A tibble: 10 × 6
 #>    ref                                  athlete_id active  page count page_count
 #>    <chr>                                <chr>      <lgl>  <int> <int>      <int>

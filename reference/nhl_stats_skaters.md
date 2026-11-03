@@ -67,7 +67,7 @@ Returns a data frame with skater statistics.
 # \donttest{
   try(nhl_stats_skaters())
 #> ── NHL Stats Skaters ────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 10:08:19 UTC
+#> ℹ Data updated: 2026-11-03 11:56:58 UTC
 #> # A tibble: 50 × 26
 #>    assists ev_goals ev_points faceoff_win_pct game_winning_goals games_played
 #>      <int>    <int>     <int>           <dbl>              <int>        <int>
@@ -79,8 +79,8 @@ Returns a data frame with skater statistics.
 #>  6      13        8        15           0.535                  2           16
 #>  7      17        3         7           0.453                  1           14
 #>  8      17        3        10           0                      1           15
-#>  9      16        3        13          NA                      2           16
-#> 10      12        6        16           0.552                  1           16
+#>  9      11        7        14           0.364                  0           16
+#> 10      12        4        11           0.577                  1           16
 #> # ℹ 40 more rows
 #> # ℹ 20 more variables: goals <int>, last_name <chr>, ot_goals <int>,
 #> #   penalty_minutes <int>, player_id <int>, plus_minus <int>, points <int>,

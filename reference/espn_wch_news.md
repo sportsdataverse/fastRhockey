@@ -179,7 +179,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_news(limit = 10))
 #> ── WOMENS-COLLEGE-HOCKEY News data from ESPN.com ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 10:04:26 UTC
+#> ℹ Data updated: 2026-11-03 11:52:49 UTC
 #> # A tibble: 10 × 12
 #>    article_id now_id     content_key    type  headline description last_modified
 #>    <chr>      <chr>      <chr>          <chr> <chr>    <chr>       <chr>        

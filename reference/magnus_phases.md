@@ -62,9 +62,12 @@ Other Ligue Magnus Functions:
 ``` r
 # \donttest{
   try(magnus_phases(season = 2027))
-#> Error in .euro_check_status(resp) : 
-#>   liguemagnus.com/wp-admin/admin-ajax.php answered HTTP 403:
-#> <html><body><h1>403 Forbidden</h1> Request forbidden by administrative rules.
-#> Interdiction d'acceder a cette ressource </body></html>
+#> ── Ligue Magnus Phases Information from liguemagnus.com ─── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-03 11:55:34 UTC
+#> # A tibble: 1 × 8
+#>   phase_id phase            phase_type_code visible competition n_teams overtime
+#>      <int> <chr>            <chr>           <lgl>   <chr>         <int> <lgl>   
+#> 1      714 Saison régulière C               TRUE    Synerglace…      12 TRUE    
+#> # ℹ 1 more variable: games_per_matchup <int>
 # }
 ```

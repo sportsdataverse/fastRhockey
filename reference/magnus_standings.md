@@ -72,9 +72,25 @@ Other Ligue Magnus Functions:
 ``` r
 # \donttest{
   try(magnus_standings(phase_id = 714))
-#> Error in .euro_check_status(resp) : 
-#>   liguemagnus.com/wp-admin/admin-ajax.php answered HTTP 403:
-#> <html><body><h1>403 Forbidden</h1> Request forbidden by administrative rules.
-#> Interdiction d'acceder a cette ressource </body></html>
+#> ── Ligue Magnus Standings Information from liguemagnus.com ─────────────────────
+#> ℹ Data updated: 2026-11-03 11:55:39 UTC
+#> # A tibble: 12 × 17
+#>     rank team_id team   team_abbreviation team_participant_id games_played  wins
+#>    <int>   <int> <chr>  <chr>                           <int>        <int> <int>
+#>  1     1     253 ROUEN  ROU                              9127           15     9
+#>  2     2     327 GRENO… GRE                              9125           13    10
+#>  3     3    3095 MARSE… MAR                              9129           15     7
+#>  4     4     611 CHAMO… CHA                              9123           13     6
+#>  5     5     472 NICE   NIC                              9126           14     6
+#>  6     6     553 ANGERS ANG                              9130           14     6
+#>  7     7    1671 BORDE… BOR                              9121           14     5
+#>  8     8     103 AMIENS AMI                              9120           14     5
+#>  9     9     345 CERGY… CER                              9122           14     5
+#> 10    10     366 GAP    GAP                              9124           14     3
+#> 11    11    3409 BRIAN… BRI                              9131           14     3
+#> 12    12      75 ANGLET HOR                              9128           14     1
+#> # ℹ 10 more variables: ot_wins <int>, ot_losses <int>, losses <int>,
+#> #   ties <int>, points <int>, goals_for <int>, goals_against <int>,
+#> #   penalty_minutes <int>, last_results <chr>, standings_id <int>
 # }
 ```

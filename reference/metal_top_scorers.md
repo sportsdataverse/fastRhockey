@@ -89,7 +89,7 @@ Other Metal Ligaen eSports functions:
 # \donttest{
   try(metal_top_scorers(season = 2027, league_id = 1))
 #> ── Metal Ligaen top_scorers from the eSports hokejovyzapis bucket ──────────────
-#> ℹ Data updated: 2026-11-03 10:07:19 UTC
+#> ℹ Data updated: 2026-11-03 11:55:48 UTC
 #> # A tibble: 244 × 11
 #>    player_id name       surname  birthdate team_id team_name team_shortcut goals
 #>        <int> <chr>      <chr>    <chr>       <int> <chr>     <chr>         <int>

@@ -95,7 +95,7 @@ Other SHL Functions:
 # \donttest{
   try(shl_team_stats(game_uuid = "bdhvuc5tex"))
 #> ── SHL Team Stats Information from www.shl.se ───────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 10:09:37 UTC
+#> ℹ Data updated: 2026-11-03 11:58:18 UTC
 #> # A tibble: 8 × 30
 #>   team_side game_source_id   game_id place score team_id team_name     team_code
 #>   <chr>     <chr>              <int> <chr> <int> <chr>   <chr>         <chr>    
