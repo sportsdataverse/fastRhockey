@@ -4679,7 +4679,7 @@ NULL
 #' @rdname espn_mch_coach
 #' @author Saiem Gilani
 #' @param coach_id ESPN coach identifier (character or numeric). Use
-#'   `espn_mch_coaches()` to discover valid coach ids.
+#'   `espn_mch_season_coaches()` to discover valid coach ids.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_coach()` (columns inherited); a collection may be empty.
 #' @return A one-row `fastRhockey_data` tibble with coach detail. Note that
@@ -4705,8 +4705,9 @@ NULL
 #' @examples
 #' \donttest{
 #'   try({
-#'     ccs <- espn_mch_coaches(season = 2026)
-#'     espn_mch_coach(coach_id = ccs$coach_id[1])
+#'     ccs <- espn_mch_season_coaches(season = 2026)
+#'     # the coach list can be empty for college hockey
+#'     if (nrow(ccs) > 0) espn_mch_coach(coach_id = ccs$coach_id[1])
 #'   })
 #' }
 espn_mch_coach <- function(coach_id, ...) {
@@ -4719,7 +4720,7 @@ NULL
 #' @rdname espn_mch_coach_record
 #' @author Saiem Gilani
 #' @param coach_id ESPN coach identifier (character or numeric). Use
-#'   `espn_mch_coaches()` to discover valid coach ids.
+#'   `espn_mch_season_coaches()` to discover valid coach ids.
 #' @param record_type Record type path segment (`coaches/{id}/record/{record_type}`); default `0`, as sportsdataverse-py. `NULL` drops the segment.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_coach_record()` (columns inherited); a collection may be empty.
@@ -4741,8 +4742,9 @@ NULL
 #' \donttest{
 #'   # NOTE: Returns an empty tibble for NHL (404 from ESPN)
 #'   try({
-#'     ccs <- espn_mch_coaches(season = 2026)
-#'     espn_mch_coach_record(coach_id = ccs$coach_id[1])
+#'     ccs <- espn_mch_season_coaches(season = 2026)
+#'     # the coach list can be empty for college hockey
+#'     if (nrow(ccs) > 0) espn_mch_coach_record(coach_id = ccs$coach_id[1])
 #'   })
 #' }
 espn_mch_coach_record <- function(coach_id, record_type = 0, ...) {
@@ -9780,7 +9782,7 @@ NULL
 #' @rdname espn_wch_coach
 #' @author Saiem Gilani
 #' @param coach_id ESPN coach identifier (character or numeric). Use
-#'   `espn_wch_coaches()` to discover valid coach ids.
+#'   `espn_wch_season_coaches()` to discover valid coach ids.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_coach()` (columns inherited); a collection may be empty.
 #' @return A one-row `fastRhockey_data` tibble with coach detail. Note that
@@ -9806,8 +9808,9 @@ NULL
 #' @examples
 #' \donttest{
 #'   try({
-#'     ccs <- espn_wch_coaches(season = 2026)
-#'     espn_wch_coach(coach_id = ccs$coach_id[1])
+#'     ccs <- espn_wch_season_coaches(season = 2026)
+#'     # the coach list can be empty for college hockey
+#'     if (nrow(ccs) > 0) espn_wch_coach(coach_id = ccs$coach_id[1])
 #'   })
 #' }
 espn_wch_coach <- function(coach_id, ...) {
@@ -9820,7 +9823,7 @@ NULL
 #' @rdname espn_wch_coach_record
 #' @author Saiem Gilani
 #' @param coach_id ESPN coach identifier (character or numeric). Use
-#'   `espn_wch_coaches()` to discover valid coach ids.
+#'   `espn_wch_season_coaches()` to discover valid coach ids.
 #' @param record_type Record type path segment (`coaches/{id}/record/{record_type}`); default `0`, as sportsdataverse-py. `NULL` drops the segment.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `womens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_coach_record()` (columns inherited); a collection may be empty.
@@ -9842,8 +9845,9 @@ NULL
 #' \donttest{
 #'   # NOTE: Returns an empty tibble for NHL (404 from ESPN)
 #'   try({
-#'     ccs <- espn_wch_coaches(season = 2026)
-#'     espn_wch_coach_record(coach_id = ccs$coach_id[1])
+#'     ccs <- espn_wch_season_coaches(season = 2026)
+#'     # the coach list can be empty for college hockey
+#'     if (nrow(ccs) > 0) espn_wch_coach_record(coach_id = ccs$coach_id[1])
 #'   })
 #' }
 espn_wch_coach_record <- function(coach_id, record_type = 0, ...) {

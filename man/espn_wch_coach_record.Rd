@@ -8,7 +8,7 @@ espn_wch_coach_record(coach_id, record_type = 0, ...)
 }
 \arguments{
 \item{coach_id}{ESPN coach identifier (character or numeric). Use
-\code{espn_wch_coaches()} to discover valid coach ids.}
+\code{espn_wch_season_coaches()} to discover valid coach ids.}
 
 \item{record_type}{Record type path segment (\code{coaches/{id}/record/{record_type}}); default \code{0}, as sportsdataverse-py. \code{NULL} drops the segment.}
 
@@ -35,8 +35,9 @@ League slug \code{womens-college-hockey}; \code{season} is the END year (\code{2
 \donttest{
   # NOTE: Returns an empty tibble for NHL (404 from ESPN)
   try({
-    ccs <- espn_wch_coaches(season = 2026)
-    espn_wch_coach_record(coach_id = ccs$coach_id[1])
+    ccs <- espn_wch_season_coaches(season = 2026)
+    # the coach list can be empty for college hockey
+    if (nrow(ccs) > 0) espn_wch_coach_record(coach_id = ccs$coach_id[1])
   })
 }
 }

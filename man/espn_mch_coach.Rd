@@ -8,7 +8,7 @@ espn_mch_coach(coach_id, ...)
 }
 \arguments{
 \item{coach_id}{ESPN coach identifier (character or numeric). Use
-\code{espn_mch_coaches()} to discover valid coach ids.}
+\code{espn_mch_season_coaches()} to discover valid coach ids.}
 
 \item{...}{Reserved for forward compatibility.}
 }
@@ -38,8 +38,9 @@ League slug \code{mens-college-hockey}; \code{season} is the END year (\code{202
 \examples{
 \donttest{
   try({
-    ccs <- espn_mch_coaches(season = 2026)
-    espn_mch_coach(coach_id = ccs$coach_id[1])
+    ccs <- espn_mch_season_coaches(season = 2026)
+    # the coach list can be empty for college hockey
+    if (nrow(ccs) > 0) espn_mch_coach(coach_id = ccs$coach_id[1])
   })
 }
 }
