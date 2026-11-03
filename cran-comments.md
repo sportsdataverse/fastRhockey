@@ -66,14 +66,18 @@ committed fixtures and mock the HTTP layer.
   CRAN incoming feasibility, the examples, the examples with
   `--run-donttest` (9 minutes), the tests (17 seconds) and the PDF and HTML
   manuals are all OK.
-* Installed size. R 4.6.0 on Windows reports it as INFO; platforms that still
-  NOTE packages over 5 MB may show it. The tarball is 2.2 MB and the
-  installed size is 9.1 MB (R 2.1 MB, help 6.6 MB), because the help pages
+* Installed size. R 4.6.0 and R-devel report it as INFO, not a NOTE. The
+  tarball is 2.2 MB and the installed size is 9.1 MB locally (R 2.1 MB,
+  help 6.6 MB) and 10.4 to 11.8 MB on R-hub, because the help pages
   document about 880 exported functions, most with a column table for the
   data they return.
 * GitHub Actions (R release on Ubuntu, macOS and Windows): see the R-CMD-check
   workflow on the release commit.
-* R-hub: pending.
+* R-hub (2026-11-03, commit 642f5710, R-devel r90825/r90827): Status: OK on
+  linux (Ubuntu 26.04), windows (Windows Server 2022), macos (x86_64, macOS
+  15), macos-arm64 (macOS 26) and nosuggests (Fedora 44, Suggests not
+  installed). The four full platforms ran the examples with `--run-donttest`.
+  Their only non-OK line is the installed-size INFO above.
 
 ## Reverse dependencies
 
