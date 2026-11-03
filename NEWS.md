@@ -22,7 +22,7 @@ upgrades from 1.0.0 may need to change.
 
 ### New features
 
-* European hockey and ESPN college hockey (447 wrappers), at parity with
+* European hockey and ESPN college hockey (453 wrappers), at parity with
   sportsdataverse-py. Seasons are END years (2027 = 2026-27). Every request
   waits at least one second after the last one to the same host, 429/500/502/
   503/504 answers are retried honouring `Retry-After` (capped at 120 s), and
@@ -46,7 +46,7 @@ upgrades from 1.0.0 may need to change.
     access rather than bulk backfills or public mirrors.
   * Ligue Magnus: 11 `magnus_*` wrappers.
   * VHL (Russia): 13 `vhl_*` wrappers plus `vhl_tn()`.
-  * ESPN men's and women's college hockey: 236 wrappers, 118 per league
+  * ESPN men's and women's college hockey: 242 wrappers, 121 per league
     (`espn_mch_*` and `espn_wch_*`).
 * Deliberate differences from sportsdataverse-py: R has no 64-bit integer, so
   ids past 2^31 (SIHF `game_id`, National League `game_id` and unix times,
@@ -83,6 +83,15 @@ upgrades from 1.0.0 may need to change.
 
 ### Bug fixes
 
+* `ahl_pbp()`, `ohl_pbp()`, `whl_pbp()`, `qmjhl_pbp()` and the four
+  `*_game_corsi()` functions: a game with no events failed with
+  "replacement has 1 row, data has 0". They now return an empty data frame.
+* The nine deprecated NHL Edge top-10 functions (`nhl_edge_goalie_5v5_top_10()`
+  and friends) no longer send a request to the removed endpoint. They warn
+  and return `NULL`.
+* The `espn_mch_coach()`, `espn_mch_coach_record()`, `espn_wch_coach()` and
+  `espn_wch_coach_record()` examples called functions that do not exist.
+  They now use `espn_mch_season_coaches()` / `espn_wch_season_coaches()`.
 * `nhl_game_pbp()` / `nhl_game_feed()`: the shift `CHANGE` rows had
   `game_id = NA` (465 of 789 rows in game 2025021229), because the shift rows
   were padded with `NA` for every play-by-play column. Grouping or filtering

@@ -3,7 +3,7 @@
 This is a minor release (1.1.0) on top of 1.0.0 (CRAN, 2026-08-25). The
 full list of changes is in NEWS.md. The main additions:
 
-* European hockey: 13 new league families with about 210 wrappers. They
+* European hockey: 13 new league families with 211 wrappers. They
   cover Germany's DEL, Austria's ICE Hockey League, the United Kingdom's
   EIHL, Denmark's Metal Ligaen, the KHL, Russia's VHL, Sweden's SHL and
   HockeyAllsvenskan, Finland's Liiga, Switzerland's National League and
@@ -12,7 +12,9 @@ full list of changes is in NEWS.md. The main additions:
   retries 429/5xx answers honouring `Retry-After`, and raises classed
   conditions (`fastRhockey_no_data`, `fastRhockey_asset_fetch`,
   `fastRhockey_bad_request`) instead of returning an empty result.
-* NCAA men's and women's hockey from ESPN (`espn_mch_*()`, `espn_wch_*()`).
+* NCAA men's and women's hockey from ESPN (`espn_mch_*()`, `espn_wch_*()`):
+  242 wrappers, 121 per league. With the European families that is the 453
+  new wrappers listed in NEWS.md.
 * NHL conference and division reference loaders (`load_nhl_groups()` and
   friends), PWHL shift and expected-goals loaders, and a `detailed` option
   for `nhl_game_shifts()`.
@@ -44,7 +46,10 @@ full list of changes is in NEWS.md. The main additions:
   than from a home connection, and `ha_games()` (hockeyallsvenskan.se) took
   32 s in one runner sample, 5 s in the other and 3 s locally. Every
   other function in those families keeps a `--run-donttest` example.
-* Four examples are in `\dontrun{}` (see the check results below).
+* Three examples are in `\dontrun{}` because they cannot run unattended:
+  `update_pwhl_db()` writes to a database, `refresh_xg_models()` downloads
+  model files to the user cache, and `helper_nhl_calculate_xg()` needs those
+  downloaded xgboost models.
 
 ## Tests
 
@@ -54,33 +59,21 @@ committed fixtures and mock the HTTP layer.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
 
-* Local Windows 10, R 4.6.1, `R CMD check --as-cran` on the built tarball
-  (2026-11-01; NOT_CRAN unset, so every networked test skips): 0 errors,
-  0 warnings, 1 note. The note is
-
-      checking for non-standard things in the check directory ... NOTE
-      Found the following files/directories:
-        ''NULL''
-
-  That `'NULL'` folder is left in the check directory by this machine's R
-  startup profile, not by the package; it does not appear on other machines.
-  A second run showed an HTML-manual note for three unescaped
-  angle-bracket placeholders (`khl_player_profile`, `magnus_teams`). Those
-  pages are fixed, and a re-run (`--no-examples --no-tests`) builds the PDF
-  and HTML manuals cleanly with Status: OK.
-  The tarball is 2.2 MB; the installed size is 8.9 MB (R 2.1 MB, help
-  6.4 MB), because the help pages document about 880 exported functions,
-  most with a column table for the data they return. The examples with
-  `--run-donttest` pass in 9 minutes and the tests in 21 seconds.
-* The database and model-download examples (`update_pwhl_db()`,
-  `refresh_xg_models()`, `helper_nhl_calculate_xg()`, which needs the
-  downloaded xgboost models) and `nhl_game_boxscore()` are in `\dontrun{}`.
-
-* GitHub Actions (R release on Ubuntu, macOS and Windows): see the PR checks.
-* win-builder: TODO
-* R-hub: TODO
+* Local Windows 10, R 4.6.0, `R CMD check --as-cran` on the built tarball
+  (2026-11-03; NOT_CRAN unset, so every networked test skips): Status: OK.
+  CRAN incoming feasibility, the examples, the examples with
+  `--run-donttest` (9 minutes), the tests (17 seconds) and the PDF and HTML
+  manuals are all OK.
+* Installed size. R 4.6.0 on Windows reports it as INFO; platforms that still
+  NOTE packages over 5 MB may show it. The tarball is 2.2 MB and the
+  installed size is 9.1 MB (R 2.1 MB, help 6.6 MB), because the help pages
+  document about 880 exported functions, most with a column table for the
+  data they return.
+* GitHub Actions (R release on Ubuntu, macOS and Windows): see the R-CMD-check
+  workflow on the release commit.
+* R-hub: pending.
 
 ## Reverse dependencies
 
