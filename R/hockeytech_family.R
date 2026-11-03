@@ -386,6 +386,8 @@
     return(out)
   }
 
-  corsi$corsi_for_per60 <- NA_real_
+  # sized to nrow(corsi): a scalar assignment fails on a game with no events
+  corsi$toi_seconds     <- rep(NA_real_, nrow(corsi))
+  corsi$corsi_for_per60 <- rep(NA_real_, nrow(corsi))
   corsi
 }

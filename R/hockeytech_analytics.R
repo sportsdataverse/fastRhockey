@@ -149,8 +149,8 @@ hockeytech_player_toi <- function(shifts) {
 #' @noRd
 hockeytech_build_on_ice <- function(pbp, shifts) {
   if (nrow(pbp) == 0 || nrow(shifts) == 0) {
-    pbp$on_ice_home <- NA_character_
-    pbp$on_ice_away <- NA_character_
+    pbp$on_ice_home <- rep(NA_character_, nrow(pbp))
+    pbp$on_ice_away <- rep(NA_character_, nrow(pbp))
     return(pbp)
   }
 
@@ -677,8 +677,8 @@ hockeytech_add_clock_columns <- function(pbp) {
 #' @noRd
 hockeytech_backfill_power_play <- function(df) {
   # Ensure short_handed column exists
-  if (!"short_handed" %in% names(df)) df$short_handed <- NA_character_
-  if (!"power_play"   %in% names(df)) df$power_play   <- NA_character_
+  if (!"short_handed" %in% names(df)) df$short_handed <- rep(NA_character_, nrow(df))
+  if (!"power_play"   %in% names(df)) df$power_play   <- rep(NA_character_, nrow(df))
 
   if (nrow(df) == 0) return(df)
 
@@ -838,13 +838,13 @@ hockeytech_enrich_pbp <- function(df, league, game_id,
   # Step 3: add game-meta literal columns BEFORE coord transforms
   #   (coord transforms need home_team_id to compute right/vertical)
   # ------------------------------------------------------------------
-  df$game_date      <- game_date
-  df$game_season    <- game_season
-  df$game_season_id <- game_season_id
-  df$home_team      <- home_team
-  df$home_team_id   <- home_team_id
-  df$away_team      <- away_team
-  df$away_team_id   <- away_team_id
+  df$game_date      <- rep(game_date, nrow(df))
+  df$game_season    <- rep(game_season, nrow(df))
+  df$game_season_id <- rep(game_season_id, nrow(df))
+  df$home_team      <- rep(home_team, nrow(df))
+  df$home_team_id   <- rep(home_team_id, nrow(df))
+  df$away_team      <- rep(away_team, nrow(df))
+  df$away_team_id   <- rep(away_team_id, nrow(df))
 
   # ------------------------------------------------------------------
   # Step 4: coordinate transforms
@@ -919,8 +919,8 @@ hockeytech_enrich_pbp <- function(df, league, game_id,
     df$period_of_game <- orig_period
     df$time_s <- NULL
   } else {
-    df$on_ice_home <- NA_character_
-    df$on_ice_away <- NA_character_
+    df$on_ice_home <- rep(NA_character_, nrow(df))
+    df$on_ice_away <- rep(NA_character_, nrow(df))
   }
 
   # Strength state / empty net from the on-ice ids. Goalie ids come from the
