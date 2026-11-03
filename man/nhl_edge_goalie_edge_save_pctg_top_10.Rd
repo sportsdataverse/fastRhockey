@@ -18,8 +18,8 @@ season), an 8-character API season (e.g., \code{"20242025"}), or \code{NULL}
 (default), 3 = playoffs.}
 }
 \value{
-A \code{fastRhockey_data} tibble with the top-10 leaderboard, or
-\code{NULL} on failure / empty response.
+\code{NULL}, always: the NHL removed this endpoint, so the function
+no longer sends a request.
 }
 \description{
 Returns the NHL Edge top-10 goalie save-percentage

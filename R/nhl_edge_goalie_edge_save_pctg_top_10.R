@@ -11,8 +11,8 @@
 #'   (default) for the current season via the `/now` endpoint.
 #' @param game_type Integer game type. 1 = preseason, 2 = regular season
 #'   (default), 3 = playoffs.
-#' @return A `fastRhockey_data` tibble with the top-10 leaderboard, or
-#'   `NULL` on failure / empty response.
+#' @return `NULL`, always: the NHL removed this endpoint, so the function
+#'   no longer sends a request.
 #' @keywords NHL Edge Goalie
 #' @importFrom glue glue
 #' @importFrom janitor clean_names
@@ -36,28 +36,6 @@ nhl_edge_goalie_edge_save_pctg_top_10 <- function(
         )
     )
 
-    raw <- .nhl_edge_api(
-        base = glue::glue("goalie-edge-save-pctg-top-10/{sort_by}"),
-        season = season,
-        game_type = game_type,
-        prefix = "v1/edge"
-    )
-    if (is.null(raw)) {
-        return(NULL)
-    }
-
-    df <- .nhl_edge_to_df(raw)
-    if (is.null(df) || (is.data.frame(df) && nrow(df) == 0)) {
-        message(glue::glue(
-            "{Sys.time()}: No NHL Edge goalie edge save-pctg top-10 data returned for {sort_by}"
-        ))
-        return(NULL)
-    }
-
-    df <- janitor::clean_names(dplyr::as_tibble(df))
-    make_fastRhockey_data(
-        df,
-        "NHL Edge Goalie Edge Save Percentage Top 10",
-        Sys.time()
-    )
+    # The NHL removed this endpoint, so no request is sent.
+    NULL
 }
