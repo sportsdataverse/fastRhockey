@@ -119,3 +119,41 @@ test_that("a group loader warns with the url when the csv keeps failing", {
   expect_warning(x <- load_nhl_groups(), "nhl_groups.csv", fixed = TRUE)
   expect_equal(nrow(x), 0L)
 })
+
+test_that("the games csv read is retried and passes its arguments on", {
+  withr::local_options(timeout = 60)
+  calls <- 0L
+  local_mocked_bindings(csv_from_url = function(file, ...) {
+    calls <<- calls + 1L
+    expect_equal(getOption("timeout"), 150)
+    if (calls == 1L) stop("Timeout of 60 seconds was reached")
+    data.table::data.table(url = file, ...)
+  })
+  expect_no_warning(out <- load_phf_games())
+  expect_equal(calls, 2L)
+  expect_match(out$url, "phf_games_in_data_repo.csv", fixed = TRUE)
+  expect_equal(.release_csv_from_url("https://x/a.csv", sep = ",")$sep, ",")
+  expect_equal(getOption("timeout"), 60)
+})
+
+test_that("a games csv that keeps failing warns with the url, then raises", {
+  calls <- 0L
+  local_mocked_bindings(csv_from_url = function(file, ...) {
+    calls <<- calls + 1L
+    stop("Timeout of 150 seconds was reached")
+  })
+  expect_error(
+    expect_warning(load_phf_games(), "phf_games_in_data_repo.csv", fixed = TRUE),
+    "Timeout of 150 seconds"
+  )
+  expect_equal(calls, 3L)
+})
+
+test_that("a release csv is read from a local file", {
+  withr::local_options(download.file.method = "auto")
+  src <- withr::local_tempfile(fileext = ".csv")
+  data.table::fwrite(data.frame(season = 2024L, game_id = 1:2), src)
+  path <- normalizePath(src, winslash = "/")
+  out <- .release_csv_from_url(paste0("file://", if (!startsWith(path, "/")) "/", path))
+  expect_equal(out$game_id, 1:2)
+})

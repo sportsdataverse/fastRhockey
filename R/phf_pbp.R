@@ -280,10 +280,7 @@ load_phf_rosters <- function(seasons = most_recent_phf_season(), ...,
 # load games file
 load_phf_games <- function(){
   .url <- "https://raw.githubusercontent.com/sportsdataverse/fastRhockey-data/main/phf/phf_games_in_data_repo.csv"
-  con <- url(.url)
-  dat <- utils::read.csv(con)
-  # close(con)
-  return (dat)
+  .release_csv_from_url(.url)
 }
 
 #' @name update_phf_db

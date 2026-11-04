@@ -83,6 +83,20 @@ upgrades from 1.0.0 may need to change.
 
 ### Bug fixes
 
+* The NHL xG models are no longer downloaded in `.onLoad()`, which CRAN policy
+  forbids: `library(fastRhockey)` makes no network call, and
+  `helper_nhl_calculate_xg()` (and so `nhl_game_pbp()` / `nhl_game_feed()`)
+  loads them on first use. They now come from the sportsdataverse-data
+  `nhl_xg_models` release that sportsdataverse-py reads, pinned by sha256: a
+  cached copy that matches is used offline, one that does not (another
+  training) is replaced, so a retrain cannot leave the old boosters in use
+  from cache. `refresh_xg_models()` still clears and re-fetches them (#96).
+* The PHF games index csv (`update_phf_db()`) is read through
+  `.release_csv_from_url()`, the release-read helper the loaders use (150 s
+  timeout floor, two retries, a warning naming the url), instead of
+  `utils::read.csv(url())` with no retry. `data.table` floor raised to 1.15.0
+  for `fread(file = url)`.
+
 * `ahl_pbp()`, `ohl_pbp()`, `whl_pbp()`, `qmjhl_pbp()` and the four
   `*_game_corsi()` functions: a game with no events failed with
   "replacement has 1 row, data has 0". They now return an empty data frame.

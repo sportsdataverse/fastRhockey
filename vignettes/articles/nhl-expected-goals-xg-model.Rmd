@@ -42,7 +42,7 @@ There are two ways to get NHL xG from `fastRhockey`. They use the same model fil
 | | Published `xg` column | Computed locally |
 |---|---|---|
 | **How you get it** | `load_nhl_pbp()`, `load_nhl_pbp_full()` | `nhl_game_pbp()` / `nhl_game_feed()`, or `helper_nhl_calculate_xg()` on your own frame |
-| **Model** | The committed 2026-04 boosters | The same boosters, downloaded once and cached by `.onLoad()` |
+| **Model** | The committed 2026-04 boosters | The same boosters, downloaded on first use, pinned by sha256 and cached |
 | **Needs `xgboost`?** | No | Yes. Without it `nhl_game_pbp()` returns `xg = NA` with a message, and `helper_nhl_calculate_xg()` stops with an error. |
 | **Precision** | Rounded to 4 decimal places | Full precision |
 | **When it changes** | When a season file is rebuilt | When you call `refresh_xg_models()` after a retrain |

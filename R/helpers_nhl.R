@@ -11,8 +11,10 @@
 #'     non-5v5 situations (adds skater count features)
 #'   * **Penalty shot model** - A constant xG value for penalty shot attempts
 #'
-#'   Models are loaded into the package namespace on package load via
-#'   `.onLoad()` (see `zzz.R`).
+#'   The models are downloaded on the first call from the sportsdataverse-data
+#'   `nhl_xg_models` release, checked against the sha256 this version pins and
+#'   cached, so later calls (and offline sessions with a valid cache) make no
+#'   network request. A cached copy from another training is replaced.
 #'
 #' @param pbp A play-by-play data frame produced by
 #'   [nhl_game_pbp] or [nhl_game_feed].
@@ -59,15 +61,14 @@ helper_nhl_calculate_xg <- function(pbp) {
     # letting the join make xg.x / xg.y.
     pbp$xg <- NULL
 
-    # Verify models are loaded
-    if (is.null(.xg_env$xg_model_5v5) || is.null(.xg_env$xg_model_st)) {
-        stop(
-            "xG models are not loaded. ",
-            "They should load automatically on package load via .onLoad(). ",
-            "Try: library(fastRhockey)",
-            call. = FALSE
-        )
-    }
+    # Load the models on first use (a valid cached copy needs no network).
+    tryCatch(.load_xg_models(), error = function(e) {
+        cli::cli_abort(c(
+            "The xG models could not be loaded.",
+            "x" = conditionMessage(e),
+            "i" = "They are downloaded once from the {.val nhl_xg_models} release; check the connection, or run {.fn refresh_xg_models}."
+        ), call = NULL)
+    })
 
     # Prepare features from PBP
     model_data <- helper_nhl_prepare_xg_data(pbp)

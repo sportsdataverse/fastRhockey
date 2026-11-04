@@ -967,7 +967,4 @@ importFrom(tidyr,
   unnest,
   unnest_wider
 )
-importFrom(utils,
-  packageName,
-  read.csv
-)
+importFrom(utils,read.csv)

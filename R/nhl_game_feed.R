@@ -381,7 +381,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
     pbp <- .finalize_columns(pbp)
 
     # ----- Expected goals (xG) -----
-    # Requires xgboost + models loaded via .onLoad()
+    # Requires xgboost; the models load on first use (zzz.R)
     # Other warnings are muffled; the missing-xgboost one is let through.
     pbp <- tryCatch(
         withCallingHandlers(

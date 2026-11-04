@@ -1,15 +1,15 @@
+# The models load on first use; skip when they cannot be fetched (offline).
+skip_if_xg_unavailable <- function() {
+    skip_if(inherits(try(fastRhockey:::.load_xg_models(), silent = TRUE), "try-error"),
+            message = "xG models could not be loaded (offline?)")
+}
+
 test_that("NHL - helper_nhl_calculate_xg adds xg column", {
     skip_on_cran()
     skip_nhl_test()
     skip_if_not_installed("xgboost")
 
-    # Check that models are available (loaded by zzz.R .onLoad)
-    cache_dir <- tools::R_user_dir("fastRhockey", "cache")
-    model_file <- file.path(cache_dir, "xg_model_5v5.json")
-    skip_if(
-        !file.exists(model_file),
-        message = "xG models not cached; run refresh_xg_models() first"
-    )
+    skip_if_xg_unavailable()
 
     # Get a small PBP to test with
     pbp <- nhl_game_pbp(game_id = 2025021229)
@@ -24,12 +24,7 @@ test_that("NHL - helper_nhl_calculate_xg values are in [0, 1]", {
     skip_nhl_test()
     skip_if_not_installed("xgboost")
 
-    cache_dir <- tools::R_user_dir("fastRhockey", "cache")
-    model_file <- file.path(cache_dir, "xg_model_5v5.json")
-    skip_if(
-        !file.exists(model_file),
-        message = "xG models not cached; run refresh_xg_models() first"
-    )
+    skip_if_xg_unavailable()
 
     pbp <- nhl_game_pbp(game_id = 2025021229)
     result <- pbp
@@ -47,12 +42,7 @@ test_that("NHL - helper_nhl_calculate_xg only fills shot events", {
     skip_nhl_test()
     skip_if_not_installed("xgboost")
 
-    cache_dir <- tools::R_user_dir("fastRhockey", "cache")
-    model_file <- file.path(cache_dir, "xg_model_5v5.json")
-    skip_if(
-        !file.exists(model_file),
-        message = "xG models not cached; run refresh_xg_models() first"
-    )
+    skip_if_xg_unavailable()
 
     pbp <- nhl_game_pbp(game_id = 2025021229)
     result <- pbp
@@ -72,10 +62,7 @@ test_that("NHL - helper_nhl_calculate_xg only fills shot events", {
 test_that("NHL - helper_nhl_calculate_xg keeps one row per event across games", {
     skip_on_cran()
     skip_if_not_installed("xgboost")
-    skip_if(
-        is.null(fastRhockey:::.xg_env$xg_model_5v5),
-        message = "xG models not loaded; run refresh_xg_models() first"
-    )
+    skip_if_xg_unavailable()
 
     # Two real games (2025021229, 2025021230); event_id restarts at 0 in each.
     games <- readRDS(test_path("fixtures", "nhl", "xg_two_games.rds"))
