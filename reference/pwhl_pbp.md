@@ -128,7 +128,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
 try(pwhl_pbp(game_id = 27))
 #> ── PWHL Play-by-Play data from HockeyTech ───────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 00:53:31 UTC
+#> ℹ Data updated: 2026-11-04 04:42:48 UTC
 #> # A tibble: 114 × 104
 #>    game_id event team_id period_of_game time_of_period x_coord y_coord player_id
 #>      <dbl> <chr> <chr>   <chr>          <chr>            <dbl>   <dbl>     <int>

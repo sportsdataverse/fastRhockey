@@ -182,7 +182,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_team(team_id = "4"))
 #> ── NHL Team data from ESPN.com ──────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 00:47:34 UTC
+#> ℹ Data updated: 2026-11-04 04:38:07 UTC
 #> # A tibble: 1 × 17
 #>   team_id id    uid      slug  location name  nickname abbreviation display_name
 #>   <chr>   <chr> <chr>    <chr> <chr>    <chr> <chr>    <chr>        <chr>       

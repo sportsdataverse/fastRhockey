@@ -212,7 +212,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_team_schedule(team_id = "2137", season = 2025))
 #> ── WOMENS-COLLEGE-HOCKEY Team Schedule data from ESPN.com ──────────────────────
-#> ℹ Data updated: 2026-11-04 00:48:05 UTC
+#> ℹ Data updated: 2026-11-04 04:38:46 UTC
 #> # A tibble: 2 × 34
 #>   game_id   date             name  short_name season_year season_type time_valid
 #>   <chr>     <chr>            <chr> <chr>            <int>       <int> <lgl>     

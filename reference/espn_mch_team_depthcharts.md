@@ -186,11 +186,11 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_team_depthcharts(team_id = "104"))
 #> ── MENS-COLLEGE-HOCKEY Team Depth Charts data from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-11-04 00:46:52 UTC
+#> ℹ Data updated: 2026-11-04 04:37:07 UTC
 #> # A tibble: 1 × 16
 #>   team_id timestamp      status season_year season_type season_name team_espn_id
 #>   <chr>   <chr>          <chr>        <int>       <int> <chr>       <chr>       
-#> 1 104     2026-11-04T00… succe…        2026           3 Postseason  104         
+#> 1 104     2026-11-04T04… succe…        2026           3 Postseason  104         
 #> # ℹ 9 more variables: abbreviation <chr>, location <chr>, name <chr>,
 #> #   display_name <chr>, color <chr>, logo <chr>, record_summary <chr>,
 #> #   season_summary <chr>, standing_summary <chr>

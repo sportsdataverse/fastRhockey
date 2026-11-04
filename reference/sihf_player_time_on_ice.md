@@ -132,7 +132,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_player_time_on_ice(season = 2026, league_id = 1))
 #> ── SIHF Player Time On Ice Information from data.sihf.ch ── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 00:54:33 UTC
+#> ℹ Data updated: 2026-11-04 04:43:57 UTC
 #> # A tibble: 427 × 21
 #>    season phase_id  rank player          team_id team_name team_acronym position
 #>     <int>    <int> <int> <chr>             <int> <chr>     <chr>        <chr>   

@@ -134,7 +134,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_player_goals_assists(season = 2026, league_id = 1))
 #> ── SIHF Player Goals Assists Information from data.sihf.ch ─────────────────────
-#> ℹ Data updated: 2026-11-04 00:54:28 UTC
+#> ℹ Data updated: 2026-11-04 04:43:52 UTC
 #> # A tibble: 427 × 23
 #>    season phase_id  rank player          team_id team_name team_acronym position
 #>     <int>    <int> <int> <chr>             <int> <chr>     <chr>        <chr>   

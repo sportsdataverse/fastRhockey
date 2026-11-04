@@ -64,8 +64,15 @@ the following columns:
 ``` r
 # \donttest{
   try(load_pwhl_shootout(2024))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/pwhl_shootout/shootout_summary_2024.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/pwhl_shootout/shootout_summary_2024.rds>
+#> Warning: Failed to read
+#> <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/pwhl_shootout/shootout_summary_2024.rds>
+#> after 1 attempt.
+#> ! The result is incomplete: it is missing this file.
+#> ✖ cannot open the connection to
+#>   'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/pwhl_shootout/shootout_summary_2024.rds';
+#>   cannot open URL
+#>   'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/pwhl_shootout/shootout_summary_2024.rds':
+#>   HTTP status was '404 Not Found'
 #> ─────────────────────────────────────────────────────────── fastRhockey 1.1.0 ──
 #> # A tibble: 0 × 0
 # }

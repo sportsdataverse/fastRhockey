@@ -64,20 +64,20 @@ Returns a data frame with goalie statistics.
 # \donttest{
   try(nhl_stats_goalies())
 #> ── NHL Stats Goalies ────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 00:52:42 UTC
+#> ℹ Data updated: 2026-11-04 04:42:10 UTC
 #> # A tibble: 50 × 23
 #>    assists games_played games_started goalie_full_name    goals goals_against
 #>      <int>        <int>         <int> <chr>               <int>         <int>
-#>  1       0           10            10 Pyotr Kochetkov         0            15
-#>  2       0           14            14 Jesper Wallstedt        0            29
-#>  3       0           11            11 Mackenzie Blackwood     0            29
-#>  4       0           12            12 Jeremy Swayman          0            28
-#>  5       0            8             8 Jacob Fowler            0            15
+#>  1       0           11            11 Pyotr Kochetkov         0            18
+#>  2       0           15            15 Jesper Wallstedt        0            31
+#>  3       0           12            12 Jake Oettinger          0            23
+#>  4       0           12            11 Mackenzie Blackwood     0            32
+#>  5       0           12            12 Jeremy Swayman          0            28
 #>  6       0            8             8 Linus Ullmark           0            10
-#>  7       0           11            11 Jake Oettinger          0            18
-#>  8       0            7             7 Devon Levi              0            22
-#>  9       0           10            10 Ilya Sorokin            0            24
-#> 10       0           10            10 Andrei Vasilevskiy      0            30
+#>  7       0            9             9 Jacob Fowler            0            20
+#>  8       0           11            11 Andrei Vasilevskiy      0            32
+#>  9       0            7             7 Devon Levi              0            22
+#> 10       0            8             8 Adin Hill               0            22
 #> # ℹ 40 more rows
 #> # ℹ 17 more variables: goals_against_average <dbl>, last_name <chr>,
 #> #   losses <int>, ot_losses <int>, penalty_minutes <int>, player_id <int>,

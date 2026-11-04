@@ -186,14 +186,10 @@ Saiem Gilani
     fcs <- espn_mch_franchises()
     espn_mch_franchise(franchise_id = fcs$franchise_id[1])
   })
-#> ── MENS-COLLEGE-HOCKEY Franchise data from ESPN core-v2 ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 00:46:28 UTC
-#> # A tibble: 1 × 15
-#>   franchise_id id    uid           slug     location name  nickname abbreviation
-#>   <chr>        <chr> <chr>         <chr>    <chr>    <chr> <chr>    <chr>       
-#> 1 1            1     s:70~l:91~f:1 alaska-… Alaska … Seaw… AK-Anch… UAA         
-#> # ℹ 7 more variables: display_name <chr>, short_display_name <chr>,
-#> #   color <chr>, is_active <lgl>, venue_ref <chr>, team_ref <chr>,
-#> #   franchise_ref <chr>
+#> ! 2026-11-04 04:36:31.241337: No franchise items returned for mens-college-hockey.
+#> ✖ 2026-11-04 04:36:31.260854: 
+#> ✖ Args: league = "mens-college-hockey", franchise_id = NULL
+#> ✖ Error: arguments imply differing number of rows: 0, 1
+#> data frame with 0 columns and 0 rows
 # }
 ```

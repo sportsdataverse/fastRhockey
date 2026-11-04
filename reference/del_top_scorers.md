@@ -95,7 +95,7 @@ Other DEL eSports functions:
 # \donttest{
   try(del_top_scorers(season = 2027, league_id = 1))
 #> ── DEL top_scorers from the eSports hokejovyzapis bucket ── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 00:46:03 UTC
+#> ℹ Data updated: 2026-11-04 04:36:02 UTC
 #> # A tibble: 373 × 13
 #>    player_id name   surname team_id team_name team_shortcut goals assists points
 #>        <int> <chr>  <chr>     <int> <chr>     <chr>         <int>   <int>  <int>
