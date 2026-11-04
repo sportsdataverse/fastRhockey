@@ -30,7 +30,7 @@ Depends:
     R (>= 4.1.0)
 Imports:
     cli (>= 3.4.1),
-    data.table (>= 1.14.0),
+    data.table (>= 1.15.0),
     dplyr (>= 1.0.10),
     glue,
     httr2 (>= 1.0.0),
