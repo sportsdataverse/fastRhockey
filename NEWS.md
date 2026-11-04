@@ -225,6 +225,12 @@ upgrades from 1.0.0 may need to change.
   now says that `season` is the year the season starts in (2024 for 2024-25),
   which is what it queries (January of `season + 1`), while
   `most_recent_nhl_season()` returns the year the season ends (#69).
+* `tail()` works on the result of every loader and every function that returns
+  a `fastRhockey_data` tibble. The class vector they set, in the loaders and in
+  `make_fastRhockey_data()`, still listed `data.table`, so `tail()` failed with
+  "Can't subset columns past the end" (the bug fixed in hoopR as
+  [hoopR#88](https://github.com/sportsdataverse/hoopR/issues/88)). The class is
+  now `fastRhockey_data` / `tbl_df` / `tbl` / `data.frame`.
 
 ### Dependencies
 

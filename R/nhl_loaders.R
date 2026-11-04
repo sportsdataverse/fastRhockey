@@ -118,7 +118,7 @@ NULL
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
     out <- NULL
   } else {
-    class(out) <- c("fastRhockey_data", "tbl_df", "tbl", "data.table", "data.frame")
+    class(out) <- c("fastRhockey_data", "tbl_df", "tbl", "data.frame")
   }
   out
 }

@@ -501,7 +501,6 @@ make_fastRhockey_data <- function(df, type, timestamp) {
     "fastRhockey_data",
     "tbl_df",
     "tbl",
-    "data.table",
     "data.frame"
   )
   attr(out, "fastRhockey_timestamp") <- timestamp

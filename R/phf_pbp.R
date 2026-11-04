@@ -50,7 +50,7 @@ load_phf_pbp <- function(seasons = most_recent_phf_season(),...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
     out <- NULL
   } else {
-    class(out) <- c("fastRhockey_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("fastRhockey_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -101,7 +101,7 @@ load_phf_team_box <- function(seasons = most_recent_phf_season(), ...,
 
   out <- lapply(urls, progressively(loader, p))
   out <- rbindlist_with_attrs(out)
-  class(out) <- c("fastRhockey_data","tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("fastRhockey_data","tbl_df","tbl","data.frame")
   out
 }
 
@@ -158,7 +158,7 @@ load_phf_player_box <- function(seasons = most_recent_phf_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
     out <- NULL
   } else {
-    class(out) <- c("fastRhockey_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("fastRhockey_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -214,7 +214,7 @@ load_phf_schedule <- function(seasons = most_recent_phf_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
     out <- NULL
   } else {
-    class(out) <- c("fastRhockey_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("fastRhockey_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -271,7 +271,7 @@ load_phf_rosters <- function(seasons = most_recent_phf_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
     out <- NULL
   } else {
-    class(out) <- c("fastRhockey_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("fastRhockey_data","tbl_df","tbl","data.frame")
   }
   out
 }
