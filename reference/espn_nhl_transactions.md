@@ -168,20 +168,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_transactions())
 #> ── NHL Transactions data from ESPN.com ──────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 11:52:35 UTC
+#> ℹ Data updated: 2026-11-04 00:47:39 UTC
 #> # A tibble: 25 × 8
 #>    date            description team_id team_location team_name team_abbreviation
 #>    <chr>           <chr>       <chr>   <chr>         <chr>     <chr>            
-#>  1 2026-11-02T08:… Activated … 26      Florida       Panthers  FLA              
-#>  2 2026-11-02T08:… Placed F A… 25      Anaheim       Ducks     ANA              
-#>  3 2026-11-02T08:… Placed F B… 21      Toronto       Maple Le… TOR              
-#>  4 2026-11-02T08:… Recalled D… 17      Colorado      Avalanche COL              
-#>  5 2026-11-02T08:… Recalled F… 16      Pittsburgh    Penguins  PIT              
-#>  6 2026-11-02T08:… Loaned F A… 15      Philadelphia  Flyers    PHI              
-#>  7 2026-11-01T07:… Recalled F… 129764  Utah          Mammoth   UTA              
-#>  8 2026-11-01T07:… Traded C S… 124292  Seattle       Kraken    SEA              
-#>  9 2026-11-01T07:… Recalled D… 37      Vegas         Golden K… VGK              
-#> 10 2026-11-01T07:… Traded RW … 27      Nashville     Predators NSH              
+#>  1 2026-11-03T08:… Placed F B… 28      Winnipeg      Jets      WPG              
+#>  2 2026-11-03T08:… Reinstated… 19      St. Louis     Blues     STL              
+#>  3 2026-11-03T08:… Recalled D… 16      Pittsburgh    Penguins  PIT              
+#>  4 2026-11-03T08:… Recalled F… 14      Ottawa        Senators  OTT              
+#>  5 2026-11-03T08:… Recalled D… 9       Dallas        Stars     DAL              
+#>  6 2026-11-03T08:… Assigned F… 8       Los Angeles   Kings     LA               
+#>  7 2026-11-03T08:… Placed D B… 4       Chicago       Blackhaw… CHI              
+#>  8 2026-11-02T08:… Activated … 26      Florida       Panthers  FLA              
+#>  9 2026-11-02T08:… Placed F A… 25      Anaheim       Ducks     ANA              
+#> 10 2026-11-02T08:… Placed F B… 21      Toronto       Maple Le… TOR              
 #> # ℹ 15 more rows
 #> # ℹ 2 more variables: team_display_name <chr>, team_color <chr>
 # }

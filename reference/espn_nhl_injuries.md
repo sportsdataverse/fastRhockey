@@ -176,8 +176,8 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_injuries())
 #> ── NHL Injuries data from ESPN.com ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 11:51:59 UTC
-#> # A tibble: 260 × 16
+#> ℹ Data updated: 2026-11-04 00:47:10 UTC
+#> # A tibble: 250 × 16
 #>    team_id team_display_name player_id player_display_name player_short_name
 #>    <chr>   <chr>             <chr>     <chr>               <chr>            
 #>  1 25      Anaheim Ducks     NA        A.J. Greer          A.J. Greer       
@@ -190,7 +190,7 @@ Saiem Gilani
 #>  8 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
 #>  9 1       Boston Bruins     NA        Matthew Poitras     M. Poitras       
 #> 10 1       Boston Bruins     NA        Matthew Poitras     M. Poitras       
-#> # ℹ 250 more rows
+#> # ℹ 240 more rows
 #> # ℹ 11 more variables: player_position <chr>, injury_id <chr>,
 #> #   injury_status <chr>, injury_date <chr>, injury_short_comment <chr>,
 #> #   injury_long_comment <chr>, injury_type <chr>, injury_abbreviation <chr>,

@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_franchises())
 #> ── WOMENS-COLLEGE-HOCKEY Franchises data from ESPN core-v2 ─────────────────────
-#> ℹ Data updated: 2026-11-03 11:52:40 UTC
+#> ℹ Data updated: 2026-11-04 00:47:43 UTC
 #> # A tibble: 47 × 4
 #>    ref                                             franchise_id count page_count
 #>    <chr>                                           <chr>        <int>      <int>

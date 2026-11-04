@@ -18,7 +18,7 @@ Returns a list with location data.
 # \donttest{
   try(nhl_location())
 #> $country
-#> [1] "MX"
+#> [1] "US"
 #> 
 # }
 ```

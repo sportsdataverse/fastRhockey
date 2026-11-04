@@ -44,16 +44,16 @@ A named list of data frames: `teams`.
 # \donttest{
   try(nhl_schedule_calendar())
 #> $endDate
-#> [1] "2026-11-08"
-#> 
-#> $nextStartDate
 #> [1] "2026-11-09"
 #> 
+#> $nextStartDate
+#> [1] "2026-11-10"
+#> 
 #> $previousStartDate
-#> [1] "2026-10-26"
+#> [1] "2026-10-27"
 #> 
 #> $startDate
-#> [1] "2026-11-02"
+#> [1] "2026-11-03"
 #> 
 #> $teams
 #>    id seasonId abbrev

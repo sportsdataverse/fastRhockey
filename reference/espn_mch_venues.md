@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_venues())
 #> ── MENS-COLLEGE-HOCKEY Venues data from ESPN core-v2 ────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 11:51:42 UTC
+#> ℹ Data updated: 2026-11-04 00:46:56 UTC
 #> # A tibble: 132 × 4
 #>    ref                                                 venue_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>

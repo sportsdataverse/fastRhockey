@@ -127,7 +127,7 @@ Other EIHL eSports functions:
 # \donttest{
   try(eihl_pbp(match_id = 4440))
 #> ── EIHL pbp from the eSports hokejovyzapis bucket ───────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 11:50:41 UTC
+#> ℹ Data updated: 2026-11-04 00:46:10 UTC
 #> # A tibble: 16 × 53
 #>    event_index period period_number  time event_type       event_id team_side
 #>          <int> <chr>          <int> <int> <chr>               <int> <chr>    

@@ -131,10 +131,10 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_partner_game_odds</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $currentOddsDate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-11-02"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-11-03"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $lastUpdatedUTC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-11-03T04:00:38Z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2026-11-04T00:30:38Z"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $bettingPartner</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $bettingPartner$partnerId</span>
@@ -163,41 +163,90 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $games</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       gameId gameType         startTimeUTC homeTeam.id homeTeam.abbrev</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2026020232        2 2026-11-03T00:00:00Z           6             BOS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2026020233        2 2026-11-03T00:00:00Z          13             FLA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2026020234        2 2026-11-03T01:00:00Z          16             CHI</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2026020235        2 2026-11-03T02:00:00Z          28             SJS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                         homeTeam.logo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 https://assets.nhle.com/logos/nhl/svg/BOS_light.svg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 https://assets.nhle.com/logos/nhl/svg/FLA_light.svg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 https://assets.nhle.com/logos/nhl/svg/CHI_light.svg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 https://assets.nhle.com/logos/nhl/svg/SJS_light.svg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                  homeTeam.odds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY, PUCK_LINE, MONEY_LINE_2_WAY_TNB, -165, 225, 124, -115, 130, -625, , Draw, O5.5, , -1.5, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -160, 600, 550, -154, 2000, 1400, +2.5, , Draw, O7.5, , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_2_WAY_TNB, 7000, 1100, 114, -120, 1600, 5000, , Draw, +2.5, O7.5, , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_2_WAY_TNB, 105, 220, 550, -140, 470, 350, O4.5, Draw, , +1.5, , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   homeTeam.name.default awayTeam.id awayTeam.abbrev</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                Bruins          54             VGK</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2              Panthers          17             DET</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3            Blackhawks          21             COL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                Sharks          20             CGY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                         awayTeam.logo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 https://assets.nhle.com/logos/nhl/svg/VGK_light.svg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 https://assets.nhle.com/logos/nhl/svg/DET_light.svg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 https://assets.nhle.com/logos/nhl/svg/COL_light.svg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 https://assets.nhle.com/logos/nhl/svg/CGY_light.svg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                       awayTeam.odds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY, PUCK_LINE, MONEY_LINE_2_WAY_TNB, 600, 225, -160, -115, -166, 400, , Draw, U5.5, , +1.5, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2      PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 124, -1050, 550, 120, -550, -4000, -2.5, , Draw, U7.5, , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_2_WAY_TNB, -1400, 1100, -145, -110, -4800, -2e+05, , Draw, -2.5, U7.5, , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4       OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_2_WAY_TNB, -135, 220, -150, 110, -750, -525, U4.5, Draw, , -1.5, , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   awayTeam.name.default</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        Golden Knights</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2             Red Wings</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3             Avalanche</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                Flames</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        gameId gameType         startTimeUTC homeTeam.id homeTeam.abbrev</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2026020236        2 2026-11-04T00:00:00Z          10             TOR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2026020237        2 2026-11-04T00:00:00Z           8             MTL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2026020238        2 2026-11-04T00:00:00Z          14             TBL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2026020239        2 2026-11-04T00:30:00Z           1             NJD</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2026020240        2 2026-11-04T00:00:00Z           3             NYR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2026020241        2 2026-11-04T00:00:00Z           4             PHI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2026020242        2 2026-11-04T00:00:00Z           5             PIT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2026020243        2 2026-11-04T00:00:00Z          15             WSH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2026020244        2 2026-11-04T00:00:00Z          29             CBJ</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2026020245        2 2026-11-04T01:00:00Z          18             NSH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2026020246        2 2026-11-04T02:00:00Z          23             VAN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                    homeTeam.logo</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1            https://assets.nhle.com/logos/nhl/svg/TOR_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2            https://assets.nhle.com/logos/nhl/svg/MTL_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3            https://assets.nhle.com/logos/nhl/svg/TBL_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4            https://assets.nhle.com/logos/nhl/svg/NJD_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5            https://assets.nhle.com/logos/nhl/svg/NYR_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6            https://assets.nhle.com/logos/nhl/svg/PHI_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7            https://assets.nhle.com/logos/nhl/svg/PIT_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9            https://assets.nhle.com/logos/nhl/svg/CBJ_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10           https://assets.nhle.com/logos/nhl/svg/NSH_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11           https://assets.nhle.com/logos/nhl/svg/VAN_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                   homeTeam.odds</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY_TNB, -245, 100, 165, 285, -110, 100, +1.5, , , Draw, O5.5, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 114, -395, 380, -145, -225, -600, O6.5, , Draw, -1.5, , </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_2_WAY_TNB, 450, -135, -280, -105, -500, -725, Draw, O5.5, , -2.5, , </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                   PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY, 154, 105, 330, 114, -162, -1.5, , Draw, O6.5, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 145, 220, -120, 135, 275, -125, , -1.5, , O5.5, Draw, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY_TNB, 124, 650, 550, 1100, -140, 800, +2.5, Draw, , , O6.5, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7    OVER_UNDER, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 114, 145, -298, -115, 300, -115, O5.5, , +1.5, , Draw, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8     MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 310, 180, -120, -140, 330, 230, Draw, , O5.5, +1.5, , </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_2_WAY_TNB, 300, -135, -115, 135, -180, -218, Draw, O7.5, , -1.5, , </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                  OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, 105, 220, 340, -148, 164, O6.5, , Draw, +1.5, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                 OVER_UNDER, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, -142, 205, -162, 160, 350, O6.5, , +1.5, , Draw</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    homeTeam.name.default awayTeam.id awayTeam.abbrev</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1            Maple Leafs          68             UTA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2              Canadiens          52             WPG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3              Lightning          17             DET</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                 Devils          22             EDM</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                Rangers          19             STL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                 Flyers          30             MIN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7               Penguins          54             VGK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8               Capitals          25             DAL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9           Blue Jackets          21             COL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10             Predators          12             CAR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11               Canucks          24             ANA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                          awayTeam.logo</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  https://assets.nhle.com/logos/nhl/svg/UTA_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  https://assets.nhle.com/logos/nhl/svg/WPG_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  https://assets.nhle.com/logos/nhl/svg/DET_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  https://assets.nhle.com/logos/nhl/svg/EDM_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  https://assets.nhle.com/logos/nhl/svg/STL_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  https://assets.nhle.com/logos/nhl/svg/MIN_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  https://assets.nhle.com/logos/nhl/svg/VGK_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  https://assets.nhle.com/logos/nhl/svg/DAL_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  https://assets.nhle.com/logos/nhl/svg/COL_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 https://assets.nhle.com/logos/nhl/svg/CAR_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 https://assets.nhle.com/logos/nhl/svg/ANA_light.svg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                   awayTeam.odds</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY_TNB, 185, -130, 130, 285, -120, -130, -1.5, , , Draw, U5.5, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -145, 280, 380, 114, 500, 390, U6.5, , Draw, +1.5, , </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_2_WAY_TNB, 450, 105, 600, -125, 340, 450, Draw, U5.5, , +2.5, , </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                  PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY, -185, 180, 330, -135, 136, +1.5, , Draw, U6.5, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 155, -298, -110, -175, 275, -105, , +1.5, , U5.5, Draw, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_2_WAY_TNB, -160, 650, -920, -500, 110, -1600, -2.5, Draw, , , U6.5, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7    OVER_UNDER, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, -145, 145, 220, -115, 300, -115, U5.5, , -1.5, , Draw, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, OVER_UNDER, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY_TNB, 310, -238, -110, 110, -145, -320, Draw, , U5.5, -1.5, , </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9      MONEY_LINE_3_WAY, OVER_UNDER, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_2_WAY_TNB, 300, 105, 255, -175, 140, 165, Draw, U7.5, , +1.5, , </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, -125, -120, 340, 124, -198, U6.5, , Draw, -1.5, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                 OVER_UNDER, MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, 120, -110, 136, -192, 350, U6.5, , -1.5, , Draw</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    awayTeam.name.default</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                Mammoth</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                   Jets</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3              Red Wings</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                 Oilers</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                  Blues</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                   Wild</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7         Golden Knights</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                  Stars</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9              Avalanche</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10            Hurricanes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                 Ducks</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

@@ -193,10 +193,10 @@ Saiem Gilani
     tms <- espn_wch_game_teams(event_id = eid)
     espn_wch_game_team_record(event_id = eid, team_id = tms$team_id[1])
   })
-#> ✖ 2026-11-03 11:52:46.799718: 
+#> ✖ 2026-11-04 00:47:47.774748: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
 #> ✖ Error: The API returned an error
-#> ✖ 2026-11-03 11:52:46.86417: 
+#> ✖ 2026-11-04 00:47:47.789239: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, team_id = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

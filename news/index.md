@@ -333,6 +333,14 @@ that upgrades from 1.0.0 may need to change.
   [`most_recent_nhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_nhl_season.md)
   returns the year the season ends
   ([\#69](https://github.com/sportsdataverse/fastRhockey/issues/69)).
+- [`tail()`](https://rdrr.io/r/utils/head.html) works on the result of
+  every loader and every function that returns a `fastRhockey_data`
+  tibble. The class vector they set, in the loaders and in
+  `make_fastRhockey_data()`, still listed `data.table`, so
+  [`tail()`](https://rdrr.io/r/utils/head.html) failed with “Can’t
+  subset columns past the end” (the bug fixed in hoopR as
+  [hoopR#88](https://github.com/sportsdataverse/hoopR/issues/88)). The
+  class is now `fastRhockey_data` / `tbl_df` / `tbl` / `data.frame`.
 
 #### Dependencies
 

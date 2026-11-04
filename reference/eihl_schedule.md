@@ -108,7 +108,7 @@ Other EIHL eSports functions:
 # \donttest{
   try(eihl_schedule(season = 2027, league_id = 3))
 #> ── EIHL schedule from the eSports hokejovyzapis bucket ──── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 11:50:44 UTC
+#> ℹ Data updated: 2026-11-04 00:46:12 UTC
 #> # A tibble: 270 × 34
 #>    match_id start_date     league_id league season round group home_id home_name
 #>       <int> <chr>              <int> <chr>   <int> <chr> <chr>   <int> <chr>    

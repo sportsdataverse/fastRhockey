@@ -129,7 +129,7 @@ Other National League Functions:
 # \donttest{
   try(nl_playouts(season = 2026))
 #> ── National League Playouts Information from nationalleague.ch ─────────────────
-#> ℹ Data updated: 2026-11-03 11:57:13 UTC
+#> ℹ Data updated: 2026-11-04 00:53:00 UTC
 #> # A tibble: 4 × 39
 #>   series_group series_home_team_sho…¹ series_away_team_sho…² series_home_team_id
 #>          <int> <chr>                  <chr>                                <dbl>

@@ -91,7 +91,7 @@ Other SHL Functions:
 # \donttest{
   try(shl_athlete_seasons(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl"))
 #> ── SHL Athlete Seasons Information from www.shl.se ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 11:57:54 UTC
+#> ℹ Data updated: 2026-11-04 00:53:49 UTC
 #> # A tibble: 15 × 3
 #>    value name      label    
 #>    <chr> <chr>     <chr>    

@@ -85,6 +85,6 @@ Other ELH Functions:
 # \donttest{
   try(elh_scoreboard(date = format(Sys.Date() - 1)))
 #> Error in .euro_check_status(resp) : 
-#>   json.esports.cz/hokejcz/scoreboard/2026-11-02.json answered HTTP 404.
+#>   json.esports.cz/hokejcz/scoreboard/2026-11-03.json answered HTTP 404.
 # }
 ```

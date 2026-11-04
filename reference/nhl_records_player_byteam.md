@@ -105,26 +105,24 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_player_byteam(team_id = 10))
 #> ── NHL Records Player by Team ───────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 11:56:37 UTC
-#> # A tibble: 80 × 71
-#>         id accrued_seasons add_names age_sign_waiver age_signel_fa alert
-#>      <int>           <int> <chr>               <int>         <int> <chr>
-#>  1 8475166              17 NA                     19            18 N    
-#>  2 8477425              10 NA                     20            21 Y    
-#>  3 8480893               4 NA                     22            22 Y    
-#>  4 8483546               0 NA                     25            25 N    
-#>  5 8483565               3 Nicholas               23            24 N    
-#>  6 8477503              11 NA                     18            18 N    
-#>  7 8478007               7 NA                     24            25 Y    
-#>  8 8479026               5 Phil                   18            18 N    
-#>  9 8479528              NA NA                     NA            NA N    
-#> 10 8479543               4 NA                     20            20 N    
+#> ℹ Data updated: 2026-11-04 00:52:23 UTC
+#> # A tibble: 80 × 16
+#>         id birth_city   birth_country birth_date birth_state_province
+#>      <int> <chr>        <chr>         <chr>      <chr>               
+#>  1 8475166 Mississauga  CAN           1990-09-20 ON                  
+#>  2 8477425 Buffalo      USA           1995-09-13 NY                  
+#>  3 8480893 Barnaul      RUS           2000-07-21 NA                  
+#>  4 8483546 Beaconsfield CAN           1998-03-16 QC                  
+#>  5 8483565 Washington   USA           1998-05-12 MI                  
+#>  6 8477503 Winnipeg     CAN           1995-03-02 MB                  
+#>  7 8478007 Riga         LVA           1994-04-13 NA                  
+#>  8 8479026 Moncton      CAN           1997-01-25 NB                  
+#>  9 8479528 Lipetsk      RUS           1997-04-18 NA                  
+#> 10 8479543 Toronto      CAN           1998-03-13 ON                  
 #> # ℹ 70 more rows
-#> # ℹ 65 more variables: birth_city <chr>, birth_country <chr>, birth_date <chr>,
-#> #   birth_state_province <chr>, career_team_id <lgl>,
-#> #   central_registry_position <chr>, club_elec_arb <chr>,
-#> #   current_team_id <int>, date_of_death <lgl>, dda_id <int>, deceased <lgl>,
-#> #   ep_player_id <int>, fa_group_after_season <lgl>, first_name <chr>,
-#> #   first_signed_by_team_id <int>, free_agent_group <chr>, full_name <chr>, …
+#> # ℹ 11 more variables: current_team_id <int>, first_name <chr>,
+#> #   full_name <chr>, height <int>, in_top100alltime <lgl>, last_name <chr>,
+#> #   on_roster <chr>, position <chr>, sweater_number <int>, weight <int>,
+#> #   years_pro <int>
 # }
 ```

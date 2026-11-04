@@ -40,6 +40,6 @@ Other WHL Functions:
 ``` r
  try(whl_game_shifts(game_id = 27225)) 
 #> ── WHL Game Shifts from HockeyTech ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 11:59:00 UTC
+#> ℹ Data updated: 2026-11-04 00:54:54 UTC
 #> # A tibble: 0 × 0
 ```

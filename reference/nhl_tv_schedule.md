@@ -39,143 +39,119 @@ A named list of data frames: `broadcasts`.
 # \donttest{
   try(nhl_tv_schedule())
 #> $date
-#> [1] "2026-11-03"
+#> [1] "2026-11-04"
 #> 
 #> $startDate
-#> [1] "2026-10-20"
+#> [1] "2026-10-21"
 #> 
 #> $endDate
 #> [1] "2026-11-17"
 #> 
 #> $broadcasts
 #>              startTime             endTime durationSeconds
-#> 1  2026-11-03T00:00:00 2026-11-03T00:30:00            1800
-#> 2  2026-11-03T00:30:00 2026-11-03T01:00:00            1800
-#> 3  2026-11-03T01:00:00 2026-11-03T01:30:00            1800
-#> 4  2026-11-03T01:30:00 2026-11-03T02:00:00            1800
-#> 5  2026-11-03T02:00:00 2026-11-03T02:30:00            1800
-#> 6  2026-11-03T02:30:00 2026-11-03T03:00:00            1800
-#> 7  2026-11-03T03:00:00 2026-11-03T03:30:00            1800
-#> 8  2026-11-03T03:30:00 2026-11-03T04:00:00            1800
-#> 9  2026-11-03T04:00:00 2026-11-03T04:30:00            1800
-#> 10 2026-11-03T04:30:00 2026-11-03T05:00:00            1800
-#> 11 2026-11-03T05:00:00 2026-11-03T05:30:00            1800
-#> 12 2026-11-03T05:30:00 2026-11-03T06:00:00            1800
-#> 13 2026-11-03T06:00:00 2026-11-03T06:30:00            1800
-#> 14 2026-11-03T06:30:00 2026-11-03T07:00:00            1800
-#> 15 2026-11-03T07:00:00 2026-11-03T07:30:00            1800
-#> 16 2026-11-03T07:30:00 2026-11-03T08:00:00            1800
-#> 17 2026-11-03T08:00:00 2026-11-03T08:30:00            1800
-#> 18 2026-11-03T08:30:00 2026-11-03T09:00:00            1800
-#> 19 2026-11-03T09:00:00 2026-11-03T09:30:00            1800
-#> 20 2026-11-03T09:30:00 2026-11-03T10:00:00            1800
-#> 21 2026-11-03T10:00:00 2026-11-03T10:30:00            1800
-#> 22 2026-11-03T10:30:00 2026-11-03T11:00:00            1800
-#> 23 2026-11-03T11:00:00 2026-11-03T11:30:00            1800
-#> 24 2026-11-03T11:30:00 2026-11-03T12:00:00            1800
-#> 25 2026-11-03T12:00:00 2026-11-03T14:00:00            7200
-#> 26 2026-11-03T14:00:00 2026-11-03T16:00:00            7200
-#> 27 2026-11-03T16:00:00 2026-11-03T17:00:00            3600
-#> 28 2026-11-03T17:00:00 2026-11-03T19:00:00            7200
-#> 29 2026-11-03T19:00:00 2026-11-03T22:00:00           10800
-#> 30 2026-11-03T22:00:00 2026-11-03T23:00:00            3600
-#> 31 2026-11-03T23:00:00 2026-11-04T00:00:00            3600
-#>                              title
-#> 1                       On The Fly
-#> 2                       On The Fly
-#> 3                       On The Fly
-#> 4                       On The Fly
-#> 5                       On The Fly
-#> 6                       On The Fly
-#> 7                       On The Fly
-#> 8                       On The Fly
-#> 9                       On The Fly
-#> 10                      On The Fly
-#> 11                      On The Fly
-#> 12                      On The Fly
-#> 13                      On The Fly
-#> 14                      On The Fly
-#> 15                      On The Fly
-#> 16                      On The Fly
-#> 17                      On The Fly
-#> 18                      On The Fly
-#> 19                      On The Fly
-#> 20                      On The Fly
-#> 21                      On The Fly
-#> 22                      On The Fly
-#> 23                      On The Fly
-#> 24                      On The Fly
-#> 25                        NHL Game
-#> 26                        NHL Game
-#> 27        NHL Tonight: First Shift
-#> 28                         NHL Now
-#> 29                     NHL Tonight
-#> 30 NHL Tonight With Bonus Coverage
-#> 31  On The Fly With Bonus Coverage
-#>                                                                                                                                                                                                                                  description
-#> 1                                                                                                                                                                                                                                 On The Fly
-#> 2                                                                                                                                                                                                                                 On The Fly
-#> 3                                                                                                                                                                                                                                 On The Fly
-#> 4                                                                                                                                                                                                                                 On The Fly
-#> 5                                                                                                                                                                                                                                 On The Fly
-#> 6                                                                                                                                                                                                                                 On The Fly
-#> 7                                                                                                                                                                                                                                 On The Fly
-#> 8                                                                                                                                                                                                                                 On The Fly
-#> 9                                                                                                                                                                                                                                 On The Fly
-#> 10                                                                                                                                                                                                                                On The Fly
-#> 11                                                                                                                                                                                                                                On The Fly
-#> 12                                                                                                                                                                                                                                On The Fly
-#> 13                                                                                                                                                                                                                                On The Fly
-#> 14                                                                                                                                                                                                                                On The Fly
-#> 15                                                                                                                                                                                                                                On The Fly
-#> 16                                                                                                                                                                                                                                On The Fly
-#> 17                                                                                                                                                                                                                                On The Fly
-#> 18                                                                                                                                                                                                                                On The Fly
-#> 19                                                                                                                                                                                                                                On The Fly
-#> 20                                                                                                                                                                                                                                On The Fly
-#> 21                                                                                                                                                                                                                                On The Fly
-#> 22                                                                                                                                                                                                                                On The Fly
-#> 23                                                                                                                                                                                                                                On The Fly
-#> 24                                                                                                                                                                                                                                On The Fly
-#> 25                                                                                                                                                                Calgary Flames at San Jose Sharks on 11/2/2026 From SAP Center at San Jose
-#> 26                                                                                                                                                                         Vegas Golden Knights at Boston Bruins on 11/2/2026 From TD Garden
-#> 27                                                                                                                                                                                                                  NHL Tonight: First Shift
-#> 28                                                                                                                                                                                                                                   NHL Now
-#> 29                                                                                                                                                                                                                               NHL Tonight
-#> 30                                                     Takes you on the ice with live look-ins, breaking news, real-time scores, and expert analysis. NHL Veterans breakdown highlights and demo game situations. (Live with bonus coverage)
-#> 31 Missed the game? On The Fly conveniently recaps all games, every night. Post game interviews, highlights, expert analysis, and press conferences keep you in touch with the latest headlines after every game. (Live with bonus coverage)
+#> 1  2026-11-04T00:00:00 2026-11-04T01:00:00            3600
+#> 2  2026-11-04T01:00:00 2026-11-04T02:00:00            3600
+#> 3  2026-11-04T02:00:00 2026-11-04T03:00:00            3600
+#> 4  2026-11-04T03:00:00 2026-11-04T04:00:00            3600
+#> 5  2026-11-04T04:00:00 2026-11-04T05:00:00            3600
+#> 6  2026-11-04T05:00:00 2026-11-04T06:00:00            3600
+#> 7  2026-11-04T06:00:00 2026-11-04T07:00:00            3600
+#> 8  2026-11-04T07:00:00 2026-11-04T08:00:00            3600
+#> 9  2026-11-04T08:00:00 2026-11-04T09:00:00            3600
+#> 10 2026-11-04T09:00:00 2026-11-04T10:00:00            3600
+#> 11 2026-11-04T10:00:00 2026-11-04T11:00:00            3600
+#> 12 2026-11-04T11:00:00 2026-11-04T12:00:00            3600
+#> 13 2026-11-04T12:00:00 2026-11-04T14:00:00            7200
+#> 14 2026-11-04T14:00:00 2026-11-04T16:00:00            7200
+#> 15 2026-11-04T16:00:00 2026-11-04T17:00:00            3600
+#> 16 2026-11-04T17:00:00 2026-11-04T19:30:00            9000
+#> 17 2026-11-04T19:30:00 2026-11-04T20:00:00            1800
+#> 18 2026-11-04T20:00:00 2026-11-04T20:30:00            1800
+#> 19 2026-11-04T20:30:00 2026-11-04T21:00:00            1800
+#> 20 2026-11-04T21:00:00 2026-11-04T21:30:00            1800
+#> 21 2026-11-04T21:30:00 2026-11-04T22:00:00            1800
+#> 22 2026-11-04T22:00:00 2026-11-04T22:30:00            1800
+#> 23 2026-11-04T22:30:00 2026-11-04T23:00:00            1800
+#> 24 2026-11-04T23:00:00 2026-11-04T23:30:00            1800
+#> 25 2026-11-04T23:30:00 2026-11-05T00:00:00            1800
+#>                       title
+#> 1                On The Fly
+#> 2                On The Fly
+#> 3                On The Fly
+#> 4                On The Fly
+#> 5                On The Fly
+#> 6                On The Fly
+#> 7                On The Fly
+#> 8                On The Fly
+#> 9                On The Fly
+#> 10               On The Fly
+#> 11               On The Fly
+#> 12               On The Fly
+#> 13                 NHL Game
+#> 14                 NHL Game
+#> 15 NHL Tonight: First Shift
+#> 16                  NHL Now
+#> 17                  NHL Now
+#> 18                  NHL Now
+#> 19                  NHL Now
+#> 20                  NHL Now
+#> 21                  NHL Now
+#> 22                  NHL Now
+#> 23               On The Fly
+#> 24               On The Fly
+#> 25               On The Fly
+#>                                                                     description
+#> 1                                                                    On The Fly
+#> 2                                                                    On The Fly
+#> 3                                                                    On The Fly
+#> 4                                                                    On The Fly
+#> 5                                                                    On The Fly
+#> 6                                                                    On The Fly
+#> 7                                                                    On The Fly
+#> 8                                                                    On The Fly
+#> 9                                                                    On The Fly
+#> 10                                                                   On The Fly
+#> 11                                                                   On The Fly
+#> 12                                                                   On The Fly
+#> 13 Minnesota Wild at Philadelphia Flyers on 11/3/2026 From Xfinity Mobile Arena
+#> 14      Dallas Stars at Washington Capitals on 11/3/2026 From Capital One Arena
+#> 15                                                     NHL Tonight: First Shift
+#> 16                                                                      NHL Now
+#> 17                                                                      NHL Now
+#> 18                                                                      NHL Now
+#> 19                                                                      NHL Now
+#> 20                                                                      NHL Now
+#> 21                                                                      NHL Now
+#> 22                                                                      NHL Now
+#> 23                                                                   On The Fly
+#> 24                                                                   On The Fly
+#> 25                                                                   On The Fly
 #>           houseNumber broadcastType broadcastStatus broadcastImageUrl
-#> 1    HOTF27R110226SOR            HD            LIVE      onthefly.png
-#> 2     HOTF27R110226CC            HD                      onthefly.png
-#> 3     HOTF27R110226CC            HD                      onthefly.png
-#> 4     HOTF27R110226CC            HD                      onthefly.png
-#> 5     HOTF27R110226CC            HD                      onthefly.png
-#> 6     HOTF27R110226CC            HD                      onthefly.png
-#> 7     HOTF27R110226CC            HD                      onthefly.png
-#> 8     HOTF27R110226CC            HD                      onthefly.png
-#> 9     HOTF27R110226CC            HD                      onthefly.png
-#> 10    HOTF27R110226CC            HD                      onthefly.png
-#> 11    HOTF27R110226CC            HD                      onthefly.png
-#> 12    HOTF27R110226CC            HD                      onthefly.png
-#> 13    HOTF27R110226CC            HD                      onthefly.png
-#> 14    HOTF27R110226CC            HD                      onthefly.png
-#> 15    HOTF27R110226CC            HD                      onthefly.png
-#> 16    HOTF27R110226CC            HD                      onthefly.png
-#> 17    HOTF27R110226CC            HD                      onthefly.png
-#> 18    HOTF27R110226CC            HD                      onthefly.png
-#> 19    HOTF27R110226CC            HD                      onthefly.png
-#> 20    HOTF27R110226CC            HD                      onthefly.png
-#> 21    HOTF27R110226CC            HD                      onthefly.png
-#> 22    HOTF27R110226CC            HD                      onthefly.png
-#> 23    HOTF27R110226CC            HD                      onthefly.png
-#> 24    HOTF27R110226CC            HD                      onthefly.png
-#> 25 H120CGYSJS11022026            HD                           nhl.png
-#> 26 H120VGKBOS11022026            HD                           nhl.png
-#> 27  HNHLTFS27110326LV            HD            LIVE                  
-#> 28    HNOW27R110326LV            HD            LIVE        nhlnow.png
-#> 29  HNHLT27RS110326LV            HD            LIVE    nhltonight.png
-#> 30  H60CARNSH11032026            HD            LIVE    nhltonight.png
-#> 31  H60ANAVAN11032026            HD            LIVE      onthefly.png
+#> 1    HOTF27R110326SOR            HD            LIVE      onthefly.png
+#> 2     HOTF27R110326CC            HD                      onthefly.png
+#> 3     HOTF27R110326CC            HD                      onthefly.png
+#> 4     HOTF27R110326CC            HD                      onthefly.png
+#> 5     HOTF27R110326CC            HD                      onthefly.png
+#> 6     HOTF27R110326CC            HD                      onthefly.png
+#> 7     HOTF27R110326CC            HD                      onthefly.png
+#> 8     HOTF27R110326CC            HD                      onthefly.png
+#> 9     HOTF27R110326CC            HD                      onthefly.png
+#> 10    HOTF27R110326CC            HD                      onthefly.png
+#> 11    HOTF27R110326CC            HD                      onthefly.png
+#> 12    HOTF27R110326CC            HD                      onthefly.png
+#> 13 H120MINPHI11032026            HD                           nhl.png
+#> 14 H120DALWSH11032026            HD                           nhl.png
+#> 15  HNHLTFS27110426LV            HD            LIVE                  
+#> 16    HNOW27R110426LV            HD            LIVE        nhlnow.png
+#> 17    HNOW27R110426CC            HD                        nhlnow.png
+#> 18    HNOW27R110426CC            HD                        nhlnow.png
+#> 19    HNOW27R110426CC            HD                        nhlnow.png
+#> 20    HNOW27R110426CC            HD                        nhlnow.png
+#> 21    HNOW27R110426CC            HD                        nhlnow.png
+#> 22    HNOW27R110426CC            HD                        nhlnow.png
+#> 23   HOTF27R110426LVA            HD            LIVE      onthefly.png
+#> 24   HOTF27R110426ACC            HD                      onthefly.png
+#> 25   HOTF27R110426ACC            HD                      onthefly.png
 #> 
 # }
 ```

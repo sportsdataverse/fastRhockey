@@ -247,7 +247,7 @@ Other National League Functions:
 # \donttest{
   try(nl_top_scorers(phase = 4940, season = 2026, take = 3))
 #> ── National League Top Scorers Information from nationalleague.ch ──────────────
-#> ℹ Data updated: 2026-11-03 11:57:22 UTC
+#> ℹ Data updated: 2026-11-04 00:53:19 UTC
 #> # A tibble: 3 × 145
 #>   player_id first_name last_name team_id team_short_name team_name        number
 #>       <dbl> <chr>      <chr>       <dbl> <chr>           <chr>            <chr> 

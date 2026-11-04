@@ -106,7 +106,7 @@ Other HA Functions:
 # \donttest{
   try(ha_players(team = "AIK"))
 #> ── HA Players Information from hockeyallsvenskan.se ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 11:53:21 UTC
+#> ℹ Data updated: 2026-11-04 00:48:15 UTC
 #> # A tibble: 31 × 26
 #>    family_name first_name  player_cms_id player_document_id      headshots_large
 #>    <chr>       <chr>               <int> <chr>                   <chr>          

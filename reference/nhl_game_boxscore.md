@@ -134,7 +134,7 @@ Uses the endpoint
     box$skater_stats
   })
 #> ── NHL Game Skater Stats from NHL.com ───────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 11:56:16 UTC
+#> ℹ Data updated: 2026-11-04 00:51:05 UTC
 #> # A tibble: 36 × 21
 #>    home_away team_id team_abbrev player_id player_name sweater_number position
 #>    <chr>       <int> <chr>           <int> <chr>                <int> <chr>   

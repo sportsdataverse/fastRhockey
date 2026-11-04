@@ -104,7 +104,7 @@ Other HA Functions:
 # \donttest{
   try(ha_standings(season = 2026))
 #> ── HA Standings Information from hockeyallsvenskan.se ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 11:53:27 UTC
+#> ℹ Data updated: 2026-11-04 00:48:20 UTC
 #> # A tibble: 14 × 18
 #>    season  rank team_code_mixed team_code games_played regulation_wins
 #>     <int> <int> <chr>           <chr>            <int>           <int>

@@ -104,7 +104,7 @@ Other HA Functions:
 # \donttest{
   try(ha_leaders(metric = "TP"))
 #> ── HA Leaders Information from hockeyallsvenskan.se ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 11:53:20 UTC
+#> ℹ Data updated: 2026-11-04 00:48:13 UTC
 #> # A tibble: 25 × 18
 #>     rank player_name     team_code team_statnet_id jersey_number position metric
 #>    <int> <chr>           <chr>     <chr>                   <int> <chr>    <chr> 

@@ -109,7 +109,7 @@ Other Metal Ligaen eSports functions:
 # \donttest{
   try(metal_standings(season = 2027, league_id = 1))
 #> ── Metal Ligaen standings from the eSports hokejovyzapis bucket ────────────────
-#> ℹ Data updated: 2026-11-03 11:55:46 UTC
+#> ℹ Data updated: 2026-11-04 00:50:31 UTC
 #> # A tibble: 9 × 31
 #>   group_id group_name complete team_id part_team_id name  team_original shortcut
 #>      <int> <chr>      <lgl>      <int>        <int> <chr> <chr>         <chr>   

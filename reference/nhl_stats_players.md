@@ -39,7 +39,7 @@ A `fastRhockey_data` tibble of players, or `NULL` on failure.
 ``` r
 # \donttest{
   try(nhl_stats_players())
-#> 2026-11-03 11:56:57.086491: No players data (try passing a `cayenne_exp` filter)
+#> 2026-11-04 00:52:43.084505: No players data (try passing a `cayenne_exp` filter)
 #> NULL
 # }
 ```

@@ -25,20 +25,27 @@ Returns a data frame with game scores.
 # \donttest{
   try(nhl_scores())
 #> ── NHL Scores ───────────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-03 11:56:49 UTC
-#> # A tibble: 4 × 40
-#>           id   season game_type game_date  start_time_utc     eastern_utc_offset
-#>        <int>    <int>     <int> <chr>      <chr>              <chr>             
-#> 1 2026020232 20262027         2 2026-11-02 2026-11-03T00:00:… -05:00            
-#> 2 2026020233 20262027         2 2026-11-02 2026-11-03T00:00:… -05:00            
-#> 3 2026020234 20262027         2 2026-11-02 2026-11-03T01:00:… -05:00            
-#> 4 2026020235 20262027         2 2026-11-02 2026-11-03T02:00:… -05:00            
-#> # ℹ 34 more variables: venue_utc_offset <chr>, tv_broadcasts <list>,
+#> ℹ Data updated: 2026-11-04 00:52:36 UTC
+#> # A tibble: 11 × 50
+#>            id   season game_type game_date  start_time_utc    eastern_utc_offset
+#>         <int>    <int>     <int> <chr>      <chr>             <chr>             
+#>  1 2026020236 20262027         2 2026-11-03 2026-11-04T00:00… -05:00            
+#>  2 2026020237 20262027         2 2026-11-03 2026-11-04T00:00… -05:00            
+#>  3 2026020238 20262027         2 2026-11-03 2026-11-04T00:00… -05:00            
+#>  4 2026020240 20262027         2 2026-11-03 2026-11-04T00:00… -05:00            
+#>  5 2026020241 20262027         2 2026-11-03 2026-11-04T00:00… -05:00            
+#>  6 2026020242 20262027         2 2026-11-03 2026-11-04T00:00… -05:00            
+#>  7 2026020243 20262027         2 2026-11-03 2026-11-04T00:00… -05:00            
+#>  8 2026020244 20262027         2 2026-11-03 2026-11-04T00:00… -05:00            
+#>  9 2026020239 20262027         2 2026-11-03 2026-11-04T00:30… -05:00            
+#> 10 2026020245 20262027         2 2026-11-03 2026-11-04T01:00… -05:00            
+#> 11 2026020246 20262027         2 2026-11-03 2026-11-04T02:00… -05:00            
+#> # ℹ 44 more variables: venue_utc_offset <chr>, tv_broadcasts <list>,
 #> #   game_state <chr>, game_schedule_state <chr>, game_center_link <chr>,
-#> #   three_min_recap <chr>, three_min_recap_fr <chr>, condensed_game <chr>,
-#> #   condensed_game_fr <chr>, neutral_site <lgl>, venue_timezone <chr>,
-#> #   period <int>, goals <list>, venue_default <chr>, away_team_id <int>,
-#> #   away_team_abbrev <chr>, away_team_score <int>, away_team_sog <int>,
-#> #   away_team_logo <chr>, away_team_name_default <chr>, home_team_id <int>, …
+#> #   neutral_site <lgl>, venue_timezone <chr>, period <int>, goals <list>,
+#> #   team_leaders <list>, tickets_link <chr>, tickets_link_fr <chr>,
+#> #   venue_default <chr>, away_team_id <int>, away_team_abbrev <chr>,
+#> #   away_team_score <int>, away_team_sog <int>, away_team_logo <chr>,
+#> #   away_team_record <chr>, away_team_odds <list>, …
 # }
 ```
