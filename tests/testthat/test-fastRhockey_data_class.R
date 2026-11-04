@@ -6,6 +6,7 @@ test_that("make_fastRhockey_data() output supports head()/tail()/print()", {
   out <- make_fastRhockey_data(data.frame(a = 1:10, b = letters[1:10]), "unit test data", Sys.time())
 
   expect_s3_class(out, "fastRhockey_data")
+  expect_s3_class(out, "data.frame")
   expect_false(inherits(out, "data.table"))
   expect_equal(tail(out)$a, 5:10)
   expect_equal(head(out, 3)$a, 1:3)
@@ -26,7 +27,9 @@ test_that("every exported load_*() result supports head()/tail() (offline)", {
   for (f in loaders) {
     x <- suppressMessages(getExportedValue("fastRhockey", f)())
     expect_s3_class(x, "fastRhockey_data")
+    expect_s3_class(x, "data.frame")
     expect_false(inherits(x, "data.table"), label = f)
+    expect_in(c("a", "b"), names(x))
     expect_equal(nrow(tail(x)), 6L, label = f)
     expect_equal(nrow(head(x, 3)), 3L, label = f)
   }
