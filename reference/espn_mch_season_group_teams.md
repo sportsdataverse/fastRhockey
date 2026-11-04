@@ -198,7 +198,7 @@ Saiem Gilani
                                  group_id = grps$group_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Season Group Teams data from ESPN core-v2 ───────────────
-#> ℹ Data updated: 2026-11-04 04:36:58 UTC
+#> ℹ Data updated: 2026-11-04 09:30:44 UTC
 #> # A tibble: 11 × 5
 #>    ref                                       team_id season season_type group_id
 #>    <chr>                                     <chr>    <int>       <int>    <int>

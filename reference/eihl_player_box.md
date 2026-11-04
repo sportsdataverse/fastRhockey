@@ -127,7 +127,7 @@ Other EIHL eSports functions:
 # \donttest{
   try(eihl_player_box(match_id = 4440, team_id = 96))
 #> ── EIHL player_box from the eSports hokejovyzapis bucket ── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 04:36:12 UTC
+#> ℹ Data updated: 2026-11-04 09:30:07 UTC
 #> # A tibble: 25 × 70
 #>    player_id name       firstname surname birthdate active position stick weight
 #>        <int> <chr>      <chr>     <chr>   <chr>     <lgl>  <chr>    <chr>  <int>

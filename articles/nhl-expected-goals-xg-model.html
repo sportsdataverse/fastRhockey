@@ -219,9 +219,8 @@ same numbers.</p>
 <tr class="even">
 <td><strong>Model</strong></td>
 <td>The committed 2026-04 boosters</td>
-<td>The same boosters, downloaded once and cached by
-<code>.onLoad()</code>
-</td>
+<td>The same boosters, downloaded on first use, pinned by sha256 and
+cached</td>
 </tr>
 <tr class="odd">
 <td><strong>Needs <code>xgboost</code>?</strong></td>
@@ -393,7 +392,9 @@ metadata.</p>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">xg_env</span> <span class="op">&lt;-</span> <span class="fu">fastRhockey</span><span class="fu">:::</span><span class="va">.xg_env</span></span>
+<span><span class="co"># The models load on first use; load them here (a download the first time).</span></span>
 <span><span class="va">xg_ready</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"xgboost"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">&amp;&amp;</span></span>
+<span>  <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">inherits</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fastRhockey</span><span class="fu">:::</span><span class="fu">.load_xg_models</span><span class="op">(</span><span class="op">)</span>, silent <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, <span class="st">"try-error"</span><span class="op">)</span> <span class="op">&amp;&amp;</span></span>
 <span>  <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">xg_env</span><span class="op">$</span><span class="va">xg_model_5v5</span><span class="op">)</span></span>
 <span><span class="va">xg_ready</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>

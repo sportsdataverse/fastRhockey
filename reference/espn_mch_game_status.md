@@ -188,7 +188,7 @@ Saiem Gilani
     espn_mch_game_status(event_id = sb$game_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Status data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-11-04 04:36:40 UTC
+#> ℹ Data updated: 2026-11-04 09:30:32 UTC
 #> # A tibble: 1 × 13
 #>   event_id  cid       clock display_clock period type_id type_name    type_state
 #>   <chr>     <chr>     <dbl> <chr>          <int> <chr>   <chr>        <chr>     

@@ -99,7 +99,7 @@ Other SHL Functions:
 # \donttest{
   try(shl_athlete_details(athlete_uuid = "qQ9-349c7WDv6"))
 #> ── SHL Athlete Details Information from www.shl.se ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 04:43:00 UTC
+#> ℹ Data updated: 2026-11-04 09:36:21 UTC
 #> # A tibble: 1 × 17
 #>   athlete_data_uuid athlete_data_contact_info athlete_data_created_at 
 #>   <chr>             <chr>                     <chr>                   

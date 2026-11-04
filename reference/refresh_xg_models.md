@@ -1,8 +1,9 @@
 # Force re-download of xG models
 
-Clears the cached xG model files and re-downloads them from the
-fastRhockey-nhl-data repository. Use this after models have been
-retrained and pushed to GitHub.
+Clears the cached xG model files, downloads them again from the
+sportsdataverse-data `nhl_xg_models` release and reloads them. The
+models normally load on first use and a stale cached copy is replaced
+automatically, so this is only needed to repair a cache by hand.
 
 ## Usage
 

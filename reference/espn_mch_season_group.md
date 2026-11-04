@@ -198,7 +198,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_season_group(season = 2026, season_type = 2, group_id = 7))
-#> ✖ 2026-11-04 04:36:57.498362: Invalid arguments or no ESPN mens-college-hockey season group 7 for 2026 type 2 available!
+#> ✖ 2026-11-04 09:30:44.033489: Invalid arguments or no ESPN mens-college-hockey season group 7 for 2026 type 2 available!
 #> ✖ Args: league = "mens-college-hockey", season = 2026, season_type = 2, group_id = 7
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

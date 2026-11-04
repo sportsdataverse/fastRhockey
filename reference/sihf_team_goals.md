@@ -130,7 +130,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_team_goals(season = 2026, league_id = 1))
 #> ── SIHF Team Goals Information from data.sihf.ch ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 04:44:03 UTC
+#> ℹ Data updated: 2026-11-04 09:37:17 UTC
 #> # A tibble: 15 × 24
 #>    season phase_id  rank team_id team_name   team_acronym games_played goals_for
 #>     <int>    <int> <int>   <int> <chr>       <chr>               <int>     <int>

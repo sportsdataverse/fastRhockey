@@ -125,7 +125,7 @@ Other National League Functions:
 # \donttest{
   try(nl_team_schedule(season = 2026, team_id = 101144))
 #> ── National League Team Schedule Information from nationalleague.ch ────────────
-#> ℹ Data updated: 2026-11-04 04:42:35 UTC
+#> ℹ Data updated: 2026-11-04 09:35:54 UTC
 #> # A tibble: 63 × 29
 #>    game_id home_team_short_name home_team_name       away_team_short_name
 #>      <dbl> <chr>                <chr>                <chr>               

@@ -115,7 +115,7 @@ Other National League Functions:
 # \donttest{
   try(nl_current_games(season = 2027))
 #> ── National League Current Games Information from nationalleague.ch ────────────
-#> ℹ Data updated: 2026-11-04 04:42:18 UTC
+#> ℹ Data updated: 2026-11-04 09:35:39 UTC
 #> # A tibble: 2 × 29
 #>   game_id home_team_short_name home_team_name away_team_short_name
 #>     <dbl> <chr>                <chr>          <chr>               

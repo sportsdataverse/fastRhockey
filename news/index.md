@@ -121,6 +121,31 @@ that upgrades from 1.0.0 may need to change.
 
 #### Bug fixes
 
+- The NHL xG models are no longer downloaded in `.onLoad()`, which CRAN
+  policy forbids:
+  [`library(fastRhockey)`](https://fastRhockey.sportsdataverse.org/)
+  makes no network call, and
+  [`helper_nhl_calculate_xg()`](https://fastRhockey.sportsdataverse.org/reference/helper_nhl_calculate_xg.md)
+  (and so
+  [`nhl_game_pbp()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_pbp.md)
+  /
+  [`nhl_game_feed()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_feed.md))
+  loads them on first use. They now come from the sportsdataverse-data
+  `nhl_xg_models` release that sportsdataverse-py reads, pinned by
+  sha256: a cached copy that matches is used offline, one that does not
+  (another training) is replaced, so a retrain cannot leave the old
+  boosters in use from cache.
+  [`refresh_xg_models()`](https://fastRhockey.sportsdataverse.org/reference/refresh_xg_models.md)
+  still clears and re-fetches them
+  ([\#96](https://github.com/sportsdataverse/fastRhockey/issues/96)).
+
+- The PHF games index csv
+  ([`update_phf_db()`](https://fastRhockey.sportsdataverse.org/reference/update_phf_db.md))
+  is read through `.release_csv_from_url()`, the release-read helper the
+  loaders use (150 s timeout floor, two retries, a warning naming the
+  url), instead of `utils::read.csv(url())` with no retry. `data.table`
+  floor raised to 1.15.0 for `fread(file = url)`.
+
 - [`ahl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/ahl_pbp.md),
   [`ohl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/ohl_pbp.md),
   [`whl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/whl_pbp.md),
@@ -128,10 +153,12 @@ that upgrades from 1.0.0 may need to change.
   and the four `*_game_corsi()` functions: a game with no events failed
   with “replacement has 1 row, data has 0”. They now return an empty
   data frame.
+
 - The nine deprecated NHL Edge top-10 functions
   ([`nhl_edge_goalie_5v5_top_10()`](https://fastRhockey.sportsdataverse.org/reference/nhl_edge_goalie_5v5_top_10.md)
   and friends) no longer send a request to the removed endpoint. They
   warn and return `NULL`.
+
 - The
   [`espn_mch_coach()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_coach.md),
   [`espn_mch_coach_record()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_coach_record.md),
@@ -142,6 +169,7 @@ that upgrades from 1.0.0 may need to change.
   [`espn_mch_season_coaches()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_coaches.md)
   /
   [`espn_wch_season_coaches()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_coaches.md).
+
 - [`nhl_game_pbp()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_pbp.md)
   /
   [`nhl_game_feed()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_feed.md):
@@ -149,6 +177,7 @@ that upgrades from 1.0.0 may need to change.
   2025021229), because the shift rows were padded with `NA` for every
   play-by-play column. Grouping or filtering by `game_id` dropped every
   shift. `game_id` is now set on every row.
+
 - [`helper_nhl_calculate_xg()`](https://fastRhockey.sportsdataverse.org/reference/helper_nhl_calculate_xg.md)
   joined the xG predictions back by `event_id`, which restarts at 0 in
   every game, so a frame of two or more games got extra rows (two
@@ -158,6 +187,7 @@ that upgrades from 1.0.0 may need to change.
   [`nhl_game_pbp()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_pbp.md)
   output does), it now replaces that column instead of returning `xg.x`
   / `xg.y`.
+
 - [`helper_nhl_calculate_xg()`](https://fastRhockey.sportsdataverse.org/reference/helper_nhl_calculate_xg.md)
   stopped with an error when `xgboost` was not installed, though
   [`?nhl_xg`](https://fastRhockey.sportsdataverse.org/reference/nhl_xg.md)
@@ -167,6 +197,7 @@ that upgrades from 1.0.0 may need to change.
   /
   [`nhl_game_feed()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_feed.md)
   pass that warning on.
+
 - SHL: `www.shl.se`’s `statistics-v2/layout-info` renamed its season
   directory from `seasonSeriesGameTypeTeams` to
   `originalSeasonSeriesGameTypeTeams`, so every SHL lookup (and
@@ -174,16 +205,19 @@ that upgrades from 1.0.0 may need to change.
   stopped with “no ssgt directory in the body”. The SHL functions read
   the new key and fall back to the old one
   ([\#90](https://github.com/sportsdataverse/fastRhockey/issues/90)).
+
 - [`pwhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_standings.md)
   ignored `season` and `regular` and always returned 2023-24. It now
   resolves the HockeyTech season id from them, and its default is
   [`most_recent_pwhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_pwhl_season.md)
   ([\#90](https://github.com/sportsdataverse/fastRhockey/issues/90)).
+
 - The PWHL season-id fallback table, used when the HockeyTech season
   list cannot be read, now runs through 2026-27, and the AHL / OHL / WHL
   / QMJHL most-recent-season fallback is computed from the date instead
   of a fixed 2026
   ([\#90](https://github.com/sportsdataverse/fastRhockey/issues/90)).
+
 - [`nhl_stats_skaters()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_skaters.md),
   [`nhl_stats_goalies()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_goalies.md),
   [`nhl_stats_teams()`](https://fastRhockey.sportsdataverse.org/reference/nhl_stats_teams.md)
@@ -193,6 +227,7 @@ that upgrades from 1.0.0 may need to change.
   default to
   [`most_recent_nhl_season_api_param()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_nhl_season_api_param.md)
   ([\#90](https://github.com/sportsdataverse/fastRhockey/issues/90)).
+
 - The PWHL and NHL release loaders called with their default season now
   load the newest published season, with a message, when the current one
   has no file yet (every `load_pwhl_*()` returned an empty table from 1
@@ -200,6 +235,7 @@ that upgrades from 1.0.0 may need to change.
   unpublished season still returns an empty table, and a season outside
   the published range is a cli error
   ([\#90](https://github.com/sportsdataverse/fastRhockey/issues/90)).
+
 - The European hockey per-host throttle stamped each request at its
   scheduled time, not when its wait actually ended, so an oversleeping
   [`Sys.sleep()`](https://rdrr.io/r/base/Sys.sleep.html) (macOS timer
@@ -207,6 +243,7 @@ that upgrades from 1.0.0 may need to change.
   out early, inside the one-second spacing. The clock now records the
   real wake time
   ([\#87](https://github.com/sportsdataverse/fastRhockey/issues/87)).
+
 - `khl_player_stats(position = "goalies")` returned 20 goalies who had
   not played (khl.ru orders goalies by goals-against average ascending
   and ignores sort fields). It now fetches every page (the count from
@@ -219,6 +256,7 @@ that upgrades from 1.0.0 may need to change.
   sportsdataverse-py: `sv_pct` is on a 0-100 scale (92.2), `gaa` is
   double, `toi` is mm:ss text with `"-"` as `NA`. Skaters are unchanged
   ([\#85](https://github.com/sportsdataverse/fastRhockey/issues/85)).
+
 - ESPN college hockey routes match sportsdataverse-py: `coach_record`
   asks for `coaches/{id}/record/{record_type}` (default `0`) and
   `coach_season` for `coaches/{id}/seasons/{season}`. `calendar`
@@ -226,6 +264,7 @@ that upgrades from 1.0.0 may need to change.
   sportsdataverse-py’s `/calendar` route answers 404 for both college
   leagues
   ([\#84](https://github.com/sportsdataverse/fastRhockey/issues/84)).
+
 - ESPN scoreboards
   ([`espn_nhl_scoreboard()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_scoreboard.md)
   and the college ones): the `broadcast` column joins every network name
@@ -233,6 +272,7 @@ that upgrades from 1.0.0 may need to change.
   sportsdataverse-py; it used to carry ESPN’s “/”-joined first-market
   string. Team schedules use the same rule
   ([\#84](https://github.com/sportsdataverse/fastRhockey/issues/84)).
+
 - ESPN `teams_site`, `team_schedule` and `standings` returned empty
   frames on college bodies (no `alternateColor`; played and unplayed
   games mixing score types, which also hit NHL schedules spanning both;
@@ -240,17 +280,20 @@ that upgrades from 1.0.0 may need to change.
   ([\#84](https://github.com/sportsdataverse/fastRhockey/issues/84)).
   [`espn_nhl_team_schedule()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_team_schedule.md)
   scores are now always character (see Breaking changes).
+
 - ESPN college `limit` arguments now default as in sportsdataverse-py
   (`scoreboard`, `team_roster` and `transactions` 500, `teams_site`
   1000, `season_awards` 200), so R and Python fetch the same page; NHL
   requests are unchanged
   ([\#84](https://github.com/sportsdataverse/fastRhockey/issues/84)).
+
 - KHL: when khl.ru answers session priming with its ServicePipe anti-bot
   challenge page, the error now says so (“khl.ru served an anti-bot
   challenge page; try again later or through
   `getOption('fastRhockey.proxy')`”) instead of reporting a missing
   `sessid`
   ([\#84](https://github.com/sportsdataverse/fastRhockey/issues/84)).
+
 - The NHL release loaders rejected the 2009-10 season: every
   `load_nhl_*()` release loader (and `.nhl_release_loader()`’s default)
   required `seasons >= 2011`, but each sportsdataverse-data release
@@ -269,6 +312,7 @@ that upgrades from 1.0.0 may need to change.
   [`load_nhl_game_rosters()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_game_rosters.md)
   documents all twelve of its columns
   ([\#79](https://github.com/sportsdataverse/fastRhockey/issues/79)).
+
 - `shot_distance` / `shot_angle` (and `scoring_chance`) of an empty-net
   goal from a team’s own half were measured to the nearer net: 59 ft for
   a median 126-ft goal (27 such goals in 320 PWHL games). Empty-net
@@ -277,6 +321,7 @@ that upgrades from 1.0.0 may need to change.
   events with a goalie in net are near-net events whose coordinates the
   feed mirrored
   ([\#76](https://github.com/sportsdataverse/fastRhockey/issues/76)).
+
 - The derived play-by-play coordinates of
   [`pwhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_pbp.md)
   and the AHL / OHL / WHL / QMJHL `*_pbp()` functions put home-team
@@ -293,6 +338,7 @@ that upgrades from 1.0.0 may need to change.
   as the visitor’s. `x_coord`, `y_coord`, `shot_distance` and
   `shot_angle` are unchanged
   ([\#75](https://github.com/sportsdataverse/fastRhockey/issues/75)).
+
 - [`ahl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/ahl_schedule.md),
   [`ohl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/ohl_schedule.md),
   [`whl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/whl_schedule.md)
@@ -310,6 +356,7 @@ that upgrades from 1.0.0 may need to change.
   (`Final OT` where the scorebar said `Final 1st OT`), and every column
   is character
   ([\#74](https://github.com/sportsdataverse/fastRhockey/issues/74)).
+
 - The AHL, OHL, WHL and QMJHL functions that take `season =` (schedule,
   standings, teams, rosters, leaders, …) could resolve it to the wrong
   HockeyTech season. `ahl_schedule(season = 2026)` resolved to the “2026
@@ -323,6 +370,7 @@ that upgrades from 1.0.0 may need to change.
   seasons. On the 20 leagues’ real seasons captures, R and
   sportsdataverse-py now agree on all 485 seasons’ end year and type
   ([\#74](https://github.com/sportsdataverse/fastRhockey/issues/74)).
+
 - `nhl_teams(season =)` stopped with “missing value where TRUE/FALSE
   needed” (reported as “Error fetching teams”) instead of returning
   `NULL` with “No team data found” when the NHL API has no standings for
@@ -333,6 +381,7 @@ that upgrades from 1.0.0 may need to change.
   [`most_recent_nhl_season()`](https://fastRhockey.sportsdataverse.org/reference/most_recent_nhl_season.md)
   returns the year the season ends
   ([\#69](https://github.com/sportsdataverse/fastRhockey/issues/69)).
+
 - [`tail()`](https://rdrr.io/r/utils/head.html) works on the result of
   every loader and every function that returns a `fastRhockey_data`
   tibble. The class vector they set, in the loaders and in
@@ -341,6 +390,7 @@ that upgrades from 1.0.0 may need to change.
   subset columns past the end” (the bug fixed in hoopR as
   [hoopR#88](https://github.com/sportsdataverse/hoopR/issues/88)). The
   class is now `fastRhockey_data` / `tbl_df` / `tbl` / `data.frame`.
+
 - A slow release download no longer drops a season from a multi-season
   load. The `.rds` and group `.csv` reads behind every release-backed
   `load_*()` loader raise the download timeout to at least 150 seconds

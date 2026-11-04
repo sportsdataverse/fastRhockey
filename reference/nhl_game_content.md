@@ -62,7 +62,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_game_content(game_id = 2024020001))
 #> ── NHL Game Content Information from NHL.com ────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 04:41:44 UTC
+#> ℹ Data updated: 2026-11-04 09:34:56 UTC
 #> # A tibble: 1 × 28
 #>      game_id   season game_type game_date  venue away_team_abbrev away_team_name
 #>        <int>    <int>     <int> <chr>      <chr> <chr>            <chr>         

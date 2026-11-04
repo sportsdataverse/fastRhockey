@@ -122,7 +122,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_player_profile(player_id = 41928))
 #> ── KHL Player Profile from khl.ru ───────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 04:39:32 UTC
+#> ℹ Data updated: 2026-11-04 09:32:41 UTC
 #> # A tibble: 1 × 31
 #>   player_id firstname lastname photo    position position_code biography is_hero
 #>       <int> <chr>     <chr>    <chr>    <chr>    <chr>         <chr>     <lgl>  

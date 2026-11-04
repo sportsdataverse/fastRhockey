@@ -32,7 +32,7 @@ columns).
 ``` r
  try(fox_nhl_league_leaders("scoring")) 
 #> ── Fox Sports NHL league_leaders ────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 04:38:49 UTC
+#> ℹ Data updated: 2026-11-04 09:32:01 UTC
 #> # A tibble: 100 × 7
 #>    players v2               gp    entity_id g     a     p    
 #>    <chr>   <chr>            <chr> <chr>     <chr> <chr> <chr>
@@ -45,6 +45,6 @@ columns).
 #>  7 7       R. Hartman       17    3642      NA    NA    NA   
 #>  8 8       M. McCarron      17    3883      NA    NA    NA   
 #>  9 9       C. Sissons       17    3916      NA    NA    NA   
-#> 10 10      T. Hertl         17    4109      NA    NA    NA   
+#> 10 10      J. Martinook     17    4060      NA    NA    NA   
 #> # ℹ 90 more rows
 ```

@@ -120,7 +120,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_team_penalties(season = 2026, league_id = 1))
 #> ── SIHF Team Penalties Information from data.sihf.ch ────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 04:44:06 UTC
+#> ℹ Data updated: 2026-11-04 09:37:19 UTC
 #> # A tibble: 15 × 14
 #>    season phase_id  rank team_id team_name team_acronym games_played  pim2  pim5
 #>     <int>    <int> <int>   <int> <chr>     <chr>               <int> <int> <int>

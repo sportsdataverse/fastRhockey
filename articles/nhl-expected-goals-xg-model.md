@@ -43,7 +43,7 @@ numbers.
 |  | Published `xg` column | Computed locally |
 |----|----|----|
 | **How you get it** | [`load_nhl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp.md), [`load_nhl_pbp_full()`](https://fastRhockey.sportsdataverse.org/reference/load_nhl_pbp_full.md) | [`nhl_game_pbp()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_pbp.md) / [`nhl_game_feed()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_feed.md), or [`helper_nhl_calculate_xg()`](https://fastRhockey.sportsdataverse.org/reference/helper_nhl_calculate_xg.md) on your own frame |
-| **Model** | The committed 2026-04 boosters | The same boosters, downloaded once and cached by `.onLoad()` |
+| **Model** | The committed 2026-04 boosters | The same boosters, downloaded on first use, pinned by sha256 and cached |
 | **Needs `xgboost`?** | No | Yes. Without it [`nhl_game_pbp()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_pbp.md) returns `xg = NA` with a message, and [`helper_nhl_calculate_xg()`](https://fastRhockey.sportsdataverse.org/reference/helper_nhl_calculate_xg.md) stops with an error. |
 | **Precision** | Rounded to 4 decimal places | Full precision |
 | **When it changes** | When a season file is rebuilt | When you call [`refresh_xg_models()`](https://fastRhockey.sportsdataverse.org/reference/refresh_xg_models.md) after a retrain |
@@ -119,7 +119,9 @@ library(dplyr)
 library(ggplot2)
 
 xg_env <- fastRhockey:::.xg_env
+# The models load on first use; load them here (a download the first time).
 xg_ready <- requireNamespace("xgboost", quietly = TRUE) &&
+  !inherits(try(fastRhockey:::.load_xg_models(), silent = TRUE), "try-error") &&
   !is.null(xg_env$xg_model_5v5)
 xg_ready
 #> [1] TRUE

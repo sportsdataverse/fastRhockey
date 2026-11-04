@@ -177,7 +177,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_wch_season_groups(season = 2026, season_type = 2))
-#> ✖ 2026-11-04 04:38:35.529102: Invalid arguments or no ESPN womens-college-hockey season groups for 2026 type 2 available!
+#> ✖ 2026-11-04 09:31:51.696586: Invalid arguments or no ESPN womens-college-hockey season groups for 2026 type 2 available!
 #> ✖ Args: league = "womens-college-hockey", season = 2026, season_type = 2
 #> ✖ Error: replacement has 1 row, data has 0
 #> data frame with 0 columns and 0 rows

@@ -66,7 +66,7 @@ Returns a data frame with team statistics.
 # \donttest{
   try(nhl_stats_teams())
 #> ── NHL Stats Teams ──────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 04:42:13 UTC
+#> ℹ Data updated: 2026-11-04 09:35:35 UTC
 #> # A tibble: 32 × 25
 #>    faceoff_win_pct games_played goals_against goals_against_per_game goals_for
 #>              <dbl>        <int>         <int>                  <dbl>     <int>

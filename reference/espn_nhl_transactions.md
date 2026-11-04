@@ -168,7 +168,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_transactions())
 #> ── NHL Transactions data from ESPN.com ──────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 04:38:12 UTC
+#> ℹ Data updated: 2026-11-04 09:31:34 UTC
 #> # A tibble: 25 × 8
 #>    date            description team_id team_location team_name team_abbreviation
 #>    <chr>           <chr>       <chr>   <chr>         <chr>     <chr>            

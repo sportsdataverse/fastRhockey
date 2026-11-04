@@ -1,10 +1,13 @@
 # **NHL Expected Goals (xG) Pipeline Overview**
 
 Expected-goals computation for NHL play-by-play data. Three XGBoost
-models (5v5, special teams, penalty shots) are downloaded from
-`sportsdataverse/fastRhockey-nhl-data/main/models/` on package load (see
-`zzz.R`'s `.onLoad()`) and cached in
-`tools::R_user_dir("fastRhockey", "cache")` so they're fetched once.
+models (5v5, special teams, penalty shots) are downloaded on first use
+from the sportsdataverse-data `nhl_xg_models` release (the one
+sportsdataverse-py reads), checked against the sha256 pinned in `zzz.R`,
+and cached in `tools::R_user_dir("fastRhockey", "cache")`. A cached copy
+whose hash differs is replaced, and
+[`library(fastRhockey)`](https://fastRhockey.sportsdataverse.org/) makes
+no network call.
 
 ## Details
 

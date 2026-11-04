@@ -173,7 +173,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_leaders_core())
 #> ── NHL Leaders (core-v2) data from ESPN.com ─────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 04:37:34 UTC
+#> ℹ Data updated: 2026-11-04 09:31:09 UTC
 #> # A tibble: 175 × 9
 #>    category_name category_display_name category_short_display_name
 #>    <chr>         <chr>                 <chr>                      

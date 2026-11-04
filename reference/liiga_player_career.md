@@ -107,7 +107,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_player_career(player_id = 21870028))
 #> ── Liiga player career Information from liiga.fi ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 04:40:09 UTC
+#> ℹ Data updated: 2026-11-04 09:33:17 UTC
 #> # A tibble: 29 × 39
 #>    player_id season games played_games goals assists points penalty_minutes
 #>        <int>  <int> <int>        <int> <int>   <int>  <int>           <int>

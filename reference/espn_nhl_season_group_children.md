@@ -195,7 +195,7 @@ Saiem Gilani
                                     group_id = grps$group_id[1])
   })
 #> ── NHL Season Group Children data from ESPN core-v2 ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 04:37:53 UTC
+#> ℹ Data updated: 2026-11-04 09:31:22 UTC
 #> # A tibble: 2 × 7
 #>   ref                child_group_id season season_type group_id count page_count
 #>   <chr>              <chr>           <int>       <int>    <int> <int>      <int>

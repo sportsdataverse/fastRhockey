@@ -175,7 +175,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_season_coaches(season = 2026))
 #> ── NHL Season Coaches data from ESPN core-v2 ────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 04:37:52 UTC
+#> ℹ Data updated: 2026-11-04 09:31:20 UTC
 #> # A tibble: 32 × 5
 #>    ref                                          coach_id season count page_count
 #>    <chr>                                        <chr>     <int> <int>      <int>
