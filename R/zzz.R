@@ -60,25 +60,35 @@
 .xg_file <- function(fname, cache_dir = .xg_cache_dir()) {
     dest <- file.path(cache_dir, fname)
     pin <- .xg_pins[[fname]]
-    if (file.exists(dest) && identical(cli::hash_file_sha256(dest), pin)) {
-        return(dest)
-    }
+    if (.xg_hash_is(dest, pin)) return(dest)
     dir.create(cache_dir, recursive = TRUE, showWarnings = FALSE)
-    tmp <- paste0(dest, ".part")
+    # Its own temp file per download, so two sessions loading at once cannot
+    # hash or rename each other's partial file.
+    tmp <- tempfile(paste0(fname, "-"), tmpdir = cache_dir)
     on.exit(unlink(tmp), add = TRUE)
     utils::download.file(paste0(.xg_base_url, fname), tmp,
                          mode = "wb", quiet = TRUE)
-    if (!identical(cli::hash_file_sha256(tmp), pin)) {
+    if (!.xg_hash_is(tmp, pin)) {
         cli::cli_abort(c(
             "The {.val nhl_xg_models} release no longer carries the {.file {fname}} this fastRhockey version scores with.",
             "i" = "Update fastRhockey to use the retrained xG models."
         ))
     }
-    # Replaces a stale cached copy too.
-    if (!isTRUE(file.rename(tmp, dest))) {
-        file.copy(tmp, dest, overwrite = TRUE)
+    # Replaces a stale cached copy too; a copy that still fails the pin is refused.
+    unlink(dest, recursive = TRUE)
+    if (!isTRUE(file.rename(tmp, dest))) file.copy(tmp, dest, overwrite = TRUE)
+    if (!.xg_hash_is(dest, pin)) {
+        cli::cli_abort("Could not write the xG model file {.file {dest}}.")
     }
     dest
+}
+
+#' Does `path` hash to `pin`? An unreadable or missing path is a miss.
+#' @keywords internal
+#' @noRd
+.xg_hash_is <- function(path, pin) {
+    file.exists(path) && !dir.exists(path) &&
+        identical(tryCatch(cli::hash_file_sha256(path), error = function(e) NA), pin)
 }
 
 #' Load the xG models into `.xg_env`, once per session
@@ -128,7 +138,11 @@ refresh_xg_models <- function() {
         )
     }
     cache_dir <- .xg_cache_dir()
-    unlink(file.path(cache_dir, c(names(.xg_pins), "xg_model_meta.rds")))
+    cached <- file.path(cache_dir, c(names(.xg_pins), "xg_model_meta.rds"))
+    unlink(cached)
+    if (any(file.exists(cached))) {
+        stop("Could not delete the cached xG models in ", cache_dir, call. = FALSE)
+    }
     message("Cleared cached xG models.")
     for (nm in c("xg_model_5v5", "xg_model_st")) assign(nm, NULL, envir = .xg_env)
     .load_xg_models()

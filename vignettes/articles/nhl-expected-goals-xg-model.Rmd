@@ -92,7 +92,9 @@ library(dplyr)
 library(ggplot2)
 
 xg_env <- fastRhockey:::.xg_env
+# The models load on first use; load them here (a download the first time).
 xg_ready <- requireNamespace("xgboost", quietly = TRUE) &&
+  !inherits(try(fastRhockey:::.load_xg_models(), silent = TRUE), "try-error") &&
   !is.null(xg_env$xg_model_5v5)
 xg_ready
 ```

@@ -55,3 +55,15 @@ test_that("every pinned asset is a 64-hex sha256", {
                                        "xg_model_meta.json", "feats_5v5.txt", "feats_st.txt"))
     expect_true(all(grepl("^[0-9a-f]{64}$", .xg_pins)))
 })
+
+test_that("an unreadable cache entry is a miss, not an error", {
+    dir <- withr::local_tempdir()
+    dir.create(file.path(dir, "xg_model_meta.json"))
+    env <- new.env()
+    env$src <- meta_fixture
+    local_mocked_bindings(download.file = mock_download(env), .package = "utils")
+    dest <- .xg_file("xg_model_meta.json", dir)
+    expect_length(env$calls, 1L)
+    expect_identical(cli::hash_file_sha256(dest), .xg_pins[["xg_model_meta.json"]])
+    expect_length(list.files(dir), 1L)
+})
