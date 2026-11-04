@@ -34,7 +34,7 @@
 # Internal worker: validates seasons (per-season tables only), builds the
 # release URLs, reads each csv with the contract column classes, optionally
 # writes into a DB, and tags the result fastRhockey_data. A file that fails to
-# download warns and contributes a zero-row frame carrying the contract schema.
+# download after the retries in .read_release_asset() warns and contributes a zero-row frame carrying the contract schema.
 .groups_release_loader <- function(league, table, description,
                                    seasons = NULL, min_season = NULL,
                                    max_season = NULL,
@@ -58,15 +58,11 @@
 
   read_one <- function(url) {
     out <- data.table::as.data.table(lapply(cols, vector, length = 0))
-    tryCatch(
-      expr = {
-        out <- csv_from_url(url, colClasses = cols, na.strings = "",
-                            encoding = "UTF-8", showProgress = FALSE)
-      },
-      error = function(e) {
-        cli::cli_warn("Failed to read {.url {url}}: {conditionMessage(e)}")
-      }
-    )
+    res <- .read_release_asset(url, function(u) {
+      csv_from_url(u, colClasses = cols, na.strings = "",
+                   encoding = "UTF-8", showProgress = FALSE)
+    })
+    if (!inherits(res, "try-error")) out <- res
     out
   }
 
