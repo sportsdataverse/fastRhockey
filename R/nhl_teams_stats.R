@@ -77,6 +77,7 @@ nhl_teams_stats <- function(team_abbr, season = NULL, game_type = 2) {
     )
   }
 
+  stats_df <- NULL
   tryCatch(
     expr = {
       res <- .retry_request(url)

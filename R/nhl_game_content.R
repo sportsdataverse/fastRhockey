@@ -52,6 +52,7 @@
 nhl_game_content <- function(game_id) {
   url <- glue::glue("https://api-web.nhle.com/v1/gamecenter/{game_id}/landing")
 
+  game_df <- NULL
   tryCatch(
     expr = {
       res <- .retry_request(url)

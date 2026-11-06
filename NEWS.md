@@ -252,6 +252,10 @@ upgrades from 1.0.0 may need to change.
   retry a failed download twice. A 404 is not retried. If a file still
   fails, the warning names its URL and says the result is incomplete; the
   seasons that loaded are still returned.
+* `nhl_teams_stats()`, `nhl_player_stats()`, `nhl_game_content()` and
+  `pwhl_player_box()` return `NULL` with a message when the request fails,
+  as the other NHL and PWHL wrappers do. They used to stop with
+  "object '...' not found".
 
 ### Dependencies
 

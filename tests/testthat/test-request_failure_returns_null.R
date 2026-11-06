@@ -1,0 +1,27 @@
+# Offline: a failed request must give the documented NULL plus a message,
+# not "object '<result>' not found" from an uninitialised return variable.
+fail_request <- function(...) stop("simulated connection failure")
+
+test_that("nhl_teams_stats() returns NULL when the request fails", {
+  local_mocked_bindings(.retry_request = fail_request)
+  expect_message(res <- nhl_teams_stats(team_abbr = "TBL"), "no team stats")
+  expect_null(res)
+})
+
+test_that("pwhl_player_box() returns NULL when the request fails", {
+  local_mocked_bindings(.retry_request = fail_request)
+  expect_message(res <- pwhl_player_box(game_id = 27), "no player box")
+  expect_null(res)
+})
+
+test_that("nhl_player_stats() returns NULL when the request fails", {
+  local_mocked_bindings(.retry_request = fail_request)
+  expect_no_error(res <- suppressMessages(nhl_player_stats(player_id = 8476899)))
+  expect_null(res)
+})
+
+test_that("nhl_game_content() returns NULL when the request fails", {
+  local_mocked_bindings(.retry_request = fail_request)
+  expect_no_error(res <- suppressMessages(nhl_game_content(game_id = 2024020001)))
+  expect_null(res)
+})
