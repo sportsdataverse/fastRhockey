@@ -76,8 +76,10 @@ committed fixtures and mock the HTTP layer.
 * Local Windows 10, R 4.6.0 (ucrt), `R CMD check --as-cran --timings
   --run-donttest` on the built tarball (2026-11-05, an empty user
   .Renviron, NOT_CRAN unset, so every networked test skips): Status: 1 NOTE.
-  CRAN incoming feasibility, the tests (394 pass, 998 skip, 0 fail) and the
-  PDF and HTML manuals are OK. No example raised an error.
+  CRAN incoming feasibility, the tests and the PDF and HTML manuals are
+  OK. No example raised an error. After a final fix commit, the tests were
+  re-run with `--as-cran --no-examples`: Status: OK, 402 pass, 998 skip,
+  0 fail.
 * The NOTE is the example timing check:
 
   ```
