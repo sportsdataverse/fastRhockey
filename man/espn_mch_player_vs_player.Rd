@@ -27,7 +27,7 @@ League slug \code{mens-college-hockey}; \code{season} is the END year (\code{202
 }
 \examples{
 \donttest{
-  try(espn_mch_player_vs_player(athlete_id = "5136656", opponent_id = "5136656"))
+  try(espn_mch_player_vs_player(athlete_id = "5136656", opp_id = "5136656"))
 }
 }
 \seealso{

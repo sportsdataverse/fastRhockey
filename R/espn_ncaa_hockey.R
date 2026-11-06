@@ -3314,7 +3314,7 @@ NULL
 #' @family ESPN MCH Functions
 #' @examples
 #' \donttest{
-#'   try(espn_mch_player_vs_player(athlete_id = "5136656", opponent_id = "5136656"))
+#'   try(espn_mch_player_vs_player(athlete_id = "5136656", opp_id = "5136656"))
 #' }
 espn_mch_player_vs_player <- function(athlete_id, opp_id, ...) {
   .espn_hockey_player_vs_player(league = "mens-college-hockey", athlete_id = athlete_id,
@@ -8417,7 +8417,7 @@ NULL
 #' @family ESPN WCH Functions
 #' @examples
 #' \donttest{
-#'   try(espn_wch_player_vs_player(athlete_id = "5263060", opponent_id = "5263060"))
+#'   try(espn_wch_player_vs_player(athlete_id = "5263060", opp_id = "5263060"))
 #' }
 espn_wch_player_vs_player <- function(athlete_id, opp_id, ...) {
   .espn_hockey_player_vs_player(league = "womens-college-hockey", athlete_id = athlete_id,

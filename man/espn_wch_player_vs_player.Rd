@@ -27,7 +27,7 @@ League slug \code{womens-college-hockey}; \code{season} is the END year (\code{2
 }
 \examples{
 \donttest{
-  try(espn_wch_player_vs_player(athlete_id = "5263060", opponent_id = "5263060"))
+  try(espn_wch_player_vs_player(athlete_id = "5263060", opp_id = "5263060"))
 }
 }
 \seealso{
