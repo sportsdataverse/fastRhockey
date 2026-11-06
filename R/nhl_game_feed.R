@@ -232,7 +232,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Fetch raw play-by-play API response without processing
-#' @keywords internal
+#' @noRd
 .get_raw_pbp <- function(game_id) {
     pbp_url <- paste0(
         "https://api-web.nhle.com/v1/gamecenter/",
@@ -251,7 +251,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 #' Last-observation-carried-forward fill (base R, no zoo dependency)
 #' @param x A vector (numeric, integer, or character).
 #' @return The vector with NAs replaced by the most recent non-NA value.
-#' @keywords internal
+#' @noRd
 .nafill_locf <- function(x) {
     if (length(x) == 0L) {
         return(x)
@@ -263,7 +263,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 }
 
 #' Build the full PBP data from raw API response
-#' @keywords internal
+#' @noRd
 .build_pbp <- function(raw, rosters, game_id, include_shifts) {
     plays <- raw$plays
     if (is.null(plays) || length(plays) == 0) {
@@ -412,7 +412,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Parse plays array from API response into a data frame
-#' @keywords internal
+#' @noRd
 .parse_plays <- function(
     plays,
     home_abbr,
@@ -568,7 +568,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Extract scores from plays data
-#' @keywords internal
+#' @noRd
 .extract_scores <- function(pbp) {
     # The new API has scores in details.homeScore / details.awayScore for GOAL events
     # and possibly in other fields
@@ -584,7 +584,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Extract event players using coalesce pattern (adapted from hockeyR by Daniel Morse)
-#' @keywords internal
+#' @noRd
 .extract_event_players <- function(pbp) {
     # Player ID columns from the new API (details.*)
     p1_cols <- c(
@@ -679,7 +679,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Parse situationCode into skater counts
-#' @keywords internal
+#' @noRd
 .parse_situation_code <- function(pbp) {
     if ("situationCode" %in% names(pbp)) {
         sc <- as.character(pbp$situationCode)
@@ -701,7 +701,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Extract penalty info
-#' @keywords internal
+#' @noRd
 .extract_penalty_info <- function(pbp) {
     if ("details.typeCode" %in% names(pbp)) {
         pbp$typeCode <- pbp$`details.typeCode`
@@ -732,7 +732,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Extract secondary type (shot type / penalty type)
-#' @keywords internal
+#' @noRd
 .extract_secondary_type <- function(pbp) {
     if ("details.shotType" %in% names(pbp)) {
         pbp$secondary_type <- pbp$`details.shotType`
@@ -769,7 +769,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Extract empty net info from situation code
-#' @keywords internal
+#' @noRd
 .extract_empty_net <- function(pbp) {
     pbp <- pbp %>%
         dplyr::mutate(
@@ -795,7 +795,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Fix coordinates so home team always shoots right
-#' @keywords internal
+#' @noRd
 .fix_coordinates <- function(pbp, raw, home_abbr, away_abbr) {
     # Use homeTeamDefendingSide from API if available
     if ("homeTeamDefendingSide" %in% names(pbp)) {
@@ -866,7 +866,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Add shot distance and angle
-#' @keywords internal
+#' @noRd
 .add_shot_metrics <- function(pbp, home_abbr) {
     fenwick_events <- c("SHOT", "MISSED_SHOT", "GOAL", "BLOCKED_SHOT")
 
@@ -911,7 +911,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Integrate shift data into PBP for on-ice player tracking
-#' @keywords internal
+#' @noRd
 .integrate_shifts <- function(
     pbp,
     rosters,
@@ -1029,7 +1029,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Build on-ice player matrix using cumsum approach
-#' @keywords internal
+#' @noRd
 .build_onice_matrix <- function(pbp, rosters, home_abbr, away_abbr) {
     # Identify home and away players from shifts
     home_roster <- rosters %>%
@@ -1156,7 +1156,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Join event player names from roster
-#' @keywords internal
+#' @noRd
 .join_event_player_names <- function(pbp, rosters) {
     roster_lookup <- rosters %>%
         dplyr::select("player_id", player_name = "full_name") %>%
@@ -1193,7 +1193,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Add strength state columns
-#' @keywords internal
+#' @noRd
 .add_strength_states <- function(pbp, home_abbr, away_abbr) {
     non_plays <- c(
         "PERIOD_START",
@@ -1244,7 +1244,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Add event descriptions
-#' @keywords internal
+#' @noRd
 .add_descriptions <- function(pbp, home_abbr, away_abbr) {
     # Ensure columns used in descriptions exist (may be absent without shifts)
     for (col in c("players_on", "players_off", "reason")) {
@@ -1313,7 +1313,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Finalize column ordering
-#' @keywords internal
+#' @noRd
 .finalize_columns <- function(pbp) {
     # Define preferred column order
     preferred <- c(
@@ -1409,7 +1409,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 # ---- Utility helpers ----
 
 #' Parse game rosters from the raw API response
-#' @keywords internal
+#' @noRd
 .parse_game_rosters <- function(raw) {
     # The PBP API includes rosterSpots array
     roster_spots <- raw$rosterSpots
@@ -1483,7 +1483,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Convert time string "MM:SS" to seconds
-#' @keywords internal
+#' @noRd
 .time_to_seconds <- function(time_str) {
     ifelse(
         is.na(time_str) | time_str == "",
@@ -1503,7 +1503,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Coalesce multiple integer columns
-#' @keywords internal
+#' @noRd
 .coalesce_int <- function(df, col_names) {
     vals <- lapply(col_names, function(cn) as.integer(df[[cn]]))
     do.call(dplyr::coalesce, vals)
@@ -1511,7 +1511,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Map game type code to label
-#' @keywords internal
+#' @noRd
 .game_type_label <- function(code) {
     dplyr::case_when(
         code == 1 ~ "PR",
@@ -1524,7 +1524,7 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 
 
 #' Get PBP data (internal worker)
-#' @keywords internal
+#' @noRd
 .get_pbp_data <- function(game_id, include_shifts = TRUE) {
     feed <- nhl_game_feed(
         game_id = game_id,
