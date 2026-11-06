@@ -57,7 +57,9 @@ full list of changes is in NEWS.md. The main additions:
   `espn_nhl_player_splits()`, `espn_nhl_standings()` and `ha_schedule()`.
   That makes 37 interactive-only examples in all.
 * The defunct PHF functions (`phf_*()`, `load_phf_*()`), which stop via
-  `lifecycle::deprecate_stop()`, have no examples.
+  `lifecycle::deprecate_stop()`, have no examples. Neither does
+  `update_nhl_db()`, which downloads every season and writes it to a
+  database.
 * Three examples are in `\dontrun{}` because they cannot run unattended:
   `update_pwhl_db()` writes to a database, `refresh_xg_models()` downloads
   model files to the user cache, and `helper_nhl_calculate_xg()` needs those
