@@ -767,7 +767,7 @@ unix:i unix_start:i
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_schedule(season = 2026))
 #' }
@@ -837,7 +837,7 @@ nl_schedule <- function(season = NULL, return_parsed = TRUE) {
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_current_games(season = 2027))
 #' }
@@ -911,7 +911,7 @@ nl_current_games <- function(season = NULL, return_parsed = TRUE) {
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_team_schedule(season = 2026, team_id = 101144))
 #' }
@@ -993,7 +993,7 @@ nl_team_schedule <- function(team_id, season = NULL, return_parsed = TRUE) {
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_playoffs(season = 2026))
 #' }
@@ -1075,7 +1075,7 @@ nl_playoffs <- function(season = NULL, return_parsed = TRUE) {
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_playouts(season = 2026))
 #' }
@@ -1167,7 +1167,7 @@ nl_playouts <- function(season = NULL, return_parsed = TRUE) {
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_game_overview(game_id = 20261105000325))
 #' }
@@ -1246,7 +1246,7 @@ nl_game_overview <- function(game_id, return_parsed = TRUE) {
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_pbp(game_id = 20261105000325))
 #' }
@@ -1304,7 +1304,7 @@ nl_pbp <- function(game_id, return_parsed = TRUE) {
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_lineups(game_id = 20261105000325))
 #' }
@@ -1387,7 +1387,7 @@ nl_lineups <- function(game_id, return_parsed = TRUE) {
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_player_box(game_id = 20261105000325))
 #' }
@@ -1472,7 +1472,7 @@ nl_player_box <- function(game_id, return_parsed = TRUE) {
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_team_stats(game_id = 20261105000325))
 #' }
@@ -1537,7 +1537,7 @@ nl_team_stats <- function(game_id, return_parsed = TRUE) {
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_shots(game_id = 20261105000325))
 #' }
@@ -1728,7 +1728,7 @@ nl_shots <- function(game_id, return_parsed = TRUE) {
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_player_stats(phase = 4940, season = 2026))
 #' }
@@ -1920,7 +1920,7 @@ nl_player_stats <- function(season = NULL, phase = NULL, return_parsed = TRUE) {
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_top_scorers(phase = 4940, season = 2026, take = 3))
 #' }
@@ -2113,7 +2113,7 @@ nl_top_scorers <- function(take = NULL, season = NULL, phase = NULL, return_pars
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_team_player_stats(phase = 4940, season = 2026, team_id = 101144))
 #' }
@@ -2304,7 +2304,7 @@ nl_team_player_stats <- function(team_id, season = NULL, phase = NULL, return_pa
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_player_season(phase = 4940, player_id = 305519, season = 2026))
 #' }
@@ -2473,7 +2473,7 @@ nl_player_season <- function(player_id, season = NULL, phase = NULL, return_pars
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_standings(phase = 4940, season = 2026))
 #' }
@@ -2541,7 +2541,7 @@ nl_standings <- function(season = NULL, phase = NULL, return_parsed = TRUE) {
 #' for a 400/422 or an argument that is not a whole number.
 #' @family National League Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(nl_team_info(team_id = 101144))
 #' }

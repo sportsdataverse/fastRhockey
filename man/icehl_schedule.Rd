@@ -76,9 +76,11 @@ Signalled as classed conditions: \code{fastRhockey_no_data} when the bucket has 
 }
 
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(icehl_schedule(season = 2027, league_id = 1))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \href{https://www.ice.hockey/}{ICE Hockey League} (the league site whose widgets read this public eSports bucket)

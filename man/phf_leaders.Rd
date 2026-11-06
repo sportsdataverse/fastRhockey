@@ -28,9 +28,3 @@ PHF Player Leaderboards
 The PHF has ceased operations. This function is deprecated and
 will be removed in a future release.
 }
-\examples{
-\donttest{
- try(phf_leaders(player_type = "skaters", season = 2022, season_type="Regular Season"))
- try(phf_leaders(player_type = "goalies", season = 2022, season_type="Regular Season"))
-}
-}

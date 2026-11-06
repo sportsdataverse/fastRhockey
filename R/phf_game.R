@@ -16,10 +16,6 @@
 #' @importFrom purrr pluck map_dfr
 #' @importFrom glue glue
 #' @export
-#' @examples
-#' \donttest{
-#'   try(phf_game_all(game_id = 612254))
-#' }
 phf_game_all <- function(game_id) {
   lifecycle::deprecate_stop("1.0.0", "phf_game_all()", details = "The PHF has ceased operations.")
   base_url <- "https://web.api.digitalshift.ca/partials/stats/game/play-by-play?game_id="
@@ -140,10 +136,6 @@ phf_game_all <- function(game_id) {
 #' @import jsonlite
 #' @importFrom purrr pluck
 #' @export
-#' @examples
-#' \donttest{
-#'   try(phf_game_raw(game_id = 612254))
-#' }
 phf_game_raw <- function(game_id) {
   lifecycle::deprecate_stop("1.0.0", "phf_game_raw()", details = "The PHF has ceased operations.")
 
@@ -185,10 +177,6 @@ phf_game_raw <- function(game_id) {
 #' @import jsonlite
 #' @importFrom purrr pluck
 #' @export
-#' @examples
-#' \donttest{
-#'   try(phf_game_details(game_id = 612254))
-#' }
 phf_game_details <- function(game_id) {
   lifecycle::deprecate_stop("1.0.0", "phf_game_details()", details = "The PHF has ceased operations.")
 
@@ -287,10 +275,6 @@ phf_game_details <- function(game_id) {
 #' @import jsonlite
 #' @importFrom purrr pluck
 #' @export
-#' @examples
-#' \donttest{
-#'   try(phf_game_summary(game_id = 612254))
-#' }
 phf_game_summary <- function(game_id) {
   lifecycle::deprecate_stop("1.0.0", "phf_game_summary()", details = "The PHF has ceased operations.")
 

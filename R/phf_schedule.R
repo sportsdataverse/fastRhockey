@@ -12,10 +12,6 @@
 #' @import dplyr
 #' @importFrom glue glue
 #' @export
-#' @examples
-#' \donttest{
-#' try(phf_schedule(season = 2023))
-#' }
 phf_schedule <- function(season = NULL) {
   lifecycle::deprecate_stop("1.0.0", "phf_schedule()", details = "The PHF has ceased operations.")
   season_id <- phf_get_season_id(season = season)

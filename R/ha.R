@@ -1385,7 +1385,7 @@
 #' @keywords HA Schedule
 #' @family HA Functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(ha_schedule())
 #' }

@@ -12,12 +12,6 @@
 #' @import dplyr
 #' @importFrom glue glue
 #' @export
-#' @examples
-#' \donttest{
-#'    try(phf_team_roster(team = "Minnesota Whitecaps", season = 2023))
-#'    try(phf_team_roster(team = "Buffalo Beauts", season = 2023))
-#'    try(phf_team_roster(team = "Buffalo Beauts", season = 2016))
-#' }
 
 phf_team_roster <- function(team, season = most_recent_phf_season()){
   lifecycle::deprecate_stop("1.0.0", "phf_team_roster()", details = "The PHF has ceased operations.")

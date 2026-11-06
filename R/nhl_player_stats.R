@@ -65,6 +65,7 @@
 nhl_player_stats <- function(player_id) {
   url <- glue::glue("https://api-web.nhle.com/v1/player/{player_id}/landing")
 
+  stats_df <- NULL
   tryCatch(
     expr = {
       res <- .retry_request(url)

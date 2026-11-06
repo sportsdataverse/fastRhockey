@@ -20,9 +20,3 @@ PHF League Information per year
 The PHF has ceased operations. This function is deprecated and
 will be removed in a future release.
 }
-\examples{
-\donttest{
-  try(phf_league_info(season = 2023))
-  try(phf_league_info(season = 2016))
-}
-}

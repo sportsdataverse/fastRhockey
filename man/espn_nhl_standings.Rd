@@ -40,9 +40,11 @@ A \code{fastRhockey_data} tibble with one row per team:\tabular{lll}{
 \strong{Get ESPN NHL Standings}
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(espn_nhl_standings(season = 2025))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other ESPN NHL Functions:

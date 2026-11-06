@@ -20,8 +20,3 @@ phf_player_box: loads the player boxscore
 The PHF has ceased operations. This function is deprecated and
 will be removed in a future release.
 }
-\examples{
-\donttest{
-  try(phf_player_box(game_id = 420339))
-}
-}

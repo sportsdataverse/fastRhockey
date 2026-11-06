@@ -202,9 +202,11 @@ for a 400/422 or an argument that is not a whole number.
 }
 
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(nl_team_player_stats(phase = 4940, season = 2026, team_id = 101144))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other National League Functions:

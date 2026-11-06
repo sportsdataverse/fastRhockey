@@ -14,10 +14,6 @@
 #' @importFrom purrr pluck map_dfr
 #' @importFrom glue glue
 #' @export
-#' @examples
-#' \donttest{
-#'   try(phf_pbp(game_id = 268127))
-#' }
 phf_pbp <- function(game_id) {
   lifecycle::deprecate_stop("1.0.0", "phf_pbp()", details = "The PHF has ceased operations.")
   base_url <- "https://web.api.digitalshift.ca/partials/stats/game/play-by-play?game_id="

@@ -20,8 +20,3 @@ phf_team_box: loads the team boxscore and shot/score data for a game into one da
 The PHF has ceased operations. This function is deprecated and
 will be removed in a future release.
 }
-\examples{
-\donttest{
-  try(phf_team_box(game_id = 420339))
-}
-}

@@ -33,8 +33,3 @@ or writes it into a db using some forwarded arguments in the dots
 The PHF has ceased operations. This function is deprecated and
 will be removed in a future release.
 }
-\examples{
-\donttest{
-  try(load_phf_team_box(2021))
-}
-}

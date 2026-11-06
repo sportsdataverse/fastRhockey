@@ -20,8 +20,3 @@ phf_standings: pull in the standings data for a game_id from the PHF/NWHL API
 The PHF has ceased operations. This function is deprecated and
 will be removed in a future release.
 }
-\examples{
-\donttest{
-  try(phf_standings(season = most_recent_phf_season()))
-}
-}

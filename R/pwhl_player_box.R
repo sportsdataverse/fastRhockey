@@ -66,6 +66,7 @@
 
 pwhl_player_box <- function(game_id) {
 
+  player_box <- NULL
   tryCatch(
     expr = {
       URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=gameSummary&game_id={game_id}&key=694cfeed58c932ee&site_id=2&client_code=pwhl&lang=en&league_id=&callback=angular.callbacks._6")
