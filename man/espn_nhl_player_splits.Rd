@@ -45,9 +45,11 @@ A \code{fastRhockey_data} tibble with one row per situational split:\tabular{lll
 \strong{Get ESPN NHL Player Splits}
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(espn_nhl_player_splits(athlete_id = "5149125", season = 2025))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other ESPN NHL Functions:

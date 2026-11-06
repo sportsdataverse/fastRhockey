@@ -488,7 +488,7 @@ NULL
 #' @importFrom janitor clean_names make_clean_names
 #' @export
 #' @family ESPN NHL Functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(espn_nhl_player_splits(athlete_id = "5149125", season = 2025))
 #' }

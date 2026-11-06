@@ -2106,7 +2106,7 @@ del_shots <- function(match_id, return_parsed = TRUE) {
 #' @keywords ICE Hockey League eSports
 #' @family ICE Hockey League eSports functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(icehl_schedule(season = 2027, league_id = 1))
 #' }
@@ -2198,7 +2198,7 @@ icehl_schedule <- function(season, league_id = 1L, return_parsed = TRUE) {
 #' @keywords ICE Hockey League eSports
 #' @family ICE Hockey League eSports functions
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(icehl_league_part_player_stats(league_part_id = 56))
 #' }
