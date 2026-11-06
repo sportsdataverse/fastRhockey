@@ -59,7 +59,7 @@ another day, an empty or non-JSON 200, or any other non-2xx.
 
 \examples{
 \donttest{
-  try(elh_scoreboard(date = format(Sys.Date() - 1)))
+  try(elh_scoreboard(date = "2025-10-17"))
 }
 }
 \seealso{

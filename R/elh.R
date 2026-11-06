@@ -1220,7 +1220,7 @@ elh_events <- function(match_id, return_parsed = TRUE) {
 #' @export
 #' @examples
 #' \donttest{
-#'   try(elh_scoreboard(date = format(Sys.Date() - 1)))
+#'   try(elh_scoreboard(date = "2025-10-17"))
 #' }
 elh_scoreboard <- function(date, return_parsed = TRUE) {
   old <- options(scipen = 999, stringsAsFactors = FALSE)
