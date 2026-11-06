@@ -273,6 +273,22 @@ upgrades from 1.0.0 may need to change.
   nine VHL functions (`vhl_schedule()`, `vhl_game_info()`, `vhl_goals()`,
   `vhl_penalties()`, `vhl_player_box()`, `vhl_goalie_box()`, `vhl_pbp()`,
   `vhl_skater_stats()`, `vhl_goalie_stats()`). The functions are unchanged.
+* The DESCRIPTION title no longer starts with "Functions to", and the
+  description spells out each league acronym and quotes the API and service
+  names.
+* The 17 `nl_*()` examples run only interactively, because
+  nationalleague.ch's robots.txt disallows `/api`. Five more examples that
+  took over 5 s of CPU also run only interactively:
+  `icehl_league_part_player_stats()`, `icehl_schedule()`,
+  `espn_nhl_player_splits()`, `espn_nhl_standings()` and `ha_schedule()`.
+* The `espn_mch_player_vs_player()` and `espn_wch_player_vs_player()`
+  examples pass `opp_id`, the argument's actual name.
+* The `elh_scoreboard()` example uses a fixed past date with games instead of
+  yesterday's date.
+* The defunct `phf_*()` and `load_phf_*()` functions no longer carry examples,
+  which could only raise the defunct error.
+* The internal play-by-play helpers in `nhl_game_feed.R` are no longer
+  rendered as help pages.
 
 # **fastRhockey 1.0.0**
 
