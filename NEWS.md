@@ -254,6 +254,7 @@ upgrades from 1.0.0 may need to change.
   seasons that loaded are still returned.
 * `nhl_teams_stats()`, `nhl_player_stats()`, `nhl_game_content()` and
   `pwhl_player_box()` return `NULL` with a message when the request fails,
+  and `pwhl_standings()` when the response can't be parsed,
   as the other NHL and PWHL wrappers do. They used to stop with
   "object '...' not found".
 

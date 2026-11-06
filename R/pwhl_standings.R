@@ -59,6 +59,7 @@ pwhl_standings <- function(season = most_recent_pwhl_season(), regular = TRUE) {
 
   reg_standings <- data.frame()
   standings <- data.frame()
+  lg_standings <- NULL
   # data[[1]]
 
   # jsonlite::fromJSON(r[[1]]$sections[[1]]$data)
