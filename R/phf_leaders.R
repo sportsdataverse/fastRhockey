@@ -13,11 +13,6 @@
 #' @import dplyr
 #' @importFrom glue glue
 #' @export
-#' @examples
-#' \donttest{
-#'  try(phf_leaders(player_type = "skaters", season = 2022, season_type="Regular Season"))
-#'  try(phf_leaders(player_type = "goalies", season = 2022, season_type="Regular Season"))
-#' }
 
 phf_leaders <- function(player_type, season = most_recent_phf_season(), season_type="Regular Season"){
   lifecycle::deprecate_stop("1.0.0", "phf_leaders()", details = "The PHF has ceased operations.")

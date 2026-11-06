@@ -12,10 +12,6 @@
 #' @import dplyr
 #' @importFrom glue glue
 #' @export
-#' @examples
-#' \donttest{
-#'   try(phf_team_stats(team = "Boston Pride", season = 2022))
-#' }
 
 phf_team_stats <- function(team, season = most_recent_phf_season()){
   lifecycle::deprecate_stop("1.0.0", "phf_team_stats()", details = "The PHF has ceased operations.")

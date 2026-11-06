@@ -20,9 +20,3 @@ phf_player_stats: loads the player stats
 The PHF has ceased operations. This function is deprecated and
 will be removed in a future release.
 }
-\examples{
-\donttest{
-  try(phf_player_stats(player_id = 431611))
-  try(phf_player_stats(player_id = 532475))
-}
-}

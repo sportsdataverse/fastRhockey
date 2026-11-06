@@ -14,10 +14,6 @@
 #' @importFrom purrr pluck map_dfr
 #' @importFrom glue glue
 #' @export
-#' @examples
-#' \donttest{
-#'   try(phf_standings(season = most_recent_phf_season()))
-#' }
 phf_standings <- function(season = most_recent_phf_season()) {
   lifecycle::deprecate_stop("1.0.0", "phf_standings()", details = "The PHF has ceased operations.")
   season_id <- phf_get_season_id(season=season)

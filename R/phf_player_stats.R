@@ -14,11 +14,6 @@
 #' @import jsonlite
 #' @importFrom glue glue
 #' @export
-#' @examples
-#' \donttest{
-#'   try(phf_player_stats(player_id = 431611))
-#'   try(phf_player_stats(player_id = 532475))
-#' }
 phf_player_stats <- function(player_id) {
   lifecycle::deprecate_stop("1.0.0", "phf_player_stats()", details = "The PHF has ceased operations.")
 

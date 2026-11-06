@@ -20,8 +20,3 @@ phf_pbp: pull in the raw data for a game_id from the PHF/NWHL API
 The PHF has ceased operations. This function is deprecated and
 will be removed in a future release.
 }
-\examples{
-\donttest{
-  try(phf_pbp(game_id = 268127))
-}
-}

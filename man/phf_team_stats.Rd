@@ -22,8 +22,3 @@ PHF Team Stats lookup
 The PHF has ceased operations. This function is deprecated and
 will be removed in a future release.
 }
-\examples{
-\donttest{
-  try(phf_team_stats(team = "Boston Pride", season = 2022))
-}
-}

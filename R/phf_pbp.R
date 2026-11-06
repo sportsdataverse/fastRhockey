@@ -18,10 +18,6 @@ NULL
 #' @param tablename The name of the play by play data table within the database
 #' @return A dataframe
 #' @export
-#' @examples
-#' \donttest{
-#'   try(load_phf_pbp(2021))
-#' }
 load_phf_pbp <- function(seasons = most_recent_phf_season(),...,
                          dbConnection = NULL, tablename = NULL) {
   lifecycle::deprecate_stop("1.0.0", "load_phf_pbp()", details = "The PHF has ceased operations.")
@@ -74,10 +70,6 @@ NULL
 #' @param tablename The name of the team box data table within the database
 #' @return Returns a tibble
 #' @export
-#' @examples
-#' \donttest{
-#'   try(load_phf_team_box(2021))
-#' }
 load_phf_team_box <- function(seasons = most_recent_phf_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
   lifecycle::deprecate_stop("1.0.0", "load_phf_team_box()", details = "The PHF has ceased operations.")
@@ -128,10 +120,6 @@ NULL
 #' @param tablename The name of the player box data table within the database
 #' @return Returns a tibble
 #' @export
-#' @examples
-#' \donttest{
-#'   try(load_phf_player_box(2021))
-#' }
 load_phf_player_box <- function(seasons = most_recent_phf_season(), ...,
                                 dbConnection = NULL, tablename = NULL) {
   lifecycle::deprecate_stop("1.0.0", "load_phf_player_box()", details = "The PHF has ceased operations.")
@@ -183,10 +171,6 @@ NULL
 #' @param tablename The name of the schedule data table within the database
 #' @return Returns a tibble
 #' @export
-#' @examples
-#' \donttest{
-#'   try(load_phf_schedule(2021))
-#' }
 load_phf_schedule <- function(seasons = most_recent_phf_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
   lifecycle::deprecate_stop("1.0.0", "load_phf_schedule()", details = "The PHF has ceased operations.")
@@ -240,10 +224,6 @@ NULL
 #' @param tablename The name of the team rosters data table within the database
 #' @return Returns a tibble
 #' @export
-#' @examples
-#' \donttest{
-#'   try(load_phf_rosters(2021))
-#' }
 load_phf_rosters <- function(seasons = most_recent_phf_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
   lifecycle::deprecate_stop("1.0.0", "load_phf_rosters()", details = "The PHF has ceased operations.")

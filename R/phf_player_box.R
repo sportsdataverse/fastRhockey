@@ -14,10 +14,6 @@
 #' @import jsonlite
 #' @importFrom glue glue
 #' @export
-#' @examples
-#' \donttest{
-#'   try(phf_player_box(game_id = 420339))
-#' }
 phf_player_box <- function(game_id) {
   lifecycle::deprecate_stop("1.0.0", "phf_player_box()", details = "The PHF has ceased operations.")
 

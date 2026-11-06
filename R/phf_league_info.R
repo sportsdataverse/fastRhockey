@@ -13,10 +13,6 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom glue glue
 #' @export
-#' @examples \donttest{
-#'   try(phf_league_info(season = 2023))
-#'   try(phf_league_info(season = 2016))
-#' }
 phf_league_info <- function(season = most_recent_phf_season()){
   lifecycle::deprecate_stop("1.0.0", "phf_league_info()", details = "The PHF has ceased operations.")
 

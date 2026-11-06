@@ -22,10 +22,3 @@ PHF Team Roster lookup
 The PHF has ceased operations. This function is deprecated and
 will be removed in a future release.
 }
-\examples{
-\donttest{
-   try(phf_team_roster(team = "Minnesota Whitecaps", season = 2023))
-   try(phf_team_roster(team = "Buffalo Beauts", season = 2023))
-   try(phf_team_roster(team = "Buffalo Beauts", season = 2016))
-}
-}

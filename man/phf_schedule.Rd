@@ -20,8 +20,3 @@ PHF Schedule lookup
 The PHF has ceased operations. This function is deprecated and
 will be removed in a future release.
 }
-\examples{
-\donttest{
-try(phf_schedule(season = 2023))
-}
-}
