@@ -46,6 +46,18 @@ full list of changes is in NEWS.md. The main additions:
   than from a home connection, and `ha_games()` (hockeyallsvenskan.se) took
   32 s in one runner sample, 5 s in the other and 3 s locally. Every
   other function in those families keeps a `--run-donttest` example.
+* All 17 Swiss National League examples (`nl_*()`) also run only in
+  interactive sessions. The functions read www.nationalleague.ch/api, and
+  that site's robots.txt disallows `/api`, so we do not want CRAN's
+  automated checks to request it. The help pages say so, and users who call
+  the functions do so knowingly.
+* Five more examples run only in interactive sessions because each used
+  more than 5 s of CPU parsing a season-wide payload that the endpoint
+  cannot narrow: `icehl_league_part_player_stats()`, `icehl_schedule()`,
+  `espn_nhl_player_splits()`, `espn_nhl_standings()` and `ha_schedule()`.
+  That makes 37 interactive-only examples in all.
+* The defunct PHF functions (`phf_*()`, `load_phf_*()`), which stop via
+  `lifecycle::deprecate_stop()`, have no examples.
 * Three examples are in `\dontrun{}` because they cannot run unattended:
   `update_pwhl_db()` writes to a database, `refresh_xg_models()` downloads
   model files to the user cache, and `helper_nhl_calculate_xg()` needs those
@@ -59,25 +71,43 @@ committed fixtures and mock the HTTP layer.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 1 note
 
-* Local Windows 10, R 4.6.0, `R CMD check --as-cran` on the built tarball
-  (2026-11-03; NOT_CRAN unset, so every networked test skips): Status: OK.
-  CRAN incoming feasibility, the examples, the examples with
-  `--run-donttest` (9 minutes), the tests (17 seconds) and the PDF and HTML
-  manuals are all OK.
-* Installed size. R 4.6.0 and R-devel report it as INFO, not a NOTE. The
-  tarball is 2.2 MB and the installed size is 9.1 MB locally (R 2.1 MB,
-  help 6.6 MB) and 10.4 to 11.8 MB on R-hub, because the help pages
-  document about 880 exported functions, most with a column table for the
-  data they return.
-* GitHub Actions (R release on Ubuntu, macOS and Windows): see the R-CMD-check
-  workflow on the release commit.
-* R-hub (2026-11-03, commit 642f5710, R-devel r90825/r90827): Status: OK on
-  linux (Ubuntu 26.04), windows (Windows Server 2022), macos (x86_64, macOS
-  15), macos-arm64 (macOS 26) and nosuggests (Fedora 44, Suggests not
-  installed). The four full platforms ran the examples with `--run-donttest`.
-  Their only non-OK line is the installed-size INFO above.
+* Local Windows 10, R 4.6.0 (ucrt), `R CMD check --as-cran --timings
+  --run-donttest` on the built tarball (2026-11-05, an empty user
+  .Renviron, NOT_CRAN unset, so every networked test skips): Status: 1 NOTE.
+  CRAN incoming feasibility, the tests (394 pass, 998 skip, 0 fail) and the
+  PDF and HTML manuals are OK. No example raised an error.
+* The NOTE is the example timing check:
+
+  ```
+  Examples with CPU (user + system) or elapsed time > 5s
+                            user system elapsed
+  liiga_player_stats        4.86   0.04    6.11
+  del_schedule              4.39   0.02    5.54
+  eihl_schedule             3.14   0.00    5.14
+  liiga_teams_history       3.09   0.03    5.61
+  nhl_game_feed             0.86   0.17    5.41
+  nhl_schedule              0.47   0.01    7.17
+  nhl_all_players_by_season 0.35   0.00    7.15
+  shl_player_crosswalk      0.16   0.00    5.26
+  ```
+
+  Every one is under 5 s of CPU. Only elapsed time is over 5 s, and that
+  is network wait: the check shared the machine with other jobs. Run on
+  their own, all eight finished in under 5 s elapsed on a second run except
+  `nhl_schedule()` (about 7 s for four requests to api-web.nhle.com,
+  0.5 s CPU).
+* Offline: the same tarball with `--run-donttest --no-tests --no-manual`
+  and the network blocked by a dead proxy: Status: OK. Every example that
+  needs the network fails inside its `try()`.
+* Installed size. R 4.6.0 reports it as INFO, not a NOTE. The tarball is
+  2.2 MB and the installed size is 8.9 MB locally (R 2.1 MB, help
+  6.4 MB), because the help pages document about 880 exported functions,
+  most with a column table for the data they return.
+* GitHub Actions (R release on Ubuntu, macOS and Windows, R-devel and
+  oldrel-1 on Ubuntu): see the R-CMD-check workflow on the release commit.
+* win-builder (devel and release): to be run before submission.
 
 ## Reverse dependencies
 
