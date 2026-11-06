@@ -87,7 +87,7 @@ Other SHL Functions:
 # \donttest{
   try(shl_sites(ssgt_uuid = "iuzqg7dqk9"))
 #> ── SHL Sites Information from www.shl.se ────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:36:43 UTC
+#> ℹ Data updated: 2026-11-06 07:50:53 UTC
 #> # A tibble: 14 × 5
 #>    id         instance_id public_url                     name           icon    
 #>    <chr>      <chr>       <chr>                          <chr>          <chr>   

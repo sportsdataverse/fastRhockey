@@ -116,27 +116,9 @@ Other National League Functions:
 ## Examples
 
 ``` r
+if (FALSE) { # interactive()
 # \donttest{
   try(nl_shots(game_id = 20261105000325))
-#> ── National League Shots Information from nationalleague.ch ────────────────────
-#> ℹ Data updated: 2026-11-04 09:35:50 UTC
-#> # A tibble: 105 × 20
-#>    game_id team_side team_id player_id player_number player_first_name
-#>      <dbl> <chr>       <dbl>     <dbl> <chr>         <chr>            
-#>  1 2.03e13 home       101151    308175 77            Nico             
-#>  2 2.03e13 away       102127    313213 28            Dario            
-#>  3 2.03e13 away       102127    156475 71            Julian           
-#>  4 2.03e13 home       101151    312365 36            Simon            
-#>  5 2.03e13 away       102127    342927 50            Juuso            
-#>  6 2.03e13 away       102127    142801 72            Samuel           
-#>  7 2.03e13 home       101151    309618 66            Valentin         
-#>  8 2.03e13 home       101151    340162 6             Klas             
-#>  9 2.03e13 home       101151    152416 90            Sven             
-#> 10 2.03e13 home       101151    154648 96            Chris            
-#> # ℹ 95 more rows
-#> # ℹ 14 more variables: player_last_name <chr>, period <int>, time <int>,
-#> #   strength <chr>, shot_type <chr>, pos_x <dbl>, pos_y <dbl>,
-#> #   pos_x_percentage <dbl>, pos_y_percentage <dbl>, video_time <int>, xg <dbl>,
-#> #   xg_sum <dbl>, unix <dbl>, unix_start <dbl>
 # }
+}
 ```

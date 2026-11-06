@@ -71,26 +71,26 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_skater_stats_leaders())
 #> ── NHL Skater Stats Leaders ─────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:35:28 UTC
+#> ℹ Data updated: 2026-11-06 07:49:50 UTC
 #> # A tibble: 45 × 22
 #>         id sweater_number headshot          team_abbrev team_logo position value
 #>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>
 #>  1 8481726             84 https://assets.n… NSH         https://… C            2
-#>  2 8475913             61 https://assets.n… VGK         https://… R            2
-#>  3 8478133             71 https://assets.n… MTL         https://… C            1
-#>  4 8483678             25 https://assets.n… VAN         https://… D            1
-#>  5 8482116             18 https://assets.n… OTT         https://… C            1
+#>  2 8478402             97 https://assets.n… EDM         https://… C            2
+#>  3 8475913             61 https://assets.n… VGK         https://… R            2
+#>  4 8478133             71 https://assets.n… MTL         https://… C            1
+#>  5 8483678             25 https://assets.n… VAN         https://… D            1
 #>  6 8480803              2 https://assets.n… EDM         https://… D           23
-#>  7 8475218             14 https://assets.n… EDM         https://… D           20
-#>  8 8478402             97 https://assets.n… EDM         https://… C           20
+#>  7 8478402             97 https://assets.n… EDM         https://… C           21
+#>  8 8475218             14 https://assets.n… EDM         https://… D           20
 #>  9 8478840             17 https://assets.n… BOS         https://… D           16
-#> 10 8477934             29 https://assets.n… EDM         https://… C           15
+#> 10 8477934             29 https://assets.n… EDM         https://… C           16
 #> # ℹ 35 more rows
 #> # ℹ 15 more variables: first_name_default <chr>, last_name_default <chr>,
 #> #   last_name_cs <chr>, last_name_fi <chr>, last_name_sk <chr>,
-#> #   last_name_sv <chr>, team_name_default <chr>, team_name_fr <chr>,
-#> #   category <chr>, first_name_cs <chr>, first_name_de <chr>,
-#> #   first_name_es <chr>, first_name_fi <chr>, first_name_sk <chr>,
-#> #   first_name_sv <chr>
+#> #   last_name_sv <chr>, team_name_default <chr>, category <chr>,
+#> #   first_name_cs <chr>, first_name_de <chr>, first_name_es <chr>,
+#> #   first_name_fi <chr>, first_name_sk <chr>, first_name_sv <chr>,
+#> #   team_name_fr <chr>
 # }
 ```

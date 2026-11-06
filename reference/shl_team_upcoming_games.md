@@ -126,7 +126,7 @@ Other SHL Functions:
 # \donttest{
   try(shl_team_upcoming_games(team_uuid = "087a-087aTQv9u"))
 #> ── SHL Team Upcoming Games Information from www.shl.se ──── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:36:50 UTC
+#> ℹ Data updated: 2026-11-06 07:51:00 UTC
 #> # A tibble: 5 × 41
 #>   date   time  game_uuid      start_date_time  state overtime shootout ssgt_uuid
 #>   <chr>  <chr> <chr>          <chr>            <chr> <lgl>    <lgl>    <chr>    

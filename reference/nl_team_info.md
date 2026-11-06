@@ -111,20 +111,9 @@ Other National League Functions:
 ## Examples
 
 ``` r
+if (FALSE) { # interactive()
 # \donttest{
   try(nl_team_info(team_id = 101144))
-#> ── National League Team Info Information from nationalleague.ch ────────────────
-#> ℹ Data updated: 2026-11-04 09:35:52 UTC
-#> # A tibble: 1 × 27
-#>   name   cms_node_id url_segment type    content_type url            fields_grid
-#>   <chr>        <dbl> <chr>       <chr>   <chr>        <chr>          <chr>      
-#> 1 EV Zug        1627 ev-zug      Content club         /clubs/ev-zug/ []         
-#> # ℹ 20 more variables: fields_logo_name <chr>, fields_logo_id <dbl>,
-#> #   fields_logo_url_segment <chr>, fields_logo_type <chr>,
-#> #   fields_logo_content_type <chr>, fields_logo_url <chr>,
-#> #   fields_logo_fields_umbraco_file_src <chr>,
-#> #   fields_logo_fields_umbraco_file_focal_point <chr>,
-#> #   fields_logo_fields_umbraco_file_crops <chr>,
-#> #   fields_logo_fields_umbraco_width <int>, …
 # }
+}
 ```

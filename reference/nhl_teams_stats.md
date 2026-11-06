@@ -83,19 +83,19 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_teams_stats(team_abbr = "TBL"))
 #> ── NHL Teams Stats Information from NHL.com ─────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:35:37 UTC
+#> ℹ Data updated: 2026-11-06 07:50:01 UTC
 #> # A tibble: 24 × 41
 #>    player_id headshot position_code games_played goals assists points plus_minus
 #>        <int> <chr>    <chr>                <int> <int>   <int>  <int>      <int>
-#>  1   8474151 https:/… D                       14     1       2      3          8
-#>  2   8474590 https:/… D                       14     5       3      8          1
-#>  3   8475167 https:/… D                       13     3       2      5          3
-#>  4   8476453 https:/… R                       14     4      16     20          6
-#>  5   8476878 https:/… C                       11     1       1      2          1
+#>  1   8474151 https:/… D                       15     2       2      4         11
+#>  2   8474590 https:/… D                       15     5       3      8          0
+#>  3   8475167 https:/… D                       14     4       2      6          3
+#>  4   8476453 https:/… R                       15     4      16     20          6
+#>  5   8476878 https:/… C                       12     1       2      3          3
 #>  6   8477149 https:/… R                        3     0       1      1          2
-#>  7   8477404 https:/… C                       14     8       6     14          8
-#>  8   8478010 https:/… C                       14     5       8     13          8
-#>  9   8478416 https:/… D                       13     0       3      3          8
+#>  7   8477404 https:/… C                       15     8       7     15          9
+#>  8   8478010 https:/… C                       15     5       9     14          8
+#>  9   8478416 https:/… D                       14     0       5      5         11
 #> 10   8478424 https:/… C                        1     0       0      0         -1
 #> # ℹ 14 more rows
 #> # ℹ 33 more variables: penalty_minutes <int>, power_play_goals <int>,

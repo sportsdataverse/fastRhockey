@@ -177,10 +177,10 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_games(limit = 10))
 #> ── WOMENS-COLLEGE-HOCKEY Games data from ESPN core-v2 ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:31:42 UTC
+#> ℹ Data updated: 2026-11-06 07:46:17 UTC
 #> # A tibble: 1 × 4
 #>   ref                                                  event_id count page_count
 #>   <chr>                                                <chr>    <int>      <int>
-#> 1 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019042…     1          1
+#> 1 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019136…     1          1
 # }
 ```

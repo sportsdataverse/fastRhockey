@@ -23,13 +23,3 @@ phf_game_raw(game_id)
 ## Value
 
 A list of data frames
-
-## Examples
-
-``` r
-# \donttest{
-  try(phf_game_raw(game_id = 612254))
-#> Error : `phf_game_raw()` was deprecated in fastRhockey 1.0.0 and is now defunct.
-#> ℹ The PHF has ceased operations.
-# }
-```

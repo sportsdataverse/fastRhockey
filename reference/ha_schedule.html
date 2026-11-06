@@ -176,31 +176,11 @@ non-JSON, error-shaped, truncated or out-of-scope 200 (the answer is unknown, no
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># interactive()</span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">ha_schedule</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── HA Schedule Information from hockeyallsvenskan.se ────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-04 09:32:10 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 364 × 70</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    season game_cms_id game_document_id      cms_season statnet_game_number slug </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>027        <span style="text-decoration: underline;">6</span>566 sftwwgo7jg0avrwgpgt7… season_20…               <span style="text-decoration: underline;">23</span>401 2026…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   <span style="text-decoration: underline;">2</span>027        <span style="text-decoration: underline;">6</span>567 s8un03yii0ql35tu2keu… season_20…               <span style="text-decoration: underline;">23</span>402 2026…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   <span style="text-decoration: underline;">2</span>027        <span style="text-decoration: underline;">6</span>568 e8s75j95izbw35pz5il2… season_20…               <span style="text-decoration: underline;">23</span>403 2026…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   <span style="text-decoration: underline;">2</span>027        <span style="text-decoration: underline;">6</span>569 bxnwszpk7n1hya74tdo1… season_20…               <span style="text-decoration: underline;">23</span>404 2026…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>   <span style="text-decoration: underline;">2</span>027        <span style="text-decoration: underline;">6</span>570 rhetw10d411ydt7m2etg… season_20…               <span style="text-decoration: underline;">23</span>405 2026…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   <span style="text-decoration: underline;">2</span>027        <span style="text-decoration: underline;">6</span>571 xlxhq1q2g1vklg77oa9d… season_20…               <span style="text-decoration: underline;">23</span>406 2026…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>   <span style="text-decoration: underline;">2</span>027        <span style="text-decoration: underline;">6</span>572 gz1qhskov2fnowqgpcmv… season_20…               <span style="text-decoration: underline;">23</span>407 2026…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>027        <span style="text-decoration: underline;">7</span>638 tnginq80ldvnemcpw3gd… season_20…               <span style="text-decoration: underline;">23</span>408 2026…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>027        <span style="text-decoration: underline;">7</span>639 vls238ye8zl9jbij85s6… season_20…               <span style="text-decoration: underline;">23</span>409 2026…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>027        <span style="text-decoration: underline;">7</span>640 q04k2qjt9hvekq51j3cw… season_20…               <span style="text-decoration: underline;">23</span>410 2026…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 354 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 64 more variables: round &lt;int&gt;, scheduled_date_time &lt;chr&gt;, venue &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   attendance &lt;int&gt;, current_period &lt;chr&gt;, current_period_start &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_score &lt;int&gt;, away_score &lt;int&gt;, ended_date_time &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   decided_in &lt;chr&gt;, home_score_p1 &lt;int&gt;, away_score_p1 &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_score_p2 &lt;int&gt;, away_score_p2 &lt;int&gt;, home_score_p3 &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   away_score_p3 &lt;int&gt;, home_ot_score &lt;int&gt;, away_ot_score &lt;int&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

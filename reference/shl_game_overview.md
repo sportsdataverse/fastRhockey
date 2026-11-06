@@ -104,7 +104,7 @@ Other SHL Functions:
 # \donttest{
   try(shl_game_overview(game_uuid = "bdhvuc5tex"))
 #> ── SHL Game Overview Information from www.shl.se ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:36:29 UTC
+#> ℹ Data updated: 2026-11-06 07:50:39 UTC
 #> # A tibble: 1 × 22
 #>   game_uuid  home_team_game_source_id home_team_game_id home_team_place
 #>   <chr>      <chr>                                <int> <chr>          

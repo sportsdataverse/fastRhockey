@@ -23,13 +23,3 @@ phf_schedule(season = NULL)
 ## Value
 
 A data frame with schedule data
-
-## Examples
-
-``` r
-# \donttest{
-try(phf_schedule(season = 2023))
-#> Error : `phf_schedule()` was deprecated in fastRhockey 1.0.0 and is now defunct.
-#> ℹ The PHF has ceased operations.
-# }
-```

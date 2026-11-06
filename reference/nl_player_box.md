@@ -134,29 +134,9 @@ Other National League Functions:
 ## Examples
 
 ``` r
+if (FALSE) { # interactive()
 # \donttest{
   try(nl_player_box(game_id = 20261105000325))
-#> ── National League Player Box Score Information from nationalleague.ch ─────────
-#> ℹ Data updated: 2026-11-04 09:35:43 UTC
-#> # A tibble: 44 × 38
-#>    game_id team_side team_id player_id number first_name last_name   short_name 
-#>      <dbl> <chr>       <dbl>     <dbl> <chr>  <chr>      <chr>       <chr>      
-#>  1 2.03e13 home       101151    150983 29     Sandro     Aeschlimann S. Aeschli…
-#>  2 2.03e13 home       101151    309536 51     Luca       Hollenstein L. Hollens…
-#>  3 2.03e13 home       101151    153736 38     Lukas      Frick       L. Frick   
-#>  4 2.03e13 home       101151    340162 6      Klas       Dahlbeck    K. Dahlbeck
-#>  5 2.03e13 home       101151    152416 90     Sven       Jung        S. Jung    
-#>  6 2.03e13 home       101151    322236 55     Calle      Andersson   C. Anderss…
-#>  7 2.03e13 home       101151    153207 20     Michael    Fora        M. Fora    
-#>  8 2.03e13 home       101151    312287 57     Davyd      Barandun    D. Barandun
-#>  9 2.03e13 home       101151    308175 77     Nico       Gross       N. Gross   
-#> 10 2.03e13 home       101151    301617 72     Tino       Kessler     T. Kessler 
-#> # ℹ 34 more rows
-#> # ℹ 30 more variables: name <chr>, position <chr>, fow <int>, fol <int>,
-#> #   sog <int>, shm <int>, shp <int>, shb <int>, bks <int>, toi <int>,
-#> #   toi_eq <int>, toi_pp <int>, toi_pk <int>, pim <int>, g <int>, a1 <int>,
-#> #   a2 <int>, pl <int>, mi <int>, mip <int>, ga <int>, svs <int>, sa <int>,
-#> #   gaa <dbl>, save_percentage <dbl>, faceoffs <int>,
-#> #   faceoffs_percentage <dbl>, a <int>, pts <int>, pl_mi <int>
 # }
+}
 ```

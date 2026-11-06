@@ -23,13 +23,3 @@ phf_pbp(game_id)
 ## Value
 
 A data frame of play by play information
-
-## Examples
-
-``` r
-# \donttest{
-  try(phf_pbp(game_id = 268127))
-#> Error : `phf_pbp()` was deprecated in fastRhockey 1.0.0 and is now defunct.
-#> ℹ The PHF has ceased operations.
-# }
-```

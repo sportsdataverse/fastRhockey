@@ -66,33 +66,34 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_goalie_stats_leaders())
 #> ── NHL Goalie Stats Leaders ─────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:35:05 UTC
-#> # A tibble: 20 × 18
+#> ℹ Data updated: 2026-11-06 07:49:29 UTC
+#> # A tibble: 20 × 21
 #>         id sweater_number headshot         team_abbrev team_logo position  value
 #>      <int>          <int> <chr>            <chr>       <chr>     <chr>     <dbl>
 #>  1 8482661             30 https://assets.… MIN         https://… G        10    
 #>  2 8481611             52 https://assets.… CAR         https://… G        10    
-#>  3 8480280              1 https://assets.… BOS         https://… G         8    
-#>  4 8479979             29 https://assets.… DAL         https://… G         8    
-#>  5 8478406             39 https://assets.… COL         https://… G         8    
+#>  3 8478406             39 https://assets.… COL         https://… G         8    
+#>  4 8480280              1 https://assets.… BOS         https://… G         8    
+#>  5 8476883             88 https://assets.… TBL         https://… G         8    
 #>  6 8479979             29 https://assets.… DAL         https://… G         3    
 #>  7 8477465             35 https://assets.… EDM         https://… G         2    
 #>  8 8484170             32 https://assets.… MTL         https://… G         2    
 #>  9 8481668             37 https://assets.… PIT         https://… G         2    
 #> 10 8481611             52 https://assets.… CAR         https://… G         2    
 #> 11 8476999             35 https://assets.… OTT         https://… G         0.945
-#> 12 8480193             80 https://assets.… DET         https://… G         0.927
+#> 12 8480193             80 https://assets.… DET         https://… G         0.930
 #> 13 8478048             31 https://assets.… NYR         https://… G         0.927
 #> 14 8484170             32 https://assets.… MTL         https://… G         0.925
-#> 15 8481611             52 https://assets.… CAR         https://… G         0.922
+#> 15 8480022             30 https://assets.… BOS         https://… G         0.924
 #> 16 8476999             35 https://assets.… OTT         https://… G         1.33 
 #> 17 8481611             52 https://assets.… CAR         https://… G         1.64 
-#> 18 8480193             80 https://assets.… DET         https://… G         1.74 
+#> 18 8480193             80 https://assets.… DET         https://… G         1.79 
 #> 19 8478048             31 https://assets.… NYR         https://… G         1.79 
 #> 20 8479979             29 https://assets.… DAL         https://… G         1.91 
-#> # ℹ 11 more variables: first_name_default <chr>, last_name_default <chr>,
+#> # ℹ 14 more variables: first_name_default <chr>, last_name_default <chr>,
 #> #   team_name_default <chr>, first_name_cs <chr>, first_name_fi <chr>,
-#> #   first_name_sk <chr>, last_name_fi <chr>, category <chr>,
-#> #   last_name_cs <chr>, last_name_sk <chr>, team_name_fr <chr>
+#> #   first_name_sk <chr>, last_name_fi <chr>, last_name_cs <chr>,
+#> #   last_name_sk <chr>, category <chr>, team_name_fr <chr>, last_name_de <chr>,
+#> #   last_name_es <chr>, last_name_sv <chr>
 # }
 ```

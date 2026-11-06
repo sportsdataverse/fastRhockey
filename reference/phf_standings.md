@@ -24,14 +24,3 @@ phf_standings(season = most_recent_phf_season())
 ## Value
 
 A data frame of standings data
-
-## Examples
-
-``` r
-# \donttest{
-  try(phf_standings(season = most_recent_phf_season()))
-#> Error : `phf_standings()` was deprecated in fastRhockey 1.0.0 and is now
-#> defunct.
-#> ℹ The PHF has ceased operations.
-# }
-```

@@ -23,14 +23,3 @@ phf_player_box(game_id)
 ## Value
 
 A named list of data frames: skaters, goalies
-
-## Examples
-
-``` r
-# \donttest{
-  try(phf_player_box(game_id = 420339))
-#> Error : `phf_player_box()` was deprecated in fastRhockey 1.0.0 and is now
-#> defunct.
-#> ℹ The PHF has ceased operations.
-# }
-```

@@ -186,7 +186,7 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_officials(event_id = sb$game_id[1])
   })
-#> ! 2026-11-04 09:30:28.917233: No officials returned for event 401715296.
+#> ! 2026-11-06 07:44:43.273702: No officials returned for event 401715296.
 #> data frame with 0 columns and 0 rows
 # }
 ```

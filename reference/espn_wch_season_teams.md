@@ -178,7 +178,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_season_teams(season = 2026))
 #> ── WOMENS-COLLEGE-HOCKEY Season Teams data from ESPN core-v2 ───────────────────
-#> ℹ Data updated: 2026-11-04 09:31:53 UTC
+#> ℹ Data updated: 2026-11-06 07:46:31 UTC
 #> # A tibble: 47 × 5
 #>    ref                                           team_id season count page_count
 #>    <chr>                                         <chr>    <int> <int>      <int>

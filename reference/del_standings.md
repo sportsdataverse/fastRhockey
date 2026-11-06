@@ -106,7 +106,7 @@ Other DEL eSports functions:
 # \donttest{
   try(del_standings(season = 2027, league_id = 1))
 #> ── DEL standings from the eSports hokejovyzapis bucket ──── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:29:58 UTC
+#> ℹ Data updated: 2026-11-06 07:44:13 UTC
 #> # A tibble: 14 × 24
 #>    league_part_id league_part_name state   datetime   team_id part_team_id name 
 #>             <int> <chr>            <chr>   <chr>        <int>        <int> <chr>

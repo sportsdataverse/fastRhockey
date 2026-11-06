@@ -44,13 +44,3 @@ load_phf_pbp(
 ## Value
 
 A dataframe
-
-## Examples
-
-``` r
-# \donttest{
-  try(load_phf_pbp(2021))
-#> Error : `load_phf_pbp()` was deprecated in fastRhockey 1.0.0 and is now defunct.
-#> ℹ The PHF has ceased operations.
-# }
-```

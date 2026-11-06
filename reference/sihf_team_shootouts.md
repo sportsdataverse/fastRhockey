@@ -124,7 +124,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_team_shootouts(season = 2026, league_id = 1))
 #> ── SIHF Team Shootouts Information from data.sihf.ch ────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:37:22 UTC
+#> ℹ Data updated: 2026-11-06 07:51:31 UTC
 #> # A tibble: 15 × 18
 #>    season phase_id  rank team_id team_name             team_acronym games_played
 #>     <int>    <int> <int>   <int> <chr>                 <chr>               <int>

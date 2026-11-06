@@ -211,19 +211,21 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_player_gamelog(athlete_id = "5149125"))
 #> ── NHL Player Gamelog data from ESPN.com ────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:31:13 UTC
-#> # A tibble: 9 × 35
-#>   athlete_id event_id  season_type_display    category_display category_type
-#>   <chr>      <chr>     <chr>                  <chr>            <chr>        
-#> 1 5149125    401892631 2026-27 Regular Season November         event        
-#> 2 5149125    401892614 2026-27 Regular Season October          event        
-#> 3 5149125    401892600 2026-27 Regular Season October          event        
-#> 4 5149125    401892587 2026-27 Regular Season October          event        
-#> 5 5149125    401892578 2026-27 Regular Season October          event        
-#> 6 5149125    401892564 2026-27 Regular Season October          event        
-#> 7 5149125    401892528 2026-27 Regular Season October          event        
-#> 8 5149125    401892512 2026-27 Regular Season October          event        
-#> 9 5149125    401892496 2026-27 Regular Season October          event        
+#> ℹ Data updated: 2026-11-06 07:45:45 UTC
+#> # A tibble: 11 × 35
+#>    athlete_id event_id  season_type_display    category_display category_type
+#>    <chr>      <chr>     <chr>                  <chr>            <chr>        
+#>  1 5149125    401892650 2026-27 Regular Season November         event        
+#>  2 5149125    401892645 2026-27 Regular Season November         event        
+#>  3 5149125    401892631 2026-27 Regular Season November         event        
+#>  4 5149125    401892614 2026-27 Regular Season October          event        
+#>  5 5149125    401892600 2026-27 Regular Season October          event        
+#>  6 5149125    401892587 2026-27 Regular Season October          event        
+#>  7 5149125    401892578 2026-27 Regular Season October          event        
+#>  8 5149125    401892564 2026-27 Regular Season October          event        
+#>  9 5149125    401892528 2026-27 Regular Season October          event        
+#> 10 5149125    401892512 2026-27 Regular Season October          event        
+#> 11 5149125    401892496 2026-27 Regular Season October          event        
 #> # ℹ 30 more variables: category_split_type <chr>, game_date <chr>, at_vs <chr>,
 #> #   score <chr>, home_team_id <chr>, away_team_id <chr>, home_team_score <chr>,
 #> #   away_team_score <chr>, game_result <chr>, opponent_id <chr>,

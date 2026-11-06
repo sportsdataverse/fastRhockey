@@ -123,7 +123,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_player_stats(season = 2026, league_id = 1))
 #> ── SIHF Player Stats Information from data.sihf.ch ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:37:09 UTC
+#> ℹ Data updated: 2026-11-06 07:51:19 UTC
 #> # A tibble: 427 × 16
 #>    season phase_id  rank player          team_id team_name team_acronym position
 #>     <int>    <int> <int> <chr>             <int> <chr>     <chr>        <chr>   

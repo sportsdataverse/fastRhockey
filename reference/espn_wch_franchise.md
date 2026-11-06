@@ -187,7 +187,7 @@ Saiem Gilani
     espn_wch_franchise(franchise_id = fcs$franchise_id[1])
   })
 #> ── WOMENS-COLLEGE-HOCKEY Franchise data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-11-04 09:31:37 UTC
+#> ℹ Data updated: 2026-11-06 07:46:09 UTC
 #> # A tibble: 1 × 15
 #>   franchise_id id    uid            slug    location name  nickname abbreviation
 #>   <chr>        <chr> <chr>          <chr>   <chr>    <chr> <chr>    <chr>       

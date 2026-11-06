@@ -27,14 +27,3 @@ phf_team_stats(team, season = most_recent_phf_season())
 ## Value
 
 A named list of data frames: skaters, goalies
-
-## Examples
-
-``` r
-# \donttest{
-  try(phf_team_stats(team = "Boston Pride", season = 2022))
-#> Error : `phf_team_stats()` was deprecated in fastRhockey 1.0.0 and is now
-#> defunct.
-#> ℹ The PHF has ceased operations.
-# }
-```

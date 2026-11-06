@@ -212,7 +212,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_pbp(game_id = "401688263"))
 #> ── NHL Play-by-Play data from ESPN.com ──────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:31:10 UTC
+#> ℹ Data updated: 2026-11-06 07:45:41 UTC
 #> # A tibble: 244 × 48
 #>    id              sequence_number type_id type_text text  away_score home_score
 #>    <chr>           <chr>           <chr>   <chr>     <chr>      <int>      <int>

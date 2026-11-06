@@ -40,7 +40,7 @@ Other WHL Functions:
 ``` r
  try(whl_game_corsi(game_id = 27225)) 
 #> ── WHL Game Corsi from HockeyTech ───────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:37:30 UTC
+#> ℹ Data updated: 2026-11-06 07:51:41 UTC
 #> # A tibble: 0 × 10
 #> # ℹ 10 variables: player_id <chr>, corsi_for <int>, corsi_against <int>,
 #> #   corsi_for_pct <dbl>, fenwick_for <int>, fenwick_against <int>,

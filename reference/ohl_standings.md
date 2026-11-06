@@ -44,30 +44,30 @@ Other OHL Functions:
 ``` r
  try(ohl_standings()) 
 #> ── OHL Standings from HockeyTech ────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:36:00 UTC
+#> ℹ Data updated: 2026-11-06 07:50:11 UTC
 #> # A tibble: 20 × 21
 #>    team_code wins  losses ot_losses ot_wins shootout_wins shootout_losses
 #>    <chr>     <chr>  <dbl> <chr>     <chr>   <chr>         <chr>          
-#>  1 BFD       11         5 0         0       1             1              
-#>  2 KGN       11         5 0         2       0             0              
-#>  3 OTT       9          4 2         2       1             0              
+#>  1 KGN       12         5 0         2       0             0              
+#>  2 BFD       11         5 0         0       1             1              
+#>  3 OTT       9          5 2         2       1             0              
 #>  4 OSH       6          6 4         0       0             1              
-#>  5 PBO       8          9 0         3       0             0              
-#>  6 SBY       10         4 1         1       1             0              
-#>  7 NIAG      7          6 2         3       0             0              
+#>  5 PBO       8         10 0         3       0             0              
+#>  6 SBY       11         4 1         1       1             0              
+#>  7 NIAG      7          7 2         3       0             0              
 #>  8 NB        7          9 1         1       0             0              
-#>  9 BAR       3         10 3         1       0             0              
-#> 10 BRAM      2         12 1         0       0             1              
+#>  9 BAR       3         11 3         1       0             0              
+#> 10 BRAM      3         12 1         0       0             1              
 #> 11 FLNT      11         3 1         1       1             0              
-#> 12 SOO       10         5 2         5       0             0              
-#> 13 WSR       8          5 2         0       0             1              
-#> 14 SAG       6          7 2         1       1             1              
-#> 15 SAR       6         10 1         0       0             0              
+#> 12 SOO       10         6 2         5       0             0              
+#> 13 WSR       9          5 2         0       0             1              
+#> 14 SAR       7         10 1         0       0             0              
+#> 15 SAG       6          7 2         1       1             1              
 #> 16 GUE       13         3 0         2       0             0              
 #> 17 LDN       10         3 1         3       1             1              
-#> 18 KIT       8          6 2         2       0             1              
-#> 19 ER        8          6 2         0       1             0              
-#> 20 OS        6          9 1         1       0             0              
+#> 18 ER        9          6 2         0       1             0              
+#> 19 KIT       8          6 2         2       0             1              
+#> 20 OS        6         10 1         1       0             0              
 #> # ℹ 14 more variables: regulation_wins <dbl>, row <chr>, points <dbl>,
 #> #   penalty_minutes <chr>, streak <chr>, goals_for <chr>, goals_against <chr>,
 #> #   goals_diff <chr>, percentage <chr>, overall_rank <chr>, games_played <dbl>,

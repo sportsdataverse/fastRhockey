@@ -44,14 +44,3 @@ load_phf_player_box(
 ## Value
 
 Returns a tibble
-
-## Examples
-
-``` r
-# \donttest{
-  try(load_phf_player_box(2021))
-#> Error : `load_phf_player_box()` was deprecated in fastRhockey 1.0.0 and is now
-#> defunct.
-#> ℹ The PHF has ceased operations.
-# }
-```

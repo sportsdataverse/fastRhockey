@@ -27,22 +27,3 @@ phf_team_roster(team, season = most_recent_phf_season())
 ## Value
 
 A named list of data frames: roster, team_staff
-
-## Examples
-
-``` r
-# \donttest{
-   try(phf_team_roster(team = "Minnesota Whitecaps", season = 2023))
-#> Error : `phf_team_roster()` was deprecated in fastRhockey 1.0.0 and is now
-#> defunct.
-#> ℹ The PHF has ceased operations.
-   try(phf_team_roster(team = "Buffalo Beauts", season = 2023))
-#> Error : `phf_team_roster()` was deprecated in fastRhockey 1.0.0 and is now
-#> defunct.
-#> ℹ The PHF has ceased operations.
-   try(phf_team_roster(team = "Buffalo Beauts", season = 2016))
-#> Error : `phf_team_roster()` was deprecated in fastRhockey 1.0.0 and is now
-#> defunct.
-#> ℹ The PHF has ceased operations.
-# }
-```

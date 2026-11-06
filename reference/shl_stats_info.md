@@ -354,7 +354,7 @@ Other SHL Functions:
 # \donttest{
   try(shl_stats_info(module = "players_summary", season = 2026))
 #> ── SHL Stats Info Information from www.shl.se ───────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:36:46 UTC
+#> ℹ Data updated: 2026-11-06 07:50:56 UTC
 #> # A tibble: 473 × 262
 #>     rank    gp     w     l leading trailing     g    ga   gfg   otw   otl   sow
 #>    <int> <dbl> <dbl> <dbl>   <dbl>    <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>

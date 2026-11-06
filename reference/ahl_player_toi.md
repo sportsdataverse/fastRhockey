@@ -40,7 +40,7 @@ Other AHL Functions:
 ``` r
  try(ahl_player_toi(game_id = 1000093924)) 
 #> ── AHL Player TOI from HockeyTech ───────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:29:45 UTC
+#> ℹ Data updated: 2026-11-06 07:43:59 UTC
 #> # A tibble: 0 × 6
 #> # ℹ 6 variables: player_id <int>, first_name <chr>, last_name <chr>,
 #> #   toi_seconds <int>, num_shifts <int>, avg_shift_s <dbl>

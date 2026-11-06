@@ -31,7 +31,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_roster_season(team_abbr = "TOR"))
 #> ── NHL Roster Season ────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:35:19 UTC
+#> ℹ Data updated: 2026-11-06 07:49:43 UTC
 #> # A tibble: 99 × 2
 #>      season team_abbr
 #>       <int> <chr>    

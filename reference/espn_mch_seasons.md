@@ -171,7 +171,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_seasons(limit = 10))
 #> ── MENS-COLLEGE-HOCKEY Seasons List data from ESPN core-v2 ─────────────────────
-#> ℹ Data updated: 2026-11-04 09:30:48 UTC
+#> ℹ Data updated: 2026-11-06 07:45:09 UTC
 #> # A tibble: 10 × 4
 #>    ref                                                   season count page_count
 #>    <chr>                                                  <int> <int>      <int>

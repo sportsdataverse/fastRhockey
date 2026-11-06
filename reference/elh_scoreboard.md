@@ -83,8 +83,22 @@ Other ELH Functions:
 
 ``` r
 # \donttest{
-  try(elh_scoreboard(date = format(Sys.Date() - 1)))
-#> Error in .euro_check_status(resp) : 
-#>   json.esports.cz/hokejcz/scoreboard/2026-11-03.json answered HTTP 404.
+  try(elh_scoreboard(date = "2025-10-17"))
+#> ── ELH Scoreboard Information from hokej.cz ─────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-06 07:44:36 UTC
+#> # A tibble: 4 × 23
+#>   league_id league_name    hokejcz_game_id onlajny_game_id game_date  start_time
+#>       <int> <chr>                    <int>           <int> <date>     <chr>     
+#> 1       101 Tipsport extr…         2921862          491714 2025-10-17 18:00     
+#> 2       101 Tipsport extr…         2921863          491715 2025-10-17 18:00     
+#> 3       101 Tipsport extr…         2921865          491716 2025-10-17 18:00     
+#> 4       101 Tipsport extr…         2921867          491717 2025-10-17 18:00     
+#> # ℹ 17 more variables: status_code <chr>, status_name <chr>,
+#> #   match_status <chr>, home_score <int>, away_score <int>,
+#> #   score_periods <chr>, hokejcz_home_team_id <int>,
+#> #   onlajny_home_team_id <int>, home_team_name <chr>,
+#> #   home_team_short_name <chr>, home_team_code <chr>,
+#> #   hokejcz_away_team_id <int>, onlajny_away_team_id <int>,
+#> #   away_team_name <chr>, away_team_short_name <chr>, away_team_code <chr>, …
 # }
 ```

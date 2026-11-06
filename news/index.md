@@ -399,6 +399,16 @@ that upgrades from 1.0.0 may need to change.
   If a file still fails, the warning names its URL and says the result
   is incomplete; the seasons that loaded are still returned.
 
+- [`nhl_teams_stats()`](https://fastRhockey.sportsdataverse.org/reference/nhl_teams_stats.md),
+  [`nhl_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/nhl_player_stats.md),
+  [`nhl_game_content()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_content.md)
+  and
+  [`pwhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_box.md)
+  return `NULL` with a message when the request fails, and
+  [`pwhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_standings.md)
+  when the response can’t be parsed, as the other NHL and PWHL wrappers
+  do. They used to stop with “object ‘…’ not found”.
+
 #### Dependencies
 
 - `xml2 (>= 1.3)` and `stats` moved from Suggests to Imports and `utils`
@@ -437,6 +447,30 @@ that upgrades from 1.0.0 may need to change.
   [`vhl_skater_stats()`](https://fastRhockey.sportsdataverse.org/reference/vhl_skater_stats.md),
   [`vhl_goalie_stats()`](https://fastRhockey.sportsdataverse.org/reference/vhl_goalie_stats.md)).
   The functions are unchanged.
+- The DESCRIPTION title no longer starts with “Functions to”, and the
+  description spells out each league acronym and quotes the API and
+  service names.
+- The 17 `nl_*()` examples run only interactively, because
+  nationalleague.ch’s robots.txt disallows `/api`. Five more examples
+  that took over 5 s of CPU also run only interactively:
+  [`icehl_league_part_player_stats()`](https://fastRhockey.sportsdataverse.org/reference/icehl_league_part_player_stats.md),
+  [`icehl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/icehl_schedule.md),
+  [`espn_nhl_player_splits()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_player_splits.md),
+  [`espn_nhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_standings.md)
+  and
+  [`ha_schedule()`](https://fastRhockey.sportsdataverse.org/reference/ha_schedule.md).
+- The
+  [`espn_mch_player_vs_player()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_vs_player.md)
+  and
+  [`espn_wch_player_vs_player()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_vs_player.md)
+  examples pass `opp_id`, the argument’s actual name.
+- The
+  [`elh_scoreboard()`](https://fastRhockey.sportsdataverse.org/reference/elh_scoreboard.md)
+  example uses a fixed past date with games instead of yesterday’s date.
+- The defunct `phf_*()` and `load_phf_*()` functions no longer carry
+  examples, which could only raise the defunct error.
+- The internal play-by-play helpers in `nhl_game_feed.R` are no longer
+  rendered as help pages.
 
 ## **fastRhockey 1.0.0**
 

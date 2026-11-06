@@ -171,9 +171,9 @@ Use the `league_entity_action()` pattern:
 
 Prefix with a leading dot, use `snake_case`:
 
-- [`.parse_game_rosters()`](https://fastRhockey.sportsdataverse.org/reference/dot-parse_game_rosters.md)
-- [`.build_pbp()`](https://fastRhockey.sportsdataverse.org/reference/dot-build_pbp.md)
-- [`.extract_scores()`](https://fastRhockey.sportsdataverse.org/reference/dot-extract_scores.md)
+- `.parse_game_rosters()`
+- `.build_pbp()`
+- `.extract_scores()`
 
 ### Test Files
 

@@ -188,7 +188,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_wch_player_career_stats(athlete_id = "5263060"))
-#> ✖ 2026-11-04 09:31:45.540678: Invalid arguments or no ESPN womens-college-hockey player career stats for athlete 5263060 available!
+#> ✖ 2026-11-06 07:46:20.808089: Invalid arguments or no ESPN womens-college-hockey player career stats for athlete 5263060 available!
 #> ✖ Args: league = "womens-college-hockey", athlete_id = "5263060", stat_type = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

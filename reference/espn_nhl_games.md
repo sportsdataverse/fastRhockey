@@ -174,7 +174,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_games(limit = 10))
 #> ── NHL Games data from ESPN core-v2 ─────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:31:07 UTC
+#> ℹ Data updated: 2026-11-06 07:45:36 UTC
 #> # A tibble: 10 × 4
 #>    ref                                                 event_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>

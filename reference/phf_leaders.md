@@ -35,16 +35,3 @@ phf_leaders(
 ## Value
 
 A data frame of stat leaders
-
-## Examples
-
-``` r
-# \donttest{
- try(phf_leaders(player_type = "skaters", season = 2022, season_type="Regular Season"))
-#> Error : `phf_leaders()` was deprecated in fastRhockey 1.0.0 and is now defunct.
-#> ℹ The PHF has ceased operations.
- try(phf_leaders(player_type = "goalies", season = 2022, season_type="Regular Season"))
-#> Error : `phf_leaders()` was deprecated in fastRhockey 1.0.0 and is now defunct.
-#> ℹ The PHF has ceased operations.
-# }
-```

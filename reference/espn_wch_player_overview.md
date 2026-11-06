@@ -193,7 +193,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_player_overview(athlete_id = "5263060"))
 #> ── WOMENS-COLLEGE-HOCKEY Player Overview data from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-11-04 09:31:47 UTC
+#> ℹ Data updated: 2026-11-06 07:46:22 UTC
 #> # A tibble: 1 × 8
 #>   athlete_id athlete_espn_id athlete_display_name athlete_short_name
 #>   <chr>      <chr>           <chr>                <chr>             

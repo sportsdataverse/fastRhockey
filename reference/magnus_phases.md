@@ -63,7 +63,7 @@ Other Ligue Magnus Functions:
 # \donttest{
   try(magnus_phases(season = 2027))
 #> ── Ligue Magnus Phases Information from liguemagnus.com ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:34:18 UTC
+#> ℹ Data updated: 2026-11-06 07:48:46 UTC
 #> # A tibble: 1 × 8
 #>   phase_id phase            phase_type_code visible competition n_teams overtime
 #>      <int> <chr>            <chr>           <lgl>   <chr>         <int> <lgl>   

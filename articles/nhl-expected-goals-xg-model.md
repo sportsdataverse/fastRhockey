@@ -21,17 +21,17 @@ article](https://fastRhockey.sportsdataverse.org/articles/pwhl-expected-goals-xg
 
 **Known coordinate issue (fix pending).** NHL `x_fixed` / `y_fixed` are
 meant to put the home team shooting right. The code that builds them
-([`.fix_coordinates()`](https://fastRhockey.sportsdataverse.org/reference/dot-fix_coordinates.md)
-in `R/nhl_game_feed.R`) reads the NHL API’s `homeTeamDefendingSide` but
-gives the same answer for both sides: every home-team event gets
-`x_fixed = abs(x)` and every away-team event `x_fixed = -abs(x)`. Shots
-from the attacking zone come out right, but **any event a team makes in
-its own half (a hit, giveaway, blocked shot or long shot) is mirrored
-into its attacking half.** That affects `shot_distance` and `shot_angle`
-for shots from beyond centre ice, and the xG features built from the
-previous event’s location (`last_x`, `last_y`, `distance_from_last`,
-rush and cross-ice flags). A fix is pending. The [section on this
-issue](#the-coordinate-issue-in-detail) shows the effect in the data.
+(`.fix_coordinates()` in `R/nhl_game_feed.R`) reads the NHL API’s
+`homeTeamDefendingSide` but gives the same answer for both sides: every
+home-team event gets `x_fixed = abs(x)` and every away-team event
+`x_fixed = -abs(x)`. Shots from the attacking zone come out right, but
+**any event a team makes in its own half (a hit, giveaway, blocked shot
+or long shot) is mirrored into its attacking half.** That affects
+`shot_distance` and `shot_angle` for shots from beyond centre ice, and
+the xG features built from the previous event’s location (`last_x`,
+`last_y`, `distance_from_last`, rush and cross-ice flags). A fix is
+pending. The [section on this issue](#the-coordinate-issue-in-detail)
+shows the effect in the data.
 
 ## Which xG are you looking at?
 

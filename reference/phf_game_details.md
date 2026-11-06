@@ -24,14 +24,3 @@ phf_game_details(game_id)
 ## Value
 
 A data frame with game team details
-
-## Examples
-
-``` r
-# \donttest{
-  try(phf_game_details(game_id = 612254))
-#> Error : `phf_game_details()` was deprecated in fastRhockey 1.0.0 and is now
-#> defunct.
-#> ℹ The PHF has ceased operations.
-# }
-```

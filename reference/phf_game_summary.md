@@ -25,14 +25,3 @@ phf_game_summary(game_id)
 
 A named list of data frames: scoring_summary,shootout_summary,
 penalty_summary, officials, team_staff, timeouts
-
-## Examples
-
-``` r
-# \donttest{
-  try(phf_game_summary(game_id = 612254))
-#> Error : `phf_game_summary()` was deprecated in fastRhockey 1.0.0 and is now
-#> defunct.
-#> ℹ The PHF has ceased operations.
-# }
-```

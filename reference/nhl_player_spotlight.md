@@ -36,20 +36,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_player_spotlight())
 #> ── NHL Player Spotlight ─────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:35:08 UTC
+#> ℹ Data updated: 2026-11-06 07:49:33 UTC
 #> # A tibble: 10 × 13
 #>    player_id player_slug  position sweater_number team_id headshot team_tri_code
 #>        <int> <chr>        <chr>             <int>   <int> <chr>    <chr>        
-#>  1   8484153 leo-carlsso… C                    91      24 https:/… ANA          
-#>  2   8471675 sidney-cros… C                    87       5 https:/… PIT          
-#>  3   8484170 jacob-fowle… G                    32       8 https:/… MTL          
-#>  4   8476945 connor-hell… G                    37       1 https:/… NJD          
-#>  5   8477465 tristan-jar… G                    35      22 https:/… EDM          
-#>  6   8478864 kirill-kapr… L                    97      30 https:/… MIN          
-#>  7   8476453 nikita-kuch… R                    86      14 https:/… TBL          
+#>  1   8471675 sidney-cros… C                    87       5 https:/… PIT          
+#>  2   8483445 cutter-gaut… L                    61      24 https:/… ANA          
+#>  3   8476945 connor-hell… G                    37       1 https:/… NJD          
+#>  4   8480800 quinn-hughe… D                    43      30 https:/… MIN          
+#>  5   8476453 nikita-kuch… R                    86      14 https:/… TBL          
+#>  6   8477492 nathan-mack… C                    29      21 https:/… COL          
+#>  7   8479318 auston-matt… C                    34      10 https:/… TOR          
 #>  8   8478402 connor-mcda… C                    97      22 https:/… EDM          
-#>  9   8485366 matthew-sch… D                    48       2 https:/… NYI          
-#> 10   8479420 tage-thomps… C                    72       7 https:/… BUF          
+#>  9   8478550 artemi-pana… L                    10      26 https:/… LAK          
+#> 10   8485366 matthew-sch… D                    48       2 https:/… NYI          
 #> # ℹ 6 more variables: team_logo <chr>, sort_id <int>, name_default <chr>,
 #> #   name_cs <chr>, name_fi <chr>, name_sk <chr>
 # }

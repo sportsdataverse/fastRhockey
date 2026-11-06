@@ -175,7 +175,7 @@ article</a>.</p>
 <p><strong>Known coordinate issue (fix pending).</strong> NHL
 <code>x_fixed</code> / <code>y_fixed</code> are meant to put the home
 team shooting right. The code that builds them
-(<code><a href="../reference/dot-fix_coordinates.html">.fix_coordinates()</a></code> in <code>R/nhl_game_feed.R</code>)
+(<code>.fix_coordinates()</code> in <code>R/nhl_game_feed.R</code>)
 reads the NHL API’s <code>homeTeamDefendingSide</code> but gives the
 same answer for both sides: every home-team event gets
 <code>x_fixed = abs(x)</code> and every away-team event

@@ -179,7 +179,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_league_root())
 #> ── WOMENS-COLLEGE-HOCKEY League Root data from ESPN core-v2 ────────────────────
-#> ℹ Data updated: 2026-11-04 09:31:44 UTC
+#> ℹ Data updated: 2026-11-06 07:46:18 UTC
 #> # A tibble: 1 × 16
 #>   id    guid              uid   name  display_name abbreviation short_name slug 
 #>   <chr> <chr>             <chr> <chr> <chr>        <chr>        <chr>      <chr>

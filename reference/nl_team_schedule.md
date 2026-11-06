@@ -122,29 +122,9 @@ Other National League Functions:
 ## Examples
 
 ``` r
+if (FALSE) { # interactive()
 # \donttest{
   try(nl_team_schedule(season = 2026, team_id = 101144))
-#> ── National League Team Schedule Information from nationalleague.ch ────────────
-#> ℹ Data updated: 2026-11-04 09:35:54 UTC
-#> # A tibble: 63 × 29
-#>    game_id home_team_short_name home_team_name       away_team_short_name
-#>      <dbl> <chr>                <chr>                <chr>               
-#>  1 2.03e13 EVZ                  EV Zug               Motor Ceske Budejovi
-#>  2 2.03e13 EVZ                  EV Zug               Red Bull München    
-#>  3 2.03e13 EC Red Bull Salzburg EC Red Bull Salzburg EVZ                 
-#>  4 2.03e13 EVZ                  EV Zug               Rögle BK            
-#>  5 2.03e13 EVZ                  EV Zug               SCB                 
-#>  6 2.03e13 HCL                  HC Lugano            EVZ                 
-#>  7 2.03e13 EVZ                  EV Zug               SCL                 
-#>  8 2.03e13 EVZ                  EV Zug               FRI                 
-#>  9 2.03e13 EHCK                 EHC Kloten           EVZ                 
-#> 10 2.03e13 EVZ                  EV Zug               SCRJ                
-#> # ℹ 53 more rows
-#> # ℹ 25 more variables: away_team_name <chr>, home_team_id <dbl>,
-#> #   away_team_id <dbl>, vimeo_video_id <dbl>, date <chr>, status <chr>,
-#> #   base_status <chr>, home_team_result <int>, away_team_result <int>,
-#> #   is_overtime <lgl>, is_shootout <lgl>, highlight_vimeo_video_id <dbl>,
-#> #   has_highlight <lgl>, is_current <lgl>, is_current_for_team <lgl>,
-#> #   tv_partner <chr>, spectators <int>, has_my_sports <lgl>, referees <chr>, …
 # }
+}
 ```

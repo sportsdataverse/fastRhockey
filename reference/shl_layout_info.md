@@ -87,7 +87,7 @@ Other SHL Functions:
 # \donttest{
   try(shl_layout_info())
 #> ── SHL Layout Info Information from www.shl.se ──────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:36:33 UTC
+#> ℹ Data updated: 2026-11-06 07:50:43 UTC
 #> # A tibble: 110 × 11
 #>    season season_code season_name game_type game_type_name series_code ssgt_uuid
 #>     <int> <chr>       <chr>       <chr>     <chr>          <chr>       <chr>    

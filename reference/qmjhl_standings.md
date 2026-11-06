@@ -44,27 +44,27 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_standings()) 
 #> ── QMJHL Standings from HockeyTech ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:36:19 UTC
+#> ℹ Data updated: 2026-11-06 07:50:30 UTC
 #> # A tibble: 20 × 20
 #>    team_code wins  losses ot_losses ot_wins shootout_wins shootout_losses row  
 #>    <chr>     <chr>  <dbl> <chr>     <chr>   <chr>         <chr>           <chr>
-#>  1 NFL       10         5 1         2       0             1               10   
+#>  1 NFL       11         5 1         2       1             1               10   
 #>  2 Que       10         4 1         1       0             0               10   
-#>  3 Rim       9          4 2         1       1             0               8    
+#>  3 Rim       9          5 2         1       1             0               8    
 #>  4 SNB       9          5 1         1       2             1               7    
 #>  5 Cap       7          3 1         1       0             3               7    
 #>  6 Hal       7          4 3         2       2             1               5    
 #>  7 Chi       8          7 0         0       0             0               8    
-#>  8 Mon       7          8 0         3       1             0               6    
+#>  8 Mon       7          8 0         3       1             1               6    
 #>  9 Cha       6          9 2         0       1             0               5    
 #> 10 BaC       3         11 0         1       0             1               3    
 #> 11 VdO       14         1 1         2       1             0               13   
 #> 12 Vic       12         3 0         1       1             1               11   
-#> 13 Gat       8          5 3         1       1             1               7    
-#> 14 Rou       8          5 2         2       0             0               8    
+#> 13 Gat       9          5 3         2       1             1               8    
+#> 14 Rou       8          5 3         2       0             0               8    
 #> 15 She       7          5 2         1       0             0               7    
-#> 16 BLB       6         10 1         3       0             0               6    
-#> 17 Dru       5          8 0         1       1             2               4    
+#> 16 Dru       6          8 0         1       1             2               5    
+#> 17 BLB       6         10 1         3       0             0               6    
 #> 18 Sha       4          7 3         0       0             0               4    
 #> 19 Sud       0          1 0         0       0             0               0    
 #> 20 NtB       0          1 0         0       0             0               0    

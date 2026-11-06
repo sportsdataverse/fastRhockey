@@ -24,13 +24,3 @@ phf_team_box(game_id)
 ## Value
 
 A dataframe of team-level box score information
-
-## Examples
-
-``` r
-# \donttest{
-  try(phf_team_box(game_id = 420339))
-#> Error : `phf_team_box()` was deprecated in fastRhockey 1.0.0 and is now defunct.
-#> ℹ The PHF has ceased operations.
-# }
-```

@@ -170,8 +170,8 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  try(espn_mch_player_vs_player(athlete_id = "5136656", opponent_id = "5136656"))
-#> Error in .espn_hockey_player_vs_player(league = "mens-college-hockey",  : 
-#>   formal argument "opponent_id" matched by multiple actual arguments
+  try(espn_mch_player_vs_player(athlete_id = "5136656", opp_id = "5136656"))
+#> ! espn_nhl_player_vs_player(): ESPN core-v2 athletes/{id}/vsathlete/{opp} returns HTTP 404 for the requested NHL athlete pair (DONE_WITH_CONCERNS: endpoint not served for NHL).
+#> data frame with 0 columns and 0 rows
 # }
 ```

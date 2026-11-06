@@ -85,7 +85,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_game_shootout(game_id = 1, season = 2026))
 #> ── Liiga game shootout Information from liiga.fi ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-04 09:33:07 UTC
+#> ℹ Data updated: 2026-11-06 07:47:43 UTC
 #> # A tibble: 6 × 11
 #>   season game_id shooting_player_id blocking_player_id shot_number
 #>    <int>   <int>              <int>              <int>       <int>
