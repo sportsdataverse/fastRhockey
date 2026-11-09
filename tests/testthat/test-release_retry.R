@@ -196,6 +196,7 @@ test_that("a strict read turns a partial-read warning into an error", {
 })
 
 test_that("a release csv is read from a local file", {
+  skip_if_not("file" %in% attr(libcurlVersion(), "protocols"), "libcurl has no FILE support")
   src <- withr::local_tempfile(fileext = ".csv")
   data.table::fwrite(data.frame(season = 2024L, game_id = 1:2), src)
   path <- normalizePath(src, winslash = "/")
