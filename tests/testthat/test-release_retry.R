@@ -200,8 +200,12 @@ test_that("a strict partial read leaves fread() clean for the next call", {
   local_mocked_bindings(.download_url = function(url, dest, ...) {
     writeLines(c("season,game_id", "2024,1", "2025,2,extra", "2026,3"), dest)
   })
+  # only the warning naming the url: fread()'s own warning is muffled
   expect_error(
-    suppressWarnings(.release_csv_from_url("https://x/games.csv", strict = TRUE)),
+    expect_warning(
+      .release_csv_from_url("https://x/games.csv", strict = TRUE),
+      "Failed to read <https://x/games.csv> after 1 attempt", fixed = TRUE
+    ),
     "may be partial", class = "release_csv_partial"
   )
   # fread() finished its own cleanup, so the next read is clean
