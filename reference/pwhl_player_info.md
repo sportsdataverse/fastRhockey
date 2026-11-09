@@ -48,7 +48,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(pwhl_player_info(player_id = 28))
 #> ── PWHL Player Info ─────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 10:29:40 UTC
+#> ℹ Data updated: 2026-11-09 11:53:36 UTC
 #> # A tibble: 1 × 20
 #>   player_id first_name last_name name      jersey_number position shoots catches
 #>       <dbl> <chr>      <chr>     <chr>     <chr>         <chr>    <chr>  <chr>  

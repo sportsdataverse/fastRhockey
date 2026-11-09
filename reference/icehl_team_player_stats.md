@@ -140,7 +140,7 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_team_player_stats(season = 2027, team_id = 4, league_id = 1))
 #> ── ICE Hockey League team_player_stats from the eSports hokejovyzapis bucket ───
-#> ℹ Data updated: 2026-11-09 10:26:38 UTC
+#> ℹ Data updated: 2026-11-09 11:50:41 UTC
 #> # A tibble: 26 × 80
 #>    player_id name        firstname surname photo birthdate active position stick
 #>        <int> <chr>       <chr>     <chr>   <chr> <chr>     <lgl>  <chr>    <chr>

@@ -469,11 +469,11 @@ NHL</a> family. These call ESPN’s API and are not run here.</p>
 <h3 id="womens-college-hockey">Women’s college hockey<a class="anchor" aria-label="anchor" href="#womens-college-hockey"></a>
 </h3>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/espn_wch_scoreboard.html">espn_wch_scoreboard</a></span><span class="op">(</span>dates <span class="op">=</span> <span class="st">"20250110"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/espn_wch_pbp.html">espn_wch_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="st">"401762970"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/espn_wch_player_box.html">espn_wch_player_box</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="st">"401762970"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/espn_wch_standings.html">espn_wch_standings</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/espn_wch_rankings.html">espn_wch_rankings</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/espn_mch_scoreboard.html">espn_wch_scoreboard</a></span><span class="op">(</span>dates <span class="op">=</span> <span class="st">"20250110"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_mch_pbp.html">espn_wch_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="st">"401762970"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_mch_player_box.html">espn_wch_player_box</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="st">"401762970"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_mch_standings.html">espn_wch_standings</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_mch_rankings.html">espn_wch_rankings</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>A typical workflow: pull a date’s scoreboard, take its game ids, then
 loop over <code><a href="../reference/espn_mch_pbp.html">espn_mch_pbp()</a></code> or
 <code><a href="../reference/espn_mch_player_box.html">espn_mch_player_box()</a></code>. Keep loops modest and pause between

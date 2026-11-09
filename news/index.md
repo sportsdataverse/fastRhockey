@@ -175,13 +175,13 @@ that upgrades from 1.0.0 may need to change.
 - The
   [`espn_mch_coach()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_coach.md),
   [`espn_mch_coach_record()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_coach_record.md),
-  [`espn_wch_coach()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_coach.md)
+  [`espn_wch_coach()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_coach.md)
   and
-  [`espn_wch_coach_record()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_coach_record.md)
+  [`espn_wch_coach_record()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_coach_record.md)
   examples called functions that do not exist. They now use
   [`espn_mch_season_coaches()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_coaches.md)
   /
-  [`espn_wch_season_coaches()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_season_coaches.md).
+  [`espn_wch_season_coaches()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_season_coaches.md).
 
 - [`nhl_game_pbp()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_pbp.md)
   /
@@ -475,7 +475,7 @@ that upgrades from 1.0.0 may need to change.
 - The
   [`espn_mch_player_vs_player()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_vs_player.md)
   and
-  [`espn_wch_player_vs_player()`](https://fastRhockey.sportsdataverse.org/reference/espn_wch_player_vs_player.md)
+  [`espn_wch_player_vs_player()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_player_vs_player.md)
   examples pass `opp_id`, the argument’s actual name.
 - The
   [`elh_scoreboard()`](https://fastRhockey.sportsdataverse.org/reference/elh_scoreboard.md)
@@ -484,6 +484,24 @@ that upgrades from 1.0.0 may need to change.
   examples, which could only raise the defunct error.
 - The internal play-by-play helpers in `nhl_game_feed.R` are no longer
   rendered as help pages.
+- Each `espn_wch_*()` function now shares its help page with the
+  matching `espn_mch_*()` function (same arguments, same columns), so
+  the 121 pairs take 121 help pages instead of 242.
+  [`?espn_wch_scoreboard`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_scoreboard.md)
+  still works.
+- The help pages of the seven largest families (ESPN NHL, ESPN MCH /
+  WCH, SIHF, SHL, KHL, Liiga, National League) no longer list every
+  other member of the family under “See also”; those lists grew with the
+  square of the family size and made up most of the installed help. Each
+  page links to one family index page instead
+  ([`?family_espn_nhl`](https://fastRhockey.sportsdataverse.org/reference/family_espn_nhl.md),
+  [`?family_espn_mch`](https://fastRhockey.sportsdataverse.org/reference/family_espn_mch.md),
+  [`?family_sihf`](https://fastRhockey.sportsdataverse.org/reference/family_sihf.md),
+  [`?family_shl`](https://fastRhockey.sportsdataverse.org/reference/family_shl.md),
+  [`?family_khl`](https://fastRhockey.sportsdataverse.org/reference/family_khl.md),
+  [`?family_liiga`](https://fastRhockey.sportsdataverse.org/reference/family_liiga.md),
+  [`?family_national_league`](https://fastRhockey.sportsdataverse.org/reference/family_national_league.md)).
+  With the change above, the installed size drops from 8.9 MB to 6.0 MB.
 
 ## **fastRhockey 1.0.0**
 

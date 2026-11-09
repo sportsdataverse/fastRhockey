@@ -41,7 +41,7 @@ Other AHL Functions:
 ``` r
  try(ahl_pbp(game_id = 1000093924)) 
 #> ── AHL Play-by-Play from HockeyTech ─────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 10:23:41 UTC
+#> ℹ Data updated: 2026-11-09 11:48:29 UTC
 #> # A tibble: 0 × 32
 #> # ℹ 32 variables: game_date <chr>, game_season <int>, game_season_id <chr>,
 #> #   home_team <chr>, home_team_id <chr>, away_team <chr>, away_team_id <chr>,

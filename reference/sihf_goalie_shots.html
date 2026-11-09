@@ -165,39 +165,7 @@ unreadable body, a stub or redirect body, a table without its filter echo, a tru
 </ul></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Other SIHF Functions:
-<code><a href="sihf_game_goalie_stats.html">sihf_game_goalie_stats()</a></code>,
-<code><a href="sihf_game_info.html">sihf_game_info()</a></code>,
-<code><a href="sihf_game_lineups.html">sihf_game_lineups()</a></code>,
-<code><a href="sihf_game_player_stats.html">sihf_game_player_stats()</a></code>,
-<code><a href="sihf_game_team_stats.html">sihf_game_team_stats()</a></code>,
-<code><a href="sihf_goalie_shootouts.html">sihf_goalie_shootouts()</a></code>,
-<code><a href="sihf_goalie_stats.html">sihf_goalie_stats()</a></code>,
-<code><a href="sihf_goalie_wins.html">sihf_goalie_wins()</a></code>,
-<code><a href="sihf_pbp.html">sihf_pbp()</a></code>,
-<code><a href="sihf_phases.html">sihf_phases()</a></code>,
-<code><a href="sihf_player_faceoffs.html">sihf_player_faceoffs()</a></code>,
-<code><a href="sihf_player_faceoffs_by_zone.html">sihf_player_faceoffs_by_zone()</a></code>,
-<code><a href="sihf_player_faceoffs_by_zone_per_game.html">sihf_player_faceoffs_by_zone_per_game()</a></code>,
-<code><a href="sihf_player_goals_assists.html">sihf_player_goals_assists()</a></code>,
-<code><a href="sihf_player_penalties.html">sihf_player_penalties()</a></code>,
-<code><a href="sihf_player_shootouts.html">sihf_player_shootouts()</a></code>,
-<code><a href="sihf_player_shots.html">sihf_player_shots()</a></code>,
-<code><a href="sihf_player_stats.html">sihf_player_stats()</a></code>,
-<code><a href="sihf_player_time_on_ice.html">sihf_player_time_on_ice()</a></code>,
-<code><a href="sihf_results.html">sihf_results()</a></code>,
-<code><a href="sihf_standings.html">sihf_standings()</a></code>,
-<code><a href="sihf_team_attendance.html">sihf_team_attendance()</a></code>,
-<code><a href="sihf_team_faceoffs.html">sihf_team_faceoffs()</a></code>,
-<code><a href="sihf_team_faceoffs_by_zone.html">sihf_team_faceoffs_by_zone()</a></code>,
-<code><a href="sihf_team_faceoffs_by_zone_per_game.html">sihf_team_faceoffs_by_zone_per_game()</a></code>,
-<code><a href="sihf_team_goals.html">sihf_team_goals()</a></code>,
-<code><a href="sihf_team_goals_by_position.html">sihf_team_goals_by_position()</a></code>,
-<code><a href="sihf_team_penalties.html">sihf_team_penalties()</a></code>,
-<code><a href="sihf_team_penalty_kill.html">sihf_team_penalty_kill()</a></code>,
-<code><a href="sihf_team_power_play.html">sihf_team_power_play()</a></code>,
-<code><a href="sihf_team_shootouts.html">sihf_team_shootouts()</a></code>,
-<code><a href="sihf_team_shots.html">sihf_team_shots()</a></code></p></div>
+    <div class="dont-index"><p><a href="family_sihf.html">family_sihf</a> lists every function in this family.</p></div>
     </div>
 
     <div class="section level2">
@@ -205,7 +173,7 @@ unreadable body, a stub or redirect body, a table without its filter echo, a tru
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">sihf_goalie_shots</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span>, league_id <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── SIHF Goalie Shots Information from data.sihf.ch ──────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 10:30:25 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 11:54:24 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 35 × 18</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    season phase_id  rank player      team_id team_name team_acronym games_played</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>

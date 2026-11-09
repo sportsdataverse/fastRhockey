@@ -58,7 +58,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_stats_goalie_leaders(attribute = "savePctg"))
 #> ── NHL Stats Goalie Leaders ─────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 10:29:15 UTC
+#> ℹ Data updated: 2026-11-09 11:53:15 UTC
 #> # A tibble: 10 × 15
 #>    save_pctg player_id player_current_team_id player_first_name player_full_name
 #>        <dbl>     <int> <lgl>                  <chr>             <chr>           

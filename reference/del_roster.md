@@ -86,7 +86,7 @@ Other DEL eSports functions:
 # \donttest{
   try(del_roster(match_id = 4444))
 #> ── DEL roster from the eSports hokejovyzapis bucket ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 10:23:50 UTC
+#> ℹ Data updated: 2026-11-09 11:48:38 UTC
 #> # A tibble: 42 × 10
 #>    team_side slot  player_id match_player_id name      surname   jersey position
 #>    <chr>     <chr>     <int>           <int> <chr>     <chr>      <int> <chr>   

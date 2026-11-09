@@ -68,7 +68,7 @@ Other Ligue Magnus Functions:
 # \donttest{
   try(magnus_competitions())
 #> ── Ligue Magnus Competitions Information from liguemagnus.com ──────────────────
-#> ℹ Data updated: 2026-11-09 10:28:13 UTC
+#> ℹ Data updated: 2026-11-09 11:52:14 UTC
 #> # A tibble: 7 × 8
 #>   competition_id season competition    competition_type_id competition_type_code
 #>            <int>  <int> <chr>                        <int> <chr>                

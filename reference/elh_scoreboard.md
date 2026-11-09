@@ -85,7 +85,7 @@ Other ELH Functions:
 # \donttest{
   try(elh_scoreboard(date = "2025-10-17"))
 #> ── ELH Scoreboard Information from hokej.cz ─────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 10:24:15 UTC
+#> ℹ Data updated: 2026-11-09 11:49:02 UTC
 #> # A tibble: 4 × 23
 #>   league_id league_name    hokejcz_game_id onlajny_game_id game_date  start_time
 #>       <int> <chr>                    <int>           <int> <date>     <chr>     

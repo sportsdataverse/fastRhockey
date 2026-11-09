@@ -101,7 +101,7 @@ Other EIHL eSports functions:
 # \donttest{
   try(eihl_goalie_box(match_id = 4440))
 #> ── EIHL goalie_box from the eSports hokejovyzapis bucket ── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 10:23:59 UTC
+#> ℹ Data updated: 2026-11-09 11:48:46 UTC
 #> # A tibble: 6 × 28
 #>   player_id name     surname    birthdate team_id team_name team_shortcut jersey
 #>       <int> <chr>    <chr>      <chr>       <int> <chr>     <chr>          <int>
