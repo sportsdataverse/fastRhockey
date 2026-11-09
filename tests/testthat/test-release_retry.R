@@ -178,7 +178,9 @@ test_that("a non-zero download status is a failed read", {
 
 test_that("a strict read turns a partial-read warning into an error", {
   local_mocked_bindings(download.file = fake_download()$download, .package = "utils")
+  calls <- 0L
   local_mocked_bindings(csv_from_url = function(...) {
+    calls <<- calls + 1L
     warning("Stopped early on line 3. Expected 2 fields but found 3.")
     data.table::data.table(season = 2024L, game_id = 1L)
   })
@@ -189,6 +191,8 @@ test_that("a strict read turns a partial-read warning into an error", {
     suppressWarnings(.release_csv_from_url("https://x/a.csv", strict = TRUE)),
     "fread() warned, so the table may be partial: Stopped early", fixed = TRUE
   )
+  # The partial read is not retried: one read for each of the two calls.
+  expect_equal(calls, 2L)
 })
 
 test_that("a release csv is read from a local file", {

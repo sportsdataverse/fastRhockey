@@ -105,7 +105,7 @@ upgrades from 1.0.0 may need to change.
   before `fread()` reads it (with `download.file.method = "curl"`,
   `fread(url)` shelled out to curl, which ignores HTTP errors and R's
   `timeout`), and the games-index read treats an `fread()` warning (a read
-  that stopped early) as an error.
+  that stopped early) as an error, without retrying it.
 
 * `ahl_pbp()`, `ohl_pbp()`, `whl_pbp()`, `qmjhl_pbp()` and the four
   `*_game_corsi()` functions: a game with no events failed with
