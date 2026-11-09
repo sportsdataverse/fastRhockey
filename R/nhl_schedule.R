@@ -54,6 +54,12 @@
 #'   try(nhl_schedule(day = "2024-01-15"))
 #'   try(nhl_schedule(season = 2025, team_abbr = "TOR"))
 #' }
+#' @examplesIf interactive()
+#' # Two more requests; kept out of R CMD check to stay under 5 s.
+#' \donttest{
+#'   try(nhl_schedule(season = 2024, team_abbr = "TOR", game_type = "playoffs"))
+#'   try(nhl_schedule(day = "2024-01-15", include_data_flags = TRUE))
+#' }
 nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
                          include_data_flags = FALSE,
                          game_type = c("both", "regular", "playoffs")) {
