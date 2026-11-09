@@ -172,7 +172,7 @@ test_that("a non-zero download status is a failed read", {
   local_mocked_bindings(csv_from_url = function(...) stop("not reached"))
   expect_error(
     suppressWarnings(.release_csv_from_url("https://x/a.csv")),
-    "failed with status 22"
+    "Download failed (status 22)", fixed = TRUE
   )
 })
 
@@ -187,7 +187,7 @@ test_that("a strict read turns a partial-read warning into an error", {
   expect_equal(nrow(out), 1L)
   expect_error(
     suppressWarnings(.release_csv_from_url("https://x/a.csv", strict = TRUE)),
-    "Partial read of https://x/a.csv: Stopped early"
+    "fread() warned, so the table may be partial: Stopped early", fixed = TRUE
   )
 })
 

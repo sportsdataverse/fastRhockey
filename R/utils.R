@@ -45,23 +45,19 @@ csv_from_url <- function(...) {
 # error when every try fails.
 #
 # The file is downloaded with libcurl first and fread() reads the local copy:
-# with `download.file.method = "curl"`, fread(url) shells out to curl, which
-# does not fail on an HTTP error status and ignores R's `timeout`. fread() can
-# also stop early on a malformed row and return a partial table with only a
-# warning; `strict = TRUE` turns that warning into an error (and so a retry).
+# fread(url) under `download.file.method = "curl"` shells out to curl, which
+# ignores R's `timeout` and saves an HTTP 503 error page as if it were the csv.
+# With `strict = TRUE` a fread() warning (it stops early on a malformed row and
+# returns the rows before it) is an error, so a partial table never passes.
 .release_csv_from_url <- function(url, ..., strict = FALSE) {
   read <- function(u) {
-    tmp <- tempfile(fileext = sub("^[^.]*", "", basename(u)))
+    tmp <- tempfile(fileext = if (grepl("\\.gz$", u)) ".csv.gz" else ".csv")
     on.exit(unlink(tmp), add = TRUE)
-    status <- utils::download.file(u, tmp, mode = "wb", method = "libcurl",
-                                   quiet = TRUE)
-    if (status != 0L) stop("Download of ", u, " failed with status ", status, ".")
+    .download_url(u, tmp, method = "libcurl")
     if (!strict) return(csv_from_url(file = tmp, ...))
     withCallingHandlers(
       csv_from_url(file = tmp, ...),
-      warning = function(w) {
-        stop("Partial read of ", u, ": ", conditionMessage(w), call. = FALSE)
-      }
+      warning = function(w) stop("fread() warned, so the table may be partial: ", conditionMessage(w), call. = FALSE)
     )
   }
   load <- .read_release_asset(url, read)
@@ -142,6 +138,15 @@ rds_from_url <- function(url) {
   con <- url(url)
   on.exit(close(con))
   readRDS(con)
+}
+
+# `...` goes to download.file(), e.g. `method = "libcurl"`.
+.download_url <- function(url, dest, ...) {
+  status <- utils::download.file(url, dest, mode = "wb", quiet = TRUE, ...)
+  if (status != 0L || !file.exists(dest) || file.size(dest) == 0) {
+    stop("Download failed (status ", status, ") or the file is empty.", call. = FALSE)
+  }
+  invisible(dest)
 }
 
 
