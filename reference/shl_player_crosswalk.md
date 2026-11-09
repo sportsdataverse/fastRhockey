@@ -67,7 +67,7 @@ lists every function in this family.
     xw[xw$player_id == 2427, ]
   })
 #> ── SHL Player Crosswalk Information from www.shl.se ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 17:23:51 UTC
+#> ℹ Data updated: 2026-11-09 19:41:33 UTC
 #> # A tibble: 1 × 14
 #>   player_id athlete_uuid  first_name last_name jersey_number position shoots
 #>       <int> <chr>         <chr>      <chr>             <int> <chr>    <chr> 

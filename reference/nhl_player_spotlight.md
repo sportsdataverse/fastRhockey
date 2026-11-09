@@ -36,20 +36,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_player_spotlight())
 #> ── NHL Player Spotlight ─────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 17:22:32 UTC
+#> ℹ Data updated: 2026-11-09 19:39:52 UTC
 #> # A tibble: 10 × 13
 #>    player_id player_slug  position sweater_number team_id headshot team_tri_code
 #>        <int> <chr>        <chr>             <int>   <int> <chr>    <chr>        
 #>  1   8478427 sebastian-a… C                    20      12 https:/… CAR          
-#>  2   8471675 sidney-cros… C                    87       5 https:/… PIT          
-#>  3   8483445 cutter-gaut… L                    61      24 https:/… ANA          
-#>  4   8476945 connor-hell… G                    37       1 https:/… NJD          
-#>  5   8480800 quinn-hughe… D                    43      30 https:/… MIN          
-#>  6   8483457 lane-hutson… D                    48       8 https:/… MTL          
-#>  7   8476453 nikita-kuch… R                    86      14 https:/… TBL          
+#>  2   8483445 cutter-gaut… L                    61      24 https:/… ANA          
+#>  3   8476945 connor-hell… G                    37       1 https:/… NJD          
+#>  4   8481559 jack-hughes… C                    86       1 https:/… NJD          
+#>  5   8483457 lane-hutson… D                    48       8 https:/… MTL          
+#>  6   8476453 nikita-kuch… R                    86      14 https:/… TBL          
+#>  7   8477492 nathan-mack… C                    29      21 https:/… COL          
 #>  8   8479318 auston-matt… C                    34      10 https:/… TOR          
 #>  9   8478402 connor-mcda… C                    97      22 https:/… EDM          
-#> 10   8480280 jeremy-sway… G                     1       6 https:/… BOS          
+#> 10   8477424 juuse-saros… G                    74      18 https:/… NSH          
 #> # ℹ 6 more variables: team_logo <chr>, sort_id <int>, name_default <chr>,
 #> #   name_cs <chr>, name_fi <chr>, name_sk <chr>
 # }

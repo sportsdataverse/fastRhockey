@@ -224,9 +224,29 @@ lists every function in this family.
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(nl_player_stats(phase = 4940, season = 2026))
+#> ── National League Player Stats Information from nationalleague.ch ─────────────
+#> ℹ Data updated: 2026-11-09 19:40:41 UTC
+#> # A tibble: 502 × 145
+#>    player_id first_name last_name      team_id team_short_name team_name  number
+#>        <dbl> <chr>      <chr>            <dbl> <chr>           <chr>      <chr> 
+#>  1    322002 Ianfranco  Vargas Sanchez  101060 SCRJ            SC Rapper… 1     
+#>  2    310134 Ivars      Punnenovs       101060 SCRJ            SC Rapper… 74    
+#>  3    154513 Melvin     Nyffeler        101060 SCRJ            SC Rapper… 60    
+#>  4    343027 Matthew    Kellenberger    101060 SCRJ            SC Rapper… 26    
+#>  5    343296 Lawrence   Pilut           101060 SCRJ            SC Rapper… 20    
+#>  6    324225 Robin      Bisig           101060 SCRJ            SC Rapper… 32    
+#>  7    343176 Julius     Honka           101060 SCRJ            SC Rapper… 90    
+#>  8    319467 Benjamin   Quinn           101060 SCRJ            SC Rapper… 64    
+#>  9    305980 Luca       Capaul          101060 SCRJ            SC Rapper… 7     
+#> 10    308638 Mika       Henauer         101060 SCRJ            SC Rapper… 9     
+#> # ℹ 492 more rows
+#> # ℹ 138 more variables: position <chr>, topscorer_points <int>,
+#> #   topscorer_point_average <dbl>, topscorer_market_value <int>,
+#> #   topscorer_market_value_trend <int>, topscorer_amount <int>,
+#> #   is_topscorer <lgl>, nationality <chr>, birth <chr>, height <int>,
+#> #   weight <int>, hand <chr>, lcrid <int>, noc <int>, gp <int>, g <int>,
+#> #   a1 <int>, a2 <int>, penalties <int>, pim <int>, geq <int>, gpp <int>, …
 # }
-}
 ```

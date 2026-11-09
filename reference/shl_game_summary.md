@@ -62,7 +62,7 @@ lists every function in this family.
 # \donttest{
   try(shl_game_summary(game_uuid = "bdhvuc5tex"))
 #> ── SHL Game Summary Information from www.shl.se ─────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 17:23:43 UTC
+#> ℹ Data updated: 2026-11-09 19:41:26 UTC
 #> # A tibble: 1 × 7
 #>   team_head2_head  team_period_caption team_period_overtime team_period_shootout
 #>   <chr>            <chr>               <lgl>                <lgl>               

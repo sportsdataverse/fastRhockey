@@ -101,9 +101,26 @@ Other VHL Functions:
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(vhl_goalie_stats(season = 2026, stage = "playoff"))
+#> ── VHL Goalie Stats Information from vhlru.ru ───────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-09 19:42:32 UTC
+#> # A tibble: 58 × 21
+#>    season stage      tn player_id player  jersey team  games_played  wins losses
+#>     <int> <chr>   <int>     <int> <chr>    <int> <chr>        <int> <int>  <int>
+#>  1   2026 playoff  1375     42279 Gabdra…     90 Rubin            2     0      0
+#>  2   2026 playoff  1375     38000 Chibiz…     80 Bars             1     0      0
+#>  3   2026 playoff  1375     22131 Kisely…     79 Omsk…            1     0      0
+#>  4   2026 playoff  1375     41378 Zinadd…      1 Torp…            1     0      0
+#>  5   2026 playoff  1375     40204 Smirno…     80 Ryaz…            1     0      0
+#>  6   2026 playoff  1375     15802 Sokhat…     50 Ugra            14    12      1
+#>  7   2026 playoff  1375     20695 Kudash…     31 Dizel            4     2      1
+#>  8   2026 playoff  1375     33908 Gorshk…     40 Molot            7     3      4
+#>  9   2026 playoff  1375     41683 Volokh…     31 Khim…           23    13     10
+#> 10   2026 playoff  1375     23557 Podskr…     73 Meta…           16     9      6
+#> # ℹ 48 more rows
+#> # ℹ 11 more variables: shootouts_played <int>, shots_against <int>,
+#> #   goals_against <int>, saves <int>, save_pct <dbl>, gaa <dbl>, goals <int>,
+#> #   assists <int>, shutouts <int>, penalty_minutes <int>, toi <chr>
 # }
-}
 ```

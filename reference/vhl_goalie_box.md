@@ -110,9 +110,20 @@ Other VHL Functions:
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(vhl_goalie_box(season = 2026, game_id = 899223))
+#> ── VHL Goalie Box Information from vhlru.ru ─────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-09 19:42:28 UTC
+#> # A tibble: 4 × 24
+#>   game_id season stage game_number team_side team_page_id team  jersey player_id
+#>     <int>  <int> <chr>       <int> <chr>            <int> <chr>  <int>     <int>
+#> 1  899223   2026 regu…         984 home               390 Toros     49     26207
+#> 2  899223   2026 regu…         984 home               390 Toros      1     41850
+#> 3  899223   2026 regu…         984 away            505612 Magn…     23     39266
+#> 4  899223   2026 regu…         984 away            505612 Magn…     35     32042
+#> # ℹ 15 more variables: player <chr>, captaincy <chr>, games_played <int>,
+#> #   wins <int>, losses <int>, shootouts_played <int>, shots_against <int>,
+#> #   goals_against <int>, saves <int>, save_pct <dbl>, gaa <dbl>, assists <int>,
+#> #   shutouts <int>, penalty_minutes <int>, toi <chr>
 # }
-}
 ```

@@ -236,9 +236,29 @@ lists every function in this family.
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(nl_team_player_stats(phase = 4940, season = 2026, team_id = 101144))
+#> ── National League Team Player Stats Information from nationalleague.ch ────────
+#> ℹ Data updated: 2026-11-09 19:40:49 UTC
+#> # A tibble: 25 × 145
+#>    player_id first_name last_name team_id team_short_name team_name number
+#>        <dbl> <chr>      <chr>       <dbl> <chr>           <chr>     <chr> 
+#>  1    149134 Tim        Wolf       101144 EVZ             EV Zug    1     
+#>  2    108497 Leonardo   Genoni     101144 EVZ             EV Zug    30    
+#>  3    342896 Lukas      Bengtsson  101144 EVZ             EV Zug    32    
+#>  4    105742 Raphael    Diaz       101144 EVZ             EV Zug    16    
+#>  5    150495 Samuel     Guerra     101144 EVZ             EV Zug    27    
+#>  6    301519 Elia       Riva       101144 EVZ             EV Zug    37    
+#>  7    305519 Tobias     Geisser    101144 EVZ             EV Zug    42    
+#>  8    305399 Livio      Stadler    101144 EVZ             EV Zug    14    
+#>  9    345820 David      Sklenicka  101144 EVZ             EV Zug    66    
+#> 10    349197 Jesse      Graham     101144 EVZ             EV Zug    64    
+#> # ℹ 15 more rows
+#> # ℹ 138 more variables: position <chr>, topscorer_points <int>,
+#> #   topscorer_point_average <dbl>, topscorer_market_value <int>,
+#> #   topscorer_market_value_trend <int>, topscorer_amount <int>,
+#> #   is_topscorer <lgl>, nationality <chr>, birth <chr>, height <int>,
+#> #   weight <int>, hand <chr>, lcrid <int>, noc <int>, gp <int>, g <int>,
+#> #   a1 <int>, a2 <int>, penalties <int>, pim <int>, geq <int>, gpp <int>, …
 # }
-}
 ```

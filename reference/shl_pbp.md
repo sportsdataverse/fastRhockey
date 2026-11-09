@@ -122,7 +122,7 @@ lists every function in this family.
 # \donttest{
   try(shl_pbp(game_uuid = "bdhvuc5tex"))
 #> ── SHL Pbp Information from www.shl.se ──────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 17:23:48 UTC
+#> ℹ Data updated: 2026-11-09 19:41:31 UTC
 #> # A tibble: 131 × 67
 #>    game_source_id   game_id event_id event_uuid round game_type arena attendance
 #>    <chr>              <int>    <int> <chr>      <int> <chr>     <chr>      <int>

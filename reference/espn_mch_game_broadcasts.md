@@ -81,7 +81,7 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_broadcasts(event_id = sb$game_id[1])
   })
-#> ! 2026-11-09 17:18:14.567672: No broadcasts returned for event 401715296.
+#> ! 2026-11-09 19:33:38.220187: No broadcasts returned for event 401715296.
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
@@ -89,7 +89,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20250110")
     espn_wch_game_broadcasts(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-09 17:18:14.601845: 
+#> ✖ 2026-11-09 19:33:38.30331: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

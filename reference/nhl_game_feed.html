@@ -6467,12 +6467,58 @@ instead of parsed/enriched data. Default FALSE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> named list()</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># interactive()</span></span></span>
 <span class="r-in"><span><span class="co"># The first parsed game downloads the xG models (about 4 MB).</span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_game_feed</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">2024020001</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $pbp</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game PBP from NHL.com ────────────────────────────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 19:39:45 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 850 × 93</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    event_type   event secondary_type event_team_abbr event_team_type description</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;glue&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> CHANGE       Chan… <span style="color: #BB0000;">NA</span>             <span style="color: #BB0000;">NA</span>              <span style="color: #BB0000;">NA</span>              ON: Nicola…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> CHANGE       Chan… <span style="color: #BB0000;">NA</span>             <span style="color: #BB0000;">NA</span>              <span style="color: #BB0000;">NA</span>              ON: Jacob …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> FACEOFF      Face… <span style="color: #BB0000;">NA</span>             NJD             away            Nico Hisch…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> PERIOD_START Peri… <span style="color: #BB0000;">NA</span>             <span style="color: #BB0000;">NA</span>              <span style="color: #BB0000;">NA</span>              Start of P…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> HIT          Hit   <span style="color: #BB0000;">NA</span>             BUF             home            Beck Malen…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> SHOT         Shot  wrist          NJD             away            Simon Neme…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> GIVEAWAY     Give… <span style="color: #BB0000;">NA</span>             NJD             away            Giveaway b…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> CHANGE       Chan… <span style="color: #BB0000;">NA</span>             <span style="color: #BB0000;">NA</span>              <span style="color: #BB0000;">NA</span>              ON: Bowen …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> CHANGE       Chan… <span style="color: #BB0000;">NA</span>             <span style="color: #BB0000;">NA</span>              <span style="color: #BB0000;">NA</span>              ON: Timo M…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> CHANGE       Chan… <span style="color: #BB0000;">NA</span>             <span style="color: #BB0000;">NA</span>              <span style="color: #BB0000;">NA</span>              ON: Jesper…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 840 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 87 more variables: period &lt;int&gt;, period_type &lt;chr&gt;, period_time &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   period_seconds &lt;dbl&gt;, period_seconds_remaining &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   period_time_remaining &lt;chr&gt;, game_seconds &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   game_seconds_remaining &lt;dbl&gt;, home_score &lt;int&gt;, away_score &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   event_player_1_name &lt;chr&gt;, event_player_1_type &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   event_player_1_id &lt;int&gt;, event_player_2_name &lt;chr&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $game_info</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 10</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      game_id   season game_type game_date  venue   home_team_abbr away_team_abbr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">2</span>024<span style="text-decoration: underline;">020</span>001 20<span style="text-decoration: underline;">242</span>025 R         2024-10-04 O2 Cze… BUF            NJD           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 3 more variables: home_score &lt;int&gt;, away_score &lt;int&gt;, game_state &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $rosters</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 40 × 8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    player_id full_name      first_name last_name team_abbr team_id position_code</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   8<span style="text-decoration: underline;">474</span>593 Jacob Markstr… Jacob      Markstrom NJD             1 G            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   8<span style="text-decoration: underline;">474</span>596 Jake Allen     Jake       Allen     NJD             1 G            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   8<span style="text-decoration: underline;">475</span>193 Tomas Tatar    Tomas      Tatar     NJD             1 L            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   8<span style="text-decoration: underline;">475</span>287 Erik Haula     Erik       Haula     NJD             1 L            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>   8<span style="text-decoration: underline;">475</span>455 Brenden Dillon Brenden    Dillon    NJD             1 D            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   8<span style="text-decoration: underline;">475</span>722 Jason Zucker   Jason      Zucker    BUF             7 L            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>   8<span style="text-decoration: underline;">476</span>292 Ondrej Palat   Ondrej     Palat     NJD             1 L            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   8<span style="text-decoration: underline;">476</span>462 Dougie Hamilt… Dougie     Hamilton  NJD             1 D            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   8<span style="text-decoration: underline;">476</span>474 Stefan Noesen  Stefan     Noesen    NJD             1 R            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   8<span style="text-decoration: underline;">477</span>365 Connor Clifton Connor     Clifton   BUF             7 D            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 30 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1 more variable: sweater_number &lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

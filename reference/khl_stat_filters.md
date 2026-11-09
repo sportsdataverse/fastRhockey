@@ -96,7 +96,7 @@ lists every function in this family.
 # \donttest{
   try(khl_stat_filters(season = 2026))
 #> ── KHL Stat Filters from khl.ru ─────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 17:20:36 UTC
+#> ℹ Data updated: 2026-11-09 19:37:10 UTC
 #> # A tibble: 51 × 6
 #>    filter filter_name value name         def active
 #>    <chr>  <chr>       <chr> <chr>      <int>  <int>

@@ -127,9 +127,20 @@ lists every function in this family.
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(nl_game_overview(game_id = 20261105000325))
+#> ── National League Game Overview Information from nationalleague.ch ────────────
+#> ℹ Data updated: 2026-11-09 19:40:34 UTC
+#> # A tibble: 1 × 47
+#>   game_id home_team_short_name home_team_name away_team_short_name
+#>     <dbl> <chr>                <chr>          <chr>               
+#> 1 2.03e13 HCD                  HC Davos       SCL                 
+#> # ℹ 43 more variables: away_team_name <chr>, home_team_id <dbl>,
+#> #   away_team_id <dbl>, vimeo_video_id <dbl>, date <chr>, status <chr>,
+#> #   base_status <chr>, home_team_result <int>, away_team_result <int>,
+#> #   is_overtime <lgl>, is_shootout <lgl>, highlight_vimeo_video_id <dbl>,
+#> #   has_highlight <lgl>, is_current <lgl>, is_current_for_team <lgl>,
+#> #   tv_partner <chr>, spectators <int>, has_my_sports <lgl>, referees <chr>,
+#> #   is_exhibition <lgl>, home_team_coach <chr>, away_team_coach <chr>, …
 # }
-}
 ```

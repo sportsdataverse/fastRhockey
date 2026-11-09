@@ -75,7 +75,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_divisions_info(division_name = "Atlantic"))
 #> ── NHL Division Information from NHL.com ────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 17:22:08 UTC
+#> ℹ Data updated: 2026-11-09 19:39:28 UTC
 #> # A tibble: 8 × 36
 #>   team_abbr team_name team_common_name team_logo conference_name division_abbrev
 #>   <chr>     <chr>     <chr>            <chr>     <chr>           <chr>          

@@ -81,7 +81,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_player_core(athlete_id = "5136656"))
 #> ── MENS-COLLEGE-HOCKEY Player Core data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-11-09 17:18:32 UTC
+#> ℹ Data updated: 2026-11-09 19:33:55 UTC
 #> # A tibble: 1 × 28
 #>   athlete_id uid         guid  type  first_name last_name full_name display_name
 #>   <chr>      <chr>       <chr> <chr> <chr>      <chr>     <chr>     <chr>       
@@ -96,7 +96,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_player_core(athlete_id = "5263060"))
 #> ── WOMENS-COLLEGE-HOCKEY Player Core data from ESPN core-v2 ────────────────────
-#> ℹ Data updated: 2026-11-09 17:18:32 UTC
+#> ℹ Data updated: 2026-11-09 19:33:55 UTC
 #> # A tibble: 1 × 28
 #>   athlete_id uid         guid  type  first_name last_name full_name display_name
 #>   <chr>      <chr>       <chr> <chr> <chr>      <chr>     <chr>     <chr>       

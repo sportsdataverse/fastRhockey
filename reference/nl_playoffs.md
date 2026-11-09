@@ -111,9 +111,29 @@ lists every function in this family.
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(nl_playoffs(season = 2026))
+#> ── National League Playoffs Information from nationalleague.ch ─────────────────
+#> ℹ Data updated: 2026-11-09 19:40:43 UTC
+#> # A tibble: 46 × 39
+#>    series_group series_home_team_short_name series_away_team_short_name
+#>           <int> <chr>                       <chr>                      
+#>  1            1 HCD                         FRI                        
+#>  2            1 HCD                         FRI                        
+#>  3            1 HCD                         FRI                        
+#>  4            1 HCD                         FRI                        
+#>  5            1 HCD                         FRI                        
+#>  6            1 HCD                         FRI                        
+#>  7            1 HCD                         FRI                        
+#>  8            1 HCD                         ZSC                        
+#>  9            1 HCD                         ZSC                        
+#> 10            1 HCD                         ZSC                        
+#> # ℹ 36 more rows
+#> # ℹ 36 more variables: series_home_team_id <dbl>, series_away_team_id <dbl>,
+#> #   series_home_team_result <int>, series_away_team_result <int>,
+#> #   series_best_of <int>, series_title <chr>, round <chr>, game_id <dbl>,
+#> #   home_team_short_name <chr>, home_team_name <chr>,
+#> #   away_team_short_name <chr>, away_team_name <chr>, home_team_id <dbl>,
+#> #   away_team_id <dbl>, vimeo_video_id <dbl>, date <chr>, status <chr>, …
 # }
-}
 ```

@@ -228,9 +228,20 @@ lists every function in this family.
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(nl_player_season(phase = 4940, player_id = 305519, season = 2026))
+#> ── National League Player Season Information from nationalleague.ch ────────────
+#> ℹ Data updated: 2026-11-09 19:40:38 UTC
+#> # A tibble: 1 × 145
+#>   player_id first_name last_name team_id team_short_name team_name number
+#>       <dbl> <chr>      <chr>       <dbl> <chr>           <chr>     <chr> 
+#> 1    305519 Tobias     Geisser    101144 EVZ             EV Zug    42    
+#> # ℹ 138 more variables: position <chr>, topscorer_points <int>,
+#> #   topscorer_point_average <dbl>, topscorer_market_value <int>,
+#> #   topscorer_market_value_trend <int>, topscorer_amount <int>,
+#> #   is_topscorer <lgl>, nationality <chr>, birth <chr>, height <int>,
+#> #   weight <int>, hand <chr>, lcrid <int>, noc <int>, gp <int>, g <int>,
+#> #   a1 <int>, a2 <int>, penalties <int>, pim <int>, geq <int>, gpp <int>,
+#> #   gpk <int>, gwg <int>, ps <int>, pg <int>, pl <int>, mi <int>, toi <int>, …
 # }
-}
 ```

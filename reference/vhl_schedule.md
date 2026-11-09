@@ -101,10 +101,46 @@ Other VHL Functions:
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(vhl_schedule(season = 2026))
+#> ── VHL Schedule Information from vhlru.ru ───────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-09 19:42:44 UTC
+#> # A tibble: 992 × 20
+#>    season stage      tn game_id game_number game_date  date    weekday home_team
+#>     <int> <chr>   <int>   <int>       <int> <chr>      <chr>   <chr>   <chr>    
+#>  1   2026 regular  1374  899225         986 2026-03-18 18 Mar… Wednes… Kristall…
+#>  2   2026 regular  1374  899222         983 2026-03-18 18 Mar… Wednes… Molot    
+#>  3   2026 regular  1374  899223         984 2026-03-18 18 Mar… Wednes… Toros    
+#>  4   2026 regular  1374  899224         985 2026-03-18 18 Mar… Wednes… Izhstal  
+#>  5   2026 regular  1374  899226         987 2026-03-18 18 Mar… Wednes… CSK VVS  
+#>  6   2026 regular  1374  899228         989 2026-03-18 18 Mar… Wednes… Neftyanik
+#>  7   2026 regular  1374  899229         990 2026-03-18 18 Mar… Wednes… Olimpiya 
+#>  8   2026 regular  1374  899230         991 2026-03-18 18 Mar… Wednes… Chelny   
+#>  9   2026 regular  1374  899231         992 2026-03-18 18 Mar… Wednes… Ryazan-V…
+#> 10   2026 regular  1374  899220         981 2026-03-17 17 Mar… Tuesday Dynamo S…
+#> # ℹ 982 more rows
+#> # ℹ 11 more variables: home_club_id <int>, away_team <chr>, away_club_id <int>,
+#> #   city <chr>, score <chr>, home_score <int>, away_score <int>,
+#> #   decision <chr>, winner <chr>, status <chr>, online_url <chr>
   try(vhl_schedule(season = 2026, stage = "playoff"))
+#> ── VHL Schedule Information from vhlru.ru ───────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-09 19:42:45 UTC
+#> # A tibble: 84 × 20
+#>    season stage      tn game_id game_number game_date  date   weekday  home_team
+#>     <int> <chr>   <int>   <int>       <int> <chr>      <chr>  <chr>    <chr>    
+#>  1   2026 playoff  1375  901974          84 2026-05-26 26 May Tuesday  Ugra     
+#>  2   2026 playoff  1375  901970          83 2026-05-23 23 May Saturday Khimik   
+#>  3   2026 playoff  1375  901969          82 2026-05-21 21 May Thursday Khimik   
+#>  4   2026 playoff  1375  901968          81 2026-05-18 18 May Monday   Ugra     
+#>  5   2026 playoff  1375  901967          80 2026-05-16 16 May Saturday Ugra     
+#>  6   2026 playoff  1375  901966          79 2026-05-13 13 May Wednesd… Ugra     
+#>  7   2026 playoff  1375  901961          78 2026-05-11 11 May Monday   Neftyanik
+#>  8   2026 playoff  1375  901959          77 2026-05-10 10 May Sunday   Khimik   
+#>  9   2026 playoff  1375  901954          76 2026-05-08 08 May Friday   Ugra     
+#> 10   2026 playoff  1375  901949          75 2026-05-07 07 May Thursday Metallur…
+#> # ℹ 74 more rows
+#> # ℹ 11 more variables: home_club_id <int>, away_team <chr>, away_club_id <int>,
+#> #   city <chr>, score <chr>, home_score <int>, away_score <int>,
+#> #   decision <chr>, winner <chr>, status <chr>, online_url <chr>
 # }
-}
 ```

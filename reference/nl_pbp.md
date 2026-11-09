@@ -115,9 +115,36 @@ lists every function in this family.
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(nl_pbp(game_id = 20261105000325))
+#> ── National League Play-by-Play Information from nationalleague.ch ─────────────
+#> ℹ Data updated: 2026-11-09 19:40:36 UTC
+#> # A tibble: 17 × 34
+#>    game_id event_index team_side game_seconds team_id home_team time  video_time
+#>      <dbl>       <int> <chr>            <int>   <dbl> <lgl>     <chr>      <int>
+#>  1 2.03e13           1 home               502  101151 TRUE      822          588
+#>  2 2.03e13           2 away               825  102127 FALSE     1345           0
+#>  3 2.03e13           3 away              1347  102127 FALSE     2227        2993
+#>  4 2.03e13           4 home              1374  101151 TRUE      2254        3092
+#>  5 2.03e13           5 away              1453  102127 FALSE     2413        3248
+#>  6 2.03e13           6 home              1558  101151 TRUE      2558           0
+#>  7 2.03e13           7 away              1607  102127 FALSE     2647        3581
+#>  8 2.03e13           8 home              1798  101151 TRUE      2958           0
+#>  9 2.03e13           9 away              2184  102127 FALSE     3624           0
+#> 10 2.03e13          10 away              2184  102127 FALSE     3624           0
+#> 11 2.03e13          11 home              2648  101151 TRUE      4408        6276
+#> 12 2.03e13          12 away              2726  102127 FALSE     4526           0
+#> 13 2.03e13          13 home              2783  101151 TRUE      4623        6529
+#> 14 2.03e13          14 away              3243  102127 FALSE     5403           0
+#> 15 2.03e13          15 away              3477  102127 FALSE     5757           0
+#> 16 2.03e13          16 home              3559  101151 TRUE      5919           0
+#> 17 2.03e13          17 home              3562  101151 TRUE      5922           0
+#> # ℹ 26 more variables: video_vimeo_id <dbl>, action <chr>, foul_type <int>,
+#> #   foul_minutes <int>, player_first_name <chr>, player_last_name <chr>,
+#> #   player_number <chr>, player_total <int>, period <int>, overtime <int>,
+#> #   goal_situation <chr>, home_team_result <int>, away_team_result <int>,
+#> #   assist1_first_name <chr>, assist1_last_name <chr>, assist1_number <chr>,
+#> #   assist1_total <int>, assist2_first_name <chr>, assist2_last_name <chr>,
+#> #   assist2_number <chr>, assist2_total <int>, situation <chr>, …
 # }
-}
 ```

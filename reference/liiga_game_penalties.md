@@ -69,7 +69,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_game_penalties(game_id = 1, season = 2026))
 #> ── Liiga game penalties Information from liiga.fi ───────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 17:20:48 UTC
+#> ℹ Data updated: 2026-11-09 19:37:21 UTC
 #> # A tibble: 11 × 17
 #>    season game_id side   team_id team_slug player_id sufferer_player_id event_id
 #>     <int>   <int> <chr>    <int> <chr>         <int>              <int>    <int>

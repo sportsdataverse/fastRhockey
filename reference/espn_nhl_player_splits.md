@@ -66,9 +66,29 @@ Saiem Gilani
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(espn_nhl_player_splits(athlete_id = "5149125", season = 2025))
+#> ── NHL Player Splits data from ESPN.com ─────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-09 19:34:51 UTC
+#> # A tibble: 62 × 21
+#>    athlete_id season split_category split_category_display split_display_name   
+#>    <chr>       <int> <chr>          <chr>                  <chr>                
+#>  1 5149125      2025 split          split                  All Splits           
+#>  2 5149125      2025 split          split                  Home                 
+#>  3 5149125      2025 split          split                  Away                 
+#>  4 5149125      2025 split          split                  Day                  
+#>  5 5149125      2025 split          split                  Night                
+#>  6 5149125      2025 byOpponent     Opponent               Boston Bruins        
+#>  7 5149125      2025 byOpponent     Opponent               vs Buffalo Sabres    
+#>  8 5149125      2025 byOpponent     Opponent               vs Detroit Red Wings 
+#>  9 5149125      2025 byOpponent     Opponent               vs Florida Panthers  
+#> 10 5149125      2025 byOpponent     Opponent               vs Montreal Canadiens
+#> # ℹ 52 more rows
+#> # ℹ 16 more variables: split_abbreviation <chr>, games <chr>, goals <chr>,
+#> #   assists <chr>, points <chr>, plus_minus <chr>, penalty_minutes <chr>,
+#> #   shots_total <chr>, faceoff_percent <chr>, power_play_goals <chr>,
+#> #   power_play_assists <chr>, short_handed_goals <chr>,
+#> #   short_handed_assists <chr>, game_winning_goals <chr>,
+#> #   time_on_ice_per_game <chr>, production <chr>
 # }
-}
 ```

@@ -129,7 +129,7 @@ Other Metal Ligaen eSports functions:
 # \donttest{
   try(metal_player_box(match_id = 575, team_id = 8))
 #> ── Metal Ligaen player_box from the eSports hokejovyzapis bucket ───────────────
-#> ℹ Data updated: 2026-11-09 17:22:00 UTC
+#> ℹ Data updated: 2026-11-09 19:39:14 UTC
 #> # A tibble: 24 × 79
 #>    player_id name       firstname surname birthdate active position stick weight
 #>        <int> <chr>      <chr>     <chr>   <chr>     <lgl>  <chr>    <chr>  <int>

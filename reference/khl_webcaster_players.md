@@ -124,7 +124,7 @@ lists every function in this family.
 # \donttest{
   try(khl_webcaster_players(player_ids = "[33405, 1144]", season = 2026))
 #> ── KHL Webcaster Players from khl.api.webcaster.pro ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 17:20:40 UTC
+#> ℹ Data updated: 2026-11-09 19:37:13 UTC
 #> # A tibble: 0 × 29
 #> # ℹ 29 variables: id <int>, height <int>, weight <int>, age <int>,
 #> #   shirt_number <int>, khl_id <int>, role <chr>, role_key <chr>,

@@ -100,9 +100,29 @@ lists every function in this family.
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(nl_schedule(season = 2026))
+#> ── National League Schedule Information from nationalleague.ch ─────────────────
+#> ℹ Data updated: 2026-11-09 19:40:46 UTC
+#> # A tibble: 487 × 29
+#>    game_id home_team_short_name home_team_name        away_team_short_name
+#>      <dbl> <chr>                <chr>                 <chr>               
+#>  1 2.03e13 ZSC                  ZSC Lions             GCK                 
+#>  2 2.03e13 SCL                  SCL Tigers            CHU                 
+#>  3 2.03e13 EHCA                 EHC Arosa             HCD                 
+#>  4 2.03e13 ZSC                  ZSC Lions             Fiala Selection     
+#>  5 2.03e13 HCC                  HC La Chaux-de-Fonds  EHCB                
+#>  6 2.03e13 VIS                  EHC Visp              HCL                 
+#>  7 2.03e13 FRI                  Fribourg-Gottéron     GSHC                
+#>  8 2.03e13 WIN                  EHC Winterthur        SCRJ                
+#>  9 2.03e13 HCT                  HC Thurgau            EHCK                
+#> 10 2.03e13 GDT                  GDT Bellinzona Snakes HCAP                
+#> # ℹ 477 more rows
+#> # ℹ 25 more variables: away_team_name <chr>, home_team_id <dbl>,
+#> #   away_team_id <dbl>, vimeo_video_id <dbl>, date <chr>, status <chr>,
+#> #   base_status <chr>, home_team_result <int>, away_team_result <int>,
+#> #   is_overtime <lgl>, is_shootout <lgl>, highlight_vimeo_video_id <dbl>,
+#> #   has_highlight <lgl>, is_current <lgl>, is_current_for_team <lgl>,
+#> #   tv_partner <chr>, spectators <chr>, has_my_sports <lgl>, referees <chr>, …
 # }
-}
 ```

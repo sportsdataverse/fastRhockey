@@ -126,7 +126,7 @@ Other Metal Ligaen eSports functions:
 # \donttest{
   try(metal_pbp(match_id = 575))
 #> ── Metal Ligaen pbp from the eSports hokejovyzapis bucket ──────────────────────
-#> ℹ Data updated: 2026-11-09 17:21:59 UTC
+#> ℹ Data updated: 2026-11-09 19:39:13 UTC
 #> # A tibble: 23 × 53
 #>    event_index period period_number  time event_type       event_id team_side
 #>          <int> <chr>          <int> <int> <chr>               <int> <chr>    

@@ -94,9 +94,25 @@ lists every function in this family.
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(nl_lineups(game_id = 20261105000325))
+#> ── National League Lineups Information from nationalleague.ch ──────────────────
+#> ℹ Data updated: 2026-11-09 19:40:35 UTC
+#> # A tibble: 44 × 13
+#>    game_id team_side team_id unit  player_id position  line first_name last_name
+#>      <dbl> <chr>       <dbl> <chr>     <dbl> <chr>    <int> <chr>      <chr>    
+#>  1 2.03e13 home       101151 goal…    150983 goalkee…     1 Sandro     Aeschlim…
+#>  2 2.03e13 home       101151 goal…    309536 goalkee…     2 Luca       Hollenst…
+#>  3 2.03e13 home       101151 1        153736 defender     1 Lukas      Frick    
+#>  4 2.03e13 home       101151 1        340162 defender     1 Klas       Dahlbeck 
+#>  5 2.03e13 home       101151 1        301617 forward…     1 Tino       Kessler  
+#>  6 2.03e13 home       101151 1        346405 forward…     1 Filip      Zadina   
+#>  7 2.03e13 home       101151 1        347698 forward…     1 Rasmus     Asplund  
+#>  8 2.03e13 home       101151 2        152416 defender     2 Sven       Jung     
+#>  9 2.03e13 home       101151 2        322236 defender     2 Calle      Andersson
+#> 10 2.03e13 home       101151 2        309618 forward…     2 Valentin   Nussbaum…
+#> # ℹ 34 more rows
+#> # ℹ 4 more variables: number <chr>, is_topscorer <lgl>, is_captain <lgl>,
+#> #   first_goalkeeper <lgl>
 # }
-}
 ```

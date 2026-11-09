@@ -66,7 +66,7 @@ Saiem Gilani
     espn_mch_position(position_id = pos$position_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Position data from ESPN core-v2 ──── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 17:18:36 UTC
+#> ℹ Data updated: 2026-11-09 19:33:59 UTC
 #> # A tibble: 1 × 8
 #>   position_id id    name   display_name abbreviation leaf  parent_ref           
 #>   <chr>       <chr> <chr>  <chr>        <chr>        <lgl> <chr>                
@@ -79,7 +79,7 @@ Saiem Gilani
     espn_wch_position(position_id = pos$position_id[1])
   })
 #> ── WOMENS-COLLEGE-HOCKEY Position data from ESPN core-v2 ── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 17:18:36 UTC
+#> ℹ Data updated: 2026-11-09 19:34:00 UTC
 #> # A tibble: 1 × 8
 #>   position_id id    name   display_name abbreviation leaf  parent_ref           
 #>   <chr>       <chr> <chr>  <chr>        <chr>        <lgl> <chr>                

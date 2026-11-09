@@ -91,9 +91,9 @@ Saiem Gilani
     pls <- espn_mch_game_plays(event_id = eid)
     espn_mch_game_play(event_id = eid, play_id = pls$id[1])
   })
-#> ! 2026-11-09 17:18:18.110834: No plays returned for event 401715296.
+#> ! 2026-11-09 19:33:41.628335: No plays returned for event 401715296.
 #> ── MENS-COLLEGE-HOCKEY Game Play data from ESPN core-v2 ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 17:18:18 UTC
+#> ℹ Data updated: 2026-11-09 19:33:41 UTC
 #> # A tibble: 1 × 23
 #>   event_id  cid       play_id id    sequence_number type_id type_text
 #>   <chr>     <chr>     <chr>   <chr>           <int> <chr>   <chr>    
@@ -111,10 +111,10 @@ Saiem Gilani
     pls <- espn_wch_game_plays(event_id = eid)
     espn_wch_game_play(event_id = eid, play_id = pls$id[1])
   })
-#> ✖ 2026-11-09 17:18:18.20823: 
+#> ✖ 2026-11-09 19:33:41.737654: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, limit = 1000
 #> ✖ Error: The API returned an error
-#> ✖ 2026-11-09 17:18:18.227529: 
+#> ✖ 2026-11-09 19:33:41.758122: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, play_id = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

@@ -125,9 +125,29 @@ Other ICE Hockey League eSports functions:
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(icehl_schedule(season = 2027, league_id = 1))
+#> ── ICE Hockey League schedule from the eSports hokejovyzapis bucket ────────────
+#> ℹ Data updated: 2026-11-09 19:36:39 UTC
+#> # A tibble: 364 × 49
+#>    match_id start_date          real_start_date   real_end_date league_id league
+#>       <int> <chr>               <chr>             <chr>             <int> <chr> 
+#>  1     8161 2026-09-18 18:30:00 2026-09-18 18:30… 2026-09-18 2…         1 ICEHL 
+#>  2     8162 2026-09-18 19:15:00 2026-09-18 19:15… 2026-09-18 2…         1 ICEHL 
+#>  3     8163 2026-09-18 19:15:00 2026-09-18 19:15… 2026-09-18 2…         1 ICEHL 
+#>  4     8164 2026-09-18 19:15:00 2026-09-18 19:16… 2026-09-18 2…         1 ICEHL 
+#>  5     8165 2026-09-18 19:30:00 2026-09-18 19:30… 2026-09-18 2…         1 ICEHL 
+#>  6     8166 2026-09-18 19:45:00 2026-09-18 19:49… 2026-09-18 2…         1 ICEHL 
+#>  7     8167 2026-09-18 19:45:00 2026-09-18 19:46… 2026-09-18 2…         1 ICEHL 
+#>  8     8168 2026-09-19 16:00:00 2026-09-19 16:00… 2026-09-19 1…         1 ICEHL 
+#>  9     8169 2026-09-19 17:30:00 2026-09-19 17:30… 2026-09-19 1…         1 ICEHL 
+#> 10     8170 2026-09-19 19:30:00 2026-09-19 19:30… 2026-09-19 2…         1 ICEHL 
+#> # ℹ 354 more rows
+#> # ℹ 43 more variables: league_part_id <int>, league_part_name <chr>,
+#> #   season <int>, round <chr>, highlights <chr>, match_number <int>,
+#> #   bets_home_win <dbl>, bets_draw <dbl>, bets_visitor_win <dbl>, group <chr>,
+#> #   home_id <int>, home_name <chr>, home_shortcut <chr>, guest_id <int>,
+#> #   guest_name <chr>, guest_shortcut <chr>, status <chr>, overtime_count <int>,
+#> #   extra_time <lgl>, shooting <lgl>, contumacy <lgl>, …
 # }
-}
 ```

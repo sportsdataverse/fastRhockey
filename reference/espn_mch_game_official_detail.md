@@ -81,8 +81,8 @@ Saiem Gilani
     offs <- espn_mch_game_officials(event_id = eid)
     espn_mch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
   })
-#> ! 2026-11-09 17:18:16.878921: No officials returned for event 401715296.
-#> ✖ 2026-11-09 17:18:16.895818: 
+#> ! 2026-11-09 19:33:40.646178: No officials returned for event 401715296.
+#> ✖ 2026-11-09 19:33:40.663698: 
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", official_id = NULL
 #> ✖ Error: arguments imply differing number of rows: 1, 0
 #> data frame with 0 columns and 0 rows
@@ -94,10 +94,10 @@ Saiem Gilani
     offs <- espn_wch_game_officials(event_id = eid)
     espn_wch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
   })
-#> ✖ 2026-11-09 17:18:16.935265: 
+#> ✖ 2026-11-09 19:33:40.703012: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
 #> ✖ Error: The API returned an error
-#> ✖ 2026-11-09 17:18:16.954566: 
+#> ✖ 2026-11-09 19:33:40.722348: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, official_id = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

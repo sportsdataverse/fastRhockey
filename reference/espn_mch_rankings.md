@@ -78,21 +78,21 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_rankings())
 #> ── MENS-COLLEGE-HOCKEY Rankings data from ESPN.com ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 17:18:37 UTC
-#> # A tibble: 36 × 25
+#> ℹ Data updated: 2026-11-09 19:34:00 UTC
+#> # A tibble: 33 × 25
 #>    poll_id poll_name        poll_short_name  poll_type  season season_type  week
 #>      <int> <chr>            <chr>            <chr>       <int>       <int> <int>
-#>  1   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     6
-#>  2   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     6
-#>  3   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     6
-#>  4   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     6
-#>  5   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     6
-#>  6   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     6
-#>  7   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     6
-#>  8   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     6
-#>  9   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     6
-#> 10   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     6
-#> # ℹ 26 more rows
+#>  1   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     7
+#>  2   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     7
+#>  3   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     7
+#>  4   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     7
+#>  5   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     7
+#>  6   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     7
+#>  7   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     7
+#>  8   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     7
+#>  9   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     7
+#> 10   10624 USCHO Men's Poll USCHO Men's Poll USCHOMENS…   2027           2     7
+#> # ℹ 23 more rows
 #> # ℹ 18 more variables: week_display <chr>, poll_date <chr>, ranked <lgl>,
 #> #   team_id <chr>, rank <int>, previous_rank <int>, points <dbl>,
 #> #   first_place_votes <int>, trend <chr>, record_summary <chr>, team_uid <chr>,
@@ -103,30 +103,30 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_rankings())
 #> ── WOMENS-COLLEGE-HOCKEY Rankings data from ESPN.com ────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 17:18:37 UTC
+#> ℹ Data updated: 2026-11-09 19:34:00 UTC
 #> # A tibble: 20 × 25
 #>    poll_id poll_name          poll_short_name poll_type season season_type  week
 #>      <int> <chr>              <chr>           <chr>      <int>       <int> <int>
-#>  1   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#>  2   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#>  3   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#>  4   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#>  5   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#>  6   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#>  7   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#>  8   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#>  9   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#> 10   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#> 11   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#> 12   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#> 13   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#> 14   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#> 15   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#> 16   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#> 17   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#> 18   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#> 19   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
-#> 20   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     7
+#>  1   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#>  2   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#>  3   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#>  4   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#>  5   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#>  6   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#>  7   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#>  8   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#>  9   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#> 10   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#> 11   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#> 12   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#> 13   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#> 14   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#> 15   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#> 16   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#> 17   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#> 18   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#> 19   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
+#> 20   10604 USCHO Women's Poll USCHO Women's … USCHOWOM…   2027           2     8
 #> # ℹ 18 more variables: week_display <chr>, poll_date <chr>, ranked <lgl>,
 #> #   team_id <chr>, rank <int>, previous_rank <int>, points <dbl>,
 #> #   first_place_votes <int>, trend <chr>, record_summary <chr>, team_uid <chr>,

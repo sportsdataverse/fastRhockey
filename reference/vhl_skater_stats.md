@@ -112,9 +112,29 @@ Other VHL Functions:
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(vhl_skater_stats(season = 2026))
+#> ── VHL Skater Stats Information from vhlru.ru ───────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-09 19:42:52 UTC
+#> # A tibble: 1,140 × 32
+#>    season stage     tn position_group player_id player jersey team  games_played
+#>     <int> <chr>  <int> <chr>              <int> <chr>   <int> <chr>        <int>
+#>  1   2026 regul…  1374 defense            22129 Miney…     51 Meta…           49
+#>  2   2026 regul…  1374 defense            15836 Berdy…     38 Omsk…           55
+#>  3   2026 regul…  1374 defense            24805 Trish…     17 Ryaz…           55
+#>  4   2026 regul…  1374 defense            22248 Popov…     11 Rubin           43
+#>  5   2026 regul…  1374 defense            34892 Budni…     85 Toros           59
+#>  6   2026 regul…  1374 defense            20642 Naumo…      8 Meta…           60
+#>  7   2026 regul…  1374 defense            30974 Stikh…     55 Rubin           57
+#>  8   2026 regul…  1374 defense            35793 Boldy…     83 Kris…           57
+#>  9   2026 regul…  1374 defense            13985 Ivano…      3 Khim…           36
+#> 10   2026 regul…  1374 defense            25729 Stari…     75 Meta…           54
+#> # ℹ 1,130 more rows
+#> # ℹ 23 more variables: goals <int>, assists <int>, points <int>,
+#> #   plus_minus <int>, plus <int>, minus <int>, penalty_minutes <int>,
+#> #   even_strength_goals <int>, power_play_goals <int>, shorthanded_goals <int>,
+#> #   overtime_goals <int>, game_winning_goals <int>,
+#> #   shootout_deciding_goals <int>, shots_on_goal <int>, shot_pct <dbl>,
+#> #   shots_per_game <dbl>, faceoffs <int>, faceoffs_won <int>, …
 # }
-}
 ```

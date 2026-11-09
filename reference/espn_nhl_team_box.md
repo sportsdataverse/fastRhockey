@@ -71,7 +71,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_team_box(game_id = "401688263"))
 #> ── NHL Team Box Score data from ESPN.com ────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 17:19:39 UTC
+#> ℹ Data updated: 2026-11-09 19:35:26 UTC
 #> # A tibble: 2 × 30
 #>   team_id team_uid      team_slug      team_location team_name team_abbreviation
 #>   <chr>   <chr>         <chr>          <chr>         <chr>     <chr>            

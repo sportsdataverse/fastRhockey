@@ -202,9 +202,33 @@ lists every function in this family.
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(nl_standings(phase = 4940, season = 2026))
+#> ── National League Standings Information from nationalleague.ch ────────────────
+#> ℹ Data updated: 2026-11-09 19:40:47 UTC
+#> # A tibble: 14 × 123
+#>     rank team_id name      short_name streak    gp    gw  gwot  gwpe    gl  glot
+#>    <int>   <dbl> <chr>     <chr>      <chr>  <int> <int> <int> <int> <int> <int>
+#>  1     1  101151 HC Davos  HCD        "[\"W…    52    39     5     3    13     5
+#>  2     2  103138 Fribourg… FRI        "[\"O…    52    37    13     8    15     2
+#>  3     3  103140 Genève-S… GSHC       "[\"W…    52    31     5     1    21     3
+#>  4     4  101139 ZSC Lions ZSC        "[\"O…    52    29     4     2    23     8
+#>  5     5  101150 HC Lugano HCL        "[\"L…    52    28     2     2    24     7
+#>  6     6  103141 Lausanne… LHC        "[\"O…    52    29     7     2    23     5
+#>  7     7  101060 SCRJ Lak… SCRJ       "[\"L…    52    27     6     2    25     6
+#>  8     8  101144 EV Zug    EVZ        "[\"W…    52    23     3     2    29     9
+#>  9     9  102126 SC Bern   SCB        "[\"W…    52    24     9     5    28     5
+#> 10    10  102128 EHC Biel… EHCB       "[\"W…    52    24    10     7    28     5
+#> 11    11  102127 SCL Tige… SCL        "[\"O…    52    20     4     1    32     8
+#> 12    12  101149 EHC Klot… EHCK       "[\"L…    52    20     5     0    32     8
+#> 13    13  101152 HC Ambri… HCAP       "[\"O…    52    20     6     3    32     5
+#> 14    14  103144 HC Ajoie  HCA        "[\"O…    52    13     4     3    39     7
+#> # ℹ 112 more variables: glpe <int>, po <int>, g <int>, geq <int>, gpp <int>,
+#> #   gpk <int>, ga <int>, gaeq <int>, gapp <int>, gapk <int>, go <int>,
+#> #   ppo <int>, pks <int>, sog <int>, penalties <int>, pim <int>, fow <int>,
+#> #   fol <int>, shm <int>, shp <int>, shb <int>, bks <int>, sa <int>, sam <int>,
+#> #   sap <int>, sab <int>, sort_order <int>, website <chr>,
+#> #   position_change <chr>, is_live <lgl>, current_result <int>,
+#> #   current_opponent_result <int>, pos <int>, hg <int>, gsow <int>, …
 # }
-}
 ```

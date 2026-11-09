@@ -27,7 +27,7 @@ try(nhl_partner_game_odds())
 #> [1] "2026-11-09"
 #> 
 #> $lastUpdatedUTC
-#> [1] "2026-11-09T17:00:38Z"
+#> [1] "2026-11-09T19:30:38Z"
 #> 
 #> $bettingPartner
 #> $bettingPartner$partnerId
@@ -67,7 +67,7 @@ try(nhl_partner_game_odds())
 #>                                                                                                                  homeTeam.odds
 #> 1 MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, 330, 154, -162, 100, -112, Draw, -1.5, , , O6.5
 #> 2  OVER_UNDER, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, 110, -218, 165, 310, 114, O6.5, +1.5, , Draw, 
-#> 3 PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, -218, 120, 320, 160, -102, +1.5, , Draw, , O6.5
+#> 3 PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, -218, 120, 310, 160, -102, +1.5, , Draw, , O6.5
 #>   homeTeam.name.default awayTeam.id awayTeam.abbrev
 #> 1                Oilers           3             NYR
 #> 2               Canucks           4             PHI
@@ -77,9 +77,9 @@ try(nhl_partner_game_odds())
 #> 2 https://assets.nhle.com/logos/nhl/svg/PHI_light.svg
 #> 3 https://assets.nhle.com/logos/nhl/svg/NYI_light.svg
 #>                                                                                                                  awayTeam.odds
-#> 1 MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, 330, -185, 136, 180, -108, Draw, +1.5, , , U6.5
+#> 1 MONEY_LINE_3_WAY, PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, OVER_UNDER, 330, -185, 136, 185, -108, Draw, +1.5, , , U6.5
 #> 2 OVER_UNDER, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, MONEY_LINE_2_WAY, -130, 180, 115, 310, -135, U6.5, -1.5, , Draw, 
-#> 3 PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, 180, -142, 320, 120, -118, -1.5, , Draw, , U6.5
+#> 3 PUCK_LINE, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, 180, -142, 310, 120, -118, -1.5, , Draw, , U6.5
 #>   awayTeam.name.default
 #> 1               Rangers
 #> 2                Flyers

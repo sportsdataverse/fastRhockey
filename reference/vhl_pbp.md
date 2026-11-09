@@ -108,9 +108,25 @@ Other VHL Functions:
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(vhl_pbp(game_id = 899223, season = 2026))
+#> ── VHL Play-by-Play Information from vhlru.ru ───────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-09 19:42:34 UTC
+#> # A tibble: 61 × 16
+#>    game_id season stage   game_number event_index kind     kind_code time  clock
+#>      <int>  <int> <chr>         <int>       <int> <chr>    <chr>     <chr> <chr>
+#>  1  899223   2026 regular         984           0 game_st… ga        21:20 wall 
+#>  2  899223   2026 regular         984           1 goal     go        65:00 game 
+#>  3  899223   2026 regular         984           2 game_st… ga        21:20 wall 
+#>  4  899223   2026 regular         984           3 shootou… bu        NA    NA   
+#>  5  899223   2026 regular         984           4 shootou… bu        NA    NA   
+#>  6  899223   2026 regular         984           5 shootou… bu        NA    NA   
+#>  7  899223   2026 regular         984           6 shootou… bu        NA    NA   
+#>  8  899223   2026 regular         984           7 shootou… bu        NA    NA   
+#>  9  899223   2026 regular         984           8 shootou… bu        NA    NA   
+#> 10  899223   2026 regular         984           9 shootou… bu        NA    NA   
+#> # ℹ 51 more rows
+#> # ℹ 7 more variables: score <chr>, strength_code <chr>, strength <chr>,
+#> #   text <chr>, player_ids <list>, home_team <chr>, away_team <chr>
 # }
-}
 ```

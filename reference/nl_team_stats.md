@@ -121,9 +121,20 @@ lists every function in this family.
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(nl_team_stats(game_id = 20261105000325))
+#> ── National League Team Stats Information from nationalleague.ch ───────────────
+#> ℹ Data updated: 2026-11-09 19:40:51 UTC
+#> # A tibble: 2 × 40
+#>   game_id team_side team_id     g    ga    sa  sog1  sog2  sog3 sog_ot sog_ot1
+#>     <dbl> <chr>       <dbl> <int> <int> <int> <int> <int> <int>  <int>   <int>
+#> 1 2.03e13 home       101151     4     3    22    11    16     9      0       0
+#> 2 2.03e13 away       102127     3     4    36     7     8     7      0       0
+#> # ℹ 29 more variables: sog_ot2 <int>, sog_ot3 <int>, shm <int>, shp <int>,
+#> #   shb <int>, bks <int>, fow_d <int>, fow_n <int>, fow_o <int>, fol_n <int>,
+#> #   fol_o <int>, fol_d <int>, ppt <int>, ppo <int>, ppg <int>, ppga <int>,
+#> #   pkt <int>, pks <int>, pkg <int>, pkga <int>, faceoffs <int>, pim <int>,
+#> #   sog <int>, sog_percentage <dbl>, pp_percentage <dbl>, pk_percentage <dbl>,
+#> #   fow <int>, fol <int>, faceoffs_percentage <dbl>
 # }
-}
 ```

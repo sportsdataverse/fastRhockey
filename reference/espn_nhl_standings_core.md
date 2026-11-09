@@ -65,9 +65,29 @@ Saiem Gilani
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   try(espn_nhl_standings_core(season = 2026, season_type = 2))
+#> ── NHL Standings (core-v2) data from ESPN.com ───────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-09 19:35:23 UTC
+#> # A tibble: 116 × 42
+#>    group_id_v group_name group_display_name team_id team_ref         record_type
+#>    <chr>      <chr>      <chr>              <chr>   <chr>            <chr>      
+#>  1 0          overall    Standings          7       http://sports.c… total      
+#>  2 0          overall    Standings          2       http://sports.c… total      
+#>  3 0          overall    Standings          37      http://sports.c… total      
+#>  4 0          overall    Standings          9       http://sports.c… total      
+#>  5 0          overall    Standings          20      http://sports.c… total      
+#>  6 0          overall    Standings          10      http://sports.c… total      
+#>  7 0          overall    Standings          30      http://sports.c… total      
+#>  8 0          overall    Standings          1       http://sports.c… total      
+#>  9 0          overall    Standings          14      http://sports.c… total      
+#> 10 0          overall    Standings          16      http://sports.c… total      
+#> # ℹ 106 more rows
+#> # ℹ 36 more variables: record_summary <chr>, season <int>, season_type <int>,
+#> #   ot_losses <dbl>, ot_wins <dbl>, avg_points_against <dbl>,
+#> #   avg_points_for <dbl>, clincher <dbl>, differential <dbl>,
+#> #   games_behind <dbl>, games_played <dbl>, losses <dbl>, playoff_seed <dbl>,
+#> #   point_differential <dbl>, points <dbl>, points_against <dbl>,
+#> #   points_for <dbl>, streak <dbl>, ties <dbl>, win_percent <dbl>, …
 # }
-}
 ```
