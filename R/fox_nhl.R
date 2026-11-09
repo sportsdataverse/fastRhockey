@@ -163,6 +163,14 @@
 }
 .fox_nhl_odds <- function(raw, game_id) {
   sp <- raw[["sixPack"]]; o <- if (is.null(sp)) NULL else sp[["odds"]]; rows <- list()
+  if (is.null(o)) {
+    # Newer payloads put the six-pack in sectionList[].modules[] (type "six-pack").
+    for (s in .fox_or(raw[["sectionList"]], list())) {
+      for (m in .fox_or(s[["modules"]], list())) {
+        if (identical(m[["type"]], "six-pack") && is.null(o)) o <- m[["model"]][["odds"]]
+      }
+    }
+  }
   if (!is.null(o)) {
     hdr <- janitor::make_clean_names(.fox_cells(o[["columnHeaders"]]))
     for (r in .fox_or(o[["rows"]], list())) {
