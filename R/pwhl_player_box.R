@@ -160,7 +160,7 @@ pwhl_player_box <- function(game_id) {
       names(player_box) <- c("skaters", "goalies")
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid game_id or no player box data available! Try using `phf_schedule` to find a game ID to look up!"))
+      message(glue::glue("{Sys.time()}: Invalid game_id or no player box data available! Try using `pwhl_schedule()` to find a game ID to look up!"))
     },
     warning = function(w) {
 
