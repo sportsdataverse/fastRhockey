@@ -713,11 +713,13 @@
 
 # Wire key -> column name: `.ES_KEYS`, else snake_case with any other
 # character run as "_" (`toi/gp` -> `toi_gp`).
+# Vectorised over `k`.
 .es_key <- function(k) {
   k <- as.character(k)
-  hit <- .ES_KEYS[k]
-  if (!is.na(hit)) return(unname(hit))
-  gsub("^_+|_+$", "", gsub("(*UCP)\\W+", "_", .es_underscore(k), perl = TRUE))
+  out <- unname(.ES_KEYS[k])
+  miss <- is.na(out)
+  out[miss] <- gsub("^_+|_+$", "", gsub("(*UCP)\\W+", "_", .es_underscore(k[miss]), perl = TRUE))
+  out
 }
 
 # `row[name] <- value`, keeping a NULL value as a (null) column.
@@ -739,9 +741,10 @@
 
 # Nested object -> one flat row `<parent>_<child>` (an empty object is a null cell).
 .es_flatten <- function(obj, prefix = "", out = list()) {
-  nms <- names(obj)
+  # one vectorised call per object: per key, gsub() was most of a schedule's parse time
+  keys <- .es_key(names(obj))
   for (i in seq_along(obj)) {
-    key <- .es_key(nms[i])
+    key <- keys[[i]]
     name <- if (nzchar(prefix)) paste0(prefix, "_", key) else key
     v <- obj[[i]]
     if (.esports_is_obj(v) && length(v)) {
