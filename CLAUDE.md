@@ -136,6 +136,13 @@ Responses go through `janitor::clean_names()`.
   but `skip_on_ci()` still skips, so set them in your own session, e.g.
   `Sys.setenv(NOT_CRAN = "true", RUN_EURO_TESTS = "1")`. Assert
   `data.frame` + `fastRhockey_data`, `nrow > 0`, columns.
+- Offline replay: `test-<source>_offline.R` are generated from
+  `data-raw/http_fixtures/calls.txt` (`record_fixtures.R` records the httr2
+  responses into `tests/testthat/fixtures/http/`, incrementally; then
+  `generate_tests.R`). Pass seasons/dates explicitly, end a call that needs the
+  whole payload with `# keep`. The fixtures are `.Rbuildignore`d and the tests
+  skip without them. Every request must go through httr2 (`.retry_request()`,
+  `.read_json_url()`), or the replay cannot answer it. PHF is in `.covrignore`.
 - xG tests add `skip_if_not_installed("xgboost")`; deprecated-fn tests use
   `suppressWarnings()`. Use fixed game ids for reproducibility
   (e.g. `game_id = 2023020001`, PWHL `game_id = 27`).

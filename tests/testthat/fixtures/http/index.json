@@ -1,0 +1,2078 @@
+{
+  "http://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2025/types/2/groups/9/standings/0?lang=en&region=us": {
+    "file": "0395.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "http://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2025/types/2/groups/9/standings/1?lang=en&region=us": {
+    "file": "0396.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "http://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2025/types/2/groups/9/standings/2?lang=en&region=us": {
+    "file": "0397.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "http://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2025/types/2/groups/9/standings/3?lang=en&region=us": {
+    "file": "0398.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "http://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2025/types/2/groups/9/standings/4?lang=en&region=us": {
+    "file": "0399.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/cat/edge/goalie-detail/8475883/now": {
+    "file": "0133.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/cat/edge/skater-detail/8478402/now": {
+    "file": "0134.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/club-schedule-season/TOR/20242025": {
+    "file": "0329.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": false
+  },
+  "https://api-web.nhle.com/v1/club-schedule-season/TOR/now": {
+    "file": "0135.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/club-stats-season/TOR": {
+    "file": "0136.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/club-stats/TBL/now": {
+    "file": "0260.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/draft-tracker/picks/now": {
+    "file": "0138.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/draft/picks/2023/1": {
+    "file": "0326.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/draft/picks/2023/all": {
+    "file": "0327.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/draft/picks/now": {
+    "file": "0324.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/draft/rankings/2024/1": {
+    "file": "0325.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/draft/rankings/now": {
+    "file": "0137.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/goalie-5v5-detail/8475883/now": {
+    "file": "0139.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/goalie-comparison/8475883/now": {
+    "file": "0140.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/goalie-detail/8475883/now": {
+    "file": "0141.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/goalie-landing/now": {
+    "file": "0142.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/goalie-save-percentage-detail/8475883/now": {
+    "file": "0143.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/goalie-shot-location-detail/8475883/now": {
+    "file": "0144.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/skater-comparison/8478402/now": {
+    "file": "0145.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/skater-detail/8478402/now": {
+    "file": "0146.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/skater-distance-top-10/F/all/total/now": {
+    "file": "0147.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/skater-landing/now": {
+    "file": "0148.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/skater-shot-location-detail/8478402/now": {
+    "file": "0149.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/skater-shot-speed-detail/8478402/now": {
+    "file": "0150.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/skater-skating-distance-detail/8478402/now": {
+    "file": "0151.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/skater-skating-speed-detail/8478402/now": {
+    "file": "0152.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/skater-zone-time/8478402/now": {
+    "file": "0153.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/team-detail/10/now": {
+    "file": "0154.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/team-landing/now": {
+    "file": "0155.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/team-shot-location-detail/10/now": {
+    "file": "0156.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/team-shot-speed-detail/10/now": {
+    "file": "0157.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/team-skating-distance-detail/10/now": {
+    "file": "0158.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/team-skating-distance-top-10/F/all/total/now": {
+    "file": "0159.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/team-skating-speed-detail/10/now": {
+    "file": "0160.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/team-zone-time-details/10/now": {
+    "file": "0161.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/edge/team-zone-time-top-10/all/offensive/now": {
+    "file": "0162.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/gamecenter/2008020001/boxscore": {
+    "file": "0358.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": false
+  },
+  "https://api-web.nhle.com/v1/gamecenter/2024020001/boxscore": {
+    "file": "0163.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/gamecenter/2024020001/landing": {
+    "file": "0164.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/gamecenter/2024020001/play-by-play": {
+    "file": "0165.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": false
+  },
+  "https://api-web.nhle.com/v1/gamecenter/2024020001/right-rail": {
+    "file": "0169.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/goalie-stats-leaders/current": {
+    "file": "0170.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/location": {
+    "file": "0173.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/meta": {
+    "file": "0174.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/meta/game/2024020001": {
+    "file": "0175.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/meta/playoff-series/2024/a": {
+    "file": "0176.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/network/tv-schedule/now": {
+    "file": "0261.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/partner-game/US/now": {
+    "file": "0177.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/player-spotlight": {
+    "file": "0181.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/player/8476899/landing": {
+    "file": "0180.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/player/8478402/game-log/now": {
+    "file": "0179.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/player/8478402/landing": {
+    "file": "0178.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/playoff-bracket/2024": {
+    "file": "0182.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/playoff-series/carousel/20242025/": {
+    "file": "0183.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/postal-lookup/10001": {
+    "file": "0185.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/ppt-replay/2023020001/1": {
+    "file": "0186.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/ppt-replay/goal/2023020001/1": {
+    "file": "0187.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/prospects/TOR": {
+    "file": "0254.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster-season/TOR": {
+    "file": "0214.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/ANA/20252026": {
+    "file": "0372.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/BOS/20252026": {
+    "file": "0361.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/BUF/20252026": {
+    "file": "0376.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/CAR/20252026": {
+    "file": "0359.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/CBJ/20252026": {
+    "file": "0385.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/CGY/20252026": {
+    "file": "0380.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/CHI/20252026": {
+    "file": "0389.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/COL/20252026": {
+    "file": "0369.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/DAL/20252026": {
+    "file": "0368.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/DET/20252026": {
+    "file": "0382.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/EDM/20252026": {
+    "file": "0362.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/FLA/20252026": {
+    "file": "0374.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/LAK/20252026": {
+    "file": "0388.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/MIN/20252026": {
+    "file": "0360.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/MTL/20252026": {
+    "file": "0365.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/NJD/20252026": {
+    "file": "0363.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/NSH/20252026": {
+    "file": "0370.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/NYI/20252026": {
+    "file": "0379.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/NYR/20252026": {
+    "file": "0371.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/OTT/20252026": {
+    "file": "0367.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/PHI/20252026": {
+    "file": "0387.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/PIT/20252026": {
+    "file": "0386.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/SEA/20252026": {
+    "file": "0375.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/SJS/20252026": {
+    "file": "0384.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/STL/20252026": {
+    "file": "0383.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/TBL/20252026": {
+    "file": "0366.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/TOR/20242025": {
+    "file": "0259.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/TOR/20252026": {
+    "file": "0378.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/TOR/current": {
+    "file": "0258.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/UTA/20252026": {
+    "file": "0373.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/VAN/20252026": {
+    "file": "0390.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/VGK/20252026": {
+    "file": "0364.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/WPG/20252026": {
+    "file": "0381.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/roster/WSH/20252026": {
+    "file": "0377.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/schedule-calendar/now": {
+    "file": "0227.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/schedule/2024-01-15": {
+    "file": "0328.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/schedule/playoff-series/20242025/a/": {
+    "file": "0184.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/schedule/playoff-series/20242025/A/": {
+    "file": "0215.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/schedule/playoff-series/20242025/B/": {
+    "file": "0216.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/schedule/playoff-series/20242025/C/": {
+    "file": "0217.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/schedule/playoff-series/20242025/D/": {
+    "file": "0218.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/schedule/playoff-series/20242025/E/": {
+    "file": "0219.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/schedule/playoff-series/20242025/I/": {
+    "file": "0220.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/schedule/playoff-series/20242025/J/": {
+    "file": "0221.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/schedule/playoff-series/20242025/K/": {
+    "file": "0222.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/schedule/playoff-series/20242025/L/": {
+    "file": "0223.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/schedule/playoff-series/20242025/M/": {
+    "file": "0224.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/schedule/playoff-series/20242025/N/": {
+    "file": "0225.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/schedule/playoff-series/20242025/O/": {
+    "file": "0226.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/score/now": {
+    "file": "0230.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/scoreboard/2024-01-15": {
+    "file": "0229.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/scoreboard/now": {
+    "file": "0228.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/scoreboard/TOR/now": {
+    "file": "0255.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/season": {
+    "file": "0231.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/skater-stats-leaders/current": {
+    "file": "0232.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/standings-season": {
+    "file": "0236.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/standings/2024-03-01": {
+    "file": "0330.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/standings/now": {
+    "file": "0323.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": false
+  },
+  "https://api-web.nhle.com/v1/wsc/game-story/2024020001": {
+    "file": "0168.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api-web.nhle.com/v1/wsc/play-by-play/2023020001": {
+    "file": "0263.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.foxsports.com/bifrost/v1/nhl/event/44398/data?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0126.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://api.foxsports.com/bifrost/v1/nhl/event/44398/odds?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0337.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://api.foxsports.com/bifrost/v1/nhl/league/stats-con/player/scoring/0?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0127.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://api.foxsports.com/bifrost/v1/nhl/team/1/gamelog?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0130.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://api.foxsports.com/bifrost/v1/nhl/team/1/roster?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0131.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://api.foxsports.com/bifrost/v1/nhl/team/1/standings?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0129.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://api.foxsports.com/bifrost/v1/nhl/team/1/stats?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0132.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/config": {
+    "file": "0237.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/country": {
+    "file": "0244.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/draft?start=0&limit=100": {
+    "file": "0332.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/draft?start=0&limit=100&cayenneExp=draftYear%3D2024": {
+    "file": "0333.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/franchise": {
+    "file": "0243.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/franchise?start=0&limit=100": {
+    "file": "0334.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/game?start=0&limit=100": {
+    "file": "0335.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/glossary": {
+    "file": "0239.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/goalie/summary?isAggregate=false&isGame=false&sort=%5B%7B%22property%22%3A%22wins%22%2C%22direction%22%3A%22DESC%22%7D%2C%7B%22property%22%3A%22gamesPlayed%22%2C%22direction%22%3A%22ASC%22%7D%5D&start=0&limit=50&cayenneExp=gameTypeId%3D2%20and%20seasonId%3C%3D20222023%20and%20seasonId%3E%3D20222023": {
+    "file": "0171.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/goalie/summary?isAggregate=false&isGame=false&sort=%5B%7B%22property%22%3A%22wins%22%2C%22direction%22%3A%22DESC%22%7D%2C%7B%22property%22%3A%22gamesPlayed%22%2C%22direction%22%3A%22ASC%22%7D%5D&start=0&limit=50&cayenneExp=gameTypeId%3D2%20and%20seasonId%3C%3D20232024%20and%20seasonId%3E%3D20232024": {
+    "file": "0172.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/goalie/summary?isAggregate=false&isGame=false&sort=%5B%7B%22property%22%3A%22wins%22%2C%22direction%22%3A%22DESC%22%7D%2C%7B%22property%22%3A%22gamesPlayed%22%2C%22direction%22%3A%22ASC%22%7D%5D&start=0&limit=50&cayenneExp=gameTypeId%3D2%20and%20seasonId%3C%3D20242025%20and%20seasonId%3E%3D20242025": {
+    "file": "0351.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/leaders/goalies/savePctg": {
+    "file": "0240.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/leaders/skaters/assists": {
+    "file": "0248.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/milestones/goalies?start=0&limit=100": {
+    "file": "0241.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/milestones/skaters?start=0&limit=100": {
+    "file": "0249.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/season": {
+    "file": "0247.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId=2008020001": {
+    "file": "0355.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": false
+  },
+  "https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId=2021020182": {
+    "file": "0167.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId=2024020001": {
+    "file": "0354.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": false
+  },
+  "https://api.nhle.com/stats/rest/en/skater/summary?isAggregate=false&isGame=false&sort=%5B%7B%22property%22%3A%22points%22%2C%22direction%22%3A%22DESC%22%7D%2C%7B%22property%22%3A%22gamesPlayed%22%2C%22direction%22%3A%22ASC%22%7D%5D&start=0&limit=50&cayenneExp=gameTypeId%3D2%20and%20seasonId%3C%3D20222023%20and%20seasonId%3E%3D20222023": {
+    "file": "0233.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/skater/summary?isAggregate=false&isGame=false&sort=%5B%7B%22property%22%3A%22points%22%2C%22direction%22%3A%22DESC%22%7D%2C%7B%22property%22%3A%22gamesPlayed%22%2C%22direction%22%3A%22ASC%22%7D%5D&start=0&limit=50&cayenneExp=gameTypeId%3D2%20and%20seasonId%3C%3D20232024%20and%20seasonId%3E%3D20232024": {
+    "file": "0234.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/skater/summary?isAggregate=false&isGame=false&sort=%5B%7B%22property%22%3A%22points%22%2C%22direction%22%3A%22DESC%22%7D%2C%7B%22property%22%3A%22gamesPlayed%22%2C%22direction%22%3A%22ASC%22%7D%5D&start=0&limit=50&cayenneExp=gameTypeId%3D2%20and%20seasonId%3C%3D20242025%20and%20seasonId%3E%3D20242025": {
+    "file": "0352.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/team/id/10": {
+    "file": "0252.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/team/summary?isAggregate=false&isGame=false&sort=%5B%7B%22property%22%3A%22points%22%2C%22direction%22%3A%22DESC%22%7D%5D&start=0&limit=50&cayenneExp=gameTypeId%3D2%20and%20seasonId%3C%3D20222023%20and%20seasonId%3E%3D20222023": {
+    "file": "0256.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/team/summary?isAggregate=false&isGame=false&sort=%5B%7B%22property%22%3A%22points%22%2C%22direction%22%3A%22DESC%22%7D%5D&start=0&limit=50&cayenneExp=gameTypeId%3D2%20and%20seasonId%3C%3D20232024%20and%20seasonId%3E%3D20232024": {
+    "file": "0257.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/team/summary?isAggregate=false&isGame=false&sort=%5B%7B%22property%22%3A%22points%22%2C%22direction%22%3A%22DESC%22%7D%5D&start=0&limit=50&cayenneExp=gameTypeId%3D2%20and%20seasonId%3C%3D20242025%20and%20seasonId%3E%3D20242025": {
+    "file": "0353.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://api.nhle.com/stats/rest/en/team?start=0&limit=100": {
+    "file": "0251.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://cluster.leaguestat.com/feed/index.php?feed=modulekit&key=f322673b6bcae299&client_code=lhjmq&site_id=0&lang=en&callback=angular.callbacks._0&view=seasons": {
+    "file": "0306.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://cluster.leaguestat.com/feed/index.php?game_id=27225&feed=gc&key=f322673b6bcae299&client_code=lhjmq&site_id=0&lang=en&callback=angular.callbacks._0&tab=gamesummary": {
+    "file": "0304.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://cluster.leaguestat.com/feed/index.php?game_id=27225&feed=modulekit&key=f322673b6bcae299&client_code=lhjmq&site_id=0&lang=en&callback=angular.callbacks._0&view=gameshifts": {
+    "file": "0305.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://cluster.leaguestat.com/feed/index.php?game_id=27225&league_id=&feed=statviewfeed&key=f322673b6bcae299&client_code=lhjmq&site_id=0&lang=en&callback=angular.callbacks._0&view=gameCenterPlayByPlay": {
+    "file": "0303.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://cluster.leaguestat.com/feed/index.php?game_id=33105&feed=gc&key=f322673b6bcae299&client_code=lhjmq&site_id=0&lang=en&callback=angular.callbacks._0&tab=gamesummary": {
+    "file": "0348.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": false
+  },
+  "https://cluster.leaguestat.com/feed/index.php?game_id=33105&feed=modulekit&key=f322673b6bcae299&client_code=lhjmq&site_id=0&lang=en&callback=angular.callbacks._0&view=gameshifts": {
+    "file": "0349.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": false
+  },
+  "https://cluster.leaguestat.com/feed/index.php?game_id=33105&league_id=&feed=statviewfeed&key=f322673b6bcae299&client_code=lhjmq&site_id=0&lang=en&callback=angular.callbacks._0&view=gameCenterPlayByPlay": {
+    "file": "0347.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": false
+  },
+  "https://cluster.leaguestat.com/feed/index.php?groupTeamsBy=division&context=overall&special=false&league_id=6&sort=points&season=214&feed=statviewfeed&key=f322673b6bcae299&client_code=lhjmq&site_id=0&lang=en&callback=angular.callbacks._0&view=teams": {
+    "file": "0310.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://cluster.leaguestat.com/feed/index.php?player_id=24333&category=seasonstats&feed=modulekit&key=f322673b6bcae299&client_code=lhjmq&site_id=0&lang=en&callback=angular.callbacks._0&view=player": {
+    "file": "0350.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://cluster.leaguestat.com/feed/index.php?season_id=214&feed=modulekit&key=f322673b6bcae299&client_code=lhjmq&site_id=0&lang=en&callback=angular.callbacks._0&view=schedule": {
+    "file": "0309.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://cluster.leaguestat.com/feed/index.php?season_id=214&team_id=0&playerTypes=skaters&skaterStatTypes=points,goals&activeOnly=0&feed=statviewfeed&key=f322673b6bcae299&client_code=lhjmq&site_id=0&lang=en&callback=angular.callbacks._0&view=leadersExtended": {
+    "file": "0307.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://cluster.leaguestat.com/feed/index.php?season=214&feed=modulekit&key=f322673b6bcae299&client_code=lhjmq&site_id=0&lang=en&callback=angular.callbacks._0&view=teamsbyseason": {
+    "file": "0312.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://cluster.leaguestat.com/feed/index.php?team_id=1&season_id=214&feed=modulekit&key=f322673b6bcae299&client_code=lhjmq&site_id=0&lang=en&callback=angular.callbacks._0&view=roster": {
+    "file": "0311.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?feed=modulekit&key=ccb91f29d6744675&client_code=ahl&site_id=3&lang=en&callback=angular.callbacks._0&view=seasons": {
+    "file": "0004.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?feed=modulekit&key=f1aa699db3d81487&client_code=ohl&site_id=1&lang=en&callback=angular.callbacks._0&view=seasons": {
+    "file": "0267.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?feed=modulekit&key=f1aa699db3d81487&client_code=whl&site_id=0&lang=en&callback=angular.callbacks._0&view=seasons": {
+    "file": "0316.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=gameSummary&game_id=27&key=446521baf8c38984&site_id=0&client_code=pwhl&lang=en&league_id=&callback=angular.callbacks._5": {
+    "file": "0277.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=gameSummary&game_id=27&key=694cfeed58c932ee&site_id=2&client_code=pwhl&lang=en&league_id=&callback=angular.callbacks._6": {
+    "file": "0285.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season=1&team=all&position=goalies&rookies=0&statsType=expanded&rosterstatus=undefined&site_id=2&first=0&limit=100&sort=gaa&league_id=1&lang=en&division=-1&qualified=all&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._5": {
+    "file": "0297.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=roster&team_id=6&season_id=1&key=694cfeed58c932ee&client_code=pwhl&site_id=8&league_id=1&lang=en&callback=angular.callbacks._h": {
+    "file": "0301.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=schedule&team=-1&season=1&month=-1&location=homeaway&key=694cfeed58c932ee&client_code=pwhl&site_id=2&league_id=1&division_id=-1&lang=en&callback=angular.callbacks._1": {
+    "file": "0292.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=schedule&team=-1&season=3&month=-1&location=homeaway&key=694cfeed58c932ee&client_code=pwhl&site_id=2&league_id=1&division_id=-1&lang=en&callback=angular.callbacks._1": {
+    "file": "0293.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=teams&groupTeamsBy=division&context=overall&site_id=2&season=1&special=true&key=694cfeed58c932ee&client_code=pwhl&league_id=1&division=-1&sort=points&lang=en&callback=angular.callbacks._4": {
+    "file": "0296.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=teams&groupTeamsBy=league&context=overall&site_id=2&season=1&special=false&key=694cfeed58c932ee&client_code=pwhl&league_id=1&division=undefined&sort=points&lang=en&callback=angular.callbacks._b": {
+    "file": "0295.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=teamsForSeason&season=2&key=694cfeed58c932ee&client_code=pwhl&site_id=2&callback=angular.callbacks._4": {
+    "file": "0300.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=1000093924&feed=gc&key=ccb91f29d6744675&client_code=ahl&site_id=3&lang=en&callback=angular.callbacks._0&tab=gamesummary": {
+    "file": "0002.gz",
+    "status": 404,
+    "type": "text/html; charset=UTF-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=1023273&feed=gc&key=f1aa699db3d81487&client_code=whl&site_id=0&lang=en&callback=angular.callbacks._0&tab=gamesummary": {
+    "file": "0343.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": false
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=1023273&feed=modulekit&key=f1aa699db3d81487&client_code=whl&site_id=0&lang=en&callback=angular.callbacks._0&view=gameshifts": {
+    "file": "0344.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": false
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=1023273&league_id=&feed=statviewfeed&key=f1aa699db3d81487&client_code=whl&site_id=0&lang=en&callback=angular.callbacks._0&view=gameCenterPlayByPlay": {
+    "file": "0342.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": false
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=1029281&feed=gc&key=ccb91f29d6744675&client_code=ahl&site_id=3&lang=en&callback=angular.callbacks._0&tab=gamesummary": {
+    "file": "0339.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": false
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=1029281&feed=modulekit&key=ccb91f29d6744675&client_code=ahl&site_id=3&lang=en&callback=angular.callbacks._0&view=gameshifts": {
+    "file": "0340.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": false
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=1029281&league_id=&feed=statviewfeed&key=ccb91f29d6744675&client_code=ahl&site_id=3&lang=en&callback=angular.callbacks._0&view=gameCenterPlayByPlay": {
+    "file": "0338.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": false
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=27&feed=gc&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0&tab=gamesummary": {
+    "file": "0283.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=27&feed=modulekit&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0&view=gameshifts": {
+    "file": "0284.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=27&league_id=&feed=statviewfeed&key=694cfeed58c932ee&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0&view=gameCenterPlayByPlay": {
+    "file": "0282.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=27225&feed=gc&key=f1aa699db3d81487&client_code=ohl&site_id=1&lang=en&callback=angular.callbacks._0&tab=gamesummary": {
+    "file": "0265.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=27225&feed=gc&key=f1aa699db3d81487&client_code=whl&site_id=0&lang=en&callback=angular.callbacks._0&tab=gamesummary": {
+    "file": "0314.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=27225&feed=modulekit&key=f1aa699db3d81487&client_code=ohl&site_id=1&lang=en&callback=angular.callbacks._0&view=gameshifts": {
+    "file": "0266.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=27225&feed=modulekit&key=f1aa699db3d81487&client_code=whl&site_id=0&lang=en&callback=angular.callbacks._0&view=gameshifts": {
+    "file": "0315.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=27225&league_id=&feed=statviewfeed&key=f1aa699db3d81487&client_code=ohl&site_id=1&lang=en&callback=angular.callbacks._0&view=gameCenterPlayByPlay": {
+    "file": "0264.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=27225&league_id=&feed=statviewfeed&key=f1aa699db3d81487&client_code=whl&site_id=0&lang=en&callback=angular.callbacks._0&view=gameCenterPlayByPlay": {
+    "file": "0313.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=42&feed=gc&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0&tab=gamesummary": {
+    "file": "0275.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=42&feed=modulekit&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0&view=gameshifts": {
+    "file": "0276.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?game_id=42&league_id=&feed=statviewfeed&key=694cfeed58c932ee&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0&view=gameCenterPlayByPlay": {
+    "file": "0274.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?groupTeamsBy=division&context=overall&special=false&league_id=1&sort=points&season=88&feed=statviewfeed&key=f1aa699db3d81487&client_code=ohl&site_id=1&lang=en&callback=angular.callbacks._0&view=teams": {
+    "file": "0271.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?groupTeamsBy=division&context=overall&special=false&league_id=4&sort=points&season=94&feed=statviewfeed&key=ccb91f29d6744675&client_code=ahl&site_id=3&lang=en&callback=angular.callbacks._0&view=teams": {
+    "file": "0008.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?groupTeamsBy=division&context=overall&special=false&league_id=7&sort=points&season=295&feed=statviewfeed&key=f1aa699db3d81487&client_code=whl&site_id=0&lang=en&callback=angular.callbacks._0&view=teams": {
+    "file": "0320.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?player_id=1&category=seasonstats&feed=modulekit&key=f1aa699db3d81487&client_code=ohl&site_id=1&lang=en&callback=angular.callbacks._0&view=player": {
+    "file": "0269.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?player_id=10781&category=seasonstats&feed=modulekit&key=ccb91f29d6744675&client_code=ahl&site_id=3&lang=en&callback=angular.callbacks._0&view=player": {
+    "file": "0006.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?player_id=29612&category=seasonstats&feed=modulekit&key=f1aa699db3d81487&client_code=whl&site_id=0&lang=en&callback=angular.callbacks._0&view=player": {
+    "file": "0346.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?season_id=295&feed=modulekit&key=f1aa699db3d81487&client_code=whl&site_id=0&lang=en&callback=angular.callbacks._0&view=schedule": {
+    "file": "0319.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?season_id=295&team_id=0&playerTypes=skaters&skaterStatTypes=points,goals&activeOnly=0&feed=statviewfeed&key=f1aa699db3d81487&client_code=whl&site_id=0&lang=en&callback=angular.callbacks._0&view=leadersExtended": {
+    "file": "0317.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?season_id=88&feed=modulekit&key=f1aa699db3d81487&client_code=ohl&site_id=1&lang=en&callback=angular.callbacks._0&view=schedule": {
+    "file": "0270.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?season_id=88&team_id=0&playerTypes=skaters&skaterStatTypes=points,goals&activeOnly=0&feed=statviewfeed&key=f1aa699db3d81487&client_code=ohl&site_id=1&lang=en&callback=angular.callbacks._0&view=leadersExtended": {
+    "file": "0268.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?season_id=94&feed=modulekit&key=ccb91f29d6744675&client_code=ahl&site_id=3&lang=en&callback=angular.callbacks._0&view=schedule": {
+    "file": "0007.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?season_id=94&team_id=0&playerTypes=skaters&skaterStatTypes=points,goals&activeOnly=0&feed=statviewfeed&key=ccb91f29d6744675&client_code=ahl&site_id=3&lang=en&callback=angular.callbacks._0&view=leadersExtended": {
+    "file": "0005.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?season=295&feed=modulekit&key=f1aa699db3d81487&client_code=whl&site_id=0&lang=en&callback=angular.callbacks._0&view=teamsbyseason": {
+    "file": "0322.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?season=88&feed=modulekit&key=f1aa699db3d81487&client_code=ohl&site_id=1&lang=en&callback=angular.callbacks._0&view=teamsbyseason": {
+    "file": "0273.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?season=94&feed=modulekit&key=ccb91f29d6744675&client_code=ahl&site_id=3&lang=en&callback=angular.callbacks._0&view=teamsbyseason": {
+    "file": "0010.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?tab=gamesummary&game_id=27&feed=gc&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0": {
+    "file": "0279.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?team_id=1&season_id=88&feed=modulekit&key=f1aa699db3d81487&client_code=ohl&site_id=1&lang=en&callback=angular.callbacks._0&view=roster": {
+    "file": "0272.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?team_id=201&season_id=295&feed=modulekit&key=f1aa699db3d81487&client_code=whl&site_id=0&lang=en&callback=angular.callbacks._0&view=roster": {
+    "file": "0345.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?team_id=440&season_id=94&feed=modulekit&key=ccb91f29d6744675&client_code=ahl&site_id=3&lang=en&callback=angular.callbacks._0&view=roster": {
+    "file": "0341.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?view=brackets&season_id=3&feed=modulekit&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0": {
+    "file": "0291.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?view=player&category=gamebygame&player_id=28&season_id=5&feed=modulekit&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0": {
+    "file": "0286.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?view=player&category=gamebygame&player_id=28&season_id=6&feed=modulekit&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0": {
+    "file": "0287.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?view=player&category=profile&player_id=28&feed=modulekit&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0": {
+    "file": "0288.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?view=player&category=seasonstats&player_id=28&feed=modulekit&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0": {
+    "file": "0290.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?view=scorebar&numberofdaysback=7&numberofdaysahead=7&feed=modulekit&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0": {
+    "file": "0294.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?view=searchplayers&search_term=Poulin&feed=modulekit&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0": {
+    "file": "0289.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?view=seasons&feed=modulekit&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0": {
+    "file": "0278.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?view=statviewtype&type=streaks&season_id=5&feed=modulekit&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0": {
+    "file": "0298.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?view=statviewtype&type=streaks&season_id=6&feed=modulekit&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0": {
+    "file": "0299.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?view=statviewtype&type=topgoalies&first=0&limit=100&season_id=5&feed=modulekit&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0": {
+    "file": "0281.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?view=statviewtype&type=topscorers&first=0&limit=100&season_id=5&feed=modulekit&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0": {
+    "file": "0280.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://lscluster.hockeytech.com/feed/index.php?view=statviewtype&type=transactions&season_id=5&feed=modulekit&key=446521baf8c38984&client_code=pwhl&site_id=0&lang=en&callback=angular.callbacks._0": {
+    "file": "0302.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/attendance": {
+    "file": "0188.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/award-details": {
+    "file": "0189.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/award-details?cayenneExp=seasonId%3D20232024": {
+    "file": "0190.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/combine": {
+    "file": "0191.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/draft-lottery-odds": {
+    "file": "0193.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/draft-lottery-picks": {
+    "file": "0194.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/draft?cayenneExp=draftYear%3D2020&limit=5": {
+    "file": "0192.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/franchise": {
+    "file": "0195.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/franchise-detail": {
+    "file": "0197.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/franchise-playoff-appearances": {
+    "file": "0198.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/franchise-season-results": {
+    "file": "0199.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/franchise-team-totals": {
+    "file": "0200.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/franchise-totals": {
+    "file": "0201.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/franchise?cayenneExp=id%3D5": {
+    "file": "0196.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/goalie-career-stats?limit=5": {
+    "file": "0202.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/goalie-season-stats?limit=5": {
+    "file": "0203.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/goalie-shutout-streak?limit=5": {
+    "file": "0204.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/hof/players": {
+    "file": "0205.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/officials": {
+    "file": "0206.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/player": {
+    "file": "0207.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/player/byTeam/10": {
+    "file": "0208.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/skater-real-time-stats-career?limit=5": {
+    "file": "0210.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/skater-real-time-stats-season?limit=5": {
+    "file": "0211.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/trophy": {
+    "file": "0212.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://records.nhl.com/site/api/venue": {
+    "file": "0213.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/draft": {
+    "file": "0336.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/groups": {
+    "file": "0023.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": true
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/injuries": {
+    "file": "0054.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": true
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/news?limit=10": {
+    "file": "0059.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": true
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard": {
+    "file": "0014.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": true
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20250110": {
+    "file": "0028.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": false
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/statistics": {
+    "file": "0108.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": true
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/summary?event=401688263": {
+    "file": "0060.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": false
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/teams": {
+    "file": "0120.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/teams/4": {
+    "file": "0110.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/teams/4/depthcharts": {
+    "file": "0112.gz",
+    "status": 200,
+    "type": "application/json",
+    "trimmed": true
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/teams/4/roster": {
+    "file": "0118.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": true
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/teams/4/schedule?season=2025": {
+    "file": "0082.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": true
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/transactions": {
+    "file": "0123.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": true
+  },
+  "https://site.api.espn.com/apis/v2/sports/hockey/nhl/standings?season=2025": {
+    "file": "0393.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": true
+  },
+  "https://site.web.api.espn.com/apis/common/v3/sports/hockey/nhl/athletes/3895074/splits?season=2026": {
+    "file": "0392.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": true
+  },
+  "https://site.web.api.espn.com/apis/common/v3/sports/hockey/nhl/athletes/5149125/gamelog": {
+    "file": "0067.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": true
+  },
+  "https://site.web.api.espn.com/apis/common/v3/sports/hockey/nhl/athletes/5149125/overview": {
+    "file": "0072.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": true
+  },
+  "https://site.web.api.espn.com/apis/common/v3/sports/hockey/nhl/athletes/5149125/stats?season=2025": {
+    "file": "0077.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": true
+  },
+  "https://site.web.api.espn.com/apis/common/v3/sports/hockey/nhl/statistics/byathlete?limit=25&page=1": {
+    "file": "0055.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl": {
+    "file": "0058.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/athletes/3114/awards": {
+    "file": "0061.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/athletes/3895074/eventlog": {
+    "file": "0391.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/athletes/4024820": {
+    "file": "0065.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/athletes/4024820/statistics": {
+    "file": "0075.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/athletes/4024820/statisticslog": {
+    "file": "0076.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/athletes/5149125/statistics": {
+    "file": "0063.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/athletes?active=true&limit=10&page=1": {
+    "file": "0011.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/awards/1": {
+    "file": "0013.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/awards?limit=100": {
+    "file": "0012.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/calendar/ondays": {
+    "file": "0016.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/calendar/whitelist": {
+    "file": "0018.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/coaches/900": {
+    "file": "0020.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263": {
+    "file": "0029.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263": {
+    "file": "0031.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/broadcasts": {
+    "file": "0030.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/competitors": {
+    "file": "0046.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/competitors/5": {
+    "file": "0047.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/competitors/5/leaders": {
+    "file": "0048.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/competitors/5/linescores": {
+    "file": "0049.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/competitors/5/roster": {
+    "file": "0051.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/competitors/5/statistics": {
+    "file": "0052.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/odds": {
+    "file": "0033.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/officials": {
+    "file": "0034.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/officials/2553192": {
+    "file": "0035.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/plays/401688263000000520": {
+    "file": "0037.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/plays/401688263000000520/personnel": {
+    "file": "0038.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/plays?limit=300": {
+    "file": "0036.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": false
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/scoringplays": {
+    "file": "0331.gz",
+    "status": 404,
+    "type": "application/octet-stream",
+    "trimmed": false
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/situation": {
+    "file": "0044.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/status": {
+    "file": "0045.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events?limit=10": {
+    "file": "0053.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/franchises/1": {
+    "file": "0027.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/franchises?limit=100": {
+    "file": "0026.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/leaders": {
+    "file": "0056.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/positions/1": {
+    "file": "0080.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/positions?limit=100": {
+    "file": "0079.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/providers?limit=100": {
+    "file": "0081.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/season": {
+    "file": "0095.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2025/awards": {
+    "file": "0084.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2025/types/2/groups/9/standings": {
+    "file": "0394.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026": {
+    "file": "0094.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/athletes?limit=10&page=1": {
+    "file": "0083.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/coaches/900": {
+    "file": "0022.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/coaches?limit=100": {
+    "file": "0085.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/coaches?limit=100&page=1": {
+    "file": "0019.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/futures": {
+    "file": "0089.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/teams/1": {
+    "file": "0099.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/teams?limit=100": {
+    "file": "0098.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/types": {
+    "file": "0103.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/types/2": {
+    "file": "0100.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/types/2/groups": {
+    "file": "0091.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/types/2/groups/7": {
+    "file": "0090.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/types/2/groups/7/children": {
+    "file": "0092.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/types/2/groups/7/teams?limit=100": {
+    "file": "0093.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/types/2/leaders": {
+    "file": "0102.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/types/2/weeks": {
+    "file": "0106.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/types/2/weeks/1": {
+    "file": "0104.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/types/2/weeks/1/events?limit=100": {
+    "file": "0105.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons?limit=10": {
+    "file": "0107.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/teams/4": {
+    "file": "0111.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/teams?limit=100": {
+    "file": "0121.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/tournaments?limit=100": {
+    "file": "0122.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/venues/1": {
+    "file": "0125.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/venues?limit=200": {
+    "file": "0124.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8",
+    "trimmed": true
+  },
+  "https://www.nhl.com/scores/htmlreports/20082009/TH020001.HTM": {
+    "file": "0356.gz",
+    "status": 200,
+    "type": "text/html; charset=UTF-8",
+    "trimmed": false
+  },
+  "https://www.nhl.com/scores/htmlreports/20082009/TV020001.HTM": {
+    "file": "0357.gz",
+    "status": 200,
+    "type": "text/html; charset=UTF-8",
+    "trimmed": false
+  }
+}

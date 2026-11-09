@@ -32,3 +32,5 @@ CLAUDE\.md$
 ^\.ruff_cache$
 ^\.worktrees$
 ^\.wt-
+^tests/testthat/fixtures/http$
+^\.covrignore$
