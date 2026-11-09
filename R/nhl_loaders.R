@@ -1314,11 +1314,13 @@ load_nhl_shootout <- function(seasons = most_recent_nhl_season(), ...,
 
 
 # load games file (from sportsdataverse-data release, falls back to repo)
+.nhl_games_url <- paste0(
+  "https://github.com/sportsdataverse/sportsdataverse-data/",
+  "releases/download/nhl_schedules/nhl_games_in_data_repo.rds"
+)
+
 load_nhl_games <- function() {
-  release_url <- paste0(
-    "https://github.com/sportsdataverse/sportsdataverse-data/",
-    "releases/download/nhl_schedules/nhl_games_in_data_repo.rds"
-  )
+  release_url <- .nhl_games_url
   dat <- tryCatch(rds_from_url(release_url), error = function(e) NULL)
   if (is.null(dat)) {
     # Fall back to raw repo file if release not yet populated
@@ -1440,7 +1442,7 @@ build_nhl_db <- function(tblname = "fastRhockey_nhl_pbp", db_conn, rebuild = FAL
 
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-  valid_seasons <- load_nhl_games() %>%
+  valid_seasons <- .db_games_index(load_nhl_games(), .nhl_games_url, tblname) %>%
     dplyr::filter(.data$season >= 2011) %>%
     dplyr::group_by(.data$season) %>%
     dplyr::summarise() %>%

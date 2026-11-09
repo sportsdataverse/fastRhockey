@@ -1128,11 +1128,13 @@ load_pwhl_schedules <- function(seasons = most_recent_pwhl_season(), ...) {
 
 
 # load PWHL games file (internal helper for update_pwhl_db)
+.pwhl_games_url <- paste0(
+  "https://github.com/sportsdataverse/sportsdataverse-data/",
+  "releases/download/pwhl_schedules/pwhl_games_in_data_repo.rds"
+)
+
 load_pwhl_games <- function() {
-  release_url <- paste0(
-    "https://github.com/sportsdataverse/sportsdataverse-data/",
-    "releases/download/pwhl_schedules/pwhl_games_in_data_repo.rds"
-  )
+  release_url <- .pwhl_games_url
   dat <- tryCatch(rds_from_url(release_url), error = function(e) NULL)
   if (is.null(dat)) {
     # Fall back to raw repo file if release not yet populated
@@ -1278,7 +1280,7 @@ build_pwhl_db <- function(tblname = "fastRhockey_pwhl_pbp", db_conn,
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
 
-  valid_seasons <- load_pwhl_games() %>%
+  valid_seasons <- .db_games_index(load_pwhl_games(), .pwhl_games_url, tblname) %>%
     dplyr::filter(.data$season >= 2024) %>%
     dplyr::group_by(.data$season) %>%
     dplyr::summarise() %>%

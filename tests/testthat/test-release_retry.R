@@ -120,23 +120,41 @@ test_that("a group loader warns with the url when the csv keeps failing", {
   expect_equal(nrow(x), 0L)
 })
 
+# Stand-in for utils::download.file(): records the url and method, writes `body`.
+fake_download <- function(body = "season,game_id\n2024,1\n", status = 0L) {
+  seen <- list()
+  f <- function(url, destfile, method, ...) {
+    seen[[length(seen) + 1L]] <<- list(url = url, method = method)
+    writeLines(body, destfile)
+    status
+  }
+  list(download = f, seen = function() seen)
+}
+
 test_that("the games csv read is retried and passes its arguments on", {
-  withr::local_options(timeout = 60)
+  withr::local_options(timeout = 60, download.file.method = "curl")
+  dl <- fake_download()
+  local_mocked_bindings(download.file = dl$download, .package = "utils")
   calls <- 0L
   local_mocked_bindings(csv_from_url = function(file, ...) {
     calls <<- calls + 1L
     expect_equal(getOption("timeout"), 150)
+    expect_true(file.exists(file))
     if (calls == 1L) stop("Timeout of 60 seconds was reached")
-    data.table::data.table(url = file, ...)
+    data.table::data.table(file = file, ...)
   })
   expect_no_warning(out <- load_phf_games())
   expect_equal(calls, 2L)
-  expect_match(out$url, "phf_games_in_data_repo.csv", fixed = TRUE)
+  expect_match(dl$seen()[[2]]$url, "phf_games_in_data_repo.csv", fixed = TRUE)
+  # libcurl even when the user's default method is curl; the temp file is removed.
+  expect_equal(dl$seen()[[2]]$method, "libcurl")
+  expect_false(file.exists(out$file))
   expect_equal(.release_csv_from_url("https://x/a.csv", sep = ",")$sep, ",")
   expect_equal(getOption("timeout"), 60)
 })
 
 test_that("a games csv that keeps failing warns with the url, then raises", {
+  local_mocked_bindings(download.file = fake_download()$download, .package = "utils")
   calls <- 0L
   local_mocked_bindings(csv_from_url = function(file, ...) {
     calls <<- calls + 1L
@@ -149,8 +167,36 @@ test_that("a games csv that keeps failing warns with the url, then raises", {
   expect_equal(calls, 3L)
 })
 
+test_that("a non-zero download status is a failed read", {
+  local_mocked_bindings(download.file = fake_download(status = 22L)$download, .package = "utils")
+  local_mocked_bindings(csv_from_url = function(...) stop("not reached"))
+  expect_error(
+    suppressWarnings(.release_csv_from_url("https://x/a.csv")),
+    "Download failed (status 22)", fixed = TRUE
+  )
+})
+
+test_that("a strict read turns a partial-read warning into an error", {
+  local_mocked_bindings(download.file = fake_download()$download, .package = "utils")
+  calls <- 0L
+  local_mocked_bindings(csv_from_url = function(...) {
+    calls <<- calls + 1L
+    warning("Stopped early on line 3. Expected 2 fields but found 3.")
+    data.table::data.table(season = 2024L, game_id = 1L)
+  })
+  # Not strict: the warning is passed on with the partial table, as before.
+  expect_warning(out <- .release_csv_from_url("https://x/a.csv"), "Stopped early")
+  expect_equal(nrow(out), 1L)
+  expect_error(
+    suppressWarnings(.release_csv_from_url("https://x/a.csv", strict = TRUE)),
+    "fread() warned, so the table may be partial: Stopped early", fixed = TRUE
+  )
+  # The partial read is not retried: one read for each of the two calls.
+  expect_equal(calls, 2L)
+})
+
 test_that("a release csv is read from a local file", {
-  withr::local_options(download.file.method = "auto")
+  skip_if_not("file" %in% attr(libcurlVersion(), "protocols"), "libcurl has no FILE support")
   src <- withr::local_tempfile(fileext = ".csv")
   data.table::fwrite(data.frame(season = 2024L, game_id = 1:2), src)
   path <- normalizePath(src, winslash = "/")
