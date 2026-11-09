@@ -70,7 +70,7 @@ Uses the NHL API (\code{api-web.nhle.com}).
   try(nhl_schedule(season = 2025, team_abbr = "TOR"))
 }
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
-# Two more requests; kept out of R CMD check to stay under 5 s.
+# These fetch every playoff series and the data index; kept out of R CMD check.
 \donttest{
   try(nhl_schedule(season = 2024, team_abbr = "TOR", game_type = "playoffs"))
   try(nhl_schedule(day = "2024-01-15", include_data_flags = TRUE))
