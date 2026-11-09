@@ -1,16 +1,19 @@
 
-# fastRhockey <a href='https://fastRhockey.sportsdataverse.org/'><img src='https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/logo.png' align="right" width="20%" min-width="100" alt='fastRhockey hex logo' /></a>
+# **fastRhockey** <a href='https://fastRhockey.sportsdataverse.org/'><img src='https://raw.githubusercontent.com/sportsdataverse/fastRhockey/main/logo.png' align="right" width="20%" min-width="100" alt='fastRhockey hex logo' /></a>
 
 <!-- badges: start -->
-
-[![CRAN
-version](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=CRAN%20version&prefix=v&query=%24.Version&url=https%3A%2F%2Fcrandb.r-pkg.org%2FfastRhockey)](https://CRAN.R-project.org/package=fastRhockey)
-[![CRAN
-downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=Downloads&query=%24%5B0%5D.downloads&url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2FfastRhockey)](https://CRAN.R-project.org/package=fastRhockey)
+[![CRAN version](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=CRAN%20version&prefix=v&query=%24.Version&url=https%3A%2F%2Fcrandb.r-pkg.org%2FfastRhockey)](https://CRAN.R-project.org/package=fastRhockey)
+[![CRAN downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=Downloads&query=%24%5B0%5D.downloads&url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2FfastRhockey)](https://CRAN.R-project.org/package=fastRhockey)
+[![R-universe](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=r-universe&prefix=v&query=%24.Version&url=https%3A%2F%2Fsportsdataverse.r-universe.dev%2Fapi%2Fpackages%2FfastRhockey)](https://sportsdataverse.r-universe.dev/fastRhockey)
 [![Version-Number](https://img.shields.io/github/r-package/v/sportsdataverse/fastRhockey?label=fastRhockey&logo=R&style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/)
 [![R-CMD-check](https://img.shields.io/github/actions/workflow/status/sportsdataverse/fastRhockey/R-CMD-check.yaml?branch=main&label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/actions/workflows/R-CMD-check.yaml)
-[![Lifecycle:stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/fastRhockey/)
+[![Codecov](https://img.shields.io/codecov/c/github/sportsdataverse/fastRhockey?logo=codecov&style=for-the-badge)](https://app.codecov.io/gh/sportsdataverse/fastRhockey)
+[![pkgdown](https://img.shields.io/github/actions/workflow/status/sportsdataverse/fastRhockey/pkgdown.yaml?branch=main&label=pkgdown&logo=github&style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/actions/workflows/pkgdown.yaml)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg?style=for-the-badge&logo=github)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/blob/main/LICENSE.md)
 [![Contributors](https://img.shields.io/github/contributors/sportsdataverse/fastRhockey?style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/graphs/contributors)
+[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/fastRhockey)
+[![X Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
 <!-- badges: end -->
 
 [`fastRhockey`](https://github.com/sportsdataverse/fastRhockey) is an R
@@ -149,7 +152,7 @@ R/Python packages for sports analytics.
 
 -----
 
-## Data status
+## **Data status**
 
 The `load_nhl_*()` and `load_pwhl_*()` functions read release assets on
 [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data/releases).
@@ -164,39 +167,33 @@ season. Full detail:
 | [PWHL](https://github.com/sportsdataverse/fastRhockey-pwhl-data)                                     | [![fastRhockey-pwhl-data data updated](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2FfastRhockey-pwhl-data%2Fupdated.json)](https://github.com/sportsdataverse/sportsdataverse-data/releases) | [![fastRhockey-pwhl-data through season](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2FfastRhockey-pwhl-data%2Fthrough.json)](https://github.com/sportsdataverse/sportsdataverse-data/releases) | [![fastRhockey-pwhl-data pipeline state](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2FfastRhockey-pwhl-data%2Fstatus.json)](https://sportsdataverse.org/status#fastRhockey-pwhl-data) | [![fastRhockey-pwhl-data daily\_pwhl\_python](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2FfastRhockey-pwhl-data%2Fwf-daily_pwhl_python.json)](https://github.com/sportsdataverse/fastRhockey-pwhl-data/actions/workflows/daily_pwhl_python.yml) [![fastRhockey-pwhl-data pwhl\_xg\_cron](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2FfastRhockey-pwhl-data%2Fwf-pwhl_xg_cron.json)](https://github.com/sportsdataverse/fastRhockey-pwhl-data/actions/workflows/pwhl_xg_cron.yml)          |
 | [Conference, division and ballpark reference](https://github.com/sportsdataverse/sdv-reference-data) | [![sdv-reference-data data updated](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fsdv-reference-data%2Fupdated.json)](https://github.com/sportsdataverse/sportsdataverse-data/releases)       | [![sdv-reference-data through season](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fsdv-reference-data%2Fthrough.json)](https://github.com/sportsdataverse/sportsdataverse-data/releases)       | [![sdv-reference-data pipeline state](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fsdv-reference-data%2Fstatus.json)](https://sportsdataverse.org/status#sdv-reference-data)          | —                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
-## Installation
+## **Installation**
 
-You can install the CRAN version of
-[**`fastRhockey`**](https://CRAN.R-project.org/package=fastRhockey)
-with:
+You can install the CRAN version of [**`fastRhockey`**](https://CRAN.R-project.org/package=fastRhockey) with:
 
-``` r
+```r
 install.packages("fastRhockey")
 ```
 
-You can install the development version from
-[GitHub](https://github.com/sportsdataverse/fastRhockey) with:
+You can install the latest build from [R-universe](https://sportsdataverse.r-universe.dev/fastRhockey) with:
 
-``` r
-# You can install using the pak package using the following code:
-if (!requireNamespace('pak', quietly = TRUE)){
-  install.packages('pak')
-}
-pak::pak("sportsdataverse/fastRhockey")
+```r
+install.packages("fastRhockey", repos = c("https://sportsdataverse.r-universe.dev", getOption("repos")))
 ```
 
-If you would prefer the `remotes` installation:
+You can install the development version of [**`fastRhockey`**](https://github.com/sportsdataverse/fastRhockey/) from GitHub with:
 
-``` r
-if (!requireNamespace('remotes', quietly = TRUE)){
-  install.packages('remotes')
-}
-remotes::install_github(repo = "sportsdataverse/fastRhockey")
+```r
+if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
+pak::pak("sportsdataverse/fastRhockey")
+# or, with remotes:
+# if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+# remotes::install_github("sportsdataverse/fastRhockey")
 ```
 
 -----
 
-## Quick Start
+## **Quick start**
 
 ``` r
 library(fastRhockey)
@@ -258,12 +255,23 @@ load_pwhl_game_info(seasons = 2024)
 
 -----
 
-## Documentation
+## **Documentation**
 
 You can find the
 [documentation](https://fastRhockey.sportsdataverse.org/) for
 [**`fastRhockey`**](https://github.com/sportsdataverse/fastRhockey) on
 [GitHub pages](https://fastRhockey.sportsdataverse.org/).
+
+- [Function reference](https://fastRhockey.sportsdataverse.org/reference/index.html)
+- Articles:
+  - [Getting Started with fastRhockey: NHL, PWHL and Hockey Data in R](https://fastRhockey.sportsdataverse.org/articles/introduction.html)
+  - [Corsi, Fenwick and PDO in R: Hockey Shot-Share Metrics with fastRhockey](https://fastRhockey.sportsdataverse.org/articles/hockey-advanced-metrics-corsi-fenwick.html)
+  - [Hockey Shot Maps in R: NHL and PWHL Rink Plots with fastRhockey](https://fastRhockey.sportsdataverse.org/articles/nhl-pwhl-rink-plots-shot-maps.html)
+  - [PWHL and College Hockey Data in R: Women's Pro and NCAA Hockey with fastRhockey](https://fastRhockey.sportsdataverse.org/articles/pwhl-and-college-hockey.html)
+  - [European Hockey Data in R: SHL, Liiga, DEL, KHL, National League and More](https://fastRhockey.sportsdataverse.org/articles/european-hockey-leagues.html)
+  - [NHL Expected Goals (xG) in fastRhockey: How the Model Works](https://fastRhockey.sportsdataverse.org/articles/nhl-expected-goals-xg-model.html)
+  - [PWHL Expected Goals (xG): How the Coordinate Model Works](https://fastRhockey.sportsdataverse.org/articles/pwhl-expected-goals-xg-model.html)
+- [**Full News on Releases**](https://fastRhockey.sportsdataverse.org/news/index.html)
 
 There is also a printable [**`fastRhockey` cheat sheet
 (PDF)**](https://sportsdataverse.org/cheatsheets/fastRhockey.pdf), one
@@ -277,7 +285,7 @@ well as the process for scraping that historical data.
 
 -----
 
-## Companion packages
+## **Companion packages**
 
   - [**`sdvplotR`**](https://sdvplotR.sportsdataverse.org/)
     (`pak::pak("sportsdataverse/sdvplotR")`) adds NHL team logos and
@@ -300,14 +308,30 @@ well as the process for scraping that historical data.
 
 -----
 
-## Changelog
+## **The SportsDataverse**
 
-[**Full News on
-Releases**](https://fastRhockey.sportsdataverse.org/news/index.html)
+[**`fastRhockey`**](https://fastRhockey.sportsdataverse.org/) is part of the [SportsDataverse](https://sportsdataverse.org/), a set of
+open-source packages for sports data.
 
------
+| Package | Sport / Scope |
+|---|---|
+| [**cfbfastR**](https://cfbfastR.sportsdataverse.org/) | College football |
+| [**hoopR**](https://hoopR.sportsdataverse.org/) | Men's basketball (NBA and NCAA) |
+| [**wehoop**](https://wehoop.sportsdataverse.org/) | Women's basketball (WNBA and NCAA) |
+| [**fastRhockey**](https://fastRhockey.sportsdataverse.org/) | Hockey (NHL and PWHL) |
+| [**baseballr**](https://billpetti.github.io/baseballr/) | Baseball (MLB, MiLB, NCAA) |
+| [**softballR**](https://github.com/sportsdataverse/softballR) | College softball |
+| [**oddsapiR**](https://oddsapiR.sportsdataverse.org/) | Sports betting odds |
+| [**recruitR**](https://recruitR.sportsdataverse.org/) | College football recruiting |
+| [**usfootballR**](https://usfootballR.sportsdataverse.org/) | US soccer |
+| [**cfbseedR**](https://cfbseedR.sportsdataverse.org/) · [**cfb4th**](https://cfb4th.sportsdataverse.org/) | CFB playoff simulation · fourth-down decisions |
+| [**cfbplotR**](https://cfbplotR.sportsdataverse.org/) · [**sdvplotR**](https://sdvplotR.sportsdataverse.org/) · [**sportyR**](https://sportyR.sportsdataverse.org/) | Logos, colors, tables · playing surfaces |
+| [**sportsdataverse-R**](https://r.sportsdataverse.org/) | Umbrella R metapackage |
+| [**sportsdataverse-py**](https://py.sportsdataverse.org/) · [**sportsdataverse.js**](https://js.sportsdataverse.org/) | Python and Node.js |
 
-## Follow the SportsDataverse (@SportsDataverse) on X and star this repo
+See the full ecosystem at [sportsdataverse.org](https://sportsdataverse.org/).
+
+## **Follow the [SportsDataverse](https://x.com/SportsDataverse) on X and star this repo**
 
 [![X
 Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
@@ -322,21 +346,21 @@ stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey.svg?color
 
 ## **Our Authors**
 
-  - [Ben Howell](https://twitter.com/BenHowell71)
-    <a href="https://twitter.com/BenHowell71" target="blank"><img src="https://img.shields.io/twitter/follow/BenHowell71?color=blue&label=%40BenHowell71&logo=twitter&style=for-the-badge" alt="@BenHowell71" /></a>
+  - [Ben Howell](https://x.com/BenHowell71)
+    <a href="https://x.com/BenHowell71" target="blank"><img src="https://img.shields.io/twitter/follow/BenHowell71?color=blue&label=%40BenHowell71&logo=x&style=for-the-badge" alt="@BenHowell71" /></a>
     <a href="https://github.com/BenHowell71" target="blank"><img src="https://img.shields.io/github/followers/BenHowell71?color=eee&logo=Github&style=for-the-badge" alt="@BenHowell71" /></a>
 
-  - [Saiem Gilani](https://twitter.com/saiemgilani)
-    <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
+  - [Saiem Gilani](https://x.com/saiemgilani)
+    <a href="https://x.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=x&style=for-the-badge" alt="@saiemgilani" /></a>
     <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
 
 ## **Our Contributors (they’re awesome)**
 
-  - [Alyssa Longmuir](https://twitter.com/alyssastweeting)
-    <a href="https://twitter.com/alyssastweeting" target="blank"><img src="https://img.shields.io/twitter/follow/alyssastweeting?color=blue&label=%40alyssastweeting&logo=twitter&style=for-the-badge" alt="@alyssastweeting" /></a>
+  - [Alyssa Longmuir](https://x.com/alyssastweeting)
+    <a href="https://x.com/alyssastweeting" target="blank"><img src="https://img.shields.io/twitter/follow/alyssastweeting?color=blue&label=%40alyssastweeting&logo=x&style=for-the-badge" alt="@alyssastweeting" /></a>
     <a href="https://github.com/Aklongmuir" target="blank"><img src="https://img.shields.io/github/followers/Aklongmuir?color=eee&logo=Github&style=for-the-badge" alt="@Aklongmuir" /></a>
-  - [Tan Ho](https://twitter.com/_TanHo)
-    <a href="https://twitter.com/_TanHo" target="blank"></a>
+  - [Tan Ho](https://x.com/_TanHo)
+    <a href="https://x.com/_TanHo" target="blank"></a>
     <a href="https://github.com/tanho63" target="blank"><img src="https://img.shields.io/github/followers/tanho63?color=eee&logo=Github&style=for-the-badge" alt="@tanho63" /></a>
 
 <!-- cheatsheet-section -->
@@ -353,6 +377,11 @@ Free to download, print and hand out; light and dark, US Letter
 landscape. Every SportsDataverse package has one — browse them all at
 **[sportsdataverse.org/cheatsheets](https://sportsdataverse.org/cheatsheets)**.
 
+## **Code of Conduct**
+
+Please note that the fastRhockey project is released with a [Contributor Code of Conduct](https://fastRhockey.sportsdataverse.org/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
+
 ## **Citations**
 
 To cite the
@@ -362,11 +391,16 @@ in publications, use:
 BibTeX Citation
 
 ``` bibtex
-@misc{howell_gilani_fastRhockey,
+@Manual{howell_gilani_fastRhockey,
   author = {Ben Howell and Saiem Gilani},
-  title = {fastRhockey: Functions to Access Professional Women's Hockey League and National Hockey League Play by Play Data.},
+  title = {fastRhockey: Functions to Access Hockey Play by Play Data and Statistics},
+  note = {R package version 1.1.0},
   url = {https://fastRhockey.sportsdataverse.org/},
   doi = {10.32614/CRAN.package.fastRhockey},
   year = {2026}
 }
 ```
+
+## **License**
+
+[**`fastRhockey`**](https://github.com/sportsdataverse/fastRhockey) is released under the [MIT License](https://github.com/sportsdataverse/fastRhockey/blob/main/LICENSE.md) (`MIT + file LICENSE`).
