@@ -102,8 +102,8 @@ A named list of data frames: `tvBroadcasts`.
 #>    id market countryCode network sequenceNumber
 #> 1 324      N          US    NHLN             35
 #> 2 282      N          CA      SN            107
-#> 3  28      H          US   MSG-B            392
-#> 4 409      A          US   MSGSN            411
+#> 3  28      H          US   MSG-B            405
+#> 4 409      A          US   MSGSN            424
 #> 
 #> $gameState
 #> [1] "OFF"

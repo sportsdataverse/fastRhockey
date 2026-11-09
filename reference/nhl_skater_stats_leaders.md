@@ -71,7 +71,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_skater_stats_leaders())
 #> ── NHL Skater Stats Leaders ─────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:49:50 UTC
+#> ℹ Data updated: 2026-11-09 10:29:12 UTC
 #> # A tibble: 45 × 22
 #>         id sweater_number headshot          team_abbrev team_logo position value
 #>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>
@@ -79,12 +79,12 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  2 8478402             97 https://assets.n… EDM         https://… C            2
 #>  3 8475913             61 https://assets.n… VGK         https://… R            2
 #>  4 8478133             71 https://assets.n… MTL         https://… C            1
-#>  5 8483678             25 https://assets.n… VAN         https://… D            1
-#>  6 8480803              2 https://assets.n… EDM         https://… D           23
-#>  7 8478402             97 https://assets.n… EDM         https://… C           21
-#>  8 8475218             14 https://assets.n… EDM         https://… D           20
-#>  9 8478840             17 https://assets.n… BOS         https://… D           16
-#> 10 8477934             29 https://assets.n… EDM         https://… C           16
+#>  5 8477932              5 https://assets.n… FLA         https://… D            1
+#>  6 8480803              2 https://assets.n… EDM         https://… D           24
+#>  7 8478402             97 https://assets.n… EDM         https://… C           22
+#>  8 8475218             14 https://assets.n… EDM         https://… D           21
+#>  9 8478840             17 https://assets.n… BOS         https://… D           18
+#> 10 8477934             29 https://assets.n… EDM         https://… C           17
 #> # ℹ 35 more rows
 #> # ℹ 15 more variables: first_name_default <chr>, last_name_default <chr>,
 #> #   last_name_cs <chr>, last_name_fi <chr>, last_name_sk <chr>,

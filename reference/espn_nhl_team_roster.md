@@ -218,7 +218,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_team_roster(team_id = "4"))
 #> ── NHL Team Roster data from ESPN.com ───────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:46:04 UTC
+#> ℹ Data updated: 2026-11-09 10:25:39 UTC
 #> # A tibble: 25 × 53
 #>    position_group id      uid    guid  alternate_id alternate_ids_sdr first_name
 #>    <chr>          <chr>   <chr>  <chr> <chr>        <chr>             <chr>     

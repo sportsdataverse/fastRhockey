@@ -137,26 +137,26 @@ Returns `NULL` on failure / empty response.
       sort_by = "total"
   ))
 #> ── NHL Edge Skater Distance Top 10 ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:49:14 UTC
-#> # A tibble: 10 × 54
+#> ℹ Data updated: 2026-11-09 10:28:42 UTC
+#> # A tibble: 10 × 47
 #>    player_slug             player_headshot player_position player_sweater_number
 #>    <chr>                   <chr>           <chr>                           <int>
 #>  1 connor-mcdavid-8478402  https://assets… C                                  97
-#>  2 jack-eichel-8478403     https://assets… C                                   9
-#>  3 kyle-connor-8478398     https://assets… L                                  81
-#>  4 mark-scheifele-8476460  https://assets… C                                  55
-#>  5 tim-stützle-8482116     https://assets… C                                  18
-#>  6 kirill-kaprizov-8478864 https://assets… L                                  97
-#>  7 jack-hughes-8481559     https://assets… C                                  86
-#>  8 sebastian-aho-8478427   https://assets… C                                  20
-#>  9 martin-necas-8480039    https://assets… C                                  88
-#> 10 macklin-celebrini-8484… https://assets… C                                  71
-#> # ℹ 50 more variables: player_first_name_default <chr>,
-#> #   player_last_name_default <chr>, player_last_name_cs <chr>,
-#> #   player_last_name_sk <chr>, player_team_abbrev <chr>,
+#>  2 jack-hughes-8481559     https://assets… C                                  86
+#>  3 macklin-celebrini-8484… https://assets… C                                  71
+#>  4 kirill-kaprizov-8478864 https://assets… L                                  97
+#>  5 kyle-connor-8478398     https://assets… L                                  81
+#>  6 jack-eichel-8478403     https://assets… C                                   9
+#>  7 auston-matthews-8479318 https://assets… C                                  34
+#>  8 mark-scheifele-8476460  https://assets… C                                  55
+#>  9 leo-carlsson-8484153    https://assets… C                                  91
+#> 10 tim-stützle-8482116     https://assets… C                                  18
+#> # ℹ 43 more variables: player_first_name_default <chr>,
+#> #   player_last_name_default <chr>, player_team_abbrev <chr>,
 #> #   player_team_slug <chr>, player_team_common_name_default <chr>,
 #> #   player_team_common_name_fr <chr>,
 #> #   player_team_place_name_with_preposition_default <chr>,
-#> #   player_team_place_name_with_preposition_fr <chr>, …
+#> #   player_team_place_name_with_preposition_fr <chr>,
+#> #   player_team_team_logo_light <chr>, player_team_team_logo_dark <chr>, …
 # }
 ```

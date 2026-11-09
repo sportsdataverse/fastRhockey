@@ -133,29 +133,6 @@ following columns (or the raw API response list when `raw = TRUE`):
 
 ``` r
 # \donttest{
-  try(nhl_game_pbp(game_id = 2024020001))
-#> ── NHL Game PBP from NHL.com ────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:49:27 UTC
-#> # A tibble: 850 × 93
-#>    event_type   event secondary_type event_team_abbr event_team_type description
-#>    <chr>        <chr> <chr>          <chr>           <chr>           <glue>     
-#>  1 CHANGE       Chan… NA             NA              NA              ON: Nicola…
-#>  2 CHANGE       Chan… NA             NA              NA              ON: Jacob …
-#>  3 FACEOFF      Face… NA             NJD             away            Nico Hisch…
-#>  4 PERIOD_START Peri… NA             NA              NA              Start of P…
-#>  5 HIT          Hit   NA             BUF             home            Beck Malen…
-#>  6 SHOT         Shot  wrist          NJD             away            Simon Neme…
-#>  7 GIVEAWAY     Give… NA             NJD             away            Giveaway b…
-#>  8 CHANGE       Chan… NA             NA              NA              ON: Bowen …
-#>  9 CHANGE       Chan… NA             NA              NA              ON: Timo M…
-#> 10 CHANGE       Chan… NA             NA              NA              ON: Jesper…
-#> # ℹ 840 more rows
-#> # ℹ 87 more variables: period <int>, period_type <chr>, period_time <chr>,
-#> #   period_seconds <dbl>, period_seconds_remaining <dbl>,
-#> #   period_time_remaining <chr>, game_seconds <dbl>,
-#> #   game_seconds_remaining <dbl>, home_score <int>, away_score <int>,
-#> #   event_player_1_name <chr>, event_player_1_type <chr>,
-#> #   event_player_1_id <int>, event_player_2_name <chr>, …
   try(nhl_game_pbp(game_id = 2024020001, raw = TRUE))
 #> $id
 #> [1] 2024020001
@@ -210,8 +187,8 @@ following columns (or the raw API response list when `raw = TRUE`):
 #>    id market countryCode network sequenceNumber
 #> 1 324      N          US    NHLN             35
 #> 2 282      N          CA      SN            107
-#> 3  28      H          US   MSG-B            392
-#> 4 409      A          US   MSGSN            411
+#> 3  28      H          US   MSG-B            405
+#> 4 409      A          US   MSGSN            424
 #> 
 #> $gameState
 #> [1] "OFF"
@@ -6477,4 +6454,10 @@ following columns (or the raw API response list when `raw = TRUE`):
 #> named list()
 #> 
 # }
+if (FALSE) { # interactive()
+# The first parsed game downloads the xG models (about 4 MB).
+# \donttest{
+  try(nhl_game_pbp(game_id = 2024020001))
+# }
+}
 ```

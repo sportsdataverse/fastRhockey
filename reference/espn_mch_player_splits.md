@@ -194,7 +194,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_player_splits(athlete_id = "5136656", season = 2025))
-#> ✖ 2026-11-06 07:44:59.026294: Invalid arguments or no ESPN mens-college-hockey player splits data available!
+#> ✖ 2026-11-09 10:24:38.590895: Invalid arguments or no ESPN mens-college-hockey player splits data available!
 #> ✖ Args: league = "mens-college-hockey", athlete_id = "5136656", season = 2025
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

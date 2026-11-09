@@ -48,21 +48,21 @@ Other OHL Functions:
 ``` r
  try(ohl_team_roster(team_id = 1)) 
 #> ── OHL Team Roster from HockeyTech ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:50:11 UTC
-#> # A tibble: 24 × 46
+#> ℹ Data updated: 2026-11-09 10:29:31 UTC
+#> # A tibble: 23 × 46
 #>    id    person_id active first_name last_name phonetic_name display_name shoots
 #>    <chr> <chr>     <chr>  <chr>      <chr>     <chr>         <chr>        <chr> 
 #>  1 9509  9270      1      George     Komadoski "COMM-uh-DAH… ""           R     
 #>  2 9777  9569      1      Nathan     Hauad     ""            ""           R     
-#>  3 9475  9221      1      Jeremy     Freeman   "FREE-man"    ""           R     
-#>  4 9397  9139      1      Sam        Roberts   ""            ""           R     
-#>  5 9773  9565      1      Jason      Musa      ""            ""           L     
-#>  6 9778  9570      1      Abe        Barnett   ""            ""           L     
-#>  7 9552  9313      1      Kaden      McGregor  "MUH-GREG-ER" ""           R     
-#>  8 9765  9557      1      Xavier     Lieb      "LEEB"        ""           R     
-#>  9 9579  9340      1      Aleksandr  Sementsov ""            ""           L     
-#> 10 9141  8830      1      Camden     McCuaig   ""            ""           L     
-#> # ℹ 14 more rows
+#>  3 9397  9139      1      Sam        Roberts   ""            ""           R     
+#>  4 9773  9565      1      Jason      Musa      ""            ""           L     
+#>  5 9778  9570      1      Abe        Barnett   ""            ""           L     
+#>  6 9552  9313      1      Kaden      McGregor  "MUH-GREG-ER" ""           R     
+#>  7 9765  9557      1      Xavier     Lieb      "LEEB"        ""           R     
+#>  8 9579  9340      1      Aleksandr  Sementsov ""            ""           L     
+#>  9 9141  8830      1      Camden     McCuaig   ""            ""           L     
+#> 10 9658  9423      1      Brayden    Lappalai… ""            ""           L     
+#> # ℹ 13 more rows
 #> # ℹ 38 more variables: hometown <chr>, homeprov <chr>, homecntry <chr>,
 #> #   homeplace <chr>, birthtown <chr>, birthprov <chr>, birthcntry <chr>,
 #> #   birthplace <chr>, height <chr>, weight <chr>, height_hyphenated <chr>,

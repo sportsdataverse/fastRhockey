@@ -169,7 +169,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_standings_core())
 #> ── WOMENS-COLLEGE-HOCKEY Standings data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-11-06 07:46:34 UTC
+#> ℹ Data updated: 2026-11-09 10:26:10 UTC
 #> # A tibble: 1 × 2
 #>   ref                                                               standings_id
 #>   <chr>                                                             <chr>       

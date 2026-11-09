@@ -93,21 +93,21 @@ Other EIHL eSports functions:
 # \donttest{
   try(eihl_top_scorers(season = 2027, league_id = 3))
 #> ── EIHL top_scorers from the eSports hokejovyzapis bucket ──────────────────────
-#> ℹ Data updated: 2026-11-06 07:44:25 UTC
-#> # A tibble: 250 × 16
-#>    player_id name       surname jersey birthdate team_id team_name team_shortcut
-#>        <int> <chr>      <chr>    <int> <chr>       <int> <chr>     <chr>        
-#>  1      4843 "Josh"     MacDon…     92 1994-03-…      92 Cardiff … CAR          
-#>  2      5171 "Olivier"  Archam…     93 1993-02-…     100 Sheffiel… SHE          
-#>  3      4449 "Brandon"  Whistle     74 1997-12-…     100 Sheffiel… SHE          
-#>  4      4973 "Brandon"  Cutler      29 2000-01-…      98 Manchest… MAN          
-#>  5      4104 "Joshua"   Waller      91 1999-06-…      97 Guildfor… GUI          
-#>  6      4757 "Mitchell" Balmas      92 1998-03-…     100 Sheffiel… SHE          
-#>  7      4734 "Victor"   Bjorku…     10 1993-04-…      95 Fife Fly… FIF          
-#>  8      5044 "Justin"   Duchar…     67 2000-02-…      97 Guildfor… GUI          
-#>  9      5121 "Kaleb"    Pearson      8 2000-06-…      91 Belfast … BEL          
-#> 10      5128 "Griffin " Ness        77 1999-12-…      93 Coventry… COV          
-#> # ℹ 240 more rows
+#> ℹ Data updated: 2026-11-09 10:24:06 UTC
+#> # A tibble: 253 × 16
+#>    player_id name    surname    jersey birthdate team_id team_name team_shortcut
+#>        <int> <chr>   <chr>       <int> <chr>       <int> <chr>     <chr>        
+#>  1      4843 Josh    MacDonald      92 1994-03-…      92 Cardiff … CAR          
+#>  2      4449 Brandon Whistle        74 1997-12-…     100 Sheffiel… SHE          
+#>  3      5171 Olivier Archambau…     93 1993-02-…     100 Sheffiel… SHE          
+#>  4      4355 Scott   Conway         10 1995-04-…      91 Belfast … BEL          
+#>  5      4973 Brandon Cutler         29 2000-01-…      98 Manchest… MAN          
+#>  6      4104 Joshua  Waller         91 1999-06-…      97 Guildfor… GUI          
+#>  7      5033 Evan    Jasper         62 1992-01-…     100 Sheffiel… SHE          
+#>  8      5104 Tim     McGauley       23 1995-07-…      98 Manchest… MAN          
+#>  9      5102 Xander  Lamppa          9 2000-04-…      95 Fife Fly… FIF          
+#> 10      5008 Mathieu Gosselin       63 1999-05-…      97 Guildfor… GUI          
+#> # ℹ 243 more rows
 #> # ℹ 8 more variables: matches <int>, goals <int>, assists <int>, points <int>,
 #> #   shots <int>, positives <int>, negatives <int>, positives_negatives <int>
 # }

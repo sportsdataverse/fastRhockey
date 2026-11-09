@@ -172,7 +172,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_awards())
 #> ── MENS-COLLEGE-HOCKEY Awards data from ESPN core-v2 ────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:44:37 UTC
+#> ℹ Data updated: 2026-11-09 10:24:16 UTC
 #> # A tibble: 34 × 4
 #>    ref                                                 award_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>

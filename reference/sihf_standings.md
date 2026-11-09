@@ -139,7 +139,7 @@ Other SIHF Functions:
 # \donttest{
   try(sihf_standings(season = 2026, league_id = 1))
 #> ── SIHF Standings Information from data.sihf.ch ─────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:51:21 UTC
+#> ℹ Data updated: 2026-11-09 10:30:41 UTC
 #> # A tibble: 14 × 20
 #>    season phase_id  rank team_id team_name      team_acronym games_played points
 #>     <int>    <int> <int>   <int> <chr>          <chr>               <int>  <int>

@@ -36,7 +36,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
    try(nhl_divisions())
 #> ── NHL Divisions from NHL.com ───────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:49:07 UTC
+#> ℹ Data updated: 2026-11-09 10:28:35 UTC
 #> # A tibble: 4 × 3
 #>   division_name division_abbrev conference_name
 #>   <chr>         <chr>           <chr>          

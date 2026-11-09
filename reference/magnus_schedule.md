@@ -117,7 +117,7 @@ Other Ligue Magnus Functions:
 # \donttest{
   try(magnus_schedule(season = 2027, phase_id = 714, round = 2))
 #> ── Ligue Magnus Schedule Information from liguemagnus.com ──────────────────────
-#> ℹ Data updated: 2026-11-06 07:48:49 UTC
+#> ℹ Data updated: 2026-11-09 10:28:20 UTC
 #> # A tibble: 6 × 22
 #>   game_id season competition_id phase_id phase  round game_datetime       status
 #>     <int>  <int>          <int>    <int> <chr>  <int> <dttm>              <chr> 

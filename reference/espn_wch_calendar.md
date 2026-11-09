@@ -168,7 +168,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_calendar())
 #> ── WOMENS-COLLEGE-HOCKEY Calendar data from ESPN.com ────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:46:08 UTC
+#> ℹ Data updated: 2026-11-09 10:25:43 UTC
 #> # A tibble: 83 × 5
 #>    date              calendar_type calendar_start_date calendar_end_date
 #>    <chr>             <chr>         <chr>               <chr>            

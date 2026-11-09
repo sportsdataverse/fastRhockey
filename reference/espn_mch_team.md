@@ -185,7 +185,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_team(team_id = "104"))
 #> ── MENS-COLLEGE-HOCKEY Team data from ESPN.com ──────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:45:11 UTC
+#> ℹ Data updated: 2026-11-09 10:24:51 UTC
 #> # A tibble: 1 × 17
 #>   team_id id    uid      slug  location name  nickname abbreviation display_name
 #>   <chr>   <chr> <chr>    <chr> <chr>    <chr> <chr>    <chr>        <chr>       

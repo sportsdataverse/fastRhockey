@@ -139,7 +139,7 @@ Other Liiga Functions:
 # \donttest{
   try(liiga_player_stats(season_from = 2026, season_to = 2026, tournament = "runkosarja"))
 #> ── Liiga player stat tables Information from liiga.fi ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:47:54 UTC
+#> ℹ Data updated: 2026-11-09 10:27:33 UTC
 #> # A tibble: 531 × 45
 #>    player_id    team_id team_name team_short_name role  first_name last_name    
 #>        <int>      <int> <chr>     <chr>           <chr> <chr>      <chr>        

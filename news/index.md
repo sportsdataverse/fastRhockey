@@ -146,6 +146,19 @@ that upgrades from 1.0.0 may need to change.
   url), instead of `utils::read.csv(url())` with no retry. `data.table`
   floor raised to 1.15.0 for `fread(file = url)`.
 
+- [`update_nhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_nhl_db.md),
+  [`update_pwhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_pwhl_db.md)
+  and the PHF builder no longer drop the play-by-play table on a bad
+  games-index read. `force_rebuild = TRUE` reads the index, drops the
+  table and reloads only the seasons the index lists, so a failed, empty
+  or partial index read used to lose seasons from the database. The
+  builder now aborts, naming the index url, and leaves the table
+  untouched. Release csvs are downloaded with libcurl to a temporary
+  file before `fread()` reads it (with `download.file.method = "curl"`,
+  `fread(url)` shelled out to curl, which ignores HTTP errors and R’s
+  `timeout`), and the games-index read treats an `fread()` warning (a
+  read that stopped early) as an error, without retrying it.
+
 - [`ahl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/ahl_pbp.md),
   [`ohl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/ohl_pbp.md),
   [`whl_pbp()`](https://fastRhockey.sportsdataverse.org/reference/whl_pbp.md),

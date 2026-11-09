@@ -159,7 +159,7 @@ Other KHL Functions:
 # \donttest{
   try(khl_webcaster_team(season = 2026, team_id = 18))
 #> ── KHL Webcaster Team from khl.api.webcaster.pro ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:47:37 UTC
+#> ℹ Data updated: 2026-11-09 10:27:15 UTC
 #> # A tibble: 1 × 44
 #>      id stage   khl_id name    location feed_items       arena_id arena_capacity
 #>   <int> <chr>    <int> <chr>   <chr>    <chr>               <int>          <int>

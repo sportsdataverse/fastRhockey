@@ -64,20 +64,20 @@ Returns a data frame with goalie statistics.
 # \donttest{
   try(nhl_stats_goalies())
 #> ── NHL Stats Goalies ────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:49:55 UTC
+#> ℹ Data updated: 2026-11-09 10:29:16 UTC
 #> # A tibble: 50 × 23
 #>    assists games_played games_started goalie_full_name    goals goals_against
 #>      <int>        <int>         <int> <chr>               <int>         <int>
-#>  1       0           11            11 Pyotr Kochetkov         0            18
-#>  2       0           15            15 Jesper Wallstedt        0            31
-#>  3       0           12            12 Andrei Vasilevskiy      0            33
-#>  4       0           12            12 Jake Oettinger          0            23
-#>  5       0           12            12 Jeremy Swayman          0            28
-#>  6       0           13            12 Mackenzie Blackwood     0            35
-#>  7       0            8             8 Linus Ullmark           0            10
-#>  8       0            9             9 Jacob Fowler            0            20
-#>  9       0            7             7 Devon Levi              0            22
-#> 10       0            8             8 Adin Hill               0            22
+#>  1       0           12            12 Pyotr Kochetkov         0            20
+#>  2       0           16            16 Jesper Wallstedt        0            32
+#>  3       0           13            13 Jeremy Swayman          0            29
+#>  4       0           13            13 Jake Oettinger          0            26
+#>  5       0           14            13 Mackenzie Blackwood     0            35
+#>  6       0           10            10 Jacob Fowler            0            22
+#>  7       0           13            13 Andrei Vasilevskiy      0            37
+#>  8       0            8             8 Devon Levi              0            24
+#>  9       0            8             8 Linus Ullmark           0            10
+#> 10       0            9             9 Adin Hill               0            23
 #> # ℹ 40 more rows
 #> # ℹ 17 more variables: goals_against_average <dbl>, last_name <chr>,
 #> #   losses <int>, ot_losses <int>, penalty_minutes <int>, player_id <int>,

@@ -130,7 +130,7 @@ Other DEL eSports functions:
 # \donttest{
   try(del_pbp(match_id = 4444))
 #> ── DEL pbp from the eSports hokejovyzapis bucket ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:44:07 UTC
+#> ℹ Data updated: 2026-11-09 10:23:48 UTC
 #> # A tibble: 27 × 53
 #>    event_index period period_number  time event_type       event_id team_side
 #>          <int> <chr>          <int> <int> <chr>               <int> <chr>    

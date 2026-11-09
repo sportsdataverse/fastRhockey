@@ -69,22 +69,23 @@ Other ELH Functions:
 
 ``` r
 # \donttest{
-  try(elh_game_ids(season = 2027))
+  # an early season: fewer listing pages (1,000 ids each) than a recent one
+  try(elh_game_ids(season = 2016))
 #> ── ELH Game Ids Information from hokej.cz ───────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:44:31 UTC
-#> # A tibble: 3,013 × 5
+#> ℹ Data updated: 2026-11-09 10:24:10 UTC
+#> # A tibble: 1,972 × 5
 #>    hokejcz_game_id season key                          last_modified        size
 #>              <int>  <int> <chr>                        <chr>               <int>
-#>  1         2928255   2027 match/2026/full/2928255.json 2026-09-16T18:57:2… 76217
-#>  2         2928256   2027 match/2026/full/2928256.json 2026-09-16T18:24:4… 98469
-#>  3         2928257   2027 match/2026/full/2928257.json 2026-09-16T20:46:3… 81005
-#>  4         2928258   2027 match/2026/full/2928258.json 2026-09-16T18:18:0… 60920
-#>  5         2928259   2027 match/2026/full/2928259.json 2026-09-16T19:19:5… 97082
-#>  6         2928260   2027 match/2026/full/2928260.json 2026-09-15T18:40:4… 59501
-#>  7         2928261   2027 match/2026/full/2928261.json 2026-09-16T18:14:5… 82570
-#>  8         2928262   2027 match/2026/full/2928262.json 2026-09-04T19:13:5…   446
-#>  9         2928263   2027 match/2026/full/2928263.json 2026-09-18T18:09:5… 65661
-#> 10         2928264   2027 match/2026/full/2928264.json 2026-09-18T18:23:3… 54290
-#> # ℹ 3,003 more rows
+#>  1          171741   2016 match/2015/full/171741.json  2016-03-21T16:12:…   8795
+#>  2          218880   2016 match/2015/full/218880.json  2016-01-29T09:30:…  12756
+#>  3         1693254   2016 match/2015/full/1693254.json 2015-07-14T11:58:…  76783
+#>  4         2188519   2016 match/2015/full/2188519.json 2015-09-11T18:57:… 100494
+#>  5         2188520   2016 match/2015/full/2188520.json 2015-09-11T18:39:…  71825
+#>  6         2188521   2016 match/2015/full/2188521.json 2015-09-11T22:14:…  93246
+#>  7         2188522   2016 match/2015/full/2188522.json 2015-09-11T18:49:…  43554
+#>  8         2188523   2016 match/2015/full/2188523.json 2015-09-12T06:18:…  75784
+#>  9         2188524   2016 match/2015/full/2188524.json 2015-09-24T10:36:…  46829
+#> 10         2188525   2016 match/2015/full/2188525.json 2015-09-16T15:04:… 108006
+#> # ℹ 1,962 more rows
 # }
 ```

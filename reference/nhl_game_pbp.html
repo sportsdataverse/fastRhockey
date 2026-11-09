@@ -148,29 +148,6 @@ following columns (or the raw API response list when <code>raw = TRUE</code>):</
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_game_pbp</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">2024020001</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── NHL Game PBP from NHL.com ────────────────────────────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-06 07:49:27 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 850 × 93</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    event_type   event secondary_type event_team_abbr event_team_type description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;glue&gt;</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> CHANGE       Chan… <span style="color: #BB0000;">NA</span>             <span style="color: #BB0000;">NA</span>              <span style="color: #BB0000;">NA</span>              ON: Nicola…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> CHANGE       Chan… <span style="color: #BB0000;">NA</span>             <span style="color: #BB0000;">NA</span>              <span style="color: #BB0000;">NA</span>              ON: Jacob …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> FACEOFF      Face… <span style="color: #BB0000;">NA</span>             NJD             away            Nico Hisch…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> PERIOD_START Peri… <span style="color: #BB0000;">NA</span>             <span style="color: #BB0000;">NA</span>              <span style="color: #BB0000;">NA</span>              Start of P…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> HIT          Hit   <span style="color: #BB0000;">NA</span>             BUF             home            Beck Malen…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> SHOT         Shot  wrist          NJD             away            Simon Neme…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> GIVEAWAY     Give… <span style="color: #BB0000;">NA</span>             NJD             away            Giveaway b…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> CHANGE       Chan… <span style="color: #BB0000;">NA</span>             <span style="color: #BB0000;">NA</span>              <span style="color: #BB0000;">NA</span>              ON: Bowen …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> CHANGE       Chan… <span style="color: #BB0000;">NA</span>             <span style="color: #BB0000;">NA</span>              <span style="color: #BB0000;">NA</span>              ON: Timo M…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> CHANGE       Chan… <span style="color: #BB0000;">NA</span>             <span style="color: #BB0000;">NA</span>              <span style="color: #BB0000;">NA</span>              ON: Jesper…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 840 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 87 more variables: period &lt;int&gt;, period_type &lt;chr&gt;, period_time &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   period_seconds &lt;dbl&gt;, period_seconds_remaining &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   period_time_remaining &lt;chr&gt;, game_seconds &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   game_seconds_remaining &lt;dbl&gt;, home_score &lt;int&gt;, away_score &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   event_player_1_name &lt;chr&gt;, event_player_1_type &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   event_player_1_id &lt;int&gt;, event_player_2_name &lt;chr&gt;, …</span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_game_pbp</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">2024020001</span>, raw <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2024020001</span>
@@ -225,8 +202,8 @@ following columns (or the raw API response list when <code>raw = TRUE</code>):</
 <span class="r-out co"><span class="r-pr">#&gt;</span>    id market countryCode network sequenceNumber</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 324      N          US    NHLN             35</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 282      N          CA      SN            107</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  28      H          US   MSG-B            392</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 409      A          US   MSGSN            411</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  28      H          US   MSG-B            405</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 409      A          US   MSGSN            424</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $gameState</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "OFF"</span>
@@ -6492,6 +6469,12 @@ following columns (or the raw API response list when <code>raw = TRUE</code>):</
 <span class="r-out co"><span class="r-pr">#&gt;</span> named list()</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># interactive()</span></span></span>
+<span class="r-in"><span><span class="co"># The first parsed game downloads the xG models (about 4 MB).</span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nhl_game_pbp</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">2024020001</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

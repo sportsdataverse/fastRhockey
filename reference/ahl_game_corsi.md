@@ -40,7 +40,7 @@ Other AHL Functions:
 ``` r
  try(ahl_game_corsi(game_id = 1000093924)) 
 #> ── AHL Game Corsi from HockeyTech ───────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:43:57 UTC
+#> ℹ Data updated: 2026-11-09 10:23:39 UTC
 #> # A tibble: 0 × 10
 #> # ℹ 10 variables: player_id <chr>, corsi_for <int>, corsi_against <int>,
 #> #   corsi_for_pct <dbl>, fenwick_for <int>, fenwick_against <int>,

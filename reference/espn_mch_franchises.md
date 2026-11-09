@@ -171,7 +171,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_franchises())
-#> ! 2026-11-06 07:44:40.023694: No franchise items returned for mens-college-hockey.
+#> ! 2026-11-09 10:24:19.189437: No franchise items returned for mens-college-hockey.
 #> data frame with 0 columns and 0 rows
 # }
 ```

@@ -92,7 +92,7 @@ Other SHL Functions:
 # \donttest{
   try(shl_season_filter(series_uuid = "qQ9-bb0bzEWUk", season_uuid = "xs4m9qupsi"))
 #> ── SHL Season Filter Information from www.shl.se ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:50:52 UTC
+#> ℹ Data updated: 2026-11-09 10:30:11 UTC
 #> # A tibble: 57 × 5
 #>    kind   code  name      uuid           deleted
 #>    <chr>  <chr> <chr>     <chr>          <lgl>  

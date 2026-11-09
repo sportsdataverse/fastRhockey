@@ -111,7 +111,7 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_game_info(match_id = 8161))
 #> ── ICE Hockey League game_info from the eSports hokejovyzapis bucket ───────────
-#> ℹ Data updated: 2026-11-06 07:46:54 UTC
+#> ℹ Data updated: 2026-11-09 10:26:32 UTC
 #> # A tibble: 1 × 34
 #>   actual_time_name actual_time_alias status      stadium      number_of_viewers
 #>   <chr>            <chr>             <chr>       <chr>                    <int>

@@ -183,7 +183,7 @@ Saiem Gilani
   # NOTE: Returns empty tibble for WCH (ESPN does not populate weeks for hockey)
   try(espn_wch_season_weeks(season = 2026, season_type = 2))
 #> ── WOMENS-COLLEGE-HOCKEY Season Weeks data from ESPN core-v2 ───────────────────
-#> ℹ Data updated: 2026-11-06 07:46:33 UTC
+#> ℹ Data updated: 2026-11-09 10:26:09 UTC
 #> # A tibble: 25 × 6
 #>    ref                                  week season season_type count page_count
 #>    <chr>                               <int>  <int>       <int> <int>      <int>

@@ -197,7 +197,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_team_box(game_id = "401717648"))
 #> ── MENS-COLLEGE-HOCKEY Team Box Score data from ESPN.com ── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:45:11 UTC
+#> ℹ Data updated: 2026-11-09 10:24:51 UTC
 #> # A tibble: 2 × 30
 #>   team_id team_uid         team_slug   team_location team_name team_abbreviation
 #>   <chr>   <chr>            <chr>       <chr>         <chr>     <chr>            

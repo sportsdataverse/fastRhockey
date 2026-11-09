@@ -90,10 +90,10 @@ A named list with game story data (recap, scoring, penalties, etc.). The
 #> 
 #> $tvBroadcasts
 #>    id market countryCode network sequenceNumber
-#> 1  28      H          US   MSG-B            392
+#> 1  28      H          US   MSG-B            405
 #> 2 282      N          CA      SN            107
 #> 3 324      N          US    NHLN             35
-#> 4 409      A          US   MSGSN            411
+#> 4 409      A          US   MSGSN            424
 #>                                          logoUrls.light
 #> 1                                                  <NA>
 #> 2 https://assets.nhle.com/logos/broadcast/282-light.svg

@@ -191,7 +191,7 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns an empty tibble for NHL (404 from ESPN)
   try(espn_wch_season_draft_round_picks(season = 2025, round_num = 1))
-#> ! 2026-11-06 07:46:27.390828: ESPN womens-college-hockey season draft round picks for 2025 round 1 is not available (HTTP 404 is normal for NHL).
+#> ! 2026-11-09 10:26:03.127177: ESPN womens-college-hockey season draft round picks for 2025 round 1 is not available (HTTP 404 is normal for NHL).
 #> ! Warning: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }

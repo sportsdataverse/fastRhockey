@@ -135,7 +135,7 @@ unavailable:
 # \donttest{
   try(pwhl_leaders(position = "skaters", season = 2025))
 #> ── PWHL Leaders - skaters ───────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:50:17 UTC
+#> ℹ Data updated: 2026-11-09 10:29:37 UTC
 #> # A tibble: 107 × 88
 #>    player_id shortname    first_name last_name name  phonetic_name active height
 #>    <chr>     <chr>        <chr>      <chr>     <chr> <chr>         <chr>  <chr> 
@@ -158,7 +158,7 @@ unavailable:
 #> #   birthdate_year <chr>, hometown <chr>, homeprov <chr>, homecntry <chr>, …
   try(pwhl_leaders(position = "goalies", season = 2025))
 #> ── PWHL Leaders - goalies ───────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-06 07:50:18 UTC
+#> ℹ Data updated: 2026-11-09 10:29:38 UTC
 #> # A tibble: 16 × 84
 #>    player_id shortname    rookie first_name last_name name  phonetic_name active
 #>    <chr>     <chr>        <chr>  <chr>      <chr>     <chr> <chr>         <chr> 
