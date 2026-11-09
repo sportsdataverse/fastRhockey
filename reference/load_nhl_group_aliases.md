@@ -49,7 +49,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(load_nhl_group_aliases())
 #> ── NHL group aliases from the SportsDataverse data repo ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:38:02 UTC
+#> ℹ Data updated: 2026-11-09 22:54:40 UTC
 #> # A tibble: 95 × 8
 #>    league group_id          source source_id name_kind value valid_from valid_to
 #>    <chr>  <chr>             <chr>  <chr>     <chr>     <chr>      <int>    <int>

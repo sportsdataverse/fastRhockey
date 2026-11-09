@@ -205,7 +205,7 @@ lists every function in this family.
 # \donttest{
   try(nl_standings(phase = 4940, season = 2026))
 #> ── National League Standings Information from nationalleague.ch ────────────────
-#> ℹ Data updated: 2026-11-09 19:40:47 UTC
+#> ℹ Data updated: 2026-11-09 22:57:50 UTC
 #> # A tibble: 14 × 123
 #>     rank team_id name      short_name streak    gp    gw  gwot  gwpe    gl  glot
 #>    <int>   <dbl> <chr>     <chr>      <chr>  <int> <int> <int> <int> <int> <int>

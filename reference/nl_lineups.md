@@ -97,7 +97,7 @@ lists every function in this family.
 # \donttest{
   try(nl_lineups(game_id = 20261105000325))
 #> ── National League Lineups Information from nationalleague.ch ──────────────────
-#> ℹ Data updated: 2026-11-09 19:40:35 UTC
+#> ℹ Data updated: 2026-11-09 22:57:36 UTC
 #> # A tibble: 44 × 13
 #>    game_id team_side team_id unit  player_id position  line first_name last_name
 #>      <dbl> <chr>       <dbl> <chr>     <dbl> <chr>    <int> <chr>      <chr>    

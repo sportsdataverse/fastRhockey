@@ -104,7 +104,7 @@ lists every function in this family.
 # \donttest{
   try(nl_shots(game_id = 20261105000325))
 #> ── National League Shots Information from nationalleague.ch ────────────────────
-#> ℹ Data updated: 2026-11-09 19:40:46 UTC
+#> ℹ Data updated: 2026-11-09 22:57:49 UTC
 #> # A tibble: 105 × 20
 #>    game_id team_side team_id player_id player_number player_first_name
 #>      <dbl> <chr>       <dbl>     <dbl> <chr>         <chr>            

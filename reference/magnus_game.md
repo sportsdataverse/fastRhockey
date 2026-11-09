@@ -77,7 +77,7 @@ Other Ligue Magnus Functions:
 # \donttest{
   try(magnus_game(game_id = 77779))
 #> ── Ligue Magnus Game Information from liguemagnus.com ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:39:01 UTC
+#> ℹ Data updated: 2026-11-09 22:55:43 UTC
 #> # A tibble: 1 × 21
 #>   game_id competition        phase round game_datetime       status home_team_id
 #>     <int> <chr>              <chr> <int> <dttm>              <chr>         <int>

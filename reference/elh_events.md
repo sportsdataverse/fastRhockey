@@ -71,7 +71,7 @@ Other ELH Functions:
 # \donttest{
   try(elh_events(match_id = 2928321))
 #> ── ELH Events Information from hokej.cz ─────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:33:23 UTC
+#> ℹ Data updated: 2026-11-09 22:50:01 UTC
 #> # A tibble: 120 × 7
 #>    start_date       team_side team_name    team_score minute shots shots_on_goal
 #>    <chr>            <chr>     <chr>             <int>  <int> <int>         <int>

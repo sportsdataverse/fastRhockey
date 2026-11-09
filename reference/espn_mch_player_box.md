@@ -107,7 +107,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_player_box(game_id = "401717648"))
 #> ── MENS-COLLEGE-HOCKEY Player Box Score data from ESPN.com ─────────────────────
-#> ℹ Data updated: 2026-11-09 19:33:54 UTC
+#> ℹ Data updated: 2026-11-09 22:50:32 UTC
 #> # A tibble: 41 × 53
 #>    athlete_id athlete_display_name athlete_short_name athlete_last_name
 #>    <chr>      <chr>                <chr>              <chr>            
@@ -132,7 +132,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_player_box(game_id = "401762970"))
 #> ── WOMENS-COLLEGE-HOCKEY Player Box Score data from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-11-09 19:33:54 UTC
+#> ℹ Data updated: 2026-11-09 22:50:32 UTC
 #> # A tibble: 40 × 53
 #>    athlete_id athlete_display_name athlete_short_name athlete_last_name
 #>    <chr>      <chr>                <chr>              <chr>            

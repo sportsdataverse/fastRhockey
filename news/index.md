@@ -422,6 +422,51 @@ that upgrades from 1.0.0 may need to change.
   when the response can’t be parsed, as the other NHL and PWHL wrappers
   do. They used to stop with “object ‘…’ not found”.
 
+- [`espn_nhl_draft()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_draft.md)
+  returns ESPN’s draft board, one row per pick (`year`, `overall`,
+  `round`, `pick`, `status`, `traded` and the team holding the pick). It
+  read an `items` list the endpoint does not send, so it always returned
+  an empty tibble.
+
+- [`fox_nhl_odds()`](https://fastRhockey.sportsdataverse.org/reference/fox_nhl_odds.md)
+  finds the six-pack odds in the `sectionList` modules, where Fox now
+  sends them; it returned an empty tibble for every game.
+
+- [`update_nhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_nhl_db.md)
+  and
+  [`update_pwhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_pwhl_db.md)
+  no longer need dbplyr, which is not a dependency: the stored game ids
+  are read with a plain `DBI` query.
+
+- [`nhl_teams()`](https://fastRhockey.sportsdataverse.org/reference/nhl_teams.md),
+  [`nhl_standings()`](https://fastRhockey.sportsdataverse.org/reference/nhl_standings.md),
+  [`nhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/nhl_schedule.md),
+  [`nhl_draft()`](https://fastRhockey.sportsdataverse.org/reference/nhl_draft.md),
+  [`nhl_draft_year()`](https://fastRhockey.sportsdataverse.org/reference/nhl_draft_year.md),
+  [`nhl_draft_prospects()`](https://fastRhockey.sportsdataverse.org/reference/nhl_draft_prospects.md),
+  [`nhl_draft_prospects_info()`](https://fastRhockey.sportsdataverse.org/reference/nhl_draft_prospects_info.md)
+  and the HTML fallback of
+  [`nhl_game_shifts()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_shifts.md)
+  fetch through the package’s request layer, so they get the same
+  retries, timeout and `fastRhockey.proxy` option as the other NHL
+  wrappers.
+
+- The
+  [`pwhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_box.md)
+  failure message points to
+  [`pwhl_schedule()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_schedule.md),
+  not the defunct
+  [`phf_schedule()`](https://fastRhockey.sportsdataverse.org/reference/phf_schedule.md).
+
+#### Tests
+
+- Recorded API responses replay offline, so the NHL, ESPN NHL, Fox, PWHL
+  and AHL / OHL / WHL / QMJHL wrappers are tested on CI without the
+  network (`data-raw/http_fixtures/` records them; the fixtures are not
+  in the package tarball, and those tests skip when they are missing).
+  The defunct PHF code is left out of the coverage figure
+  (`.covrignore`).
+
 #### Dependencies
 
 - `xml2 (>= 1.3)` and `stats` moved from Suggests to Imports and `utils`

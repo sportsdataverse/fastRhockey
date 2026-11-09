@@ -83,7 +83,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_players_info(season_from = 2026, season_to = 2026))
 #> ── Liiga roster Information from liiga.fi ───────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:37:38 UTC
+#> ℹ Data updated: 2026-11-09 22:54:14 UTC
 #> # A tibble: 633 × 23
 #>    player_id    team_id team_slug team_name country_of_birth place_of_birth
 #>        <int>      <int> <chr>     <chr>     <chr>            <chr>         

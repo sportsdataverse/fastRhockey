@@ -129,7 +129,7 @@ lists every function in this family.
   try(shl_player_h2h(ssgt_uuid = "iuzqg7dqk9", home_team_uuid = "087a-087aTQv9u",
     away_team_uuid = "41c4-41c4BiYZU", game_uuid = "bdhvuc5tex"))
 #> ── SHL Player H2h Information from www.shl.se ───────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:41:34 UTC
+#> ℹ Data updated: 2026-11-09 22:58:44 UTC
 #> # A tibble: 46 × 60
 #>    uuid          first_name last_name    full_name birth_date nationality gender
 #>    <chr>         <chr>      <chr>        <chr>     <chr>      <chr>       <chr> 

@@ -85,7 +85,7 @@ lists every function in this family.
 # \donttest{
   try(sihf_game_player_stats(game_id = 20261105000325))
 #> ── SIHF Game Player Stats Information from data.sihf.ch ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:41:50 UTC
+#> ℹ Data updated: 2026-11-09 22:59:00 UTC
 #> # A tibble: 42 × 26
 #>    game_id team_side team_id team_name player_number player      player_position
 #>      <dbl> <chr>       <int> <chr>             <int> <chr>       <chr>          

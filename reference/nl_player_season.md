@@ -231,7 +231,7 @@ lists every function in this family.
 # \donttest{
   try(nl_player_season(phase = 4940, player_id = 305519, season = 2026))
 #> ── National League Player Season Information from nationalleague.ch ────────────
-#> ℹ Data updated: 2026-11-09 19:40:38 UTC
+#> ℹ Data updated: 2026-11-09 22:57:39 UTC
 #> # A tibble: 1 × 145
 #>   player_id first_name last_name team_id team_short_name team_name number
 #>       <dbl> <chr>      <chr>       <dbl> <chr>           <chr>     <chr> 

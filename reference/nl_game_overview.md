@@ -130,7 +130,7 @@ lists every function in this family.
 # \donttest{
   try(nl_game_overview(game_id = 20261105000325))
 #> ── National League Game Overview Information from nationalleague.ch ────────────
-#> ℹ Data updated: 2026-11-09 19:40:34 UTC
+#> ℹ Data updated: 2026-11-09 22:57:35 UTC
 #> # A tibble: 1 × 47
 #>   game_id home_team_short_name home_team_name away_team_short_name
 #>     <dbl> <chr>                <chr>          <chr>               

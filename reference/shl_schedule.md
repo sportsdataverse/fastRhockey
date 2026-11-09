@@ -102,7 +102,7 @@ lists every function in this family.
 # \donttest{
   try(shl_schedule(season = 2026))
 #> ── SHL Schedule Information from www.shl.se ─────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:41:38 UTC
+#> ℹ Data updated: 2026-11-09 22:58:47 UTC
 #> # A tibble: 364 × 42
 #>    game_uuid  raw_start_date_time      start_date_time   state overtime shootout
 #>    <chr>      <chr>                    <chr>             <chr> <lgl>    <lgl>   

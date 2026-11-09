@@ -63,14 +63,14 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_player_eventlog(athlete_id = "5136656"))
-#> ✖ 2026-11-09 19:33:56.017112: Invalid arguments or no ESPN mens-college-hockey player eventlog for athlete 5136656 available!
+#> ✖ 2026-11-09 22:50:33.680534: Invalid arguments or no ESPN mens-college-hockey player eventlog for athlete 5136656 available!
 #> ✖ Args: league = "mens-college-hockey", athlete_id = "5136656"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try(espn_wch_player_eventlog(athlete_id = "5263060"))
-#> ✖ 2026-11-09 19:33:56.042199: Invalid arguments or no ESPN womens-college-hockey player eventlog for athlete 5263060 available!
+#> ✖ 2026-11-09 22:50:33.715892: Invalid arguments or no ESPN womens-college-hockey player eventlog for athlete 5263060 available!
 #> ✖ Args: league = "womens-college-hockey", athlete_id = "5263060"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

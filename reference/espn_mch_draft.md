@@ -18,16 +18,23 @@ espn_wch_draft(...)
 
 ## Value
 
-A `fastRhockey_data` tibble with draft data, or an empty tibble when the
-endpoint is unavailable. **Note**: The MCH draft endpoint
-(`site/v2/sports/hockey/nhl/draft`) currently returns HTTP 500 for MCH -
-an empty tibble is returned gracefully:
+A `fastRhockey_data` tibble with one row per pick on ESPN's draft board,
+or an empty tibble when the endpoint is unavailable. **Note**: ESPN
+currently answers HTTP 500 for the college draft endpoint, so an empty
+tibble is returned gracefully:
 
-|          |           |                                       |
-|----------|-----------|---------------------------------------|
-| col_name | types     | description                           |
-| id       | character | Draft entry identifier (if returned). |
-| name     | character | Draft entry name (if returned).       |
+|                   |           |                                                |
+|-------------------|-----------|------------------------------------------------|
+| col_name          | types     | description                                    |
+| year              | integer   | Draft year.                                    |
+| overall           | integer   | Overall pick number.                           |
+| round             | integer   | Round number.                                  |
+| pick              | integer   | Pick number within the round.                  |
+| status            | character | Pick status (e.g. `ON_THE_CLOCK`, `SELECTED`). |
+| traded            | logical   | Whether the pick was traded.                   |
+| team_id           | character | ESPN id of the team holding the pick.          |
+| team_abbreviation | character | Team abbreviation.                             |
+| team_display_name | character | Team display name.                             |
 
 ## Details
 

@@ -24,6 +24,10 @@ six-pack odds columns). Empty when no market is posted.
 ``` r
  try(fox_nhl_odds("44398")) 
 #> ── Fox Sports NHL odds ──────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:35:34 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-09 22:52:08 UTC
+#> # A tibble: 2 × 5
+#>   game_id team           puck_line to_win total
+#>   <chr>   <chr>          <chr>     <chr>  <chr>
+#> 1 44398   Boston Bruins  +1.5      +140   O 6.5
+#> 2 44398   Buffalo Sabres -1.5      -166   U 6.5
 ```

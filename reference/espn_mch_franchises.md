@@ -57,13 +57,27 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_franchises())
-#> ! 2026-11-09 19:33:37.02571: No franchise items returned for mens-college-hockey.
-#> data frame with 0 columns and 0 rows
+#> ── MENS-COLLEGE-HOCKEY Franchises data from ESPN core-v2 ── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-09 22:50:14 UTC
+#> # A tibble: 116 × 4
+#>    ref                                             franchise_id count page_count
+#>    <chr>                                           <chr>        <int>      <int>
+#>  1 http://sports.core.api.espn.com/v2/sports/hock… 1              116          1
+#>  2 http://sports.core.api.espn.com/v2/sports/hock… 9              116          1
+#>  3 http://sports.core.api.espn.com/v2/sports/hock… 12             116          1
+#>  4 http://sports.core.api.espn.com/v2/sports/hock… 41             116          1
+#>  5 http://sports.core.api.espn.com/v2/sports/hock… 43             116          1
+#>  6 http://sports.core.api.espn.com/v2/sports/hock… 87             116          1
+#>  7 http://sports.core.api.espn.com/v2/sports/hock… 103            116          1
+#>  8 http://sports.core.api.espn.com/v2/sports/hock… 104            116          1
+#>  9 http://sports.core.api.espn.com/v2/sports/hock… 107            116          1
+#> 10 http://sports.core.api.espn.com/v2/sports/hock… 108            116          1
+#> # ℹ 106 more rows
 # }
 # \donttest{
   try(espn_wch_franchises())
 #> ── WOMENS-COLLEGE-HOCKEY Franchises data from ESPN core-v2 ─────────────────────
-#> ℹ Data updated: 2026-11-09 19:33:37 UTC
+#> ℹ Data updated: 2026-11-09 22:50:14 UTC
 #> # A tibble: 47 × 4
 #>    ref                                             franchise_id count page_count
 #>    <chr>                                           <chr>        <int>      <int>

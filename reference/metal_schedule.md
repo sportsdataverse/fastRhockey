@@ -115,7 +115,7 @@ Other Metal Ligaen eSports functions:
 # \donttest{
   try(metal_schedule(season = 2027, league_id = 1))
 #> ── Metal Ligaen schedule from the eSports hokejovyzapis bucket ─────────────────
-#> ℹ Data updated: 2026-11-09 19:39:16 UTC
+#> ℹ Data updated: 2026-11-09 22:55:58 UTC
 #> # A tibble: 216 × 40
 #>    match_id start_date          real_start_date   real_end_date league_id league
 #>       <int> <chr>               <chr>             <chr>             <int> <chr> 

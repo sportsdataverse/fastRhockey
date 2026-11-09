@@ -104,7 +104,7 @@ Other VHL Functions:
 # \donttest{
   try(vhl_schedule(season = 2026))
 #> ── VHL Schedule Information from vhlru.ru ───────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:42:44 UTC
+#> ℹ Data updated: 2026-11-09 22:59:55 UTC
 #> # A tibble: 992 × 20
 #>    season stage      tn game_id game_number game_date  date    weekday home_team
 #>     <int> <chr>   <int>   <int>       <int> <chr>      <chr>   <chr>   <chr>    
@@ -124,7 +124,7 @@ Other VHL Functions:
 #> #   decision <chr>, winner <chr>, status <chr>, online_url <chr>
   try(vhl_schedule(season = 2026, stage = "playoff"))
 #> ── VHL Schedule Information from vhlru.ru ───────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:42:45 UTC
+#> ℹ Data updated: 2026-11-09 22:59:56 UTC
 #> # A tibble: 84 × 20
 #>    season stage      tn game_id game_number game_date  date   weekday  home_team
 #>     <int> <chr>   <int>   <int>       <int> <chr>      <chr>  <chr>    <chr>    

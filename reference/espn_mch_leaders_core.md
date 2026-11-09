@@ -62,7 +62,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_leaders_core())
 #> ── MENS-COLLEGE-HOCKEY Leaders (core-v2) data from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-11-09 19:33:51 UTC
+#> ℹ Data updated: 2026-11-09 22:50:29 UTC
 #> # A tibble: 7 × 9
 #>   category_name category_display_name category_short_display_name
 #>   <chr>         <chr>                 <chr>                      
@@ -79,7 +79,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_leaders_core())
 #> ── WOMENS-COLLEGE-HOCKEY Leaders (core-v2) data from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-11-09 19:33:51 UTC
+#> ℹ Data updated: 2026-11-09 22:50:29 UTC
 #> # A tibble: 7 × 9
 #>   category_name category_display_name category_short_display_name
 #>   <chr>         <chr>                 <chr>                      

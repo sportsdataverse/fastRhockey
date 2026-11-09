@@ -77,7 +77,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_season_type(season = 2026, season_type = 2))
 #> ── MENS-COLLEGE-HOCKEY Season Type data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-11-09 19:34:08 UTC
+#> ℹ Data updated: 2026-11-09 22:50:45 UTC
 #> # A tibble: 1 × 18
 #>   season season_type id     type name        abbreviation slug   year start_date
 #>    <int>       <int> <chr> <int> <chr>       <chr>        <chr> <int> <chr>     
@@ -89,7 +89,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_season_type(season = 2026, season_type = 2))
 #> ── WOMENS-COLLEGE-HOCKEY Season Type data from ESPN core-v2 ────────────────────
-#> ℹ Data updated: 2026-11-09 19:34:08 UTC
+#> ℹ Data updated: 2026-11-09 22:50:45 UTC
 #> # A tibble: 1 × 18
 #>   season season_type id     type name        abbreviation slug   year start_date
 #>    <int>       <int> <chr> <int> <chr>       <chr>        <chr> <int> <chr>     

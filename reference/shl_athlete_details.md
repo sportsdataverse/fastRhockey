@@ -72,7 +72,7 @@ lists every function in this family.
 # \donttest{
   try(shl_athlete_details(athlete_uuid = "qQ9-349c7WDv6"))
 #> ── SHL Athlete Details Information from www.shl.se ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:41:19 UTC
+#> ℹ Data updated: 2026-11-09 22:58:29 UTC
 #> # A tibble: 1 × 17
 #>   athlete_data_uuid athlete_data_contact_info athlete_data_created_at 
 #>   <chr>             <chr>                     <chr>                   

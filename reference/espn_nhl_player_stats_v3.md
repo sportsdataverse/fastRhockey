@@ -75,7 +75,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_player_stats_v3(athlete_id = "5149125", season = 2025))
 #> ── NHL Player Stats V3 data from ESPN.com ───────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:34:52 UTC
+#> ℹ Data updated: 2026-11-09 22:51:27 UTC
 #> # A tibble: 5 × 25
 #>   athlete_id season season_year category category_display  position team_id
 #>   <chr>       <int>       <int> <chr>    <chr>             <chr>    <chr>  

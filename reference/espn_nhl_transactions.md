@@ -45,20 +45,20 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_transactions())
 #> ── NHL Transactions data from ESPN.com ──────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:35:31 UTC
+#> ℹ Data updated: 2026-11-09 22:52:05 UTC
 #> # A tibble: 25 × 8
 #>    date            description team_id team_location team_name team_abbreviation
 #>    <chr>           <chr>       <chr>   <chr>         <chr>     <chr>            
-#>  1 2026-11-08T08:… Assigned D… 129764  Utah          Mammoth   UTA              
-#>  2 2026-11-08T08:… Recalled C… 124292  Seattle       Kraken    SEA              
-#>  3 2026-11-08T08:… Recalled R… 26      Florida       Panthers  FLA              
-#>  4 2026-11-08T08:… Waived G R… 23      Washington    Capitals  WSH              
-#>  5 2026-11-08T08:… Recalled F… 21      Toronto       Maple Le… TOR              
-#>  6 2026-11-08T08:… Activated … 20      Tampa Bay     Lightning TB               
-#>  7 2026-11-08T08:… Recalled L… 16      Pittsburgh    Penguins  PIT              
-#>  8 2026-11-08T08:… Activated … 14      Ottawa        Senators  OTT              
-#>  9 2026-11-08T08:… Recalled D… 13      New York      Rangers   NYR              
-#> 10 2026-11-08T08:… Assigned F… 8       Los Angeles   Kings     LA               
+#>  1 2026-11-09T08:… Recalled D… 129764  Utah          Mammoth   UTA              
+#>  2 2026-11-09T08:… Placed F T… 30      Minnesota     Wild      MIN              
+#>  3 2026-11-09T08:… Recalled D… 23      Washington    Capitals  WSH              
+#>  4 2026-11-09T08:… Reinstated… 19      St. Louis     Blues     STL              
+#>  5 2026-11-09T08:… Assigned F… 18      San Jose      Sharks    SJ               
+#>  6 2026-11-09T08:… Recalled D… 17      Colorado      Avalanche COL              
+#>  7 2026-11-09T08:… Recalled F… 11      New Jersey    Devils    NJ               
+#>  8 2026-11-09T08:… Claimed G … 9       Dallas        Stars     DAL              
+#>  9 2026-11-09T08:… Recalled G… 4       Chicago       Blackhaw… CHI              
+#> 10 2026-11-08T08:… Assigned D… 129764  Utah          Mammoth   UTA              
 #> # ℹ 15 more rows
 #> # ℹ 2 more variables: team_display_name <chr>, team_color <chr>
 # }

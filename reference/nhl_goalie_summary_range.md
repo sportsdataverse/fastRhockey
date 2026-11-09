@@ -73,7 +73,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_goalie_summary_range(start_season = 2023, end_season = 2024))
 #> ── NHL Goalie Summary Range ─────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:39:49 UTC
+#> ℹ Data updated: 2026-11-09 22:56:42 UTC
 #> # A tibble: 100 × 24
 #>    assists games_played games_started goalie_full_name   goals goals_against
 #>      <int>        <int>         <int> <chr>              <int>         <int>

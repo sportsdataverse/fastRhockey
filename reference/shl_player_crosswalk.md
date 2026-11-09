@@ -67,12 +67,12 @@ lists every function in this family.
     xw[xw$player_id == 2427, ]
   })
 #> ── SHL Player Crosswalk Information from www.shl.se ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:41:33 UTC
+#> ℹ Data updated: 2026-11-09 22:58:43 UTC
 #> # A tibble: 1 × 14
 #>   player_id athlete_uuid  first_name last_name jersey_number position shoots
 #>       <int> <chr>         <chr>      <chr>             <int> <chr>    <chr> 
 #> 1      2427 qQ9-349c7WDv6 Lars       Johansson             1 GK       L     
-#> # ℹ 7 more variables: full_name <chr>, date_of_birth <chr>, nationality <chr>,
-#> #   gender <chr>, weight <int>, height <int>, ep_url <chr>
+#> # ℹ 7 more variables: ep_url <chr>, full_name <chr>, date_of_birth <chr>,
+#> #   nationality <chr>, gender <chr>, weight <int>, height <int>
 # }
 ```

@@ -88,7 +88,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_schedule(season = 2026, tournament = "runkosarja"))
 #> ── Liiga schedule Information from liiga.fi ─────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:37:39 UTC
+#> ℹ Data updated: 2026-11-09 22:54:15 UTC
 #> # A tibble: 480 × 35
 #>    game_id serie_id season home_team_name away_team_name home_team_id
 #>      <int>    <int>  <int> <chr>          <chr>                 <int>

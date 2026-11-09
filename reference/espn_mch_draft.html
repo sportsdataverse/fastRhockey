@@ -125,10 +125,10 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>fastRhockey_data</code> tibble with draft data, or an empty tibble
-when the endpoint is unavailable. <strong>Note</strong>: The MCH draft endpoint
-(<code>site/v2/sports/hockey/nhl/draft</code>) currently returns HTTP 500 for MCH -
-an empty tibble is returned gracefully:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>id</td><td>character</td><td>Draft entry identifier (if returned).</td></tr><tr><td>name</td><td>character</td><td>Draft entry name (if returned).</td></tr></table></div>
+    <p>A <code>fastRhockey_data</code> tibble with one row per pick on ESPN's
+draft board, or an empty tibble when the endpoint is unavailable. <strong>Note</strong>:
+ESPN currently answers HTTP 500 for the college draft endpoint, so an
+empty tibble is returned gracefully:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>year</td><td>integer</td><td>Draft year.</td></tr><tr><td>overall</td><td>integer</td><td>Overall pick number.</td></tr><tr><td>round</td><td>integer</td><td>Round number.</td></tr><tr><td>pick</td><td>integer</td><td>Pick number within the round.</td></tr><tr><td>status</td><td>character</td><td>Pick status (e.g. <code>ON_THE_CLOCK</code>, <code>SELECTED</code>).</td></tr><tr><td>traded</td><td>logical</td><td>Whether the pick was traded.</td></tr><tr><td>team_id</td><td>character</td><td>ESPN id of the team holding the pick.</td></tr><tr><td>team_abbreviation</td><td>character</td><td>Team abbreviation.</td></tr><tr><td>team_display_name</td><td>character</td><td>Team display name.</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>League slug <code>mens-college-hockey</code>; <code>season</code> is the END year (<code>2026</code> = 2025-26). Same ESPN helper as <code><a href="espn_nhl_draft.html">espn_nhl_draft()</a></code> (columns inherited); a collection may be empty.</p>

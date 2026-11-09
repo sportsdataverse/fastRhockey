@@ -128,7 +128,7 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_schedule(season = 2027, league_id = 1))
 #> ── ICE Hockey League schedule from the eSports hokejovyzapis bucket ────────────
-#> ℹ Data updated: 2026-11-09 19:36:39 UTC
+#> ℹ Data updated: 2026-11-09 22:53:15 UTC
 #> # A tibble: 364 × 49
 #>    match_id start_date          real_start_date   real_end_date league_id league
 #>       <int> <chr>               <chr>             <chr>             <int> <chr> 

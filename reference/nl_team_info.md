@@ -99,7 +99,7 @@ lists every function in this family.
 # \donttest{
   try(nl_team_info(team_id = 101144))
 #> ── National League Team Info Information from nationalleague.ch ────────────────
-#> ℹ Data updated: 2026-11-09 19:40:48 UTC
+#> ℹ Data updated: 2026-11-09 22:57:51 UTC
 #> # A tibble: 1 × 27
 #>   name   cms_node_id url_segment type    content_type url            fields_grid
 #>   <chr>        <dbl> <chr>       <chr>   <chr>        <chr>          <chr>      

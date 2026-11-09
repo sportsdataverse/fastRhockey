@@ -69,7 +69,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_team_skating_distance_detail(team_id = 10))
 #> ── NHL Edge Team Skating Distance Detail ────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 19:39:40 UTC
+#> ℹ Data updated: 2026-11-09 22:56:30 UTC
 #> # A tibble: 10 × 25
 #>    game_center_link        game_date is_home_team toi_all toi_even toi_pk toi_pp
 #>    <chr>                   <chr>     <lgl>          <int>    <int>  <int>  <int>
