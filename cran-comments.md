@@ -9,7 +9,10 @@ three output-type changes are listed under "Breaking changes" in NEWS.md.
 
 * Local Windows 10 x64, R 4.6.0 (ucrt): `R CMD check --as-cran --timings
   --run-donttest` on the tarball built from a clean export (2026-11-09, an
-  empty user .Renviron, NOT_CRAN unset).
+  empty user .Renviron, NOT_CRAN unset) at db891864. The only later change
+  to the package is the README (30149d9f); `--as-cran --no-examples
+  --no-tests --no-manual` with the remote incoming checks on that commit
+  was also `Status: OK`.
 * GitHub Actions R-CMD-check: R release on macOS, Windows and Ubuntu,
   R-devel and oldrel-1 on Ubuntu. Green on main at 91c5c5c5 (2026-11-09).
   The two package commits after it change the help pages and the roxygen
