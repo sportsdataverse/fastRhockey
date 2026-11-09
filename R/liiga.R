@@ -313,11 +313,13 @@
 .lg_flatten <- function(obj, prefix = "") {
   out <- list()
   keys <- names(obj)
+  # one vectorised call per object: per key, gsub() was most of a big table's parse time
+  names_us <- paste0(prefix, .lg_underscore(keys))
   for (i in seq_along(obj)) {
     key <- keys[[i]]
     if (identical(key, .LIIGA_REQUEST_KEY)) next
     value <- obj[[i]]
-    name <- paste0(prefix, .lg_underscore(key))
+    name <- names_us[[i]]
     if (key %in% .LG_TEAM_KEYS) {
       out <- .lg_put(out, .lg_team(name, value))
     } else if (.lg_is_arr(value) || .lg_is_map(value) || (key %in% .LG_NAME_KEYED && .lg_is_obj(value))) {

@@ -1315,7 +1315,8 @@ elh_list_objects <- function(prefix = NULL, delimiter = NULL, marker = NULL,
 #' @export
 #' @examples
 #' \donttest{
-#'   try(elh_game_ids(season = 2027))
+#'   # an early season: fewer listing pages (1,000 ids each) than a recent one
+#'   try(elh_game_ids(season = 2016))
 #' }
 elh_game_ids <- function(season) {
   old <- options(scipen = 999, stringsAsFactors = FALSE)

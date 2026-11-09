@@ -560,10 +560,14 @@ espn_nhl_player_splits <- function(athlete_id,
       athletes_list <- raw[["athletes"]] %||% list()
       if (length(athletes_list) == 0) return(leaders)
 
-      # Build category label map: name -> vector of stat names
+      # Build category label map: name -> vector of clean stat names. Cleaned
+      # here once, one label at a time (a vector call would dedupe), not per athlete.
       cat_labels_map <- list()
       for (cat_obj in (raw[["categories"]] %||% list())) {
-        cat_labels_map[[ cat_obj[["name"]] ]] <- unlist(cat_obj[["names"]] %||% list())
+        cat_labels_map[[ cat_obj[["name"]] ]] <- vapply(
+          unlist(cat_obj[["names"]] %||% list()), janitor::make_clean_names, "",
+          USE.NAMES = FALSE
+        )
       }
 
       # Pagination meta
@@ -646,14 +650,14 @@ espn_nhl_player_splits <- function(athlete_id,
           if (length(names_vec) > 0 && length(vals) > 0) {
             n <- min(length(names_vec), length(vals))
             for (i in seq_len(n)) {
-              col_name <- paste0(cn, "_", janitor::make_clean_names(names_vec[i]))
+              col_name <- paste0(cn, "_", names_vec[i])
               row[[col_name]] <- vals[i]
             }
           }
           if (length(ranks) > 0 && length(names_vec) > 0) {
             n <- min(length(names_vec), length(ranks))
             for (i in seq_len(n)) {
-              col_name <- paste0(cn, "_rank_", janitor::make_clean_names(names_vec[i]))
+              col_name <- paste0(cn, "_rank_", names_vec[i])
               row[[col_name]] <- ranks[i]
             }
           }

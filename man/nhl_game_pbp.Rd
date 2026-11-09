@@ -122,9 +122,14 @@ Uses the new NHL API at api-web.nhle.com.
 }
 \examples{
 \donttest{
-  try(nhl_game_pbp(game_id = 2024020001))
   try(nhl_game_pbp(game_id = 2024020001, raw = TRUE))
 }
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
+# The first parsed game downloads the xG models (about 4 MB).
+\donttest{
+  try(nhl_game_pbp(game_id = 2024020001))
+}
+\dontshow{\}) # examplesIf}
 }
 \keyword{Game}
 \keyword{NHL}

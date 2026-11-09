@@ -59,7 +59,10 @@ Same as \code{load_nhl_pbp()} but without line change (CHANGE) events,
 resulting in smaller file sizes.
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
+# Downloads a full season of play-by-play (over 5 s).
 \donttest{
   try(load_nhl_pbp_lite(2026))
 }
+\dontshow{\}) # examplesIf}
 }

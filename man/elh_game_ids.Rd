@@ -44,7 +44,8 @@ not advance. \code{fastRhockey_bad_request}: \code{season} is not a year.
 
 \examples{
 \donttest{
-  try(elh_game_ids(season = 2027))
+  # an early season: fewer listing pages (1,000 ids each) than a recent one
+  try(elh_game_ids(season = 2016))
 }
 }
 \seealso{

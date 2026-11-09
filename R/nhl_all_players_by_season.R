@@ -33,7 +33,8 @@
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom glue glue
 #' @export
-#' @examples
+#' @examplesIf interactive()
+#' # Reads every team's roster, one request per team (over 5 s).
 #' \donttest{
 #'   try(nhl_all_players_by_season(season = 2024))
 #' }
