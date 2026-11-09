@@ -74,7 +74,7 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
         url <- glue::glue("https://api-web.nhle.com/v1/schedule/{day}")
         tryCatch(
             expr = {
-                raw <- jsonlite::read_json(url, simplifyVector = TRUE)
+                raw <- .read_json_url(url)
                 game_week <- raw[["gameWeek"]]
                 if (is.null(game_week) || length(game_week) == 0) {
                     message(glue::glue(
@@ -154,7 +154,7 @@ nhl_schedule <- function(day = NULL, season = NULL, team_abbr = NULL,
                 )
                 tryCatch(
                     expr = {
-                        raw <- jsonlite::read_json(url, simplifyVector = TRUE)
+                        raw <- .read_json_url(url)
                         games <- raw[["games"]]
                         if (!is.null(games) && nrow(games) > 0) {
                             all_games[[tm]] <- games

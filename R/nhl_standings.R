@@ -62,7 +62,7 @@ nhl_standings <- function(date = NULL) {
 
     tryCatch(
         expr = {
-            raw <- jsonlite::read_json(url, simplifyVector = TRUE)
+            raw <- .read_json_url(url)
             standings <- raw[["standings"]]
 
             if (is.null(standings) || nrow(standings) == 0) {

@@ -59,14 +59,14 @@ nhl_draft_year <- function(year, round = NULL) {
         url <- glue::glue(
           "https://api-web.nhle.com/v1/draft/picks/{year}/all"
         )
-        raw <- jsonlite::read_json(url, simplifyVector = TRUE)
+        raw <- .read_json_url(url)
         picks <- raw[["picks"]]
       } else {
         # Fetch a single numeric round
         url <- glue::glue(
           "https://api-web.nhle.com/v1/draft/picks/{year}/{round}"
         )
-        raw <- jsonlite::read_json(url, simplifyVector = TRUE)
+        raw <- .read_json_url(url)
         picks <- raw[["picks"]]
       }
 

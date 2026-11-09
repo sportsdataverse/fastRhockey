@@ -36,7 +36,7 @@ nhl_draft_prospects <- function() {
 
   tryCatch(
     expr = {
-      raw <- jsonlite::read_json(url, simplifyVector = TRUE)
+      raw <- .read_json_url(url)
       # The response may have different structures depending on the API version
       # Try common keys
       rankings <- NULL

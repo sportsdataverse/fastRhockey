@@ -236,7 +236,11 @@ nhl_game_shifts <- function(game_id, detailed = FALSE){
 
   parse_side <- function(side_letter) {
     url <- paste0(base_path, "/T", side_letter, gameno, ".HTM")
-    html <- tryCatch(rvest::read_html(url), error = function(e) NULL)
+    html <- tryCatch({
+      res <- .retry_request(url)
+      check_status(res)
+      rvest::read_html(.resp_text(res))
+    }, error = function(e) NULL)
     if (is.null(html)) return(NULL)
 
     team_heads <- html %>%

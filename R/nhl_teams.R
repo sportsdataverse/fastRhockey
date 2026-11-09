@@ -49,7 +49,7 @@ nhl_teams <- function(season = NULL) {
 
     tryCatch(
         expr = {
-            raw <- jsonlite::read_json(url, simplifyVector = TRUE)
+            raw <- .read_json_url(url)
             standings <- raw[["standings"]]
 
             # a date with no standings returns an empty list, where nrow() is NULL

@@ -41,7 +41,7 @@ nhl_draft <- function() {
 
   tryCatch(
     expr = {
-      raw <- jsonlite::read_json(url, simplifyVector = TRUE)
+      raw <- .read_json_url(url)
       picks <- raw[["picks"]]
       if (is.null(picks) || length(picks) == 0) {
         # try top-level if "picks" key doesn't exist

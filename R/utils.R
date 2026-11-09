@@ -458,6 +458,18 @@ rule_footer <- function(x) {
   jsonlite::fromJSON(.resp_text(resp), ...)
 }
 
+#' GET a JSON URL through [.retry_request()] and parse it like
+#' `jsonlite::read_json(url, simplifyVector = TRUE)`, but with the package's
+#' retry, proxy and timeout handling. A non-200 answer is an error.
+#' @param url Request URL.
+#' @return Parsed R object.
+#' @keywords internal
+.read_json_url <- function(url) {
+  res <- .retry_request(url)
+  check_status(res)
+  .resp_json(res, simplifyVector = TRUE)
+}
+
 #' Capture the calling function's bound formals (excluding `...`).
 #'
 #' @details Must be called **directly** from the function whose arguments you

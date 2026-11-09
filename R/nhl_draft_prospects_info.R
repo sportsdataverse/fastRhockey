@@ -49,7 +49,7 @@ nhl_draft_prospects_info <- function(year, prospect_category = 1) {
 
   tryCatch(
     expr = {
-      raw <- jsonlite::read_json(url, simplifyVector = TRUE)
+      raw <- .read_json_url(url)
       rankings <- NULL
       for (key in c("rankings", "prospects", "data")) {
         if (!is.null(raw[[key]])) {
