@@ -109,28 +109,6 @@ Check the provider's terms of use before redistributing this data.
 }
 }
 \seealso{
-Other KHL Functions:
-\code{\link[=khl_game_header]{khl_game_header()}},
-\code{\link[=khl_game_info]{khl_game_info()}},
-\code{\link[=khl_game_protocol]{khl_game_protocol()}},
-\code{\link[=khl_pbp]{khl_pbp()}},
-\code{\link[=khl_player_box]{khl_player_box()}},
-\code{\link[=khl_player_career]{khl_player_career()}},
-\code{\link[=khl_player_profile]{khl_player_profile()}},
-\code{\link[=khl_player_stats]{khl_player_stats()}},
-\code{\link[=khl_playoff_bracket]{khl_playoff_bracket()}},
-\code{\link[=khl_roster]{khl_roster()}},
-\code{\link[=khl_schedule]{khl_schedule()}},
-\code{\link[=khl_shots]{khl_shots()}},
-\code{\link[=khl_standings]{khl_standings()}},
-\code{\link[=khl_stat_filters]{khl_stat_filters()}},
-\code{\link[=khl_webcaster_event]{khl_webcaster_event()}},
-\code{\link[=khl_webcaster_events]{khl_webcaster_events()}},
-\code{\link[=khl_webcaster_leaders]{khl_webcaster_leaders()}},
-\code{\link[=khl_webcaster_players]{khl_webcaster_players()}},
-\code{\link[=khl_webcaster_players_light]{khl_webcaster_players_light()}},
-\code{\link[=khl_webcaster_stages]{khl_webcaster_stages()}},
-\code{\link[=khl_webcaster_tables]{khl_webcaster_tables()}},
-\code{\link[=khl_webcaster_teams]{khl_webcaster_teams()}}
+\link{family_khl} lists every function in this family.
 }
 \concept{KHL Functions}

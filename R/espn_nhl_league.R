@@ -128,7 +128,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_news(limit = 10))
@@ -249,7 +250,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_injuries())
@@ -342,7 +344,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_transactions())
@@ -442,7 +445,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_conferences())
@@ -592,7 +596,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_statistics_league())
@@ -672,7 +677,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns empty tibble for NHL (ESPN returns HTTP 500 for this endpoint)
@@ -759,7 +765,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_games(limit = 10))
@@ -839,7 +846,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_awards())
@@ -923,7 +931,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns empty tibble for NHL (ESPN returns HTTP 500 for this endpoint)
@@ -1010,7 +1019,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_tournaments())
@@ -1093,7 +1103,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns empty tibble for NHL (ESPN does not populate this endpoint)
@@ -1177,7 +1188,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns empty tibble for NHL (ESPN does not populate this endpoint)

@@ -333,7 +333,8 @@ NULL
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_scoreboard(dates = "20250110"))
@@ -487,7 +488,8 @@ NULL
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examplesIf interactive()
 #' \donttest{
 #'   try(espn_nhl_standings(season = 2025))
@@ -715,7 +717,8 @@ NULL
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_team_roster(team_id = "4"))
@@ -821,7 +824,8 @@ NULL
 #' @importFrom dplyr mutate
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_calendar())
@@ -1007,7 +1011,8 @@ NULL
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_schedule(team_id = "4", season = 2025))

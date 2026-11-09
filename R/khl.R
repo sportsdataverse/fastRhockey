@@ -1471,7 +1471,8 @@
 #' \donttest{
 #'   try(khl_schedule(season = 2026))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_schedule <- function(season = NULL, stage = "regular", headers = NULL, tournament_id = NULL,
                          return_parsed = TRUE) {
@@ -1537,7 +1538,8 @@ khl_schedule <- function(season = NULL, stage = "regular", headers = NULL, tourn
 #' \donttest{
 #'   try(khl_roster(club_id = 7))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_roster <- function(club_id, headers = NULL, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -1603,7 +1605,8 @@ khl_roster <- function(club_id, headers = NULL, return_parsed = TRUE) {
 #' \donttest{
 #'   try(khl_stat_filters(season = 2026))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_stat_filters <- function(season = NULL, stage = "regular", headers = NULL, tournament_id = NULL,
                              return_parsed = TRUE) {
@@ -1712,7 +1715,8 @@ khl_stat_filters <- function(season = NULL, stage = "regular", headers = NULL, t
 #' \donttest{
 #'   try(khl_game_header(game_id = 898236, season = 2026))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_game_header <- function(game_id, season = NULL, stage = "regular", headers = NULL,
                             tournament_id = NULL, return_parsed = TRUE) {
@@ -1799,7 +1803,8 @@ khl_game_header <- function(game_id, season = NULL, stage = "regular", headers =
 #' \donttest{
 #'   try(khl_game_protocol(game_id = 898236, season = 2026))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_game_protocol <- function(game_id, season = NULL, stage = "regular", headers = NULL,
                               tournament_id = NULL, return_parsed = TRUE) {
@@ -1934,7 +1939,8 @@ khl_game_protocol <- function(game_id, season = NULL, stage = "regular", headers
 #' \donttest{
 #'   try(khl_game_info(game_id = 898236, season = 2026))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_game_info <- function(game_id, season = NULL, stage = "regular", headers = NULL,
                           tournament_id = NULL, return_parsed = TRUE) {
@@ -2028,7 +2034,8 @@ khl_game_info <- function(game_id, season = NULL, stage = "regular", headers = N
 #' \donttest{
 #'   try(khl_player_box(game_id = 898236, season = 2026))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_player_box <- function(game_id, season = NULL, stage = "regular", headers = NULL,
                            tournament_id = NULL, return_parsed = TRUE) {
@@ -2119,7 +2126,8 @@ khl_player_box <- function(game_id, season = NULL, stage = "regular", headers = 
 #' \donttest{
 #'   try(khl_pbp(game_id = 898236, season = 2026))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_pbp <- function(game_id, season = NULL, stage = "regular", headers = NULL,
                     tournament_id = NULL, return_parsed = TRUE) {
@@ -2198,7 +2206,8 @@ khl_pbp <- function(game_id, season = NULL, stage = "regular", headers = NULL,
 #' \donttest{
 #'   try(khl_shots(game_id = 898236, season = 2026))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_shots <- function(game_id, season = NULL, stage = "regular", headers = NULL,
                       tournament_id = NULL, return_parsed = TRUE) {
@@ -2286,7 +2295,8 @@ khl_shots <- function(game_id, season = NULL, stage = "regular", headers = NULL,
 #' \donttest{
 #'   try(khl_player_profile(player_id = 41928))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_player_profile <- function(player_id, headers = NULL, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -2378,7 +2388,8 @@ khl_player_profile <- function(player_id, headers = NULL, return_parsed = TRUE) 
 #' \donttest{
 #'   try(khl_player_career(player_id = 41928))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_player_career <- function(player_id, headers = NULL, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -2444,7 +2455,8 @@ khl_player_career <- function(player_id, headers = NULL, return_parsed = TRUE) {
 #' \donttest{
 #'   try(khl_playoff_bracket(season = 2026))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_playoff_bracket <- function(season = NULL, headers = NULL, tournament_id = NULL, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -2521,7 +2533,8 @@ khl_playoff_bracket <- function(season = NULL, headers = NULL, tournament_id = N
 #' \donttest{
 #'   try(khl_standings(season = 2026))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_standings <- function(season = NULL, headers = NULL, tournament_id = NULL, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -2640,7 +2653,8 @@ khl_standings <- function(season = NULL, headers = NULL, tournament_id = NULL, r
 #' \donttest{
 #'   try(khl_player_stats(position = "forwards", season = 2026))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_player_stats <- function(season = NULL, stage = "regular", position = NULL, club = NULL, page = 1,
                              headers = NULL, tournament_id = NULL, per_page = 20, return_parsed = TRUE) {
@@ -2708,7 +2722,8 @@ khl_player_stats <- function(season = NULL, stage = "regular", position = NULL, 
 #' \donttest{
 #'   try(khl_webcaster_stages())
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_webcaster_stages <- function(locale = "en", return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -2915,7 +2930,8 @@ khl_webcaster_stages <- function(locale = "en", return_parsed = TRUE) {
 #' \donttest{
 #'   try(khl_webcaster_event(event_id = 2786714))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_webcaster_event <- function(event_id, locale = "en", return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3028,7 +3044,8 @@ khl_webcaster_event <- function(event_id, locale = "en", return_parsed = TRUE) {
 #' \donttest{
 #'   try(khl_webcaster_events(season = 2026))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_webcaster_events <- function(season = NULL, stage = "regular", page = 1, stage_id = NULL,
                                  team_ids = NULL, start_after = NULL, start_before = NULL, locale = "en",
@@ -3104,7 +3121,8 @@ khl_webcaster_events <- function(season = NULL, stage = "regular", page = 1, sta
 #' \donttest{
 #'   try(khl_webcaster_leaders(season = 2026))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_webcaster_leaders <- function(season = NULL, stage = "regular", stage_id = NULL, locale = "en",
                                   return_parsed = TRUE) {
@@ -3193,7 +3211,8 @@ khl_webcaster_leaders <- function(season = NULL, stage = "regular", stage_id = N
 #' \donttest{
 #'   try(khl_webcaster_players(player_ids = "[33405, 1144]", season = 2026))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_webcaster_players <- function(player_ids = NULL, season = NULL, stage = "regular", stage_id = NULL,
                                   locale = "en", return_parsed = TRUE) {
@@ -3255,7 +3274,8 @@ khl_webcaster_players <- function(player_ids = NULL, season = NULL, stage = "reg
 #' \donttest{
 #'   try(khl_webcaster_players_light())
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_webcaster_players_light <- function(locale = "en", return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3331,7 +3351,8 @@ khl_webcaster_players_light <- function(locale = "en", return_parsed = TRUE) {
 #' \donttest{
 #'   try(khl_webcaster_tables())
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_webcaster_tables <- function(locale = "en", return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3428,7 +3449,8 @@ khl_webcaster_tables <- function(locale = "en", return_parsed = TRUE) {
 #' \donttest{
 #'   try(khl_webcaster_team(season = 2026, team_id = 18))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_webcaster_team <- function(team_id, season = NULL, stage = "regular", stage_id = NULL, locale = "en",
                                return_parsed = TRUE) {
@@ -3496,7 +3518,8 @@ khl_webcaster_team <- function(team_id, season = NULL, stage = "regular", stage_
 #' \donttest{
 #'   try(khl_webcaster_teams(season = 2026))
 #' }
-#' @family KHL Functions
+#' @concept KHL Functions
+#' @seealso [family_khl] lists every function in this family.
 #' @export
 khl_webcaster_teams <- function(season = NULL, stage = "regular", stage_id = NULL, locale = "en",
                                 return_parsed = TRUE) {

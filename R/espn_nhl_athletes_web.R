@@ -144,7 +144,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_player_overview(athlete_id = "5149125"))
@@ -337,7 +338,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_player_stats_v3(athlete_id = "5149125", season = 2025))
@@ -487,7 +489,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examplesIf interactive()
 #' \donttest{
 #'   try(espn_nhl_player_splits(athlete_id = "5149125", season = 2025))
@@ -755,7 +758,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_leaders(category = "offensive", limit = 25))

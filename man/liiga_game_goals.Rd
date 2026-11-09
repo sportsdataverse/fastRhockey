@@ -64,28 +64,6 @@ tournament not played that season, a shot map before 2016) raises
 }
 }
 \seealso{
-Other Liiga Functions:
-\code{\link[=liiga_game]{liiga_game()}},
-\code{\link[=liiga_game_lineups]{liiga_game_lineups()}},
-\code{\link[=liiga_game_penalties]{liiga_game_penalties()}},
-\code{\link[=liiga_game_players_stats]{liiga_game_players_stats()}},
-\code{\link[=liiga_game_shootout]{liiga_game_shootout()}},
-\code{\link[=liiga_game_stats]{liiga_game_stats()}},
-\code{\link[=liiga_game_team_stats]{liiga_game_team_stats()}},
-\code{\link[=liiga_games]{liiga_games()}},
-\code{\link[=liiga_gameweeks]{liiga_gameweeks()}},
-\code{\link[=liiga_goals]{liiga_goals()}},
-\code{\link[=liiga_player]{liiga_player()}},
-\code{\link[=liiga_player_career]{liiga_player_career()}},
-\code{\link[=liiga_player_game_log]{liiga_player_game_log()}},
-\code{\link[=liiga_player_stats]{liiga_player_stats()}},
-\code{\link[=liiga_players_info]{liiga_players_info()}},
-\code{\link[=liiga_schedule]{liiga_schedule()}},
-\code{\link[=liiga_shotmap]{liiga_shotmap()}},
-\code{\link[=liiga_standings]{liiga_standings()}},
-\code{\link[=liiga_team_stats]{liiga_team_stats()}},
-\code{\link[=liiga_teams]{liiga_teams()}},
-\code{\link[=liiga_teams_history]{liiga_teams_history()}},
-\code{\link[=liiga_tournament]{liiga_tournament()}}
+\link{family_liiga} lists every function in this family.
 }
 \concept{Liiga Functions}

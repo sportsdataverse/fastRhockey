@@ -1223,7 +1223,8 @@
 #'   | broadcasts | character | Broadcasters, comma-joined (e.g., "MYSPORTS,TV24"). |
 #'   | row_type | character | "data" for a regular row; "average" or "total" for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -1288,7 +1289,8 @@ sihf_results <- function(season, league_id = 1L, phase_id = NULL, language = "en
 #'   | streak | character | Recent results, newest first, as SIHF prints them (e.g., "W+L-"; "+" regulation, "-" after regulation). |
 #'   | row_type | character | "data" for a regular row; "average" or "total" for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -1349,7 +1351,8 @@ sihf_standings <- function(season, league_id = 1L, phase_id = NULL, venue = "All
 #'   | plus_minus | integer | Plus-minus: even-strength and shorthanded goals for, minus against, while on ice. |
 #'   | row_type | character | "data" for a regular row; "average" or "total" for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -1412,7 +1415,8 @@ sihf_player_stats <- function(season, league_id = 1L, phase_id = NULL, language 
 #'   | assists | integer | Assists by the goaltender. |
 #'   | row_type | character | "data" for a regular row; "average" or "total" for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -1460,7 +1464,8 @@ sihf_goalie_stats <- function(season, league_id = 1L, phase_id = NULL, language 
 #'   | phase_name | character | Phase name as SIHF publishes it, without the trailing count (e.g., "Regular Season", "Playoff 1/4 Final", "Playoff Overall"). |
 #'   | n_games | integer | Games played in the phase, from the results table's phase list; null for the other tables and for a phase still in progress. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -1542,7 +1547,8 @@ sihf_phases <- function(season, league_id = 1L, table = "results", language = "e
 #'   | shootout_scored | logical | Whether the shootout attempt scored. |
 #'   | text | character | Event text exactly as SIHF prints it (markdown bold included). |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -1625,7 +1631,8 @@ sihf_pbp <- function(game_id, language = "en") {
 #'   | linesmen | character | Linesman names, comma-joined. |
 #'   | broadcasts | character | Broadcasters, comma-joined (e.g., "MYSPORTS,TV24"). |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -1693,7 +1700,8 @@ sihf_game_info <- function(game_id, language = "en") {
 #'   | row_type | character | "data" per player, "total" for the side's total row. |
 #'   | player_id | integer | SIHF licence number of the player (integer join key), resolved from the game's roster. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -1750,7 +1758,8 @@ sihf_game_player_stats <- function(game_id, language = "en") {
 #'   | row_type | character | "data" for every row: a game goalie box has no summary rows. |
 #'   | player_id | integer | SIHF licence number of the player (integer join key), resolved from the game's roster. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -1796,7 +1805,8 @@ sihf_game_goalie_stats <- function(game_id, language = "en") {
 #'   | home_value | character | Home team's value, as a string (counts, percentages and mm:ss times share the column). |
 #'   | away_value | character | Away team's value, as a string. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -1850,7 +1860,8 @@ sihf_game_team_stats <- function(game_id, language = "en") {
 #'   | absence_code | character | Absence code for an absentee ("SU", "IN", "AB"). |
 #'   | absence_reason | character | Absence reason, German (e.g., "Überzählig", "Verletzt", "Abwesend"). |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -1918,7 +1929,8 @@ sihf_game_lineups <- function(game_id, language = "en") {
 #'   | pk_goals_against_quotient | numeric | Goals against while short-handed, per game. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -1979,7 +1991,8 @@ sihf_team_goals <- function(season, league_id = 1L, phase_id = NULL, language = 
 #'   | sow_goals_against | integer | Deciding shootout goals conceded. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2046,7 +2059,8 @@ sihf_team_goals_by_position <- function(season, league_id = 1L, phase_id = NULL,
 #'   | soga_sog_slot_per_game | numeric | Slot shots on goal against per game. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2107,7 +2121,8 @@ sihf_team_shots <- function(season, league_id = 1L, phase_id = NULL, language = 
 #'   | pp_goals_against_quotient | numeric | Goals against while on the power play, per game. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2168,7 +2183,8 @@ sihf_team_power_play <- function(season, league_id = 1L, phase_id = NULL, langua
 #'   | sh_goals_quotient | numeric | Short-handed goals for per game. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2226,7 +2242,8 @@ sihf_team_penalty_kill <- function(season, league_id = 1L, phase_id = NULL, lang
 #'   | pim_total | integer | Penalty minutes, total. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2288,7 +2305,8 @@ sihf_team_penalties <- function(season, league_id = 1L, phase_id = NULL, languag
 #'   | pen_shot_saves_percent | numeric | Shootout/penalty save percentage. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2350,7 +2368,8 @@ sihf_team_shootouts <- function(season, league_id = 1L, phase_id = NULL, languag
 #'   | faceoffs_defensive_percent | numeric | Faceoff win percentage, defensive zone. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2414,7 +2433,8 @@ sihf_team_faceoffs <- function(season, league_id = 1L, phase_id = NULL, language
 #'   | faceoffs_lost_defensive | integer | Faceoffs lost, defensive zone. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2475,7 +2495,8 @@ sihf_team_faceoffs_by_zone <- function(season, league_id = 1L, phase_id = NULL, 
 #'   | faceoffs_lost_defensive_per_game | numeric | Faceoffs lost per game, defensive zone. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2531,7 +2552,8 @@ sihf_team_faceoffs_by_zone_per_game <- function(season, league_id = 1L, phase_id
 #'   | stadium_capacity_percent | numeric | Average arena utilisation, percent. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2598,7 +2620,8 @@ sihf_team_attendance <- function(season, league_id = 1L, phase_id = NULL, langua
 #'   | hattricks | integer | Hat tricks (games with three or more goals). |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2663,7 +2686,8 @@ sihf_player_goals_assists <- function(season, league_id = 1L, phase_id = NULL, l
 #'   | blockings_per_game | numeric | Blocked shots per game. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2723,7 +2747,8 @@ sihf_player_shots <- function(season, league_id = 1L, phase_id = NULL, language 
 #'   | match_penalties | integer | Number of match penalties. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2782,7 +2807,8 @@ sihf_player_penalties <- function(season, league_id = 1L, phase_id = NULL, langu
 #'   | pen_shot_winning_goals | integer | Deciding shootout goals. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2846,7 +2872,8 @@ sihf_player_shootouts <- function(season, league_id = 1L, phase_id = NULL, langu
 #'   | faceoffs_defensive_percent | numeric | Faceoff win percentage, defensive zone. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2912,7 +2939,8 @@ sihf_player_faceoffs <- function(season, league_id = 1L, phase_id = NULL, langua
 #'   | faceoffs_lost_defensive | integer | Faceoffs lost, defensive zone. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -2975,7 +3003,8 @@ sihf_player_faceoffs_by_zone <- function(season, league_id = 1L, phase_id = NULL
 #'   | faceoffs_lost_defensive_per_game | numeric | Faceoffs lost per game, defensive zone. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -3040,7 +3069,8 @@ sihf_player_faceoffs_by_zone_per_game <- function(season, league_id = 1L, phase_
 #'   | shifts_per_game | numeric | Shifts per game. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -3102,7 +3132,8 @@ sihf_player_time_on_ice <- function(season, league_id = 1L, phase_id = NULL, lan
 #'   | saves_slot_percentage | numeric | Save percentage on slot shots. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -3165,7 +3196,8 @@ sihf_goalie_shots <- function(season, league_id = 1L, phase_id = NULL, language 
 #'   | shutout | integer | Shutouts (games with no goal against). |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples
@@ -3222,7 +3254,8 @@ sihf_goalie_wins <- function(season, league_id = 1L, phase_id = NULL, language =
 #'   | pen_shot_saves_percent | numeric | Shootout/penalty save percentage. |
 #'   | row_type | character | "data" for a regular row; "average" (league average) or "total" (attendance total) for a summary row SIHF mixes into the table. |
 #'
-#' @family SIHF Functions
+#' @concept SIHF Functions
+#' @seealso [family_sihf] lists every function in this family.
 #' @keywords SIHF
 #' @export
 #' @examples

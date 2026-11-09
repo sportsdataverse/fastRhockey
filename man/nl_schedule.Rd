@@ -81,22 +81,6 @@ for a 400/422 or an argument that is not a whole number.
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other National League Functions:
-\code{\link[=nl_current_games]{nl_current_games()}},
-\code{\link[=nl_game_overview]{nl_game_overview()}},
-\code{\link[=nl_lineups]{nl_lineups()}},
-\code{\link[=nl_pbp]{nl_pbp()}},
-\code{\link[=nl_player_box]{nl_player_box()}},
-\code{\link[=nl_player_season]{nl_player_season()}},
-\code{\link[=nl_player_stats]{nl_player_stats()}},
-\code{\link[=nl_playoffs]{nl_playoffs()}},
-\code{\link[=nl_playouts]{nl_playouts()}},
-\code{\link[=nl_shots]{nl_shots()}},
-\code{\link[=nl_standings]{nl_standings()}},
-\code{\link[=nl_team_info]{nl_team_info()}},
-\code{\link[=nl_team_player_stats]{nl_team_player_stats()}},
-\code{\link[=nl_team_schedule]{nl_team_schedule()}},
-\code{\link[=nl_team_stats]{nl_team_stats()}},
-\code{\link[=nl_top_scorers]{nl_top_scorers()}}
+\link{family_national_league} lists every function in this family.
 }
 \concept{National League Functions}

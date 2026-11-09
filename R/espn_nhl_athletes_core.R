@@ -150,7 +150,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_player_core(athlete_id = "4024820"))
@@ -252,7 +253,8 @@ NULL
 #'
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_player_statistics(athlete_id = "4024820"))
@@ -382,7 +384,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_player_statisticslog(athlete_id = "4024820"))
@@ -488,7 +491,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_player_eventlog(athlete_id = "4024820"))
@@ -578,7 +582,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_player_contracts(athlete_id = "4024820"))
@@ -662,7 +667,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_player_awards(athlete_id = "3114"))
@@ -752,7 +758,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_player_records(athlete_id = "4024820"))
@@ -822,7 +829,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_player_seasons(athlete_id = "4024820"))
@@ -892,7 +900,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_player_injuries(athlete_id = "4024820"))
@@ -962,7 +971,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_player_vs_player(athlete_id = "4024820", opponent_id = "3114"))
@@ -1031,7 +1041,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_player_notes(athlete_id = "4024820"))
@@ -1133,7 +1144,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_athletes_index(active = TRUE, limit = 10, page = 1))

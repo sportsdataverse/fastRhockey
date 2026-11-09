@@ -131,7 +131,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -264,7 +265,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -410,7 +412,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -519,7 +522,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -653,7 +657,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -769,7 +774,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -888,7 +894,8 @@ NULL
 #'
 #' @importFrom janitor make_clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({

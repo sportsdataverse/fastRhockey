@@ -97,7 +97,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_league_root())
@@ -183,7 +184,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_season_pointer())
@@ -261,7 +263,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_seasons(limit = 10))
@@ -361,7 +364,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_season_info(season = 2026))
@@ -440,7 +444,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_season_types(season = 2026))
@@ -553,7 +558,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_season_type(season = 2026, season_type = 2))
@@ -640,7 +646,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_season_groups(season = 2026, season_type = 2))
@@ -754,7 +761,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_season_group(season = 2026, season_type = 2, group_id = 7))
@@ -851,7 +859,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({

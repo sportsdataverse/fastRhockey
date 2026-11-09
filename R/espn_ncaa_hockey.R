@@ -352,7 +352,8 @@ NULL
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_scoreboard(dates = "20250110"))
@@ -398,7 +399,8 @@ NULL
 #'
 #' @importFrom jsonlite fromJSON
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   s <- try(espn_mch_summary(event_id = "401717648"))
@@ -483,7 +485,8 @@ NULL
 #'    | game_date | character | Game date-time (ISO 8601). |
 #'
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_pbp(game_id = "401717648"))
@@ -542,7 +545,8 @@ NULL
 #'    | penalty_minutes | character | Penalty minutes. |
 #'
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_team_box(game_id = "401717648"))
@@ -624,7 +628,8 @@ NULL
 #'    | shsv | character | Short-handed saves (goalies). |
 #'
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_box(game_id = "401717648"))
@@ -658,7 +663,8 @@ NULL
 #' @importFrom dplyr mutate
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_calendar())
@@ -700,7 +706,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_news(limit = 10))
@@ -745,7 +752,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_injuries())
@@ -783,7 +791,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_transactions())
@@ -817,7 +826,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_conferences())
@@ -857,7 +867,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_statistics_league())
@@ -891,7 +902,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns empty tibble for MCH (ESPN returns HTTP 500 for this endpoint)
@@ -946,7 +958,8 @@ NULL
 #' @importFrom tidyr unnest_wider
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @seealso teams which this function wraps.
 #' @examples
 #' \donttest{
@@ -995,7 +1008,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_team(team_id = "104"))
@@ -1080,7 +1094,8 @@ NULL
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_team_roster(team_id = "104"))
@@ -1148,7 +1163,8 @@ NULL
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @seealso schedule which this function wraps.
 #' @examples
 #' \donttest{
@@ -1194,7 +1210,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_team_record(team_id = "104"))
@@ -1242,7 +1259,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_team_depthcharts(team_id = "104"))
@@ -1288,7 +1306,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_team_injuries(team_id = "104"))
@@ -1329,7 +1348,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_team_transactions(team_id = "104"))
@@ -1375,7 +1395,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_team_history(team_id = "104"))
@@ -1422,7 +1443,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_team_news(team_id = "104", limit = 10))
@@ -1468,7 +1490,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_team_leaders(team_id = "104"))
@@ -1525,7 +1548,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_info(athlete_id = "5136656"))
@@ -1581,7 +1605,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_bio(athlete_id = "5136656"))
@@ -1629,7 +1654,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_news(athlete_id = "5136656", limit = 10))
@@ -1690,7 +1716,8 @@ NULL
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_standings(season = 2025))
@@ -1745,7 +1772,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_overview(athlete_id = "5136656"))
@@ -1804,7 +1832,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_stats(athlete_id = "5136656", season = 2025))
@@ -1881,7 +1910,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_gamelog(athlete_id = "5136656"))
@@ -1937,7 +1967,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_splits(athlete_id = "5136656", season = 2025))
@@ -2018,7 +2049,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_leaders(category = "offensive", limit = 25))
@@ -2075,7 +2107,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_league_root())
@@ -2112,7 +2145,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_season_pointer())
@@ -2145,7 +2179,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_seasons(limit = 10))
@@ -2188,7 +2223,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_season_info(season = 2026))
@@ -2222,7 +2258,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_season_types(season = 2026))
@@ -2272,7 +2309,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_season_type(season = 2026, season_type = 2))
@@ -2324,7 +2362,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_season_group(season = 2026, season_type = 2, group_id = 7))
@@ -2365,7 +2404,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_season_groups(season = 2026, season_type = 2))
@@ -2408,7 +2448,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -2466,7 +2507,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -2526,7 +2568,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_season_type_leaders(season = 2026, season_type = 2))
@@ -2570,7 +2613,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns empty tibble for MCH (ESPN does not publish corrections for hockey)
@@ -2616,7 +2660,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns empty tibble for MCH (ESPN does not populate weeks for hockey)
@@ -2666,7 +2711,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns empty tibble for NHL (ESPN does not use weeks for hockey)
@@ -2716,7 +2762,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns empty tibble for NHL (ESPN does not use weeks for hockey)
@@ -2761,7 +2808,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_season_teams(season = 2026))
@@ -2825,7 +2873,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -2879,7 +2928,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_season_players(season = 2026, limit = 10, page = 1))
@@ -2920,7 +2970,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_season_coaches(season = 2026))
@@ -2958,7 +3009,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns an empty tibble for NHL (404 from ESPN)
@@ -3002,7 +3054,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns an empty tibble for NHL (404 from ESPN)
@@ -3051,7 +3104,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_season_futures(season = 2026))
@@ -3091,7 +3145,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns empty tibble for MCH (ESPN does not populate this endpoint)
@@ -3138,7 +3193,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns empty tibble for MCH (ESPN does not publish powerindex for hockey)
@@ -3180,7 +3236,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns empty tibble for MCH (ESPN does not publish powerindex for hockey)
@@ -3220,7 +3277,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_season_awards(season = 2025))
@@ -3265,7 +3323,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @seealso athletes_index for the established alias.
 #' @examples
 #' \donttest{
@@ -3330,7 +3389,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_core(athlete_id = "5136656"))
@@ -3376,7 +3436,8 @@ NULL
 #'
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_career_stats(athlete_id = "5136656"))
@@ -3415,7 +3476,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_statisticslog(athlete_id = "5136656"))
@@ -3454,7 +3516,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_eventlog(athlete_id = "5136656"))
@@ -3491,7 +3554,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_contracts(athlete_id = "5136656"))
@@ -3527,7 +3591,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_awards(athlete_id = "5136656"))
@@ -3557,7 +3622,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_seasons(athlete_id = "5136656"))
@@ -3594,7 +3660,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_records(athlete_id = "5136656"))
@@ -3624,7 +3691,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_injuries(athlete_id = "5136656"))
@@ -3653,7 +3721,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_notes(athlete_id = "5136656"))
@@ -3683,7 +3752,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_player_vs_player(athlete_id = "5136656", opp_id = "5136656"))
@@ -3720,7 +3790,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_games(limit = 10))
@@ -3764,7 +3835,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -3821,7 +3893,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -3876,7 +3949,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -3931,7 +4005,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -3987,7 +4062,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4039,7 +4115,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4092,7 +4169,8 @@ NULL
 #'
 #' @importFrom janitor make_clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4148,7 +4226,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4207,7 +4286,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4269,7 +4349,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4317,7 +4398,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4387,7 +4469,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4451,7 +4534,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4505,7 +4589,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4553,7 +4638,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4604,7 +4690,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4654,7 +4741,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4712,7 +4800,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4757,7 +4846,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4803,7 +4893,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4852,7 +4943,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4901,7 +4993,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -4961,7 +5054,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -5014,7 +5108,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -5060,7 +5155,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_teams_core(limit = 100))
@@ -5121,7 +5217,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_team_core(team_id = "104"))
@@ -5155,7 +5252,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_venues())
@@ -5196,7 +5294,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -5236,7 +5335,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_franchises())
@@ -5281,7 +5381,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -5329,7 +5430,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -5374,7 +5476,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns an empty tibble for NHL (404 from ESPN)
@@ -5426,7 +5529,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_coach_season(coach_id = "900", season = 2026))
@@ -5466,7 +5570,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_positions())
@@ -5504,7 +5609,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try({
@@ -5544,7 +5650,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_tournaments())
@@ -5578,7 +5685,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_awards())
@@ -5617,7 +5725,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns empty tibble for MCH (ESPN returns HTTP 500 for this endpoint)
@@ -5666,7 +5775,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_leaders_core())
@@ -5701,7 +5811,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns empty tibble for MCH (ESPN does not populate this endpoint)
@@ -5738,7 +5849,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # NOTE: Returns empty tibble for MCH (ESPN does not populate this endpoint)
@@ -5796,7 +5908,8 @@ NULL
 #'
 #' @importFrom dplyr bind_rows
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_rankings())
@@ -5839,7 +5952,8 @@ NULL
 #'
 #' @importFrom dplyr bind_rows
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_fpi(season = 2026))
@@ -5883,7 +5997,8 @@ NULL
 #'
 #' @importFrom dplyr bind_rows
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_season_week_powerindex(season = 2026, season_type = 2, week = 3))
@@ -5925,7 +6040,8 @@ NULL
 #'    |week         |integer   |Week (echoed from arg).                      |
 #'
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_season_week_rankings(season = 2026, season_type = 2, week = 3))
@@ -5965,7 +6081,8 @@ NULL
 #'    |season     |integer   |Season END year (echoed from arg).           |
 #'
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_season_recruits(season = 2026))
@@ -5999,7 +6116,8 @@ NULL
 #'    |year     |character |Trailing id of the `$ref` (the class year).  |
 #'
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_recruiting_years())
@@ -6036,7 +6154,8 @@ NULL
 #'    |...        |varies    |Flattened athlete fields when ESPN inlines them. |
 #'
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_recruiting_players(year = 2026))
@@ -6073,7 +6192,8 @@ NULL
 #'    |year       |integer   |Recruiting class year (echoed from arg).     |
 #'
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_recruiting_rankings(year = 2026))
@@ -6108,7 +6228,8 @@ NULL
 #'    |standings_id |character |Trailing id of the `$ref`.                   |
 #'
 #' @export
-#' @family ESPN MCH Functions
+#' @concept ESPN MCH Functions
+#' @seealso [family_espn_mch] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_mch_standings_core())

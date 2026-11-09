@@ -2462,7 +2462,8 @@
 #' \donttest{
 #'   try(liiga_tournament())
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_tournament <- function() {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -2555,7 +2556,8 @@ liiga_tournament <- function() {
 #' \donttest{
 #'   try(liiga_games(season = 2026, tournament = "playoffs"))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_games <- function(season = NULL, tournament = NULL) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -2620,7 +2622,8 @@ liiga_games <- function(season = NULL, tournament = NULL) {
 #' \donttest{
 #'   try(liiga_goals(season = 2026, tournament = "playoffs"))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_goals <- function(season = NULL, tournament = NULL) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -2690,7 +2693,8 @@ liiga_goals <- function(season = NULL, tournament = NULL) {
 #' \donttest{
 #'   try(liiga_schedule(season = 2026, tournament = "runkosarja"))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_schedule <- function(season = NULL, tournament = NULL) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -2728,7 +2732,8 @@ liiga_schedule <- function(season = NULL, tournament = NULL) {
 #' \donttest{
 #'   try(liiga_gameweeks(season = 2026))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_gameweeks <- function(season = NULL, tournament = "runkosarja") {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -2819,7 +2824,8 @@ liiga_gameweeks <- function(season = NULL, tournament = "runkosarja") {
 #' \donttest{
 #'   try(liiga_game(game_id = 1, season = 2026))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_game <- function(season, game_id) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -2885,7 +2891,8 @@ liiga_game <- function(season, game_id) {
 #' \donttest{
 #'   try(liiga_game_goals(game_id = 1, season = 2026))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_game_goals <- function(season, game_id) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -2938,7 +2945,8 @@ liiga_game_goals <- function(season, game_id) {
 #' \donttest{
 #'   try(liiga_game_penalties(game_id = 1, season = 2026))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_game_penalties <- function(season, game_id) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -2985,7 +2993,8 @@ liiga_game_penalties <- function(season, game_id) {
 #' \donttest{
 #'   try(liiga_game_shootout(game_id = 1, season = 2026))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_game_shootout <- function(season, game_id) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3053,7 +3062,8 @@ liiga_game_shootout <- function(season, game_id) {
 #' \donttest{
 #'   try(liiga_game_lineups(game_id = 1, season = 2026))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_game_lineups <- function(season, game_id) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3162,7 +3172,8 @@ liiga_game_lineups <- function(season, game_id) {
 #' \donttest{
 #'   try(liiga_game_players_stats(game_id = 1, season = 2026))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_game_players_stats <- function(season, game_id) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3258,7 +3269,8 @@ liiga_game_players_stats <- function(season, game_id) {
 #' \donttest{
 #'   try(liiga_game_stats(game_id = 1, season = 2026))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_game_stats <- function(season, game_id) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3316,7 +3328,8 @@ liiga_game_stats <- function(season, game_id) {
 #' \donttest{
 #'   try(liiga_game_team_stats(game_id = 1, season = 2026))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_game_team_stats <- function(season, game_id) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3367,7 +3380,8 @@ liiga_game_team_stats <- function(season, game_id) {
 #' \donttest{
 #'   try(liiga_shotmap(game_id = 1, season = 2026))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_shotmap <- function(season, game_id) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3451,7 +3465,8 @@ liiga_shotmap <- function(season, game_id) {
 #' \donttest{
 #'   try(liiga_standings(season = 2026))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_standings <- function(season = NULL) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3510,7 +3525,8 @@ liiga_standings <- function(season = NULL) {
 #' \donttest{
 #'   try(liiga_teams_history())
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_teams_history <- function() {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3556,7 +3572,8 @@ liiga_teams_history <- function() {
 #' \donttest{
 #'   try(liiga_teams())
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_teams <- function() {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3662,7 +3679,8 @@ liiga_teams <- function() {
 #' \donttest{
 #'   try(liiga_team_stats(data_type = "shots", season_from = 2026, season_to = 2026))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_team_stats <- function(data_type, season_from = NULL, season_to = NULL, tournament = "runkosarja") {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3724,7 +3742,8 @@ liiga_team_stats <- function(data_type, season_from = NULL, season_to = NULL, to
 #' \donttest{
 #'   try(liiga_players_info(season_from = 2026, season_to = 2026))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_players_info <- function(season_from = NULL, season_to = NULL, tournament = "runkosarja") {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3778,7 +3797,8 @@ liiga_players_info <- function(season_from = NULL, season_to = NULL, tournament 
 #' \donttest{
 #'   try(liiga_player(player_id = 21870028))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_player <- function(player_id) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3851,7 +3871,8 @@ liiga_player <- function(player_id) {
 #' \donttest{
 #'   try(liiga_player_career(player_id = 21870028))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_player_career <- function(player_id) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -3928,7 +3949,8 @@ liiga_player_career <- function(player_id) {
 #' \donttest{
 #'   try(liiga_player_game_log(player_id = 21870028, season = 2026))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_player_game_log <- function(player_id, season) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -4014,7 +4036,8 @@ liiga_player_game_log <- function(player_id, season) {
 #' \donttest{
 #'   try(liiga_player_stats(season_from = 2026, season_to = 2026, tournament = "runkosarja"))
 #' }
-#' @family Liiga Functions
+#' @concept Liiga Functions
+#' @seealso [family_liiga] lists every function in this family.
 #' @export
 liiga_player_stats <- function(season_from, season_to, tournament, data_type = "basicStats") {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))

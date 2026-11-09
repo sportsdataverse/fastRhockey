@@ -74,39 +74,7 @@ unreadable body, a stub or redirect body, a table without its filter echo, a tru
 }
 }
 \seealso{
-Other SIHF Functions:
-\code{\link[=sihf_game_goalie_stats]{sihf_game_goalie_stats()}},
-\code{\link[=sihf_game_info]{sihf_game_info()}},
-\code{\link[=sihf_game_lineups]{sihf_game_lineups()}},
-\code{\link[=sihf_game_player_stats]{sihf_game_player_stats()}},
-\code{\link[=sihf_game_team_stats]{sihf_game_team_stats()}},
-\code{\link[=sihf_goalie_shootouts]{sihf_goalie_shootouts()}},
-\code{\link[=sihf_goalie_shots]{sihf_goalie_shots()}},
-\code{\link[=sihf_goalie_stats]{sihf_goalie_stats()}},
-\code{\link[=sihf_goalie_wins]{sihf_goalie_wins()}},
-\code{\link[=sihf_pbp]{sihf_pbp()}},
-\code{\link[=sihf_phases]{sihf_phases()}},
-\code{\link[=sihf_player_faceoffs]{sihf_player_faceoffs()}},
-\code{\link[=sihf_player_faceoffs_by_zone]{sihf_player_faceoffs_by_zone()}},
-\code{\link[=sihf_player_faceoffs_by_zone_per_game]{sihf_player_faceoffs_by_zone_per_game()}},
-\code{\link[=sihf_player_goals_assists]{sihf_player_goals_assists()}},
-\code{\link[=sihf_player_penalties]{sihf_player_penalties()}},
-\code{\link[=sihf_player_shootouts]{sihf_player_shootouts()}},
-\code{\link[=sihf_player_shots]{sihf_player_shots()}},
-\code{\link[=sihf_player_stats]{sihf_player_stats()}},
-\code{\link[=sihf_player_time_on_ice]{sihf_player_time_on_ice()}},
-\code{\link[=sihf_standings]{sihf_standings()}},
-\code{\link[=sihf_team_attendance]{sihf_team_attendance()}},
-\code{\link[=sihf_team_faceoffs]{sihf_team_faceoffs()}},
-\code{\link[=sihf_team_faceoffs_by_zone]{sihf_team_faceoffs_by_zone()}},
-\code{\link[=sihf_team_faceoffs_by_zone_per_game]{sihf_team_faceoffs_by_zone_per_game()}},
-\code{\link[=sihf_team_goals]{sihf_team_goals()}},
-\code{\link[=sihf_team_goals_by_position]{sihf_team_goals_by_position()}},
-\code{\link[=sihf_team_penalties]{sihf_team_penalties()}},
-\code{\link[=sihf_team_penalty_kill]{sihf_team_penalty_kill()}},
-\code{\link[=sihf_team_power_play]{sihf_team_power_play()}},
-\code{\link[=sihf_team_shootouts]{sihf_team_shootouts()}},
-\code{\link[=sihf_team_shots]{sihf_team_shots()}}
+\link{family_sihf} lists every function in this family.
 }
 \concept{SIHF Functions}
 \keyword{SIHF}

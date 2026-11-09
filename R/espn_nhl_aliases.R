@@ -55,7 +55,8 @@ NULL
 #' @importFrom tidyr unnest_wider
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @seealso [espn_nhl_teams()] which this function wraps.
 #' @examples
 #' \donttest{
@@ -123,7 +124,8 @@ NULL
 #' @importFrom dplyr bind_rows mutate
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @seealso [espn_nhl_schedule()] which this function wraps.
 #' @examples
 #' \donttest{
@@ -289,7 +291,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examplesIf interactive()
 #' \donttest{
 #'   try(espn_nhl_standings_core(season = 2026, season_type = 2))
@@ -431,7 +434,8 @@ NULL
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_leaders_core())
@@ -554,7 +558,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_coach_season(coach_id = "900", season = 2026))
@@ -660,7 +665,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_calendar_ondays())
@@ -718,7 +724,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_calendar_offseason(season = 2026))
@@ -770,7 +777,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_calendar_postseason(season = 2026))
@@ -805,7 +813,8 @@ NULL
 #'
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_calendar_regular_season())

@@ -446,7 +446,8 @@ NULL
 #' @importFrom dplyr bind_rows case_when
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_pbp(game_id = "401688263"))
@@ -536,7 +537,8 @@ NULL
 #' @importFrom dplyr bind_rows case_when
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_team_box(game_id = "401688263"))
@@ -651,7 +653,8 @@ NULL
 #' @importFrom dplyr bind_rows case_when
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_nhl_player_box(game_id = "401688263"))
@@ -762,7 +765,8 @@ NULL
 #' @importFrom dplyr bind_rows case_when
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   g <- try(espn_nhl_game_all(game_id = "401688263"))
@@ -837,7 +841,8 @@ NULL
 #'
 #' @importFrom jsonlite fromJSON
 #' @export
-#' @family ESPN NHL Functions
+#' @concept ESPN NHL Functions
+#' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   s <- try(espn_nhl_summary(game_id = "401688263"))

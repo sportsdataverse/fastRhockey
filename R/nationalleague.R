@@ -765,7 +765,8 @@ unix:i unix_start:i
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -835,7 +836,8 @@ nl_schedule <- function(season = NULL, return_parsed = TRUE) {
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -909,7 +911,8 @@ nl_current_games <- function(season = NULL, return_parsed = TRUE) {
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -991,7 +994,8 @@ nl_team_schedule <- function(team_id, season = NULL, return_parsed = TRUE) {
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -1073,7 +1077,8 @@ nl_playoffs <- function(season = NULL, return_parsed = TRUE) {
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -1165,7 +1170,8 @@ nl_playouts <- function(season = NULL, return_parsed = TRUE) {
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -1244,7 +1250,8 @@ nl_game_overview <- function(game_id, return_parsed = TRUE) {
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -1302,7 +1309,8 @@ nl_pbp <- function(game_id, return_parsed = TRUE) {
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -1385,7 +1393,8 @@ nl_lineups <- function(game_id, return_parsed = TRUE) {
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -1470,7 +1479,8 @@ nl_player_box <- function(game_id, return_parsed = TRUE) {
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -1535,7 +1545,8 @@ nl_team_stats <- function(game_id, return_parsed = TRUE) {
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -1726,7 +1737,8 @@ nl_shots <- function(game_id, return_parsed = TRUE) {
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -1918,7 +1930,8 @@ nl_player_stats <- function(season = NULL, phase = NULL, return_parsed = TRUE) {
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -2111,7 +2124,8 @@ nl_top_scorers <- function(take = NULL, season = NULL, phase = NULL, return_pars
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -2302,7 +2316,8 @@ nl_team_player_stats <- function(team_id, season = NULL, phase = NULL, return_pa
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -2471,7 +2486,8 @@ nl_player_season <- function(player_id, season = NULL, phase = NULL, return_pars
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -2539,7 +2555,8 @@ nl_standings <- function(season = NULL, phase = NULL, return_parsed = TRUE) {
 #' games or rows for that season, team or phase), `fastRhockey_asset_fetch` for a failed fetch, an error object in a 200, a body
 #' without the ids it must carry, or an answer for another season, team, game or player, and `fastRhockey_bad_request`
 #' for a 400/422 or an argument that is not a whole number.
-#' @family National League Functions
+#' @concept National League Functions
+#' @seealso [family_national_league] lists every function in this family.
 #' @export
 #' @examplesIf interactive()
 #' \donttest{

@@ -307,6 +307,14 @@ upgrades from 1.0.0 may need to change.
 * Each `espn_wch_*()` function now shares its help page with the matching
   `espn_mch_*()` function (same arguments, same columns), so the 121 pairs
   take 121 help pages instead of 242. `?espn_wch_scoreboard` still works.
+* The help pages of the seven largest families (ESPN NHL, ESPN MCH / WCH,
+  SIHF, SHL, KHL, Liiga, National League) no longer list every other member
+  of the family under "See also"; those lists grew with the square of the
+  family size and made up most of the installed help. Each page links to one
+  family index page instead (`?family_espn_nhl`, `?family_espn_mch`,
+  `?family_sihf`, `?family_shl`, `?family_khl`, `?family_liiga`,
+  `?family_national_league`). With the change above, the installed size drops
+  from 8.9 MB to 6.0 MB.
 
 # **fastRhockey 1.0.0**
 

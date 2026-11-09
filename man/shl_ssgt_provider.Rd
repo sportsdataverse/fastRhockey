@@ -40,34 +40,6 @@ season that is not a year, or an argument outside its choices.
 }
 }
 \seealso{
-Other SHL Functions:
-\code{\link[=shl_athlete_career]{shl_athlete_career()}},
-\code{\link[=shl_athlete_details]{shl_athlete_details()}},
-\code{\link[=shl_athlete_game_log]{shl_athlete_game_log()}},
-\code{\link[=shl_athlete_profile]{shl_athlete_profile()}},
-\code{\link[=shl_athlete_seasons]{shl_athlete_seasons()}},
-\code{\link[=shl_boxscore]{shl_boxscore()}},
-\code{\link[=shl_game_header]{shl_game_header()}},
-\code{\link[=shl_game_overview]{shl_game_overview()}},
-\code{\link[=shl_game_summary]{shl_game_summary()}},
-\code{\link[=shl_last_game_day]{shl_last_game_day()}},
-\code{\link[=shl_layout_info]{shl_layout_info()}},
-\code{\link[=shl_next_game_day]{shl_next_game_day()}},
-\code{\link[=shl_pbp]{shl_pbp()}},
-\code{\link[=shl_player_box]{shl_player_box()}},
-\code{\link[=shl_player_crosswalk]{shl_player_crosswalk()}},
-\code{\link[=shl_player_h2h]{shl_player_h2h()}},
-\code{\link[=shl_post_game_team_stats]{shl_post_game_team_stats()}},
-\code{\link[=shl_roster]{shl_roster()}},
-\code{\link[=shl_schedule]{shl_schedule()}},
-\code{\link[=shl_season_filter]{shl_season_filter()}},
-\code{\link[=shl_sites]{shl_sites()}},
-\code{\link[=shl_ssgt_uuid]{shl_ssgt_uuid()}},
-\code{\link[=shl_standings]{shl_standings()}},
-\code{\link[=shl_stats_info]{shl_stats_info()}},
-\code{\link[=shl_team]{shl_team()}},
-\code{\link[=shl_team_played_games]{shl_team_played_games()}},
-\code{\link[=shl_team_stats]{shl_team_stats()}},
-\code{\link[=shl_team_upcoming_games]{shl_team_upcoming_games()}}
+\link{family_shl} lists every function in this family.
 }
 \concept{SHL Functions}

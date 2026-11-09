@@ -1336,7 +1336,8 @@
 #'   try(shl_athlete_career(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_athlete_career <- function(athlete_uuid, master_site_instance_id = NULL, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -1395,7 +1396,8 @@ shl_athlete_career <- function(athlete_uuid, master_site_instance_id = NULL, ret
 #'   try(shl_athlete_details(athlete_uuid = "qQ9-349c7WDv6"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_athlete_details <- function(athlete_uuid, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -1476,7 +1478,8 @@ shl_athlete_details <- function(athlete_uuid, return_parsed = TRUE) {
 #'     master_site_instance_id = "shl1_shl", season = 2026))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_athlete_game_log <- function(athlete_uuid, master_site_instance_id = NULL, season = NULL, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -1552,7 +1555,8 @@ shl_athlete_game_log <- function(athlete_uuid, master_site_instance_id = NULL, s
 #'   try(shl_athlete_profile(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_athlete_profile <- function(athlete_uuid, master_site_instance_id = NULL, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -1598,7 +1602,8 @@ shl_athlete_profile <- function(athlete_uuid, master_site_instance_id = NULL, re
 #'   try(shl_athlete_seasons(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_athlete_seasons <- function(athlete_uuid, master_site_instance_id = NULL, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -1670,7 +1675,8 @@ shl_athlete_seasons <- function(athlete_uuid, master_site_instance_id = NULL, re
 #'   try(shl_boxscore(game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_boxscore <- function(game_uuid, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -1760,7 +1766,8 @@ shl_boxscore <- function(game_uuid, return_parsed = TRUE) {
 #'   try(shl_game_header(game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_game_header <- function(game_uuid, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -1825,7 +1832,8 @@ shl_game_header <- function(game_uuid, return_parsed = TRUE) {
 #'   try(shl_game_overview(game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_game_overview <- function(game_uuid, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -1875,7 +1883,8 @@ shl_game_overview <- function(game_uuid, return_parsed = TRUE) {
 #'   try(shl_game_summary(game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_game_summary <- function(game_uuid, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -1959,7 +1968,8 @@ shl_game_summary <- function(game_uuid, return_parsed = TRUE) {
 #'   try(shl_last_game_day())
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_last_game_day <- function(season = NULL, game_type = "regular", return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -2012,7 +2022,8 @@ shl_last_game_day <- function(season = NULL, game_type = "regular", return_parse
 #'   try(shl_layout_info())
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_layout_info <- function(return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -2096,7 +2107,8 @@ shl_layout_info <- function(return_parsed = TRUE) {
 #'   try(shl_next_game_day())
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_next_game_day <- function(season = NULL, game_type = "regular", return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -2207,7 +2219,8 @@ shl_next_game_day <- function(season = NULL, game_type = "regular", return_parse
 #'   try(shl_pbp(game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_pbp <- function(game_uuid, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -2287,7 +2300,8 @@ shl_pbp <- function(game_uuid, return_parsed = TRUE) {
 #'   try(shl_player_box(game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_player_box <- function(game_uuid, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -2390,7 +2404,8 @@ shl_player_box <- function(game_uuid, return_parsed = TRUE) {
 #'     away_team_uuid = "41c4-41c4BiYZU", game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_player_h2h <- function(ssgt_uuid, home_team_uuid, away_team_uuid, game_uuid = NULL, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -2451,7 +2466,8 @@ shl_player_h2h <- function(ssgt_uuid, home_team_uuid, away_team_uuid, game_uuid 
 #'     home_team_uuid = "087a-087aTQv9u", away_team_uuid = "41c4-41c4BiYZU"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_post_game_team_stats <- function(game_uuid, ssgt_uuid, home_team_uuid, away_team_uuid, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -2505,7 +2521,8 @@ shl_post_game_team_stats <- function(game_uuid, ssgt_uuid, home_team_uuid, away_
 #'   try(shl_roster(team_uuid = "087a-087aTQv9u"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_roster <- function(team_uuid, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -2592,7 +2609,8 @@ shl_roster <- function(team_uuid, return_parsed = TRUE) {
 #'   try(shl_schedule(season = 2026))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_schedule <- function(season, game_type = "regular", return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -2643,7 +2661,8 @@ shl_schedule <- function(season, game_type = "regular", return_parsed = TRUE) {
 #'   try(shl_season_filter(series_uuid = "qQ9-bb0bzEWUk", season_uuid = "xs4m9qupsi"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_season_filter <- function(series_uuid = NULL, season_uuid = NULL, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -2691,7 +2710,8 @@ shl_season_filter <- function(series_uuid = NULL, season_uuid = NULL, return_par
 #'   try(shl_sites(ssgt_uuid = "iuzqg7dqk9"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_sites <- function(ssgt_uuid, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -2735,7 +2755,8 @@ shl_sites <- function(ssgt_uuid, return_parsed = TRUE) {
 #'   try(shl_ssgt_provider(ssgt_uuid = "iuzqg7dqk9"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_ssgt_provider <- function(ssgt_uuid, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -2796,7 +2817,8 @@ shl_ssgt_provider <- function(ssgt_uuid, return_parsed = TRUE) {
 #'   try(shl_standings(ssgt_uuid = "iuzqg7dqk9"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_standings <- function(ssgt_uuid, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -3105,7 +3127,8 @@ shl_standings <- function(ssgt_uuid, return_parsed = TRUE) {
 #'   try(shl_stats_info(module = "players_summary", season = 2026))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_stats_info <- function(module, season, game_type = "regular", return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -3180,7 +3203,8 @@ shl_stats_info <- function(module, season, game_type = "regular", return_parsed 
 #'   try(shl_team(team_uuid = "087a-087aTQv9u"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_team <- function(team_uuid, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -3264,7 +3288,8 @@ shl_team <- function(team_uuid, return_parsed = TRUE) {
 #'   try(shl_team_played_games(team_uuid = "087a-087aTQv9u"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_team_played_games <- function(team_uuid, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -3320,7 +3345,8 @@ shl_team_played_games <- function(team_uuid, return_parsed = TRUE) {
 #'   try(shl_team_stats(game_uuid = "bdhvuc5tex"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_team_stats <- function(game_uuid, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -3405,7 +3431,8 @@ shl_team_stats <- function(game_uuid, return_parsed = TRUE) {
 #'   try(shl_team_upcoming_games(team_uuid = "087a-087aTQv9u"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_team_upcoming_games <- function(team_uuid, game_place = NULL, return_parsed = TRUE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -3446,7 +3473,8 @@ shl_team_upcoming_games <- function(team_uuid, game_place = NULL, return_parsed 
 #'   try(shl_ssgt_uuid(2025, "playoff"))
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_ssgt_uuid <- function(season, game_type = "regular") {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
@@ -3494,7 +3522,8 @@ shl_ssgt_uuid <- function(season, game_type = "regular") {
 #'   })
 #' }
 #' @export
-#' @family SHL Functions
+#' @concept SHL Functions
+#' @seealso [family_shl] lists every function in this family.
 shl_player_crosswalk <- function(season, game_type = "regular") {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old), add = TRUE)
