@@ -43,11 +43,46 @@ csv_from_url <- function(...) {
 # Read a sportsdataverse release / data-repo csv through `.read_release_asset()`
 # (150 s timeout floor, two retries, a warning naming the url), raising the last
 # error when every try fails.
-.release_csv_from_url <- function(url, ...) {
-  # `file =` so fread() never takes a url with spaces for a shell command.
-  load <- .read_release_asset(url, function(u) csv_from_url(file = u, ...))
+#
+# The file is downloaded with libcurl first and fread() reads the local copy:
+# with `download.file.method = "curl"`, fread(url) shells out to curl, which
+# does not fail on an HTTP error status and ignores R's `timeout`. fread() can
+# also stop early on a malformed row and return a partial table with only a
+# warning; `strict = TRUE` turns that warning into an error (and so a retry).
+.release_csv_from_url <- function(url, ..., strict = FALSE) {
+  read <- function(u) {
+    tmp <- tempfile(fileext = sub("^[^.]*", "", basename(u)))
+    on.exit(unlink(tmp), add = TRUE)
+    status <- utils::download.file(u, tmp, mode = "wb", method = "libcurl",
+                                   quiet = TRUE)
+    if (status != 0L) stop("Download of ", u, " failed with status ", status, ".")
+    if (!strict) return(csv_from_url(file = tmp, ...))
+    withCallingHandlers(
+      csv_from_url(file = tmp, ...),
+      warning = function(w) {
+        stop("Partial read of ", u, ": ", conditionMessage(w), call. = FALSE)
+      }
+    )
+  }
+  load <- .read_release_asset(url, read)
   if (inherits(load, "try-error")) stop(attr(load, "condition"))
   load
+}
+
+# Read the games index for build_*_db() before anything is dropped. A failed or
+# empty read aborts, naming the index url, so the existing table is untouched;
+# a partial index would otherwise rebuild only the seasons it lists.
+.db_games_index <- function(games, url, tblname) {
+  games <- tryCatch(games, error = function(e) e)
+  if (inherits(games, "error") || NROW(games) == 0L) {
+    why <- if (inherits(games, "error")) conditionMessage(games) else "The index has no rows."
+    cli::cli_abort(c(
+      "Could not read the games index {.url {url}}.",
+      "i" = "The data table {.val {tblname}} was left untouched.",
+      "x" = "{why}"
+    ), call = NULL)
+  }
+  games
 }
 
 #' @title

@@ -258,9 +258,10 @@ load_phf_rosters <- function(seasons = most_recent_phf_season(), ...,
 
 
 # load games file
-load_phf_games <- function(){
-  .url <- "https://raw.githubusercontent.com/sportsdataverse/fastRhockey-data/main/phf/phf_games_in_data_repo.csv"
-  .release_csv_from_url(.url)
+.phf_games_url <- "https://raw.githubusercontent.com/sportsdataverse/fastRhockey-data/main/phf/phf_games_in_data_repo.csv"
+
+load_phf_games <- function(strict = FALSE) {
+  .release_csv_from_url(.phf_games_url, strict = strict)
 }
 
 #' @name update_phf_db
@@ -390,7 +391,7 @@ build_phf_db <- function(tblname = "fastRhockey_phf_pbp", db_conn, rebuild = FAL
 
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-  valid_seasons <- load_phf_games() %>%
+  valid_seasons <- .db_games_index(load_phf_games(strict = TRUE), .phf_games_url, tblname) %>%
     dplyr::filter(.data$season >= 2016) %>%
     dplyr::group_by(.data$season) %>%
     dplyr::summarise() %>%
