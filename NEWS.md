@@ -267,6 +267,29 @@ upgrades from 1.0.0 may need to change.
   and `pwhl_standings()` when the response can't be parsed,
   as the other NHL and PWHL wrappers do. They used to stop with
   "object '...' not found".
+* `espn_nhl_draft()` returns ESPN's draft board, one row per pick (`year`,
+  `overall`, `round`, `pick`, `status`, `traded` and the team holding the
+  pick). It read an `items` list the endpoint does not send, so it always
+  returned an empty tibble.
+* `fox_nhl_odds()` finds the six-pack odds in the `sectionList` modules,
+  where Fox now sends them; it returned an empty tibble for every game.
+* `update_nhl_db()` and `update_pwhl_db()` no longer need dbplyr, which is
+  not a dependency: the stored game ids are read with a plain `DBI` query.
+* `nhl_teams()`, `nhl_standings()`, `nhl_schedule()`, `nhl_draft()`,
+  `nhl_draft_year()`, `nhl_draft_prospects()`, `nhl_draft_prospects_info()`
+  and the HTML fallback of `nhl_game_shifts()` fetch through the package's
+  request layer, so they get the same retries, timeout and
+  `fastRhockey.proxy` option as the other NHL wrappers.
+* The `pwhl_player_box()` failure message points to `pwhl_schedule()`, not
+  the defunct `phf_schedule()`.
+
+### Tests
+
+* Recorded API responses replay offline, so the NHL, ESPN NHL, Fox, PWHL and
+  AHL / OHL / WHL / QMJHL wrappers are tested on CI without the network
+  (`data-raw/http_fixtures/` records them; the fixtures are not in the
+  package tarball, and those tests skip when they are missing). The defunct
+  PHF code is left out of the coverage figure (`.covrignore`).
 
 ### Dependencies
 
