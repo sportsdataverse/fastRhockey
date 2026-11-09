@@ -295,7 +295,8 @@ NULL
 #'    |season                    |integer   |Season (concluding year, YYYY).                    |
 #'    |xg                        |numeric   |Expected goals value for the shot event.           |
 #' @export
-#' @examples
+#' @examplesIf interactive()
+#' # Downloads a full season of play-by-play (over 5 s).
 #' \donttest{
 #'   try(load_nhl_pbp_lite(2026))
 #' }

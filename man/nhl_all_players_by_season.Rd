@@ -42,9 +42,12 @@ defensemen, and goalies into a single tidy data frame. Mirrors the
 Python client.
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
+# Reads every team's roster, one request per team (over 5 s).
 \donttest{
   try(nhl_all_players_by_season(season = 2024))
 }
+\dontshow{\}) # examplesIf}
 }
 \keyword{Aggregator}
 \keyword{Helpers}
