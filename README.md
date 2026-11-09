@@ -12,7 +12,7 @@
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg?style=for-the-badge&logo=github)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/blob/main/LICENSE.md)
 [![Contributors](https://img.shields.io/github/contributors/sportsdataverse/fastRhockey?style=for-the-badge)](https://github.com/sportsdataverse/fastRhockey/graphs/contributors)
-[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/fastRhockey/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/fastRhockey?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/fastRhockey)
 [![X Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
 <!-- badges: end -->
 
@@ -186,7 +186,9 @@ You can install the development version of [**`fastRhockey`**](https://github.co
 ```r
 if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
 pak::pak("sportsdataverse/fastRhockey")
-# or: remotes::install_github("sportsdataverse/fastRhockey")
+# or, with remotes:
+# if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+# remotes::install_github("sportsdataverse/fastRhockey")
 ```
 
 -----
