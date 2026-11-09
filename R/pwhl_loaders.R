@@ -1337,11 +1337,11 @@ build_pwhl_db <- function(tblname = "fastRhockey_pwhl_pbp", db_conn,
 
 # helper to check completed PWHL games against games in database
 get_missing_pwhl_games <- function(completed_games, dbConnection, tablename) {
-  db_ids <- dplyr::tbl(dbConnection, tablename) %>%
-    dplyr::select("game_id") %>%
-    dplyr::distinct() %>%
-    dplyr::collect() %>%
-    dplyr::pull("game_id")
+  # Plain DBI: dplyr::tbl() on a connection needs dbplyr, which is not a dependency.
+  db_ids <- DBI::dbGetQuery(
+    dbConnection,
+    glue::glue_sql("SELECT DISTINCT game_id FROM {`tablename`}", .con = dbConnection)
+  )$game_id
 
   need_scrape <- completed_games[!completed_games %in% db_ids]
 
