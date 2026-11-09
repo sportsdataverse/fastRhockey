@@ -65,7 +65,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_player(player_id = 21870028))
 #> ── Liiga player Information from liiga.fi ───────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:51:31 UTC
+#> ℹ Data updated: 2026-11-09 17:20:59 UTC
 #> # A tibble: 1 × 18
 #>   active_seasons                   team_seasons team_list birth_locality_count…¹
 #>   <chr>                            <chr>        <chr>     <chr>                 

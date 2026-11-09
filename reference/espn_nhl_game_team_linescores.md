@@ -64,7 +64,7 @@ Saiem Gilani
     espn_nhl_game_team_linescores(event_id = eid, team_id = tms$team_id[1])
   })
 #> ── NHL Game Team Linescores data from ESPN core-v2 ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:49:52 UTC
+#> ℹ Data updated: 2026-11-09 17:19:11 UTC
 #> # A tibble: 3 × 9
 #>   event_id  cid       team_id period value display_value source_id source_desc
 #>   <chr>     <chr>     <chr>    <int> <dbl> <chr>         <chr>     <chr>      

@@ -65,7 +65,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_league_root())
 #> ── MENS-COLLEGE-HOCKEY League Root data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-11-09 11:49:18 UTC
+#> ℹ Data updated: 2026-11-09 17:18:28 UTC
 #> # A tibble: 1 × 16
 #>   id    guid              uid   name  display_name abbreviation short_name slug 
 #>   <chr> <chr>             <chr> <chr> <chr>        <chr>        <chr>      <chr>
@@ -77,7 +77,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_league_root())
 #> ── WOMENS-COLLEGE-HOCKEY League Root data from ESPN core-v2 ────────────────────
-#> ℹ Data updated: 2026-11-09 11:49:18 UTC
+#> ℹ Data updated: 2026-11-09 17:18:29 UTC
 #> # A tibble: 1 × 16
 #>   id    guid              uid   name  display_name abbreviation short_name slug 
 #>   <chr> <chr>             <chr> <chr> <chr>        <chr>        <chr>      <chr>

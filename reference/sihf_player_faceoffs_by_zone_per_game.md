@@ -99,7 +99,7 @@ lists every function in this family.
 # \donttest{
   try(sihf_player_faceoffs_by_zone_per_game(season = 2026, league_id = 1))
 #> ── SIHF Player Faceoffs By Zone Per Game Information from data.sihf.ch ─────────
-#> ℹ Data updated: 2026-11-09 11:54:31 UTC
+#> ℹ Data updated: 2026-11-09 17:24:17 UTC
 #> # A tibble: 427 × 19
 #>    season phase_id  rank player          team_id team_name team_acronym position
 #>     <int>    <int> <int> <chr>             <int> <chr>     <chr>        <chr>   

@@ -25,22 +25,19 @@ Returns a data frame with game scores.
 # \donttest{
   try(nhl_scores())
 #> ── NHL Scores ───────────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:53:10 UTC
-#> # A tibble: 6 × 41
+#> ℹ Data updated: 2026-11-09 17:22:51 UTC
+#> # A tibble: 3 × 29
 #>           id   season game_type game_date  start_time_utc     eastern_utc_offset
 #>        <int>    <int>     <int> <chr>      <chr>              <chr>             
-#> 1 2026020277 20262027         2 2026-11-08 2026-11-08T18:00:… -05:00            
-#> 2 2026020278 20262027         2 2026-11-08 2026-11-08T20:30:… -05:00            
-#> 3 2026020280 20262027         2 2026-11-08 2026-11-08T23:00:… -05:00            
-#> 4 2026020279 20262027         2 2026-11-08 2026-11-09T00:00:… -05:00            
-#> 5 2026020281 20262027         2 2026-11-08 2026-11-09T00:00:… -05:00            
-#> 6 2026020282 20262027         2 2026-11-08 2026-11-09T01:00:… -05:00            
-#> # ℹ 35 more variables: venue_utc_offset <chr>, tv_broadcasts <list>,
+#> 1 2026020283 20262027         2 2026-11-09 2026-11-10T01:00:… -05:00            
+#> 2 2026020284 20262027         2 2026-11-09 2026-11-10T02:30:… -05:00            
+#> 3 2026020285 20262027         2 2026-11-09 2026-11-10T03:00:… -05:00            
+#> # ℹ 23 more variables: venue_utc_offset <chr>, tv_broadcasts <list>,
 #> #   game_state <chr>, game_schedule_state <chr>, game_center_link <chr>,
-#> #   three_min_recap <chr>, three_min_recap_fr <chr>, condensed_game <chr>,
-#> #   condensed_game_fr <chr>, neutral_site <lgl>, venue_timezone <chr>,
-#> #   period <int>, goals <list>, venue_default <chr>, away_team_id <int>,
-#> #   away_team_abbrev <chr>, away_team_score <int>, away_team_sog <int>,
-#> #   away_team_logo <chr>, away_team_name_default <chr>, home_team_id <int>, …
+#> #   neutral_site <lgl>, venue_timezone <chr>, tickets_link <chr>,
+#> #   tickets_link_fr <chr>, team_leaders <list>, venue_default <chr>,
+#> #   away_team_id <int>, away_team_abbrev <chr>, away_team_record <chr>,
+#> #   away_team_logo <chr>, away_team_odds <list>, away_team_name_default <chr>,
+#> #   home_team_id <int>, home_team_abbrev <chr>, home_team_record <chr>, …
 # }
 ```

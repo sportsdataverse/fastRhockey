@@ -169,7 +169,7 @@ lists every function in this family.
 # \donttest{
   try(khl_player_stats(position = "forwards", season = 2026))
 #> ── KHL Player Stats from khl.ru ─────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:50:58 UTC
+#> ℹ Data updated: 2026-11-09 17:20:24 UTC
 #> # A tibble: 20 × 45
 #>    group    rank player_id player_name image    jn    gp     g     a   pts    pm
 #>    <chr>   <int>     <int> <chr>       <chr> <int> <int> <int> <int> <int> <int>

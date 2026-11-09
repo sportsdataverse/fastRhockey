@@ -65,7 +65,7 @@ lists every function in this family.
 # \donttest{
   try(shl_season_filter(series_uuid = "qQ9-bb0bzEWUk", season_uuid = "xs4m9qupsi"))
 #> ── SHL Season Filter Information from www.shl.se ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:54:10 UTC
+#> ℹ Data updated: 2026-11-09 17:23:55 UTC
 #> # A tibble: 57 × 5
 #>    kind   code  name      uuid           deleted
 #>    <chr>  <chr> <chr>     <chr>          <lgl>  

@@ -56,7 +56,7 @@ lists every function in this family.
 # \donttest{
   try(shl_ssgt_provider(ssgt_uuid = "iuzqg7dqk9"))
 #> ── SHL Ssgt Provider Information from www.shl.se ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:54:12 UTC
+#> ℹ Data updated: 2026-11-09 17:23:57 UTC
 #> # A tibble: 1 × 1
 #>   provider
 #>   <chr>   

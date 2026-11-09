@@ -64,7 +64,7 @@ lists every function in this family.
 # \donttest{
   try(shl_athlete_seasons(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl"))
 #> ── SHL Athlete Seasons Information from www.shl.se ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:53:52 UTC
+#> ℹ Data updated: 2026-11-09 17:23:39 UTC
 #> # A tibble: 15 × 3
 #>    value name      label    
 #>    <chr> <chr>     <chr>    

@@ -71,7 +71,7 @@ Saiem Gilani
     espn_mch_game(event_id = sb$game_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game data from ESPN core-v2 ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:49:06 UTC
+#> ℹ Data updated: 2026-11-09 17:18:13 UTC
 #> # A tibble: 1 × 14
 #>   event_id  id        uid       date  name  short_name time_valid competition_id
 #>   <chr>     <chr>     <chr>     <chr> <chr> <chr>      <lgl>      <chr>         
@@ -84,7 +84,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20250110")
     espn_wch_game(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-09 11:49:06.825155: 
+#> ✖ 2026-11-09 17:18:14.071833: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL
 #> ✖ Error: arguments imply differing number of rows: 0, 1
 #> data frame with 0 columns and 0 rows

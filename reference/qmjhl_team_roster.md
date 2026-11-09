@@ -48,8 +48,8 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_team_roster(team_id = 1)) 
 #> ── QMJHL Team Roster from HockeyTech ────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:53:45 UTC
-#> # A tibble: 24 × 46
+#> ℹ Data updated: 2026-11-09 17:23:34 UTC
+#> # A tibble: 25 × 46
 #>    id    person_id active first_name last_name phonetic_name display_name shoots
 #>    <chr> <chr>     <chr>  <chr>      <chr>     <chr>         <chr>        <chr> 
 #>  1 24551 25541     1      Tommy      Coccaro   ""            ""           L     
@@ -62,7 +62,7 @@ Other QMJHL Functions:
 #>  8 24589 31165     1      Jiko       Laitinen  ""            ""           L     
 #>  9 23415 27123     1      Noah       Survilas  ""            ""           R     
 #> 10 21351 26824     1      Charlie    Benigno   ""            ""           R     
-#> # ℹ 14 more rows
+#> # ℹ 15 more rows
 #> # ℹ 38 more variables: hometown <chr>, homeprov <chr>, homecntry <chr>,
 #> #   homeplace <chr>, birthtown <chr>, birthprov <chr>, birthcntry <chr>,
 #> #   birthplace <chr>, height <chr>, weight <chr>, height_hyphenated <chr>,

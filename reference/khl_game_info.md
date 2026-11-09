@@ -166,7 +166,7 @@ lists every function in this family.
 # \donttest{
   try(khl_game_info(game_id = 898236, season = 2026))
 #> ── KHL Game Info from khl.ru ────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:50:46 UTC
+#> ℹ Data updated: 2026-11-09 17:20:12 UTC
 #> # A tibble: 1 × 71
 #>   game_id tournament_id home_club_id home_team_season_id away_club_id
 #>     <int>         <int>        <int>               <int>        <int>

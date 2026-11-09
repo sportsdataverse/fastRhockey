@@ -63,16 +63,16 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_games(limit = 10))
 #> ── MENS-COLLEGE-HOCKEY Games data from ESPN core-v2 ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:49:17 UTC
+#> ℹ Data updated: 2026-11-09 17:18:27 UTC
 #> # A tibble: 1 × 4
 #>   ref                                                  event_id count page_count
 #>   <chr>                                                <chr>    <int>      <int>
-#> 1 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019048…     1          1
+#> 1 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019047…     1          1
 # }
 # \donttest{
   try(espn_wch_games(limit = 10))
 #> ── WOMENS-COLLEGE-HOCKEY Games data from ESPN core-v2 ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:49:17 UTC
+#> ℹ Data updated: 2026-11-09 17:18:27 UTC
 #> # A tibble: 1 × 4
 #>   ref                                                  event_id count page_count
 #>   <chr>                                                <chr>    <int>      <int>

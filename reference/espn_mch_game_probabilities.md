@@ -75,7 +75,7 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_probabilities(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-09 11:49:12.182665: Invalid arguments or no ESPN mens-college-hockey game probabilities for event 401715296 available!
+#> ✖ 2026-11-09 17:18:20.716992: Invalid arguments or no ESPN mens-college-hockey game probabilities for event 401715296 available!
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", limit = 300
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows
@@ -85,7 +85,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20250110")
     espn_wch_game_probabilities(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-09 11:49:12.229975: 
+#> ✖ 2026-11-09 17:18:20.757852: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, limit = 300
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

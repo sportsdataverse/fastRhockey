@@ -67,7 +67,7 @@ Saiem Gilani
     tms <- espn_nhl_game_teams(event_id = eid)
     espn_nhl_game_team_record(event_id = eid, team_id = tms$team_id[1])
   })
-#> ✖ 2026-11-09 11:49:52.389293: Invalid arguments or no ESPN nhl game record for event 401688263 / team 5 available!
+#> ✖ 2026-11-09 17:19:12.145592: Invalid arguments or no ESPN nhl game record for event 401688263 / team 5 available!
 #> ✖ Args: league = "nhl", event_id = "401688263", cid = "401688263", team_id = "5"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

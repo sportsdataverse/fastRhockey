@@ -40,7 +40,7 @@ Other OHL Functions:
 ``` r
  try(ohl_game_corsi(game_id = 27225)) 
 #> ── OHL Game Corsi from HockeyTech ───────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:53:26 UTC
+#> ℹ Data updated: 2026-11-09 17:23:11 UTC
 #> # A tibble: 0 × 10
 #> # ℹ 10 variables: player_id <chr>, corsi_for <int>, corsi_against <int>,
 #> #   corsi_for_pct <dbl>, fenwick_for <int>, fenwick_against <int>,

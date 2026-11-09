@@ -65,7 +65,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_season_groups(season = 2026, season_type = 2))
 #> ── MENS-COLLEGE-HOCKEY Season Groups data from ESPN core-v2 ────────────────────
-#> ℹ Data updated: 2026-11-09 11:49:28 UTC
+#> ℹ Data updated: 2026-11-09 17:18:41 UTC
 #> # A tibble: 10 × 4
 #>    ref                                               group_id season season_type
 #>    <chr>                                                <int>  <int>       <int>
@@ -82,7 +82,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(espn_wch_season_groups(season = 2026, season_type = 2))
-#> ✖ 2026-11-09 11:49:28.855774: Invalid arguments or no ESPN womens-college-hockey season groups for 2026 type 2 available!
+#> ✖ 2026-11-09 17:18:41.601455: Invalid arguments or no ESPN womens-college-hockey season groups for 2026 type 2 available!
 #> ✖ Args: league = "womens-college-hockey", season = 2026, season_type = 2
 #> ✖ Error: replacement has 1 row, data has 0
 #> data frame with 0 columns and 0 rows

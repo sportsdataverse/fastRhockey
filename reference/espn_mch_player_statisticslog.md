@@ -62,7 +62,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_player_statisticslog(athlete_id = "5136656"))
 #> ── MENS-COLLEGE-HOCKEY Player Statisticslog data from ESPN core-v2 ─────────────
-#> ℹ Data updated: 2026-11-09 11:49:23 UTC
+#> ℹ Data updated: 2026-11-09 17:18:35 UTC
 #> # A tibble: 2 × 6
 #>   athlete_id season season_ref           total_stats_ref team_stats_ref team_ref
 #>   <chr>       <int> <chr>                <chr>           <chr>          <chr>   
@@ -71,7 +71,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(espn_wch_player_statisticslog(athlete_id = "5263060"))
-#> ✖ 2026-11-09 11:49:23.928467: Invalid arguments or no ESPN womens-college-hockey player statisticslog for athlete 5263060 available!
+#> ✖ 2026-11-09 17:18:35.655871: Invalid arguments or no ESPN womens-college-hockey player statisticslog for athlete 5263060 available!
 #> ✖ Args: league = "womens-college-hockey", athlete_id = "5263060"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

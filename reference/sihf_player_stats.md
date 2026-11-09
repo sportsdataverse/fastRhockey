@@ -92,7 +92,7 @@ lists every function in this family.
 # \donttest{
   try(sihf_player_stats(season = 2026, league_id = 1))
 #> ── SIHF Player Stats Information from data.sihf.ch ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:54:36 UTC
+#> ℹ Data updated: 2026-11-09 17:24:22 UTC
 #> # A tibble: 427 × 16
 #>    season phase_id  rank player          team_id team_name team_acronym position
 #>     <int>    <int> <int> <chr>             <int> <chr>     <chr>        <chr>   

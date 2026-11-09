@@ -70,7 +70,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(pwhl_player_stats(player_id = 28))
 #> ── PWHL Player Season Stats ─────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:53:37 UTC
+#> ℹ Data updated: 2026-11-09 17:23:24 UTC
 #> # A tibble: 8 × 42
 #>   season_id season_name   shortname playoff career max_start_date veteran_status
 #>       <dbl> <chr>         <chr>     <chr>   <chr>  <chr>          <chr>         

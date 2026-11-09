@@ -83,7 +83,7 @@ per pre-compiled dataset.
 # \donttest{
   try(nhl_schedule(day = "2024-01-15"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:53:06 UTC
+#> ℹ Data updated: 2026-11-09 17:22:45 UTC
 #> # A tibble: 53 × 13
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         
@@ -103,7 +103,7 @@ per pre-compiled dataset.
 #> #   venue <chr>
   try(nhl_schedule(season = 2025, team_abbr = "TOR"))
 #> ── NHL Schedule ─────────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:53:09 UTC
+#> ℹ Data updated: 2026-11-09 17:22:49 UTC
 #> # A tibble: 95 × 16
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         

@@ -57,13 +57,13 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_franchises())
-#> ! 2026-11-09 11:49:06.297279: No franchise items returned for mens-college-hockey.
+#> ! 2026-11-09 17:18:13.378239: No franchise items returned for mens-college-hockey.
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try(espn_wch_franchises())
 #> ── WOMENS-COLLEGE-HOCKEY Franchises data from ESPN core-v2 ─────────────────────
-#> ℹ Data updated: 2026-11-09 11:49:06 UTC
+#> ℹ Data updated: 2026-11-09 17:18:13 UTC
 #> # A tibble: 47 × 4
 #>    ref                                             franchise_id count page_count
 #>    <chr>                                           <chr>        <int>      <int>

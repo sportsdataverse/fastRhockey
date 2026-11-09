@@ -47,7 +47,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_providers())
 #> ── NHL Providers data from ESPN core-v2 ─────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:50:02 UTC
+#> ℹ Data updated: 2026-11-09 17:19:27 UTC
 #> # A tibble: 33 × 4
 #>    ref                                              provider_id count page_count
 #>    <chr>                                            <chr>       <int>      <int>

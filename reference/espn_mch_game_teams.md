@@ -77,7 +77,7 @@ Saiem Gilani
     espn_mch_game_teams(event_id = sb$game_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Teams data from ESPN core-v2 ── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:49:17 UTC
+#> ℹ Data updated: 2026-11-09 17:18:27 UTC
 #> # A tibble: 2 × 16
 #>   event_id  cid    team_id uid   type  order home_away winner team_ref score_ref
 #>   <chr>     <chr>  <chr>   <chr> <chr> <int> <chr>     <lgl>  <chr>    <chr>    
@@ -92,7 +92,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20250110")
     espn_wch_game_teams(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-09 11:49:17.222398: 
+#> ✖ 2026-11-09 17:18:27.194461: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows
