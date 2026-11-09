@@ -195,6 +195,19 @@ test_that("a strict read turns a partial-read warning into an error", {
   expect_equal(calls, 2L)
 })
 
+test_that("a strict partial read leaves fread() clean for the next call", {
+  # real fread() on a malformed file: one row has an extra field
+  local_mocked_bindings(.download_url = function(url, dest, ...) {
+    writeLines(c("season,game_id", "2024,1", "2025,2,extra", "2026,3"), dest)
+  })
+  expect_error(
+    suppressWarnings(.release_csv_from_url("https://x/games.csv", strict = TRUE)),
+    "may be partial", class = "release_csv_partial"
+  )
+  # fread() finished its own cleanup, so the next read is clean
+  expect_no_warning(data.table::fread(text = "a,b\n1,2"))
+})
+
 test_that("a release csv is read from a local file", {
   skip_if_not("file" %in% attr(libcurlVersion(), "protocols"), "libcurl has no FILE support")
   src <- withr::local_tempfile(fileext = ".csv")

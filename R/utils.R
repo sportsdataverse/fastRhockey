@@ -56,13 +56,24 @@ csv_from_url <- function(...) {
     on.exit(unlink(tmp), add = TRUE)
     .download_url(u, tmp, method = "libcurl")
     if (!strict) return(csv_from_url(file = tmp, ...))
-    withCallingHandlers(
+    # Collect the warnings and raise after fread() returns: stopping inside
+    # its handler skips fread()'s cleanup, and the next fread() call warns.
+    warned <- character()
+    out <- withCallingHandlers(
       csv_from_url(file = tmp, ...),
-      warning = function(w) stop(errorCondition(
-        paste0("fread() warned, so the table may be partial: ", conditionMessage(w)),
+      warning = function(w) {
+        warned <<- c(warned, conditionMessage(w))
+        invokeRestart("muffleWarning")
+      }
+    )
+    if (length(warned)) {
+      # classed, so .read_release_asset() does not retry it: the file is the same on every try
+      stop(errorCondition(
+        paste0("fread() warned, so the table may be partial: ", paste(warned, collapse = "; ")),
         class = "release_csv_partial", call = NULL
       ))
-    )
+    }
+    out
   }
   load <- .read_release_asset(url, read)
   if (inherits(load, "try-error")) stop(attr(load, "condition"))
