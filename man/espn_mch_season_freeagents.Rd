@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_season_freeagents}
 \alias{espn_mch_season_freeagents}
-\title{\strong{Get ESPN MCH Season Free Agents (core-v2)}}
+\alias{espn_wch_season_freeagents}
+\title{\strong{Get ESPN MCH / WCH Season Free Agents (core-v2)}}
 \usage{
 espn_mch_season_freeagents(season = most_recent_nhl_season(), limit = 100, ...)
+
+espn_wch_season_freeagents(season = most_recent_nhl_season(), limit = 100, ...)
 }
 \arguments{
 \item{season}{Season end-year (e.g. \code{2026}). Defaults to
@@ -29,15 +32,22 @@ gracefully in that case:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Season Free Agents (core-v2)}
+\strong{Get ESPN MCH / WCH Season Free Agents (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_season_freeagents()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_season_freeagents()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   # NOTE: Returns empty tibble for MCH (ESPN does not populate this endpoint)
   try(espn_mch_season_freeagents(season = 2026))
+}
+\donttest{
+  # NOTE: Returns empty tibble for WCH (ESPN does not populate this endpoint)
+  try(espn_wch_season_freeagents(season = 2026))
 }
 }
 \seealso{

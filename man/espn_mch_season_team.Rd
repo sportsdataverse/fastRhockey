@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_season_team}
 \alias{espn_mch_season_team}
-\title{\strong{Get ESPN MCH Season Team (core-v2)}}
+\alias{espn_wch_season_team}
+\title{\strong{Get ESPN MCH / WCH Season Team (core-v2)}}
 \usage{
 espn_mch_season_team(season = most_recent_nhl_season(), team_id, ...)
+
+espn_wch_season_team(season = most_recent_nhl_season(), team_id, ...)
 }
 \arguments{
 \item{season}{Season end-year (e.g. \code{2026}). Defaults to
@@ -50,16 +53,25 @@ A one-row \code{fastRhockey_data} tibble with team-in-season metadata:\tabular{l
 }
 }
 \description{
-\strong{Get ESPN MCH Season Team (core-v2)}
+\strong{Get ESPN MCH / WCH Season Team (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_season_team()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_season_team()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try({
     tms <- espn_mch_season_teams(season = 2026)
     espn_mch_season_team(season = 2026, team_id = tms$team_id[1])
+  })
+}
+\donttest{
+  try({
+    tms <- espn_wch_season_teams(season = 2026)
+    espn_wch_season_team(season = 2026, team_id = tms$team_id[1])
   })
 }
 }

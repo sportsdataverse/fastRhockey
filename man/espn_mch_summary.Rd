@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_summary}
 \alias{espn_mch_summary}
-\title{\strong{Get ESPN MCH Raw Game Summary}}
+\alias{espn_wch_summary}
+\title{\strong{Get ESPN MCH / WCH Raw Game Summary}}
 \usage{
 espn_mch_summary(event_id, ...)
+
+espn_wch_summary(event_id, ...)
 }
 \arguments{
 \item{event_id}{ESPN event identifier (character or numeric).}
@@ -35,14 +38,24 @@ Shape:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Raw Game Summary}
+\strong{Get ESPN MCH / WCH Raw Game Summary}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_summary()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_summary()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   s <- try(espn_mch_summary(event_id = "401717648"))
+  if (!inherits(s, "try-error")) {
+    names(s)
+    length(s$plays)
+  }
+}
+\donttest{
+  s <- try(espn_wch_summary(event_id = "401762970"))
   if (!inherits(s, "try-error")) {
     names(s)
     length(s$plays)

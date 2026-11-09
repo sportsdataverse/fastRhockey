@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_season_week_rankings}
 \alias{espn_mch_season_week_rankings}
-\title{\strong{Get ESPN MCH Weekly Rankings (core-v2)}}
+\alias{espn_wch_season_week_rankings}
+\title{\strong{Get ESPN MCH / WCH Weekly Rankings (core-v2)}}
 \usage{
 espn_mch_season_week_rankings(season, season_type, week, ...)
+
+espn_wch_season_week_rankings(season, season_type, week, ...)
 }
 \arguments{
 \item{season}{Season END year (e.g. \code{2026}).}
@@ -26,16 +29,22 @@ A \code{fastRhockey_data} tibble with one row per ranking item:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Weekly Rankings (core-v2)}
+\strong{Get ESPN MCH / WCH Weekly Rankings (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}. Core-v2 \code{weeks/{week}/rankings} collection;
 \verb{$ref}-only items become \code{ref} + \code{ranking_id}, inline items are flattened.
 Mirrors sportsdataverse-py \code{espn_mch_season_week_rankings()}.
+
+\code{espn_wch_season_week_rankings()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_season_week_rankings(season = 2026, season_type = 2, week = 3))
+}
+\donttest{
+  try(espn_wch_season_week_rankings(season = 2026, season_type = 2, week = 3))
 }
 }
 \seealso{

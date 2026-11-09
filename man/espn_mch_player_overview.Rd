@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_player_overview}
 \alias{espn_mch_player_overview}
-\title{\strong{Get ESPN MCH Player Overview}}
+\alias{espn_wch_player_overview}
+\title{\strong{Get ESPN MCH / WCH Player Overview}}
 \usage{
 espn_mch_player_overview(athlete_id, ...)
+
+espn_wch_player_overview(athlete_id, ...)
 }
 \arguments{
 \item{athlete_id}{ESPN athlete identifier (character or numeric,
@@ -42,14 +45,20 @@ A \code{fastRhockey_data} tibble with one row per stats split
 }
 }
 \description{
-\strong{Get ESPN MCH Player Overview}
+\strong{Get ESPN MCH / WCH Player Overview}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_player_overview()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_player_overview()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_player_overview(athlete_id = "5136656"))
+}
+\donttest{
+  try(espn_wch_player_overview(athlete_id = "5263060"))
 }
 }
 \seealso{

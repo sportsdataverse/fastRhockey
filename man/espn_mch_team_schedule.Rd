@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_team_schedule}
 \alias{espn_mch_team_schedule}
-\title{\strong{Get ESPN MCH Team Schedule (site_v2) -- alias for \code{espn_mch_schedule()}}}
+\alias{espn_wch_team_schedule}
+\title{\strong{Get ESPN MCH / WCH Team Schedule (site_v2) -- alias for \code{espn_mch_schedule()}}}
 \usage{
 espn_mch_team_schedule(team_id, season = most_recent_nhl_season(), ...)
+
+espn_wch_team_schedule(team_id, season = most_recent_nhl_season(), ...)
 }
 \arguments{
 \item{team_id}{ESPN team identifier (character or numeric, e.g. \code{"104"} for
@@ -56,14 +59,20 @@ schedule.\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Team Schedule (site_v2) -- alias for \code{espn_mch_schedule()}}
+\strong{Get ESPN MCH / WCH Team Schedule (site_v2) -- alias for \code{espn_mch_schedule()}}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_team_schedule()}; columns verified against a captured MCH body.
+
+\code{espn_wch_team_schedule()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_team_schedule(team_id = "104", season = 2025))
+}
+\donttest{
+  try(espn_wch_team_schedule(team_id = "2137", season = 2025))
 }
 }
 \seealso{

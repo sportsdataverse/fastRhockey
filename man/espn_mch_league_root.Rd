@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_league_root}
 \alias{espn_mch_league_root}
-\title{\strong{Get ESPN MCH League Root (core-v2)}}
+\alias{espn_wch_league_root}
+\title{\strong{Get ESPN MCH / WCH League Root (core-v2)}}
 \usage{
 espn_mch_league_root(...)
+
+espn_wch_league_root(...)
 }
 \arguments{
 \item{...}{Reserved for forward compatibility.}
@@ -31,14 +34,20 @@ A one-row \code{fastRhockey_data} tibble with league metadata:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH League Root (core-v2)}
+\strong{Get ESPN MCH / WCH League Root (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_league_root()}; columns verified against a captured MCH body.
+
+\code{espn_wch_league_root()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_league_root())
+}
+\donttest{
+  try(espn_wch_league_root())
 }
 }
 \seealso{

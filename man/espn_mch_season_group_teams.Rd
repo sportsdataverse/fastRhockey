@@ -2,9 +2,18 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_season_group_teams}
 \alias{espn_mch_season_group_teams}
-\title{\strong{Get ESPN MCH Season Group Teams (core-v2)}}
+\alias{espn_wch_season_group_teams}
+\title{\strong{Get ESPN MCH / WCH Season Group Teams (core-v2)}}
 \usage{
 espn_mch_season_group_teams(
+  season = most_recent_nhl_season(),
+  season_type = 2,
+  group_id,
+  limit = 500,
+  ...
+)
+
+espn_wch_season_group_teams(
   season = most_recent_nhl_season(),
   season_type = 2,
   group_id,
@@ -37,16 +46,26 @@ A \code{fastRhockey_data} tibble with one row per team:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Season Group Teams (core-v2)}
+\strong{Get ESPN MCH / WCH Season Group Teams (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_season_group_teams()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_season_group_teams()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try({
     grps <- espn_mch_season_groups(season = 2026, season_type = 2)
     espn_mch_season_group_teams(season = 2026, season_type = 2,
+                                 group_id = grps$group_id[1])
+  })
+}
+\donttest{
+  try({
+    grps <- espn_wch_season_groups(season = 2026, season_type = 2)
+    espn_wch_season_group_teams(season = 2026, season_type = 2,
                                  group_id = grps$group_id[1])
   })
 }

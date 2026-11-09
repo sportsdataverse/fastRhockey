@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_franchise}
 \alias{espn_mch_franchise}
-\title{\strong{Get ESPN MCH Franchise (core-v2)}}
+\alias{espn_wch_franchise}
+\title{\strong{Get ESPN MCH / WCH Franchise (core-v2)}}
 \usage{
 espn_mch_franchise(franchise_id, ...)
+
+espn_wch_franchise(franchise_id, ...)
 }
 \arguments{
 \item{franchise_id}{ESPN franchise identifier (character or numeric). Use
@@ -33,16 +36,25 @@ A one-row \code{fastRhockey_data} tibble with franchise detail:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Franchise (core-v2)}
+\strong{Get ESPN MCH / WCH Franchise (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_franchise()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_franchise()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try({
     fcs <- espn_mch_franchises()
     espn_mch_franchise(franchise_id = fcs$franchise_id[1])
+  })
+}
+\donttest{
+  try({
+    fcs <- espn_wch_franchises()
+    espn_wch_franchise(franchise_id = fcs$franchise_id[1])
   })
 }
 }

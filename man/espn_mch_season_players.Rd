@@ -2,9 +2,17 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_season_players}
 \alias{espn_mch_season_players}
-\title{\strong{Get ESPN MCH Season Players (core-v2)}}
+\alias{espn_wch_season_players}
+\title{\strong{Get ESPN MCH / WCH Season Players (core-v2)}}
 \usage{
 espn_mch_season_players(
+  season = most_recent_nhl_season(),
+  limit = 100,
+  page = 1,
+  ...
+)
+
+espn_wch_season_players(
   season = most_recent_nhl_season(),
   limit = 100,
   page = 1,
@@ -40,14 +48,20 @@ the requested page. This function hits the same endpoint as
 }
 }
 \description{
-\strong{Get ESPN MCH Season Players (core-v2)}
+\strong{Get ESPN MCH / WCH Season Players (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_season_players()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_season_players()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_season_players(season = 2026, limit = 10, page = 1))
+}
+\donttest{
+  try(espn_wch_season_players(season = 2026, limit = 10, page = 1))
 }
 }
 \seealso{

@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_leaders_core}
 \alias{espn_mch_leaders_core}
-\title{\strong{Get ESPN MCH League Leaders (core-v2)}}
+\alias{espn_wch_leaders_core}
+\title{\strong{Get ESPN MCH / WCH League Leaders (core-v2)}}
 \usage{
 espn_mch_leaders_core(...)
+
+espn_wch_leaders_core(...)
 }
 \arguments{
 \item{...}{Reserved for forward compatibility.}
@@ -27,14 +30,20 @@ use \code{\link[=espn_mch_season_type_leaders]{espn_mch_season_type_leaders()}}.
 }
 }
 \description{
-\strong{Get ESPN MCH League Leaders (core-v2)}
+\strong{Get ESPN MCH / WCH League Leaders (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_leaders_core()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_leaders_core()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_leaders_core())
+}
+\donttest{
+  try(espn_wch_leaders_core())
 }
 }
 \seealso{

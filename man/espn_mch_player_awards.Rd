@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_player_awards}
 \alias{espn_mch_player_awards}
-\title{\strong{Get ESPN MCH Player Awards (core-v2)}}
+\alias{espn_wch_player_awards}
+\title{\strong{Get ESPN MCH / WCH Player Awards (core-v2)}}
 \usage{
 espn_mch_player_awards(athlete_id, ...)
+
+espn_wch_player_awards(athlete_id, ...)
 }
 \arguments{
 \item{athlete_id}{ESPN athlete identifier (character or numeric).}
@@ -24,14 +27,20 @@ a season-award object (e.g. Hart Trophy, Conn Smythe, etc.).\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Player Awards (core-v2)}
+\strong{Get ESPN MCH / WCH Player Awards (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_player_awards()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_player_awards()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_player_awards(athlete_id = "5136656"))
+}
+\donttest{
+  try(espn_wch_player_awards(athlete_id = "5263060"))
 }
 }
 \seealso{

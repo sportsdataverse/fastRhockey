@@ -2,9 +2,18 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_season_week_games}
 \alias{espn_mch_season_week_games}
-\title{\strong{Get ESPN MCH Season Week Games (core-v2)}}
+\alias{espn_wch_season_week_games}
+\title{\strong{Get ESPN MCH / WCH Season Week Games (core-v2)}}
 \usage{
 espn_mch_season_week_games(
+  season = most_recent_nhl_season(),
+  season_type = 2,
+  week,
+  limit = 100,
+  ...
+)
+
+espn_wch_season_week_games(
   season = most_recent_nhl_season(),
   season_type = 2,
   week,
@@ -41,15 +50,22 @@ does not use weeks in ESPN core-v2 - HTTP 404 is expected:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Season Week Games (core-v2)}
+\strong{Get ESPN MCH / WCH Season Week Games (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_season_week_games()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_season_week_games()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   # NOTE: Returns empty tibble for NHL (ESPN does not use weeks for hockey)
   try(espn_mch_season_week_games(season = 2026, season_type = 2, week = 1))
+}
+\donttest{
+  # NOTE: Returns empty tibble for NHL (ESPN does not use weeks for hockey)
+  try(espn_wch_season_week_games(season = 2026, season_type = 2, week = 1))
 }
 }
 \seealso{

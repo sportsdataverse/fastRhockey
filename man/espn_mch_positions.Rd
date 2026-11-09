@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_positions}
 \alias{espn_mch_positions}
-\title{\strong{Get ESPN MCH Positions (core-v2)}}
+\alias{espn_wch_positions}
+\title{\strong{Get ESPN MCH / WCH Positions (core-v2)}}
 \usage{
 espn_mch_positions(limit = 200, ...)
+
+espn_wch_positions(limit = 200, ...)
 }
 \arguments{
 \item{limit}{Maximum number of positions to return (default \code{200}). The
@@ -22,14 +25,20 @@ A \code{fastRhockey_data} tibble with one row per position reference:\tabular{ll
 }
 }
 \description{
-\strong{Get ESPN MCH Positions (core-v2)}
+\strong{Get ESPN MCH / WCH Positions (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_positions()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_positions()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_positions())
+}
+\donttest{
+  try(espn_wch_positions())
 }
 }
 \seealso{

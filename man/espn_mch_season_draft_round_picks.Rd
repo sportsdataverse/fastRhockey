@@ -2,9 +2,17 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_season_draft_round_picks}
 \alias{espn_mch_season_draft_round_picks}
-\title{\strong{Get ESPN MCH Season Draft Round Picks (core-v2)}}
+\alias{espn_wch_season_draft_round_picks}
+\title{\strong{Get ESPN MCH / WCH Season Draft Round Picks (core-v2)}}
 \usage{
 espn_mch_season_draft_round_picks(
+  season = most_recent_nhl_season(),
+  round_num = 1,
+  limit = 100,
+  ...
+)
+
+espn_wch_season_draft_round_picks(
   season = most_recent_nhl_season(),
   round_num = 1,
   limit = 100,
@@ -37,15 +45,22 @@ HTTP 404 - the draft data is not served by the core-v2 sub-tree:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Season Draft Round Picks (core-v2)}
+\strong{Get ESPN MCH / WCH Season Draft Round Picks (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_season_draft_round_picks()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_season_draft_round_picks()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   # NOTE: Returns an empty tibble for NHL (404 from ESPN)
   try(espn_mch_season_draft_round_picks(season = 2025, round_num = 1))
+}
+\donttest{
+  # NOTE: Returns an empty tibble for NHL (404 from ESPN)
+  try(espn_wch_season_draft_round_picks(season = 2025, round_num = 1))
 }
 }
 \seealso{

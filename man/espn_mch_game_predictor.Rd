@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_game_predictor}
 \alias{espn_mch_game_predictor}
-\title{\strong{Get ESPN MCH Game Predictor (core-v2)}}
+\alias{espn_wch_game_predictor}
+\title{\strong{Get ESPN MCH / WCH Game Predictor (core-v2)}}
 \usage{
 espn_mch_game_predictor(event_id, cid = event_id, ...)
+
+espn_wch_game_predictor(event_id, cid = event_id, ...)
 }
 \arguments{
 \item{event_id}{ESPN event (game) identifier.}
@@ -27,16 +30,25 @@ Columns when populated:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Game Predictor (core-v2)}
+\strong{Get ESPN MCH / WCH Game Predictor (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_game_predictor()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_game_predictor()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try({
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_predictor(event_id = sb$game_id[1])
+  })
+}
+\donttest{
+  try({
+    sb <- espn_wch_scoreboard(dates = "20250110")
+    espn_wch_game_predictor(event_id = sb$game_id[1])
   })
 }
 }

@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_player_splits}
 \alias{espn_mch_player_splits}
-\title{\strong{Get ESPN MCH Player Splits}}
+\alias{espn_wch_player_splits}
+\title{\strong{Get ESPN MCH / WCH Player Splits}}
 \usage{
 espn_mch_player_splits(athlete_id, season = most_recent_nhl_season(), ...)
+
+espn_wch_player_splits(athlete_id, season = most_recent_nhl_season(), ...)
 }
 \arguments{
 \item{athlete_id}{ESPN athlete identifier (character or numeric,
@@ -42,14 +45,20 @@ A \code{fastRhockey_data} tibble with one row per situational split:\tabular{lll
 }
 }
 \description{
-\strong{Get ESPN MCH Player Splits}
+\strong{Get ESPN MCH / WCH Player Splits}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_player_splits()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_player_splits()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_player_splits(athlete_id = "5136656", season = 2025))
+}
+\donttest{
+  try(espn_wch_player_splits(athlete_id = "5263060", season = 2025))
 }
 }
 \seealso{

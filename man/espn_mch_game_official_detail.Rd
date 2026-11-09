@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_game_official_detail}
 \alias{espn_mch_game_official_detail}
-\title{\strong{Get ESPN MCH Game Official Detail (core-v2)}}
+\alias{espn_wch_game_official_detail}
+\title{\strong{Get ESPN MCH / WCH Game Official Detail (core-v2)}}
 \usage{
 espn_mch_game_official_detail(event_id, cid = event_id, official_id, ...)
+
+espn_wch_game_official_detail(event_id, cid = event_id, official_id, ...)
 }
 \arguments{
 \item{event_id}{ESPN event (game) identifier.}
@@ -35,10 +38,13 @@ A one-row \code{fastRhockey_data} tibble with official detail:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Game Official Detail (core-v2)}
+\strong{Get ESPN MCH / WCH Game Official Detail (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_game_official_detail()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_game_official_detail()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
@@ -47,6 +53,14 @@ League slug \code{mens-college-hockey}; \code{season} is the END year (\code{202
     eid  <- sb$game_id[1]
     offs <- espn_mch_game_officials(event_id = eid)
     espn_mch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
+  })
+}
+\donttest{
+  try({
+    sb   <- espn_wch_scoreboard(dates = "20250110")
+    eid  <- sb$game_id[1]
+    offs <- espn_wch_game_officials(event_id = eid)
+    espn_wch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
   })
 }
 }

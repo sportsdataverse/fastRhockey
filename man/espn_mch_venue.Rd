@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_venue}
 \alias{espn_mch_venue}
-\title{\strong{Get ESPN MCH Venue (core-v2)}}
+\alias{espn_wch_venue}
+\title{\strong{Get ESPN MCH / WCH Venue (core-v2)}}
 \usage{
 espn_mch_venue(venue_id, ...)
+
+espn_wch_venue(venue_id, ...)
 }
 \arguments{
 \item{venue_id}{ESPN venue identifier (character or numeric). Use
@@ -29,16 +32,25 @@ A one-row \code{fastRhockey_data} tibble with venue detail:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Venue (core-v2)}
+\strong{Get ESPN MCH / WCH Venue (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_venue()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_venue()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try({
     vns <- espn_mch_venues()
     espn_mch_venue(venue_id = vns$venue_id[1])
+  })
+}
+\donttest{
+  try({
+    vns <- espn_wch_venues()
+    espn_wch_venue(venue_id = vns$venue_id[1])
   })
 }
 }

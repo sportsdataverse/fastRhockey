@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_league_notes}
 \alias{espn_mch_league_notes}
-\title{\strong{Get ESPN MCH League Notes (core-v2)}}
+\alias{espn_wch_league_notes}
+\title{\strong{Get ESPN MCH / WCH League Notes (core-v2)}}
 \usage{
 espn_mch_league_notes(...)
+
+espn_wch_league_notes(...)
 }
 \arguments{
 \item{...}{Reserved for forward compatibility.}
@@ -22,15 +25,22 @@ an empty tibble is returned gracefully:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH League Notes (core-v2)}
+\strong{Get ESPN MCH / WCH League Notes (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_league_notes()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_league_notes()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   # NOTE: Returns empty tibble for MCH (ESPN does not populate this endpoint)
   try(espn_mch_league_notes())
+}
+\donttest{
+  # NOTE: Returns empty tibble for WCH (ESPN does not populate this endpoint)
+  try(espn_wch_league_notes())
 }
 }
 \seealso{

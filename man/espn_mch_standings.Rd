@@ -2,9 +2,17 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_standings}
 \alias{espn_mch_standings}
-\title{\strong{Get ESPN MCH Standings}}
+\alias{espn_wch_standings}
+\title{\strong{Get ESPN MCH / WCH Standings}}
 \usage{
 espn_mch_standings(
+  season = most_recent_nhl_season(),
+  group = NULL,
+  standings_type = NULL,
+  ...
+)
+
+espn_wch_standings(
   season = most_recent_nhl_season(),
   group = NULL,
   standings_type = NULL,
@@ -54,14 +62,20 @@ A \code{fastRhockey_data} tibble with one row per team:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Standings}
+\strong{Get ESPN MCH / WCH Standings}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_standings()}; columns verified against a captured MCH body One numeric column per ESPN stat in the body, so the set follows the feed (the MCH body sends \code{tiegames}, the WCH body \code{ties}).
+
+\code{espn_wch_standings()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_standings(season = 2025))
+}
+\donttest{
+  try(espn_wch_standings(season = 2025))
 }
 }
 \seealso{

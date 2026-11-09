@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_statistics_league}
 \alias{espn_mch_statistics_league}
-\title{\strong{Get ESPN MCH League Statistics}}
+\alias{espn_wch_statistics_league}
+\title{\strong{Get ESPN MCH / WCH League Statistics}}
 \usage{
 espn_mch_statistics_league(...)
+
+espn_wch_statistics_league(...)
 }
 \arguments{
 \item{...}{Reserved for forward compatibility.}
@@ -26,14 +29,20 @@ an empty tibble is returned gracefully:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH League Statistics}
+\strong{Get ESPN MCH / WCH League Statistics}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_statistics_league()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_statistics_league()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_statistics_league())
+}
+\donttest{
+  try(espn_wch_statistics_league())
 }
 }
 \seealso{

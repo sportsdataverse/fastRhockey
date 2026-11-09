@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_coach_record}
 \alias{espn_mch_coach_record}
-\title{\strong{Get ESPN MCH Coach Record (core-v2)}}
+\alias{espn_wch_coach_record}
+\title{\strong{Get ESPN MCH / WCH Coach Record (core-v2)}}
 \usage{
 espn_mch_coach_record(coach_id, record_type = 0, ...)
+
+espn_wch_coach_record(coach_id, record_type = 0, ...)
 }
 \arguments{
 \item{coach_id}{ESPN coach identifier (character or numeric). Use
@@ -26,10 +29,13 @@ gracefully with a warning:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Coach Record (core-v2)}
+\strong{Get ESPN MCH / WCH Coach Record (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_coach_record()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_coach_record()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
@@ -38,6 +44,14 @@ League slug \code{mens-college-hockey}; \code{season} is the END year (\code{202
     ccs <- espn_mch_season_coaches(season = 2026)
     # the coach list can be empty for college hockey
     if (nrow(ccs) > 0) espn_mch_coach_record(coach_id = ccs$coach_id[1])
+  })
+}
+\donttest{
+  # NOTE: Returns an empty tibble for NHL (404 from ESPN)
+  try({
+    ccs <- espn_wch_season_coaches(season = 2026)
+    # the coach list can be empty for college hockey
+    if (nrow(ccs) > 0) espn_wch_coach_record(coach_id = ccs$coach_id[1])
   })
 }
 }

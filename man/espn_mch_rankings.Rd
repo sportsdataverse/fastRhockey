@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_rankings}
 \alias{espn_mch_rankings}
-\title{\strong{Get ESPN MCH Rankings (Site v2 polls)}}
+\alias{espn_wch_rankings}
+\title{\strong{Get ESPN MCH / WCH Rankings (Site v2 polls)}}
 \usage{
 espn_mch_rankings(...)
+
+espn_wch_rankings(...)
 }
 \arguments{
 \item{...}{Passed through to \code{.retry_request()} (e.g. \verb{proxy =}).}
@@ -41,16 +44,22 @@ the same 25 columns; zero rows (with those columns) when no poll is published:\t
 }
 }
 \description{
-\strong{Get ESPN MCH Rankings (Site v2 polls)}
+\strong{Get ESPN MCH / WCH Rankings (Site v2 polls)}
 }
 \details{
 ESPN men's college hockey polls (USCHO), league slug \code{mens-college-hockey}. \code{rank} is \code{NA} on
 the vote-receiving rows (\code{ranked = FALSE}); \code{previous_rank} keeps ESPN's \code{0}
 for a team unranked in the previous poll. Mirrors sportsdataverse-py \code{espn_mch_rankings()}.
+
+\code{espn_wch_rankings()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_rankings())
+}
+\donttest{
+  try(espn_wch_rankings())
 }
 }
 \seealso{

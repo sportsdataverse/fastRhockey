@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_game_plays}
 \alias{espn_mch_game_plays}
-\title{\strong{Get ESPN MCH Game Plays (core-v2 Play-by-Play)}}
+\alias{espn_wch_game_plays}
+\title{\strong{Get ESPN MCH / WCH Game Plays (core-v2 Play-by-Play)}}
 \usage{
 espn_mch_game_plays(event_id, cid = event_id, limit = 1000, ...)
+
+espn_wch_game_plays(event_id, cid = event_id, limit = 1000, ...)
 }
 \arguments{
 \item{event_id}{ESPN event (game) identifier. Use \code{espn_mch_scoreboard()$game_id}
@@ -51,16 +54,25 @@ A \code{fastRhockey_data} tibble with one row per play:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Game Plays (core-v2 Play-by-Play)}
+\strong{Get ESPN MCH / WCH Game Plays (core-v2 Play-by-Play)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_game_plays()}; columns verified against a captured MCH body.
+
+\code{espn_wch_game_plays()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try({
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_plays(event_id = sb$game_id[1])
+  })
+}
+\donttest{
+  try({
+    sb <- espn_wch_scoreboard(dates = "20250110")
+    espn_wch_game_plays(event_id = sb$game_id[1])
   })
 }
 }

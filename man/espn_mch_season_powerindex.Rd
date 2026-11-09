@@ -2,9 +2,16 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_season_powerindex}
 \alias{espn_mch_season_powerindex}
-\title{\strong{Get ESPN MCH Season Power Index (core-v2)}}
+\alias{espn_wch_season_powerindex}
+\title{\strong{Get ESPN MCH / WCH Season Power Index (core-v2)}}
 \usage{
 espn_mch_season_powerindex(
+  season = most_recent_nhl_season(),
+  team_id = NULL,
+  ...
+)
+
+espn_wch_season_powerindex(
   season = most_recent_nhl_season(),
   team_id = NULL,
   ...
@@ -35,15 +42,22 @@ results for hockey:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Season Power Index (core-v2)}
+\strong{Get ESPN MCH / WCH Season Power Index (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_season_powerindex()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_season_powerindex()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   # NOTE: Returns empty tibble for MCH (ESPN does not publish powerindex for hockey)
   try(espn_mch_season_powerindex(season = 2026))
+}
+\donttest{
+  # NOTE: Returns empty tibble for WCH (ESPN does not publish powerindex for hockey)
+  try(espn_wch_season_powerindex(season = 2026))
 }
 }
 \seealso{

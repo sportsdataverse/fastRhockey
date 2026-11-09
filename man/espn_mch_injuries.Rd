@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_injuries}
 \alias{espn_mch_injuries}
-\title{\strong{Get ESPN MCH Injuries}}
+\alias{espn_wch_injuries}
+\title{\strong{Get ESPN MCH / WCH Injuries}}
 \usage{
 espn_mch_injuries(...)
+
+espn_wch_injuries(...)
 }
 \arguments{
 \item{...}{Reserved for forward compatibility.}
@@ -31,14 +34,20 @@ A \code{fastRhockey_data} tibble with one row per injured player:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Injuries}
+\strong{Get ESPN MCH / WCH Injuries}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_injuries()}; ESPN answered an empty collection for every captured MCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
+
+\code{espn_wch_injuries()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_injuries())
+}
+\donttest{
+  try(espn_wch_injuries())
 }
 }
 \seealso{

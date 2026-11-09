@@ -2,9 +2,19 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_scoreboard}
 \alias{espn_mch_scoreboard}
-\title{\strong{Get ESPN MCH Scoreboard}}
+\alias{espn_wch_scoreboard}
+\title{\strong{Get ESPN MCH / WCH Scoreboard}}
 \usage{
 espn_mch_scoreboard(
+  dates = NULL,
+  week = NULL,
+  season_type = NULL,
+  groups = NULL,
+  limit = 500,
+  ...
+)
+
+espn_wch_scoreboard(
   dates = NULL,
   week = NULL,
   season_type = NULL,
@@ -84,14 +94,20 @@ A \code{fastRhockey_data} tibble with one row per game:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Scoreboard}
+\strong{Get ESPN MCH / WCH Scoreboard}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_scoreboard()}; columns verified against a captured MCH body.
+
+\code{espn_wch_scoreboard()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_scoreboard(dates = "20250110"))
+}
+\donttest{
+  try(espn_wch_scoreboard(dates = "20250110"))
 }
 }
 \seealso{

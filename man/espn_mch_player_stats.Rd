@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_player_stats}
 \alias{espn_mch_player_stats}
-\title{\strong{Get ESPN MCH Player Stats (web-v3)}}
+\alias{espn_wch_player_stats}
+\title{\strong{Get ESPN MCH / WCH Player Stats (web-v3)}}
 \usage{
 espn_mch_player_stats(athlete_id, season = most_recent_nhl_season(), ...)
+
+espn_wch_player_stats(athlete_id, season = most_recent_nhl_season(), ...)
 }
 \arguments{
 \item{athlete_id}{ESPN athlete identifier (character or numeric,
@@ -47,14 +50,20 @@ a career-total row per stat category:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Player Stats (web-v3)}
+\strong{Get ESPN MCH / WCH Player Stats (web-v3)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_player_stats_v3()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_player_stats()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_player_stats(athlete_id = "5136656", season = 2025))
+}
+\donttest{
+  try(espn_wch_player_stats(athlete_id = "5263060", season = 2025))
 }
 }
 \seealso{

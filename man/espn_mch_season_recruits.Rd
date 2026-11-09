@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_season_recruits}
 \alias{espn_mch_season_recruits}
-\title{\strong{Get ESPN MCH Season Recruits (core-v2)}}
+\alias{espn_wch_season_recruits}
+\title{\strong{Get ESPN MCH / WCH Season Recruits (core-v2)}}
 \usage{
 espn_mch_season_recruits(season, limit = 1000, page = 1, ...)
+
+espn_wch_season_recruits(season, limit = 1000, page = 1, ...)
 }
 \arguments{
 \item{season}{Season END year (e.g. \code{2026}).}
@@ -24,16 +27,22 @@ A \code{fastRhockey_data} tibble with one row per recruit:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Season Recruits (core-v2)}
+\strong{Get ESPN MCH / WCH Season Recruits (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}. Core-v2 \code{seasons/{season}/recruits};
 \verb{$ref}-only items become \code{ref} + \code{recruit_id}, inline items are flattened.
 Mirrors sportsdataverse-py \code{espn_mch_season_recruits()}; ESPN may publish nothing for men's college hockey.
+
+\code{espn_wch_season_recruits()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_season_recruits(season = 2026))
+}
+\donttest{
+  try(espn_wch_season_recruits(season = 2026))
 }
 }
 \seealso{

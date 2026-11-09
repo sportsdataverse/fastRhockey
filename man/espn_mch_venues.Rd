@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_venues}
 \alias{espn_mch_venues}
-\title{\strong{Get ESPN MCH Venues (core-v2)}}
+\alias{espn_wch_venues}
+\title{\strong{Get ESPN MCH / WCH Venues (core-v2)}}
 \usage{
 espn_mch_venues(limit = 1000, ...)
+
+espn_wch_venues(limit = 1000, ...)
 }
 \arguments{
 \item{limit}{Maximum number of venues to return (default \code{1000}). The MCH
@@ -22,14 +25,20 @@ A \code{fastRhockey_data} tibble with one row per venue reference:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Venues (core-v2)}
+\strong{Get ESPN MCH / WCH Venues (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_venues()}; columns verified against a captured MCH body.
+
+\code{espn_wch_venues()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_venues())
+}
+\donttest{
+  try(espn_wch_venues())
 }
 }
 \seealso{

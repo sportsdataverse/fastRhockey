@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_recruiting_years}
 \alias{espn_mch_recruiting_years}
-\title{\strong{Get ESPN MCH Recruiting Years (core-v2)}}
+\alias{espn_wch_recruiting_years}
+\title{\strong{Get ESPN MCH / WCH Recruiting Years (core-v2)}}
 \usage{
 espn_mch_recruiting_years(...)
+
+espn_wch_recruiting_years(...)
 }
 \arguments{
 \item{...}{Passed through to \code{.retry_request()} (e.g. \verb{proxy =}).}
@@ -17,15 +20,21 @@ A \code{fastRhockey_data} tibble with one row per recruiting year:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Recruiting Years (core-v2)}
+\strong{Get ESPN MCH / WCH Recruiting Years (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}. Core-v2 \code{recruiting} collection (one item per
 recruiting class year). Mirrors sportsdataverse-py \code{espn_mch_recruiting_years()}.
+
+\code{espn_wch_recruiting_years()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_recruiting_years())
+}
+\donttest{
+  try(espn_wch_recruiting_years())
 }
 }
 \seealso{

@@ -304,6 +304,9 @@ upgrades from 1.0.0 may need to change.
   which could only raise the defunct error.
 * The internal play-by-play helpers in `nhl_game_feed.R` are no longer
   rendered as help pages.
+* Each `espn_wch_*()` function now shares its help page with the matching
+  `espn_mch_*()` function (same arguments, same columns), so the 121 pairs
+  take 121 help pages instead of 242. `?espn_wch_scoreboard` still works.
 
 # **fastRhockey 1.0.0**
 

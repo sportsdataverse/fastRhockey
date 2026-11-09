@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_teams_core}
 \alias{espn_mch_teams_core}
-\title{\strong{Get ESPN MCH Teams Core (core-v2 Collection)}}
+\alias{espn_wch_teams_core}
+\title{\strong{Get ESPN MCH / WCH Teams Core (core-v2 Collection)}}
 \usage{
 espn_mch_teams_core(limit = 1000, ...)
+
+espn_wch_teams_core(limit = 1000, ...)
 }
 \arguments{
 \item{limit}{Maximum number of teams to return (default \code{1000}; the MCH has
@@ -22,14 +25,20 @@ A \code{fastRhockey_data} tibble with one row per team:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Teams Core (core-v2 Collection)}
+\strong{Get ESPN MCH / WCH Teams Core (core-v2 Collection)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_teams_core()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_teams_core()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_teams_core(limit = 100))
+}
+\donttest{
+  try(espn_wch_teams_core(limit = 100))
 }
 }
 \seealso{

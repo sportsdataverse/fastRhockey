@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_season_draft}
 \alias{espn_mch_season_draft}
-\title{\strong{Get ESPN MCH Season Draft (core-v2)}}
+\alias{espn_wch_season_draft}
+\title{\strong{Get ESPN MCH / WCH Season Draft (core-v2)}}
 \usage{
 espn_mch_season_draft(season = most_recent_nhl_season(), ...)
+
+espn_wch_season_draft(season = most_recent_nhl_season(), ...)
 }
 \arguments{
 \item{season}{Season end-year (e.g. \code{2025}). Defaults to
@@ -23,15 +26,22 @@ NHL - the draft sub-tree is not served by this core-v2 path):\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Season Draft (core-v2)}
+\strong{Get ESPN MCH / WCH Season Draft (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_season_draft()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_season_draft()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   # NOTE: Returns an empty tibble for NHL (404 from ESPN)
   try(espn_mch_season_draft(season = 2025))
+}
+\donttest{
+  # NOTE: Returns an empty tibble for NHL (404 from ESPN)
+  try(espn_wch_season_draft(season = 2025))
 }
 }
 \seealso{

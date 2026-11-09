@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_players_index}
 \alias{espn_mch_players_index}
-\title{\strong{Get ESPN MCH Players Index}}
+\alias{espn_wch_players_index}
+\title{\strong{Get ESPN MCH / WCH Players Index}}
 \usage{
 espn_mch_players_index(active = TRUE, limit = 100, page = 1, ...)
+
+espn_wch_players_index(active = TRUE, limit = 100, page = 1, ...)
 }
 \arguments{
 \item{active}{Filter by active status. \code{TRUE} (default) = active players
@@ -38,10 +41,16 @@ interface.
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_players_index()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_players_index()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_players_index(active = TRUE, limit = 10, page = 1))
+}
+\donttest{
+  try(espn_wch_players_index(active = TRUE, limit = 10, page = 1))
 }
 }
 \seealso{

@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_team_core}
 \alias{espn_mch_team_core}
-\title{\strong{Get ESPN MCH Team Core (core-v2)}}
+\alias{espn_wch_team_core}
+\title{\strong{Get ESPN MCH / WCH Team Core (core-v2)}}
 \usage{
 espn_mch_team_core(team_id, ...)
+
+espn_wch_team_core(team_id, ...)
 }
 \arguments{
 \item{team_id}{ESPN team identifier (character or numeric, e.g. \code{"104"} for
@@ -49,14 +52,20 @@ sub-resources:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Team Core (core-v2)}
+\strong{Get ESPN MCH / WCH Team Core (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_team_core()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_team_core()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_team_core(team_id = "104"))
+}
+\donttest{
+  try(espn_wch_team_core(team_id = "2137"))
 }
 }
 \seealso{

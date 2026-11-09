@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_teams_site}
 \alias{espn_mch_teams_site}
-\title{\strong{Get ESPN MCH Teams (site_v2) -- alias for \code{espn_mch_teams()}}}
+\alias{espn_wch_teams_site}
+\title{\strong{Get ESPN MCH / WCH Teams (site_v2) -- alias for \code{espn_mch_teams()}}}
 \usage{
 espn_mch_teams_site(limit = 1000, ...)
+
+espn_wch_teams_site(limit = 1000, ...)
 }
 \arguments{
 \item{limit}{Maximum number of teams (ESPN \code{limit}; default \code{1000}, as sportsdataverse-py).}
@@ -39,14 +42,20 @@ identical to the output of teams.\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Teams (site_v2) -- alias for \code{espn_mch_teams()}}
+\strong{Get ESPN MCH / WCH Teams (site_v2) -- alias for \code{espn_mch_teams()}}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_teams_site()}; columns verified against a captured MCH body.
+
+\code{espn_wch_teams_site()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_teams_site())
+}
+\donttest{
+  try(espn_wch_teams_site())
 }
 }
 \seealso{

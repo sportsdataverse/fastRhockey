@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_pbp}
 \alias{espn_mch_pbp}
-\title{\strong{Get ESPN MCH Play-by-Play}}
+\alias{espn_wch_pbp}
+\title{\strong{Get ESPN MCH / WCH Play-by-Play}}
 \usage{
 espn_mch_pbp(game_id, ...)
+
+espn_wch_pbp(game_id, ...)
 }
 \arguments{
 \item{game_id}{ESPN event identifier (character or numeric).}
@@ -65,15 +68,21 @@ A \code{fastRhockey_data} tibble, one row per play:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Play-by-Play}
+\strong{Get ESPN MCH / WCH Play-by-Play}
 }
 \details{
 League slug \code{mens-college-hockey}. Parsed from the site-v2 \code{summary} payload by the same
 helper as \code{espn_nhl_pbp()}; columns verified against a captured mch summary body.
+
+\code{espn_wch_pbp()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_pbp(game_id = "401717648"))
+}
+\donttest{
+  try(espn_wch_pbp(game_id = "401762970"))
 }
 }
 \seealso{

@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_team_injuries}
 \alias{espn_mch_team_injuries}
-\title{\strong{Get ESPN MCH Team Injuries}}
+\alias{espn_wch_team_injuries}
+\title{\strong{Get ESPN MCH / WCH Team Injuries}}
 \usage{
 espn_mch_team_injuries(team_id, ...)
+
+espn_wch_team_injuries(team_id, ...)
 }
 \arguments{
 \item{team_id}{ESPN team identifier (character or numeric, e.g. \code{"104"} for
@@ -33,14 +36,20 @@ Columns when populated:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Team Injuries}
+\strong{Get ESPN MCH / WCH Team Injuries}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_team_injuries()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_team_injuries()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_team_injuries(team_id = "104"))
+}
+\donttest{
+  try(espn_wch_team_injuries(team_id = "2137"))
 }
 }
 \seealso{

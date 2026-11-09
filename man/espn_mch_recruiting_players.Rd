@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_recruiting_players}
 \alias{espn_mch_recruiting_players}
-\title{\strong{Get ESPN MCH Recruiting Players (core-v2)}}
+\alias{espn_wch_recruiting_players}
+\title{\strong{Get ESPN MCH / WCH Recruiting Players (core-v2)}}
 \usage{
 espn_mch_recruiting_players(year, limit = 1000, page = 1, ...)
+
+espn_wch_recruiting_players(year, limit = 1000, page = 1, ...)
 }
 \arguments{
 \item{year}{Recruiting class year.}
@@ -25,16 +28,22 @@ A \code{fastRhockey_data} tibble with one row per recruit:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Recruiting Players (core-v2)}
+\strong{Get ESPN MCH / WCH Recruiting Players (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}. Core-v2 \code{recruiting/{year}/athletes}; inline
 athlete objects are flattened and snake-cased, \verb{$ref}-only items become \code{ref} +
 \code{recruit_id}. Mirrors sportsdataverse-py \code{espn_mch_recruiting_players()}.
+
+\code{espn_wch_recruiting_players()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_recruiting_players(year = 2026))
+}
+\donttest{
+  try(espn_wch_recruiting_players(year = 2026))
 }
 }
 \seealso{

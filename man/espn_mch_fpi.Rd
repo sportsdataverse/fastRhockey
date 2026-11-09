@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_fpi}
 \alias{espn_mch_fpi}
-\title{\strong{Get ESPN MCH Power Index (fitt-v3 FPI)}}
+\alias{espn_wch_fpi}
+\title{\strong{Get ESPN MCH / WCH Power Index (fitt-v3 FPI)}}
 \usage{
 espn_mch_fpi(season = NULL, limit = NULL, page = NULL, ...)
+
+espn_wch_fpi(season = NULL, limit = NULL, page = NULL, ...)
 }
 \arguments{
 \item{season}{Season (4-digit END year) whose table to return; \code{NULL} (the
@@ -30,17 +33,23 @@ A \code{fastRhockey_data} tibble with one row per team:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Power Index (fitt-v3 FPI)}
+\strong{Get ESPN MCH / WCH Power Index (fitt-v3 FPI)}
 }
 \details{
 League slug \code{mens-college-hockey}. One row per team with a column per FPI field,
 snake-cased from the payload's \code{categories} labels (zipped by position and
 length-guarded); a zero-row \code{data.frame} when ESPN publishes no table for
 men's college hockey. Mirrors sportsdataverse-py \code{espn_mch_fpi()}.
+
+\code{espn_wch_fpi()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_fpi(season = 2026))
+}
+\donttest{
+  try(espn_wch_fpi(season = 2026))
 }
 }
 \seealso{

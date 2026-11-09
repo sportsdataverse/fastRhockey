@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_news}
 \alias{espn_mch_news}
-\title{\strong{Get ESPN MCH News}}
+\alias{espn_wch_news}
+\title{\strong{Get ESPN MCH / WCH News}}
 \usage{
 espn_mch_news(limit = 50, ...)
+
+espn_wch_news(limit = 50, ...)
 }
 \arguments{
 \item{limit}{Maximum number of articles to return (default \code{50}).}
@@ -29,14 +32,20 @@ A \code{fastRhockey_data} tibble with one row per article:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH News}
+\strong{Get ESPN MCH / WCH News}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_news()}; columns verified against a captured MCH body.
+
+\code{espn_wch_news()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_news(limit = 10))
+}
+\donttest{
+  try(espn_wch_news(limit = 10))
 }
 }
 \seealso{

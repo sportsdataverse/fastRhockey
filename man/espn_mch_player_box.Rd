@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_player_box}
 \alias{espn_mch_player_box}
-\title{\strong{Get ESPN MCH Player Box Score}}
+\alias{espn_wch_player_box}
+\title{\strong{Get ESPN MCH / WCH Player Box Score}}
 \usage{
 espn_mch_player_box(game_id, ...)
+
+espn_wch_player_box(game_id, ...)
 }
 \arguments{
 \item{game_id}{ESPN event identifier (character or numeric).}
@@ -70,15 +73,21 @@ A \code{fastRhockey_data} tibble, one row per player appearance (skaters and goa
 }
 }
 \description{
-\strong{Get ESPN MCH Player Box Score}
+\strong{Get ESPN MCH / WCH Player Box Score}
 }
 \details{
 League slug \code{mens-college-hockey}. Parsed from the site-v2 \code{summary} payload by the same
 helper as \code{espn_nhl_player_box()}; columns verified against a captured mch summary body.
+
+\code{espn_wch_player_box()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_player_box(game_id = "401717648"))
+}
+\donttest{
+  try(espn_wch_player_box(game_id = "401762970"))
 }
 }
 \seealso{

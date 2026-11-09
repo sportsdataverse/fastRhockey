@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_game_probabilities}
 \alias{espn_mch_game_probabilities}
-\title{\strong{Get ESPN MCH Game Win Probabilities (core-v2)}}
+\alias{espn_wch_game_probabilities}
+\title{\strong{Get ESPN MCH / WCH Game Win Probabilities (core-v2)}}
 \usage{
 espn_mch_game_probabilities(event_id, cid = event_id, limit = 300, ...)
+
+espn_wch_game_probabilities(event_id, cid = event_id, limit = 300, ...)
 }
 \arguments{
 \item{event_id}{ESPN event (game) identifier.}
@@ -32,16 +35,25 @@ warning. When populated, columns include:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Game Win Probabilities (core-v2)}
+\strong{Get ESPN MCH / WCH Game Win Probabilities (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_game_probabilities()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_game_probabilities()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try({
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_probabilities(event_id = sb$game_id[1])
+  })
+}
+\donttest{
+  try({
+    sb <- espn_wch_scoreboard(dates = "20250110")
+    espn_wch_game_probabilities(event_id = sb$game_id[1])
   })
 }
 }

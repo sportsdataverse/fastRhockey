@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_player_notes}
 \alias{espn_mch_player_notes}
-\title{\strong{Get ESPN MCH Player Notes (core-v2)}}
+\alias{espn_wch_player_notes}
+\title{\strong{Get ESPN MCH / WCH Player Notes (core-v2)}}
 \usage{
 espn_mch_player_notes(athlete_id, ...)
+
+espn_wch_player_notes(athlete_id, ...)
 }
 \arguments{
 \item{athlete_id}{ESPN athlete identifier (character or numeric).}
@@ -18,14 +21,20 @@ An empty \code{data.frame()}. As of 2026-06-08, ESPN core-v2
 There is no column schema: the call always yields a zero-row, zero-column \code{data.frame()}.
 }
 \description{
-\strong{Get ESPN MCH Player Notes (core-v2)}
+\strong{Get ESPN MCH / WCH Player Notes (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_player_notes()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_player_notes()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_player_notes(athlete_id = "5136656"))
+}
+\donttest{
+  try(espn_wch_player_notes(athlete_id = "5263060"))
 }
 }
 \seealso{

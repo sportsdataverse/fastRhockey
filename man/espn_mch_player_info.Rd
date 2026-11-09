@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_player_info}
 \alias{espn_mch_player_info}
-\title{\strong{Get ESPN MCH Player Info}}
+\alias{espn_wch_player_info}
+\title{\strong{Get ESPN MCH / WCH Player Info}}
 \usage{
 espn_mch_player_info(athlete_id, ...)
+
+espn_wch_player_info(athlete_id, ...)
 }
 \arguments{
 \item{athlete_id}{ESPN athlete identifier (character or numeric,
@@ -45,14 +48,20 @@ returns 404; use \code{\link[=espn_mch_player_core]{espn_mch_player_core()}} for
 }
 }
 \description{
-\strong{Get ESPN MCH Player Info}
+\strong{Get ESPN MCH / WCH Player Info}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_player_info()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_player_info()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_player_info(athlete_id = "5136656"))
+}
+\donttest{
+  try(espn_wch_player_info(athlete_id = "5263060"))
 }
 }
 \seealso{

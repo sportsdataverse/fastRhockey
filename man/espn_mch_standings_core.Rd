@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_standings_core}
 \alias{espn_mch_standings_core}
-\title{\strong{Get ESPN MCH Standings (core-v2)}}
+\alias{espn_wch_standings_core}
+\title{\strong{Get ESPN MCH / WCH Standings (core-v2)}}
 \usage{
 espn_mch_standings_core(...)
+
+espn_wch_standings_core(...)
 }
 \arguments{
 \item{...}{Passed through to \code{.retry_request()} (e.g. \verb{proxy =}).}
@@ -17,17 +20,23 @@ A \code{fastRhockey_data} tibble with one row per standings item:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Standings (core-v2)}
+\strong{Get ESPN MCH / WCH Standings (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}. Core-v2 league-level \code{standings}; ESPN answers
 with a bare \verb{$ref} pointer to the current season's group standings, returned
 as one \code{ref} row. Mirrors sportsdataverse-py \code{espn_mch_standings_core()}, which takes
 no arguments; use \code{espn_mch_standings()} for the per-team table.
+
+\code{espn_wch_standings_core()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_standings_core())
+}
+\donttest{
+  try(espn_wch_standings_core())
 }
 }
 \seealso{

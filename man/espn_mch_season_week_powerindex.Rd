@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_season_week_powerindex}
 \alias{espn_mch_season_week_powerindex}
-\title{\strong{Get ESPN MCH Weekly Power Index (core-v2)}}
+\alias{espn_wch_season_week_powerindex}
+\title{\strong{Get ESPN MCH / WCH Weekly Power Index (core-v2)}}
 \usage{
 espn_mch_season_week_powerindex(season, season_type, week, limit = NULL, ...)
+
+espn_wch_season_week_powerindex(season, season_type, week, limit = NULL, ...)
 }
 \arguments{
 \item{season}{Season END year (e.g. \code{2026}).}
@@ -28,17 +31,23 @@ A \code{fastRhockey_data} tibble with one row per team:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Weekly Power Index (core-v2)}
+\strong{Get ESPN MCH / WCH Weekly Power Index (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}. One row per team, \code{predictives} and
 \code{efficiencies} flattened to one column per field (a name colliding across
 the two blocks is suffixed). A zero-row \code{data.frame} when unpublished.
 Mirrors sportsdataverse-py \code{espn_mch_season_week_powerindex()}.
+
+\code{espn_wch_season_week_powerindex()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_season_week_powerindex(season = 2026, season_type = 2, week = 3))
+}
+\donttest{
+  try(espn_wch_season_week_powerindex(season = 2026, season_type = 2, week = 3))
 }
 }
 \seealso{

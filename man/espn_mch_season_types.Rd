@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_season_types}
 \alias{espn_mch_season_types}
-\title{\strong{Get ESPN MCH Season Types (core-v2)}}
+\alias{espn_wch_season_types}
+\title{\strong{Get ESPN MCH / WCH Season Types (core-v2)}}
 \usage{
 espn_mch_season_types(season = most_recent_nhl_season(), ...)
+
+espn_wch_season_types(season = most_recent_nhl_season(), ...)
 }
 \arguments{
 \item{season}{Season end-year (e.g. \code{2026}). Defaults to
@@ -22,14 +25,20 @@ A \code{fastRhockey_data} tibble with one row per season type
 }
 }
 \description{
-\strong{Get ESPN MCH Season Types (core-v2)}
+\strong{Get ESPN MCH / WCH Season Types (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_season_types()}; columns verified against a captured MCH body.
+
+\code{espn_wch_season_types()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_season_types(season = 2026))
+}
+\donttest{
+  try(espn_wch_season_types(season = 2026))
 }
 }
 \seealso{

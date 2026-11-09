@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_team_news}
 \alias{espn_mch_team_news}
-\title{\strong{Get ESPN MCH Team News}}
+\alias{espn_wch_team_news}
+\title{\strong{Get ESPN MCH / WCH Team News}}
 \usage{
 espn_mch_team_news(team_id, limit = 50, ...)
+
+espn_wch_team_news(team_id, limit = 50, ...)
 }
 \arguments{
 \item{team_id}{ESPN team identifier (character or numeric, e.g. \code{"104"} for
@@ -35,14 +38,20 @@ Columns when populated:\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH Team News}
+\strong{Get ESPN MCH / WCH Team News}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_team_news()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_team_news()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_team_news(team_id = "104", limit = 10))
+}
+\donttest{
+  try(espn_wch_team_news(team_id = "2137", limit = 10))
 }
 }
 \seealso{

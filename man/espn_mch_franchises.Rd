@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_franchises}
 \alias{espn_mch_franchises}
-\title{\strong{Get ESPN MCH Franchises (core-v2)}}
+\alias{espn_wch_franchises}
+\title{\strong{Get ESPN MCH / WCH Franchises (core-v2)}}
 \usage{
 espn_mch_franchises(limit = 200, ...)
+
+espn_wch_franchises(limit = 200, ...)
 }
 \arguments{
 \item{limit}{Maximum number of franchises to return (default \code{200}). The
@@ -22,14 +25,20 @@ A \code{fastRhockey_data} tibble with one row per franchise reference:\tabular{l
 }
 }
 \description{
-\strong{Get ESPN MCH Franchises (core-v2)}
+\strong{Get ESPN MCH / WCH Franchises (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_franchises()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_franchises()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_franchises())
+}
+\donttest{
+  try(espn_wch_franchises())
 }
 }
 \seealso{

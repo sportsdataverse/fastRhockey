@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_game_odds}
 \alias{espn_mch_game_odds}
-\title{\strong{Get ESPN MCH Game Odds (core-v2)}}
+\alias{espn_wch_game_odds}
+\title{\strong{Get ESPN MCH / WCH Game Odds (core-v2)}}
 \usage{
 espn_mch_game_odds(event_id, cid = event_id, ...)
+
+espn_wch_game_odds(event_id, cid = event_id, ...)
 }
 \arguments{
 \item{event_id}{ESPN event (game) identifier.}
@@ -40,16 +43,25 @@ A \code{fastRhockey_data} tibble with one row per odds provider (typically
 }
 }
 \description{
-\strong{Get ESPN MCH Game Odds (core-v2)}
+\strong{Get ESPN MCH / WCH Game Odds (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_game_odds()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_game_odds()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try({
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_odds(event_id = sb$game_id[1])
+  })
+}
+\donttest{
+  try({
+    sb <- espn_wch_scoreboard(dates = "20250110")
+    espn_wch_game_odds(event_id = sb$game_id[1])
   })
 }
 }

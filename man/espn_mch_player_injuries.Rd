@@ -2,9 +2,12 @@
 % Please edit documentation in R/espn_ncaa_hockey.R
 \name{espn_mch_player_injuries}
 \alias{espn_mch_player_injuries}
-\title{\strong{Get ESPN MCH Player Injuries (core-v2)}}
+\alias{espn_wch_player_injuries}
+\title{\strong{Get ESPN MCH / WCH Player Injuries (core-v2)}}
 \usage{
 espn_mch_player_injuries(athlete_id, ...)
+
+espn_wch_player_injuries(athlete_id, ...)
 }
 \arguments{
 \item{athlete_id}{ESPN athlete identifier (character or numeric).}
@@ -19,14 +22,20 @@ Use \code{espn_mch_injuries()} (site-v2) for league-level injury data.
 There is no column schema: the call always yields a zero-row, zero-column \code{data.frame()}.
 }
 \description{
-\strong{Get ESPN MCH Player Injuries (core-v2)}
+\strong{Get ESPN MCH / WCH Player Injuries (core-v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_player_injuries()} (columns inherited); a collection may be empty.
+
+\code{espn_wch_player_injuries()} is the same wrapper for women's college hockey
+(league slug \code{womens-college-hockey}): same arguments, same columns.
 }
 \examples{
 \donttest{
   try(espn_mch_player_injuries(athlete_id = "5136656"))
+}
+\donttest{
+  try(espn_wch_player_injuries(athlete_id = "5263060"))
 }
 }
 \seealso{
