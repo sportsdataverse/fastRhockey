@@ -79,13 +79,15 @@ test_that("espn_nhl_statistics_league returns stat rows or empty gracefully", {
   Sys.sleep(1)
 })
 
-test_that("espn_nhl_draft returns empty gracefully (HTTP 500 for NHL)", {
+test_that("espn_nhl_draft returns the draft board", {
   skip_on_cran()
   skip_espn_test()
 
   x <- espn_nhl_draft()
-  # Should return an empty data.frame gracefully (500 for NHL)
   expect_s3_class(x, "data.frame")
+  if (nrow(x) > 0) {
+    expect_true(all(c("year", "overall", "round", "pick", "team_id") %in% names(x)))
+  }
   Sys.sleep(1)
 })
 

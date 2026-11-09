@@ -608,7 +608,7 @@ espn_nhl_statistics_league <- function(...) {
 
 
 # ===========================================================================
-# 6. Draft (site_v2 — HTTP 500 for NHL; graceful empty)
+# 6. Draft (site_v2 draft board)
 # ===========================================================================
 
 #' Internal: ESPN hockey league draft (league-generic, site_v2)
@@ -624,18 +624,32 @@ espn_nhl_statistics_league <- function(...) {
                                   league = league,
                                   simplifyVector = FALSE, ...)
 
-      items <- raw[["items"]] %||% list()
-      if (length(items) == 0) return(result)
+      # The draft board lists its picks under `picks` (one per slot, with the
+      # owning team's id) and the teams under `teams`.
+      picks <- raw[["picks"]] %||% list()
+      if (length(picks) == 0) return(result)
 
-      rows <- lapply(items, function(it) {
-        list(
-          id          = as.character(it$id   %||% NA_character_),
-          name        = as.character(it$name %||% NA_character_)
+      teams <- raw[["teams"]] %||% list()
+      team_ids <- vapply(teams, function(t) as.character(t$id %||% NA_character_), "")
+      team_field <- function(id, field) {
+        i <- match(id, team_ids)
+        if (is.na(i)) NA_character_ else as.character(teams[[i]][[field]] %||% NA_character_)
+      }
+
+      result <- dplyr::bind_rows(lapply(picks, function(p) {
+        team_id <- as.character(p$teamId %||% NA_character_)
+        data.frame(
+          year                = as.integer(raw$year %||% NA_integer_),
+          overall             = as.integer(p$overall %||% NA_integer_),
+          round               = as.integer(p$round %||% NA_integer_),
+          pick                = as.integer(p$pick %||% NA_integer_),
+          status              = as.character(p$status %||% NA_character_),
+          traded              = as.logical(p$traded %||% NA),
+          team_id             = team_id,
+          team_abbreviation   = team_field(team_id, "abbreviation"),
+          team_display_name   = team_field(team_id, "displayName"),
+          stringsAsFactors = FALSE
         )
-      })
-
-      result <- dplyr::bind_rows(lapply(rows, function(r) {
-        as.data.frame(r, stringsAsFactors = FALSE)
       })) %>%
         janitor::clean_names() %>%
         make_fastRhockey_data(
@@ -664,15 +678,21 @@ NULL
 #' @rdname espn_nhl_draft
 #' @author Saiem Gilani
 #' @param ... Reserved for forward compatibility.
-#' @return A `fastRhockey_data` tibble with draft data, or an empty tibble
-#'   when the endpoint is unavailable. **Note**: The NHL draft endpoint
-#'   (`site/v2/sports/hockey/nhl/draft`) currently returns HTTP 500 for NHL -
-#'   an empty tibble is returned gracefully:
+#' @return A `fastRhockey_data` tibble with one row per pick on ESPN's
+#'   draft board (`site/v2/sports/hockey/nhl/draft`), or an empty tibble when
+#'   the endpoint is unavailable:
 #'
-#'    |col_name |types     |description                                           |
-#'    |:--------|:---------|:-----------------------------------------------------|
-#'    |id       |character |Draft entry identifier (if returned).                 |
-#'    |name     |character |Draft entry name (if returned).                       |
+#'    |col_name          |types     |description                                      |
+#'    |:-----------------|:---------|:------------------------------------------------|
+#'    |year              |integer   |Draft year.                                      |
+#'    |overall           |integer   |Overall pick number.                             |
+#'    |round             |integer   |Round number.                                    |
+#'    |pick              |integer   |Pick number within the round.                    |
+#'    |status            |character |Pick status (e.g. `ON_THE_CLOCK`, `SELECTED`).   |
+#'    |traded            |logical   |Whether the pick was traded.                     |
+#'    |team_id           |character |ESPN id of the team holding the pick.            |
+#'    |team_abbreviation |character |Team abbreviation.                               |
+#'    |team_display_name |character |Team display name.                               |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
@@ -681,7 +701,6 @@ NULL
 #' @seealso [family_espn_nhl] lists every function in this family.
 #' @examples
 #' \donttest{
-#'   # NOTE: Returns empty tibble for NHL (ESPN returns HTTP 500 for this endpoint)
 #'   try(espn_nhl_draft())
 #' }
 espn_nhl_draft <- function(...) {

@@ -13,13 +13,20 @@ espn_wch_draft(...)
 \item{...}{Reserved for forward compatibility.}
 }
 \value{
-A \code{fastRhockey_data} tibble with draft data, or an empty tibble
-when the endpoint is unavailable. \strong{Note}: The MCH draft endpoint
-(\code{site/v2/sports/hockey/nhl/draft}) currently returns HTTP 500 for MCH -
-an empty tibble is returned gracefully:\tabular{lll}{
+A \code{fastRhockey_data} tibble with one row per pick on ESPN's
+draft board, or an empty tibble when the endpoint is unavailable. \strong{Note}:
+ESPN currently answers HTTP 500 for the college draft endpoint, so an
+empty tibble is returned gracefully:\tabular{lll}{
    col_name \tab types \tab description \cr
-   id \tab character \tab Draft entry identifier (if returned). \cr
-   name \tab character \tab Draft entry name (if returned). \cr
+   year \tab integer \tab Draft year. \cr
+   overall \tab integer \tab Overall pick number. \cr
+   round \tab integer \tab Round number. \cr
+   pick \tab integer \tab Pick number within the round. \cr
+   status \tab character \tab Pick status (e.g. \code{ON_THE_CLOCK}, \code{SELECTED}). \cr
+   traded \tab logical \tab Whether the pick was traded. \cr
+   team_id \tab character \tab ESPN id of the team holding the pick. \cr
+   team_abbreviation \tab character \tab Team abbreviation. \cr
+   team_display_name \tab character \tab Team display name. \cr
 }
 }
 \description{

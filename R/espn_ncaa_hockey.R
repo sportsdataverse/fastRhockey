@@ -889,15 +889,22 @@ NULL
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_draft()` (columns inherited); a collection may be empty.
 #' @details `espn_wch_draft()` is the same wrapper for women's college hockey
 #'   (league slug `womens-college-hockey`): same arguments, same columns.
-#' @return A `fastRhockey_data` tibble with draft data, or an empty tibble
-#'   when the endpoint is unavailable. **Note**: The MCH draft endpoint
-#'   (`site/v2/sports/hockey/nhl/draft`) currently returns HTTP 500 for MCH -
-#'   an empty tibble is returned gracefully:
+#' @return A `fastRhockey_data` tibble with one row per pick on ESPN's
+#'   draft board, or an empty tibble when the endpoint is unavailable. **Note**:
+#'   ESPN currently answers HTTP 500 for the college draft endpoint, so an
+#'   empty tibble is returned gracefully:
 #'
-#'    |col_name |types     |description                                           |
-#'    |:--------|:---------|:-----------------------------------------------------|
-#'    |id       |character |Draft entry identifier (if returned).                 |
-#'    |name     |character |Draft entry name (if returned).                       |
+#'    |col_name          |types     |description                                      |
+#'    |:-----------------|:---------|:------------------------------------------------|
+#'    |year              |integer   |Draft year.                                      |
+#'    |overall           |integer   |Overall pick number.                             |
+#'    |round             |integer   |Round number.                                    |
+#'    |pick              |integer   |Pick number within the round.                    |
+#'    |status            |character |Pick status (e.g. `ON_THE_CLOCK`, `SELECTED`).   |
+#'    |traded            |logical   |Whether the pick was traded.                     |
+#'    |team_id           |character |ESPN id of the team holding the pick.            |
+#'    |team_abbreviation |character |Team abbreviation.                               |
+#'    |team_display_name |character |Team display name.                               |
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom janitor clean_names
