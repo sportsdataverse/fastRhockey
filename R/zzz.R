@@ -10,6 +10,7 @@
 .xg_env$xg_model_5v5 <- NULL
 .xg_env$xg_model_st <- NULL
 .xg_env$xg_model_ps <- NULL
+.xg_env$xg_model_version <- NULL
 .xg_env$xg_feature_names_5v5 <- NULL
 .xg_env$xg_feature_names_st <- NULL
 
@@ -18,23 +19,18 @@
     "releases/download/nhl_xg_models/"
 )
 
-#' The xG model files this version scores with, pinned by sha256
+#' The xG model files the release manifest must name
 #'
-#' The release asset digests of `nhl_xg_models` (the 2026-04-06 training,
-#' sha256-identical to `fastRhockey-nhl-data/models/`). A cached file whose
-#' hash differs -- a copy from another training -- is evicted and fetched
-#' again, so a retrain cannot leave users scoring with the old boosters, and a
-#' valid cached copy is used offline. A retrain ships by updating these pins.
+#' The release's `xg_model_meta.json` is its manifest: the penalty-shot
+#' constant, a `version`, and the sha256 of each of these files. It is written
+#' by `fastRhockey-nhl-data`'s publisher (`nhl_data_build.xg_publish`) from the
+#' promoted models, so a retrain ships by publishing -- no fastRhockey release
+#' is needed, and a cached file from another training is replaced.
 #'
 #' @keywords internal
 #' @noRd
-.xg_pins <- c(
-    xg_model_5v5.json = "2e5017a4a8ef07708df758d5105d41f45ad83e85fe158358e707988a7d50c80c",
-    xg_model_st.json = "8d6dfa95d9a8574b81eff4981e2bdbf69832238f8c383513de651712a3e3c678",
-    xg_model_meta.json = "0188937cf169d597d9d378195f4056cd9ee3094e6c96f6244c8d86ae6ca9cfc6",
-    feats_5v5.txt = "ecf01864d64aa825b76296fa79834f68c71bac4acc2b94f081976f413b838ee8",
-    feats_st.txt = "c1e50527eb320021a222ee266f0584270ff083e13a142d659a43dce37f5c08d6"
-)
+.xg_files <- c("xg_model_5v5.json", "xg_model_st.json", "feats_5v5.txt", "feats_st.txt")
+.xg_manifest_name <- "xg_model_meta.json"
 
 #' Directory the xG models are cached in
 #'
@@ -51,37 +47,160 @@
     tools::R_user_dir("fastRhockey", which = "cache")
 }
 
-#' A pinned xG file: the cached copy if its sha256 matches, else downloaded
+#' Read and check a release manifest
 #'
-#' @return The local path. Errors when the file cannot be fetched or the
-#'   release no longer carries the pinned bytes.
+#' @return The manifest list with `files` as a named sha256 vector in
+#'   `.xg_files` order. Errors on a manifest that does not name every file or
+#'   whose penalty-shot constant is not one probability.
 #' @keywords internal
 #' @noRd
-.xg_file <- function(fname, cache_dir = .xg_cache_dir()) {
-    dest <- file.path(cache_dir, fname)
-    pin <- .xg_pins[[fname]]
-    if (.xg_hash_is(dest, pin)) return(dest)
-    dir.create(cache_dir, recursive = TRUE, showWarnings = FALSE)
-    # Its own temp file per download, so two sessions loading at once cannot
-    # hash or rename each other's partial file.
-    tmp <- tempfile(paste0(fname, "-"), tmpdir = cache_dir)
-    on.exit(unlink(tmp), add = TRUE)
-    utils::download.file(paste0(.xg_base_url, fname), tmp,
-                         mode = "wb", quiet = TRUE)
-    if (!.xg_hash_is(tmp, pin)) {
+.xg_read_manifest <- function(path) {
+    m <- jsonlite::fromJSON(path, simplifyVector = TRUE)
+    pins <- unlist(m$files)
+    ps <- m$xg_model_ps
+    ok <- is.numeric(ps) && length(ps) == 1L && is.finite(ps) && ps >= 0 && ps <= 1 &&
+        setequal(names(pins), .xg_files) && all(grepl("^[0-9a-f]{64}$", pins))
+    if (!isTRUE(ok)) {
+        manifest <- .xg_manifest_name  # cli reads a leading "." in {} as a style, not a name
+        expected <- .xg_files
         cli::cli_abort(c(
-            "The {.val nhl_xg_models} release no longer carries the {.file {fname}} this fastRhockey version scores with.",
-            "i" = "Update fastRhockey to use the retrained xG models."
+            "The {.val nhl_xg_models} release manifest {.file {manifest}} is not in the expected format.",
+            "i" = "It must carry {.field xg_model_ps} (a probability) and a sha256 for each of {.file {expected}}."
         ))
     }
-    # Replaces a stale cached copy too; a copy that still fails the pin is refused.
-    unlink(dest, recursive = TRUE)
-    if (!isTRUE(file.rename(tmp, dest))) file.copy(tmp, dest, overwrite = TRUE)
+    m$files <- pins[.xg_files]
+    m
+}
+
+#' The release manifest, fetched but NOT yet written to the cache
+#'
+#' @return `list(manifest, tmp)`: `tmp` is the fetched copy, committed to the
+#'   cache by `.load_xg_models()` only after every file it names has verified;
+#'   `NULL` when offline, where the cached manifest is used instead.
+#' @keywords internal
+#' @noRd
+.xg_fetch_manifest <- function(cache_dir = .xg_cache_dir()) {
+    dest <- file.path(cache_dir, .xg_manifest_name)
+    dir.create(cache_dir, recursive = TRUE, showWarnings = FALSE)
+    tmp <- tempfile("xg_model_meta-", tmpdir = cache_dir)
+    # A failed download.file() warns and then errors; the error is what we act on,
+    # and its warning would only repeat it.
+    fetched <- tryCatch({
+        suppressWarnings(utils::download.file(paste0(.xg_base_url, .xg_manifest_name), tmp,
+                                              mode = "wb", quiet = TRUE))
+        .xg_read_manifest(tmp)
+    }, error = function(e) e)
+    if (!inherits(fetched, "error")) {
+        return(list(manifest = fetched, tmp = tmp))
+    }
+    unlink(tmp)
+    if (file.exists(dest) && !dir.exists(dest)) {
+        # offline: the last manifest seen, with the files it named
+        return(list(manifest = .xg_read_manifest(dest), tmp = NULL))
+    }
+    cli::cli_abort(c(
+        "Could not fetch the {.val nhl_xg_models} release manifest.",
+        "x" = conditionMessage(fetched)
+    ))
+}
+
+#' Stage one xG file: `NULL` if the cached copy matches, else a verified download
+#'
+#' Downloads to a temp file in the cache dir and checks its sha256 against the
+#' manifest, without touching the cached copy; `.load_xg_models()` renames the
+#' staged files into place only when every one has verified.
+#'
+#' @return `NULL` (cache hit) or the staged temp path. Errors when the file
+#'   cannot be fetched or does not match the manifest.
+#' @keywords internal
+#' @noRd
+.xg_stage_file <- function(fname, pin, cache_dir = .xg_cache_dir()) {
+    if (.xg_hash_is(file.path(cache_dir, fname), pin)) return(NULL)
+    dir.create(cache_dir, recursive = TRUE, showWarnings = FALSE)
+    tmp <- tempfile(paste0(fname, "-"), tmpdir = cache_dir)
+    ok <- FALSE
+    on.exit(if (!ok) unlink(tmp), add = TRUE)
+    utils::download.file(paste0(.xg_base_url, fname), tmp, mode = "wb", quiet = TRUE)
+    if (!.xg_hash_is(tmp, pin)) {
+        cli::cli_abort(c(
+            "The downloaded {.file {fname}} does not match the {.val nhl_xg_models} release manifest.",
+            "i" = "The release may be mid-update; try again shortly, or run {.fn refresh_xg_models}."
+        ))
+    }
+    ok <- TRUE
+    tmp
+}
+
+#' Move a staged temp file over `dest`
+#'
+#' A rename replaces `dest` in one step (it never deletes `dest` first); when
+#' the rename fails, a copy is tried, and the result must hash to `pin` or the
+#' load stops with an error rather than continue from an incomplete cache.
+#' @keywords internal
+#' @noRd
+.xg_commit <- function(tmp, dest, pin) {
+    if (!isTRUE(file.rename(tmp, dest))) {
+        suppressWarnings(file.copy(tmp, dest, overwrite = TRUE))
+        unlink(tmp)
+    }
     if (!.xg_hash_is(dest, pin)) {
         cli::cli_abort("Could not write the xG model file {.file {dest}}.")
     }
-    dest
+    invisible(dest)
 }
+
+#' Commit staged files as one set, rolling back on any failure
+#'
+#' `staged` maps cache file names to verified temp files, in commit order (the
+#' manifest last); `pins` gives each one's sha256. Every file about to be
+#' replaced is first moved to its own uniquely named `<name>.bak-*` (an earlier
+#' operation's backup is never overwritten); if any commit fails, every file
+#' already written is put back from its backup (or removed, if it is new), so the
+#' cache keeps the previous complete set. On success the backups are deleted.
+#' @keywords internal
+#' @noRd
+.xg_commit_set <- function(staged, pins, cache_dir) {
+    backups <- character()
+    written <- character()
+    res <- tryCatch({
+        for (f in names(staged)) {
+            dest <- file.path(cache_dir, f)
+            if (file.exists(dest)) {
+                bak <- tempfile(paste0(f, ".bak-"), tmpdir = cache_dir)
+                if (!isTRUE(file.rename(dest, bak))) {
+                    cli::cli_abort("Could not set aside the cached {.file {dest}}.")
+                }
+                backups[[f]] <- bak
+            }
+            written <- c(written, f)
+            .xg_commit(staged[[f]], dest, pins[[f]])
+        }
+        NULL
+    }, error = function(e) e)
+    if (is.null(res)) {
+        unlink(backups)
+        return(invisible(TRUE))
+    }
+    for (f in written) {
+        dest <- file.path(cache_dir, f)
+        unlink(dest)
+        if (!is.na(backups[f])) file.rename(backups[[f]], dest)
+    }
+    lost <- names(backups)[!file.exists(file.path(cache_dir, names(backups)))]
+    if (length(lost)) {
+        cli::cli_abort(c(
+            "Could not update the xG models, and could not restore {.file {lost}}.",
+            "i" = "The previous copies are kept as {.file .bak-*} files in {.path {cache_dir}}.",
+            "x" = conditionMessage(res)
+        ))
+    }
+    stop(res)
+}
+
+#' Build a booster from verified bytes (a seam the offline tests replace)
+#' @keywords internal
+#' @noRd
+.xg_load_booster <- function(bytes) xgboost::xgb.load.raw(bytes)
 
 #' Does `path` hash to `pin`? An unreadable or missing path is a miss.
 #' @keywords internal
@@ -91,7 +210,31 @@
         identical(tryCatch(cli::hash_file_sha256(path), error = function(e) NA), pin)
 }
 
+#' The bytes of a cached xG file, checked against the manifest as they are read
+#'
+#' The models are built from these exact bytes, so another session replacing
+#' the file between verification and loading surfaces as an error, never as a
+#' booster from one release loaded beside another release's constant.
+#' @keywords internal
+#' @noRd
+.xg_verified_bytes <- function(fname, pin, cache_dir) {
+    path <- file.path(cache_dir, fname)
+    bytes <- readBin(path, "raw", n = file.size(path))
+    if (!identical(cli::hash_raw_sha256(bytes), pin)) {
+        cli::cli_abort(c(
+            "The cached {.file {fname}} changed while it was being loaded.",
+            "i" = "Another session may be updating the xG models; try again."
+        ))
+    }
+    bytes
+}
+
 #' Load the xG models into `.xg_env`, once per session
+#'
+#' Fetches the manifest, stages every file it names that the cache lacks, and
+#' commits only a complete, verified set -- the files first, the manifest last
+#' -- so a refresh that fails part-way leaves the previous set intact for
+#' offline use.
 #'
 #' @return `TRUE` when loaded. Errors (with the reason) when a file cannot
 #'   be fetched; the next call tries again.
@@ -104,14 +247,30 @@
     cache_dir <- .xg_cache_dir()
     # The pre-1.1.1 sidecar, superseded by xg_model_meta.json + feats_*.txt.
     unlink(file.path(cache_dir, "xg_model_meta.rds"))
-    paths <- vapply(names(.xg_pins), .xg_file, character(1),
-                    cache_dir = cache_dir)
-    meta <- jsonlite::fromJSON(paths[["xg_model_meta.json"]])
-    .xg_env$xg_feature_names_5v5 <- readLines(paths[["feats_5v5.txt"]], warn = FALSE)
-    .xg_env$xg_feature_names_st <- readLines(paths[["feats_st.txt"]], warn = FALSE)
-    .xg_env$xg_model_ps <- as.numeric(meta$xg_model_ps)
-    .xg_env$xg_model_5v5 <- xgboost::xgb.load(paths[["xg_model_5v5.json"]])
-    .xg_env$xg_model_st <- xgboost::xgb.load(paths[["xg_model_st.json"]])
+    fetched <- .xg_fetch_manifest(cache_dir)
+    manifest <- fetched$manifest
+    staged <- list()
+    on.exit(unlink(c(unlist(staged), fetched$tmp)), add = TRUE)
+    for (f in .xg_files) {
+        tmp <- .xg_stage_file(f, manifest$files[[f]], cache_dir)
+        if (!is.null(tmp)) staged[[f]] <- tmp
+    }
+    pins <- as.list(manifest$files)
+    if (!is.null(fetched$tmp)) {
+        staged[[.xg_manifest_name]] <- fetched$tmp  # committed last
+        pins[[.xg_manifest_name]] <- cli::hash_file_sha256(fetched$tmp)
+    }
+    if (length(staged)) .xg_commit_set(staged, pins, cache_dir)
+    bytes <- lapply(stats::setNames(.xg_files, .xg_files), function(f) {
+        .xg_verified_bytes(f, manifest$files[[f]], cache_dir)
+    })
+    feats <- function(b) strsplit(gsub("\r", "", rawToChar(b)), "\n", fixed = TRUE)[[1]]
+    .xg_env$xg_feature_names_5v5 <- feats(bytes[["feats_5v5.txt"]])
+    .xg_env$xg_feature_names_st <- feats(bytes[["feats_st.txt"]])
+    .xg_env$xg_model_ps <- as.numeric(manifest$xg_model_ps)
+    .xg_env$xg_model_version <- manifest$version
+    .xg_env$xg_model_5v5 <- .xg_load_booster(bytes[["xg_model_5v5.json"]])
+    .xg_env$xg_model_st <- .xg_load_booster(bytes[["xg_model_st.json"]])
     invisible(TRUE)
 }
 
@@ -120,7 +279,8 @@
 #' @description Clears the cached xG model files, downloads them again from
 #'   the sportsdataverse-data `nhl_xg_models` release and reloads them. The
 #'   models normally load on first use and a stale cached copy is replaced
-#'   automatically, so this is only needed to repair a cache by hand.
+#'   automatically, so this is only needed to repair a cache by hand. If the
+#'   download fails, the previous cache is restored.
 #'
 #' @return Invisible NULL. Models are reloaded into the package namespace.
 #'
@@ -138,14 +298,40 @@ refresh_xg_models <- function() {
         )
     }
     cache_dir <- .xg_cache_dir()
-    cached <- file.path(cache_dir, c(names(.xg_pins), "xg_model_meta.rds"))
-    unlink(cached)
-    if (any(file.exists(cached))) {
-        stop("Could not delete the cached xG models in ", cache_dir, call. = FALSE)
+    names <- c(.xg_files, .xg_manifest_name)
+    cached <- file.path(cache_dir, names)
+    unlink(file.path(cache_dir, "xg_model_meta.rds"))
+    # Move the current set aside rather than delete it: a refresh that cannot
+    # download (offline, release mid-update) puts it back instead of leaving an
+    # empty cache. Each refresh gets its own backup dir, so one kept by an
+    # earlier failed restore is never removed here.
+    backup <- tempfile(".refresh-backup-", tmpdir = cache_dir)
+    dir.create(backup, recursive = TRUE, showWarnings = FALSE)
+    present <- file.exists(cached)
+    moved <- file.rename(cached[present], file.path(backup, names[present]))
+    if (!all(moved)) {
+        back <- file.rename(file.path(backup, names[present][moved]), cached[present][moved])
+        if (!all(back)) {
+            stop("Could not clear the cached xG models in ", cache_dir, ", and could not put ",
+                 "every file back; the rest are kept in ", backup, ".", call. = FALSE)
+        }
+        unlink(backup, recursive = TRUE)
+        stop("Could not clear the cached xG models in ", cache_dir, call. = FALSE)
     }
     message("Cleared cached xG models.")
     for (nm in c("xg_model_5v5", "xg_model_st")) assign(nm, NULL, envir = .xg_env)
-    .load_xg_models()
+    tryCatch(.load_xg_models(), error = function(e) {
+        unlink(cached)
+        restored <- file.rename(file.path(backup, names[present]), cached[present])
+        if (!all(restored)) {
+            stop("Could not reload the xG models, and could not restore the previous cache; ",
+                 "its files are kept in ", backup, ". ", conditionMessage(e), call. = FALSE)
+        }
+        unlink(backup, recursive = TRUE)
+        stop("Could not reload the xG models; the previous cache was restored. ",
+             conditionMessage(e), call. = FALSE)
+    })
+    unlink(backup, recursive = TRUE)
     message("xG models reloaded successfully.")
     invisible(NULL)
 }

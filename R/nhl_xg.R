@@ -5,9 +5,11 @@
 #' Expected-goals computation for NHL play-by-play data. Three XGBoost
 #' models (5v5, special teams, penalty shots) are downloaded on first use from
 #' the sportsdataverse-data `nhl_xg_models` release (the one sportsdataverse-py
-#' reads), checked against the sha256 pinned in `zzz.R`, and cached in
-#' `tools::R_user_dir("fastRhockey", "cache")`. A cached copy whose hash
-#' differs is replaced, and `library(fastRhockey)` makes no network call.
+#' reads), checked against the sha256s in the release manifest
+#' (`xg_model_meta.json`), and cached in `tools::R_user_dir("fastRhockey", "cache")`.
+#' A cached copy the manifest does not match is replaced, so a retrain reaches
+#' installed copies without a package update, and `library(fastRhockey)` makes
+#' no network call.
 #'
 #' @details
 #'

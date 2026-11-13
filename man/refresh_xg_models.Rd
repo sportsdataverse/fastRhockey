@@ -13,7 +13,8 @@ Invisible NULL. Models are reloaded into the package namespace.
 Clears the cached xG model files, downloads them again from
 the sportsdataverse-data \code{nhl_xg_models} release and reloads them. The
 models normally load on first use and a stale cached copy is replaced
-automatically, so this is only needed to repair a cache by hand.
+automatically, so this is only needed to repair a cache by hand. If the
+download fails, the previous cache is restored.
 }
 \examples{
 \dontrun{

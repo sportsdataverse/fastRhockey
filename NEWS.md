@@ -96,10 +96,17 @@ upgrades from 1.0.0 may need to change.
   forbids: `library(fastRhockey)` makes no network call, and
   `helper_nhl_calculate_xg()` (and so `nhl_game_pbp()` / `nhl_game_feed()`)
   loads them on first use. They now come from the sportsdataverse-data
-  `nhl_xg_models` release that sportsdataverse-py reads, pinned by sha256: a
-  cached copy that matches is used offline, one that does not (another
-  training) is replaced, so a retrain cannot leave the old boosters in use
-  from cache. `refresh_xg_models()` still clears and re-fetches them (#96).
+  `nhl_xg_models` release that sportsdataverse-py reads, checked against the
+  sha256s in the release's manifest (`xg_model_meta.json`, written by
+  fastRhockey-nhl-data's publisher) rather than hashes pinned in this package:
+  a cached copy that matches is used (offline too, with the last manifest
+  seen), one that does not (another training) is replaced, so a retrain
+  reaches installed copies without a fastRhockey release: the first load that
+  fetches the new manifest replaces the cached boosters (offline, the last
+  manifest seen keeps validating the copies it named). A refresh commits only
+  a complete, verified set, so one that fails part-way leaves the previous
+  set usable. `refresh_xg_models()` still clears and
+  re-fetches them (#96).
 * The PHF games index csv (`update_phf_db()`) is read through
   `.release_csv_from_url()`, the release-read helper the loaders use (150 s
   timeout floor, two retries, a warning naming the url), instead of
