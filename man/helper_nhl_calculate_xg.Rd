@@ -44,9 +44,11 @@ non-5v5 situations (adds skater count features)
 }
 
 The models are downloaded on the first call from the sportsdataverse-data
-\code{nhl_xg_models} release, checked against the sha256 this version pins and
-cached, so later calls (and offline sessions with a valid cache) make no
-network request. A cached copy from another training is replaced.
+\code{nhl_xg_models} release, checked against the sha256s in the release's
+manifest (\code{xg_model_meta.json}) and cached. Each session re-reads the small
+manifest; files that still match it are not downloaded again, and a cached
+copy from another training is replaced, so a retrain needs no fastRhockey
+update. Offline, the last manifest seen and its cached files are used.
 }
 \examples{
 \dontrun{

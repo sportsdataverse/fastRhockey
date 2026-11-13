@@ -1,1 +1,15 @@
-{"xg_model_ps": 0.3202197}
+{
+  "files": {
+    "feats_5v5.txt": "3601018c4756386a52e7fccfda6ea4dfeaee30db0c50f032de46c8d6bf1ce1b1",
+    "feats_st.txt": "fcb93c872a715a2f100c68caf270f5bf04e39afcb3adc7a75063bb7ef7002755",
+    "xg_model_5v5.json": "b80177090dee76387968bf0b9f9fa9e3b670928e78c9310d98bc191812925ec6",
+    "xg_model_st.json": "4bf8e4a0adcc1edd1173f183a201b7daee019f4e5658d8f41e408583ce0e611e"
+  },
+  "source": "sportsdataverse/fastRhockey-nhl-data@b3cfa5e10dfbbb54168371957c80c1b4860e43fd",
+  "trained_at": {
+    "5v5": "2026-11-12T10:15:02+00:00",
+    "st": "2026-11-12T08:25:30+00:00"
+  },
+  "version": "2026-11-12",
+  "xg_model_ps": 0.3183705
+}

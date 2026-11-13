@@ -1,69 +1,106 @@
-# The xG models load on first use, are pinned by sha256, and a stale cache is evicted
-# (fastRhockey#96). Offline: the download is mocked with the real release meta file.
+# The xG models load on first use and are checked against the release MANIFEST
+# (xg_model_meta.json: penalty-shot constant, version, sha256 per file), not hashes
+# pinned in this package, so a retrain ships by publishing (fastRhockey#96 follow-up).
+# Offline: download.file is mocked; the manifest fixture is the real published one.
 
-meta_fixture <- test_path("fixtures", "nhl", "xg_model_meta.json")
+manifest_fixture <- test_path("fixtures", "nhl", "xg_model_meta.json")
 
-mock_download <- function(env) {
+# A fake release: `files` maps asset name -> local source path; NULL = no network.
+mock_release <- function(env) {
     function(url, destfile, ...) {
         env$calls <- c(env$calls, url)
-        file.copy(env$src, destfile, overwrite = TRUE)
+        if (is.null(env$files)) stop("cannot open URL '", url, "'")
+        src <- env$files[[basename(url)]]
+        if (is.null(src)) stop("HTTP status was '404 Not Found'")
+        file.copy(src, destfile, overwrite = TRUE)
         0L
     }
+}
+
+# A manifest naming the four files written into `dir` (one line of text each).
+fake_assets <- function(dir, tag = "a") {
+    paths <- file.path(dir, .xg_files)
+    for (p in paths) writeLines(paste(tag, basename(p)), p)
+    m <- list(xg_model_ps = 0.31, version = tag,
+              files = as.list(stats::setNames(vapply(paths, cli::hash_file_sha256, ""), .xg_files)))
+    mp <- file.path(dir, .xg_manifest_name)
+    jsonlite::write_json(m, mp, auto_unbox = TRUE)
+    c(stats::setNames(as.list(paths), .xg_files), stats::setNames(list(mp), .xg_manifest_name))
 }
 
 test_that("loading the package does not fetch the xG models", {
     expect_false(exists(".onLoad", envir = asNamespace("fastRhockey"), inherits = FALSE))
 })
 
-test_that("a cached file with the pinned sha256 is used without a download", {
-    dir <- withr::local_tempdir()
-    file.copy(meta_fixture, file.path(dir, "xg_model_meta.json"))
-    env <- new.env()
-    env$src <- meta_fixture
-    local_mocked_bindings(download.file = mock_download(env), .package = "utils")
-    expect_identical(.xg_file("xg_model_meta.json", dir), file.path(dir, "xg_model_meta.json"))
+test_that("the published manifest names every file with a sha256 and the PS constant", {
+    m <- .xg_read_manifest(manifest_fixture)
+    expect_identical(names(m$files), .xg_files)
+    expect_true(all(grepl("^[0-9a-f]{64}$", m$files)))
+    expect_true(is.numeric(m$xg_model_ps) && m$xg_model_ps > 0 && m$xg_model_ps < 1)
+})
+
+test_that("a manifest without file hashes (the pre-manifest release) is refused", {
+    old <- withr::local_tempfile(fileext = ".json")
+    writeLines('{"xg_model_ps": 0.3202197}', old)
+    expect_error(.xg_read_manifest(old), "not in the expected format")
+})
+
+test_that("a cached file matching the manifest is used without a download", {
+    src <- withr::local_tempdir(); cache <- withr::local_tempdir()
+    rel <- fake_assets(src)
+    file.copy(rel[["feats_st.txt"]], cache)
+    env <- new.env(); env$files <- rel
+    local_mocked_bindings(download.file = mock_release(env), .package = "utils")
+    pin <- cli::hash_file_sha256(rel[["feats_st.txt"]])
+    expect_identical(.xg_file("feats_st.txt", pin, cache), file.path(cache, "feats_st.txt"))
     expect_null(env$calls)
 })
 
-test_that("a stale cached file is evicted and fetched from the nhl_xg_models release", {
-    dir <- withr::local_tempdir()
-    dest <- file.path(dir, "xg_model_meta.json")
-    writeLines('{"xg_model_ps": 0.31, "version": "2025-01"}', dest)
-    env <- new.env()
-    env$src <- meta_fixture
-    local_mocked_bindings(download.file = mock_download(env), .package = "utils")
-    expect_identical(.xg_file("xg_model_meta.json", dir), dest)
-    expect_length(env$calls, 1L)
-    expect_match(env$calls, "releases/download/nhl_xg_models/xg_model_meta.json$")
-    expect_identical(cli::hash_file_sha256(dest), .xg_pins[["xg_model_meta.json"]])
-    expect_false(file.exists(paste0(dest, ".part")))
+test_that("a retrain reaches the cache: the new manifest evicts and replaces stale files", {
+    old <- withr::local_tempdir(); new <- withr::local_tempdir(); cache <- withr::local_tempdir()
+    for (p in fake_assets(old, "old")[.xg_files]) file.copy(p, cache)
+    rel <- fake_assets(new, "new")
+    env <- new.env(); env$files <- rel
+    local_mocked_bindings(download.file = mock_release(env), .package = "utils")
+    m <- .xg_manifest(cache)
+    expect_identical(m$version, "new")
+    for (f in .xg_files) {
+        dest <- .xg_file(f, m$files[[f]], cache)
+        expect_identical(cli::hash_file_sha256(dest), m$files[[f]])
+    }
+    expect_length(env$calls, 1L + length(.xg_files))
+    expect_match(env$calls[[1]], "releases/download/nhl_xg_models/xg_model_meta.json$")
+    expect_setequal(list.files(cache), c(.xg_files, .xg_manifest_name))  # no temp files left
 })
 
-test_that("release bytes that no longer match the pin are refused, not cached", {
-    dir <- withr::local_tempdir()
-    retrained <- withr::local_tempfile(fileext = ".json")
-    writeLines('{"xg_model_ps": 0.33}', retrained)
-    env <- new.env()
-    env$src <- retrained
-    local_mocked_bindings(download.file = mock_download(env), .package = "utils")
-    expect_error(.xg_file("xg_model_meta.json", dir), "Update fastRhockey")
-    expect_false(file.exists(file.path(dir, "xg_model_meta.json")))
+test_that("bytes that do not match the manifest are refused, not cached", {
+    src <- withr::local_tempdir(); cache <- withr::local_tempdir()
+    rel <- fake_assets(src)
+    env <- new.env(); env$files <- rel
+    local_mocked_bindings(download.file = mock_release(env), .package = "utils")
+    expect_error(.xg_file("xg_model_st.json", strrep("0", 64), cache), "does not match")
+    expect_false(file.exists(file.path(cache, "xg_model_st.json")))
 })
 
-test_that("every pinned asset is a 64-hex sha256", {
-    expect_setequal(names(.xg_pins), c("xg_model_5v5.json", "xg_model_st.json",
-                                       "xg_model_meta.json", "feats_5v5.txt", "feats_st.txt"))
-    expect_true(all(grepl("^[0-9a-f]{64}$", .xg_pins)))
+test_that("offline, the cached manifest is used; with none, the failure is reported", {
+    src <- withr::local_tempdir(); cache <- withr::local_tempdir()
+    rel <- fake_assets(src, "cached")
+    env <- new.env(); env$files <- NULL
+    local_mocked_bindings(download.file = mock_release(env), .package = "utils")
+    expect_error(.xg_manifest(cache), "Could not fetch")
+    file.copy(rel[[.xg_manifest_name]], cache)
+    expect_identical(.xg_manifest(cache)$version, "cached")
 })
 
 test_that("an unreadable cache entry is a miss, not an error", {
-    dir <- withr::local_tempdir()
-    dir.create(file.path(dir, "xg_model_meta.json"))
-    env <- new.env()
-    env$src <- meta_fixture
-    local_mocked_bindings(download.file = mock_download(env), .package = "utils")
-    dest <- .xg_file("xg_model_meta.json", dir)
+    src <- withr::local_tempdir(); cache <- withr::local_tempdir()
+    rel <- fake_assets(src)
+    dir.create(file.path(cache, "feats_5v5.txt"))
+    env <- new.env(); env$files <- rel
+    local_mocked_bindings(download.file = mock_release(env), .package = "utils")
+    pin <- cli::hash_file_sha256(rel[["feats_5v5.txt"]])
+    dest <- .xg_file("feats_5v5.txt", pin, cache)
     expect_length(env$calls, 1L)
-    expect_identical(cli::hash_file_sha256(dest), .xg_pins[["xg_model_meta.json"]])
-    expect_length(list.files(dir), 1L)
+    expect_identical(cli::hash_file_sha256(dest), pin)
+    expect_length(list.files(cache), 1L)
 })

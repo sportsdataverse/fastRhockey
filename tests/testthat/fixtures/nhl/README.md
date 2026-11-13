@@ -10,3 +10,8 @@ games 2025021229 (TBL at BUF) and 2025021230, captured from the public NHL API
 play-by-play JSON text from `api-web.nhle.com/v1/gamecenter/2025021229/play-by-play`
 and the `nhl_game_shifts()` output, captured on 2026-11-02. `test-nhl_game_pbp.R`
 mocks the two network calls with them to build the full PBP offline.
+
+`xg_model_meta.json`: the `nhl_xg_models` release manifest as published on 2026-11-13 by
+`fastRhockey-nhl-data`'s `nhl_data_build.xg_publish` (models from commit `7fe5c8f`, published from `b3cfa5e`): the
+penalty-shot constant, `version`, `trained_at` and the sha256 of each asset.
+`test-xg_model_cache.R` checks the manifest format against it.
