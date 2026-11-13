@@ -187,3 +187,46 @@ test_that("refresh_xg_models() restores the previous cache when it cannot downlo
     expect_identical(unname(after), unname(before))
     expect_false(dir.exists(file.path(cache, ".refresh-backup")))
 })
+
+test_that("a commit that fails part-way rolls back to the previous complete set", {
+    a <- withr::local_tempdir(); b <- withr::local_tempdir(); cache <- withr::local_tempdir()
+    cache_set(fake_assets(a, "A"), cache)
+    before <- vapply(file.path(cache, c(.xg_files, .xg_manifest_name)), cli::hash_file_sha256, "")
+    rel <- fake_assets(b, "B")
+    env <- new.env(); env$files <- rel
+    local_mocked_bindings(download.file = mock_release(env), .package = "utils")
+    local_mocked_bindings(.xg_cache_dir = function() cache)
+    local_fake_xgboost()
+    real_commit <- .xg_commit
+    n <- 0L
+    local_mocked_bindings(.xg_commit = function(tmp, dest, pin) {
+        n <<- n + 1L
+        if (n == 3L) cli::cli_abort("Could not write the xG model file {.file {dest}}.")
+        real_commit(tmp, dest, pin)
+    })
+    expect_error(.load_xg_models(), "Could not write")
+    after <- vapply(file.path(cache, c(.xg_files, .xg_manifest_name)), cli::hash_file_sha256, "")
+    expect_identical(unname(after), unname(before))
+    expect_setequal(list.files(cache), c(.xg_files, .xg_manifest_name))  # no .bak or temp left
+    env$files <- NULL  # offline: set A still loads
+    local_mocked_bindings(.xg_commit = real_commit)
+    expect_true(.load_xg_models())
+    expect_identical(.xg_env$xg_model_version, "A")
+})
+
+test_that("refresh_xg_models() keeps its backup when it cannot restore it", {
+    skip_if_not_installed("xgboost")
+    src <- withr::local_tempdir(); cache <- withr::local_tempdir()
+    cache_set(fake_assets(src, "kept"), cache)
+    env <- new.env(); env$files <- NULL  # offline
+    local_mocked_bindings(download.file = mock_release(env), .package = "utils")
+    local_mocked_bindings(.xg_cache_dir = function() cache)
+    local_fake_xgboost()
+    real_rename <- file.rename
+    local_mocked_bindings(file.rename = function(from, to) {
+        if (any(grepl(".refresh-backup", from, fixed = TRUE))) return(rep(FALSE, length(from)))
+        real_rename(from, to)
+    }, .package = "base")
+    expect_error(suppressMessages(refresh_xg_models()), "files are kept in")
+    expect_setequal(list.files(file.path(cache, ".refresh-backup")), c(.xg_files, .xg_manifest_name))
+})

@@ -149,6 +149,54 @@
     invisible(dest)
 }
 
+#' Commit staged files as one set, rolling back on any failure
+#'
+#' `staged` maps cache file names to verified temp files, in commit order (the
+#' manifest last); `pins` gives each one's sha256. Every file about to be
+#' replaced is first moved to `<name>.bak`; if any commit fails, every file
+#' already written is put back from its backup (or removed, if it is new), so the
+#' cache keeps the previous complete set. On success the backups are deleted.
+#' @keywords internal
+#' @noRd
+.xg_commit_set <- function(staged, pins, cache_dir) {
+    backups <- character()
+    written <- character()
+    res <- tryCatch({
+        for (f in names(staged)) {
+            dest <- file.path(cache_dir, f)
+            if (file.exists(dest)) {
+                bak <- paste0(dest, ".bak")
+                unlink(bak)
+                if (!isTRUE(file.rename(dest, bak))) {
+                    cli::cli_abort("Could not set aside the cached {.file {dest}}.")
+                }
+                backups[[f]] <- bak
+            }
+            written <- c(written, f)
+            .xg_commit(staged[[f]], dest, pins[[f]])
+        }
+        NULL
+    }, error = function(e) e)
+    if (is.null(res)) {
+        unlink(backups)
+        return(invisible(TRUE))
+    }
+    for (f in written) {
+        dest <- file.path(cache_dir, f)
+        unlink(dest)
+        if (!is.na(backups[f])) file.rename(backups[[f]], dest)
+    }
+    lost <- names(backups)[!file.exists(file.path(cache_dir, names(backups)))]
+    if (length(lost)) {
+        cli::cli_abort(c(
+            "Could not update the xG models, and could not restore {.file {lost}}.",
+            "i" = "The previous copies are kept as {.file .bak} files in {.path {cache_dir}}.",
+            "x" = conditionMessage(res)
+        ))
+    }
+    stop(res)
+}
+
 #' Build a booster from verified bytes (a seam the offline tests replace)
 #' @keywords internal
 #' @noRd
@@ -207,11 +255,12 @@
         tmp <- .xg_stage_file(f, manifest$files[[f]], cache_dir)
         if (!is.null(tmp)) staged[[f]] <- tmp
     }
-    for (f in names(staged)) .xg_commit(staged[[f]], file.path(cache_dir, f), manifest$files[[f]])
+    pins <- as.list(manifest$files)
     if (!is.null(fetched$tmp)) {
-        manifest_pin <- cli::hash_file_sha256(fetched$tmp)  # before the rename moves it
-        .xg_commit(fetched$tmp, file.path(cache_dir, .xg_manifest_name), manifest_pin)
+        staged[[.xg_manifest_name]] <- fetched$tmp  # committed last
+        pins[[.xg_manifest_name]] <- cli::hash_file_sha256(fetched$tmp)
     }
+    if (length(staged)) .xg_commit_set(staged, pins, cache_dir)
     bytes <- lapply(stats::setNames(.xg_files, .xg_files), function(f) {
         .xg_verified_bytes(f, manifest$files[[f]], cache_dir)
     })
@@ -269,7 +318,11 @@ refresh_xg_models <- function() {
     for (nm in c("xg_model_5v5", "xg_model_st")) assign(nm, NULL, envir = .xg_env)
     tryCatch(.load_xg_models(), error = function(e) {
         unlink(cached)
-        file.rename(file.path(backup, names[present]), cached[present])
+        restored <- file.rename(file.path(backup, names[present]), cached[present])
+        if (!all(restored)) {
+            stop("Could not reload the xG models, and could not restore the previous cache; ",
+                 "its files are kept in ", backup, ". ", conditionMessage(e), call. = FALSE)
+        }
         unlink(backup, recursive = TRUE)
         stop("Could not reload the xG models; the previous cache was restored. ",
              conditionMessage(e), call. = FALSE)
