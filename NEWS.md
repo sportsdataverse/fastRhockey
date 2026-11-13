@@ -92,8 +92,11 @@ upgrades from 1.0.0 may need to change.
   fastRhockey-nhl-data's publisher) rather than hashes pinned in this package:
   a cached copy that matches is used (offline too, with the last manifest
   seen), one that does not (another training) is replaced, so a retrain
-  reaches installed copies without a fastRhockey release and cannot leave the
-  old boosters in use from cache. `refresh_xg_models()` still clears and
+  reaches installed copies without a fastRhockey release: the first load that
+  fetches the new manifest replaces the cached boosters (offline, the last
+  manifest seen keeps validating the copies it named). A refresh commits only
+  a complete, verified set, so one that fails part-way leaves the previous
+  set usable. `refresh_xg_models()` still clears and
   re-fetches them (#96).
 * The PHF games index csv (`update_phf_db()`) is read through
   `.release_csv_from_url()`, the release-read helper the loaders use (150 s

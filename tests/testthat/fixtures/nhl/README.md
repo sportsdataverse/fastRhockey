@@ -12,6 +12,6 @@ and the `nhl_game_shifts()` output, captured on 2026-11-02. `test-nhl_game_pbp.R
 mocks the two network calls with them to build the full PBP offline.
 
 `xg_model_meta.json`: the `nhl_xg_models` release manifest as published on 2026-11-13 by
-`fastRhockey-nhl-data`'s `nhl_data_build.xg_publish` (models from commit `7fe5c8f`, published from `b3cfa5e`): the
+`fastRhockey-nhl-data`'s `nhl_data_build.xg_publish` (version 2026-11-13, from commit `f21290b`): the
 penalty-shot constant, `version`, `trained_at` and the sha256 of each asset.
 `test-xg_model_cache.R` checks the manifest format against it.
