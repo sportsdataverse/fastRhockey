@@ -56,7 +56,7 @@ Other PWHL Loader Functions:
 # \donttest{
   try(load_pwhl_xg_pbp(2024))
 #> ── PWHL xG-enriched shots ───────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-08 18:34:55 UTC
+#> ℹ Data updated: 2026-11-12 21:15:02 UTC
 #> # A tibble: 4,922 × 21
 #>    game_id game_season game_date  team_id player_id goalie_id period_of_game
 #>      <int>       <int> <chr>        <int>     <int>     <int> <chr>         

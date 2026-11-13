@@ -99,17 +99,17 @@ lists every function in this family.
 # \donttest{
   try(shl_next_game_day())
 #> ── SHL Next Game Day Information from www.shl.se ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:58:40 UTC
+#> ℹ Data updated: 2026-11-13 20:23:03 UTC
 #> # A tibble: 7 × 39
 #>   game_uuid  start_date_time  state overtime shootout ssgt_uuid home_team_status
 #>   <chr>      <chr>            <chr> <lgl>    <lgl>    <chr>     <chr>           
-#> 1 c0z71d4baw 2026-11-12T18:0… pre-… FALSE    FALSE    qa98unlb… N/A             
-#> 2 fzan01j1h1 2026-11-12T18:0… pre-… FALSE    FALSE    qa98unlb… N/A             
-#> 3 huy9kqmnyw 2026-11-12T18:0… pre-… FALSE    FALSE    qa98unlb… N/A             
-#> 4 imds3e8pm2 2026-11-12T18:0… pre-… FALSE    FALSE    qa98unlb… N/A             
-#> 5 lossvjltt3 2026-11-12T18:0… pre-… FALSE    FALSE    qa98unlb… N/A             
-#> 6 ox7onn1v16 2026-11-12T18:0… pre-… FALSE    FALSE    qa98unlb… N/A             
-#> 7 oxbyiij4th 2026-11-12T18:0… pre-… FALSE    FALSE    qa98unlb… N/A             
+#> 1 elycp73xwh 2026-11-14T14:1… pre-… FALSE    FALSE    qa98unlb… N/A             
+#> 2 nrmohm5jbq 2026-11-14T14:1… pre-… FALSE    FALSE    qa98unlb… N/A             
+#> 3 t8310nd9yn 2026-11-14T14:1… pre-… FALSE    FALSE    qa98unlb… N/A             
+#> 4 cdvhm13p37 2026-11-14T17:0… pre-… FALSE    FALSE    qa98unlb… N/A             
+#> 5 ir2nmldp7c 2026-11-14T17:0… pre-… FALSE    FALSE    qa98unlb… N/A             
+#> 6 qyh9axt0yk 2026-11-14T17:0… pre-… FALSE    FALSE    qa98unlb… N/A             
+#> 7 sbbcogyfns 2026-11-14T17:0… pre-… FALSE    FALSE    qa98unlb… N/A             
 #> # ℹ 32 more variables: home_team_uuid <chr>, home_team_owner_instance_id <chr>,
 #> #   home_team_code <chr>, home_team_names_code <chr>,
 #> #   home_team_names_short <chr>, home_team_names_long <chr>,

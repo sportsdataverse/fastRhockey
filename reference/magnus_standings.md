@@ -73,16 +73,16 @@ Other Ligue Magnus Functions:
 # \donttest{
   try(magnus_standings(phase_id = 714))
 #> ── Ligue Magnus Standings Information from liguemagnus.com ─────────────────────
-#> ℹ Data updated: 2026-11-09 22:55:51 UTC
+#> ℹ Data updated: 2026-11-13 20:20:55 UTC
 #> # A tibble: 12 × 17
 #>     rank team_id team   team_abbreviation team_participant_id games_played  wins
 #>    <int>   <int> <chr>  <chr>                           <int>        <int> <int>
-#>  1     1     253 ROUEN  ROU                              9127           15     9
-#>  2     2     327 GRENO… GRE                              9125           13    10
+#>  1     1     327 GRENO… GRE                              9125           14    11
+#>  2     2     253 ROUEN  ROU                              9127           16     9
 #>  3     3    3095 MARSE… MAR                              9129           15     7
-#>  4     4     611 CHAMO… CHA                              9123           13     6
-#>  5     5     472 NICE   NIC                              9126           14     6
-#>  6     6     553 ANGERS ANG                              9130           14     6
+#>  4     4     611 CHAMO… CHA                              9123           14     6
+#>  5     5     553 ANGERS ANG                              9130           15     6
+#>  6     6     472 NICE   NIC                              9126           14     6
 #>  7     7    1671 BORDE… BOR                              9121           14     5
 #>  8     8     103 AMIENS AMI                              9120           14     5
 #>  9     9     345 CERGY… CER                              9122           14     5

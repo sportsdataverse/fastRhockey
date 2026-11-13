@@ -69,26 +69,26 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_team_skating_distance_detail(team_id = 10))
 #> ── NHL Edge Team Skating Distance Detail ────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:56:30 UTC
+#> ℹ Data updated: 2026-11-13 20:21:25 UTC
 #> # A tibble: 10 × 25
-#>    game_center_link        game_date is_home_team toi_all toi_even toi_pk toi_pp
+#>    game_center_link        game_date is_home_team toi_all toi_even toi_pp toi_pk
 #>    <chr>                   <chr>     <lgl>          <int>    <int>  <int>  <int>
-#>  1 /gamecenter/njd-vs-tor… 2026-11-… TRUE           17647    16415   1232     NA
-#>  2 /gamecenter/mtl-vs-tor… 2026-11-… TRUE           17986    15050    632   2304
-#>  3 /gamecenter/uta-vs-tor… 2026-11-… TRUE           17831    15595   1036   1200
-#>  4 /gamecenter/tor-vs-van… 2026-10-… FALSE          17612    15200   1552    860
-#>  5 /gamecenter/tor-vs-sea… 2026-10-… FALSE          17489    14935   1824    730
-#>  6 /gamecenter/tor-vs-cgy… 2026-10-… FALSE          17422    14130   2092   1200
-#>  7 /gamecenter/tor-vs-edm… 2026-10-… FALSE          17497    16375   1052     70
-#>  8 /gamecenter/nyr-vs-tor… 2026-10-… TRUE           17912    16467    480    965
-#>  9 /gamecenter/tor-vs-cbj… 2026-10-… FALSE          17280    12971   2319   1990
-#> 10 /gamecenter/sjs-vs-tor… 2026-10-… TRUE           17400    13560   1920   1920
+#>  1 /gamecenter/min-vs-tor… 2026-11-… TRUE           17879    15483   1200   1196
+#>  2 /gamecenter/col-vs-tor… 2026-11-… TRUE           17770    16210    600    960
+#>  3 /gamecenter/njd-vs-tor… 2026-11-… TRUE           17647    16415     NA   1232
+#>  4 /gamecenter/mtl-vs-tor… 2026-11-… TRUE           17986    15050   2304    632
+#>  5 /gamecenter/uta-vs-tor… 2026-11-… TRUE           17831    15595   1200   1036
+#>  6 /gamecenter/tor-vs-van… 2026-10-… FALSE          17612    15200    860   1552
+#>  7 /gamecenter/tor-vs-sea… 2026-10-… FALSE          17489    14935    730   1824
+#>  8 /gamecenter/tor-vs-cgy… 2026-10-… FALSE          17422    14130   1200   2092
+#>  9 /gamecenter/tor-vs-edm… 2026-10-… FALSE          17497    16375     70   1052
+#> 10 /gamecenter/nyr-vs-tor… 2026-10-… TRUE           17912    16467    965    480
 #> # ℹ 18 more variables: distance_skated_all_imperial <dbl>,
 #> #   distance_skated_all_metric <dbl>, distance_skated_even_imperial <dbl>,
-#> #   distance_skated_even_metric <dbl>, distance_skated_pk_imperial <dbl>,
+#> #   distance_skated_even_metric <dbl>, distance_skated_pp_imperial <dbl>,
+#> #   distance_skated_pp_metric <dbl>, distance_skated_pk_imperial <dbl>,
 #> #   distance_skated_pk_metric <dbl>, home_team_common_name_default <chr>,
 #> #   home_team_place_name_with_preposition_default <chr>,
-#> #   home_team_place_name_with_preposition_fr <chr>,
-#> #   home_team_team_logo_light <chr>, home_team_team_logo_dark <chr>, …
+#> #   home_team_place_name_with_preposition_fr <chr>, …
 # }
 ```

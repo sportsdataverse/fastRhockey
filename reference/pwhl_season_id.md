@@ -42,7 +42,7 @@ A data frame (`fastRhockey_data`) with the following columns:
   try(pwhl_season_id())
 #>    season_id            season_name       season_short career playoff
 #> 1         11 2026-27 Regular Season        2026-27 Reg      1       0
-#> 2         10     2026-27 Pre-Season 2026-27 Pre-Season      0       0
+#> 2         10     2026-27 Pre-Season 2026-27 Pre-Season      1       0
 #> 3          9          2026 Playoffs      2026 Playoffs      1       1
 #> 4          8 2025-26 Regular Season        2025-26 Reg      1       0
 #> 5          7      2025-26 Preseason  2025-26 Preseason      0       0

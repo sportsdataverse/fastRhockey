@@ -72,7 +72,7 @@ Other ELH Functions:
   # an early season: fewer listing pages (1,000 ids each) than a recent one
   try(elh_game_ids(season = 2016))
 #> ── ELH Game Ids Information from hokej.cz ───────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:50:04 UTC
+#> ℹ Data updated: 2026-11-13 20:15:38 UTC
 #> # A tibble: 1,972 × 5
 #>    hokejcz_game_id season key                          last_modified        size
 #>              <int>  <int> <chr>                        <chr>               <int>

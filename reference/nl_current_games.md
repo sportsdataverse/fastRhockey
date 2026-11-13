@@ -100,12 +100,14 @@ lists every function in this family.
 # \donttest{
   try(nl_current_games(season = 2027))
 #> ── National League Current Games Information from nationalleague.ch ────────────
-#> ℹ Data updated: 2026-11-09 22:57:34 UTC
-#> # A tibble: 2 × 29
+#> ℹ Data updated: 2026-11-13 20:22:11 UTC
+#> # A tibble: 4 × 29
 #>   game_id home_team_short_name home_team_name away_team_short_name
 #>     <dbl> <chr>                <chr>          <chr>               
-#> 1 2.03e13 HCL                  HC Lugano      SCB                 
-#> 2 2.03e13 EVZ                  EV Zug         HCAP                
+#> 1 2.03e13 SCB                  SC Bern        FRI                 
+#> 2 2.03e13 HCD                  HC Davos       HCAP                
+#> 3 2.03e13 HCL                  HC Lugano      SCL                 
+#> 4 2.03e13 EVZ                  EV Zug         SCRJ                
 #> # ℹ 25 more variables: away_team_name <chr>, home_team_id <dbl>,
 #> #   away_team_id <dbl>, vimeo_video_id <dbl>, date <chr>, status <chr>,
 #> #   base_status <chr>, home_team_result <int>, away_team_result <int>,

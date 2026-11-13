@@ -77,7 +77,7 @@ Saiem Gilani
     espn_mch_game_team_linescores(event_id = eid, team_id = tms$team_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Team Linescores data from ESPN core-v2 ─────────────
-#> ℹ Data updated: 2026-11-09 22:50:25 UTC
+#> ℹ Data updated: 2026-11-13 20:15:56 UTC
 #> # A tibble: 3 × 9
 #>   event_id  cid       team_id period value display_value source_id source_desc 
 #>   <chr>     <chr>     <chr>    <int> <dbl> <chr>         <chr>     <chr>       
@@ -93,10 +93,10 @@ Saiem Gilani
     tms <- espn_wch_game_teams(event_id = eid)
     espn_wch_game_team_linescores(event_id = eid, team_id = tms$team_id[1])
   })
-#> ✖ 2026-11-09 22:50:25.808313: 
+#> ✖ 2026-11-13 20:15:56.551813: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
 #> ✖ Error: The API returned an error
-#> ✖ 2026-11-09 22:50:25.844679: 
+#> ✖ 2026-11-13 20:15:56.572174: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, team_id = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

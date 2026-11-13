@@ -66,20 +66,20 @@ Returns a data frame with team statistics.
 # \donttest{
   try(nhl_stats_teams())
 #> ── NHL Stats Teams ──────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:57:28 UTC
+#> ℹ Data updated: 2026-11-13 20:22:08 UTC
 #> # A tibble: 32 × 25
 #>    faceoff_win_pct games_played goals_against goals_against_per_game goals_for
 #>              <dbl>        <int>         <int>                  <dbl>     <int>
-#>  1           0.501           19            44                   2.32        78
-#>  2           0.488           19            43                   2.26        63
-#>  3           0.556           18            41                   2.28        67
-#>  4           0.5             18            53                   2.94        74
-#>  5           0.508           19            50                   2.63        63
-#>  6           0.497           18            51                   2.83        65
-#>  7           0.521           17            53                   3.12        59
-#>  8           0.492           17            52                   3.06        63
-#>  9           0.531           18            54                   3           56
-#> 10           0.491           18            55                   3.06        72
+#>  1           0.499           20            45                   2.25        82
+#>  2           0.477           21            46                   2.19        70
+#>  3           0.494           20            56                   2.8         80
+#>  4           0.506           20            53                   2.65        68
+#>  5           0.489           19            56                   2.95        74
+#>  6           0.494           20            57                   2.85        72
+#>  7           0.524           19            57                   3           65
+#>  8           0.557           19            46                   2.42        69
+#>  9           0.540           20            60                   3           62
+#> 10           0.487           20            62                   3.1         81
 #> # ℹ 22 more rows
 #> # ℹ 20 more variables: goals_for_per_game <dbl>, losses <int>, ot_losses <int>,
 #> #   penalty_kill_net_pct <dbl>, penalty_kill_pct <dbl>, point_pct <dbl>,

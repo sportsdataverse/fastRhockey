@@ -397,28 +397,14 @@ metadata.</p>
 <span>  <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">inherits</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fastRhockey</span><span class="fu">:::</span><span class="fu">.load_xg_models</span><span class="op">(</span><span class="op">)</span>, silent <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, <span class="st">"try-error"</span><span class="op">)</span> <span class="op">&amp;&amp;</span></span>
 <span>  <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">xg_env</span><span class="op">$</span><span class="va">xg_model_5v5</span><span class="op">)</span></span>
 <span><span class="va">xg_ready</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">xg_env</span><span class="op">$</span><span class="va">xg_feature_names_5v5</span></span>
-<span><span class="co">#&gt;  [1] "era_2011_2013"      "era_2014_2018"      "era_2019_2021"     </span></span>
-<span><span class="co">#&gt;  [4] "era_2022_2024"      "era_2025_on"        "shot_distance"     </span></span>
-<span><span class="co">#&gt;  [7] "shot_angle"         "rebound"            "rush"              </span></span>
-<span><span class="co">#&gt; [10] "time_since_last"    "distance_from_last" "cross_ice_event"   </span></span>
-<span><span class="co">#&gt; [13] "empty_net"          "last_x"             "last_y"            </span></span>
-<span><span class="co">#&gt; [16] "wrist_shot"         "snap_shot"          "slap_shot"         </span></span>
-<span><span class="co">#&gt; [19] "backhand"           "wrap_around"        "tip_in"            </span></span>
-<span><span class="co">#&gt; [22] "deflected"          "poke"               "batted"            </span></span>
-<span><span class="co">#&gt; [25] "between_legs"       "cradle"             "last_blocked_shot" </span></span>
-<span><span class="co">#&gt; [28] "last_shot"          "last_giveaway"      "last_hit"          </span></span>
-<span><span class="co">#&gt; [31] "last_takeaway"      "last_faceoff"       "last_missed_shot"  </span></span>
-<span><span class="co">#&gt; [34] "last_stop"          "last_penalty"       "last_goal"</span></span>
 <span></span>
 <span><span class="fu"><a href="https://generics.r-lib.org/reference/setops.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="va">xg_env</span><span class="op">$</span><span class="va">xg_feature_names_st</span>, <span class="va">xg_env</span><span class="op">$</span><span class="va">xg_feature_names_5v5</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "total_skaters_on"     "event_team_advantage"</span></span>
 <span></span>
 <span><span class="co"># the penalty-shot constant</span></span>
-<span><span class="va">xg_env</span><span class="op">$</span><span class="va">xg_model_ps</span></span>
-<span><span class="co">#&gt; [1] 0.3202197</span></span></code></pre></div>
+<span><span class="va">xg_env</span><span class="op">$</span><span class="va">xg_model_ps</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="what-does-the-5v5-model-lean-on">What does the 5v5 model lean on?<a class="anchor" aria-label="anchor" href="#what-does-the-5v5-model-lean-on"></a>
 </h3>
@@ -426,21 +412,7 @@ metadata.</p>
 splits on each feature.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">imp</span> <span class="op">&lt;-</span> <span class="fu">xgboost</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/xgboost/man/xgb.importance.html" class="external-link">xgb.importance</a></span><span class="op">(</span>model <span class="op">=</span> <span class="va">xg_env</span><span class="op">$</span><span class="va">xg_model_5v5</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">imp</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Feature"</span>, <span class="st">"Gain"</span><span class="op">)</span><span class="op">]</span>, <span class="fl">12</span><span class="op">)</span></span>
-<span><span class="co">#&gt;                Feature       Gain</span></span>
-<span><span class="co">#&gt;                 &lt;char&gt;      &lt;num&gt;</span></span>
-<span><span class="co">#&gt;  1:      shot_distance 0.30132183</span></span>
-<span><span class="co">#&gt;  2:          empty_net 0.14151940</span></span>
-<span><span class="co">#&gt;  3:         wrist_shot 0.07363369</span></span>
-<span><span class="co">#&gt;  4:          snap_shot 0.06846821</span></span>
-<span><span class="co">#&gt;  5:    time_since_last 0.06553750</span></span>
-<span><span class="co">#&gt;  6:         shot_angle 0.05901166</span></span>
-<span><span class="co">#&gt;  7:          slap_shot 0.05277227</span></span>
-<span><span class="co">#&gt;  8:             tip_in 0.03401052</span></span>
-<span><span class="co">#&gt;  9:        era_2025_on 0.02928283</span></span>
-<span><span class="co">#&gt; 10: distance_from_last 0.02679692</span></span>
-<span><span class="co">#&gt; 11:            rebound 0.02642182</span></span>
-<span><span class="co">#&gt; 12:           backhand 0.02365784</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">imp</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Feature"</span>, <span class="st">"Gain"</span><span class="op">)</span><span class="op">]</span>, <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">imp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -452,7 +424,6 @@ splits on each feature.</p>
 <span>    caption <span class="op">=</span> <span class="st">"Data: fastRhockey xG model files"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="nhl-expected-goals-xg-model_files/figure-html/importance_plot-1.png" class="r-plt" alt="Horizontal bar chart of the twelve features with the highest gain in the NHL 5v5 expected goals model." width="100%"></p>
 <p>Distance dominates, as in every public xG model. Empty net ranks high
 because it is rare but decisive. Shot type and the time since the
 previous event come next.</p>
@@ -614,9 +585,7 @@ it with the published column.</p>
 <span>    shots <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>    both_present <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">xg</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">xg_published</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>    max_abs_diff <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="va">xg</span> <span class="op">-</span> <span class="va">xg_published</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="co">#&gt;   shots both_present max_abs_diff</span></span>
-<span><span class="co">#&gt; 1  2492         2492 4.998091e-05</span></span></code></pre></div>
+<span>  <span class="op">)</span></span></code></pre></div>
 <p>The largest difference is the rounding of the published column to
 four decimals, so the published <code>xg</code> is exactly what the
 package computes with the current model files.</p>

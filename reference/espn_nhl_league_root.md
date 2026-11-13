@@ -53,7 +53,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_league_root())
 #> ── NHL League Root data from ESPN core-v2 ───────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:51:14 UTC
+#> ℹ Data updated: 2026-11-13 20:16:37 UTC
 #> # A tibble: 1 × 16
 #>   id    guid              uid   name  display_name abbreviation short_name slug 
 #>   <chr> <chr>             <chr> <chr> <chr>        <chr>        <chr>      <chr>

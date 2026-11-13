@@ -121,6 +121,17 @@ that upgrades from 1.0.0 may need to change.
 
 #### Bug fixes
 
+- NHL `x_fixed` / `y_fixed` rotate the rink by `homeTeamDefendingSide`
+  (home shoots right; `(x, y) -> (-x, -y)` when the home team defends
+  the right end) instead of `x_fixed = abs(x)` for home events and
+  `-abs(x)` for away. The old form mirrored every attempt from the
+  shooter’s own half into the attacking zone, so a 159 ft shot was
+  measured at 20 ft (and scored as a high-danger chance), and flipped
+  `y` on the sign of `x`. Plays without a side use the period’s, then
+  where each team’s shots cluster. `shot_distance` / `shot_angle` for a
+  `BLOCKED_SHOT` (whose event team is the blocker) are measured to the
+  shooter’s target net.
+
 - The NHL xG models are no longer downloaded in `.onLoad()`, which CRAN
   policy forbids:
   [`library(fastRhockey)`](https://fastRhockey.sportsdataverse.org/)

@@ -105,20 +105,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_player_byteam(team_id = 10))
 #> ── NHL Records Player by Team ───────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:57:06 UTC
+#> ℹ Data updated: 2026-11-13 20:21:52 UTC
 #> # A tibble: 80 × 16
-#>         id birth_city   birth_country birth_date birth_state_province
-#>      <int> <chr>        <chr>         <chr>      <chr>               
-#>  1 8477425 Buffalo      USA           1995-09-13 NY                  
-#>  2 8480893 Barnaul      RUS           2000-07-21 NA                  
-#>  3 8483546 Beaconsfield CAN           1998-03-16 QC                  
-#>  4 8483565 Washington   USA           1998-05-12 MI                  
-#>  5 8477503 Winnipeg     CAN           1995-03-02 MB                  
-#>  6 8478007 Riga         LVA           1994-04-13 NA                  
-#>  7 8479026 Moncton      CAN           1997-01-25 NB                  
-#>  8 8479528 Lipetsk      RUS           1997-04-18 NA                  
-#>  9 8479543 Toronto      CAN           1998-03-13 ON                  
-#> 10 8479599 Moscow       RUS           1997-08-01 NA                  
+#>         id birth_city      birth_country birth_date birth_state_province
+#>      <int> <chr>           <chr>         <chr>      <chr>               
+#>  1 8476925 North Vancouver CAN           1993-11-05 BC                  
+#>  2 8477425 Buffalo         USA           1995-09-13 NY                  
+#>  3 8480893 Barnaul         RUS           2000-07-21 NA                  
+#>  4 8483546 Beaconsfield    CAN           1998-03-16 QC                  
+#>  5 8483565 Washington      USA           1998-05-12 MI                  
+#>  6 8477503 Winnipeg        CAN           1995-03-02 MB                  
+#>  7 8478007 Riga            LVA           1994-04-13 NA                  
+#>  8 8479026 Moncton         CAN           1997-01-25 NB                  
+#>  9 8479528 Lipetsk         RUS           1997-04-18 NA                  
+#> 10 8479543 Toronto         CAN           1998-03-13 ON                  
 #> # ℹ 70 more rows
 #> # ℹ 11 more variables: current_team_id <int>, first_name <chr>,
 #> #   full_name <chr>, height <int>, in_top100alltime <lgl>, last_name <chr>,

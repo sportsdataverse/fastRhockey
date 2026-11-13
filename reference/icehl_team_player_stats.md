@@ -140,20 +140,20 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_team_player_stats(season = 2027, team_id = 4, league_id = 1))
 #> ── ICE Hockey League team_player_stats from the eSports hokejovyzapis bucket ───
-#> ℹ Data updated: 2026-11-09 22:53:17 UTC
+#> ℹ Data updated: 2026-11-13 20:18:37 UTC
 #> # A tibble: 26 × 80
 #>    player_id name        firstname surname photo birthdate active position stick
 #>        <int> <chr>       <chr>     <chr>   <chr> <chr>     <lgl>  <chr>    <chr>
 #>  1      4700 Carter Sav… Carter    Savoie  http… 2002-01-… TRUE   FW       left 
 #>  2      4701 David Silye David     Silye   http… 1999-03-… TRUE   FW       right
-#>  3      4705 Rasmus Hel… Rasmus    Heljan… http… 2000-02-… TRUE   FW       right
-#>  4      4108 Topi Rönni  Topi      Rönni   http… 2004-05-… TRUE   FW       left 
+#>  3      4108 Topi Rönni  Topi      Rönni   http… 2004-05-… TRUE   FW       left 
+#>  4      4705 Rasmus Hel… Rasmus    Heljan… http… 2000-02-… TRUE   FW       right
 #>  5      4121 Ferenc Las… Ferenc    Laskawy http… 2006-02-… TRUE   FW       right
-#>  6      4119 Rasmus Ben… Rasmus    Bengts… http… 1993-05-… TRUE   DE       left 
-#>  7      4703 Bendegúz D… Bendegúz  Dobos   http… 2004-05-… TRUE   FW       left 
-#>  8      4109 Aku Kestila Aku       Kestila http… 1994-06-… TRUE   FW       left 
+#>  6      4703 Bendegúz D… Bendegúz  Dobos   http… 2004-05-… TRUE   FW       left 
+#>  7      4119 Rasmus Ben… Rasmus    Bengts… http… 1993-05-… TRUE   DE       left 
+#>  8      4111 Jesper Lin… Jesper    Lindgr… http… 1997-05-… TRUE   DE       right
 #>  9      4116 András Mih… András    Mihalik http… 2003-05-… TRUE   FW       left 
-#> 10      4112 Jussi Tamm… Jussi     Tammela http… 1999-06-… TRUE   FW       right
+#> 10      4109 Aku Kestila Aku       Kestila http… 1994-06-… TRUE   FW       left 
 #> # ℹ 16 more rows
 #> # ℹ 71 more variables: weight <int>, height <int>, jersey <int>,
 #> #   birth_country <chr>, nationality <chr>, nationality_short <chr>,

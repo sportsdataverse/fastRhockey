@@ -58,7 +58,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_positions())
 #> ── MENS-COLLEGE-HOCKEY Positions data from ESPN core-v2 ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:50:38 UTC
+#> ℹ Data updated: 2026-11-13 20:16:07 UTC
 #> # A tibble: 28 × 4
 #>    ref                                              position_id count page_count
 #>    <chr>                                            <chr>       <int>      <int>
@@ -77,7 +77,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_positions())
 #> ── WOMENS-COLLEGE-HOCKEY Positions data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-11-09 22:50:38 UTC
+#> ℹ Data updated: 2026-11-13 20:16:07 UTC
 #> # A tibble: 28 × 4
 #>    ref                                              position_id count page_count
 #>    <chr>                                            <chr>       <int>      <int>

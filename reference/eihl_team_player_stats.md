@@ -131,7 +131,7 @@ Other EIHL eSports functions:
 # \donttest{
   try(eihl_team_player_stats(season = 2027, team_id = 96, league_id = 3))
 #> ── EIHL team_player_stats from the eSports hokejovyzapis bucket ────────────────
-#> ℹ Data updated: 2026-11-09 22:49:59 UTC
+#> ℹ Data updated: 2026-11-13 20:15:33 UTC
 #> # A tibble: 27 × 70
 #>    player_id name       firstname surname birthdate active position stick weight
 #>        <int> <chr>      <chr>     <chr>   <chr>     <lgl>  <chr>    <chr>  <int>
@@ -143,8 +143,8 @@ Other EIHL eSports functions:
 #>  6      5154 Cole Kodsi Cole      Kodsi   2000-06-… TRUE   FW       left      91
 #>  7      4894 Rylan Sch… Rylan     Schwar… 1990-01-… FALSE  FW       left      87
 #>  8      5150 Jake John… Jake      Johnson 1998-08-… TRUE   DE       left      84
-#>  9      5156 David Mad… David     Madsen  1999-01-… TRUE   FW       right     89
-#> 10      4873 Matt Spen… Matt      Spencer 1997-03-… TRUE   DE       right     92
+#>  9      4873 Matt Spen… Matt      Spencer 1997-03-… TRUE   DE       right     92
+#> 10      4048 Alex Forb… Alex      Forbes  1996-07-… TRUE   FW       right     86
 #> # ℹ 17 more rows
 #> # ℹ 61 more variables: height <int>, jersey <int>, birth_country <chr>,
 #> #   nationality <chr>, nationality_short <chr>, team_shortcut <chr>,

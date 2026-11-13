@@ -64,20 +64,20 @@ Returns a data frame with goalie statistics.
 # \donttest{
   try(nhl_stats_goalies())
 #> ── NHL Stats Goalies ────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:57:25 UTC
+#> ℹ Data updated: 2026-11-13 20:22:05 UTC
 #> # A tibble: 50 × 23
 #>    assists games_played games_started goalie_full_name    goals goals_against
 #>      <int>        <int>         <int> <chr>               <int>         <int>
-#>  1       0           12            12 Pyotr Kochetkov         0            20
-#>  2       0           16            16 Jesper Wallstedt        0            32
-#>  3       0           13            13 Jeremy Swayman          0            29
-#>  4       0           13            13 Jake Oettinger          0            26
-#>  5       0           14            13 Mackenzie Blackwood     0            35
-#>  6       0           10            10 Jacob Fowler            0            22
-#>  7       0           13            13 Andrei Vasilevskiy      0            37
-#>  8       0            8             8 Devon Levi              0            24
-#>  9       0            8             8 Linus Ullmark           0            10
-#> 10       0            9             9 Adin Hill               0            23
+#>  1       0           18            18 Jesper Wallstedt        0            35
+#>  2       0           12            12 Pyotr Kochetkov         0            20
+#>  3       0           15            14 Mackenzie Blackwood     0            38
+#>  4       0           12            12 Jacob Fowler            0            26
+#>  5       0           14            14 Andrei Vasilevskiy      0            40
+#>  6       0           14            14 Jeremy Swayman          0            33
+#>  7       0           14            14 Jake Oettinger          0            32
+#>  8       0            9             9 Devon Levi              0            25
+#>  9       0            9             9 Linus Ullmark           0            13
+#> 10       1           14            14 Joel Hofer              0            30
 #> # ℹ 40 more rows
 #> # ℹ 17 more variables: goals_against_average <dbl>, last_name <chr>,
 #> #   losses <int>, ot_losses <int>, penalty_minutes <int>, player_id <int>,

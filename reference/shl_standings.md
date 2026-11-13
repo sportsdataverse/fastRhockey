@@ -73,24 +73,24 @@ lists every function in this family.
 # \donttest{
   try(shl_standings(ssgt_uuid = "iuzqg7dqk9"))
 #> ── SHL Standings Information from www.shl.se ────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:58:51 UTC
+#> ℹ Data updated: 2026-11-13 20:23:14 UTC
 #> # A tibble: 14 × 18
 #>    season ssgt_uuid  team_code team_uuid       team_name   team_short_name  rank
 #>     <int> <chr>      <chr>     <chr>           <chr>       <chr>           <int>
-#>  1   2026 iuzqg7dqk9 SAIK      50e6-50e6DYeWM  Skellefteå… "Skellefteå"        1
-#>  2   2026 iuzqg7dqk9 FHC       087a-087aTQv9u  Frölunda HC "Frölunda "         2
-#>  3   2026 iuzqg7dqk9 VLH       fe02-fe02mf1FN  Växjö Lake… "Växjö"             3
-#>  4   2026 iuzqg7dqk9 RBK       ee93-ee93uy4oW  Rögle BK    "Rögle"             4
-#>  5   2026 iuzqg7dqk9 FBK       752c-752c12zB7Z Färjestad … "Färjestad"         5
-#>  6   2026 iuzqg7dqk9 BIF       1ab8-1ab8bfj7N  Brynäs IF   "Brynäs"            6
-#>  7   2026 iuzqg7dqk9 LHF       1a71-1a71gTHKh  Luleå Hock… "Luleå"             7
-#>  8   2026 iuzqg7dqk9 MIF       8e6f-8e6fUXJvi  Malmö Redh… "Malmö"             8
-#>  9   2026 iuzqg7dqk9 DIF       2459-2459QTs1f  Djurgården… "Djurgården"        9
-#> 10   2026 iuzqg7dqk9 OHK       82eb-82ebmgaJ8  Örebro Hoc… "Örebro"           10
-#> 11   2026 iuzqg7dqk9 LHC       41c4-41c4BiYZU  Linköping … "Linköping"        11
-#> 12   2026 iuzqg7dqk9 TIK       31d1-31d1NbSlR  Timrå IK    "Timrå"            12
-#> 13   2026 iuzqg7dqk9 HV71      3db0-3db09jXTE  HV71        "HV71"             13
-#> 14   2026 iuzqg7dqk9 LIF       9541-95418PpkP  Leksands IF "Leksand"          14
+#>  1   2027 iuzqg7dqk9 FBK       752c-752c12zB7Z Färjestad … "Färjestad"         1
+#>  2   2027 iuzqg7dqk9 SAIK      50e6-50e6DYeWM  Skellefteå… "Skellefteå"        1
+#>  3   2027 iuzqg7dqk9 IFB       NA              NA           NA                 1
+#>  4   2027 iuzqg7dqk9 BIF       1ab8-1ab8bfj7N  Brynäs IF   "Brynäs"            1
+#>  5   2027 iuzqg7dqk9 LHF       1a71-1a71gTHKh  Luleå Hock… "Luleå"             1
+#>  6   2027 iuzqg7dqk9 FHC       087a-087aTQv9u  Frölunda HC "Frölunda "         1
+#>  7   2027 iuzqg7dqk9 HV71      3db0-3db09jXTE  HV71        "HV71"              1
+#>  8   2027 iuzqg7dqk9 LHC       41c4-41c4BiYZU  Linköping … "Linköping"         1
+#>  9   2027 iuzqg7dqk9 VLH       fe02-fe02mf1FN  Växjö Lake… "Växjö"             1
+#> 10   2027 iuzqg7dqk9 DIF       2459-2459QTs1f  Djurgården… "Djurgården"        1
+#> 11   2027 iuzqg7dqk9 OHK       82eb-82ebmgaJ8  Örebro Hoc… "Örebro"            1
+#> 12   2027 iuzqg7dqk9 RBK       ee93-ee93uy4oW  Rögle BK    "Rögle"             1
+#> 13   2027 iuzqg7dqk9 TIK       31d1-31d1NbSlR  Timrå IK    "Timrå"             1
+#> 14   2027 iuzqg7dqk9 MIF       8e6f-8e6fUXJvi  Malmö Redh… "Malmö"             1
 #> # ℹ 11 more variables: rank_diff <int>, gp <int>, w <int>, t <int>, l <int>,
 #> #   otw <int>, otl <int>, p <int>, gf <int>, ga <int>, diff <int>
 # }

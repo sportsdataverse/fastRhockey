@@ -60,7 +60,7 @@ lists every function in this family.
 # \donttest{
   try(shl_sites(ssgt_uuid = "iuzqg7dqk9"))
 #> ── SHL Sites Information from www.shl.se ────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:58:49 UTC
+#> ℹ Data updated: 2026-11-13 20:23:12 UTC
 #> # A tibble: 14 × 5
 #>    id         instance_id public_url                     name           icon    
 #>    <chr>      <chr>       <chr>                          <chr>          <chr>   

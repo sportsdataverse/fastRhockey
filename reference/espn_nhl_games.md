@@ -51,12 +51,11 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_games(limit = 10))
 #> ── NHL Games data from ESPN core-v2 ─────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:51:13 UTC
-#> # A tibble: 3 × 4
+#> ℹ Data updated: 2026-11-13 20:16:36 UTC
+#> # A tibble: 2 × 4
 #>   ref                                                  event_id count page_count
 #>   <chr>                                                <chr>    <int>      <int>
-#> 1 http://sports.core.api.espn.com/v2/sports/hockey/le… 4018926…     3          1
-#> 2 http://sports.core.api.espn.com/v2/sports/hockey/le… 4018926…     3          1
-#> 3 http://sports.core.api.espn.com/v2/sports/hockey/le… 4018926…     3          1
+#> 1 http://sports.core.api.espn.com/v2/sports/hockey/le… 4018927…     2          1
+#> 2 http://sports.core.api.espn.com/v2/sports/hockey/le… 4018927…     2          1
 # }
 ```

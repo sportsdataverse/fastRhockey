@@ -94,7 +94,7 @@ lists every function in this family.
 # \donttest{
   try(shl_athlete_profile(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl"))
 #> ── SHL Athlete Profile Information from www.shl.se ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:58:31 UTC
+#> ℹ Data updated: 2026-11-13 20:22:54 UTC
 #> # A tibble: 1 × 34
 #>   uuid    full_name first_name last_name birth_date nationality gender age_value
 #>   <chr>   <chr>     <chr>      <chr>     <chr>      <chr>       <chr>      <int>

@@ -57,7 +57,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_seasons(limit = 10))
 #> ── MENS-COLLEGE-HOCKEY Seasons List data from ESPN core-v2 ─────────────────────
-#> ℹ Data updated: 2026-11-09 22:50:48 UTC
+#> ℹ Data updated: 2026-11-13 20:16:15 UTC
 #> # A tibble: 10 × 4
 #>    ref                                                   season count page_count
 #>    <chr>                                                  <int> <int>      <int>
@@ -75,7 +75,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_seasons(limit = 10))
 #> ── WOMENS-COLLEGE-HOCKEY Seasons List data from ESPN core-v2 ───────────────────
-#> ℹ Data updated: 2026-11-09 22:50:48 UTC
+#> ℹ Data updated: 2026-11-13 20:16:15 UTC
 #> # A tibble: 10 × 4
 #>    ref                                                   season count page_count
 #>    <chr>                                                  <int> <int>      <int>

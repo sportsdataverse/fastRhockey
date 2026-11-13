@@ -99,7 +99,7 @@ Other ELH Functions:
 # \donttest{
   try(elh_list_objects(prefix = "match/2026/full/", max_keys = "3"))
 #> ── ELH List Objects Information from hokej.cz ───────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:50:05 UTC
+#> ℹ Data updated: 2026-11-13 20:15:38 UTC
 #> # A tibble: 3 × 4
 #>   hokejcz_game_id key                          last_modified             size
 #>             <int> <chr>                        <chr>                    <int>

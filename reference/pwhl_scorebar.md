@@ -47,7 +47,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(pwhl_scorebar(days_back = 7, days_ahead = 7))
 #> ── PWHL Scorebar ────────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:58:15 UTC
+#> ℹ Data updated: 2026-11-13 20:22:43 UTC
 #> # A tibble: 23 × 15
 #>    game_id season_id date       game_date   status home_team        home_team_id
 #>      <dbl>     <dbl> <chr>      <chr>       <chr>  <chr>                   <dbl>
@@ -59,7 +59,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  6     351         9 2026-05-16 Sat, May 16 4      Montréal Victoi…            3
 #>  7     348         9 2026-05-18 Mon, May 18 4      Ottawa Charge               5
 #>  8     349         9 2026-05-20 Wed, May 20 4      Ottawa Charge               5
-#>  9     353        10 2026-11-22 Sun, Nov 22 1      PWHL Las Vegas             12
+#>  9     353        10 2026-11-22 Sun, Nov 22 1      Vegas Vanguards            12
 #> 10     360        10 2026-11-23 Mon, Nov 23 1      Ottawa Charge               5
 #> # ℹ 13 more rows
 #> # ℹ 8 more variables: home_team_code <chr>, home_score <chr>, away_team <chr>,

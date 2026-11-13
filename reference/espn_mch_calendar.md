@@ -54,7 +54,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_calendar())
 #> ── MENS-COLLEGE-HOCKEY Calendar data from ESPN.com ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:50:11 UTC
+#> ℹ Data updated: 2026-11-13 20:15:45 UTC
 #> # A tibble: 92 × 5
 #>    date              calendar_type calendar_start_date calendar_end_date
 #>    <chr>             <chr>         <chr>               <chr>            
@@ -74,8 +74,8 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_calendar())
 #> ── WOMENS-COLLEGE-HOCKEY Calendar data from ESPN.com ────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:50:11 UTC
-#> # A tibble: 83 × 5
+#> ℹ Data updated: 2026-11-13 20:15:45 UTC
+#> # A tibble: 84 × 5
 #>    date              calendar_type calendar_start_date calendar_end_date
 #>    <chr>             <chr>         <chr>               <chr>            
 #>  1 2026-09-18T07:00Z day           2026-09-01T07:00Z   2027-04-05T06:59Z
@@ -88,7 +88,7 @@ Saiem Gilani
 #>  8 2026-10-03T07:00Z day           2026-09-01T07:00Z   2027-04-05T06:59Z
 #>  9 2026-10-04T07:00Z day           2026-09-01T07:00Z   2027-04-05T06:59Z
 #> 10 2026-10-06T07:00Z day           2026-09-01T07:00Z   2027-04-05T06:59Z
-#> # ℹ 73 more rows
+#> # ℹ 74 more rows
 #> # ℹ 1 more variable: calendar_is_whitelist <lgl>
 # }
 ```

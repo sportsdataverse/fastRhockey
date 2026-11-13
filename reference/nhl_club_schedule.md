@@ -125,8 +125,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_club_schedule(team_abbr = "TOR"))
 #> ── NHL Club Schedule ────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:56:12 UTC
-#> # A tibble: 88 × 81
+#> ℹ Data updated: 2026-11-13 20:21:12 UTC
+#> # A tibble: 88 × 84
 #>            id   season game_type game_date  neutral_site start_time_utc      
 #>         <int>    <int>     <int> <chr>      <lgl>        <chr>               
 #>  1 2026010006 20262027         1 2026-09-19 FALSE        2026-09-19T23:00:00Z
@@ -140,7 +140,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  9 2026020065 20262027         2 2026-10-08 FALSE        2026-10-09T02:00:00Z
 #> 10 2026020080 20262027         2 2026-10-10 FALSE        2026-10-10T23:00:00Z
 #> # ℹ 78 more rows
-#> # ℹ 75 more variables: eastern_utc_offset <chr>, venue_utc_offset <chr>,
+#> # ℹ 78 more variables: eastern_utc_offset <chr>, venue_utc_offset <chr>,
 #> #   venue_timezone <chr>, game_state <chr>, game_schedule_state <chr>,
 #> #   tv_broadcasts <list>, three_min_recap_fr <chr>, condensed_game <chr>,
 #> #   condensed_game_fr <chr>, game_center_link <chr>, three_min_recap <chr>,

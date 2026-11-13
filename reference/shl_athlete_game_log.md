@@ -104,7 +104,7 @@ lists every function in this family.
   try(shl_athlete_game_log(athlete_uuid = "qQ9-349c7WDv6",
     master_site_instance_id = "shl1_shl", season = 2026))
 #> ── SHL Athlete Game Log Information from www.shl.se ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:58:30 UTC
+#> ℹ Data updated: 2026-11-13 20:22:53 UTC
 #> # A tibble: 58 × 35
 #>    date   series home_team home_team_icon guest_team guest_team_icon    gp   gpi
 #>    <chr>  <chr>  <chr>     <chr>          <chr>      <chr>           <dbl> <dbl>

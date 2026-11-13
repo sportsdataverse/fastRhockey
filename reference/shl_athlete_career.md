@@ -100,7 +100,7 @@ lists every function in this family.
 # \donttest{
   try(shl_athlete_career(athlete_uuid = "qQ9-349c7WDv6", master_site_instance_id = "shl1_shl"))
 #> ── SHL Athlete Career Information from www.shl.se ───────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:58:28 UTC
+#> ℹ Data updated: 2026-11-13 20:22:51 UTC
 #> # A tibble: 37 × 38
 #>       gp   gpi    ga   gaa   svs svs_perc     w     t     l    so info_uuid    
 #>    <dbl> <dbl> <dbl> <dbl> <dbl>    <dbl> <dbl> <dbl> <dbl> <dbl> <chr>        

@@ -67,7 +67,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_player_overview(athlete_id = "5149125"))
 #> ── NHL Player Overview data from ESPN.com ───────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:51:21 UTC
+#> ℹ Data updated: 2026-11-13 20:16:42 UTC
 #> # A tibble: 3 × 23
 #>   athlete_id athlete_espn_id athlete_display_name athlete_short_name
 #>   <chr>      <chr>           <chr>                <chr>             

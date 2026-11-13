@@ -97,7 +97,7 @@ lists every function in this family.
 # \donttest{
   try(khl_webcaster_teams(season = 2026))
 #> ── KHL Webcaster Teams from khl.api.webcaster.pro ───────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:53:55 UTC
+#> ℹ Data updated: 2026-11-13 20:19:14 UTC
 #> # A tibble: 22 × 9
 #>       id khl_id name         location     image division division_key conference
 #>    <int>  <int> <chr>        <chr>        <chr> <chr>    <chr>        <chr>     

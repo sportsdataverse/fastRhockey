@@ -58,7 +58,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_venues())
 #> ── MENS-COLLEGE-HOCKEY Venues data from ESPN core-v2 ────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:50:57 UTC
+#> ℹ Data updated: 2026-11-13 20:16:23 UTC
 #> # A tibble: 132 × 4
 #>    ref                                                 venue_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>
@@ -77,7 +77,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_venues())
 #> ── WOMENS-COLLEGE-HOCKEY Venues data from ESPN core-v2 ──── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:50:57 UTC
+#> ℹ Data updated: 2026-11-13 20:16:23 UTC
 #> # A tibble: 57 × 4
 #>    ref                                                 venue_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>

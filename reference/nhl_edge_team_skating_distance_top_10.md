@@ -97,20 +97,20 @@ A data frame (`fastRhockey_data`) with the following columns:
     sort_by = "total"
   ))
 #> ── NHL Edge Team Skating Distance Top 10 ────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-09 22:56:31 UTC
+#> ℹ Data updated: 2026-11-13 20:21:25 UTC
 #> # A tibble: 10 × 36
 #>    team_abbrev team_slug           team_common_name_def…¹ team_place_name_with…²
 #>    <chr>       <chr>               <chr>                  <chr>                 
 #>  1 SJS         san-jose-sharks-28  Sharks                 San Jose              
-#>  2 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
-#>  3 CAR         carolina-hurricane… Hurricanes             Carolina              
-#>  4 PHI         philadelphia-flyer… Flyers                 Philadelphia          
-#>  5 MIN         minnesota-wild-30   Wild                   Minnesota             
-#>  6 VAN         vancouver-canucks-… Canucks                Vancouver             
-#>  7 NJD         new-jersey-devils-1 Devils                 New Jersey            
-#>  8 TOR         toronto-maple-leaf… Maple Leafs            Toronto               
-#>  9 EDM         edmonton-oilers-22  Oilers                 Edmonton              
-#> 10 CHI         chicago-blackhawks… Blackhawks             Chicago               
+#>  2 PHI         philadelphia-flyer… Flyers                 Philadelphia          
+#>  3 NJD         new-jersey-devils-1 Devils                 New Jersey            
+#>  4 MIN         minnesota-wild-30   Wild                   Minnesota             
+#>  5 TOR         toronto-maple-leaf… Maple Leafs            Toronto               
+#>  6 VGK         vegas-golden-knigh… Golden Knights         Vegas                 
+#>  7 CAR         carolina-hurricane… Hurricanes             Carolina              
+#>  8 EDM         edmonton-oilers-22  Oilers                 Edmonton              
+#>  9 DET         detroit-red-wings-… Red Wings              Detroit               
+#> 10 UTA         utah-mammoth-68     Mammoth                Utah                  
 #> # ℹ abbreviated names: ¹​team_common_name_default,
 #> #   ²​team_place_name_with_preposition_default
 #> # ℹ 32 more variables: team_team_logo_light <chr>, team_team_logo_dark <chr>,
