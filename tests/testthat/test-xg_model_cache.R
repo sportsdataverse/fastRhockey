@@ -43,6 +43,16 @@ local_fake_xgboost <- function(env = parent.frame()) {
     for (n in c("xg_model_5v5", "xg_model_st")) assign(n, NULL, envir = .xg_env)
 }
 
+# refresh_xg_models() checks for xgboost (a Suggests) before it touches the cache; the
+# coverage job does not install it, so these tests report it present (the loader is faked).
+local_xgboost_present <- function(env = parent.frame()) {
+    real <- requireNamespace
+    local_mocked_bindings(
+        requireNamespace = function(package, ...) if (identical(package, "xgboost")) TRUE else real(package, ...),
+        .package = "base", .env = env
+    )
+}
+
 test_that("loading the package does not fetch the xG models", {
     expect_false(exists(".onLoad", envir = asNamespace("fastRhockey"), inherits = FALSE))
 })
@@ -173,7 +183,7 @@ test_that("a commit that cannot write the file stops the load", {
 })
 
 test_that("refresh_xg_models() restores the previous cache when it cannot download", {
-    skip_if_not_installed("xgboost")
+    local_xgboost_present()
     src <- withr::local_tempdir(); cache <- withr::local_tempdir()
     rel <- fake_assets(src, "kept")
     cache_set(rel, cache)
@@ -185,7 +195,7 @@ test_that("refresh_xg_models() restores the previous cache when it cannot downlo
     expect_error(suppressMessages(refresh_xg_models()), "previous cache was restored")
     after <- vapply(file.path(cache, c(.xg_files, .xg_manifest_name)), cli::hash_file_sha256, "")
     expect_identical(unname(after), unname(before))
-    expect_false(dir.exists(file.path(cache, ".refresh-backup")))
+    expect_length(list.files(cache, pattern = "^\\.refresh-backup", all.files = TRUE), 0L)
 })
 
 test_that("a commit that fails part-way rolls back to the previous complete set", {
@@ -215,7 +225,7 @@ test_that("a commit that fails part-way rolls back to the previous complete set"
 })
 
 test_that("refresh_xg_models() keeps its backup when it cannot restore it", {
-    skip_if_not_installed("xgboost")
+    local_xgboost_present()
     src <- withr::local_tempdir(); cache <- withr::local_tempdir()
     cache_set(fake_assets(src, "kept"), cache)
     env <- new.env(); env$files <- NULL  # offline
@@ -228,5 +238,73 @@ test_that("refresh_xg_models() keeps its backup when it cannot restore it", {
         real_rename(from, to)
     }, .package = "base")
     expect_error(suppressMessages(refresh_xg_models()), "files are kept in")
-    expect_setequal(list.files(file.path(cache, ".refresh-backup")), c(.xg_files, .xg_manifest_name))
+    kept <- list.files(cache, pattern = "^\\.refresh-backup", all.files = TRUE, full.names = TRUE)
+    expect_length(kept, 1L)
+    expect_setequal(list.files(kept), c(.xg_files, .xg_manifest_name))
+    # a second failed refresh must not delete the backup the first one kept
+    expect_error(suppressMessages(refresh_xg_models()))
+    expect_true(dir.exists(kept))
+    expect_setequal(list.files(kept), c(.xg_files, .xg_manifest_name))
+})
+
+test_that("refresh_xg_models() keeps the files it cannot move back when clearing fails", {
+    local_xgboost_present()
+    src <- withr::local_tempdir(); cache <- withr::local_tempdir()
+    cache_set(fake_assets(src, "kept"), cache)
+    local_mocked_bindings(.xg_cache_dir = function() cache)
+    real_rename <- file.rename
+    local_mocked_bindings(file.rename = function(from, to) {
+        into_backup <- grepl(".refresh-backup", to, fixed = TRUE)
+        out_of_backup <- grepl(".refresh-backup", from, fixed = TRUE)
+        if (any(into_backup)) {  # the move aside fails for the manifest only
+            ok <- !grepl("xg_model_meta.json", from, fixed = TRUE)
+            real_rename(from[ok], to[ok])
+            return(ok)
+        }
+        if (any(out_of_backup)) return(rep(FALSE, length(from)))  # and moving back fails too
+        real_rename(from, to)
+    }, .package = "base")
+    expect_error(suppressMessages(refresh_xg_models()), "the rest are kept in")
+    kept <- list.files(cache, pattern = "^\\.refresh-backup", all.files = TRUE, full.names = TRUE)
+    expect_length(kept, 1L)
+    expect_setequal(list.files(kept), .xg_files)  # nothing deleted
+})
+
+test_that("a model commit never overwrites an earlier operation's backup", {
+    a <- withr::local_tempdir(); b <- withr::local_tempdir(); cache <- withr::local_tempdir()
+    cache_set(fake_assets(a, "A"), cache)
+    old_bak <- file.path(cache, "xg_model_st.json.bak")
+    writeLines("kept by an earlier failed restore", old_bak)
+    rel <- fake_assets(b, "B")
+    env <- new.env(); env$files <- rel
+    local_mocked_bindings(download.file = mock_release(env), .package = "utils")
+    local_mocked_bindings(.xg_cache_dir = function() cache)
+    local_fake_xgboost()
+    expect_true(.load_xg_models())
+    expect_identical(readLines(old_bak), "kept by an earlier failed restore")
+    expect_identical(.xg_env$xg_model_version, "B")
+})
+
+test_that("a rollback that cannot restore a file keeps its backup and says so", {
+    a <- withr::local_tempdir(); b <- withr::local_tempdir(); cache <- withr::local_tempdir()
+    cache_set(fake_assets(a, "A"), cache)
+    rel <- fake_assets(b, "B")
+    env <- new.env(); env$files <- rel
+    local_mocked_bindings(download.file = mock_release(env), .package = "utils")
+    local_mocked_bindings(.xg_cache_dir = function() cache)
+    local_fake_xgboost()
+    real_commit <- .xg_commit
+    n <- 0L
+    local_mocked_bindings(.xg_commit = function(tmp, dest, pin) {
+        n <<- n + 1L
+        if (n == 2L) cli::cli_abort("Could not write the xG model file {.file {dest}}.")
+        real_commit(tmp, dest, pin)
+    })
+    real_rename <- file.rename
+    local_mocked_bindings(file.rename = function(from, to) {
+        if (any(grepl(".bak-", from, fixed = TRUE))) return(rep(FALSE, length(from)))  # restore fails
+        real_rename(from, to)
+    }, .package = "base")
+    expect_error(.load_xg_models(), "could not restore")
+    expect_gte(length(list.files(cache, pattern = "[.]bak-")), 1L)  # the previous copies are kept
 })

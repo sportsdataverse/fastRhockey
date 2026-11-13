@@ -153,7 +153,8 @@
 #'
 #' `staged` maps cache file names to verified temp files, in commit order (the
 #' manifest last); `pins` gives each one's sha256. Every file about to be
-#' replaced is first moved to `<name>.bak`; if any commit fails, every file
+#' replaced is first moved to its own uniquely named `<name>.bak-*` (an earlier
+#' operation's backup is never overwritten); if any commit fails, every file
 #' already written is put back from its backup (or removed, if it is new), so the
 #' cache keeps the previous complete set. On success the backups are deleted.
 #' @keywords internal
@@ -165,8 +166,7 @@
         for (f in names(staged)) {
             dest <- file.path(cache_dir, f)
             if (file.exists(dest)) {
-                bak <- paste0(dest, ".bak")
-                unlink(bak)
+                bak <- tempfile(paste0(f, ".bak-"), tmpdir = cache_dir)
                 if (!isTRUE(file.rename(dest, bak))) {
                     cli::cli_abort("Could not set aside the cached {.file {dest}}.")
                 }
@@ -190,7 +190,7 @@
     if (length(lost)) {
         cli::cli_abort(c(
             "Could not update the xG models, and could not restore {.file {lost}}.",
-            "i" = "The previous copies are kept as {.file .bak} files in {.path {cache_dir}}.",
+            "i" = "The previous copies are kept as {.file .bak-*} files in {.path {cache_dir}}.",
             "x" = conditionMessage(res)
         ))
     }
@@ -303,14 +303,18 @@ refresh_xg_models <- function() {
     unlink(file.path(cache_dir, "xg_model_meta.rds"))
     # Move the current set aside rather than delete it: a refresh that cannot
     # download (offline, release mid-update) puts it back instead of leaving an
-    # empty cache.
-    backup <- file.path(cache_dir, ".refresh-backup")
-    unlink(backup, recursive = TRUE)
+    # empty cache. Each refresh gets its own backup dir, so one kept by an
+    # earlier failed restore is never removed here.
+    backup <- tempfile(".refresh-backup-", tmpdir = cache_dir)
     dir.create(backup, recursive = TRUE, showWarnings = FALSE)
     present <- file.exists(cached)
     moved <- file.rename(cached[present], file.path(backup, names[present]))
     if (!all(moved)) {
-        file.rename(file.path(backup, names[present][moved]), cached[present][moved])
+        back <- file.rename(file.path(backup, names[present][moved]), cached[present][moved])
+        if (!all(back)) {
+            stop("Could not clear the cached xG models in ", cache_dir, ", and could not put ",
+                 "every file back; the rest are kept in ", backup, ".", call. = FALSE)
+        }
         unlink(backup, recursive = TRUE)
         stop("Could not clear the cached xG models in ", cache_dir, call. = FALSE)
     }
