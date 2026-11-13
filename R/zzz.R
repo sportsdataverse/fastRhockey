@@ -131,14 +131,28 @@
     tmp
 }
 
-#' Move a staged temp file over `dest` (a rename, or a copy across devices)
+#' Move a staged temp file over `dest`
+#'
+#' A rename replaces `dest` in one step (it never deletes `dest` first); when
+#' the rename fails, a copy is tried, and the result must hash to `pin` or the
+#' load stops with an error rather than continue from an incomplete cache.
 #' @keywords internal
 #' @noRd
-.xg_commit <- function(tmp, dest) {
-    unlink(dest, recursive = TRUE)
-    if (!isTRUE(file.rename(tmp, dest))) file.copy(tmp, dest, overwrite = TRUE)
-    unlink(tmp)
+.xg_commit <- function(tmp, dest, pin) {
+    if (!isTRUE(file.rename(tmp, dest))) {
+        suppressWarnings(file.copy(tmp, dest, overwrite = TRUE))
+        unlink(tmp)
+    }
+    if (!.xg_hash_is(dest, pin)) {
+        cli::cli_abort("Could not write the xG model file {.file {dest}}.")
+    }
+    invisible(dest)
 }
+
+#' Build a booster from verified bytes (a seam the offline tests replace)
+#' @keywords internal
+#' @noRd
+.xg_load_booster <- function(bytes) xgboost::xgb.load.raw(bytes)
 
 #' Does `path` hash to `pin`? An unreadable or missing path is a miss.
 #' @keywords internal
@@ -193,8 +207,11 @@
         tmp <- .xg_stage_file(f, manifest$files[[f]], cache_dir)
         if (!is.null(tmp)) staged[[f]] <- tmp
     }
-    for (f in names(staged)) .xg_commit(staged[[f]], file.path(cache_dir, f))
-    if (!is.null(fetched$tmp)) .xg_commit(fetched$tmp, file.path(cache_dir, .xg_manifest_name))
+    for (f in names(staged)) .xg_commit(staged[[f]], file.path(cache_dir, f), manifest$files[[f]])
+    if (!is.null(fetched$tmp)) {
+        manifest_pin <- cli::hash_file_sha256(fetched$tmp)  # before the rename moves it
+        .xg_commit(fetched$tmp, file.path(cache_dir, .xg_manifest_name), manifest_pin)
+    }
     bytes <- lapply(stats::setNames(.xg_files, .xg_files), function(f) {
         .xg_verified_bytes(f, manifest$files[[f]], cache_dir)
     })
@@ -203,8 +220,8 @@
     .xg_env$xg_feature_names_st <- feats(bytes[["feats_st.txt"]])
     .xg_env$xg_model_ps <- as.numeric(manifest$xg_model_ps)
     .xg_env$xg_model_version <- manifest$version
-    .xg_env$xg_model_5v5 <- xgboost::xgb.load.raw(bytes[["xg_model_5v5.json"]])
-    .xg_env$xg_model_st <- xgboost::xgb.load.raw(bytes[["xg_model_st.json"]])
+    .xg_env$xg_model_5v5 <- .xg_load_booster(bytes[["xg_model_5v5.json"]])
+    .xg_env$xg_model_st <- .xg_load_booster(bytes[["xg_model_st.json"]])
     invisible(TRUE)
 }
 
@@ -213,7 +230,8 @@
 #' @description Clears the cached xG model files, downloads them again from
 #'   the sportsdataverse-data `nhl_xg_models` release and reloads them. The
 #'   models normally load on first use and a stale cached copy is replaced
-#'   automatically, so this is only needed to repair a cache by hand.
+#'   automatically, so this is only needed to repair a cache by hand. If the
+#'   download fails, the previous cache is restored.
 #'
 #' @return Invisible NULL. Models are reloaded into the package namespace.
 #'
@@ -231,14 +249,32 @@ refresh_xg_models <- function() {
         )
     }
     cache_dir <- .xg_cache_dir()
-    cached <- file.path(cache_dir, c(.xg_files, .xg_manifest_name, "xg_model_meta.rds"))
-    unlink(cached)
-    if (any(file.exists(cached))) {
-        stop("Could not delete the cached xG models in ", cache_dir, call. = FALSE)
+    names <- c(.xg_files, .xg_manifest_name)
+    cached <- file.path(cache_dir, names)
+    unlink(file.path(cache_dir, "xg_model_meta.rds"))
+    # Move the current set aside rather than delete it: a refresh that cannot
+    # download (offline, release mid-update) puts it back instead of leaving an
+    # empty cache.
+    backup <- file.path(cache_dir, ".refresh-backup")
+    unlink(backup, recursive = TRUE)
+    dir.create(backup, recursive = TRUE, showWarnings = FALSE)
+    present <- file.exists(cached)
+    moved <- file.rename(cached[present], file.path(backup, names[present]))
+    if (!all(moved)) {
+        file.rename(file.path(backup, names[present][moved]), cached[present][moved])
+        unlink(backup, recursive = TRUE)
+        stop("Could not clear the cached xG models in ", cache_dir, call. = FALSE)
     }
     message("Cleared cached xG models.")
     for (nm in c("xg_model_5v5", "xg_model_st")) assign(nm, NULL, envir = .xg_env)
-    .load_xg_models()
+    tryCatch(.load_xg_models(), error = function(e) {
+        unlink(cached)
+        file.rename(file.path(backup, names[present]), cached[present])
+        unlink(backup, recursive = TRUE)
+        stop("Could not reload the xG models; the previous cache was restored. ",
+             conditionMessage(e), call. = FALSE)
+    })
+    unlink(backup, recursive = TRUE)
     message("xG models reloaded successfully.")
     invisible(NULL)
 }

@@ -35,9 +35,9 @@ cache_set <- function(rel, cache) {
     for (p in rel) file.copy(p, cache, overwrite = TRUE)
 }
 
-# .load_xg_models() without xgboost: the booster loaders return the bytes they were given.
+# .load_xg_models() without xgboost (a Suggests): the booster loader returns its bytes.
 local_fake_xgboost <- function(env = parent.frame()) {
-    local_mocked_bindings(xgb.load.raw = function(buffer, ...) buffer, .package = "xgboost", .env = env)
+    local_mocked_bindings(.xg_load_booster = function(bytes) bytes, .env = env)
     old <- as.list(.xg_env)
     withr::defer(for (n in names(old)) assign(n, old[[n]], envir = .xg_env), envir = env)
     for (n in c("xg_model_5v5", "xg_model_st")) assign(n, NULL, envir = .xg_env)
@@ -158,4 +158,32 @@ test_that("an unreadable cache entry is a miss, not an error", {
     tmp <- .xg_stage_file("feats_5v5.txt", pin, cache)
     expect_length(env$calls, 1L)
     expect_identical(cli::hash_file_sha256(tmp), pin)
+})
+
+test_that("a commit that cannot write the file stops the load", {
+    src <- withr::local_tempdir(); cache <- withr::local_tempdir()
+    rel <- fake_assets(src)
+    tmp <- file.path(cache, "staged")
+    file.copy(rel[["feats_st.txt"]], tmp)
+    local_mocked_bindings(file.rename = function(...) FALSE, file.copy = function(...) FALSE, .package = "base")
+    expect_error(
+        .xg_commit(tmp, file.path(cache, "feats_st.txt"), cli::hash_file_sha256(rel[["feats_st.txt"]])),
+        "Could not write"
+    )
+})
+
+test_that("refresh_xg_models() restores the previous cache when it cannot download", {
+    skip_if_not_installed("xgboost")
+    src <- withr::local_tempdir(); cache <- withr::local_tempdir()
+    rel <- fake_assets(src, "kept")
+    cache_set(rel, cache)
+    before <- vapply(file.path(cache, c(.xg_files, .xg_manifest_name)), cli::hash_file_sha256, "")
+    env <- new.env(); env$files <- NULL  # offline
+    local_mocked_bindings(download.file = mock_release(env), .package = "utils")
+    local_mocked_bindings(.xg_cache_dir = function() cache)
+    local_fake_xgboost()
+    expect_error(suppressMessages(refresh_xg_models()), "previous cache was restored")
+    after <- vapply(file.path(cache, c(.xg_files, .xg_manifest_name)), cli::hash_file_sha256, "")
+    expect_identical(unname(after), unname(before))
+    expect_false(dir.exists(file.path(cache, ".refresh-backup")))
 })
