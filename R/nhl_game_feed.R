@@ -802,72 +802,52 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 }
 
 
-#' Fix coordinates so home team always shoots right
+#' Rotate the rink so the home team always shoots right
+#'
+#' One rotation per period, applied to every event: when the home team defends
+#' the right end, `(x, y) -> (-x, -y)`; otherwise the coordinates are kept. The
+#' side comes from the play's own `homeTeamDefendingSide` ("left" = home net at
+#' x < 0), else the period's side from the plays that carry it, else where the
+#' home (then away) team's unblocked shots cluster in that period. The previous
+#' form set `x_fixed = abs(x)` for home events and `-abs(x)` for away, which
+#' mirrored every attempt from the shooter's own half into the attacking zone
+#' (a 159 ft shot measured at 20 ft) and flipped `y` on the sign of `x`.
 #' @noRd
 .fix_coordinates <- function(pbp, raw, home_abbr, away_abbr) {
-    # Use homeTeamDefendingSide from API if available
-    if ("homeTeamDefendingSide" %in% names(pbp)) {
-        pbp <- pbp %>%
-            dplyr::mutate(
-                x_fixed = dplyr::case_when(
-                    is.na(.data$x) ~ NA_real_,
-                    .data$homeTeamDefendingSide == "left" &
-                        .data$event_team_abbr == home_abbr ~ abs(.data$x),
-                    .data$homeTeamDefendingSide == "left" &
-                        .data$event_team_abbr == away_abbr ~ -abs(.data$x),
-                    .data$homeTeamDefendingSide == "right" &
-                        .data$event_team_abbr == home_abbr ~ abs(.data$x),
-                    .data$homeTeamDefendingSide == "right" &
-                        .data$event_team_abbr == away_abbr ~ -abs(.data$x),
-                    TRUE ~ .data$x
-                ),
-                y_fixed = dplyr::case_when(
-                    is.na(.data$y) ~ NA_real_,
-                    .data$homeTeamDefendingSide == "left" &
-                        .data$event_team_abbr == home_abbr &
-                        .data$x < 0 ~ -.data$y,
-                    .data$homeTeamDefendingSide == "left" &
-                        .data$event_team_abbr == away_abbr &
-                        .data$x > 0 ~ -.data$y,
-                    .data$homeTeamDefendingSide == "right" &
-                        .data$event_team_abbr == home_abbr &
-                        .data$x > 0 ~ -.data$y,
-                    .data$homeTeamDefendingSide == "right" &
-                        .data$event_team_abbr == away_abbr &
-                        .data$x < 0 ~ -.data$y,
-                    TRUE ~ .data$y
-                )
-            )
+    fenwick_events <- c("SHOT", "MISSED_SHOT", "GOAL")
+    side <- if ("homeTeamDefendingSide" %in% names(pbp)) {
+        as.character(pbp$homeTeamDefendingSide)
     } else {
-        # Fallback: use median-based approach
-        fenwick_events <- c("SHOT", "MISSED_SHOT", "GOAL")
-        pbp <- pbp %>%
-            dplyr::group_by(.data$event_team_abbr, .data$period, .data$game_id) %>%
-            dplyr::mutate(
-                med_x = stats::median(
-                    .data$x[.data$event_type %in% fenwick_events],
-                    na.rm = TRUE
-                )
-            ) %>%
-            dplyr::ungroup() %>%
-            dplyr::mutate(
-                x_fixed = dplyr::case_when(
-                    .data$event_team_abbr == home_abbr & .data$med_x > 0 ~ .data$x,
-                    .data$event_team_abbr == home_abbr & .data$med_x < 0 ~ 0 - .data$x,
-                    .data$event_team_abbr == away_abbr & .data$med_x > 0 ~ 0 - .data$x,
-                    .data$event_team_abbr == away_abbr & .data$med_x < 0 ~ .data$x,
-                    TRUE ~ .data$x
-                ),
-                y_fixed = dplyr::case_when(
-                    .data$event_team_abbr == home_abbr & .data$med_x > 0 ~ .data$y,
-                    .data$event_team_abbr == home_abbr & .data$med_x < 0 ~ 0 - .data$y,
-                    .data$event_team_abbr == away_abbr & .data$med_x > 0 ~ 0 - .data$y,
-                    .data$event_team_abbr == away_abbr & .data$med_x < 0 ~ .data$y,
-                    TRUE ~ .data$y
-                )
-            ) %>%
-            dplyr::select(-"med_x")
+        rep(NA_character_, nrow(pbp))
     }
+    side[!side %in% c("left", "right")] <- NA_character_
+    pbp$.side <- side
+    pbp <- pbp %>%
+        dplyr::group_by(.data$period) %>%
+        dplyr::mutate(
+            .home_med = stats::median(
+                .data$x[.data$event_type %in% fenwick_events & .data$event_team_abbr == home_abbr],
+                na.rm = TRUE
+            ),
+            .away_med = stats::median(
+                .data$x[.data$event_type %in% fenwick_events & .data$event_team_abbr == away_abbr],
+                na.rm = TRUE
+            ),
+            .period_right = mean(.data$.side[!is.na(.data$.side)] == "right")
+        ) %>%
+        dplyr::ungroup() %>%
+        dplyr::mutate(
+            .flip = dplyr::case_when(
+                !is.na(.data$.side) ~ .data$.side == "right",
+                !is.na(.data$.period_right) ~ .data$.period_right > 0.5,
+                !is.na(.data$.home_med) ~ .data$.home_med < 0,
+                !is.na(.data$.away_med) ~ .data$.away_med > 0,
+                TRUE ~ FALSE
+            ),
+            x_fixed = dplyr::if_else(.data$.flip, -.data$x, .data$x),
+            y_fixed = dplyr::if_else(.data$.flip, -.data$y, .data$y)
+        ) %>%
+        dplyr::select(-dplyr::all_of(c(".side", ".home_med", ".away_med", ".period_right", ".flip")))
 
     return(pbp)
 }
@@ -878,22 +858,29 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 .add_shot_metrics <- function(pbp, home_abbr) {
     fenwick_events <- c("SHOT", "MISSED_SHOT", "GOAL", "BLOCKED_SHOT")
 
+    # The home team shoots at x = +89, the away team at x = -89. A BLOCKED_SHOT's
+    # event team is the blocker, so it is measured to the other team's net.
     pbp <- pbp %>%
         dplyr::mutate(
+            .shooter_home = dplyr::if_else(
+                .data$event_type == "BLOCKED_SHOT",
+                .data$event_team_abbr != home_abbr,
+                .data$event_team_abbr == home_abbr
+            ),
             shot_distance = dplyr::case_when(
-                .data$event_type %in% fenwick_events & .data$event_team_abbr == home_abbr ~
+                .data$event_type %in% fenwick_events & .data$.shooter_home ~
                     round(abs(sqrt((.data$x_fixed - 89)^2 + (.data$y_fixed)^2)), 1),
-                .data$event_type %in% fenwick_events & .data$event_team_abbr != home_abbr ~
+                .data$event_type %in% fenwick_events & !.data$.shooter_home ~
                     round(abs(sqrt((.data$x_fixed - (-89))^2 + (.data$y_fixed)^2)), 1),
                 TRUE ~ NA_real_
             ),
             shot_angle = dplyr::case_when(
-                .data$event_type %in% fenwick_events & .data$event_team_abbr == home_abbr ~
+                .data$event_type %in% fenwick_events & .data$.shooter_home ~
                     round(
                         abs(atan((0 - .data$y_fixed) / (89 - .data$x_fixed)) * (180 / pi)),
                         1
                     ),
-                .data$event_type %in% fenwick_events & .data$event_team_abbr != home_abbr ~
+                .data$event_type %in% fenwick_events & !.data$.shooter_home ~
                     round(
                         abs(atan((0 - .data$y_fixed) / (-89 - .data$x_fixed)) * (180 / pi)),
                         1
@@ -904,15 +891,16 @@ nhl_game_feed <- function(game_id, include_shifts = TRUE, raw = FALSE) {
             shot_angle = dplyr::case_when(
                 .data$event_type %in%
                     fenwick_events &
-                    .data$event_team_abbr == home_abbr &
+                    .data$.shooter_home &
                     .data$x_fixed > 89 ~ 180 - .data$shot_angle,
                 .data$event_type %in%
                     fenwick_events &
-                    .data$event_team_abbr != home_abbr &
+                    !.data$.shooter_home &
                     .data$x_fixed < -89 ~ 180 - .data$shot_angle,
                 TRUE ~ .data$shot_angle
             )
-        )
+        ) %>%
+        dplyr::select(-".shooter_home")
 
     return(pbp)
 }
