@@ -42,6 +42,10 @@ test_that("NHL - nhl_game_pbp rotates the rink by homeTeamDefendingSide (offline
         nhl_game_shifts = function(...) shifts
     )
     pbp <- suppressMessages(nhl_game_pbp(game_id = 2025021229))
+    expect_s3_class(pbp, "data.frame")
+    expect_s3_class(pbp, "fastRhockey_data")
+    expect_true(all(c("x", "y", "x_fixed", "y_fixed", "event_team_abbr", "home_abbr",
+                      "shot_distance", "period", "period_time") %in% names(pbp)))
     plays <- jsonlite::fromJSON(pbp_json, flatten = TRUE)$plays
     side <- plays[!is.na(plays$homeTeamDefendingSide) & !is.na(plays$details.xCoord), ]
     key <- paste(side$periodDescriptor.number, side$timeInPeriod, side$details.xCoord, side$details.yCoord)
