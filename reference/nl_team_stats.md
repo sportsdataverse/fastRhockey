@@ -124,7 +124,7 @@ lists every function in this family.
 # \donttest{
   try(nl_team_stats(game_id = 20261105000325))
 #> ── National League Team Stats Information from nationalleague.ch ───────────────
-#> ℹ Data updated: 2026-11-13 20:22:28 UTC
+#> ℹ Data updated: 2026-11-13 21:33:47 UTC
 #> # A tibble: 2 × 40
 #>   game_id team_side team_id     g    ga    sa  sog1  sog2  sog3 sog_ot sog_ot1
 #>     <dbl> <chr>       <dbl> <int> <int> <int> <int> <int> <int>  <int>   <int>

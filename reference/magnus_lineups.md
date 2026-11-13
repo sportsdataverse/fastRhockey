@@ -72,24 +72,9 @@ Other Ligue Magnus Functions:
 ``` r
 # \donttest{
   try(magnus_lineups(game_id = 77779))
-#> ── Ligue Magnus Lineups Information from liguemagnus.com ── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:20:47 UTC
-#> # A tibble: 41 × 14
-#>    game_id team_id home_away player_id player_participant_id player_name        
-#>      <int>   <int> <chr>         <int>                 <int> <chr>              
-#>  1   77779     553 home          66741                618664 VILLARD Fiorenzo   
-#>  2   77779     553 home         120434                618665 PRAPAVESSIS Matthew
-#>  3   77779     553 home         137034                618666 CENTAZZO Orrin     
-#>  4   77779     553 home          99599                618667 HALLEY Philippe    
-#>  5   77779     553 home          34461                618668 TAVERNIER Sami     
-#>  6   77779     553 home          43372                618669 MELIN Vincent      
-#>  7   77779     553 home          57256                618670 ONNO Lucien        
-#>  8   77779     553 home         107434                618671 MANNING Neil       
-#>  9   77779     553 home          59613                618672 HERVE Jordan       
-#> 10   77779     553 home          25980                618673 GUTIERREZ Romain   
-#> # ℹ 31 more rows
-#> # ℹ 8 more variables: jersey_number <chr>, registered_jersey_number <chr>,
-#> #   licence_number <chr>, position_code <chr>, position <chr>, captaincy <chr>,
-#> #   is_mvp <lgl>, photo_url <chr>
+#> Error in .euro_check_status(resp) : 
+#>   liguemagnus.com/rencontre/77779/ answered HTTP 403: <html><body><h1>403
+#> Forbidden</h1> Request forbidden by administrative rules. Interdiction
+#> d'acceder a cette ressource </body></html>
 # }
 ```

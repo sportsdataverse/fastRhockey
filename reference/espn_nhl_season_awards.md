@@ -49,7 +49,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_season_awards(season = 2025))
 #> ── NHL Season Awards data from ESPN core-v2 ─────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:16:49 UTC
+#> ℹ Data updated: 2026-11-13 21:27:19 UTC
 #> # A tibble: 17 × 5
 #>    ref                                          award_id season count page_count
 #>    <chr>                                        <chr>     <int> <int>      <int>

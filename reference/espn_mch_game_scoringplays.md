@@ -89,8 +89,8 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_scoringplays(event_id = sb$game_id[1])
   })
-#> ! 2026-11-13 20:15:54.265316: No plays returned for event 401715296.
-#> ! 2026-11-13 20:15:54.268782: No plays data available to filter for scoring plays (event 401715296).
+#> ! 2026-11-13 21:26:12.332735: No plays returned for event 401715296.
+#> ! 2026-11-13 21:26:12.336989: No plays data available to filter for scoring plays (event 401715296).
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
@@ -98,10 +98,10 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20250110")
     espn_wch_game_scoringplays(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-13 20:15:54.326927: 
+#> ✖ 2026-11-13 21:26:12.41391: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, limit = 300
 #> ✖ Error: The API returned an error
-#> ! 2026-11-13 20:15:54.33542: No plays data available to filter for scoring plays (event ).
+#> ! 2026-11-13 21:26:12.423669: No plays data available to filter for scoring plays (event ).
 #> data frame with 0 columns and 0 rows
 # }
 ```

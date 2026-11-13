@@ -72,7 +72,7 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_propbets(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-13 20:15:53.863383: Invalid arguments or no ESPN mens-college-hockey propbets for event 401715296 available!
+#> ✖ 2026-11-13 21:26:11.801136: Invalid arguments or no ESPN mens-college-hockey propbets for event 401715296 available!
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows
@@ -82,7 +82,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20250110")
     espn_wch_game_propbets(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-13 20:15:53.909373: 
+#> ✖ 2026-11-13 21:26:11.857441: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

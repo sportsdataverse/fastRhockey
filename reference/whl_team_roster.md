@@ -48,6 +48,6 @@ Other WHL Functions:
 ``` r
  try(whl_team_roster(team_id = 1)) 
 #> ── WHL Team Roster from HockeyTech ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:24:24 UTC
+#> ℹ Data updated: 2026-11-13 21:36:03 UTC
 #> # A tibble: 0 × 0
 ```

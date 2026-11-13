@@ -68,22 +68,9 @@ Other Ligue Magnus Functions:
 ``` r
 # \donttest{
   try(magnus_rounds(phase_id = 714))
-#> ── Ligue Magnus Rounds Information from liguemagnus.com ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:20:52 UTC
-#> # A tibble: 44 × 9
-#>    round_id round round_label phase_id phase    competition_id season start_date
-#>       <int> <int> <chr>          <int> <chr>             <int>  <int> <date>    
-#>  1     9695     1 NA               714 Saison …            240   2027 2026-09-15
-#>  2     9696     2 NA               714 Saison …            240   2027 2026-09-18
-#>  3     9697     3 NA               714 Saison …            240   2027 2026-09-22
-#>  4     9698     4 NA               714 Saison …            240   2027 2026-09-25
-#>  5     9699     5 NA               714 Saison …            240   2027 2026-09-27
-#>  6     9700     6 NA               714 Saison …            240   2027 2026-09-29
-#>  7     9701     7 NA               714 Saison …            240   2027 2026-10-02
-#>  8     9702     8 NA               714 Saison …            240   2027 2026-10-04
-#>  9     9703     9 NA               714 Saison …            240   2027 2026-10-09
-#> 10     9704    10 NA               714 Saison …            240   2027 2026-10-16
-#> # ℹ 34 more rows
-#> # ℹ 1 more variable: end_date <date>
+#> Error in .euro_check_status(resp) : 
+#>   liguemagnus.com/wp-admin/admin-ajax.php answered HTTP 403:
+#> <html><body><h1>403 Forbidden</h1> Request forbidden by administrative rules.
+#> Interdiction d'acceder a cette ressource </body></html>
 # }
 ```

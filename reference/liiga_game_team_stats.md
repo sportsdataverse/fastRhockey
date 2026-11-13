@@ -74,7 +74,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_game_team_stats(game_id = 1, season = 2026))
 #> ── Liiga game team stats Information from liiga.fi ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:19:21 UTC
+#> ℹ Data updated: 2026-11-13 21:29:56 UTC
 #> # A tibble: 10 × 22
 #>    season game_id side  period   team_id team_slug goals shots
 #>     <int>   <int> <chr>  <int>     <int> <chr>     <int> <int>

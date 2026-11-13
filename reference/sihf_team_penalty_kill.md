@@ -97,7 +97,7 @@ lists every function in this family.
 # \donttest{
   try(sihf_team_penalty_kill(season = 2026, league_id = 1))
 #> ── SIHF Team Penalty Kill Information from data.sihf.ch ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:23:48 UTC
+#> ℹ Data updated: 2026-11-13 21:35:19 UTC
 #> # A tibble: 15 × 17
 #>    season phase_id  rank team_id team_name             team_acronym games_played
 #>     <int>    <int> <int>   <int> <chr>                 <chr>               <int>

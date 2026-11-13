@@ -101,7 +101,7 @@ lists every function in this family.
 # \donttest{
   try(khl_player_profile(player_id = 41928))
 #> ── KHL Player Profile from khl.ru ───────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:18:52 UTC
+#> ℹ Data updated: 2026-11-13 21:29:27 UTC
 #> # A tibble: 1 × 31
 #>   player_id firstname lastname photo    position position_code biography is_hero
 #>       <int> <chr>     <chr>    <chr>    <chr>    <chr>         <chr>     <lgl>  

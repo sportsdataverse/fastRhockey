@@ -27,7 +27,7 @@ try(nhl_partner_game_odds())
 #> [1] "2026-11-13"
 #> 
 #> $lastUpdatedUTC
-#> [1] "2026-11-13T20:00:38Z"
+#> [1] "2026-11-13T21:30:38Z"
 #> 
 #> $bettingPartner
 #> $bettingPartner$partnerId

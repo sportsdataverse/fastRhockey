@@ -67,22 +67,9 @@ Other Ligue Magnus Functions:
 ``` r
 # \donttest{
   try(magnus_shootout(game_id = 77779))
-#> ── Ligue Magnus Shootout Information from liguemagnus.com ──────────────────────
-#> ℹ Data updated: 2026-11-13 20:20:53 UTC
-#> # A tibble: 10 × 10
-#>    game_id attempt_id shootout_round team_id team_abbreviation shooter_player_id
-#>      <int>      <int>          <int>   <int> <chr>                         <int>
-#>  1   77779      33605              1     553 ANG                           39651
-#>  2   77779      33606              1    3409 BRI                          143117
-#>  3   77779      33607              2     553 ANG                           99599
-#>  4   77779      33608              2    3409 BRI                           54923
-#>  5   77779      33609              3     553 ANG                          120435
-#>  6   77779      33610              3    3409 BRI                          142947
-#>  7   77779      33611              4     553 ANG                          120499
-#>  8   77779      33612              4    3409 BRI                           69022
-#>  9   77779      33613              5     553 ANG                              NA
-#> 10   77779      33614              5    3409 BRI                              NA
-#> # ℹ 4 more variables: shooter_name <chr>, goalie_player_id <int>,
-#> #   goalie_name <chr>, scored <lgl>
+#> Error in .euro_check_status(resp) : 
+#>   liguemagnus.com/rencontre/77779/ answered HTTP 403: <html><body><h1>403
+#> Forbidden</h1> Request forbidden by administrative rules. Interdiction
+#> d'acceder a cette ressource </body></html>
 # }
 ```

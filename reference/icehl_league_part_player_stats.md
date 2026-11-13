@@ -141,15 +141,15 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_league_part_player_stats(league_part_id = 56))
 #> ── ICE Hockey League league_part_player_stats from the eSports hokejovyzapis buc
-#> ℹ Data updated: 2026-11-13 20:18:31 UTC
+#> ℹ Data updated: 2026-11-13 21:29:05 UTC
 #> # A tibble: 362 × 91
 #>    player_id name       firstname surname birthdate position stick weight height
 #>        <int> <chr>      <chr>     <chr>   <chr>     <chr>    <chr>  <int>  <int>
 #>  1      4795 Joshua Da… Joshua D… Lawren… 2002-01-… FW       NA         0      0
 #>  2      4716 Brady Shaw Brady     Shaw    1992-10-… FW       left      91    185
-#>  3      4700 Carter Sa… Carter    Savoie  2002-01-… FW       left      86    178
+#>  3      4024 Nick Swan… Nick      Swaney  1997-09-… FW       left       0      0
 #>  4      4759 Blake Mur… Blake     Murray  2001-07-… FW       left       0      0
-#>  5      4024 Nick Swan… Nick      Swaney  1997-09-… FW       left       0      0
+#>  5      4700 Carter Sa… Carter    Savoie  2002-01-… FW       left      86    178
 #>  6      2861 Nicolai M… Nicolai   Meyer   1993-07-… FW       left      82    179
 #>  7      2979 Graham Kn… Graham    Knott   1997-01-… FW       left      87    191
 #>  8      3531 Marly Qui… Marly     Quince  1994-01-… FW       left      92    183

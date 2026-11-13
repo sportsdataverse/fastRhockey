@@ -126,7 +126,7 @@ lists every function in this family.
 # \donttest{
   try(khl_player_box(game_id = 898236, season = 2026))
 #> ── KHL Player Box Score from khl.ru ─────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:18:48 UTC
+#> ℹ Data updated: 2026-11-13 21:29:23 UTC
 #> # A tibble: 190 × 30
 #>    game_id tournament_id period team_side    jn player_id player_name   position
 #>      <int>         <int>  <int> <chr>     <int>     <int> <chr>         <chr>   

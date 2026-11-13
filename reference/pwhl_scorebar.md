@@ -47,7 +47,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(pwhl_scorebar(days_back = 7, days_ahead = 7))
 #> ── PWHL Scorebar ────────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:22:43 UTC
+#> ℹ Data updated: 2026-11-13 21:34:08 UTC
 #> # A tibble: 23 × 15
 #>    game_id season_id date       game_date   status home_team        home_team_id
 #>      <dbl>     <dbl> <chr>      <chr>       <chr>  <chr>                   <dbl>

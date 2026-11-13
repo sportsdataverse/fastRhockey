@@ -115,7 +115,7 @@ Other VHL Functions:
 # \donttest{
   try(vhl_skater_stats(season = 2026))
 #> ── VHL Skater Stats Information from vhlru.ru ───────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:24:20 UTC
+#> ℹ Data updated: 2026-11-13 21:35:56 UTC
 #> # A tibble: 1,140 × 32
 #>    season stage     tn position_group player_id player jersey team  games_played
 #>     <int> <chr>  <int> <chr>              <int> <chr>   <int> <chr>        <int>

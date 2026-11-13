@@ -55,7 +55,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_teams())
 #> ── Liiga teams Information from liiga.fi ────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:19:49 UTC
+#> ℹ Data updated: 2026-11-13 21:30:28 UTC
 #> # A tibble: 16 × 14
 #>       team_id team_slug name    contact_info externals country_code country_name
 #>         <int> <chr>     <chr>   <chr>        <chr>     <chr>        <chr>       

@@ -124,17 +124,31 @@ xg_ready <- requireNamespace("xgboost", quietly = TRUE) &&
   !inherits(try(fastRhockey:::.load_xg_models(), silent = TRUE), "try-error") &&
   !is.null(xg_env$xg_model_5v5)
 xg_ready
-#> [1] FALSE
+#> [1] TRUE
 ```
 
 ``` r
 
 xg_env$xg_feature_names_5v5
+#>  [1] "shot_distance"      "shot_angle"         "rebound"           
+#>  [4] "rush"               "time_since_last"    "distance_from_last"
+#>  [7] "cross_ice_event"    "empty_net"          "last_x"            
+#> [10] "last_y"             "era_2011_2013"      "era_2014_2018"     
+#> [13] "era_2019_2021"      "era_2022_2024"      "era_2025_on"       
+#> [16] "wrist_shot"         "snap_shot"          "slap_shot"         
+#> [19] "backhand"           "wrap_around"        "tip_in"            
+#> [22] "deflected"          "poke"               "batted"            
+#> [25] "between_legs"       "cradle"             "last_faceoff"      
+#> [28] "last_giveaway"      "last_takeaway"      "last_blocked_shot" 
+#> [31] "last_hit"           "last_missed_shot"   "last_shot"         
+#> [34] "last_stop"          "last_penalty"       "last_goal"
 
 setdiff(xg_env$xg_feature_names_st, xg_env$xg_feature_names_5v5)
+#> [1] "total_skaters_on"     "event_team_advantage"
 
 # the penalty-shot constant
 xg_env$xg_model_ps
+#> [1] 0.3183639
 ```
 
 ### What does the 5v5 model lean on?
@@ -146,6 +160,20 @@ splits on each feature.
 
 imp <- xgboost::xgb.importance(model = xg_env$xg_model_5v5)
 head(imp[, c("Feature", "Gain")], 12)
+#>                Feature       Gain
+#>                 <char>      <num>
+#>  1:      shot_distance 0.53588353
+#>  2:         shot_angle 0.11350052
+#>  3:    time_since_last 0.10324887
+#>  4:        era_2025_on 0.03169979
+#>  5: distance_from_last 0.02602005
+#>  6:          snap_shot 0.01563065
+#>  7:             tip_in 0.01499178
+#>  8:             last_y 0.01394966
+#>  9:            rebound 0.01256589
+#> 10:           backhand 0.01211918
+#> 11:             last_x 0.01197956
+#> 12:          last_shot 0.01088873
 ```
 
 ``` r
@@ -161,6 +189,10 @@ imp %>%
   ) +
   theme_minimal()
 ```
+
+![Horizontal bar chart of the twelve features with the highest gain in
+the NHL 5v5 expected goals
+model.](nhl-expected-goals-xg-model_files/figure-html/importance_plot-1.png)
 
 Distance dominates, as in every public xG model. Empty net ranks high
 because it is rare but decisive. Shot type and the time since the
@@ -328,6 +360,8 @@ local_xg %>%
     both_present = sum(!is.na(xg) & !is.na(xg_published)),
     max_abs_diff = max(abs(xg - xg_published), na.rm = TRUE)
   )
+#>   shots both_present max_abs_diff
+#> 1  2492         2492    0.3067307
 ```
 
 The largest difference is the rounding of the published column to four

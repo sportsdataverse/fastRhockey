@@ -103,7 +103,7 @@ lists every function in this family.
 # \donttest{
   try(sihf_player_goals_assists(season = 2026, league_id = 1))
 #> ── SIHF Player Goals Assists Information from data.sihf.ch ─────────────────────
-#> ℹ Data updated: 2026-11-13 20:23:34 UTC
+#> ℹ Data updated: 2026-11-13 21:35:04 UTC
 #> # A tibble: 427 × 23
 #>    season phase_id  rank player          team_id team_name team_acronym position
 #>     <int>    <int> <int> <chr>             <int> <chr>     <chr>        <chr>   

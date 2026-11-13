@@ -78,7 +78,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_rankings())
 #> ── MENS-COLLEGE-HOCKEY Rankings data from ESPN.com ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:16:07 UTC
+#> ℹ Data updated: 2026-11-13 21:26:28 UTC
 #> # A tibble: 33 × 25
 #>    poll_id poll_name        poll_short_name  poll_type  season season_type  week
 #>      <int> <chr>            <chr>            <chr>       <int>       <int> <int>
@@ -103,7 +103,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_rankings())
 #> ── WOMENS-COLLEGE-HOCKEY Rankings data from ESPN.com ────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:16:07 UTC
+#> ℹ Data updated: 2026-11-13 21:26:28 UTC
 #> # A tibble: 20 × 25
 #>    poll_id poll_name          poll_short_name poll_type season season_type  week
 #>      <int> <chr>              <chr>           <chr>      <int>       <int> <int>

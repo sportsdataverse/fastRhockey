@@ -94,7 +94,7 @@ lists every function in this family.
 # \donttest{
   try(sihf_pbp(game_id = 20261105000325))
 #> ── SIHF PBP Information from data.sihf.ch ───────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:23:28 UTC
+#> ℹ Data updated: 2026-11-13 21:34:59 UTC
 #> # A tibble: 17 × 34
 #>    game_id event_index period_number period     event_type   time  game_seconds
 #>      <dbl>       <int>         <int> <chr>      <chr>        <chr>        <int>

@@ -90,27 +90,9 @@ Other Ligue Magnus Functions:
 ``` r
 # \donttest{
   try(magnus_pbp(game_id = 77779))
-#> ── Ligue Magnus Play-by-play Information from liguemagnus.com ──────────────────
-#> ℹ Data updated: 2026-11-13 20:20:48 UTC
-#> # A tibble: 159 × 29
-#>    game_id event_id event_type event_type_raw period period_seconds game_seconds
-#>      <int> <chr>    <chr>      <chr>           <int>          <int>        <int>
-#>  1   77779 ENGA237… faceoff    ENGA                1             60           60
-#>  2   77779 ENGA237… faceoff    ENGA                1            253          253
-#>  3   77779 SANCTIO… penalty    SANCTION            1            279          279
-#>  4   77779 ENGA237… faceoff    ENGA                1            279          279
-#>  5   77779 ENGA237… faceoff    ENGA                1            383          383
-#>  6   77779 ENGA237… faceoff    ENGA                1            389          389
-#>  7   77779 ENGA237… faceoff    ENGA                1            423          423
-#>  8   77779 ENGA237… faceoff    ENGA                1            451          451
-#>  9   77779 ENGA237… faceoff    ENGA                1            466          466
-#> 10   77779 ENGA237… faceoff    ENGA                1            624          624
-#> # ℹ 149 more rows
-#> # ℹ 22 more variables: team_id <int>, team_abbreviation <chr>, player_id <int>,
-#> #   player_name <chr>, assist1_player_id <int>, assist1_player_name <chr>,
-#> #   assist2_player_id <int>, assist2_player_name <chr>, goalie_player_id <int>,
-#> #   goalie_player_name <chr>, faceoff_home_player_id <int>,
-#> #   faceoff_away_player_id <int>, strength_code <chr>, penalty_code <chr>,
-#> #   penalty <chr>, penalty_minutes <int>, penalty_start_seconds <int>, …
+#> Error in .euro_check_status(resp) : 
+#>   liguemagnus.com/rencontre/77779/ answered HTTP 403: <html><body><h1>403
+#> Forbidden</h1> Request forbidden by administrative rules. Interdiction
+#> d'acceder a cette ressource </body></html>
 # }
 ```

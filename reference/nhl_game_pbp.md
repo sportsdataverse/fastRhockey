@@ -6457,14 +6457,8 @@ following columns (or the raw API response list when `raw = TRUE`):
 # The first parsed game downloads the xG models (about 4 MB).
 # \donttest{
   try(nhl_game_pbp(game_id = 2024020001))
-#> 2026-11-13 20:21:31.668692: Could not calculate xG for game 2024020001: The xG models could not be loaded.
-#> ✖ The "nhl_xg_models" release no longer carries the xg_model_5v5.json this
-#>   fastRhockey version scores with. ℹ Update fastRhockey to use the retrained xG
-#>   models.
-#> ℹ They are downloaded once from the "nhl_xg_models" release; check the
-#>   connection, or run `refresh_xg_models()`.
 #> ── NHL Game PBP from NHL.com ────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:21:31 UTC
+#> ℹ Data updated: 2026-11-13 21:32:30 UTC
 #> # A tibble: 850 × 93
 #>    event_type   event secondary_type event_team_abbr event_team_type description
 #>    <chr>        <chr> <chr>          <chr>           <chr>           <glue>     

@@ -135,7 +135,7 @@ Other HA Functions:
 # \donttest{
   try(ha_game(slug = "20260918-aik-modo"))
 #> ── HA Game Information from hockeyallsvenskan.se ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:17:20 UTC
+#> ℹ Data updated: 2026-11-13 21:28:01 UTC
 #> # A tibble: 1 × 70
 #>   season game_cms_id game_document_id cms_season statnet_game_number slug  round
 #>    <int>       <int> <chr>            <chr>                    <int> <chr> <int>

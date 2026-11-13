@@ -85,7 +85,7 @@ Saiem Gilani
     espn_mch_game_team(event_id = eid, team_id = tms$team_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Team data from ESPN core-v2 ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:15:55 UTC
+#> ℹ Data updated: 2026-11-13 21:26:13 UTC
 #> # A tibble: 1 × 17
 #>   event_id  cid       team_id id    uid    type  order home_away winner team_ref
 #>   <chr>     <chr>     <chr>   <chr> <chr>  <chr> <int> <chr>     <lgl>  <chr>   
@@ -101,10 +101,10 @@ Saiem Gilani
     tms <- espn_wch_game_teams(event_id = eid)
     espn_wch_game_team(event_id = eid, team_id = tms$team_id[1])
   })
-#> ✖ 2026-11-13 20:15:55.611398: 
+#> ✖ 2026-11-13 21:26:14.055946: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
 #> ✖ Error: The API returned an error
-#> ✖ 2026-11-13 20:15:55.631929: 
+#> ✖ 2026-11-13 21:26:14.092473: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, team_id = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

@@ -82,7 +82,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_game_goals(game_id = 1, season = 2026))
 #> ── Liiga game goals Information from liiga.fi ───────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:19:15 UTC
+#> ℹ Data updated: 2026-11-13 21:29:50 UTC
 #> # A tibble: 5 × 30
 #>   season game_id side   team_id team_slug log_time winning_goal game_time period
 #>    <int>   <int> <chr>    <int> <chr>     <chr>    <lgl>            <int>  <int>

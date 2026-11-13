@@ -47,7 +47,7 @@ Other AHL Functions:
 ``` r
  try(ahl_schedule()) 
 #> ── AHL Schedule from HockeyTech ─────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:15:11 UTC
+#> ℹ Data updated: 2026-11-13 21:25:24 UTC
 #> # A tibble: 1,152 × 12
 #>    game_id game_date     game_status home_team home_team_id home_score away_team
 #>    <chr>   <chr>         <chr>       <chr>     <chr>        <chr>      <chr>    

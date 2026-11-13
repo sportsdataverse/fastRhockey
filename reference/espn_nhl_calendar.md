@@ -42,7 +42,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_calendar())
 #> ── NHL Calendar data from ESPN.com ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:16:24 UTC
+#> ℹ Data updated: 2026-11-13 21:26:48 UTC
 #> # A tibble: 193 × 5
 #>    date              calendar_type calendar_start_date calendar_end_date
 #>    <chr>             <chr>         <chr>               <chr>            

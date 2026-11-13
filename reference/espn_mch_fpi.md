@@ -72,14 +72,14 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_fpi(season = 2026))
-#> ✖ 2026-11-13 20:15:46.816524: Invalid arguments or no ESPN mens-college-hockey power index available!
+#> ✖ 2026-11-13 21:26:03.325786: Invalid arguments or no ESPN mens-college-hockey power index available!
 #> ✖ Args: league = "mens-college-hockey", kind = "fpi", path = NULL, query = list(season = 2026)
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try(espn_wch_fpi(season = 2026))
-#> ✖ 2026-11-13 20:15:46.837198: Invalid arguments or no ESPN womens-college-hockey power index available!
+#> ✖ 2026-11-13 21:26:03.371397: Invalid arguments or no ESPN womens-college-hockey power index available!
 #> ✖ Args: league = "womens-college-hockey", kind = "fpi", path = NULL, query = list(season = 2026)
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

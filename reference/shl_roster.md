@@ -66,7 +66,7 @@ lists every function in this family.
 # \donttest{
   try(shl_roster(team_uuid = "087a-087aTQv9u"))
 #> ── SHL Roster Information from www.shl.se ───────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:23:09 UTC
+#> ℹ Data updated: 2026-11-13 21:34:39 UTC
 #> # A tibble: 25 × 14
 #>    position  position_code player_type gender uuid          first_name last_name
 #>    <chr>     <chr>         <chr>       <chr>  <chr>         <chr>      <chr>    

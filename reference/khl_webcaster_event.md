@@ -230,7 +230,7 @@ lists every function in this family.
 # \donttest{
   try(khl_webcaster_event(event_id = 2786714))
 #> ── KHL Webcaster Event from khl.api.webcaster.pro ───────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:19:06 UTC
+#> ℹ Data updated: 2026-11-13 21:29:41 UTC
 #> # A tibble: 1 × 159
 #>   game_state_key period hd         id season    stage_id type_id commentator
 #>   <chr>           <int> <lgl>   <int> <chr>        <int>   <int> <lgl>      

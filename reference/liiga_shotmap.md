@@ -68,7 +68,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_shotmap(game_id = 1, season = 2026))
 #> ── Liiga shotmap Information from liiga.fi ──────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:19:33 UTC
+#> ℹ Data updated: 2026-11-13 21:30:11 UTC
 #> # A tibble: 90 × 17
 #>    season game_id type     shooting_team_id left_team_id right_team_id game_time
 #>     <int>   <int> <chr>               <int>        <int>         <int>     <int>

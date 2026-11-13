@@ -136,7 +136,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_team_stats(data_type = "shots", season_from = 2026, season_to = 2026))
 #> ── Liiga team stat tables Information from liiga.fi ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:19:35 UTC
+#> ℹ Data updated: 2026-11-13 21:30:14 UTC
 #> # A tibble: 16 × 67
 #>    sort_desc    team_id team_name team_short_name team_logos_dark_bg            
 #>    <lgl>          <int> <chr>     <chr>           <chr>                         

@@ -94,7 +94,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_player_game_log(player_id = 21870028, season = 2026))
 #> ── Liiga player game log Information from liiga.fi ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:19:28 UTC
+#> ℹ Data updated: 2026-11-13 21:30:06 UTC
 #> # A tibble: 76 × 42
 #>    player_id season tournament game_str  game_id date                 assists
 #>        <int>  <int> <chr>      <chr>       <int> <chr>                  <int>

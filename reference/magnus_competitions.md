@@ -67,19 +67,9 @@ Other Ligue Magnus Functions:
 ``` r
 # \donttest{
   try(magnus_competitions())
-#> ── Ligue Magnus Competitions Information from liguemagnus.com ──────────────────
-#> ℹ Data updated: 2026-11-13 20:20:45 UTC
-#> # A tibble: 7 × 8
-#>   competition_id season competition    competition_type_id competition_type_code
-#>            <int>  <int> <chr>                        <int> <chr>                
-#> 1              1   2021 Synerglace Li…                   1 NA                   
-#> 2             34   2022 Synerglace Li…                   1 NA                   
-#> 3             79   2023 Synerglace li…                   1 NA                   
-#> 4            120   2024 Synerglace Li…                   1 NA                   
-#> 5            157   2025 Synerglace Li…                   1 NA                   
-#> 6            197   2026 Synerglace Li…                   1 NA                   
-#> 7            240   2027 Synerglace Li…                   1 NA                   
-#> # ℹ 3 more variables: competition_type <chr>, external_url <chr>,
-#> #   published <lgl>
+#> Error in .euro_check_status(resp) : 
+#>   liguemagnus.com/wp-admin/admin-ajax.php answered HTTP 403:
+#> <html><body><h1>403 Forbidden</h1> Request forbidden by administrative rules.
+#> Interdiction d'acceder a cette ressource </body></html>
 # }
 ```

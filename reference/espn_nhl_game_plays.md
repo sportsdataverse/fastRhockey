@@ -82,7 +82,7 @@ Saiem Gilani
     espn_nhl_game_plays(event_id = sb$game_id[1])
   })
 #> ── NHL Game Plays data from ESPN core-v2 ────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 20:16:31 UTC
+#> ℹ Data updated: 2026-11-13 21:26:57 UTC
 #> # A tibble: 244 × 27
 #>    event_id  cid       id    sequence_number type_id type_text type_abbreviation
 #>    <chr>     <chr>     <chr>           <int> <chr>   <chr>     <chr>            
