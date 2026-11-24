@@ -294,6 +294,11 @@ espn_nhl_franchises <- function(limit = 100, ...) {
 
   tryCatch(
     expr = {
+      # A NULL / empty id (e.g. `fcs$franchise_id[1]` of an empty listing)
+      # would request "franchises/", the collection, and fail on the 1-row frame.
+      if (length(franchise_id) != 1L || is.na(franchise_id) || !nzchar(franchise_id)) {
+        cli::cli_abort("{.arg franchise_id} must be a single, non-missing ESPN franchise id.")
+      }
       path <- paste0("franchises/", franchise_id)
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,

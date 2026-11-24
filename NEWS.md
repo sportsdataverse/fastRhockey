@@ -296,6 +296,12 @@ Code that upgrades from 1.0.0 may need to change.
   returned an empty tibble.
 * `fox_nhl_odds()` finds the six-pack odds in the `sectionList` modules,
   where Fox now sends them; it returned an empty tibble for every game.
+* `espn_nhl_franchise()`, `espn_mch_franchise()` and `espn_wch_franchise()`
+  report a missing or empty `franchise_id` and return an empty data frame
+  without a request. A `NULL` id (from an empty `espn_mch_franchises()`
+  listing) used to request the franchise collection and fail with
+  "arguments imply differing number of rows". The college examples skip the
+  detail call when the listing is empty.
 * `update_nhl_db()` and `update_pwhl_db()` no longer need dbplyr, which is
   not a dependency: the stored game ids are read with a plain `DBI` query.
 * `nhl_teams()`, `nhl_standings()`, `nhl_schedule()`, `nhl_draft()`,

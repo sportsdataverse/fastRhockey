@@ -235,3 +235,28 @@ test_that("espn_nhl_providers returns provider refs", {
   expect_true(nrow(x) > 0)
   Sys.sleep(1)
 })
+
+# ===========================================================================
+# 12. Franchise detail: a missing id makes no request (offline)
+# ===========================================================================
+test_that("espn_*_franchise() with no franchise id reports it and makes no request", {
+  # `fcs$franchise_id[1]` of an empty listing is NULL; that used to request the
+  # "franchises/" collection and fail with "differing number of rows: 0, 1".
+  local_mocked_bindings(.espn_hockey_request = function(...) stop("no request expected"))
+  for (id in list(NULL, character(0), NA_character_, "")) {
+    for (f in list(espn_nhl_franchise, espn_mch_franchise, espn_wch_franchise)) {
+      msgs <- character()
+      x <- withCallingHandlers(
+        f(franchise_id = id),
+        message = function(m) {
+          msgs <<- c(msgs, conditionMessage(m))
+          invokeRestart("muffleMessage")
+        }
+      )
+      expect_true(is.data.frame(x))
+      expect_equal(nrow(x), 0L)
+      expect_true(any(grepl("franchise_id", msgs, fixed = TRUE)))
+      expect_false(any(grepl("no request expected", msgs, fixed = TRUE)))
+    }
+  }
+})
