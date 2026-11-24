@@ -18,7 +18,7 @@ phf_team_box <- function(game_id) {
   lifecycle::deprecate_stop("1.0.0", "phf_team_box()", details = "The PHF has ceased operations.")
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("phf_team_box", {
 
       y <- game_id
 
@@ -38,12 +38,9 @@ phf_team_box <- function(game_id) {
           tidyr::everything()) %>%
         make_fastRhockey_data("PHF Team Boxscore Information from PremierHockeyFederation.com",Sys.time())
       Sys.sleep(3)
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid game_id or no boxscore data available! Try using `phf_schedule` to find a game ID to look up!"))
-    },
-    warning = function(w) {
-
+      message(glue::glue("{Sys.time()}: Invalid game_id or no boxscore data available! Try using `phf_schedule` to find a game ID to look up! {conditionMessage(e)}"))
     },
     finally = {
 

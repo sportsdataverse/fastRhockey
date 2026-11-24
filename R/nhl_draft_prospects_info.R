@@ -81,7 +81,7 @@ nhl_draft_prospects_info <- function(year, prospect_category = 1) {
     },
     error = function(e) {
       message(glue::glue(
-        "{Sys.time()}: Invalid arguments or no draft prospects data for year={year}, category={prospect_category} available!"
+        "{Sys.time()}: Invalid arguments or no draft prospects data for year={year}, category={prospect_category} available! {conditionMessage(e)}"
       ))
       return(NULL)
     }

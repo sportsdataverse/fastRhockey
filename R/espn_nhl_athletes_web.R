@@ -21,7 +21,7 @@
   overview <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "player_overview"), {
       path <- paste0("athletes/", athlete_id, "/overview")
       raw  <- .espn_hockey_request("web_v3", path,
                                    league         = league,
@@ -84,15 +84,10 @@
           paste0(toupper(league), " Player Overview data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} player overview data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} player overview",
         args = .args)
     },
     finally = {}
@@ -180,7 +175,7 @@ espn_nhl_player_overview <- function(athlete_id, ...) {
   player_stats <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(".espn_hockey_player_stats_v3", {
       path  <- paste0("athletes/", athlete_id, "/stats")
       query <- list()
       if (!is.null(season)) query[["season"]] <- season
@@ -274,15 +269,10 @@ espn_nhl_player_overview <- function(athlete_id, ...) {
           paste0(toupper(league), " Player Stats V3 data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} player stats data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} player stats v3",
         args = .args)
     },
     finally = {}
@@ -377,7 +367,7 @@ espn_nhl_player_stats_v3 <- function(athlete_id,
   splits_df <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "player_splits"), {
       path  <- paste0("athletes/", athlete_id, "/splits")
       query <- list()
       if (!is.null(season)) query[["season"]] <- season
@@ -430,15 +420,10 @@ espn_nhl_player_stats_v3 <- function(athlete_id,
           paste0(toupper(league), " Player Splits data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} player splits data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} player splits",
         args = .args)
     },
     finally = {}
@@ -546,7 +531,7 @@ espn_nhl_player_splits <- function(athlete_id,
   leaders <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "leaders"), {
       # NOTE: passing season/seasontype to this endpoint returns 400 for NHL.
       # The endpoint always uses the current season. We echo the args on the
       # output for consumer convenience.
@@ -678,15 +663,10 @@ espn_nhl_player_splits <- function(athlete_id,
           paste0(toupper(league), " Leaders data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} leaders data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} leaders",
         args = .args)
     },
     finally = {}

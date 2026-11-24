@@ -33,7 +33,7 @@ phf_team_stats <- function(team, season = most_recent_phf_season()){
   check_status(res)
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("phf_team_stats", {
       resp <- (.resp_text(res) %>%
                  jsonlite::parse_json() %>%
                  purrr::pluck("content") %>%
@@ -172,12 +172,10 @@ phf_team_stats <- function(team, season = most_recent_phf_season()){
       names(team_stats) <- c("skaters", "goalies")
 
 
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid parameters or no team stats data available!"))
+      message(glue::glue("{Sys.time()}: Invalid parameters or no team stats data available! {conditionMessage(e)}"))
 
-    },
-    warning = function(w) {
     },
     finally = {
     }

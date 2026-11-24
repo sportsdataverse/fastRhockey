@@ -117,7 +117,7 @@ pwhl_pbp <- function(game_id) {
   df <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("pwhl_pbp", {
       # Fetch the gameCenterPlayByPlay payload via the shared HockeyTech URL
       # builder and API helper (handles JSONP stripping).
       pbp_url <- .hockeytech_url(
@@ -139,11 +139,9 @@ pwhl_pbp <- function(game_id) {
       # Stamp with fastRhockey metadata class.
       df <- make_fastRhockey_data(df, "PWHL Play-by-Play data from HockeyTech",
                                    Sys.time())
-    },
+    }),
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Error encountered: {e$message}. Please verify the game_id and ensure it corresponds to a valid game in the PWHL.")
-    },
-    warning = function(w) {
     },
     finally = {
     }

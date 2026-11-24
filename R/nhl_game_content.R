@@ -54,7 +54,7 @@ nhl_game_content <- function(game_id) {
 
   game_df <- NULL
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("nhl_game_content", {
       res <- .retry_request(url)
       check_status(res)
 
@@ -107,11 +107,9 @@ nhl_game_content <- function(game_id) {
       game_df <- game_df %>%
         janitor::clean_names() %>%
         make_fastRhockey_data("NHL Game Content Information from NHL.com", Sys.time())
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no game content data for {game_id} available!"))
-    },
-    warning = function(w) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no game content data for {game_id} available! {conditionMessage(e)}"))
     },
     finally = {
     }

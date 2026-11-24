@@ -161,7 +161,7 @@ espn_nhl_team_schedule <- function(team_id,
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "standings_core"), {
       path <- paste0("seasons/", season,
                      "/types/", season_type,
                      "/groups/", group_id,
@@ -244,15 +244,10 @@ espn_nhl_team_schedule <- function(team_id,
           paste0(toupper(league), " Standings (core-v2) data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} core standings for season {season} type {season_type} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} core standings",
         args = .args)
     },
     finally = {}
@@ -330,7 +325,7 @@ espn_nhl_standings_core <- function(season      = most_recent_nhl_season(),
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "leaders_core"), {
       raw <- .espn_hockey_request("core_v2", path = "leaders",
                                    league         = league,
                                    simplifyVector = TRUE, ...)
@@ -392,15 +387,10 @@ espn_nhl_standings_core <- function(season      = most_recent_nhl_season(),
           paste0(toupper(league), " Leaders (core-v2) data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} core leaders data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} core leaders",
         args = .args)
     },
     finally = {}
@@ -470,7 +460,7 @@ espn_nhl_leaders_core <- function(...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "coach_season"), {
       # coach_first: sportsdataverse-py's coaches/{id}/seasons/{season} (college leagues);
       # the NHL keeps seasons/{season}/coaches/{id}, the only order that answers there.
       path <- if (isTRUE(coach_first)) {
@@ -515,15 +505,10 @@ espn_nhl_leaders_core <- function(...) {
           paste0(toupper(league), " Coach Season data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} coach {coach_id} season {season} data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} coach season",
         args = .args)
     },
     finally = {}
@@ -595,7 +580,7 @@ espn_nhl_coach_season <- function(coach_id,
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(".espn_hockey_calendar_dates", {
       raw <- .espn_hockey_request("core_v2", path = path,
                                    league         = league,
                                    simplifyVector = TRUE, ...)
@@ -625,15 +610,10 @@ espn_nhl_coach_season <- function(coach_id,
           paste0(toupper(league), " ", label, " data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = paste0("Invalid arguments or no ESPN {league} ", label, " data available!"),
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = paste0("Warning fetching ESPN {league} ", label),
         args = .args)
     },
     finally = {}

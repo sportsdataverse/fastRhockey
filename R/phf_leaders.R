@@ -39,7 +39,7 @@ phf_leaders <- function(player_type, season = most_recent_phf_season(), season_t
   check_status(res)
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("phf_leaders", {
       resp <- (.resp_text(res) %>%
                  jsonlite::parse_json() %>%
                  purrr::pluck("content") %>%
@@ -140,12 +140,10 @@ phf_leaders <- function(player_type, season = most_recent_phf_season(), season_t
       }
       skaters <- skaters %>%
         make_fastRhockey_data("PHF Leaderboard Information from PremierHockeyFederation.com",Sys.time())
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid parameters or no leaderboard data available!"))
+      message(glue::glue("{Sys.time()}: Invalid parameters or no leaderboard data available! {conditionMessage(e)}"))
 
-    },
-    warning = function(w) {
     },
     finally = {
     }

@@ -21,6 +21,15 @@
   url
 }
 
+#' The exported name behind a league-generic helper, for messages:
+#' `.espn_fn("mens-college-hockey", "game")` is `"espn_mch_game"`.
+#' @noRd
+.espn_fn <- function(league, suffix) {
+  prefix <- c(nhl = "nhl", "mens-college-hockey" = "mch", "womens-college-hockey" = "wch")
+  p <- unname(prefix[league[1]])
+  paste0("espn_", if (is.na(p)) league[1] else p, "_", suffix)
+}
+
 #' Abort unless `id` is a single, non-missing, non-empty id.
 #'
 #' `x$id[1]` of an empty listing is `NULL`; pasted into a path it requests the

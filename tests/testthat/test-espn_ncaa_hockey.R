@@ -98,7 +98,8 @@ test_that("every wrapper hits the sdv-py URL for its league", {
       req_py <- if (nzchar(routes$args[i])) sub("=.*", "", strsplit(routes$args[i], ";")[[1]]) else character()
       args <- DUMMY[union(req_r, intersect(req_py, names(formals(fn))))]
       seen <- mock_getter("{}")
-      suppressMessages(do.call(fn, args))
+      # the dummy ids are not numbers, so some wrappers warn on coercion
+      suppressWarnings(suppressMessages(do.call(fn, args)), classes = "fastRhockey_warning")
       expected <- sub("{slug}", prefix, routes$url[i], fixed = TRUE)
       got <- seen$urls[1]
       if (is.na(got) || !identical(got, expected)) {

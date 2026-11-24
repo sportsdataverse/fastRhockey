@@ -38,7 +38,7 @@
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "player_core"), {
       path <- paste0("athletes/", athlete_id)
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -92,15 +92,10 @@
           paste0(toupper(league), " Player Core data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} player core data for athlete {athlete_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} player core",
         args = .args)
     },
     finally = {}
@@ -173,7 +168,7 @@ espn_nhl_player_core <- function(athlete_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "player_statistics"), {
       path <- paste0("athletes/", athlete_id, "/statistics")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -212,15 +207,10 @@ espn_nhl_player_core <- function(athlete_id, ...) {
           paste0(toupper(league), " Player Statistics data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} player statistics for athlete {athlete_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} player statistics",
         args = .args)
     },
     finally = {}
@@ -276,7 +266,7 @@ espn_nhl_player_statistics <- function(athlete_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "player_statisticslog"), {
       path <- paste0("athletes/", athlete_id, "/statisticslog")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -346,15 +336,10 @@ espn_nhl_player_statistics <- function(athlete_id, ...) {
           paste0(toupper(league), " Player Statisticslog data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} player statisticslog for athlete {athlete_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} player statisticslog",
         args = .args)
     },
     finally = {}
@@ -407,7 +392,7 @@ espn_nhl_player_statisticslog <- function(athlete_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "player_eventlog"), {
       path <- paste0("athletes/", athlete_id, "/eventlog")
       # Must use simplifyVector=FALSE because events is a nested {count, items:[]}
       # structure, not a flat array.
@@ -451,15 +436,10 @@ espn_nhl_player_statisticslog <- function(athlete_id, ...) {
           paste0(toupper(league), " Player Eventlog data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} player eventlog for athlete {athlete_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} player eventlog",
         args = .args)
     },
     finally = {}
@@ -514,7 +494,7 @@ espn_nhl_player_eventlog <- function(athlete_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "player_contracts"), {
       path <- paste0("athletes/", athlete_id, "/contracts")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -544,15 +524,10 @@ espn_nhl_player_eventlog <- function(athlete_id, ...) {
           paste0(toupper(league), " Player Contracts data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} player contracts for athlete {athlete_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} player contracts",
         args = .args)
     },
     finally = {}
@@ -605,7 +580,7 @@ espn_nhl_player_contracts <- function(athlete_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "player_awards"), {
       path <- paste0("athletes/", athlete_id, "/awards")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -630,15 +605,10 @@ espn_nhl_player_contracts <- function(athlete_id, ...) {
           paste0(toupper(league), " Player Awards data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} player awards for athlete {athlete_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} player awards",
         args = .args)
     },
     finally = {}
@@ -690,7 +660,7 @@ espn_nhl_player_awards <- function(athlete_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "player_records"), {
       path <- paste0("athletes/", athlete_id, "/records")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -720,15 +690,10 @@ espn_nhl_player_awards <- function(athlete_id, ...) {
           paste0(toupper(league), " Player Records data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} player records for athlete {athlete_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} player records",
         args = .args)
     },
     finally = {}
@@ -781,7 +746,7 @@ espn_nhl_player_records <- function(athlete_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "player_seasons"), {
       path <- paste0("athletes/", athlete_id, "/seasons")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -794,21 +759,15 @@ espn_nhl_player_records <- function(athlete_id, ...) {
         )
       )
       return(result)
-    },
+    }),
     error = function(e) {
-      # Gracefully swallow the 404
       cli::cli_alert_warning(
         paste0(
-          "espn_nhl_player_seasons(): ESPN core-v2 athletes/{{id}}/seasons ",
-          "returns HTTP 404 for the requested NHL athlete ",
-          "(DONE_WITH_CONCERNS: endpoint not served for NHL)."
+          .espn_fn(league, "player_seasons"), "(): ESPN core-v2 athletes/{{id}}/seasons ",
+          "is not available for the requested athlete (ESPN answers 404 for most NHL athletes)."
         )
       )
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} player seasons",
-        args = .args)
+      cli::cli_alert_warning("Error: {conditionMessage(e)}")
     },
     finally = {}
   )
@@ -852,7 +811,7 @@ espn_nhl_player_seasons <- function(athlete_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "player_injuries"), {
       path <- paste0("athletes/", athlete_id, "/injuries")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -866,20 +825,15 @@ espn_nhl_player_seasons <- function(athlete_id, ...) {
         )
       )
       return(result)
-    },
+    }),
     error = function(e) {
       cli::cli_alert_warning(
         paste0(
-          "espn_nhl_player_injuries(): ESPN core-v2 athletes/{{id}}/injuries ",
-          "returns HTTP 404 for the requested NHL athlete ",
-          "(DONE_WITH_CONCERNS: endpoint not served for NHL)."
+          .espn_fn(league, "player_injuries"), "(): ESPN core-v2 athletes/{{id}}/injuries ",
+          "is not available for the requested athlete (ESPN answers 404 for most NHL athletes)."
         )
       )
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} player injuries",
-        args = .args)
+      cli::cli_alert_warning("Error: {conditionMessage(e)}")
     },
     finally = {}
   )
@@ -924,7 +878,7 @@ espn_nhl_player_injuries <- function(athlete_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "player_vs_player"), {
       path <- paste0("athletes/", athlete_id, "/vsathlete/", opponent_id)
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -937,20 +891,15 @@ espn_nhl_player_injuries <- function(athlete_id, ...) {
         )
       )
       return(result)
-    },
+    }),
     error = function(e) {
       cli::cli_alert_warning(
         paste0(
-          "espn_nhl_player_vs_player(): ESPN core-v2 athletes/{{id}}/vsathlete/{{opp}} ",
-          "returns HTTP 404 for the requested NHL athlete pair ",
-          "(DONE_WITH_CONCERNS: endpoint not served for NHL)."
+          .espn_fn(league, "player_vs_player"), "(): ESPN core-v2 athletes/{{id}}/vsathlete/{{opp}} ",
+          "is not available for the requested athlete pair (ESPN answers 404 for most NHL pairs)."
         )
       )
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} player vs player",
-        args = .args)
+      cli::cli_alert_warning("Error: {conditionMessage(e)}")
     },
     finally = {}
   )
@@ -995,7 +944,7 @@ espn_nhl_player_vs_player <- function(athlete_id, opponent_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "player_notes"), {
       path <- paste0("athletes/", athlete_id, "/notes")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -1008,20 +957,15 @@ espn_nhl_player_vs_player <- function(athlete_id, opponent_id, ...) {
         )
       )
       return(result)
-    },
+    }),
     error = function(e) {
       cli::cli_alert_warning(
         paste0(
-          "espn_nhl_player_notes(): ESPN core-v2 athletes/{{id}}/notes ",
-          "returns HTTP 404 for the requested NHL athlete ",
-          "(DONE_WITH_CONCERNS: endpoint not served for NHL)."
+          .espn_fn(league, "player_notes"), "(): ESPN core-v2 athletes/{{id}}/notes ",
+          "is not available for the requested athlete (ESPN answers 404 for most NHL athletes)."
         )
       )
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} player notes",
-        args = .args)
+      cli::cli_alert_warning("Error: {conditionMessage(e)}")
     },
     finally = {}
   )
@@ -1068,7 +1012,7 @@ espn_nhl_player_notes <- function(athlete_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "athletes_index"), {
       path  <- "athletes"
       query <- list(
         active = if (isTRUE(active)) "true" else if (isFALSE(active)) "false" else NULL,
@@ -1103,15 +1047,10 @@ espn_nhl_player_notes <- function(athlete_id, ...) {
           paste0(toupper(league), " Athletes Index data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} athletes index data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} athletes index",
         args = .args)
     },
     finally = {}

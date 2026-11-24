@@ -69,7 +69,7 @@ nhl_draft_prospects <- function() {
       return(draft_prospects_df)
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no draft prospects data available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no draft prospects data available! {conditionMessage(e)}"))
       return(NULL)
     }
   )

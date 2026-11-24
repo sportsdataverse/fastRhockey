@@ -80,7 +80,7 @@ nhl_conferences_info <- function(conference_name, date = NULL) {
     },
     error = function(e) {
       message(glue::glue(
-        "{Sys.time()}: Invalid arguments or no conference info data for '{conference_name}' available!"
+        "{Sys.time()}: Invalid arguments or no conference info data for '{conference_name}' available! {conditionMessage(e)}"
       ))
       return(NULL)
     }

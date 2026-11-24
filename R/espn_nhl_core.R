@@ -56,7 +56,7 @@
   scoreboard <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "scoreboard"), {
       query <- list()
       if (!is.null(dates)) query[["dates"]] <- dates
       if (!is.null(week)) query[["week"]] <- week
@@ -246,15 +246,10 @@
           paste0(toupper(league), " Scoreboard data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} scoreboard data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} scoreboard",
         args = .args)
     },
     finally = {}
@@ -365,7 +360,7 @@ espn_nhl_scoreboard <- function(dates = NULL, ...) {
   standings <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "standings"), {
       query <- list()
       if (!is.null(season)) query[["season"]] <- season
       if (!is.null(group)) query[["group"]] <- group
@@ -433,15 +428,10 @@ espn_nhl_scoreboard <- function(dates = NULL, ...) {
           paste0(toupper(league), " Standings data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} standings data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} standings",
         args = .args)
     },
     finally = {}
@@ -516,7 +506,7 @@ espn_nhl_standings <- function(season = most_recent_nhl_season(), ...) {
   roster <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "team_roster"), {
       .espn_check_id(team_id)
       path <- paste0("teams/", team_id, "/roster")
       query <- list()
@@ -637,15 +627,10 @@ espn_nhl_standings <- function(season = most_recent_nhl_season(), ...) {
           paste0(toupper(league), " Team Roster data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} team roster data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} team roster",
         args = .args)
     },
     finally = {}
@@ -757,7 +742,7 @@ espn_nhl_team_roster <- function(team_id, ...) {
   calendar <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "calendar"), {
       raw <- .espn_hockey_request("site_v2", "scoreboard",
                                   league = league, ...)
 
@@ -794,15 +779,10 @@ espn_nhl_team_roster <- function(team_id, ...) {
           paste0(toupper(league), " Calendar data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} calendar data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} calendar",
         args = .args)
     },
     finally = {}
@@ -865,7 +845,7 @@ espn_nhl_calendar <- function(...) {
   schedule <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(".espn_hockey_schedule", {
       path  <- paste0("teams/", team_id, "/schedule")
       query <- list()
       if (!is.null(season)) query[["season"]] <- season
@@ -948,15 +928,10 @@ espn_nhl_calendar <- function(...) {
           paste0(toupper(league), " Team Schedule data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} schedule data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} schedule",
         args = .args)
     },
     finally = {}

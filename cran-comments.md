@@ -78,8 +78,10 @@ There is one INFO:
 * Offline: the tarball of 31b80d376 checked on R 4.6.0 with `--run-donttest
   --no-tests --no-manual` and the network blocked by a dead proxy
   (2026-11-24) gave `Status: OK`; every example that needs the network fails
-  inside its `try()`. The only later R change rejects a missing
-  `franchise_id` before any request.
+  inside its `try()`. Later R changes reject a missing ESPN id before any
+  request, parse flat college rosters, and re-raise a parsing warning (named
+  for the function) instead of returning an empty result; none adds a
+  request.
 
 ## Examples
 

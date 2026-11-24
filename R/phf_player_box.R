@@ -18,7 +18,7 @@ phf_player_box <- function(game_id) {
   lifecycle::deprecate_stop("1.0.0", "phf_player_box()", details = "The PHF has ceased operations.")
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("phf_player_box", {
 
       y <- game_id
 
@@ -136,12 +136,9 @@ phf_player_box <- function(game_id) {
         make_fastRhockey_data("PHF Goalies Boxscore Information from PremierHockeyFederation.com",Sys.time())
       player_box <- c(list(skaters), list(goalies))
       names(player_box) <- c("skaters", "goalies")
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid game_id or no player box data available! Try using `phf_schedule` to find a game ID to look up!"))
-    },
-    warning = function(w) {
-
+      message(glue::glue("{Sys.time()}: Invalid game_id or no player box data available! Try using `phf_schedule` to find a game ID to look up! {conditionMessage(e)}"))
     },
     finally = {
 

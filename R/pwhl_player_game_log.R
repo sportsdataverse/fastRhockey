@@ -163,6 +163,7 @@ pwhl_player_game_log <- function(player_id, season = most_recent_pwhl_season(), 
       return(game_log)
     },
     error = function(e) {
+      message(glue::glue("{Sys.time()}: No game log for player {player_id}, season {season}: {conditionMessage(e)}"))
       return(NULL)
     }
   )

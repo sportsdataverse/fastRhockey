@@ -34,7 +34,7 @@ nhl_conferences <- function(date = NULL) {
       return(conferences_df)
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no conferences data available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no conferences data available! {conditionMessage(e)}"))
       return(NULL)
     }
   )

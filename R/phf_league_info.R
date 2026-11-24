@@ -24,7 +24,7 @@ phf_league_info <- function(season = most_recent_phf_season()){
   check_status(res)
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("phf_league_info", {
       data <- .resp_text(res) %>%
         jsonlite::fromJSON()
       seasons <- data$season$options %>%
@@ -54,12 +54,9 @@ phf_league_info <- function(season = most_recent_phf_season()){
       data <- c(list(seasons), list(divisions), list(teams), list(leagues),
                 list(officials), list(brackets))
       names(data)<- c("seasons", "divisions", "teams", "league",  "officials", "brackets")
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid season or no data available! Try 2016 through 2021!"))
-    },
-    warning = function(w) {
-
+      message(glue::glue("{Sys.time()}: Invalid season or no data available! Try 2016 through 2021! {conditionMessage(e)}"))
     },
     finally = {
 

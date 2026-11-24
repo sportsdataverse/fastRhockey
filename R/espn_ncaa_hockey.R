@@ -52,7 +52,7 @@
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "rankings"), {
       raw <- .espn_hockey_request("site_v2", "rankings", league = league,
                                   simplifyVector = FALSE, ...)
       rows <- list()
@@ -108,15 +108,10 @@
           paste0(toupper(league), " Rankings data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} rankings available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} rankings",
         args = .args)
     },
     finally = {}
@@ -135,7 +130,7 @@
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(".espn_hockey_items", {
       raw <- .espn_hockey_request("core_v2", path = path, query = query,
                                   league = league, simplifyVector = TRUE, ...)
       items <- raw[["items"]]
@@ -161,15 +156,10 @@
           paste0(toupper(league), " ", label, " data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} {label} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} {label}",
         args = .args)
     },
     finally = {}
@@ -191,7 +181,7 @@
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(".espn_hockey_powerindex", {
       raw <- if (kind == "fpi") {
         url  <- paste0("https://site.web.api.espn.com/apis/fitt/v3/sports/hockey/",
                        league, "/powerindex")
@@ -257,15 +247,10 @@
                  " data from ESPN"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} power index available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} power index",
         args = .args)
     },
     finally = {}
@@ -1037,7 +1022,7 @@ NULL
 #'   Pittsburgh Penguins).
 #' @param limit Maximum number of athletes (ESPN `limit`; default `500`, as sportsdataverse-py).
 #' @param ... Reserved for forward compatibility.
-#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_team_roster()`; ESPN answered an empty collection for every captured MCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
+#' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper and columns as `espn_nhl_team_roster()`. College rosters are flat (not grouped by position), so `position_group` is `NA`, and any field ESPN leaves out for a player is `NA`; parsed against a captured MCH roster (team 104, 2026-11-24).
 #' @details `espn_wch_team_roster()` is the same wrapper for women's college hockey
 #'   (league slug `womens-college-hockey`): same arguments, same columns.
 #' @return A `fastRhockey_data` tibble with one row per player:

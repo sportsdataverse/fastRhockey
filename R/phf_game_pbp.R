@@ -33,7 +33,7 @@ phf_pbp <- function(game_id) {
 
   plays_data <- data.frame()
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("phf_pbp", {
       data <- .resp_text(res) %>%
         jsonlite::fromJSON() %>%
         purrr::pluck("content") %>%
@@ -68,12 +68,10 @@ phf_pbp <- function(game_id) {
 
       plays_df <- helper_phf_pbp_data(plays_df) %>%
         make_fastRhockey_data("PHF Play-by-Play Information from PremierHockeyFederation.com",Sys.time())
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid game_id or no game data available!"))
+      message(glue::glue("{Sys.time()}: Invalid game_id or no game data available! {conditionMessage(e)}"))
 
-    },
-    warning = function(w) {
     },
     finally = {
     }

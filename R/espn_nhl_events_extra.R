@@ -30,7 +30,7 @@
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "game_play"), {
       path <- paste0("events/", event_id, "/competitions/", cid,
                      "/plays/", play_id)
       raw  <- .espn_hockey_request("core_v2", path = path,
@@ -81,15 +81,10 @@
           paste0(toupper(league), " Game Play data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} play data for event {event_id} / play {play_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} game play",
         args = .args)
     },
     finally = {}
@@ -169,7 +164,7 @@ espn_nhl_game_play <- function(event_id, cid = event_id, play_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "game_play_personnel"), {
       path <- paste0("events/", event_id, "/competitions/", cid,
                      "/plays/", play_id, "/personnel")
       raw  <- .espn_hockey_request("core_v2", path = path,
@@ -228,15 +223,10 @@ espn_nhl_game_play <- function(event_id, cid = event_id, play_id, ...) {
           paste0(toupper(league), " Game Play Personnel data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} play personnel for event {event_id} / play {play_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} game play personnel",
         args = .args)
     },
     finally = {}
@@ -302,7 +292,7 @@ espn_nhl_game_play_personnel <- function(event_id, cid = event_id, play_id, ...)
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "game_status"), {
       path <- paste0("events/", event_id, "/competitions/", cid, "/status")
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,
@@ -336,15 +326,10 @@ espn_nhl_game_play_personnel <- function(event_id, cid = event_id, play_id, ...)
           paste0(toupper(league), " Game Status data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} game status for event {event_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} game status",
         args = .args)
     },
     finally = {}
@@ -409,7 +394,7 @@ espn_nhl_game_status <- function(event_id, cid = event_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "game_team_leaders"), {
       path <- paste0("events/", event_id, "/competitions/", cid,
                      "/competitors/", team_id, "/leaders")
       raw  <- .espn_hockey_request("core_v2", path = path,
@@ -482,15 +467,10 @@ espn_nhl_game_status <- function(event_id, cid = event_id, ...) {
           paste0(toupper(league), " Game Team Leaders data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} game leaders for event {event_id} / team {team_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} game team leaders",
         args = .args)
     },
     finally = {}
@@ -561,7 +541,7 @@ espn_nhl_game_team_leaders <- function(event_id, cid = event_id, team_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "game_team_record"), {
       path <- paste0("events/", event_id, "/competitions/", cid,
                      "/competitors/", team_id, "/record")
       raw  <- .espn_hockey_request("core_v2", path = path,
@@ -602,15 +582,10 @@ espn_nhl_game_team_leaders <- function(event_id, cid = event_id, team_id, ...) {
           paste0(toupper(league), " Game Team Record data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} game record for event {event_id} / team {team_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} game team record",
         args = .args)
     },
     finally = {}
@@ -677,7 +652,7 @@ espn_nhl_game_team_record <- function(event_id, cid = event_id, team_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "game_official_detail"), {
       .espn_check_id(event_id)
       .espn_check_id(cid)
       .espn_check_id(official_id)
@@ -715,15 +690,10 @@ espn_nhl_game_team_record <- function(event_id, cid = event_id, team_id, ...) {
           paste0(toupper(league), " Game Official Detail data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} official detail for event {event_id} / official {official_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} game official detail",
         args = .args)
     },
     finally = {}
@@ -792,7 +762,7 @@ espn_nhl_game_official_detail <- function(event_id, cid = event_id,
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "game_propbets"), {
       path <- paste0("events/", event_id, "/competitions/", cid, "/propbets")
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,
@@ -824,15 +794,10 @@ espn_nhl_game_official_detail <- function(event_id, cid = event_id,
           paste0(toupper(league), " Game Propbets data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} propbets for event {event_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} game propbets",
         args = .args)
     },
     finally = {}

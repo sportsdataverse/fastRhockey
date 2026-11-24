@@ -49,17 +49,17 @@ nhl_game_shifts <- function(game_id, detailed = FALSE){
 
   full_url <- paste0(base_url,
                      game_id)
-  res <- .retry_request(full_url)
-
-  # Check the result
-  check_status(res)
 
   # Default return so the outer `return(shifts)` cannot error with
   # "object 'shifts' not found" if the body below short-circuits or errors.
   shifts <- NULL
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("nhl_game_shifts", {
+      res <- .retry_request(full_url)
+
+      # Check the result
+      check_status(res)
       resp <- .resp_text(res)
       site <- jsonlite::fromJSON(resp)
 
@@ -102,11 +102,9 @@ nhl_game_shifts <- function(game_id, detailed = FALSE){
       } else {
         shifts <- .aggregate_shifts(shifts_raw)
       }
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no game shifts data for {game_id} available!"))
-    },
-    warning = function(w) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no game shifts data for {game_id} available! {conditionMessage(e)}"))
     },
     finally = {
     }
