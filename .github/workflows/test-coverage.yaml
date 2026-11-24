@@ -43,9 +43,11 @@ jobs:
           extra-packages: any::covr, any::xml2
           needs: coverage
 
-      # xgboost (a Suggests) makes .onLoad() load the xG boosters, and covr then cannot
-      # serialize its counters ("Booster has not been initialized"). The xG tests are
-      # NHL-gated and skip on CI anyway, so measure coverage without it.
+      # Coverage is measured without xgboost (a Suggests). It was removed when
+      # .onLoad() loaded the xG boosters and covr then could not serialize its
+      # counters ("Booster has not been initialized"); the models now load on first
+      # use, but the xG prediction path still goes unmeasured here (the live xG
+      # tests are NHL-gated and skip on CI anyway).
       - name: Remove xgboost
         run: if (nzchar(p <- system.file(package = "xgboost"))) remove.packages("xgboost", lib = dirname(p))
         shell: Rscript {0}
