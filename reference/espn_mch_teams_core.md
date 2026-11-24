@@ -58,7 +58,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_teams_core(limit = 100))
 #> ── MENS-COLLEGE-HOCKEY Teams Core data from ESPN core-v2 ── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:26:45 UTC
+#> ℹ Data updated: 2026-11-24 19:31:56 UTC
 #> # A tibble: 100 × 4
 #>    ref                                                  team_id count page_count
 #>    <chr>                                                <chr>   <int>      <int>
@@ -77,7 +77,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_teams_core(limit = 100))
 #> ── WOMENS-COLLEGE-HOCKEY Teams Core data from ESPN core-v2 ─────────────────────
-#> ℹ Data updated: 2026-11-13 21:26:45 UTC
+#> ℹ Data updated: 2026-11-24 19:31:56 UTC
 #> # A tibble: 47 × 4
 #>    ref                                                  team_id count page_count
 #>    <chr>                                                <chr>   <int>      <int>

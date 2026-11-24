@@ -68,7 +68,7 @@ the game winner/loser goalie decision) and the following columns:
 # \donttest{
   try(load_nhl_three_stars(2026))
 #> ── NHL three stars / decisions ──────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-07-22 23:49:22 UTC
+#> ℹ Data updated: 2026-11-14 01:09:54 UTC
 #> # A tibble: 4,182 × 22
 #>     star playerId teamAbbrev headshot       name.default name.cs name.de name.fi
 #>    <int>    <int> <chr>      <chr>          <chr>        <chr>   <chr>   <chr>  

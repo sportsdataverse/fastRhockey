@@ -56,7 +56,7 @@ the following columns:
 # \donttest{
   try(load_nhl_officials(2026))
 #> ── NHL on-ice officials ─────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-07-22 23:49:22 UTC
+#> ℹ Data updated: 2026-11-14 01:09:54 UTC
 #> # A tibble: 5,574 × 5
 #>    role     name                   game_id   season game_date 
 #>    <chr>    <chr>                    <int>    <int> <chr>     

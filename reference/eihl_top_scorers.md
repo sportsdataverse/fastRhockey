@@ -93,21 +93,21 @@ Other EIHL eSports functions:
 # \donttest{
   try(eihl_top_scorers(season = 2027, league_id = 3))
 #> ── EIHL top_scorers from the eSports hokejovyzapis bucket ──────────────────────
-#> ℹ Data updated: 2026-11-13 21:25:50 UTC
-#> # A tibble: 256 × 16
-#>    player_id name    surname    jersey birthdate team_id team_name team_shortcut
-#>        <int> <chr>   <chr>       <int> <chr>       <int> <chr>     <chr>        
-#>  1      4843 Josh    "MacDonal…     92 1994-03-…      92 Cardiff … CAR          
-#>  2      4449 Brandon "Whistle"      74 1997-12-…     100 Sheffiel… SHE          
-#>  3      4104 Joshua  "Waller"       91 1999-06-…      97 Guildfor… GUI          
-#>  4      5171 Olivier "Archamba…     93 1993-02-…     100 Sheffiel… SHE          
-#>  5      4355 Scott   "Conway"       10 1995-04-…      91 Belfast … BEL          
-#>  6      5105 Kyle    "Maksimov…      9 1998-03-…      98 Manchest… MAN          
-#>  7      4973 Brandon "Cutler"       29 2000-01-…      98 Manchest… MAN          
-#>  8      4371 Cole    "Sanford "     95 1995-07-…      97 Guildfor… GUI          
-#>  9      5033 Evan    "Jasper"       62 1992-01-…     100 Sheffiel… SHE          
-#> 10      5104 Tim     "McGauley"     23 1995-07-…      98 Manchest… MAN          
-#> # ℹ 246 more rows
+#> ℹ Data updated: 2026-11-24 19:31:09 UTC
+#> # A tibble: 258 × 16
+#>    player_id name     surname   jersey birthdate team_id team_name team_shortcut
+#>        <int> <chr>    <chr>      <int> <chr>       <int> <chr>     <chr>        
+#>  1      4843 Josh     MacDonald     92 1994-03-…      92 Cardiff … CAR          
+#>  2      5105 Kyle     Maksimov…      9 1998-03-…      98 Manchest… MAN          
+#>  3      4973 Brandon  Cutler        29 2000-01-…      98 Manchest… MAN          
+#>  4      4104 Joshua   Waller        91 1999-06-…      97 Guildfor… GUI          
+#>  5      5102 Xander   Lamppa         9 2000-04-…      95 Fife Fly… FIF          
+#>  6      5171 Olivier  Archamba…     93 1993-02-…     100 Sheffiel… SHE          
+#>  7      4355 Scott    Conway        10 1995-04-…      91 Belfast … BEL          
+#>  8      5133 Mika     Partanen      21 1992-10-…      95 Fife Fly… FIF          
+#>  9      4449 Brandon  Whistle       74 1997-12-…     100 Sheffiel… SHE          
+#> 10      4879 Kristoff Kontos        27 1993-12-…      92 Cardiff … CAR          
+#> # ℹ 248 more rows
 #> # ℹ 8 more variables: matches <int>, goals <int>, assists <int>, points <int>,
 #> #   shots <int>, positives <int>, negatives <int>, positives_negatives <int>
 # }

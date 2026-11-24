@@ -76,20 +76,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_skater_skating_distance_detail(player_id = 8478402))
 #> ── NHL Edge Skater Skating Distance Detail ──────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:32:17 UTC
+#> ℹ Data updated: 2026-11-24 19:36:59 UTC
 #> # A tibble: 10 × 29
 #>    game_center_link game_date player_on_home_team toi_all toi_even toi_pp toi_pk
 #>    <chr>            <chr>     <lgl>                 <int>    <int>  <int>  <int>
-#>  1 /gamecenter/phi… 2026-11-… TRUE                   1440     1240     20    180
-#>  2 /gamecenter/nyr… 2026-11-… TRUE                   1474     1047    272    155
-#>  3 /gamecenter/van… 2026-11-… TRUE                   1515     1261    208     46
-#>  4 /gamecenter/ana… 2026-11-… TRUE                   1465     1031    336     98
-#>  5 /gamecenter/edm… 2026-11-… FALSE                  1455     1114    258     83
-#>  6 /gamecenter/edm… 2026-11-… FALSE                  1402     1069    273     60
-#>  7 /gamecenter/edm… 2026-10-… FALSE                  1400      788    462    150
-#>  8 /gamecenter/cgy… 2026-10-… TRUE                   1130     1011     83     36
-#>  9 /gamecenter/det… 2026-10-… TRUE                   1587     1128    301    158
-#> 10 /gamecenter/tor… 2026-10-… TRUE                   1347     1103    230     14
+#>  1 /gamecenter/edm… 2026-11-… FALSE                  1618     1189    405     24
+#>  2 /gamecenter/edm… 2026-11-… FALSE                  1504     1037    370     97
+#>  3 /gamecenter/edm… 2026-11-… FALSE                  1377     1019    285     73
+#>  4 /gamecenter/edm… 2026-11-… FALSE                  1289      977    241     71
+#>  5 /gamecenter/edm… 2026-11-… FALSE                  1349      829    194    326
+#>  6 /gamecenter/edm… 2026-11-… FALSE                  1367     1245     87     35
+#>  7 /gamecenter/phi… 2026-11-… TRUE                   1440     1240     20    180
+#>  8 /gamecenter/nyr… 2026-11-… TRUE                   1474     1047    272    155
+#>  9 /gamecenter/van… 2026-11-… TRUE                   1515     1261    208     46
+#> 10 /gamecenter/ana… 2026-11-… TRUE                   1465     1031    336     98
 #> # ℹ 22 more variables: distance_skated_all_imperial <dbl>,
 #> #   distance_skated_all_metric <dbl>, distance_skated_even_imperial <dbl>,
 #> #   distance_skated_even_metric <dbl>, distance_skated_pp_imperial <dbl>,

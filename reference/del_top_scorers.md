@@ -95,21 +95,21 @@ Other DEL eSports functions:
 # \donttest{
   try(del_top_scorers(season = 2027, league_id = 1))
 #> ── DEL top_scorers from the eSports hokejovyzapis bucket ── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:25:40 UTC
-#> # A tibble: 376 × 13
+#> ℹ Data updated: 2026-11-24 19:30:59 UTC
+#> # A tibble: 378 × 13
 #>    player_id name   surname team_id team_name team_shortcut goals assists points
 #>        <int> <chr>  <chr>     <int> <chr>     <chr>         <int>   <int>  <int>
-#>  1      3410 Liam   Kirk          3 Eisbären… EBB               7      16     23
-#>  2      3950 Mathew Santos        5 Krefeld … KEV               9      11     20
-#>  3       507 Marcel Noebels      11 Kölner H… KEC               7      12     19
-#>  4      2209 Ty     Ronning       3 Eisbären… EBB              10       8     18
-#>  5      1863 Thomas Heigl        14 Nürnberg… NIT               7      11     18
-#>  6      1553 Alexa… Blank        13 Augsburg… AEV               6      12     18
-#>  7      3572 Patri… Russell      11 Kölner H… KEC               5      13     18
-#>  8      2935 Max    Newton        5 Krefeld … KEV               6      11     17
-#>  9       648 Louis… Aubry        11 Kölner H… KEC               9       7     16
-#> 10       139 Patri… Hager        12 EHC Red … RBM               8       8     16
-#> # ℹ 366 more rows
+#>  1      1553 Alexa… Blank        13 Augsburg… AEV               9      16     25
+#>  2      3410 Liam   Kirk          3 Eisbären… EBB               9      16     25
+#>  3      2209 Ty     Ronning       3 Eisbären… EBB              14      10     24
+#>  4      3950 Mathew Santos        5 Krefeld … KEV              11      12     23
+#>  5      2411 Nicol… Mattin…       2 Adler Ma… MAN              11      12     23
+#>  6      2935 Max    Newton        5 Krefeld … KEV               7      15     22
+#>  7       648 Louis… Aubry        11 Kölner H… KEC              10      11     21
+#>  8        80 Yasin  Ehliz        12 EHC Red … RBM               5      16     21
+#>  9      3426 Taro   Hirose       12 EHC Red … RBM               4      16     20
+#> 10      3442 Samuel Dove-M…      14 Nürnberg… NIT               9      10     19
+#> # ℹ 368 more rows
 #> # ℹ 4 more variables: shots <int>, games <int>, penalty_minutes <int>,
 #> #   time_on_ice <int>
 # }

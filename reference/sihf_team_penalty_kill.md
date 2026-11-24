@@ -96,29 +96,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_team_penalty_kill(season = 2026, league_id = 1))
-#> ── SIHF Team Penalty Kill Information from data.sihf.ch ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:35:19 UTC
-#> # A tibble: 15 × 17
-#>    season phase_id  rank team_id team_name             team_acronym games_played
-#>     <int>    <int> <int>   <int> <chr>                 <chr>               <int>
-#>  1   2026       NA    14  103141 Lausanne HC           LHC                    66
-#>  2   2026       NA    13  102128 EHC Biel-Bienne       EHCB                   56
-#>  3   2026       NA    12  102127 SCL Tigers            SCL                    52
-#>  4   2026       NA    11  103144 HC Ajoie              HCA                    56
-#>  5   2026       NA    10  101144 EV Zug                EVZ                    66
-#>  6   2026       NA     9  103140 Genève-Servette HC    GSHC                   76
-#>  7   2026       NA    NA      NA Durchschnitt          NA                     65
-#>  8   2026       NA     8  102126 SC Bern               SCB                    60
-#>  9   2026       NA     7  101151 HC Davos              HCD                    86
-#> 10   2026       NA     6  101149 EHC Kloten            EHCK                   52
-#> 11   2026       NA     5  101150 HC Lugano             HCL                    60
-#> 12   2026       NA     4  101152 HC Ambri-Piotta       HCAP                   56
-#> 13   2026       NA     3  101139 ZSC Lions             ZSC                    70
-#> 14   2026       NA     2  101060 SC Rapperswil-Jona L… SCRJ                   74
-#> 15   2026       NA     1  103138 Fribourg-Gottéron     FRI                    90
-#> # ℹ 10 more variables: pk_situations <int>, pk_situations_quotient <dbl>,
-#> #   pk_goals_against <int>, pk_goals_against_quotient <dbl>, pk_percent <dbl>,
-#> #   penalty_kill_time <chr>, penalty_kill_time_quotient <chr>, sh_goals <int>,
-#> #   sh_goals_quotient <dbl>, row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

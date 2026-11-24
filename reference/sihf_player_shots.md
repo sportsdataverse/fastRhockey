@@ -95,26 +95,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_player_shots(season = 2026, league_id = 1))
-#> ── SIHF Player Shots Information from data.sihf.ch ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:35:07 UTC
-#> # A tibble: 427 × 21
-#>    season phase_id  rank player          team_id team_name team_acronym position
-#>     <int>    <int> <int> <chr>             <int> <chr>     <chr>        <chr>   
-#>  1   2026       NA   427 Nater Jens       101144 EV Zug    EVZ          Verteid…
-#>  2   2026       NA   426 Christen Livio   102128 EHC Biel… EHCB         Stürmer 
-#>  3   2026       NA   425 Besanidis Anton  101150 HC Lugano HCL          Stürmer 
-#>  4   2026       NA   424 Fuhrer Laurin    101060 SC Rappe… SCRJ         Verteid…
-#>  5   2026       NA   423 Baumann Elia     101151 HC Davos  HCD          Stürmer 
-#>  6   2026       NA   422 Meier Simon      101149 EHC Klot… EHCK         Stürmer 
-#>  7   2026       NA   421 Aeschbach Cédr…  102128 EHC Biel… EHCB         Verteid…
-#>  8   2026       NA   420 Ugazzi Nicolò    101060 SC Rappe… SCRJ         Verteid…
-#>  9   2026       NA   419 Ryser Vincent    102126 SC Bern   SCB          Stürmer 
-#> 10   2026       NA   418 Riatsch Fadri    102126 SC Bern   SCB          Stürmer 
-#> # ℹ 417 more rows
-#> # ℹ 13 more variables: games_played <int>, sog_sog <int>,
-#> #   sog_sog_percent <dbl>, sog_sog_quotient <dbl>, sog_sog_slot <int>,
-#> #   sog_sog_slot_per_game <dbl>, sog_missed <int>, sog_missed_per_game <dbl>,
-#> #   sog_post <int>, sog_post_per_game <dbl>, blockings <int>,
-#> #   blockings_per_game <dbl>, row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

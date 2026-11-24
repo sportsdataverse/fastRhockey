@@ -132,7 +132,7 @@ Other Metal Ligaen eSports functions:
 # \donttest{
   try(metal_goalie_box(match_id = 575))
 #> ── Metal Ligaen goalie_box from the eSports hokejovyzapis bucket ───────────────
-#> ℹ Data updated: 2026-11-13 21:31:47 UTC
+#> ℹ Data updated: 2026-11-24 19:36:31 UTC
 #> # A tibble: 4 × 60
 #>   player_id name     surname    photo birthdate  team_id team_name team_shortcut
 #>       <int> <chr>    <chr>      <chr> <chr>        <int> <chr>     <chr>        

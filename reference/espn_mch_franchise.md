@@ -70,10 +70,11 @@ Saiem Gilani
 # \donttest{
   try({
     fcs <- espn_mch_franchises()
-    espn_mch_franchise(franchise_id = fcs$franchise_id[1])
+    # ESPN may list no franchises for a league; skip the detail call then
+    if (nrow(fcs) > 0) espn_mch_franchise(franchise_id = fcs$franchise_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Franchise data from ESPN core-v2 ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:26:03 UTC
+#> ℹ Data updated: 2026-11-24 19:31:22 UTC
 #> # A tibble: 1 × 15
 #>   franchise_id id    uid           slug     location name  nickname abbreviation
 #>   <chr>        <chr> <chr>         <chr>    <chr>    <chr> <chr>    <chr>       
@@ -85,10 +86,10 @@ Saiem Gilani
 # \donttest{
   try({
     fcs <- espn_wch_franchises()
-    espn_wch_franchise(franchise_id = fcs$franchise_id[1])
+    if (nrow(fcs) > 0) espn_wch_franchise(franchise_id = fcs$franchise_id[1])
   })
 #> ── WOMENS-COLLEGE-HOCKEY Franchise data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-11-13 21:26:03 UTC
+#> ℹ Data updated: 2026-11-24 19:31:22 UTC
 #> # A tibble: 1 × 15
 #>   franchise_id id    uid            slug    location name  nickname abbreviation
 #>   <chr>        <chr> <chr>          <chr>   <chr>    <chr> <chr>    <chr>       

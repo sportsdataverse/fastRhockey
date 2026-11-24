@@ -63,37 +63,23 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_games(limit = 10))
 #> ── MENS-COLLEGE-HOCKEY Games data from ESPN core-v2 ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:26:18 UTC
-#> # A tibble: 10 × 4
-#>    ref                                                 event_id count page_count
-#>    <chr>                                               <chr>    <int>      <int>
-#>  1 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019044…    26          3
-#>  2 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019045…    26          3
-#>  3 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019047…    26          3
-#>  4 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019047…    26          3
-#>  5 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019048…    26          3
-#>  6 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019048…    26          3
-#>  7 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019048…    26          3
-#>  8 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019049…    26          3
-#>  9 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019050…    26          3
-#> 10 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019051…    26          3
+#> ℹ Data updated: 2026-11-24 19:31:34 UTC
+#> # A tibble: 4 × 4
+#>   ref                                                  event_id count page_count
+#>   <chr>                                                <chr>    <int>      <int>
+#> 1 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019045…     4          1
+#> 2 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019043…     4          1
+#> 3 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019044…     4          1
+#> 4 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019135…     4          1
 # }
 # \donttest{
   try(espn_wch_games(limit = 10))
 #> ── WOMENS-COLLEGE-HOCKEY Games data from ESPN core-v2 ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:26:18 UTC
-#> # A tibble: 10 × 4
-#>    ref                                                 event_id count page_count
-#>    <chr>                                               <chr>    <int>      <int>
-#>  1 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019039…    20          2
-#>  2 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019040…    20          2
-#>  3 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019123…    20          2
-#>  4 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019041…    20          2
-#>  5 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019136…    20          2
-#>  6 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019037…    20          2
-#>  7 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019038…    20          2
-#>  8 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019040…    20          2
-#>  9 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019041…    20          2
-#> 10 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019037…    20          2
+#> ℹ Data updated: 2026-11-24 19:31:34 UTC
+#> # A tibble: 2 × 4
+#>   ref                                                  event_id count page_count
+#>   <chr>                                                <chr>    <int>      <int>
+#> 1 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019040…     2          1
+#> 2 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019041…     2          1
 # }
 ```

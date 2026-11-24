@@ -61,7 +61,7 @@ following columns:
 # \donttest{
   try(load_nhl_game_info(2026))
 #> ── NHL game info ────────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-07-22 23:49:22 UTC
+#> ℹ Data updated: 2026-11-14 01:09:54 UTC
 #> # A tibble: 1,394 × 10
 #>       game_id   season game_type game_date  venue  home_team_abbr away_team_abbr
 #>         <int>    <int> <chr>     <chr>      <chr>  <chr>          <chr>         

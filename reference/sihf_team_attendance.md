@@ -86,27 +86,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_team_attendance(season = 2026, league_id = 1))
-#> ── SIHF Team Attendance Information from data.sihf.ch ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:35:12 UTC
-#> # A tibble: 15 × 12
-#>    season phase_id  rank team_id team_name    team_acronym home_games spectators
-#>     <int>    <int> <int>   <int> <chr>        <chr>             <int>      <int>
-#>  1   2026       NA    14  103144 HC Ajoie     HCA                  28     118472
-#>  2   2026       NA    13  101149 EHC Kloten   EHCK                 26     133955
-#>  3   2026       NA    12  101060 SC Rappersw… SCRJ                 36     189044
-#>  4   2026       NA    11  101150 HC Lugano    HCL                  30     170559
-#>  5   2026       NA    10  102127 SCL Tigers   SCL                  26     148641
-#>  6   2026       NA     9  101151 HC Davos     HCD                  46     274861
-#>  7   2026       NA     8  102128 EHC Biel-Bi… EHCB                 28     172494
-#>  8   2026       NA     7  101152 HC Ambri-Pi… HCAP                 28     180755
-#>  9   2026       NA     6  103140 Genève-Serv… GSHC                 38     248520
-#> 10   2026       NA     5  101144 EV Zug       EVZ                  32     231987
-#> 11   2026       NA     4  103138 Fribourg-Go… FRI                  46     430376
-#> 12   2026       NA     3  103141 Lausanne HC  LHC                  32     302068
-#> 13   2026       NA     2  101139 ZSC Lions    ZSC                  34     393113
-#> 14   2026       NA     1  102126 SC Bern      SCB                  30     463536
-#> 15   2026       NA    NA      NA Total        NA                  460    3458381
-#> # ℹ 4 more variables: stadium_capacity_quotient <dbl>,
-#> #   spectators_quotient <dbl>, stadium_capacity_percent <dbl>, row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

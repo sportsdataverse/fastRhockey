@@ -73,7 +73,7 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_officials(event_id = sb$game_id[1])
   })
-#> ! 2026-11-13 21:26:08.135342: No officials returned for event 401715296.
+#> ! 2026-11-24 19:31:26.842186: No officials returned for event 401715296.
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
@@ -81,7 +81,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20250110")
     espn_wch_game_officials(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-13 21:26:08.19246: 
+#> ✖ 2026-11-24 19:31:26.884817: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

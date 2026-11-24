@@ -58,7 +58,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_awards())
 #> ── MENS-COLLEGE-HOCKEY Awards data from ESPN core-v2 ────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:26:00 UTC
+#> ℹ Data updated: 2026-11-24 19:31:19 UTC
 #> # A tibble: 31 × 4
 #>    ref                                                 award_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>
@@ -77,7 +77,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_awards())
 #> ── WOMENS-COLLEGE-HOCKEY Awards data from ESPN core-v2 ──── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:26:00 UTC
+#> ℹ Data updated: 2026-11-24 19:31:19 UTC
 #> # A tibble: 31 × 4
 #>    ref                                                 award_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>

@@ -76,25 +76,25 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_players_index(active = TRUE, limit = 10, page = 1))
 #> ── MENS-COLLEGE-HOCKEY Players Index data from ESPN.com ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:26:27 UTC
+#> ℹ Data updated: 2026-11-24 19:31:41 UTC
 #> # A tibble: 10 × 6
 #>    ref                                  athlete_id active  page count page_count
 #>    <chr>                                <chr>      <lgl>  <int> <int>      <int>
-#>  1 http://sports.core.api.espn.com/v2/… 2229972    TRUE       1  1291        130
-#>  2 http://sports.core.api.espn.com/v2/… 2335087    TRUE       1  1291        130
-#>  3 http://sports.core.api.espn.com/v2/… 2501229    TRUE       1  1291        130
-#>  4 http://sports.core.api.espn.com/v2/… 2501230    TRUE       1  1291        130
-#>  5 http://sports.core.api.espn.com/v2/… 2501231    TRUE       1  1291        130
-#>  6 http://sports.core.api.espn.com/v2/… 2501232    TRUE       1  1291        130
-#>  7 http://sports.core.api.espn.com/v2/… 2501233    TRUE       1  1291        130
-#>  8 http://sports.core.api.espn.com/v2/… 2501234    TRUE       1  1291        130
-#>  9 http://sports.core.api.espn.com/v2/… 2501236    TRUE       1  1291        130
-#> 10 http://sports.core.api.espn.com/v2/… 2564162    TRUE       1  1291        130
+#>  1 http://sports.core.api.espn.com/v2/… 2229972    TRUE       1  1290        129
+#>  2 http://sports.core.api.espn.com/v2/… 2335087    TRUE       1  1290        129
+#>  3 http://sports.core.api.espn.com/v2/… 2501229    TRUE       1  1290        129
+#>  4 http://sports.core.api.espn.com/v2/… 2501230    TRUE       1  1290        129
+#>  5 http://sports.core.api.espn.com/v2/… 2501231    TRUE       1  1290        129
+#>  6 http://sports.core.api.espn.com/v2/… 2501232    TRUE       1  1290        129
+#>  7 http://sports.core.api.espn.com/v2/… 2501233    TRUE       1  1290        129
+#>  8 http://sports.core.api.espn.com/v2/… 2501234    TRUE       1  1290        129
+#>  9 http://sports.core.api.espn.com/v2/… 2501236    TRUE       1  1290        129
+#> 10 http://sports.core.api.espn.com/v2/… 2564162    TRUE       1  1290        129
 # }
 # \donttest{
   try(espn_wch_players_index(active = TRUE, limit = 10, page = 1))
 #> ── WOMENS-COLLEGE-HOCKEY Players Index data from ESPN.com ──────────────────────
-#> ℹ Data updated: 2026-11-13 21:26:27 UTC
+#> ℹ Data updated: 2026-11-24 19:31:41 UTC
 #> # A tibble: 10 × 6
 #>    ref                                  athlete_id active  page count page_count
 #>    <chr>                                <chr>      <lgl>  <int> <int>      <int>

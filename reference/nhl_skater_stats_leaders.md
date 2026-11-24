@@ -71,26 +71,23 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_skater_stats_leaders())
 #> ── NHL Skater Stats Leaders ─────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:33:11 UTC
-#> # A tibble: 45 × 22
+#> ℹ Data updated: 2026-11-24 19:37:48 UTC
+#> # A tibble: 45 × 16
 #>         id sweater_number headshot          team_abbrev team_logo position value
 #>      <int>          <int> <chr>             <chr>       <chr>     <chr>    <dbl>
-#>  1 8478402             97 https://assets.n… EDM         https://… C            2
-#>  2 8481726             84 https://assets.n… NSH         https://… C            2
-#>  3 8475913             61 https://assets.n… VGK         https://… R            2
-#>  4 8477948              6 https://assets.n… PHI         https://… D            1
-#>  5 8478133             71 https://assets.n… MTL         https://… C            1
-#>  6 8480803              2 https://assets.n… EDM         https://… D           27
-#>  7 8475218             14 https://assets.n… EDM         https://… D           25
-#>  8 8478402             97 https://assets.n… EDM         https://… C           25
-#>  9 8477934             29 https://assets.n… EDM         https://… C           20
-#> 10 8478840             17 https://assets.n… BOS         https://… D           18
+#>  1 8477949             89 https://assets.n… WSH         https://… R            2
+#>  2 8482157             50 https://assets.n… NYR         https://… L            2
+#>  3 8478402             97 https://assets.n… EDM         https://… C            2
+#>  4 8482476             51 https://assets.n… NYI         https://… L            2
+#>  5 8481726             84 https://assets.n… NSH         https://… C            2
+#>  6 8478864             97 https://assets.n… MIN         https://… L           28
+#>  7 8478402             97 https://assets.n… EDM         https://… C           26
+#>  8 8480803              2 https://assets.n… EDM         https://… D           26
+#>  9 8481557             12 https://assets.n… MIN         https://… L           26
+#> 10 8478493             14 https://assets.n… MIN         https://… C           25
 #> # ℹ 35 more rows
-#> # ℹ 15 more variables: first_name_default <chr>, last_name_default <chr>,
+#> # ℹ 9 more variables: first_name_default <chr>, last_name_default <chr>,
 #> #   team_name_default <chr>, last_name_cs <chr>, last_name_fi <chr>,
-#> #   last_name_sk <chr>, last_name_sv <chr>, category <chr>,
-#> #   first_name_cs <chr>, first_name_de <chr>, first_name_es <chr>,
-#> #   first_name_fi <chr>, first_name_sk <chr>, first_name_sv <chr>,
-#> #   team_name_fr <chr>
+#> #   last_name_sk <chr>, last_name_sv <chr>, category <chr>, team_name_fr <chr>
 # }
 ```

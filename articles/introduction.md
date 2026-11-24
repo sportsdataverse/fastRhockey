@@ -184,16 +184,16 @@ head(team_xg, 10)
 #> # A tibble: 10 × 5
 #>    team  shots goals    xg goals_above_expected
 #>    <chr> <int> <int> <dbl>                <dbl>
-#>  1 CAR    4105   281  328.               -47.3 
-#>  2 COL    4061   287  325.               -38.3 
-#>  3 EDM    3533   274  302.               -27.7 
-#>  4 TBL    3506   276  301.               -25.5 
-#>  5 ANA    3856   256  300.               -44.2 
-#>  6 MTL    3322   270  297.               -26.6 
-#>  7 OTT    3562   269  294.               -24.8 
-#>  8 VGK    3532   256  290.               -33.7 
-#>  9 PIT    3538   284  289.                -4.63
-#> 10 WSH    3496   254  289.               -34.6
+#>  1 CAR    4105   281  298.              -17.2  
+#>  2 COL    4061   287  294.               -6.56 
+#>  3 TBL    3506   276  277.               -1.13 
+#>  4 EDM    3533   274  276.               -2.42 
+#>  5 ANA    3856   256  271.              -15.2  
+#>  6 OTT    3562   269  270.               -0.628
+#>  7 MTL    3322   270  269.                0.817
+#>  8 VGK    3532   256  265.               -9.18 
+#>  9 PIT    3538   284  264.               20.4  
+#> 10 WSH    3496   254  262.               -8.03
 ```
 
 ### Your first hockey chart
@@ -411,7 +411,7 @@ BibTeX Citation
 ``` bibtex
 @misc{howell_gilani_fastRhockey,
   author = {Ben Howell and Saiem Gilani},
-  title = {fastRhockey: Functions to Access Professional Women's Hockey League and National Hockey League Play by Play Data.},
+  title = {fastRhockey: Access Hockey Play-by-Play Data and Statistics},
   url = {https://fastRhockey.sportsdataverse.org/},
   doi = {10.32614/CRAN.package.fastRhockey},
   year = {2026}

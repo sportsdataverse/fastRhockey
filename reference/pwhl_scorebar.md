@@ -47,21 +47,21 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(pwhl_scorebar(days_back = 7, days_ahead = 7))
 #> ── PWHL Scorebar ────────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:34:08 UTC
-#> # A tibble: 23 × 15
+#> ℹ Data updated: 2026-11-24 19:38:41 UTC
+#> # A tibble: 24 × 15
 #>    game_id season_id date       game_date   status home_team        home_team_id
 #>      <dbl>     <dbl> <chr>      <chr>       <chr>  <chr>                   <dbl>
-#>  1     343         9 2026-05-08 Fri, May 8  4      Ottawa Charge               5
-#>  2     345         9 2026-05-08 Fri, May 8  4      Minnesota Frost             2
-#>  3     344         9 2026-05-10 Sun, May 10 4      Ottawa Charge               5
-#>  4     347         9 2026-05-12 Tue, May 12 4      Montréal Victoi…            3
-#>  5     350         9 2026-05-14 Thu, May 14 4      Montréal Victoi…            3
-#>  6     351         9 2026-05-16 Sat, May 16 4      Montréal Victoi…            3
-#>  7     348         9 2026-05-18 Mon, May 18 4      Ottawa Charge               5
-#>  8     349         9 2026-05-20 Wed, May 20 4      Ottawa Charge               5
-#>  9     353        10 2026-11-22 Sun, Nov 22 1      Vegas Vanguards            12
-#> 10     360        10 2026-11-23 Mon, Nov 23 1      Ottawa Charge               5
-#> # ℹ 13 more rows
+#>  1     347         9 2026-05-12 Tue, May 12 4      Montréal Victoi…            3
+#>  2     350         9 2026-05-14 Thu, May 14 4      Montréal Victoi…            3
+#>  3     351         9 2026-05-16 Sat, May 16 4      Montréal Victoi…            3
+#>  4     348         9 2026-05-18 Mon, May 18 4      Ottawa Charge               5
+#>  5     349         9 2026-05-20 Wed, May 20 4      Ottawa Charge               5
+#>  6     353        10 2026-11-22 Sun, Nov 22 4      Vegas Vanguards            12
+#>  7     360        10 2026-11-23 Mon, Nov 23 4      Ottawa Charge               5
+#>  8     354        10 2026-11-23 Mon, Nov 23 4      Minnesota Frost             2
+#>  9     361        10 2026-11-23 Mon, Nov 23 4      Hamilton Havoc             11
+#> 10     356        10 2026-11-23 Mon, Nov 23 4      Boston Fleet                1
+#> # ℹ 14 more rows
 #> # ℹ 8 more variables: home_team_code <chr>, home_score <chr>, away_team <chr>,
 #> #   away_team_id <dbl>, away_team_code <chr>, away_score <chr>, period <chr>,
 #> #   clock <chr>

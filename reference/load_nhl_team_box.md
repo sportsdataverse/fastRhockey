@@ -65,9 +65,9 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_nhl_team_box(2022))
-#> ── NHL Team Boxscores from fastRhockey data repository ──── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-04-08 06:01:44 UTC
-#> # A tibble: 2,802 × 16
+#> ── NHL team boxscores ───────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-13 23:58:15 UTC
+#> # A tibble: 2,802 × 19
 #>    home_away team_id team_abbrev team_name      goals shots_on_goal   pim  hits
 #>    <chr>       <int> <chr>       <chr>          <int>         <int> <int> <int>
 #>  1 away            5 PIT         Penguins           6            35     2    28
@@ -81,8 +81,9 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  9 away           16 CHI         Blackhawks         2            34    10    17
 #> 10 home           21 COL         Avalanche          4            36    12    25
 #> # ℹ 2,792 more rows
-#> # ℹ 8 more variables: blocked_shots <int>, giveaways <int>, takeaways <int>,
+#> # ℹ 11 more variables: blocked_shots <int>, giveaways <int>, takeaways <int>,
 #> #   power_play_goals <int>, faceoff_win_pctg <dbl>, saves <int>,
-#> #   save_pctg <dbl>, goals_against <int>
+#> #   save_pctg <dbl>, goals_against <int>, game_id <int>, season <int>,
+#> #   game_date <chr>
 # }
 ```

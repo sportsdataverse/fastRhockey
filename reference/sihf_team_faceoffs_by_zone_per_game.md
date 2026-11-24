@@ -96,31 +96,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_team_faceoffs_by_zone_per_game(season = 2026, league_id = 1))
-#> ── SIHF Team Faceoffs By Zone Per Game Information from data.sihf.ch ───────────
-#> ℹ Data updated: 2026-11-13 21:35:15 UTC
-#> # A tibble: 15 × 17
-#>    season phase_id  rank team_id team_name             team_acronym games_played
-#>     <int>    <int> <int>   <int> <chr>                 <chr>               <int>
-#>  1   2026       NA    14  101150 HC Lugano             HCL                    60
-#>  2   2026       NA    13  102126 SC Bern               SCB                    60
-#>  3   2026       NA    12  101149 EHC Kloten            EHCK                   52
-#>  4   2026       NA    11  103138 Fribourg-Gottéron     FRI                    90
-#>  5   2026       NA    10  102128 EHC Biel-Bienne       EHCB                   56
-#>  6   2026       NA     9  101151 HC Davos              HCD                    86
-#>  7   2026       NA     8  103141 Lausanne HC           LHC                    66
-#>  8   2026       NA     7  101144 EV Zug                EVZ                    66
-#>  9   2026       NA     6  103140 Genève-Servette HC    GSHC                   76
-#> 10   2026       NA    NA      NA Durchschnitt          NA                     65
-#> 11   2026       NA     5  101139 ZSC Lions             ZSC                    70
-#> 12   2026       NA     4  101152 HC Ambri-Piotta       HCAP                   56
-#> 13   2026       NA     3  103144 HC Ajoie              HCA                    56
-#> 14   2026       NA     2  101060 SC Rapperswil-Jona L… SCRJ                   74
-#> 15   2026       NA     1  102127 SCL Tigers            SCL                    52
-#> # ℹ 10 more variables: faceoffs_offensive_per_game <dbl>,
-#> #   faceoffs_won_offensive_per_game <dbl>,
-#> #   faceoffs_lost_offensive_per_game <dbl>, faceoffs_neutral_per_game <dbl>,
-#> #   faceoffs_won_neutral_per_game <dbl>, faceoffs_lost_neutral_per_game <dbl>,
-#> #   faceoffs_defensive_per_game <dbl>, faceoffs_won_defensive_per_game <dbl>,
-#> #   faceoffs_lost_defensive_per_game <dbl>, row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

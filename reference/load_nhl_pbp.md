@@ -143,9 +143,9 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_nhl_pbp(2022))
-#> ── NHL Play-by-Play (full, with shifts) from fastRhockey data repository ───────
-#> ℹ Data updated: 2026-04-08 05:53:06 UTC
-#> # A tibble: 975,777 × 92
+#> ── NHL play-by-play data (full) ─────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-13 23:58:15 UTC
+#> # A tibble: 975,809 × 93
 #>    event_type   event secondary_type event_team_abbr event_team_type description
 #>    <chr>        <chr> <chr>          <chr>           <chr>           <chr>      
 #>  1 CHANGE       Chan… NA             NA              NA              ON: Jeff C…
@@ -158,8 +158,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8 CHANGE       Chan… NA             NA              NA              ON: Jason …
 #>  9 STOP         Stop… NA             NA              NA              Stoppage i…
 #> 10 FACEOFF      Face… NA             TBL             home            Anthony Ci…
-#> # ℹ 975,767 more rows
-#> # ℹ 86 more variables: period <int>, period_type <chr>, period_time <chr>,
+#> # ℹ 975,799 more rows
+#> # ℹ 87 more variables: period <int>, period_type <chr>, period_time <chr>,
 #> #   period_seconds <int>, period_seconds_remaining <int>,
 #> #   period_time_remaining <chr>, game_seconds <int>,
 #> #   game_seconds_remaining <int>, home_score <int>, away_score <int>,

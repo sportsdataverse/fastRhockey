@@ -96,29 +96,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_team_goals_by_position(season = 2026, league_id = 1))
-#> ── SIHF Team Goals By Position Information from data.sihf.ch ───────────────────
-#> ℹ Data updated: 2026-11-13 21:35:17 UTC
-#> # A tibble: 15 × 17
-#>    season phase_id  rank team_id team_name             team_acronym games_played
-#>     <int>    <int> <int>   <int> <chr>                 <chr>               <int>
-#>  1   2026       NA    14  103144 HC Ajoie              HCA                    56
-#>  2   2026       NA    13  101149 EHC Kloten            EHCK                   52
-#>  3   2026       NA    12  102126 SC Bern               SCB                    60
-#>  4   2026       NA    11  102127 SCL Tigers            SCL                    52
-#>  5   2026       NA    10  101152 HC Ambri-Piotta       HCAP                   56
-#>  6   2026       NA     9  102128 EHC Biel-Bienne       EHCB                   56
-#>  7   2026       NA     8  101150 HC Lugano             HCL                    60
-#>  8   2026       NA     7  101144 EV Zug                EVZ                    66
-#>  9   2026       NA    NA      NA Durchschnitt          NA                     65
-#> 10   2026       NA     6  103141 Lausanne HC           LHC                    66
-#> 11   2026       NA     5  101060 SC Rapperswil-Jona L… SCRJ                   74
-#> 12   2026       NA     4  101139 ZSC Lions             ZSC                    70
-#> 13   2026       NA     3  103140 Genève-Servette HC    GSHC                   76
-#> 14   2026       NA     2  103138 Fribourg-Gottéron     FRI                    90
-#> 15   2026       NA     1  101151 HC Davos              HCD                    86
-#> # ℹ 10 more variables: goals_for_fw_df <int>, goals_for_fw <int>,
-#> #   goals_for_fw_percent <dbl>, goals_for_df <int>, goals_for_df_percent <dbl>,
-#> #   goals_for_im <int>, goals_for_im_percent <dbl>, sow_goals_for <int>,
-#> #   sow_goals_against <int>, row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

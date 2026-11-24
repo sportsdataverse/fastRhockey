@@ -45,7 +45,7 @@ Other NHL Loader Functions:
 # \donttest{
   try(load_nhl_skater_boxscores(2022))
 #> ── NHL skater boxscores ─────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-09-09 07:37:00 UTC
+#> ℹ Data updated: 2026-11-13 23:58:15 UTC
 #> # A tibble: 50,415 × 24
 #>    home_away team_id team_abbrev player_id player_name  sweater_number position
 #>    <chr>       <int> <chr>           <int> <chr>                 <int> <chr>   

@@ -171,23 +171,18 @@ built. Numbers from training are quoted from the <a href="https://github.com/spo
 model card</a> and labelled that way.</p>
 <p>The PWHL has its own, different model. See the <a href="pwhl-expected-goals-xg-model.html">PWHL expected goals
 article</a>.</p>
-<div class="alert alert-warning" role="alert">
-<p><strong>Known coordinate issue (fix pending).</strong> NHL
-<code>x_fixed</code> / <code>y_fixed</code> are meant to put the home
-team shooting right. The code that builds them
-(<code>.fix_coordinates()</code> in <code>R/nhl_game_feed.R</code>)
-reads the NHL API’s <code>homeTeamDefendingSide</code> but gives the
-same answer for both sides: every home-team event gets
+<div class="alert alert-info" role="alert">
+<p><strong>Changed in fastRhockey 1.1.0.</strong> NHL
+<code>x_fixed</code> / <code>y_fixed</code> now rotate the rink by the
+NHL API’s <code>homeTeamDefendingSide</code>, so the home team always
+shoots right. Before 1.1.0 every home-team event got
 <code>x_fixed = abs(x)</code> and every away-team event
-<code>x_fixed = -abs(x)</code>. Shots from the attacking zone come out
-right, but <strong>any event a team makes in its own half (a hit,
-giveaway, blocked shot or long shot) is mirrored into its attacking
-half.</strong> That affects <code>shot_distance</code> and
-<code>shot_angle</code> for shots from beyond centre ice, and the xG
-features built from the previous event’s location (<code>last_x</code>,
-<code>last_y</code>, <code>distance_from_last</code>, rush and cross-ice
-flags). A fix is pending. The <a href="#the-coordinate-issue-in-detail">section on this issue</a> shows
-the effect in the data.</p>
+<code>-abs(x)</code>, which mirrored any play from a team’s own half
+into its attacking half. That changes <code>shot_distance</code>,
+<code>shot_angle</code> and the previous-event features, and so xG, for
+NHL play-by-play. The models were retrained on 2026-11-13 on a corpus
+built with the same rotation. The <a href="#how-are-the-coordinates-set">coordinates section</a> shows the
+result in the data.</p>
 </div>
 <div class="section level2">
 <h2 id="which-xg-are-you-looking-at">Which xG are you looking at?<a class="anchor" aria-label="anchor" href="#which-xg-are-you-looking-at"></a>
@@ -218,42 +213,41 @@ same numbers.</p>
 </tr>
 <tr class="even">
 <td><strong>Model</strong></td>
-<td>The committed 2026-04 boosters</td>
-<td>The same boosters, downloaded on first use, pinned by sha256 and
+<td>The boosters in the <code>nhl_xg_models</code> release (retrained
+2026-11-13)</td>
+<td>The same boosters, downloaded on first use, checked against the
+sha256s in the release manifest (<code>xg_model_meta.json</code>) and
 cached</td>
 </tr>
 <tr class="odd">
 <td><strong>Needs <code>xgboost</code>?</strong></td>
 <td>No</td>
-<td>Yes. Without it <code><a href="../reference/nhl_game_pbp.html">nhl_game_pbp()</a></code> returns
-<code>xg = NA</code> with a message, and
-<code><a href="../reference/helper_nhl_calculate_xg.html">helper_nhl_calculate_xg()</a></code> stops with an error.</td>
+<td>Yes. Without it <code><a href="../reference/nhl_game_pbp.html">nhl_game_pbp()</a></code> and
+<code><a href="../reference/helper_nhl_calculate_xg.html">helper_nhl_calculate_xg()</a></code> return <code>xg = NA</code> and
+warn once per session (class <code>fastRhockey_no_xgboost</code>).</td>
 </tr>
 <tr class="even">
-<td><strong>Precision</strong></td>
-<td>Rounded to 4 decimal places</td>
-<td>Full precision</td>
-</tr>
-<tr class="odd">
 <td><strong>When it changes</strong></td>
-<td>When a season file is rebuilt</td>
-<td>When you call <code><a href="../reference/refresh_xg_models.html">refresh_xg_models()</a></code> after a retrain</td>
+<td>When a season file is rescored after a retrain</td>
+<td>On the first xG call of a session after a retrain: the cached files
+no longer match the release manifest, so they are replaced.
+<code><a href="../reference/refresh_xg_models.html">refresh_xg_models()</a></code> forces a fresh download.</td>
 </tr>
 </tbody>
 </table>
 <p>Two practical notes on <code><a href="../reference/helper_nhl_calculate_xg.html">helper_nhl_calculate_xg()</a></code>:</p>
 <ul>
 <li>
-<strong>Call it one game at a time.</strong> It joins predictions
-back to the play-by-play by <code>event_id</code>, which is only unique
-within a game. Run on several games at once, the join multiplies rows.
-<code><a href="../reference/nhl_game_pbp.html">nhl_game_pbp()</a></code> already works per game; for a multi-game
-frame, split by <code>game_id</code> first (see <a href="#do-the-published-values-match-a-local-run">reproducing the
-published values</a>).</li>
+<strong>A frame may hold several games.</strong> Predictions are
+joined back by <code>game_id</code> and <code>event_id</code>, so the
+rows and their order are kept, and an existing <code>xg</code> column is
+replaced.</li>
 <li>The model files live in
-<code>tools::R_user_dir("fastRhockey", "cache")</code>.
-<code><a href="../reference/refresh_xg_models.html">refresh_xg_models()</a></code> deletes them and downloads the current
-versions.</li>
+<code>tools::R_user_dir("fastRhockey", "cache")</code>. Each session
+re-reads the small release manifest; files that still match it are not
+downloaded again. Offline, the last manifest seen and its cached files
+are used. <code><a href="../reference/refresh_xg_models.html">refresh_xg_models()</a></code> deletes the files and
+downloads the current versions.</li>
 </ul>
 </div>
 <div class="section level2">
@@ -466,8 +460,11 @@ card</a> and its model registry:</p>
 <ul>
 <li>
 <strong>Data:</strong> the NHL play-by-play corpus of the <a href="https://github.com/sportsdataverse/fastRhockey-nhl-data" class="external-link">fastRhockey-nhl-data</a>
-repository, grouped into the five era buckets above. The registry lists
-the training seasons as 2011 to 2026.</li>
+repository, 18 seasons from 2009-10 to 2026-27 (2026-27 in progress at
+training time), grouped into the five era buckets above (2009-10 is the
+reference era). The corpus was rebuilt with the 1.1.0 rink rotation
+before the fit. The 5v5 model is fit on 5v5 shots only; the
+special-teams model on every other strength state.</li>
 <li>
 <strong>Split:</strong> an 80/20 train/holdout split grouped by
 <code>game_id</code> (no game appears on both sides), seed 37, with
@@ -475,33 +472,27 @@ grouped 5-fold cross-validation on the training side.</li>
 <li>
 <strong>Algorithm:</strong> XGBoost, binary log-loss.</li>
 <li>
-<strong>Committed fit:</strong> the boosters in use are the 2026-04
-fit.</li>
+<strong>Fit in use:</strong> retrained on 2026-11-13 (release
+manifest <code>version</code> 2026-11-13).</li>
 <li>
-<strong>Training-time metrics (cross-validation):</strong> 5v5 CV
-AUC <strong>0.8322</strong> and CV log-loss <strong>0.2053</strong>;
-special teams CV AUC <strong>0.8213</strong> and CV log-loss
-<strong>0.2567</strong>.</li>
+<strong>Cross-validation:</strong> 5v5 CV AUC <strong>0.782</strong>
+and CV log-loss <strong>0.1906</strong>; special teams CV AUC
+<strong>0.7574</strong> and CV log-loss <strong>0.2806</strong>.</li>
 <li>
-<strong>Re-scored held-out games:</strong> when the card re-scores
-the committed boosters on a replay of the seed-37 holdout from today’s
-corpus, it reports AUC <strong>0.7783</strong> (5v5, log-loss 0.2189
-against a 0.2488 constant baseline) and <strong>0.7605</strong> (special
-teams, log-loss 0.2999 against 0.3293). The card labels this a
-<em>near</em>-holdout, because some of those games were in the boosters’
-training data.</li>
+<strong>Held-out games:</strong> on the 20% of games kept out of
+training, AUC <strong>0.7819</strong> (5v5, log-loss 0.1908 against a
+0.2213 constant baseline) and <strong>0.7607</strong> (special teams,
+log-loss 0.2772 against 0.3272). Per season on those games, goals
+divided by summed xG stays between about 0.93 and 1.03 at 5v5.</li>
 </ul>
-<p>The card itself notes that the CV figures could not be reproduced
-from the current corpus and that a retrain is pending. Treat the
-near-holdout AUC of about 0.76 to 0.78 as the more realistic figure.</p>
 </div>
 <div class="section level2">
 <h2 id="how-well-does-it-do-on-2025-26">How well does it do on 2025-26?<a class="anchor" aria-label="anchor" href="#how-well-does-it-do-on-2025-26"></a>
 </h2>
 <p>Below, the published <code>xg</code> column is scored against the
-2025-26 regular season. The registry’s training window runs through
-2026, so the 2026-04 fit may have seen part of this season. Read this as
-a sanity check, not a clean holdout.</p>
+2025-26 regular season. That season is in the training corpus (about 80%
+of its games were in the training split), so read this as a sanity
+check, not a holdout.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pbp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_nhl_pbp.html">load_nhl_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span></span>
 <span></span>
@@ -539,12 +530,12 @@ a sanity check, not a clean holdout.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 8</span></span></span>
 <span><span class="co">#&gt;   model      shots goals sum_xg goals_per_xg log_loss baseline_log_loss rank_auc</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 5v5        <span style="text-decoration: underline;">86</span>220  <span style="text-decoration: underline;">5</span>260  <span style="text-decoration: underline;">5</span>829         0.902    0.197             0.230    0.789</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> special t… <span style="text-decoration: underline;">23</span>857  <span style="text-decoration: underline;">2</span>625  <span style="text-decoration: underline;">3</span>038.        0.864    0.301             0.347    0.750</span></span></code></pre></div>
-<p>On this season the 5v5 model ranks shots with an AUC of 0.7886 and
-beats a constant-rate baseline on log-loss. Its level is off: goals
-divided by xG is 0.902 at 5v5 and 0.864 on special teams, so summed xG
-runs higher than actual goals this season.</p>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 5v5        <span style="text-decoration: underline;">86</span>220  <span style="text-decoration: underline;">5</span>260  <span style="text-decoration: underline;">5</span>289.        0.994    0.196             0.230    0.793</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> special t… <span style="text-decoration: underline;">23</span>857  <span style="text-decoration: underline;">2</span>625  <span style="text-decoration: underline;">2</span>745.        0.956    0.290             0.347    0.766</span></span></code></pre></div>
+<p>On this season the 5v5 model ranks shots with an AUC of 0.7926 and
+beats a constant-rate baseline on log-loss. Goals divided by xG is 0.994
+at 5v5 and 0.956 on special teams; a value of 1 means summed xG matches
+actual goals.</p>
 <div class="section level3">
 <h3 id="is-it-calibrated">Is it calibrated?<a class="anchor" aria-label="anchor" href="#is-it-calibrated"></a>
 </h3>
@@ -616,20 +607,23 @@ it with the published column.</p>
 <span>    max_abs_diff <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="va">xg</span> <span class="op">-</span> <span class="va">xg_published</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="co">#&gt;   shots both_present max_abs_diff</span></span>
-<span><span class="co">#&gt; 1  2492         2492    0.3067307</span></span></code></pre></div>
-<p>The largest difference is the rounding of the published column to
-four decimals, so the published <code>xg</code> is exactly what the
-package computes with the current model files.</p>
+<span><span class="co">#&gt; 1  2492         2492            0</span></span></code></pre></div>
+<p>A <code>max_abs_diff</code> of 0 means every shot with both a
+published and a local <code>xg</code> matches exactly. Check that
+<code>both_present</code> equals <code>shots</code>:
+<code>max_abs_diff</code> ignores shots that lack one of the two values.
+A larger value means the season file was scored with a different set of
+models from the one in your cache.</p>
 </div>
 <div class="section level2">
-<h2 id="the-coordinate-issue-in-detail">The coordinate issue in detail<a class="anchor" aria-label="anchor" href="#the-coordinate-issue-in-detail"></a>
+<h2 id="how-are-the-coordinates-set">How are the coordinates set?<a class="anchor" aria-label="anchor" href="#how-are-the-coordinates-set"></a>
 </h2>
-<p>If <code>x_fixed</code> really put the home team shooting right,
-about half of each team’s defensive plays (hits, blocked shots,
-giveaways) would sit in its own half. Instead every home event lands at
-<code>x_fixed &gt;= 0</code> and every away event at
-<code>x_fixed &lt;= 0</code>, while the raw <code>x</code> splits
-roughly evenly.</p>
+<p><code>x_fixed</code> puts the home team shooting right. Shots should
+then sit almost entirely at the attacked end
+(<code>x_fixed &gt; 0</code> for the home team, <code>&lt; 0</code> for
+the away team), while hits and giveaways, which happen all over the ice,
+split roughly evenly. A blocked shot’s event team is the blocker, so it
+sits at the blocker’s own end.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pbp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
@@ -646,47 +640,30 @@ roughly evenly.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 8 × 5</span></span></span>
 <span><span class="co">#&gt;   event_type  event_team_type events share_raw_x_positive share_x_fixed_positive</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> BLOCKED_SH… away             <span style="text-decoration: underline;">22</span>131                0.484                      0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> BLOCKED_SH… home             <span style="text-decoration: underline;">21</span>531                0.512                      1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> GIVEAWAY    away             <span style="text-decoration: underline;">21</span>276                0.496                      0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> GIVEAWAY    home             <span style="text-decoration: underline;">21</span>321                0.502                      1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> HIT         away             <span style="text-decoration: underline;">28</span>597                0.505                      0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> HIT         home             <span style="text-decoration: underline;">30</span>127                0.503                      1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> SHOT        away             <span style="text-decoration: underline;">34</span>010                0.505                      0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> SHOT        home             <span style="text-decoration: underline;">35</span>332                0.49                       1</span></span></code></pre></div>
-<p>What that means for xG:</p>
-<ul>
-<li>
-<strong>Shots from the attacking zone</strong>, the large majority,
-get correct distances and angles.</li>
-<li>
-<strong>Shots from a team’s own half</strong> are mirrored and look
-much closer than they were.</li>
-<li>
-<strong>Previous-event features are distorted</strong> whenever the
-previous event happened in the shooting team’s own half. Because
-<code>x_fixed</code> is never negative for the home team, the
-defensive-zone branch of the feature builder’s <code>event_zone</code>
-never fires; the rush flag then depends only on the neutral zone.</li>
-</ul>
-<p>Until the fix lands, compute your own coordinates from
-<code>x</code>, <code>y</code> and the period if you need correct
-locations for non-shot events.</p>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> BLOCKED_SH… away             <span style="text-decoration: underline;">22</span>131                0.484                  0.997</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> BLOCKED_SH… home             <span style="text-decoration: underline;">21</span>531                0.512                  0.003</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> GIVEAWAY    away             <span style="text-decoration: underline;">21</span>276                0.496                  0.569</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> GIVEAWAY    home             <span style="text-decoration: underline;">21</span>321                0.502                  0.451</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> HIT         away             <span style="text-decoration: underline;">28</span>597                0.505                  0.478</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> HIT         home             <span style="text-decoration: underline;">30</span>127                0.503                  0.542</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> SHOT        away             <span style="text-decoration: underline;">34</span>010                0.505                  0.032</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> SHOT        home             <span style="text-decoration: underline;">35</span>332                0.49                   0.971</span></span></code></pre></div>
+<p>Plays for which the feed gives no side use the period’s side, then
+where each team’s shots cluster. <code>shot_distance</code> and
+<code>shot_angle</code> for a <code>BLOCKED_SHOT</code> are measured to
+the shooter’s target net.</p>
 </div>
 <div class="section level2">
 <h2 id="where-are-the-estimates-weakest">Where are the estimates weakest?<a class="anchor" aria-label="anchor" href="#where-are-the-estimates-weakest"></a>
 </h2>
 <ul>
 <li>
-<strong>Level drift across seasons.</strong> The model card reports
-that the committed boosters, scored on its own corpus, over-predict
-goals by roughly 25 to 30% on seasons up to 2023-24, while 2024-25 and
-2025-26 are closer to calibrated, and traces this to the training
-corpus. A retrain is pending. Compare xG within a season rather than
-across seasons, and check <code>goals / sum(xg)</code> before treating
-xG totals as goal-scale.</li>
-<li>
-<strong>Coordinates</strong>, as above.</li>
+<strong>Season-level drift.</strong> The era indicators absorb most
+rule and tracking changes, and per-season calibration on held-out games
+stays within about 7% at 5v5, but a new season can drift before the next
+retrain (an annual July run in fastRhockey-nhl-data). Check
+<code>goals / sum(xg)</code> before treating xG totals as
+goal-scale.</li>
 <li>
 <strong>No pre-shot passing data.</strong> Public NHL feeds do not
 record passes or screens, so one-timers and royal-road passes are
@@ -696,7 +673,8 @@ under-rated by construction.</li>
 recorded by arena scorers. No rink adjustment is applied.</li>
 <li>
 <strong>Small special-teams samples.</strong> The special-teams
-model has about a fifth of the 5v5 data, so treat it as noisier.</li>
+model has a little over a quarter of the 5v5 training shots, so treat it
+as noisier.</li>
 </ul>
 </div>
 <div class="section level2">
@@ -712,13 +690,10 @@ model has about a fifth of the 5v5 data, so treat it as noisier.</li>
 <span><span class="co"># live play-by-play for one game, with xG computed locally</span></span>
 <span><span class="va">game</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/nhl_game_pbp.html">nhl_game_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">2025020001</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># your own frame, one game at a time</span></span>
-<span><span class="va">pbp_xg</span> <span class="op">&lt;-</span> <span class="va">pbp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_split.html" class="external-link">group_split</a></span><span class="op">(</span><span class="va">game_id</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">helper_nhl_calculate_xg</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html" class="external-link">bind_rows</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># your own frame (one or many games)</span></span>
+<span><span class="va">pbp_xg</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/helper_nhl_calculate_xg.html">helper_nhl_calculate_xg</a></span><span class="op">(</span><span class="va">pbp</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># after a model retrain, refresh the cached model files</span></span>
+<span><span class="co"># force a fresh download of the cached model files</span></span>
 <span><span class="fu"><a href="../reference/refresh_xg_models.html">refresh_xg_models</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>The training code, evaluation notebook and model files are in <a href="https://github.com/sportsdataverse/fastRhockey-nhl-data" class="external-link">fastRhockey-nhl-data</a>.
 The model card is <a href="https://github.com/sportsdataverse/fastRhockey-nhl-data/blob/main/docs/models/nhl_xg.md" class="external-link">docs/models/nhl_xg.md</a>.</p>
@@ -749,7 +724,7 @@ reference</a> for <code><a href="../reference/helper_nhl_calculate_xg.html">help
 <p>Please cite the model as part of <code>fastRhockey</code>:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">howell_gilani_fastRhockey</span>,</span>
 <span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>  <span class="dt">author</span> = {Ben Howell and Saiem Gilani},</span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>  <span class="dt">title</span> = {fastRhockey: Functions to Access Professional Women's Hockey League and National Hockey League Play by Play Data.},</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>  <span class="dt">title</span> = {fastRhockey: Access Hockey Play-by-Play Data and Statistics},</span>
 <span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>  <span class="dt">url</span> = {https://fastRhockey.sportsdataverse.org/},</span>
 <span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>  <span class="dt">doi</span> = {10.32614/CRAN.package.fastRhockey},</span>
 <span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>  <span class="dt">year</span> = {2026}</span>

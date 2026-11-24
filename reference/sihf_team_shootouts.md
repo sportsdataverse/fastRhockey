@@ -92,30 +92,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_team_shootouts(season = 2026, league_id = 1))
-#> ── SIHF Team Shootouts Information from data.sihf.ch ────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:35:21 UTC
-#> # A tibble: 15 × 18
-#>    season phase_id  rank team_id team_name             team_acronym games_played
-#>     <int>    <int> <int>   <int> <chr>                 <chr>               <int>
-#>  1   2026       NA    14  101149 EHC Kloten            EHCK                   52
-#>  2   2026       NA    13  103140 Genève-Servette HC    GSHC                   76
-#>  3   2026       NA    12  101144 EV Zug                EVZ                    66
-#>  4   2026       NA    11  101139 ZSC Lions             ZSC                    70
-#>  5   2026       NA    10  102127 SCL Tigers            SCL                    52
-#>  6   2026       NA     9  103138 Fribourg-Gottéron     FRI                    90
-#>  7   2026       NA    NA      NA Durchschnitt          NA                     65
-#>  8   2026       NA     8  103141 Lausanne HC           LHC                    66
-#>  9   2026       NA     7  101150 HC Lugano             HCL                    60
-#> 10   2026       NA     6  101151 HC Davos              HCD                    86
-#> 11   2026       NA     5  101152 HC Ambri-Piotta       HCAP                   56
-#> 12   2026       NA     4  101060 SC Rapperswil-Jona L… SCRJ                   74
-#> 13   2026       NA     3  103144 HC Ajoie              HCA                    56
-#> 14   2026       NA     2  102126 SC Bern               SCB                    60
-#> 15   2026       NA     1  102128 EHC Biel-Bienne       EHCB                   56
-#> # ℹ 11 more variables: games_won_penalty <int>, games_lost_penalty <int>,
-#> #   pen_shots <int>, pen_shot_goals <int>, pen_shots_missed <int>,
-#> #   pen_shots_percent <dbl>, pen_shots_against <int>,
-#> #   pen_shot_goals_against <int>, pen_shot_saves <int>,
-#> #   pen_shot_saves_percent <dbl>, row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

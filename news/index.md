@@ -4,8 +4,8 @@
 
 #### Breaking changes
 
-These change the shape or type of output that CRAN 1.0.0 returned. Code
-that upgrades from 1.0.0 may need to change.
+These change the shape, type or values of output that CRAN 1.0.0
+returned. Code that upgrades from 1.0.0 may need to change.
 
 - [`espn_nhl_team_schedule()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_team_schedule.md):
   `home_score` and `away_score` are now always character, as documented.
@@ -29,6 +29,16 @@ that upgrades from 1.0.0 may need to change.
   vertical columns are `NA` when an event’s side is unknown. See the bug
   fix below for the details
   ([\#75](https://github.com/sportsdataverse/fastRhockey/issues/75)).
+- NHL play-by-play
+  ([`nhl_game_pbp()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_pbp.md),
+  [`nhl_game_feed()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_feed.md)):
+  `x_fixed` / `y_fixed` now rotate the rink by `homeTeamDefendingSide`,
+  so an event a team makes in its own half is no longer mirrored into
+  its attacking half. `shot_distance`, `shot_angle`, the previous-event
+  features and therefore `xg` change with them. Shot-quality and xG
+  numbers computed with 1.0.0 are not comparable with 1.1.0 ones. See
+  the bug fix below for the details
+  ([\#103](https://github.com/sportsdataverse/fastRhockey/issues/103)).
 
 #### New features
 
@@ -130,7 +140,8 @@ that upgrades from 1.0.0 may need to change.
   `y` on the sign of `x`. Plays without a side use the period’s, then
   where each team’s shots cluster. `shot_distance` / `shot_angle` for a
   `BLOCKED_SHOT` (whose event team is the blocker) are measured to the
-  shooter’s target net.
+  shooter’s target net
+  ([\#103](https://github.com/sportsdataverse/fastRhockey/issues/103)).
 
 - The NHL xG models are no longer downloaded in `.onLoad()`, which CRAN
   policy forbids:
@@ -154,7 +165,8 @@ that upgrades from 1.0.0 may need to change.
   that fails part-way leaves the previous set usable.
   [`refresh_xg_models()`](https://fastRhockey.sportsdataverse.org/reference/refresh_xg_models.md)
   still clears and re-fetches them
-  ([\#96](https://github.com/sportsdataverse/fastRhockey/issues/96)).
+  ([\#97](https://github.com/sportsdataverse/fastRhockey/issues/97),
+  [\#102](https://github.com/sportsdataverse/fastRhockey/issues/102)).
 
 - The PHF games index csv
   ([`update_phf_db()`](https://fastRhockey.sportsdataverse.org/reference/update_phf_db.md))
@@ -449,6 +461,17 @@ that upgrades from 1.0.0 may need to change.
   finds the six-pack odds in the `sectionList` modules, where Fox now
   sends them; it returned an empty tibble for every game.
 
+- [`espn_nhl_franchise()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_franchise.md),
+  [`espn_mch_franchise()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_franchise.md)
+  and
+  [`espn_wch_franchise()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_franchise.md)
+  report a missing or empty `franchise_id` and return an empty data
+  frame without a request. A `NULL` id (from an empty
+  [`espn_mch_franchises()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_franchises.md)
+  listing) used to request the franchise collection and fail with
+  “arguments imply differing number of rows”. The college examples skip
+  the detail call when the listing is empty.
+
 - [`update_nhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_nhl_db.md)
   and
   [`update_pwhl_db()`](https://fastRhockey.sportsdataverse.org/reference/update_pwhl_db.md)
@@ -563,7 +586,9 @@ that upgrades from 1.0.0 may need to change.
   [`?family_khl`](https://fastRhockey.sportsdataverse.org/reference/family_khl.md),
   [`?family_liiga`](https://fastRhockey.sportsdataverse.org/reference/family_liiga.md),
   [`?family_national_league`](https://fastRhockey.sportsdataverse.org/reference/family_national_league.md)).
-  With the change above, the installed size drops from 8.9 MB to 6.0 MB.
+  With the change above, the installed size in a local Windows check
+  dropped from 8.9 MB to 6.0 MB; the GitHub Actions checks (Linux, macOS
+  and Windows) report 7.5 to 7.9 MB.
 
 ## **fastRhockey 1.0.0**
 

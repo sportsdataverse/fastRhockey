@@ -101,27 +101,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_player_faceoffs_by_zone(season = 2026, league_id = 1))
-#> ── SIHF Player Faceoffs By Zone Information from data.sihf.ch ──────────────────
-#> ℹ Data updated: 2026-11-13 21:35:02 UTC
-#> # A tibble: 427 × 22
-#>    season phase_id  rank player          team_id team_name team_acronym position
-#>     <int>    <int> <int> <chr>             <int> <chr>     <chr>        <chr>   
-#>  1   2026       NA   427 Zadina Filip     101151 HC Davos  HCD          Stürmer 
-#>  2   2026       NA   426 Rathgeb Yannick  103138 Fribourg… FRI          Verteid…
-#>  3   2026       NA   425 Puljujärvi Jes…  103140 Genève-S… GSHC         Stürmer 
-#>  4   2026       NA   424 Dahlbeck Klas    101151 HC Davos  HCD          Verteid…
-#>  5   2026       NA   423 Rutta Jan        103140 Genève-S… GSHC         Verteid…
-#>  6   2026       NA   422 Andersson Calle  101151 HC Davos  HCD          Verteid…
-#>  7   2026       NA   421 Kapla Michael    103138 Fribourg… FRI          Verteid…
-#>  8   2026       NA   420 Knak Simon       101151 HC Davos  HCD          Stürmer 
-#>  9   2026       NA   419 Balcers Rudolfs  101139 ZSC Lions ZSC          Stürmer 
-#> 10   2026       NA   418 Sörensen Marcus  103138 Fribourg… FRI          Stürmer 
-#> # ℹ 417 more rows
-#> # ℹ 14 more variables: games_played <int>, faceoffs_offensive <int>,
-#> #   faceoffs_offensive_percent <dbl>, faceoffs_won_offensive <int>,
-#> #   faceoffs_lost_offensive <int>, faceoffs_neutral <int>,
-#> #   faceoffs_neutral_percent <dbl>, faceoffs_won_neutral <int>,
-#> #   faceoffs_lost_neutral <int>, faceoffs_defensive <int>,
-#> #   faceoffs_defensive_percent <dbl>, faceoffs_won_defensive <int>, …
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

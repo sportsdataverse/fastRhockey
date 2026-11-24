@@ -59,9 +59,9 @@ A data frame (`fastRhockey_data`) with the following columns:
 ``` r
 # \donttest{
   try(load_nhl_rosters(2022))
-#> ── NHL Rosters from fastRhockey data repository ─────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-04-08 06:02:31 UTC
-#> # A tibble: 1,295 × 9
+#> ── NHL rosters ──────────────────────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-13 23:58:15 UTC
+#> # A tibble: 56,020 × 11
 #>    player_id full_name      first_name last_name team_abbr team_id position_code
 #>        <int> <chr>          <chr>      <chr>     <chr>       <int> <chr>        
 #>  1   8470604 Jeff Carter    Jeff       Carter    PIT             5 C            
@@ -74,7 +74,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8   8474151 Ryan McDonagh  Ryan       McDonagh  TBL            14 D            
 #>  9   8474564 Steven Stamkos Steven     Stamkos   TBL            14 C            
 #> 10   8474567 Zach Bogosian  Zach       Bogosian  TBL            14 D            
-#> # ℹ 1,285 more rows
-#> # ℹ 2 more variables: sweater_number <int>, season <int>
+#> # ℹ 56,010 more rows
+#> # ℹ 4 more variables: sweater_number <int>, season <int>, game_date <chr>,
+#> #   shoots_catches <chr>
 # }
 ```

@@ -36,20 +36,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_player_spotlight())
 #> ── NHL Player Spotlight ─────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:32:36 UTC
+#> ℹ Data updated: 2026-11-24 19:37:16 UTC
 #> # A tibble: 10 × 13
 #>    player_id player_slug  position sweater_number team_id headshot team_tri_code
 #>        <int> <chr>        <chr>             <int>   <int> <chr>    <chr>        
-#>  1   8478427 sebastian-a… C                    20      12 https:/… CAR          
-#>  2   8482445 devin-coole… G                     1      20 https:/… CGY          
-#>  3   8483445 cutter-gaut… L                    61      24 https:/… ANA          
-#>  4   8483457 lane-hutson… D                    48       8 https:/… MTL          
-#>  5   8476453 nikita-kuch… R                    86      14 https:/… TBL          
-#>  6   8477492 nathan-mack… C                    29      21 https:/… COL          
-#>  7   8479318 auston-matt… C                    34      10 https:/… TOR          
-#>  8   8478402 connor-mcda… C                    97      22 https:/… EDM          
-#>  9   8484387 matvei-mich… R                    39       4 https:/… PHI          
-#> 10   8485366 matthew-sch… D                    48       2 https:/… NYI          
+#>  1   8483445 cutter-gaut… L                    61      24 https:/… ANA          
+#>  2   8483457 lane-hutson… D                    48       8 https:/… MTL          
+#>  3   8478864 kirill-kapr… L                    97      30 https:/… MIN          
+#>  4   8476453 nikita-kuch… R                    86      14 https:/… TBL          
+#>  5   8477946 dylan-larki… C                    89       8 https:/… MTL          
+#>  6   8478402 connor-mcda… C                    97      22 https:/… EDM          
+#>  7   8479979 jake-oettin… G                    29      25 https:/… DAL          
+#>  8   8483506 sam-rinzel-… D                     6      16 https:/… CHI          
+#>  9   8485366 matthew-sch… D                    48       2 https:/… NYI          
+#> 10   8480023 robert-thom… C                    18      19 https:/… STL          
 #> # ℹ 6 more variables: team_logo <chr>, sort_id <int>, name_default <chr>,
 #> #   name_cs <chr>, name_fi <chr>, name_sk <chr>
 # }

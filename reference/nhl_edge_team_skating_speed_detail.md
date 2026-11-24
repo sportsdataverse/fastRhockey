@@ -67,7 +67,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_edge_team_skating_speed_detail(team_id = 10))
 #> ── NHL Edge Team Skating Speed Detail ───────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:32:22 UTC
+#> ℹ Data updated: 2026-11-24 19:37:04 UTC
 #> # A tibble: 10 × 30
 #>    game_center_link    game_date game_type is_home_team time_in_period player_id
 #>    <chr>               <chr>         <int> <lgl>        <chr>              <int>
@@ -75,16 +75,16 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  2 /gamecenter/tor-vs… 2026-10-…         2 FALSE        16:15            8478458
 #>  3 /gamecenter/tor-vs… 2026-10-…         2 FALSE        02:05            8486067
 #>  4 /gamecenter/min-vs… 2026-11-…         2 TRUE         07:22            8484158
-#>  5 /gamecenter/sjs-vs… 2026-10-…         2 TRUE         05:25            8478458
-#>  6 /gamecenter/tor-vs… 2026-10-…         2 FALSE        03:00            8479520
-#>  7 /gamecenter/sjs-vs… 2026-10-…         2 TRUE         09:37            8479968
-#>  8 /gamecenter/tor-vs… 2026-10-…         2 FALSE        04:23            8479520
-#>  9 /gamecenter/tor-vs… 2026-10-…         2 FALSE        04:17            8480893
-#> 10 /gamecenter/buf-vs… 2026-10-…         2 TRUE         09:34            8479772
+#>  5 /gamecenter/edm-vs… 2026-11-…         2 TRUE         03:58            8479772
+#>  6 /gamecenter/sjs-vs… 2026-10-…         2 TRUE         05:25            8478458
+#>  7 /gamecenter/tor-vs… 2026-10-…         2 FALSE        03:00            8479520
+#>  8 /gamecenter/tor-vs… 2026-11-…         2 FALSE        03:54            8478458
+#>  9 /gamecenter/sjs-vs… 2026-10-…         2 TRUE         09:37            8479968
+#> 10 /gamecenter/tor-vs… 2026-10-…         2 FALSE        04:23            8479520
 #> # ℹ 24 more variables: player_slug <chr>, player_first_name_default <chr>,
 #> #   player_last_name_default <chr>, player_last_name_cs <chr>,
-#> #   player_last_name_fi <chr>, player_last_name_sk <chr>,
 #> #   player_last_name_de <chr>, player_last_name_es <chr>,
+#> #   player_last_name_fi <chr>, player_last_name_sk <chr>,
 #> #   player_last_name_sv <chr>, skating_speed_imperial <dbl>,
 #> #   skating_speed_metric <dbl>, period_descriptor_number <int>,
 #> #   period_descriptor_period_type <chr>, …

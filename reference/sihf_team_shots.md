@@ -97,31 +97,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_team_shots(season = 2026, league_id = 1))
-#> ── SIHF Team Shots Information from data.sihf.ch ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:35:22 UTC
-#> # A tibble: 15 × 23
-#>    season phase_id  rank team_id team_name     team_acronym games_played sog_sog
-#>     <int>    <int> <int>   <int> <chr>         <chr>               <int>   <int>
-#>  1   2026       NA    14  103144 HC Ajoie      HCA                    56    1286
-#>  2   2026       NA    13  101149 EHC Kloten    EHCK                   52    1407
-#>  3   2026       NA    12  102127 SCL Tigers    SCL                    52    1527
-#>  4   2026       NA    11  101152 HC Ambri-Pio… HCAP                   56    1559
-#>  5   2026       NA    10  102128 EHC Biel-Bie… EHCB                   56    1648
-#>  6   2026       NA     9  101144 EV Zug        EVZ                    66    1668
-#>  7   2026       NA     8  101150 HC Lugano     HCL                    60    1794
-#>  8   2026       NA     7  102126 SC Bern       SCB                    60    1819
-#>  9   2026       NA    NA      NA Durchschnitt  NA                     65    1874
-#> 10   2026       NA     6  103141 Lausanne HC   LHC                    66    1957
-#> 11   2026       NA     5  101139 ZSC Lions     ZSC                    70    2102
-#> 12   2026       NA     4  101060 SC Rapperswi… SCRJ                   74    2162
-#> 13   2026       NA     3  103140 Genève-Serve… GSHC                   76    2264
-#> 14   2026       NA     2  101151 HC Davos      HCD                    86    2490
-#> 15   2026       NA     1  103138 Fribourg-Got… FRI                    90    2565
-#> # ℹ 15 more variables: sog_sog_percent <dbl>, sog_sog_quotient <dbl>,
-#> #   sog_sog_slot <int>, sog_sog_slot_per_game <dbl>, sog_missed <int>,
-#> #   sog_missed_per_game <dbl>, sog_post <int>, sog_post_per_game <dbl>,
-#> #   blockings <int>, blockings_per_game <dbl>, soga_sog <int>,
-#> #   soga_sog_per_game <dbl>, soga_sog_slot <int>, soga_sog_slot_per_game <dbl>,
-#> #   row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

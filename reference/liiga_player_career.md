@@ -86,11 +86,11 @@ lists every function in this family.
 # \donttest{
   try(liiga_player_career(player_id = 21870028))
 #> ── Liiga player career Information from liiga.fi ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:30:04 UTC
+#> ℹ Data updated: 2026-11-24 19:34:56 UTC
 #> # A tibble: 29 × 39
 #>    player_id season games played_games goals assists points penalty_minutes
 #>        <int>  <int> <int>        <int> <int>   <int>  <int>           <int>
-#>  1  21870028   2027    21           21     3       5      8               4
+#>  1  21870028   2027    24           24     4       6     10               4
 #>  2  21870028   2026    60           60    12      14     26               6
 #>  3  21870028   2025    57           57     5      10     15              18
 #>  4  21870028   2024    36           36     3       8     11              10

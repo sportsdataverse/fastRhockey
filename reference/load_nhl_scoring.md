@@ -76,7 +76,7 @@ following columns:
 # \donttest{
   try(load_nhl_scoring(2026))
 #> ── NHL scoring summary ──────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-07-22 23:49:22 UTC
+#> ℹ Data updated: 2026-11-14 01:09:54 UTC
 #> # A tibble: 8,691 × 48
 #>    situationCode eventId strength playerId firstName.default firstName.cs
 #>    <chr>           <int> <chr>       <int> <chr>             <chr>       

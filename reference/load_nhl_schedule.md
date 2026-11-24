@@ -69,7 +69,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(load_nhl_schedule(2022))
 #> ── NHL schedule ─────────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-12 03:17:25 UTC
+#> ℹ Data updated: 2026-11-13 23:59:53 UTC
 #> # A tibble: 1,401 × 35
 #>       game_id season_full game_type game_date  game_time          home_team_abbr
 #>         <int> <chr>       <chr>     <chr>      <chr>              <chr>         

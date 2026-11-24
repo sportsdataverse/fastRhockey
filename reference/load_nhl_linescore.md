@@ -61,7 +61,7 @@ following columns:
 # \donttest{
   try(load_nhl_linescore(2026))
 #> ── NHL linescore ────────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-07-22 23:49:22 UTC
+#> ℹ Data updated: 2026-11-14 01:09:54 UTC
 #> # A tibble: 1,394 × 10
 #>       game_id home_team_id home_team_abbr home_goals home_shots away_team_id
 #>         <int>        <int> <chr>               <int>      <int>        <int>

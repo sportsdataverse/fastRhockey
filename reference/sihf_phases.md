@@ -82,17 +82,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_phases(season = 2026, league_id = 1))
-#> ── SIHF Phases Information from data.sihf.ch ────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:35:00 UTC
-#> # A tibble: 7 × 4
-#>   season phase_id phase_name        n_games
-#>    <int>    <int> <chr>               <int>
-#> 1   2026     5318 Playoff Final           7
-#> 2   2026     5317 Playoff 1/2 Final      10
-#> 3   2026     5295 Playoff 1/4 Final      23
-#> 4   2026     5307 Play-In Round 2         2
-#> 5   2026     5293 Play-In Round 1         4
-#> 6   2026     4940 Regular Season        364
-#> 7   2026     5294 Playout Final           4
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

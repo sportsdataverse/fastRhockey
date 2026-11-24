@@ -98,32 +98,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_team_goals(season = 2026, league_id = 1))
-#> ── SIHF Team Goals Information from data.sihf.ch ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:35:16 UTC
-#> # A tibble: 15 × 24
-#>    season phase_id  rank team_id team_name   team_acronym games_played goals_for
-#>     <int>    <int> <int>   <int> <chr>       <chr>               <int>     <int>
-#>  1   2026       NA    14  103144 HC Ajoie    HCA                    56       113
-#>  2   2026       NA    13  101149 EHC Kloten  EHCK                   52       117
-#>  3   2026       NA    12  102126 SC Bern     SCB                    60       134
-#>  4   2026       NA    11  102127 SCL Tigers  SCL                    52       140
-#>  5   2026       NA    10  101152 HC Ambri-P… HCAP                   56       146
-#>  6   2026       NA     9  102128 EHC Biel-B… EHCB                   56       151
-#>  7   2026       NA     8  101150 HC Lugano   HCL                    60       160
-#>  8   2026       NA     7  101144 EV Zug      EVZ                    66       162
-#>  9   2026       NA    NA      NA Durchschni… NA                     65       178
-#> 10   2026       NA     6  101139 ZSC Lions   ZSC                    70       191
-#> 11   2026       NA     5  103141 Lausanne HC LHC                    66       193
-#> 12   2026       NA     4  101060 SC Rappers… SCRJ                   74       200
-#> 13   2026       NA     3  103140 Genève-Ser… GSHC                   76       228
-#> 14   2026       NA     2  103138 Fribourg-G… FRI                    90       282
-#> 15   2026       NA     1  101151 HC Davos    HCD                    86       287
-#> # ℹ 16 more variables: goals_for_quotient <dbl>, goals_against <int>,
-#> #   goals_against_quotient <dbl>, even_goals_for <int>,
-#> #   even_goals_for_quotient <dbl>, even_goals_against <int>,
-#> #   even_goals_against_quotient <dbl>, pp_goals_for <int>,
-#> #   pp_goals_for_quotient <dbl>, pp_goals_against <int>,
-#> #   pp_goals_against_quotient <dbl>, sh_goals <int>, sh_goals_quotient <dbl>,
-#> #   pk_goals_against <int>, pk_goals_against_quotient <dbl>, row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

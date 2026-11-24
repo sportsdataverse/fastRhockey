@@ -141,8 +141,11 @@ no network call.</p>
 <h3 id="era-dummies"><strong>Era dummies</strong><a class="anchor" aria-label="anchor" href="#era-dummies"></a></h3>
 
 
-<p>The training corpus runs 2010-2024; the features keep one-hot era
-indicators so the same models generalize past the training cutoff:</p><table class="table table"><tr><td>Indicator</td><td>Seasons</td></tr><tr><td><code>era_2011_2013</code></td><td>20102011, 20112012, 20122013</td></tr><tr><td><code>era_2014_2018</code></td><td>20132014 ... 20172018</td></tr><tr><td><code>era_2019_2021</code></td><td>20182019, 20192020, 20202021</td></tr><tr><td><code>era_2022_2024</code></td><td>20212022, 20222023, 20232024</td></tr><tr><td><code>era_2025_on</code></td><td>seasons after 20232024</td></tr></table></div>
+<p>The models current at the 1.1.0 release were retrained on 2026-11-13 on
+NHL play-by-play from 2009-10 to 2026-27; a later retrain reaches installed
+copies through the manifest. The features keep one-hot era indicators, so tracking
+and rule changes are modelled rather than averaged away; 2009-10 is the
+reference era (every indicator 0):</p><table class="table table"><tr><td>Indicator</td><td>Seasons</td></tr><tr><td><code>era_2011_2013</code></td><td>20102011, 20112012, 20122013</td></tr><tr><td><code>era_2014_2018</code></td><td>20132014 ... 20172018</td></tr><tr><td><code>era_2019_2021</code></td><td>20182019, 20192020, 20202021</td></tr><tr><td><code>era_2022_2024</code></td><td>20212022, 20222023, 20232024</td></tr><tr><td><code>era_2025_on</code></td><td>seasons after 20232024</td></tr></table></div>
 
 <div class="section">
 <h3 id="required-pbp-columns"><strong>Required PBP columns</strong><a class="anchor" aria-label="anchor" href="#required-pbp-columns"></a></h3>
@@ -152,7 +155,7 @@ indicators so the same models generalize past the training cutoff:</p><table cla
 <code>period_type</code>, <code>period</code>, <code>game_seconds</code>, <code>x</code>, <code>y</code>, <code>x_fixed</code>,
 <code>event_team_abbr</code>, <code>home_abbr</code>, <code>away_abbr</code>, <code>home_skaters</code>,
 <code>away_skaters</code>, <code>shot_distance</code>, <code>shot_angle</code>, <code>empty_net</code>,
-<code>strength_state</code>, <code>event_id</code>, and <code>season</code>. <code><a href="nhl_game_pbp.html">nhl_game_pbp()</a></code> /
+<code>strength_state</code>, <code>game_id</code>, <code>event_id</code>, and <code>season</code>. <code><a href="nhl_game_pbp.html">nhl_game_pbp()</a></code> /
 <code><a href="nhl_game_feed.html">nhl_game_feed()</a></code> produce all of them.</p>
 </div>
 
@@ -161,8 +164,8 @@ indicators so the same models generalize past the training cutoff:</p><table cla
 
 
 <p>The <code>xgboost</code> suggested package is required. If it is absent,
-<code><a href="helper_nhl_calculate_xg.html">helper_nhl_calculate_xg()</a></code> warns and returns <code>pbp</code> with an
-<code>xg = NA_real_</code> column.</p>
+<code><a href="helper_nhl_calculate_xg.html">helper_nhl_calculate_xg()</a></code> returns <code>pbp</code> with an <code>xg = NA_real_</code> column
+and warns (once per session).</p>
 </div>
 
     </div>

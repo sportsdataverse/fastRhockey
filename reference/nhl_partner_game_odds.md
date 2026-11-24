@@ -24,10 +24,10 @@ Returns a list with game odds data.
 # \donttest{
 try(nhl_partner_game_odds())
 #> $currentOddsDate
-#> [1] "2026-11-13"
+#> [1] "2026-11-24"
 #> 
 #> $lastUpdatedUTC
-#> [1] "2026-11-13T21:30:38Z"
+#> [1] "2026-11-24T19:30:38Z"
 #> 
 #> $bettingPartner
 #> $bettingPartner$partnerId
@@ -57,26 +57,19 @@ try(nhl_partner_game_odds())
 #> 
 #> $games
 #>       gameId gameType         startTimeUTC homeTeam.id homeTeam.abbrev
-#> 1 2026020310        2 2026-11-14T02:00:00Z          23             VAN
-#> 2 2026020311        2 2026-11-14T03:00:00Z          54             VGK
+#> 1 2026020385        2 2026-11-25T01:00:00Z          22             EDM
 #>                                         homeTeam.logo
-#> 1 https://assets.nhle.com/logos/nhl/svg/VAN_light.svg
-#> 2 https://assets.nhle.com/logos/nhl/svg/VGK_light.svg
-#>                                                                                                                  homeTeam.odds
-#> 1 PUCK_LINE, MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, -135, 185, -105, 245, 340, +1.5, , O6.5, , Draw
-#> 2  MONEY_LINE_2_WAY, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, -162, 150, 320, 100, 114, , -1.5, Draw, , O6.5
+#> 1 https://assets.nhle.com/logos/nhl/svg/EDM_light.svg
+#>                                                                                                                 homeTeam.odds
+#> 1 PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, -258, 105, 105, 300, 145, +1.5, O6.5, , Draw, 
 #>   homeTeam.name.default awayTeam.id awayTeam.abbrev
-#> 1               Canucks           3             NYR
-#> 2        Golden Knights          18             NSH
+#> 1                Oilers          54             VGK
 #>                                         awayTeam.logo
-#> 1 https://assets.nhle.com/logos/nhl/svg/NYR_light.svg
-#> 2 https://assets.nhle.com/logos/nhl/svg/NSH_light.svg
-#>                                                                                                                   awayTeam.odds
-#> 1 PUCK_LINE, MONEY_LINE_2_WAY, OVER_UNDER, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, 114, -225, -115, -130, 340, -1.5, , U6.5, , Draw
-#> 2  MONEY_LINE_2_WAY, PUCK_LINE, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, OVER_UNDER, 136, -180, 320, 190, -135, , +1.5, Draw, , U6.5
+#> 1 https://assets.nhle.com/logos/nhl/svg/VGK_light.svg
+#>                                                                                                                  awayTeam.odds
+#> 1 PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, 210, -125, -125, 300, 135, -1.5, U6.5, , Draw, 
 #>   awayTeam.name.default
-#> 1               Rangers
-#> 2             Predators
+#> 1        Golden Knights
 #> 
 # }
 ```

@@ -63,21 +63,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_game_team_stats(game_id = 20261105000325))
-#> ── SIHF Game Team Stats Information from data.sihf.ch ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:34:54 UTC
-#> # A tibble: 49 × 4
-#>    game_id statistic home_value away_value
-#>      <dbl> <chr>     <chr>      <chr>     
-#>  1 2.03e13 SOG Total 36         22        
-#>  2 2.03e13 SOG 1P    11         7         
-#>  3 2.03e13 SOG 2P    16         8         
-#>  4 2.03e13 SOG 3P    9          7         
-#>  5 2.03e13 SHM Total 10         9         
-#>  6 2.03e13 SHM 1P    4          1         
-#>  7 2.03e13 SHM 2P    5          4         
-#>  8 2.03e13 SHM 3P    1          4         
-#>  9 2.03e13 SHP Total 1          1         
-#> 10 2.03e13 SHP 1P    0          0         
-#> # ℹ 39 more rows
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/gameoverview answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

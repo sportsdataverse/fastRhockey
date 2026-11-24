@@ -164,19 +164,10 @@ unreadable body, a stub or redirect body, a table without its filter echo, a tru
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">sihf_game_info</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">20261105000325</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── SIHF Game Info Information from data.sihf.ch ─────────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-13 21:34:50 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 41</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   game_id season round league_id league_name     region_id region_name group_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 2.03<span style="color: #949494;">e</span>13   <span style="text-decoration: underline;">2</span>026    47         1 National League         1 National           0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 33 more variables: group_name &lt;chr&gt;, tournament_id &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   tournament_name &lt;chr&gt;, qualification_id &lt;int&gt;, qualification_name &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   phase_id &lt;int&gt;, phase_name &lt;chr&gt;, start_date_time &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   end_date_time &lt;chr&gt;, update_date_time &lt;chr&gt;, status_id &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   status_name &lt;chr&gt;, status_percent &lt;int&gt;, status_canceled &lt;lgl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_id &lt;int&gt;, home_team_name &lt;chr&gt;, home_team_acronym &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   away_team_id &lt;int&gt;, away_team_name &lt;chr&gt;, away_team_acronym &lt;chr&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in .euro_check_status(resp) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   data.sihf.ch/statistic/api/cms/gameoverview answered HTTP 403:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {"Message":"Public access to this API has been discontinued. Write to</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> support@sihf.ch for access."}</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

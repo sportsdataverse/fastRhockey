@@ -164,18 +164,10 @@ unreadable body, a stub or redirect body, a table without its filter echo, a tru
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">sihf_game_goalie_stats</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">20261105000325</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── SIHF Game Goalie Stats Information from data.sihf.ch ─── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-13 21:34:50 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 15</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   game_id team_side team_id team_name  player_number player  goals_against saves</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 2.03<span style="color: #949494;">e</span>13 home       <span style="text-decoration: underline;">101</span>151 HC Davos              29 Aeschl…             3    19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 2.03<span style="color: #949494;">e</span>13 home       <span style="text-decoration: underline;">101</span>151 HC Davos              51 Hollen…             0     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 2.03<span style="color: #949494;">e</span>13 away       <span style="text-decoration: underline;">102</span>127 SCL Tigers            39 Boltsh…             2    18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 2.03<span style="color: #949494;">e</span>13 away       <span style="text-decoration: underline;">102</span>127 SCL Tigers            91 Meyer …             2    14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7 more variables: shots_against &lt;int&gt;, saves_percentage &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   seconds_played &lt;chr&gt;, goals_against_average &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   penalty_in_minutes &lt;int&gt;, row_type &lt;chr&gt;, player_id &lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in .euro_check_status(resp) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   data.sihf.ch/statistic/api/cms/gameoverview answered HTTP 403:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {"Message":"Public access to this API has been discontinued. Write to</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> support@sihf.ch for access."}</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

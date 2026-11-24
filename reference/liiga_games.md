@@ -112,7 +112,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_games(season = 2026, tournament = "playoffs"))
 #> ── Liiga games Information from liiga.fi ────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:30:01 UTC
+#> ℹ Data updated: 2026-11-24 19:34:53 UTC
 #> # A tibble: 60 × 59
 #>    game_id season start      end   periods finished_type started ended game_time
 #>      <int>  <int> <chr>      <chr> <chr>   <chr>         <lgl>   <lgl>     <int>

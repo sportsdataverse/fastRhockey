@@ -100,27 +100,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_player_time_on_ice(season = 2026, league_id = 1))
-#> ── SIHF Player Time On Ice Information from data.sihf.ch ── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:35:09 UTC
-#> # A tibble: 427 × 21
-#>    season phase_id  rank player          team_id team_name team_acronym position
-#>     <int>    <int> <int> <chr>             <int> <chr>     <chr>        <chr>   
-#>  1   2026       NA   427 Nater Jens       101144 EV Zug    EVZ          Verteid…
-#>  2   2026       NA   426 Hedlund William  101152 HC Ambri… HCAP         Stürmer 
-#>  3   2026       NA   425 Andri Flavio     101144 EV Zug    EVZ          Verteid…
-#>  4   2026       NA   424 Moser Jonathan   102128 EHC Biel… EHCB         Stürmer 
-#>  5   2026       NA   423 von Rohr Manuel  102128 EHC Biel… EHCB         Stürmer 
-#>  6   2026       NA   422 Wülser Nic       103138 Fribourg… FRI          Verteid…
-#>  7   2026       NA   421 Christen Livio   102128 EHC Biel… EHCB         Stürmer 
-#>  8   2026       NA   420 Niedermann Nino  101139 ZSC Lions ZSC          Verteid…
-#>  9   2026       NA   419 Grangier Martin  103138 Fribourg… FRI          Verteid…
-#> 10   2026       NA   418 Serkins Daniels  102126 SC Bern   SCB          Stürmer 
-#> # ℹ 417 more rows
-#> # ℹ 13 more variables: games_played <int>, time_on_ice_eq <chr>,
-#> #   time_on_ice_eq_per_game <chr>, time_on_ice_pp <chr>,
-#> #   time_on_ice_pp_per_game <chr>, time_on_ice_pk <chr>,
-#> #   time_on_ice_pk_per_game <chr>, time_on_ice <chr>,
-#> #   time_on_ice_per_game <chr>, shifts <int>, time_on_ice_per_shift <chr>,
-#> #   shifts_per_game <dbl>, row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

@@ -100,18 +100,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_game_info(game_id = 20261105000325))
-#> ── SIHF Game Info Information from data.sihf.ch ─────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:34:50 UTC
-#> # A tibble: 1 × 41
-#>   game_id season round league_id league_name     region_id region_name group_id
-#>     <dbl>  <int> <int>     <int> <chr>               <int> <chr>          <int>
-#> 1 2.03e13   2026    47         1 National League         1 National           0
-#> # ℹ 33 more variables: group_name <chr>, tournament_id <int>,
-#> #   tournament_name <chr>, qualification_id <int>, qualification_name <chr>,
-#> #   phase_id <int>, phase_name <chr>, start_date_time <chr>,
-#> #   end_date_time <chr>, update_date_time <chr>, status_id <int>,
-#> #   status_name <chr>, status_percent <int>, status_canceled <lgl>,
-#> #   home_team_id <int>, home_team_name <chr>, home_team_acronym <chr>,
-#> #   away_team_id <int>, away_team_name <chr>, away_team_acronym <chr>, …
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/gameoverview answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

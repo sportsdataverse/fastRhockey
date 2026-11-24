@@ -89,24 +89,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_player_shootouts(season = 2026, league_id = 1))
-#> ── SIHF Player Shootouts Information from data.sihf.ch ──── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:35:06 UTC
-#> # A tibble: 427 × 15
-#>    season phase_id  rank player          team_id team_name team_acronym position
-#>     <int>    <int> <int> <chr>             <int> <chr>     <chr>        <chr>   
-#>  1   2026       NA   427 Zwerger Dominic  101152 HC Ambri… HCAP         Stürmer 
-#>  2   2026       NA   426 Zürcher Kevin    102126 SC Bern   SCB          Stürmer 
-#>  3   2026       NA   425 Zryd Miro        102128 EHC Biel… EHCB         Verteid…
-#>  4   2026       NA   424 Zgraggen Jesse   101152 HC Ambri… HCAP         Verteid…
-#>  5   2026       NA   423 Zehnder Yannick  103141 Lausanne… LHC          Stürmer 
-#>  6   2026       NA   422 Zangger Sandro   101060 SC Rappe… SCRJ         Stürmer 
-#>  7   2026       NA   421 Zanetti Marco    101150 HC Lugano HCL          Stürmer 
-#>  8   2026       NA   420 Zanetti Brian    101150 HC Lugano HCL          Verteid…
-#>  9   2026       NA   419 Wüthrich Dario   101152 HC Ambri… HCAP         Verteid…
-#> 10   2026       NA   418 Wülser Nic       103138 Fribourg… FRI          Verteid…
-#> # ℹ 417 more rows
-#> # ℹ 7 more variables: games_played <int>, pen_shots <int>,
-#> #   pen_shot_goals <int>, pen_shots_missed <int>, pen_shots_percent <dbl>,
-#> #   pen_shot_winning_goals <int>, row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

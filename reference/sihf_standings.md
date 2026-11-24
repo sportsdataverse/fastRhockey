@@ -107,29 +107,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_standings(season = 2026, league_id = 1))
-#> ── SIHF Standings Information from data.sihf.ch ─────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:35:11 UTC
-#> # A tibble: 14 × 20
-#>    season phase_id  rank team_id team_name      team_acronym games_played points
-#>     <int>    <int> <int>   <int> <chr>          <chr>               <int>  <int>
-#>  1   2026       NA     1  101151 HC Davos       HCD                    52    117
-#>  2   2026       NA     2  103138 Fribourg-Gott… FRI                    52    100
-#>  3   2026       NA     3  103140 Genève-Servet… GSHC                   52     91
-#>  4   2026       NA     4  101139 ZSC Lions      ZSC                    52     91
-#>  5   2026       NA     5  101150 HC Lugano      HCL                    52     89
-#>  6   2026       NA     6  103141 Lausanne HC    LHC                    52     85
-#>  7   2026       NA     7  101060 SC Rapperswil… SCRJ                   52     81
-#>  8   2026       NA     8  101144 EV Zug         EVZ                    52     75
-#>  9   2026       NA     9  102126 SC Bern        SCB                    52     68
-#> 10   2026       NA    10  102128 EHC Biel-Bien… EHCB                   52     67
-#> 11   2026       NA    11  102127 SCL Tigers     SCL                    52     64
-#> 12   2026       NA    12  101149 EHC Kloten     EHCK                   52     63
-#> 13   2026       NA    13  101152 HC Ambri-Piot… HCAP                   52     59
-#> 14   2026       NA    14  103144 HC Ajoie       HCA                    52     42
-#> # ℹ 12 more variables: points_quotient <dbl>, games_won_in_time <int>,
-#> #   games_won_extra_time <int>, games_won_penalty <int>,
-#> #   games_lost_penalty <int>, games_lost_extra_time <int>,
-#> #   games_lost_in_time <int>, goals_for <int>, goals_against <int>,
-#> #   goals_difference <int>, streak <chr>, row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

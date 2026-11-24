@@ -25,12 +25,11 @@ Returns a data frame with game scores.
 # \donttest{
   try(nhl_scores())
 #> ── NHL Scores ───────────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:33:10 UTC
-#> # A tibble: 2 × 29
+#> ℹ Data updated: 2026-11-24 19:37:47 UTC
+#> # A tibble: 1 × 29
 #>           id   season game_type game_date  start_time_utc     eastern_utc_offset
 #>        <int>    <int>     <int> <chr>      <chr>              <chr>             
-#> 1 2026020310 20262027         2 2026-11-13 2026-11-14T02:00:… -05:00            
-#> 2 2026020311 20262027         2 2026-11-13 2026-11-14T03:00:… -05:00            
+#> 1 2026020385 20262027         2 2026-11-24 2026-11-25T01:00:… -05:00            
 #> # ℹ 23 more variables: venue_utc_offset <chr>, tv_broadcasts <list>,
 #> #   game_state <chr>, game_schedule_state <chr>, game_center_link <chr>,
 #> #   neutral_site <lgl>, venue_timezone <chr>, tickets_link <chr>,

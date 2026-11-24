@@ -60,30 +60,21 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_player_game_log(player_id = 8478402))
 #> ── NHL Player Game Log ──────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:32:35 UTC
-#> # A tibble: 20 × 22
+#> ℹ Data updated: 2026-11-24 19:37:15 UTC
+#> # A tibble: 26 × 22
 #>     game_id team_abbrev home_road_flag game_date goals assists points plus_minus
 #>       <int> <chr>       <chr>          <chr>     <int>   <int>  <int>      <int>
-#>  1   2.03e9 EDM         H              2026-11-…     0       1      1          1
-#>  2   2.03e9 EDM         H              2026-11-…     1       0      1          2
-#>  3   2.03e9 EDM         H              2026-11-…     0       3      3          1
-#>  4   2.03e9 EDM         H              2026-11-…     1       3      4          1
-#>  5   2.03e9 EDM         R              2026-11-…     0       1      1          0
-#>  6   2.03e9 EDM         R              2026-11-…     1       1      2          2
-#>  7   2.03e9 EDM         R              2026-10-…     0       1      1          1
-#>  8   2.03e9 EDM         H              2026-10-…     0       2      2          1
-#>  9   2.03e9 EDM         H              2026-10-…     0       1      1          0
-#> 10   2.03e9 EDM         H              2026-10-…     0       2      2         -2
-#> 11   2.03e9 EDM         H              2026-10-…     2       3      5          1
-#> 12   2.03e9 EDM         H              2026-10-…     0       3      3         -2
-#> 13   2.03e9 EDM         R              2026-10-…     2       3      5          4
-#> 14   2.03e9 EDM         H              2026-10-…     0       1      1          1
-#> 15   2.03e9 EDM         R              2026-10-…     1       3      4          2
-#> 16   2.03e9 EDM         R              2026-10-…     0       1      1          1
-#> 17   2.03e9 EDM         R              2026-10-…     1       2      3          4
-#> 18   2.03e9 EDM         H              2026-10-…     1       1      2          2
-#> 19   2.03e9 EDM         R              2026-10-…     1       4      5          4
-#> 20   2.03e9 EDM         H              2026-09-…     0       2      2          1
+#>  1   2.03e9 EDM         R              2026-11-…     0       1      1          0
+#>  2   2.03e9 EDM         R              2026-11-…     0       2      2         -2
+#>  3   2.03e9 EDM         R              2026-11-…     0       0      0         -1
+#>  4   2.03e9 EDM         R              2026-11-…     1       1      2          0
+#>  5   2.03e9 EDM         R              2026-11-…     1       2      3          3
+#>  6   2.03e9 EDM         R              2026-11-…     0       1      1          1
+#>  7   2.03e9 EDM         H              2026-11-…     0       1      1          1
+#>  8   2.03e9 EDM         H              2026-11-…     1       0      1          2
+#>  9   2.03e9 EDM         H              2026-11-…     0       3      3          1
+#> 10   2.03e9 EDM         H              2026-11-…     1       3      4          1
+#> # ℹ 16 more rows
 #> # ℹ 14 more variables: power_play_goals <int>, power_play_points <int>,
 #> #   game_winning_goals <int>, ot_goals <int>, shots <int>, shifts <int>,
 #> #   shorthanded_goals <int>, shorthanded_points <int>, pim <int>, toi <chr>,

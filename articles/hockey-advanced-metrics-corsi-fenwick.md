@@ -168,15 +168,15 @@ team_5v5 %>%
 #>    team     CF    CA CF_pct FF_pct xGF_pct GF_pct   PDO
 #>    <chr> <int> <int>  <dbl>  <dbl>   <dbl>  <dbl> <dbl>
 #>  1 CAR    4620  3112  0.598  0.589   0.564  0.536 0.984
-#>  2 COL    4613  3523  0.567  0.559   0.576  0.629 1.02 
-#>  3 TBL    3847  3377  0.533  0.524   0.539  0.563 1.02 
-#>  4 UTA    4005  3532  0.531  0.529   0.528  0.532 1.00 
-#>  5 OTT    3798  3387  0.529  0.537   0.549  0.522 0.992
-#>  6 ANA    4184  3806  0.524  0.525   0.503  0.475 0.982
-#>  7 VGK    3956  3604  0.523  0.528   0.546  0.503 0.983
-#>  8 LAK    4117  3769  0.522  0.522   0.52   0.52  1.00 
-#>  9 FLA    3758  3505  0.517  0.509   0.503  0.472 0.989
-#> 10 NJD    4013  3800  0.514  0.513   0.49   0.426 0.971
+#>  2 COL    4613  3523  0.567  0.559   0.575  0.629 1.02 
+#>  3 TBL    3847  3377  0.533  0.524   0.543  0.563 1.02 
+#>  4 UTA    4005  3532  0.531  0.529   0.523  0.532 1.00 
+#>  5 OTT    3798  3387  0.529  0.537   0.553  0.522 0.992
+#>  6 ANA    4184  3806  0.524  0.525   0.504  0.475 0.982
+#>  7 VGK    3956  3604  0.523  0.528   0.553  0.503 0.983
+#>  8 LAK    4117  3769  0.522  0.522   0.514  0.52  1.00 
+#>  9 FLA    3758  3505  0.517  0.509   0.502  0.472 0.989
+#> 10 NJD    4013  3800  0.514  0.513   0.489  0.426 0.971
 ```
 
 A quick check: league-wide, goals for equal goals against, so PDO
@@ -229,7 +229,7 @@ team_5v5 %>%
 #> # A tibble: 1 × 3
 #>   cor_CF_GF cor_FF_GF cor_xGF_GF
 #>       <dbl>     <dbl>      <dbl>
-#> 1     0.497      0.55      0.755
+#> 1     0.497      0.55      0.745
 ```
 
 Here xGF% tracks goal share more closely than raw Corsi or Fenwick,
@@ -307,16 +307,16 @@ player_5v5 %>%
 #> # A tibble: 10 × 9
 #>    player_id player            team     CF    CA   xGF   xGA CF_pct xGF_pct
 #>        <int> <chr>             <chr> <int> <int> <dbl> <dbl>  <dbl>   <dbl>
-#>  1   8480817 K'Andre Miller    CAR    1597   988  73.8  55.6  0.618   0.57 
-#>  2   8482702 Logan Stankoven   CAR    1300   816  67.7  46.7  0.614   0.591
-#>  3   8478427 Sebastian Aho     CAR    1308   822  66.4  49.8  0.614   0.571
-#>  4   8480336 Sean Walker       CAR    1754  1106  79.4  59.3  0.613   0.572
-#>  5   8480830 Andrei Svechnikov CAR    1286   822  64.7  50.2  0.61    0.563
-#>  6   8477940 Nikolaj Ehlers    CAR    1221   796  58.8  43.7  0.605   0.573
-#>  7   8482809 Jackson Blake     CAR    1283   840  67.8  47.9  0.604   0.586
-#>  8   8482093 Seth Jarvis       CAR    1099   723  53.6  42.2  0.603   0.559
-#>  9   8481606 Jordan Spence     OTT    1377   907  67.9  42.8  0.603   0.613
-#> 10   8475791 Taylor Hall       CAR    1174   787  59    44.3  0.599   0.571
+#>  1   8480817 K'Andre Miller    CAR    1597   988  67.9  51.1  0.618   0.571
+#>  2   8482702 Logan Stankoven   CAR    1300   816  61.6  43.4  0.614   0.586
+#>  3   8478427 Sebastian Aho     CAR    1308   822  60.7  45.2  0.614   0.573
+#>  4   8480336 Sean Walker       CAR    1754  1106  72.6  53.7  0.613   0.575
+#>  5   8480830 Andrei Svechnikov CAR    1286   822  59    46    0.61    0.562
+#>  6   8477940 Nikolaj Ehlers    CAR    1221   796  53.5  39.2  0.605   0.577
+#>  7   8482809 Jackson Blake     CAR    1283   840  61.9  44    0.604   0.585
+#>  8   8482093 Seth Jarvis       CAR    1099   723  48.9  38.4  0.603   0.56 
+#>  9   8481606 Jordan Spence     OTT    1377   907  62.7  39.1  0.603   0.616
+#> 10   8475791 Taylor Hall       CAR    1174   787  53.4  40.9  0.599   0.566
 ```
 
 Grouping by `team` as well as `player_id` keeps a traded player’s stints

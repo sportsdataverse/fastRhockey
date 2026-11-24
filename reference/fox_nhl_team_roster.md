@@ -24,7 +24,7 @@ A `fastRhockey_data` tibble, one row per player (`team_id`,
 ``` r
  try(fox_nhl_team_roster("1")) 
 #> ── Fox Sports NHL roster ────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:27:59 UTC
+#> ℹ Data updated: 2026-11-24 19:32:56 UTC
 #> # A tibble: 23 × 9
 #>    team_id position_group player      pos   age   ht    wt    college athlete_id
 #>    <chr>   <chr>          <chr>       <chr> <chr> <chr> <chr> <chr>   <chr>     
@@ -35,7 +35,7 @@ A `fastRhockey_data` tibble, one row per player (`team_id`,
 #>  5 1       CENTER         Sean Kuraly C     33    "6'2… 214 … Miami … 5053      
 #>  6 1       CENTER         Elias Lind… C     31    "6'1… 204 … -       3619      
 #>  7 1       CENTER         Fraser Min… C     22    "6'2… 207 … -       7178      
-#>  8 1       CENTER         Casey Mitt… C     27    "6'1… 202 … Minnes… 5796      
+#>  8 1       CENTER         Casey Mitt… C     28    "6'1… 202 … Minnes… 5796      
 #>  9 1       CENTER         Matthew Po… C     22    "6'0… 189 … -       7193      
 #> 10 1       CENTER         Pavel Zacha C     29    "6'4… 212 … -       4746      
 #> # ℹ 13 more rows

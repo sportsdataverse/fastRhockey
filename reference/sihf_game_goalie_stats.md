@@ -73,17 +73,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_game_goalie_stats(game_id = 20261105000325))
-#> ── SIHF Game Goalie Stats Information from data.sihf.ch ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:34:50 UTC
-#> # A tibble: 4 × 15
-#>   game_id team_side team_id team_name  player_number player  goals_against saves
-#>     <dbl> <chr>       <int> <chr>              <int> <chr>           <int> <int>
-#> 1 2.03e13 home       101151 HC Davos              29 Aeschl…             3    19
-#> 2 2.03e13 home       101151 HC Davos              51 Hollen…             0     0
-#> 3 2.03e13 away       102127 SCL Tigers            39 Boltsh…             2    18
-#> 4 2.03e13 away       102127 SCL Tigers            91 Meyer …             2    14
-#> # ℹ 7 more variables: shots_against <int>, saves_percentage <dbl>,
-#> #   seconds_played <chr>, goals_against_average <dbl>,
-#> #   penalty_in_minutes <int>, row_type <chr>, player_id <int>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/gameoverview answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

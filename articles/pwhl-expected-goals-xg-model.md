@@ -60,7 +60,7 @@ pwhl_xg <- lapply(seasons, function(s) {
   bind_rows()
 
 glimpse(pwhl_xg)
-#> Rows: 18,031
+#> Rows: 12,360
 #> Columns: 22
 #> $ game_id        <int> 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…
 #> $ game_season    <int> 2024, 2024, 2024, 2024, 2024, 2024, 2024, 2024, 2024, 2…
@@ -82,7 +82,7 @@ glimpse(pwhl_xg)
 #> $ empty_net      <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #> $ penalty_shot   <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 #> $ goal           <lgl> FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,…
-#> $ xg             <dbl> 0.04578971, 0.11349080, 0.03445742, 0.16749880, 0.08489…
+#> $ xg             <dbl> 0.04577047, 0.11360723, 0.03451331, 0.16666314, 0.08464…
 #> $ season         <int> 2024, 2024, 2024, 2024, 2024, 2024, 2024, 2024, 2024, 2…
 ```
 
@@ -184,15 +184,14 @@ pub_eval <- pwhl_xg %>%
     .groups = "drop"
   )
 pub_eval
-#> # A tibble: 3 × 7
+#> # A tibble: 2 × 7
 #>   season shots goals sum_xg goals_per_xg log_loss rank_auc
 #>    <int> <int> <int>  <dbl>        <dbl>    <dbl>    <dbl>
 #> 1   2024  4922   385   406.        0.949    0.258    0.686
-#> 2   2025  5671   499   465.        1.07     0.278    0.699
-#> 3   2026  7438   601   615.        0.978    0.257    0.724
+#> 2   2026  7438   601   615.        0.978    0.257    0.724
 ```
 
-Across all 18,031 published shots the in-sample rank AUC is 0.7058.
+Across all 12,360 published shots the in-sample rank AUC is 0.7095.
 
 ``` r
 
@@ -241,7 +240,7 @@ Other limits, as described in the card:
   skater or strength columns; 2026 is about 99% covered. The power-play
   and shorthanded features, and the per-strength recalibration, are
   effectively active only for 2026 shots.
-- **Small samples.** Three seasons and about 18,000 shots. Player
+- **Small samples.** Three seasons and about 12,000 shots. Player
   goals-above-expected is a descriptive ledger here, not a talent
   estimate.
 - **No pre-shot passing data.** One-timers and cross-ice passes are
@@ -268,15 +267,15 @@ pwhl_xg %>%
 #>    player_id shots goals    xg   gax
 #>        <int> <int> <int> <dbl> <dbl>
 #>  1        72   120    18 11.8   6.19
-#>  2        32   141    10 11.2  -1.25
+#>  2        32   141    10 11.2  -1.24
 #>  3        25    99    14 10.3   3.67
-#>  4        20    84    13  9.39  3.61
-#>  5        15    84     5  9.14 -4.14
+#>  4        20    84    13  9.38  3.62
+#>  5        15    84     5  9.13 -4.13
 #>  6        36    95    14  9.08  4.92
-#>  7        53    94     3  9.05 -6.05
-#>  8       205   104     9  8.95  0.05
-#>  9        34    89    11  8.5   2.5 
-#> 10        61    80    10  8.35  1.65
+#>  7        53    94     3  9.04 -6.04
+#>  8       205   104     9  8.94  0.06
+#>  9        34    89    11  8.51  2.49
+#> 10        61    80    10  8.36  1.64
 ```
 
 Join `player_id` to
@@ -324,7 +323,7 @@ whose model card is
 ``` bibtex
 @misc{howell_gilani_fastRhockey,
   author = {Ben Howell and Saiem Gilani},
-  title = {fastRhockey: Functions to Access Professional Women's Hockey League and National Hockey League Play by Play Data.},
+  title = {fastRhockey: Access Hockey Play-by-Play Data and Statistics},
   url = {https://fastRhockey.sportsdataverse.org/},
   doi = {10.32614/CRAN.package.fastRhockey},
   year = {2026}

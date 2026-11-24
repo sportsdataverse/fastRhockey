@@ -81,7 +81,7 @@ Saiem Gilani
     espn_mch_game_team_roster(event_id = eid, team_id = tms$team_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Team Roster data from ESPN core-v2 ─────────────────
-#> ℹ Data updated: 2026-11-13 21:26:16 UTC
+#> ℹ Data updated: 2026-11-24 19:31:33 UTC
 #> # A tibble: 22 × 13
 #>    event_id cid   team_id player_id jersey display_name scratched scratch_reason
 #>    <chr>    <chr> <chr>   <chr>     <chr>  <chr>        <lgl>     <chr>         
@@ -106,10 +106,10 @@ Saiem Gilani
     tms <- espn_wch_game_teams(event_id = eid)
     espn_wch_game_team_roster(event_id = eid, team_id = tms$team_id[1])
   })
-#> ✖ 2026-11-13 21:26:16.542613: 
+#> ✖ 2026-11-24 19:31:33.623428: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
 #> ✖ Error: The API returned an error
-#> ✖ 2026-11-13 21:26:16.57808: 
+#> ✖ 2026-11-24 19:31:33.650853: 
 #> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, team_id = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

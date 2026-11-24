@@ -6,7 +6,7 @@ draft, scoreboard, scores, meta, location, partner-game, where-to-watch,
 smartlinks, postal-lookup, ppt-replay, and WSC PBP.
 
 All responses are clean JSON parsed with
-[`jsonlite::fromJSON()`](https://jeroen.r-universe.dev/jsonlite/reference/fromJSON.html)
+[`jsonlite::fromJSON()`](https://rdrr.io/pkg/jsonlite/man/fromJSON.html)
 and wrapped in the `fastRhockey_data` S3 class via
 `make_fastRhockey_data()`.
 

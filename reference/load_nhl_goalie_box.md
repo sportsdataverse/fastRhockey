@@ -71,7 +71,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(load_nhl_goalie_box(2022))
 #> ── NHL goalie boxscores ─────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-09-09 07:37:00 UTC
+#> ℹ Data updated: 2026-11-13 23:58:15 UTC
 #> # A tibble: 5,605 × 24
 #>    home_away team_id team_abbrev player_id player_name     sweater_number
 #>    <chr>       <int> <chr>           <int> <chr>                    <int>

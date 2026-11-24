@@ -73,14 +73,14 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_season_week_powerindex(season = 2026, season_type = 2, week = 3))
-#> ✖ 2026-11-13 21:26:37.325167: Invalid arguments or no ESPN mens-college-hockey power index available!
+#> ✖ 2026-11-24 19:31:50.090924: Invalid arguments or no ESPN mens-college-hockey power index available!
 #> ✖ Args: league = "mens-college-hockey", kind = "weekly", path = "seasons/2026/types/2/weeks/3/powerindex", query = list()
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try(espn_wch_season_week_powerindex(season = 2026, season_type = 2, week = 3))
-#> ✖ 2026-11-13 21:26:37.365994: Invalid arguments or no ESPN womens-college-hockey power index available!
+#> ✖ 2026-11-24 19:31:50.121687: Invalid arguments or no ESPN womens-college-hockey power index available!
 #> ✖ Args: league = "womens-college-hockey", kind = "weekly", path = "seasons/2026/types/2/weeks/3/powerindex", query = list()
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

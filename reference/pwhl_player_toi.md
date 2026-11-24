@@ -48,7 +48,7 @@ Saiem Gilani
 # \donttest{
   try(pwhl_player_toi(game_id = 42))
 #> ── PWHL Player TOI from HockeyTech ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:34:07 UTC
+#> ℹ Data updated: 2026-11-24 19:38:40 UTC
 #> # A tibble: 39 × 6
 #>    player_id first_name last_name toi_seconds num_shifts avg_shift_s
 #>        <int> <chr>      <chr>           <int>      <int>       <dbl>

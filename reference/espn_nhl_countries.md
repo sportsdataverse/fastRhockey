@@ -49,7 +49,7 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns empty tibble for NHL (ESPN does not populate this endpoint)
   try(espn_nhl_countries())
-#> ! 2026-11-13 21:26:50.994708: No country items returned for nhl (count=0 is normal for NHL).
+#> ! 2026-11-24 19:32:01.178145: No country items returned for nhl (count=0 is normal for NHL).
 #> data frame with 0 columns and 0 rows
 # }
 ```

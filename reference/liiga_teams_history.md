@@ -66,20 +66,20 @@ lists every function in this family.
 # \donttest{
   try(liiga_teams_history())
 #> ── Liiga team history Information from liiga.fi ─────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:30:29 UTC
+#> ℹ Data updated: 2026-11-24 19:35:21 UTC
 #> # A tibble: 593 × 25
 #>       id season league_id serie_id    team_id away_games away_losses away_ties
 #>    <int>  <int>     <int>    <int>      <int>      <int>       <int>     <int>
-#>  1   848   2027         1     1188  624554857          9           0         3
-#>  2   841   2027         1     1188  951626834         12           5         2
-#>  3   843   2027         1     1188  292293444          9           3         1
-#>  4   844   2027         1     1188  219244634         11           3         0
-#>  5   854   2027         1     1188  679171680         12           5         2
-#>  6   850   2027         1     1188  933686567          8           3         0
-#>  7   853   2027         1     1188  651304385         10           5         3
-#>  8   847   2027         1     1188  495643563         10           3         5
-#>  9   855   2027         1     1188 1368624751         10           4         4
-#> 10   852   2027         1     1188  362185137         10           4         2
+#>  1   848   2027         1     1188  624554857         11           0         3
+#>  2   841   2027         1     1188  951626834         14           6         2
+#>  3   844   2027         1     1188  219244634         12           3         0
+#>  4   843   2027         1     1188  292293444         10           4         1
+#>  5   854   2027         1     1188  679171680         14           6         2
+#>  6   850   2027         1     1188  933686567          9           4         0
+#>  7   847   2027         1     1188  495643563         12           3         6
+#>  8   853   2027         1     1188  651304385         12           6         3
+#>  9   855   2027         1     1188 1368624751         11           4         4
+#> 10   839   2027         1     1188  168761288         14           5         5
 #> # ℹ 583 more rows
 #> # ℹ 17 more variables: away_wins <int>, away_wins_in_extra_time <int>,
 #> #   games <int>, goals_against <int>, goals_scored <int>, home_games <int>,

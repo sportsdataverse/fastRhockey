@@ -91,29 +91,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_team_power_play(season = 2026, league_id = 1))
-#> ── SIHF Team Power Play Information from data.sihf.ch ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:35:20 UTC
-#> # A tibble: 15 × 17
-#>    season phase_id  rank team_id team_name             team_acronym games_played
-#>     <int>    <int> <int>   <int> <chr>                 <chr>               <int>
-#>  1   2026       NA    14  101060 SC Rapperswil-Jona L… SCRJ                   74
-#>  2   2026       NA    13  102126 SC Bern               SCB                    60
-#>  3   2026       NA    12  101152 HC Ambri-Piotta       HCAP                   56
-#>  4   2026       NA    11  103138 Fribourg-Gottéron     FRI                    90
-#>  5   2026       NA    10  103144 HC Ajoie              HCA                    56
-#>  6   2026       NA     9  102128 EHC Biel-Bienne       EHCB                   56
-#>  7   2026       NA     8  101150 HC Lugano             HCL                    60
-#>  8   2026       NA     7  101139 ZSC Lions             ZSC                    70
-#>  9   2026       NA    NA      NA Durchschnitt          NA                     65
-#> 10   2026       NA     6  101144 EV Zug                EVZ                    66
-#> 11   2026       NA     5  102127 SCL Tigers            SCL                    52
-#> 12   2026       NA     4  101149 EHC Kloten            EHCK                   52
-#> 13   2026       NA     3  101151 HC Davos              HCD                    86
-#> 14   2026       NA     2  103140 Genève-Servette HC    GSHC                   76
-#> 15   2026       NA     1  103141 Lausanne HC           LHC                    66
-#> # ℹ 10 more variables: pp_opportunities <int>, pp_opportunities_quotient <dbl>,
-#> #   pp_goals_for <int>, pp_goals_for_quotient <dbl>, pp_percent <dbl>,
-#> #   power_play_time <chr>, power_play_time_quotient <chr>,
-#> #   pp_goals_against <int>, pp_goals_against_quotient <dbl>, row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

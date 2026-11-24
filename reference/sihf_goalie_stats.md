@@ -94,25 +94,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_goalie_stats(season = 2026, league_id = 1))
-#> ── SIHF Goalie Stats Information from data.sihf.ch ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:34:56 UTC
-#> # A tibble: 35 × 19
-#>    season phase_id  rank player      team_id team_name team_acronym games_played
-#>     <int>    <int> <int> <chr>         <int> <chr>     <chr>               <int>
-#>  1   2026       NA     1 Hrubec Sim…  101139 ZSC Lions ZSC                    60
-#>  2   2026       NA     2 Reideborn …  102126 SC Bern   SCB                    39
-#>  3   2026       NA     3 Berra Reto   103138 Fribourg… FRI                    75
-#>  4   2026       NA     4 Aeschliman…  101151 HC Davos  HCD                    67
-#>  5   2026       NA     5 Meyer Robin  102127 SCL Tige… SCL                    22
-#>  6   2026       NA     6 Schlegel N…  101150 HC Lugano HCL                    42
-#>  7   2026       NA    NA Durchschni…      NA Durchsch… NA                     44
-#>  8   2026       NA     7 Charlin St…  103140 Genève-S… GSHC                   66
-#>  9   2026       NA     8 Waeber Lud…  101149 EHC Klot… EHCK                   25
-#> 10   2026       NA     9 Genoni Leo…  101144 EV Zug    EVZ                    52
-#> # ℹ 25 more rows
-#> # ℹ 11 more variables: first_keeper <int>, goals_against <int>,
-#> #   goals_against_average <dbl>, shots_against <int>, saves <int>,
-#> #   saves_percentage <dbl>, seconds_played <chr>, penalty_in_minutes <int>,
-#> #   goals <int>, assists <int>, row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

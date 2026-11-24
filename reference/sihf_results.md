@@ -101,27 +101,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_results(season = 2026, league_id = 1))
-#> ── SIHF Results Information from data.sihf.ch ───────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:35:10 UTC
-#> # A tibble: 414 × 26
-#>    season phase_id day   date       time  home_team_id home_team_name           
-#>     <int>    <int> <chr> <date>     <chr>        <int> <chr>                    
-#>  1   2026       NA Di    2025-09-09 19:45       101152 HC Ambri-Piotta          
-#>  2   2026       NA Di    2025-09-09 19:45       101151 HC Davos                 
-#>  3   2026       NA Di    2025-09-09 19:45       103138 Fribourg-Gottéron        
-#>  4   2026       NA Di    2025-09-09 19:45       103140 Genève-Servette HC       
-#>  5   2026       NA Di    2025-09-09 19:45       101060 SC Rapperswil-Jona Lakers
-#>  6   2026       NA Di    2025-09-09 19:45       101139 ZSC Lions                
-#>  7   2026       NA Di    2025-09-09 19:45       101144 EV Zug                   
-#>  8   2026       NA Do    2025-09-11 20:00       102128 EHC Biel-Bienne          
-#>  9   2026       NA Fr    2025-09-12 19:45       103144 HC Ajoie                 
-#> 10   2026       NA Fr    2025-09-12 19:45       102126 SC Bern                  
-#> # ℹ 404 more rows
-#> # ℹ 19 more variables: home_team_acronym <chr>, away_team_id <int>,
-#> #   away_team_name <chr>, away_team_acronym <chr>, score_home <int>,
-#> #   score_away <int>, score_per_period_home <list>,
-#> #   score_per_period_away <list>, decision <chr>, status_id <int>,
-#> #   status_name <chr>, status_percent <int>, status_canceled <lgl>,
-#> #   start_date_time <chr>, end_date_time <chr>, update_date_time <chr>, …
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

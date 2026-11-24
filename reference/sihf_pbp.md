@@ -93,34 +93,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_pbp(game_id = 20261105000325))
-#> ── SIHF PBP Information from data.sihf.ch ───────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:34:59 UTC
-#> # A tibble: 17 × 34
-#>    game_id event_index period_number period     event_type   time  game_seconds
-#>      <dbl>       <int>         <int> <chr>      <chr>        <chr>        <int>
-#>  1 2.03e13           1             1 1. Drittel goal         08:22          502
-#>  2 2.03e13           2             1 1. Drittel penalty      13:45          825
-#>  3 2.03e13           3             2 2. Drittel goal         22:27         1347
-#>  4 2.03e13           4             2 2. Drittel goal         22:54         1374
-#>  5 2.03e13           5             2 2. Drittel goal         24:13         1453
-#>  6 2.03e13           6             2 2. Drittel penalty      25:58         1558
-#>  7 2.03e13           7             2 2. Drittel goal         26:47         1607
-#>  8 2.03e13           8             2 2. Drittel penalty      29:58         1798
-#>  9 2.03e13           9             2 2. Drittel goalie       36:24         2184
-#> 10 2.03e13          10             2 2. Drittel goalie       36:24         2184
-#> 11 2.03e13          11             3 3. Drittel goal         44:08         2648
-#> 12 2.03e13          12             3 3. Drittel penalty      45:26         2726
-#> 13 2.03e13          13             3 3. Drittel goal         46:23         2783
-#> 14 2.03e13          14             3 3. Drittel penalty      54:03         3243
-#> 15 2.03e13          15             3 3. Drittel goalie       57:57         3477
-#> 16 2.03e13          16             3 3. Drittel penalty      59:19         3559
-#> 17 2.03e13          17             3 3. Drittel revoked_goal 59:22         3562
-#> # ℹ 27 more variables: team_id <int>, team_side <chr>, player_id <int>,
-#> #   player_name <chr>, player_jersey <int>, assist1_player_id <int>,
-#> #   assist1_player_name <chr>, assist2_player_id <int>,
-#> #   assist2_player_name <chr>, goalie_id <int>, goalie_name <chr>,
-#> #   strength <chr>, goal_tags <chr>, score_home <int>, score_away <int>,
-#> #   plus_player_ids <list>, minus_player_ids <list>, penalty_id <int>,
-#> #   penalty_name <chr>, penalty_minutes <int>, penalty_start <chr>, …
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/gameoverview answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

@@ -6454,11 +6454,11 @@ following columns (or the raw API response list when `raw = TRUE`):
 #> named list()
 #> 
 # }
-# The first parsed game downloads the xG models (about 4 MB).
+# The first parsed game downloads the xG models (about 3 MB).
 # \donttest{
   try(nhl_game_pbp(game_id = 2024020001))
 #> ── NHL Game PBP from NHL.com ────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:32:30 UTC
+#> ℹ Data updated: 2026-11-24 19:37:11 UTC
 #> # A tibble: 850 × 93
 #>    event_type   event secondary_type event_team_abbr event_team_type description
 #>    <chr>        <chr> <chr>          <chr>           <chr>           <glue>     

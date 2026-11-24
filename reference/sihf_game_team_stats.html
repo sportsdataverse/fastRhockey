@@ -164,22 +164,10 @@ unreadable body, a stub or redirect body, a table without its filter echo, a tru
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">sihf_game_team_stats</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">20261105000325</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── SIHF Game Team Stats Information from data.sihf.ch ───── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-13 21:34:54 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 49 × 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    game_id statistic home_value away_value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2.03<span style="color: #949494;">e</span>13 SOG Total 36         22        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2.03<span style="color: #949494;">e</span>13 SOG 1P    11         7         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2.03<span style="color: #949494;">e</span>13 SOG 2P    16         8         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2.03<span style="color: #949494;">e</span>13 SOG 3P    9          7         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2.03<span style="color: #949494;">e</span>13 SHM Total 10         9         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2.03<span style="color: #949494;">e</span>13 SHM 1P    4          1         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2.03<span style="color: #949494;">e</span>13 SHM 2P    5          4         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2.03<span style="color: #949494;">e</span>13 SHM 3P    1          4         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2.03<span style="color: #949494;">e</span>13 SHP Total 1          1         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2.03<span style="color: #949494;">e</span>13 SHP 1P    0          0         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 39 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in .euro_check_status(resp) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   data.sihf.ch/statistic/api/cms/gameoverview answered HTTP 403:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {"Message":"Public access to this API has been discontinued. Write to</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> support@sihf.ch for access."}</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

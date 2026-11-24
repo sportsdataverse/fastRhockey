@@ -76,21 +76,21 @@ lists every function in this family.
 # \donttest{
   try(khl_webcaster_players_light())
 #> ── KHL Webcaster Players (Light) from khl.api.webcaster.pro ────────────────────
-#> ℹ Data updated: 2026-11-13 21:29:45 UTC
-#> # A tibble: 781 × 10
+#> ℹ Data updated: 2026-11-24 19:34:38 UTC
+#> # A tibble: 796 × 10
 #>       id shirt_number khl_id image           name  team_id team_khl_id team_name
 #>    <int>        <int>  <int> <chr>           <chr>   <int>       <int> <chr>    
-#>  1 33797           11  23248 https://www.kh… Abra…      12          54 Amur     
-#>  2 43535           97  30941 https://www.kh… Abra…      NA          NA NA       
-#>  3 35165           17  30629 https://www.kh… Abro…      42          56 Severstal
-#>  4 47215           33  43281 https://www.kh… Agaf…      NA          NA NA       
-#>  5 47627           95  40373 https://www.kh… Agla…      NA          NA NA       
-#>  6  4993           77  18961 https://www.kh… Adam…      10          34 Avangard 
-#>  7 28477           53  35353 https://www.kh… Aimu…      44          24 SKA      
-#>  8 38403           19  33710 https://www.kh… Akma…      12          54 Amur     
-#>  9  7699           90  15620 https://www.kh… Akol…      NA          NA NA       
-#> 10 28149           61  34493 https://www.kh… Alal…      32          38 Salavat …
-#> # ℹ 771 more rows
+#>  1 50788           NA  42870 https://www.kh… Abdr…     113         451 HC Sochi 
+#>  2 33797           11  23248 https://www.kh… Abra…      12          54 Amur     
+#>  3 43535           97  30941 https://www.kh… Abra…      24          29 Sibir    
+#>  4 35165           17  30629 https://www.kh… Abro…      42          56 Severstal
+#>  5 47215           33  43281 https://www.kh… Agaf…      NA          NA NA       
+#>  6 47627           95  40373 https://www.kh… Agla…      NA          NA NA       
+#>  7  4993           77  18961 https://www.kh… Adam…      10          34 Avangard 
+#>  8 28477           53  35353 https://www.kh… Aimu…      44          24 SKA      
+#>  9 38403           19  33710 https://www.kh… Akma…      12          54 Amur     
+#> 10  7699           90  15620 https://www.kh… Akol…      NA          NA NA       
+#> # ℹ 786 more rows
 #> # ℹ 2 more variables: team_location <chr>, team <chr>
 # }
 ```

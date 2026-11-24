@@ -102,25 +102,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_player_goals_assists(season = 2026, league_id = 1))
-#> ── SIHF Player Goals Assists Information from data.sihf.ch ─────────────────────
-#> ℹ Data updated: 2026-11-13 21:35:04 UTC
-#> # A tibble: 427 × 23
-#>    season phase_id  rank player          team_id team_name team_acronym position
-#>     <int>    <int> <int> <chr>             <int> <chr>     <chr>        <chr>   
-#>  1   2026       NA   427 Paschoud Claud…  102127 SCL Tige… SCL          Verteid…
-#>  2   2026       NA   426 Pouilly Bastien  103144 HC Ajoie  HCA          Verteid…
-#>  3   2026       NA   425 Rod Julien       103138 Fribourg… FRI          Stürmer 
-#>  4   2026       NA   424 Hornecker Jan    101060 SC Rappe… SCRJ         Stürmer 
-#>  5   2026       NA   423 Schmutz Reto     103144 HC Ajoie  HCA          Stürmer 
-#>  6   2026       NA   422 Olsson Daniel    101139 ZSC Lions ZSC          Stürmer 
-#>  7   2026       NA   421 Schläpfer Elvis  103144 HC Ajoie  HCA          Stürmer 
-#>  8   2026       NA   420 Fahrni Joshua    102127 SCL Tige… SCL          Stürmer 
-#>  9   2026       NA   419 Embacher Janis   101060 SC Rappe… SCRJ         Stürmer 
-#> 10   2026       NA   418 Ustinkov Daniil  101139 ZSC Lions ZSC          Verteid…
-#> # ℹ 417 more rows
-#> # ℹ 15 more variables: games_played <int>, goals <int>, assists <int>,
-#> #   assists1 <int>, assists2 <int>, game_winning_goals <int>, eq_goals <int>,
-#> #   eq_assists <int>, pp_goals <int>, pp_assists <int>, pk_goals <int>,
-#> #   pk_assists <int>, overtime_goals <int>, hattricks <int>, row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

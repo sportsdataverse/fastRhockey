@@ -92,25 +92,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_goalie_shots(season = 2026, league_id = 1))
-#> ── SIHF Goalie Shots Information from data.sihf.ch ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:34:55 UTC
-#> # A tibble: 35 × 18
-#>    season phase_id  rank player      team_id team_name team_acronym games_played
-#>     <int>    <int> <int> <chr>         <int> <chr>     <chr>               <int>
-#>  1   2026       NA    16 Meyer Robin  102127 SCL Tige… SCL                    22
-#>  2   2026       NA    15 Waeber Lud…  101149 EHC Klot… EHCK                   25
-#>  3   2026       NA    14 Senn Gilles  101152 HC Ambri… HCAP                   26
-#>  4   2026       NA    13 Boltshause…  102127 SCL Tige… SCL                    29
-#>  5   2026       NA    12 Wüthrich P…  101152 HC Ambri… HCAP                   32
-#>  6   2026       NA    11 Ciaccio Da…  103144 HC Ajoie  HCA                    29
-#>  7   2026       NA    10 Reideborn …  102126 SC Bern   SCB                    39
-#>  8   2026       NA     9 Schlegel N…  101150 HC Lugano HCL                    42
-#>  9   2026       NA     8 Pasche Kev…  103141 Lausanne… LHC                    42
-#> 10   2026       NA    NA Durchschni…      NA Durchsch… NA                     44
-#> # ℹ 25 more rows
-#> # ℹ 10 more variables: soga_sog <int>, soga_sog_per_game <dbl>,
-#> #   soga_sog_slot <int>, soga_sog_slot_per_game <dbl>, soga_missed <int>,
-#> #   soga_missed_per_game <dbl>, soga_post <int>, soga_post_per_game <dbl>,
-#> #   saves_slot_percentage <dbl>, row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

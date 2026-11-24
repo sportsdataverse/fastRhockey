@@ -90,24 +90,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_player_penalties(season = 2026, league_id = 1))
-#> ── SIHF Player Penalties Information from data.sihf.ch ──── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:35:05 UTC
-#> # A tibble: 427 × 16
-#>    season phase_id  rank player          team_id team_name team_acronym position
-#>     <int>    <int> <int> <chr>             <int> <chr>     <chr>        <chr>   
-#>  1   2026       NA   427 Zürcher Kevin    102126 SC Bern   SCB          Stürmer 
-#>  2   2026       NA   426 Wülser Nic       103138 Fribourg… FRI          Verteid…
-#>  3   2026       NA   425 Wenger Nicolas…  103141 Lausanne… LHC          Stürmer 
-#>  4   2026       NA   424 Weibel Keijo     101149 EHC Klot… EHCK         Stürmer 
-#>  5   2026       NA   423 Weber Gregory    102126 SC Bern   SCB          Stürmer 
-#>  6   2026       NA   422 von Rohr Manuel  102128 EHC Biel… EHCB         Stürmer 
-#>  7   2026       NA   421 Villard Jamie    102128 EHC Biel… EHCB         Stürmer 
-#>  8   2026       NA   420 Valk Curtis      101150 HC Lugano HCL          NA      
-#>  9   2026       NA   419 Ugazzi Nicolò    101060 SC Rappe… SCRJ         Verteid…
-#> 10   2026       NA   418 Truog Livio      101144 EV Zug    EVZ          Stürmer 
-#> # ℹ 417 more rows
-#> # ℹ 8 more variables: games_played <int>, pim_total <int>, pim2 <int>,
-#> #   pim5 <int>, pim10 <int>, game_misconducts <int>, match_penalties <int>,
-#> #   row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

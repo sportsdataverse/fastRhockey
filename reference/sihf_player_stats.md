@@ -91,24 +91,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_player_stats(season = 2026, league_id = 1))
-#> ── SIHF Player Stats Information from data.sihf.ch ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:35:08 UTC
-#> # A tibble: 427 × 16
-#>    season phase_id  rank player          team_id team_name team_acronym position
-#>     <int>    <int> <int> <chr>             <int> <chr>     <chr>        <chr>   
-#>  1   2026       NA   427 Paschoud Claud…  102127 SCL Tige… SCL          Verteid…
-#>  2   2026       NA   426 Pouilly Bastien  103144 HC Ajoie  HCA          Verteid…
-#>  3   2026       NA   425 Rod Julien       103138 Fribourg… FRI          Stürmer 
-#>  4   2026       NA   424 Hornecker Jan    101060 SC Rappe… SCRJ         Stürmer 
-#>  5   2026       NA   423 Schmutz Reto     103144 HC Ajoie  HCA          Stürmer 
-#>  6   2026       NA   422 Olsson Daniel    101139 ZSC Lions ZSC          Stürmer 
-#>  7   2026       NA   421 Schläpfer Elvis  103144 HC Ajoie  HCA          Stürmer 
-#>  8   2026       NA   420 Fahrni Joshua    102127 SCL Tige… SCL          Stürmer 
-#>  9   2026       NA   419 Embacher Janis   101060 SC Rappe… SCRJ         Stürmer 
-#> 10   2026       NA   418 Ustinkov Daniil  101139 ZSC Lions ZSC          Verteid…
-#> # ℹ 417 more rows
-#> # ℹ 8 more variables: games_played <int>, goals <int>, assists <int>,
-#> #   points <int>, points_per_game <dbl>, pim_total <int>, plus_minus <int>,
-#> #   row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

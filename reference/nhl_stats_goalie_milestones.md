@@ -64,21 +64,21 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_stats_goalie_milestones())
 #> ── NHL Stats Goalie Milestones ──────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:33:15 UTC
-#> # A tibble: 44 × 17
+#> ℹ Data updated: 2026-11-24 19:37:52 UTC
+#> # A tibble: 43 × 17
 #>       id current_team_id first_name game_type_id games_played last_name 
 #>    <int>           <int> <chr>             <int>        <int> <chr>     
-#>  1   535              18 Juuse                 2          480 Saros     
+#>  1   535              18 Juuse                 2          484 Saros     
 #>  2   549               3 Igor                  3           44 Shesterkin
 #>  3   595              55 Philipp               3           47 Grubauer  
-#>  4   607              26 Darcy                 2          500 Kuemper   
+#>  4   607              26 Darcy                 2          503 Kuemper   
 #>  5   627              26 Darcy                 3           40 Kuemper   
-#>  6   636               1 Jake                  2          507 Allen     
-#>  7   640              15 Charlie               2          175 Lindgren  
-#>  8   655              21 Mackenzie             2          306 Blackwood 
-#>  9   658              15 Charlie               2          175 Lindgren  
-#> 10   664               2 Ilya                  2          321 Sorokin   
-#> # ℹ 34 more rows
+#>  6   636               1 Jake                  2          508 Allen     
+#>  7   640              15 Charlie               2          178 Lindgren  
+#>  8   655              21 Mackenzie             2          308 Blackwood 
+#>  9   664               2 Ilya                  2          324 Sorokin   
+#> 10   668              17 John                  2          577 Gibson    
+#> # ℹ 33 more rows
 #> # ℹ 11 more variables: milestone <chr>, milestone_amount <int>,
 #> #   player_full_name <chr>, player_id <int>, so <int>, team_abbrev <chr>,
 #> #   team_common_name <chr>, team_full_name <chr>, team_place_name <chr>,

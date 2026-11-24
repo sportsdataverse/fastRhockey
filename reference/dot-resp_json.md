@@ -17,7 +17,7 @@ Response body parsed from JSON.
 - ...:
 
   Passed to
-  [`jsonlite::fromJSON()`](https://jeroen.r-universe.dev/jsonlite/reference/fromJSON.html).
+  [`jsonlite::fromJSON()`](https://rdrr.io/pkg/jsonlite/man/fromJSON.html).
 
 ## Value
 

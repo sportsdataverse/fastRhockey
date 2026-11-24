@@ -131,20 +131,20 @@ Other EIHL eSports functions:
 # \donttest{
   try(eihl_team_player_stats(season = 2027, team_id = 96, league_id = 3))
 #> ── EIHL team_player_stats from the eSports hokejovyzapis bucket ────────────────
-#> ℹ Data updated: 2026-11-13 21:25:49 UTC
+#> ℹ Data updated: 2026-11-24 19:31:08 UTC
 #> # A tibble: 27 × 70
 #>    player_id name       firstname surname birthdate active position stick weight
 #>        <int> <chr>      <chr>     <chr>   <chr>     <lgl>  <chr>    <chr>  <int>
 #>  1      4898 Cade Neil… Cade      Neilson 2001-05-… TRUE   FW       left      89
-#>  2      5157 Josh Tarz… Josh      Tarzwe… 2000-02-… TRUE   FW       left      93
-#>  3      5075 Brady Risk Brady     Risk    1999-03-… TRUE   FW       right      0
-#>  4      5187 Keaton Pe… Keaton    Pehrson 1998-12-… TRUE   DE       right     97
-#>  5      5087 Mick Mess… Mick      Messner 1999-04-… TRUE   FW       left      88
-#>  6      5154 Cole Kodsi Cole      Kodsi   2000-06-… TRUE   FW       left      91
-#>  7      4894 Rylan Sch… Rylan     Schwar… 1990-01-… FALSE  FW       left      87
+#>  2      5075 Brady Risk Brady     Risk    1999-03-… TRUE   FW       right      0
+#>  3      5087 Mick Mess… Mick      Messner 1999-04-… TRUE   FW       left      88
+#>  4      5154 Cole Kodsi Cole      Kodsi   2000-06-… TRUE   FW       left      91
+#>  5      5157 Josh Tarz… Josh      Tarzwe… 2000-02-… TRUE   FW       left      93
+#>  6      5187 Keaton Pe… Keaton    Pehrson 1998-12-… TRUE   DE       right     97
+#>  7      4892 Steven Se… Steven    Seigo   1990-08-… TRUE   DE       right     85
 #>  8      5150 Jake John… Jake      Johnson 1998-08-… TRUE   DE       left      84
-#>  9      4873 Matt Spen… Matt      Spencer 1997-03-… TRUE   DE       right     92
-#> 10      4048 Alex Forb… Alex      Forbes  1996-07-… TRUE   FW       right     86
+#>  9      5013 Tristin L… Tristin   Langan  1998-12-… TRUE   FW       left      88
+#> 10      5012 Ross Armo… Ross      Armour  1998-02-… TRUE   FW       right     79
 #> # ℹ 17 more rows
 #> # ℹ 61 more variables: height <int>, jersey <int>, birth_country <chr>,
 #> #   nationality <chr>, nationality_short <chr>, team_shortcut <chr>,

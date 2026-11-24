@@ -70,23 +70,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_game_lineups(game_id = 20261105000325))
-#> ── SIHF Game Lineups Information from data.sihf.ch ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:34:52 UTC
-#> # A tibble: 49 × 12
-#>    game_id team_side team_id unit       slot player_id player_name player_jersey
-#>      <dbl> <chr>       <int> <chr>     <int>     <int> <chr>               <int>
-#>  1 2.03e13 home       101151 goalkeep…     1    150983 Aeschliman…            29
-#>  2 2.03e13 home       101151 goalkeep…     2    309536 Hollenstei…            51
-#>  3 2.03e13 home       101151 defense_…     1    340162 Dahlbeck K…             6
-#>  4 2.03e13 home       101151 defense_…     2    152416 Jung Sven              90
-#>  5 2.03e13 home       101151 defense_…     3    312287 Barandun D…            57
-#>  6 2.03e13 home       101151 defense_…     4    308175 Gross Nico             77
-#>  7 2.03e13 home       101151 defense_…     1    153736 Frick Lukas            38
-#>  8 2.03e13 home       101151 defense_…     2    322236 Andersson …            55
-#>  9 2.03e13 home       101151 defense_…     3    153207 Fora Micha…            20
-#> 10 2.03e13 home       101151 forward_…     1    346405 Zadina Fil…            18
-#> # ℹ 39 more rows
-#> # ℹ 4 more variables: is_captain <lgl>, is_first_goalkeeper <lgl>,
-#> #   absence_code <chr>, absence_reason <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/gameoverview answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```

@@ -92,30 +92,9 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(sihf_team_faceoffs(season = 2026, league_id = 1))
-#> ── SIHF Team Faceoffs Information from data.sihf.ch ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-13 21:35:13 UTC
-#> # A tibble: 15 × 18
-#>    season phase_id  rank team_id team_name    team_acronym games_played faceoffs
-#>     <int>    <int> <int>   <int> <chr>        <chr>               <int>    <int>
-#>  1   2026       NA    14  102126 SC Bern      SCB                    60     3126
-#>  2   2026       NA    13  103141 Lausanne HC  LHC                    66     3651
-#>  3   2026       NA    12  101152 HC Ambri-Pi… HCAP                   56     3144
-#>  4   2026       NA    11  102128 EHC Biel-Bi… EHCB                   56     3028
-#>  5   2026       NA    10  101150 HC Lugano    HCL                    60     3149
-#>  6   2026       NA     9  101060 SC Rappersw… SCRJ                   74     4292
-#>  7   2026       NA     8  101151 HC Davos     HCD                    86     4672
-#>  8   2026       NA    NA      NA Durchschnitt NA                     65     3590
-#>  9   2026       NA     7  101144 EV Zug       EVZ                    66     3483
-#> 10   2026       NA     6  103144 HC Ajoie     HCA                    56     3019
-#> 11   2026       NA     5  101139 ZSC Lions    ZSC                    70     3851
-#> 12   2026       NA     4  103138 Fribourg-Go… FRI                    90     5002
-#> 13   2026       NA     3  102127 SCL Tigers   SCL                    52     2904
-#> 14   2026       NA     2  103140 Genève-Serv… GSHC                   76     4281
-#> 15   2026       NA     1  101149 EHC Kloten   EHCK                   52     2674
-#> # ℹ 10 more variables: faceoffs_per_game <dbl>, faceoffs_percent <dbl>,
-#> #   faceoffs_won <int>, faceoffs_lost <int>, faceoffs_won_per_game <dbl>,
-#> #   faceoffs_lost_per_game <dbl>, faceoffs_offensive_percent <dbl>,
-#> #   faceoffs_neutral_percent <dbl>, faceoffs_defensive_percent <dbl>,
-#> #   row_type <chr>
+#> Error in .euro_check_status(resp) : 
+#>   data.sihf.ch/statistic/api/cms/table answered HTTP 403:
+#> {"Message":"Public access to this API has been discontinued. Write to
+#> support@sihf.ch for access."}
 # }
 ```
