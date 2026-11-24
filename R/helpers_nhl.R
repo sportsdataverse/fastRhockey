@@ -3,9 +3,10 @@
 #' @description Adds an `xg` column to a play-by-play data frame using the
 #'   fastRhockey xG models (XGBoost).
 #'
-#'   The models were trained on NHL PBP data from 2010-2024 using the same
-#'   methodology as the [hockeyR](https://github.com/danmorse314/hockeyR)
-#'   (Daniel Morse) xG models. Three models are used:
+#'   The current models were retrained on 2026-11-13 on NHL PBP data from
+#'   2009-10 to 2026-27, using the same methodology as the
+#'   [hockeyR](https://github.com/danmorse314/hockeyR) (Daniel Morse) xG
+#'   models. Three models are used:
 #'   * **5v5 model** - Even-strength situations
 #'   * **Special teams model** - Power play, short-handed, and other
 #'     non-5v5 situations (adds skater count features)

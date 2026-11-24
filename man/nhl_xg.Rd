@@ -26,8 +26,10 @@ no network call.
 
 \subsection{\strong{Era dummies}}{
 
-The training corpus runs 2010-2024; the features keep one-hot era
-indicators so the same models generalize past the training cutoff:\tabular{ll}{
+The current models were retrained on 2026-11-13 on NHL play-by-play from
+2009-10 to 2026-27. The features keep one-hot era indicators, so tracking
+and rule changes are modelled rather than averaged away; 2009-10 is the
+reference era (every indicator 0):\tabular{ll}{
    Indicator \tab Seasons \cr
    \code{era_2011_2013} \tab 20102011, 20112012, 20122013 \cr
    \code{era_2014_2018} \tab 20132014 ... 20172018 \cr

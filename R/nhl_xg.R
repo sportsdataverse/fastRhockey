@@ -22,8 +22,10 @@
 #'
 #' ## **Era dummies**
 #'
-#' The training corpus runs 2010-2024; the features keep one-hot era
-#' indicators so the same models generalize past the training cutoff:
+#' The current models were retrained on 2026-11-13 on NHL play-by-play from
+#' 2009-10 to 2026-27. The features keep one-hot era indicators, so tracking
+#' and rule changes are modelled rather than averaged away; 2009-10 is the
+#' reference era (every indicator 0):
 #'
 #' | Indicator | Seasons |
 #' |---|---|
