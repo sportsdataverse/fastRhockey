@@ -60,7 +60,7 @@ for a given NHL game. Uses the new NHL API at api-web.nhle.com.
   try(nhl_game_feed(game_id = 2024020001, raw = TRUE))
 }
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
-# The first parsed game downloads the xG models (about 4 MB).
+# The first parsed game downloads the xG models (about 3 MB).
 \donttest{
   try(nhl_game_feed(game_id = 2024020001))
 }

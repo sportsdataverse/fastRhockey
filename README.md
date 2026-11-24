@@ -393,7 +393,7 @@ BibTeX Citation
 ``` bibtex
 @Manual{howell_gilani_fastRhockey,
   author = {Ben Howell and Saiem Gilani},
-  title = {fastRhockey: Functions to Access Hockey Play by Play Data and Statistics},
+  title = {fastRhockey: Access Hockey Play-by-Play Data and Statistics},
   note = {R package version 1.1.0},
   url = {https://fastRhockey.sportsdataverse.org/},
   doi = {10.32614/CRAN.package.fastRhockey},

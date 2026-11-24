@@ -2,58 +2,84 @@
 
 This is a minor release (1.1.0), an update to 1.0.0 (CRAN, 2026-08-25). It
 adds 453 wrappers for 13 European leagues and ESPN men's and women's college
-hockey, NHL conference/division and PWHL shift/xG loaders, and several fixes;
-three output-type changes are listed under "Breaking changes" in NEWS.md.
+hockey, four NHL conference/division reference loaders, and several fixes;
+four changes to returned output are listed under "Breaking changes" in
+NEWS.md.
 
 ## Test environments
 
+All results below are for the package at commit f5a8543a4 unless they name
+another commit. Later commits change only this file, which is build-ignored,
+so the tarball is the same.
+
 * Local Windows 10 x64, R 4.6.0 (ucrt): `R CMD check --as-cran --timings
-  --run-donttest` on the tarball built from a clean export (2026-11-09, an
-  empty user .Renviron, NOT_CRAN unset) at db891864. The only later change
-  to the package is the README (30149d9f); `--as-cran --no-examples
-  --no-tests --no-manual` with the remote incoming checks on that commit
-  was also `Status: OK`.
-* GitHub Actions R-CMD-check: R release on macOS, Windows and Ubuntu,
-  R-devel and oldrel-1 on Ubuntu. Green on main at 91c5c5c5 (2026-11-09).
-  The two package commits after it change the help pages and the roxygen
-  code that builds them; on the first of them (db891864) the release jobs
-  on all three systems passed.
-* R-hub v2 (linux, macos, macos-arm64 and windows, all R-devel): OK on
-  2026-11-06 at c7918eec. That is an earlier commit; 4e7f6589 and 91c5c5c5
-  changed R code after it.
-* win-builder (devel and release): to be run before submission.
+  --run-donttest` on the tarball built from a clean `git archive` export
+  (2026-11-24, an empty user .Renviron, NOT_CRAN unset): `Status: OK`.
+* Local Windows 10 x64, R 4.6.1 (ucrt), same options, at 31b80d376 (after
+  it, the only R code change rejects a missing `franchise_id`; the rest is
+  help text): 1 NOTE, from the check environment rather than the package
+  (see below).
+* win-builder (devel and release): not yet run (win-builder unreachable
+  2026-11-24); to be run before submission.
+* R-hub v2, R-devel
+  (https://github.com/sportsdataverse/fastRhockey/actions/runs/45455257204):
+  `Status: OK` on linux, windows, macos and macos-arm64.
+* GitHub Actions R-CMD-check on the release pull request (R release on
+  macOS, Windows and Ubuntu, R-devel and oldrel-1 on Ubuntu): all five
+  jobs passed at f5a8543a4.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 0 notes (R 4.6.0)
 
-`Status: OK`. The incoming feasibility check, the tests (425 pass, 998 skip,
-0 fail), the examples and the PDF and HTML manuals are OK. There is one INFO:
+`Status: OK`. The incoming feasibility check, the tests (527 pass, 1306 skip,
+0 fail), the examples and the PDF and HTML manuals are OK.
+
+The R 4.6.1 run (at 31b80d376) gave one NOTE:
+
+```
+* checking for non-standard things in the check directory ... NOTE
+Found the following files/directories:
+  ''NULL''
+```
+
+The `'NULL'` directories are created in the check directory and in `tests/`
+as each R process starts, before any package code runs. A minimal package
+with one function, one example and one test gives the same NOTE under R 4.6.1
+`--as-cran` on this machine, and none under R 4.6.0 or without `--as-cran`,
+so we read it as a local check-environment issue.
+
+There is one INFO:
 
 * Installed package size:
 
   ```
-  installed size is  6.0Mb
+  installed size is  6.2Mb
   sub-directories of 1Mb or more:
     R      2.1Mb
-    help   3.5Mb
+    help   3.6Mb
   ```
 
-  The help pages document 880 exported functions, and 729 of them carry a
-  table of the columns they return; those tables are most of what remains.
-  Since the 2026-11-05 check the size came down from 8.9 Mb: each
-  `espn_wch_*()` function now shares its help page with its `espn_mch_*()`
-  twin (121 pages instead of 242), and the seven largest families link to one
-  family index page instead of listing every other member under "See also"
-  (a list that grew with the square of the family size).
+  The GitHub Actions checks of df436f80d (Linux, macOS and Windows) report
+  7.5 to 7.9 Mb (Linux: R 3.7 Mb, help 3.5 Mb), so the Linux flavours may
+  show the installed-size NOTE. The help pages document 880 exported
+  functions, and 729 of them carry a table of the columns they return; those
+  tables are most of the help. Since the 2026-11-05 check the local size came
+  down from 8.9 Mb: each `espn_wch_*()` function now shares its help page with
+  its `espn_mch_*()` twin (121 pages instead of 242), and the seven largest
+  families link to one family index page instead of listing every other
+  member under "See also" (a list that grew with the square of the family
+  size).
 
-* No example ran over 5 s. With `--run-donttest` the slowest was
-  `vhl_standings()` (1.96 s CPU, 4.82 s elapsed) in the full check, and 1.60 s
-  CPU, 3.34 s elapsed when re-timed on its own.
+* No example ran over 5 s. With `--run-donttest` on R 4.6.0 the slowest was
+  `ha_skater_stats()` (1.82 s CPU, 2.61 s elapsed); the longest elapsed was
+  `khl_schedule()` (0.70 s CPU, 4.00 s elapsed).
 
-* Offline: the same tarball with `--run-donttest --no-tests --no-manual` and
-  the network blocked by a dead proxy raised no error; every example that
-  needs the network fails inside its `try()`.
+* Offline: the tarball of 31b80d376 checked on R 4.6.0 with `--run-donttest
+  --no-tests --no-manual` and the network blocked by a dead proxy
+  (2026-11-24) gave `Status: OK`; every example that needs the network fails
+  inside its `try()`. The only later R change rejects a missing
+  `franchise_id` before any request.
 
 ## Examples
 
@@ -85,13 +111,29 @@ three output-type changes are listed under "Breaking changes" in NEWS.md.
 * Three more examples keep a `--run-donttest` call and put only their slow
   calls behind `@examplesIf interactive()`: the parsed calls of
   `nhl_game_feed()` and `nhl_game_pbp()` (the first parsed game downloads
-  about 4 MB of xG models to the user cache; the `raw = TRUE` calls still
-  run), and the playoff and data-index calls of `nhl_schedule()`.
+  about 3 MB of xG models to the user cache, or to `tempdir()` under
+  R CMD check; the `raw = TRUE` calls still run), and the playoff and
+  data-index calls of `nhl_schedule()`.
 * Three examples are in `\dontrun{}` because they cannot run unattended:
   `update_pwhl_db()` writes to a database, `refresh_xg_models()` downloads
-  model files to the user cache, and `helper_nhl_calculate_xg()` needs those
-  downloaded xgboost models. `update_nhl_db()`, which downloads every season
-  and writes it to a database, has no example.
+  model files to the user cache, and `helper_nhl_calculate_xg()` needs the
+  xgboost package and a play-by-play frame from a network call, and
+  downloads the models on first use. `update_nhl_db()`, which downloads
+  every season and writes it to a database, has no example.
+
+## xG model files
+
+`library(fastRhockey)` makes no network call; there is no `.onLoad()`. The
+NHL xG models are downloaded on the first call that needs them
+(`helper_nhl_calculate_xg()`, and so `nhl_game_pbp()` / `nhl_game_feed()`)
+from a GitHub release, together with a small manifest (`xg_model_meta.json`)
+that lists each file's sha256. Files are kept in
+`tools::R_user_dir("fastRhockey", "cache")`, or in `tempdir()` when
+`_R_CHECK_PACKAGE_NAME_` is set (under R CMD check). Each session re-reads the
+manifest; a cached file that does not match it is replaced, and offline the
+last manifest seen is used. A failed download makes
+`helper_nhl_calculate_xg()` raise an informative error; `nhl_game_pbp()` /
+`nhl_game_feed()` catch it, give a message and return `xg = NA`.
 
 ## Defunct PHF functions
 
@@ -114,7 +156,7 @@ committed fixtures and mock the HTTP layer.
 
 There are no reverse dependencies on CRAN
 (`tools::package_dependencies("fastRhockey", reverse = TRUE, db = available.packages(), which = "all")`
-is empty, 2026-11-09).
+is empty, 2026-11-24).
 
 ## Internet resources
 

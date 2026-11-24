@@ -62,7 +62,7 @@ pkgdown::build_site()
 ```
 R/                          # Source code (one function per file, mostly)
   utils.R                   # Shared helpers: check_status, most_recent_*_season, messaging
-  zzz.R                     # .onLoad() — xG model download/caching lifecycle
+  zzz.R                     # xG model download, manifest check and cache (first use)
   fastRhockey-package.R     # Package-level roxygen doc, lifecycle import
   helpers_nhl.R             # helper_nhl_calculate_xg(), helper_nhl_prepare_xg_data()
   helpers_nhl_edge.R        # .nhl_edge_api(), .nhl_edge_to_df() — NHL Edge URL builder
@@ -126,11 +126,14 @@ R/                          # Source code (one function per file, mostly)
   # --- NHL Edge Analytics (35 functions: 33 nhl_edge_* + 2 nhl_cat_edge_*) ---
   # All wrappers share .nhl_edge_api() and .nhl_edge_to_df()
   nhl_edge_skater_*.R       # Detail, landing, comparison, shot location/speed,
-                            # skating speed/distance, zone time, top-10 leaderboards
+                            # skating speed/distance, zone time, distance top-10
   nhl_edge_goalie_*.R       # Detail, landing, comparison, 5v5, save percentage,
-                            # shot location, top-10 leaderboards
+                            # shot location
   nhl_edge_team_*.R         # Detail, landing, shot location/speed, skating
-                            # speed/distance, zone time, top-10 leaderboards
+                            # speed/distance, zone time, skating-distance and
+                            # zone-time top-10
+                            # The other nine *_top_10() endpoints were removed by
+                            # the NHL; those functions warn and return NULL.
   nhl_cat_edge_*.R          # CAT-framework variants of skater and goalie detail
 
   # --- NHL Records API (25 functions, records.nhl.com) ---
@@ -261,7 +264,7 @@ the European league APIs are covered in the file map above):
 | Backend | Base URL | Used By | Auth |
 |---------|----------|---------|------|
 | NHL Web API | `api-web.nhle.com/v1/` | Game feed, schedule, standings, rosters, gamecenter, draft, scoreboard, scores, meta, location, partner-game, where-to-watch, smartlinks, postal-lookup, ppt-replay, wsc | None |
-| NHL Edge API | `api-web.nhle.com/v1/edge/...` and `v1/cat/edge/...` | Skater/goalie/team Edge advanced metrics (shot location, shot speed, skating speed, skating distance, zone time, comparisons, top-10 leaderboards) | None |
+| NHL Edge API | `api-web.nhle.com/v1/edge/...` and `v1/cat/edge/...` | Skater/goalie/team Edge advanced metrics (shot location, shot speed, skating speed, skating distance, zone time, comparisons, three top-10 leaderboards) | None |
 | NHL Stats API | `api.nhle.com/stats/rest/{lang}/` | Skater/goalie/team stats, draft stats, seasons, franchise, players, glossary, country, config, leaders, milestones | None |
 | NHL Records API | `records.nhl.com/site/api/` | Franchise totals, player/skater/goalie career and real-time stats, draft lottery, hall of fame, trophies, awards, attendance, venues, officials, combine | None |
 | HockeyTech (statviewfeed) | `lscluster.hockeytech.com/feed/?feed=statviewfeed` | PWHL schedule, standings, roster, PBP, box scores, stats | Public key in URL |
@@ -282,10 +285,15 @@ description, timestamp) and provides a custom `print()` method.
 
 ### xG Model Pipeline
 
-1. **On package load** (`.onLoad` in `zzz.R`): Downloads XGBoost JSON models
-   and feature-name metadata from
-   `sportsdataverse/fastRhockey-nhl-data/main/models/`
-2. **Cached** in `tools::R_user_dir("fastRhockey", "cache")` — only downloaded once
+1. **On first use** (`helper_nhl_calculate_xg()` calls `.load_xg_models()`
+   in `zzz.R`; there is no `.onLoad()` and no network call on load):
+   downloads the XGBoost JSON models and feature lists from the
+   sportsdataverse-data `nhl_xg_models` release and checks each against the
+   sha256s in the release manifest `xg_model_meta.json`
+2. **Cached** in `tools::R_user_dir("fastRhockey", "cache")`. The manifest is
+   re-read once per session; matching files are not downloaded again, a file
+   it does not match (another training) is replaced, and offline the last
+   manifest seen is used, so a retrain needs no package release
 3. **Three models:** 5v5, special teams, penalty shots
 4. **Models stored** in `.xg_env` (a package environment in `zzz.R`), accessed
    via `.xg_env$xg_model_5v5` etc. in `helpers_nhl.R`

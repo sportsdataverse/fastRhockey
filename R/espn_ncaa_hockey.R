@@ -5394,13 +5394,14 @@ NULL
 #' \donttest{
 #'   try({
 #'     fcs <- espn_mch_franchises()
-#'     espn_mch_franchise(franchise_id = fcs$franchise_id[1])
+#'     # ESPN may list no franchises for a league; skip the detail call then
+#'     if (nrow(fcs) > 0) espn_mch_franchise(franchise_id = fcs$franchise_id[1])
 #'   })
 #' }
 #' \donttest{
 #'   try({
 #'     fcs <- espn_wch_franchises()
-#'     espn_wch_franchise(franchise_id = fcs$franchise_id[1])
+#'     if (nrow(fcs) > 0) espn_wch_franchise(franchise_id = fcs$franchise_id[1])
 #'   })
 #' }
 espn_mch_franchise <- function(franchise_id, ...) {

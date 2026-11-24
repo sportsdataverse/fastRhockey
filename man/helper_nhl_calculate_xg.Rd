@@ -26,16 +26,17 @@ The original \code{pbp} data frame, same rows in the same order, with an
 }
 
 
-If \code{xgboost} is not installed, the function raises a warning of class
-\code{fastRhockey_no_xgboost} and every \code{xg} is NA.
+If \code{xgboost} is not installed, every \code{xg} is NA and the function raises a
+warning of class \code{fastRhockey_no_xgboost} (once per session).
 }
 \description{
 Adds an \code{xg} column to a play-by-play data frame using the
 fastRhockey xG models (XGBoost).
 
-The models were trained on NHL PBP data from 2010-2024 using the same
-methodology as the \href{https://github.com/danmorse314/hockeyR}{hockeyR}
-(Daniel Morse) xG models. Three models are used:
+The models current at the 1.1.0 release were retrained on 2026-11-13 on
+NHL PBP data from 2009-10 to 2026-27, using the same methodology as the
+\href{https://github.com/danmorse314/hockeyR}{hockeyR} (Daniel Morse) xG
+models; a later retrain replaces them (see below). Three models are used:
 \itemize{
 \item \strong{5v5 model} - Even-strength situations
 \item \strong{Special teams model} - Power play, short-handed, and other

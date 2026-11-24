@@ -26,8 +26,11 @@ no network call.
 
 \subsection{\strong{Era dummies}}{
 
-The training corpus runs 2010-2024; the features keep one-hot era
-indicators so the same models generalize past the training cutoff:\tabular{ll}{
+The models current at the 1.1.0 release were retrained on 2026-11-13 on
+NHL play-by-play from 2009-10 to 2026-27; a later retrain reaches installed
+copies through the manifest. The features keep one-hot era indicators, so tracking
+and rule changes are modelled rather than averaged away; 2009-10 is the
+reference era (every indicator 0):\tabular{ll}{
    Indicator \tab Seasons \cr
    \code{era_2011_2013} \tab 20102011, 20112012, 20122013 \cr
    \code{era_2014_2018} \tab 20132014 ... 20172018 \cr
@@ -44,15 +47,15 @@ The input \code{pbp} data frame must include \code{event_type}, \code{secondary_
 \code{period_type}, \code{period}, \code{game_seconds}, \code{x}, \code{y}, \code{x_fixed},
 \code{event_team_abbr}, \code{home_abbr}, \code{away_abbr}, \code{home_skaters},
 \code{away_skaters}, \code{shot_distance}, \code{shot_angle}, \code{empty_net},
-\code{strength_state}, \code{event_id}, and \code{season}. \code{nhl_game_pbp()} /
+\code{strength_state}, \code{game_id}, \code{event_id}, and \code{season}. \code{nhl_game_pbp()} /
 \code{nhl_game_feed()} produce all of them.
 }
 
 \subsection{\strong{Dependencies}}{
 
 The \code{xgboost} suggested package is required. If it is absent,
-\code{\link[=helper_nhl_calculate_xg]{helper_nhl_calculate_xg()}} warns and returns \code{pbp} with an
-\code{xg = NA_real_} column.
+\code{\link[=helper_nhl_calculate_xg]{helper_nhl_calculate_xg()}} returns \code{pbp} with an \code{xg = NA_real_} column
+and warns (once per session).
 }
 }
 \concept{NHL xG}

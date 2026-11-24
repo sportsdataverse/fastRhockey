@@ -2,8 +2,8 @@
 
 ### Breaking changes
 
-These change the shape or type of output that CRAN 1.0.0 returned. Code that
-upgrades from 1.0.0 may need to change.
+These change the shape, type or values of output that CRAN 1.0.0 returned.
+Code that upgrades from 1.0.0 may need to change.
 
 * `espn_nhl_team_schedule()`: `home_score` and `away_score` are now always
   character, as documented. A fully played season used to return them as
@@ -19,6 +19,13 @@ upgrades from 1.0.0 may need to change.
   `x_coord_vertical` / `y_coord_vertical` have every team shooting up. The
   right and vertical columns are `NA` when an event's side is unknown. See
   the bug fix below for the details (#75).
+* NHL play-by-play (`nhl_game_pbp()`, `nhl_game_feed()`): `x_fixed` /
+  `y_fixed` now rotate the rink by `homeTeamDefendingSide`, so an event a
+  team makes in its own half is no longer mirrored into its attacking half.
+  `shot_distance`, `shot_angle`, the previous-event features and therefore
+  `xg` change with them. Shot-quality and xG numbers computed with 1.0.0 are
+  not comparable with 1.1.0 ones. See the bug fix below for the details
+  (#103).
 
 ### New features
 
@@ -91,7 +98,7 @@ upgrades from 1.0.0 may need to change.
   chance), and flipped `y` on the sign of `x`. Plays without a side use the
   period's, then where each team's shots cluster. `shot_distance` /
   `shot_angle` for a `BLOCKED_SHOT` (whose event team is the blocker) are
-  measured to the shooter's target net.
+  measured to the shooter's target net (#103).
 * The NHL xG models are no longer downloaded in `.onLoad()`, which CRAN policy
   forbids: `library(fastRhockey)` makes no network call, and
   `helper_nhl_calculate_xg()` (and so `nhl_game_pbp()` / `nhl_game_feed()`)
@@ -106,7 +113,7 @@ upgrades from 1.0.0 may need to change.
   manifest seen keeps validating the copies it named). A refresh commits only
   a complete, verified set, so one that fails part-way leaves the previous
   set usable. `refresh_xg_models()` still clears and
-  re-fetches them (#96).
+  re-fetches them (#97, #102).
 * The PHF games index csv (`update_phf_db()`) is read through
   `.release_csv_from_url()`, the release-read helper the loaders use (150 s
   timeout floor, two retries, a warning naming the url), instead of
@@ -289,6 +296,12 @@ upgrades from 1.0.0 may need to change.
   returned an empty tibble.
 * `fox_nhl_odds()` finds the six-pack odds in the `sectionList` modules,
   where Fox now sends them; it returned an empty tibble for every game.
+* `espn_nhl_franchise()`, `espn_mch_franchise()` and `espn_wch_franchise()`
+  report a missing or empty `franchise_id` and return an empty data frame
+  without a request. A `NULL` id (from an empty `espn_mch_franchises()`
+  listing) used to request the franchise collection and fail with
+  "arguments imply differing number of rows". The college examples skip the
+  detail call when the listing is empty.
 * `update_nhl_db()` and `update_pwhl_db()` no longer need dbplyr, which is
   not a dependency: the stored game ids are read with a plain `DBI` query.
 * `nhl_teams()`, `nhl_standings()`, `nhl_schedule()`, `nhl_draft()`,
@@ -352,8 +365,9 @@ upgrades from 1.0.0 may need to change.
   family size and made up most of the installed help. Each page links to one
   family index page instead (`?family_espn_nhl`, `?family_espn_mch`,
   `?family_sihf`, `?family_shl`, `?family_khl`, `?family_liiga`,
-  `?family_national_league`). With the change above, the installed size drops
-  from 8.9 MB to 6.0 MB.
+  `?family_national_league`). With the change above, the installed size in a
+  local Windows check dropped from 8.9 MB to 6.0 MB; the GitHub Actions
+  checks (Linux, macOS and Windows) report 7.5 to 7.9 MB.
 
 # **fastRhockey 1.0.0**
 

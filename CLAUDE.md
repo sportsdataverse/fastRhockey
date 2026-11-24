@@ -103,11 +103,13 @@ Responses go through `janitor::clean_names()`.
   PHF data lives in the `fastRhockey-data` repo.
 - **xG**: 3 XGBoost models (5v5 / special-teams / penalty-shot) loaded on first
   use by `helper_nhl_calculate_xg()` (never in `.onLoad()`, CRAN policy) from the
-  sportsdataverse-data `nhl_xg_models` release, sha256-pinned in `.xg_pins`
-  (`zzz.R`; a retrain ships by updating the pins), cached via
-  `tools::R_user_dir("fastRhockey","cache")` (a mismatched cached file is
-  evicted), held in `.xg_env`. `refresh_xg_models()` re-pulls; requires the
-  `xgboost` Suggests package.
+  sportsdataverse-data `nhl_xg_models` release, checked against the sha256s
+  in that release's manifest `xg_model_meta.json` (`zzz.R`: read once per
+  session; a cached file it does not match is replaced; offline, the last
+  manifest seen is used), so a retrain reaches installed copies with no
+  package change. Cached via `tools::R_user_dir("fastRhockey","cache")`,
+  held in `.xg_env`. `refresh_xg_models()` re-pulls; requires the `xgboost`
+  Suggests package.
 
 ## Conventions
 

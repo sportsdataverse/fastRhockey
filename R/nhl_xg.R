@@ -22,8 +22,11 @@
 #'
 #' ## **Era dummies**
 #'
-#' The training corpus runs 2010-2024; the features keep one-hot era
-#' indicators so the same models generalize past the training cutoff:
+#' The models current at the 1.1.0 release were retrained on 2026-11-13 on
+#' NHL play-by-play from 2009-10 to 2026-27; a later retrain reaches installed
+#' copies through the manifest. The features keep one-hot era indicators, so tracking
+#' and rule changes are modelled rather than averaged away; 2009-10 is the
+#' reference era (every indicator 0):
 #'
 #' | Indicator | Seasons |
 #' |---|---|
@@ -39,14 +42,14 @@
 #' `period_type`, `period`, `game_seconds`, `x`, `y`, `x_fixed`,
 #' `event_team_abbr`, `home_abbr`, `away_abbr`, `home_skaters`,
 #' `away_skaters`, `shot_distance`, `shot_angle`, `empty_net`,
-#' `strength_state`, `event_id`, and `season`. `nhl_game_pbp()` /
+#' `strength_state`, `game_id`, `event_id`, and `season`. `nhl_game_pbp()` /
 #' `nhl_game_feed()` produce all of them.
 #'
 #' ## **Dependencies**
 #'
 #' The `xgboost` suggested package is required. If it is absent,
-#' [helper_nhl_calculate_xg()] warns and returns `pbp` with an
-#' `xg = NA_real_` column.
+#' [helper_nhl_calculate_xg()] returns `pbp` with an `xg = NA_real_` column
+#' and warns (once per session).
 #'
 #' @keywords NHL xG
 #' @family NHL xG
