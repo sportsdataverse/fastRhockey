@@ -302,6 +302,19 @@ Code that upgrades from 1.0.0 may need to change.
   listing) used to request the franchise collection and fail with
   "arguments imply differing number of rows". The college examples skip the
   detail call when the listing is empty.
+* The same goes for the `event_id` of `espn_{nhl,mch,wch}_game()`, the
+  `event_id`, `cid` and `official_id` of
+  `espn_{nhl,mch,wch}_game_official_detail()` and the `team_id` of
+  `espn_{nhl,mch,wch}_team_roster()`: a `NULL`, empty or `NA` id is reported
+  before any request. ESPN lists no officials for college games, so the
+  official-detail examples skip the call then, and the women's examples use
+  2026-01-10, since ESPN has no women's college games for 2025-01-10.
+* `espn_mch_team_roster()` and `espn_wch_team_roster()` parse college rosters.
+  These are flat (not grouped by position) and every athlete carries empty
+  `injuries` and `contracts` lists, so the wrapper failed with "arguments
+  imply differing number of rows: 1, 0" and returned an empty frame. College
+  rosters now get the same columns as NHL ones, with `position_group` and any
+  field ESPN leaves out set to `NA`.
 * `update_nhl_db()` and `update_pwhl_db()` no longer need dbplyr, which is
   not a dependency: the stored game ids are read with a plain `DBI` query.
 * `nhl_teams()`, `nhl_standings()`, `nhl_schedule()`, `nhl_draft()`,

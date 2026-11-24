@@ -71,7 +71,7 @@ League slug \code{mens-college-hockey}; \code{season} is the END year (\code{202
 }
 \donttest{
   try({
-    sb <- espn_wch_scoreboard(dates = "20250110")
+    sb <- espn_wch_scoreboard(dates = "20260110")
     espn_wch_game_plays(event_id = sb$game_id[1])
   })
 }

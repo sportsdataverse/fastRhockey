@@ -517,6 +517,7 @@ espn_nhl_standings <- function(season = most_recent_nhl_season(), ...) {
 
   tryCatch(
     expr = {
+      .espn_check_id(team_id)
       path <- paste0("teams/", team_id, "/roster")
       query <- list()
       if (!is.null(limit)) query[["limit"]] <- limit
@@ -533,88 +534,96 @@ espn_nhl_standings <- function(season = most_recent_nhl_season(), ...) {
       is_grouped <- is.list(first) && "position" %in% names(first) &&
         is.list(first[["items"]])
 
+      # One row per player, with the same columns for both shapes. A field ESPN
+      # leaves out, or sends as an empty list, becomes NA rather than a 0-length
+      # column ("arguments imply differing number of rows: 1, 0").
+      player_row <- function(player, grp_name) {
+        pos    <- player$position %||% list()
+        pos_parent <- pos$parent %||% list()
+        hs     <- player$headshot %||% list()
+        hand   <- player$hand %||% list()
+        stat   <- player$status %||% list()
+        exp    <- player$experience %||% list()
+        bp     <- player$birthPlace %||% list()
+        bc     <- player$birthCountry %||% list()
+        alt_ids <- player$alternateIds %||% list()
+        college <- player$college %||% list()
+        college_logos <- college$logos %||% list()
+
+        row <- list(
+          position_group              = grp_name,
+          id                          = player$id %||% NA_character_,
+          uid                         = player$uid %||% NA_character_,
+          guid                        = player$guid %||% NA_character_,
+          alternate_id                = player$alternateId %||% NA_character_,
+          alternate_ids_sdr           = alt_ids$sdr %||% NA_character_,
+          first_name                  = player$firstName %||% NA_character_,
+          last_name                   = player$lastName %||% NA_character_,
+          full_name                   = player$fullName %||% NA_character_,
+          display_name                = player$displayName %||% NA_character_,
+          short_name                  = player$shortName %||% NA_character_,
+          weight                      = if (!is.null(player$weight)) as.numeric(player$weight) else NA_real_,
+          display_weight              = player$displayWeight %||% NA_character_,
+          height                      = if (!is.null(player$height)) as.numeric(player$height) else NA_real_,
+          display_height              = player$displayHeight %||% NA_character_,
+          age                         = if (!is.null(player$age)) as.integer(player$age) else NA_integer_,
+          date_of_birth               = player$dateOfBirth %||% NA_character_,
+          slug                        = player$slug %||% NA_character_,
+          jersey                      = player$jersey %||% NA_character_,
+          headshot_href               = hs$href %||% NA_character_,
+          headshot_alt                = hs$alt %||% NA_character_,
+          hand_type                   = hand$type %||% NA_character_,
+          hand_abbreviation           = hand$abbreviation %||% NA_character_,
+          hand_display_value          = hand$displayValue %||% NA_character_,
+          position_id                 = pos$id %||% NA_character_,
+          position_name               = pos$name %||% NA_character_,
+          position_display_name       = pos$displayName %||% NA_character_,
+          position_abbreviation       = pos$abbreviation %||% NA_character_,
+          position_leaf               = if (!is.null(pos$leaf)) as.logical(pos$leaf) else NA,
+          position_parent_id          = pos_parent$id %||% NA_character_,
+          position_parent_name        = pos_parent$name %||% NA_character_,
+          position_parent_display_name = pos_parent$displayName %||% NA_character_,
+          position_parent_abbreviation = pos_parent$abbreviation %||% NA_character_,
+          position_parent_leaf        = if (!is.null(pos_parent$leaf)) as.logical(pos_parent$leaf) else NA,
+          experience_years            = if (!is.null(exp$years)) as.integer(exp$years) else NA_integer_,
+          debut_year                  = if (!is.null(player$debutYear)) as.numeric(player$debutYear) else NA_real_,
+          status_id                   = stat$id %||% NA_character_,
+          status_name                 = stat$name %||% NA_character_,
+          status_type                 = stat$type %||% NA_character_,
+          status_abbreviation         = stat$abbreviation %||% NA_character_,
+          birth_place_city            = bp$city %||% NA_character_,
+          birth_place_state           = bp$state %||% NA_character_,
+          birth_place_country         = bp$country %||% NA_character_,
+          birth_place_display_text    = bp$displayText %||% NA_character_,
+          birth_country_abbreviation  = bc$abbreviation %||% NA_character_,
+          college_id                  = college$id %||% NA_character_,
+          college_guid                = college$guid %||% NA_character_,
+          college_mascot              = college$mascot %||% NA_character_,
+          college_name                = college$name %||% NA_character_,
+          college_short_name          = college$shortName %||% NA_character_,
+          college_abbrev              = college$abbrev %||% NA_character_,
+          college_logos               = if (length(college_logos) > 0)
+            paste(sapply(college_logos, function(l) l$href %||% ""), collapse = "|")
+          else NA_character_,
+          team_id                     = as.character(team_id)
+        )
+        row[lengths(row) == 0L] <- NA
+        row
+      }
+
       rows <- list()
       if (is_grouped) {
+        # NHL: athletes[] = list of {position, items[]}
         for (grp in athletes) {
           grp_name <- grp$position %||% NA_character_
-          items    <- grp$items %||% list()
-          for (player in items) {
-            pos    <- player$position %||% list()
-            pos_parent <- pos$parent %||% list()
-            hs     <- player$headshot %||% list()
-            hand   <- player$hand %||% list()
-            stat   <- player$status %||% list()
-            exp    <- player$experience %||% list()
-            bp     <- player$birthPlace %||% list()
-            bc     <- player$birthCountry %||% list()
-            alt_ids <- player$alternateIds %||% list()
-            college <- player$college %||% list()
-            college_logos <- college$logos %||% list()
-
-            row <- list(
-              position_group              = grp_name,
-              id                          = player$id %||% NA_character_,
-              uid                         = player$uid %||% NA_character_,
-              guid                        = player$guid %||% NA_character_,
-              alternate_id                = player$alternateId %||% NA_character_,
-              alternate_ids_sdr           = alt_ids$sdr %||% NA_character_,
-              first_name                  = player$firstName %||% NA_character_,
-              last_name                   = player$lastName %||% NA_character_,
-              full_name                   = player$fullName %||% NA_character_,
-              display_name                = player$displayName %||% NA_character_,
-              short_name                  = player$shortName %||% NA_character_,
-              weight                      = if (!is.null(player$weight)) as.numeric(player$weight) else NA_real_,
-              display_weight              = player$displayWeight %||% NA_character_,
-              height                      = if (!is.null(player$height)) as.numeric(player$height) else NA_real_,
-              display_height              = player$displayHeight %||% NA_character_,
-              age                         = if (!is.null(player$age)) as.integer(player$age) else NA_integer_,
-              date_of_birth               = player$dateOfBirth %||% NA_character_,
-              slug                        = player$slug %||% NA_character_,
-              jersey                      = player$jersey %||% NA_character_,
-              headshot_href               = hs$href %||% NA_character_,
-              headshot_alt                = hs$alt %||% NA_character_,
-              hand_type                   = hand$type %||% NA_character_,
-              hand_abbreviation           = hand$abbreviation %||% NA_character_,
-              hand_display_value          = hand$displayValue %||% NA_character_,
-              position_id                 = pos$id %||% NA_character_,
-              position_name               = pos$name %||% NA_character_,
-              position_display_name       = pos$displayName %||% NA_character_,
-              position_abbreviation       = pos$abbreviation %||% NA_character_,
-              position_leaf               = if (!is.null(pos$leaf)) as.logical(pos$leaf) else NA,
-              position_parent_id          = pos_parent$id %||% NA_character_,
-              position_parent_name        = pos_parent$name %||% NA_character_,
-              position_parent_display_name = pos_parent$displayName %||% NA_character_,
-              position_parent_abbreviation = pos_parent$abbreviation %||% NA_character_,
-              position_parent_leaf        = if (!is.null(pos_parent$leaf)) as.logical(pos_parent$leaf) else NA,
-              experience_years            = if (!is.null(exp$years)) as.integer(exp$years) else NA_integer_,
-              debut_year                  = if (!is.null(player$debutYear)) as.numeric(player$debutYear) else NA_real_,
-              status_id                   = stat$id %||% NA_character_,
-              status_name                 = stat$name %||% NA_character_,
-              status_type                 = stat$type %||% NA_character_,
-              status_abbreviation         = stat$abbreviation %||% NA_character_,
-              birth_place_city            = bp$city %||% NA_character_,
-              birth_place_state           = bp$state %||% NA_character_,
-              birth_place_country         = bp$country %||% NA_character_,
-              birth_place_display_text    = bp$displayText %||% NA_character_,
-              birth_country_abbreviation  = bc$abbreviation %||% NA_character_,
-              college_id                  = college$id %||% NA_character_,
-              college_guid                = college$guid %||% NA_character_,
-              college_mascot              = college$mascot %||% NA_character_,
-              college_name                = college$name %||% NA_character_,
-              college_short_name          = college$shortName %||% NA_character_,
-              college_abbrev              = college$abbrev %||% NA_character_,
-              college_logos               = if (length(college_logos) > 0)
-                paste(sapply(college_logos, function(l) l$href %||% ""), collapse = "|")
-              else NA_character_,
-              team_id                     = as.character(team_id)
-            )
-            rows <- c(rows, list(row))
+          for (player in grp$items %||% list()) {
+            rows <- c(rows, list(player_row(player, grp_name)))
           }
         }
       } else {
-        # Flat shape (other sports)
+        # Flat: athletes[] = players (college hockey)
         for (player in athletes) {
-          rows <- c(rows, list(c(player, list(team_id = as.character(team_id)))))
+          rows <- c(rows, list(player_row(player, NA_character_)))
         }
       }
 

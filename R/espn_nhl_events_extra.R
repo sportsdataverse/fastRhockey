@@ -678,6 +678,9 @@ espn_nhl_game_team_record <- function(event_id, cid = event_id, team_id, ...) {
 
   tryCatch(
     expr = {
+      .espn_check_id(event_id)
+      .espn_check_id(cid)
+      .espn_check_id(official_id)
       path <- paste0("events/", event_id, "/competitions/", cid,
                      "/officials/", official_id)
       raw  <- .espn_hockey_request("core_v2", path = path,

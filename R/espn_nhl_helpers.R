@@ -21,6 +21,20 @@
   url
 }
 
+#' Abort unless `id` is a single, non-missing, non-empty id.
+#'
+#' `x$id[1]` of an empty listing is `NULL`; pasted into a path it requests the
+#' parent collection and fails later on a 1-row frame built from a 0-length id.
+#' Call it inside the wrapper's `tryCatch()` so the message is reported the
+#' usual way, before any request.
+#' @noRd
+.espn_check_id <- function(id, arg = rlang::caller_arg(id)) {
+  if (length(id) != 1L || is.na(id) || !nzchar(as.character(id))) {
+    cli::cli_abort("{.arg {arg}} must be a single, non-missing ESPN id.", call = NULL)
+  }
+  invisible(id)
+}
+
 #' Fetch + parse an ESPN hockey endpoint (returns parsed JSON list).
 #' @noRd
 .espn_hockey_request <- function(host, path = "", query = list(), league = "nhl",

@@ -359,7 +359,7 @@ NULL
 #'   try(espn_mch_scoreboard(dates = "20250110"))
 #' }
 #' \donttest{
-#'   try(espn_wch_scoreboard(dates = "20250110"))
+#'   try(espn_wch_scoreboard(dates = "20260110"))
 #' }
 espn_mch_scoreboard <- function(dates = NULL, week = NULL, season_type = NULL, groups = NULL, limit = 500, ...) {
   .espn_hockey_scoreboard(league = "mens-college-hockey", dates = dates, week = week, season_type = season_type, groups = groups, limit = limit, ...)
@@ -3853,7 +3853,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb <- espn_wch_scoreboard(dates = "20250110")
+#'     sb <- espn_wch_scoreboard(dates = "20260110")
 #'     espn_wch_game(event_id = sb$game_id[1])
 #'   })
 #' }
@@ -3911,7 +3911,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb <- espn_wch_scoreboard(dates = "20250110")
+#'     sb <- espn_wch_scoreboard(dates = "20260110")
 #'     espn_wch_game_competition(event_id = sb$game_id[1])
 #'   })
 #' }
@@ -3967,7 +3967,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb <- espn_wch_scoreboard(dates = "20250110")
+#'     sb <- espn_wch_scoreboard(dates = "20260110")
 #'     espn_wch_game_teams(event_id = sb$game_id[1])
 #'   })
 #' }
@@ -4025,7 +4025,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb  <- espn_wch_scoreboard(dates = "20250110")
+#'     sb  <- espn_wch_scoreboard(dates = "20260110")
 #'     eid <- sb$game_id[1]
 #'     tms <- espn_wch_game_teams(event_id = eid)
 #'     espn_wch_game_team(event_id = eid, team_id = tms$team_id[1])
@@ -4082,7 +4082,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb  <- espn_wch_scoreboard(dates = "20250110")
+#'     sb  <- espn_wch_scoreboard(dates = "20260110")
 #'     eid <- sb$game_id[1]
 #'     tms <- espn_wch_game_teams(event_id = eid)
 #'     espn_wch_game_team_roster(event_id = eid, team_id = tms$team_id[1])
@@ -4135,7 +4135,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb  <- espn_wch_scoreboard(dates = "20250110")
+#'     sb  <- espn_wch_scoreboard(dates = "20260110")
 #'     eid <- sb$game_id[1]
 #'     tms <- espn_wch_game_teams(event_id = eid)
 #'     espn_wch_game_team_linescores(event_id = eid, team_id = tms$team_id[1])
@@ -4189,7 +4189,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb  <- espn_wch_scoreboard(dates = "20250110")
+#'     sb  <- espn_wch_scoreboard(dates = "20260110")
 #'     eid <- sb$game_id[1]
 #'     tms <- espn_wch_game_teams(event_id = eid)
 #'     espn_wch_game_team_statistics(event_id = eid, team_id = tms$team_id[1])
@@ -4246,7 +4246,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb  <- espn_wch_scoreboard(dates = "20250110")
+#'     sb  <- espn_wch_scoreboard(dates = "20260110")
 #'     eid <- sb$game_id[1]
 #'     tms <- espn_wch_game_teams(event_id = eid)
 #'     espn_wch_game_team_record(event_id = eid, team_id = tms$team_id[1])
@@ -4306,7 +4306,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb  <- espn_wch_scoreboard(dates = "20250110")
+#'     sb  <- espn_wch_scoreboard(dates = "20260110")
 #'     eid <- sb$game_id[1]
 #'     tms <- espn_wch_game_teams(event_id = eid)
 #'     espn_wch_game_team_leaders(event_id = eid, team_id = tms$team_id[1])
@@ -4367,7 +4367,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb <- espn_wch_scoreboard(dates = "20250110")
+#'     sb <- espn_wch_scoreboard(dates = "20260110")
 #'     espn_wch_game_odds(event_id = sb$game_id[1])
 #'   })
 #' }
@@ -4416,7 +4416,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb <- espn_wch_scoreboard(dates = "20250110")
+#'     sb <- espn_wch_scoreboard(dates = "20260110")
 #'     espn_wch_game_probabilities(event_id = sb$game_id[1])
 #'   })
 #' }
@@ -4487,7 +4487,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb <- espn_wch_scoreboard(dates = "20250110")
+#'     sb <- espn_wch_scoreboard(dates = "20260110")
 #'     espn_wch_game_plays(event_id = sb$game_id[1])
 #'   })
 #' }
@@ -4554,7 +4554,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb  <- espn_wch_scoreboard(dates = "20250110")
+#'     sb  <- espn_wch_scoreboard(dates = "20260110")
 #'     eid <- sb$game_id[1]
 #'     pls <- espn_wch_game_plays(event_id = eid)
 #'     espn_wch_game_play(event_id = eid, play_id = pls$id[1])
@@ -4609,7 +4609,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb  <- espn_wch_scoreboard(dates = "20250110")
+#'     sb  <- espn_wch_scoreboard(dates = "20260110")
 #'     eid <- sb$game_id[1]
 #'     pls <- espn_wch_game_plays(event_id = eid)
 #'     espn_wch_game_play_personnel(event_id = eid, play_id = pls$id[1])
@@ -4656,7 +4656,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb <- espn_wch_scoreboard(dates = "20250110")
+#'     sb <- espn_wch_scoreboard(dates = "20260110")
 #'     espn_wch_game_situation(event_id = sb$game_id[1])
 #'   })
 #' }
@@ -4708,7 +4708,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb <- espn_wch_scoreboard(dates = "20250110")
+#'     sb <- espn_wch_scoreboard(dates = "20260110")
 #'     espn_wch_game_status(event_id = sb$game_id[1])
 #'   })
 #' }
@@ -4759,7 +4759,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb <- espn_wch_scoreboard(dates = "20250110")
+#'     sb <- espn_wch_scoreboard(dates = "20260110")
 #'     espn_wch_game_officials(event_id = sb$game_id[1])
 #'   })
 #' }
@@ -4818,7 +4818,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb <- espn_wch_scoreboard(dates = "20250110")
+#'     sb <- espn_wch_scoreboard(dates = "20260110")
 #'     espn_wch_game_broadcasts(event_id = sb$game_id[1])
 #'   })
 #' }
@@ -4864,7 +4864,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb <- espn_wch_scoreboard(dates = "20250110")
+#'     sb <- espn_wch_scoreboard(dates = "20260110")
 #'     espn_wch_game_predictor(event_id = sb$game_id[1])
 #'   })
 #' }
@@ -4911,7 +4911,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb <- espn_wch_scoreboard(dates = "20250110")
+#'     sb <- espn_wch_scoreboard(dates = "20260110")
 #'     espn_wch_game_powerindex(event_id = sb$game_id[1])
 #'   })
 #' }
@@ -4961,7 +4961,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb <- espn_wch_scoreboard(dates = "20250110")
+#'     sb <- espn_wch_scoreboard(dates = "20260110")
 #'     espn_wch_game_propbets(event_id = sb$game_id[1])
 #'   })
 #' }
@@ -5011,7 +5011,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb <- espn_wch_scoreboard(dates = "20250110")
+#'     sb <- espn_wch_scoreboard(dates = "20260110")
 #'     espn_wch_game_leaders(event_id = sb$game_id[1])
 #'   })
 #' }
@@ -5072,7 +5072,7 @@ NULL
 #' }
 #' \donttest{
 #'   try({
-#'     sb <- espn_wch_scoreboard(dates = "20250110")
+#'     sb <- espn_wch_scoreboard(dates = "20260110")
 #'     espn_wch_game_scoringplays(event_id = sb$game_id[1])
 #'   })
 #' }
@@ -5123,15 +5123,20 @@ NULL
 #'     sb   <- espn_mch_scoreboard(dates = "20250110")
 #'     eid  <- sb$game_id[1]
 #'     offs <- espn_mch_game_officials(event_id = eid)
-#'     espn_mch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
+#'     # ESPN often lists no officials for a college game; skip the detail call then
+#'     if (nrow(offs) > 0) {
+#'       espn_mch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
+#'     }
 #'   })
 #' }
 #' \donttest{
 #'   try({
-#'     sb   <- espn_wch_scoreboard(dates = "20250110")
+#'     sb   <- espn_wch_scoreboard(dates = "20260110")
 #'     eid  <- sb$game_id[1]
 #'     offs <- espn_wch_game_officials(event_id = eid)
-#'     espn_wch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
+#'     if (nrow(offs) > 0) {
+#'       espn_wch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
+#'     }
 #'   })
 #' }
 espn_mch_game_official_detail <- function(event_id, cid = event_id,

@@ -107,7 +107,7 @@ League slug \code{mens-college-hockey}; \code{season} is the END year (\code{202
   try(espn_mch_scoreboard(dates = "20250110"))
 }
 \donttest{
-  try(espn_wch_scoreboard(dates = "20250110"))
+  try(espn_wch_scoreboard(dates = "20260110"))
 }
 }
 \seealso{

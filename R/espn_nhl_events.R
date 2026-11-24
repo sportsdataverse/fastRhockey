@@ -42,6 +42,7 @@
 
   tryCatch(
     expr = {
+      .espn_check_id(event_id)
       path <- paste0("events/", event_id)
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,
