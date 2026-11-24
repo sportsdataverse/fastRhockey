@@ -8,8 +8,8 @@ NEWS.md.
 
 ## Test environments
 
-All results below are for the package at commit 31b80d376. The one later
-commit changes only this file, which is build-ignored, so the tarball is the
+All results below are for the package at commit 31b80d376. The later
+commits change only this file, which is build-ignored, so the tarball is the
 same.
 
 * Local Windows 10 x64, R 4.6.0 (ucrt): `R CMD check --as-cran --timings
