@@ -3,10 +3,10 @@
 #' @description Adds an `xg` column to a play-by-play data frame using the
 #'   fastRhockey xG models (XGBoost).
 #'
-#'   The current models were retrained on 2026-11-13 on NHL PBP data from
-#'   2009-10 to 2026-27, using the same methodology as the
+#'   The models current at the 1.1.0 release were retrained on 2026-11-13 on
+#'   NHL PBP data from 2009-10 to 2026-27, using the same methodology as the
 #'   [hockeyR](https://github.com/danmorse314/hockeyR) (Daniel Morse) xG
-#'   models. Three models are used:
+#'   models; a later retrain replaces them (see below). Three models are used:
 #'   * **5v5 model** - Even-strength situations
 #'   * **Special teams model** - Power play, short-handed, and other
 #'     non-5v5 situations (adds skater count features)
@@ -37,8 +37,8 @@
 #'    |:--------|:-------|:----------------------------------------------------|
 #'    |xg       |numeric |Expected-goal probability of the shot, NA for non-shot events. |
 #'
-#'   If `xgboost` is not installed, the function raises a warning of class
-#'   `fastRhockey_no_xgboost` and every `xg` is NA.
+#'   If `xgboost` is not installed, every `xg` is NA and the function raises a
+#'   warning of class `fastRhockey_no_xgboost` (once per session).
 #'
 #' @export
 #'

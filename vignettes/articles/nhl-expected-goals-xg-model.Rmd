@@ -43,7 +43,7 @@ There are two ways to get NHL xG from `fastRhockey`. They use the same model fil
 |---|---|---|
 | **How you get it** | `load_nhl_pbp()`, `load_nhl_pbp_full()` | `nhl_game_pbp()` / `nhl_game_feed()`, or `helper_nhl_calculate_xg()` on your own frame |
 | **Model** | The boosters in the `nhl_xg_models` release (retrained 2026-11-13) | The same boosters, downloaded on first use, checked against the sha256s in the release manifest (`xg_model_meta.json`) and cached |
-| **Needs `xgboost`?** | No | Yes. Without it `nhl_game_pbp()` and `helper_nhl_calculate_xg()` warn (class `fastRhockey_no_xgboost`) and return `xg = NA`. |
+| **Needs `xgboost`?** | No | Yes. Without it `nhl_game_pbp()` and `helper_nhl_calculate_xg()` return `xg = NA` and warn once per session (class `fastRhockey_no_xgboost`). |
 | **When it changes** | When a season file is rescored after a retrain | On the first xG call of a session after a retrain: the cached files no longer match the release manifest, so they are replaced. `refresh_xg_models()` forces a fresh download. |
 
 Two practical notes on `helper_nhl_calculate_xg()`:
@@ -251,7 +251,7 @@ local_xg %>%
   )
 ```
 
-A `max_abs_diff` of 0 means the published `xg` is exactly what the package computes with the current model files. A larger value means the season file was scored with a different set of models from the one in your cache.
+A `max_abs_diff` of 0 means every shot with both a published and a local `xg` matches exactly. Check that `both_present` equals `shots`: `max_abs_diff` ignores shots that lack one of the two values. A larger value means the season file was scored with a different set of models from the one in your cache.
 
 ## How are the coordinates set?
 

@@ -125,7 +125,7 @@
 #'   try(nhl_game_pbp(game_id = 2024020001, raw = TRUE))
 #' }
 #' @examplesIf interactive()
-#' # The first parsed game downloads the xG models (about 4 MB).
+#' # The first parsed game downloads the xG models (about 3 MB).
 #' \donttest{
 #'   try(nhl_game_pbp(game_id = 2024020001))
 #' }
@@ -187,7 +187,7 @@ nhl_game_pbp <- function(game_id, include_shifts = TRUE, raw = FALSE) {
 #'   try(nhl_game_feed(game_id = 2024020001, raw = TRUE))
 #' }
 #' @examplesIf interactive()
-#' # The first parsed game downloads the xG models (about 4 MB).
+#' # The first parsed game downloads the xG models (about 3 MB).
 #' \donttest{
 #'   try(nhl_game_feed(game_id = 2024020001))
 #' }
