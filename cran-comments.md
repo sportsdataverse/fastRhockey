@@ -18,7 +18,8 @@ same.
 * Local Windows 10 x64, R 4.6.1 (ucrt), same tarball and options
   (2026-11-24): 1 NOTE, from the check environment rather than the package
   (see below).
-* win-builder (devel and release): submitted 2026-11-24, results pending.
+* win-builder (devel and release): not yet run (win-builder unreachable
+  2026-11-24); to be run before submission.
 * R-hub v2 (linux, windows, macos, macos-arm64): dispatched 2026-11-24 at
   31b80d376 (https://github.com/sportsdataverse/fastRhockey/actions/runs/45429874836),
   results pending.
