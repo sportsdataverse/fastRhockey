@@ -579,8 +579,9 @@ espn_nhl_coach_season <- function(coach_id,
 
   result <- data.frame()
 
+  .fn <- .espn_caller(".espn_hockey_calendar_dates") # the exported wrapper, for warnings
   tryCatch(
-    expr = .fastRhockey_with_warnings(".espn_hockey_calendar_dates", {
+    expr = .fastRhockey_with_warnings(.fn, {
       raw <- .espn_hockey_request("core_v2", path = path,
                                    league         = league,
                                    simplifyVector = TRUE, ...)

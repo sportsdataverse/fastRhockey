@@ -174,8 +174,9 @@ espn_nhl_player_overview <- function(athlete_id, ...) {
 
   player_stats <- data.frame()
 
+  .fn <- .espn_caller(".espn_hockey_player_stats_v3") # the exported wrapper, for warnings
   tryCatch(
-    expr = .fastRhockey_with_warnings(".espn_hockey_player_stats_v3", {
+    expr = .fastRhockey_with_warnings(.fn, {
       path  <- paste0("athletes/", athlete_id, "/stats")
       query <- list()
       if (!is.null(season)) query[["season"]] <- season

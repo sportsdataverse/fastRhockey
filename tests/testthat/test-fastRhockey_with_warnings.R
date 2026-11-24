@@ -44,12 +44,24 @@ test_that(".fastRhockey_with_warnings() keeps return(), error handling and the o
 
   custom <- function() warning(warningCondition("deprecated thing", class = "my_deprecation"))
   expect_no_warning(suppressWarnings(.fastRhockey_with_warnings("cls", custom()), classes = "my_deprecation"))
+  expect_no_warning(suppressWarnings(.fastRhockey_with_warnings("cls", as.integer("x")), classes = "simpleWarning"))
 })
 
 test_that(".espn_fn() names the exported wrapper behind a league-generic helper", {
   expect_identical(.espn_fn("nhl", "game"), "espn_nhl_game")
   expect_identical(.espn_fn("mens-college-hockey", "team_roster"), "espn_mch_team_roster")
   expect_identical(.espn_fn("womens-college-hockey", "game"), "espn_wch_game")
+})
+
+test_that(".espn_caller() names the function that called a shared helper", {
+  helper <- function() .espn_caller(".espn_hockey_items")
+  espn_mch_season_recruits_like <- function() helper()
+  expect_identical(espn_mch_season_recruits_like(), "espn_mch_season_recruits_like")
+  expect_identical(do.call(function() helper(), list()), ".espn_hockey_items")
+  # past an intermediate helper (espn_nhl_calendar_offseason -> .espn_hockey_calendar_offseason -> ...)
+  .espn_hockey_middle <- function() helper()
+  espn_nhl_alias_like <- function() .espn_hockey_middle()
+  expect_identical(espn_nhl_alias_like(), "espn_nhl_alias_like")
 })
 
 test_that("an ESPN wrapper returns its rows when parsing warns", {
@@ -79,7 +91,10 @@ test_that("an ESPN wrapper returns its rows when parsing warns", {
   )
   expect_warning(out <- espn_mch_team_roster(team_id = "104"), class = "fastRhockey_warning",
                  regexp = "espn_mch_team_roster\\(\\): synthetic parse warning")
+  expect_s3_class(out, "data.frame")
+  expect_s3_class(out, "fastRhockey_data")
   expect_equal(nrow(out), 2L)
+  expect_true(all(c("id", "first_name", "position_group", "college_name", "team_id") %in% names(out)))
   expect_identical(out$first_name[1], "Tristan")
 })
 

@@ -129,8 +129,9 @@
   .args <- .capture_args()
   result <- data.frame()
 
+  .fn <- .espn_caller(".espn_hockey_items") # the exported wrapper, for warnings
   tryCatch(
-    expr = .fastRhockey_with_warnings(".espn_hockey_items", {
+    expr = .fastRhockey_with_warnings(.fn, {
       raw <- .espn_hockey_request("core_v2", path = path, query = query,
                                   league = league, simplifyVector = TRUE, ...)
       items <- raw[["items"]]
@@ -180,8 +181,9 @@
   .args <- .capture_args()
   result <- data.frame()
 
+  .fn <- .espn_caller(".espn_hockey_powerindex") # the exported wrapper, for warnings
   tryCatch(
-    expr = .fastRhockey_with_warnings(".espn_hockey_powerindex", {
+    expr = .fastRhockey_with_warnings(.fn, {
       raw <- if (kind == "fpi") {
         url  <- paste0("https://site.web.api.espn.com/apis/fitt/v3/sports/hockey/",
                        league, "/powerindex")

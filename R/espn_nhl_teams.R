@@ -16,8 +16,9 @@
 
   teams <- data.frame()
 
+  .fn <- .espn_caller(".espn_hockey_teams") # the exported wrapper, for warnings
   tryCatch(
-    expr = .fastRhockey_with_warnings(".espn_hockey_teams", {
+    expr = .fastRhockey_with_warnings(.fn, {
       query <- list()
       if (!is.null(limit)) query[["limit"]] <- limit
       raw <- .espn_hockey_request("site_v2", "teams", query = query,

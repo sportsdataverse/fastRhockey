@@ -458,6 +458,14 @@ test_that("a flat college roster parses, with NA for the fields it leaves out", 
   expect_identical(x$first_name, c("Tristan", "Kamil"))
   expect_identical(x$position_name[1], "Forward")
   expect_identical(x$team_id, c("104", "104"))
+  # every documented column, so a missing one cannot pass as an all-NA NULL
+  src <- readLines(testthat::test_path("..", "..", "R", "espn_ncaa_hockey.R"), warn = FALSE)
+  i <- grep("^#' @rdname espn_mch_team_roster$", src)[1]
+  j <- grep("^espn_mch_team_roster <- function", src)
+  rows <- grep("^#'\\s+[|][a-z0-9_]+\\s+[|]", src[i:j], value = TRUE)
+  documented <- setdiff(sub("^#'\\s+[|]([a-z0-9_]+)\\s.*", "\\1", rows), "col_name")
+  expect_gt(length(documented), 40L)
+  expect_identical(names(x), documented)
   expect_true(all(is.na(x$position_group)))
   expect_true(all(is.na(x$college_name)))
 })

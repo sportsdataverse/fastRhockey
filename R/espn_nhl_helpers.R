@@ -30,6 +30,25 @@
   paste0("espn_", if (is.na(p)) league[1] else p, "_", suffix)
 }
 
+#' The name of the function that called the calling helper (past any other
+#' `.espn_hockey_*()` helper), for a helper shared by exports with different
+#' names (`.espn_hockey_items()`); `fallback` when that caller has no plain
+#' name (a `do.call()` of a function object). Call it directly in the helper's
+#' body, not inside a promise.
+#' @noRd
+.espn_caller <- function(fallback) {
+  k <- 2L
+  while (sys.nframe() > k) {
+    f <- sys.call(-k)[[1L]]
+    if (is.call(f) && as.character(f[[1L]])[1] %in% c("::", ":::")) f <- f[[3L]]
+    if (!is.name(f)) return(fallback)
+    nm <- as.character(f)
+    if (!startsWith(nm, ".espn_hockey_")) return(nm)
+    k <- k + 1L
+  }
+  fallback
+}
+
 #' Abort unless `id` is a single, non-missing, non-empty id.
 #'
 #' `x$id[1]` of an empty listing is `NULL`; pasted into a path it requests the
