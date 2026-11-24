@@ -8,38 +8,34 @@ NEWS.md.
 
 ## Test environments
 
-All results below are for the package at commit 31b80d376. The later
-commits change only this file, which is build-ignored, so the tarball is the
-same.
+All results below are for the package at commit f5a8543a4 unless they name
+another commit. Later commits change only this file, which is build-ignored,
+so the tarball is the same.
 
 * Local Windows 10 x64, R 4.6.0 (ucrt): `R CMD check --as-cran --timings
   --run-donttest` on the tarball built from a clean `git archive` export
   (2026-11-24, an empty user .Renviron, NOT_CRAN unset): `Status: OK`.
-* Local Windows 10 x64, R 4.6.1 (ucrt), same tarball and options
-  (2026-11-24): 1 NOTE, from the check environment rather than the package
+* Local Windows 10 x64, R 4.6.1 (ucrt), same options, at 31b80d376 (after
+  it, the only R code change rejects a missing `franchise_id`; the rest is
+  help text): 1 NOTE, from the check environment rather than the package
   (see below).
 * win-builder (devel and release): not yet run (win-builder unreachable
   2026-11-24); to be run before submission.
-* R-hub v2, R-devel, at 31b80d376
-  (https://github.com/sportsdataverse/fastRhockey/actions/runs/45429874836):
-  `Status: OK` on linux, windows and macos. The macos-arm64 job never ran
-  (GitHub found no runner for it and cancelled it).
-* GitHub Actions R-CMD-check (R release on macOS, Windows and Ubuntu,
-  R-devel and oldrel-1 on Ubuntu): runs on the release pull request; results
-  pending at the time of writing. The last completed run, on df436f80d (the
-  commit this release-prep branch starts from; the branch changes help text,
-  NEWS, the citation and build metadata, no R code), passed on all five.
+* R-hub v2, R-devel
+  (https://github.com/sportsdataverse/fastRhockey/actions/runs/45455257204):
+  `Status: OK` on linux, windows, macos and macos-arm64.
+* GitHub Actions R-CMD-check on the release pull request (R release on
+  macOS, Windows and Ubuntu, R-devel and oldrel-1 on Ubuntu): all five
+  jobs passed at f5a8543a4.
 
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes (R 4.6.0)
 
-`Status: OK`. The incoming feasibility check, the tests (479 pass, 1306 skip,
-0 fail), the examples and the PDF and HTML manuals are OK. On R 4.6.0 the
-incoming check printed a transient warning while downloading CRAN's
-`packages.rds` and then passed; on the R 4.6.1 run it passed without one.
+`Status: OK`. The incoming feasibility check, the tests (527 pass, 1306 skip,
+0 fail), the examples and the PDF and HTML manuals are OK.
 
-The R 4.6.1 run gave one NOTE:
+The R 4.6.1 run (at 31b80d376) gave one NOTE:
 
 ```
 * checking for non-standard things in the check directory ... NOTE
@@ -76,13 +72,14 @@ There is one INFO:
   size).
 
 * No example ran over 5 s. With `--run-donttest` on R 4.6.0 the slowest was
-  `ha_skater_stats()` (1.85 s CPU, 3.89 s elapsed); the longest elapsed was
-  `elh_game_ids()` (0.75 s CPU, 4.41 s elapsed).
+  `ha_skater_stats()` (1.82 s CPU, 2.61 s elapsed); the longest elapsed was
+  `khl_schedule()` (0.70 s CPU, 4.00 s elapsed).
 
-* Offline: the same tarball checked on R 4.6.0 with `--run-donttest
+* Offline: the tarball of 31b80d376 checked on R 4.6.0 with `--run-donttest
   --no-tests --no-manual` and the network blocked by a dead proxy
   (2026-11-24) gave `Status: OK`; every example that needs the network fails
-  inside its `try()`.
+  inside its `try()`. The only later R change rejects a missing
+  `franchise_id` before any request.
 
 ## Examples
 
@@ -114,13 +111,15 @@ There is one INFO:
 * Three more examples keep a `--run-donttest` call and put only their slow
   calls behind `@examplesIf interactive()`: the parsed calls of
   `nhl_game_feed()` and `nhl_game_pbp()` (the first parsed game downloads
-  about 3 MB of xG models to the user cache; the `raw = TRUE` calls still
-  run), and the playoff and data-index calls of `nhl_schedule()`.
+  about 3 MB of xG models to the user cache, or to `tempdir()` under
+  R CMD check; the `raw = TRUE` calls still run), and the playoff and
+  data-index calls of `nhl_schedule()`.
 * Three examples are in `\dontrun{}` because they cannot run unattended:
   `update_pwhl_db()` writes to a database, `refresh_xg_models()` downloads
-  model files to the user cache, and `helper_nhl_calculate_xg()` needs those
-  downloaded xgboost models. `update_nhl_db()`, which downloads every season
-  and writes it to a database, has no example.
+  model files to the user cache, and `helper_nhl_calculate_xg()` needs the
+  xgboost package and a play-by-play frame from a network call, and
+  downloads the models on first use. `update_nhl_db()`, which downloads
+  every season and writes it to a database, has no example.
 
 ## xG model files
 
