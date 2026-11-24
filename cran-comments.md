@@ -20,9 +20,10 @@ same.
   (see below).
 * win-builder (devel and release): not yet run (win-builder unreachable
   2026-11-24); to be run before submission.
-* R-hub v2 (linux, windows, macos, macos-arm64): dispatched 2026-11-24 at
-  31b80d376 (https://github.com/sportsdataverse/fastRhockey/actions/runs/45429874836),
-  results pending.
+* R-hub v2, R-devel, at 31b80d376
+  (https://github.com/sportsdataverse/fastRhockey/actions/runs/45429874836):
+  `Status: OK` on linux, windows and macos. The macos-arm64 job never ran
+  (GitHub found no runner for it and cancelled it).
 * GitHub Actions R-CMD-check (R release on macOS, Windows and Ubuntu,
   R-devel and oldrel-1 on Ubuntu): runs on the release pull request; results
   pending at the time of writing. The last completed run, on df436f80d (the
