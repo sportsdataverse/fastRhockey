@@ -316,7 +316,7 @@ Please cite the model as part of `fastRhockey`:
 ```bibtex
 @misc{howell_gilani_fastRhockey,
   author = {Ben Howell and Saiem Gilani},
-  title = {fastRhockey: Functions to Access Professional Women's Hockey League and National Hockey League Play by Play Data.},
+  title = {fastRhockey: Access Hockey Play-by-Play Data and Statistics},
   url = {https://fastRhockey.sportsdataverse.org/},
   doi = {10.32614/CRAN.package.fastRhockey},
   year = {2026}

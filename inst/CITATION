@@ -1,6 +1,6 @@
 bibentry(
   bibtype  = "Manual",
-  title    = "fastRhockey: Functions to Access Hockey Play by Play Data and Statistics",
+  title    = "fastRhockey: Access Hockey Play-by-Play Data and Statistics",
   author   = c(
     person("Ben", "Howell"),
     person("Saiem", "Gilani", comment = c(ORCID = "0000-0002-7194-9067"))
