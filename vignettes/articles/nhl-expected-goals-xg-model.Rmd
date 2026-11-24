@@ -29,9 +29,9 @@ This article explains the model behind the `xg` column in `fastRhockey`'s NHL pl
 
 The PWHL has its own, different model. See the [PWHL expected goals article](pwhl-expected-goals-xg-model.html).
 
-<div class="alert alert-warning" role="alert">
+<div class="alert alert-info" role="alert">
 
-**Known coordinate issue (fix pending).** NHL `x_fixed` / `y_fixed` are meant to put the home team shooting right. The code that builds them (`.fix_coordinates()` in `R/nhl_game_feed.R`) reads the NHL API's `homeTeamDefendingSide` but gives the same answer for both sides: every home-team event gets `x_fixed = abs(x)` and every away-team event `x_fixed = -abs(x)`. Shots from the attacking zone come out right, but **any event a team makes in its own half (a hit, giveaway, blocked shot or long shot) is mirrored into its attacking half.** That affects `shot_distance` and `shot_angle` for shots from beyond centre ice, and the xG features built from the previous event's location (`last_x`, `last_y`, `distance_from_last`, rush and cross-ice flags). A fix is pending. The [section on this issue](#the-coordinate-issue-in-detail) shows the effect in the data.
+**Changed in fastRhockey 1.1.0.** NHL `x_fixed` / `y_fixed` now rotate the rink by the NHL API's `homeTeamDefendingSide`, so the home team always shoots right. Before 1.1.0 every home-team event got `x_fixed = abs(x)` and every away-team event `-abs(x)`, which mirrored any play from a team's own half into its attacking half. That changes `shot_distance`, `shot_angle` and the previous-event features, and so xG, for NHL play-by-play. The models were retrained on 2026-11-13 on a corpus built with the same rotation. The [coordinates section](#how-are-the-coordinates-set) shows the result in the data.
 
 </div>
 
@@ -42,15 +42,14 @@ There are two ways to get NHL xG from `fastRhockey`. They use the same model fil
 | | Published `xg` column | Computed locally |
 |---|---|---|
 | **How you get it** | `load_nhl_pbp()`, `load_nhl_pbp_full()` | `nhl_game_pbp()` / `nhl_game_feed()`, or `helper_nhl_calculate_xg()` on your own frame |
-| **Model** | The committed 2026-04 boosters | The same boosters, downloaded on first use, pinned by sha256 and cached |
-| **Needs `xgboost`?** | No | Yes. Without it `nhl_game_pbp()` returns `xg = NA` with a message, and `helper_nhl_calculate_xg()` stops with an error. |
-| **Precision** | Rounded to 4 decimal places | Full precision |
-| **When it changes** | When a season file is rebuilt | When you call `refresh_xg_models()` after a retrain |
+| **Model** | The boosters in the `nhl_xg_models` release (retrained 2026-11-13) | The same boosters, downloaded on first use, checked against the sha256s in the release manifest (`xg_model_meta.json`) and cached |
+| **Needs `xgboost`?** | No | Yes. Without it `nhl_game_pbp()` and `helper_nhl_calculate_xg()` warn (class `fastRhockey_no_xgboost`) and return `xg = NA`. |
+| **When it changes** | When a season file is rescored after a retrain | On the first xG call of a session after a retrain: the cached files no longer match the release manifest, so they are replaced. `refresh_xg_models()` forces a fresh download. |
 
 Two practical notes on `helper_nhl_calculate_xg()`:
 
-- **Call it one game at a time.** It joins predictions back to the play-by-play by `event_id`, which is only unique within a game. Run on several games at once, the join multiplies rows. `nhl_game_pbp()` already works per game; for a multi-game frame, split by `game_id` first (see [reproducing the published values](#do-the-published-values-match-a-local-run)).
-- The model files live in `tools::R_user_dir("fastRhockey", "cache")`. `refresh_xg_models()` deletes them and downloads the current versions.
+- **A frame may hold several games.** Predictions are joined back by `game_id` and `event_id`, so the rows and their order are kept, and an existing `xg` column is replaced.
+- The model files live in `tools::R_user_dir("fastRhockey", "cache")`. Each session re-reads the small release manifest; files that still match it are not downloaded again. Offline, the last manifest seen and its cached files are used. `refresh_xg_models()` deletes the files and downloads the current versions.
 
 ## What does the model predict?
 
@@ -136,18 +135,16 @@ Distance dominates, as in every public xG model. Empty net ranks high because it
 
 As reported in the [model card](https://github.com/sportsdataverse/fastRhockey-nhl-data/blob/main/docs/models/nhl_xg.md) and its model registry:
 
-- **Data:** the NHL play-by-play corpus of the [fastRhockey-nhl-data](https://github.com/sportsdataverse/fastRhockey-nhl-data) repository, grouped into the five era buckets above. The registry lists the training seasons as 2011 to 2026.
+- **Data:** the NHL play-by-play corpus of the [fastRhockey-nhl-data](https://github.com/sportsdataverse/fastRhockey-nhl-data) repository, 18 seasons from 2009-10 to 2026-27 (2026-27 in progress at training time), grouped into the five era buckets above (2009-10 is the reference era). The corpus was rebuilt with the 1.1.0 rink rotation before the fit. The 5v5 model is fit on 5v5 shots only; the special-teams model on every other strength state.
 - **Split:** an 80/20 train/holdout split grouped by `game_id` (no game appears on both sides), seed 37, with grouped 5-fold cross-validation on the training side.
 - **Algorithm:** XGBoost, binary log-loss.
-- **Committed fit:** the boosters in use are the 2026-04 fit.
-- **Training-time metrics (cross-validation):** 5v5 CV AUC **0.8322** and CV log-loss **0.2053**; special teams CV AUC **0.8213** and CV log-loss **0.2567**.
-- **Re-scored held-out games:** when the card re-scores the committed boosters on a replay of the seed-37 holdout from today's corpus, it reports AUC **0.7783** (5v5, log-loss 0.2189 against a 0.2488 constant baseline) and **0.7605** (special teams, log-loss 0.2999 against 0.3293). The card labels this a *near*-holdout, because some of those games were in the boosters' training data.
-
-The card itself notes that the CV figures could not be reproduced from the current corpus and that a retrain is pending. Treat the near-holdout AUC of about 0.76 to 0.78 as the more realistic figure.
+- **Fit in use:** retrained on 2026-11-13 (release manifest `version` 2026-11-13).
+- **Cross-validation:** 5v5 CV AUC **0.782** and CV log-loss **0.1906**; special teams CV AUC **0.7574** and CV log-loss **0.2806**.
+- **Held-out games:** on the 20% of games kept out of training, AUC **0.7819** (5v5, log-loss 0.1908 against a 0.2213 constant baseline) and **0.7607** (special teams, log-loss 0.2772 against 0.3272). Per season on those games, goals divided by summed xG stays between about 0.93 and 1.03 at 5v5.
 
 ## How well does it do on 2025-26?
 
-Below, the published `xg` column is scored against the 2025-26 regular season. The registry's training window runs through 2026, so the 2026-04 fit may have seen part of this season. Read this as a sanity check, not a clean holdout.
+Below, the published `xg` column is scored against the 2025-26 regular season. That season is in the training corpus (about 80% of its games were in the training split), so read this as a sanity check, not a holdout.
 
 ```{r load_pbp}
 pbp <- load_nhl_pbp(seasons = 2026)
@@ -185,7 +182,7 @@ eval_tbl <- shots %>%
 eval_tbl
 ```
 
-On this season the 5v5 model ranks shots with an AUC of `r eval_tbl$rank_auc[eval_tbl$model == "5v5"]` and beats a constant-rate baseline on log-loss. Its level is off: goals divided by xG is `r eval_tbl$goals_per_xg[eval_tbl$model == "5v5"]` at 5v5 and `r eval_tbl$goals_per_xg[eval_tbl$model == "special teams"]` on special teams, so summed xG runs higher than actual goals this season.
+On this season the 5v5 model ranks shots with an AUC of `r eval_tbl$rank_auc[eval_tbl$model == "5v5"]` and beats a constant-rate baseline on log-loss. Goals divided by xG is `r eval_tbl$goals_per_xg[eval_tbl$model == "5v5"]` at 5v5 and `r eval_tbl$goals_per_xg[eval_tbl$model == "special teams"]` on special teams; a value of 1 means summed xG matches actual goals.
 
 ### Is it calibrated?
 
@@ -254,11 +251,11 @@ local_xg %>%
   )
 ```
 
-The largest difference is the rounding of the published column to four decimals, so the published `xg` is exactly what the package computes with the current model files.
+A `max_abs_diff` of 0 means the published `xg` is exactly what the package computes with the current model files. A larger value means the season file was scored with a different set of models from the one in your cache.
 
-## The coordinate issue in detail
+## How are the coordinates set?
 
-If `x_fixed` really put the home team shooting right, about half of each team's defensive plays (hits, blocked shots, giveaways) would sit in its own half. Instead every home event lands at `x_fixed >= 0` and every away event at `x_fixed <= 0`, while the raw `x` splits roughly evenly.
+`x_fixed` puts the home team shooting right. Shots should then sit almost entirely at the attacked end (`x_fixed > 0` for the home team, `< 0` for the away team), while hits and giveaways, which happen all over the ice, split roughly evenly. A blocked shot's event team is the blocker, so it sits at the blocker's own end.
 
 ```{r coord_issue}
 pbp %>%
@@ -275,21 +272,14 @@ pbp %>%
   )
 ```
 
-What that means for xG:
-
-- **Shots from the attacking zone**, the large majority, get correct distances and angles.
-- **Shots from a team's own half** are mirrored and look much closer than they were.
-- **Previous-event features are distorted** whenever the previous event happened in the shooting team's own half. Because `x_fixed` is never negative for the home team, the defensive-zone branch of the feature builder's `event_zone` never fires; the rush flag then depends only on the neutral zone.
-
-Until the fix lands, compute your own coordinates from `x`, `y` and the period if you need correct locations for non-shot events.
+Plays for which the feed gives no side use the period's side, then where each team's shots cluster. `shot_distance` and `shot_angle` for a `BLOCKED_SHOT` are measured to the shooter's target net.
 
 ## Where are the estimates weakest?
 
-- **Level drift across seasons.** The model card reports that the committed boosters, scored on its own corpus, over-predict goals by roughly 25 to 30% on seasons up to 2023-24, while 2024-25 and 2025-26 are closer to calibrated, and traces this to the training corpus. A retrain is pending. Compare xG within a season rather than across seasons, and check `goals / sum(xg)` before treating xG totals as goal-scale.
-- **Coordinates**, as above.
+- **Season-level drift.** The era indicators absorb most rule and tracking changes, and per-season calibration on held-out games stays within about 7% at 5v5, but a new season can drift before the next retrain (an annual July run in fastRhockey-nhl-data). Check `goals / sum(xg)` before treating xG totals as goal-scale.
 - **No pre-shot passing data.** Public NHL feeds do not record passes or screens, so one-timers and royal-road passes are under-rated by construction.
 - **Rink and scorer effects.** Shot locations are recorded by arena scorers. No rink adjustment is applied.
-- **Small special-teams samples.** The special-teams model has about a fifth of the 5v5 data, so treat it as noisier.
+- **Small special-teams samples.** The special-teams model has a little over a quarter of the 5v5 training shots, so treat it as noisier.
 
 ## How do I reproduce this?
 
@@ -303,13 +293,10 @@ pbp <- load_nhl_pbp(seasons = 2026)
 # live play-by-play for one game, with xG computed locally
 game <- nhl_game_pbp(game_id = 2025020001)
 
-# your own frame, one game at a time
-pbp_xg <- pbp %>%
-  dplyr::group_split(game_id) %>%
-  lapply(helper_nhl_calculate_xg) %>%
-  dplyr::bind_rows()
+# your own frame (one or many games)
+pbp_xg <- helper_nhl_calculate_xg(pbp)
 
-# after a model retrain, refresh the cached model files
+# force a fresh download of the cached model files
 refresh_xg_models()
 ```
 
