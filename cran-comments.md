@@ -77,11 +77,10 @@ There is one INFO:
   `ha_skater_stats()` (1.85 s CPU, 3.89 s elapsed); the longest elapsed was
   `elh_game_ids()` (0.75 s CPU, 4.41 s elapsed).
 
-* Offline: on 2026-11-09 (commit db891864) the tarball checked with
-  `--run-donttest --no-tests --no-manual` and the network blocked by a dead
-  proxy raised no error; every example that needs the network fails inside
-  its `try()`. The same run on 31b80d376 was still in progress (requests to
-  the dead proxy wait out their retries) when this file was written.
+* Offline: the same tarball checked on R 4.6.0 with `--run-donttest
+  --no-tests --no-manual` and the network blocked by a dead proxy
+  (2026-11-24) gave `Status: OK`; every example that needs the network fails
+  inside its `try()`.
 
 ## Examples
 
