@@ -65,8 +65,24 @@ Responses go through `janitor::clean_names()`.
   `expr`, and have every `error =` handler name the cause
   (`{conditionMessage(e)}` or `.report_api_error()`);
   `test-handler_causes.R` mocks `httr2::req_perform()` to fail and checks
-  that every such function reports it without the error escaping.
-  `withCallingHandlers()` collectors that muffle and carry on stay.
+  that every such function reports it without the error escaping, counting
+  only the function's own report (the innermost handler-bearing function on
+  the stack), not a callee's. `withCallingHandlers()` collectors that muffle
+  and carry on stay.
+- **Building on another wrapper** (`nhl_conferences()` reads `nhl_standings()`):
+  wrap the call in `.fastRhockey_lookup(<call>, "<what>")` (`utils.R`). The
+  inner wrapper reports a failure and returns empty; the lookup holds its
+  messages and, on an empty result, raises them, so the outer handler reports
+  the cause instead of "no data" (`allow_empty = TRUE` where an empty result
+  is valid and nothing was reported).
+- **Status before parse:** `.retry_request()` never errors on a status, so a
+  helper that parses the body itself calls `check_status()` or
+  `.fastRhockey_stop_for_http_status()` (`utils.R`; classed
+  `fastRhockey_http_error`, status and host in the message) first.
+- **ESPN ids:** a helper that pastes an id argument into a URL calls
+  `.espn_check_id(<id>)` inside its `expr` before the request (a NULL id
+  otherwise requests the collection endpoint); `test-espn_id_guards.R` sets
+  each required id to `NULL` and fails on any request.
 
 | Family | Prefix(es) | Source | Files |
 |---|---|---|---|
@@ -88,8 +104,8 @@ Responses go through `janitor::clean_names()`.
   (500); valid goalie attrs are `savePctg`, `gaa`, `shutouts` only.
 - **NHL Records** does not support path-suffix filtering (`franchise/{id}` →
   404) — filter with `cayenneExp`. Tabular shape is `{data:[...], total:N}`.
-- **HockeyTech** returns JSONP (Angular callback) that is regex-stripped before
-  parse. The 5-league registry (keys, league/site ids, pbp style) lives in
+- **HockeyTech** returns JSONP (Angular callback) that `.hockeytech_api()` strips (after
+  a status check) before parse. The 5-league registry (keys, league/site ids, pbp style) lives in
   `hockeytech_leagues.R`; `SDV_<LEAGUE>_API_KEY` env var overrides the key.
 - **PWHL/HockeyTech analytics**: `*_game_shifts/_player_toi/_game_corsi`.
   Corsi/Fenwick are proxies — the feed has no missed-shot event.
