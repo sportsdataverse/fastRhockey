@@ -64,7 +64,7 @@ test_that("check_status passes on 200 and errors on non-200 (httr2)", {
   ok  <- httr2::response(status_code = 200, body = charToRaw("{}"))
   bad <- httr2::response(status_code = 404, body = charToRaw("{}"))
   expect_silent(check_status(ok))
-  expect_error(check_status(bad), "API returned an error")
+  expect_error(check_status(bad), "HTTP 404", class = "fastRhockey_no_data")
 })
 
 # ---------------------------------------------------------------------------

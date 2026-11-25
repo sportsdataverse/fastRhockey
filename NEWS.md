@@ -350,6 +350,11 @@ Code that upgrades from 1.0.0 may need to change.
   message naming the argument, before any request. They used to ask for the
   collection endpoint instead (`events/` for `events/{id}`) and parse whatever
   came back.
+* The NHL, NHL Stats / Records, ESPN and Fox functions that answered a
+  non-2xx reply with "The API returned an error" now report the status and
+  the URL (without its query string), e.g. "HTTP 404 Not Found from
+  https://api-web.nhle.com/v1/roster/TOR/20242025". The error is a
+  `fastRhockey_http_error`. Any 2xx status is accepted, not only 200.
 * A HockeyTech reply (every PWHL and AHL / OHL / WHL / QMJHL function) with a
   non-2xx status raises a `fastRhockey_http_error` naming the status and
   host, which the function reports, instead of being parsed as data. A 404

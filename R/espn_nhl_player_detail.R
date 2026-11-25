@@ -38,7 +38,7 @@
       url  <- .espn_hockey_url("site_v2", path, league)
       resp <- .retry_request(url, ...)
 
-      # Handle 404 gracefully before check_status() throws generically
+      # Handle 404 gracefully before check_status() raises it
       if (httr2::resp_status(resp) == 404L) {
         warning_msg <- "ESPN site_v2 athlete bio (athletes/[id]/bio) returns HTTP 404 for NHL; use espn_nhl_player_core() instead."
         cli::cli_alert_warning(warning_msg)
@@ -307,7 +307,7 @@ espn_nhl_player_news <- function(athlete_id, limit = 50, ...) {
       url  <- .espn_hockey_url("site_v2", path, league)
       resp <- .retry_request(url, ...)
 
-      # Handle 404 gracefully before check_status() throws generically
+      # Handle 404 gracefully before check_status() raises it
       if (httr2::resp_status(resp) == 404L) {
         warning_msg <- "ESPN site_v2 athlete info (athletes/[id]) returns HTTP 404 for NHL; use espn_nhl_player_core() instead."
         cli::cli_alert_warning(warning_msg)
@@ -601,7 +601,7 @@ espn_nhl_player_career_stats <- function(athlete_id, stat_type = NULL, ...) {
       url  <- .espn_hockey_url("web_v3", path, league)
       resp_gl <- .retry_request(url, params = query, ...)
 
-      # Handle 404 gracefully before check_status() throws generically
+      # Handle 404 gracefully before check_status() raises it
       if (httr2::resp_status(resp_gl) == 404L) {
         warning_msg <- paste0("ESPN web-v3 gamelog returned HTTP 404 for NHL athlete ",
                               athlete_id, "; use espn_nhl_player_statisticslog() instead.")
