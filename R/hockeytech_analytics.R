@@ -803,8 +803,10 @@ hockeytech_enrich_pbp <- function(df, league, game_id,
   # Step 1: fetch meta if not provided
   # ------------------------------------------------------------------
   if (is.null(meta_payload)) {
-    meta_payload <- .hockeytech_api(
-      .hockeytech_url(league, "gc", "gamesummary", list(game_id = game_id))
+    # a 404 only means no summary: those columns stay NA, the pbp is kept
+    meta_payload <- tryCatch(
+      .hockeytech_api(.hockeytech_url(league, "gc", "gamesummary", list(game_id = game_id))),
+      fastRhockey_no_data = function(e) list()
     )
   }
 
@@ -881,8 +883,9 @@ hockeytech_enrich_pbp <- function(df, league, game_id,
   # Step 7: on-ice player tracking via shifts
   # ------------------------------------------------------------------
   if (is.null(shifts_payload)) {
-    shifts_payload <- .hockeytech_api(
-      .hockeytech_url(league, "modulekit", "gameshifts", list(game_id = game_id))
+    shifts_payload <- tryCatch(
+      .hockeytech_api(.hockeytech_url(league, "modulekit", "gameshifts", list(game_id = game_id))),
+      fastRhockey_no_data = function(e) list()
     )
   }
 

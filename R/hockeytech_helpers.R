@@ -34,7 +34,10 @@
 #' Fetch a HockeyTech URL and strip the JSONP callback wrapper.
 #'
 #' Strips a leading `angular.callbacks._N(` (or any valid JS identifier
-#' followed by `(`) and a trailing `)`, then parses the remaining JSON.
+#' followed by `(`) and a trailing `)`, then parses the remaining JSON. A
+#' non-2xx reply raises a `fastRhockey_http_error` instead of being parsed.
+#' This is the one place HockeyTech JSONP is stripped; wrappers call it (or
+#' `.pwhl_api()`) rather than matching the callback tail themselves.
 #'
 #' @param url Full URL string including callback parameter.
 #' @return Parsed JSON as an R list.
@@ -42,6 +45,7 @@
 #' @keywords internal
 .hockeytech_api <- function(url) {
   res <- .retry_request(url)
+  .fastRhockey_stop_for_http_status(res)
   res <- .resp_text(res)
   res <- sub("^[A-Za-z_$][A-Za-z0-9_.$]*\\(", "", res)
   res <- sub("\\)\\s*$", "", res)
