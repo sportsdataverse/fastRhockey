@@ -52,15 +52,20 @@ League slug \code{mens-college-hockey}; \code{season} is the END year (\code{202
     sb   <- espn_mch_scoreboard(dates = "20250110")
     eid  <- sb$game_id[1]
     offs <- espn_mch_game_officials(event_id = eid)
-    espn_mch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
+    # ESPN often lists no officials for a college game; skip the detail call then
+    if (nrow(offs) > 0) {
+      espn_mch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
+    }
   })
 }
 \donttest{
   try({
-    sb   <- espn_wch_scoreboard(dates = "20250110")
+    sb   <- espn_wch_scoreboard(dates = "20260110")
     eid  <- sb$game_id[1]
     offs <- espn_wch_game_officials(event_id = eid)
-    espn_wch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
+    if (nrow(offs) > 0) {
+      espn_wch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
+    }
   })
 }
 }

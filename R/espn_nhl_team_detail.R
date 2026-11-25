@@ -33,7 +33,7 @@
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "team"), {
       path <- paste0("teams/", team_id)
       raw  <- .espn_hockey_request("site_v2", path,
                                    league = league,
@@ -90,15 +90,10 @@
           paste0(toupper(league), " Team data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} team data for team_id={team_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} team detail",
         args = .args)
     },
     finally = {}
@@ -164,7 +159,7 @@ espn_nhl_team <- function(team_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "team_record"), {
       path <- paste0("teams/", team_id, "/record")
       raw  <- .espn_hockey_request("site_v2", path,
                                    league = league,
@@ -214,15 +209,10 @@ espn_nhl_team <- function(team_id, ...) {
           paste0(toupper(league), " Team Record data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} team record data for team_id={team_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} team record",
         args = .args)
     },
     finally = {}
@@ -270,7 +260,7 @@ espn_nhl_team_record <- function(team_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "team_depthcharts"), {
       path <- paste0("teams/", team_id, "/depthcharts")
       raw  <- .espn_hockey_request("site_v2", path,
                                    league = league,
@@ -311,15 +301,10 @@ espn_nhl_team_record <- function(team_id, ...) {
           paste0(toupper(league), " Team Depth Charts data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} team depthcharts data for team_id={team_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} team depthcharts",
         args = .args)
     },
     finally = {}
@@ -385,7 +370,7 @@ espn_nhl_team_depthcharts <- function(team_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "team_injuries"), {
       path <- paste0("teams/", team_id, "/injuries")
       raw  <- .espn_hockey_request("site_v2", path,
                                    league = league,
@@ -423,15 +408,10 @@ espn_nhl_team_depthcharts <- function(team_id, ...) {
           paste0(toupper(league), " Team Injuries data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} team injuries data for team_id={team_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} team injuries",
         args = .args)
     },
     finally = {}
@@ -482,7 +462,7 @@ espn_nhl_team_injuries <- function(team_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "team_transactions"), {
       path <- paste0("teams/", team_id, "/transactions")
       raw  <- .espn_hockey_request("site_v2", path,
                                    league = league,
@@ -515,15 +495,10 @@ espn_nhl_team_injuries <- function(team_id, ...) {
           paste0(toupper(league), " Team Transactions data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} team transactions data for team_id={team_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} team transactions",
         args = .args)
     },
     finally = {}
@@ -572,7 +547,7 @@ espn_nhl_team_transactions <- function(team_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "team_history"), {
       path <- paste0("teams/", team_id, "/history")
       raw  <- .espn_hockey_request("site_v2", path,
                                    league = league,
@@ -609,15 +584,10 @@ espn_nhl_team_transactions <- function(team_id, ...) {
           paste0(toupper(league), " Team History data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} team history data for team_id={team_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} team history",
         args = .args)
     },
     finally = {}
@@ -667,7 +637,7 @@ espn_nhl_team_history <- function(team_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "team_news"), {
       path  <- paste0("teams/", team_id, "/news")
       query <- list(limit = limit)
       raw   <- .espn_hockey_request("site_v2", path,
@@ -706,15 +676,10 @@ espn_nhl_team_history <- function(team_id, ...) {
           paste0(toupper(league), " Team News data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} team news data for team_id={team_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} team news",
         args = .args)
     },
     finally = {}
@@ -765,7 +730,7 @@ espn_nhl_team_news <- function(team_id, limit = 50, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "team_leaders"), {
       path <- paste0("teams/", team_id, "/leaders")
       raw  <- .espn_hockey_request("site_v2", path,
                                    league = league,
@@ -810,15 +775,10 @@ espn_nhl_team_news <- function(team_id, limit = 50, ...) {
           paste0(toupper(league), " Team Leaders data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} team leaders data for team_id={team_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} team leaders",
         args = .args)
     },
     finally = {}
@@ -867,7 +827,7 @@ espn_nhl_team_leaders <- function(team_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "team_core"), {
       path <- paste0("teams/", team_id)
       raw  <- .espn_hockey_request("core_v2", path,
                                    league = league,
@@ -934,15 +894,10 @@ espn_nhl_team_leaders <- function(team_id, ...) {
           paste0(toupper(league), " Team Core data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} team core data for team_id={team_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} team core",
         args = .args)
     },
     finally = {}
@@ -1019,7 +974,7 @@ espn_nhl_team_core <- function(team_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "teams_core"), {
       raw <- .espn_hockey_request("core_v2", "teams",
                                   query  = list(limit = limit),
                                   league = league,
@@ -1042,15 +997,10 @@ espn_nhl_team_core <- function(team_id, ...) {
           paste0(toupper(league), " Teams Core data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} teams core data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} teams core",
         args = .args)
     },
     finally = {}

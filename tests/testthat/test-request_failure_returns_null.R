@@ -31,6 +31,6 @@ test_that("pwhl_standings() returns NULL when the response can't be parsed", {
     .pwhl_resolve_season_id = function(...) 5L,
     .hockeytech_api = function(...) list(list(sections = list(list(data = list(list(row = NULL))))))
   )
-  expect_message(res <- pwhl_standings(season = 2024), "no roster data")
+  expect_message(res <- pwhl_standings(season = 2024), "no standings data")
   expect_null(res)
 })

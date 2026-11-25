@@ -40,7 +40,7 @@
 #' }
 nhl_teams_info <- function(team_abbr) {
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("nhl_teams_info", {
       teams <- nhl_teams()
 
       if (is.null(teams) || nrow(teams) == 0) {
@@ -60,12 +60,10 @@ nhl_teams_info <- function(team_abbr) {
 
       team_df %>%
         make_fastRhockey_data("NHL Teams Information from NHL.com", Sys.time())
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team info data available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no team info data available! {conditionMessage(e)}"))
       return(NULL)
-    },
-    warning = function(w) {
     },
     finally = {
     }

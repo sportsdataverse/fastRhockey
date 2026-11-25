@@ -35,47 +35,49 @@
 
 pwhl_team_roster <- function(team, season, regular = TRUE) {
 
-  # team_id <- 1 # will need the team/season look ups
-  team_id <- fastRhockey::pwhl_teams() %>%
-    dplyr::filter(.data$team_label == team)
-  # season_id <- 2 # 1 is regular season, 2 is pre-season
-  if (regular) {
-    season_id <- 1
-  } else if (! regular) {
-    season_id <- 2
-  }
-  # base_url <- "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=roster&team_id=1&season_id=2&key=694cfeed58c932ee&client_code=pwhl&site_id=8&league_id=1&lang=en&callback=angular.callbacks._h"
-  full_url <- paste0(
-    "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=roster&team_id=",
-    team_id$team_id,
-    "&season_id=",
-    season_id,
-    "&key=694cfeed58c932ee&client_code=pwhl&site_id=8&league_id=1&lang=en&callback=angular.callbacks._h"
-  )
-
-  res <- .retry_request(full_url)
-  res <- .resp_text(res)
-
-  res <- gsub("angular.callbacks._h\\(", "", res)
-  res <- gsub("}}]}]}]})", "}}]}]}]}", res)
-
-  r <- res %>%
-    jsonlite::parse_json()
-
-  team_name <- r[[1]]
-  team_logo <- r[[2]]
-  roster_year <- r[[3]]
-  league <- r[[4]]
-
-  players <- r[[5]][[1]]$sections
-
   roster_data <- data.frame()
   staff_data <- data.frame()
 
   player_types <- c("Forwards", "Defenders", "Goalies")
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("pwhl_team_roster", {
+      # team_id <- 1 # will need the team/season look ups
+      team_id <- fastRhockey::pwhl_teams() %>%
+        dplyr::filter(.data$team_label == team)
+      if (nrow(team_id) == 0) {
+        stop(glue::glue("No PWHL team labelled '{team}' (see pwhl_teams()$team_label)."), call. = FALSE)
+      }
+      # season_id <- 2 # 1 is regular season, 2 is pre-season
+      if (regular) {
+        season_id <- 1
+      } else if (! regular) {
+        season_id <- 2
+      }
+      # base_url <- "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=roster&team_id=1&season_id=2&key=694cfeed58c932ee&client_code=pwhl&site_id=8&league_id=1&lang=en&callback=angular.callbacks._h"
+      full_url <- paste0(
+        "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=roster&team_id=",
+        team_id$team_id,
+        "&season_id=",
+        season_id,
+        "&key=694cfeed58c932ee&client_code=pwhl&site_id=8&league_id=1&lang=en&callback=angular.callbacks._h"
+      )
+
+      res <- .retry_request(full_url)
+      res <- .resp_text(res)
+
+      res <- gsub("angular.callbacks._h\\(", "", res)
+      res <- gsub("}}]}]}]})", "}}]}]}]}", res)
+
+      r <- res %>%
+        jsonlite::parse_json()
+
+      team_name <- r[[1]]
+      team_logo <- r[[2]]
+      roster_year <- r[[3]]
+      league <- r[[4]]
+
+      players <- r[[5]][[1]]$sections
       for (i in seq_along(players)) {
 
         # i = 1
@@ -134,12 +136,10 @@ pwhl_team_roster <- function(team, season, regular = TRUE) {
         ) %>%
         dplyr::relocate("team_id", .after = "player_id") %>%
         dplyr::relocate("season", .after = "team_id")
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid season or no roster data available! Try a season from 2023 onwards!"))
+      message(glue::glue("{Sys.time()}: Invalid season or no roster data available! Try a season from 2023 onwards! {conditionMessage(e)}"))
 
-    },
-    warning = function(w) {
     },
     finally = {
     }

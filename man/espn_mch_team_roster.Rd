@@ -79,7 +79,7 @@ A \code{fastRhockey_data} tibble with one row per player:\tabular{lll}{
 \strong{Get ESPN MCH / WCH Team Roster}
 }
 \details{
-League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_team_roster()}; ESPN answered an empty collection for every captured MCH body (2026-10), so the columns below are the NHL helper's and unverified for this league.
+League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper and columns as \code{espn_nhl_team_roster()}. College rosters are flat (not grouped by position), so \code{position_group} is \code{NA}, and any field ESPN leaves out for a player is \code{NA}; parsed against a captured MCH roster (team 104, 2026-11-24).
 
 \code{espn_wch_team_roster()} is the same wrapper for women's college hockey
 (league slug \code{womens-college-hockey}): same arguments, same columns.

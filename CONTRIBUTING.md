@@ -77,18 +77,31 @@ are working in.
 
 ```r
 tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("func_name", {
         res <- .retry_request(url)
         check_status(res)
         raw <- jsonlite::fromJSON(.resp_text(res), flatten = TRUE)
         # ... parse and return
-    },
+    }),
     error = function(e) {
-        message(glue::glue("{Sys.time()}: Error in func_name: {e$message}"))
+        message(glue::glue("{Sys.time()}: Error in func_name: {conditionMessage(e)}"))
         return(NULL)
     }
 )
 ```
+
+Make every request inside `expr`, and give the `tryCatch` **no** `warning =`
+handler: one stops `expr` at the first warning and returns the empty or
+half-built result, even when it reports the warning. Wrap the body in
+`.fastRhockey_with_warnings("<function name>", { ... })` (`R/utils.R`)
+instead; it re-raises each warning as a classed `fastRhockey_warning` that
+names the function and lets the body finish. In a league-generic ESPN helper,
+name the exported wrapper with `.espn_fn(league, "<suffix>")`. Every `error =`
+handler must name the cause (`{conditionMessage(e)}`, or `.report_api_error()`,
+which prints it); `tests/testthat/test-handler_causes.R` makes every request
+fail offline and fails any function whose handler drops it or lets the error
+escape. A `withCallingHandlers()` collector that muffles and carries on (as in
+`.release_csv_from_url()`) is fine.
 
 **ESPN (NHL and men's/women's college), Fox Sports and AHL / OHL / WHL /
 QMJHL wrappers** report the error through `.report_api_error()` (or

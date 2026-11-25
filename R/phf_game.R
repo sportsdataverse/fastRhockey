@@ -36,7 +36,7 @@ phf_game_all <- function(game_id) {
 
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("phf_game_all", {
       data <- .resp_text(res) %>%
         jsonlite::fromJSON() %>%
         purrr::pluck("content") %>%
@@ -107,12 +107,10 @@ phf_game_all <- function(game_id) {
         "officials",
         "team_staff",
         "timeouts")
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid game_id or no game data available!"))
+      message(glue::glue("{Sys.time()}: Invalid game_id or no game data available! {conditionMessage(e)}"))
 
-    },
-    warning = function(w) {
     },
     finally = {
     }

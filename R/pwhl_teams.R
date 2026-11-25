@@ -26,20 +26,20 @@ pwhl_teams <- function() {
 
   full_url = "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=teamsForSeason&season=2&key=694cfeed58c932ee&client_code=pwhl&site_id=2&callback=angular.callbacks._4"
 
-  res <- .retry_request(full_url)
-  res <- .resp_text(res)
-
-  res <- gsub("angular.callbacks._4\\(", "", res)
-  res <- gsub("}]})", "}]}", res)
-
-  r <- res %>%
-    jsonlite::parse_json()
-
-  team_info <- r$teamsNoAll
   teams <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("pwhl_teams", {
+      res <- .retry_request(full_url)
+      res <- .resp_text(res)
+
+      res <- gsub("angular.callbacks._4\\(", "", res)
+      res <- gsub("}]})", "}]}", res)
+
+      r <- res %>%
+        jsonlite::parse_json()
+
+      team_info <- r$teamsNoAll
       for (i in 1:length(team_info)) {
 
         team_df <- data.frame(
@@ -76,12 +76,10 @@ pwhl_teams <- function() {
           )
 
       }
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid season or no schedule data available! Try a season from 2023 onwards!"))
+      message(glue::glue("{Sys.time()}: No PWHL team data available! {conditionMessage(e)}"))
 
-    },
-    warning = function(w) {
     },
     finally = {
     }

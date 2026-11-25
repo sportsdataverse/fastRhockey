@@ -36,7 +36,7 @@ nhl_divisions <- function(date = NULL) {
       return(divisions_df)
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no division data available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no division data available! {conditionMessage(e)}"))
       return(NULL)
     }
   )

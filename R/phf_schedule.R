@@ -30,7 +30,7 @@ phf_schedule <- function(season = NULL) {
 
   schedule_data <- data.frame()
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("phf_schedule", {
       data <- .resp_text(res) %>%
         jsonlite::parse_json() %>%
         purrr::pluck("content") %>%
@@ -52,11 +52,9 @@ phf_schedule <- function(season = NULL) {
           )
         ) %>%
         make_fastRhockey_data("PHF Schedule Information from PremierHockeyFederation.com", Sys.time())
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid season or no schedule data available! Try a season from 2016-2021!"))
-    },
-    warning = function(w) {
+      message(glue::glue("{Sys.time()}: Invalid season or no schedule data available! Try a season from 2016-2021! {conditionMessage(e)}"))
     },
     finally = {
     }

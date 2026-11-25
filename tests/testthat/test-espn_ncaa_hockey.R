@@ -98,7 +98,8 @@ test_that("every wrapper hits the sdv-py URL for its league", {
       req_py <- if (nzchar(routes$args[i])) sub("=.*", "", strsplit(routes$args[i], ";")[[1]]) else character()
       args <- DUMMY[union(req_r, intersect(req_py, names(formals(fn))))]
       seen <- mock_getter("{}")
-      suppressMessages(do.call(fn, args))
+      # the dummy ids are not numbers, so some wrappers warn on coercion
+      suppressWarnings(suppressMessages(do.call(fn, args)), classes = "fastRhockey_warning")
       expected <- sub("{slug}", prefix, routes$url[i], fixed = TRUE)
       got <- seen$urls[1]
       if (is.na(got) || !identical(got, expected)) {
@@ -342,7 +343,9 @@ test_that("LIVE: espn_mch_rankings / espn_wch_scoreboard answer", {
 # the captured mch/wch body it was verified against (fixtures/.../bodies/).
 # ---------------------------------------------------------------------------
 doc_table <- function(src, name) {
-  i <- grep(paste0("^#' @rdname ", name, "$"), src)
+  # espn_wch_*() shares its espn_mch_*() twin's help page and @return table
+  name <- sub("^espn_wch_", "espn_mch_", name)
+  i <- grep(paste0("^#' @rdname ", name, "$"), src)[1]
   j <- grep(paste0("^", name, " <- function"), src)
   rows <- regmatches(src[i:j], regexpr("^#'\\s+\\| [a-z0-9_]+ \\| [a-z]+ \\|", src[i:j]))
   rows <- rows[!grepl("| col_name |", rows, fixed = TRUE)]
@@ -363,13 +366,16 @@ test_that("verified @return tables match the columns on the captured bodies", {
   for (b in bodies) {
     lg <- sub("_.*", "", b)
     fn <- sub("^[mw]ch_(.*)\\.json$", "\\1", b)
-    if (fn %in% c("team_roster", "injuries", "transactions")) next  # empty in every capture
+    # empty in every capture (mch roster: unverified table; tested below)
+    if (fn %in% c("team_roster", "injuries", "transactions")) next
     path <- if (fn == "calendar") fx("bodies", paste0(lg, "_scoreboard.json")) else fx("bodies", b)
     mock_getter(read_fx(file.path("bodies", basename(path))))
     name <- paste0("espn_", lg, "_", fn)
     x <- suppressMessages(do.call(get(name, envir = asNamespace("fastRhockey")), args[[fn]] %||% list()))
     expect_gt(nrow(x), 0L, label = name)
     got <- vapply(x, function(col) class(col)[1], "")
+    # documented: the WCH standings body sends `ties` where the MCH one sends `tiegames`
+    if (name == "espn_wch_standings") names(got)[names(got) == "ties"] <- "tiegames"
     expect_identical(got, doc_table(src, name), label = name)
   }
   # sdv-py's committed mch/wch fixtures
@@ -408,4 +414,64 @@ test_that("team_schedule keeps played and unplayed games together", {
   expect_equal(nrow(x), 3L)
   expect_type(x$home_score, "character")
   expect_equal(sum(is.na(x$home_score)), 1L)
+})
+
+test_that("a missing event / official id is reported before any request", {
+  # `sb$game_id[1]` of an empty scoreboard (and `offs$official_id[1]` of an
+  # empty officials listing) is NULL. Pasted into the path it requested the
+  # parent collection and failed with "differing number of rows".
+  local_mocked_bindings(.espn_hockey_request = function(...) stop("no request expected"))
+  calls <- list(
+    event_id = function(id) espn_mch_game(event_id = id),
+    event_id = function(id) espn_wch_game(event_id = id),
+    official_id = function(id) espn_mch_game_official_detail(event_id = "401715296", official_id = id),
+    official_id = function(id) espn_wch_game_official_detail(event_id = "401814005", official_id = id),
+    event_id = function(id) espn_mch_game_official_detail(event_id = id, cid = "1", official_id = "1"),
+    team_id = function(id) espn_mch_team_roster(team_id = id)
+  )
+  for (id in list(NULL, character(0), NA_character_, "")) {
+    for (i in seq_along(calls)) {
+      msgs <- character()
+      x <- withCallingHandlers(
+        calls[[i]](id),
+        message = function(m) {
+          msgs <<- c(msgs, conditionMessage(m))
+          invokeRestart("muffleMessage")
+        }
+      )
+      expect_true(is.data.frame(x))
+      expect_equal(nrow(x), 0L)
+      expect_true(any(grepl(paste0("`", names(calls)[i], "` must be"), msgs, fixed = TRUE)))
+      expect_false(any(grepl("no request expected", msgs, fixed = TRUE)))
+    }
+  }
+})
+
+test_that("a flat college roster parses, with NA for the fields it leaves out", {
+  skip_on_cran()
+  # College rosters are not grouped by position, and every athlete carries
+  # `injuries: []`; that used to fail with "differing number of rows: 1, 0".
+  mock_getter(read_fx(file.path("bodies", "mch_team_roster.json")))
+  x <- espn_mch_team_roster(team_id = "104")
+  expect_s3_class(x, "fastRhockey_data")
+  expect_equal(nrow(x), 2L)
+  expect_identical(x$first_name, c("Tristan", "Kamil"))
+  expect_identical(x$position_name[1], "Forward")
+  expect_identical(x$team_id, c("104", "104"))
+  # the columns must exist, so a missing one cannot pass as an all-NA NULL
+  expect_true(all(c("position_group", "college_name", "first_name", "team_id") %in% names(x)))
+  # and every documented column, where the package source is at hand (not under
+  # R CMD check or covr, which test an installed copy)
+  src_file <- testthat::test_path("..", "..", "R", "espn_ncaa_hockey.R")
+  if (file.exists(src_file)) {
+    src <- readLines(src_file, warn = FALSE)
+    i <- grep("^#' @rdname espn_mch_team_roster$", src)[1]
+    j <- grep("^espn_mch_team_roster <- function", src)
+    rows <- grep("^#'\\s+[|][a-z0-9_]+\\s+[|]", src[i:j], value = TRUE)
+    documented <- setdiff(sub("^#'\\s+[|]([a-z0-9_]+)\\s.*", "\\1", rows), "col_name")
+    expect_gt(length(documented), 40L)
+    expect_identical(names(x), documented)
+  }
+  expect_true(all(is.na(x$position_group)))
+  expect_true(all(is.na(x$college_name)))
 })

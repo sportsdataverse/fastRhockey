@@ -33,7 +33,7 @@ phf_team_roster <- function(team, season = most_recent_phf_season()){
   check_status(res)
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("phf_team_roster", {
       resp_all <- .resp_text(res) %>%
         jsonlite::parse_json() %>%
         purrr::pluck("content") %>%
@@ -123,12 +123,10 @@ phf_team_roster <- function(team, season = most_recent_phf_season()){
       names(team_roster) <- c("roster", "team_staff")
 
 
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid season or no team roster data available!"))
+      message(glue::glue("{Sys.time()}: Invalid season or no team roster data available! {conditionMessage(e)}"))
 
-    },
-    warning = function(w) {
     },
     finally = {
     }

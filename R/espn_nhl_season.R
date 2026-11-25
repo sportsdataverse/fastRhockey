@@ -17,7 +17,7 @@
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "league_root"), {
       raw <- .espn_hockey_request("core_v2", path = "", league = league,
                                   simplifyVector = TRUE, ...)
 
@@ -52,15 +52,10 @@
           paste0(toupper(league), " League Root data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} league root data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} league root",
         args = .args)
     },
     finally = {}
@@ -120,7 +115,7 @@ espn_nhl_league_root <- function(...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "season_pointer"), {
       # path "season" returns the current season object directly
       raw <- .espn_hockey_request("core_v2", path = "season", league = league,
                                   simplifyVector = TRUE, ...)
@@ -146,15 +141,10 @@ espn_nhl_league_root <- function(...) {
           paste0(toupper(league), " Current Season Pointer data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} season pointer data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} season pointer",
         args = .args)
     },
     finally = {}
@@ -207,7 +197,7 @@ espn_nhl_season_pointer <- function(...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "seasons"), {
       raw <- .espn_hockey_request("core_v2", path = "seasons",
                                   query  = list(limit = limit),
                                   league = league,
@@ -229,15 +219,10 @@ espn_nhl_season_pointer <- function(...) {
           paste0(toupper(league), " Seasons List data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} seasons data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} seasons",
         args = .args)
     },
     finally = {}
@@ -288,7 +273,7 @@ espn_nhl_seasons <- function(limit = 100, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "season_info"), {
       path <- paste0("seasons/", season)
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -320,15 +305,10 @@ espn_nhl_seasons <- function(limit = 100, ...) {
           paste0(toupper(league), " Season Info data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} season info for {season} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} season info",
         args = .args)
     },
     finally = {}
@@ -389,7 +369,7 @@ espn_nhl_season_info <- function(season = most_recent_nhl_season(), ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "season_types"), {
       path <- paste0("seasons/", season, "/types")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -409,15 +389,10 @@ espn_nhl_season_info <- function(season = most_recent_nhl_season(), ...) {
           paste0(toupper(league), " Season Types data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} season types for {season} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} season types",
         args = .args)
     },
     finally = {}
@@ -470,7 +445,7 @@ espn_nhl_season_types <- function(season = most_recent_nhl_season(), ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "season_type"), {
       path <- paste0("seasons/", season, "/types/", season_type)
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -507,15 +482,10 @@ espn_nhl_season_types <- function(season = most_recent_nhl_season(), ...) {
           paste0(toupper(league), " Season Type data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} season type {season_type} for {season} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} season type",
         args = .args)
     },
     finally = {}
@@ -587,7 +557,7 @@ espn_nhl_season_type <- function(season = most_recent_nhl_season(),
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "season_groups"), {
       path <- paste0("seasons/", season, "/types/", season_type, "/groups")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -608,15 +578,10 @@ espn_nhl_season_type <- function(season = most_recent_nhl_season(),
           paste0(toupper(league), " Season Groups data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} season groups for {season} type {season_type} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} season groups",
         args = .args)
     },
     finally = {}
@@ -676,7 +641,7 @@ espn_nhl_season_groups <- function(season = most_recent_nhl_season(),
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "season_group"), {
       path <- paste0("seasons/", season, "/types/", season_type,
                      "/groups/", group_id)
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
@@ -711,15 +676,10 @@ espn_nhl_season_groups <- function(season = most_recent_nhl_season(),
           paste0(toupper(league), " Season Group data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} season group {group_id} for {season} type {season_type} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} season group",
         args = .args)
     },
     finally = {}
@@ -793,7 +753,7 @@ espn_nhl_season_group <- function(season = most_recent_nhl_season(),
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "season_group_teams"), {
       path <- paste0("seasons/", season, "/types/", season_type,
                      "/groups/", group_id, "/teams")
       raw  <- .espn_hockey_request("core_v2", path = path,
@@ -818,15 +778,10 @@ espn_nhl_season_group <- function(season = most_recent_nhl_season(),
           paste0(toupper(league), " Season Group Teams data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} season group teams for {season} type {season_type} group {group_id} available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} season group teams",
         args = .args)
     },
     finally = {}

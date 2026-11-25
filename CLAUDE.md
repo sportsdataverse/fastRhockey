@@ -56,6 +56,18 @@ raise classed conditions: `fastRhockey_no_data` (404 / nothing there),
 failure, including an exhausted 429), all inheriting `fastRhockey_error`.
 Responses go through `janitor::clean_names()`.
 
+- **No `warning =` handler on a wrapper's `tryCatch`.** It stops `expr` at the
+  first warning and returns the empty fallback, reported or not (150 sites
+  had one until 1.1.0). Write `expr = .fastRhockey_with_warnings("<fn>", { ... })`
+  (`utils.R`; `.espn_fn(league, "<suffix>")` names the export in ESPN
+  helpers): each warning is re-raised as a classed `fastRhockey_warning`
+  naming the function, and the body finishes. Make the requests inside
+  `expr`, and have every `error =` handler name the cause
+  (`{conditionMessage(e)}` or `.report_api_error()`);
+  `test-handler_causes.R` mocks `httr2::req_perform()` to fail and checks
+  that every such function reports it without the error escaping.
+  `withCallingHandlers()` collectors that muffle and carry on stay.
+
 | Family | Prefix(es) | Source | Files |
 |---|---|---|---|
 | NHL Web API | `nhl_*` | `api-web.nhle.com/v1/` | `nhl_*.R`, `helpers_nhl.R` |

@@ -65,7 +65,7 @@ pwhl_stats <- function(position = "goalie", team = "all", season = 2024, regular
   players <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("pwhl_stats", {
       if (position == "goalie") {
 
         URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=players&season={season_id}&team={team_param}&position=goalies&rookies=0&statsType=expanded&rosterstatus=undefined&site_id=2&first=0&limit=100&sort=gaa&league_id=1&lang=en&division=-1&qualified=all&key=694cfeed58c932ee&client_code=pwhl&league_id=1&callback=angular.callbacks._5")
@@ -145,11 +145,9 @@ pwhl_stats <- function(position = "goalie", team = "all", season = 2024, regular
 
         }
       }
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid season or no stats data available! Try a season from 2024 onwards!"))
-    },
-    warning = function(w) {
+      message(glue::glue("{Sys.time()}: Invalid season or no stats data available! Try a season from 2024 onwards! {conditionMessage(e)}"))
     },
     finally = {
     }

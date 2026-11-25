@@ -36,7 +36,7 @@ phf_standings <- function(season = most_recent_phf_season()) {
   standings <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("phf_standings", {
 
       data <- .resp_text(res) %>%
         jsonlite::fromJSON() %>%
@@ -57,12 +57,10 @@ phf_standings <- function(season = most_recent_phf_season()) {
       }
       standings <- standings %>%
         make_fastRhockey_data("PHF Standings Information from PremierHockeyFederation.com",Sys.time())
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid season or no standings data available!"))
+      message(glue::glue("{Sys.time()}: Invalid season or no standings data available! {conditionMessage(e)}"))
 
-    },
-    warning = function(w) {
     },
     finally = {
     }

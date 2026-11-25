@@ -82,7 +82,7 @@ nhl_draft_year <- function(year, round = NULL) {
       return(draft_df)
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no draft data for {year} available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no draft data for {year} available! {conditionMessage(e)}"))
       return(NULL)
     }
   )

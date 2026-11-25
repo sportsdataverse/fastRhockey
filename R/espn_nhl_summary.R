@@ -364,18 +364,13 @@
   pbp   <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "pbp"), {
       raw <- .espn_hockey_fetch_summary(league, game_id, ...)
       pbp <- .parse_espn_hockey_pbp(raw, game_id, league)
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} play-by-play data for game_id = {game_id}",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} play-by-play for game_id = {game_id}",
         args = .args)
     },
     finally = {}
@@ -473,18 +468,13 @@ espn_nhl_pbp <- function(game_id, ...) {
   team_box <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "team_box"), {
       raw      <- .espn_hockey_fetch_summary(league, game_id, ...)
       team_box <- .parse_espn_hockey_team_box(raw, game_id, league)
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} team box score for game_id = {game_id}",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} team box score for game_id = {game_id}",
         args = .args)
     },
     finally = {}
@@ -564,18 +554,13 @@ espn_nhl_team_box <- function(game_id, ...) {
   player_box <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "player_box"), {
       raw        <- .espn_hockey_fetch_summary(league, game_id, ...)
       player_box <- .parse_espn_hockey_player_box(raw, game_id, league)
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} player box score for game_id = {game_id}",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} player box score for game_id = {game_id}",
         args = .args)
     },
     finally = {}
@@ -683,17 +668,12 @@ espn_nhl_player_box <- function(game_id, ...) {
   raw    <- NULL
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "game_all"), {
       raw <- .espn_hockey_fetch_summary(league, game_id, ...)
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Could not fetch ESPN {league} summary for game_id = {game_id}",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} summary for game_id = {game_id}",
         args = .args)
     },
     finally = {}
@@ -702,41 +682,38 @@ espn_nhl_player_box <- function(game_id, ...) {
   if (is.null(raw)) return(result)
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "game_all"), {
       result[["plays"]] <- .parse_espn_hockey_pbp(raw, game_id, league)
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Could not parse ESPN {league} plays for game_id = {game_id}",
         args = .args)
     },
-    warning = function(w) {},
     finally = {}
   )
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "game_all"), {
       result[["team_box"]] <- .parse_espn_hockey_team_box(raw, game_id, league)
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Could not parse ESPN {league} team box for game_id = {game_id}",
         args = .args)
     },
-    warning = function(w) {},
     finally = {}
   )
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "game_all"), {
       result[["player_box"]] <- .parse_espn_hockey_player_box(raw, game_id, league)
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Could not parse ESPN {league} player box for game_id = {game_id}",
         args = .args)
     },
-    warning = function(w) {},
     finally = {}
   )
 
@@ -798,17 +775,12 @@ espn_nhl_game_all <- function(game_id, ...) {
   result <- list()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "summary"), {
       result <- .espn_hockey_fetch_summary(league, game_id, ...)
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} summary for game_id = {game_id}",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} summary for game_id = {game_id}",
         args = .args)
     },
     finally = {}

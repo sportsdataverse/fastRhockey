@@ -1,5 +1,25 @@
 .datatable.aware <- TRUE
 
+# Evaluate a wrapper's body, re-raising each warning as a classed
+# `fastRhockey_warning` that names the wrapper, and carry on. A
+# `tryCatch(warning =)` handler would instead stop the body at the first
+# warning and return the empty or half-built frame, reported or not.
+# `expr` is a promise, so its assignments and `return()` act in the caller.
+.fastRhockey_with_warnings <- function(fn, expr) {
+  withCallingHandlers(
+    expr,
+    warning = function(w) {
+      if (inherits(w, "fastRhockey_warning")) return() # already named by an inner wrapper
+      msg <- conditionMessage(w)
+      # keep the original classes (simpleWarning too), so
+      # suppressWarnings(classes = <original>) still matches
+      orig <- setdiff(class(w), c("warning", "condition"))
+      cli::cli_warn(c("!" = "{fn}(): {msg}"), class = c("fastRhockey_warning", orig), call = NULL)
+      invokeRestart("muffleWarning")
+    }
+  )
+}
+
 #' **Progressively**
 #'
 #' This function helps add progress-reporting to any function - given function `f()` and progressr `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.

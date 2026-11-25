@@ -21,6 +21,48 @@
   url
 }
 
+#' The exported name behind a league-generic helper, for messages:
+#' `.espn_fn("mens-college-hockey", "game")` is `"espn_mch_game"`.
+#' @noRd
+.espn_fn <- function(league, suffix) {
+  prefix <- c(nhl = "nhl", "mens-college-hockey" = "mch", "womens-college-hockey" = "wch")
+  p <- unname(prefix[league[1]])
+  paste0("espn_", if (is.na(p)) league[1] else p, "_", suffix)
+}
+
+#' The name of the function that called the calling helper (past any other
+#' `.espn_hockey_*()` helper), for a helper shared by exports with different
+#' names (`.espn_hockey_items()`); `fallback` when that caller has no plain
+#' name (a `do.call()` of a function object). Call it directly in the helper's
+#' body, not inside a promise.
+#' @noRd
+.espn_caller <- function(fallback) {
+  k <- 2L
+  while (sys.nframe() > k) {
+    f <- sys.call(-k)[[1L]]
+    if (is.call(f) && as.character(f[[1L]])[1] %in% c("::", ":::")) f <- f[[3L]]
+    if (!is.name(f)) return(fallback)
+    nm <- as.character(f)
+    if (!startsWith(nm, ".espn_hockey_")) return(nm)
+    k <- k + 1L
+  }
+  fallback
+}
+
+#' Abort unless `id` is a single, non-missing, non-empty id.
+#'
+#' `x$id[1]` of an empty listing is `NULL`; pasted into a path it requests the
+#' parent collection and fails later on a 1-row frame built from a 0-length id.
+#' Call it inside the wrapper's `tryCatch()` so the message is reported the
+#' usual way, before any request.
+#' @noRd
+.espn_check_id <- function(id, arg = rlang::caller_arg(id)) {
+  if (length(id) != 1L || is.na(id) || !nzchar(as.character(id))) {
+    cli::cli_abort("{.arg {arg}} must be a single, non-missing ESPN id.", call = NULL)
+  }
+  invisible(id)
+}
+
 #' Fetch + parse an ESPN hockey endpoint (returns parsed JSON list).
 #' @noRd
 .espn_hockey_request <- function(host, path = "", query = list(), league = "nhl",

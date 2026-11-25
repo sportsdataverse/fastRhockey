@@ -131,6 +131,7 @@ pwhl_streaks <- function(season = most_recent_pwhl_season(), game_type = "both")
       return(streaks)
     },
     error = function(e) {
+      message(glue::glue("{Sys.time()}: No streaks for season {season}: {conditionMessage(e)}"))
       return(NULL)
     }
   )

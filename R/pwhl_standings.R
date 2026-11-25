@@ -50,12 +50,6 @@ pwhl_standings <- function(season = most_recent_pwhl_season(), regular = TRUE) {
 
   REG_URL = paste0("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=teams&groupTeamsBy=league&context=overall&site_id=2&season=", season_id, "&special=false&key=694cfeed58c932ee&client_code=pwhl&league_id=1&division=undefined&sort=points&lang=en&callback=angular.callbacks._b")
   URL = paste0("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=teams&groupTeamsBy=division&context=overall&site_id=2&season=", season_id, "&special=true&key=694cfeed58c932ee&client_code=pwhl&league_id=1&division=-1&sort=points&lang=en&callback=angular.callbacks._4")
-  r_reg <- .hockeytech_api(REG_URL)
-
-  r <- .hockeytech_api(URL)
-
-  reg_data <- r_reg[[1]]$sections[[1]]$data
-  data <- r[[1]]$sections[[1]]$data
 
   reg_standings <- data.frame()
   standings <- data.frame()
@@ -66,7 +60,13 @@ pwhl_standings <- function(season = most_recent_pwhl_season(), regular = TRUE) {
   # jsonlite::flatten(data)
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("pwhl_standings", {
+      r_reg <- .hockeytech_api(REG_URL)
+
+      r <- .hockeytech_api(URL)
+
+      reg_data <- r_reg[[1]]$sections[[1]]$data
+      data <- r[[1]]$sections[[1]]$data
       for (y in 1:length(reg_data)) {
 
         reg_team_stand <- data.frame(
@@ -116,12 +116,10 @@ pwhl_standings <- function(season = most_recent_pwhl_season(), regular = TRUE) {
 
       lg_standings <- reg_standings %>%
         dplyr::left_join(standings, by = c("team" = "team", "team_code" = "team_code"))
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid season or no roster data available! Try a season from 2023 onwards!"))
+      message(glue::glue("{Sys.time()}: Invalid season or no standings data available! Try a season from 2023 onwards! {conditionMessage(e)}"))
 
-    },
-    warning = function(w) {
     },
     finally = {
     }

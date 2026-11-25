@@ -16,8 +16,9 @@
 
   teams <- data.frame()
 
+  .fn <- .espn_caller(".espn_hockey_teams") # the exported wrapper, for warnings
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.fn, {
       query <- list()
       if (!is.null(limit)) query[["limit"]] <- limit
       raw <- .espn_hockey_request("site_v2", "teams", query = query,
@@ -91,15 +92,10 @@
           paste0(toupper(league), " Teams data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} teams data available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} teams",
         args = .args)
     },
     finally = {}

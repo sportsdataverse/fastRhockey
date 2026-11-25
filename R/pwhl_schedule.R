@@ -139,7 +139,7 @@ pwhl_schedule <- function(season, game_type = "both") {
   schedule_data <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("pwhl_schedule", {
       r <- .hockeytech_api(full_url)
 
       gm <- r[[1]]$sections[[1]]$data
@@ -175,10 +175,9 @@ pwhl_schedule <- function(season, game_type = "both") {
         )
 
       }
-    },
+    }),
     error = function(e) {
-    },
-    warning = function(w) {
+      message(glue::glue("{Sys.time()}: No schedule for season {season}: {conditionMessage(e)}"))
     },
     finally = {
     }

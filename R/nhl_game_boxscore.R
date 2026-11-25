@@ -165,8 +165,7 @@ nhl_game_boxscore <- function(game_id) {
             return(game)
         },
         error = function(e) {
-            message(glue::glue("Problem fetching boxscore for game {game_id}"))
-            message(e)
+            message(glue::glue("Problem fetching boxscore for game {game_id}: {conditionMessage(e)}"))
         }
     )
 }

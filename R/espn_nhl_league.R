@@ -30,7 +30,7 @@
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "news"), {
       raw <- .espn_hockey_request("site_v2", "news",
                                   query  = list(limit = limit),
                                   league = league, ...)
@@ -85,15 +85,10 @@
           paste0(toupper(league), " News data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} news available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} news",
         args = .args)
     },
     finally = {}
@@ -151,7 +146,7 @@ espn_nhl_news <- function(limit = 50, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "injuries"), {
       raw <- .espn_hockey_request("site_v2", "injuries",
                                   league = league,
                                   simplifyVector = FALSE, ...)
@@ -204,15 +199,10 @@ espn_nhl_news <- function(limit = 50, ...) {
           paste0(toupper(league), " Injuries data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} injuries available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} injuries",
         args = .args)
     },
     finally = {}
@@ -273,7 +263,7 @@ espn_nhl_injuries <- function(...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "transactions"), {
       query <- list()
       if (!is.null(limit)) query[["limit"]] <- limit
       raw <- .espn_hockey_request("site_v2", "transactions",
@@ -306,15 +296,10 @@ espn_nhl_injuries <- function(...) {
           paste0(toupper(league), " Transactions data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} transactions available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} transactions",
         args = .args)
     },
     finally = {}
@@ -367,7 +352,7 @@ espn_nhl_transactions <- function(...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "conferences"), {
       raw <- .espn_hockey_request("site_v2", "groups",
                                   league = league,
                                   simplifyVector = FALSE, ...)
@@ -410,15 +395,10 @@ espn_nhl_transactions <- function(...) {
           paste0(toupper(league), " Conferences data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} conferences available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} conferences",
         args = .args)
     },
     finally = {}
@@ -468,7 +448,7 @@ espn_nhl_conferences <- function(...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "statistics_league"), {
       # simplifyVector=TRUE collapses the stats list to a named list (not list-of-lists)
       # when ESPN returns a single stat-group. Use simplifyVector=FALSE for safe iteration.
       raw <- .espn_hockey_request("site_v2", "statistics",
@@ -555,15 +535,10 @@ espn_nhl_conferences <- function(...) {
           paste0(toupper(league), " League Statistics data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} league statistics available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} league statistics",
         args = .args)
     },
     finally = {}
@@ -619,7 +594,7 @@ espn_nhl_statistics_league <- function(...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "draft"), {
       raw <- .espn_hockey_request("site_v2", "draft",
                                   league = league,
                                   simplifyVector = FALSE, ...)
@@ -656,16 +631,12 @@ espn_nhl_statistics_league <- function(...) {
           paste0(toupper(league), " Draft data from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       cli::cli_alert_warning(
         "ESPN {toupper(league)} draft endpoint is not available (HTTP 500 is normal for NHL)."
       )
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} draft",
-        args = .args)
+      cli::cli_alert_warning("Error: {conditionMessage(e)}")
     },
     finally = {}
   )
@@ -720,7 +691,7 @@ espn_nhl_draft <- function(...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "games"), {
       query <- list(limit = limit)
       if (!is.null(dates)) query[["dates"]] <- dates
 
@@ -747,15 +718,10 @@ espn_nhl_draft <- function(...) {
           paste0(toupper(league), " Games data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} games available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} games",
         args = .args)
     },
     finally = {}
@@ -807,7 +773,7 @@ espn_nhl_games <- function(dates = NULL, limit = 100, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "awards"), {
       raw <- .espn_hockey_request("core_v2", "awards",
                                   query  = list(limit = limit),
                                   league = league,
@@ -830,15 +796,10 @@ espn_nhl_games <- function(dates = NULL, limit = 100, ...) {
           paste0(toupper(league), " Awards data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} awards available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} awards",
         args = .args)
     },
     finally = {}
@@ -888,7 +849,7 @@ espn_nhl_awards <- function(limit = 100, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "award"), {
       path <- paste0("awards/", award_id)
       raw  <- .espn_hockey_request("core_v2", path,
                                    league = league,
@@ -909,17 +870,13 @@ espn_nhl_awards <- function(limit = 100, ...) {
           paste0(toupper(league), " Award data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       cli::cli_alert_warning(
         paste0("ESPN ", toupper(league), " award ", award_id,
                " is not available (HTTP 500 is normal for NHL individual award endpoints).")
       )
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} award {award_id}",
-        args = .args)
+      cli::cli_alert_warning("Error: {conditionMessage(e)}")
     },
     finally = {}
   )
@@ -977,7 +934,7 @@ espn_nhl_award <- function(award_id, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "tournaments"), {
       raw <- .espn_hockey_request("core_v2", "tournaments",
                                   query  = list(limit = limit),
                                   league = league,
@@ -1003,15 +960,10 @@ espn_nhl_award <- function(award_id, ...) {
           paste0(toupper(league), " Tournaments data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} tournaments available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} tournaments",
         args = .args)
     },
     finally = {}
@@ -1061,7 +1013,7 @@ espn_nhl_tournaments <- function(limit = 100, ...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "talentpicks"), {
       raw <- .espn_hockey_request("core_v2", "talentpicks",
                                   league = league,
                                   simplifyVector = TRUE, ...)
@@ -1086,15 +1038,10 @@ espn_nhl_tournaments <- function(limit = 100, ...) {
           paste0(toupper(league), " Talent Picks data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} talent picks available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} talent picks",
         args = .args)
     },
     finally = {}
@@ -1146,7 +1093,7 @@ espn_nhl_talentpicks <- function(...) {
   result <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings(.espn_fn(league, "league_notes"), {
       raw <- .espn_hockey_request("core_v2", "notes",
                                   league = league,
                                   simplifyVector = TRUE, ...)
@@ -1171,15 +1118,10 @@ espn_nhl_talentpicks <- function(...) {
           paste0(toupper(league), " League Notes data from ESPN core-v2"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(e,
         hint = "Invalid arguments or no ESPN {league} league notes available!",
-        args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w,
-        hint = "Warning fetching ESPN {league} league notes",
         args = .args)
     },
     finally = {}

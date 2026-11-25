@@ -68,7 +68,7 @@ pwhl_player_box <- function(game_id) {
 
   player_box <- NULL
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("pwhl_player_box", {
       URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=gameSummary&game_id={game_id}&key=694cfeed58c932ee&site_id=2&client_code=pwhl&lang=en&league_id=&callback=angular.callbacks._6")
 
       res <- .retry_request(URL)
@@ -158,12 +158,9 @@ pwhl_player_box <- function(game_id) {
 
       player_box <- c(list(skaters), list(goalies))
       names(player_box) <- c("skaters", "goalies")
-    },
+    }),
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid game_id or no player box data available! Try using `pwhl_schedule()` to find a game ID to look up!"))
-    },
-    warning = function(w) {
-
+      message(glue::glue("{Sys.time()}: Invalid game_id or no player box data available! Try using `pwhl_schedule()` to find a game ID to look up! {conditionMessage(e)}"))
     },
     finally = {
 

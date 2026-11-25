@@ -79,7 +79,7 @@ nhl_teams_stats <- function(team_abbr, season = NULL, game_type = 2) {
 
   stats_df <- NULL
   tryCatch(
-    expr = {
+    expr = .fastRhockey_with_warnings("nhl_teams_stats", {
       res <- .retry_request(url)
       check_status(res)
 
@@ -123,13 +123,11 @@ nhl_teams_stats <- function(team_abbr, season = NULL, game_type = 2) {
       stats_df <- stats_df %>%
         janitor::clean_names() %>%
         make_fastRhockey_data("NHL Teams Stats Information from NHL.com", Sys.time())
-    },
+    }),
     error = function(e) {
       message(glue::glue(
-        "{Sys.time()}: Invalid arguments or no team stats data for {team_abbr} available!"
+        "{Sys.time()}: Invalid arguments or no team stats data for {team_abbr} available! {conditionMessage(e)}"
       ))
-    },
-    warning = function(w) {
     },
     finally = {
     }

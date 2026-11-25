@@ -51,6 +51,7 @@ List every change. Example rows:
 - [ ] Branch follows naming convention: `<type>/<short-description>`
 - [ ] Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/) (`<type>(<scope>): <description>`)
 - [ ] No debug code, print statements, or TODO comments without context
+- [ ] Wrapper `tryCatch` bodies are wrapped in `.fastRhockey_with_warnings("<fn>", { ... })` with no `warning =` handler, and every `error =` handler names the cause (`{conditionMessage(e)}`)
 - [ ] NAMESPACE regenerated if imports/exports changed
 - [ ] DESCRIPTION version bumped (if releasing)
 

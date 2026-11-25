@@ -302,6 +302,39 @@ Code that upgrades from 1.0.0 may need to change.
   listing) used to request the franchise collection and fail with
   "arguments imply differing number of rows". The college examples skip the
   detail call when the listing is empty.
+* The same goes for the `event_id` of `espn_{nhl,mch,wch}_game()`, the
+  `event_id`, `cid` and `official_id` of
+  `espn_{nhl,mch,wch}_game_official_detail()` and the `team_id` of
+  `espn_{nhl,mch,wch}_team_roster()`: a `NULL`, empty or `NA` id is reported
+  before any request. ESPN lists no officials for college games, so the
+  official-detail examples skip the call then, and the women's examples use
+  2026-01-10, since ESPN has no women's college games for 2025-01-10.
+* `espn_mch_team_roster()` and `espn_wch_team_roster()` parse college rosters.
+  These are flat (not grouped by position) and every athlete carries empty
+  `injuries` and `contracts` lists, so the wrapper failed with "arguments
+  imply differing number of rows: 1, 0" and returned an empty frame. College
+  rosters now get the same columns as NHL ones, with `position_group` and any
+  field ESPN leaves out set to `NA`.
+* A warning no longer empties the result. 150 `tryCatch()` blocks had a
+  `warning =` handler: 124 in the ESPN NHL and college helpers reported the
+  warning, and 26 (NHL, PWHL, `espn_nhl_game_all()` and the defunct PHF
+  wrappers) were empty. Either way a warning while parsing (a coercion `NA`,
+  a partial read) stopped the parse and returned an empty or half-built
+  frame. Each warning is now re-raised as
+  a `fastRhockey_warning` that names the function, for example
+  `espn_mch_team_roster(): NAs introduced by coercion`, and the function
+  finishes and returns its data. Use `suppressWarnings(classes =
+  "fastRhockey_warning")` to quiet them; the warning also keeps its original
+  class, so an existing `classes =` filter still matches.
+* Error messages now carry the cause. 36 NHL, PWHL and ESPN handlers printed
+  only "Invalid arguments or no ... data available!" or a fixed "endpoint is
+  not available", so an HTTP 429, a 403 and a parse failure all read like an
+  empty result; they now end with the underlying error. Three PWHL helpers
+  that returned nothing silently (the schedule, player game log and streaks
+  lookups) now say what failed. `pwhl_teams()`, `pwhl_team_roster()`,
+  `pwhl_standings()` and `nhl_game_shifts()` made their requests before their
+  `tryCatch()`, so a failed request raised an error instead of the documented
+  message and empty result; the requests are now inside it.
 * `update_nhl_db()` and `update_pwhl_db()` no longer need dbplyr, which is
   not a dependency: the stored game ids are read with a plain `DBI` query.
 * `nhl_teams()`, `nhl_standings()`, `nhl_schedule()`, `nhl_draft()`,
@@ -319,6 +352,11 @@ Code that upgrades from 1.0.0 may need to change.
   (`data-raw/http_fixtures/` records them; the fixtures are not in the
   package tarball, and those tests skip when they are missing). The defunct
   PHF code is left out of the coverage figure (`.covrignore`).
+* `test-handler_causes.R` makes every request fail offline and checks that
+  each of the 223 functions with a block `tryCatch()` error handler reports the
+  cause without the error escaping; `test-fastRhockey_with_warnings.R` checks
+  that no wrapper has a `tryCatch(warning =)` handler and that a wrapper keeps
+  its rows when parsing warns.
 
 ### Dependencies
 
