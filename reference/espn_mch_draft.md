@@ -62,14 +62,14 @@ Saiem Gilani
   # NOTE: Returns empty tibble for MCH (ESPN returns HTTP 500 for this endpoint)
   try(espn_mch_draft())
 #> ! ESPN MENS-COLLEGE-HOCKEY draft endpoint is not available (HTTP 500 is normal for NHL).
-#> ! Error: The API returned an error
+#> ! Error: HTTP 500 Internal Server Error from https://site.api.espn.com/apis/site/v2/sports/hockey/mens-college-hockey/draft: 404 NOT_FOUND "No draft found for hockey/mens-college-hockey in 2026"
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   # NOTE: Returns empty tibble for WCH (ESPN returns HTTP 500 for this endpoint)
   try(espn_wch_draft())
 #> ! ESPN WOMENS-COLLEGE-HOCKEY draft endpoint is not available (HTTP 500 is normal for NHL).
-#> ! Error: The API returned an error
+#> ! Error: HTTP 500 Internal Server Error from https://site.api.espn.com/apis/site/v2/sports/hockey/womens-college-hockey/draft: 404 NOT_FOUND "No draft found for hockey/womens-college-hockey in 2026"
 #> data frame with 0 columns and 0 rows
 # }
 ```

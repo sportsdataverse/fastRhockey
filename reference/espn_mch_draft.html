@@ -150,14 +150,14 @@ empty tibble is returned gracefully:</p><table class="table table"><tr><td>col_n
 <span class="r-in"><span>  <span class="co"># NOTE: Returns empty tibble for MCH (ESPN returns HTTP 500 for this endpoint)</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_mch_draft</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> ESPN MENS-COLLEGE-HOCKEY draft endpoint is not available (HTTP 500 is normal for NHL).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Error: The API returned an error</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Error: HTTP 500 Internal Server Error from https://site.api.espn.com/apis/site/v2/sports/hockey/mens-college-hockey/draft: 404 NOT_FOUND "No draft found for hockey/mens-college-hockey in 2026"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="co"># NOTE: Returns empty tibble for WCH (ESPN returns HTTP 500 for this endpoint)</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_wch_draft</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> ESPN WOMENS-COLLEGE-HOCKEY draft endpoint is not available (HTTP 500 is normal for NHL).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Error: The API returned an error</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Error: HTTP 500 Internal Server Error from https://site.api.espn.com/apis/site/v2/sports/hockey/womens-college-hockey/draft: 404 NOT_FOUND "No draft found for hockey/womens-college-hockey in 2026"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

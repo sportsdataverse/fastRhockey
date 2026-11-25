@@ -74,7 +74,7 @@ Saiem Gilani
     espn_mch_game_status(event_id = sb$game_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Status data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-11-25 04:38:58 UTC
+#> ℹ Data updated: 2026-11-25 06:28:25 UTC
 #> # A tibble: 1 × 13
 #>   event_id  cid       clock display_clock period type_id type_name    type_state
 #>   <chr>     <chr>     <dbl> <chr>          <int> <chr>   <chr>        <chr>     
@@ -88,7 +88,7 @@ Saiem Gilani
     espn_wch_game_status(event_id = sb$game_id[1])
   })
 #> ── WOMENS-COLLEGE-HOCKEY Game Status data from ESPN core-v2 ────────────────────
-#> ℹ Data updated: 2026-11-25 04:38:58 UTC
+#> ℹ Data updated: 2026-11-25 06:28:25 UTC
 #> # A tibble: 1 × 13
 #>   event_id  cid       clock display_clock period type_id type_name    type_state
 #>   <chr>     <chr>     <dbl> <chr>          <int> <chr>   <chr>        <chr>     

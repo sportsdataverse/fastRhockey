@@ -137,19 +137,19 @@ Returns `NULL` on failure / empty response.
       sort_by = "total"
   ))
 #> ── NHL Edge Skater Distance Top 10 ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:44:56 UTC
+#> ℹ Data updated: 2026-11-25 06:33:37 UTC
 #> # A tibble: 10 × 47
 #>    player_slug             player_headshot player_position player_sweater_number
 #>    <chr>                   <chr>           <chr>                           <int>
 #>  1 connor-mcdavid-8478402  https://assets… C                                  97
 #>  2 macklin-celebrini-8484… https://assets… C                                  71
 #>  3 kyle-connor-8478398     https://assets… L                                  81
-#>  4 kirill-kaprizov-8478864 https://assets… L                                  97
-#>  5 mark-scheifele-8476460  https://assets… C                                  55
-#>  6 auston-matthews-8479318 https://assets… C                                  34
-#>  7 jack-hughes-8481559     https://assets… C                                  86
-#>  8 jack-eichel-8478403     https://assets… C                                   9
-#>  9 leon-draisaitl-8477934  https://assets… C                                  29
+#>  4 jack-eichel-8478403     https://assets… C                                   9
+#>  5 leon-draisaitl-8477934  https://assets… C                                  29
+#>  6 kirill-kaprizov-8478864 https://assets… L                                  97
+#>  7 mark-scheifele-8476460  https://assets… C                                  55
+#>  8 auston-matthews-8479318 https://assets… C                                  34
+#>  9 jack-hughes-8481559     https://assets… C                                  86
 #> 10 tim-stützle-8482116     https://assets… C                                  18
 #> # ℹ 43 more variables: player_first_name_default <chr>,
 #> #   player_last_name_default <chr>, player_team_abbrev <chr>,

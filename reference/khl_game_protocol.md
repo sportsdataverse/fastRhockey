@@ -116,8 +116,20 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(khl_game_protocol(game_id = 898236, season = 2026))
-#> Error in .khl_prime(session, timeout) : 
-#>   khl.ru served an anti-bot challenge page; try again later or through
-#> `getOption('fastRhockey.proxy')`.
+#> ── KHL Game Protocol from khl.ru ────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-25 06:31:04 UTC
+#> # A tibble: 5 × 21
+#>   game_id tournament_id period goal_number time  team_side score_a score_b
+#>     <int>         <int>  <int>       <int> <chr> <chr>       <int>   <int>
+#> 1  898236          1369      2           1 22:02 B               0       1
+#> 2  898236          1369      2           2 23:41 A               1       1
+#> 3  898236          1369      2           3 34:47 A               2       1
+#> 4  898236          1369      2           4 35:08 B               2       2
+#> 5  898236          1369      4           5 65:00 B               2       3
+#> # ℹ 13 more variables: strength <chr>, strength_text <chr>,
+#> #   scorer_player_id <int>, scorer_name <chr>, scorer_jn <int>,
+#> #   assist_1_player_id <int>, assist_1_name <chr>, assist_1_jn <int>,
+#> #   assist_2_player_id <int>, assist_2_name <chr>, assist_2_jn <int>,
+#> #   on_ice_a <chr>, on_ice_b <chr>
 # }
 ```

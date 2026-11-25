@@ -84,7 +84,7 @@ Saiem Gilani
       espn_mch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
     }
   })
-#> ! 2026-11-25 04:38:51.494749: No officials returned for event 401715296.
+#> ! 2026-11-25 06:28:19.146377: No officials returned for event 401715296.
 # }
 # \donttest{
   try({
@@ -95,6 +95,6 @@ Saiem Gilani
       espn_wch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
     }
   })
-#> ! 2026-11-25 04:38:51.666545: No officials returned for event 401814005.
+#> ! 2026-11-25 06:28:19.278155: No officials returned for event 401814005.
 # }
 ```

@@ -72,16 +72,16 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_fpi(season = 2026))
-#> ✖ 2026-11-25 04:38:46.712578: Invalid arguments or no ESPN mens-college-hockey power index available!
+#> ✖ 2026-11-25 06:28:15.202254: Invalid arguments or no ESPN mens-college-hockey power index available!
 #> ✖ Args: league = "mens-college-hockey", kind = "fpi", path = NULL, query = list(season = 2026)
-#> ✖ Error: The API returned an error
+#> ✖ Error: HTTP 400 Bad Request from https://site.web.api.espn.com/apis/fitt/v3/sports/hockey/mens-college-hockey/powerindex: Power index is not supported for sport hockey and league mens-college-hockey
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try(espn_wch_fpi(season = 2026))
-#> ✖ 2026-11-25 04:38:46.767678: Invalid arguments or no ESPN womens-college-hockey power index available!
+#> ✖ 2026-11-25 06:28:15.228787: Invalid arguments or no ESPN womens-college-hockey power index available!
 #> ✖ Args: league = "womens-college-hockey", kind = "fpi", path = NULL, query = list(season = 2026)
-#> ✖ Error: The API returned an error
+#> ✖ Error: HTTP 400 Bad Request from https://site.web.api.espn.com/apis/fitt/v3/sports/hockey/womens-college-hockey/powerindex: Power index is not supported for sport hockey and league womens-college-hockey
 #> data frame with 0 columns and 0 rows
 # }
 ```

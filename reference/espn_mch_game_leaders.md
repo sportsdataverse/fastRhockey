@@ -71,9 +71,9 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_leaders(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-25 04:38:50.335609: Invalid arguments or no ESPN mens-college-hockey game leaders for event 401715296 available!
+#> ✖ 2026-11-25 06:28:18.145221: Invalid arguments or no ESPN mens-college-hockey game leaders for event 401715296 available!
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296"
-#> ✖ Error: The API returned an error
+#> ✖ Error: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/hockey/leagues/mens-college-hockey/events/401715296/competitions/401715296/leaders
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
@@ -81,9 +81,9 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20260110")
     espn_wch_game_leaders(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-25 04:38:50.524148: Invalid arguments or no ESPN womens-college-hockey game leaders for event 401814005 available!
+#> ✖ 2026-11-25 06:28:18.323561: Invalid arguments or no ESPN womens-college-hockey game leaders for event 401814005 available!
 #> ✖ Args: league = "womens-college-hockey", event_id = "401814005", cid = "401814005"
-#> ✖ Error: The API returned an error
+#> ✖ Error: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/hockey/leagues/womens-college-hockey/events/401814005/competitions/401814005/leaders
 #> data frame with 0 columns and 0 rows
 # }
 ```

@@ -91,8 +91,8 @@ Saiem Gilani
     pls <- espn_mch_game_plays(event_id = eid)
     espn_mch_game_play(event_id = eid, play_id = pls$id[1])
   })
-#> ! 2026-11-25 04:38:52.690458: No plays returned for event 401715296.
-#> ✖ 2026-11-25 04:38:52.708531: 
+#> ! 2026-11-25 06:28:20.078846: No plays returned for event 401715296.
+#> ✖ 2026-11-25 06:28:20.094001: Invalid arguments or no ESPN mens-college-hockey play data for event 401715296 / play NULL available!
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", play_id = NULL
 #> ✖ Error: `play_id` must be a single, non-missing ESPN id.
 #> data frame with 0 columns and 0 rows
@@ -104,8 +104,8 @@ Saiem Gilani
     pls <- espn_wch_game_plays(event_id = eid)
     espn_wch_game_play(event_id = eid, play_id = pls$id[1])
   })
-#> ! 2026-11-25 04:38:52.89247: No plays returned for event 401814005.
-#> ✖ 2026-11-25 04:38:52.908955: 
+#> ! 2026-11-25 06:28:20.234827: No plays returned for event 401814005.
+#> ✖ 2026-11-25 06:28:20.249114: Invalid arguments or no ESPN womens-college-hockey play data for event 401814005 / play NULL available!
 #> ✖ Args: league = "womens-college-hockey", event_id = "401814005", cid = "401814005", play_id = NULL
 #> ✖ Error: `play_id` must be a single, non-missing ESPN id.
 #> data frame with 0 columns and 0 rows

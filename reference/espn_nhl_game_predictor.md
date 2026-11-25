@@ -46,9 +46,9 @@ Saiem Gilani
     sb <- espn_nhl_scoreboard(dates = "20250110")
     espn_nhl_game_predictor(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-25 04:39:47.286906: Invalid arguments or no ESPN nhl game predictor for event 401688263 available!
+#> ✖ 2026-11-25 06:29:01.572973: Invalid arguments or no ESPN nhl game predictor for event 401688263 available!
 #> ✖ Args: league = "nhl", event_id = "401688263", cid = "401688263"
-#> ✖ Error: The API returned an error
+#> ✖ Error: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/predictor
 #> data frame with 0 columns and 0 rows
 # }
 ```

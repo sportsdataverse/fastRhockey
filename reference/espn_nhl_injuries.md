@@ -53,8 +53,8 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_injuries())
 #> ── NHL Injuries data from ESPN.com ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:39:52 UTC
-#> # A tibble: 240 × 16
+#> ℹ Data updated: 2026-11-25 06:29:05 UTC
+#> # A tibble: 244 × 16
 #>    team_id team_display_name player_id player_display_name player_short_name
 #>    <chr>   <chr>             <chr>     <chr>               <chr>            
 #>  1 25      Anaheim Ducks     NA        Leo Carlsson        L. Carlsson      
@@ -67,7 +67,7 @@ Saiem Gilani
 #>  8 25      Anaheim Ducks     NA        A.J. Greer          A.J. Greer       
 #>  9 1       Boston Bruins     NA        James Hagens        J. Hagens        
 #> 10 1       Boston Bruins     NA        James Hagens        J. Hagens        
-#> # ℹ 230 more rows
+#> # ℹ 234 more rows
 #> # ℹ 11 more variables: player_position <chr>, injury_id <chr>,
 #> #   injury_status <chr>, injury_date <chr>, injury_short_comment <chr>,
 #> #   injury_long_comment <chr>, injury_type <chr>, injury_abbreviation <chr>,

@@ -104,8 +104,8 @@ lists every function in this family.
   try(shl_athlete_game_log(athlete_uuid = "qQ9-349c7WDv6",
     master_site_instance_id = "shl1_shl", season = 2026))
 #> ── SHL Athlete Game Log Information from www.shl.se ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:46:54 UTC
-#> # A tibble: 58 × 35
+#> ℹ Data updated: 2026-11-25 06:35:11 UTC
+#> # A tibble: 58 × 42
 #>    date   series home_team home_team_icon guest_team guest_team_icon    gp   gpi
 #>    <chr>  <chr>  <chr>     <chr>          <chr>      <chr>           <dbl> <dbl>
 #>  1 2026-… "[{\"… "Luleå"   https://sport… "Frölunda… https://sporta…     1     0
@@ -119,7 +119,7 @@ lists every function in this family.
 #>  9 2026-… "[{\"… "Leksand" https://sport… "Frölunda… https://sporta…     1     1
 #> 10 2026-… "[{\"… "Frölund… https://sport… "Timrå"    https://sporta…     1     0
 #> # ℹ 48 more rows
-#> # ℹ 27 more variables: gs <dbl>, w <dbl>, t <dbl>, l <dbl>, so <dbl>, ga <dbl>,
+#> # ℹ 34 more variables: gs <dbl>, w <dbl>, t <dbl>, l <dbl>, so <dbl>, ga <dbl>,
 #> #   gaa <dbl>, soga <dbl>, svs <dbl>, svs_perc <dbl>, info_full_name <chr>,
 #> #   info_first_name <chr>, info_last_name <chr>, info_birth_date <chr>,
 #> #   info_nationality <chr>, info_gender <chr>, info_jersey_number <chr>,

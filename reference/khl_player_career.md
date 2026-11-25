@@ -109,8 +109,23 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(khl_player_career(player_id = 41928))
-#> Error in .khl_prime(session, timeout) : 
-#>   khl.ru served an anti-bot challenge page; try again later or through
-#> `getOption('fastRhockey.proxy')`.
+#> ── KHL Player Career from khl.ru ────────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-25 06:31:09 UTC
+#> # A tibble: 6 × 40
+#>   player_id season_label tournament_id team_season_id club_id team_name    jn
+#>       <int> <chr>                <int>          <int>   <int> <chr>     <int>
+#> 1     41928 26/27                 1436          15558       7 Спартак       4
+#> 2     41928 25/26                 1369          14934       7 Спартак       4
+#> 3     41928 25/26                 1370          15461       7 Спартак       4
+#> 4     41928 23/24                 1217          13612       7 Спартак       4
+#> 5     41928 23/24                 1218          14130       7 Спартак       4
+#> 6     41928 22/23                 1154          13026       7 Спартак       4
+#> # ℹ 33 more variables: gp <int>, g <int>, a <int>, pts <int>, pm <int>,
+#> #   plus <int>, minus <int>, pim <int>, eqg <int>, ppg <int>, shg <int>,
+#> #   otg <int>, gwg <int>, sds <int>, sog <int>, sog_pct <dbl>, sog_avg <dbl>,
+#> #   fo <int>, fow <int>, fo_pct <dbl>, toi_avg <chr>, sft_avg <dbl>,
+#> #   tie_avg <chr>, sfte_avg <dbl>, tipp_avg <chr>, sftpp_avg <dbl>,
+#> #   tish_avg <chr>, sftsh_avg <dbl>, hits <int>, bls <int>, foa <int>,
+#> #   tka <int>, p_intc <int>
 # }
 ```

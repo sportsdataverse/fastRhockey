@@ -111,7 +111,7 @@ Other Metal Ligaen eSports functions:
 # \donttest{
   try(metal_game_info(match_id = 575))
 #> ── Metal Ligaen game_info from the eSports hokejovyzapis bucket ────────────────
-#> ℹ Data updated: 2026-11-25 04:44:28 UTC
+#> ℹ Data updated: 2026-11-25 06:33:15 UTC
 #> # A tibble: 1 × 38
 #>   actual_time_name actual_time_alias status      stadium number_of_viewers
 #>   <chr>            <chr>             <chr>       <chr>               <int>

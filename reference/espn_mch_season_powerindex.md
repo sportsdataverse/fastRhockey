@@ -78,15 +78,15 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns empty tibble for MCH (ESPN does not publish powerindex for hockey)
   try(espn_mch_season_powerindex(season = 2026))
-#> ! 2026-11-25 04:39:22.646604: ESPN mens-college-hockey season powerindex for 2026 not available (not published for NHL).
-#> ! Warning: The API returned an error
+#> ! 2026-11-25 06:28:42.631774: ESPN mens-college-hockey season powerindex for 2026 not available (not published for NHL).
+#> ! Warning: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/hockey/leagues/mens-college-hockey/seasons/2026/powerindex
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   # NOTE: Returns empty tibble for WCH (ESPN does not publish powerindex for hockey)
   try(espn_wch_season_powerindex(season = 2026))
-#> ! 2026-11-25 04:39:22.703552: ESPN womens-college-hockey season powerindex for 2026 not available (not published for NHL).
-#> ! Warning: The API returned an error
+#> ! 2026-11-25 06:28:42.659576: ESPN womens-college-hockey season powerindex for 2026 not available (not published for NHL).
+#> ! Warning: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/hockey/leagues/womens-college-hockey/seasons/2026/powerindex
 #> data frame with 0 columns and 0 rows
 # }
 ```

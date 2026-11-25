@@ -75,16 +75,16 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_player_career_stats(athlete_id = "5136656"))
-#> ✖ 2026-11-25 04:39:09.975347: Invalid arguments or no ESPN mens-college-hockey player career stats for athlete 5136656 available!
+#> ✖ 2026-11-25 06:28:33.348821: Invalid arguments or no ESPN mens-college-hockey player career stats for athlete 5136656 available!
 #> ✖ Args: league = "mens-college-hockey", athlete_id = "5136656", stat_type = NULL
-#> ✖ Error: The API returned an error
+#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/hockey/leagues/mens-college-hockey/athletes/5136656/statistics
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try(espn_wch_player_career_stats(athlete_id = "5263060"))
-#> ✖ 2026-11-25 04:39:10.028285: Invalid arguments or no ESPN womens-college-hockey player career stats for athlete 5263060 available!
+#> ✖ 2026-11-25 06:28:33.375115: Invalid arguments or no ESPN womens-college-hockey player career stats for athlete 5263060 available!
 #> ✖ Args: league = "womens-college-hockey", athlete_id = "5263060", stat_type = NULL
-#> ✖ Error: The API returned an error
+#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/hockey/leagues/womens-college-hockey/athletes/5263060/statistics
 #> data frame with 0 columns and 0 rows
 # }
 ```

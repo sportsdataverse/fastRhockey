@@ -73,16 +73,16 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_season_week_powerindex(season = 2026, season_type = 2, week = 3))
-#> ✖ 2026-11-25 04:39:26.346109: Invalid arguments or no ESPN mens-college-hockey power index available!
+#> ✖ 2026-11-25 06:28:45.277136: Invalid arguments or no ESPN mens-college-hockey power index available!
 #> ✖ Args: league = "mens-college-hockey", kind = "weekly", path = "seasons/2026/types/2/weeks/3/powerindex", query = list()
-#> ✖ Error: The API returned an error
+#> ✖ Error: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/hockey/leagues/mens-college-hockey/seasons/2026/types/2/weeks/3/powerindex
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try(espn_wch_season_week_powerindex(season = 2026, season_type = 2, week = 3))
-#> ✖ 2026-11-25 04:39:26.407369: Invalid arguments or no ESPN womens-college-hockey power index available!
+#> ✖ 2026-11-25 06:28:45.307541: Invalid arguments or no ESPN womens-college-hockey power index available!
 #> ✖ Args: league = "womens-college-hockey", kind = "weekly", path = "seasons/2026/types/2/weeks/3/powerindex", query = list()
-#> ✖ Error: The API returned an error
+#> ✖ Error: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/hockey/leagues/womens-college-hockey/seasons/2026/types/2/weeks/3/powerindex
 #> data frame with 0 columns and 0 rows
 # }
 ```

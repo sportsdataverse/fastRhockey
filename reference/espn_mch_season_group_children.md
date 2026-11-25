@@ -98,10 +98,10 @@ Saiem Gilani
     espn_wch_season_group_children(season = 2026, season_type = 2,
                                     group_id = grps$group_id[1])
   })
-#> ✖ 2026-11-25 04:39:20.503891: Invalid arguments or no ESPN womens-college-hockey season groups for 2026 type 2 available!
+#> ✖ 2026-11-25 06:28:41.047044: Invalid arguments or no ESPN womens-college-hockey season groups for 2026 type 2 available!
 #> ✖ Args: league = "womens-college-hockey", season = 2026, season_type = 2
 #> ✖ Error: replacement has 1 row, data has 0
-#> ✖ 2026-11-25 04:39:20.525877: 
+#> ✖ 2026-11-25 06:28:41.066333: Invalid arguments or no ESPN womens-college-hockey season group children for 2026 type 2 group NULL available!
 #> ✖ Args: league = "womens-college-hockey", season = 2026, season_type = 2, group_id = NULL
 #> ✖ Error: `group_id` must be a single, non-missing ESPN id.
 #> data frame with 0 columns and 0 rows

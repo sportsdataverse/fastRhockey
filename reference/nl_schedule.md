@@ -103,7 +103,7 @@ lists every function in this family.
 # \donttest{
   try(nl_schedule(season = 2026))
 #> ── National League Schedule Information from nationalleague.ch ─────────────────
-#> ℹ Data updated: 2026-11-25 04:46:16 UTC
+#> ℹ Data updated: 2026-11-25 06:34:40 UTC
 #> # A tibble: 487 × 29
 #>    game_id home_team_short_name home_team_name        away_team_short_name
 #>      <dbl> <chr>                <chr>                 <chr>               

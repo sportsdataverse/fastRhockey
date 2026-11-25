@@ -41,7 +41,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_player_injuries(athlete_id = "4024820"))
 #> ! espn_nhl_player_injuries(): ESPN core-v2 athletes/{id}/injuries is not available for the requested athlete (ESPN answers 404 for most NHL athletes).
-#> ! Error: The API returned an error
+#> ! Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/athletes/4024820/injuries
 #> data frame with 0 columns and 0 rows
 # }
 ```

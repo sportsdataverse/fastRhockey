@@ -17,7 +17,7 @@ Returns a list with streaming availability data.
 ``` r
 # \donttest{
 try(nhl_where_to_watch())
-#> 2026-11-25 04:46:02.548794: Error fetching where to watch: The API returned an error
+#> 2026-11-25 06:34:26.694366: Error fetching where to watch: HTTP 404 Not Found from https://api-web.nhle.com/v1/where-to-watch
 #> NULL
 # }
 ```

@@ -56,13 +56,13 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_player_injuries(athlete_id = "5136656"))
 #> ! espn_mch_player_injuries(): ESPN core-v2 athletes/{id}/injuries is not available for the requested athlete (ESPN answers 404 for most NHL athletes).
-#> ! Error: The API returned an error
+#> ! Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/hockey/leagues/mens-college-hockey/athletes/5136656/injuries
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try(espn_wch_player_injuries(athlete_id = "5263060"))
 #> ! espn_wch_player_injuries(): ESPN core-v2 athletes/{id}/injuries is not available for the requested athlete (ESPN answers 404 for most NHL athletes).
-#> ! Error: The API returned an error
+#> ! Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/hockey/leagues/womens-college-hockey/athletes/5263060/injuries
 #> data frame with 0 columns and 0 rows
 # }
 ```

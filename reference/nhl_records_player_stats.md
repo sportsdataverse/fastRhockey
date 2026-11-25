@@ -34,7 +34,7 @@ failure.
 ``` r
 # \donttest{
   try(nhl_records_player_stats(cayenne_exp = "playerId=8478402"))
-#> 2026-11-25 04:45:39.469136: Error fetching records resource 'player-stats': The API returned an error
+#> 2026-11-25 06:34:09.863804: Error fetching records resource 'player-stats': HTTP 404 Not Found from https://records.nhl.com/site/api/player-stats
 #> NULL
 # }
 ```

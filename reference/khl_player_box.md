@@ -125,8 +125,25 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(khl_player_box(game_id = 898236, season = 2026))
-#> Error in .khl_prime(session, timeout) : 
-#>   khl.ru served an anti-bot challenge page; try again later or through
-#> `getOption('fastRhockey.proxy')`.
+#> ── KHL Player Box Score from khl.ru ─────────────────────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-25 06:31:08 UTC
+#> # A tibble: 190 × 30
+#>    game_id tournament_id period team_side    jn player_id player_name   position
+#>      <int>         <int>  <int> <chr>     <int>     <int> <chr>         <chr>   
+#>  1  898236          1369      0 A             4     41928 Кин Джозеф    з       
+#>  2  898236          1369      0 A             8     29100 Князев Артем… з       
+#>  3  898236          1369      0 A            13     23461 Мальцев Миха… н       
+#>  4  898236          1369      0 A            16     40673 Пивчулин Дан… н       
+#>  5  898236          1369      0 A            17     26742 Морозов Иван… н       
+#>  6  898236          1369      0 A            20     27992 Локхарт Лукас н       
+#>  7  898236          1369      0 A            24     19258 Порядин Павел н       
+#>  8  898236          1369      0 A            28     32987 Пашин Алекса… н       
+#>  9  898236          1369      0 A            33     35680 Соболев Дани… з       
+#> 10  898236          1369      0 A            35     22149 Коростелёв Н… н       
+#> # ℹ 180 more rows
+#> # ℹ 22 more variables: g <int>, a <int>, p <chr>, shots <int>, pim <int>,
+#> #   fo <int>, fow <int>, fow_pct <dbl>, bls <int>, hits <int>, fa <int>,
+#> #   p_intc <int>, sft <chr>, sfte <chr>, sftpp <chr>, sftsh <chr>, sften <chr>,
+#> #   tiams <chr>, ts <dbl>, dt <dbl>, as <dbl>, pcd <dbl>
 # }
 ```
