@@ -610,6 +610,7 @@ espn_nhl_season_powerindex_leaders <- function(season = most_recent_nhl_season()
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "season_group_children"), {
+      .espn_check_id(group_id)
       path <- paste0("seasons/", season, "/types/", season_type,
                      "/groups/", group_id, "/children")
       raw  <- .espn_hockey_request("core_v2", path = path,

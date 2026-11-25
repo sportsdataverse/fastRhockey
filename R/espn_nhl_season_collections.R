@@ -131,6 +131,7 @@ espn_nhl_season_teams <- function(season = most_recent_nhl_season(),
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "season_team"), {
+      .espn_check_id(team_id)
       path <- paste0("seasons/", season, "/teams/", team_id)
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,

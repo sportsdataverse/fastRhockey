@@ -34,6 +34,7 @@
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "team"), {
+      .espn_check_id(team_id)
       path <- paste0("teams/", team_id)
       raw  <- .espn_hockey_request("site_v2", path,
                                    league = league,
@@ -160,6 +161,7 @@ espn_nhl_team <- function(team_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "team_record"), {
+      .espn_check_id(team_id)
       path <- paste0("teams/", team_id, "/record")
       raw  <- .espn_hockey_request("site_v2", path,
                                    league = league,
@@ -261,6 +263,7 @@ espn_nhl_team_record <- function(team_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "team_depthcharts"), {
+      .espn_check_id(team_id)
       path <- paste0("teams/", team_id, "/depthcharts")
       raw  <- .espn_hockey_request("site_v2", path,
                                    league = league,
@@ -371,6 +374,7 @@ espn_nhl_team_depthcharts <- function(team_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "team_injuries"), {
+      .espn_check_id(team_id)
       path <- paste0("teams/", team_id, "/injuries")
       raw  <- .espn_hockey_request("site_v2", path,
                                    league = league,
@@ -463,6 +467,7 @@ espn_nhl_team_injuries <- function(team_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "team_transactions"), {
+      .espn_check_id(team_id)
       path <- paste0("teams/", team_id, "/transactions")
       raw  <- .espn_hockey_request("site_v2", path,
                                    league = league,
@@ -548,6 +553,7 @@ espn_nhl_team_transactions <- function(team_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "team_history"), {
+      .espn_check_id(team_id)
       path <- paste0("teams/", team_id, "/history")
       raw  <- .espn_hockey_request("site_v2", path,
                                    league = league,
@@ -638,6 +644,7 @@ espn_nhl_team_history <- function(team_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "team_news"), {
+      .espn_check_id(team_id)
       path  <- paste0("teams/", team_id, "/news")
       query <- list(limit = limit)
       raw   <- .espn_hockey_request("site_v2", path,
@@ -731,6 +738,7 @@ espn_nhl_team_news <- function(team_id, limit = 50, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "team_leaders"), {
+      .espn_check_id(team_id)
       path <- paste0("teams/", team_id, "/leaders")
       raw  <- .espn_hockey_request("site_v2", path,
                                    league = league,
@@ -828,6 +836,7 @@ espn_nhl_team_leaders <- function(team_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "team_core"), {
+      .espn_check_id(team_id)
       path <- paste0("teams/", team_id)
       raw  <- .espn_hockey_request("core_v2", path,
                                    league = league,

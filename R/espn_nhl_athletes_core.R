@@ -39,6 +39,7 @@
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_core"), {
+      .espn_check_id(athlete_id)
       path <- paste0("athletes/", athlete_id)
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -169,6 +170,7 @@ espn_nhl_player_core <- function(athlete_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_statistics"), {
+      .espn_check_id(athlete_id)
       path <- paste0("athletes/", athlete_id, "/statistics")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -267,6 +269,7 @@ espn_nhl_player_statistics <- function(athlete_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_statisticslog"), {
+      .espn_check_id(athlete_id)
       path <- paste0("athletes/", athlete_id, "/statisticslog")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -393,6 +396,7 @@ espn_nhl_player_statisticslog <- function(athlete_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_eventlog"), {
+      .espn_check_id(athlete_id)
       path <- paste0("athletes/", athlete_id, "/eventlog")
       # Must use simplifyVector=FALSE because events is a nested {count, items:[]}
       # structure, not a flat array.
@@ -495,6 +499,7 @@ espn_nhl_player_eventlog <- function(athlete_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_contracts"), {
+      .espn_check_id(athlete_id)
       path <- paste0("athletes/", athlete_id, "/contracts")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -581,6 +586,7 @@ espn_nhl_player_contracts <- function(athlete_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_awards"), {
+      .espn_check_id(athlete_id)
       path <- paste0("athletes/", athlete_id, "/awards")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -661,6 +667,7 @@ espn_nhl_player_awards <- function(athlete_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_records"), {
+      .espn_check_id(athlete_id)
       path <- paste0("athletes/", athlete_id, "/records")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -747,6 +754,7 @@ espn_nhl_player_records <- function(athlete_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_seasons"), {
+      .espn_check_id(athlete_id)
       path <- paste0("athletes/", athlete_id, "/seasons")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -812,6 +820,7 @@ espn_nhl_player_seasons <- function(athlete_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_injuries"), {
+      .espn_check_id(athlete_id)
       path <- paste0("athletes/", athlete_id, "/injuries")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -879,6 +888,8 @@ espn_nhl_player_injuries <- function(athlete_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_vs_player"), {
+      .espn_check_id(athlete_id)
+      .espn_check_id(opponent_id)
       path <- paste0("athletes/", athlete_id, "/vsathlete/", opponent_id)
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)
@@ -945,6 +956,7 @@ espn_nhl_player_vs_player <- function(athlete_id, opponent_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_notes"), {
+      .espn_check_id(athlete_id)
       path <- paste0("athletes/", athlete_id, "/notes")
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)

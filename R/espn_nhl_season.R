@@ -642,6 +642,7 @@ espn_nhl_season_groups <- function(season = most_recent_nhl_season(),
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "season_group"), {
+      .espn_check_id(group_id)
       path <- paste0("seasons/", season, "/types/", season_type,
                      "/groups/", group_id)
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
@@ -754,6 +755,7 @@ espn_nhl_season_group <- function(season = most_recent_nhl_season(),
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "season_group_teams"), {
+      .espn_check_id(group_id)
       path <- paste0("seasons/", season, "/types/", season_type,
                      "/groups/", group_id, "/teams")
       raw  <- .espn_hockey_request("core_v2", path = path,

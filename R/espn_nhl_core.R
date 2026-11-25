@@ -847,6 +847,7 @@ espn_nhl_calendar <- function(...) {
   .fn <- .espn_caller(".espn_hockey_schedule") # the exported wrapper, for warnings
   tryCatch(
     expr = .fastRhockey_with_warnings(.fn, {
+      .espn_check_id(team_id)
       path  <- paste0("teams/", team_id, "/schedule")
       query <- list()
       if (!is.null(season)) query[["season"]] <- season

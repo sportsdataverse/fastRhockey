@@ -22,6 +22,7 @@
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_overview"), {
+      .espn_check_id(athlete_id)
       path <- paste0("athletes/", athlete_id, "/overview")
       raw  <- .espn_hockey_request("web_v3", path,
                                    league         = league,
@@ -177,6 +178,7 @@ espn_nhl_player_overview <- function(athlete_id, ...) {
   .fn <- .espn_caller(".espn_hockey_player_stats_v3") # the exported wrapper, for warnings
   tryCatch(
     expr = .fastRhockey_with_warnings(.fn, {
+      .espn_check_id(athlete_id)
       path  <- paste0("athletes/", athlete_id, "/stats")
       query <- list()
       if (!is.null(season)) query[["season"]] <- season
@@ -369,6 +371,7 @@ espn_nhl_player_stats_v3 <- function(athlete_id,
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_splits"), {
+      .espn_check_id(athlete_id)
       path  <- paste0("athletes/", athlete_id, "/splits")
       query <- list()
       if (!is.null(season)) query[["season"]] <- season

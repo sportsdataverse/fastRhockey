@@ -112,6 +112,7 @@ espn_nhl_venues <- function(limit = 200, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "venue"), {
+      .espn_check_id(venue_id)
       path <- paste0("venues/", venue_id)
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,
@@ -460,6 +461,7 @@ espn_nhl_positions <- function(limit = 100, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "position"), {
+      .espn_check_id(position_id)
       path <- paste0("positions/", position_id)
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,
@@ -650,6 +652,7 @@ espn_nhl_coaches <- function(season = most_recent_nhl_season(),
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "coach"), {
+      .espn_check_id(coach_id)
       path <- paste0("coaches/", coach_id)
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,
@@ -744,6 +747,7 @@ espn_nhl_coach <- function(coach_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "coach_record"), {
+      .espn_check_id(coach_id)
       path <- paste0("coaches/", coach_id, "/record")
       if (!is.null(record_type)) path <- paste0(path, "/", record_type)
       raw  <- .espn_hockey_request("core_v2", path = path,

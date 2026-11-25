@@ -17,6 +17,7 @@
 
 #' @noRd
 .espn_hockey_fetch_summary <- function(league = "nhl", game_id, ...) {
+  .espn_check_id(game_id)
   .espn_hockey_request(
     "site_v2", "summary",
     query          = list(event = as.character(game_id)),
