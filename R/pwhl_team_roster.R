@@ -63,14 +63,7 @@ pwhl_team_roster <- function(team, season, regular = TRUE) {
         "&key=694cfeed58c932ee&client_code=pwhl&site_id=8&league_id=1&lang=en&callback=angular.callbacks._h"
       )
 
-      res <- .retry_request(full_url)
-      res <- .resp_text(res)
-
-      res <- gsub("angular.callbacks._h\\(", "", res)
-      res <- gsub("}}]}]}]})", "}}]}]}]}", res)
-
-      r <- res %>%
-        jsonlite::parse_json()
+      r <- .pwhl_api(full_url)
 
       team_name <- r[[1]]
       team_logo <- r[[2]]

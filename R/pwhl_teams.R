@@ -30,14 +30,7 @@ pwhl_teams <- function() {
 
   tryCatch(
     expr = .fastRhockey_with_warnings("pwhl_teams", {
-      res <- .retry_request(full_url)
-      res <- .resp_text(res)
-
-      res <- gsub("angular.callbacks._4\\(", "", res)
-      res <- gsub("}]})", "}]}", res)
-
-      r <- res %>%
-        jsonlite::parse_json()
+      r <- .pwhl_api(full_url)
 
       team_info <- r$teamsNoAll
       for (i in 1:length(team_info)) {
