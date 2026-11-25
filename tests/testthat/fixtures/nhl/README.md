@@ -15,3 +15,10 @@ mocks the two network calls with them to build the full PBP offline.
 `fastRhockey-nhl-data`'s `nhl_data_build.xg_publish` (version 2026-11-13, from commit `f21290b`): the
 penalty-shot constant, `version`, `trained_at` and the sha256 of each asset.
 `test-xg_model_cache.R` checks the manifest format against it.
+
+`boxscore_2026020305.json`: the `api-web.nhle.com/v1/gamecenter/2026020305/boxscore`
+response for BUF at CHI, as committed to `fastRhockey-nhl-raw` (`boxscore_raw` in
+`nhl/json/raw/2026020305.json`, captured 2026-11-13), trimmed to the game header, the
+two teams' ids/names/score, two forwards and one defenseman a side (including the
+unspaced "J.Kulich") and all four goalies. `test-nhl_game_boxscore.R` mocks the
+network call with it.
