@@ -50,7 +50,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_player_eventlog(athlete_id = "4024820"))
-#> ✖ 2026-11-24 19:32:15.25035: Invalid arguments or no ESPN nhl player eventlog for athlete 4024820 available!
+#> ✖ 2026-11-25 00:37:04.111685: Invalid arguments or no ESPN nhl player eventlog for athlete 4024820 available!
 #> ✖ Args: league = "nhl", athlete_id = "4024820"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

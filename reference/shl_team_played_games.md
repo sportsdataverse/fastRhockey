@@ -94,8 +94,22 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(shl_team_played_games(team_uuid = "087a-087aTQv9u"))
-#> Error in .shl_check(url, route, raw, mapped$query, mapped$ssgt) : 
-#>   www.shl.se/api/sports-v2/played-games/087a-087aTQv9u answered an empty
-#> body
+#> ── SHL Team Played Games Information from www.shl.se ────── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-25 00:44:16 UTC
+#> # A tibble: 5 × 41
+#>   date      time  game_uuid    start_date_time state overtime shootout ssgt_uuid
+#>   <chr>     <chr> <chr>        <chr>           <chr> <lgl>    <lgl>    <chr>    
+#> 1 24 nov 26 18:00 yaymmo31d1   2026-11-24T18:… post… FALSE    FALSE    qa98unlb…
+#> 2 21 nov 26 14:15 bo71isz10e   2026-11-21T14:… post… FALSE    FALSE    qa98unlb…
+#> 3 19 nov 26 18:00 y9dpynca7m   2026-11-19T18:… post… TRUE     FALSE    qa98unlb…
+#> 4 17 nov 26 18:00 qQ1-5b5lbVj… 2026-11-17T18:… post… TRUE     FALSE    kkzere4w…
+#> 5 14 nov 26 14:15 nrmohm5jbq   2026-11-14T14:… post… FALSE    FALSE    qa98unlb…
+#> # ℹ 33 more variables: home_team_status <chr>, home_team_uuid <chr>,
+#> #   home_team_owner_instance_id <chr>, home_team_code <chr>,
+#> #   home_team_names_code <chr>, home_team_names_short <chr>,
+#> #   home_team_names_long <chr>, home_team_names_full <chr>,
+#> #   home_team_names_code_site <chr>, home_team_names_short_site <chr>,
+#> #   home_team_names_full_site <chr>, home_team_names_long_site <chr>,
+#> #   home_team_score <int>, home_team_icon <chr>, away_team_status <chr>, …
 # }
 ```

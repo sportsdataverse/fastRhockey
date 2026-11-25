@@ -69,7 +69,7 @@ Saiem Gilani
     espn_mch_venue(venue_id = vns$venue_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Venue data from ESPN core-v2 ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:31:58 UTC
+#> ℹ Data updated: 2026-11-25 00:36:40 UTC
 #> # A tibble: 1 × 11
 #>   venue_id id    guid  full_name       city  state country grass indoor capacity
 #>   <chr>    <chr> <chr> <chr>           <chr> <chr> <chr>   <lgl> <lgl>     <int>
@@ -82,7 +82,7 @@ Saiem Gilani
     espn_wch_venue(venue_id = vns$venue_id[1])
   })
 #> ── WOMENS-COLLEGE-HOCKEY Venue data from ESPN core-v2 ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:31:58 UTC
+#> ℹ Data updated: 2026-11-25 00:36:41 UTC
 #> # A tibble: 1 × 11
 #>   venue_id id    guid  full_name       city  state country grass indoor capacity
 #>   <chr>    <chr> <chr> <chr>           <chr> <chr> <chr>   <lgl> <lgl>     <int>

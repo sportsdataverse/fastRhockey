@@ -55,12 +55,14 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_player_seasons(athlete_id = "5136656"))
-#> ! espn_nhl_player_seasons(): ESPN core-v2 athletes/{id}/seasons returns HTTP 404 for the requested NHL athlete (DONE_WITH_CONCERNS: endpoint not served for NHL).
+#> ! espn_mch_player_seasons(): ESPN core-v2 athletes/{id}/seasons is not available for the requested athlete (ESPN answers 404 for most NHL athletes).
+#> ! Error: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try(espn_wch_player_seasons(athlete_id = "5263060"))
-#> ! espn_nhl_player_seasons(): ESPN core-v2 athletes/{id}/seasons returns HTTP 404 for the requested NHL athlete (DONE_WITH_CONCERNS: endpoint not served for NHL).
+#> ! espn_wch_player_seasons(): ESPN core-v2 athletes/{id}/seasons is not available for the requested athlete (ESPN answers 404 for most NHL athletes).
+#> ! Error: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }
 ```

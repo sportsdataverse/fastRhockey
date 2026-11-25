@@ -89,14 +89,14 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_season_group(season = 2026, season_type = 2, group_id = 7))
-#> ✖ 2026-11-24 19:31:45.505996: Invalid arguments or no ESPN mens-college-hockey season group 7 for 2026 type 2 available!
+#> ✖ 2026-11-25 00:36:23.120738: Invalid arguments or no ESPN mens-college-hockey season group 7 for 2026 type 2 available!
 #> ✖ Args: league = "mens-college-hockey", season = 2026, season_type = 2, group_id = 7
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try(espn_wch_season_group(season = 2026, season_type = 2, group_id = 7))
-#> ✖ 2026-11-24 19:31:45.532931: Invalid arguments or no ESPN womens-college-hockey season group 7 for 2026 type 2 available!
+#> ✖ 2026-11-25 00:36:23.17344: Invalid arguments or no ESPN womens-college-hockey season group 7 for 2026 type 2 available!
 #> ✖ Args: league = "womens-college-hockey", season = 2026, season_type = 2, group_id = 7
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

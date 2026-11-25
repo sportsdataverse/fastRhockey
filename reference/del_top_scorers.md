@@ -95,20 +95,20 @@ Other DEL eSports functions:
 # \donttest{
   try(del_top_scorers(season = 2027, league_id = 1))
 #> ── DEL top_scorers from the eSports hokejovyzapis bucket ── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:30:59 UTC
+#> ℹ Data updated: 2026-11-25 00:35:24 UTC
 #> # A tibble: 378 × 13
 #>    player_id name   surname team_id team_name team_shortcut goals assists points
 #>        <int> <chr>  <chr>     <int> <chr>     <chr>         <int>   <int>  <int>
-#>  1      1553 Alexa… Blank        13 Augsburg… AEV               9      16     25
-#>  2      3410 Liam   Kirk          3 Eisbären… EBB               9      16     25
-#>  3      2209 Ty     Ronning       3 Eisbären… EBB              14      10     24
-#>  4      3950 Mathew Santos        5 Krefeld … KEV              11      12     23
-#>  5      2411 Nicol… Mattin…       2 Adler Ma… MAN              11      12     23
+#>  1      3410 Liam   Kirk          3 Eisbären… EBB               9      17     26
+#>  2      2209 Ty     Ronning       3 Eisbären… EBB              14      11     25
+#>  3      1553 Alexa… Blank        13 Augsburg… AEV               9      16     25
+#>  4      2411 Nicol… Mattin…       2 Adler Ma… MAN              11      13     24
+#>  5      3950 Mathew Santos        5 Krefeld … KEV              11      12     23
 #>  6      2935 Max    Newton        5 Krefeld … KEV               7      15     22
 #>  7       648 Louis… Aubry        11 Kölner H… KEC              10      11     21
 #>  8        80 Yasin  Ehliz        12 EHC Red … RBM               5      16     21
-#>  9      3426 Taro   Hirose       12 EHC Red … RBM               4      16     20
-#> 10      3442 Samuel Dove-M…      14 Nürnberg… NIT               9      10     19
+#>  9      3442 Samuel Dove-M…      14 Nürnberg… NIT              10      10     20
+#> 10      3426 Taro   Hirose       12 EHC Red … RBM               4      16     20
 #> # ℹ 368 more rows
 #> # ℹ 4 more variables: shots <int>, games <int>, penalty_minutes <int>,
 #> #   time_on_ice <int>

@@ -66,7 +66,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_teams_history())
 #> ── Liiga team history Information from liiga.fi ─────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:35:21 UTC
+#> ℹ Data updated: 2026-11-25 00:40:17 UTC
 #> # A tibble: 593 × 25
 #>       id season league_id serie_id    team_id away_games away_losses away_ties
 #>    <int>  <int>     <int>    <int>      <int>      <int>       <int>     <int>

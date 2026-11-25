@@ -79,27 +79,22 @@ Saiem Gilani
     sb   <- espn_mch_scoreboard(dates = "20250110")
     eid  <- sb$game_id[1]
     offs <- espn_mch_game_officials(event_id = eid)
-    espn_mch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
+    # ESPN often lists no officials for a college game; skip the detail call then
+    if (nrow(offs) > 0) {
+      espn_mch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
+    }
   })
-#> ! 2026-11-24 19:31:26.409902: No officials returned for event 401715296.
-#> ✖ 2026-11-24 19:31:26.432184: 
-#> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", official_id = NULL
-#> ✖ Error: arguments imply differing number of rows: 1, 0
-#> data frame with 0 columns and 0 rows
+#> ! 2026-11-25 00:35:53.478756: No officials returned for event 401715296.
 # }
 # \donttest{
   try({
-    sb   <- espn_wch_scoreboard(dates = "20250110")
+    sb   <- espn_wch_scoreboard(dates = "20260110")
     eid  <- sb$game_id[1]
     offs <- espn_wch_game_officials(event_id = eid)
-    espn_wch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
+    if (nrow(offs) > 0) {
+      espn_wch_game_official_detail(event_id = eid, official_id = offs$official_id[1])
+    }
   })
-#> ✖ 2026-11-24 19:31:26.477999: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
-#> ✖ Error: The API returned an error
-#> ✖ 2026-11-24 19:31:26.504382: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, official_id = NULL
-#> ✖ Error: The API returned an error
-#> data frame with 0 columns and 0 rows
+#> ! 2026-11-25 00:35:53.668255: No officials returned for event 401814005.
 # }
 ```

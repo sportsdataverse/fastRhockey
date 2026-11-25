@@ -99,7 +99,7 @@ lists every function in this family.
 # \donttest{
   try(shl_next_game_day())
 #> ── SHL Next Game Day Information from www.shl.se ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:39:04 UTC
+#> ℹ Data updated: 2026-11-25 00:44:02 UTC
 #> # A tibble: 6 × 39
 #>   game_uuid  start_date_time  state overtime shootout ssgt_uuid home_team_status
 #>   <chr>      <chr>            <chr> <lgl>    <lgl>    <chr>     <chr>           

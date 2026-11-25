@@ -77,7 +77,7 @@ Saiem Gilani
     espn_mch_game_team_linescores(event_id = eid, team_id = tms$team_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Team Linescores data from ESPN core-v2 ─────────────
-#> ℹ Data updated: 2026-11-24 19:31:32 UTC
+#> ℹ Data updated: 2026-11-25 00:36:03 UTC
 #> # A tibble: 3 × 9
 #>   event_id  cid       team_id period value display_value source_id source_desc 
 #>   <chr>     <chr>     <chr>    <int> <dbl> <chr>         <chr>     <chr>       
@@ -88,17 +88,20 @@ Saiem Gilani
 # }
 # \donttest{
   try({
-    sb  <- espn_wch_scoreboard(dates = "20250110")
+    sb  <- espn_wch_scoreboard(dates = "20260110")
     eid <- sb$game_id[1]
     tms <- espn_wch_game_teams(event_id = eid)
     espn_wch_game_team_linescores(event_id = eid, team_id = tms$team_id[1])
   })
-#> ✖ 2026-11-24 19:31:32.612372: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
-#> ✖ Error: The API returned an error
-#> ✖ 2026-11-24 19:31:32.639557: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, team_id = NULL
-#> ✖ Error: The API returned an error
-#> data frame with 0 columns and 0 rows
+#> ── WOMENS-COLLEGE-HOCKEY Game Team Linescores data from ESPN core-v2 ───────────
+#> ℹ Data updated: 2026-11-25 00:36:04 UTC
+#> # A tibble: 4 × 9
+#>   event_id  cid       team_id period value display_value source_id source_desc 
+#>   <chr>     <chr>     <chr>    <int> <dbl> <chr>         <chr>     <chr>       
+#> 1 401814005 401814005 2385         1     0 0             1         basic/manual
+#> 2 401814005 401814005 2385         2     2 2             1         basic/manual
+#> 3 401814005 401814005 2385         3     1 1             1         basic/manual
+#> 4 401814005 401814005 2385         4     1 1             1         basic/manual
+#> # ℹ 1 more variable: linescore_ref <chr>
 # }
 ```

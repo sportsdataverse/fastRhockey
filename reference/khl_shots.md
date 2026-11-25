@@ -111,7 +111,7 @@ lists every function in this family.
 # \donttest{
   try(khl_shots(game_id = 898236, season = 2026))
 #> ── KHL Shot Map from khl.ru ─────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:34:29 UTC
+#> ℹ Data updated: 2026-11-25 00:39:26 UTC
 #> # A tibble: 69 × 15
 #>    game_id tournament_id period time  time_seconds team_side    jn player_id
 #>      <int>         <int>  <int> <chr>        <int> <chr>     <int>     <int>

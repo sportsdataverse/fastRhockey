@@ -85,7 +85,7 @@ Saiem Gilani
     espn_mch_game_team(event_id = eid, team_id = tms$team_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Team data from ESPN core-v2 ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:31:31 UTC
+#> ℹ Data updated: 2026-11-25 00:36:02 UTC
 #> # A tibble: 1 × 17
 #>   event_id  cid       team_id id    uid    type  order home_away winner team_ref
 #>   <chr>     <chr>     <chr>   <chr> <chr>  <chr> <int> <chr>     <lgl>  <chr>   
@@ -96,17 +96,19 @@ Saiem Gilani
 # }
 # \donttest{
   try({
-    sb  <- espn_wch_scoreboard(dates = "20250110")
+    sb  <- espn_wch_scoreboard(dates = "20260110")
     eid <- sb$game_id[1]
     tms <- espn_wch_game_teams(event_id = eid)
     espn_wch_game_team(event_id = eid, team_id = tms$team_id[1])
   })
-#> ✖ 2026-11-24 19:31:31.627789: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
-#> ✖ Error: The API returned an error
-#> ✖ 2026-11-24 19:31:31.655387: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, team_id = NULL
-#> ✖ Error: The API returned an error
-#> data frame with 0 columns and 0 rows
+#> ── WOMENS-COLLEGE-HOCKEY Game Team data from ESPN core-v2 ──────────────────────
+#> ℹ Data updated: 2026-11-25 00:36:02 UTC
+#> # A tibble: 1 × 17
+#>   event_id  cid       team_id id    uid    type  order home_away winner team_ref
+#>   <chr>     <chr>     <chr>   <chr> <chr>  <chr> <int> <chr>     <lgl>  <chr>   
+#> 1 401814005 401814005 2385    2385  s:70~… team      0 home      TRUE   http://…
+#> # ℹ 7 more variables: score_ref <chr>, linescores_ref <chr>, roster_ref <chr>,
+#> #   statistics_ref <chr>, leaders_ref <chr>, record_ref <chr>,
+#> #   competitor_ref <chr>
 # }
 ```

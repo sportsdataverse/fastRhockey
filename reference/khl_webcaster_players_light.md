@@ -76,7 +76,7 @@ lists every function in this family.
 # \donttest{
   try(khl_webcaster_players_light())
 #> ── KHL Webcaster Players (Light) from khl.api.webcaster.pro ────────────────────
-#> ℹ Data updated: 2026-11-24 19:34:38 UTC
+#> ℹ Data updated: 2026-11-25 00:39:34 UTC
 #> # A tibble: 796 × 10
 #>       id shirt_number khl_id image           name  team_id team_khl_id team_name
 #>    <int>        <int>  <int> <chr>           <chr>   <int>       <int> <chr>    

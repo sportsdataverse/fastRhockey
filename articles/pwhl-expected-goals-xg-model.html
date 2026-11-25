@@ -249,7 +249,7 @@ power-play / shorthanded / empty-net / penalty-shot flags, the outcome
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html" class="external-link">bind_rows</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">pwhl_xg</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Rows: 12,360</span></span>
+<span><span class="co">#&gt; Rows: 18,031</span></span>
 <span><span class="co">#&gt; Columns: 22</span></span>
 <span><span class="co">#&gt; $ game_id        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2…</span></span>
 <span><span class="co">#&gt; $ game_season    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 2024<span style="color: #949494;">, </span>2024<span style="color: #949494;">, </span>2024<span style="color: #949494;">, </span>2024<span style="color: #949494;">, </span>2024<span style="color: #949494;">, </span>2024<span style="color: #949494;">, </span>2024<span style="color: #949494;">, </span>2024<span style="color: #949494;">, </span>2024<span style="color: #949494;">, </span>2…</span></span>
@@ -400,13 +400,14 @@ behaves, not how the model generalises.</p>
 <span>    .groups <span class="op">=</span> <span class="st">"drop"</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="va">pub_eval</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 7</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 7</span></span></span>
 <span><span class="co">#&gt;   season shots goals sum_xg goals_per_xg log_loss rank_auc</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>   <span style="text-decoration: underline;">2</span>024  <span style="text-decoration: underline;">4</span>922   385   406.        0.949    0.258    0.686</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>   <span style="text-decoration: underline;">2</span>026  <span style="text-decoration: underline;">7</span>438   601   615.        0.978    0.257    0.724</span></span></code></pre></div>
-<p>Across all 12,360 published shots the in-sample rank AUC is
-0.7095.</p>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>   <span style="text-decoration: underline;">2</span>025  <span style="text-decoration: underline;">5</span>671   499   465.        1.07     0.278    0.699</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>   <span style="text-decoration: underline;">2</span>026  <span style="text-decoration: underline;">7</span>438   601   615.        0.978    0.257    0.724</span></span></code></pre></div>
+<p>Across all 18,031 published shots the in-sample rank AUC is
+0.7058.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pwhl_xg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span>decile <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/ntile.html" class="external-link">ntile</a></span><span class="op">(</span><span class="va">xg</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -456,7 +457,7 @@ files carry no skater or strength columns; 2026 is about 99% covered.
 The power-play and shorthanded features, and the per-strength
 recalibration, are effectively active only for 2026 shots.</li>
 <li>
-<strong>Small samples.</strong> Three seasons and about 12,000
+<strong>Small samples.</strong> Three seasons and about 18,000
 shots. Player goals-above-expected is a descriptive ledger here, not a
 talent estimate.</li>
 <li>

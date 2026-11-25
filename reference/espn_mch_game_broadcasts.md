@@ -81,17 +81,15 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_broadcasts(event_id = sb$game_id[1])
   })
-#> ! 2026-11-24 19:31:23.717112: No broadcasts returned for event 401715296.
+#> ! 2026-11-25 00:35:50.471877: No broadcasts returned for event 401715296.
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try({
-    sb <- espn_wch_scoreboard(dates = "20250110")
+    sb <- espn_wch_scoreboard(dates = "20260110")
     espn_wch_game_broadcasts(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-24 19:31:23.802726: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
-#> ✖ Error: The API returned an error
+#> ! 2026-11-25 00:35:50.739538: No broadcasts returned for event 401814005.
 #> data frame with 0 columns and 0 rows
 # }
 ```

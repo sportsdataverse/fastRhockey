@@ -82,7 +82,7 @@ Saiem Gilani
     espn_mch_game_competition(event_id = sb$game_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Competition data from ESPN core-v2 ─────────────────
-#> ℹ Data updated: 2026-11-24 19:31:24 UTC
+#> ℹ Data updated: 2026-11-25 00:35:51 UTC
 #> # A tibble: 1 × 20
 #>   event_id  cid       id    guid  uid   date  attendance neutral_site time_valid
 #>   <chr>     <chr>     <chr> <chr> <chr> <chr>      <int> <lgl>        <lgl>     
@@ -94,12 +94,18 @@ Saiem Gilani
 # }
 # \donttest{
   try({
-    sb <- espn_wch_scoreboard(dates = "20250110")
+    sb <- espn_wch_scoreboard(dates = "20260110")
     espn_wch_game_competition(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-24 19:31:24.986557: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
-#> ✖ Error: The API returned an error
-#> data frame with 0 columns and 0 rows
+#> ── WOMENS-COLLEGE-HOCKEY Game Competition data from ESPN core-v2 ───────────────
+#> ℹ Data updated: 2026-11-25 00:35:51 UTC
+#> # A tibble: 1 × 20
+#>   event_id  cid       id    guid  uid   date  attendance neutral_site time_valid
+#>   <chr>     <chr>     <chr> <chr> <chr> <chr>      <int> <lgl>        <lgl>     
+#> 1 401814005 401814005 4018… 9b0c… s:70… 2026…          0 FALSE        TRUE      
+#> # ℹ 11 more variables: boxscore_available <lgl>, play_by_play_available <lgl>,
+#> #   linescore_available <lgl>, on_watch_espn <lgl>, recent <lgl>,
+#> #   venue_ref <chr>, competitors_ref <chr>, status_ref <chr>, odds_ref <chr>,
+#> #   officials_ref <chr>, competition_ref <chr>
 # }
 ```

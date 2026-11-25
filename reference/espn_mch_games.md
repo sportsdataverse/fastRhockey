@@ -63,7 +63,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_games(limit = 10))
 #> ── MENS-COLLEGE-HOCKEY Games data from ESPN core-v2 ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:31:34 UTC
+#> ℹ Data updated: 2026-11-25 00:36:07 UTC
 #> # A tibble: 4 × 4
 #>   ref                                                  event_id count page_count
 #>   <chr>                                                <chr>    <int>      <int>
@@ -75,7 +75,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_games(limit = 10))
 #> ── WOMENS-COLLEGE-HOCKEY Games data from ESPN core-v2 ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:31:34 UTC
+#> ℹ Data updated: 2026-11-25 00:36:07 UTC
 #> # A tibble: 2 × 4
 #>   ref                                                  event_id count page_count
 #>   <chr>                                                <chr>    <int>      <int>

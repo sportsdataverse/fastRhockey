@@ -156,9 +156,23 @@ season that is not a year, or an argument outside its choices.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">shl_team_played_games</span><span class="op">(</span>team_uuid <span class="op">=</span> <span class="st">"087a-087aTQv9u"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in .shl_check(url, route, raw, mapped$query, mapped$ssgt) : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   www.shl.se/api/sports-v2/played-games/087a-087aTQv9u answered an empty</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> body</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── SHL Team Played Games Information from www.shl.se ────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 00:44:16 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 41</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   date      time  game_uuid    start_date_time state overtime shootout ssgt_uuid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 24 nov 26 18:00 yaymmo31d1   2026-11-24T18:… post… FALSE    FALSE    qa98unlb…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 21 nov 26 14:15 bo71isz10e   2026-11-21T14:… post… FALSE    FALSE    qa98unlb…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 19 nov 26 18:00 y9dpynca7m   2026-11-19T18:… post… TRUE     FALSE    qa98unlb…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 17 nov 26 18:00 qQ1-5b5lbVj… 2026-11-17T18:… post… TRUE     FALSE    kkzere4w…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 14 nov 26 14:15 nrmohm5jbq   2026-11-14T14:… post… FALSE    FALSE    qa98unlb…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 33 more variables: home_team_status &lt;chr&gt;, home_team_uuid &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_owner_instance_id &lt;chr&gt;, home_team_code &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_names_code &lt;chr&gt;, home_team_names_short &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_names_long &lt;chr&gt;, home_team_names_full &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_names_code_site &lt;chr&gt;, home_team_names_short_site &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_names_full_site &lt;chr&gt;, home_team_names_long_site &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_score &lt;int&gt;, home_team_icon &lt;chr&gt;, away_team_status &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

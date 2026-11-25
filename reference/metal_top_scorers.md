@@ -89,7 +89,7 @@ Other Metal Ligaen eSports functions:
 # \donttest{
   try(metal_top_scorers(season = 2027, league_id = 1))
 #> ── Metal Ligaen top_scorers from the eSports hokejovyzapis bucket ──────────────
-#> ℹ Data updated: 2026-11-24 19:36:36 UTC
+#> ℹ Data updated: 2026-11-25 00:41:39 UTC
 #> # A tibble: 246 × 11
 #>    player_id name       surname  birthdate team_id team_name team_shortcut goals
 #>        <int> <chr>      <chr>    <chr>       <int> <chr>     <chr>         <int>
@@ -97,12 +97,12 @@ Other Metal Ligaen eSports functions:
 #>  2        46 "Morten"   Poulsen  1988-09-…       6 Herning … HER              13
 #>  3       496 "Olle"     Liss     1992-10-…       1 Rungsted… RUN              14
 #>  4       429 "Zane "    Franklin 1999-05-…       5 Esbjerg … ESB               7
-#>  5        97 "Radim"    Piroutek 1999-12-…       9 Odense B… ODE               9
-#>  6       217 "Phillip"  Schultz  2000-07-…       6 Herning … HER               7
-#>  7         7 "Terrance" Amorosa  1994-11-…       6 Herning … HER               6
-#>  8       384 "Maxim"    Trépani… 1999-05-…       9 Odense B… ODE               6
-#>  9        42 "Hjalte"   Kruse T… 2005-10-…       6 Herning … HER               8
-#> 10       396 "Leo"      Ring     2001-10-…       3 Frederik… FRE               6
+#>  5       217 "Phillip"  Schultz  2000-07-…       6 Herning … HER               8
+#>  6         7 "Terrance" Amorosa  1994-11-…       6 Herning … HER               6
+#>  7        97 "Radim"    Piroutek 1999-12-…       9 Odense B… ODE               9
+#>  8       210 "Oliver"   Kjær     2000-07-…       5 Esbjerg … ESB               6
+#>  9       384 "Maxim"    Trépani… 1999-05-…       9 Odense B… ODE               6
+#> 10       428 "Troy"     Lajeune… 1997-05-…       5 Esbjerg … ESB              11
 #> # ℹ 236 more rows
 #> # ℹ 3 more variables: assists <int>, points <int>, shots <int>
 # }

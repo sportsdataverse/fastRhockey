@@ -161,28 +161,23 @@ to find valid official ids for a game.</p></dd>
 <span class="r-in"><span>    <span class="va">sb</span>   <span class="op">&lt;-</span> <span class="fu"><a href="espn_mch_scoreboard.html">espn_mch_scoreboard</a></span><span class="op">(</span>dates <span class="op">=</span> <span class="st">"20250110"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>    <span class="va">eid</span>  <span class="op">&lt;-</span> <span class="va">sb</span><span class="op">$</span><span class="va">game_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></span>
 <span class="r-in"><span>    <span class="va">offs</span> <span class="op">&lt;-</span> <span class="fu"><a href="espn_mch_game_officials.html">espn_mch_game_officials</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">eid</span><span class="op">)</span></span></span>
-<span class="r-in"><span>    <span class="fu">espn_mch_game_official_detail</span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">eid</span>, official_id <span class="op">=</span> <span class="va">offs</span><span class="op">$</span><span class="va">official_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="co"># ESPN often lists no officials for a college game; skip the detail call then</span></span></span>
+<span class="r-in"><span>    <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">offs</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>      <span class="fu">espn_mch_game_official_detail</span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">eid</span>, official_id <span class="op">=</span> <span class="va">offs</span><span class="op">$</span><span class="va">official_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">}</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-11-24 19:31:26.409902: No officials returned for event 401715296.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-24 19:31:26.432184: </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", official_id = NULL</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: arguments imply differing number of rows: 1, 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-11-25 00:35:53.478756: No officials returned for event 401715296.</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="op">{</span></span></span>
-<span class="r-in"><span>    <span class="va">sb</span>   <span class="op">&lt;-</span> <span class="fu"><a href="espn_mch_scoreboard.html">espn_wch_scoreboard</a></span><span class="op">(</span>dates <span class="op">=</span> <span class="st">"20250110"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="va">sb</span>   <span class="op">&lt;-</span> <span class="fu"><a href="espn_mch_scoreboard.html">espn_wch_scoreboard</a></span><span class="op">(</span>dates <span class="op">=</span> <span class="st">"20260110"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>    <span class="va">eid</span>  <span class="op">&lt;-</span> <span class="va">sb</span><span class="op">$</span><span class="va">game_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></span>
 <span class="r-in"><span>    <span class="va">offs</span> <span class="op">&lt;-</span> <span class="fu"><a href="espn_mch_game_officials.html">espn_wch_game_officials</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">eid</span><span class="op">)</span></span></span>
-<span class="r-in"><span>    <span class="fu">espn_wch_game_official_detail</span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">eid</span>, official_id <span class="op">=</span> <span class="va">offs</span><span class="op">$</span><span class="va">official_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">offs</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>      <span class="fu">espn_wch_game_official_detail</span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">eid</span>, official_id <span class="op">=</span> <span class="va">offs</span><span class="op">$</span><span class="va">official_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">}</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-24 19:31:26.477999: </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "womens-college-hockey", event_id = NULL, cid = NULL</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: The API returned an error</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-24 19:31:26.504382: </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, official_id = NULL</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: The API returned an error</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-11-25 00:35:53.668255: No officials returned for event 401814005.</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -39,7 +39,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_player_notes(athlete_id = "4024820"))
-#> ! espn_nhl_player_notes(): ESPN core-v2 athletes/{id}/notes returns HTTP 404 for the requested NHL athlete (DONE_WITH_CONCERNS: endpoint not served for NHL).
+#> ! espn_nhl_player_notes(): ESPN core-v2 athletes/{id}/notes is not available for the requested athlete (ESPN answers 404 for most NHL athletes).
+#> ! Error: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }
 ```

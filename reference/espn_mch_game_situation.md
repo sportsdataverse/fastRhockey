@@ -68,7 +68,7 @@ Saiem Gilani
     espn_mch_game_situation(event_id = sb$game_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Situation data from ESPN core-v2 ───────────────────
-#> ℹ Data updated: 2026-11-24 19:31:30 UTC
+#> ℹ Data updated: 2026-11-25 00:36:00 UTC
 #> # A tibble: 1 × 6
 #>   event_id  cid       power_play empty_net last_play_ref situation_ref          
 #>   <chr>     <chr>     <lgl>      <lgl>     <chr>         <chr>                  
@@ -76,12 +76,14 @@ Saiem Gilani
 # }
 # \donttest{
   try({
-    sb <- espn_wch_scoreboard(dates = "20250110")
+    sb <- espn_wch_scoreboard(dates = "20260110")
     espn_wch_game_situation(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-24 19:31:30.730033: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
-#> ✖ Error: The API returned an error
-#> data frame with 0 columns and 0 rows
+#> ── WOMENS-COLLEGE-HOCKEY Game Situation data from ESPN core-v2 ─────────────────
+#> ℹ Data updated: 2026-11-25 00:36:00 UTC
+#> # A tibble: 1 × 6
+#>   event_id  cid       power_play empty_net last_play_ref situation_ref          
+#>   <chr>     <chr>     <lgl>      <lgl>     <chr>         <chr>                  
+#> 1 401814005 401814005 NA         NA        NA            http://sports.core.api…
 # }
 ```

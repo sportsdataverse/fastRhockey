@@ -71,18 +71,18 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_leaders(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-24 19:31:25.362791: Invalid arguments or no ESPN mens-college-hockey game leaders for event 401715296 available!
+#> ✖ 2026-11-25 00:35:51.968224: Invalid arguments or no ESPN mens-college-hockey game leaders for event 401715296 available!
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try({
-    sb <- espn_wch_scoreboard(dates = "20250110")
+    sb <- espn_wch_scoreboard(dates = "20260110")
     espn_wch_game_leaders(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-24 19:31:25.412086: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
+#> ✖ 2026-11-25 00:35:52.43674: Invalid arguments or no ESPN womens-college-hockey game leaders for event 401814005 available!
+#> ✖ Args: league = "womens-college-hockey", event_id = "401814005", cid = "401814005"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }

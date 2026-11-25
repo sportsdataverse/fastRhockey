@@ -60,7 +60,7 @@ pwhl_xg <- lapply(seasons, function(s) {
   bind_rows()
 
 glimpse(pwhl_xg)
-#> Rows: 12,360
+#> Rows: 18,031
 #> Columns: 22
 #> $ game_id        <int> 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…
 #> $ game_season    <int> 2024, 2024, 2024, 2024, 2024, 2024, 2024, 2024, 2024, 2…
@@ -184,14 +184,15 @@ pub_eval <- pwhl_xg %>%
     .groups = "drop"
   )
 pub_eval
-#> # A tibble: 2 × 7
+#> # A tibble: 3 × 7
 #>   season shots goals sum_xg goals_per_xg log_loss rank_auc
 #>    <int> <int> <int>  <dbl>        <dbl>    <dbl>    <dbl>
 #> 1   2024  4922   385   406.        0.949    0.258    0.686
-#> 2   2026  7438   601   615.        0.978    0.257    0.724
+#> 2   2025  5671   499   465.        1.07     0.278    0.699
+#> 3   2026  7438   601   615.        0.978    0.257    0.724
 ```
 
-Across all 12,360 published shots the in-sample rank AUC is 0.7095.
+Across all 18,031 published shots the in-sample rank AUC is 0.7058.
 
 ``` r
 
@@ -240,7 +241,7 @@ Other limits, as described in the card:
   skater or strength columns; 2026 is about 99% covered. The power-play
   and shorthanded features, and the per-strength recalibration, are
   effectively active only for 2026 shots.
-- **Small samples.** Three seasons and about 12,000 shots. Player
+- **Small samples.** Three seasons and about 18,000 shots. Player
   goals-above-expected is a descriptive ledger here, not a talent
   estimate.
 - **No pre-shot passing data.** One-timers and cross-ice passes are

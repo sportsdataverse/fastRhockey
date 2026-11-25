@@ -81,7 +81,7 @@ Saiem Gilani
     espn_mch_game_team_roster(event_id = eid, team_id = tms$team_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Team Roster data from ESPN core-v2 ─────────────────
-#> ℹ Data updated: 2026-11-24 19:31:33 UTC
+#> ℹ Data updated: 2026-11-25 00:36:05 UTC
 #> # A tibble: 22 × 13
 #>    event_id cid   team_id player_id jersey display_name scratched scratch_reason
 #>    <chr>    <chr> <chr>   <chr>     <chr>  <chr>        <lgl>     <chr>         
@@ -101,17 +101,28 @@ Saiem Gilani
 # }
 # \donttest{
   try({
-    sb  <- espn_wch_scoreboard(dates = "20250110")
+    sb  <- espn_wch_scoreboard(dates = "20260110")
     eid <- sb$game_id[1]
     tms <- espn_wch_game_teams(event_id = eid)
     espn_wch_game_team_roster(event_id = eid, team_id = tms$team_id[1])
   })
-#> ✖ 2026-11-24 19:31:33.623428: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
-#> ✖ Error: The API returned an error
-#> ✖ 2026-11-24 19:31:33.650853: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, team_id = NULL
-#> ✖ Error: The API returned an error
-#> data frame with 0 columns and 0 rows
+#> ── WOMENS-COLLEGE-HOCKEY Game Team Roster data from ESPN core-v2 ───────────────
+#> ℹ Data updated: 2026-11-25 00:36:05 UTC
+#> # A tibble: 24 × 13
+#>    event_id cid   team_id player_id jersey display_name scratched scratch_reason
+#>    <chr>    <chr> <chr>   <chr>     <chr>  <chr>        <lgl>     <chr>         
+#>  1 4018140… 4018… 2385    5273179   1      E. Lind      FALSE     NA            
+#>  2 4018140… 4018… 2385    5273180   3      M. McKay     FALSE     NA            
+#>  3 4018140… 4018… 2385    5273181   5      A. Mandevil… FALSE     NA            
+#>  4 4018140… 4018… 2385    5273182   8      S. Ljung     FALSE     NA            
+#>  5 4018140… 4018… 2385    5273183   10     E. Mourujar… FALSE     NA            
+#>  6 4018140… 4018… 2385    5273184   11     M. Javier    FALSE     NA            
+#>  7 4018140… 4018… 2385    5273185   12     M. Parks     FALSE     NA            
+#>  8 4018140… 4018… 2385    5273186   14     J. Schalin   FALSE     NA            
+#>  9 4018140… 4018… 2385    5273187   15     J. Perjus    FALSE     NA            
+#> 10 4018140… 4018… 2385    5273188   16     H. Mahoney   FALSE     NA            
+#> # ℹ 14 more rows
+#> # ℹ 5 more variables: athlete_id <chr>, athlete_ref <chr>, position_id <chr>,
+#> #   position_ref <chr>, statistics_ref <chr>
 # }
 ```

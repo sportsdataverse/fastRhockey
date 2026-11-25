@@ -81,7 +81,7 @@ lists every function in this family.
 # \donttest{
   try(khl_roster(club_id = 7))
 #> ── KHL Roster from khl.ru ───────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:34:25 UTC
+#> ℹ Data updated: 2026-11-25 00:39:21 UTC
 #> # A tibble: 29 × 10
 #>    group   player_id photo country lastname firstname    jn   age favorite link 
 #>    <chr>       <int> <chr> <chr>   <chr>    <chr>     <int> <int> <lgl>    <chr>

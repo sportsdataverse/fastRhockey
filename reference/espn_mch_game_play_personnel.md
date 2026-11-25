@@ -78,24 +78,22 @@ Saiem Gilani
     pls <- espn_mch_game_plays(event_id = eid)
     espn_mch_game_play_personnel(event_id = eid, play_id = pls$id[1])
   })
-#> ! 2026-11-24 19:31:27.684641: No plays returned for event 401715296.
-#> ✖ 2026-11-24 19:31:27.709208: 
+#> ! 2026-11-25 00:35:55.485826: No plays returned for event 401715296.
+#> ✖ 2026-11-25 00:35:55.534414: 
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", play_id = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try({
-    sb  <- espn_wch_scoreboard(dates = "20250110")
+    sb  <- espn_wch_scoreboard(dates = "20260110")
     eid <- sb$game_id[1]
     pls <- espn_wch_game_plays(event_id = eid)
     espn_wch_game_play_personnel(event_id = eid, play_id = pls$id[1])
   })
-#> ✖ 2026-11-24 19:31:27.759378: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, limit = 1000
-#> ✖ Error: The API returned an error
-#> ✖ 2026-11-24 19:31:27.785969: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, play_id = NULL
+#> ! 2026-11-25 00:35:55.72641: No plays returned for event 401814005.
+#> ✖ 2026-11-25 00:35:55.774018: 
+#> ✖ Args: league = "womens-college-hockey", event_id = "401814005", cid = "401814005", play_id = NULL
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }

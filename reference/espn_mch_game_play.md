@@ -91,9 +91,9 @@ Saiem Gilani
     pls <- espn_mch_game_plays(event_id = eid)
     espn_mch_game_play(event_id = eid, play_id = pls$id[1])
   })
-#> ! 2026-11-24 19:31:27.213323: No plays returned for event 401715296.
+#> ! 2026-11-25 00:35:54.687761: No plays returned for event 401715296.
 #> ── MENS-COLLEGE-HOCKEY Game Play data from ESPN core-v2 ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:31:27 UTC
+#> ℹ Data updated: 2026-11-25 00:35:54 UTC
 #> # A tibble: 1 × 23
 #>   event_id  cid       play_id id    sequence_number type_id type_text
 #>   <chr>     <chr>     <chr>   <chr>           <int> <chr>   <chr>    
@@ -106,17 +106,22 @@ Saiem Gilani
 # }
 # \donttest{
   try({
-    sb  <- espn_wch_scoreboard(dates = "20250110")
+    sb  <- espn_wch_scoreboard(dates = "20260110")
     eid <- sb$game_id[1]
     pls <- espn_wch_game_plays(event_id = eid)
     espn_wch_game_play(event_id = eid, play_id = pls$id[1])
   })
-#> ✖ 2026-11-24 19:31:27.316188: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, limit = 1000
-#> ✖ Error: The API returned an error
-#> ✖ 2026-11-24 19:31:27.342745: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL, play_id = NULL
-#> ✖ Error: The API returned an error
-#> data frame with 0 columns and 0 rows
+#> ! 2026-11-25 00:35:54.975568: No plays returned for event 401814005.
+#> ── WOMENS-COLLEGE-HOCKEY Game Play data from ESPN core-v2 ──────────────────────
+#> ℹ Data updated: 2026-11-25 00:35:55 UTC
+#> # A tibble: 1 × 23
+#>   event_id  cid       play_id id    sequence_number type_id type_text
+#>   <chr>     <chr>     <chr>   <chr>           <int> <chr>   <chr>    
+#> 1 401814005 401814005 NA      NA                 NA NA      NA       
+#> # ℹ 16 more variables: type_abbreviation <chr>, text <chr>, short_text <chr>,
+#> #   away_score <int>, home_score <int>, period_number <int>,
+#> #   period_display <chr>, clock_value <dbl>, clock_display <chr>,
+#> #   scoring_play <lgl>, score_value <int>, priority <lgl>, shooting_play <lgl>,
+#> #   is_penalty <lgl>, wallclock <chr>, play_ref <chr>
 # }
 ```

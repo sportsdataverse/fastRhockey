@@ -101,7 +101,7 @@ Other VHL Functions:
 # \donttest{
   try(vhl_penalties(season = 2026, game_id = 899223))
 #> ── VHL Penalties Information from vhlru.ru ──────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:40:07 UTC
+#> ℹ Data updated: 2026-11-25 00:45:05 UTC
 #> # A tibble: 3 × 13
 #>   game_id season stage  game_number team_side team_page_id team  time  player_id
 #>     <int>  <int> <chr>        <int> <chr>            <int> <chr> <chr>     <int>

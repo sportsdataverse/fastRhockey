@@ -99,17 +99,12 @@ lists every function in this family.
 # \donttest{
   try(shl_last_game_day())
 #> ── SHL Last Game Day Information from www.shl.se ────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:39:02 UTC
-#> # A tibble: 7 × 39
+#> ℹ Data updated: 2026-11-25 00:44:00 UTC
+#> # A tibble: 2 × 39
 #>   game_uuid  start_date_time  state overtime shootout ssgt_uuid home_team_status
 #>   <chr>      <chr>            <chr> <lgl>    <lgl>    <chr>     <chr>           
-#> 1 bo71isz10e 2026-11-21T14:1… post… FALSE    FALSE    qa98unlb… WIN             
-#> 2 na0j6nu00r 2026-11-21T14:1… post… FALSE    FALSE    qa98unlb… LOSE            
-#> 3 vvv334lwlo 2026-11-21T14:1… post… FALSE    FALSE    qa98unlb… LOSE            
-#> 4 kbza79tlxu 2026-11-21T17:0… post… FALSE    FALSE    qa98unlb… WIN             
-#> 5 lc2m39x86r 2026-11-21T17:0… post… FALSE    FALSE    qa98unlb… WIN             
-#> 6 t7kzfe3hk3 2026-11-21T17:0… post… TRUE     FALSE    qa98unlb… WIN             
-#> 7 ursekkgfjw 2026-11-21T17:0… post… FALSE    FALSE    qa98unlb… LOSE            
+#> 1 mqhq8jocap 2026-11-24T18:0… post… FALSE    TRUE     qa98unlb… LOSE            
+#> 2 yaymmo31d1 2026-11-24T18:0… post… FALSE    FALSE    qa98unlb… WIN             
 #> # ℹ 32 more variables: home_team_uuid <chr>, home_team_owner_instance_id <chr>,
 #> #   home_team_code <chr>, home_team_names_code <chr>,
 #> #   home_team_names_short <chr>, home_team_names_long <chr>,

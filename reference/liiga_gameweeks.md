@@ -55,7 +55,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_gameweeks(season = 2026))
 #> ── Liiga game weeks Information from liiga.fi ───────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:34:53 UTC
+#> ℹ Data updated: 2026-11-25 00:39:50 UTC
 #> # A tibble: 1 × 3
 #>   season serie      nb_weeks
 #>    <int> <chr>         <int>

@@ -77,7 +77,7 @@ Saiem Gilani
     espn_mch_game_teams(event_id = sb$game_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Teams data from ESPN core-v2 ── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:31:34 UTC
+#> ℹ Data updated: 2026-11-25 00:36:07 UTC
 #> # A tibble: 2 × 16
 #>   event_id  cid    team_id uid   type  order home_away winner team_ref score_ref
 #>   <chr>     <chr>  <chr>   <chr> <chr> <int> <chr>     <lgl>  <chr>    <chr>    
@@ -89,12 +89,18 @@ Saiem Gilani
 # }
 # \donttest{
   try({
-    sb <- espn_wch_scoreboard(dates = "20250110")
+    sb <- espn_wch_scoreboard(dates = "20260110")
     espn_wch_game_teams(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-24 19:31:34.576454: 
-#> ✖ Args: league = "womens-college-hockey", event_id = NULL, cid = NULL
-#> ✖ Error: The API returned an error
-#> data frame with 0 columns and 0 rows
+#> ── WOMENS-COLLEGE-HOCKEY Game Teams data from ESPN core-v2 ─────────────────────
+#> ℹ Data updated: 2026-11-25 00:36:07 UTC
+#> # A tibble: 2 × 16
+#>   event_id  cid    team_id uid   type  order home_away winner team_ref score_ref
+#>   <chr>     <chr>  <chr>   <chr> <chr> <int> <chr>     <lgl>  <chr>    <chr>    
+#> 1 401814005 40181… 2385    s:70… team      0 home      TRUE   http://… http://s…
+#> 2 401814005 40181… 213     s:70… team      1 away      FALSE  http://… http://s…
+#> # ℹ 6 more variables: linescores_ref <chr>, roster_ref <chr>,
+#> #   statistics_ref <chr>, leaders_ref <chr>, record_ref <chr>,
+#> #   competitor_ref <chr>
 # }
 ```

@@ -90,11 +90,11 @@ A `fastRhockey_data` tibble with one row per player:
 ## Details
 
 League slug `mens-college-hockey`; `season` is the END year (`2026` =
-2025-26). Same ESPN helper as
-[`espn_nhl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_team_roster.md);
-ESPN answered an empty collection for every captured MCH body (2026-10),
-so the columns below are the NHL helper's and unverified for this
-league.
+2025-26). Same ESPN helper and columns as
+[`espn_nhl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_team_roster.md).
+College rosters are flat (not grouped by position), so `position_group`
+is `NA`, and any field ESPN leaves out for a player is `NA`; parsed
+against a captured MCH roster (team 104, 2026-11-24).
 
 `espn_wch_team_roster()` is the same wrapper for women's college hockey
 (league slug `womens-college-hockey`): same arguments, same columns.
@@ -113,10 +113,32 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_team_roster(team_id = "104"))
-#> ✖ 2026-11-24 19:31:55.721619: Invalid arguments or no ESPN mens-college-hockey team roster data available!
-#> ✖ Args: league = "mens-college-hockey", team_id = "104", limit = 500
-#> ✖ Error: arguments imply differing number of rows: 1, 0
-#> data frame with 0 columns and 0 rows
+#> ── MENS-COLLEGE-HOCKEY Team Roster data from ESPN.com ───── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-25 00:36:37 UTC
+#> # A tibble: 14 × 53
+#>    position_group id      uid    guid  alternate_id alternate_ids_sdr first_name
+#>    <chr>          <chr>   <chr>  <chr> <chr>        <chr>             <chr>     
+#>  1 NA             5136656 s:70~… NA    5136656      5136656           Tristan   
+#>  2 NA             5216936 s:70~… NA    5216936      5216936           Kamil     
+#>  3 NA             5206627 s:70~… NA    5206627      5206627           Mathieu   
+#>  4 NA             5188559 s:70~… NA    5188559      5188559           Aiden     
+#>  5 NA             4997117 s:70~… NA    4997117      4997117           Brehdan   
+#>  6 NA             5206622 s:70~… NA    5206622      5206622           Mick      
+#>  7 NA             5275393 s:70~… NA    5275393      5275393           Billy     
+#>  8 NA             5206624 s:70~… NA    5206624      5206624           Jack      
+#>  9 NA             5206623 s:70~… NA    5206623      5206623           Doug      
+#> 10 NA             5188526 s:70~… NA    5188526      5188526           Jack      
+#> 11 NA             4996314 s:70~… NA    4996314      4996314           Jack      
+#> 12 NA             5206626 s:70~… NA    5206626      5206626           Max       
+#> 13 NA             5136661 s:70~… NA    5136661      5136661           Jack      
+#> 14 NA             5275394 s:70~… NA    5275394      5275394           Nick      
+#> # ℹ 46 more variables: last_name <chr>, full_name <chr>, display_name <chr>,
+#> #   short_name <chr>, weight <dbl>, display_weight <chr>, height <dbl>,
+#> #   display_height <chr>, age <int>, date_of_birth <chr>, slug <chr>,
+#> #   jersey <chr>, headshot_href <chr>, headshot_alt <chr>, hand_type <chr>,
+#> #   hand_abbreviation <chr>, hand_display_value <chr>, position_id <chr>,
+#> #   position_name <chr>, position_display_name <chr>,
+#> #   position_abbreviation <chr>, position_leaf <lgl>, …
 # }
 # \donttest{
   try(espn_wch_team_roster(team_id = "2137"))

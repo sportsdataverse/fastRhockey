@@ -62,12 +62,14 @@ Saiem Gilani
   # NOTE: Returns empty tibble for MCH (ESPN returns HTTP 500 for this endpoint)
   try(espn_mch_draft())
 #> ! ESPN MENS-COLLEGE-HOCKEY draft endpoint is not available (HTTP 500 is normal for NHL).
+#> ! Error: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   # NOTE: Returns empty tibble for WCH (ESPN returns HTTP 500 for this endpoint)
   try(espn_wch_draft())
 #> ! ESPN WOMENS-COLLEGE-HOCKEY draft endpoint is not available (HTTP 500 is normal for NHL).
+#> ! Error: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }
 ```

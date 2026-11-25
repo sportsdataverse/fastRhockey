@@ -27,7 +27,7 @@ try(nhl_partner_game_odds())
 #> [1] "2026-11-24"
 #> 
 #> $lastUpdatedUTC
-#> [1] "2026-11-24T19:30:38Z"
+#> [1] "2026-11-25T00:30:38Z"
 #> 
 #> $bettingPartner
 #> $bettingPartner$partnerId
@@ -60,14 +60,14 @@ try(nhl_partner_game_odds())
 #> 1 2026020385        2 2026-11-25T01:00:00Z          22             EDM
 #>                                         homeTeam.logo
 #> 1 https://assets.nhle.com/logos/nhl/svg/EDM_light.svg
-#>                                                                                                                 homeTeam.odds
-#> 1 PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, -258, 105, 105, 300, 145, +1.5, O6.5, , Draw, 
+#>                                                                                                                  homeTeam.odds
+#> 1 PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, -258, -122, 100, 320, 135, +1.5, O6.5, , Draw, 
 #>   homeTeam.name.default awayTeam.id awayTeam.abbrev
 #> 1                Oilers          54             VGK
 #>                                         awayTeam.logo
 #> 1 https://assets.nhle.com/logos/nhl/svg/VGK_light.svg
-#>                                                                                                                  awayTeam.odds
-#> 1 PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, 210, -125, -125, 300, 135, -1.5, U6.5, , Draw, 
+#>                                                                                                                 awayTeam.odds
+#> 1 PUCK_LINE, OVER_UNDER, MONEY_LINE_2_WAY, MONEY_LINE_3_WAY, MONEY_LINE_3_WAY, 210, 102, -120, 320, 135, -1.5, U6.5, , Draw, 
 #>   awayTeam.name.default
 #> 1        Golden Knights
 #> 
