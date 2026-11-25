@@ -331,16 +331,18 @@ nhl_game_boxscore <- function(game_id) {
 #' * a data frame with a `default` column (fromJSON flatten = FALSE)
 #' * a character vector (already extracted / flatten = TRUE)
 #' * a list of lists
+#'
+#' The API sends a few players unspaced ("J.Kulich" for "J. Kulich"); a name
+#' with no space at all gets one after its first-initial dot, so "J.T. Compher"
+#' is left alone.
 #' @noRd
 .extract_default_names <- function(name_field) {
-    if (is.data.frame(name_field)) {
-        return(as.character(name_field$default))
-    }
-    if (is.character(name_field)) {
-        return(name_field)
-    }
-    if (is.list(name_field)) {
-        return(vapply(
+    names <- if (is.data.frame(name_field)) {
+        as.character(name_field$default)
+    } else if (is.character(name_field)) {
+        name_field
+    } else if (is.list(name_field)) {
+        vapply(
             name_field,
             function(n) {
                 if (is.list(n)) {
@@ -350,9 +352,11 @@ nhl_game_boxscore <- function(game_id) {
                 }
             },
             character(1)
-        ))
+        )
+    } else {
+        as.character(name_field)
     }
-    as.character(name_field)
+    sub("^(\\S+\\.)(\\S+)$", "\\1 \\2", names, perl = TRUE)
 }
 
 

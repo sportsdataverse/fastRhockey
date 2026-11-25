@@ -44,3 +44,27 @@ test_that("NHL - Boxscore goalie stats have expected columns", {
     }
     expect_true(nrow(x$goalie_stats) > 0)
 })
+
+test_that("NHL - Boxscore spaces an unspaced player name (offline)", {
+    # Game 2026020305 (BUF at CHI): the API sends "J.Kulich" where every other
+    # player is "X. Surname". Trimmed boxscore captured from api-web.nhle.com.
+    box_json <- paste(
+        readLines(test_path("fixtures", "nhl", "boxscore_2026020305.json"), encoding = "UTF-8"),
+        collapse = "\n"
+    )
+    local_mocked_bindings(
+        .retry_request = function(...) NULL,
+        check_status = function(...) invisible(NULL),
+        .resp_text = function(...) box_json
+    )
+    x <- nhl_game_boxscore(game_id = 2026020305)
+
+    expect_true("J. Kulich" %in% x$skater_stats$player_name)
+    expect_false(any(grepl("^\\S+\\.\\S+$", x$skater_stats$player_name, perl = TRUE)))
+    expect_true("Z. Benson" %in% x$skater_stats$player_name)
+    expect_equal(nrow(x$goalie_stats), 4L)
+    expect_equal(
+        fastRhockey:::.extract_default_names(c("J.Kulich", "J.T. Compher", "J.T.Compher", "E. Del Mastro", NA)),
+        c("J. Kulich", "J.T. Compher", "J.T. Compher", "E. Del Mastro", NA)
+    )
+})

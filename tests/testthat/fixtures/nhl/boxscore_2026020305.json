@@ -1,0 +1,270 @@
+{
+ "id": 2026020305,
+ "season": 20262027,
+ "gameType": 2,
+ "gameDate": "2026-11-12",
+ "venue": {
+  "default": "United Center"
+ },
+ "gameState": "OFF",
+ "awayTeam": {
+  "id": 7,
+  "commonName": {
+   "default": "Sabres"
+  },
+  "abbrev": "BUF",
+  "score": 2,
+  "sog": 23
+ },
+ "homeTeam": {
+  "id": 16,
+  "commonName": {
+   "default": "Blackhawks"
+  },
+  "abbrev": "CHI",
+  "score": 3,
+  "sog": 25
+ },
+ "playerByGameStats": {
+  "awayTeam": {
+   "forwards": [
+    {
+     "playerId": 8483468,
+     "sweaterNumber": 20,
+     "name": {
+      "default": "J.Kulich"
+     },
+     "position": "C",
+     "goals": 0,
+     "assists": 0,
+     "points": 0,
+     "plusMinus": 0,
+     "pim": 2,
+     "hits": 2,
+     "powerPlayGoals": 0,
+     "sog": 1,
+     "faceoffWinningPctg": 0.0,
+     "toi": "14:21",
+     "blockedShots": 0,
+     "shifts": 22,
+     "giveaways": 0,
+     "takeaways": 0
+    },
+    {
+     "playerId": 8484145,
+     "sweaterNumber": 6,
+     "name": {
+      "default": "Z. Benson"
+     },
+     "position": "L",
+     "goals": 0,
+     "assists": 0,
+     "points": 0,
+     "plusMinus": 0,
+     "pim": 0,
+     "hits": 0,
+     "powerPlayGoals": 0,
+     "sog": 2,
+     "faceoffWinningPctg": 0.0,
+     "toi": "19:22",
+     "blockedShots": 0,
+     "shifts": 22,
+     "giveaways": 1,
+     "takeaways": 0
+    }
+   ],
+   "defense": [
+    {
+     "playerId": 8482803,
+     "sweaterNumber": 8,
+     "name": {
+      "default": "O. Zellweger"
+     },
+     "position": "D",
+     "goals": 0,
+     "assists": 0,
+     "points": 0,
+     "plusMinus": -1,
+     "pim": 0,
+     "hits": 0,
+     "powerPlayGoals": 0,
+     "sog": 1,
+     "faceoffWinningPctg": 0.0,
+     "toi": "14:25",
+     "blockedShots": 0,
+     "shifts": 18,
+     "giveaways": 1,
+     "takeaways": 0
+    }
+   ],
+   "goalies": [
+    {
+     "playerId": 8479312,
+     "sweaterNumber": 34,
+     "name": {
+      "default": "A. Lyon"
+     },
+     "position": "G",
+     "evenStrengthShotsAgainst": "16/18",
+     "powerPlayShotsAgainst": "5/6",
+     "shorthandedShotsAgainst": "1/1",
+     "saveShotsAgainst": "22/25",
+     "savePctg": 0.88,
+     "evenStrengthGoalsAgainst": 2,
+     "powerPlayGoalsAgainst": 1,
+     "shorthandedGoalsAgainst": 0,
+     "pim": 0,
+     "goalsAgainst": 3,
+     "toi": "62:41",
+     "starter": true,
+     "decision": "O",
+     "shotsAgainst": 25,
+     "saves": 22
+    },
+    {
+     "playerId": 8481551,
+     "sweaterNumber": 92,
+     "name": {
+      "default": "C. Ellis"
+     },
+     "position": "G",
+     "evenStrengthShotsAgainst": "0/0",
+     "powerPlayShotsAgainst": "0/0",
+     "shorthandedShotsAgainst": "0/0",
+     "saveShotsAgainst": "0/0",
+     "evenStrengthGoalsAgainst": 0,
+     "powerPlayGoalsAgainst": 0,
+     "shorthandedGoalsAgainst": 0,
+     "pim": 0,
+     "goalsAgainst": 0,
+     "toi": "00:00",
+     "starter": false,
+     "shotsAgainst": 0,
+     "saves": 0
+    }
+   ]
+  },
+  "homeTeam": {
+   "forwards": [
+    {
+     "playerId": 8477987,
+     "sweaterNumber": 8,
+     "name": {
+      "default": "R. Donato"
+     },
+     "position": "C",
+     "goals": 1,
+     "assists": 0,
+     "points": 1,
+     "plusMinus": 1,
+     "pim": 0,
+     "hits": 1,
+     "powerPlayGoals": 0,
+     "sog": 2,
+     "faceoffWinningPctg": 0.5,
+     "toi": "11:18",
+     "blockedShots": 1,
+     "shifts": 16,
+     "giveaways": 0,
+     "takeaways": 1
+    },
+    {
+     "playerId": 8484197,
+     "sweaterNumber": 11,
+     "name": {
+      "default": "O. Moore"
+     },
+     "position": "C",
+     "goals": 0,
+     "assists": 1,
+     "points": 1,
+     "plusMinus": 1,
+     "pim": 0,
+     "hits": 0,
+     "powerPlayGoals": 0,
+     "sog": 1,
+     "faceoffWinningPctg": 0.0,
+     "toi": "10:45",
+     "blockedShots": 0,
+     "shifts": 14,
+     "giveaways": 0,
+     "takeaways": 0
+    }
+   ],
+   "defense": [
+    {
+     "playerId": 8483506,
+     "sweaterNumber": 6,
+     "name": {
+      "default": "S. Rinzel"
+     },
+     "position": "D",
+     "goals": 0,
+     "assists": 2,
+     "points": 2,
+     "plusMinus": 2,
+     "pim": 4,
+     "hits": 3,
+     "powerPlayGoals": 0,
+     "sog": 1,
+     "faceoffWinningPctg": 0.0,
+     "toi": "21:53",
+     "blockedShots": 0,
+     "shifts": 27,
+     "giveaways": 0,
+     "takeaways": 0
+    }
+   ],
+   "goalies": [
+    {
+     "playerId": 8481519,
+     "sweaterNumber": 30,
+     "name": {
+      "default": "S. Knight"
+     },
+     "position": "G",
+     "evenStrengthShotsAgainst": "18/19",
+     "powerPlayShotsAgainst": "3/4",
+     "shorthandedShotsAgainst": "0/0",
+     "saveShotsAgainst": "21/23",
+     "savePctg": 0.913043,
+     "evenStrengthGoalsAgainst": 1,
+     "powerPlayGoalsAgainst": 1,
+     "shorthandedGoalsAgainst": 0,
+     "pim": 0,
+     "goalsAgainst": 2,
+     "toi": "62:48",
+     "starter": true,
+     "decision": "W",
+     "shotsAgainst": 23,
+     "saves": 21
+    },
+    {
+     "playerId": 8482123,
+     "sweaterNumber": 33,
+     "name": {
+      "default": "D. Commesso"
+     },
+     "position": "G",
+     "evenStrengthShotsAgainst": "0/0",
+     "powerPlayShotsAgainst": "0/0",
+     "shorthandedShotsAgainst": "0/0",
+     "saveShotsAgainst": "0/0",
+     "evenStrengthGoalsAgainst": 0,
+     "powerPlayGoalsAgainst": 0,
+     "shorthandedGoalsAgainst": 0,
+     "pim": 0,
+     "goalsAgainst": 0,
+     "toi": "00:00",
+     "starter": false,
+     "shotsAgainst": 0,
+     "saves": 0
+    }
+   ]
+  }
+ },
+ "gameOutcome": {
+  "lastPeriodType": "OT",
+  "otPeriods": 1
+ }
+}
