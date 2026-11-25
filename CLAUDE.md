@@ -34,8 +34,8 @@ devtools::check()                    # R CMD check
 pkgdown::build_site()
 ```
 
-CI (`.github/workflows/`): `R-CMD-check.yaml` (macOS/Windows release + Ubuntu
-devel, release & oldrel-1; devel is non-blocking), `test-coverage.yaml`,
+CI (`.github/workflows/`): `R-CMD-check.yaml` (macOS + Ubuntu release on
+push/PR; weekly cron and manual dispatch add Windows release + non-blocking Ubuntu devel), `test-coverage.yaml`,
 `urlchecker.yaml`, `pkgdown.yaml`, `rhub.yaml`, `star-history.yml`. Released on
 CRAN + r-universe.
 
