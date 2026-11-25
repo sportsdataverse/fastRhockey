@@ -74,3 +74,21 @@ test_that("a 404 on the game summary or shifts leaves the play-by-play enrichmen
   expect_s3_class(out, "data.frame")
   expect_identical(nrow(out), 0L)
 })
+
+test_that("the power-play back-fill keeps the feed's flags when team ids are unknown", {
+  # what hockeytech_enrich_pbp() builds after a 404 on the game summary:
+  # home_team_id / away_team_id are ""
+  pbp <- data.frame(
+    event = c("penalty", "shot", "shot"),
+    team_id = c("1", "1", "2"),
+    home_team_id = "", away_team_id = "",
+    sec_from_start = c(100, 150, 160),
+    penalty_length = c("2", NA, NA),
+    power_play = c("1", "0", "0"),
+    short_handed = c(NA, "0", "0"),
+    stringsAsFactors = FALSE
+  )
+  out <- hockeytech_backfill_power_play(pbp)
+  expect_identical(out$power_play, pbp$power_play)
+  expect_identical(out$short_handed, pbp$short_handed)
+})
