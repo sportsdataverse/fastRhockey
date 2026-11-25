@@ -8,46 +8,50 @@ NEWS.md.
 
 ## Test environments
 
-All results below are for the package at commit f5a8543a4 unless they name
-another commit. Later commits change only this file, which is build-ignored,
-so the tarball is the same.
+The package checked is commit ef32934d3 (`ef32934d352a720cb014f2a73bd2b0cf9acd629d`, the R
+code of the 1.1.0 release as of 2026-11-25). The one commit after it changes
+only this file, which `.Rbuildignore` excludes, so the tarball built at the
+current commit holds the same files as the one checked. A result from an
+older commit names that commit.
 
-* Local Windows 10 x64, R 4.6.0 (ucrt): `R CMD check --as-cran --timings
-  --run-donttest` on the tarball built from a clean `git archive` export
-  (2026-11-24, an empty user .Renviron, NOT_CRAN unset): `Status: OK`.
-* Local Windows 10 x64, R 4.6.1 (ucrt), same options, at 31b80d376 (after
-  it, the only R code change rejects a missing `franchise_id`; the rest is
-  help text): 1 NOTE, from the check environment rather than the package
-  (see below).
-* win-builder (devel and release): not yet run (win-builder unreachable
-  2026-11-24); to be run before submission.
-* R-hub v2, R-devel
+* Local Windows 10 x64, R 4.6.0 (ucrt), at ef32934d3: `R CMD check --as-cran
+  --timings --run-donttest` on the tarball built from a clean `git archive`
+  export (2026-11-25, an empty user .Renviron, NOT_CRAN unset): 1 NOTE
+  (example timing, see below).
+* GitHub Actions R-CMD-check at ef32934d3
+  (https://github.com/sportsdataverse/fastRhockey/actions/runs/45554387152),
+  R 4.6.2 release: `Status: OK` on ubuntu-latest and on macos-latest. The
+  macOS job failed once in its dependency-install step (a pak metadata
+  error, before the package was built) and passed on a re-run. Windows
+  release and Ubuntu R-devel run only in the weekly and manual CI and were
+  not run at ef32934d3.
+* win-builder (devel and release): not yet run (win-builder unavailable);
+  to be run before submission.
+* R-hub v2, R-devel, at f5a8543a4, an earlier commit of the release branch,
+  before the R changes of #105, #106 and #107
   (https://github.com/sportsdataverse/fastRhockey/actions/runs/45455257204):
-  `Status: OK` on linux, windows, macos and macos-arm64.
-* GitHub Actions R-CMD-check on the release pull request (R release on
-  macOS, Windows and Ubuntu, R-devel and oldrel-1 on Ubuntu): all five
-  jobs passed at f5a8543a4.
+  `Status: OK` on linux, windows, macos and macos-arm64. Not re-run at
+  ef32934d3.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes (R 4.6.0)
+0 errors | 0 warnings | 1 note (local R 4.6.0, ef32934d3)
 
-`Status: OK`. The incoming feasibility check, the tests (527 pass, 1306 skip,
-0 fail), the examples and the PDF and HTML manuals are OK.
-
-The R 4.6.1 run (at 31b80d376) gave one NOTE:
+The incoming feasibility check, the tests (704 pass, 1311 skip, 0 fail),
+the PDF and HTML manuals and everything else are OK. The NOTE:
 
 ```
-* checking for non-standard things in the check directory ... NOTE
-Found the following files/directories:
-  ''NULL''
+* checking examples ... NOTE
+Examples with CPU (user + system) or elapsed time > 5s
+                user system elapsed
+khl_game_header 0.14      0       6
 ```
 
-The `'NULL'` directories are created in the check directory and in `tests/`
-as each R process starts, before any package code runs. A minimal package
-with one function, one example and one test gives the same NOTE under R 4.6.1
-`--as-cran` on this machine, and none under R 4.6.0 or without `--as-cran`,
-so we read it as a local check-environment issue.
+`khl_game_header()` is a `\donttest{}` example that makes one request to
+the KHL site. It used 0.14 s of CPU and spent the rest waiting on the
+network. Re-run three times from the same machine just after the check, the
+call took 2.4, 1.0 and 3.0 s elapsed (0.01 to 0.11 s CPU). The longest CPU
+time of any example was `liiga_games()` (3.07 s CPU, 4.51 s elapsed).
 
 There is one INFO:
 
@@ -60,28 +64,24 @@ There is one INFO:
     help   3.6Mb
   ```
 
-  The GitHub Actions checks of df436f80d (Linux, macOS and Windows) report
-  7.5 to 7.9 Mb (Linux: R 3.7 Mb, help 3.5 Mb), so the Linux flavours may
-  show the installed-size NOTE. The help pages document 880 exported
-  functions, and 729 of them carry a table of the columns they return; those
-  tables are most of the help. Since the 2026-11-05 check the local size came
-  down from 8.9 Mb: each `espn_wch_*()` function now shares its help page with
-  its `espn_mch_*()` twin (121 pages instead of 242), and the seven largest
-  families link to one family index page instead of listing every other
-  member under "See also" (a list that grew with the square of the family
-  size).
+  The GitHub Actions checks of ef32934d3 report 7.6 Mb (Ubuntu) and 8.0 Mb
+  (macOS), so the Linux flavours may show the installed-size NOTE. The help
+  pages document 880 exported functions, and 729 of them carry a table of the
+  columns they return; those tables are most of the help. Since the
+  2026-11-05 check the local size came down from 8.9 Mb: each `espn_wch_*()`
+  function now shares its help page with its `espn_mch_*()` twin (121 pages
+  instead of 242), and the seven largest families link to one family index
+  page instead of listing every other member under "See also" (a list that
+  grew with the square of the family size).
 
-* No example ran over 5 s. With `--run-donttest` on R 4.6.0 the slowest was
-  `ha_skater_stats()` (1.82 s CPU, 2.61 s elapsed); the longest elapsed was
-  `khl_schedule()` (0.70 s CPU, 4.00 s elapsed).
-
-* Offline: the tarball of 31b80d376 checked on R 4.6.0 with `--run-donttest
-  --no-tests --no-manual` and the network blocked by a dead proxy
-  (2026-11-24) gave `Status: OK`; every example that needs the network fails
-  inside its `try()`. Later R changes reject a missing ESPN id before any
-  request, parse flat college rosters, and re-raise a parsing warning (named
-  for the function) instead of returning an empty result; none adds a
-  request.
+* Offline, at 31b80d376 (older): the tarball checked on R 4.6.0 with
+  `--run-donttest --no-tests --no-manual` and the network blocked by a dead
+  proxy (2026-11-24) gave `Status: OK`; every example that needs the network
+  fails inside its `try()`. Not re-run at ef32934d3. The R changes since
+  reject a missing ESPN id before any request, parse flat college rosters,
+  re-raise a parsing warning (named for the function) instead of returning an
+  empty result, and name the HTTP status and URL in request errors; none adds
+  a request.
 
 ## Examples
 
