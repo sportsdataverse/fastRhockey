@@ -102,7 +102,7 @@ test_that("ESPN - Get ESPN NHL season coaches collection", {
 })
 
 
-test_that("ESPN - Get ESPN NHL season draft (DONE_WITH_CONCERNS: 404 for NHL)", {
+test_that("ESPN - Get ESPN NHL season draft (404 for NHL)", {
   skip_on_cran()
   skip_espn_test()
 
@@ -120,7 +120,7 @@ test_that("ESPN - Get ESPN NHL season draft (DONE_WITH_CONCERNS: 404 for NHL)", 
 })
 
 
-test_that("ESPN - Get ESPN NHL season draft round picks (DONE_WITH_CONCERNS: 404 for NHL)", {
+test_that("ESPN - Get ESPN NHL season draft round picks (404 for NHL)", {
   skip_on_cran()
   skip_espn_test()
 
@@ -168,7 +168,7 @@ test_that("ESPN - Get ESPN NHL season futures", {
 })
 
 
-test_that("ESPN - Get ESPN NHL season freeagents (DONE_WITH_CONCERNS: empty for NHL)", {
+test_that("ESPN - Get ESPN NHL season freeagents (empty for NHL)", {
   skip_on_cran()
   skip_espn_test()
 

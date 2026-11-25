@@ -16,7 +16,7 @@ espn_nhl_player_vs_player(athlete_id, opponent_id, ...)
 \value{
 An empty \code{data.frame()}. As of 2026-06-08, ESPN core-v2
 \code{athletes/{id}/vsathlete/{opp_id}} returns HTTP 404 for all queried NHL
-player pairs (DONE_WITH_CONCERNS: endpoint not served for NHL).
+player pairs (ESPN does not serve this endpoint).
 }
 \description{
 \strong{Get ESPN NHL Player vs Player (core-v2)}

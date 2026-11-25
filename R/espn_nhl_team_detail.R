@@ -6,13 +6,13 @@
 #
 # Live verification notes (2026-06-08, team_id="4" Chicago Blackhawks):
 #   espn_nhl_team           -> OK  (1-row tibble, team metadata)
-#   espn_nhl_team_record    -> {} empty body (DONE_WITH_CONCERNS - graceful)
+#   espn_nhl_team_record    -> {} empty body (handled gracefully)
 #   espn_nhl_team_depthcharts -> OK (metadata tibble; depth slots not present for NHL)
-#   espn_nhl_team_injuries  -> {} empty body (DONE_WITH_CONCERNS - graceful)
-#   espn_nhl_team_transactions -> {} empty body (DONE_WITH_CONCERNS - graceful)
-#   espn_nhl_team_history   -> {} empty body (DONE_WITH_CONCERNS - graceful)
-#   espn_nhl_team_news      -> {} empty body (DONE_WITH_CONCERNS - graceful)
-#   espn_nhl_team_leaders   -> {} empty body (DONE_WITH_CONCERNS - graceful)
+#   espn_nhl_team_injuries  -> {} empty body (handled gracefully)
+#   espn_nhl_team_transactions -> {} empty body (handled gracefully)
+#   espn_nhl_team_history   -> {} empty body (handled gracefully)
+#   espn_nhl_team_news      -> {} empty body (handled gracefully)
+#   espn_nhl_team_leaders   -> {} empty body (handled gracefully)
 #   espn_nhl_team_core      -> OK  (1-row tibble, enriched core-v2 fields)
 #   espn_nhl_teams_core     -> OK  (32 rows, one per team; $ref + team_id)
 #

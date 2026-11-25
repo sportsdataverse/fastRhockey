@@ -1,7 +1,7 @@
 # tests/testthat/test-espn_nhl_season_extra.R
 # Group D: ESPN NHL season long-tail wrappers
 
-test_that("ESPN - espn_nhl_season_weeks (DONE_WITH_CONCERNS: empty for NHL)", {
+test_that("ESPN - espn_nhl_season_weeks (empty for NHL)", {
   skip_on_cran()
   skip_espn_test()
 
@@ -22,7 +22,7 @@ test_that("ESPN - espn_nhl_season_weeks (DONE_WITH_CONCERNS: empty for NHL)", {
 })
 
 
-test_that("ESPN - espn_nhl_season_week (DONE_WITH_CONCERNS: 404 for NHL)", {
+test_that("ESPN - espn_nhl_season_week (404 for NHL)", {
   skip_on_cran()
   skip_espn_test()
 
@@ -42,7 +42,7 @@ test_that("ESPN - espn_nhl_season_week (DONE_WITH_CONCERNS: 404 for NHL)", {
 })
 
 
-test_that("ESPN - espn_nhl_season_week_games (DONE_WITH_CONCERNS: 404 for NHL)", {
+test_that("ESPN - espn_nhl_season_week_games (404 for NHL)", {
   skip_on_cran()
   skip_espn_test()
 
@@ -82,7 +82,7 @@ test_that("ESPN - espn_nhl_season_awards", {
 })
 
 
-test_that("ESPN - espn_nhl_season_powerindex (DONE_WITH_CONCERNS: not published for NHL)", {
+test_that("ESPN - espn_nhl_season_powerindex (not published for NHL)", {
   skip_on_cran()
   skip_espn_test()
 
@@ -101,7 +101,7 @@ test_that("ESPN - espn_nhl_season_powerindex (DONE_WITH_CONCERNS: not published 
 })
 
 
-test_that("ESPN - espn_nhl_season_powerindex_leaders (DONE_WITH_CONCERNS: not published for NHL)", {
+test_that("ESPN - espn_nhl_season_powerindex_leaders (not published for NHL)", {
   skip_on_cran()
   skip_espn_test()
 
@@ -151,7 +151,7 @@ test_that("ESPN - espn_nhl_season_group_children", {
 })
 
 
-test_that("ESPN - espn_nhl_season_type_corrections (DONE_WITH_CONCERNS: empty for NHL)", {
+test_that("ESPN - espn_nhl_season_type_corrections (empty for NHL)", {
   skip_on_cran()
   skip_espn_test()
 

@@ -11,11 +11,11 @@
 #   season_team        -> singular team-in-season object (OK)
 #   season_athletes    -> 11706 athletes, 2342 pages (paginated collection OK)
 #   season_coaches     -> 30 coaches, 6 pages  (collection OK)
-#   season_draft       -> HTTP 404 for 2025 and 2026 (DONE_WITH_CONCERNS)
+#   season_draft       -> HTTP 404 for 2025 and 2026
 #   season_draft_round_picks  -> HTTP 404 for 2025 rounds/1/picks;
-#                          draft/rounds returns count=0 (DONE_WITH_CONCERNS)
+#                          draft/rounds returns count=0
 #   season_futures     -> 12 items with inline fields (id, name, type, futures)
-#   season_freeagents  -> count=0 / empty for NHL (DONE_WITH_CONCERNS)
+#   season_freeagents  -> count=0 / empty for NHL
 #   season_type_leaders -> 9 categories, 25 leaders each (OK)
 #
 # Draft-picks path investigation:
@@ -437,7 +437,7 @@ espn_nhl_season_coaches <- function(season = most_recent_nhl_season(),
 
 
 # ===========================================================================
-# 5. Season Draft  (DONE_WITH_CONCERNS — 404 for NHL)
+# 5. Season Draft  (404 for NHL)
 # ===========================================================================
 
 #' Internal: ESPN hockey season draft (league-generic, core-v2)
@@ -537,7 +537,7 @@ espn_nhl_season_draft <- function(season = most_recent_nhl_season(), ...) {
 
 
 # ===========================================================================
-# 6. Season Draft Round Picks  (DONE_WITH_CONCERNS — 404 for NHL)
+# 6. Season Draft Round Picks  (404 for NHL)
 # ===========================================================================
 
 #' Internal: ESPN hockey season draft round picks (league-generic, core-v2)
@@ -767,7 +767,7 @@ espn_nhl_season_futures <- function(season = most_recent_nhl_season(), ...) {
 
 
 # ===========================================================================
-# 8. Season Free Agents  (DONE_WITH_CONCERNS — empty for NHL)
+# 8. Season Free Agents  (empty for NHL)
 # ===========================================================================
 
 #' Internal: ESPN hockey season free agents collection (league-generic, core-v2)

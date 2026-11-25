@@ -15,14 +15,14 @@
 #   player_statisticslog -> OK  (game-log substitute; N rows per season-entry)
 #   player_eventlog      -> OK  (1 row per event; events nested JSON, need
 #                                simplifyVector=FALSE + manual flatten)
-#   player_contracts     -> count=0 for NHL (DONE_WITH_CONCERNS — returns empty)
+#   player_contracts     -> count=0 for NHL (returns empty)
 #   player_awards        -> OK for players with awards (Crosby: 16 entries);
 #                           empty (count=0) for players without
-#   player_records       -> count=0 for NHL (DONE_WITH_CONCERNS — returns empty)
-#   player_seasons       -> HTTP 404 for NHL (DONE_WITH_CONCERNS — returns empty)
-#   player_injuries      -> HTTP 404 for NHL (DONE_WITH_CONCERNS — returns empty)
-#   player_vs_player     -> HTTP 404 for NHL (DONE_WITH_CONCERNS — returns empty)
-#   player_notes         -> HTTP 404 for NHL (DONE_WITH_CONCERNS — returns empty)
+#   player_records       -> count=0 for NHL (returns empty)
+#   player_seasons       -> HTTP 404 for NHL (returns empty)
+#   player_injuries      -> HTTP 404 for NHL (returns empty)
+#   player_vs_player     -> HTTP 404 for NHL (returns empty)
+#   player_notes         -> HTTP 404 for NHL (returns empty)
 #   athletes_index       -> OK  (paginated; active=TRUE returns 1197 athletes)
 
 
@@ -511,7 +511,7 @@ espn_nhl_player_eventlog <- function(athlete_id, ...) {
             "espn_nhl_player_contracts(): No contract data served by ESPN ",
             "core-v2 for athlete {athlete_id} in the NHL. ",
             "The endpoint responds with count=0 for all queried NHL players ",
-            "(DONE_WITH_CONCERNS: endpoint exists but data is not populated)."
+            "(the endpoint exists, but ESPN leaves it empty)."
           )
         )
         return(result)
@@ -550,7 +550,7 @@ NULL
 #' @return A `fastRhockey_data` tibble with one row per contract, or an empty
 #'   data frame if no contract data is served. As of 2026-06-08, ESPN core-v2
 #'   returns `count=0` for all queried NHL players
-#'   (DONE_WITH_CONCERNS: endpoint exists but data is not populated).
+#'   (the endpoint exists, but ESPN leaves it empty).
 #'
 #'    |col_name     |types     |description                                           |
 #'    |:------------|:---------|:-----------------------------------------------------|
@@ -679,7 +679,7 @@ espn_nhl_player_awards <- function(athlete_id, ...) {
             "espn_nhl_player_records(): No record data served by ESPN core-v2 ",
             "for athlete {athlete_id}. The endpoint responds with count=0 for ",
             "all queried NHL players ",
-            "(DONE_WITH_CONCERNS: endpoint exists but data is not populated)."
+            "(the endpoint exists, but ESPN leaves it empty)."
           )
         )
         return(result)
@@ -718,7 +718,7 @@ NULL
 #' @return A `fastRhockey_data` tibble with one row per record, or an empty
 #'   data frame if no records are served. As of 2026-06-08, ESPN core-v2
 #'   returns `count=0` for all queried NHL players
-#'   (DONE_WITH_CONCERNS: endpoint exists but data is not populated).
+#'   (the endpoint exists, but ESPN leaves it empty).
 #'
 #'    |col_name    |types     |description                                           |
 #'    |:-----------|:---------|:-----------------------------------------------------|
@@ -763,7 +763,7 @@ espn_nhl_player_records <- function(athlete_id, ...) {
         paste0(
           "espn_nhl_player_seasons(): ESPN core-v2 athletes/{{id}}/seasons ",
           "returns HTTP 404 for all queried NHL players ",
-          "(DONE_WITH_CONCERNS: endpoint not served for NHL)."
+          "(ESPN does not serve this endpoint)."
         )
       )
       return(result)
@@ -791,7 +791,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return An empty `data.frame()`. As of 2026-06-08, ESPN core-v2
 #'   `athletes/{{id}}/seasons` returns HTTP 404 for all queried NHL players
-#'   (DONE_WITH_CONCERNS: endpoint is not served for the NHL).
+#'   (ESPN does not serve this endpoint).
 #'   For season-level data use `espn_nhl_player_statisticslog()`.
 #'
 #' @importFrom janitor clean_names
@@ -829,7 +829,7 @@ espn_nhl_player_seasons <- function(athlete_id, ...) {
         paste0(
           "espn_nhl_player_injuries(): ESPN core-v2 athletes/{{id}}/injuries ",
           "returns HTTP 404 for all queried NHL players ",
-          "(DONE_WITH_CONCERNS: endpoint not served for NHL). ",
+          "(ESPN does not serve this endpoint). ",
           "Use the league-level injuries endpoint for NHL injury data."
         )
       )
@@ -858,7 +858,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return An empty `data.frame()`. As of 2026-06-08, ESPN core-v2
 #'   `athletes/{{id}}/injuries` returns HTTP 404 for all queried NHL players
-#'   (DONE_WITH_CONCERNS: endpoint not served for NHL).
+#'   (ESPN does not serve this endpoint).
 #'   Use `espn_nhl_injuries()` (site-v2) for league-level injury data.
 #'
 #' @importFrom janitor clean_names
@@ -898,7 +898,7 @@ espn_nhl_player_injuries <- function(athlete_id, ...) {
         paste0(
           "espn_nhl_player_vs_player(): ESPN core-v2 athletes/{{id}}/vsathlete/{{opp}} ",
           "returns HTTP 404 for all queried NHL player pairs ",
-          "(DONE_WITH_CONCERNS: endpoint not served for NHL)."
+          "(ESPN does not serve this endpoint)."
         )
       )
       return(result)
@@ -927,7 +927,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return An empty `data.frame()`. As of 2026-06-08, ESPN core-v2
 #'   `athletes/{id}/vsathlete/{opp_id}` returns HTTP 404 for all queried NHL
-#'   player pairs (DONE_WITH_CONCERNS: endpoint not served for NHL).
+#'   player pairs (ESPN does not serve this endpoint).
 #'
 #' @importFrom janitor clean_names
 #' @export
@@ -965,7 +965,7 @@ espn_nhl_player_vs_player <- function(athlete_id, opponent_id, ...) {
         paste0(
           "espn_nhl_player_notes(): ESPN core-v2 athletes/{{id}}/notes ",
           "returns HTTP 404 for all queried NHL players ",
-          "(DONE_WITH_CONCERNS: endpoint not served for NHL)."
+          "(ESPN does not serve this endpoint)."
         )
       )
       return(result)
@@ -993,7 +993,7 @@ NULL
 #' @param ... Reserved for forward compatibility.
 #' @return An empty `data.frame()`. As of 2026-06-08, ESPN core-v2
 #'   `athletes/{{id}}/notes` returns HTTP 404 for all queried NHL players
-#'   (DONE_WITH_CONCERNS: endpoint not served for NHL).
+#'   (ESPN does not serve this endpoint).
 #'
 #' @importFrom janitor clean_names
 #' @export

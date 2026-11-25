@@ -15,7 +15,7 @@ espn_nhl_player_records(athlete_id, ...)
 A \code{fastRhockey_data} tibble with one row per record, or an empty
 data frame if no records are served. As of 2026-06-08, ESPN core-v2
 returns \code{count=0} for all queried NHL players
-(DONE_WITH_CONCERNS: endpoint exists but data is not populated).\tabular{lll}{
+(the endpoint exists, but ESPN leaves it empty).\tabular{lll}{
    col_name \tab types \tab description \cr
    ref \tab character \tab \verb{$ref} URL for the record object. \cr
    record_id \tab character \tab Record id parsed from the \verb{$ref} URL. \cr

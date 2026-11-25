@@ -3536,7 +3536,7 @@ NULL
 #' @return A `fastRhockey_data` tibble with one row per contract, or an empty
 #'   data frame if no contract data is served. As of 2026-06-08, ESPN core-v2
 #'   returns `count=0` for all queried NHL players
-#'   (DONE_WITH_CONCERNS: endpoint exists but data is not populated).
+#'   (the endpoint exists, but ESPN leaves it empty).
 #'
 #'    |col_name     |types     |description                                           |
 #'    |:------------|:---------|:-----------------------------------------------------|
@@ -3610,7 +3610,7 @@ NULL
 #'   (league slug `womens-college-hockey`): same arguments, same columns.
 #' @return An empty `data.frame()`. As of 2026-06-08, ESPN core-v2
 #'   `athletes/{{id}}/seasons` returns HTTP 404 for all queried NHL players
-#'   (DONE_WITH_CONCERNS: endpoint is not served for the NHL).
+#'   (ESPN does not serve this endpoint).
 #'   For season-level data use `espn_mch_player_statisticslog()`.
 #'   There is no column schema: the call always yields a zero-row, zero-column `data.frame()`.
 #'
@@ -3642,7 +3642,7 @@ NULL
 #' @return A `fastRhockey_data` tibble with one row per record, or an empty
 #'   data frame if no records are served. As of 2026-06-08, ESPN core-v2
 #'   returns `count=0` for all queried NHL players
-#'   (DONE_WITH_CONCERNS: endpoint exists but data is not populated).
+#'   (the endpoint exists, but ESPN leaves it empty).
 #'
 #'    |col_name    |types     |description                                           |
 #'    |:-----------|:---------|:-----------------------------------------------------|
@@ -3679,7 +3679,7 @@ NULL
 #'   (league slug `womens-college-hockey`): same arguments, same columns.
 #' @return An empty `data.frame()`. As of 2026-06-08, ESPN core-v2
 #'   `athletes/{{id}}/injuries` returns HTTP 404 for all queried NHL players
-#'   (DONE_WITH_CONCERNS: endpoint not served for NHL).
+#'   (ESPN does not serve this endpoint).
 #'   Use `espn_mch_injuries()` (site-v2) for league-level injury data.
 #'   There is no column schema: the call always yields a zero-row, zero-column `data.frame()`.
 #'
@@ -3710,7 +3710,7 @@ NULL
 #'   (league slug `womens-college-hockey`): same arguments, same columns.
 #' @return An empty `data.frame()`. As of 2026-06-08, ESPN core-v2
 #'   `athletes/{{id}}/notes` returns HTTP 404 for all queried NHL players
-#'   (DONE_WITH_CONCERNS: endpoint not served for NHL).
+#'   (ESPN does not serve this endpoint).
 #'   There is no column schema: the call always yields a zero-row, zero-column `data.frame()`.
 #'
 #' @importFrom janitor clean_names
@@ -3741,7 +3741,7 @@ NULL
 #'   (league slug `womens-college-hockey`): same arguments, same columns.
 #' @return An empty `data.frame()`. As of 2026-06-08, ESPN core-v2
 #'   `athletes/{id}/vsathlete/{opp_id}` returns HTTP 404 for all queried NHL
-#'   player pairs (DONE_WITH_CONCERNS: endpoint not served for NHL).
+#'   player pairs (ESPN does not serve this endpoint).
 #'   There is no column schema: the call always yields a zero-row, zero-column `data.frame()`.
 #'
 #' @importFrom janitor clean_names
