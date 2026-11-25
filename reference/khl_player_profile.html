@@ -164,19 +164,9 @@ milliseconds) is returned as a whole-number double.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">khl_player_profile</span><span class="op">(</span>player_id <span class="op">=</span> <span class="fl">41928</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── KHL Player Profile from khl.ru ───────────────────────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 00:39:16 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 31</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_id firstname lastname photo    position position_code biography is_hero</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     <span style="text-decoration: underline;">41</span>928 Джозеф    Кин      //img.k… защитник defender      <span style="color: #949494;">""</span>        FALSE  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 23 more variables: is_rip &lt;lgl&gt;, links_stats &lt;chr&gt;, pagelink &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   summary_stats_gp &lt;int&gt;, summary_stats_a &lt;int&gt;, summary_stats_pm &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   summary_stats_g &lt;int&gt;, summary_stats_pts &lt;int&gt;, jn &lt;int&gt;, club_name &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   club_logo &lt;chr&gt;, club_code &lt;chr&gt;, height &lt;chr&gt;, weight &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   birthdate &lt;chr&gt;, age &lt;chr&gt;, contract_name &lt;chr&gt;, contract_date &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   country_name &lt;chr&gt;, country_flag &lt;chr&gt;, sport_country_name &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   sport_country_flag &lt;chr&gt;, stick &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in .khl_prime(session, timeout) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   khl.ru served an anti-bot challenge page; try again later or through</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> `getOption('fastRhockey.proxy')`.</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

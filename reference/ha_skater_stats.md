@@ -153,7 +153,7 @@ Other HA Functions:
 # \donttest{
   try(ha_skater_stats(season = 2026, category = "summary"))
 #> ── HA Skater Stats Information from hockeyallsvenskan.se ── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 00:38:46 UTC
+#> ℹ Data updated: 2026-11-25 04:41:43 UTC
 #> # A tibble: 511 × 19
 #>    season  rank player_name  team_statnet_id    gp    tp     g     a   pim   gwg
 #>     <int> <int> <chr>        <chr>           <int> <int> <int> <int> <int> <int>

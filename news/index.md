@@ -548,6 +548,55 @@ returned. Code that upgrades from 1.0.0 may need to change.
   not the defunct
   [`phf_schedule()`](https://fastRhockey.sportsdataverse.org/reference/phf_schedule.md).
 
+- ESPN NHL and college hockey functions that build a URL from an id
+  (`event_id`, `cid`, `team_id`, `athlete_id`, `game_id`, `play_id`,
+  `coach_id`, `group_id`, …) reject a `NULL`, `NA` or empty id with a
+  message naming the argument, before any request. They used to ask for
+  the collection endpoint instead (`events/` for `events/{id}`) and
+  parse whatever came back.
+
+- A HockeyTech reply (every PWHL and AHL / OHL / WHL / QMJHL function)
+  with a non-2xx status raises a `fastRhockey_http_error` naming the
+  status and host, which the function reports, instead of being parsed
+  as data. A 404 on the game summary or shifts that `*_pbp()` adds still
+  leaves those columns `NA`.
+
+- [`pwhl_game_info()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_game_info.md),
+  [`pwhl_player_box()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_box.md),
+  [`pwhl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_team_roster.md)
+  and
+  [`pwhl_teams()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_teams.md)
+  read the JSONP reply through the shared HockeyTech parser rather than
+  a regex on the callback tail of each reply, so a reply whose tail
+  differs no longer fails to parse. Output is unchanged.
+
+- Functions that build on another function’s data now report why that
+  lookup failed, rather than only “no data”:
+  [`nhl_conferences()`](https://fastRhockey.sportsdataverse.org/reference/nhl_conferences.md),
+  [`nhl_conferences_info()`](https://fastRhockey.sportsdataverse.org/reference/nhl_conferences_info.md),
+  [`nhl_divisions()`](https://fastRhockey.sportsdataverse.org/reference/nhl_divisions.md),
+  [`nhl_divisions_info()`](https://fastRhockey.sportsdataverse.org/reference/nhl_divisions_info.md),
+  [`nhl_teams_info()`](https://fastRhockey.sportsdataverse.org/reference/nhl_teams_info.md),
+  [`nhl_all_players_by_season()`](https://fastRhockey.sportsdataverse.org/reference/nhl_all_players_by_season.md),
+  [`nhl_game_ids_by_season()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_ids_by_season.md),
+  [`nhl_goalie_summary_range()`](https://fastRhockey.sportsdataverse.org/reference/nhl_goalie_summary_range.md),
+  [`nhl_skater_summary_range()`](https://fastRhockey.sportsdataverse.org/reference/nhl_skater_summary_range.md),
+  [`nhl_team_summary_range()`](https://fastRhockey.sportsdataverse.org/reference/nhl_team_summary_range.md),
+  [`espn_nhl_game_scoringplays()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_game_scoringplays.md)
+  (and the college versions),
+  [`pwhl_game_corsi()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_game_corsi.md),
+  [`pwhl_player_toi()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_toi.md)
+  and
+  [`pwhl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_team_roster.md).
+  [`pwhl_team_roster()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_team_roster.md)
+  used to fail with a “column `team_label` not found” error when the
+  team list could not be fetched, and
+  [`pwhl_player_toi()`](https://fastRhockey.sportsdataverse.org/reference/pwhl_player_toi.md)
+  printed nothing of its own.
+
+- The ESPN “not available” messages and help pages no longer contain
+  internal review wording.
+
 #### Tests
 
 - Recorded API responses replay offline, so the NHL, ESPN NHL, Fox, PWHL
@@ -562,7 +611,12 @@ returned. Code that upgrades from 1.0.0 may need to change.
   reports the cause without the error escaping;
   `test-fastRhockey_with_warnings.R` checks that no wrapper has a
   `tryCatch(warning =)` handler and that a wrapper keeps its rows when
-  parsing warns.
+  parsing warns. A message counts only when the function itself reports
+  it, not a function it calls.
+- `test-espn_id_guards.R` calls every ESPN helper with each required id
+  set to `NULL` and fails if any request is made; `test-http_status.R`
+  covers the non-2xx check; `test-pwhl_jsonp.R` checks the four PWHL
+  wrappers against their previous output on recorded replies.
 
 #### Dependencies
 

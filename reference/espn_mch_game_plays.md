@@ -93,7 +93,7 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_plays(event_id = sb$game_id[1])
   })
-#> ! 2026-11-25 00:35:56.223512: No plays returned for event 401715296.
+#> ! 2026-11-25 04:38:54.088143: No plays returned for event 401715296.
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
@@ -101,7 +101,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20260110")
     espn_wch_game_plays(event_id = sb$game_id[1])
   })
-#> ! 2026-11-25 00:35:56.438222: No plays returned for event 401814005.
+#> ! 2026-11-25 04:38:54.341316: No plays returned for event 401814005.
 #> data frame with 0 columns and 0 rows
 # }
 ```

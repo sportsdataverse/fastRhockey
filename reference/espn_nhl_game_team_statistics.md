@@ -64,7 +64,7 @@ Saiem Gilani
     espn_nhl_game_team_statistics(event_id = eid, team_id = tms$team_id[1])
   })
 #> ── NHL Game Team Statistics data from ESPN core-v2 ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 00:36:57 UTC
+#> ℹ Data updated: 2026-11-25 04:39:51 UTC
 #> # A tibble: 1 × 135
 #>   event_id  cid       team_id def_goals_against def_goals_against_value
 #>   <chr>     <chr>     <chr>   <chr>                               <dbl>

@@ -22,8 +22,7 @@ espn_nhl_player_injuries(athlete_id, ...)
 
 An empty [`data.frame()`](https://rdrr.io/r/base/data.frame.html). As of
 2026-06-08, ESPN core-v2 `athletes/{{id}}/injuries` returns HTTP 404 for
-all queried NHL players (DONE_WITH_CONCERNS: endpoint not served for
-NHL). Use
+all queried NHL players (ESPN does not serve this endpoint). Use
 [`espn_nhl_injuries()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_injuries.md)
 (site-v2) for league-level injury data.
 

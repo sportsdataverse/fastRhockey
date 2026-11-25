@@ -83,7 +83,7 @@ Saiem Gilani
     tms <- espn_mch_game_teams(event_id = eid)
     espn_mch_game_team_leaders(event_id = eid, team_id = tms$team_id[1])
   })
-#> ✖ 2026-11-25 00:36:02.927369: Invalid arguments or no ESPN mens-college-hockey game leaders for event 401715296 / team 194 available!
+#> ✖ 2026-11-25 04:39:00.295475: Invalid arguments or no ESPN mens-college-hockey game leaders for event 401715296 / team 194 available!
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", team_id = "194"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows
@@ -95,7 +95,7 @@ Saiem Gilani
     tms <- espn_wch_game_teams(event_id = eid)
     espn_wch_game_team_leaders(event_id = eid, team_id = tms$team_id[1])
   })
-#> ✖ 2026-11-25 00:36:03.194035: Invalid arguments or no ESPN womens-college-hockey game leaders for event 401814005 / team 2385 available!
+#> ✖ 2026-11-25 04:39:00.544236: Invalid arguments or no ESPN womens-college-hockey game leaders for event 401814005 / team 2385 available!
 #> ✖ Args: league = "womens-college-hockey", event_id = "401814005", cid = "401814005", team_id = "2385"
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

@@ -64,7 +64,7 @@ Returns a data frame with goalie statistics.
 # \donttest{
   try(nhl_stats_goalies())
 #> ── NHL Stats Goalies ────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 00:42:57 UTC
+#> ℹ Data updated: 2026-11-25 04:45:55 UTC
 #> # A tibble: 50 × 23
 #>    assists games_played games_started goalie_full_name    goals goals_against
 #>      <int>        <int>         <int> <chr>               <int>         <int>
@@ -75,7 +75,7 @@ Returns a data frame with goalie statistics.
 #>  5       0           17            17 Andrei Vasilevskiy      0            44
 #>  6       0           17            16 Mackenzie Blackwood     0            42
 #>  7       1           17            17 Jeremy Swayman          0            44
-#>  8       1           13            13 Devon Levi              0            37
+#>  8       1           14            14 Devon Levi              0            41
 #>  9       0           15            15 Jacob Fowler            0            35
 #> 10       1           17            17 Joel Hofer              0            40
 #> # ℹ 40 more rows

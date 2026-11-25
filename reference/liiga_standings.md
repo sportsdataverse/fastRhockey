@@ -96,7 +96,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_standings(season = 2026))
 #> ── Liiga standings Information from liiga.fi ────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 00:40:01 UTC
+#> ℹ Data updated: 2026-11-25 04:42:51 UTC
 #> # A tibble: 54 × 49
 #>    season tournament internal_id  team_id team_slug team_name team_logos_dark_bg
 #>     <int> <chr>            <int>    <int> <chr>     <chr>     <chr>             

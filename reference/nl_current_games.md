@@ -100,7 +100,7 @@ lists every function in this family.
 # \donttest{
   try(nl_current_games(season = 2027))
 #> ── National League Current Games Information from nationalleague.ch ────────────
-#> ℹ Data updated: 2026-11-25 00:43:06 UTC
+#> ℹ Data updated: 2026-11-25 04:46:03 UTC
 #> # A tibble: 7 × 29
 #>   game_id home_team_short_name home_team_name    away_team_short_name
 #>     <dbl> <chr>                <chr>             <chr>               

@@ -69,14 +69,14 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_coach_season(coach_id = "900", season = 2026))
-#> ✖ 2026-11-25 00:35:47.024085: Invalid arguments or no ESPN mens-college-hockey coach 900 season 2026 data available!
+#> ✖ 2026-11-25 04:38:45.46741: Invalid arguments or no ESPN mens-college-hockey coach 900 season 2026 data available!
 #> ✖ Args: league = "mens-college-hockey", coach_id = "900", season = 2026, coach_first = TRUE
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try(espn_wch_coach_season(coach_id = "900", season = 2026))
-#> ✖ 2026-11-25 00:35:47.078126: Invalid arguments or no ESPN womens-college-hockey coach 900 season 2026 data available!
+#> ✖ 2026-11-25 04:38:45.554534: Invalid arguments or no ESPN womens-college-hockey coach 900 season 2026 data available!
 #> ✖ Args: league = "womens-college-hockey", coach_id = "900", season = 2026, coach_first = TRUE
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

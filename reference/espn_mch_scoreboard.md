@@ -137,7 +137,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_scoreboard(dates = "20250110"))
 #> ── MENS-COLLEGE-HOCKEY Scoreboard data from ESPN.com ────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 00:36:20 UTC
+#> ℹ Data updated: 2026-11-25 04:39:17 UTC
 #> # A tibble: 29 × 50
 #>    game_id   uid      date  name  short_name season_year season_type season_slug
 #>    <chr>     <chr>    <chr> <chr> <chr>            <int>       <int> <chr>      
@@ -162,7 +162,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_scoreboard(dates = "20260110"))
 #> ── WOMENS-COLLEGE-HOCKEY Scoreboard data from ESPN.com ──── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 00:36:21 UTC
+#> ℹ Data updated: 2026-11-25 04:39:18 UTC
 #> # A tibble: 19 × 50
 #>    game_id   uid      date  name  short_name season_year season_type season_slug
 #>    <chr>     <chr>    <chr> <chr> <chr>            <int>       <int> <chr>      

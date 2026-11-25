@@ -44,7 +44,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_tournament())
 #> ── Liiga tournament Information from liiga.fi ───────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 00:40:17 UTC
+#> ℹ Data updated: 2026-11-25 04:43:08 UTC
 #> # A tibble: 1 × 3
 #>   cachebust game_week max_game_week
 #>   <lgl>         <int>         <int>

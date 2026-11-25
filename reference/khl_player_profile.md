@@ -100,18 +100,8 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(khl_player_profile(player_id = 41928))
-#> ── KHL Player Profile from khl.ru ───────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 00:39:16 UTC
-#> # A tibble: 1 × 31
-#>   player_id firstname lastname photo    position position_code biography is_hero
-#>       <int> <chr>     <chr>    <chr>    <chr>    <chr>         <chr>     <lgl>  
-#> 1     41928 Джозеф    Кин      //img.k… защитник defender      ""        FALSE  
-#> # ℹ 23 more variables: is_rip <lgl>, links_stats <chr>, pagelink <chr>,
-#> #   summary_stats_gp <int>, summary_stats_a <int>, summary_stats_pm <int>,
-#> #   summary_stats_g <int>, summary_stats_pts <int>, jn <int>, club_name <chr>,
-#> #   club_logo <chr>, club_code <chr>, height <chr>, weight <chr>,
-#> #   birthdate <chr>, age <chr>, contract_name <chr>, contract_date <chr>,
-#> #   country_name <chr>, country_flag <chr>, sport_country_name <chr>,
-#> #   sport_country_flag <chr>, stick <chr>
+#> Error in .khl_prime(session, timeout) : 
+#>   khl.ru served an anti-bot challenge page; try again later or through
+#> `getOption('fastRhockey.proxy')`.
 # }
 ```

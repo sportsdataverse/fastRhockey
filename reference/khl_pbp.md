@@ -121,27 +121,8 @@ lists every function in this family.
 ``` r
 # \donttest{
   try(khl_pbp(game_id = 898236, season = 2026))
-#> ── KHL Play-by-Play from khl.ru ─────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 00:39:10 UTC
-#> # A tibble: 268 × 26
-#>    game_id tournament_id period event_index event_type time  time_seconds
-#>      <int>         <int>  <int>       <int> <chr>      <chr>        <int>
-#>  1  898236          1369      1           0 period     19:31           NA
-#>  2  898236          1369      1           1 faceoff    00:00            0
-#>  3  898236          1369      1           2 action     00:04            4
-#>  4  898236          1369      1           3 action     00:19           19
-#>  5  898236          1369      1           4 action     00:38           38
-#>  6  898236          1369      1           5 action     00:45           45
-#>  7  898236          1369      1           6 action     01:54          114
-#>  8  898236          1369      1           7 action     02:05          125
-#>  9  898236          1369      1           8 action     02:05          125
-#> 10  898236          1369      1           9 action     02:11          131
-#> # ℹ 258 more rows
-#> # ℹ 19 more variables: team_side <chr>, jn <int>, player_id <int>,
-#> #   result <chr>, result_text <chr>, penalty_minutes <int>, score_a <int>,
-#> #   score_b <int>, won_side <chr>, won_jn <int>, won_player_id <int>,
-#> #   lost_side <chr>, lost_jn <int>, lost_player_id <int>, won_zone <chr>,
-#> #   shooter_side <chr>, shooter_jn <int>, shooter_player_id <int>,
-#> #   period_action <chr>
+#> Error in .khl_prime(session, timeout) : 
+#>   khl.ru served an anti-bot challenge page; try again later or through
+#> `getOption('fastRhockey.proxy')`.
 # }
 ```

@@ -190,28 +190,9 @@ milliseconds) is returned as a whole-number double.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">khl_pbp</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">898236</span>, season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── KHL Play-by-Play from khl.ru ─────────────────────────── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 00:39:10 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 268 × 26</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    game_id tournament_id period event_index event_type time  time_seconds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">898</span>236          <span style="text-decoration: underline;">1</span>369      1           0 period     19:31           <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">898</span>236          <span style="text-decoration: underline;">1</span>369      1           1 faceoff    00:00            0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">898</span>236          <span style="text-decoration: underline;">1</span>369      1           2 action     00:04            4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">898</span>236          <span style="text-decoration: underline;">1</span>369      1           3 action     00:19           19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">898</span>236          <span style="text-decoration: underline;">1</span>369      1           4 action     00:38           38</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">898</span>236          <span style="text-decoration: underline;">1</span>369      1           5 action     00:45           45</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">898</span>236          <span style="text-decoration: underline;">1</span>369      1           6 action     01:54          114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">898</span>236          <span style="text-decoration: underline;">1</span>369      1           7 action     02:05          125</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">898</span>236          <span style="text-decoration: underline;">1</span>369      1           8 action     02:05          125</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">898</span>236          <span style="text-decoration: underline;">1</span>369      1           9 action     02:11          131</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 258 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 19 more variables: team_side &lt;chr&gt;, jn &lt;int&gt;, player_id &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   result &lt;chr&gt;, result_text &lt;chr&gt;, penalty_minutes &lt;int&gt;, score_a &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   score_b &lt;int&gt;, won_side &lt;chr&gt;, won_jn &lt;int&gt;, won_player_id &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   lost_side &lt;chr&gt;, lost_jn &lt;int&gt;, lost_player_id &lt;int&gt;, won_zone &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   shooter_side &lt;chr&gt;, shooter_jn &lt;int&gt;, shooter_player_id &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   period_action &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in .khl_prime(session, timeout) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   khl.ru served an anti-bot challenge page; try again later or through</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> `getOption('fastRhockey.proxy')`.</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

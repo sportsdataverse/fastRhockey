@@ -166,10 +166,10 @@ endpoint is not available.</p><table class="table table"><tr><td>col_name</td><t
 <span class="r-in"><span>    <span class="va">pls</span> <span class="op">&lt;-</span> <span class="fu"><a href="espn_mch_game_plays.html">espn_mch_game_plays</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">eid</span><span class="op">)</span></span></span>
 <span class="r-in"><span>    <span class="fu">espn_mch_game_play_personnel</span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">eid</span>, play_id <span class="op">=</span> <span class="va">pls</span><span class="op">$</span><span class="va">id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-11-25 00:35:55.485826: No plays returned for event 401715296.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 00:35:55.534414: </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-11-25 04:38:53.404314: No plays returned for event 401715296.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:38:53.423244: </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", play_id = NULL</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: The API returned an error</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: `play_id` must be a single, non-missing ESPN id.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
@@ -179,10 +179,10 @@ endpoint is not available.</p><table class="table table"><tr><td>col_name</td><t
 <span class="r-in"><span>    <span class="va">pls</span> <span class="op">&lt;-</span> <span class="fu"><a href="espn_mch_game_plays.html">espn_wch_game_plays</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">eid</span><span class="op">)</span></span></span>
 <span class="r-in"><span>    <span class="fu">espn_wch_game_play_personnel</span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">eid</span>, play_id <span class="op">=</span> <span class="va">pls</span><span class="op">$</span><span class="va">id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-11-25 00:35:55.72641: No plays returned for event 401814005.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 00:35:55.774018: </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-11-25 04:38:53.635467: No plays returned for event 401814005.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:38:53.661046: </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "womens-college-hockey", event_id = "401814005", cid = "401814005", play_id = NULL</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: The API returned an error</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: `play_id` must be a single, non-missing ESPN id.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

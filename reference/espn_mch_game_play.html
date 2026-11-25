@@ -165,18 +165,11 @@ to find valid play ids for a game.</p></dd>
 <span class="r-in"><span>    <span class="va">pls</span> <span class="op">&lt;-</span> <span class="fu"><a href="espn_mch_game_plays.html">espn_mch_game_plays</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">eid</span><span class="op">)</span></span></span>
 <span class="r-in"><span>    <span class="fu">espn_mch_game_play</span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">eid</span>, play_id <span class="op">=</span> <span class="va">pls</span><span class="op">$</span><span class="va">id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-11-25 00:35:54.687761: No plays returned for event 401715296.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MENS-COLLEGE-HOCKEY Game Play data from ESPN core-v2 ─── <span style="font-style: italic;">fastRhockey 1.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 00:35:54 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 23</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   event_id  cid       play_id id    sequence_number type_id type_text</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 401715296 401715296 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>                 <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 16 more variables: type_abbreviation &lt;chr&gt;, text &lt;chr&gt;, short_text &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   away_score &lt;int&gt;, home_score &lt;int&gt;, period_number &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   period_display &lt;chr&gt;, clock_value &lt;dbl&gt;, clock_display &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   scoring_play &lt;lgl&gt;, score_value &lt;int&gt;, priority &lt;lgl&gt;, shooting_play &lt;lgl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_penalty &lt;lgl&gt;, wallclock &lt;chr&gt;, play_ref &lt;chr&gt;</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-11-25 04:38:52.690458: No plays returned for event 401715296.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:38:52.708531: </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", play_id = NULL</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: `play_id` must be a single, non-missing ESPN id.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="op">{</span></span></span>
@@ -185,18 +178,11 @@ to find valid play ids for a game.</p></dd>
 <span class="r-in"><span>    <span class="va">pls</span> <span class="op">&lt;-</span> <span class="fu"><a href="espn_mch_game_plays.html">espn_wch_game_plays</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">eid</span><span class="op">)</span></span></span>
 <span class="r-in"><span>    <span class="fu">espn_wch_game_play</span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">eid</span>, play_id <span class="op">=</span> <span class="va">pls</span><span class="op">$</span><span class="va">id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-11-25 00:35:54.975568: No plays returned for event 401814005.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── WOMENS-COLLEGE-HOCKEY Game Play data from ESPN core-v2 ──────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 00:35:55 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 23</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   event_id  cid       play_id id    sequence_number type_id type_text</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 401814005 401814005 <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>                 <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 16 more variables: type_abbreviation &lt;chr&gt;, text &lt;chr&gt;, short_text &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   away_score &lt;int&gt;, home_score &lt;int&gt;, period_number &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   period_display &lt;chr&gt;, clock_value &lt;dbl&gt;, clock_display &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   scoring_play &lt;lgl&gt;, score_value &lt;int&gt;, priority &lt;lgl&gt;, shooting_play &lt;lgl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_penalty &lt;lgl&gt;, wallclock &lt;chr&gt;, play_ref &lt;chr&gt;</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> 2026-11-25 04:38:52.89247: No plays returned for event 401814005.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:38:52.908955: </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "womens-college-hockey", event_id = "401814005", cid = "401814005", play_id = NULL</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: `play_id` must be a single, non-missing ESPN id.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -73,7 +73,15 @@ Saiem Gilani
     # ESPN may list no franchises for a league; skip the detail call then
     if (nrow(fcs) > 0) espn_mch_franchise(franchise_id = fcs$franchise_id[1])
   })
-#> ! 2026-11-25 00:35:48.622156: No franchise items returned for mens-college-hockey.
+#> ── MENS-COLLEGE-HOCKEY Franchise data from ESPN core-v2 ─── fastRhockey 1.1.0 ──
+#> ℹ Data updated: 2026-11-25 04:38:47 UTC
+#> # A tibble: 1 × 15
+#>   franchise_id id    uid           slug     location name  nickname abbreviation
+#>   <chr>        <chr> <chr>         <chr>    <chr>    <chr> <chr>    <chr>       
+#> 1 1            1     s:70~l:91~f:1 alaska-… Alaska … Seaw… AK-Anch… UAA         
+#> # ℹ 7 more variables: display_name <chr>, short_display_name <chr>,
+#> #   color <chr>, is_active <lgl>, venue_ref <chr>, team_ref <chr>,
+#> #   franchise_ref <chr>
 # }
 # \donttest{
   try({
@@ -81,7 +89,7 @@ Saiem Gilani
     if (nrow(fcs) > 0) espn_wch_franchise(franchise_id = fcs$franchise_id[1])
   })
 #> ── WOMENS-COLLEGE-HOCKEY Franchise data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-11-25 00:35:48 UTC
+#> ℹ Data updated: 2026-11-25 04:38:47 UTC
 #> # A tibble: 1 × 15
 #>   franchise_id id    uid            slug    location name  nickname abbreviation
 #>   <chr>        <chr> <chr>          <chr>   <chr>    <chr> <chr>    <chr>       

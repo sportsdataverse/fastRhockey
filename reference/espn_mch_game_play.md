@@ -91,18 +91,11 @@ Saiem Gilani
     pls <- espn_mch_game_plays(event_id = eid)
     espn_mch_game_play(event_id = eid, play_id = pls$id[1])
   })
-#> ! 2026-11-25 00:35:54.687761: No plays returned for event 401715296.
-#> ── MENS-COLLEGE-HOCKEY Game Play data from ESPN core-v2 ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 00:35:54 UTC
-#> # A tibble: 1 × 23
-#>   event_id  cid       play_id id    sequence_number type_id type_text
-#>   <chr>     <chr>     <chr>   <chr>           <int> <chr>   <chr>    
-#> 1 401715296 401715296 NA      NA                 NA NA      NA       
-#> # ℹ 16 more variables: type_abbreviation <chr>, text <chr>, short_text <chr>,
-#> #   away_score <int>, home_score <int>, period_number <int>,
-#> #   period_display <chr>, clock_value <dbl>, clock_display <chr>,
-#> #   scoring_play <lgl>, score_value <int>, priority <lgl>, shooting_play <lgl>,
-#> #   is_penalty <lgl>, wallclock <chr>, play_ref <chr>
+#> ! 2026-11-25 04:38:52.690458: No plays returned for event 401715296.
+#> ✖ 2026-11-25 04:38:52.708531: 
+#> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", play_id = NULL
+#> ✖ Error: `play_id` must be a single, non-missing ESPN id.
+#> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try({
@@ -111,17 +104,10 @@ Saiem Gilani
     pls <- espn_wch_game_plays(event_id = eid)
     espn_wch_game_play(event_id = eid, play_id = pls$id[1])
   })
-#> ! 2026-11-25 00:35:54.975568: No plays returned for event 401814005.
-#> ── WOMENS-COLLEGE-HOCKEY Game Play data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-11-25 00:35:55 UTC
-#> # A tibble: 1 × 23
-#>   event_id  cid       play_id id    sequence_number type_id type_text
-#>   <chr>     <chr>     <chr>   <chr>           <int> <chr>   <chr>    
-#> 1 401814005 401814005 NA      NA                 NA NA      NA       
-#> # ℹ 16 more variables: type_abbreviation <chr>, text <chr>, short_text <chr>,
-#> #   away_score <int>, home_score <int>, period_number <int>,
-#> #   period_display <chr>, clock_value <dbl>, clock_display <chr>,
-#> #   scoring_play <lgl>, score_value <int>, priority <lgl>, shooting_play <lgl>,
-#> #   is_penalty <lgl>, wallclock <chr>, play_ref <chr>
+#> ! 2026-11-25 04:38:52.89247: No plays returned for event 401814005.
+#> ✖ 2026-11-25 04:38:52.908955: 
+#> ✖ Args: league = "womens-college-hockey", event_id = "401814005", cid = "401814005", play_id = NULL
+#> ✖ Error: `play_id` must be a single, non-missing ESPN id.
+#> data frame with 0 columns and 0 rows
 # }
 ```

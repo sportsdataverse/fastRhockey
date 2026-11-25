@@ -22,8 +22,7 @@ espn_nhl_player_notes(athlete_id, ...)
 
 An empty [`data.frame()`](https://rdrr.io/r/base/data.frame.html). As of
 2026-06-08, ESPN core-v2 `athletes/{{id}}/notes` returns HTTP 404 for
-all queried NHL players (DONE_WITH_CONCERNS: endpoint not served for
-NHL).
+all queried NHL players (ESPN does not serve this endpoint).
 
 ## See also
 

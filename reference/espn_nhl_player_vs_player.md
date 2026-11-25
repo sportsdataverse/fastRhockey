@@ -26,8 +26,8 @@ espn_nhl_player_vs_player(athlete_id, opponent_id, ...)
 
 An empty [`data.frame()`](https://rdrr.io/r/base/data.frame.html). As of
 2026-06-08, ESPN core-v2 `athletes/{id}/vsathlete/{opp_id}` returns HTTP
-404 for all queried NHL player pairs (DONE_WITH_CONCERNS: endpoint not
-served for NHL).
+404 for all queried NHL player pairs (ESPN does not serve this
+endpoint).
 
 ## See also
 

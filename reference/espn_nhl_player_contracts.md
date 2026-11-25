@@ -22,8 +22,8 @@ espn_nhl_player_contracts(athlete_id, ...)
 
 A `fastRhockey_data` tibble with one row per contract, or an empty data
 frame if no contract data is served. As of 2026-06-08, ESPN core-v2
-returns `count=0` for all queried NHL players (DONE_WITH_CONCERNS:
-endpoint exists but data is not populated).
+returns `count=0` for all queried NHL players (the endpoint exists, but
+ESPN leaves it empty).
 
 |             |           |                                               |
 |-------------|-----------|-----------------------------------------------|
@@ -48,7 +48,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_player_contracts(athlete_id = "4024820"))
-#> ! espn_nhl_player_contracts(): No contract data served by ESPN core-v2 for athlete 4024820 in the NHL. The endpoint responds with count=0 for all queried NHL players (DONE_WITH_CONCERNS: endpoint exists but data is not populated).
+#> ! espn_nhl_player_contracts(): No contract data served by ESPN core-v2 for athlete 4024820 in the NHL. The endpoint responds with count=0 for all queried NHL players (the endpoint exists, but ESPN leaves it empty).
 #> data frame with 0 columns and 0 rows
 # }
 ```
