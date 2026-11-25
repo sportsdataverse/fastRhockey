@@ -404,7 +404,8 @@ NULL
 #'   }
 #' }
 espn_mch_summary <- function(event_id, ...) {
-  .espn_hockey_summary(league = "mens-college-hockey", game_id = event_id, ...)
+  .espn_hockey_summary(league = "mens-college-hockey", game_id = event_id, ...,
+                       .id_arg = "event_id")
 }
 
 #' @name espn_mch_pbp
@@ -3757,7 +3758,7 @@ NULL
 #' }
 espn_mch_player_vs_player <- function(athlete_id, opp_id, ...) {
   .espn_hockey_player_vs_player(league = "mens-college-hockey", athlete_id = athlete_id,
-                                 opponent_id = opp_id, ...)
+                                 opponent_id = opp_id, ..., .id_arg = "opp_id")
 }
 
 #' @name espn_mch_games
@@ -6258,7 +6259,8 @@ espn_wch_scoreboard <- function(dates = NULL, week = NULL, season_type = NULL, g
 #' @importFrom jsonlite fromJSON
 #' @export
 espn_wch_summary <- function(event_id, ...) {
-  .espn_hockey_summary(league = "womens-college-hockey", game_id = event_id, ...)
+  .espn_hockey_summary(league = "womens-college-hockey", game_id = event_id, ...,
+                       .id_arg = "event_id")
 }
 
 #' @rdname espn_mch_pbp
@@ -6860,7 +6862,7 @@ espn_wch_player_notes <- function(athlete_id, ...) {
 #' @export
 espn_wch_player_vs_player <- function(athlete_id, opp_id, ...) {
   .espn_hockey_player_vs_player(league = "womens-college-hockey", athlete_id = athlete_id,
-                                 opponent_id = opp_id, ...)
+                                 opponent_id = opp_id, ..., .id_arg = "opp_id")
 }
 
 #' @rdname espn_mch_games

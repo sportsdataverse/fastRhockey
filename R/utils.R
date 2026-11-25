@@ -530,6 +530,7 @@ rule_footer <- function(x) {
   fmls <- formals(parent_fn)
   if (length(fmls) == 0L) return(list())
   nms <- setdiff(names(fmls), "...")
+  nms <- nms[!startsWith(nms, ".")] # internal plumbing (.id_arg), not a user argument
   if (length(nms) == 0L) return(list())
   mget(nms, envir = parent.frame(), ifnotfound = list(NULL))
 }
@@ -542,7 +543,8 @@ rule_footer <- function(x) {
 #' @keywords internal
 .report_api_error <- function(e, hint = NULL, args = list()) {
   hint_text <- if (!is.null(hint)) {
-    tryCatch(glue::glue_data(args, hint), error = function(...) hint)
+    # .null: a NULL argument reads "NULL", rather than emptying the whole hint
+    tryCatch(glue::glue_data(args, hint, .null = "NULL"), error = function(...) hint)
   } else "Request failed"
   cli::cli_alert_danger("{Sys.time()}: {hint_text}")
   if (length(args) > 0) {

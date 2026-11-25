@@ -349,7 +349,12 @@ Code that upgrades from 1.0.0 may need to change.
   `coach_id`, `group_id`, ...) reject a `NULL`, `NA` or empty id with a
   message naming the argument, before any request. They used to ask for the
   collection endpoint instead (`events/` for `events/{id}`) and parse whatever
-  came back.
+  came back. The message names the argument as the function calls it:
+  `espn_mch_summary()` / `espn_wch_summary()` say `event_id` (not
+  `game_id`) and `espn_mch_player_vs_player()` /
+  `espn_wch_player_vs_player()` say `opp_id` (not `opponent_id`). A failure
+  report whose hint holds a `NULL` argument shows `NULL` instead of an empty
+  line.
 * The NHL, NHL Stats / Records, ESPN and Fox functions that answered a
   non-2xx reply with "The API returned an error" now report the status and
   the URL (without its query string), e.g. "HTTP 404 Not Found from
@@ -403,6 +408,7 @@ Code that upgrades from 1.0.0 may need to change.
 * `Rcpp` and `RcppParallel` are no longer Imports (fastRhockey has no compiled
   code), and furrr, future, ggplot2, ggrepel, rmarkdown, stringi and usethis
   are no longer in Suggests: nothing used them (#90).
+* `glue (>= 1.5.0)`, for the `.null` argument the failure reports use.
 
 ### Documentation
 

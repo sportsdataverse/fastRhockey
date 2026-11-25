@@ -16,8 +16,8 @@
 # ---------------------------------------------------------------------------
 
 #' @noRd
-.espn_hockey_fetch_summary <- function(league = "nhl", game_id, ...) {
-  .espn_check_id(game_id)
+.espn_hockey_fetch_summary <- function(league = "nhl", game_id, ..., .id_arg = "game_id") {
+  .espn_check_id(game_id, arg = .id_arg)
   .espn_hockey_request(
     "site_v2", "summary",
     query          = list(event = as.character(game_id)),
@@ -769,19 +769,22 @@ espn_nhl_game_all <- function(game_id, ...) {
 #' @param league ESPN league slug.
 #' @param game_id ESPN event identifier.
 #' @param ... Passed through.
+#' @param .id_arg The name the exported wrapper gives `game_id`, for messages.
 #' @return The raw parsed JSON as a nested R list.
 #' @noRd
-.espn_hockey_summary <- function(league = "nhl", game_id, ...) {
+.espn_hockey_summary <- function(league = "nhl", game_id, ..., .id_arg = "game_id") {
   .args <- .capture_args()
+  names(.args)[names(.args) == "game_id"] <- .id_arg # the name the user passed
   result <- list()
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "summary"), {
-      result <- .espn_hockey_fetch_summary(league, game_id, ...)
+      result <- .espn_hockey_fetch_summary(league, game_id, ..., .id_arg = .id_arg)
     }),
     error = function(e) {
       .report_api_error(e,
-        hint = "Invalid arguments or no ESPN {league} summary for game_id = {game_id}",
+        hint = paste0("Invalid arguments or no ESPN {league} summary for ",
+                      .id_arg, " = {", .id_arg, "}"),
         args = .args)
     },
     finally = {}
