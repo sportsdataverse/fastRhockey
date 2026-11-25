@@ -30,7 +30,7 @@ pwhl_player_toi <- function(game_id) {
   toi_df <- data.frame()
   tryCatch(
     expr = {
-      toi_df <- hockeytech_player_toi(pwhl_game_shifts(game_id = game_id))
+      toi_df <- hockeytech_player_toi(.fastRhockey_lookup(pwhl_game_shifts(game_id = game_id), "PWHL shifts", allow_empty = TRUE))
       toi_df <- make_fastRhockey_data(
         toi_df,
         "PWHL Player TOI from HockeyTech",

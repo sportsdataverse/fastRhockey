@@ -74,12 +74,12 @@ nhl_team_summary_range <- function(
             for (s in seasons) {
                 api_season <- paste0(s - 1, s)
                 df <- tryCatch(
-                    expr = nhl_stats_teams(
+                    expr = .fastRhockey_lookup(nhl_stats_teams(
                         report_type = "summary",
                         season = api_season,
                         game_type = game_type,
                         limit = limit
-                    ),
+                    ), paste("NHL team summary for", api_season), allow_empty = TRUE),
                     error = function(e) {
                         message(glue::glue(
                             "{Sys.time()}: Error fetching team summary for {api_season}: {e$message}"

@@ -59,11 +59,7 @@
 nhl_conferences_info <- function(conference_name, date = NULL) {
   tryCatch(
     expr = {
-      standings <- nhl_standings(date = date)
-      if (is.null(standings) || nrow(standings) == 0) {
-        message(glue::glue("{Sys.time()}: No standings data available!"))
-        return(NULL)
-      }
+      standings <- .fastRhockey_lookup(nhl_standings(date = date), "NHL standings")
       conf_df <- standings %>%
         dplyr::filter(.data$conference_name == !!conference_name)
       if (nrow(conf_df) == 0) {

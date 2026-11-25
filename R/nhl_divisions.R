@@ -24,11 +24,7 @@
 nhl_divisions <- function(date = NULL) {
   tryCatch(
     expr = {
-      standings <- nhl_standings(date = date)
-      if (is.null(standings) || nrow(standings) == 0) {
-        message(glue::glue("{Sys.time()}: No standings data available to extract divisions!"))
-        return(NULL)
-      }
+      standings <- .fastRhockey_lookup(nhl_standings(date = date), "NHL standings")
       divisions_df <- standings %>%
         dplyr::distinct(.data$division_name, .data$division_abbrev, .data$conference_name) %>%
         as.data.frame() %>%

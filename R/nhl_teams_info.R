@@ -41,12 +41,7 @@
 nhl_teams_info <- function(team_abbr) {
   tryCatch(
     expr = .fastRhockey_with_warnings("nhl_teams_info", {
-      teams <- nhl_teams()
-
-      if (is.null(teams) || nrow(teams) == 0) {
-        message(glue::glue("{Sys.time()}: No team data available"))
-        return(NULL)
-      }
+      teams <- .fastRhockey_lookup(nhl_teams(), "NHL team list")
 
       team_df <- teams[teams$team_abbr == team_abbr, ]
 

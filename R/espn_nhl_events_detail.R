@@ -1174,8 +1174,8 @@ espn_nhl_game_leaders <- function(event_id, cid = event_id, ...) {
           )
       } else {
         # Fall back: fetch all plays and filter to scoring_play == TRUE
-        all_plays <- .espn_hockey_game_plays(
-          league = league, event_id = event_id, cid = cid, limit = limit, ...)
+        all_plays <- .fastRhockey_lookup(.espn_hockey_game_plays(
+          league = league, event_id = event_id, cid = cid, limit = limit, ...), "ESPN plays", allow_empty = TRUE)
 
         if (is.data.frame(all_plays) && nrow(all_plays) > 0 &&
             "scoring_play" %in% colnames(all_plays)) {

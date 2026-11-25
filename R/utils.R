@@ -20,6 +20,32 @@
   )
 }
 
+# Get data from another wrapper (`nhl_conferences()` reads `nhl_standings()`),
+# or raise the cause that wrapper reported. The inner wrapper reports a failed
+# request and returns NULL or an empty frame, so the outer one would otherwise
+# only see "no data". Messages from `expr` are held: an empty result raises an
+# error carrying them, for the outer wrapper's own handler to report; any
+# other result is returned and the held messages are shown as they were.
+# `allow_empty = TRUE` passes an empty result through when the inner wrapper
+# reported nothing (a game with no shifts keeps its typed empty frame).
+.fastRhockey_lookup <- function(expr, what, allow_empty = FALSE) {
+  held <- list()
+  out <- withCallingHandlers(expr, message = function(m) {
+    held[[length(held) + 1L]] <<- m
+    invokeRestart("muffleMessage")
+  })
+  if (NROW(out) == 0L && (!allow_empty || length(held) > 0L)) {
+    reported <- trimws(vapply(held, conditionMessage, character(1)))
+    stop(paste(c(paste0("No ", what, " came back."), reported), collapse = " "), call. = FALSE)
+  }
+  for (m in held) {
+    # rlang::inform() / cli_inform() text has no trailing newline
+    if (!endsWith(conditionMessage(m), "\n")) m$message <- paste0(conditionMessage(m), "\n")
+    message(m)
+  }
+  out
+}
+
 #' **Progressively**
 #'
 #' This function helps add progress-reporting to any function - given function `f()` and progressr `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.
@@ -555,32 +581,6 @@ check_status <- function(res) {
   if (x != 200) stop("The API returned an error", call. = FALSE)
 }
 
-# ---------------------------------------------------------------------------
-# Classed conditions (the sportsdataverse-py error vocabulary)
-# ---------------------------------------------------------------------------
-# Every class also carries "fastRhockey_error", so a caller can catch the whole
-# family or one kind:
-#   tryCatch(x, fastRhockey_no_data = function(e) NULL)
-#
-# * fastRhockey_no_data       = sportsdataverse-py NoDataError: the host answered "nothing
-#   here" (HTTP 404, a 200 with no rows, a season the provider does not hold).
-# * fastRhockey_asset_fetch   = sportsdataverse-py AssetFetchError: the answer is unknown
-#   (a 403/429/5xx after retries, a connection failure, an empty or non-JSON
-#   body, an error envelope, a body for another season or game).
-# * fastRhockey_bad_request   = sportsdataverse-py ValueError: the request itself is wrong
-#   (HTTP 400/422, an unknown route or argument value); retrying cannot help.
-# `message` is a cli format string, interpolated in the caller's frame.
-
-#' @keywords internal
-#' @noRd
-.abort_no_data <- function(message, ..., call = rlang::caller_env(), .envir = parent.frame()) {
-  cli::cli_abort(message, ..., class = c("fastRhockey_no_data", "fastRhockey_error"),
-                 call = call, .envir = .envir)
-}
-
-#' @keywords internal
-#' @noRd
-.abort_asset_fetch <- function(message, ..., call = rlang::caller_env(), .envir = parent.frame()) {
 #' Raise a classed error for a non-2xx response
 #'
 #' [.retry_request()] turns off httr2's status errors, so a helper that parses
@@ -620,6 +620,32 @@ check_status <- function(res) {
   )
 }
 
+# ---------------------------------------------------------------------------
+# Classed conditions (the sportsdataverse-py error vocabulary)
+# ---------------------------------------------------------------------------
+# Every class also carries "fastRhockey_error", so a caller can catch the whole
+# family or one kind:
+#   tryCatch(x, fastRhockey_no_data = function(e) NULL)
+#
+# * fastRhockey_no_data       = sportsdataverse-py NoDataError: the host answered "nothing
+#   here" (HTTP 404, a 200 with no rows, a season the provider does not hold).
+# * fastRhockey_asset_fetch   = sportsdataverse-py AssetFetchError: the answer is unknown
+#   (a 403/429/5xx after retries, a connection failure, an empty or non-JSON
+#   body, an error envelope, a body for another season or game).
+# * fastRhockey_bad_request   = sportsdataverse-py ValueError: the request itself is wrong
+#   (HTTP 400/422, an unknown route or argument value); retrying cannot help.
+# `message` is a cli format string, interpolated in the caller's frame.
+
+#' @keywords internal
+#' @noRd
+.abort_no_data <- function(message, ..., call = rlang::caller_env(), .envir = parent.frame()) {
+  cli::cli_abort(message, ..., class = c("fastRhockey_no_data", "fastRhockey_error"),
+                 call = call, .envir = .envir)
+}
+
+#' @keywords internal
+#' @noRd
+.abort_asset_fetch <- function(message, ..., call = rlang::caller_env(), .envir = parent.frame()) {
   cli::cli_abort(message, ..., class = c("fastRhockey_asset_fetch", "fastRhockey_error"),
                  call = call, .envir = .envir)
 }

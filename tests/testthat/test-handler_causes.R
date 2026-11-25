@@ -36,7 +36,13 @@
   .fox_nhl_resource = list(sport = "nhl", resource = "roster"),
   .nhl_edge_api = list(base = "skater-detail/8478402"),
   nhl_schedule = list(game_type = NULL),
-  pwhl_stats = list(team = "all")
+  pwhl_stats = list(team = "all"),
+  # PWHL game types are names; the shared NHL code 2L fails the season
+  # lookup before any request is made.
+  .pwhl_player_game_log_one = list(game_type = "regular"),
+  .pwhl_streaks_one = list(game_type = "regular"),
+  pwhl_leaders = list(game_type = "regular"),
+  pwhl_transactions = list(game_type = "regular")
 )
 
 test_that("error handlers report the cause of a failed request", {
@@ -51,10 +57,26 @@ test_that("error handlers report the cause of a failed request", {
     b <- paste(deparse(body(f)), collapse = "\n")
     grepl("tryCatch", b, fixed = TRUE) && grepl("error = function(e) {", b, fixed = TRUE)
   }
-  fns <- Filter(has_block_handler, ls(ns, all.names = TRUE))
-  expect_true(all(names(.handler_cause_skip) %in% fns))
-  fns <- setdiff(fns, names(.handler_cause_skip))
+  handlers <- Filter(has_block_handler, ls(ns, all.names = TRUE))
+  expect_true(all(names(.handler_cause_skip) %in% handlers))
+  fns <- setdiff(handlers, names(.handler_cause_skip))
   expect_gt(length(fns), 200L)
+
+  # A function's own report, not a callee's: pwhl_team_roster() looks up
+  # pwhl_teams(), whose handler prints the outage first, so a roster handler
+  # that lost the cause would still see "mock outage" among the messages. A
+  # message counts for `nm` only when the innermost handler-bearing function
+  # on the call stack is `nm` itself.
+  call_name <- function(cl) {
+    f <- cl[[1]]
+    if (is.call(f) && as.character(f[[1]]) %in% c("::", ":::")) f <- f[[3]]
+    if (is.name(f)) as.character(f) else ""
+  }
+  reporter <- function() {
+    on_stack <- vapply(sys.calls(), call_name, character(1))
+    on_stack <- on_stack[on_stack %in% handlers]
+    if (length(on_stack)) on_stack[length(on_stack)] else ""
+  }
 
   local_mocked_bindings(
     .polite_wait = function(...) invisible(0),
@@ -73,9 +95,10 @@ test_that("error handlers report the cause of a failed request", {
     args[names(.handler_cause_override[[nm]])] <- .handler_cause_override[[nm]]
     msgs <- character()
     withCallingHandlers(
-      tryCatch(do.call(f, args), error = function(e) escaped <<- c(escaped, nm)),
+      # Called by name so `nm` shows on the call stack.
+      tryCatch(do.call(nm, args, envir = ns), error = function(e) escaped <<- c(escaped, nm)),
       message = function(m) {
-        msgs <<- c(msgs, conditionMessage(m))
+        if (identical(reporter(), nm)) msgs <<- c(msgs, conditionMessage(m))
         invokeRestart("muffleMessage")
       },
       warning = function(w) invokeRestart("muffleWarning")
@@ -84,4 +107,16 @@ test_that("error handlers report the cause of a failed request", {
   }
   expect_identical(escaped, character())
   expect_identical(setdiff(silent, escaped), character())
+})
+
+test_that(".fastRhockey_lookup() raises an empty lookup with the cause it held", {
+  inner <- function(rows) {
+    message("inner: mock outage")
+    if (rows) data.frame(a = 1) else data.frame()
+  }
+  expect_error(.fastRhockey_lookup(inner(FALSE), "standings"),
+               "No standings came back. inner: mock outage", fixed = TRUE)
+  expect_error(.fastRhockey_lookup(NULL, "standings"), "No standings came back.", fixed = TRUE)
+  expect_message(out <- .fastRhockey_lookup(inner(TRUE), "standings"), "inner: mock outage")
+  expect_identical(out, data.frame(a = 1))
 })

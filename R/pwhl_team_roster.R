@@ -43,7 +43,7 @@ pwhl_team_roster <- function(team, season, regular = TRUE) {
   tryCatch(
     expr = .fastRhockey_with_warnings("pwhl_team_roster", {
       # team_id <- 1 # will need the team/season look ups
-      team_id <- fastRhockey::pwhl_teams() %>%
+      team_id <- .fastRhockey_lookup(pwhl_teams(), "PWHL team list") %>%
         dplyr::filter(.data$team_label == team)
       if (nrow(team_id) == 0) {
         stop(glue::glue("No PWHL team labelled '{team}' (see pwhl_teams()$team_label)."), call. = FALSE)

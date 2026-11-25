@@ -60,11 +60,7 @@
 nhl_divisions_info <- function(division_name, date = NULL) {
   tryCatch(
     expr = {
-      standings <- nhl_standings(date = date)
-      if (is.null(standings) || nrow(standings) == 0) {
-        message(glue::glue("{Sys.time()}: No standings data available!"))
-        return(NULL)
-      }
+      standings <- .fastRhockey_lookup(nhl_standings(date = date), "NHL standings")
       div_df <- standings %>%
         dplyr::filter(.data$division_name == !!division_name)
       if (nrow(div_df) == 0) {
