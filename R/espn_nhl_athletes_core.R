@@ -881,7 +881,7 @@ espn_nhl_player_injuries <- function(athlete_id, ...) {
 #' Internal: ESPN hockey player vs player (league-generic, core-v2)
 #' @noRd
 .espn_hockey_player_vs_player <- function(league = "nhl", athlete_id,
-                                          opponent_id, ...) {
+                                          opponent_id, ..., .id_arg = "opponent_id") {
   .args <- .capture_args()
 
   result <- data.frame()
@@ -889,7 +889,7 @@ espn_nhl_player_injuries <- function(athlete_id, ...) {
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_vs_player"), {
       .espn_check_id(athlete_id)
-      .espn_check_id(opponent_id)
+      .espn_check_id(opponent_id, arg = .id_arg)
       path <- paste0("athletes/", athlete_id, "/vsathlete/", opponent_id)
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
                                    simplifyVector = TRUE, ...)

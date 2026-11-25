@@ -92,3 +92,48 @@ test_that("the power-play back-fill keeps the feed's flags when team ids are unk
   expect_identical(out$power_play, pbp$power_play)
   expect_identical(out$short_handed, pbp$short_handed)
 })
+
+# check_status() is the status check of about 100 wrappers (NHL, ESPN, Fox,
+# NHL Stats/Records). It used to say "The API returned an error" whatever the
+# status; it now is .fastRhockey_stop_for_http_status().
+reported <- function(expr) {
+  msgs <- character()
+  withCallingHandlers(
+    expr,
+    message = function(m) {
+      msgs <<- c(msgs, conditionMessage(m))
+      invokeRestart("muffleMessage")
+    },
+    warning = function(w) invokeRestart("muffleWarning")
+  )
+  paste(msgs, collapse = "\n")
+}
+
+test_that("check_status() passes any 2xx and classes the rest", {
+  expect_invisible(check_status(httr2::response(status_code = 200L)))
+  expect_silent(check_status(httr2::response(status_code = 204L)))
+  e <- expect_error(
+    check_status(httr2::response(status_code = 500L, url = "https://x.test/a?key=SECRET")),
+    class = "fastRhockey_http_error"
+  )
+  expect_identical(conditionMessage(e), "HTTP 500 Internal Server Error from https://x.test/a")
+})
+
+for (status in c(401L, 404L, 500L)) {
+  test_that(paste("an NHL and an ESPN wrapper name a", status, "and its URL"), {
+    mock_reply(status, "{}")
+    out <- NULL
+    msgs <- reported(out <- nhl_teams_roster("TOR", season = 2024))
+    expect_null(out)
+    expect_match(msgs, paste0("HTTP ", status, " .* from https://api-web.nhle.com/v1/roster/TOR/20242025"))
+
+    mock_reply(status, "{}")
+    msgs <- reported(out <- espn_nhl_teams(limit = 50))
+    expect_identical(nrow(out), 0L)
+    expect_match(msgs, paste0(
+      "HTTP ", status, " .* from https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/teams"
+    ))
+    expect_false(grepl("limit=50", msgs, fixed = TRUE)) # no query string
+    expect_false(grepl("The API returned an error", msgs, fixed = TRUE))
+  })
+}

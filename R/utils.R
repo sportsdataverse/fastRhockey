@@ -530,6 +530,7 @@ rule_footer <- function(x) {
   fmls <- formals(parent_fn)
   if (length(fmls) == 0L) return(list())
   nms <- setdiff(names(fmls), "...")
+  nms <- nms[!startsWith(nms, ".")] # internal plumbing (.id_arg), not a user argument
   if (length(nms) == 0L) return(list())
   mget(nms, envir = parent.frame(), ifnotfound = list(NULL))
 }
@@ -542,7 +543,8 @@ rule_footer <- function(x) {
 #' @keywords internal
 .report_api_error <- function(e, hint = NULL, args = list()) {
   hint_text <- if (!is.null(hint)) {
-    tryCatch(glue::glue_data(args, hint), error = function(...) hint)
+    # .null: a NULL argument reads "NULL", rather than emptying the whole hint
+    tryCatch(glue::glue_data(args, hint, .null = "NULL"), error = function(...) hint)
   } else "Request failed"
   cli::cli_alert_danger("{Sys.time()}: {hint_text}")
   if (length(args) > 0) {
@@ -568,17 +570,27 @@ rule_footer <- function(x) {
 #' @keywords internal
 .report_api_warning <- function(w, hint = NULL, args = list()) {
   hint_text <- if (!is.null(hint)) {
-    tryCatch(glue::glue_data(args, hint), error = function(...) hint)
+    tryCatch(glue::glue_data(args, hint, .null = "NULL"), error = function(...) hint)
   } else "Request warning"
   cli::cli_alert_warning("{Sys.time()}: {hint_text}")
   cli::cli_alert_warning("Warning: {conditionMessage(w)}")
   invisible(NULL)
 }
 
+#' Raise unless a response is 2xx
+#'
+#' The status check most wrappers run between `.retry_request()` and the
+#' parse. It is `.fastRhockey_stop_for_http_status()`: a 2xx response passes,
+#' anything else raises a `fastRhockey_http_error` naming the status and the
+#' URL (without its query string).
+#' The error carries no call, as before: an uncaught one would otherwise name
+#' an internal helper rather than the function the user called.
+#' @param res An httr2 response.
+#' @return `res`, invisibly, when its status is 2xx.
 #' @keywords internal
+#' @noRd
 check_status <- function(res) {
-  x <- httr2::resp_status(res)
-  if (x != 200) stop("The API returned an error", call. = FALSE)
+  .fastRhockey_stop_for_http_status(res, call = NULL)
 }
 
 #' Raise a classed error for a non-2xx response

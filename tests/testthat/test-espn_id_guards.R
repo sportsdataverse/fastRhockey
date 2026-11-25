@@ -62,13 +62,39 @@ test_that("ESPN helpers reject a NULL id before making any request", {
       )
       label <- paste0(nm, "(", id, " = NULL)")
       if (requests > 0L) requested <- c(requested, label)
-      # names the helper's own argument, which a college wrapper may call
-      # differently (espn_mch_summary(event_id) passes it on as game_id)
-      if (!any(grepl("` must be a single, non-missing ESPN id", msgs, fixed = TRUE))) {
+      # an exported wrapper names its own argument, even where it passes the
+      # id on under another name (espn_mch_summary(event_id) -> game_id)
+      want <- if (startsWith(nm, ".")) "` must be" else paste0("`", id, "` must be")
+      if (!any(grepl(paste0(want, " a single, non-missing ESPN id"), msgs, fixed = TRUE))) {
         unreported <- c(unreported, label)
       }
     }
   }
   expect_identical(requested, character())
   expect_identical(unreported, character())
+})
+
+test_that("college wrappers name the argument the user passed, not the helper's", {
+  local_mocked_bindings(req_perform = function(...) stop("a request was made"),
+                        .package = "httr2")
+  msgs <- function(expr) {
+    out <- character()
+    withCallingHandlers(expr, message = function(m) {
+      out <<- c(out, conditionMessage(m))
+      invokeRestart("muffleMessage")
+    })
+    paste(out, collapse = "\n")
+  }
+  m <- msgs(espn_mch_summary(event_id = NULL))
+  expect_match(m, "`event_id` must be a single, non-missing ESPN id", fixed = TRUE)
+  expect_match(m, "summary for event_id = ", fixed = TRUE)
+  expect_false(grepl("game_id", m, fixed = TRUE))
+
+  m <- msgs(espn_wch_player_vs_player(athlete_id = "1", opp_id = NULL))
+  expect_match(m, "`opp_id` must be a single, non-missing ESPN id", fixed = TRUE)
+  expect_false(grepl("opponent_id", m, fixed = TRUE))
+
+  # the NHL wrappers keep their own names
+  m <- msgs(espn_nhl_summary(game_id = NULL))
+  expect_match(m, "`game_id` must be a single, non-missing ESPN id", fixed = TRUE)
 })
