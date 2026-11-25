@@ -71,13 +71,7 @@ pwhl_player_box <- function(game_id) {
     expr = .fastRhockey_with_warnings("pwhl_player_box", {
       URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=gameSummary&game_id={game_id}&key=694cfeed58c932ee&site_id=2&client_code=pwhl&lang=en&league_id=&callback=angular.callbacks._6")
 
-      res <- .retry_request(URL)
-      res <- .resp_text(res)
-      callback_pattern <- "angular.callbacks._\\d+\\("
-      res <- gsub(callback_pattern, "", res)
-      res <- gsub("}}})", "}}}", res)
-
-      r <- res %>% jsonlite::parse_json()
+      r <- .pwhl_api(URL)
 
       suppressWarnings(
         expr = {

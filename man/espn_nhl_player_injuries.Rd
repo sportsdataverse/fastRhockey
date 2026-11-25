@@ -14,7 +14,7 @@ espn_nhl_player_injuries(athlete_id, ...)
 \value{
 An empty \code{data.frame()}. As of 2026-06-08, ESPN core-v2
 \code{athletes/{{id}}/injuries} returns HTTP 404 for all queried NHL players
-(DONE_WITH_CONCERNS: endpoint not served for NHL).
+(ESPN does not serve this endpoint).
 Use \code{espn_nhl_injuries()} (site-v2) for league-level injury data.
 }
 \description{

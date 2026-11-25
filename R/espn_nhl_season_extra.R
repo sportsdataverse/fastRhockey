@@ -19,7 +19,7 @@
 
 
 # ===========================================================================
-# 1. Season Weeks (collection) — DONE_WITH_CONCERNS: NHL does not use weeks
+# 1. Season Weeks (collection) — NHL does not use weeks
 # ===========================================================================
 
 #' Internal: ESPN hockey season-type weeks collection (league-generic, core-v2)
@@ -114,7 +114,7 @@ espn_nhl_season_weeks <- function(season      = most_recent_nhl_season(),
 
 
 # ===========================================================================
-# 2. Season Week (singular) — DONE_WITH_CONCERNS: 404 for NHL
+# 2. Season Week (singular) — 404 for NHL
 # ===========================================================================
 
 #' Internal: ESPN hockey single season week object (league-generic, core-v2)
@@ -216,7 +216,7 @@ espn_nhl_season_week <- function(season      = most_recent_nhl_season(),
 
 
 # ===========================================================================
-# 3. Season Week Games (collection) — DONE_WITH_CONCERNS: 404 for NHL
+# 3. Season Week Games (collection) — 404 for NHL
 # ===========================================================================
 
 #' Internal: ESPN hockey season week games (events) collection (league-generic, core-v2)
@@ -411,7 +411,7 @@ espn_nhl_season_awards <- function(season = most_recent_nhl_season(), ...) {
 
 
 # ===========================================================================
-# 5. Season Power Index — DONE_WITH_CONCERNS: not published for NHL
+# 5. Season Power Index — not published for NHL
 # ===========================================================================
 
 #' Internal: ESPN hockey season power index (league-generic, core-v2)
@@ -508,7 +508,7 @@ espn_nhl_season_powerindex <- function(season  = most_recent_nhl_season(),
 
 
 # ===========================================================================
-# 6. Season Power Index Leaders — DONE_WITH_CONCERNS: not published for NHL
+# 6. Season Power Index Leaders — not published for NHL
 # ===========================================================================
 
 #' Internal: ESPN hockey season power index leaders (league-generic, core-v2)
@@ -610,6 +610,7 @@ espn_nhl_season_powerindex_leaders <- function(season = most_recent_nhl_season()
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "season_group_children"), {
+      .espn_check_id(group_id)
       path <- paste0("seasons/", season, "/types/", season_type,
                      "/groups/", group_id, "/children")
       raw  <- .espn_hockey_request("core_v2", path = path,
@@ -700,7 +701,7 @@ espn_nhl_season_group_children <- function(season      = most_recent_nhl_season(
 
 
 # ===========================================================================
-# 8. Season Type Corrections — DONE_WITH_CONCERNS: empty for NHL
+# 8. Season Type Corrections — empty for NHL
 # ===========================================================================
 
 #' Internal: ESPN hockey season-type corrections (league-generic, core-v2)

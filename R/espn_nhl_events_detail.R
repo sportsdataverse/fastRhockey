@@ -35,6 +35,8 @@
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "game_plays"), {
+      .espn_check_id(event_id)
+      .espn_check_id(cid)
       path <- paste0("events/", event_id, "/competitions/", cid, "/plays")
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    query = list(limit = limit),
@@ -196,6 +198,8 @@ espn_nhl_game_plays <- function(event_id, cid = event_id, limit = 300, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "game_odds"), {
+      .espn_check_id(event_id)
+      .espn_check_id(cid)
       path <- paste0("events/", event_id, "/competitions/", cid, "/odds")
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,
@@ -379,6 +383,8 @@ espn_nhl_game_odds <- function(event_id, cid = event_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "game_probabilities"), {
+      .espn_check_id(event_id)
+      .espn_check_id(cid)
       path <- paste0("events/", event_id, "/competitions/", cid, "/probabilities")
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    query = list(limit = limit),
@@ -490,6 +496,8 @@ espn_nhl_game_probabilities <- function(event_id, cid = event_id,
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "game_situation"), {
+      .espn_check_id(event_id)
+      .espn_check_id(cid)
       path <- paste0("events/", event_id, "/competitions/", cid, "/situation")
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,
@@ -584,6 +592,8 @@ espn_nhl_game_situation <- function(event_id, cid = event_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "game_officials"), {
+      .espn_check_id(event_id)
+      .espn_check_id(cid)
       path <- paste0("events/", event_id, "/competitions/", cid, "/officials")
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,
@@ -696,6 +706,8 @@ espn_nhl_game_officials <- function(event_id, cid = event_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "game_broadcasts"), {
+      .espn_check_id(event_id)
+      .espn_check_id(cid)
       path <- paste0("events/", event_id, "/competitions/", cid, "/broadcasts")
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,
@@ -830,6 +842,8 @@ espn_nhl_game_broadcasts <- function(event_id, cid = event_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "game_predictor"), {
+      .espn_check_id(event_id)
+      .espn_check_id(cid)
       path <- paste0("events/", event_id, "/competitions/", cid, "/predictor")
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,
@@ -911,6 +925,8 @@ espn_nhl_game_predictor <- function(event_id, cid = event_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "game_powerindex"), {
+      .espn_check_id(event_id)
+      .espn_check_id(cid)
       path <- paste0("events/", event_id, "/competitions/", cid, "/powerindex")
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,
@@ -1007,6 +1023,8 @@ espn_nhl_game_powerindex <- function(event_id, cid = event_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "game_leaders"), {
+      .espn_check_id(event_id)
+      .espn_check_id(cid)
       path <- paste0("events/", event_id, "/competitions/", cid, "/leaders")
       raw  <- .espn_hockey_request("core_v2", path = path,
                                    league = league,
@@ -1120,6 +1138,8 @@ espn_nhl_game_leaders <- function(event_id, cid = event_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "game_scoringplays"), {
+      .espn_check_id(event_id)
+      .espn_check_id(cid)
       # First try the dedicated scoringplays endpoint
       path <- paste0("events/", event_id, "/competitions/", cid, "/scoringplays")
       raw <- tryCatch(
@@ -1154,8 +1174,8 @@ espn_nhl_game_leaders <- function(event_id, cid = event_id, ...) {
           )
       } else {
         # Fall back: fetch all plays and filter to scoring_play == TRUE
-        all_plays <- .espn_hockey_game_plays(
-          league = league, event_id = event_id, cid = cid, limit = limit, ...)
+        all_plays <- .fastRhockey_lookup(.espn_hockey_game_plays(
+          league = league, event_id = event_id, cid = cid, limit = limit, ...), "ESPN plays", allow_empty = TRUE)
 
         if (is.data.frame(all_plays) && nrow(all_plays) > 0 &&
             "scoring_play" %in% colnames(all_plays)) {

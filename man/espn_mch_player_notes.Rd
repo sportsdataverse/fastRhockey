@@ -17,7 +17,7 @@ espn_wch_player_notes(athlete_id, ...)
 \value{
 An empty \code{data.frame()}. As of 2026-06-08, ESPN core-v2
 \code{athletes/{{id}}/notes} returns HTTP 404 for all queried NHL players
-(DONE_WITH_CONCERNS: endpoint not served for NHL).
+(ESPN does not serve this endpoint).
 There is no column schema: the call always yields a zero-row, zero-column \code{data.frame()}.
 }
 \description{

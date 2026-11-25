@@ -19,7 +19,7 @@ espn_wch_player_vs_player(athlete_id, opp_id, ...)
 \value{
 An empty \code{data.frame()}. As of 2026-06-08, ESPN core-v2
 \code{athletes/{id}/vsathlete/{opp_id}} returns HTTP 404 for all queried NHL
-player pairs (DONE_WITH_CONCERNS: endpoint not served for NHL).
+player pairs (ESPN does not serve this endpoint).
 There is no column schema: the call always yields a zero-row, zero-column \code{data.frame()}.
 }
 \description{

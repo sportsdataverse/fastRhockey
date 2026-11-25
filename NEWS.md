@@ -344,6 +344,34 @@ Code that upgrades from 1.0.0 may need to change.
   `fastRhockey.proxy` option as the other NHL wrappers.
 * The `pwhl_player_box()` failure message points to `pwhl_schedule()`, not
   the defunct `phf_schedule()`.
+* ESPN NHL and college hockey functions that build a URL from an id
+  (`event_id`, `cid`, `team_id`, `athlete_id`, `game_id`, `play_id`,
+  `coach_id`, `group_id`, ...) reject a `NULL`, `NA` or empty id with a
+  message naming the argument, before any request. They used to ask for the
+  collection endpoint instead (`events/` for `events/{id}`) and parse whatever
+  came back.
+* A HockeyTech reply (every PWHL and AHL / OHL / WHL / QMJHL function) with a
+  non-2xx status raises a `fastRhockey_http_error` naming the status and
+  host, which the function reports, instead of being parsed as data. A 404
+  on the game summary or shifts that `*_pbp()` adds still leaves those
+  columns `NA`.
+* `pwhl_game_info()`, `pwhl_player_box()`, `pwhl_team_roster()` and
+  `pwhl_teams()` read the JSONP reply through the shared HockeyTech parser
+  rather than a regex on the callback tail of each reply, so a reply whose
+  tail differs no longer fails to parse. Output is unchanged.
+* Functions that build on another function's data now report why that lookup
+  failed, rather than only "no data": `nhl_conferences()`,
+  `nhl_conferences_info()`, `nhl_divisions()`, `nhl_divisions_info()`,
+  `nhl_teams_info()`, `nhl_all_players_by_season()`,
+  `nhl_game_ids_by_season()`, `nhl_goalie_summary_range()`,
+  `nhl_skater_summary_range()`, `nhl_team_summary_range()`,
+  `espn_nhl_game_scoringplays()` (and the college versions),
+  `pwhl_game_corsi()`, `pwhl_player_toi()` and `pwhl_team_roster()`.
+  `pwhl_team_roster()` used to fail with a "column `team_label` not found"
+  error when the team list could not be fetched, and `pwhl_player_toi()`
+  printed nothing of its own.
+* The ESPN "not available" messages and help pages no longer contain
+  internal review wording.
 
 ### Tests
 
@@ -356,7 +384,12 @@ Code that upgrades from 1.0.0 may need to change.
   each of the 223 functions with a block `tryCatch()` error handler reports the
   cause without the error escaping; `test-fastRhockey_with_warnings.R` checks
   that no wrapper has a `tryCatch(warning =)` handler and that a wrapper keeps
-  its rows when parsing warns.
+  its rows when parsing warns. A message counts only when the function itself
+  reports it, not a function it calls.
+* `test-espn_id_guards.R` calls every ESPN helper with each required id set to
+  `NULL` and fails if any request is made; `test-http_status.R` covers the
+  non-2xx check; `test-pwhl_jsonp.R` checks the four PWHL wrappers against
+  their previous output on recorded replies.
 
 ### Dependencies
 

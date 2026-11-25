@@ -20,6 +20,32 @@
   )
 }
 
+# Get data from another wrapper (`nhl_conferences()` reads `nhl_standings()`),
+# or raise the cause that wrapper reported. The inner wrapper reports a failed
+# request and returns NULL or an empty frame, so the outer one would otherwise
+# only see "no data". Messages from `expr` are held: an empty result raises an
+# error carrying them, for the outer wrapper's own handler to report; any
+# other result is returned and the held messages are shown as they were.
+# `allow_empty = TRUE` passes an empty result through when the inner wrapper
+# reported nothing (a game with no shifts keeps its typed empty frame).
+.fastRhockey_lookup <- function(expr, what, allow_empty = FALSE) {
+  held <- list()
+  out <- withCallingHandlers(expr, message = function(m) {
+    held[[length(held) + 1L]] <<- m
+    invokeRestart("muffleMessage")
+  })
+  if (NROW(out) == 0L && (!allow_empty || length(held) > 0L)) {
+    reported <- trimws(vapply(held, conditionMessage, character(1)))
+    stop(paste(c(paste0("No ", what, " came back."), reported), collapse = " "), call. = FALSE)
+  }
+  for (m in held) {
+    # rlang::inform() / cli_inform() text has no trailing newline
+    if (!endsWith(conditionMessage(m), "\n")) m$message <- paste0(conditionMessage(m), "\n")
+    message(m)
+  }
+  out
+}
+
 #' **Progressively**
 #'
 #' This function helps add progress-reporting to any function - given function `f()` and progressr `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.
@@ -553,6 +579,45 @@ rule_footer <- function(x) {
 check_status <- function(res) {
   x <- httr2::resp_status(res)
   if (x != 200) stop("The API returned an error", call. = FALSE)
+}
+
+#' Raise a classed error for a non-2xx response
+#'
+#' [.retry_request()] turns off httr2's status errors, so a helper that parses
+#' the body straight away reads a 404, 429 or 500 error body as data. Shared
+#' request helpers call this between the request and the parse: a 2xx response
+#' is returned unchanged; anything else raises a `fastRhockey_http_error` whose
+#' message names the status, the host and path, and the `message` (or `error`)
+#' field of a JSON error body, and which carries `status` and `url` fields. It
+#' also carries the vocabulary class for the status (`fastRhockey_no_data` for
+#' 404, `fastRhockey_bad_request` for 400/422, `fastRhockey_asset_fetch`
+#' otherwise) and `fastRhockey_error`. A wrapper's `error =` handler then
+#' reports it with its cause.
+#' @param resp An httr2 response.
+#' @return `resp`, invisibly, when its status is 2xx.
+#' @keywords internal
+#' @noRd
+.fastRhockey_stop_for_http_status <- function(resp, call = rlang::caller_env()) {
+  status <- httr2::resp_status(resp)
+  if (status >= 200L && status < 300L) return(invisible(resp))
+  detail <- tryCatch({
+    body <- jsonlite::fromJSON(httr2::resp_body_string(resp), simplifyVector = TRUE)
+    if (is.list(body)) body$message %||% body$error else NULL
+  }, error = function(e) NULL)
+  detail <- if (is.character(detail) && length(detail) == 1L && nzchar(detail)) detail else NULL
+  desc <- httr2::resp_status_desc(resp)
+  url <- sub("\\?.*$", "", resp$url) # the query holds the API key, and is not the cause
+  kind <- if (status == 404L) "fastRhockey_no_data" else if (status %in% c(400L, 422L)) {
+    "fastRhockey_bad_request"
+  } else "fastRhockey_asset_fetch"
+  rlang::abort(
+    paste0(
+      "HTTP ", status, if (!is.na(desc)) paste0(" ", desc), " from ", url,
+      if (!is.null(detail)) paste0(": ", detail)
+    ),
+    class = c("fastRhockey_http_error", kind, "fastRhockey_error"),
+    status = status, url = url, call = call
+  )
 }
 
 # ---------------------------------------------------------------------------

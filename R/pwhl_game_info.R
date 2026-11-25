@@ -32,13 +32,7 @@
 pwhl_game_info <- function(game_id) {
   URL <- glue::glue("https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=gameSummary&game_id={game_id}&key=446521baf8c38984&site_id=0&client_code=pwhl&lang=en&league_id=&callback=angular.callbacks._5")
 
-  res <- .retry_request(URL)
-  res <- .resp_text(res)
-  callback_pattern <- "angular.callbacks._\\d+\\("
-  res <- gsub(callback_pattern, "", res)
-  res <- gsub("}}})", "}}}", res)
-
-  r <- res %>% jsonlite::parse_json()
+  r <- .pwhl_api(URL)
 
   seasons <- pwhl_season_id()
 

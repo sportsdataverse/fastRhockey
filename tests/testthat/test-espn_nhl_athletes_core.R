@@ -9,13 +9,13 @@
 #   player_statistics    -> OK  (1 wide row, 70+ stat columns)
 #   player_statisticslog -> OK  (10 rows for Laine)
 #   player_eventlog      -> OK  (25 rows per page for Laine; 71 total events)
-#   player_contracts     -> count=0 / graceful empty (DONE_WITH_CONCERNS)
+#   player_contracts     -> count=0 / graceful empty
 #   player_awards        -> OK for Crosby (16 rows); empty for Laine
-#   player_records       -> count=0 / graceful empty (DONE_WITH_CONCERNS)
-#   player_seasons       -> HTTP 404 / graceful empty (DONE_WITH_CONCERNS)
-#   player_injuries      -> HTTP 404 / graceful empty (DONE_WITH_CONCERNS)
-#   player_vs_player     -> HTTP 404 / graceful empty (DONE_WITH_CONCERNS)
-#   player_notes         -> HTTP 404 / graceful empty (DONE_WITH_CONCERNS)
+#   player_records       -> count=0 / graceful empty
+#   player_seasons       -> HTTP 404 / graceful empty
+#   player_injuries      -> HTTP 404 / graceful empty
+#   player_vs_player     -> HTTP 404 / graceful empty
+#   player_notes         -> HTTP 404 / graceful empty
 #   athletes_index       -> OK  (paginated, 1197 active athletes)
 
 ATHLETE_ID  <- "4024820"  # Patrik Laine
@@ -129,7 +129,7 @@ test_that("ESPN - espn_nhl_player_eventlog returns one row per event", {
 
 
 # ---------------------------------------------------------------------------
-# 5. Player Contracts (DONE_WITH_CONCERNS — count=0 for NHL)
+# 5. Player Contracts (count=0 for NHL)
 # ---------------------------------------------------------------------------
 test_that("ESPN - espn_nhl_player_contracts returns graceful empty for NHL", {
   skip_on_cran()
@@ -189,7 +189,7 @@ test_that("ESPN - espn_nhl_player_awards returns graceful empty for player witho
 
 
 # ---------------------------------------------------------------------------
-# 7. Player Records (DONE_WITH_CONCERNS — count=0 for NHL)
+# 7. Player Records (count=0 for NHL)
 # ---------------------------------------------------------------------------
 test_that("ESPN - espn_nhl_player_records returns graceful empty for NHL", {
   skip_on_cran()
@@ -207,7 +207,7 @@ test_that("ESPN - espn_nhl_player_records returns graceful empty for NHL", {
 
 
 # ---------------------------------------------------------------------------
-# 8. Player Seasons (DONE_WITH_CONCERNS — HTTP 404 for NHL)
+# 8. Player Seasons (HTTP 404 for NHL)
 # ---------------------------------------------------------------------------
 test_that("ESPN - espn_nhl_player_seasons returns graceful empty for NHL", {
   skip_on_cran()
@@ -225,7 +225,7 @@ test_that("ESPN - espn_nhl_player_seasons returns graceful empty for NHL", {
 
 
 # ---------------------------------------------------------------------------
-# 9. Player Injuries (DONE_WITH_CONCERNS — HTTP 404 for NHL)
+# 9. Player Injuries (HTTP 404 for NHL)
 # ---------------------------------------------------------------------------
 test_that("ESPN - espn_nhl_player_injuries returns graceful empty for NHL", {
   skip_on_cran()
@@ -243,7 +243,7 @@ test_that("ESPN - espn_nhl_player_injuries returns graceful empty for NHL", {
 
 
 # ---------------------------------------------------------------------------
-# 10. Player vs Player (DONE_WITH_CONCERNS — HTTP 404 for NHL)
+# 10. Player vs Player (HTTP 404 for NHL)
 # ---------------------------------------------------------------------------
 test_that("ESPN - espn_nhl_player_vs_player returns graceful empty for NHL", {
   skip_on_cran()
@@ -261,7 +261,7 @@ test_that("ESPN - espn_nhl_player_vs_player returns graceful empty for NHL", {
 
 
 # ---------------------------------------------------------------------------
-# 11. Player Notes (DONE_WITH_CONCERNS — HTTP 404 for NHL)
+# 11. Player Notes (HTTP 404 for NHL)
 # ---------------------------------------------------------------------------
 test_that("ESPN - espn_nhl_player_notes returns graceful empty for NHL", {
   skip_on_cran()

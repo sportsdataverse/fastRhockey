@@ -850,6 +850,7 @@ espn_nhl_awards <- function(limit = 100, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "award"), {
+      .espn_check_id(award_id)
       path <- paste0("awards/", award_id)
       raw  <- .espn_hockey_request("core_v2", path,
                                    league = league,

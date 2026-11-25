@@ -162,6 +162,7 @@ espn_nhl_team_schedule <- function(team_id,
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "standings_core"), {
+      .espn_check_id(group_id)
       path <- paste0("seasons/", season,
                      "/types/", season_type,
                      "/groups/", group_id,
@@ -461,6 +462,7 @@ espn_nhl_leaders_core <- function(...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "coach_season"), {
+      .espn_check_id(coach_id)
       # coach_first: sportsdataverse-py's coaches/{id}/seasons/{season} (college leagues);
       # the NHL keeps seasons/{season}/coaches/{id}, the only order that answers there.
       path <- if (isTRUE(coach_first)) {

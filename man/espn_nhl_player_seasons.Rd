@@ -14,7 +14,7 @@ espn_nhl_player_seasons(athlete_id, ...)
 \value{
 An empty \code{data.frame()}. As of 2026-06-08, ESPN core-v2
 \code{athletes/{{id}}/seasons} returns HTTP 404 for all queried NHL players
-(DONE_WITH_CONCERNS: endpoint is not served for the NHL).
+(ESPN does not serve this endpoint).
 For season-level data use \code{espn_nhl_player_statisticslog()}.
 }
 \description{

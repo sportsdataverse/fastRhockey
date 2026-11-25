@@ -43,13 +43,7 @@ nhl_game_ids_by_season <- function(
     tryCatch(
         expr = {
             if (is.null(team_abbr)) {
-                teams_df <- nhl_teams()
-                if (is.null(teams_df) || nrow(teams_df) == 0) {
-                    message(glue::glue(
-                        "{Sys.time()}: Unable to fetch NHL teams list"
-                    ))
-                    return(NULL)
-                }
+                teams_df <- .fastRhockey_lookup(nhl_teams(), "NHL team list")
                 team_list <- unique(teams_df$team_abbr)
             } else {
                 team_list <- team_abbr
@@ -59,10 +53,10 @@ nhl_game_ids_by_season <- function(
             for (i in seq_along(team_list)) {
                 tm <- team_list[i]
                 sched <- tryCatch(
-                    expr = nhl_club_schedule(
+                    expr = .fastRhockey_lookup(nhl_club_schedule(
                         team_abbr = tm,
                         season = season
-                    ),
+                    ), paste("NHL schedule for", tm), allow_empty = TRUE),
                     error = function(e) {
                         message(glue::glue(
                             "{Sys.time()}: Error fetching schedule for {tm}: {e$message}"

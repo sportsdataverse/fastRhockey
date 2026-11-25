@@ -712,7 +712,8 @@ hockeytech_backfill_power_play <- function(df) {
   pen_intervals <- vector("list", n_pen)
   for (i in seq_len(n_pen)) {
     s <- starts[[i]]; e <- ends[[i]]; adv_i <- adv[[i]]
-    if (is.na(s) || is.na(e)) next
+    # no team ids (game summary missing): keep the feed's own flags
+    if (is.na(s) || is.na(e) || is.na(adv_i) || !nzchar(adv_i)) next
     prev_end <- if (i > 1 && !is.null(pen_intervals[[i - 1L]])) pen_intervals[[i - 1L]][[2]] else NULL
     for (g in goal_times) {
       if (g >= s && g <= e) {
@@ -803,8 +804,10 @@ hockeytech_enrich_pbp <- function(df, league, game_id,
   # Step 1: fetch meta if not provided
   # ------------------------------------------------------------------
   if (is.null(meta_payload)) {
-    meta_payload <- .hockeytech_api(
-      .hockeytech_url(league, "gc", "gamesummary", list(game_id = game_id))
+    # a 404 only means no summary: those columns stay NA, the pbp is kept
+    meta_payload <- tryCatch(
+      .hockeytech_api(.hockeytech_url(league, "gc", "gamesummary", list(game_id = game_id))),
+      fastRhockey_no_data = function(e) list()
     )
   }
 
@@ -881,8 +884,9 @@ hockeytech_enrich_pbp <- function(df, league, game_id,
   # Step 7: on-ice player tracking via shifts
   # ------------------------------------------------------------------
   if (is.null(shifts_payload)) {
-    shifts_payload <- .hockeytech_api(
-      .hockeytech_url(league, "modulekit", "gameshifts", list(game_id = game_id))
+    shifts_payload <- tryCatch(
+      .hockeytech_api(.hockeytech_url(league, "modulekit", "gameshifts", list(game_id = game_id))),
+      fastRhockey_no_data = function(e) list()
     )
   }
 

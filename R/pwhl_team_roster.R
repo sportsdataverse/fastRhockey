@@ -43,7 +43,7 @@ pwhl_team_roster <- function(team, season, regular = TRUE) {
   tryCatch(
     expr = .fastRhockey_with_warnings("pwhl_team_roster", {
       # team_id <- 1 # will need the team/season look ups
-      team_id <- fastRhockey::pwhl_teams() %>%
+      team_id <- .fastRhockey_lookup(pwhl_teams(), "PWHL team list") %>%
         dplyr::filter(.data$team_label == team)
       if (nrow(team_id) == 0) {
         stop(glue::glue("No PWHL team labelled '{team}' (see pwhl_teams()$team_label)."), call. = FALSE)
@@ -63,14 +63,7 @@ pwhl_team_roster <- function(team, season, regular = TRUE) {
         "&key=694cfeed58c932ee&client_code=pwhl&site_id=8&league_id=1&lang=en&callback=angular.callbacks._h"
       )
 
-      res <- .retry_request(full_url)
-      res <- .resp_text(res)
-
-      res <- gsub("angular.callbacks._h\\(", "", res)
-      res <- gsub("}}]}]}]})", "}}]}]}]}", res)
-
-      r <- res %>%
-        jsonlite::parse_json()
+      r <- .pwhl_api(full_url)
 
       team_name <- r[[1]]
       team_logo <- r[[2]]

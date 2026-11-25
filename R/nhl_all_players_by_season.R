@@ -41,23 +41,17 @@
 nhl_all_players_by_season <- function(season, sleep_rate = 0) {
     tryCatch(
         expr = {
-            teams_df <- nhl_teams()
-            if (is.null(teams_df) || nrow(teams_df) == 0) {
-                message(glue::glue(
-                    "{Sys.time()}: Unable to fetch NHL teams list"
-                ))
-                return(NULL)
-            }
+            teams_df <- .fastRhockey_lookup(nhl_teams(), "NHL team list")
             team_list <- unique(teams_df$team_abbr)
 
             rosters <- list()
             for (i in seq_along(team_list)) {
                 tm <- team_list[i]
                 r <- tryCatch(
-                    expr = nhl_teams_roster(
+                    expr = .fastRhockey_lookup(nhl_teams_roster(
                         team_abbr = tm,
                         season = season
-                    ),
+                    ), paste("NHL roster for", tm), allow_empty = TRUE),
                     error = function(e) {
                         message(glue::glue(
                             "{Sys.time()}: Error fetching roster for {tm}: {e$message}"

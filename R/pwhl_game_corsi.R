@@ -36,7 +36,7 @@ pwhl_game_corsi <- function(game_id) {
   corsi_df <- data.frame()
   tryCatch(
     expr = {
-      pbp   <- pwhl_pbp(game_id = game_id)
+      pbp   <- .fastRhockey_lookup(pwhl_pbp(game_id = game_id), "PWHL play-by-play", allow_empty = TRUE)
       corsi <- hockeytech_corsi_fenwick_on_ice(pbp)
 
       # Coerce join key to character for safe matching across id types
@@ -46,7 +46,7 @@ pwhl_game_corsi <- function(game_id) {
       # gracefully -- corsi is still returned with toi_seconds/corsi_for_per60 = NA.
       toi <- tryCatch(
         {
-          t <- hockeytech_player_toi(pwhl_game_shifts(game_id = game_id))
+          t <- hockeytech_player_toi(.fastRhockey_lookup(pwhl_game_shifts(game_id = game_id), "PWHL shifts", allow_empty = TRUE))
           t$player_id <- as.character(t$player_id)
           t
         },

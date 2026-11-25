@@ -33,6 +33,7 @@
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_bio"), {
+      .espn_check_id(athlete_id)
       path <- paste0("athletes/", athlete_id, "/bio")
       url  <- .espn_hockey_url("site_v2", path, league)
       resp <- .retry_request(url, ...)
@@ -167,6 +168,7 @@ espn_nhl_player_bio <- function(athlete_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_news"), {
+      .espn_check_id(athlete_id)
       path  <- paste0("athletes/", athlete_id, "/news")
       query <- list(limit = limit)
       raw   <- .espn_hockey_request("site_v2", path = path,
@@ -300,6 +302,7 @@ espn_nhl_player_news <- function(athlete_id, limit = 50, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_info"), {
+      .espn_check_id(athlete_id)
       path <- paste0("athletes/", athlete_id)
       url  <- .espn_hockey_url("site_v2", path, league)
       resp <- .retry_request(url, ...)
@@ -450,6 +453,7 @@ espn_nhl_player_info <- function(athlete_id, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_career_stats"), {
+      .espn_check_id(athlete_id)
       seg  <- if (!is.null(stat_type)) paste0("/", stat_type) else ""
       path <- paste0("athletes/", athlete_id, "/statistics", seg)
       raw  <- .espn_hockey_request("core_v2", path = path, league = league,
@@ -589,6 +593,7 @@ espn_nhl_player_career_stats <- function(athlete_id, stat_type = NULL, ...) {
 
   tryCatch(
     expr = .fastRhockey_with_warnings(.espn_fn(league, "player_gamelog"), {
+      .espn_check_id(athlete_id)
       path  <- paste0("athletes/", athlete_id, "/gamelog")
       query <- list()
       if (!is.null(season)) query[["season"]] <- season
