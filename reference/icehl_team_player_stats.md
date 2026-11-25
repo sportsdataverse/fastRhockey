@@ -140,7 +140,7 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_team_player_stats(season = 2027, team_id = 4, league_id = 1))
 #> ── ICE Hockey League team_player_stats from the eSports hokejovyzapis bucket ───
-#> ℹ Data updated: 2026-11-25 06:30:56 UTC
+#> ℹ Data updated: 2026-11-25 20:20:18 UTC
 #> # A tibble: 26 × 80
 #>    player_id name        firstname surname photo birthdate active position stick
 #>        <int> <chr>       <chr>     <chr>   <chr> <chr>     <lgl>  <chr>    <chr>
@@ -149,9 +149,9 @@ Other ICE Hockey League eSports functions:
 #>  3      4108 Topi Rönni  Topi      Rönni   http… 2004-05-… TRUE   FW       left 
 #>  4      4121 Ferenc Las… Ferenc    Laskawy http… 2006-02-… TRUE   FW       right
 #>  5      4705 Rasmus Hel… Rasmus    Heljan… http… 2000-02-… TRUE   FW       right
-#>  6      4703 Bendegúz D… Bendegúz  Dobos   http… 2004-05-… TRUE   FW       left 
-#>  7      4119 Rasmus Ben… Rasmus    Bengts… http… 1993-05-… TRUE   DE       left 
-#>  8      4112 Jussi Tamm… Jussi     Tammela http… 1999-06-… TRUE   FW       right
+#>  6      4119 Rasmus Ben… Rasmus    Bengts… http… 1993-05-… TRUE   DE       left 
+#>  7      4112 Jussi Tamm… Jussi     Tammela http… 1999-06-… TRUE   FW       right
+#>  8      4703 Bendegúz D… Bendegúz  Dobos   http… 2004-05-… TRUE   FW       left 
 #>  9      4116 András Mih… András    Mihalik http… 2003-05-… TRUE   FW       left 
 #> 10      4111 Jesper Lin… Jesper    Lindgr… http… 1997-05-… TRUE   DE       right
 #> # ℹ 16 more rows

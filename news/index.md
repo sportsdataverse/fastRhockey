@@ -131,6 +131,12 @@ returned. Code that upgrades from 1.0.0 may need to change.
 
 #### Bug fixes
 
+- [`nhl_game_boxscore()`](https://fastRhockey.sportsdataverse.org/reference/nhl_game_boxscore.md):
+  `player_name` is now always `"X. Surname"`. The API sends a few
+  players unspaced (`"J.Kulich"`, `"D.Jiricek"`), which no longer pass
+  through as-is; a name already containing a space (`"J.T. Compher"`) is
+  unchanged.
+
 - NHL `x_fixed` / `y_fixed` rotate the rink by `homeTeamDefendingSide`
   (home shoots right; `(x, y) -> (-x, -y)` when the home team defends
   the right end) instead of `x_fixed = abs(x)` for home events and

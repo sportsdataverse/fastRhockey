@@ -89,9 +89,9 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_scoringplays(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-25 06:28:23.938927: Invalid arguments or no ESPN mens-college-hockey scoring plays for event 401715296 available!
+#> ✖ 2026-11-25 20:17:07.366198: Invalid arguments or no ESPN mens-college-hockey scoring plays for event 401715296 available!
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", limit = 300
-#> ✖ Error: No ESPN plays came back. ! 2026-11-25 06:28:23.934921: No plays returned for event 401715296.
+#> ✖ Error: No ESPN plays came back. ! 2026-11-25 20:17:07.361767: No plays returned for event 401715296.
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
@@ -99,9 +99,9 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20260110")
     espn_wch_game_scoringplays(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-25 06:28:24.111643: Invalid arguments or no ESPN womens-college-hockey scoring plays for event 401814005 available!
+#> ✖ 2026-11-25 20:17:07.596392: Invalid arguments or no ESPN womens-college-hockey scoring plays for event 401814005 available!
 #> ✖ Args: league = "womens-college-hockey", event_id = "401814005", cid = "401814005", limit = 300
-#> ✖ Error: No ESPN plays came back. ! 2026-11-25 06:28:24.107768: No plays returned for event 401814005.
+#> ✖ Error: No ESPN plays came back. ! 2026-11-25 20:17:07.592228: No plays returned for event 401814005.
 #> data frame with 0 columns and 0 rows
 # }
 ```

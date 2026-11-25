@@ -69,14 +69,14 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_coach_season(coach_id = "900", season = 2026))
-#> ✖ 2026-11-25 06:28:14.301279: Invalid arguments or no ESPN mens-college-hockey coach 900 season 2026 data available!
+#> ✖ 2026-11-25 20:16:54.973652: Invalid arguments or no ESPN mens-college-hockey coach 900 season 2026 data available!
 #> ✖ Args: league = "mens-college-hockey", coach_id = "900", season = 2026, coach_first = TRUE
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/hockey/leagues/mens-college-hockey/coaches/900/seasons/2026
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try(espn_wch_coach_season(coach_id = "900", season = 2026))
-#> ✖ 2026-11-25 06:28:14.32675: Invalid arguments or no ESPN womens-college-hockey coach 900 season 2026 data available!
+#> ✖ 2026-11-25 20:16:55.001588: Invalid arguments or no ESPN womens-college-hockey coach 900 season 2026 data available!
 #> ✖ Args: league = "womens-college-hockey", coach_id = "900", season = 2026, coach_first = TRUE
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/hockey/leagues/womens-college-hockey/coaches/900/seasons/2026
 #> data frame with 0 columns and 0 rows

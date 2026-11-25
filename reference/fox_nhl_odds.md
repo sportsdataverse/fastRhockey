@@ -23,11 +23,8 @@ six-pack odds columns). Empty when no market is posted.
 
 ``` r
  try(fox_nhl_odds("44398")) 
-#> ── Fox Sports NHL odds ──────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:29:49 UTC
-#> # A tibble: 2 × 5
-#>   game_id team           puck_line to_win total
-#>   <chr>   <chr>          <chr>     <chr>  <chr>
-#> 1 44398   Boston Bruins  +1.5      +140   O 6.5
-#> 2 44398   Buffalo Sabres -1.5      -166   U 6.5
+#> ✖ 2026-11-25 20:19:08.119996: Invalid arguments or no Fox nhl odds data available!
+#> ✖ Args: sport = "nhl", resource = "odds", game_id = "44398", team_id = NULL, category = "scoring", who = "player", page = 0
+#> ✖ Error: HTTP 404 Not Found from https://api.foxsports.com/bifrost/v1/nhl/event/44398/odds
+#> data frame with 0 columns and 0 rows
 ```

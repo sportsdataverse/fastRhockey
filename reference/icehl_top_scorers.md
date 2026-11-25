@@ -95,21 +95,21 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_top_scorers(season = 2027, league_id = 1))
 #> ── ICE Hockey League top_scorers from the eSports hokejovyzapis bucket ─────────
-#> ℹ Data updated: 2026-11-25 06:30:57 UTC
-#> # A tibble: 435 × 13
+#> ℹ Data updated: 2026-11-25 20:20:19 UTC
+#> # A tibble: 440 × 13
 #>    player_id name  surname photo birthdate team_id team_name team_shortcut goals
 #>        <int> <chr> <chr>   <chr> <chr>       <int> <chr>     <chr>         <int>
-#>  1      4024 Nick  Swaney  http… 1997-09-…       9 Moser Me… G99              15
-#>  2      3499 Cole  Schnei… http… 1990-08-…       7 HCB Südt… HCB               6
-#>  3      4700 Cart… Savoie  http… 2002-01-…       4 FTC-Tele… FTC              13
-#>  4      4795 Josh… Lawren… http… 2002-01-…      10 Olimpija… OLL              17
-#>  5      2861 Nico… Meyer   http… 1993-07-…      10 Olimpija… OLL              12
-#>  6      2999 Brad  McClure http… 1993-08-…       7 HCB Südt… HCB              18
-#>  7      4701 David Silye   http… 1999-03-…       4 FTC-Tele… FTC              11
+#>  1      4700 Cart… Savoie  http… 2002-01-…       4 FTC-Tele… FTC              15
+#>  2      4024 Nick  Swaney  http… 1997-09-…       9 Moser Me… G99              15
+#>  3      4701 David Silye   http… 1999-03-…       4 FTC-Tele… FTC              12
+#>  4      3499 Cole  Schnei… http… 1990-08-…       7 HCB Südt… HCB               6
+#>  5      4795 Josh… Lawren… http… 2002-01-…      10 Olimpija… OLL              17
+#>  6      2861 Nico… Meyer   http… 1993-07-…      10 Olimpija… OLL              12
+#>  7      2999 Brad  McClure http… 1993-08-…       7 HCB Südt… HCB              18
 #>  8      4759 Blake Murray  http… 2001-07-…      11 Pioneers… PIV              11
-#>  9      2979 Grah… Knott   http… 1997-01-…      13 Steinbac… BWL               9
-#> 10      4716 Brady Shaw    http… 1992-10-…      13 Steinbac… BWL              13
-#> # ℹ 425 more rows
+#>  9      3531 Marly Quince  http… 1994-01-…      10 Olimpija… OLL               9
+#> 10      2979 Grah… Knott   http… 1997-01-…      13 Steinbac… BWL               9
+#> # ℹ 430 more rows
 #> # ℹ 4 more variables: assists <int>, points <int>, shots <int>,
 #> #   penalty_minutes <int>
 # }

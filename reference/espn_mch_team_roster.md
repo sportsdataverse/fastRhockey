@@ -114,7 +114,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_team_roster(team_id = "104"))
 #> ── MENS-COLLEGE-HOCKEY Team Roster data from ESPN.com ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:28:50 UTC
+#> ℹ Data updated: 2026-11-25 20:17:43 UTC
 #> # A tibble: 14 × 53
 #>    position_group id      uid    guid  alternate_id alternate_ids_sdr first_name
 #>    <chr>          <chr>   <chr>  <chr> <chr>        <chr>             <chr>     

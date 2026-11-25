@@ -61,7 +61,7 @@ Saiem Gilani
 # \donttest{
   # NOTE: Returns empty tibble for NHL (ESPN does not publish powerindex for hockey)
   try(espn_nhl_season_powerindex(season = 2026))
-#> ! 2026-11-25 06:29:21.424178: ESPN nhl season powerindex for 2026 not available (not published for NHL).
+#> ! 2026-11-25 20:18:24.796759: ESPN nhl season powerindex for 2026 not available (not published for NHL).
 #> ! Warning: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/seasons/2026/powerindex
 #> data frame with 0 columns and 0 rows
 # }

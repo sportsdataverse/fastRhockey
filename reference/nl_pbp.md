@@ -118,7 +118,7 @@ lists every function in this family.
 # \donttest{
   try(nl_pbp(game_id = 20261105000325))
 #> ── National League Play-by-Play Information from nationalleague.ch ─────────────
-#> ℹ Data updated: 2026-11-25 06:34:30 UTC
+#> ℹ Data updated: 2026-11-25 20:24:08 UTC
 #> # A tibble: 17 × 34
 #>    game_id event_index team_side game_seconds team_id home_team time  video_time
 #>      <dbl>       <int> <chr>            <int>   <dbl> <lgl>     <chr>      <int>

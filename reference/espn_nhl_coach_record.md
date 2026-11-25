@@ -52,7 +52,7 @@ Saiem Gilani
     ccs <- espn_nhl_coaches(season = 2026)
     espn_nhl_coach_record(coach_id = ccs$coach_id[1])
   })
-#> ! 2026-11-25 06:28:55.206399: ESPN nhl coach record for coach 900 is not available (HTTP 404 is normal for NHL).
+#> ! 2026-11-25 20:17:50.289305: ESPN nhl coach record for coach 900 is not available (HTTP 404 is normal for NHL).
 #> ! Warning: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/coaches/900/record
 #> data frame with 0 columns and 0 rows
 # }

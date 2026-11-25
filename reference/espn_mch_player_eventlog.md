@@ -63,14 +63,14 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_player_eventlog(athlete_id = "5136656"))
-#> ✖ 2026-11-25 06:28:34.122327: Invalid arguments or no ESPN mens-college-hockey player eventlog for athlete 5136656 available!
+#> ✖ 2026-11-25 20:17:20.823879: Invalid arguments or no ESPN mens-college-hockey player eventlog for athlete 5136656 available!
 #> ✖ Args: league = "mens-college-hockey", athlete_id = "5136656"
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/hockey/leagues/mens-college-hockey/athletes/5136656/eventlog
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try(espn_wch_player_eventlog(athlete_id = "5263060"))
-#> ✖ 2026-11-25 06:28:34.148302: Invalid arguments or no ESPN womens-college-hockey player eventlog for athlete 5263060 available!
+#> ✖ 2026-11-25 20:17:20.856552: Invalid arguments or no ESPN womens-college-hockey player eventlog for athlete 5263060 available!
 #> ✖ Args: league = "womens-college-hockey", athlete_id = "5263060"
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/hockey/leagues/womens-college-hockey/athletes/5263060/eventlog
 #> data frame with 0 columns and 0 rows

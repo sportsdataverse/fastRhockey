@@ -108,8 +108,8 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_records_player())
 #> ── NHL Records Player ───────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:34:09 UTC
-#> # A tibble: 23,580 × 16
+#> ℹ Data updated: 2026-11-25 20:23:45 UTC
+#> # A tibble: 23,581 × 16
 #>         id birth_city       birth_country birth_date birth_state_province
 #>      <int> <chr>            <chr>         <chr>      <chr>               
 #>  1 8444850 Kenora           CAN           1906-04-28 ON                  
@@ -122,7 +122,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 #>  8 8444857 Melville         CAN           1918-02-22 SK                  
 #>  9 8444858 Lamont           CAN           1932-09-07 AB                  
 #> 10 8444859 Toronto          CAN           1949-05-15 ON                  
-#> # ℹ 23,570 more rows
+#> # ℹ 23,571 more rows
 #> # ℹ 11 more variables: current_team_id <int>, first_name <chr>,
 #> #   full_name <chr>, height <int>, in_top100alltime <lgl>, last_name <chr>,
 #> #   on_roster <chr>, position <chr>, sweater_number <int>, weight <int>,

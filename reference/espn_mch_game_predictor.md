@@ -68,7 +68,7 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_predictor(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-25 06:28:22.324014: Invalid arguments or no ESPN mens-college-hockey game predictor for event 401715296 available!
+#> ✖ 2026-11-25 20:17:05.220823: Invalid arguments or no ESPN mens-college-hockey game predictor for event 401715296 available!
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296"
 #> ✖ Error: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/hockey/leagues/mens-college-hockey/events/401715296/competitions/401715296/predictor
 #> data frame with 0 columns and 0 rows
@@ -78,7 +78,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20260110")
     espn_wch_game_predictor(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-25 06:28:22.477606: Invalid arguments or no ESPN womens-college-hockey game predictor for event 401814005 available!
+#> ✖ 2026-11-25 20:17:05.452773: Invalid arguments or no ESPN womens-college-hockey game predictor for event 401814005 available!
 #> ✖ Args: league = "womens-college-hockey", event_id = "401814005", cid = "401814005"
 #> ✖ Error: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/hockey/leagues/womens-college-hockey/events/401814005/competitions/401814005/predictor
 #> data frame with 0 columns and 0 rows

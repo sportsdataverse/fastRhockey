@@ -44,7 +44,7 @@ Other AHL Functions:
 ``` r
  try(ahl_standings()) 
 #> ── AHL Standings from HockeyTech ────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:27:40 UTC
+#> ℹ Data updated: 2026-11-25 20:16:20 UTC
 #> # A tibble: 32 × 19
 #>    team_code wins  losses ot_losses shootout_losses regulation_wins row   points
 #>    <chr>     <chr>  <dbl> <chr>     <chr>                     <dbl> <chr>  <dbl>
@@ -56,8 +56,8 @@ Other AHL Functions:
 #>  6 SPR       5          7 2         3                             4 5         15
 #>  7 LV        6         11 1         0                             4 6         13
 #>  8 LAV       13         5 2         0                            12 13        28
-#>  9 ROC       11         6 0         1                             9 11        23
-#> 10 UTC       11         4 0         0                            10 10        22
+#>  9 TOR       10         5 3         1                             7 9         24
+#> 10 ROC       11         6 0         1                             9 11        23
 #> # ℹ 22 more rows
 #> # ℹ 11 more variables: penalty_minutes <chr>, streak <chr>, goals_for <chr>,
 #> #   goals_against <chr>, games_remaining <chr>, percentage <chr>,

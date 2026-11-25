@@ -95,7 +95,7 @@ lists every function in this family.
 # \donttest{
   try(khl_webcaster_tables())
 #> ── KHL Webcaster Tables from khl.api.webcaster.pro ──────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:31:32 UTC
+#> ℹ Data updated: 2026-11-25 20:20:54 UTC
 #> # A tibble: 468 × 29
 #>    season season_label  rank    gp     w   otw   sow   sol   otl otl_en     l
 #>     <dbl> <chr>        <int> <int> <int> <int> <int> <int> <int>  <int> <int>

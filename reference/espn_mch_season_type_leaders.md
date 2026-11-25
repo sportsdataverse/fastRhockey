@@ -81,14 +81,14 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_season_type_leaders(season = 2026, season_type = 2))
-#> ✖ 2026-11-25 06:28:44.337922: Invalid arguments or no ESPN mens-college-hockey season type leaders for 2026 type 2 available!
+#> ✖ 2026-11-25 20:17:33.555767: Invalid arguments or no ESPN mens-college-hockey season type leaders for 2026 type 2 available!
 #> ✖ Args: league = "mens-college-hockey", season = 2026, season_type = 2
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/hockey/leagues/mens-college-hockey/seasons/2026/types/2/leaders
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try(espn_wch_season_type_leaders(season = 2026, season_type = 2))
-#> ✖ 2026-11-25 06:28:44.362935: Invalid arguments or no ESPN womens-college-hockey season type leaders for 2026 type 2 available!
+#> ✖ 2026-11-25 20:17:33.590084: Invalid arguments or no ESPN womens-college-hockey season type leaders for 2026 type 2 available!
 #> ✖ Args: league = "womens-college-hockey", season = 2026, season_type = 2
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/hockey/leagues/womens-college-hockey/seasons/2026/types/2/leaders
 #> data frame with 0 columns and 0 rows

@@ -34,7 +34,7 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_conferences())
 #> ── NHL Conferences from NHL.com ─────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:33:30 UTC
+#> ℹ Data updated: 2026-11-25 20:23:01 UTC
 #> # A tibble: 2 × 1
 #>   conference_name
 #>   <chr>          

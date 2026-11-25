@@ -104,7 +104,7 @@ Other HA Functions:
 # \donttest{
   try(ha_leaders(metric = "TP"))
 #> ── HA Leaders Information from hockeyallsvenskan.se ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:30:38 UTC
+#> ℹ Data updated: 2026-11-25 20:19:58 UTC
 #> # A tibble: 25 × 18
 #>     rank player_name     team_code team_statnet_id jersey_number position metric
 #>    <int> <chr>           <chr>     <chr>                   <int> <chr>    <chr> 
@@ -116,8 +116,8 @@ Other HA Functions:
 #>  6     6 Åke Stakkestad  LIF       LIF                        15 F        TP    
 #>  7     7 Patrik Zackris… LIF       LIF                         9 F        TP    
 #>  8     8 Matt Brown      IKO       IKO                        10 F        TP    
-#>  9     9 Axel Elofsson   ÖRE       OHK                         8 D        TP    
-#> 10    10 Travis Treloar  BIK       BIK                        10 F        TP    
+#>  9     9 Oliver Tärnstr… MORA      MIK                        19 F        TP    
+#> 10    10 Axel Elofsson   ÖRE       OHK                         8 D        TP    
 #> # ℹ 15 more rows
 #> # ℹ 11 more variables: metric_value <chr>, player_statnet_id <int>,
 #> #   first_name <chr>, family_name <chr>, slug <chr>, headshot <chr>,

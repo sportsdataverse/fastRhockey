@@ -232,7 +232,7 @@ lists every function in this family.
 # \donttest{
   try(nl_top_scorers(phase = 4940, season = 2026, take = 3))
 #> ── National League Top Scorers Information from nationalleague.ch ──────────────
-#> ℹ Data updated: 2026-11-25 06:34:46 UTC
+#> ℹ Data updated: 2026-11-25 20:24:24 UTC
 #> # A tibble: 3 × 145
 #>   player_id first_name last_name team_id team_short_name team_name        number
 #>       <dbl> <chr>      <chr>       <dbl> <chr>           <chr>            <chr> 

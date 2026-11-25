@@ -118,7 +118,7 @@ lists every function in this family.
 # \donttest{
   try(liiga_player_stats(season_from = 2026, season_to = 2026, tournament = "runkosarja"))
 #> ── Liiga player stat tables Information from liiga.fi ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:31:51 UTC
+#> ℹ Data updated: 2026-11-25 20:21:11 UTC
 #> # A tibble: 531 × 45
 #>    player_id    team_id team_name team_short_name role  first_name last_name    
 #>        <int>      <int> <chr>     <chr>           <chr> <chr>      <chr>        
