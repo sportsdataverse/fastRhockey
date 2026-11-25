@@ -67,4 +67,14 @@ test_that("NHL - Boxscore spaces an unspaced player name (offline)", {
         fastRhockey:::.extract_default_names(c("J.Kulich", "J.T. Compher", "J.T.Compher", "E. Del Mastro", NA)),
         c("J. Kulich", "J.T. Compher", "J.T. Compher", "E. Del Mastro", NA)
     )
+    # every input shape the helper accepts is normalised the same way
+    expect_equal(
+        fastRhockey:::.extract_default_names(list(list(default = "D.Jiricek"), list(cs = "x"), "D.Misyul")),
+        c("D. Jiricek", NA, "D. Misyul")
+    )
+    expect_equal(
+        fastRhockey:::.extract_default_names(data.frame(default = c("J.Kulich", "Z. Benson"))),
+        c("J. Kulich", "Z. Benson")
+    )
+    expect_equal(fastRhockey:::.extract_default_names(factor("J.Kulich")), "J. Kulich")
 })
