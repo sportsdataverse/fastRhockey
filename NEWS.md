@@ -454,6 +454,11 @@ Code that upgrades from 1.0.0 may need to change.
   `?family_national_league`). With the change above, the installed size in a
   local Windows check dropped from 8.9 MB to 6.0 MB; the GitHub Actions
   checks (Linux, macOS and Windows) report 7.5 to 7.9 MB.
+* Help pages no longer name functions that do not exist: the
+  `espn_mch_teams_site()` and `espn_mch_team_schedule()` titles drop an "alias
+  for" a function the package never had, and `espn_nhl_game_scoringplays()` /
+  `espn_mch_game_scoringplays()` name `espn_nhl_game_plays()` /
+  `espn_mch_game_plays()` as their fallback source.
 
 # **fastRhockey 1.0.0**
 

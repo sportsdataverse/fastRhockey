@@ -1124,7 +1124,7 @@ espn_nhl_game_leaders <- function(event_id, cid = event_id, ...) {
 # ===========================================================================
 # 10. Game Scoring Plays
 # NOTE: No dedicated /scoringplays endpoint exists for NHL in core-v2
-#       (returns 404 on tested games). This function calls game_plays() and
+#       (returns 404 on tested games). This function calls espn_nhl_game_plays() and
 #       filters to plays where scoring_play == TRUE.
 # ===========================================================================
 
@@ -1210,7 +1210,7 @@ NULL
 #' @param cid Competition identifier. Defaults to `event_id`.
 #' @param limit Maximum number of plays to fetch for filtering. Defaults to `300`.
 #'   Only used when the dedicated `scoringplays` endpoint is unavailable and the
-#'   function falls back to filtering `game_plays()`.
+#'   function falls back to filtering `espn_nhl_game_plays()`.
 #' @param ... Reserved for forward compatibility.
 #' @return A `fastRhockey_data` tibble with one row per scoring play (goal).
 #'   **Implementation note:** The dedicated `/scoringplays` core-v2 endpoint

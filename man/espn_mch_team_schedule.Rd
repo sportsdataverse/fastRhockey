@@ -3,7 +3,7 @@
 \name{espn_mch_team_schedule}
 \alias{espn_mch_team_schedule}
 \alias{espn_wch_team_schedule}
-\title{\strong{Get ESPN MCH / WCH Team Schedule (site_v2) -- alias for \code{espn_mch_schedule()}}}
+\title{\strong{Get ESPN MCH / WCH Team Schedule (site_v2)}}
 \usage{
 espn_mch_team_schedule(team_id, season = most_recent_nhl_season(), ...)
 
@@ -59,7 +59,7 @@ schedule.\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH / WCH Team Schedule (site_v2) -- alias for \code{espn_mch_schedule()}}
+\strong{Get ESPN MCH / WCH Team Schedule (site_v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_team_schedule()}; columns verified against a captured MCH body.
