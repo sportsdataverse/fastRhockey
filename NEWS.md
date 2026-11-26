@@ -458,7 +458,8 @@ Code that upgrades from 1.0.0 may need to change.
   `espn_mch_teams_site()` and `espn_mch_team_schedule()` titles drop an "alias
   for" a function the package never had, and `espn_nhl_game_scoringplays()` /
   `espn_mch_game_scoringplays()` name `espn_nhl_game_plays()` /
-  `espn_mch_game_plays()` as their fallback source.
+  `espn_mch_game_plays()` (and `espn_wch_game_plays()` for the women's
+  wrapper) as their fallback source.
 
 # **fastRhockey 1.0.0**
 

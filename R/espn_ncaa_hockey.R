@@ -5016,7 +5016,8 @@ NULL
 #' @param cid Competition identifier. Defaults to `event_id`.
 #' @param limit Maximum number of plays to fetch for filtering. Defaults to `300`.
 #'   Only used when the dedicated `scoringplays` endpoint is unavailable and the
-#'   function falls back to filtering `espn_mch_game_plays()`.
+#'   function falls back to filtering `espn_mch_game_plays()` /
+#'   `espn_wch_game_plays()`.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_scoringplays()` (columns inherited); a collection may be empty.
 #' @details `espn_wch_game_scoringplays()` is the same wrapper for women's college hockey
