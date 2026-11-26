@@ -3,7 +3,7 @@
 \name{espn_mch_teams_site}
 \alias{espn_mch_teams_site}
 \alias{espn_wch_teams_site}
-\title{\strong{Get ESPN MCH / WCH Teams (site_v2) -- alias for \code{espn_mch_teams()}}}
+\title{\strong{Get ESPN MCH / WCH Teams (site_v2)}}
 \usage{
 espn_mch_teams_site(limit = 1000, ...)
 
@@ -42,7 +42,7 @@ identical to the output of teams.\tabular{lll}{
 }
 }
 \description{
-\strong{Get ESPN MCH / WCH Teams (site_v2) -- alias for \code{espn_mch_teams()}}
+\strong{Get ESPN MCH / WCH Teams (site_v2)}
 }
 \details{
 League slug \code{mens-college-hockey}; \code{season} is the END year (\code{2026} = 2025-26). Same ESPN helper as \code{espn_nhl_teams_site()}; columns verified against a captured MCH body.

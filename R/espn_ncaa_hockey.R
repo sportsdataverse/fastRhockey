@@ -914,7 +914,7 @@ espn_mch_draft <- function(...) {
 
 #' @name espn_mch_teams_site
 NULL
-#' @title **Get ESPN MCH / WCH Teams (site_v2) -- alias for `espn_mch_teams()`**
+#' @title **Get ESPN MCH / WCH Teams (site_v2)**
 #' @rdname espn_mch_teams_site
 #' @author Saiem Gilani
 #' @param limit Maximum number of teams (ESPN `limit`; default `1000`, as sportsdataverse-py).
@@ -1104,7 +1104,7 @@ espn_mch_team_roster <- function(team_id, limit = 500, ...) {
 
 #' @name espn_mch_team_schedule
 NULL
-#' @title **Get ESPN MCH / WCH Team Schedule (site_v2) -- alias for `espn_mch_schedule()`**
+#' @title **Get ESPN MCH / WCH Team Schedule (site_v2)**
 #' @rdname espn_mch_team_schedule
 #' @author Saiem Gilani
 #' @param team_id ESPN team identifier (character or numeric, e.g. `"104"` for
@@ -5016,7 +5016,8 @@ NULL
 #' @param cid Competition identifier. Defaults to `event_id`.
 #' @param limit Maximum number of plays to fetch for filtering. Defaults to `300`.
 #'   Only used when the dedicated `scoringplays` endpoint is unavailable and the
-#'   function falls back to filtering `game_plays()`.
+#'   function falls back to filtering `espn_mch_game_plays()` /
+#'   `espn_wch_game_plays()`.
 #' @param ... Reserved for forward compatibility.
 #' @details League slug `mens-college-hockey`; `season` is the END year (`2026` = 2025-26). Same ESPN helper as `espn_nhl_game_scoringplays()` (columns inherited); a collection may be empty.
 #' @details `espn_wch_game_scoringplays()` is the same wrapper for women's college hockey

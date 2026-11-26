@@ -13,7 +13,7 @@ espn_nhl_game_scoringplays(event_id, cid = event_id, limit = 300, ...)
 
 \item{limit}{Maximum number of plays to fetch for filtering. Defaults to \code{300}.
 Only used when the dedicated \code{scoringplays} endpoint is unavailable and the
-function falls back to filtering \code{game_plays()}.}
+function falls back to filtering \code{espn_nhl_game_plays()}.}
 
 \item{...}{Reserved for forward compatibility.}
 }
