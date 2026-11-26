@@ -137,7 +137,7 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_goalie_box(match_id = 8161))
 #> ── ICE Hockey League goalie_box from the eSports hokejovyzapis bucket ──────────
-#> ℹ Data updated: 2026-11-25 20:20:10 UTC
+#> ℹ Data updated: 2026-11-26 22:28:19 UTC
 #> # A tibble: 5 × 61
 #>   player_id name    surname photo      birthdate team_id team_name team_shortcut
 #>       <int> <chr>   <chr>   <chr>      <chr>       <int> <chr>     <chr>        

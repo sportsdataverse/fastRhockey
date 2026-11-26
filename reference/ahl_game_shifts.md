@@ -40,6 +40,6 @@ Other AHL Functions:
 ``` r
  try(ahl_game_shifts(game_id = 1000093924)) 
 #> ── AHL Game Shifts from HockeyTech ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:16:17 UTC
+#> ℹ Data updated: 2026-11-26 22:23:16 UTC
 #> # A tibble: 0 × 0
 ```

@@ -138,8 +138,8 @@ Other DEL eSports functions:
 # \donttest{
   try(del_team_player_stats(season = 2027, team_id = 12, league_id = 1))
 #> ── DEL team_player_stats from the eSports hokejovyzapis bucket ─────────────────
-#> ℹ Data updated: 2026-11-25 20:16:32 UTC
-#> # A tibble: 27 × 51
+#> ℹ Data updated: 2026-11-26 22:23:31 UTC
+#> # A tibble: 28 × 51
 #>    player_id holema_id name      firstname surname date_of_birth active position
 #>        <int>     <int> <chr>     <chr>     <chr>   <chr>         <lgl>  <chr>   
 #>  1        16        NA Fabio Wa… Fabio     Wagner  1995-09-17    TRUE   DE      
@@ -152,7 +152,7 @@ Other DEL eSports functions:
 #>  8      1364        NA Markus E… Markus    Eisens… 1995-01-22    TRUE   FO      
 #>  9      1753        NA Christop… Christop… DeSousa 1990-10-19    TRUE   FO      
 #> 10      2117        NA Veit Osw… Veit      Oswald  2004-08-31    TRUE   FO      
-#> # ℹ 17 more rows
+#> # ℹ 18 more rows
 #> # ℹ 43 more variables: stick <chr>, weight <int>, height <int>, jersey <int>,
 #> #   birth_country <chr>, nationality <chr>, nationality_short <chr>,
 #> #   team_shortcut <chr>, games <int>, goals <int>, goals_home <int>,

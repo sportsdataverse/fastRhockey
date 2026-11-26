@@ -47,20 +47,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(pwhl_scorebar(days_back = 7, days_ahead = 7))
 #> ── PWHL Scorebar ────────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:24:40 UTC
+#> ℹ Data updated: 2026-11-26 22:32:11 UTC
 #> # A tibble: 25 × 15
 #>    game_id season_id date       game_date   status home_team        home_team_id
 #>      <dbl>     <dbl> <chr>      <chr>       <chr>  <chr>                   <dbl>
-#>  1     350         9 2026-05-14 Thu, May 14 4      Montréal Victoi…            3
-#>  2     351         9 2026-05-16 Sat, May 16 4      Montréal Victoi…            3
-#>  3     348         9 2026-05-18 Mon, May 18 4      Ottawa Charge               5
-#>  4     349         9 2026-05-20 Wed, May 20 4      Ottawa Charge               5
-#>  5     353        10 2026-11-22 Sun, Nov 22 4      Vegas Vanguards            12
-#>  6     360        10 2026-11-23 Mon, Nov 23 4      Ottawa Charge               5
-#>  7     354        10 2026-11-23 Mon, Nov 23 4      Minnesota Frost             2
-#>  8     361        10 2026-11-23 Mon, Nov 23 4      Hamilton Havoc             11
-#>  9     356        10 2026-11-23 Mon, Nov 23 4      Boston Fleet                1
-#> 10     362        10 2026-11-24 Tue, Nov 24 4      Detroit Clutch             10
+#>  1     351         9 2026-05-16 Sat, May 16 4      Montréal Victoi…            3
+#>  2     348         9 2026-05-18 Mon, May 18 4      Ottawa Charge               5
+#>  3     349         9 2026-05-20 Wed, May 20 4      Ottawa Charge               5
+#>  4     353        10 2026-11-22 Sun, Nov 22 4      Vegas Vanguards            12
+#>  5     360        10 2026-11-23 Mon, Nov 23 4      Ottawa Charge               5
+#>  6     354        10 2026-11-23 Mon, Nov 23 4      Minnesota Frost             2
+#>  7     361        10 2026-11-23 Mon, Nov 23 4      Hamilton Havoc             11
+#>  8     356        10 2026-11-23 Mon, Nov 23 4      Boston Fleet                1
+#>  9     362        10 2026-11-24 Tue, Nov 24 4      Detroit Clutch             10
+#> 10     355        10 2026-11-24 Tue, Nov 24 4      Vancouver Golde…            9
 #> # ℹ 15 more rows
 #> # ℹ 8 more variables: home_team_code <chr>, home_score <chr>, away_team <chr>,
 #> #   away_team_id <dbl>, away_team_code <chr>, away_score <chr>, period <chr>,

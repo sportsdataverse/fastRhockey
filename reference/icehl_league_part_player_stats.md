@@ -141,20 +141,20 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_league_part_player_stats(league_part_id = 56))
 #> ── ICE Hockey League league_part_player_stats from the eSports hokejovyzapis buc
-#> ℹ Data updated: 2026-11-25 20:20:13 UTC
+#> ℹ Data updated: 2026-11-26 22:28:21 UTC
 #> # A tibble: 367 × 91
 #>    player_id name       firstname surname birthdate position stick weight height
 #>        <int> <chr>      <chr>     <chr>   <chr>     <chr>    <chr>  <int>  <int>
 #>  1      4700 Carter Sa… Carter    Savoie  2002-01-… FW       left      86    178
-#>  2      4024 Nick Swan… Nick      Swaney  1997-09-… FW       left       0      0
-#>  3      4701 David Sil… David     Silye   1999-03-… FW       right     86    180
-#>  4      3499 Cole Schn… Cole      Schnei… 1990-08-… FW       NA         0      0
-#>  5      4795 Joshua Da… Joshua D… Lawren… 2002-01-… FW       NA         0      0
+#>  2      4795 Joshua Da… Joshua D… Lawren… 2002-01-… FW       NA         0      0
+#>  3      4024 Nick Swan… Nick      Swaney  1997-09-… FW       left       0      0
+#>  4      4701 David Sil… David     Silye   1999-03-… FW       right     86    180
+#>  5      3499 Cole Schn… Cole      Schnei… 1990-08-… FW       NA         0      0
 #>  6      2861 Nicolai M… Nicolai   Meyer   1993-07-… FW       left      82    179
 #>  7      2999 Brad McCl… Brad      McClure 1993-08-… FW       right     79    180
 #>  8      4759 Blake Mur… Blake     Murray  2001-07-… FW       left       0      0
-#>  9      2979 Graham Kn… Graham    Knott   1997-01-… FW       left      87    191
-#> 10      3531 Marly Qui… Marly     Quince  1994-01-… FW       left      92    183
+#>  9      3531 Marly Qui… Marly     Quince  1994-01-… FW       left      92    183
+#> 10      2979 Graham Kn… Graham    Knott   1997-01-… FW       left      87    191
 #> # ℹ 357 more rows
 #> # ℹ 82 more variables: jersey <int>, birth_country <chr>, nationality <chr>,
 #> #   nationality_short <chr>, team_id <int>, team_shortcut <chr>, games <int>,

@@ -81,7 +81,7 @@ lists every function in this family.
 # \donttest{
   try(khl_roster(club_id = 7))
 #> ── KHL Roster from khl.ru ───────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:20:39 UTC
+#> ℹ Data updated: 2026-11-26 22:28:46 UTC
 #> # A tibble: 29 × 10
 #>    group   player_id photo country lastname firstname    jn   age favorite link 
 #>    <chr>       <int> <chr> <chr>   <chr>    <chr>     <int> <int> <lgl>    <chr>
@@ -94,7 +94,7 @@ lists every function in this family.
 #>  7 defend…     41928 //im… США     Кин      Джозеф        4    27 FALSE    /pla…
 #>  8 defend…     29100 //im… Россия  Князев   Артемий       8    25 FALSE    /pla…
 #>  9 defend…     17624 //im… Россия  Миронов  Андрей А.    94    32 FALSE    /pla…
-#> 10 defend…     35680 //im… Россия  Соболев  Даниил       33    23 FALSE    /pla…
+#> 10 defend…     24359 //im… Канада  Райлли   Уилл         44    29 FALSE    /pla…
 #> # ℹ 19 more rows
 # }
 ```

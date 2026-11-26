@@ -50,7 +50,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_nhl_player_eventlog(athlete_id = "4024820"))
-#> ✖ 2026-11-25 20:18:09.964202: Invalid arguments or no ESPN nhl player eventlog for athlete 4024820 available!
+#> ✖ 2026-11-26 22:24:49.690622: Invalid arguments or no ESPN nhl player eventlog for athlete 4024820 available!
 #> ✖ Args: league = "nhl", athlete_id = "4024820"
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/athletes/4024820/eventlog
 #> data frame with 0 columns and 0 rows

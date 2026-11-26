@@ -2989,8 +2989,7 @@ Each `espn_wch_*()` function shares its help page with the matching
   [`espn_wch_team_schedule()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_schedule.md)
   :
 
-  **Get ESPN MCH / WCH Team Schedule (site_v2) – alias for
-  `espn_mch_schedule()`**
+  **Get ESPN MCH / WCH Team Schedule (site_v2)**
 
 - [`espn_mch_team_transactions()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_transactions.md)
   [`espn_wch_team_transactions()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_transactions.md)
@@ -3008,7 +3007,7 @@ Each `espn_wch_*()` function shares its help page with the matching
   [`espn_wch_teams_site()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_teams_site.md)
   :
 
-  **Get ESPN MCH / WCH Teams (site_v2) – alias for `espn_mch_teams()`**
+  **Get ESPN MCH / WCH Teams (site_v2)**
 
 - [`espn_mch_tournaments()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_tournaments.md)
   [`espn_wch_tournaments()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_tournaments.md)

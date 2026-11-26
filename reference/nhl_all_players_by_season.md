@@ -56,20 +56,20 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_all_players_by_season(season = 2024))
 #> ── NHL All Players by Season ────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:22:59 UTC
+#> ℹ Data updated: 2026-11-26 22:30:44 UTC
 #> # A tibble: 853 × 15
-#>    player_id first_name last_name   full_name       sweater_number position_code
-#>        <int> <chr>      <chr>       <chr>                    <int> <chr>        
-#>  1   8481557 Matt       Boldy       Matt Boldy                  12 F            
-#>  2   8476329 Travis     Boyd        Travis Boyd                 72 F            
-#>  3   8479638 Justin     Brazeau     Justin Brazeau              15 F            
-#>  4   8478493 Joel       Eriksson Ek Joel Eriksson …             14 F            
-#>  5   8475220 Marcus     Foligno     Marcus Foligno              17 F            
-#>  6   8483452 Hunter     Haight      Hunter Haight               43 F            
-#>  7   8477451 Ryan       Hartman     Ryan Hartman                38 F            
-#>  8   8476994 Vinnie     Hinostroza  Vinnie Hinostr…             18 F            
-#>  9   8475149 Marcus     Johansson   Marcus Johanss…             90 F            
-#> 10   8480259 Ben        Jones       Ben Jones                   39 F            
+#>    player_id first_name last_name  full_name        sweater_number position_code
+#>        <int> <chr>      <chr>      <chr>                     <int> <chr>        
+#>  1   8478427 Sebastian  Aho        Sebastian Aho                20 F            
+#>  2   8482809 Jackson    Blake      Jackson Blake                53 F            
+#>  3   8477478 William    Carrier    William Carrier              28 F            
+#>  4   8475791 Taylor     Hall       Taylor Hall                  71 F            
+#>  5   8484929 Juha       Jaaska     Juha Jaaska                  54 F            
+#>  6   8476873 Mark       Jankowski  Mark Jankowski               77 F            
+#>  7   8482093 Seth       Jarvis     Seth Jarvis                  24 F            
+#>  8   8479370 Tyson      Jost       Tyson Jost                   27 F            
+#>  9   8480829 Jesperi    Kotkaniemi Jesperi Kotkani…             82 F            
+#> 10   8476921 Jordan     Martinook  Jordan Martinook             48 F            
 #> # ℹ 843 more rows
 #> # ℹ 9 more variables: shoots_catches <chr>, height_inches <int>,
 #> #   weight_pounds <int>, birth_date <chr>, birth_city <chr>,

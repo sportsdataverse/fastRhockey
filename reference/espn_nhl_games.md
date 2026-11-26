@@ -51,19 +51,19 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_games(limit = 10))
 #> ── NHL Games data from ESPN core-v2 ─────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:18:04 UTC
+#> ℹ Data updated: 2026-11-26 22:24:45 UTC
 #> # A tibble: 10 × 4
 #>    ref                                                 event_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>
-#>  1 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018927…    14          2
-#>  2 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018927…    14          2
-#>  3 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018927…    14          2
-#>  4 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018927…    14          2
-#>  5 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018927…    14          2
-#>  6 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018927…    14          2
-#>  7 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018927…    14          2
-#>  8 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018927…    14          2
-#>  9 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018927…    14          2
-#> 10 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018927…    14          2
+#>  1 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018927…    15          2
+#>  2 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018927…    15          2
+#>  3 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018927…    15          2
+#>  4 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018927…    15          2
+#>  5 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018927…    15          2
+#>  6 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018928…    15          2
+#>  7 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018928…    15          2
+#>  8 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018928…    15          2
+#>  9 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018928…    15          2
+#> 10 http://sports.core.api.espn.com/v2/sports/hockey/l… 4018928…    15          2
 # }
 ```

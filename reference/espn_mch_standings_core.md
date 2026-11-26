@@ -56,7 +56,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_standings_core())
 #> ── MENS-COLLEGE-HOCKEY Standings data from ESPN core-v2 ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:17:37 UTC
+#> ℹ Data updated: 2026-11-26 22:24:25 UTC
 #> # A tibble: 1 × 2
 #>   ref                                                               standings_id
 #>   <chr>                                                             <chr>       
@@ -65,7 +65,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_standings_core())
 #> ── WOMENS-COLLEGE-HOCKEY Standings data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-11-25 20:17:37 UTC
+#> ℹ Data updated: 2026-11-26 22:24:25 UTC
 #> # A tibble: 1 × 2
 #>   ref                                                               standings_id
 #>   <chr>                                                             <chr>       

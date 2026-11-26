@@ -114,7 +114,7 @@ lists every function in this family.
 # \donttest{
   try(nl_playouts(season = 2026))
 #> ── National League Playouts Information from nationalleague.ch ─────────────────
-#> ℹ Data updated: 2026-11-25 20:24:16 UTC
+#> ℹ Data updated: 2026-11-26 22:31:51 UTC
 #> # A tibble: 4 × 39
 #>   series_group series_home_team_sho…¹ series_away_team_sho…² series_home_team_id
 #>          <int> <chr>                  <chr>                                <dbl>

@@ -723,6 +723,21 @@ returned. Code that upgrades from 1.0.0 may need to change.
   With the change above, the installed size in a local Windows check
   dropped from 8.9 MB to 6.0 MB; the GitHub Actions checks (Linux, macOS
   and Windows) report 7.5 to 7.9 MB.
+- Help pages no longer name functions that do not exist: the
+  [`espn_mch_teams_site()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_teams_site.md)
+  and
+  [`espn_mch_team_schedule()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_team_schedule.md)
+  titles drop an “alias for” a function the package never had, and
+  [`espn_nhl_game_scoringplays()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_game_scoringplays.md)
+  /
+  [`espn_mch_game_scoringplays()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_scoringplays.md)
+  name
+  [`espn_nhl_game_plays()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_game_plays.md)
+  /
+  [`espn_mch_game_plays()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_plays.md)
+  (and
+  [`espn_wch_game_plays()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_plays.md)
+  for the women’s wrapper) as their fallback source.
 
 ## **fastRhockey 1.0.0**
 

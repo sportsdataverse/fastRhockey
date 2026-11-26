@@ -85,7 +85,7 @@ Saiem Gilani
     espn_mch_game_team(event_id = eid, team_id = tms$team_id[1])
   })
 #> ── MENS-COLLEGE-HOCKEY Game Team data from ESPN core-v2 ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:17:09 UTC
+#> ℹ Data updated: 2026-11-26 22:24:03 UTC
 #> # A tibble: 1 × 17
 #>   event_id  cid       team_id id    uid    type  order home_away winner team_ref
 #>   <chr>     <chr>     <chr>   <chr> <chr>  <chr> <int> <chr>     <lgl>  <chr>   
@@ -102,7 +102,7 @@ Saiem Gilani
     espn_wch_game_team(event_id = eid, team_id = tms$team_id[1])
   })
 #> ── WOMENS-COLLEGE-HOCKEY Game Team data from ESPN core-v2 ──────────────────────
-#> ℹ Data updated: 2026-11-25 20:17:10 UTC
+#> ℹ Data updated: 2026-11-26 22:24:03 UTC
 #> # A tibble: 1 × 17
 #>   event_id  cid       team_id id    uid    type  order home_away winner team_ref
 #>   <chr>     <chr>     <chr>   <chr> <chr>  <chr> <int> <chr>     <lgl>  <chr>   

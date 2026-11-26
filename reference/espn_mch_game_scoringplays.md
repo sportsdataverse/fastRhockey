@@ -24,7 +24,10 @@ espn_wch_game_scoringplays(event_id, cid = event_id, limit = 300, ...)
 
   Maximum number of plays to fetch for filtering. Defaults to `300`.
   Only used when the dedicated `scoringplays` endpoint is unavailable
-  and the function falls back to filtering `game_plays()`.
+  and the function falls back to filtering
+  [`espn_mch_game_plays()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_plays.md)
+  /
+  [`espn_wch_game_plays()`](https://fastRhockey.sportsdataverse.org/reference/espn_mch_game_plays.md).
 
 - ...:
 
@@ -89,9 +92,9 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_scoringplays(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-25 20:17:07.366198: Invalid arguments or no ESPN mens-college-hockey scoring plays for event 401715296 available!
+#> ✖ 2026-11-26 22:24:01.816328: Invalid arguments or no ESPN mens-college-hockey scoring plays for event 401715296 available!
 #> ✖ Args: league = "mens-college-hockey", event_id = "401715296", cid = "401715296", limit = 300
-#> ✖ Error: No ESPN plays came back. ! 2026-11-25 20:17:07.361767: No plays returned for event 401715296.
+#> ✖ Error: No ESPN plays came back. ! 2026-11-26 22:24:01.812827: No plays returned for event 401715296.
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
@@ -99,9 +102,9 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20260110")
     espn_wch_game_scoringplays(event_id = sb$game_id[1])
   })
-#> ✖ 2026-11-25 20:17:07.596392: Invalid arguments or no ESPN womens-college-hockey scoring plays for event 401814005 available!
+#> ✖ 2026-11-26 22:24:01.98467: Invalid arguments or no ESPN womens-college-hockey scoring plays for event 401814005 available!
 #> ✖ Args: league = "womens-college-hockey", event_id = "401814005", cid = "401814005", limit = 300
-#> ✖ Error: No ESPN plays came back. ! 2026-11-25 20:17:07.592228: No plays returned for event 401814005.
+#> ✖ Error: No ESPN plays came back. ! 2026-11-26 22:24:01.981115: No plays returned for event 401814005.
 #> data frame with 0 columns and 0 rows
 # }
 ```

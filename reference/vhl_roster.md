@@ -92,20 +92,20 @@ Other VHL Functions:
 # \donttest{
   try(vhl_roster(team_page_id = 390))
 #> ── VHL Roster Information from vhlru.ru ─────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:26:10 UTC
+#> ℹ Data updated: 2026-11-26 22:33:34 UTC
 #> # A tibble: 32 × 11
 #>    team_page_id team  calendar_tn calendar_team_season_id roster_as_of jersey
 #>           <int> <chr>       <int>                   <int> <chr>         <int>
-#>  1          390 Toros        1430                   15531 25.11.2026       40
-#>  2          390 Toros        1430                   15531 25.11.2026       28
-#>  3          390 Toros        1430                   15531 25.11.2026       97
-#>  4          390 Toros        1430                   15531 25.11.2026       31
-#>  5          390 Toros        1430                   15531 25.11.2026       33
-#>  6          390 Toros        1430                   15531 25.11.2026       85
-#>  7          390 Toros        1430                   15531 25.11.2026       25
-#>  8          390 Toros        1430                   15531 25.11.2026       71
-#>  9          390 Toros        1430                   15531 25.11.2026       96
-#> 10          390 Toros        1430                   15531 25.11.2026       93
+#>  1          390 Toros        1430                   15531 27.11.2026       40
+#>  2          390 Toros        1430                   15531 27.11.2026       28
+#>  3          390 Toros        1430                   15531 27.11.2026       97
+#>  4          390 Toros        1430                   15531 27.11.2026       31
+#>  5          390 Toros        1430                   15531 27.11.2026       33
+#>  6          390 Toros        1430                   15531 27.11.2026       85
+#>  7          390 Toros        1430                   15531 27.11.2026       25
+#>  8          390 Toros        1430                   15531 27.11.2026       71
+#>  9          390 Toros        1430                   15531 27.11.2026       96
+#> 10          390 Toros        1430                   15531 27.11.2026       93
 #> # ℹ 22 more rows
 #> # ℹ 5 more variables: position <chr>, player_id <int>, player <chr>,
 #> #   born <chr>, country <chr>

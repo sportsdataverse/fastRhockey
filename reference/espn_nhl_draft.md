@@ -48,7 +48,7 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_draft())
 #> ── NHL Draft data from ESPN.com ─────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:17:51 UTC
+#> ℹ Data updated: 2026-11-26 22:24:35 UTC
 #> # A tibble: 40 × 9
 #>     year overall round  pick status       traded team_id team_abbreviation
 #>    <int>   <int> <int> <int> <chr>        <lgl>  <chr>   <chr>            

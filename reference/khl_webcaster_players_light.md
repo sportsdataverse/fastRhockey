@@ -76,11 +76,11 @@ lists every function in this family.
 # \donttest{
   try(khl_webcaster_players_light())
 #> ── KHL Webcaster Players (Light) from khl.api.webcaster.pro ────────────────────
-#> ℹ Data updated: 2026-11-25 20:20:51 UTC
-#> # A tibble: 795 × 10
+#> ℹ Data updated: 2026-11-26 22:28:59 UTC
+#> # A tibble: 798 × 10
 #>       id shirt_number khl_id image           name  team_id team_khl_id team_name
 #>    <int>        <int>  <int> <chr>           <chr>   <int>       <int> <chr>    
-#>  1 50788           NA  42870 https://www.kh… Abdr…     113         451 HC Sochi 
+#>  1 50788            7  42870 https://www.kh… Abdr…     113         451 HC Sochi 
 #>  2 33797           11  23248 https://www.kh… Abra…      12          54 Amur     
 #>  3 43535           97  30941 https://www.kh… Abra…      24          29 Sibir    
 #>  4 35165           17  30629 https://www.kh… Abro…      42          56 Severstal
@@ -90,7 +90,7 @@ lists every function in this family.
 #>  8 28477           53  35353 https://www.kh… Aimu…      44          24 SKA      
 #>  9 38403           19  33710 https://www.kh… Akma…      12          54 Amur     
 #> 10  7699           90  15620 https://www.kh… Akol…      NA          NA NA       
-#> # ℹ 785 more rows
+#> # ℹ 788 more rows
 #> # ℹ 2 more variables: team_location <chr>, team <chr>
 # }
 ```

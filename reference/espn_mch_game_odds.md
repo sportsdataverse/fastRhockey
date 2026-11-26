@@ -80,7 +80,7 @@ Saiem Gilani
     sb <- espn_mch_scoreboard(dates = "20250110")
     espn_mch_game_odds(event_id = sb$game_id[1])
   })
-#> ! 2026-11-25 20:17:00.496125: No odds returned for event 401715296.
+#> ! 2026-11-26 22:23:56.433807: No odds returned for event 401715296.
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
@@ -88,7 +88,7 @@ Saiem Gilani
     sb <- espn_wch_scoreboard(dates = "20260110")
     espn_wch_game_odds(event_id = sb$game_id[1])
   })
-#> ! 2026-11-25 20:17:00.66631: No odds returned for event 401814005.
+#> ! 2026-11-26 22:23:56.591813: No odds returned for event 401814005.
 #> data frame with 0 columns and 0 rows
 # }
 ```

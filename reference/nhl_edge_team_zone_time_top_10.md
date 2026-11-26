@@ -60,20 +60,20 @@ A data frame (`fastRhockey_data`) with the following columns:
     sort_by = "offensive"
   ))
 #> ── NHL Edge Team Zone Time Top 10 ───────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:23:16 UTC
+#> ℹ Data updated: 2026-11-26 22:30:57 UTC
 #> # A tibble: 10 × 11
 #>    offensive_zone_time neutral_zone_time defensive_zone_time team_abbrev
 #>                  <dbl>             <dbl>               <dbl> <chr>      
-#>  1               0.460             0.179               0.361 CAR        
-#>  2               0.436             0.177               0.387 FLA        
-#>  3               0.432             0.174               0.395 OTT        
-#>  4               0.422             0.180               0.397 COL        
+#>  1               0.459             0.179               0.362 CAR        
+#>  2               0.434             0.177               0.389 FLA        
+#>  3               0.432             0.174               0.394 OTT        
+#>  4               0.423             0.180               0.396 COL        
 #>  5               0.420             0.178               0.402 UTA        
 #>  6               0.420             0.183               0.397 VGK        
-#>  7               0.417             0.173               0.410 MIN        
-#>  8               0.416             0.179               0.405 PIT        
-#>  9               0.416             0.181               0.403 TBL        
-#> 10               0.416             0.179               0.405 CBJ        
+#>  7               0.418             0.179               0.403 PIT        
+#>  8               0.416             0.179               0.405 CBJ        
+#>  9               0.416             0.173               0.411 MIN        
+#> 10               0.415             0.175               0.410 EDM        
 #> # ℹ 7 more variables: team_slug <chr>, team_common_name_default <chr>,
 #> #   team_common_name_fr <chr>, team_place_name_with_preposition_default <chr>,
 #> #   team_place_name_with_preposition_fr <chr>, team_team_logo_light <chr>,

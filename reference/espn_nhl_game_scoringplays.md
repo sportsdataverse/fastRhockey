@@ -22,7 +22,8 @@ espn_nhl_game_scoringplays(event_id, cid = event_id, limit = 300, ...)
 
   Maximum number of plays to fetch for filtering. Defaults to `300`.
   Only used when the dedicated `scoringplays` endpoint is unavailable
-  and the function falls back to filtering `game_plays()`.
+  and the function falls back to filtering
+  [`espn_nhl_game_plays()`](https://fastRhockey.sportsdataverse.org/reference/espn_nhl_game_plays.md).
 
 - ...:
 
@@ -77,7 +78,7 @@ Saiem Gilani
     espn_nhl_game_scoringplays(event_id = sb$game_id[1])
   })
 #> ── NHL Game Plays data from ESPN core-v2 ────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:17:59 UTC
+#> ℹ Data updated: 2026-11-26 22:24:42 UTC
 #> # A tibble: 8 × 27
 #>   event_id cid   id    sequence_number type_id type_text type_abbreviation text 
 #>   <chr>    <chr> <chr>           <int> <chr>   <chr>     <chr>             <chr>

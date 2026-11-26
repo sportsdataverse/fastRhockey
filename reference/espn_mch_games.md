@@ -63,16 +63,25 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_games(limit = 10))
 #> ── MENS-COLLEGE-HOCKEY Games data from ESPN core-v2 ─────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:17:15 UTC
-#> # A tibble: 1 × 4
-#>   ref                                                  event_id count page_count
-#>   <chr>                                                <chr>    <int>      <int>
-#> 1 http://sports.core.api.espn.com/v2/sports/hockey/le… 4019045…     1          1
+#> ℹ Data updated: 2026-11-26 22:24:07 UTC
+#> # A tibble: 10 × 4
+#>    ref                                                 event_id count page_count
+#>    <chr>                                               <chr>    <int>      <int>
+#>  1 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019048…    21          3
+#>  2 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019051…    21          3
+#>  3 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019123…    21          3
+#>  4 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019124…    21          3
+#>  5 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019046…    21          3
+#>  6 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019124…    21          3
+#>  7 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019047…    21          3
+#>  8 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019044…    21          3
+#>  9 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019046…    21          3
+#> 10 http://sports.core.api.espn.com/v2/sports/hockey/l… 4019049…    21          3
 # }
 # \donttest{
   try(espn_wch_games(limit = 10))
 #> ── WOMENS-COLLEGE-HOCKEY Games data from ESPN core-v2 ───── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:17:15 UTC
+#> ℹ Data updated: 2026-11-26 22:24:07 UTC
 #> # A tibble: 10 × 4
 #>    ref                                                 event_id count page_count
 #>    <chr>                                               <chr>    <int>      <int>

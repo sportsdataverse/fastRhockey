@@ -40,6 +40,6 @@ Other QMJHL Functions:
 ``` r
  try(qmjhl_game_shifts(game_id = 27225)) 
 #> ── QMJHL Game Shifts from HockeyTech ────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:24:44 UTC
+#> ℹ Data updated: 2026-11-26 22:32:14 UTC
 #> # A tibble: 0 × 0
 ```

@@ -95,15 +95,15 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_top_scorers(season = 2027, league_id = 1))
 #> ── ICE Hockey League top_scorers from the eSports hokejovyzapis bucket ─────────
-#> ℹ Data updated: 2026-11-25 20:20:19 UTC
+#> ℹ Data updated: 2026-11-26 22:28:27 UTC
 #> # A tibble: 440 × 13
 #>    player_id name  surname photo birthdate team_id team_name team_shortcut goals
 #>        <int> <chr> <chr>   <chr> <chr>       <int> <chr>     <chr>         <int>
 #>  1      4700 Cart… Savoie  http… 2002-01-…       4 FTC-Tele… FTC              15
-#>  2      4024 Nick  Swaney  http… 1997-09-…       9 Moser Me… G99              15
-#>  3      4701 David Silye   http… 1999-03-…       4 FTC-Tele… FTC              12
-#>  4      3499 Cole  Schnei… http… 1990-08-…       7 HCB Südt… HCB               6
-#>  5      4795 Josh… Lawren… http… 2002-01-…      10 Olimpija… OLL              17
+#>  2      4795 Josh… Lawren… http… 2002-01-…      10 Olimpija… OLL              17
+#>  3      4024 Nick  Swaney  http… 1997-09-…       9 Moser Me… G99              15
+#>  4      4701 David Silye   http… 1999-03-…       4 FTC-Tele… FTC              12
+#>  5      3499 Cole  Schnei… http… 1990-08-…       7 HCB Südt… HCB               6
 #>  6      2861 Nico… Meyer   http… 1993-07-…      10 Olimpija… OLL              12
 #>  7      2999 Brad  McClure http… 1993-08-…       7 HCB Südt… HCB              18
 #>  8      4759 Blake Murray  http… 2001-07-…      11 Pioneers… PIV              11

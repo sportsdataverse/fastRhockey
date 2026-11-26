@@ -53,21 +53,21 @@ Saiem Gilani
 # \donttest{
   try(espn_nhl_injuries())
 #> ── NHL Injuries data from ESPN.com ──────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:18:04 UTC
-#> # A tibble: 232 × 16
+#> ℹ Data updated: 2026-11-26 22:24:45 UTC
+#> # A tibble: 236 × 16
 #>    team_id team_display_name player_id player_display_name player_short_name
 #>    <chr>   <chr>             <chr>     <chr>               <chr>            
-#>  1 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
-#>  2 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
-#>  3 25      Anaheim Ducks     NA        Beckett Sennecke    B. Sennecke      
-#>  4 25      Anaheim Ducks     NA        Beckett Sennecke    B. Sennecke      
-#>  5 25      Anaheim Ducks     NA        Leo Carlsson        L. Carlsson      
-#>  6 25      Anaheim Ducks     NA        Leo Carlsson        L. Carlsson      
-#>  7 25      Anaheim Ducks     NA        A.J. Greer          A.J. Greer       
-#>  8 25      Anaheim Ducks     NA        A.J. Greer          A.J. Greer       
-#>  9 1       Boston Bruins     NA        James Hagens        J. Hagens        
-#> 10 1       Boston Bruins     NA        James Hagens        J. Hagens        
-#> # ℹ 222 more rows
+#>  1 25      Anaheim Ducks     NA        Leo Carlsson        L. Carlsson      
+#>  2 25      Anaheim Ducks     NA        Leo Carlsson        L. Carlsson      
+#>  3 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
+#>  4 25      Anaheim Ducks     NA        Ryan Poehling       R. Poehling      
+#>  5 25      Anaheim Ducks     NA        A.J. Greer          A.J. Greer       
+#>  6 25      Anaheim Ducks     NA        A.J. Greer          A.J. Greer       
+#>  7 1       Boston Bruins     NA        James Hagens        J. Hagens        
+#>  8 1       Boston Bruins     NA        James Hagens        J. Hagens        
+#>  9 2       Buffalo Sabres    NA        Tyson Kozak         T. Kozak         
+#> 10 2       Buffalo Sabres    NA        Tyson Kozak         T. Kozak         
+#> # ℹ 226 more rows
 #> # ℹ 11 more variables: player_position <chr>, injury_id <chr>,
 #> #   injury_status <chr>, injury_date <chr>, injury_short_comment <chr>,
 #> #   injury_long_comment <chr>, injury_type <chr>, injury_abbreviation <chr>,

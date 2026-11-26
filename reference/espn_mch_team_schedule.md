@@ -1,7 +1,6 @@
-# **Get ESPN MCH / WCH Team Schedule (site_v2) – alias for `espn_mch_schedule()`**
+# **Get ESPN MCH / WCH Team Schedule (site_v2)**
 
-**Get ESPN MCH / WCH Team Schedule (site_v2) – alias for
-`espn_mch_schedule()`**
+**Get ESPN MCH / WCH Team Schedule (site_v2)**
 
 ## Usage
 
@@ -98,7 +97,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mch_team_schedule(team_id = "104", season = 2025))
 #> ── MENS-COLLEGE-HOCKEY Team Schedule data from ESPN.com ─── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:17:43 UTC
+#> ℹ Data updated: 2026-11-26 22:24:30 UTC
 #> # A tibble: 40 × 34
 #>    game_id   date            name  short_name season_year season_type time_valid
 #>    <chr>     <chr>           <chr> <chr>            <int>       <int> <lgl>     
@@ -123,7 +122,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wch_team_schedule(team_id = "2137", season = 2025))
 #> ── WOMENS-COLLEGE-HOCKEY Team Schedule data from ESPN.com ──────────────────────
-#> ℹ Data updated: 2026-11-25 20:17:44 UTC
+#> ℹ Data updated: 2026-11-26 22:24:30 UTC
 #> # A tibble: 2 × 34
 #>   game_id   date             name  short_name season_year season_type time_valid
 #>   <chr>     <chr>            <chr> <chr>            <int>       <int> <lgl>     

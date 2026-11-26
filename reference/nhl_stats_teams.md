@@ -66,20 +66,20 @@ Returns a data frame with team statistics.
 # \donttest{
   try(nhl_stats_teams())
 #> ── NHL Stats Teams ──────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:24:01 UTC
+#> ℹ Data updated: 2026-11-26 22:31:33 UTC
 #> # A tibble: 32 × 25
 #>    faceoff_win_pct games_played goals_against goals_against_per_game goals_for
 #>              <dbl>        <int>         <int>                  <dbl>     <int>
-#>  1           0.468           26            57                   2.19        95
-#>  2           0.504           24            54                   2.25       100
+#>  1           0.501           25            55                   2.2        103
+#>  2           0.470           27            61                   2.26        98
 #>  3           0.496           27            79                   2.93       103
-#>  4           0.545           25            71                   2.84        79
+#>  4           0.541           26            76                   2.92        82
 #>  5           0.509           26            75                   2.88        88
-#>  6           0.492           23            67                   2.91        84
-#>  7           0.531           25            73                   2.92        76
-#>  8           0.566           23            54                   2.35        63
-#>  9           0.483           24            75                   3.12        90
-#> 10           0.553           23            61                   2.65        82
+#>  6           0.482           25            77                   3.08        92
+#>  7           0.495           24            70                   2.92        85
+#>  8           0.532           26            79                   3.04        76
+#>  9           0.566           24            57                   2.38        64
+#> 10           0.477           24            67                   2.79        96
 #> # ℹ 22 more rows
 #> # ℹ 20 more variables: goals_for_per_game <dbl>, losses <int>, ot_losses <int>,
 #> #   penalty_kill_net_pct <dbl>, penalty_kill_pct <dbl>, point_pct <dbl>,

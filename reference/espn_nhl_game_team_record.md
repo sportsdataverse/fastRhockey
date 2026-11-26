@@ -67,7 +67,7 @@ Saiem Gilani
     tms <- espn_nhl_game_teams(event_id = eid)
     espn_nhl_game_team_record(event_id = eid, team_id = tms$team_id[1])
   })
-#> ✖ 2026-11-25 20:18:02.346686: Invalid arguments or no ESPN nhl game record for event 401688263 / team 5 available!
+#> ✖ 2026-11-26 22:24:44.030791: Invalid arguments or no ESPN nhl game record for event 401688263 / team 5 available!
 #> ✖ Args: league = "nhl", event_id = "401688263", cid = "401688263", team_id = "5"
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401688263/competitions/401688263/competitors/5/record
 #> data frame with 0 columns and 0 rows

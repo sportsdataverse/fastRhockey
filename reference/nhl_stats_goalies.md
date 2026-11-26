@@ -64,20 +64,20 @@ Returns a data frame with goalie statistics.
 # \donttest{
   try(nhl_stats_goalies())
 #> ── NHL Stats Goalies ────────────────────────────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:23:58 UTC
+#> ℹ Data updated: 2026-11-26 22:31:31 UTC
 #> # A tibble: 50 × 23
 #>    assists games_played games_started goalie_full_name    goals goals_against
 #>      <int>        <int>         <int> <chr>               <int>         <int>
-#>  1       0           22            22 Jesper Wallstedt        0            44
+#>  1       0           23            23 Jesper Wallstedt        0            48
 #>  2       0           15            15 Pyotr Kochetkov         0            27
-#>  3       0           18            18 Jake Oettinger          0            38
-#>  4       0           13            13 Linus Ullmark           0            18
-#>  5       0           17            17 Andrei Vasilevskiy      0            44
-#>  6       0           17            16 Mackenzie Blackwood     0            42
-#>  7       1           17            17 Jeremy Swayman          0            44
+#>  3       0           19            19 Jake Oettinger          0            39
+#>  4       0           14            14 Linus Ullmark           0            22
+#>  5       0           18            17 Mackenzie Blackwood     0            42
+#>  6       0           18            18 Andrei Vasilevskiy      0            46
+#>  7       1           18            18 Jeremy Swayman          0            47
 #>  8       1           14            14 Devon Levi              0            41
-#>  9       0           15            15 Jacob Fowler            0            35
-#> 10       1           17            17 Joel Hofer              0            40
+#>  9       0           16            16 Jacob Fowler            0            41
+#> 10       0           17            17 Ilya Sorokin            0            41
 #> # ℹ 40 more rows
 #> # ℹ 17 more variables: goals_against_average <dbl>, last_name <chr>,
 #> #   losses <int>, ot_losses <int>, penalty_minutes <int>, player_id <int>,

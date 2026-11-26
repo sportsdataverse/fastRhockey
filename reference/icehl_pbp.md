@@ -130,7 +130,7 @@ Other ICE Hockey League eSports functions:
 # \donttest{
   try(icehl_pbp(match_id = 8161))
 #> ── ICE Hockey League pbp from the eSports hokejovyzapis bucket ─────────────────
-#> ℹ Data updated: 2026-11-25 20:20:13 UTC
+#> ℹ Data updated: 2026-11-26 22:28:21 UTC
 #> # A tibble: 23 × 53
 #>    event_index period period_number  time event_type       event_id team_side
 #>          <int> <chr>          <int> <int> <chr>               <int> <chr>    

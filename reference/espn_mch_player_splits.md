@@ -81,14 +81,14 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mch_player_splits(athlete_id = "5136656", season = 2025))
-#> ✖ 2026-11-25 20:17:23.427033: Invalid arguments or no ESPN mens-college-hockey player splits data available!
+#> ✖ 2026-11-26 22:24:15.055187: Invalid arguments or no ESPN mens-college-hockey player splits data available!
 #> ✖ Args: league = "mens-college-hockey", athlete_id = "5136656", season = 2025
 #> ✖ Error: HTTP 404 Not Found from https://site.web.api.espn.com/apis/common/v3/sports/hockey/mens-college-hockey/athletes/5136656/splits: Statistics not found
 #> data frame with 0 columns and 0 rows
 # }
 # \donttest{
   try(espn_wch_player_splits(athlete_id = "5263060", season = 2025))
-#> ✖ 2026-11-25 20:17:23.454698: Invalid arguments or no ESPN womens-college-hockey player splits data available!
+#> ✖ 2026-11-26 22:24:15.080609: Invalid arguments or no ESPN womens-college-hockey player splits data available!
 #> ✖ Args: league = "womens-college-hockey", athlete_id = "5263060", season = 2025
 #> ✖ Error: HTTP 404 Not Found from https://site.web.api.espn.com/apis/common/v3/sports/hockey/womens-college-hockey/athletes/5263060/splits: Statistics not found
 #> data frame with 0 columns and 0 rows

@@ -83,19 +83,19 @@ A data frame (`fastRhockey_data`) with the following columns:
 # \donttest{
   try(nhl_teams_stats(team_abbr = "TBL"))
 #> ── NHL Teams Stats Information from NHL.com ─────────────── fastRhockey 1.1.0 ──
-#> ℹ Data updated: 2026-11-25 20:24:03 UTC
+#> ℹ Data updated: 2026-11-26 22:31:35 UTC
 #> # A tibble: 26 × 41
 #>    player_id headshot position_code games_played goals assists points plus_minus
 #>        <int> <chr>    <chr>                <int> <int>   <int>  <int>      <int>
-#>  1   8474151 https:/… D                       23     2       3      5         10
-#>  2   8474590 https:/… D                       23     7      14     21          5
+#>  1   8474151 https:/… D                       24     2       3      5         10
+#>  2   8474590 https:/… D                       24     7      14     21          3
 #>  3   8475167 https:/… D                       22     4       2      6          3
-#>  4   8476453 https:/… R                       23    10      22     32         11
-#>  5   8476826 https:/… C                        6     1       1      2          0
-#>  6   8476878 https:/… C                       18     1       3      4          3
+#>  4   8476453 https:/… R                       24    10      23     33          9
+#>  5   8476826 https:/… C                        7     1       1      2         -1
+#>  6   8476878 https:/… C                       19     1       3      4          3
 #>  7   8477149 https:/… R                        9     1       1      2          3
-#>  8   8477404 https:/… C                       23    13      15     28         13
-#>  9   8478010 https:/… C                       20     5      13     18          7
+#>  8   8477404 https:/… C                       24    13      16     29         12
+#>  9   8478010 https:/… C                       21     5      13     18          7
 #> 10   8478416 https:/… D                       20     0       9      9         11
 #> # ℹ 16 more rows
 #> # ℹ 33 more variables: penalty_minutes <int>, power_play_goals <int>,
